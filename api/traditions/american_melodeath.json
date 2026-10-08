@@ -5,7 +5,7 @@
   "lineage": "American melodic death metal combines extreme-metal attack with shaped guitar melodies and prominent lead phrasing. Michigan’s Black Dahlia Murder exemplify a riff-centered approach in which melodic detail remains clear within an aggressive band sound.",
   "recipe": "classic modern american melodeath, distorted Rock, death branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier humbucker electric guitar, rounded low end ampeg b15 amp American 60s bass amp flip top character electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 667,
-  "score": 35.241,
+  "score": 35.295,
   "config": {
     "traditions": [
       "american_melodeath"
@@ -62,8 +62,8 @@
           "pickup_config": 0,
           "string_type": 0.44099999999999995,
           "scale_length_b": 0.78,
-          "fretted_or_not": 0.3315,
-          "bass_technique": 4.189,
+          "fretted_or_not": 0.3705,
+          "bass_technique": 4.1965,
           "electric_bass_string_configuration": 0
         }
       },
@@ -131,7 +131,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3315,
+          "voice_processing_chain": 0.33899999999999997,
           "voice_multitrack_stack": 1.363
         }
       }

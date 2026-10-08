@@ -1,81 +1,19 @@
 {
-  "id": "candomble",
-  "name": "Candomblé ritual music",
+  "id": "candomble_ceremonial",
+  "merged_from": "candomble",
+  "name": "Candomblé ceremonial",
   "family": "global",
-  "lineage": "Liturgical music of Candomblé, the Yoruba-, Fon- and Bantu-derived religion consolidated in Salvador da Bahia from the 1830s at terreiros such as Casa Branca do Engenho Velho — cantigas sung in Yoruba by an alabê and answered by the congregation over three tuned atabaques played with aguidavis and the iron gã, cycling through fixed toques (ijexá, aguerê, opanijé) matched to each orixá.",
-  "recipe": "classic Southern American mid-1830s candomblé ritual music, ritual Devotional, Afro-diasporic branch, west African groove percussion, Brazilian carnival processional balafon music swange. thick, breath veiled tone, fast rate, interlocked note trading. traditional cowhide canonical candomble atabaque, ilu yoruba, agogo, xequere, sacred iroko west African premium bata. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 457,
-  "score": 156.61,
+  "lineage": "Bahian Yoruba-Nagô / Bantu-Jeje liturgical drumming tradition of the orixá-honoring terreiro — codified through the early-19th-century Yoruba and Fon enslaved-people religious continuity in Salvador, formalized through the Casa Branca, Gantois, and Ilê Axé Opô Afonjá foundational terreiros; characterized by the rum-rumpi-lê three-drum ensemble, agogô bell, and chants in Yoruba-derived liturgical language",
+  "recipe": "classic Southern American modern candomblé ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode batuque de umbigada. thick, breath veiled tone, straight onset, interlocked note trading. jacaranda canonical bahian candomble atabaque, agogo, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, afoxe. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 539,
+  "score": 166.243,
   "config": {
     "traditions": [
-      "candomble",
-      "balafon_mande",
-      "swange_tiv"
+      "candomble_ceremonial",
+      "pagode",
+      "batuque_de_umbigada"
     ],
     "instruments": [
-      {
-        "id": "atabaque",
-        "slots": {
-          "atabaque_role": "atabaque_rum",
-          "atabaque_skin": "atabaque_cowhide",
-          "atabaque_shell_wood": "atabaque_oak_staved"
-        },
-        "scores": {
-          "atabaque_role": 0.5700000000000001,
-          "atabaque_skin": 1.3,
-          "atabaque_shell_wood": 0.65
-        }
-      },
-      {
-        "id": "ilu_yoruba",
-        "slots": {
-          "ilu_form": "ilu_yoruba_form",
-          "ilu_technique": "ilu_hands"
-        },
-        "scores": {
-          "ilu_form": 3.9,
-          "ilu_technique": 0
-        }
-      },
-      {
-        "id": "agogo",
-        "slots": {
-          "agogo_bell": "agogo_single",
-          "agogo_context": "agogo_candomble"
-        },
-        "scores": {
-          "agogo_bell": 1.95,
-          "agogo_context": 5.26
-        }
-      },
-      {
-        "id": "xequere",
-        "slots": {
-          "xequere_size": "xequere_large",
-          "xequere_beads": "xequere_seed",
-          "xequere_technique": "xequere_toss"
-        },
-        "scores": {
-          "xequere_size": 0.045,
-          "xequere_beads": 0.045,
-          "xequere_technique": 0.195
-        }
-      },
-      {
-        "id": "bata",
-        "slots": {
-          "bata_set": "iya",
-          "bata_use": "bata_lucumi",
-          "bata_shell_wood": "bata_iroko",
-          "bata_head_material": "bata_cowhide_modern"
-        },
-        "scores": {
-          "bata_set": 0.5700000000000001,
-          "bata_use": 1.195,
-          "bata_shell_wood": 7.0200000000000005,
-          "bata_head_material": 0.65
-        }
-      },
       {
         "id": "voice",
         "slots": {
@@ -83,7 +21,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -97,47 +35,118 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.6249999999999993,
-          "voice_quality": 14.364999999999995,
+          "voice_register": 2.4000000000000012,
+          "voice_quality": 26.45499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.65,
-          "voice_articulation": 16.444999999999997,
-          "voice_microtone": 15.404999999999994,
-          "voice_tradition": 26.455000000000002,
-          "voice_mechanism_compound": 2.9899999999999998,
-          "voice_estill_quality": 2.99,
-          "voice_speech_song": 15.794999999999998,
-          "voice_ensemble_config": 16.314999999999998,
-          "voice_ornament_system": 4.3875,
-          "voice_pitch_organization": 7.44,
-          "voice_processing_chain": 8.320000000000002,
-          "voice_multitrack_stack": 4.9399999999999995
+          "voice_vibrato": 0.78,
+          "voice_articulation": 15.339999999999996,
+          "voice_microtone": 14.754999999999992,
+          "voice_tradition": 15.729999999999997,
+          "voice_mechanism_compound": 2.21,
+          "voice_estill_quality": 2.0149999999999997,
+          "voice_speech_song": 15.859999999999994,
+          "voice_ensemble_config": 15.079999999999995,
+          "voice_ornament_system": 3.795,
+          "voice_pitch_organization": 10.639999999999999,
+          "voice_processing_chain": 5.785000000000001,
+          "voice_multitrack_stack": 7.084999999999999
+        }
+      },
+      {
+        "id": "atabaque",
+        "slots": {
+          "atabaque_role": "atabaque_rum",
+          "atabaque_skin": "atabaque_cowhide",
+          "atabaque_shell_wood": "atabaque_jacaranda"
+        },
+        "scores": {
+          "atabaque_role": 0.735,
+          "atabaque_skin": 0.39,
+          "atabaque_shell_wood": 1.2349999999999999
+        }
+      },
+      {
+        "id": "agogo",
+        "slots": {
+          "agogo_bell": "agogo_double",
+          "agogo_context": "agogo_candomble"
+        },
+        "scores": {
+          "agogo_bell": 5.0699999999999985,
+          "agogo_context": 3.7699999999999996
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 7.994999999999998,
+          "choir_polyphonic_configuration": 2.21,
+          "choir_regional_canonical_configuration": 4.13,
+          "choir_ensemble_repertoire": 5.9799999999999995
+        }
+      },
+      {
+        "id": "afoxe",
+        "slots": {
+          "afoxe_body": "afoxe_gourd_beads"
+        },
+        "scores": {
+          "afoxe_body": 0.585
         }
       }
     ],
     "room": "bahian_terreiro_outdoor",
     "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
-      "mic": "condenser_sdc",
+      "mic": "dynamic_mic",
       "pre": "pre_field_recorder_portable",
       "console": "clean",
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_std"
+      "medium": "tape_15ips"
     },
-    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "tuning": "just_intonation",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "tuning": "just_intonation",
     "room": "bahian_terreiro_outdoor",
-    "chain_mic": "condenser_sdc",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "praise_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "yoruba_tonal_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "choir_size": "chamber_choir",
+      "choir_ensemble_repertoire": "choir_ensemble_global_traditional",
+      "atabaque_role": "atabaque_rum",
+      "atabaque_skin": "atabaque_cowhide",
+      "atabaque_shell_wood": "atabaque_jacaranda",
+      "agogo_bell": "agogo_double",
+      "agogo_context": "agogo_candomble",
+      "afoxe_body": "afoxe_gourd_beads"
+    },
+    "chain_mic": "dynamic_mic",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_std",
+    "chain_medium": "tape_15ips",
     "chain_console": "clean"
   }
 }

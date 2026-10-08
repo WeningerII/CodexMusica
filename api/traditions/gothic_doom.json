@@ -5,7 +5,7 @@
   "lineage": "Gothic doom combines doom metal’s weight with gothic atmosphere and contrasting vocal expression. Bands may draw on both amplified backlines and quieter acoustic or bowed textures.",
   "recipe": "classic gothic doom, distorted Rock, doom branch. unprocessed natural acoustic. power chord humbucker electric acoustic guitar, electric bass, rompler workstation, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 371,
-  "score": 29.61,
+  "score": 28.172,
   "config": {
     "traditions": [
       "gothic_doom"
@@ -72,17 +72,17 @@
         "scores": {
           "electric_technique": 10.01,
           "amp_make": 0,
-          "body_wood": 0.4305,
-          "neck_wood": 0.36750000000000005,
+          "body_wood": 0.29400000000000004,
+          "neck_wood": 0.231,
           "fretboard": -0.035,
-          "pickup_magnet": 0.1365,
+          "pickup_magnet": 0,
           "pickup_winding": 0.105,
-          "string_material": 0.1365,
-          "bridge": 0.1365,
-          "scale_length": 0.7665,
-          "string_gauge": 0.1785,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0.49350000000000005,
+          "string_gauge": 0.2835,
           "finish": 0,
-          "string_tuning": 0.26249999999999996
+          "string_tuning": 0.29399999999999993
         }
       },
       {
@@ -98,7 +98,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.36750000000000005,
+          "string_acoustic": 0.231,
           "acoustic_om_technique": -0.25
         }
       },
@@ -116,7 +116,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.4305,
+          "body_wood": 0.29400000000000004,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.357,
@@ -157,16 +157,16 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5354999999999999,
+          "drumhead": 0.4305,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.39899999999999997,
+          "shell_wood": 0.4305,
           "shell_thickness": 0,
-          "bearing_edges": 0.2625,
+          "bearing_edges": 0.126,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.6500000000000004,
           "cymbal_lathing": 4.776000000000001,
-          "cymbal_finish": 0.1365
+          "cymbal_finish": 0
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Oral variants of the Swedish Lutheran hymn tunes, sung by rural singers who ornamented and reshaped the chorale melodies at home and in church until each parish and singer had its own versions, documented especially in Dalarna. Svenskt visarkiv researchers Margareta Jersild and Ingvar Åkesson studied the tradition, and Sveriges Radio made field recordings of its singers.",
   "recipe": "classic early-1940s folklig koralsång, ritual Devotional. many notes per syllable, solo unaccompanied. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 194,
-  "score": 2.788,
+  "score": 2.914,
   "config": {
     "traditions": [
       "swedish_folklig_koralsang"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.93975,
-          "voice_ensemble_config": 0.64725,
+          "voice_speech_song": 1.97125,
+          "voice_ensemble_config": 0.74175,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,

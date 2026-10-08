@@ -5,7 +5,7 @@
   "lineage": "Orally transmitted versions of hymn and spiritual-song melodies that rural Norwegian singers reshaped outside the church, sung solo at home and at work with free rhythm, rich ornamentation and intervals that fall between the tempered steps, in valleys such as Setesdal and Telemark. Norsk folkemusikksamling holds field recordings, and singers such as Sondre Bratland and Kirsten Bråten Berg have recorded the repertoire for Kirkelig Kulturverksted.",
   "recipe": "classic early-1940s religiøse folketoner, ritual Devotional. untempered pitch drift, solo unaccompanied. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 196,
-  "score": 4.123,
+  "score": 4.186,
   "config": {
     "traditions": [
       "norwegian_religiose_folketoner"
@@ -39,7 +39,7 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 2.2315,
+          "voice_microtone": 2.2945,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,

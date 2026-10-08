@@ -5,7 +5,7 @@
   "lineage": "Fiddle dance music of the Swedish-speaking communities of Ostrobothnia in western Finland, where the minuet, long gone from most of Europe, survived as a living folk dance alongside the polska, notably in Jeppo near Nykarleby. Otto Andersson's folk-music collection at Åbo Akademi documents it from the early twentieth century, Svenskt visarkiv later recorded fiddlers in Swedish-speaking Finland and Åland, and the minuet tradition of the Swedish-speaking areas is listed in the Finnish National Inventory of Living Heritage.",
   "recipe": "classic early-1940s menuett och polska, improv On Frame, string improv branch. fiddle. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 178,
-  "score": 0.565,
+  "score": 0.67,
   "config": {
     "traditions": [
       "ostrobothnian_menuett_polska"
@@ -25,8 +25,8 @@
           "bowed_technique": 0.39,
           "fiddle_strings": 0,
           "fiddle_bow": 0.2415,
-          "fiddle_mute": 0.24150000000000002,
-          "fiddle_articulation": 0.3675,
+          "fiddle_mute": 0.4515,
+          "fiddle_articulation": 0.2625,
           "fiddle_string_configuration": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "French independent rock develops through local bands and self-directed music communities. Guitar songwriting, varied keyboard textures and different performance formats connect a broad field of independent practice.",
   "recipe": "classic rock independant francais, distorted Rock, alternative branch. single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 370,
-  "score": 38.535,
+  "score": 40.204,
   "config": {
     "traditions": [
       "rock_independant_francais"
@@ -18,7 +18,7 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.868,
+          "electric_technique": 0.8365,
           "amp_make": 5.720000000000001,
-          "body_wood": 2.6984999999999997,
-          "neck_wood": 0.5775,
-          "fretboard": 0.21000000000000002,
+          "body_wood": 3.1499999999999995,
+          "neck_wood": 0.6825000000000001,
+          "fretboard": 0.2415,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.714,
-          "string_material": 0.105,
-          "bridge": 0.5775,
-          "scale_length": 1.8795000000000002,
-          "string_gauge": 0.5775,
+          "string_material": 0.2415,
+          "bridge": 0.6825000000000001,
+          "scale_length": 2.3625,
+          "string_gauge": 0.6825000000000001,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 6.175,
-          "body_wood": 1.1550000000000002,
+          "body_wood": 1.3650000000000004,
           "pickup_config": 0.40950000000000003,
           "string_type": 14.625,
-          "scale_length_b": 0.5775,
+          "scale_length_b": 0.6825000000000001,
           "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -102,7 +102,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.546
         }
       },

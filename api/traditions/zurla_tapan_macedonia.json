@@ -5,7 +5,7 @@
   "lineage": "Outdoor music for weddings, saints' feasts and village dances across North Macedonia, Kosovo and southern Serbia, played mostly by professional Roma musicians. Zurlas, loud conical double-reed shawms, are played in pairs, one leading the ornamented melody with circular breathing while the other holds a drone, over the tapan, a large double-headed drum beaten with a heavy stick on one head and a thin switch on the other; it is the classic accompaniment of dances such as teškoto.",
   "recipe": "classic modern zurli i tapan, wedding, European branch. medium lead melody ornamented wedding walnut body zurla, tapan. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 199,
-  "score": 25.054,
+  "score": 25.086,
   "config": {
     "traditions": [
       "zurla_tapan_macedonia"
@@ -21,7 +21,7 @@
         },
         "scores": {
           "zurla_size": 3.5,
-          "zurla_role": 5.561999999999999,
+          "zurla_role": 5.698499999999999,
           "zurla_context": 8.125,
           "zurla_body_wood": 2.6995
         }
@@ -35,7 +35,7 @@
         },
         "scores": {
           "tapan_form": 3.9,
-          "tapan_role": 1.4679999999999997,
+          "tapan_role": 1.3629999999999998,
           "tapan_build": -0.05
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "The Australian electronic-pop lineage running from Melbourne and Sydney indie-dance of the early 2000s — Cut Copy, The Presets and Pnau on Modular Recordings — into the post-2011 Sydney beat-scene of Flume, Hermitude and Chet Faker; characterised by 100-125 BPM tempos, warm analogue-poly and wavetable pads over crisp sampled drum programming, heavily pitched and chopped vocal samples used as lead melody, hooks built from a single filtered synth swell rather than a chord progression, and a glossy but wide, reverberant mixdown.",
   "recipe": "classic 2000-2003 aussietronica, electronic Dance, continental branch, deep house house, idm glitch experimental electric, pop rock synthpop japanese technopop new romanticism. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog poly singing lead wavetable synth, glitched textural sampler, TR-909, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, mark 7 modern tine post 2007 reissue wide pickup gap more bell less bark block chord rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 760,
-  "score": 352.572,
+  "score": 352.617,
   "config": {
     "traditions": [
       "aussietronica",
@@ -41,7 +41,7 @@
           "voice_vibrato": 2.6325,
           "voice_articulation": 21.96999999999999,
           "voice_microtone": 21.22,
-          "voice_tradition": 16.435,
+          "voice_tradition": 16.479999999999997,
           "voice_mechanism_compound": 3.1849999999999996,
           "voice_estill_quality": 2.6000000000000005,
           "voice_speech_song": 25.544999999999995,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.0749999999999997,
           "voice_pitch_organization": 3.1150000000000007,
           "voice_processing_chain": 20.355,
-          "voice_multitrack_stack": 6.565
+          "voice_multitrack_stack": 6.715000000000001
         }
       },
       {
@@ -125,7 +125,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.315,
+          "amp_make": 5.165,
           "body_wood": 0.65,
           "pickup_config": 0.195,
           "string_type": 6.375,

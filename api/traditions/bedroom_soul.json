@@ -5,7 +5,7 @@
   "lineage": "Bedroom soul brings soul-influenced singing into intimate, small-scale songwriting and recording. Sparse guitar accompaniment and close vocal presentation sit alongside the personal, home-produced character of the music.",
   "recipe": "classic bedroom soul, functional Song, soul R&B branch. solo with instrumental accompaniment. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 221,
-  "score": 3.413,
+  "score": 3.708,
   "config": {
     "traditions": [
       "bedroom_soul"
@@ -57,16 +57,16 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "cedar",
+          "top_wood": "sitka",
           "back_sides": "maple_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
           "acoustic_technique": 0.26,
           "string_tuning": 0,
-          "top_wood": 0.33599999999999997,
-          "back_sides": 0.315,
-          "string_acoustic": 0.8125
+          "top_wood": 0.378,
+          "back_sides": 0.4515,
+          "string_acoustic": 0.9289999999999998
         }
       }
     ],

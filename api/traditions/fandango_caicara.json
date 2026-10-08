@@ -5,7 +5,7 @@
   "lineage": "Dance-music of the caiçara fishing and farming communities of the coast of Paraná and southern São Paulo, from Paranaguá and Guaraqueçaba to Cananéia and Iguape, traditionally played at night-long bailes after collective work and registered by IPHAN as Brazilian intangible heritage. Its dances divide into batidos, stamped by men in wooden clogs, and bailados, danced in couples. Two singers in thirds are accompanied by locally built violas and a rabeca, with the adufo frame drum. The viola caipira card stands in for the viola fandangueira, the fiddle card for the rabeca and a frame-drum card for the adufo.",
   "recipe": "classic modern fandango caiçara, functional Song, Brazilian song branch. parallel thirds two voice. viola caipira, melodic bowed song accompaniment fiddle, credited frame drums, clog wooden foot tap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 279,
-  "score": 21.596,
+  "score": 21.733,
   "config": {
     "traditions": [
       "fandango_caicara"
@@ -86,7 +86,7 @@
           "fiddle_strings": 0,
           "fiddle_bow": 0.063,
           "fiddle_mute": 0.5145,
-          "fiddle_articulation": 0.273,
+          "fiddle_articulation": 0.3045,
           "fiddle_string_configuration": 0
         }
       },
@@ -107,7 +107,7 @@
         },
         "scores": {
           "tap_striker": 1.43,
-          "tap_surface": 0
+          "tap_surface": 0.105
         }
       }
     ],

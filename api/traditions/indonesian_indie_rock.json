@@ -5,7 +5,7 @@
   "lineage": "Indonesian indie rock includes light, melodic guitar-pop ensembles.",
   "recipe": "classic indonesian indie rock, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, pre muffled edge muffled sticks backbeat drum kit, tambourine orch. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 359,
-  "score": 28.746,
+  "score": 28.652,
   "config": {
     "traditions": [
       "indonesian_indie_rock"
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 2.657,
+          "electric_technique": 2.6255,
           "amp_make": 4.42,
-          "body_wood": 1.7429999999999999,
+          "body_wood": 1.848,
           "neck_wood": 0.105,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.273,
+          "bridge": 0.168,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 4.875,
-          "body_wood": 1.7429999999999999,
+          "body_wood": 1.848,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -113,10 +113,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.44199999999999995,
+          "voice_ensemble_config": 0.4105,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.207,
+          "voice_processing_chain": 0.1755,
           "voice_multitrack_stack": 0.16899999999999998,
           "voice_tessitura": 0
         }

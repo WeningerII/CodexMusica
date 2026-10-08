@@ -3,14 +3,14 @@
   "name": "Electro Backbeat",
   "family": "electronic",
   "lineage": "New York and Detroit 1982-86, following Afrika Bambaataa's Planet Rock and codified by Man Parrish, Hashim, Cybotron and Egyptian Lover — 115-130 BPM TR-808 programming in which the snare falls squarely on beats two and four rather than in syncopated electro-funk clusters, over cold synth-bass ostinati, vocoder or talkbox vocals and Kraftwerk-derived monophonic riffs.",
-  "recipe": "classic North American early-1980s electro backbeat, electronic Dance, techno branch, us hip hop east coast, retro aesthetic experimental electric new jersey rap golden age hip hop. thick, rap, straight onset, interlocked note trading. TR-808, roland lineage canonical sh 101 tb 303 1982 1984 osaka sub bass analog mono sub bass analog poly synth, vocoder, talkbox, sampled chopped turntable. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
-  "recipe_chars": 600,
-  "score": 191.665,
+  "recipe": "classic North American early-1980s electro backbeat, electronic Dance, techno branch, us hip hop east coast, retro aesthetic experimental electric new jersey rap new italo disco. thick, rap, pure, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, roland lineage canonical sh 101 tb 303 1982 1984 osaka sub bass analog mono oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, vocoder, talkbox, sampled chopped turntable. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 745,
+  "score": 163.61,
   "config": {
     "traditions": [
       "electro_backbeat",
       "new_jersey_rap",
-      "golden_age_hip_hop"
+      "new_italo_disco"
     ],
     "instruments": [
       {
@@ -18,12 +18,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_miami",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 8.980000000000002,
-          "drum_machine_808_context": 3.385,
-          "tr808_production_origin": 0.495
+          "tr808_voice": 5.68,
+          "drum_machine_808_context": 4.635,
+          "tr808_production_origin": 1.8199999999999998
         }
       },
       {
@@ -36,11 +36,11 @@
           "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 9.075,
-          "mono_oscillator": 0,
-          "mono_filter": 0.195,
-          "mono_archetypes": 0.195,
-          "mono_maker_lineage": 1.4299999999999997
+          "electronic_technique": 5.775,
+          "mono_oscillator": 0.5,
+          "mono_filter": 0.525,
+          "mono_archetypes": 0.525,
+          "mono_maker_lineage": 3.12
         }
       },
       {
@@ -48,14 +48,14 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 9.075,
+          "electronic_technique": 5.775,
           "poly_archetypes": 2.08,
-          "poly_voices": 0.345,
-          "poly_maker_lineage": 0.78
+          "poly_voices": 0.5,
+          "poly_maker_lineage": 2.4699999999999998
         }
       },
       {
@@ -66,7 +66,7 @@
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
-          "voc_band_count": 0,
+          "voc_band_count": 0.5,
           "voc_carrier": 0.195,
           "voc_modulator": 0.195
         }
@@ -89,36 +89,36 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 10.29,
-          "voice_quality": 17.3225,
+          "voice_register": 7.415000000000002,
+          "voice_quality": 9.23,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6250000000000002,
-          "voice_articulation": 16.249999999999996,
-          "voice_microtone": 19.369999999999994,
-          "voice_tradition": 7.710000000000001,
-          "voice_mechanism_compound": 3.5749999999999993,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 19.05,
-          "voice_ensemble_config": 18.654999999999994,
-          "voice_ornament_system": 4.485000000000001,
-          "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 11.725,
-          "voice_multitrack_stack": 2.1774999999999998
+          "voice_vibrato": 0.995,
+          "voice_articulation": 15.599999999999994,
+          "voice_microtone": 18.71999999999999,
+          "voice_tradition": 4.26,
+          "voice_mechanism_compound": 2.0799999999999996,
+          "voice_estill_quality": 2.7299999999999995,
+          "voice_speech_song": 15.989999999999997,
+          "voice_ensemble_config": 18.394999999999992,
+          "voice_ornament_system": 2.600000000000001,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 14.229999999999999,
+          "voice_multitrack_stack": 3.5700000000000003
         }
       },
       {
@@ -128,8 +128,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 7.4350000000000005,
-          "turntable_technique": 11.22
+          "electronic_technique": 3.985,
+          "turntable_technique": 6.795
         }
       }
     ],

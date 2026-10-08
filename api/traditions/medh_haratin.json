@@ -5,7 +5,7 @@
   "lineage": "Devotional song of the Haratin of Mauritania, a men's practice in which a lead singer and a responding chorus sing praise of the Prophet Muhammad, giving voice to the community's spiritual life. Together with the women's bondja it forms a Haratin repertoire distinct from the music of the iggawin griots; both were recorded by a heritage-preservation project and studied by Elhadj Ould Brahim.",
   "recipe": "classic modern medh, ritual Devotional, islamic branch. single lead single track no stacking. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 173,
-  "score": 1.077,
+  "score": 1.108,
   "config": {
     "traditions": [
       "medh_haratin"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.3315000000000001,
+          "voice_multitrack_stack": 1.363,
           "voice_tessitura": 0
         }
       }

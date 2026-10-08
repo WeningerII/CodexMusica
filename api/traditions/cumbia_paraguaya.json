@@ -3,9 +3,9 @@
   "name": "Cumbia paraguaya",
   "family": "global",
   "lineage": "Paraguayan cumbia developed in Asunción from the 1970s onward, codified by Grupo Generación, Los Ojos Negros and Juan Carlos Oviedo's tropical bands — 95–105 BPM cumbia with Paraguayan harp or synth arpeggios, Guaraní- and Spanish-language lyrics, guarania-derived melodic phrasing and a bright electric-bass-and-güiro core.",
-  "recipe": "classic Andean mid-1970s cumbia paraguaya, groove Percussion, Latin am branch, tropical song functional song, Latin am troubadour ballad poetry milonga folklore surero. thick, full chest belt, straight note core, interlocked note trading. arpa paraguaya, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, guiro, lead open slap hand drum congas, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, open slap hand drum timbales. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
-  "recipe_chars": 661,
-  "score": 168.63,
+  "recipe": "classic Andean mid-1970s cumbia paraguaya, groove Percussion, Latin am branch, tropical song functional song, Latin am troubadour ballad poetry milonga folklore surero. thick, full chest belt, straight note core, interlocked note trading. arpa paraguaya, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, guiro, open slap hand drum congas, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, open slap hand drum timbales. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 656,
+  "score": 168.685,
   "config": {
     "traditions": [
       "cumbia_paraguaya",
@@ -70,7 +70,7 @@
         },
         "scores": {
           "percussion_technique": 13.03,
-          "conga_set": 1.0650000000000002,
+          "conga_set": 0.8250000000000002,
           "conga_skin": 0.65,
           "conga_shell_wood": 0.65
         }
@@ -106,16 +106,16 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 5.470000000000001,
+          "voice_register": 5.665000000000001,
           "voice_quality": 9.849999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2800000000000002,
+          "voice_vibrato": 3.43,
           "voice_articulation": 18.394999999999996,
           "voice_microtone": 18.39499999999999,
           "voice_tradition": 8.1575,
@@ -124,8 +124,8 @@
           "voice_speech_song": 23.269999999999992,
           "voice_ensemble_config": 18.264999999999993,
           "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 0.9299999999999997,
-          "voice_processing_chain": 4.81,
+          "voice_pitch_organization": 0.9449999999999998,
+          "voice_processing_chain": 4.745,
           "voice_multitrack_stack": 4.127500000000001
         }
       },

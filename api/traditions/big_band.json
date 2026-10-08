@@ -5,7 +5,7 @@
   "lineage": "1935-1955 American big-band swing tradition (Duke Ellington, Count Basie, Benny Goodman, Glenn Miller, Tommy Dorsey, Stan Kenton) with 14-18 piece ensembles built around saxophone-trumpet-trombone choirs supported by piano-bass-drums rhythm section",
   "recipe": "classic North American mid-1940s swing-era jazz orchestra, improv On Frame, early branch, crooners functional song theatre organ brill building pop. thick, breath veiled tone, straight onset, interlocked note trading. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral lead trumpet ensemble trumpet, bach 42 canonical American orchestral tenor student commercial trombone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
   "recipe_chars": 758,
-  "score": 268.05,
+  "score": 268.185,
   "config": {
     "traditions": [
       "big_band",
@@ -20,18 +20,18 @@
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
-          "sax_mouthpiece": "metal_mp",
+          "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 2.1400000000000006,
+          "wind_articulation": 2.1850000000000005,
           "sax_size": 0.195,
-          "sax_reed": 0.8250000000000001,
+          "sax_reed": 0.7200000000000001,
           "sax_body_alloy": 8.75,
-          "sax_mouthpiece": 0.195,
+          "sax_mouthpiece": 0,
           "sax_technique": 8.795,
-          "sax_maker_school": 10.155
+          "sax_maker_school": 10.44
         }
       },
       {
@@ -46,11 +46,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 2.1400000000000006,
+          "wind_articulation": 2.1850000000000005,
           "brass_size": 0.3,
-          "trumpet_mouthpiece": 11.16,
-          "brass_mute": 0.39499999999999996,
-          "trumpet_technique": 2.1400000000000006,
+          "trumpet_mouthpiece": 11.445,
+          "brass_mute": 0.35,
+          "trumpet_technique": 2.1850000000000005,
           "trumpet_bell_metal": 0.585,
           "trumpet_maker_school": 4.68
         }
@@ -67,10 +67,10 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 2.1400000000000006,
+          "wind_articulation": 2.1850000000000005,
           "trombone_type": 9.05,
-          "trombone_mouthpiece": 13.07,
-          "trombone_mute": 0.39499999999999996,
+          "trombone_mouthpiece": 13.025,
+          "trombone_mute": 0.35,
           "trombone_technique": 2.035,
           "trombone_bell_metal": 0.585,
           "trombone_maker_school": 4.29
@@ -96,7 +96,7 @@
         },
         "scores": {
           "drum_technique": 17.159999999999997,
-          "drumhead": 10.305,
+          "drumhead": 10.44,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -152,14 +152,14 @@
           "voice_effort": 0,
           "voice_vibrato": 8.085,
           "voice_articulation": 13.324999999999998,
-          "voice_microtone": 14.485,
-          "voice_tradition": 10.505,
+          "voice_microtone": 14.379999999999999,
+          "voice_tradition": 10.535,
           "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 3.4100000000000006,
+          "voice_estill_quality": 3.2150000000000003,
           "voice_speech_song": 17.614999999999995,
           "voice_ensemble_config": 12.869999999999996,
           "voice_ornament_system": 1.6899999999999997,
-          "voice_pitch_organization": 2.495,
+          "voice_pitch_organization": 2.45,
           "voice_processing_chain": 4.03,
           "voice_multitrack_stack": 1.8199999999999996
         }

@@ -3,9 +3,9 @@
   "name": "Akazehe (Burundian women's greeting song)",
   "family": "global",
   "lineage": "Vocal greeting genre of Burundian women and girls, in which two or more singers exchange greetings and good wishes in short, overlapping, interlocking phrases. Michel Vuylsteke recorded examples in 1967, and they are held in the CREM-CNRS sound archive in Paris.",
-  "recipe": "classic late-1960s akazehe, praise Song, sub saharan African branch. interlocked note trading, interlocked hocket two voice. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 216,
-  "score": 5.132,
+  "recipe": "classic late-1960s akazehe, praise Song, sub saharan African branch. interlocked note trading, interlocked hocket two voice, live take. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 227,
+  "score": 5.279,
   "config": {
     "traditions": [
       "akazehe"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.389,
+          "voice_ensemble_config": 1.431,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.4724999999999999,
+          "voice_multitrack_stack": 0.5774999999999999,
           "voice_tessitura": 0
         }
       }

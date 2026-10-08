@@ -5,7 +5,7 @@
   "lineage": "Playing tradition of the jouhikko, a bowed lyre with two or three horsehair strings whose melody string is stopped from the side by the backs of the fingers while the others sound as drones, used in Finland and Karelia mainly for dance tunes. A. O. Väisänen documented the instrument and its players in the field; the revival led by Rauno Nieminen and later players such as Pekko Käppi returned it to performance, and the tradition is listed in the Finnish National Inventory of Living Heritage.",
   "recipe": "classic modern jouhikko, drone Modal, string branch. finnish three string dance driving horsehair strung jouhikko. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 194,
-  "score": 17.809,
+  "score": 17.714,
   "config": {
     "traditions": [
       "jouhikko_bowed_lyre"
@@ -21,7 +21,7 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "jouhikko_form": 11.15375,
+          "jouhikko_form": 11.05925,
           "jouhikko_context": 4.55,
           "jouhikko_strings": 1.655
         }

@@ -5,7 +5,7 @@
   "lineage": "Indo-Caribbean 'sitting song' tradition carried by Bhojpuri-speaking indentured laborers to Suriname, Guyana and Trinidad from the 1870s and codified as a recorded genre in 1960s-80s Paramaribo and Nickerie by singers such as Ramdew Chaitoe and Droopatie Ramgoolam, built on harmonium drone-and-melody, hard-driving dholak in fast 8-beat kaharwa/dadra cycles, ringing dhantal steel rod on every beat, and high nasal declamatory male vocals in Sarnami Hindustani.",
   "recipe": "classic North African mid-1870s baithak gana, ballad Poetry, indian bard branch, hindu ritual devotional, south Asian wedding hare krishna kirtan dhamail. light, declaimed, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, rope laced steel ring dholak, devotional narrative steel dhantara, ringing pitched indian rosewood rosewood tabla, small steady tala keeping brass manjira. cement block broadcast booth. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
   "recipe_chars": 581,
-  "score": 184.656,
+  "score": 185.346,
   "config": {
     "traditions": [
       "baithak_gana",
@@ -37,9 +37,9 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.435,
-          "dholak_construction": 0.7350000000000001,
-          "dholak_head": 0.585,
+          "dholak_use": 0.39,
+          "dholak_construction": 1.125,
+          "dholak_head": 0.78,
           "dholak_tensioning": 1.3
         }
       },
@@ -82,7 +82,7 @@
         },
         "scores": {
           "voice_register": 1.495,
-          "voice_quality": 7.340000000000001,
+          "voice_quality": 7.295000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.015,
@@ -120,7 +120,7 @@
           "manjira_metal": "manjira_brass"
         },
         "scores": {
-          "manjira_form": 7.945,
+          "manjira_form": 8.14,
           "manjira_stroke": 1.7745,
           "manjira_metal": 1.1999999999999997
         }

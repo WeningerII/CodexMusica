@@ -1,16 +1,17 @@
 {
-  "id": "stride",
-  "name": "Stride",
+  "id": "stride_piano",
+  "merged_from": "stride",
+  "name": "Stride piano",
   "family": "jazz",
-  "lineage": "Harlem solo-piano idiom of the 1920s-40s that turned ragtime's written left hand into a virtuoso improvised engine — James P. Johnson's Carolina Shout (1921) as its founding text, extended by Willie The Lion Smith, Fats Waller and Art Tatum — with the left hand leaping a tenth or more between low bass note on beats 1 and 3 and mid-register chord on 2 and 4 at 200-280 BPM, the right hand running broken-octave and arpeggio figures over 32-bar AABB and popular-song forms, and rent-party cutting contests as the training ground.",
-  "recipe": "classic mid-1920s stride, improv On Frame, stride piano branch, American jazz pre jazz ragtime, American jazz boogie woogie, American jazz early boogie-woogie pachuco boogie. cold pressed wurzen felt oversize maple tension resonator a 441 grand stride upright piano. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 404,
-  "score": 58.58,
+  "lineage": "1920s-1940s Harlem virtuoso solo-piano tradition extending ragtime through dramatic ten-finger leaps in the left hand alternating bass-note and chord — codified through James P. Johnson (Carolina Shout 1921), Willie The Lion Smith, Fats Waller (Ain't Misbehavin' 1929) and Art Tatum, with later inheritors including Erroll Garner and Thelonious Monk drawing directly on the stride harmonic language",
+  "recipe": "classic mid-1920s stride piano, improv On Frame, stride piano branch, American jazz pre jazz ragtime, American jazz early continental jazz. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright piano. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 379,
+  "score": 57.323,
   "config": {
     "traditions": [
-      "stride",
-      "boogie_woogie",
-      "pachuco_boogie"
+      "stride_piano",
+      "ragtime",
+      "continental_jazz"
     ],
     "instruments": [
       {
@@ -18,24 +19,24 @@
         "slots": {
           "keyboard_technique": "keyboard_stride_left_hand",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_441_japanese"
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 16.865,
-          "grand_piano_size": 2.435,
-          "grand_piano_brand": 2.435,
-          "piano_hammer": 8.71,
-          "piano_rim": 8.905000000000001,
-          "piano_soundboard": 0.12999999999999998,
-          "piano_pinblock": 0.12999999999999998,
-          "piano_plate": 0.995,
-          "piano_pitch_standard": 4.3549999999999995
+          "keyboard_technique": 8.889999999999999,
+          "grand_piano_size": 0.78,
+          "grand_piano_brand": 1.2349999999999999,
+          "piano_hammer": 10.822499999999998,
+          "piano_rim": 15.7625,
+          "piano_soundboard": 5.817500000000001,
+          "piano_pinblock": 1.4625,
+          "piano_plate": 0.325,
+          "piano_pitch_standard": 2.6325000000000003
         }
       },
       {
@@ -46,9 +47,9 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 16.865,
-          "upright_use": 2.435,
-          "upright_piano_size": 0.195
+          "keyboard_technique": 8.889999999999999,
+          "upright_use": 0.78,
+          "upright_piano_size": 0.15
         }
       }
     ],
@@ -71,6 +72,12 @@
   "source": {
     "tuning": "twelve_tet",
     "room": "studio_electrical_era_office",
+    "parts": {
+      "keyboard_technique": "keyboard_stride_left_hand",
+      "piano_pitch_standard": "a_440_modern",
+      "upright_use": "upright_honky_tonk",
+      "upright_piano_size": "upright_piano_standard"
+    },
     "chain_mic": "condenser_ldc",
     "chain_pre": "tube_pre",
     "chain_medium": "shellac_78",

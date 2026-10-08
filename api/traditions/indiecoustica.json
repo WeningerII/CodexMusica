@@ -5,7 +5,7 @@
   "lineage": "Indiecoustica connects melodic independent singer-songwriters across acoustic pop, piano pop and understated band arrangements. Personal storytelling and approachable melodies circulate through artist-made recordings, intimate performances and listening playlists.",
   "recipe": "classic indiecoustica, functional Song, pop rock branch. unprocessed natural acoustic. clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, melodic chordal electronic keyboard unspecified. live tracking.",
   "recipe_chars": 299,
-  "score": 50.349,
+  "score": 50.306,
   "config": {
     "traditions": [
       "indiecoustica"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.37425,
+          "voice_processing_chain": 1.3315000000000001,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }

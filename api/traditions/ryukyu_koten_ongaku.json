@@ -5,7 +5,7 @@
   "lineage": "Court repertoire of the Ryukyu Kingdom at Shuri, systematized in the eighteenth century when Yakabi Choki (1716-1775) devised the kunkunshi tablature and the music was formalized for reception of Chinese sappushi envoys and for kumiodori dance-drama created by Tamagusuku Chokun in 1719 — very slow, sung in courtly Okinawan to the ryukyu scale on sanshin with kutu koto, kucho spike fiddle, fue flute and sparse taiko punctuation, in ryuka thirty-syllable verse form.",
   "recipe": "classic East Asian early-1710s ryukyu koten ongaku, art Music, east Asian branch, east Asian funeral lament, string drone modal mo mường hurdy gurdy. thick, breath veiled tone, slow rate, interlocked note trading. sanshin, stable tuning nylon tetron modern standard koto, song accompaniment legato kokyu, narrative ritual shinobue, taiko drum. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 497,
-  "score": 173.593,
+  "score": 174.178,
   "config": {
     "traditions": [
       "ryukyu_koten_ongaku",
@@ -22,7 +22,7 @@
           "sanshin_plectrum": "sanshin_plastic_tsume"
         },
         "scores": {
-          "sanshin_kata": 0.495,
+          "sanshin_kata": 0.645,
           "sanshin_repertoire": 3.695,
           "sanshin_skin": 0,
           "sanshin_plectrum": 0.195
@@ -53,12 +53,12 @@
           "voice_quality": 16.184999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.885,
+          "voice_vibrato": 6.84,
           "voice_articulation": 12.024999999999995,
           "voice_microtone": 14.10499999999999,
-          "voice_tradition": 15.360000000000001,
+          "voice_tradition": 15.615000000000002,
           "voice_mechanism_compound": 5.55,
-          "voice_estill_quality": 8.185,
+          "voice_estill_quality": 8.245000000000001,
           "voice_speech_song": 14.592499999999994,
           "voice_ensemble_config": 11.959999999999994,
           "voice_ornament_system": 4.945,
@@ -73,7 +73,7 @@
           "plucked_traditional_technique": "plucked_classical_idiom",
           "koto_strings": "koto_13",
           "koto_picks": "koto_yamada",
-          "koto_body_wood": "koto_aizu_paulownia",
+          "koto_body_wood": "koto_modern_paulownia",
           "koto_strings_material": "koto_nylon_tetron",
           "koto_bridge_material": "koto_plastic_bridges_modern"
         },
@@ -81,7 +81,7 @@
           "plucked_traditional_technique": 5.345,
           "koto_strings": 2.045,
           "koto_picks": 2.6,
-          "koto_body_wood": 0.3,
+          "koto_body_wood": 0.195,
           "koto_strings_material": 1.04,
           "koto_bridge_material": 0.195
         }
@@ -99,8 +99,8 @@
           "bowed_technique": 5.345,
           "kokyu_form": 0.7,
           "kokyu_skin": 0.375,
-          "kokyu_tuning": 3.0250000000000004,
-          "kokyu_context": 7.635
+          "kokyu_tuning": 2.92,
+          "kokyu_context": 7.695
         }
       },
       {
@@ -125,14 +125,14 @@
           "taiko_skin": "taiko_horsehide",
           "taiko_shell_wood": "taiko_keyaki_canonical",
           "taiko_lineage": "taiko_oedo_sukeroku",
-          "taiko_technique": "taiko_kumi_daiko"
+          "taiko_technique": "taiko_festival_matsuri"
         },
         "scores": {
           "taiko_size": 0.74,
-          "taiko_skin": 0.525,
+          "taiko_skin": 0.615,
           "taiko_shell_wood": 0.39,
-          "taiko_lineage": 0.495,
-          "taiko_technique": 0.585
+          "taiko_lineage": 0.645,
+          "taiko_technique": 0.66
         }
       }
     ],

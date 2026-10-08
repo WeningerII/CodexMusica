@@ -5,7 +5,7 @@
   "lineage": "Indigenous North American repertoire spanning Plains, Woodlands, Southwest and Northwest Coast nations, recorded from Frances Densmore's cylinder work of 1907 onward and consolidated in the intertribal powwow circuit after the 1950s — terraced descending melodic contours in strict monophony, vocables carrying most songs, a communal bass drum struck in even pulse with the honor-beat accent pattern, seated singers around one drum in unison and octaves, and rattles, whistles and cedar flute in ceremonial and courting contexts.",
   "recipe": "classic Midwestern American mid-1950s native american traditional music, ritual Devotional, indigenous branch, arctic indigenous, indigenous hunting song ainu upopo and rimse inuit traditional music. extended whistle, breath veiled tone, breath pulsed, interlocked note trading. powwow drum circle, courting mid register love song breath vibrato glissando native american flute, continuous mangour hoof rattle, narrow blade ancient ritual slow whirl ritual summoning bullroarer, cast iron three legged half moon tipi meeting peyote water drum. plains northern powwow drum circle outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 650,
-  "score": 212.17,
+  "score": 213.016,
   "config": {
     "traditions": [
       "native_american_traditional",
@@ -16,12 +16,12 @@
       {
         "id": "powwow_drum_circle",
         "slots": {
-          "members": "pw_lead_singer",
+          "members": "pw_women_above",
           "style": "pw_northern"
         },
         "scores": {
-          "members": 0.6,
-          "style": 0.6
+          "members": 0.78,
+          "style": 0.756
         }
       },
       {
@@ -45,19 +45,19 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.38,
+          "voice_register": 1.455,
           "voice_quality": 15.794999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.23,
+          "voice_vibrato": 4.5360000000000005,
           "voice_articulation": 19.759999999999998,
           "voice_microtone": 19.824999999999992,
-          "voice_tradition": 28.425,
-          "voice_mechanism_compound": 25.895000000000003,
+          "voice_tradition": 28.191,
+          "voice_mechanism_compound": 25.805000000000003,
           "voice_estill_quality": 2.5350000000000006,
           "voice_speech_song": 22.424999999999997,
           "voice_ensemble_config": 21.189999999999998,
-          "voice_ornament_system": 10.090000000000002,
+          "voice_ornament_system": 10.036000000000001,
           "voice_pitch_organization": 2.0549999999999997,
           "voice_processing_chain": 5.915,
           "voice_multitrack_stack": 4.030000000000001
@@ -71,7 +71,7 @@
           "native_american_flute_body": "native_american_flute_cedar"
         },
         "scores": {
-          "native_american_flute_form": 3.96,
+          "native_american_flute_form": 4.08,
           "native_american_flute_repertoire": 7.15,
           "native_american_flute_body": 2.5
         }
@@ -83,7 +83,7 @@
           "mangour_motion": "mangour_hip"
         },
         "scores": {
-          "mangour_material": 0.195,
+          "mangour_material": 0.351,
           "mangour_motion": 1.3649999999999998
         }
       },
@@ -109,8 +109,8 @@
         },
         "scores": {
           "peyote_water_drum_vessel": 2.8249999999999997,
-          "peyote_water_drum_way": 1.2449999999999999,
-          "peyote_water_drum_head": 0.5499999999999999
+          "peyote_water_drum_way": 1.3199999999999998,
+          "peyote_water_drum_head": 0.706
         }
       }
     ],

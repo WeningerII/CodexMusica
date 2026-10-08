@@ -5,7 +5,7 @@
   "lineage": "Spring Breeding — Stretch Your Arms, Single Version (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s sasscore, distorted Rock, punk branch. one note per syllable. maple machine hammered symmetric pattern organized rows full lathed drum kit, analog synth, sampler, conventional tuning standard pitch humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 341,
-  "score": 24.125,
+  "score": 23.442,
   "config": {
     "traditions": [
       "sasscore"
@@ -110,7 +110,7 @@
         "scores": {
           "electronic_technique": 0.2,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.273,
+          "sampler_bit_depth": 0.1365,
           "sampler_workflow": 0.15000000000000002,
           "sampler_classic_context": -0.15000000000000002
         }
@@ -135,14 +135,14 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.441,
-          "neck_wood": 0.40950000000000003,
+          "body_wood": 0.3045,
+          "neck_wood": 0.273,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 1.3,
           "finish": 0,
           "string_tuning": 1.3

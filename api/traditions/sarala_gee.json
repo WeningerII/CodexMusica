@@ -5,7 +5,7 @@
   "lineage": "Sinhala light song of the Radio Ceylon era, from the mid-twentieth century, which set Sinhala poetry to melodies joining North Indian raga with Sinhala folk tunes. W. D. Amaradeva, trained at the Bhatkhande music institute in Lucknow, became its central composer-singer; Sunil Santha, who sought a Sinhala style independent of Hindustani models, and Nanda Malini are among its other major voices. Violin, sitar and tabla were usual accompaniment in radio and studio recordings; the fiddle card stands in for the violin.",
   "recipe": "classic early-1950s sarala gee, functional Song, south Asian pop branch. slow rate, solo with instrumental accompaniment. melodic bowed song accompaniment fiddle, pitched indian rosewood rosewood tabla. blanket damped 1925-1945 commercial-major electrical era office. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 334,
-  "score": 19.321,
+  "score": 19.048,
   "config": {
     "traditions": [
       "sarala_gee"
@@ -67,7 +67,7 @@
           "fiddle_strings": 0,
           "fiddle_bow": 0.0315,
           "fiddle_mute": 0.0315,
-          "fiddle_articulation": 0.9449999999999998,
+          "fiddle_articulation": 0.6719999999999999,
           "fiddle_string_configuration": 0
         }
       },

@@ -3,20 +3,20 @@
   "name": "Lagu Melayu (Malay Asli)",
   "family": "global",
   "lineage": "Malay traditional song repertoire of the Riau-Johor-Malacca littoral, formalized on record from the 1930s-60s through bangsawan theatre and Singapore-Malaya EMI sessions with singers such as P. Ramlee and Saloma, comprising the slow rubato-ornamented asli, the brisk duple joget and inang, and the Arab-derived zapin, accompanied by violin, accordion, gendang or rebana frame drums and punctuating gong, with heavily ornamented patah lagu vocal turns.",
-  "recipe": "classic Southeast Asian mid-1930s lagu melayu, functional Song, east Asian pop branch, southeast Asian art music, tropical song functional song sepha thai traditional. thick, breath veiled tone, slow rate, interlocked note trading. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, leather castagnari Italian premium folk music ensemble accordion, gendang melayu, rebana ubi, gong chau gong tamtam, serunai shawm. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
-  "recipe_chars": 669,
-  "score": 248.17,
+  "recipe": "classic Southeast Asian mid-1930s lagu melayu, functional Song, east Asian pop branch, southeast Asian art music, tropical song functional song sepha khrueang sai. extended whistle, breath veiled tone, slow rate, interlocked note trading. norway spruce European alpine European maple sycamore maple oil varnish violin orchestral, leather castagnari Italian premium folk music ensemble accordion, snappy hand muted gendang melayu, rebana ubi, gong chau gong tamtam, serunai shawm. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 692,
+  "score": 276.705,
   "config": {
     "traditions": [
       "lagu_melayu",
       "sepha_thai",
-      "thai_traditional"
+      "khrueang_sai"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 6.025000000000001,
-          "voice_quality": 15.404999999999992,
+          "voice_register": 6.045000000000001,
+          "voice_quality": 20.474999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.2775,
-          "voice_articulation": 15.534999999999997,
-          "voice_microtone": 15.339999999999995,
-          "voice_tradition": 15.405000000000001,
-          "voice_mechanism_compound": 7.2749999999999995,
-          "voice_estill_quality": 10.692499999999997,
-          "voice_speech_song": 20.994999999999997,
-          "voice_ensemble_config": 15.599999999999998,
-          "voice_ornament_system": 8.274999999999999,
-          "voice_pitch_organization": 20.384999999999998,
-          "voice_processing_chain": 2.535,
+          "voice_vibrato": 14.235,
+          "voice_articulation": 14.884999999999996,
+          "voice_microtone": 14.299999999999994,
+          "voice_tradition": 17.485,
+          "voice_mechanism_compound": 9.399999999999999,
+          "voice_estill_quality": 13.454999999999998,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 14.169999999999996,
+          "voice_ornament_system": 10.399999999999999,
+          "voice_pitch_organization": 19.71,
+          "voice_processing_chain": 2.5349999999999997,
           "voice_multitrack_stack": 2.34
         }
       },
@@ -56,9 +56,9 @@
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_strings": "synthetic_orch",
           "orch_top_wood": "norway_spruce_alpine_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
@@ -67,16 +67,16 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 7.57,
-          "orch_strings": 0.78,
-          "orch_top_wood": 8.5,
-          "orch_back_wood": 7.37,
-          "orch_varnish": 7.67,
-          "orch_setup_period": 7.955,
+          "bowed_technique": 9.695,
+          "orch_strings": 0.605,
+          "orch_top_wood": 10.274999999999999,
+          "orch_back_wood": 9.995,
+          "orch_varnish": 9.795,
+          "orch_setup_period": 10.08,
           "orch_bow": 0.65,
-          "orch_bow_stick": 10.1075,
-          "orch_articulation": 0.39,
-          "orch_rosin": 8.66
+          "orch_bow_stick": 12.704999999999998,
+          "orch_articulation": 0.195,
+          "orch_rosin": 10.785
         }
       },
       {
@@ -91,13 +91,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 11.732499999999998,
-          "accordion_reed_material": 0.39,
+          "free_reed_technique": 13.969999999999999,
+          "accordion_reed_material": 0.195,
           "musette_offset": 1.3,
           "reed_config": 0.195,
           "bellows": 1.24,
-          "voicing_chamber": 0.45499999999999996,
-          "accordion_maker_school": 4.16
+          "voicing_chamber": 0.895,
+          "accordion_maker_school": 3.5100000000000002
         }
       },
       {
@@ -109,7 +109,7 @@
         },
         "scores": {
           "gendang_melayu_role": 0.24,
-          "gendang_melayu_stroke": 0.65,
+          "gendang_melayu_stroke": 1.15,
           "gendang_melayu_head": 0
         }
       },
@@ -131,8 +131,8 @@
           "gong_striker": "gong_hard_beater"
         },
         "scores": {
-          "gong_type": 2.535,
-          "gong_striker": 0.35
+          "gong_type": 1.885,
+          "gong_striker": 0.7
         }
       },
       {

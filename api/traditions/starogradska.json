@@ -5,7 +5,7 @@
   "lineage": "Serbian and Vojvodinian urban 'old town' song codified in the kafanas of Belgrade, Novi Sad and Subotica between the 1880s and the 1930s and preserved on Jugoton and PGP-RTB records after 1945 — moderate rubato duple and 3/4 verses in harmonic minor, sung by a single lyric voice with heavy portamento over a tamburica string band or accordion-violin-clarinet kafana quartet, each strophe accelerating into a faster kolo-like coda",
   "recipe": "classic Southern European mid-1880s starogradska muzika, drinking Song, balkan branch, Slavic bard ballad poetry, European drinking song yiddish folksong hungarian bordal. thick, breath veiled tone, interlocked note trading, neutral third half flat. castagnari Italian premium folk music accordion, half rectified carpathian spruce hard rock maple acer saccharum violin orchestral, tamburica prim, tamburica brac, ebonite hard rubber klezmer tradition clarinet, half rectified carpathian spruce European maple bosnian source flamed figure double bass. balkan sevdalinka kafana tavern. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
   "recipe_chars": 730,
-  "score": 165.725,
+  "score": 165.138,
   "config": {
     "traditions": [
       "starogradska",
@@ -47,7 +47,7 @@
           "voice_speech_song": 30.484999999999992,
           "voice_ensemble_config": 19.694999999999993,
           "voice_ornament_system": 1.755,
-          "voice_pitch_organization": 2.34,
+          "voice_pitch_organization": 2.5349999999999997,
           "voice_processing_chain": 3.5100000000000002,
           "voice_multitrack_stack": 1.885
         }
@@ -64,12 +64,12 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 2.4699999999999998,
-          "accordion_reed_material": 0.045,
+          "free_reed_technique": 1.9449999999999998,
+          "accordion_reed_material": 0.09375,
           "musette_offset": 1,
           "reed_config": 0.15,
-          "bellows": 0.24,
-          "voicing_chamber": 0.35,
+          "bellows": 0.045,
+          "voicing_chamber": 0.45499999999999996,
           "accordion_maker_school": 1.8199999999999998
         }
       },
@@ -83,20 +83,20 @@
           "orch_varnish": "modern_synthetic_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
-          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
           "bowed_technique": 2.225,
           "orch_strings": 1.4299999999999997,
-          "orch_top_wood": 3.3645,
+          "orch_top_wood": 3.5100000000000002,
           "orch_back_wood": 3.25,
           "orch_varnish": 0.585,
           "orch_setup_period": 0.6499999999999999,
           "orch_bow": 2.5140000000000002,
-          "orch_bow_stick": -0.05,
-          "orch_articulation": 0.585,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0,
           "orch_rosin": -0.035
         }
       },
@@ -108,18 +108,18 @@
         },
         "scores": {
           "tamburica_prim_system": 1.04,
-          "tamburica_prim_technique": 2.5394999999999994
+          "tamburica_prim_technique": 2.7299999999999995
         }
       },
       {
         "id": "tamburica_brac",
         "slots": {
           "tamburica_brac_size": "tamburica_brac_e",
-          "tamburica_brac_technique": "tamburica_brac_chordal"
+          "tamburica_brac_technique": "tamburica_brac_tremolo"
         },
         "scores": {
           "tamburica_brac_size": 0.195,
-          "tamburica_brac_technique": 0.39
+          "tamburica_brac_technique": 0
         }
       },
       {
@@ -132,10 +132,10 @@
           "clarinet_articulation": "glissando_clarinet"
         },
         "scores": {
-          "wind_articulation": 2.2399999999999998,
+          "wind_articulation": 2.4049999999999994,
           "clarinet_body": 3.4449999999999994,
           "clarinet_size": 1.04,
-          "clarinet_reed": 0.045,
+          "clarinet_reed": 0.09375,
           "clarinet_articulation": 1.25
         }
       },
@@ -143,7 +143,7 @@
         "id": "double_bass",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "bass_size": "bass_three_quarter",
+          "bass_size": "bass_seven_eighth",
           "bass_strings": "half_rectified_gut_bass",
           "bass_top_wood": "carpathian_spruce_bass",
           "bass_back_wood": "bosnian_flamed_maple_bass",
@@ -155,9 +155,9 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "bass_size": 0,
+          "bass_size": 0.048749999999999995,
           "bass_strings": 1.4299999999999997,
-          "bass_top_wood": 3.3645,
+          "bass_top_wood": 3.5100000000000002,
           "bass_back_wood": 2.6000000000000005,
           "bass_varnish": -0.035,
           "bass_setup_period": 0.6499999999999999,

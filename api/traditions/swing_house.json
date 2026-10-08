@@ -1,15 +1,16 @@
 {
-  "id": "swing_house",
-  "name": "Swing House",
+  "id": "electroswing",
+  "merged_from": "swing_house",
+  "name": "Electro Swing",
   "family": "electronic",
-  "lineage": "European club style of roughly 2008-2016 associated with Parov Stelar, Caravan Palace, Wolfgang Lohr and the Freshly Squeezed and Electro Swing Club circuits, in which 1920s-40s shellac jazz with muted trumpet, clarinet, banjo comping and crooned or scatted vocal is sampled, pitch- and time-corrected, and set over a 120-128 BPM house kick with swung sixteenth hats, filtered upright-bass loops and a sidechained sub reinforcing the sampled walk.",
-  "recipe": "classic mid-2010s swing house, electronic Dance, house branch, deep house house, continental electronic dance, retro aesthetic experimental electric electro swing deep disco house. thick, breath veiled tone, straight onset, interlocked note trading. field chopped sampler, TR-909, ensemble shallow cup lead trumpet trumpet, growly gut upright bass, sub bass digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 582,
-  "score": 298.251,
+  "lineage": "European club hybrid crystallised in Paris and Vienna in the mid-2000s around Parov Stelar, Caravan Palace and the Freshly Squeezed label, layering four-on-the-floor house or breakbeat drums at 110-130 BPM under sampled 1920s-40s shellac jazz — clarinet, muted trumpet, tenor banjo, slap bass and crackly crooner vocals — with the swung eighths of the source loop set against straight electronic kick and clap.",
+  "recipe": "classic 2004-2006 electro swing, electronic Dance, continental branch, deep house house, American jazz early, eurodance electronic dance swing revival deep disco house. thick, breath veiled tone, straight onset, interlocked note trading. sampler, TR-909, thermoset resin clarinet, bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, dance tune single string tenor banjo irish, venice catlin high twist renaissance bass carpathian spruce European maple double bass, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 722,
+  "score": 305.605,
   "config": {
     "traditions": [
-      "swing_house",
       "electroswing",
+      "swing_revival",
       "deep_disco_house"
     ],
     "instruments": [
@@ -17,17 +18,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_mpc",
+          "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_workflow": "sampler_orchestral_library",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 3.60125,
-          "sampler_archetypes": 2.1075,
-          "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 2.045,
-          "sampler_classic_context": 50.098749999999995
+          "electronic_technique": 1.4849999999999999,
+          "sampler_archetypes": 2.375,
+          "sampler_bit_depth": 2.21,
+          "sampler_workflow": 0.8999999999999999,
+          "sampler_classic_context": 37.03999999999999
         }
       },
       {
@@ -38,9 +39,26 @@
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 27.444999999999997,
-          "drum_machine_909_context": 3.25,
-          "tr909_production_origin": 0.195
+          "tr909_voice": 16.845,
+          "drum_machine_909_context": 2.145,
+          "tr909_production_origin": 0.95
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_multiphonic_avant",
+          "clarinet_body": "hanson_btr_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.6499999999999999,
+          "clarinet_body": 2.375,
+          "clarinet_size": 0.39,
+          "clarinet_reed": 0.39,
+          "clarinet_articulation": 0.105
         }
       },
       {
@@ -49,30 +67,59 @@
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
-          "brass_mute": "bucket_mute",
+          "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_monette"
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 3.18375,
-          "brass_size": 0.195,
-          "trumpet_mouthpiece": 9.242499999999998,
-          "brass_mute": 0.195,
-          "trumpet_technique": 3.18375,
-          "trumpet_bell_metal": 0.195,
-          "trumpet_maker_school": 0.65
+          "wind_articulation": 3.285,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 12.204999999999998,
+          "brass_mute": 0.545,
+          "trumpet_technique": 3.285,
+          "trumpet_bell_metal": 0.8,
+          "trumpet_maker_school": 2.95
         }
       },
       {
-        "id": "upright_bass",
+        "id": "tenor_banjo_irish",
         "slots": {
-          "upright_strings": "gut_wound_upright",
-          "upright_play": "pizz_upright"
+          "tenor_banjo_irish_form": "tenor_banjo_irish_19fret",
+          "tenor_banjo_irish_style": "tenor_banjo_irish_reels",
+          "tenor_banjo_irish_head": "tenor_banjo_irish_synthetic"
         },
         "scores": {
-          "upright_strings": 7.25,
-          "upright_play": 7.295
+          "tenor_banjo_irish_form": -0.07,
+          "tenor_banjo_irish_style": 5.915,
+          "tenor_banjo_irish_head": 0.995
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_seven_eighth",
+          "bass_strings": "venice_catlin_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "bass_size": 3.119999999999999,
+          "bass_strings": 4.61,
+          "bass_top_wood": 2.5500000000000003,
+          "bass_back_wood": 3.625,
+          "bass_varnish": 3.675,
+          "bass_setup_period": 6.140000000000001,
+          "bass_play": 11.16,
+          "bass_rosin": 15.169999999999998,
+          "bass_bow_stick": 2.375
         }
       },
       {
@@ -87,55 +134,53 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 9.919999999999998,
-          "voice_quality": 13.194999999999991,
+          "voice_register": 16.894999999999996,
+          "voice_quality": 13.974999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.06125,
-          "voice_articulation": 16.834999999999994,
-          "voice_microtone": 16.639999999999993,
-          "voice_tradition": 8.99625,
-          "voice_mechanism_compound": 5.915,
-          "voice_estill_quality": 5.720000000000001,
-          "voice_speech_song": 19.174999999999997,
-          "voice_ensemble_config": 18.004999999999992,
-          "voice_ornament_system": 0.9999999999999999,
-          "voice_pitch_organization": 1.8949999999999998,
-          "voice_processing_chain": 20.53,
-          "voice_multitrack_stack": 4.751250000000001
+          "voice_vibrato": 12.774999999999999,
+          "voice_articulation": 15.079999999999995,
+          "voice_microtone": 14.884999999999993,
+          "voice_tradition": 11.999999999999998,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 2.7250000000000005,
+          "voice_speech_song": 16.184999999999995,
+          "voice_ensemble_config": 16.704999999999995,
+          "voice_ornament_system": 0.39499999999999996,
+          "voice_pitch_organization": 1.5399999999999998,
+          "voice_processing_chain": 17.555,
+          "voice_multitrack_stack": 3.865000000000001
         }
       },
       {
-        "id": "digital_subtractive",
+        "id": "turntable",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
-          "va_archetypes": "nord_lead",
-          "digital_subtractive_context": "digital_subtractive_trance"
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_chirp_baby"
         },
         "scores": {
-          "electronic_technique": 4.820000000000001,
-          "va_archetypes": 0.345,
-          "digital_subtractive_context": 17.224999999999998
+          "electronic_technique": 1.4849999999999999,
+          "turntable_technique": 0
         }
       }
     ],
     "room": "studio_auteur_home_pro",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "condenser_ldc",
+      "mic": "mic_u87_condenser_neumann",
       "pre": "pre_500_series_modern",
       "console": "console_in_the_box",
-      "comp": "comp_distressor_modern",
-      "eq": "eq_passive_program_pultec",
+      "comp": "comp_1176_fet",
+      "eq": null,
       "amp": null,
       "medium": "digital_high"
     },
@@ -147,10 +192,9 @@
   "source": {
     "tuning": "jazz_swing_eighth_4_4",
     "room": "studio_auteur_home_pro",
-    "chain_mic": "condenser_ldc",
+    "chain_mic": "mic_u87_condenser_neumann",
     "chain_pre": "pre_500_series_modern",
-    "chain_comp": "comp_distressor_modern",
-    "chain_eq": "eq_passive_program_pultec",
+    "chain_comp": "comp_1176_fet",
     "chain_medium": "digital_high",
     "chain_console": "console_in_the_box"
   }

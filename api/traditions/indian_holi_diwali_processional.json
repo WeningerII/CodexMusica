@@ -3,20 +3,20 @@
   "name": "Indian Holi-and-Diwali festival processional",
   "family": "global",
   "lineage": "Indian Holi (festival of colors) and Diwali (festival of lights) processional tradition continuous from premodern Indian festival celebration practice through 19th-20th century continuous performance into modern Indian-and-Indian-diaspora continuous festival-practice; Holi processional integrates extensive dholak-and-shehnai-and-vocal participation alongside color-throwing, Diwali integrates devotional kirtan-and-bhajan with lamp-procession",
-  "recipe": "classic modern indian holi-and-diwali festival processional, carnival Processional, south Asian branch, indian subcontinent praise song, south Asian wedding, hindu ritual devotional hindu stuti and bhajan mappila paattu. vocal fry, declaimed, straight onset, interlocked note trading. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, ringing pitched indian rosewood rosewood tabla, dhol. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 629,
-  "score": 266.254,
+  "recipe": "classic modern indian holi-and-diwali festival processional, carnival Processional, south Asian branch, indian subcontinent praise song, south Asian wedding, hindu ritual devotional mappila paattu indian sangeet. thick, declaimed, straight onset, interlocked note trading. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, ringing pitched indian rosewood rosewood tabla, dhol. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 617,
+  "score": 264.587,
   "config": {
     "traditions": [
       "indian_holi_diwali_processional",
-      "hindu_stuti_bhajan",
-      "mappila_paattu"
+      "mappila_paattu",
+      "indian_sangeet"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.27125,
-          "voice_quality": 19.996249999999993,
+          "voice_register": 3.2974999999999994,
+          "voice_quality": 10.961249999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.7950000000000004,
-          "voice_articulation": 19.695000000000004,
-          "voice_microtone": 23.855,
-          "voice_tradition": 23.725,
-          "voice_mechanism_compound": 4.16,
-          "voice_estill_quality": 3.9650000000000007,
-          "voice_speech_song": 25.642500000000002,
-          "voice_ensemble_config": 19.825000000000003,
-          "voice_ornament_system": 11.075,
-          "voice_pitch_organization": 6.61375,
-          "voice_processing_chain": 5.46,
-          "voice_multitrack_stack": 3.4575000000000005
+          "voice_articulation": 19.5,
+          "voice_microtone": 24.4075,
+          "voice_tradition": 25.470000000000002,
+          "voice_mechanism_compound": 4.3549999999999995,
+          "voice_estill_quality": 4.16,
+          "voice_speech_song": 23.822499999999998,
+          "voice_ensemble_config": 19.435,
+          "voice_ornament_system": 8.775,
+          "voice_pitch_organization": 7.745000000000001,
+          "voice_processing_chain": 6.0125,
+          "voice_multitrack_stack": 3.1725
         }
       },
       {
@@ -62,7 +62,7 @@
         },
         "scores": {
           "dholak_use": 1.04,
-          "dholak_construction": 4.68,
+          "dholak_construction": 4.029999999999999,
           "dholak_head": 2.535,
           "dholak_tensioning": 2.535
         }
@@ -77,36 +77,36 @@
           "shehnai_lineage": "shehnai_bismillah_khan_banaras"
         },
         "scores": {
-          "shehnai_register": 9.295,
-          "shehnai_use": 9.425,
-          "shehnai_body_wood": 13.974999999999998,
-          "shehnai_reed": 0.5399999999999999,
-          "shehnai_lineage": 0.975
+          "shehnai_register": 8.45,
+          "shehnai_use": 12.934999999999999,
+          "shehnai_body_wood": 12.384999999999998,
+          "shehnai_reed": 0.345,
+          "shehnai_lineage": 0.89625
         }
       },
       {
         "id": "tabla",
         "slots": {
           "tabla_dayan": "shisham_dayan",
-          "tabla_bayan": "copper_bayan",
+          "tabla_bayan": "brass_bayan",
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 13.649999999999999,
-          "tabla_bayan": 0.45499999999999996,
-          "tabla_syahi": 1.4949999999999999
+          "tabla_dayan": 12.359999999999998,
+          "tabla_bayan": 0.78,
+          "tabla_syahi": 1.6899999999999997
         }
       },
       {
         "id": "dhol",
         "slots": {
           "dhol_form": "dhol_bihu",
-          "dhol_repertoire": "dhol_festival",
+          "dhol_repertoire": "dhol_baraat",
           "dhol_shell": "dhol_fiberglass"
         },
         "scores": {
-          "dhol_form": 21.255000000000003,
-          "dhol_repertoire": 10.794999999999996,
+          "dhol_form": 21.06,
+          "dhol_repertoire": 17.069999999999997,
           "dhol_shell": 2.4050000000000002
         }
       }

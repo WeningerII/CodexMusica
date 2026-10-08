@@ -5,7 +5,7 @@
   "lineage": "Kazakh solo instrumental art form for the fretted long-necked two-string dombyra, crystallized in the 19th century in two regional schools — the western tökpe style of Kurmangazy and Dina Nurpeisova with fast continuous alternating strums across both strings, and the eastern shertpe style of Tättimbet using plucked, sparser, rubato phrasing — each küy a three-to-six-minute programmatic piece built from a low bass-string drone, a rising climb through the register (buyn) and a return.",
   "recipe": "classic Northeast Asian early-1940s dombra küy, drone Modal, string branch, central Asian hunting song, heterophonic drone modal kyrgyz traditional music central asian folk. kargyraa, breath veiled tone, fast rate, interlocked note trading. teardrop bodied delicate finger plucked lyrical dombyra, folk orchestra programmatic solo horsehair strung hide qobyz. open steppe outdoor. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 514,
-  "score": 173.295,
+  "score": 173.07,
   "config": {
     "traditions": [
       "dombra_kuy",
@@ -22,8 +22,8 @@
         },
         "scores": {
           "dombyra_form": 8.875,
-          "dombyra_style": 8.5,
-          "dombyra_strings": 0.325
+          "dombyra_style": 8.545,
+          "dombyra_strings": 0.25
         }
       },
       {
@@ -37,7 +37,7 @@
         "scores": {
           "bowed_technique": -0.035,
           "qobyz_form": 5.53,
-          "qobyz_repertoire": 9.18,
+          "qobyz_repertoire": 9.135,
           "qobyz_build": 5.035
         }
       },
@@ -77,7 +77,7 @@
           "voice_ornament_system": 2.145,
           "voice_pitch_organization": 9.295,
           "voice_processing_chain": 3.185,
-          "voice_multitrack_stack": 4.375000000000001
+          "voice_multitrack_stack": 4.2250000000000005
         }
       }
     ],

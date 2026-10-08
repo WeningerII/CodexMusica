@@ -5,7 +5,7 @@
   "lineage": "The Jews of Kerala, centred on Kochi (Cochin) and nearby towns such as Mala, Chendamangalam and Paravur, kept a repertoire of Malayalam-language songs sung by women at weddings and other life-cycle and festival occasions, alongside the Hebrew liturgy of the synagogue. After most of the community emigrated to Israel in the mid-twentieth century, the songs were documented by researchers in Israel and Kerala.",
   "recipe": "classic modern judeo-malayalam women's song, ritual Devotional, Jewish branch. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 158,
-  "score": 0.511,
+  "score": 0.417,
   "config": {
     "traditions": [
       "cochin_jewish_womens_song"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.168,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.4305,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.36749999999999994,
           "voice_tessitura": 0
         }
       }

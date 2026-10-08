@@ -5,7 +5,7 @@
   "lineage": "Singing of the Irish Travellers (Mincéirí or Pavees), a nomadic ethnic minority whose singers kept long narrative ballads, including rare Child ballads, alongside topical and street songs, mostly sung unaccompanied. The collector Tom Munnelly recorded John Reilly of Boyle in the 1960s, and Traveller street singers Margaret Barry and Pecker Dunne, who accompanied themselves on banjo, reached revival audiences; Musical Traditions' From Puck to Appleby gathers Jim Carroll and Pat Mackenzie's recordings of Irish Traveller singers living in and around London.",
   "recipe": "classic mid-1960s irish traveller song, ballad Poetry, Celtic balladic branch. narrative, solo unaccompanied. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 201,
-  "score": 2.434,
+  "score": 2.539,
   "config": {
     "traditions": [
       "irish_traveller_song"
@@ -33,7 +33,7 @@
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": -0.5109999999999999,
+          "voice_register": -0.4059999999999999,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

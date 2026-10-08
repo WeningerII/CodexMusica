@@ -5,7 +5,7 @@
   "lineage": "Coupé-décalé Ivorian dance-pop genre emerging in early-2000s Paris among the Ivorian diaspora club scene and rapidly transferred back to Abidjan. The name derives from Nouchi street-slang (\"couper\" to grab money, \"décaler\" to slip away) describing the get-rich-and-flee aspirational lifestyle. Production centers on hard four-on-the-floor digital kick with Nouchi-French lyrical content, simple call-and-response chorus, and electronic synth-bass. The death of founding figure Stéphane Hamidou Doukouré (Douk Saga) in 2006 mythologized the Paris-Abidjan founder-generation.",
   "recipe": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm hip hop galsen street-pop. thick, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, plucked short envelope analog synth, mahogany pyramid pure nickel bass British mid 60s era electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 578,
-  "score": 131.06,
+  "score": 130.745,
   "config": {
     "traditions": [
       "coupe_decale_ivorian",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 3.685000000000002,
+          "voice_register": 3.8350000000000017,
           "voice_quality": 12.479999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.645,
+          "voice_vibrato": 2.6,
           "voice_articulation": 12.219999999999995,
           "voice_microtone": 12.024999999999993,
-          "voice_tradition": 10.055,
+          "voice_tradition": 9.995000000000001,
           "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 4.47,
+          "voice_estill_quality": 4.2299999999999995,
           "voice_speech_song": 12.219999999999995,
           "voice_ensemble_config": 14.429999999999994,
           "voice_ornament_system": 2.470000000000001,
           "voice_pitch_organization": 2.12,
           "voice_processing_chain": 7.6499999999999995,
-          "voice_multitrack_stack": 3.4300000000000006
+          "voice_multitrack_stack": 3.3850000000000007
         }
       },
       {
@@ -96,10 +96,10 @@
         },
         "scores": {
           "amp_make": 2.0149999999999997,
-          "body_wood": 1.69,
+          "body_wood": 1.6600000000000001,
           "pickup_config": 0.135,
           "string_type": 2.5999999999999996,
-          "scale_length_b": 0.26999999999999996,
+          "scale_length_b": 0.22499999999999998,
           "fretted_or_not": 0.195,
           "bass_technique": 0.12999999999999998,
           "electric_bass_string_configuration": 0

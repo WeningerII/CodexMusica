@@ -5,7 +5,7 @@
   "lineage": "Psalmody and anthems sung by village choirs (quires) and played by small church bands from galleries at the west end of English parish churches and chapels, roughly 1700 to 1850, until Victorian church reform replaced them with surpliced chancel choirs and organs or harmoniums. Provincial psalmodists wrote plain and fuging settings in three or four parts, usually with the tune in the tenor, and bands of fiddles, flutes, clarinets, bassoons, serpents and bass viols doubled the voices. Thomas Hardy portrayed the Mellstock quire in Under the Greenwood Tree, and the repertoire has been revived by West Gallery Music Association quires. The cello card stands in for the church bass viol.",
   "recipe": "classic early-1700s west gallery music, ritual Devotional, christian gospel branch. four plus independent lines. choir ensemble, fiddle, clarinet, bassoon, serpent church serpent, modern setup pirastro cellisto cello specific cello. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 37.018,
+  "score": 36.803,
   "config": {
     "traditions": [
       "west_gallery_music"
@@ -64,7 +64,7 @@
           "choir_size": 0.78,
           "choir_polyphonic_configuration": 0.3735,
           "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 0.21000000000000002
+          "choir_ensemble_repertoire": 0.483
         }
       },
       {
@@ -98,7 +98,7 @@
         "scores": {
           "wind_articulation": -0.07,
           "clarinet_body": -0.15000000000000002,
-          "clarinet_size": 1.0185,
+          "clarinet_size": 0.84,
           "clarinet_reed": 0,
           "clarinet_articulation": 0
         }
@@ -114,9 +114,9 @@
         },
         "scores": {
           "wind_articulation": -0.07,
-          "bassoon_school": 1.294,
-          "bassoon_body_wood": 0.8190000000000002,
-          "bassoon_reed": 0.8190000000000002,
+          "bassoon_school": 1.3,
+          "bassoon_body_wood": 0.6825000000000001,
+          "bassoon_reed": 0.6825000000000001,
           "bassoon_context": 2.4364999999999997
         }
       },
@@ -127,7 +127,7 @@
           "serpent_material": "serpent_leather_wrapped_wood"
         },
         "scores": {
-          "serpent_type": 4.7095,
+          "serpent_type": 4.9825,
           "serpent_material": 0
         }
       },
@@ -150,8 +150,8 @@
           "cello_top_wood": -0.1,
           "cello_back_wood": -0.1,
           "cello_varnish": -0.1,
-          "cello_setup_period": 2.6095,
-          "cello_bow_grip": 1.2915,
+          "cello_setup_period": 2.4730000000000003,
+          "cello_bow_grip": 1.113,
           "cello_rosin": 1.17,
           "cello_bow_stick": -0.10500000000000001
         }

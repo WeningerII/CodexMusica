@@ -5,7 +5,7 @@
   "lineage": "Catholic devotional practice of the Brazilian Southeast and Centre-West in which a company (terno or companhia) of foliões, led by a mestre and carrying a saint's banner, travels from house to house between Christmas and 6 January re-enacting the Magi's journey, singing verses that ask for and give thanks for offerings, with masked clowns dancing between songs. The mestre's verse is answered by the company in layered voices that close on a high, sustained voice. Ensembles combine viola caipira, violão, accordion and often rabeca, with caixa drum and pandeiro; the folias do Divino of Goiás and São Paulo follow a similar company form. The fiddle card stands in for the rabeca, a generic membrane-drum card for the caixa and a generic pandero card for the pandeiro.",
   "recipe": "classic modern folia de reis, ritual Devotional. viola caipira, classical nylon-string guitar, accordion, fiddle, membrane drum pulse resonant acoustic membrane drum, pandero source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 274,
-  "score": 12.499,
+  "score": 12.676,
   "config": {
     "traditions": [
       "folia_de_reis"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.19500000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
@@ -63,9 +63,9 @@
           "viola_caipira_strings": "viola_caipira_steel_doubled"
         },
         "scores": {
-          "plucked_traditional_technique": 0.2815,
+          "plucked_traditional_technique": 0.325,
           "viola_caipira_courses": 0,
-          "viola_caipira_context": 2.2835,
+          "viola_caipira_context": 2.315,
           "viola_caipira_top_wood": 0.105,
           "viola_caipira_back_wood": -0.05,
           "viola_caipira_strings": 0
@@ -82,10 +82,10 @@
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 0.2,
+          "acoustic_technique": 0.26,
           "string_tuning": 0,
           "top_wood_classical": 0,
-          "bracing_classical": 1.168,
+          "bracing_classical": 1.126,
           "string_classical": 0,
           "attack_technique_cl": -0.05
         }
@@ -122,11 +122,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.40949999999999986,
+          "bowed_technique": 0.4094999999999999,
           "fiddle_strings": 0,
-          "fiddle_bow": 0,
-          "fiddle_mute": 0.7350000000000001,
-          "fiddle_articulation": 0.1365,
+          "fiddle_bow": 0.0315,
+          "fiddle_mute": 0.798,
+          "fiddle_articulation": 0.0315,
           "fiddle_string_configuration": 0
         }
       },

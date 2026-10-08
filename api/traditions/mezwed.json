@@ -5,7 +5,7 @@
   "lineage": "Tunisian urban working-class dance genre named for the mezwed bagpipe, formed in the shanty neighbourhoods of Tunis in the 1960s-70s and popularized on cassette by Hedi Habbouba, Salah Farzit and Samir Loussif — the double-reed bagpipe carrying a continuous ornamented drone-melody over bendir and darbuka playing the fast 6/8 fezzani and 4/4 saidi patterns at 120-150 BPM, with rough colloquial-Tunisian vocals about poverty, prison and exile and dense audience handclapping.",
   "recipe": "classic mid-1960s mezwed, functional Song, mid east n African pop branch, middle eastern wedding, wind pipe drone modal dabke oyun havası. extended whistle, breath veiled tone, slow rate, interlocked note trading. dance driving cane pipes horn bell mizwad, synthetic remo modern world music bendir, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, hand clap, tabl baladi, tunisian banjo. urban courtyard. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 527,
-  "score": 228.986,
+  "score": 228.926,
   "config": {
     "traditions": [
       "mezwed",
@@ -23,7 +23,7 @@
         "scores": {
           "mizwad_form": 9.544999999999998,
           "mizwad_context": 4.745,
-          "mizwad_pipe_build": 1.9962499999999999
+          "mizwad_pipe_build": 1.9994642857142857
         }
       },
       {
@@ -36,8 +36,8 @@
         },
         "scores": {
           "bendir_snares": 0.39,
-          "bendir_context": 0.375,
-          "bendir_shell_wood": 0.63,
+          "bendir_context": 0.32999999999999996,
+          "bendir_shell_wood": 0.585,
           "bendir_head": 1.4299999999999997
         }
       },
@@ -52,8 +52,8 @@
         "scores": {
           "percussion_technique": 0.45499999999999996,
           "darbuka_material": 0.39,
-          "darbuka_skin": 3.335,
-          "darbuka_regional_style": 5.423750000000001
+          "darbuka_skin": 3.362857142857143,
+          "darbuka_regional_style": 5.33375
         }
       },
       {
@@ -77,21 +77,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 6.271250000000001,
+          "voice_register": 6.285178571428572,
           "voice_quality": 10.269999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.7950000000000004,
           "voice_articulation": 23.269999999999992,
           "voice_microtone": 30.679999999999996,
-          "voice_tradition": 11.309999999999999,
+          "voice_tradition": 11.08875,
           "voice_mechanism_compound": 5.525,
           "voice_estill_quality": 3.5750000000000006,
           "voice_speech_song": 26.129999999999995,
           "voice_ensemble_config": 22.425,
           "voice_ornament_system": 4.532500000000001,
-          "voice_pitch_organization": 6.0550000000000015,
-          "voice_processing_chain": 4.8125,
+          "voice_pitch_organization": 6.082857142857144,
+          "voice_processing_chain": 4.840357142857143,
           "voice_multitrack_stack": 5.265000000000001
         }
       },
@@ -102,7 +102,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0.54,
+          "clap_technique": 0.7350000000000001,
           "clap_capture": 0
         }
       },
@@ -113,7 +113,7 @@
           "tabl_baladi_sticks": "tabl_baladi_asaya_kirsh"
         },
         "scores": {
-          "tabl_baladi_size": 0.045,
+          "tabl_baladi_size": 0.09,
           "tabl_baladi_sticks": 21.775
         }
       },

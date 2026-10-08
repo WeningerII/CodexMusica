@@ -3,14 +3,14 @@
   "name": "Sea Shanty (Revival Repertoire)",
   "family": "vernacular",
   "lineage": "The post-1950s folk-club and festival performance form of maritime song, shaped in Britain by A.L. Lloyd and Ewan MacColl's 1956 Blow Boys Blow, by Stan Hugill's residencies at the Falmouth and Mystic Seaport shanty festivals from the 1970s, and by the Fisherman's Friends and Sea Shanty TikTok waves of 2010 and 2021; performed at fixed brisk tempos in strophic verse-and-chorus form with strong unison male chorus on the refrain, frequently with concertina, melodeon, fiddle or guitar accompaniment that the working original never had.",
-  "recipe": "classic Northern European mid-1950s sea shanty, sea Shanty, atlantic branch, Celtic balladic English broadside, anglo singer song britfolk industrial folk. thick, breath veiled tone, interlocked note trading, neutral third half flat. a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu choir ensemble, steel reeds canonical anglo straight concertina anglo, Celtic straight melodeon diatonic, drone like fiddle, dadgad tuning fingerpicked dreadnought acoustic guitar. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 649,
-  "score": 230.09,
+  "recipe": "classic Northern European mid-1950s sea shanty, sea Shanty, atlantic branch, Celtic balladic English broadside, anglo singer song britfolk britfolk revival progressive folk. thick, breath veiled tone, fast rate, interlocked note trading. a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu choir ensemble, chromatic extended modern Irish carroll suttner premium revival steel reeds canonical anglo straight concertina anglo, Celtic straight melodeon diatonic, steel drone like fiddle, dadgad tuning sitka spruce spruce maple bronze dreadnought acoustic guitar. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 743,
+  "score": 269.552,
   "config": {
     "traditions": [
       "sea_shanty",
-      "english_broadside_revival",
-      "industrial_folk"
+      "britfolk_revival",
+      "progressive_folk"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -31,57 +31,57 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 6.615,
-          "voice_quality": 16.834999999999994,
+          "voice_register": 17.665000000000003,
+          "voice_quality": 16.639999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
-          "voice_articulation": 19.175000000000004,
-          "voice_microtone": 19.825,
-          "voice_tradition": 21.09,
-          "voice_mechanism_compound": 5.915,
-          "voice_estill_quality": 4.68,
-          "voice_speech_song": 23.92,
-          "voice_ensemble_config": 19.305,
-          "voice_ornament_system": 7.940000000000001,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 6.825,
-          "voice_multitrack_stack": 3.085000000000001
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 20.605,
+          "voice_microtone": 21.45,
+          "voice_tradition": 21.04,
+          "voice_mechanism_compound": 4.419999999999999,
+          "voice_estill_quality": 4.03,
+          "voice_speech_song": 26.000000000000004,
+          "voice_ensemble_config": 20.54,
+          "voice_ornament_system": 4.615000000000001,
+          "voice_pitch_organization": 3.08,
+          "voice_processing_chain": 5.654999999999999,
+          "voice_multitrack_stack": 3.8675000000000006
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_five_voice_polyphonic",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 3.575,
-          "choir_polyphonic_configuration": 0.845,
-          "choir_regional_canonical_configuration": 3.3150000000000004,
-          "choir_ensemble_repertoire": 5.09
+          "choir_size": 2.73,
+          "choir_polyphonic_configuration": 0.8700000000000001,
+          "choir_regional_canonical_configuration": 2.6650000000000005,
+          "choir_ensemble_repertoire": 3.6399999999999997
         }
       },
       {
         "id": "concertina_anglo",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "concertina_anglo_config": "concertina_anglo_30",
+          "concertina_anglo_config": "concertina_anglo_40",
           "concertina_anglo_context": "concertina_anglo_boer",
           "concertina_anglo_maker_school": "concertina_irish_made_modern",
           "concertina_anglo_reed": "concertina_anglo_steel_reeds"
         },
         "scores": {
-          "free_reed_technique": 7.015000000000001,
-          "concertina_anglo_config": 0.7200000000000001,
-          "concertina_anglo_context": 1.95,
-          "concertina_anglo_maker_school": 0.975,
-          "concertina_anglo_reed": 2.21
+          "free_reed_technique": 12.11,
+          "concertina_anglo_config": 2.145,
+          "concertina_anglo_context": 1.4949999999999999,
+          "concertina_anglo_maker_school": 2.9899999999999998,
+          "concertina_anglo_reed": 3.445
         }
       },
       {
@@ -92,9 +92,9 @@
           "melodeon_diatonic_context": "melodeon_diatonic_celtic"
         },
         "scores": {
-          "free_reed_technique": 7.015000000000001,
-          "melodeon_rows": 8.58,
-          "melodeon_diatonic_context": 2.8600000000000003
+          "free_reed_technique": 12.11,
+          "melodeon_rows": 7.085,
+          "melodeon_diatonic_context": 1.56
         }
       },
       {
@@ -103,16 +103,16 @@
           "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "practice_mute",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 7.0200000000000005,
-          "fiddle_strings": 0.38999999999999996,
-          "fiddle_bow": 0.345,
-          "fiddle_mute": 0.09,
-          "fiddle_articulation": 0.09,
+          "bowed_technique": 10.774999999999999,
+          "fiddle_strings": 1.4949999999999999,
+          "fiddle_bow": 1.4949999999999999,
+          "fiddle_mute": 0.045,
+          "fiddle_articulation": 0.39,
           "fiddle_string_configuration": 0
         }
       },
@@ -123,14 +123,14 @@
           "string_tuning": "dadgad",
           "top_wood": "sitka",
           "back_sides": "maple_bs",
-          "string_acoustic": "martin_lifespan"
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 16.804999999999996,
-          "string_tuning": 9.715,
-          "top_wood": 0.345,
-          "back_sides": 0.345,
-          "string_acoustic": 0.65
+          "acoustic_technique": 22.805,
+          "string_tuning": 10.465,
+          "top_wood": 1.4949999999999999,
+          "back_sides": 1.4949999999999999,
+          "string_acoustic": 1.4949999999999999
         }
       }
     ],

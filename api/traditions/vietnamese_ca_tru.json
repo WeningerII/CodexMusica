@@ -5,7 +5,7 @@
   "lineage": "Vietnamese ca trù chamber-vocal tradition of northern Vietnam. The form crystallized in the fifteenth century in Hanoi guild-house culture and developed through the late-imperial Lê and Nguyễn dynasties as the canonical literary-chamber form for the male literati class. Performance configuration: a female singer (ả đào) accompanies herself on the phách bamboo clapper (struck with a hardwood stick to mark cadence), with a male instrumentalist on đàn đáy (three-string long-necked fretted lute with unusually high frets enabling string-bending ornament) and a male patron-listener on the trống chầu praise-drum (struck to signal critical acclaim during performance — the patron is structurally part of the ensemble through this critical-response convention). The repertoire comprises forty-six canonical \"thể-types\" (poetic-meter categories) including hát nói (sung-recitation), múa bài bông (flower-offering dance accompaniment), hát giai (banquet song), and others — each thể with characteristic rhythmic-and-melodic conventions. Lyric base draws on classical Sino-Vietnamese poetic-meter forms. The mid-twentieth-century revolutionary-period cultural-policy suppressed ca trù as feudal, leading to near-extinction; the post-1990 revival under the guild-house Câu Lạc Bộ Ca Trù Hà Nội (Hanoi Ca Trù Club) and master-singer Quách Thị Hồ (1909-2001) restored continuity. Distinguished from southern Vietnamese hát ả đào by northern-dialect-specific cadential conventions; distinguished from chèo folk-opera by ca trù's solo-singer-with-chamber-trio (vs ensemble-theatrical) configuration; distinguished from quan họ by literary-chamber (vs village-festival-call-and-response) functional context.",
   "recipe": "classic Southeast Asian early-1900s vietnamese ca trù, art Music, southeast Asian branch, indian bard ballad poetry rajasthani manganiyar tradition bichar gan. thick, breath veiled tone, slow rate, interlocked note trading. three string long neck fretted canonical Vietnamese ca tru accompaniment high fret bending dan day, bamboo clapper struck hardwood stick canonical Vietnamese ca tru singer held cadence canonical Vietnamese phach, small praise drum patron struck canonical Vietnamese ca tru patron response canonical Vietnamese trong chau. wooden ca tru house. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 629,
-  "score": 363.007,
+  "score": 363.367,
   "config": {
     "traditions": [
       "vietnamese_ca_tru",
@@ -38,15 +38,15 @@
           "voice_quality": 32.24000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.81,
+          "voice_vibrato": 11.66,
           "voice_articulation": 24.31,
           "voice_microtone": 25.414999999999996,
           "voice_tradition": 21.125,
           "voice_mechanism_compound": 9.684999999999999,
-          "voice_estill_quality": 21.185,
+          "voice_estill_quality": 21.395,
           "voice_speech_song": 27.104999999999997,
           "voice_ensemble_config": 24.439999999999998,
-          "voice_ornament_system": 13.19,
+          "voice_ornament_system": 13.295,
           "voice_pitch_organization": 12.344999999999997,
           "voice_processing_chain": 8.384999999999998,
           "voice_multitrack_stack": 8.125
@@ -59,8 +59,8 @@
           "dan_day_tradition": "dan_day_ca_tru_canonical"
         },
         "scores": {
-          "dan_day_body": 15.95,
-          "dan_day_tradition": 15.774999999999999
+          "dan_day_body": 16.189999999999998,
+          "dan_day_tradition": 15.729999999999999
         }
       },
       {

@@ -1,31 +1,38 @@
 {
-  "id": "indian_violin",
-  "name": "Indian violin",
+  "id": "carnatic_instrumental",
+  "merged_from": "indian_violin",
+  "name": "Carnatic instrumental",
   "family": "classical",
-  "lineage": "Lalgudi Jayaraman with Palghat Raghu and Vinayakram — complete Parvathi Mysore concert (1973). Authored present-day rendition of the complete credited instrumental programme. Lalgudi violin lineage follows the actual featured violinist; Palghat mridangam lineage is positively supported by a first-person fellow musician’s account of Raghu studying with Mani Iyer. Microtonally inflected bowing, seated South Indian posture, tonic/fifth violin tuning and synthetic strings are explicit representative choices, not measured 1973 equipment. Mridangam jackwood/goat-buffalo construction and standard heads are authored. Ghatam Manamadurai denotes an authored clay-temper construction choice, not Vinayakram’s personal pedagogical lineage or identified historical pot; full-bowl strike is an authored default, not an assertion excluding other gestures. Controlled live room and neutral numeric axes are authored; global temperament and capture apparatus omitted. No new instrument owner or source-inferred lineage is introduced.",
-  "recipe": "classic early-1970s indian violin, art Music, south Asian branch. synthetic core modern lalgudi lineage carnatic violin carnatic, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, ghatam. live tracking.",
-  "recipe_chars": 265,
-  "score": 49.939,
+  "lineage": "South Indian classical instrumental tradition spanning veena (Saraswathi veena, the South Indian fretted long-neck lute), Carnatic violin (held in vertical Carnatic posture, codified by Baluswami Dikshitar in the early 19th century), bansuri flute (Carnatic flute is distinct from Hindustani in tuning), nadaswaram (temple double-reed), mandolin (U. Shrinivas adaptation), and even saxophone (Kadri Gopalnath South Indian classical saxophone), all interpreting the same 72-melakarta-and-kriti repertoire as the vocal tradition",
+  "recipe": "classic South Asian early-1950s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri tan singing. thanjavur canonical south indian veena, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning x brace modern mandolin thomastik mandolin, extended concert stage thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, yellow brass modern standard continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, concert forged steel morsing. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 975,
+  "score": 344.795,
   "config": {
     "traditions": [
-      "indian_violin"
+      "carnatic_instrumental",
+      "carnatic_kacheri",
+      "tan_singing"
     ],
     "instruments": [
       {
-        "id": "violin_carnatic",
+        "id": "veena",
         "slots": {
-          "bowed_technique": "bowed_microtonal_inflected",
-          "violin_carnatic_tuning": "violin_carnatic_carnatic",
-          "violin_carnatic_posture": "violin_carnatic_seated_south",
-          "violin_carnatic_strings": "violin_carnatic_synthetic",
-          "violin_carnatic_lineage": "violin_carnatic_lalgudi"
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "veena_construction": "ekanda",
+          "veena_resonator": "gourd_resonator",
+          "veena_pluck": "wire_plectrum_veena",
+          "veena_body_wood": "veena_jackwood_canonical",
+          "veena_strings": "veena_steel_bronze_modern",
+          "veena_lineage": "veena_thanjavur_canonical"
         },
         "scores": {
-          "bowed_technique": 0.6499999999999999,
-          "violin_carnatic_tuning": 19.759999999999994,
-          "violin_carnatic_posture": 1.008,
-          "violin_carnatic_strings": 1.69,
-          "violin_carnatic_lineage": 9.754499999999998
+          "plucked_traditional_technique": 18.34,
+          "veena_construction": 0.195,
+          "veena_resonator": 0.18,
+          "veena_pluck": 9.49,
+          "veena_body_wood": 0.4799999999999999,
+          "veena_strings": 0.65,
+          "veena_lineage": 16.185
         }
       },
       {
@@ -38,75 +45,230 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 2.08,
+          "mridangam_heads": 9.49,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 2.4699999999999998,
-          "mridangam_heads_material": 3.0725000000000002,
-          "mridangam_lineage": 9.4545
+          "mridangam_shell_wood": 5.755,
+          "mridangam_heads_material": 0.525,
+          "mridangam_lineage": 5.8
         }
       },
       {
         "id": "ghatam",
         "slots": {
-          "ghatam_school": "ghatam_manamadurai",
-          "ghatam_technique": "ghatam_full"
+          "ghatam_school": "ghatam_trichy",
+          "ghatam_technique": "ghatam_mouth"
         },
         "scores": {
-          "ghatam_school": 0,
-          "ghatam_technique": 0
+          "ghatam_school": 0.33,
+          "ghatam_technique": 0.045
+        }
+      },
+      {
+        "id": "kanjira",
+        "slots": {
+          "kanjira_skin": "kanjira_lizard",
+          "kanjira_context": "kanjira_carnatic",
+          "kanjira_shell_wood": "kanjira_jackwood_canonical",
+          "kanjira_jingle": "kanjira_brass_jingle"
+        },
+        "scores": {
+          "kanjira_skin": 0.195,
+          "kanjira_context": 11.18,
+          "kanjira_shell_wood": 8.175,
+          "kanjira_jingle": 0.43499999999999994
+        }
+      },
+      {
+        "id": "violin_carnatic",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "violin_carnatic_tuning": "violin_carnatic_carnatic",
+          "violin_carnatic_posture": "violin_carnatic_seated_south",
+          "violin_carnatic_strings": "violin_carnatic_gut_historical",
+          "violin_carnatic_lineage": "violin_carnatic_lalgudi"
+        },
+        "scores": {
+          "bowed_technique": 18.295,
+          "violin_carnatic_tuning": 27.95,
+          "violin_carnatic_posture": 4.81,
+          "violin_carnatic_strings": 13.519999999999998,
+          "violin_carnatic_lineage": 5.8
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "german_spruce_m",
+          "mandolin_back": "big_leaf_maple",
+          "mandolin_bracing": "mandolin_x_brace",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 1.625,
+          "mandolin_shape": 0.135,
+          "mandolin_top": 20.92,
+          "mandolin_back": 0.045,
+          "mandolin_bracing": 1.345,
+          "mandolin_strings": 1.25,
+          "mandolin_fingerboard": 7.539999999999999,
+          "mandolin_pickup": 11.764999999999999
+        }
+      },
+      {
+        "id": "thavil",
+        "slots": {
+          "thavil_context": "thavil_concert",
+          "thavil_technique": "thavil_all_stick",
+          "thavil_shell_wood": "thavil_jackwood",
+          "thavil_head": "thavil_buffalo_goat"
+        },
+        "scores": {
+          "thavil_context": 1.04,
+          "thavil_technique": 0.39,
+          "thavil_shell_wood": 0.78,
+          "thavil_head": 0.525
+        }
+      },
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "bansuri_length": "classical_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_kerala_bamboo",
+          "bansuri_lineage": "bansuri_hariprasad_maihar"
+        },
+        "scores": {
+          "wind_articulation": 18.2,
+          "bansuri_length": 1.2349999999999999,
+          "bansuri_ornament": 5.07,
+          "bansuri_body_material": 16.185,
+          "bansuri_lineage": 3.12
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_split_tone_overblown",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 18.2,
+          "sax_size": 0.12999999999999998,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 18.29,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.045
+        }
+      },
+      {
+        "id": "nadaswaram",
+        "slots": {
+          "nadaswaram_register": "nadaswaram_standard",
+          "nadaswaram_ensemble": "nadaswaram_periya_melam",
+          "nadaswaram_body_wood": "nadaswaram_aacha_canonical",
+          "nadaswaram_reed": "nadaswaram_arundo_palm_canonical",
+          "nadaswaram_lineage": "nadaswaram_thiruvavaduthurai"
+        },
+        "scores": {
+          "nadaswaram_register": 4.9799999999999995,
+          "nadaswaram_ensemble": 2.2800000000000002,
+          "nadaswaram_body_wood": 0.78,
+          "nadaswaram_reed": 0.78,
+          "nadaswaram_lineage": 2.08
+        }
+      },
+      {
+        "id": "morsing",
+        "slots": {
+          "morsing_form": "morsing_carnatic",
+          "morsing_technique": "morsing_thani_solo",
+          "morsing_material": "morsing_steel"
+        },
+        "scores": {
+          "morsing_form": 23.229999999999997,
+          "morsing_technique": 12.525,
+          "morsing_material": 12.375
         }
       }
     ],
-    "pinned": {
-      "violin_carnatic": [
-        "bowed_technique",
-        "violin_carnatic_tuning",
-        "violin_carnatic_posture",
-        "violin_carnatic_strings",
-        "violin_carnatic_lineage"
-      ],
-      "mridangam": [
-        "mridangam_heads",
-        "mridangam_use",
-        "mridangam_shell_wood",
-        "mridangam_heads_material",
-        "mridangam_lineage"
-      ],
-      "ghatam": [
-        "ghatam_school",
-        "ghatam_technique"
-      ]
-    },
-    "room": "live_room",
+    "room": "chennai_madras_music_academy_sabha",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": null
+      "medium": "tape_15ips"
     },
+    "tuning": "carnatic_72_melakarta_kriti_form",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "room": "chennai_madras_music_academy_sabha",
     "parts": {
-      "bowed_technique": "bowed_microtonal_inflected",
-      "violin_carnatic_tuning": "violin_carnatic_carnatic",
-      "violin_carnatic_posture": "violin_carnatic_seated_south",
-      "violin_carnatic_strings": "violin_carnatic_synthetic",
-      "violin_carnatic_lineage": "violin_carnatic_lalgudi",
+      "wind_articulation": "wind_bebop_runs",
+      "sax_size": "tenor_sax",
+      "sax_technique": "sax_bebop_runs",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "mandolin_shape": "a_style",
+      "mandolin_bracing": "mandolin_x_brace",
       "mridangam_heads": "mridangam_standard",
       "mridangam_use": "mridangam_carnatic",
       "mridangam_shell_wood": "mridangam_jackwood_canonical",
       "mridangam_heads_material": "mridangam_goat_buffalo",
       "mridangam_lineage": "mridangam_palghat",
+      "bowed_technique": "bowed_microtonal_inflected",
+      "violin_carnatic_tuning": "violin_carnatic_carnatic",
+      "violin_carnatic_posture": "violin_carnatic_seated_south",
+      "violin_carnatic_strings": "violin_carnatic_synthetic",
+      "violin_carnatic_lineage": "violin_carnatic_lalgudi",
+      "bansuri_length": "classical_bansuri",
+      "bansuri_ornament": "gamak_bansuri",
+      "bansuri_body_material": "bansuri_kerala_bamboo",
+      "bansuri_lineage": "bansuri_pannalal_ghosh",
       "ghatam_school": "ghatam_manamadurai",
-      "ghatam_technique": "ghatam_full"
+      "ghatam_technique": "ghatam_full",
+      "kanjira_skin": "kanjira_goat",
+      "kanjira_context": "kanjira_carnatic",
+      "kanjira_shell_wood": "kanjira_jackwood_canonical",
+      "kanjira_jingle": "kanjira_brass_jingle",
+      "thavil_context": "thavil_concert",
+      "thavil_technique": "thavil_stick_finger",
+      "thavil_shell_wood": "thavil_jackwood",
+      "thavil_head": "thavil_buffalo_goat",
+      "veena_construction": "ekanda",
+      "veena_resonator": "gourd_resonator",
+      "veena_pluck": "wire_plectrum_veena",
+      "veena_body_wood": "veena_jackwood_canonical",
+      "veena_strings": "veena_steel_bronze_modern",
+      "veena_lineage": "veena_thanjavur_canonical",
+      "nadaswaram_register": "nadaswaram_standard",
+      "nadaswaram_ensemble": "nadaswaram_periya_melam",
+      "nadaswaram_body_wood": "nadaswaram_aacha_canonical",
+      "nadaswaram_reed": "nadaswaram_arundo_palm_canonical",
+      "nadaswaram_lineage": "nadaswaram_thiruvavaduthurai"
     },
-    "pin_parts": true
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

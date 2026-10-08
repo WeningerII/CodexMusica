@@ -3,9 +3,9 @@
   "name": "Cueca boliviana (and bailecito de tierra)",
   "family": "global",
   "lineage": "The Bolivian form of the cueca, the handkerchief couple-dance in 6/8 shared with Chile and Argentina, cultivated in regional styles such as the chuquisaqueña of Sucre, the potosina, the paceña and the tarijeña, together with the related bailecito de tierra. It was written for piano by the Sucre composer Simeón Roncal and recorded by estudiantinas of mandolins, guitars and charangos and by guitar-and-voice duos.",
-  "recipe": "classic South American mid-1940s cueca boliviana, ballad Poetry, Latin am troubadour branch. parallel thirds two voice. classical nylon-string guitar, cedar andean charango, mandolin, hand clap. live tracking. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 277,
-  "score": 8.938,
+  "recipe": "classic South American mid-1940s cueca boliviana, ballad Poetry, Latin am troubadour branch. parallel thirds two voice, unprocessed natural acoustic. classical nylon-string guitar, charango, mandolin, hand clap. live tracking. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 294,
+  "score": 7.999,
   "config": {
     "traditions": [
       "cueca_boliviana"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 2.2749999999999995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.441,
+          "voice_processing_chain": 0.714,
           "voice_multitrack_stack": 0.0705,
           "voice_tessitura": 0
         }
@@ -68,7 +68,7 @@
           "top_wood_classical": 0.168,
           "bracing_classical": 0.39,
           "string_classical": 0,
-          "attack_technique_cl": -0.035
+          "attack_technique_cl": -0.05
         }
       },
       {
@@ -83,8 +83,8 @@
         "scores": {
           "plucked_traditional_technique": 2.015,
           "charango_back": 0.273,
-          "charango_top_wood": 1.428,
-          "charango_strings": 0.819,
+          "charango_top_wood": 0.7455,
+          "charango_strings": 0.30450000000000005,
           "charango_string_material": 0
         }
       },
@@ -102,13 +102,13 @@
         },
         "scores": {
           "acoustic_technique": 0.26,
-          "mandolin_shape": 0.508,
+          "mandolin_shape": 0.3715,
           "mandolin_top": -0.035,
           "mandolin_back": -0.035,
-          "mandolin_bracing": -1.185,
+          "mandolin_bracing": -1.29,
           "mandolin_strings": 0,
-          "mandolin_fingerboard": 0.1365,
-          "mandolin_pickup": 0.441
+          "mandolin_fingerboard": 0.105,
+          "mandolin_pickup": 0.714
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "American grindcore connects extreme-metal technique with compressed song forms and underground punk intensity. Virginia’s Pig Destroyer illustrate its changing ensemble practices, from an early guitar-and-drums core to expanded bass and noise arrangements.",
   "recipe": "classic modern american grindcore, distorted Rock, metal branch, punk distorted rock alternative hardcore norwegian hardcore. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 617,
-  "score": 82.135,
+  "score": 81.355,
   "config": {
     "traditions": [
       "american_grindcore",
@@ -33,13 +33,13 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 20.605,
-          "body_wood": 0.585,
+          "body_wood": 0.39,
           "neck_wood": 0.09,
           "fretboard": 0.39,
           "pickup_magnet": 0,
           "pickup_winding": 1.195,
           "string_material": 0.09,
-          "bridge": 0.585,
+          "bridge": 0.39,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "amp_make": 6.825,
-          "body_wood": 0.585,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0.28500000000000003,
           "scale_length_b": 0,
@@ -86,7 +86,7 @@
         },
         "scores": {
           "drum_technique": 0.78,
-          "drumhead": 0.585,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 2.4699999999999998,
           "shell_wood": 0.135,
           "shell_thickness": 0,

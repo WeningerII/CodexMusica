@@ -3,9 +3,9 @@
   "name": "Austin hip hop",
   "family": "hip_hop",
   "lineage": "Austin’s hip-hop community includes producer-led rap and live-band approaches rooted in the city’s music scene. Magna Carda exemplifies the combination of MC delivery with an instrumental ensemble.",
-  "recipe": "classic austin hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. live tracking.",
-  "recipe_chars": 180,
-  "score": 46.68,
+  "recipe": "classic austin hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine. live tracking.",
+  "recipe_chars": 218,
+  "score": 46.775,
   "config": {
     "traditions": [
       "austin_hip_hop"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 3.38,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5355000000000001,
           "voice_tessitura": 0
         }
       },
@@ -61,8 +61,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.6499999999999995,
-          "sample_bitdepth": 0.1365,
+          "electronic_technique": 5.6815,
+          "sample_bitdepth": 0.0315,
           "sample_swing": 9.879999999999999,
           "sample_processing": 0
         }

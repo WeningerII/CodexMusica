@@ -5,7 +5,7 @@
   "lineage": "Kriol dance music of Belize, which grew from the music of the nineteenth-century logging camps and is played at house parties and Christmas festivities with accordion, banjo, guitar, drum and a donkey jawbone scraped with a stick, under teasing topical songs in Kriol. Its best-known exponent, the accordionist Wilfred Peters, led Mr. Peters' Boom and Chime, recorded by Stonetree Records.",
   "recipe": "classic modern brukdown, groove Percussion, Caribbean branch. solo with instrumental accompaniment. accordion, credited banjo unspecified, parlor acoustic guitar, membrane drum pulse resonant acoustic membrane drum, jawbone rattle quijada. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 319,
-  "score": 9.799,
+  "score": 9.6,
   "config": {
     "traditions": [
       "brukdown_belize"
@@ -65,8 +65,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 1.6360000000000001,
-          "acoustic_membrane_drum_gesture": 1.6360000000000001
+          "acoustic_membrane_drum_form": 1.6045,
+          "acoustic_membrane_drum_gesture": 1.6045
         }
       },
       {
@@ -78,7 +78,7 @@
         },
         "scores": {
           "quijada_form": 1.405,
-          "quijada_context": 0.5775,
+          "quijada_context": 0.441,
           "quijada_preparation": 0
         }
       },

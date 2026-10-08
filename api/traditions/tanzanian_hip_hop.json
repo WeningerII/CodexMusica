@@ -5,7 +5,7 @@
   "lineage": "Tanzanian hip-hop connects local-language MC practice with produced beats; artists such as X Plastaz also bring regional vocal traditions into the field.",
   "recipe": "classic modern tanzanian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 313,
-  "score": 37.931,
+  "score": 38.042,
   "config": {
     "traditions": [
       "tanzanian_hip_hop"
@@ -56,13 +56,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 9.1,
-          "sample_processing": 0.105
+          "sample_processing": 0.108
         }
       }
     ],

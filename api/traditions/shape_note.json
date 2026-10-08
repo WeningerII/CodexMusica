@@ -1,18 +1,73 @@
 {
-  "id": "shape_note",
-  "name": "Shape-note singing (fasola tradition)",
-  "family": "vernacular",
-  "lineage": "American singing-school practice begun with Little and Smith's The Easy Instructor (1801), which assigned four notated head-shapes to fa-sol-la-mi so rural congregations could sight-read; carried south and west through The Southern Harmony (1835), The Sacred Harp (1844) and the seven-shape Christian Harmony and Stamps-Baxter books, sung a cappella in a hollow square at loud open-throated chest voice, one loud beat-marking arm stroke per singer, dispersed harmony with open fifths and octaves, fuging-tune imitative entries, and the syllables sung through once before the words.",
-  "recipe": "classic early-1800s shape-note singing, ritual Devotional, sacred harp branch, christian gospel southern gospel, American sacred ritual devotional southern gospel quartet bluegrass gospel. thick, declaimed, straight note core, multi note runs per syllable. shape note voice, choir sacred harp. country church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 372,
-  "score": 278.753,
+  "id": "sacred_harp_singing",
+  "merged_from": "shape_note",
+  "name": "Sacred Harp singing",
+  "family": "global",
+  "lineage": "Southern-US shape-note congregational hymn-singing tradition preserved through the Sacred Harp tunebook (compiled by B.F. White and E.J. King 1844, revised through successive editions, the 1991 revision still in current use) — the tradition uses 4-shape and 7-shape notation (shapes assigned to scale degrees as a pedagogical mnemonic, facilitating singing without keyboard training), with the singing-square arrangement of four sections (treble / alto / tenor / bass) seated facing inward and led by a rotating song-leader who beats time with the hand",
+  "recipe": "classic Southern American mid-1840s sacred harp singing, ritual Devotional, sacred harp branch, Celtic balladic ballad poetry newfoundland traditional song and dance music welsh hymn-balladry. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional aka four part motangole ngue osese diyei sacred liturgical global choir ensemble, shape note voice, choir brother duet, pump organ harmonium, choir sacred harp. southern white church gospel quartet. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 607,
+  "score": 199.761,
   "config": {
     "traditions": [
-      "shape_note",
-      "southern_gospel_quartet",
-      "bluegrass_gospel"
+      "sacred_harp_singing",
+      "newfoundland_folk",
+      "welsh_hymn_balladry"
     ],
     "instruments": [
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_aka_four_part",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 6.167678571428571,
+          "choir_polyphonic_configuration": 3.7700000000000005,
+          "choir_regional_canonical_configuration": 3.7050000000000005,
+          "choir_ensemble_repertoire": 7.15
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 6.600000000000001,
+          "voice_quality": 13.064999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.6050000000000004,
+          "voice_articulation": 16.575000000000003,
+          "voice_microtone": 14.690000000000001,
+          "voice_tradition": 18.33,
+          "voice_mechanism_compound": 4.029999999999999,
+          "voice_estill_quality": 6.6625,
+          "voice_speech_song": 15.990000000000002,
+          "voice_ensemble_config": 20.767500000000002,
+          "voice_ornament_system": 15.145,
+          "voice_pitch_organization": 2.785000000000001,
+          "voice_processing_chain": 8.059999999999999,
+          "voice_multitrack_stack": 4.68
+        }
+      },
       {
         "id": "shape_note_voice",
         "slots": {
@@ -20,83 +75,92 @@
           "shape_note_voice_context": "shape_note_voice_revival"
         },
         "scores": {
-          "shape_note_part": 3.3,
-          "shape_note_voice_context": 0.845
+          "shape_note_part": 0.3,
+          "shape_note_voice_context": 1.235
+        }
+      },
+      {
+        "id": "choir_brother_duet",
+        "slots": {
+          "arrangement": "unison_to_split",
+          "tradition": "duet_gospel"
+        },
+        "scores": {
+          "arrangement": 1.04,
+          "tradition": 0.915
+        }
+      },
+      {
+        "id": "pump_organ_harmonium",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pump_organ_construction": "pump_organ_late_19th_revival",
+          "pump_organ_stops": "pump_organ_diapason_stop"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "pump_organ_construction": 16.965000000000003,
+          "pump_organ_stops": 8.72375
         }
       },
       {
         "id": "choir_sacred_harp",
         "slots": {
-          "parts": "sh_bass",
+          "parts": "sh_treble",
           "arrangement": "hollow_square"
         },
         "scores": {
-          "parts": 3.3,
-          "arrangement": 0.54
-        }
-      },
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "gospel_pentecostal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
-        },
-        "scores": {
-          "voice_register": 28.864999999999995,
-          "voice_quality": 40.315000000000005,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 4.7124999999999995,
-          "voice_articulation": 33.755,
-          "voice_microtone": 15.144999999999992,
-          "voice_tradition": 32.769999999999996,
-          "voice_mechanism_compound": 4.404999999999999,
-          "voice_estill_quality": 29.634999999999994,
-          "voice_speech_song": 21.124999999999996,
-          "voice_ensemble_config": 28.669999999999998,
-          "voice_ornament_system": 11.775,
-          "voice_pitch_organization": 4.525000000000001,
-          "voice_processing_chain": 7.41,
-          "voice_multitrack_stack": 11.309999999999997
+          "parts": 1.04,
+          "arrangement": 3.3149999999999995
         }
       }
     ],
-    "room": "wooden_country_church",
-    "archetype": "arch_ethnographic_field_digital",
+    "room": "southern_white_church_gospel_quartet",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
-      "mic": "ribbon_passive",
+      "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
       "console": "clean",
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
+    "tuning": "just_intonation",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "wooden_country_church",
-    "chain_mic": "ribbon_passive",
+    "tuning": "just_intonation",
+    "room": "southern_white_church_gospel_quartet",
+    "parts": {
+      "voice_register": "head_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_tradition": "baroque_ornamental_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_bel_canto",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "shape_note_part": "shape_tenor_lead",
+      "shape_note_voice_context": "shape_note_voice_sacred_harp",
+      "choir_size": "chamber_choir",
+      "choir_ensemble_repertoire": "choir_ensemble_renaissance",
+      "pump_organ_construction": "pump_organ_19th_parlor",
+      "pump_organ_stops": "pump_organ_diapason_stop",
+      "arrangement": "unison_to_split",
+      "tradition": "duet_gospel",
+      "parts": "sh_tenor_lead"
+    },
+    "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_std",
+    "chain_medium": "digital_high",
     "chain_console": "clean"
   }
 }

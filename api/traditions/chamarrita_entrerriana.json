@@ -5,7 +5,7 @@
   "lineage": "Song-dance of the Argentine litoral centred on Entre Ríos, descended from the chamarrita of Azorean settlers in southern Brazil, which passed through Uruguay into the province. It is played on accordion with guitar and sung verses. The Entre Ríos singer-songwriter Linares Cardozo collected, studied and wrote chamarritas and promoted them as the province's own rhythm, distinct from the chamamé of Corrientes.",
   "recipe": "classic modern chamarrita, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment, unprocessed natural acoustic. accordion, classical nylon-string guitar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 259,
-  "score": 3.353,
+  "score": 3.808,
   "config": {
     "traditions": [
       "chamarrita_entrerriana"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.5775,
+          "voice_processing_chain": 0.714,
           "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
@@ -65,11 +65,11 @@
         },
         "scores": {
           "free_reed_technique": -0.07,
-          "accordion_reed_material": 0,
+          "accordion_reed_material": 0.1365,
           "musette_offset": 0,
           "reed_config": 0.105,
-          "bellows": 0.1365,
-          "voicing_chamber": 0.7,
+          "bellows": 0,
+          "voicing_chamber": 0.8365,
           "accordion_maker_school": 0
         }
       },
@@ -84,12 +84,12 @@
           "attack_technique_cl": "rasgueado_cl"
         },
         "scores": {
-          "acoustic_technique": 0.2,
+          "acoustic_technique": 0.26,
           "string_tuning": 0,
-          "top_wood_classical": 0.168,
+          "top_wood_classical": 0.3045,
           "bracing_classical": 0.39,
           "string_classical": 0,
-          "attack_technique_cl": -0.035
+          "attack_technique_cl": -0.05
         }
       }
     ],

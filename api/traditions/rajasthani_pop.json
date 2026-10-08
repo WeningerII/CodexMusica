@@ -5,7 +5,7 @@
   "lineage": "Mame Khan — complete Alive India Episode 1, We Are India/Rajasthani studio programme. Issuer credits one singer, Sawai Khan Janra on dholak, Sadam Khan Langa on sarangi, Jovith Tellis on guitars, Puneeth Padeel on bass guitar, Reuben Machado on flute, and Biplab Bhattacharya on tabla, khanjira and leather percussion. All nine instrumental/vocal families retained; three percussion roles belong to one credited musician, not three invented people or a simultaneous-playing claim. Music production and engineering credits do not establish additional performed synthesizer, sampler or vocals. No video listening, programme duration or unprovided session date asserted. Authored representative folk-pop arrangement with functional chordal song framing, not a transcription of measured harmony. One singer with neutral source-unspecified physiology and ornament/pitch school; acoustic mahogany dreadnought flatpicking and a long-scale alder dual-single-coil fingerstyle electric bass are editorial realizations of generic guitar/bass credits, not actual gear claims. Sarangi uses an authored tun/gut/goatskin/35-sympathetic-string setup with local song bowing; dholak uses an authored mango/sheesham-category wooden shell, goatskin heads and rope tension; tabla uses shisham/brass/fresh syahi; khanjira uses modern goatskin/jackwood/brass-jingle ensemble configuration. These construction choices are not measurements of the session. Flute subtype remains unknown. Separate leather-percussion credit preserves known material without guessing instrument form, species, count or technique. Contemporary live-room spatial rendition authored; original microphones, signal chain and global tuning unknown and omitted.",
   "recipe": "classic rajasthani pop, functional Song, south Asian pop branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. sheesham mango goat skin syahi rope laced steel ring dholak, gut 3 main playing strings tun cedar bowed song accompaniment sarangi, mahogany phosphor bronze modern martin dreadnought acoustic guitar, alder fingerstyle locked electric bass, flute like credited flute credited leather percussion unspecified, low fundamental tuning projecting brass tabla, jackwood frame canonical carnatic brass jingle pair kanjira. live tracking.",
   "recipe_chars": 600,
-  "score": 70.044,
+  "score": 69.63,
   "config": {
     "traditions": [
       "rajasthani_pop"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 6.722499999999999,
+          "voice_ensemble_config": 6.759999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.6,
@@ -61,7 +61,7 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.5145,
+          "dholak_use": 0.378,
           "dholak_construction": 4.0495,
           "dholak_head": 1.69,
           "dholak_tensioning": 1.69
@@ -79,10 +79,10 @@
         },
         "scores": {
           "bowed_technique": 5.719999999999999,
-          "sarangi_belly": 6.008499999999999,
+          "sarangi_belly": 5.8405,
           "sarangi_taraf": 0.3,
           "sarangi_bow": 1.51,
-          "sarangi_main_strings": 5.005000000000001,
+          "sarangi_main_strings": 4.963000000000001,
           "sarangi_body_wood": 1.69
         }
       },
@@ -132,7 +132,7 @@
           "credited_flute_identity": "credited_flute_source_unspecified"
         },
         "scores": {
-          "credited_flute_identity": 2.7364999999999995
+          "credited_flute_identity": 2.8729999999999998
         }
       },
       {
@@ -160,7 +160,7 @@
           "kanjira_skin": 4.036499999999999,
           "kanjira_context": 4.577999999999999,
           "kanjira_shell_wood": 1.69,
-          "kanjira_jingle": 4.855499999999999
+          "kanjira_jingle": 4.614
         }
       },
       {

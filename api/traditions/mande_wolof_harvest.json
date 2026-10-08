@@ -3,20 +3,20 @@
   "name": "Mande-Wolof West-African harvest-and-field song",
   "family": "global",
   "lineage": "Mande-and-Wolof West-African harvest-and-field song tradition continuous from premodern Mande-and-Wolof agricultural village-labor practice through colonial-period continuous performance into modern West-African-and-West-African-diaspora practice across Mali, Senegal, Guinea, Gambia, Burkina Faso; foundational repertoire integrates rice-planting and millet-harvesting and rice-pounding songs accompanying specific agricultural-tasks",
-  "recipe": "classic East African modern mande-wolof west-african harvest-and-field song, field Work, sub saharan African branch, American south field work, sub saharan African praise song, African diasporic wedding shona mbira praise music musique peule. thick, declaimed, straight note core, interlocked note trading. calabash nylon fishing line cowhide mande traditional kora, balafon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 474,
-  "score": 269.825,
+  "recipe": "classic East African modern mande-wolof west-african harvest-and-field song, field Work, sub saharan African branch, American south field work, sub saharan African praise song, African diasporic wedding musique peule yoruba oríkì. extended whistle, declaimed, straight note core, interlocked note trading. calabash nylon fishing line cowhide mande traditional kora, balafon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 473,
+  "score": 294.425,
   "config": {
     "traditions": [
       "mande_wolof_harvest",
-      "shona_mbira_praise",
-      "musique_peule"
+      "musique_peule",
+      "yoruba_oriki"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.9900000000000002,
-          "voice_quality": 16.164999999999992,
+          "voice_register": 1.5599999999999996,
+          "voice_quality": 17.669999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.810000000000001,
-          "voice_articulation": 19.759999999999998,
-          "voice_microtone": 21.059999999999995,
-          "voice_tradition": 60.092499999999994,
-          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_vibrato": 3.8850000000000002,
+          "voice_articulation": 20.994999999999997,
+          "voice_microtone": 21.449999999999996,
+          "voice_tradition": 70.31500000000001,
+          "voice_mechanism_compound": 1.625,
           "voice_estill_quality": 1.6899999999999995,
-          "voice_speech_song": 27.235,
-          "voice_ensemble_config": 20.669999999999998,
-          "voice_ornament_system": 21.092499999999998,
-          "voice_pitch_organization": 5.069999999999999,
+          "voice_speech_song": 29.705000000000002,
+          "voice_ensemble_config": 21.514999999999997,
+          "voice_ornament_system": 25.839999999999996,
+          "voice_pitch_organization": 10.009999999999998,
           "voice_processing_chain": 3.51,
-          "voice_multitrack_stack": 3.4450000000000003
+          "voice_multitrack_stack": 3.2500000000000004
         }
       },
       {
@@ -64,13 +64,13 @@
           "kora_lineage": "kora_suso_lineage"
         },
         "scores": {
-          "plucked_traditional_technique": 30.614999999999995,
-          "kora_strings": 0.315,
+          "plucked_traditional_technique": 32.1,
+          "kora_strings": 0.45499999999999996,
           "kora_resonator": 3.185,
-          "kora_strings_mat": 3.185,
-          "kora_top_skin": 5.839999999999999,
-          "kora_neck_wood": 4.799999999999999,
-          "kora_lineage": 4.225
+          "kora_strings_mat": 3.38,
+          "kora_top_skin": 5.734999999999999,
+          "kora_neck_wood": 4.889999999999999,
+          "kora_lineage": 4.075
         }
       },
       {
@@ -80,8 +80,8 @@
           "balafon_resonator": "balafon_gourd"
         },
         "scores": {
-          "balafon_tuning": 6.099999999999999,
-          "balafon_resonator": 0.5
+          "balafon_tuning": 6.2349999999999985,
+          "balafon_resonator": 0.65
         }
       }
     ],

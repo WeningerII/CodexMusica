@@ -5,7 +5,7 @@
   "lineage": "The chanted running and marching call of the United States armed forces, conventionally traced to Private Willie Duckworth at Fort Slocum in 1944 whose Sound Off became the model, thereafter standardised across Army, Marine Corps and Navy basic training; a drill instructor calls a two- or four-bar line on a narrow two- or three-note contour and the formation answers in unison on the left-foot strike, locked to a 4/4 march at roughly 110-120 steps per minute or a faster double-time run cadence, with boot-fall and hand-clap as the only percussion.",
   "recipe": "classic mid-1940s military cadence, groove Percussion, American marching branch, blues narrative work song, stage performance spoken word music hall kupletti and rillumarei. kargyraa, breath veiled tone, straight note core, interlocked note trading. unison heavy boots marching gang, bare foot wood stage foot stomp, snappy to palm hand clap, double bass rapid double strokes bass drum. open air. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 459,
-  "score": 127.74,
+  "score": 127.545,
   "config": {
     "traditions": [
       "military_cadence",
@@ -38,7 +38,7 @@
           "voice_quality": 15.274999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.46,
+          "voice_vibrato": 3.265,
           "voice_articulation": 17.419999999999998,
           "voice_microtone": 15.924999999999995,
           "voice_tradition": 8.905000000000001,

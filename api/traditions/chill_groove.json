@@ -5,7 +5,7 @@
   "lineage": "Chill groove brings melodic smooth jazz into contact with lounge, soul and relaxed listening music. Ensembles such as Threestyle move between these overlapping traditions in recordings and live performance.",
   "recipe": "classic chill groove, improv On Frame, smooth vocal branch. tenor selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, pocket fingerstyle locked electric bass, carved top solid spruce Gibson canon thomastik flatwound archtop. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 347,
-  "score": 65.293,
+  "score": 65.124,
   "config": {
     "traditions": [
       "chill_groove"
@@ -68,11 +68,11 @@
         },
         "scores": {
           "amp_make": 0,
-          "archtop_body": 9.2225,
+          "archtop_body": 9.191,
           "archtop_pickup": 0.4725,
           "archtop_top_wood": 8.855,
           "archtop_strings": 11.375,
-          "archtop_technique": 9.491000000000001,
+          "archtop_technique": 9.354500000000002,
           "archtop_string_tuning": 0
         }
       }

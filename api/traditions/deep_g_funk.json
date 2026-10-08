@@ -1,194 +1,179 @@
 {
-  "id": "deep_g_funk",
-  "name": "Deep g funk",
-  "family": "global",
-  "lineage": "Deep G-funk centres on the smooth, funk-derived side of West Coast hip-hop and its international continuation. Producers, rappers and independent labels sustain a repertoire of relaxed grooves, melodic hooks and talkbox colour rooted in the wider G-funk tradition.",
-  "recipe": "classic deep g funk, mc Rhythm, west coast branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. talkbox, sampled chopped turntable, sampled chopped sampler, sampled chopped sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 317,
-  "score": 49.337,
+  "id": "g_funk",
+  "merged_from": "deep_g_funk",
+  "name": "G-funk",
+  "family": "hip_hop",
+  "lineage": "Early-1990s Los Angeles gangsta-funk hip-hop subgenre codified by Dr. Dre on The Chronic (1992) and Snoop Doggy Doggs Doggystyle (1993), built on Parliament-Funkadelic samples, talkbox lead, high-pitched synth lead lines, and slow-tempo (90-100 BPM) syncopated drum machine programming",
+  "recipe": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion cuban funk. thick, breath veiled tone, straight onset, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, talkbox. west la 1968-present major-flagship the village recorder west la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 557,
+  "score": 185.855,
   "config": {
     "traditions": [
-      "deep_g_funk"
+      "g_funk",
+      "cuban_funk",
+      "funk"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
+          "voice_register": 5.315,
+          "voice_quality": 8.19,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 8.125,
-          "voice_ensemble_config": 0.945,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.33599999999999997,
-          "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "talkbox",
-        "slots": {
-          "talkbox_use": "talkbox_funk",
-          "talkbox_construction": "talkbox_tube"
-        },
-        "scores": {
-          "talkbox_use": 0,
-          "talkbox_construction": 0.1995
-        }
-      },
-      {
-        "id": "turntable",
-        "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_scratch"
-        },
-        "scores": {
-          "electronic_technique": 4.0945,
-          "turntable_technique": 4.1365
-        }
-      },
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_hiphop"
-        },
-        "scores": {
-          "electronic_technique": 4.0945,
-          "sampler_archetypes": 6.5,
-          "sampler_bit_depth": 0.231,
-          "sampler_workflow": 0.2,
-          "sampler_classic_context": 9.555
+          "voice_vibrato": 3.289999999999999,
+          "voice_articulation": 12.674999999999994,
+          "voice_microtone": 11.89499999999999,
+          "voice_tradition": 12.415000000000001,
+          "voice_mechanism_compound": 1.4299999999999997,
+          "voice_estill_quality": 2.3500000000000005,
+          "voice_speech_song": 12.934999999999995,
+          "voice_ensemble_config": 13.714999999999991,
+          "voice_ornament_system": 2.3400000000000003,
+          "voice_pitch_organization": 1.595,
+          "voice_processing_chain": 19.329999999999995,
+          "voice_multitrack_stack": 5.07
         }
       },
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
+          "sample_bitdepth": "twelve_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 4.0945,
-          "sample_bitdepth": 0.231,
-          "sample_swing": 6.5,
-          "sample_processing": 0.0945
+          "electronic_technique": 5.095,
+          "sample_bitdepth": 0.585,
+          "sample_swing": 7.4449999999999985,
+          "sample_processing": 0.39
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 7.8549999999999995,
+          "oscillator": 4.38,
+          "filter_topology": 1.4300000000000002,
+          "envelope": 3.445,
+          "modulation": 0.045
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "thomastik_jazz_bass_flat",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 3.7050000000000005,
+          "body_wood": 0.9300000000000002,
+          "pickup_config": 0.195,
+          "string_type": 4.615,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 3.055,
+          "bass_technique": 22.145,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "talkbox",
+        "slots": {
+          "talkbox_use": "talkbox_rock",
+          "talkbox_construction": "talkbox_tube"
+        },
+        "scores": {
+          "talkbox_use": 0.4875,
+          "talkbox_construction": 0.39
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "talkbox": [
-        "talkbox_use"
-      ],
-      "turntable": [
-        "turntable_technique"
-      ],
-      "sampler_classic": [
-        "sampler_workflow",
-        "sampler_classic_context"
-      ],
-      "sampler_drum_machine": [
-        "sample_processing"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "the_village_recorder_west_la",
+    "archetype": "arch_80s_indie_commercial_us",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
-      "amp": null,
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
-    "aesthetic": null,
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": "westcoast_funk_aesthetic",
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "the_village_recorder_west_la",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "la_bella_flats_motown",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_motown",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "gospel_pentecostal_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_belt",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "electronic_technique": "electronic_pad_drone",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "chopped_break",
       "talkbox_use": "talkbox_funk",
-      "turntable_technique": "turntable_scratch",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_hiphop",
-      "sample_processing": "one_shots_layered"
+      "talkbox_construction": "talkbox_tube"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_console": "console_british_inline_80s",
+    "chain_amp": "amp_american_blackface",
+    "chain_amp_guitar": "amp_american_fender_blackface",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

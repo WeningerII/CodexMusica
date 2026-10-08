@@ -5,7 +5,7 @@
   "lineage": "World devotional brings sacred song and chant from different religious and cultural traditions into a transnational listening field. Yogananda-inspired chanting is one strand alongside other devotional repertoires.",
   "recipe": "classic world devotional, ritual Devotional. metrical pitched chant fixed rhythm, solo with instrumental accompaniment, single lead single track no stacking. hand pumped harmonium, small manjira, tabla. live tracking.",
   "recipe_chars": 217,
-  "score": 21.261,
+  "score": 21.36,
   "config": {
     "traditions": [
       "world_devotional"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.7769999999999999,
+          "voice_processing_chain": 0.23099999999999998,
+          "voice_multitrack_stack": 0.8084999999999999,
           "voice_tessitura": 0
         }
       },
@@ -64,7 +64,7 @@
           "harmonium_action": 0.39,
           "harmonium_voicing": 0.126,
           "harmonium_use": 5.85,
-          "free_reed_technique": 0.39
+          "free_reed_technique": 0.363
         }
       },
       {

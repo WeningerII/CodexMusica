@@ -5,7 +5,7 @@
   "lineage": "Jamaican ska (1959-1965, fast-tempo guitar-upbeat horn-section-foregrounded dance music) and its slower-tempo derivation rocksteady (1965-1968) — codified at Studio One, Treasure Isle, and Federal through the Skatalites (Tommy McCook, Don Drummond, Roland Alphonso, Lloyd Knibb, the ska house band), Prince Buster, Toots and the Maytals, the Wailers (early-period), Alton Ellis (Get Ready Rocksteady), Ken Boothe, the Heptones; preceded reggae and remains foundational to the broader Jamaican popular music lineage",
   "recipe": "classic Caribbean mid-1960s ska and rocksteady, bass System, Jamaican branch, Caribbean groove percussion calypso brukdown. vocal fry, breath veiled tone, straight note core, interlocked note trading. fast decay low resonance percussive ebony single coil electric guitar, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, heavy one piece matched to monette horn trumpet, rose brass darker warmer saxophone, deep foundational bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 760,
-  "score": 259.54,
+  "score": 259.75,
   "config": {
     "traditions": [
       "ska_rocksteady",
@@ -32,7 +32,7 @@
         },
         "scores": {
           "electric_technique": 1.2249999999999999,
-          "amp_make": 1.15,
+          "amp_make": 1.1949999999999998,
           "body_wood": 0.195,
           "neck_wood": 0.195,
           "fretboard": 1.24,
@@ -115,7 +115,7 @@
         "scores": {
           "wind_articulation": 21.375,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 5.590000000000001,
+          "trumpet_mouthpiece": 5.5600000000000005,
           "brass_mute": 0,
           "trumpet_technique": 21.375,
           "trumpet_bell_metal": 0.78,
@@ -168,7 +168,7 @@
           "voice_quality": 15.014999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.77,
+          "voice_vibrato": 3.815,
           "voice_articulation": 17.939999999999994,
           "voice_microtone": 16.89999999999999,
           "voice_tradition": 4.3549999999999995,
@@ -177,7 +177,7 @@
           "voice_speech_song": 20.474999999999994,
           "voice_ensemble_config": 17.224999999999994,
           "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 2.075,
+          "voice_pitch_organization": 2.225,
           "voice_processing_chain": 4.175000000000001,
           "voice_multitrack_stack": 2.275
         }

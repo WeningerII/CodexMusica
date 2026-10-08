@@ -3,9 +3,9 @@
   "name": "Nuer song (Naath ox-songs and personal songs)",
   "family": "global",
   "lineage": "Song tradition of the Nuer (Naath) of South Sudan's Upper Nile and the Gambella region of Ethiopia, in which men compose personal songs about their display oxen, their kin and themselves, alongside songs for communal dances. Songs are sung unaccompanied or with the thom, a plucked string instrument that also accompanies contemporary Nuer singers.",
-  "recipe": "classic modern nuer song, praise Song, sub saharan African branch. solo with instrumental accompaniment, single lead single track no stacking. thom nuer four string. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 245,
-  "score": 2.675,
+  "recipe": "classic modern nuer song, praise Song, sub saharan African branch. solo with instrumental accompaniment. thom nuer four string. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 207,
+  "score": 2.361,
   "config": {
     "traditions": [
       "nuer_song"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.7455,
+          "voice_multitrack_stack": 0.4305,
           "voice_tessitura": 0
         }
       },

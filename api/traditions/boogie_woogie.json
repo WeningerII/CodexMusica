@@ -5,7 +5,7 @@
   "lineage": "1920s through 1940s African-American piano-blues idiom built on left-hand ostinato bass figures (walking-eighths or rolling-octaves) under right-hand blues melody — codified through Pinetop Smith’s \"Pinetop’s Boogie Woogie\" (1928), the Carnegie Hall From Spirituals to Swing concert (1938) bringing Albert Ammons, Meade Lux Lewis, and Pete Johnson to white audiences, and the wartime crossover into jump blues",
   "recipe": "classic mid-1920s boogie-woogie, improv On Frame, boogie woogie branch, American jazz pre jazz ragtime, blues acoustic functional song piedmont blues. thick, blues-shouter, wide pitch sway, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright stride tack piano. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 467,
-  "score": 305.397,
+  "score": 305.06,
   "config": {
     "traditions": [
       "boogie_woogie",
@@ -30,8 +30,8 @@
           "keyboard_technique": 15.385,
           "grand_piano_size": 0.39,
           "grand_piano_brand": 0.39,
-          "piano_hammer": 8.7425,
-          "piano_rim": 11.885,
+          "piano_hammer": 8.719999999999999,
+          "piano_rim": 11.84,
           "piano_soundboard": 3.43,
           "piano_pinblock": 1.71,
           "piano_plate": 0.325,
@@ -69,25 +69,25 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 46.56500000000001,
+          "voice_register": 46.41500000000001,
           "voice_quality": 17.74499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 26.865,
           "voice_articulation": 20.14999999999999,
-          "voice_microtone": 26.43,
-          "voice_tradition": 19.659999999999997,
+          "voice_microtone": 26.235,
+          "voice_tradition": 19.854999999999997,
           "voice_mechanism_compound": 3.055,
           "voice_estill_quality": 4.842500000000001,
           "voice_speech_song": 21.44999999999999,
           "voice_ensemble_config": 18.58999999999999,
           "voice_ornament_system": 1.495,
-          "voice_pitch_organization": 2.6650000000000005,
+          "voice_pitch_organization": 2.5900000000000003,
           "voice_processing_chain": 5.004999999999999,
-          "voice_multitrack_stack": 1.3649999999999998
+          "voice_multitrack_stack": 1.365
         }
       },
       {
@@ -100,7 +100,7 @@
         "scores": {
           "keyboard_technique": 15.385,
           "tack_density": 8.329999999999998,
-          "tack_piano_context": 7.85
+          "tack_piano_context": 7.805
         }
       }
     ],

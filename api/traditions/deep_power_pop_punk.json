@@ -1,14 +1,15 @@
 {
-  "id": "deep_power_pop_punk",
-  "name": "Deep power-pop punk",
+  "id": "power_pop_punk",
+  "merged_from": "deep_power_pop_punk",
+  "name": "Power-pop punk",
   "family": "rock_punk",
-  "lineage": "Deep power-pop punk is a discovery label covering the intersection of melodic pop-punk and power pop.",
-  "recipe": "classic deep power-pop punk, distorted Rock, punk branch. one note per syllable. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 379,
-  "score": 56.419,
+  "lineage": "Power-pop punk combines melodic hooks and fuzzy guitar writing with punk rhythmic drive.",
+  "recipe": "classic power-pop punk, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 389,
+  "score": 52.869,
   "config": {
     "traditions": [
-      "deep_power_pop_punk"
+      "power_pop_punk"
     ],
     "instruments": [
       {
@@ -29,15 +30,15 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.720000000000001,
+          "electric_technique": 4.42,
           "amp_make": 16.38,
-          "body_wood": 1.029,
+          "body_wood": 1.5225,
           "neck_wood": 0.063,
-          "fretboard": 0,
+          "fretboard": 0.273,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0,
+          "bridge": 0.273,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -58,7 +59,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.029,
+          "body_wood": 1.5225,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -76,7 +77,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 9.95,
+          "drumhead": 4.95,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -94,11 +95,11 @@
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
@@ -112,12 +113,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.7754999999999999,
-          "voice_ensemble_config": 0.108,
+          "voice_speech_song": 0.47250000000000003,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.108,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       }
@@ -198,13 +199,13 @@
       "voice_vibrato": "voice_vibrato_local_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_none",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
       "electric_technique": "electric_power_chord",
       "string_tuning": "standard_tuning",
       "bass_technique": "pick_aggressive",

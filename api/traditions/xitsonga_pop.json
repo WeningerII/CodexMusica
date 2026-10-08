@@ -5,7 +5,7 @@
   "lineage": "Popular music in Xitsonga connects Tsonga-language expression with contemporary song, recording and performance communities. Artists such as Hlamalani Maluleke draw on regional identity while working across acoustic and produced pop settings.",
   "recipe": "classic xitsonga pop, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
   "recipe_chars": 188,
-  "score": 11.329,
+  "score": 11.384,
   "config": {
     "traditions": [
       "xitsonga_pop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.40950000000000003,
+          "voice_speech_song": 0.4635,
           "voice_ensemble_config": 2.47,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

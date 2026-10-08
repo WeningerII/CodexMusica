@@ -3,9 +3,9 @@
   "name": "Música oriental (eastern Venezuelan galerón and polo)",
   "family": "global",
   "lineage": "The música oriental of eastern Venezuela, from Margarita Island and the coasts of Sucre and Anzoátegui, groups the galerón, in which singers improvise décimas in turn over a repeating harmonic cycle, with the slow polo margariteño, the malagueña and the jota. All are accompanied by cuatro, guitar, the eastern bandola or bandolín and maracas, and FUNDEF has documented them in the field. The mandolin card stands in for the eastern bandola.",
-  "recipe": "classic modern música oriental, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment. cedar canonical Venezuelan cuatro venezolano, classical nylon-string guitar, mandolin, maracas. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 288,
-  "score": 8.19,
+  "recipe": "classic modern música oriental, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment, unprocessed natural acoustic. cedar canonical Venezuelan cuatro venezolano, classical nylon-string guitar, mandolin, maracas. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 318,
+  "score": 8.144,
   "config": {
     "traditions": [
       "musica_oriental_venezolana"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.441,
+          "voice_processing_chain": 0.714,
           "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
@@ -81,9 +81,9 @@
           "acoustic_technique": 0.8359999999999999,
           "string_tuning": 0,
           "top_wood_classical": 0.168,
-          "bracing_classical": 0.393,
+          "bracing_classical": 0.2565,
           "string_classical": 0,
-          "attack_technique_cl": -0.035
+          "attack_technique_cl": -0.05
         }
       },
       {
@@ -100,13 +100,13 @@
         },
         "scores": {
           "acoustic_technique": 0.8359999999999999,
-          "mandolin_shape": 0.378,
+          "mandolin_shape": 0.2415,
           "mandolin_top": 0.325,
           "mandolin_back": -0.035,
           "mandolin_bracing": -0.035,
           "mandolin_strings": 0,
-          "mandolin_fingerboard": 0.1365,
-          "mandolin_pickup": 0.441
+          "mandolin_fingerboard": 0.105,
+          "mandolin_pickup": 0.714
         }
       },
       {
@@ -116,8 +116,8 @@
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 0.2565,
-          "maracas_filling": 0.2565
+          "maracas_construction": 0.11999999999999998,
+          "maracas_filling": 0.11999999999999998
         }
       }
     ],

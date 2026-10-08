@@ -5,7 +5,7 @@
   "lineage": "French cloud rap developed through atmospheric rap production and overlapping artist-producer circles in the 2010s, with TripleGo and PNL among its prominent reference points.",
   "recipe": "classic mid-2010s cloud rap français, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
   "recipe_chars": 181,
-  "score": 18.108,
+  "score": 18.595,
   "config": {
     "traditions": [
       "cloud_rap_francais"
@@ -38,16 +38,16 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3315,
+          "voice_articulation": 0.363,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 15.267999999999999,
-          "voice_ensemble_config": 2.404,
+          "voice_speech_song": 15.624999999999998,
+          "voice_ensemble_config": 2.47,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.105,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

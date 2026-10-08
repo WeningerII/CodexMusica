@@ -1,46 +1,47 @@
 {
-  "id": "fantasy_metal",
-  "name": "Fantasy metal",
+  "id": "symphonic_power_metal",
+  "merged_from": "fantasy_metal",
+  "name": "Symphonic power metal",
   "family": "rock_punk",
-  "lineage": "Fantasy metal is represented here by Twilight Force. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic fantasy metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation, a cappella small 3 to 8 one per part choir ensemble. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 607,
-  "score": 64.502,
+  "lineage": "Symphonic power metal is represented here by Twilight Force. This selected branch has an authored present-day studio realization.",
+  "recipe": "classic symphonic power metal, distorted Rock, power branch. lead plus third fifth harmony stack 3 part. Fender champ amp low wattage studio grit basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 474,
+  "score": 39.961,
   "config": {
     "traditions": [
-      "fantasy_metal"
+      "symphonic_power_metal"
     ],
     "instruments": [
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_power_chord",
-          "amp_make": "amp_mesa_dual_rectifier",
+          "electric_technique": "electric_overdriven_lead",
+          "amp_make": "amp_american_fender_champ",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "maple_fb_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
+          "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 17.55,
-          "amp_make": 5.135,
-          "body_wood": 5.329999999999999,
-          "neck_wood": 0,
-          "fretboard": 0.32175,
-          "pickup_magnet": 0.32175,
+          "electric_technique": -0.07,
+          "amp_make": 6.045,
+          "body_wood": 4.9399999999999995,
+          "neck_wood": 0.063,
+          "fretboard": 0.3,
+          "pickup_magnet": 0.3045,
           "pickup_winding": 0.0735,
-          "string_material": 0,
-          "bridge": 1.3,
-          "scale_length": 5.329999999999999,
-          "string_gauge": 1.3,
-          "finish": 0,
+          "string_material": 0.063,
+          "bridge": 1.6465,
+          "scale_length": 4.9399999999999995,
+          "string_gauge": 1.5835,
+          "finish": 0.0315,
           "string_tuning": 0.39
         }
       },
@@ -58,12 +59,12 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.32175,
-          "pickup_config": 0.32175,
+          "body_wood": 0.168,
+          "pickup_config": 0.168,
           "string_type": 4.875,
-          "scale_length_b": 0.174,
-          "fretted_or_not": 0.21674999999999997,
-          "bass_technique": 4.04725,
+          "scale_length_b": 0.063,
+          "fretted_or_not": 0.19299999999999998,
+          "bass_technique": 4.0360000000000005,
           "electric_bass_string_configuration": 0
         }
       },
@@ -93,12 +94,12 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
           "voice_register": 0,
@@ -111,12 +112,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.3,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.37424999999999997,
-          "voice_multitrack_stack": 0.43050000000000005
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.5984999999999999
         }
       },
       {
@@ -129,24 +130,9 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.46199999999999997,
-          "rompler_context": 1.3,
-          "rompler_lineage": 1.2055
-        }
-      },
-      {
-        "id": "choir_ensemble",
-        "slots": {
-          "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_romantic"
-        },
-        "scores": {
-          "choir_size": 2.47,
-          "choir_polyphonic_configuration": 0.39,
-          "choir_regional_canonical_configuration": 0.7149999999999999,
-          "choir_ensemble_repertoire": 0.39
+          "rompler_preset_bank": 0.49349999999999994,
+          "rompler_context": 0.36750000000000005,
+          "rompler_lineage": 1.468
         }
       }
     ],
@@ -211,15 +197,15 @@
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_none",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "electric_technique": "electric_power_chord",
+      "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth",
+      "electric_technique": "electric_overdriven_lead",
       "string_tuning": "standard_tuning",
       "bass_technique": "pick_aggressive",
       "drum_technique": "sticks_rock",

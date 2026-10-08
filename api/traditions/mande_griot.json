@@ -3,25 +3,25 @@
   "name": "Mandé jeli",
   "family": "global",
   "lineage": "Mande hereditary praise-singer caste tradition spanning Mali, Guinea, Senegal, Gambia, Burkina Faso — the Kouyaté, Cissokho, Diabaté, Suso, Konté, Sissoko griot family lineages preserving the Sundiata Keita Mandé epic (13th century) and the broader Mande royal-court genealogical praise-poetry corpus; standard jeli ensemble: kora, ngoni, balafon, tama talking drum, djembe, voice",
-  "recipe": "classic West African modern mandé jeli, ballad Poetry, west African griot branch, west African groove percussion, Sufi ritual devotional, African pop functional song congolese rumba rumba congolaise. thick, declaimed, straight onset, interlocked note trading. griot voice, nylon fishing line cowhide mande traditional mande hardwood kora, balafon, call-and-response ngoni, donso ritual large calabash mande call-and-response donso ngoni, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, akonting, call-and-response xalam. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 714,
-  "score": 386.825,
+  "recipe": "classic West African modern mandé jeli, ballad Poetry, west African griot branch, west African groove percussion, Sufi ritual devotional, African pop functional song congolese rumba isicathamiya. thick, declaimed, straight onset, interlocked note trading. griot voice, nylon fishing line cowhide mande traditional mande hardwood kora, balafon, gut pre modern call-and-response ngoni, donso ritual large calabash mande gut pre modern hunters donso ngoni, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, akonting, gut pre modern call-and-response xalam. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 745,
+  "score": 376.16,
   "config": {
     "traditions": [
       "mande_griot",
       "congolese_rumba",
-      "rumba_congolaise"
+      "isicathamiya"
     ],
     "instruments": [
       {
         "id": "griot_voice",
         "slots": {
           "griot_origin": "griot_wolof",
-          "griot_voice_context": "griot_voice_stage"
+          "griot_voice_context": "griot_voice_praise"
         },
         "scores": {
-          "griot_origin": 3.3799999999999994,
-          "griot_voice_context": 1.54
+          "griot_origin": 3.964999999999999,
+          "griot_voice_context": 1.5950000000000002
         }
       },
       {
@@ -36,13 +36,13 @@
           "kora_lineage": "kora_suso_lineage"
         },
         "scores": {
-          "plucked_traditional_technique": 30.355000000000008,
+          "plucked_traditional_technique": 28.145000000000003,
           "kora_strings": 2.9349999999999996,
-          "kora_resonator": 0.78,
-          "kora_strings_mat": 1.675,
-          "kora_top_skin": 3.3199999999999994,
-          "kora_neck_wood": 3.3199999999999994,
-          "kora_lineage": 1.69
+          "kora_resonator": 0.975,
+          "kora_strings_mat": 1.9749999999999999,
+          "kora_top_skin": 3.4699999999999998,
+          "kora_neck_wood": 3.4699999999999998,
+          "kora_lineage": 1.885
         }
       },
       {
@@ -53,7 +53,7 @@
         },
         "scores": {
           "balafon_tuning": 7.179999999999999,
-          "balafon_resonator": 1.04
+          "balafon_resonator": 1.19
         }
       },
       {
@@ -67,12 +67,12 @@
           "ngoni_string_material": "ngoni_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 30.355000000000008,
-          "ngoni_strings": 3.67,
-          "ngoni_use": 1.69,
+          "plucked_traditional_technique": 28.145000000000003,
+          "ngoni_strings": 4.12,
+          "ngoni_use": 2.6649999999999996,
           "ngoni_resonator": 0.78,
           "ngoni_skin": 0.195,
-          "ngoni_string_material": 0.9099999999999999
+          "ngoni_string_material": 1.2999999999999998
         }
       },
       {
@@ -84,9 +84,9 @@
           "dunun_head": "dunun_cowhide_canonical"
         },
         "scores": {
-          "dunun_size": 0.585,
-          "dunun_bell": 9.478749999999998,
-          "dunun_shell_wood": 11.569999999999999,
+          "dunun_size": 0.78,
+          "dunun_bell": 7.978749999999999,
+          "dunun_shell_wood": 11.504999999999999,
           "dunun_head": 2.63
         }
       },
@@ -100,9 +100,9 @@
         },
         "scores": {
           "akonting_construction": 0.39,
-          "akonting_play": 0.585,
+          "akonting_play": 0.78,
           "akonting_top_skin": 0.24,
-          "akonting_strings": 0.39
+          "akonting_strings": 0.78
         }
       },
       {
@@ -111,15 +111,15 @@
           "plucked_traditional_technique": "plucked_call_and_response",
           "xalam_strings": "xalam_five",
           "xalam_context": "xalam_praise",
-          "xalam_body": "xalam_gourd_skin",
+          "xalam_body": "xalam_carved_wood",
           "xalam_string_material": "xalam_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 30.355000000000008,
-          "xalam_strings": 4.805,
-          "xalam_context": 2.29,
-          "xalam_body": 0.39,
-          "xalam_string_material": 0.9099999999999999
+          "plucked_traditional_technique": 28.145000000000003,
+          "xalam_strings": 4.955,
+          "xalam_context": 2.94,
+          "xalam_body": 0.585,
+          "xalam_string_material": 1.2999999999999998
         }
       },
       {
@@ -132,11 +132,11 @@
           "donso_ngoni_string_material": "donso_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 30.355000000000008,
-          "donso_ngoni_strings": 4.345,
-          "donso_ngoni_use": 5.208125000000001,
+          "plucked_traditional_technique": 28.145000000000003,
+          "donso_ngoni_strings": 4.645,
+          "donso_ngoni_use": 6.058125,
           "donso_ngoni_resonator": 2.63,
-          "donso_ngoni_string_material": 0.9099999999999999
+          "donso_ngoni_string_material": 1.2999999999999998
         }
       },
       {
@@ -150,32 +150,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mande_jeli_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.339999999999996,
-          "voice_quality": 21.690624999999994,
+          "voice_register": 12.364999999999998,
+          "voice_quality": 24.99062499999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.545,
-          "voice_articulation": 16.575000000000003,
-          "voice_microtone": 17.550000000000004,
-          "voice_tradition": 43.45249999999999,
-          "voice_mechanism_compound": 1.5,
-          "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 23.53000000000001,
-          "voice_ensemble_config": 18.850000000000005,
-          "voice_ornament_system": 6.5649999999999995,
-          "voice_pitch_organization": 1.1499999999999997,
-          "voice_processing_chain": 4.8100000000000005,
-          "voice_multitrack_stack": 3.25
+          "voice_vibrato": 5.8199999999999985,
+          "voice_articulation": 13.78,
+          "voice_microtone": 14.559999999999997,
+          "voice_tradition": 44.459999999999994,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 3.7700000000000005,
+          "voice_speech_song": 18.72,
+          "voice_ensemble_config": 16.8025,
+          "voice_ornament_system": 8.11,
+          "voice_pitch_organization": 2.215,
+          "voice_processing_chain": 3.3475,
+          "voice_multitrack_stack": 4.3225
         }
       }
     ],

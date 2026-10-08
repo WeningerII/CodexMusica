@@ -5,7 +5,7 @@
   "lineage": "Rio de Janeiro's samba old-guard repertory, formalised from the late 1960s when Paulinho da Viola, Cartola, Nelson Cavaquinho and Zé Keti brought the elder composers of Portela and Mangueira into the recording studio — moderate 2/4 samba at 90-105 BPM with telecoteco pandeiro, surdo de marcação on beat two, tamborim and reco-reco, cavaquinho comping against seven-string guitar countermelody, and a plain, unforced chest voice with call-and-response chorus",
   "recipe": "classic Southern American 1967-1969 velha guarda, groove Percussion, Brazilian branch, pagode Brazilian, Brazilian song functional song, Latin am troubadour ballad poetry roda de samba. thick, breath veiled tone, slow rate, interlocked note trading. samba foundation mahogany samba canon cavaquinho, Brazilian rosewood pre 1992 choro choro tradition violao 7 cordas, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, snappy samba tradition metal construction reco reco, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ.",
   "recipe_chars": 986,
-  "score": 292.598,
+  "score": 292.718,
   "config": {
     "traditions": [
       "velha_guarda",
@@ -47,9 +47,9 @@
           "voice_speech_song": 23.399999999999995,
           "voice_ensemble_config": 21.57999999999999,
           "voice_ornament_system": 1.3649999999999998,
-          "voice_pitch_organization": 1.355,
+          "voice_pitch_organization": 1.4299999999999997,
           "voice_processing_chain": 4.734500000000001,
-          "voice_multitrack_stack": 7.874000000000001
+          "voice_multitrack_stack": 7.919000000000001
         }
       },
       {

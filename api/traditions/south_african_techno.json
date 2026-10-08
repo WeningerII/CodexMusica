@@ -5,7 +5,7 @@
   "lineage": "South African techno connects electronic producers, live acts and dance communities with international club forms. Projects such as Atelier illustrate its overlap with house, song and instrumental performance.",
   "recipe": "classic south african techno, electronic Dance, techno branch. digital subtractive, drum machine analog.",
   "recipe_chars": 104,
-  "score": 3.007,
+  "score": 2.976,
   "config": {
     "traditions": [
       "south_african_techno"
@@ -35,7 +35,7 @@
         "scores": {
           "kick_voice": 0,
           "snare_voice": 0,
-          "hat_voice": 0.2415,
+          "hat_voice": 0.21,
           "shuffle_quantize": 2.836
         }
       }

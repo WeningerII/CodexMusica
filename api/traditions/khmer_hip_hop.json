@@ -5,7 +5,7 @@
   "lineage": "Khmer hip-hop connects Cambodian and diasporic rap networks with contemporary beat production. VannDa and Kong Nay exemplify an intergenerational strand that brings chapei narrative song into dialogue with rap.",
   "recipe": "classic modern khmer hip hop, mc Rhythm, intl hip hop branch. rap. two string long neck fretted canonical khmer narrative dang veng narrative singing canonical cambodian chapei lute, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 356,
-  "score": 30.593,
+  "score": 30.86,
   "config": {
     "traditions": [
       "khmer_hip_hop"
@@ -59,8 +59,8 @@
           "chapei_lute_tradition": "chapei_lute_dang_veng_canonical"
         },
         "scores": {
-          "chapei_lute_body": 4.312499999999999,
-          "chapei_lute_tradition": 2.9045
+          "chapei_lute_body": 4.471499999999999,
+          "chapei_lute_tradition": 3.0095
         }
       },
       {
@@ -73,9 +73,9 @@
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 0.75,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

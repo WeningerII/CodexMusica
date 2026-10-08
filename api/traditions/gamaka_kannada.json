@@ -5,7 +5,7 @@
   "lineage": "Gamaka is the Kannada art of reciting classical poetry, above all old Kannada epics such as Kumaravyasa's Karnata Bharata Kathamanjari, in which a singer (gamaki) sings each verse to a raga chosen to suit its mood and a commentator (vyakhyanakara) then explains it in prose. It has been fostered by the Karnataka Gamaka Kala Parishat and broadcast by All India Radio.",
   "recipe": "classic modern gamaka, ballad Poetry, indian bard branch. recitative rhythmically free pitched speech, solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 202,
-  "score": 8.799,
+  "score": 8.589,
   "config": {
     "traditions": [
       "gamaka_kannada"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 5.173,
-          "voice_ensemble_config": 0.7244999999999999,
+          "voice_ensemble_config": 0.5145,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,

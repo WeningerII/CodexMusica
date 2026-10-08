@@ -5,7 +5,7 @@
   "lineage": "Music of the Mon of Lower Myanmar, around Mawlamyine in Mon State, and of the Mon communities of central Thailand such as those of Pathum Thani and Phra Pradaeng. Its emblem is the piphat mon ensemble, led by the large pi mon oboe with a flared metal bell, with khong mon gong circles set in upright crescent-shaped frames, ranat xylophones, the poeng mang khok frame of tuned drums and a barrel drum; in Thai custom it is the ensemble played at funerals. Mon chamber music also uses the kyam crocodile zither. The Thai khong wong yai card stands in for the khong mon, a generic membrane-drum card for the poeng mang khok and the taphon card for the Mon barrel drum.",
   "recipe": "classic modern mon traditional music, art Music, Thai classical branch, east Asian funeral lament kantaoming sayeerhe. pi mon, khong wong yai, ranat ek, central Thai ching chap open and damped bronze ching, jackwood barrel canonical Thai piphat taphon, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 385,
-  "score": 94.005,
+  "score": 92.98,
   "config": {
     "traditions": [
       "mon_piphat_mon",
@@ -20,7 +20,7 @@
           "pi_mon_context": "pi_mon_funeral"
         },
         "scores": {
-          "pi_mon_build": 0.7995,
+          "pi_mon_build": 0.80325,
           "pi_mon_context": 0.195
         }
       },
@@ -39,7 +39,7 @@
           "ranat_ek_technique": "ranat_ek_kep"
         },
         "scores": {
-          "ranat_ek_technique": 14.2105
+          "ranat_ek_technique": 14.151250000000001
         }
       },
       {
@@ -50,7 +50,7 @@
           "ching_alloy": "ching_bronze"
         },
         "scores": {
-          "ching_form": 16.6955,
+          "ching_form": 16.076,
           "ching_stroke": 11.114999999999998,
           "ching_alloy": 1.6315
         }
@@ -64,7 +64,7 @@
         },
         "scores": {
           "taphon_technique": 13.75,
-          "taphon_shell_wood": 9.75,
+          "taphon_shell_wood": 9.267,
           "taphon_head": 0.045
         }
       },
@@ -75,8 +75,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 7.889,
-          "acoustic_membrane_drum_gesture": 6.224
+          "acoustic_membrane_drum_form": 7.95525,
+          "acoustic_membrane_drum_gesture": 6.29025
         }
       }
     ],

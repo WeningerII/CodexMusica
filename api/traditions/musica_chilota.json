@@ -3,9 +3,9 @@
   "name": "Música chilota (Chiloé archipelago dance music)",
   "family": "global",
   "lineage": "Dance music of the Chiloé archipelago in southern Chile, played for the vals chilote, sirilla, pericona, chocolate, trastrasera and the local cueca at mingas (communal work parties) and island fiestas. Conjuntos combine accordion, guitar, violin and the bombo, with voices singing coplas, and folklorists including Margot Loyola collected the repertoire. The fiddle card stands in for the violin and a generic membrane-drum card for the bombo.",
-  "recipe": "classic modern música chilota, ballad Poetry, Latin am troubadour branch. group vocals, unprocessed natural acoustic. accordion, classical nylon-string guitar, fiddle, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 300,
-  "score": 10.963,
+  "recipe": "classic modern música chilota, ballad Poetry, Latin am troubadour branch. unprocessed natural acoustic. accordion, classical nylon-string guitar, fiddle, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 286,
+  "score": 10.367,
   "config": {
     "traditions": [
       "musica_chilota"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.504,
+          "voice_ensemble_config": 0.336,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.5775,
-          "voice_multitrack_stack": 0.36750000000000005,
+          "voice_processing_chain": 0.714,
+          "voice_multitrack_stack": 0.1995,
           "voice_tessitura": 0
         }
       },
@@ -65,11 +65,11 @@
         },
         "scores": {
           "free_reed_technique": -0.07,
-          "accordion_reed_material": 0,
+          "accordion_reed_material": 0.1365,
           "musette_offset": 0,
           "reed_config": 0.105,
-          "bellows": 0.1365,
-          "voicing_chamber": 0.7,
+          "bellows": 0,
+          "voicing_chamber": 0.8365,
           "accordion_maker_school": 0
         }
       },
@@ -84,12 +84,12 @@
           "attack_technique_cl": "rasgueado_cl"
         },
         "scores": {
-          "acoustic_technique": 0.2,
+          "acoustic_technique": 0.26,
           "string_tuning": 0,
-          "top_wood_classical": 0.168,
-          "bracing_classical": 1.573,
+          "top_wood_classical": 0.3045,
+          "bracing_classical": 1.4365,
           "string_classical": 0,
-          "attack_technique_cl": -0.035
+          "attack_technique_cl": -0.05
         }
       },
       {
@@ -103,11 +103,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 2.205,
+          "bowed_technique": 1.9635000000000002,
           "fiddle_strings": 0,
-          "fiddle_bow": 0,
+          "fiddle_bow": 0.1365,
           "fiddle_mute": 0,
-          "fiddle_articulation": 0.47250000000000003,
+          "fiddle_articulation": 0.336,
           "fiddle_string_configuration": 0
         }
       },
@@ -118,8 +118,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 2.6045,
-          "acoustic_membrane_drum_gesture": 1.6045
+          "acoustic_membrane_drum_form": 2.4364999999999997,
+          "acoustic_membrane_drum_gesture": 1.4365
         }
       }
     ],

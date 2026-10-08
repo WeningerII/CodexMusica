@@ -5,7 +5,7 @@
   "lineage": "The informal urban circle-session format of Rio de Janeiro samba, running from the 1920s Estácio and Praça Onze quintal gatherings through the 1980s Cacique de Ramos and Fundo de Quintal revival, in which players sit around a table at 90-110 BPM with cavaquinho and violão de sete cordas trading harmony, pandeiro, tantã and repique de mão supplying the groove, and singers cycling repertoire in shared chorus.",
   "recipe": "classic mid-1920s roda de samba, groove Percussion, pagode branch, Brazilian groove percussion, Brazilian song functional song, Brazilian carnival processional velha guarda. thick, breath veiled tone, slow rate, interlocked note trading. samba foundation mahogany samba canon cavaquinho, Brazilian rosewood pre 1992 choro choro tradition violao 7 cordas, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, tan tan drum, nylon canonical rio carnival aluminum canonical modern rio escola surdo, snappy samba tradition metal construction reco reco, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. urban courtyard. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
   "recipe_chars": 951,
-  "score": 281.208,
+  "score": 280.885,
   "config": {
     "traditions": [
       "roda_de_samba",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 1.0999999999999996,
-          "voice_quality": 37.46949999999999,
+          "voice_quality": 36.96324999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.7224999999999997,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.7149999999999999,
           "voice_pitch_organization": 0.585,
           "voice_processing_chain": 5.92,
-          "voice_multitrack_stack": 8.022
+          "voice_multitrack_stack": 7.977000000000001
         }
       },
       {
@@ -149,7 +149,7 @@
         "scores": {
           "choir_size": 8.514999999999999,
           "choir_polyphonic_configuration": 1.885,
-          "choir_regional_canonical_configuration": 4.906999999999999,
+          "choir_regional_canonical_configuration": 5.134999999999999,
           "choir_ensemble_repertoire": 1.4949999999999999
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Oggu katha is the ritual storytelling of the Kuruma and Golla shepherd castes of Telangana, sung by hereditary narrators who tell the legends of their deities Mallanna, Beerappa and Yellamma at the gods' weddings and community festivals. The lead narrator plays the oggu, an hourglass drum of the damaru type associated with Shiva, while his companions clash cymbals, act out roles and sing the refrains; Chukka Sattaiah became its best-known exponent. The hourglass-drum card stands in for the oggu.",
   "recipe": "classic modern oggu katha, ballad Poetry, indian bard branch. narrative, single lead single track no stacking. udukkai, small manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 214,
-  "score": 5.765,
+  "score": 5.66,
   "config": {
     "traditions": [
       "oggu_katha"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.105,
+          "voice_effort": 0.0315,
           "voice_vibrato": 0,
           "voice_articulation": 2.34,
           "voice_microtone": 0,
@@ -60,9 +60,9 @@
           "udukkai_technique": "udukkai_steady"
         },
         "scores": {
-          "udukkai_form": 0.126,
-          "udukkai_head": 0.063,
-          "udukkai_technique": 0.3045
+          "udukkai_form": 0.0945,
+          "udukkai_head": 0.0315,
+          "udukkai_technique": 0.33599999999999997
         }
       },
       {

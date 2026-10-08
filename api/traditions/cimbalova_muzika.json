@@ -3,9 +3,9 @@
   "name": "Cimbálová Muzika",
   "family": "global",
   "lineage": "Moravian and Slovak string band form that displaced older bagpipe ensembles in the 19th century and was fixed in its modern shape by 20th-century Slovácko and Wallachian bands and Supraphon recordings — a lead prim violin, second violins on chordal seconds, clarinet, concert cimbalom playing tremolo fills and harmonic filler, and double bass, accompanying rubato table songs (táhlé písně) that break into fast čardáš and sedlácká dances.",
-  "recipe": "classic Central European early-1940s cimbálová muzika, improv On Frame, string improv branch, European wedding, Slavic balkan field work hungarian folk csárdás. sygyt, breath veiled tone, fast rate, interlocked note trading. sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, magic rosin modern acrylic base fiddle, thermoset resin clarinet, venice catlin high twist renaissance bass carpathian spruce European maple double bass. budapest carpathian csarda tavern. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 731,
-  "score": 203.985,
+  "recipe": "classic Central European early-1940s cimbálová muzika, improv On Frame, string improv branch, European wedding, Slavic balkan field work hungarian folk csárdás. sygyt, breath veiled tone, fast rate, interlocked note trading. sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, magic rosin modern acrylic base fiddle, grenadilla African blackwood traditional clarinet, venice catlin high twist renaissance bass carpathian spruce European maple double bass. budapest carpathian csarda tavern. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 756,
+  "score": 203.495,
   "config": {
     "traditions": [
       "cimbalova_muzika",
@@ -21,7 +21,7 @@
         },
         "scores": {
           "cimbalom_size": 28.795,
-          "cimbalom_mallet": 0.195
+          "cimbalom_mallet": 0.09
         }
       },
       {
@@ -44,7 +44,7 @@
           "orch_top_wood": 3.38,
           "orch_back_wood": 6.695,
           "orch_varnish": 2.545,
-          "orch_setup_period": 4.24,
+          "orch_setup_period": 4.135,
           "orch_bow": 1.8850000000000002,
           "orch_bow_stick": 2.5,
           "orch_articulation": 0.3,
@@ -74,17 +74,17 @@
         "id": "clarinet",
         "slots": {
           "wind_articulation": "wind_bebop_runs",
-          "clarinet_body": "hanson_btr_clarinet",
+          "clarinet_body": "grenadilla_clarinet",
           "clarinet_size": "bass_clarinet",
           "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "doina_clarinet"
         },
         "scores": {
           "wind_articulation": -0.05,
-          "clarinet_body": 2.5,
+          "clarinet_body": 2.6399999999999997,
           "clarinet_size": 0.105,
           "clarinet_reed": 0,
-          "clarinet_articulation": 0.5849999999999999
+          "clarinet_articulation": 0.47999999999999987
         }
       },
       {
@@ -104,13 +104,13 @@
         "scores": {
           "bowed_technique": -0.035,
           "bass_size": 0,
-          "bass_strings": 2.895,
+          "bass_strings": 2.79,
           "bass_top_wood": 3.38,
           "bass_back_wood": 6.4350000000000005,
           "bass_varnish": 2.5,
-          "bass_setup_period": 4.24,
+          "bass_setup_period": 4.135,
           "bass_play": 0.12999999999999998,
-          "bass_rosin": 5.2,
+          "bass_rosin": 5.095,
           "bass_bow_stick": 2.5
         }
       },

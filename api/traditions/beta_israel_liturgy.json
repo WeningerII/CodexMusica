@@ -5,7 +5,7 @@
   "lineage": "Liturgical chant of the Beta Israel, the Jews of Ethiopia, historically centred in villages of the Gondar region such as Ambober, whose prayers are sung mainly in Ge'ez. Services were led by priests in the prayer house, with a drum and a small gong sounding in some of them; the drum and gong cards stand in for these. Wolf Leslau's recordings from the 1940s were issued by Folkways, and Kay Kaufman Shelemay later studied and transcribed the liturgy, before most of the community emigrated to Israel.",
   "recipe": "classic mid-1940s beta israel liturgy, ritual Devotional, Jewish branch. membrane drum pulse resonant acoustic membrane drum, gong tamtam. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 230,
-  "score": 4.724,
+  "score": 5.239,
   "config": {
     "traditions": [
       "beta_israel_liturgy"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.168,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.168,
           "voice_tessitura": 0
         }
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 2,
-          "acoustic_membrane_drum_gesture": 2
+          "acoustic_membrane_drum_form": 2.273,
+          "acoustic_membrane_drum_gesture": 2.273
         }
       },
       {

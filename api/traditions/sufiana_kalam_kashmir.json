@@ -5,7 +5,7 @@
   "lineage": "Sufiana kalam, also called sufiana mausiqi, is the classical music of the Kashmir Valley, which grew out of the Persian music brought by Sufis from the fifteenth century; it sets Persian and Kashmiri mystic poetry in a system of its own modes (maqam) and rhythmic cycles. A group of singers who also play the santoor, the Kashmiri sehtar, the bowed saz-e-kashmir and the dukra pair of drums performs it at gatherings (mehfil); here the tanbur card (a long-necked fretted lute) stands in for the sehtar, and the ghichak and tabla cards for the saz-e-kashmir and dukra. The santoor of Hindustani concert music came from this tradition.",
   "recipe": "classic modern sufiana kalam, ritual Devotional, Sufi branch. group vocals. walnut canonical kashmiri kashmiri sufiana traditional santoor, tanbur persian, sustained legato ghichak, pitched indian rosewood rosewood tabla. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 301,
-  "score": 32.843,
+  "score": 32.874,
   "config": {
     "traditions": [
       "sufiana_kalam_kashmir"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.189,
+          "voice_multitrack_stack": 0.2205,
           "voice_tessitura": 0
         }
       },

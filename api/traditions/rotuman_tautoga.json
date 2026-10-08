@@ -5,7 +5,7 @@
   "lineage": "The principal group dance of Rotuma, the Polynesian island dependency of Fiji, performed in lines by men and women at celebrations, with the dancers and accompanying singers performing songs in Rotuman. Alan Howard and Jan Rensel's Rotuma archive holds documentation and recordings.",
   "recipe": "classic modern tautoga, praise Song, oceania pacific branch. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 140,
-  "score": 0.664,
+  "score": 0.591,
   "config": {
     "traditions": [
       "rotuman_tautoga"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3465,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.168,
+          "voice_multitrack_stack": 0.3045,
           "voice_tessitura": 0
         }
       }

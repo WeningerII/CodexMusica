@@ -1,16 +1,17 @@
 {
-  "id": "piphat_ceremonial",
-  "name": "Piphat (Thai-Khmer ceremonial ensemble)",
+  "id": "thai_classical",
+  "merged_from": "piphat_ceremonial",
+  "name": "Thai classical (piphat)",
   "family": "classical",
-  "lineage": "Court and ritual ensemble of Siam and Cambodia, codified in the Bangkok Rattanakosin court from the late 18th century and standardized under Luang Pradit Phairoh's lineage — the pi nai shawm and ranat ek xylophone leading a stratified polyphony over khong wong gong-circle, with taphon and klong that drums and the ching hand-cymbals marking the colotomic cycle in a near-equidistant seven-tone tuning.",
-  "recipe": "classic Southeast Asian modern piphat, art Music, Thai classical branch, southeast Asian art music, east Asian groove percussion, buddhist ritual devotional thai traditional. ranat ek, ranat thum, khong wong yai, jackwood barrel canonical Thai piphat taphon, klong that, central Thai ching chap open and damped ching, shawm, hardwood court classical silk canonical Thai court court ceremonial legato saw sam sai. phnom penh royal pinpeat palace court. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 514,
-  "score": 267.523,
+  "lineage": "Thai court-and-temple piphat tuned-percussion ensemble tradition in seven-equal-temperament tuning — codified through the Ayutthaya-era (1351-1767) royal court repertoire and continuing through the Bangkok Rattanakosin period; the piphat ensemble centered on the ranat-ek and ranat-thum xylophones, khong wong large gong-circle, and pi-nai oboe, performing the great repertoire of Phra Aphai Mani, naphat ceremonial works, and dance accompaniment for khon and lakhon",
+  "recipe": "classic early-1350s thai classical, art Music, Thai classical branch, east Asian art music tibetan ache lhamo opera beijing opera. ranat ek, khong wong yai, pi nai, jackwood barrel canonical Thai piphat taphon, central Thai ching chap open and damped iron ching, ivory court heirloom lead voice silk canonical Thai court synthetic membrane modern legato saw duang. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 516,
+  "score": 232.7,
   "config": {
     "traditions": [
-      "piphat_ceremonial",
-      "thai_traditional",
-      "thai_classical"
+      "thai_classical",
+      "tibetan_ache_lhamo",
+      "beijing_opera"
     ],
     "instruments": [
       {
@@ -19,20 +20,7 @@
           "ranat_ek_technique": "ranat_ek_kep"
         },
         "scores": {
-          "ranat_ek_technique": 26.025142857142853
-        }
-      },
-      {
-        "id": "ranat_thum",
-        "slots": {
-          "ranat_thum_keys": "ranat_thum_bamboo",
-          "ranat_thum_mallets": "ranat_thum_soft",
-          "ranat_thum_role": "ranat_thum_variation"
-        },
-        "scores": {
-          "ranat_thum_keys": 0,
-          "ranat_thum_mallets": 0.0765,
-          "ranat_thum_role": 0.975
+          "ranat_ek_technique": 28.964999999999993
         }
       },
       {
@@ -41,7 +29,16 @@
           "khong_wong_yai_role": "khong_wong_yai_main_melody"
         },
         "scores": {
-          "khong_wong_yai_role": 24.25
+          "khong_wong_yai_role": 25.249999999999996
+        }
+      },
+      {
+        "id": "pi_nai",
+        "slots": {
+          "pi_nai_style": "pi_nai_piphat"
+        },
+        "scores": {
+          "pi_nai_style": 29.009999999999994
         }
       },
       {
@@ -52,20 +49,9 @@
           "taphon_head": "taphon_calfskin_canonical"
         },
         "scores": {
-          "taphon_technique": 24.25,
-          "taphon_shell_wood": 12.805,
-          "taphon_head": 0.3107142857142857
-        }
-      },
-      {
-        "id": "klong_that",
-        "slots": {
-          "klong_that_setup": "klong_that_pair",
-          "klong_that_tuning": "klong_that_rice_paste"
-        },
-        "scores": {
-          "klong_that_setup": 0.435,
-          "klong_that_tuning": 0.17292857142857143
+          "taphon_technique": 25.249999999999996,
+          "taphon_shell_wood": 13.119999999999997,
+          "taphon_head": 0.845
         }
       },
       {
@@ -73,71 +59,62 @@
         "slots": {
           "ching_form": "ching_thai",
           "ching_stroke": "ching_open_closed",
-          "ching_alloy": "ching_bronze"
+          "ching_alloy": "ching_iron"
         },
         "scores": {
-          "ching_form": 31.0435,
-          "ching_stroke": 31.005000000000003,
-          "ching_alloy": 0.4875
+          "ching_form": 25.39999999999999,
+          "ching_stroke": 29.250000000000007,
+          "ching_alloy": 1.92
         }
       },
       {
-        "id": "shawm",
-        "slots": {
-          "wind_articulation": "wind_ornament_heavy",
-          "shawm_pitch": "shawm_bass",
-          "shawm_context": "shawm_alta_capella",
-          "shawm_body_wood": "shawm_boxwood_canonical",
-          "shawm_reed": "shawm_arundo_pirouette"
-        },
-        "scores": {
-          "wind_articulation": -0.15000000000000002,
-          "shawm_pitch": 0.39,
-          "shawm_context": 3.185,
-          "shawm_body_wood": 0.195,
-          "shawm_reed": 0.3107142857142857
-        }
-      },
-      {
-        "id": "saw_sam_sai",
+        "id": "saw_duang",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "saw_sam_sai_build": "saw_sam_sai_hardwood_court",
-          "saw_sam_sai_strings": "saw_sam_sai_silk",
-          "saw_sam_sai_body": "saw_sam_sai_shallow_loose",
-          "saw_sam_sai_role": "saw_sam_sai_royal_ritual"
+          "saw_duang_body_form": "saw_duang_ivory_heirloom",
+          "saw_duang_repertoire": "saw_duang_khruang_sai_lead",
+          "saw_duang_strings": "saw_duang_silk_canonical",
+          "saw_duang_face": "saw_duang_synthetic_face"
         },
         "scores": {
-          "bowed_technique": 15.374999999999996,
-          "saw_sam_sai_build": 25.447499999999994,
-          "saw_sam_sai_strings": 25.837499999999995,
-          "saw_sam_sai_body": 16.075,
-          "saw_sam_sai_role": 25.708214285714284
+          "bowed_technique": 22.839999999999993,
+          "saw_duang_body_form": 5.059999999999999,
+          "saw_duang_repertoire": 3.0749999999999997,
+          "saw_duang_strings": 13.919999999999996,
+          "saw_duang_face": 1.17
         }
       }
     ],
-    "room": "phnom_penh_royal_pinpeat_palace_court",
-    "archetype": "arch_ethnographic_field_digital",
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
-      "pre": "pre_field_recorder_portable",
+      "pre": "pre_tube_german_v72",
       "console": "clean",
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
-    "tuning": "equal_heptatonic_thai_khmer",
+    "tuning": "thai_seven_equal",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "equal_heptatonic_thai_khmer",
-    "room": "phnom_penh_royal_pinpeat_palace_court",
+    "tuning": "thai_seven_equal",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "ranat_ek_technique": "ranat_ek_kep",
+      "khong_wong_yai_role": "khong_wong_yai_main_melody",
+      "pi_nai_style": "pi_nai_piphat",
+      "taphon_technique": "taphon_hand_struck",
+      "taphon_shell_wood": "taphon_jackwood_canonical",
+      "taphon_head": "taphon_calfskin_canonical"
+    },
     "chain_mic": "condenser_sdc",
-    "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_std",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "digital_high",
     "chain_console": "clean"
   }
 }

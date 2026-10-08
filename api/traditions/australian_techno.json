@@ -5,7 +5,7 @@
   "lineage": "Australian techno develops through local producer, club and live-electronic networks, including Melbourne’s scene. DJs and live performers connect repetitive dance structures with varied electronic sound design.",
   "recipe": "classic australian techno, electronic Dance. drum machine analog, modular synth.",
   "recipe_chars": 80,
-  "score": 2.463,
+  "score": 2.494,
   "config": {
     "traditions": [
       "australian_techno"
@@ -37,7 +37,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "mod_voltage_source": 0,
-          "mod_patch_density": 0.063,
+          "mod_patch_density": 0.0945,
           "mod_lineage": 0
         }
       }

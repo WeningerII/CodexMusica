@@ -5,7 +5,7 @@
   "lineage": "The regueifa is the Galician improvised verse duel in which two regueifeiros answer one another in sung quatrains, traditionally at wedding feasts in Bergantiños and neighbouring districts of A Coruña province, where the contest took its name from the regueifa, the festive bread disputed at the wedding. After decades of decline it was revived from the late twentieth century through public contests, festivals and media appearances, and it has been studied in the Boletín da Real Academia Galega.",
   "recipe": "classic modern regueifa, functional Song, iberian branch. one note per syllable. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 160,
-  "score": 1.885,
+  "score": 1.71,
   "config": {
     "traditions": [
       "regueifa_galega"
@@ -33,7 +33,7 @@
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": -0.38499999999999995,
+          "voice_register": -0.42399999999999993,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.69,
-          "voice_ensemble_config": 0.363,
+          "voice_ensemble_config": 0.3315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1575,
-          "voice_multitrack_stack": 0.378,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       }

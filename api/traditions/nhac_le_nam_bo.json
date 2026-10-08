@@ -5,7 +5,7 @@
   "lineage": "Ceremonial instrumental music of southern Vietnam, brought south by settlers from central Vietnam and related to Huế court ritual music, played at communal-house (đình) and temple rites, ancestor worship, weddings and above all funerals; revival classes have been held in Cần Thơ. Bands combine a loud section (phe võ) of kèn shawms, drums, small gong and cymbals with a softer section (phe văn) led by đàn cò and đàn gáo fiddles. The kèn bầu card stands in for the southern kèn, the đàn nhị card for the đàn cò, and a generic membrane-drum card for the ritual drums.",
   "recipe": "classic modern nhạc lễ nam bộ, ritual Devotional. gourd funeral ken bau, membrane drum pulse resonant acoustic membrane drum, python skin threaded between strings bright funeral voiced ceremonial dan nhi, coconut shell leather threaded between strings alto heterophonic dan gao. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 358,
-  "score": 61.397,
+  "score": 61.46,
   "config": {
     "traditions": [
       "nhac_le_nam_bo"
@@ -20,7 +20,7 @@
           "ken_bau_breath": "ken_bau_circular"
         },
         "scores": {
-          "ken_bau_bell": 5.3465,
+          "ken_bau_bell": 5.378,
           "ken_bau_context": 4.9815000000000005,
           "ken_bau_texture": -0.035,
           "ken_bau_breath": -0.035
@@ -47,9 +47,9 @@
           "dan_nhi_strings": "dutar_strings_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.40949999999999986,
+          "bowed_technique": 0.4094999999999999,
           "dan_nhi_membrane": 5.376,
-          "dan_nhi_mode": 5.0945,
+          "dan_nhi_mode": 5.126,
           "dan_nhi_idiom": 6.4495000000000005,
           "dan_nhi_strings": 0
         }
@@ -64,7 +64,7 @@
           "dan_gao_strings": "dutar_strings_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.40949999999999986,
+          "bowed_technique": 0.4094999999999999,
           "dan_gao_face": 5.25,
           "dan_gao_size": 12.5,
           "dan_gao_role": 12.8,

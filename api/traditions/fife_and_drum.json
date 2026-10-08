@@ -3,9 +3,9 @@
   "name": "Fife and Drum Corps",
   "family": "vernacular",
   "lineage": "The martial signalling ensemble of eighteenth-century European and colonial American armies, preserved after its battlefield obsolescence by New England ancient corps from the 1880s onward and by the Company of Fifers and Drummers founded in Ivoryton, Connecticut in 1965; a section of six-hole keyless B-flat fifes plays two-part duty tunes and quicksteps in D and G over rope-tension snare drums beating rudimental long rolls, flams and drags with a bass drum on the march beat, all outdoors, unamplified and at roughly 110-120 steps per minute.",
-  "recipe": "classic mid-1880s fife and drum corps, groove Percussion, American marching branch, European carnival processional, American south field work galoubet-tambourin kolo. martial driving unison doubled fife, piercing marching nickel silver nickel silver piccolo, five drum arc kevlar aramid extreme tension nylon tenor double bass rapid double strokes bass drum, drumline school marching, deep boom sustained goatskin head bright tabor. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 512,
-  "score": 81.488,
+  "recipe": "classic mid-1880s fife and drum corps, groove Percussion, American marching branch, European carnival processional, American south field work galoubet-tambourin kolo. martial driving unison doubled fife, piercing marching nickel silver nickel silver piccolo, pipe band flourishing kevlar aramid extreme tension tenor double bass rapid double strokes bass drum, drumline school marching, deep boom sustained goatskin head bright tabor. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 514,
+  "score": 81.722,
   "config": {
     "traditions": [
       "fife_and_drum",
@@ -24,8 +24,8 @@
         "scores": {
           "fife_tradition": 12.35,
           "fife_build": -0.1,
-          "fife_pitch": 4.99,
-          "fife_role": 9.489999999999998
+          "fife_pitch": 4.945,
+          "fife_role": 9.639999999999999
         }
       },
       {
@@ -37,20 +37,20 @@
         },
         "scores": {
           "wind_articulation": 0.52,
-          "piccolo_material": 2.535,
+          "piccolo_material": 2.685,
           "piccolo_context": 2.275
         }
       },
       {
         "id": "tenor_drum",
         "slots": {
-          "tenor_drum_form": "tenor_drum_corps_multi",
+          "tenor_drum_form": "tenor_drum_pipe_band",
           "tenor_drum_head": "tenor_drum_kevlar",
           "tenor_drum_beater": "tenor_drum_corps_mallets",
           "tenor_drum_shell": "tenor_drum_muffled_cloth"
         },
         "scores": {
-          "tenor_drum_form": 9.275,
+          "tenor_drum_form": 9.405,
           "tenor_drum_head": 5.75,
           "tenor_drum_beater": 4.735,
           "tenor_drum_shell": 7.119999999999999
@@ -75,7 +75,7 @@
         },
         "scores": {
           "section": 1.3,
-          "drumline_school_marching_context": 3.56
+          "drumline_school_marching_context": 3.515
         }
       },
       {
@@ -90,7 +90,7 @@
           "tabor_form": 4.484999999999999,
           "tabor_context": 9.3925,
           "tabor_snare": 0.7,
-          "tabor_heads": 1.4999999999999998
+          "tabor_heads": 1.3949999999999998
         }
       }
     ],

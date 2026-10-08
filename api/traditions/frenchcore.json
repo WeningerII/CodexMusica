@@ -5,7 +5,7 @@
   "lineage": "Formed in the mid-1990s French free-party and teknival circuit around Micropoint, Radium and the Audiogenic label, and revived commercially in the 2010s by Dr Peacock and Sefa — running 190-220 BPM with a long, pitch-bent, heavily overdriven kick whose tail supplies the bassline, offbeat hoover stabs, acid-derived 303 lines, and cinematic breakdown-to-drop arrangements adapted from Dutch hardcore.",
   "recipe": "classic 1994-1996 frenchcore, electronic Dance, hardstyle branch, techno electronic dance, industrial noise experimental electric peak-time techno. thick, breath veiled tone, slow rate, interlocked note trading. TR-909, classic acid monosynth acid bass, analog mono synth, field textural sampler, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 526,
-  "score": 233.182,
+  "score": 233.647,
   "config": {
     "traditions": [
       "frenchcore",
@@ -23,7 +23,7 @@
         "scores": {
           "tr909_voice": 1.265,
           "drum_machine_909_context": 1.9174999999999995,
-          "tr909_production_origin": 0.13499999999999998
+          "tr909_production_origin": 0.43499999999999994
         }
       },
       {
@@ -35,9 +35,9 @@
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 11.25,
+          "electronic_technique": 11.4,
           "wave_acid": 0,
-          "filter_acid": 1.7349999999999999,
+          "filter_acid": 1.78,
           "accent_acid": 4.015
         }
       },
@@ -51,7 +51,7 @@
           "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 11.25,
+          "electronic_technique": 11.4,
           "mono_oscillator": 0,
           "mono_filter": 1.04,
           "mono_archetypes": 1.69,
@@ -71,7 +71,7 @@
           "electronic_technique": 5.699999999999999,
           "sampler_archetypes": 0.045,
           "sampler_bit_depth": 0.9099999999999999,
-          "sampler_workflow": 7.865,
+          "sampler_workflow": 7.775,
           "sampler_classic_context": 21.677499999999995
         }
       },
@@ -104,13 +104,13 @@
           "voice_articulation": 17.484999999999992,
           "voice_microtone": 16.89999999999999,
           "voice_tradition": 6.38,
-          "voice_mechanism_compound": 9.79,
+          "voice_mechanism_compound": 9.594999999999999,
           "voice_estill_quality": 1.8849999999999996,
           "voice_speech_song": 19.824999999999992,
           "voice_ensemble_config": 19.369999999999994,
-          "voice_ornament_system": 1.9749999999999999,
-          "voice_pitch_organization": 1.545,
-          "voice_processing_chain": 16.875,
+          "voice_ornament_system": 2.0799999999999996,
+          "voice_pitch_organization": 1.395,
+          "voice_processing_chain": 17.025,
           "voice_multitrack_stack": 10.984999999999996
         }
       },

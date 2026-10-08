@@ -3,9 +3,9 @@
   "name": "Terukkuttu / Kattaikkuttu (Tamil Mahabharata street theatre)",
   "family": "global",
   "lineage": "Terukkuttu ('street theatre'), called Kattaikkuttu by its performers, is the all-night village theatre of northern Tamil Nadu that enacts episodes of the Mahabharata, above all during Draupadi temple festivals. Actors sing their own verses, which a chorus standing behind them repeats, over an ensemble of harmonium, mukhavina (a small double-reed pipe), mridangam and cymbals. The Kattaikkuttu Sangam, based near Kanchipuram, trains young performers, and Richard Frasca's study documented its performances.",
-  "recipe": "classic modern terukkuttu / kattaikkuttu, ballad Poetry, indian bard branch. jackwood barrel canonical Tamil mridangam, song accompaniment harmonium indian, mukhavina, small manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 262,
-  "score": 9.618,
+  "recipe": "classic modern terukkuttu / kattaikkuttu, ballad Poetry, indian bard branch. single lead single track no stacking. jackwood barrel canonical Tamil mridangam, song accompaniment harmonium indian, mukhavina, small manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 300,
+  "score": 10.453,
   "config": {
     "traditions": [
       "terukkuttu_kattaikkuttu"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.39,
+          "voice_effort": 0.37424999999999997,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
@@ -47,8 +47,8 @@
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.436125,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.709125,
           "voice_tessitura": 0
         }
       },
@@ -66,7 +66,7 @@
           "mridangam_use": 0,
           "mridangam_shell_wood": 2.9899999999999998,
           "mridangam_heads_material": 0.45149999999999996,
-          "mridangam_lineage": 0.1365
+          "mridangam_lineage": 0.273
         }
       },
       {
@@ -79,9 +79,9 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "harmonium_action": 0.483,
+          "harmonium_action": 0.756,
           "harmonium_voicing": 0.5145,
-          "harmonium_use": 1.35
+          "harmonium_use": 1.4549999999999998
         }
       },
       {
@@ -92,8 +92,8 @@
           "mukhavina_reed": "mukhavina_palm_reed"
         },
         "scores": {
-          "mukhavina_size": 0.24712499999999998,
-          "mukhavina_context": 0.3,
+          "mukhavina_size": 0.142125,
+          "mukhavina_context": 0.3315,
           "mukhavina_reed": 0.063
         }
       },

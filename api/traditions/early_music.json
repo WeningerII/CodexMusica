@@ -3,33 +3,33 @@
   "name": "Early Music",
   "family": "classical",
   "lineage": "Historically informed performance tradition covering Western medieval, Renaissance and early Baroque repertoire, revived from Arnold Dolmetsch's 1900s instrument-building through the 1950s-70s work of Noah Greenberg, David Munrow and Gustav Leonhardt — gut strings, unkeyed winds, meantone and other pre-equal temperaments, low pitch standards around A=415 or 466, small one-per-part vocal ensembles with straight tone, tactus-based flexible pulse, improvised ornamentation and continuo realization, and church or chapel acoustics used as the natural performing space.",
-  "recipe": "classic European mid-1900s early music, art Music, western early branch, western common practice art music, christian gospel anglican choral, vocal drone modal classical period anglican choral evensong. thick, breath veiled tone, straight note core, interlocked note trading. mid renaissance English Spanish ayre and lieder alternating ebony ivory venetian premium lute renaissance, boxwood canonical renaissance Baroque continuous-airflow legato recorder, plain lamb gut canonical period performance gut tied frets movable canonical viol viola da gamba, boxwood bent capped arundo canonical renaissance crumhorn, tenor workhorse consort blend thin hammered brass sackbut, vocal cornetto treble cornetto, boxwood canonical renaissance European arundo donax wooden pirouette canonical renaissance shawm, high treble chant doubling portative organ.",
-  "recipe_chars": 846,
-  "score": 384.72,
+  "recipe": "classic European mid-1900s early music, art Music, western early branch, western common practice art music, christian gospel anglican choral, vocal drone modal classical period anglican cathedral-choral recording tradition. thick, breath veiled tone, straight note core, interlocked note trading. renaissance soloistic alternating ebony ivory venetian premium pre 1989 pistoy bass gut lute renaissance, boxwood canonical renaissance Baroque continuous-airflow legato recorder, plain lamb gut canonical period performance gut tied frets movable canonical viol viola da gamba, boxwood bent capped arundo canonical renaissance crumhorn, tenor workhorse consort blend thin hammered brass sackbut, vocal cornetto treble cornetto, boxwood canonical renaissance European arundo donax wooden pirouette canonical renaissance shawm, high treble chant doubling portative organ.",
+  "recipe_chars": 866,
+  "score": 378.683,
   "config": {
     "traditions": [
       "early_music",
       "classical_period_18c",
-      "anglican_choral_evensong"
+      "anglican_choral_cathedral"
     ],
     "instruments": [
       {
         "id": "lute_renaissance",
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
-          "lute_courses": "lute_7_courses",
-          "lute_renaissance_context": "lute_renaissance_song",
+          "lute_courses": "lute_6_courses",
+          "lute_renaissance_context": "lute_renaissance_solo",
           "lute_renaissance_ribs": "lute_ebony_ivory_alternating",
           "lute_renaissance_soundboard": "lute_alpine_spruce",
           "lute_renaissance_strings": "lute_pistoy_bass_gut"
         },
         "scores": {
-          "plucked_traditional_technique": 7.749999999999999,
-          "lute_courses": 2.535,
-          "lute_renaissance_context": 16.965,
+          "plucked_traditional_technique": 8.124999999999998,
+          "lute_courses": 2.48,
+          "lute_renaissance_context": 15.47,
           "lute_renaissance_ribs": 1.19,
           "lute_renaissance_soundboard": 0.845,
-          "lute_renaissance_strings": 4.18
+          "lute_renaissance_strings": 3.6800000000000006
         }
       },
       {
@@ -41,9 +41,9 @@
           "recorder_body_wood": "recorder_boxwood_canonical"
         },
         "scores": {
-          "wind_articulation": 7.9399999999999995,
-          "recorder_size": 7.865,
-          "recorder_context": 16.314999999999998,
+          "wind_articulation": 8.815,
+          "recorder_size": 8.059999999999999,
+          "recorder_context": 17.615000000000002,
           "recorder_body_wood": 4.680000000000001
         }
       },
@@ -59,10 +59,10 @@
           "gamba_lineage": "gamba_marais_french_baroque"
         },
         "scores": {
-          "bowed_technique": 7.749999999999999,
+          "bowed_technique": 8.124999999999998,
           "gamba_size": 1,
-          "viola_da_gamba_context": 16.314999999999998,
-          "gamba_strings": 8.385,
+          "viola_da_gamba_context": 17.615000000000002,
+          "gamba_strings": 7.8,
           "gamba_frets": 2.7299999999999995,
           "gamba_bow_stick": 10.35,
           "gamba_lineage": 2.145
@@ -71,13 +71,13 @@
       {
         "id": "crumhorn",
         "slots": {
-          "crumhorn_size": "crumhorn_alto",
+          "crumhorn_size": "crumhorn_bass",
           "crumhorn_repertoire": "crumhorn_hip_revival",
           "crumhorn_construction": "crumhorn_boxwood_capped_arundo"
         },
         "scores": {
-          "crumhorn_size": 0.39,
-          "crumhorn_repertoire": 3.38,
+          "crumhorn_size": 0.65,
+          "crumhorn_repertoire": 3.575,
           "crumhorn_construction": 2.535
         }
       },
@@ -89,7 +89,7 @@
           "sackbut_build": "sackbut_nuremberg_copy"
         },
         "scores": {
-          "sackbut_size": 10.610000000000001,
+          "sackbut_size": 10.26,
           "sackbut_repertoire": 8.17,
           "sackbut_build": 9.645
         }
@@ -101,7 +101,7 @@
           "cornetto_material": "cornetto_resin_modern"
         },
         "scores": {
-          "cornetto_type": 2.4400000000000004,
+          "cornetto_type": 2.59,
           "cornetto_material": 0.39
         }
       },
@@ -139,26 +139,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.325,
-          "voice_quality": 12.544999999999993,
+          "voice_register": 7.55,
+          "voice_quality": 11.959999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 14.385,
-          "voice_articulation": 17.159999999999997,
-          "voice_microtone": 17.484999999999992,
-          "voice_tradition": 15.544999999999998,
-          "voice_mechanism_compound": 7.649999999999999,
-          "voice_estill_quality": 9.504999999999997,
-          "voice_speech_song": 19.499999999999996,
-          "voice_ensemble_config": 18.719999999999995,
-          "voice_ornament_system": 7.694999999999999,
-          "voice_pitch_organization": 18.97,
-          "voice_processing_chain": 4.290000000000001,
-          "voice_multitrack_stack": 1.9849999999999999
+          "voice_vibrato": 13.785,
+          "voice_articulation": 15.339999999999996,
+          "voice_microtone": 15.664999999999992,
+          "voice_tradition": 15.919999999999998,
+          "voice_mechanism_compound": 8.024999999999999,
+          "voice_estill_quality": 9.729999999999999,
+          "voice_speech_song": 17.679999999999993,
+          "voice_ensemble_config": 16.509999999999998,
+          "voice_ornament_system": 8.069999999999999,
+          "voice_pitch_organization": 18.52,
+          "voice_processing_chain": 2.834999999999999,
+          "voice_multitrack_stack": 2.135
         }
       },
       {
@@ -172,7 +172,7 @@
         "scores": {
           "keyboard_technique": -0.07,
           "portative_organ_form": 1.895,
-          "portative_organ_repertoire": 1.7700000000000002,
+          "portative_organ_repertoire": 1.395,
           "portative_organ_pipework": -0.1
         }
       },
@@ -183,15 +183,15 @@
           "harpsichord_register": "harpsi_8_foot",
           "harpsichord_context": "harpsichord_solo",
           "harpsichord_maker_school": "harpsichord_english_kirkman",
-          "harpsichord_plectrum": "harpsichord_quill_canonical",
+          "harpsichord_plectrum": "harpsichord_leather_french",
           "harpsichord_temperament": "harpsichord_meantone_quarter"
         },
         "scores": {
-          "keyboard_technique": 8.2,
-          "harpsichord_register": 4.029999999999999,
-          "harpsichord_context": 14.169999999999998,
-          "harpsichord_maker_school": 2.2750000000000004,
-          "harpsichord_plectrum": 1.2349999999999999,
+          "keyboard_technique": 8.424999999999999,
+          "harpsichord_register": 4.225,
+          "harpsichord_context": 15.47,
+          "harpsichord_maker_school": 2.7299999999999995,
+          "harpsichord_plectrum": 1.4300000000000002,
           "harpsichord_temperament": 11.155
         }
       }

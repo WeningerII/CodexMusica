@@ -5,7 +5,7 @@
   "lineage": "Rural dance-song style of northeastern Bosnia around Tuzla, Zvornik and Posavina, commercialised on cassette from the 1970s and named 'source music' to claim village authenticity, driven by fretted šargija long-necked lutes strumming in fast even 2/4 or 4/4 at 140-170 BPM with violin doubling, and sung by two or three male voices in shouted narrow-interval seconds derived from ganga and putnička polyphony, with unresolved harsh dissonance at the cadence.",
   "recipe": "classic Southern European mid-1970s izvorna muzika, field Work, Slavic balkan branch, balkan drinking song, europop functional song, vocal drone modal macedonian-serbian kafana drinking song bećarac. kargyraa, breath veiled tone, fast rate, interlocked note trading. juniper bowl eastern anatolian saz baglama, magic rosin modern acrylic base fiddle, fast ornamented dance driving frula, parallel thirds two voice vocal blend maple carved canonical balkan dvojnice, bright bolt tuned tapan. balkan sevdalinka kafana tavern. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 615,
-  "score": 270.887,
+  "score": 270.557,
   "config": {
     "traditions": [
       "izvorna_muzika",
@@ -41,11 +41,11 @@
           "voice_vibrato": 3.5349999999999997,
           "voice_articulation": 17.419999999999995,
           "voice_microtone": 18.069999999999993,
-          "voice_tradition": 23.66,
+          "voice_tradition": 23.509999999999998,
           "voice_mechanism_compound": 4.095,
           "voice_estill_quality": 2.405,
           "voice_speech_song": 24.83,
-          "voice_ensemble_config": 21.72,
+          "voice_ensemble_config": 21.54,
           "voice_ornament_system": 0.825,
           "voice_pitch_organization": 1.6899999999999997,
           "voice_processing_chain": 4.29,

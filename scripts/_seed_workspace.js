@@ -24,7 +24,12 @@ const { assignDedupedPrefaces, compileStack } = require('./_recipe_stack.js');
 const { TUNING_TO_VOICE_PARTS, TRADITION_VOICE_OVERRIDES } = require('./_voice_parts_data.js');
 
 const instById = (id) => (C.INSTRUMENTS || []).find((i) => i.id === id);
-const tradById = (id) => (C.TRADITIONS || []).find((t) => t.id === id);
+// A retired (merged) tradition id resolves to the tradition it was merged into,
+// so seeded cards carry the surviving id.
+const tradById = (id) => {
+  const live = C.resolveTraditionId(id);
+  return (C.TRADITIONS || []).find((t) => t.id === live);
+};
 
 // CARD IDS COME FROM THE WORKSPACE THEY JOIN, never from process state.
 //

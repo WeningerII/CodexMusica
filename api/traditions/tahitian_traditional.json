@@ -5,7 +5,7 @@
   "lineage": "French Polynesian dance-and-drum repertoire revived from the 1950s through the Heiva competitions after decades of missionary prohibition — the tōʻere slit-gong battery driving fast unison patterns at 160-200 BPM with the pahu tūpaʻi and small faʻatete drum layered beneath, sudden ensemble breaks and tempo shifts cueing choreography, unaccompanied vocal pāʻōʻā and rhythmic hissed chant interludes, and hīmene choral blocks separating the drum sections.",
   "recipe": "classic Oceanian mid-1950s tahitian traditional music, praise Song, oceania pacific branch, Caribbean groove percussion, European carnival processional guggenmusik ulster flute bands. extended whistle, breath veiled tone, fast rate, interlocked note trading. carved signal drum pacific slit gong, coconut log carved hollow sharkskin head hand struck canonical hawaiian sacred hula kahiko accompaniment pahu mele song drum pahu, conch shell horn, hand clap, warm traditional koa ukulele. tongan outdoor village green. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 579,
-  "score": 198.945,
+  "score": 198.9,
   "config": {
     "traditions": [
       "tahitian_traditional",
@@ -21,8 +21,8 @@
           "pacific_slit_gong_wood": "pacific_slit_gong_toa"
         },
         "scores": {
-          "pacific_slit_gong_form": 5.43,
-          "pacific_slit_gong_role": 5.48,
+          "pacific_slit_gong_form": 5.385,
+          "pacific_slit_gong_role": 5.435,
           "pacific_slit_gong_wood": 0.75
         }
       },
@@ -34,7 +34,7 @@
         },
         "scores": {
           "pahu_construction": 1.14,
-          "pahu_role": 10.42
+          "pahu_role": 10.585
         }
       },
       {
@@ -86,7 +86,7 @@
           "voice_ornament_system": 5,
           "voice_pitch_organization": 0.5199999999999999,
           "voice_processing_chain": 6.760000000000002,
-          "voice_multitrack_stack": 3.38
+          "voice_multitrack_stack": 3.305
         }
       },
       {
@@ -109,7 +109,7 @@
         },
         "scores": {
           "ukulele_size": 4.5,
-          "ukulele_style": 2.6649999999999996,
+          "ukulele_style": 2.6199999999999997,
           "ukulele_wood": 2.05
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Music of the Lisu, a Tibeto-Burman-speaking people of the Nujiang valley of Yunnan, of Kachin and Shan States in Myanmar and of the hills of northern Thailand. At the New Year festival villagers dance in circles on the village dance ground to the gourd mouth organ and a long-necked plucked lute. The lusheng card stands in for the Lisu gourd pipe and the sanxian card for the Lisu lute.",
   "recipe": "classic modern lisu gourd-pipe and lute dance music, drone Modal, wind pipe branch, string drone modal. buzzy festival six pipe lusheng, sanxian. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 225,
-  "score": 6.555,
+  "score": 6.45,
   "config": {
     "traditions": [
       "lisu_new_year_dance"
@@ -39,7 +39,7 @@
         "scores": {
           "plucked_traditional_technique": -0.035,
           "sanxian_size": 0.09,
-          "sanxian_context": 1.4400000000000002,
+          "sanxian_context": 1.335,
           "sanxian_head": -0.035,
           "sanxian_strings": 0,
           "sanxian_body_wood": -0.05

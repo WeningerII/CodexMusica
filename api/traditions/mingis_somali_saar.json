@@ -5,7 +5,7 @@
   "lineage": "Music of mingis, a Somali spirit-possession cult related to saar and practised in Mogadishu and other Somali towns, in which songs and drumming call the possessing spirits and bring participants into trance during healing ceremonies. Francesco Giannattasio recorded mingis ceremonies in 1982 for the Centro Studi Somali.",
   "recipe": "classic early-1980s mingis, ritual Devotional. acoustic membrane drum, hand clap. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 173,
-  "score": 0.668,
+  "score": 0.93,
   "config": {
     "traditions": [
       "mingis_somali_saar"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.19500000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
@@ -70,8 +70,8 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0,
-          "clap_capture": 0.504
+          "clap_technique": 0.0315,
+          "clap_capture": 0.6405000000000001
         }
       }
     ],

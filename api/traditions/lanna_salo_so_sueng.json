@@ -5,7 +5,7 @@
   "lineage": "Traditional music of the Lanna region of northern Thailand, centred on Chiang Mai, the former capital of the Lanna kingdom. Its best-known village band pairs the salo, a spike fiddle with a coconut resonator, with the sueng, a plucked lute, and accompanies so, a repartee song in which male and female singers improvise verses in the northern Thai dialect; so may also be accompanied by the pi chum free-reed pipes. The phin card stands in for the sueng.",
   "recipe": "classic modern salo-so-sueng, field Work, east Asian branch. tonal language syllable tone locked melody, single lead single track no stacking. lead voice three string wire strung coconut shell wood faced salo, phin. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 295,
-  "score": 55.868,
+  "score": 55.48,
   "config": {
     "traditions": [
       "lanna_salo_so_sueng"
@@ -46,7 +46,7 @@
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 5.2829999999999995,
+          "voice_pitch_organization": 5.22,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.504,
           "voice_tessitura": 0
@@ -63,10 +63,10 @@
         },
         "scores": {
           "bowed_technique": 2.9899999999999998,
-          "salo_size": 12.7625,
-          "salo_stringing": 6.0235,
+          "salo_size": 12.794,
+          "salo_stringing": 5.95,
           "salo_face": 5.95,
-          "salo_ensemble": 17.2825
+          "salo_ensemble": 16.999
         }
       },
       {

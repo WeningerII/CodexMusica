@@ -5,7 +5,7 @@
   "lineage": "A British-centered indie-rock discovery network including Bombay Bicycle Club, The Vaccines, Blossoms, Editors and The Cribs. This default selects Bombay Bicycle Club’s song-based combination of played guitars, bass and drums with chopped sample textures.",
   "recipe": "classic modern british indie rock, distorted Rock, alternative branch. solo with instrumental accompaniment. arpeggiated clean single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 473,
-  "score": 39.9,
+  "score": 39.805,
   "config": {
     "traditions": [
       "british_indie_rock"
@@ -29,14 +29,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 5.818,
+          "electric_technique": 5.786499999999999,
           "amp_make": 0,
           "body_wood": 0.39,
           "neck_wood": 0.142125,
           "fretboard": 0.325,
           "pickup_magnet": 0,
           "string_material": 0.142125,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "bridge": 0.39,
           "scale_length": 0,
           "finish": 0,
@@ -62,7 +62,7 @@
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -148,7 +148,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.39
         }
       }

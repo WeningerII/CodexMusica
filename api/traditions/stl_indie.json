@@ -5,7 +5,7 @@
   "lineage": "Shady Bug — What’s The Use? (2023), complete six-track release. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic early-2020s stl indie, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 513,
-  "score": 48.09,
+  "score": 48.566,
   "config": {
     "traditions": [
       "stl_indie"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.5465,
+          "voice_speech_song": 1.56,
           "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 2.08,
           "voice_tessitura": 0
         }
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
+          "neck_wood": 0.6825000000000001,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 1.2730000000000001,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 1.168,
           "finish": 0,
           "string_tuning": 1
         }
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 1.5415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": 0.5999999999999999,
           "cymbal_hammering": 7.7315,
@@ -156,8 +156,8 @@
           "grand_piano_brand": 0,
           "piano_hammer": 3.5100000000000002,
           "piano_rim": 5.07,
-          "piano_soundboard": -0.07,
-          "piano_pinblock": 0.9629999999999999,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": 0.9314999999999999,
           "piano_plate": -0.07,
           "piano_pitch_standard": 0.7149999999999999
         }

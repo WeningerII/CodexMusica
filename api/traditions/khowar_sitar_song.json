@@ -5,7 +5,7 @@
   "lineage": "Song of the Khowar-speaking people of Chitral in northern Pakistan, sung by a soloist to the Chitrali sitar, a long-necked lute unrelated to the Hindustani sitar whose name relates to the setar: its body is carved from mulberry wood with a thin wooden table, and its five very thin metal strings, in three courses, are plucked with the index finger. It accompanies Khowar poetry in love songs and other lyric genres, and Radio Pakistan Peshawar and Lok Virsa have recorded Chitrali sitar singers. The sanavr card, a mulberry-bodied long-necked lute of neighbouring Badakhshan, stands in for the Chitrali sitar.",
   "recipe": "classic modern khowar song, ballad Poetry, indian bard branch. solo with instrumental accompaniment, single lead single track no stacking. sanavr. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 226,
-  "score": 4.479,
+  "score": 4.295,
   "config": {
     "traditions": [
       "khowar_sitar_song"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.7350000000000001,
+          "voice_multitrack_stack": 0.7034999999999999,
           "voice_tessitura": 0
         }
       },
@@ -59,8 +59,8 @@
           "sanavr_style": "sanavr_dance"
         },
         "scores": {
-          "sanavr_form": 0.39,
-          "sanavr_style": 0.378
+          "sanavr_form": 0.3735,
+          "sanavr_style": 0.2415
         }
       }
     ],

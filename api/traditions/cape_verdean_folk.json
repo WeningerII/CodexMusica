@@ -5,7 +5,7 @@
   "lineage": "Cape Verdean folk encompasses the archipelago’s distinct song and dance practices. This default selects morna’s sung poetic branch, represented internationally by Cesária Évora, while recognizing that coladeira and other traditions are not identical to morna.",
   "recipe": "classic modern cape verdean folk, ballad Poetry, morna branch. thick, lament wail, neutral third half flat, m1 with m0 pulse borrowing. fingerpicked classical nylon-string guitar, cape verdean cavaquinho, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 356,
-  "score": 40.859,
+  "score": 40.881,
   "config": {
     "traditions": [
       "cape_verdean_folk"
@@ -40,7 +40,7 @@
           "voice_articulation": 0.209625,
           "voice_microtone": 2.990000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.7713749999999998,
+          "voice_mechanism_compound": 0.7901249999999999,
           "voice_estill_quality": 1.1049999999999998,
           "voice_speech_song": 6.175,
           "voice_ensemble_config": 3.1200000000000006,
@@ -61,12 +61,12 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 7.1000000000000005,
+          "acoustic_technique": 7.105625000000001,
           "string_tuning": 0,
           "top_wood_classical": 0.39,
-          "bracing_classical": 0.3,
+          "bracing_classical": 0.3675,
           "string_classical": 0.09862499999999999,
-          "attack_technique_cl": 0.33749999999999997
+          "attack_technique_cl": 0.3
         }
       },
       {
@@ -78,9 +78,9 @@
           "cv_cavaquinho_technique": "cv_cavaquinho_strummed_arpeggio"
         },
         "scores": {
-          "cv_cavaquinho_construction": 0.0945,
+          "cv_cavaquinho_construction": 0.100125,
           "cv_cavaquinho_strings": 0.1575,
-          "cv_cavaquinho_wood": 0.0375,
+          "cv_cavaquinho_wood": 0,
           "cv_cavaquinho_technique": 5.8709999999999996
         }
       },

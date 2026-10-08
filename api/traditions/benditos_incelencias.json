@@ -5,7 +5,7 @@
   "lineage": "Folk-Catholic devotional singing of the Northeastern sertão, especially the Cariri region of Ceará. Benditos are strophic hymns sung by pilgrims and by the penitent brotherhoods of Barbalha, who sing them at night during Lent, and incelências are counted wake songs that women sing over the dead, verse after verse until the burial. Both are unaccompanied, led by a principal singer with the group answering or joining in.",
   "recipe": "classic modern benditos and incelências, ritual Devotional. single leader group response. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 169,
-  "score": 1.888,
+  "score": 1.983,
   "config": {
     "traditions": [
       "benditos_incelencias"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.744,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }

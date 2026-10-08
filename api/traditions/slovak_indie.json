@@ -5,7 +5,7 @@
   "lineage": "Midheaven — Not That Far Away (2026), complete eight-track album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s slovak indie, distorted Rock, alternative branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. acoustic conventional tuning standard pitch humbucker electric guitar, European maple bosnian source flamed figure modern setup longer neck violin orchestral, European maple bosnian source flamed figure modern setup heavier bass bar double electric bass, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, tin lead 75 25 canonical principal rank bright projecting mechanical tracker canonical Baroque direct touch pipe organ, pearwood marine band tradition hohner marine band 1896 canonical blues trossingen richter canonical 10 hole diatonic blues harmonica, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 957,
-  "score": 66.715,
+  "score": 67.344,
   "config": {
     "traditions": [
       "slovak_indie"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.449,
+          "voice_ensemble_config": 1.0185,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.768,
+          "voice_processing_chain": 0.7364999999999999,
           "voice_multitrack_stack": 1.69,
           "voice_tessitura": 0
         }
@@ -89,15 +89,15 @@
         "scores": {
           "electric_technique": 0.26,
           "amp_make": 0,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
+          "neck_wood": 0.6825000000000001,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 1.8730000000000002,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 1.768,
           "finish": 0,
           "string_tuning": 1.3
         }
@@ -146,7 +146,7 @@
         "scores": {
           "bowed_technique": 0.25,
           "bass_size": 0.39,
-          "bass_strings": 0.105,
+          "bass_strings": 0.2415,
           "bass_top_wood": -0.07,
           "bass_back_wood": 1.8,
           "bass_varnish": -0.1,
@@ -170,7 +170,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -198,8 +198,8 @@
           "grand_piano_brand": 0.3,
           "piano_hammer": 3.9,
           "piano_rim": 4.29,
-          "piano_soundboard": 0.5944999999999999,
-          "piano_pinblock": 1.263,
+          "piano_soundboard": 0.49999999999999994,
+          "piano_pinblock": 1.2315,
           "piano_plate": 0.26,
           "piano_pitch_standard": -0.035
         }
@@ -218,11 +218,11 @@
         "scores": {
           "keyboard_technique": 0.49999999999999994,
           "pipe_organ_class": 0,
-          "pipe_organ_context": 0.231,
+          "pipe_organ_context": 0.168,
           "pipe_organ_voicing_school": 0.39,
-          "pipe_organ_pipe_alloy": 1.3335,
-          "pipe_organ_temperament": 0.36749999999999994,
-          "pipe_organ_action": 1.5015
+          "pipe_organ_pipe_alloy": 1.6064999999999998,
+          "pipe_organ_temperament": 0.27299999999999996,
+          "pipe_organ_action": 1.911
         }
       },
       {
@@ -265,7 +265,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 1.8415000000000001,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 7.6815,

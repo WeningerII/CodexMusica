@@ -5,7 +5,7 @@
   "lineage": "Cante ao baldão, also called cante ao despique, is the improvised sung challenge of the Baixo Alentejo, especially around Odemira, Ourique and Castro Verde, in which several singers take turns improvising verses on a fixed melody over the repeated accompaniment of the viola campaniça, the region's wire-strung folk guitar. It is distinct from the slow choral cante alentejano of the same region; it was revived from the late twentieth century, together with the viola campaniça, through the recordings and research of José Francisco Colaço and later players, and has been studied by INET-md.",
   "recipe": "classic modern cante ao baldão, functional Song, iberian branch. thick, solo with instrumental accompaniment. viola campanica. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 206,
-  "score": 7.458,
+  "score": 7.353,
   "config": {
     "traditions": [
       "cante_ao_baldao"
@@ -33,7 +33,7 @@
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": 2.2310000000000003,
+          "voice_register": 2.1260000000000003,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

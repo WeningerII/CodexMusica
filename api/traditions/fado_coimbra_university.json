@@ -5,7 +5,7 @@
   "lineage": "Academic male-student fado tradition centered on the University of Coimbra (Portugals oldest university, founded in the 13th century) — distinct from fado de Lisboa in vocal register (male tenor/baritone), repertoire (poetry-set songs, student songs, serenata), and performance context (outdoor stone-paved quadrangle and Sé Velha cathedral steps rather than intimate tavern); performers wear the traditional black student capa-e-batina cape",
   "recipe": "classic Iberian mid-1930s fado de coimbra, ballad Poetry, fado coimbra branch, chanson fado fado lisboa, chanson fado classic chanson fado antigo. vocal fry, lament wail, slow rate, interlocked note trading. bowl back Italian German spruce classical leaning k and k twin internal mounted mandolin, cedar fingerpicked classical nylon-string guitar, lower tuned fado coimbra tradition jacaranda Portuguese rosewood spruce canonical fado steel canonical Portuguese guitarra portuguesa. coimbra university outdoor quad. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 588,
-  "score": 242.54,
+  "score": 240.2,
   "config": {
     "traditions": [
       "fado_coimbra_university",
@@ -47,7 +47,7 @@
           "voice_speech_song": 13.032499999999995,
           "voice_ensemble_config": 11.244999999999994,
           "voice_ornament_system": 1.6749999999999996,
-          "voice_pitch_organization": 2.4437500000000005,
+          "voice_pitch_organization": 2.2037500000000003,
           "voice_processing_chain": 4.745,
           "voice_multitrack_stack": 4.683750000000001
         }
@@ -86,12 +86,12 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 9.981875,
+          "acoustic_technique": 9.936875,
           "string_tuning": 0,
           "top_wood_classical": 6.175,
           "bracing_classical": 2.85625,
           "string_classical": 0.585,
-          "attack_technique_cl": 1.275
+          "attack_technique_cl": 1.125
         }
       },
       {
@@ -104,11 +104,11 @@
           "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
         },
         "scores": {
-          "guitarra_tuning_school": 32.555125000000004,
+          "guitarra_tuning_school": 31.820125000000004,
           "guitarra_body_wood": 3.3199999999999994,
-          "guitarra_top_wood": 21.588125000000005,
+          "guitarra_top_wood": 21.003125000000004,
           "guitarra_strings": 3.759999999999999,
-          "guitarra_technique": 21.591875000000005
+          "guitarra_technique": 21.006875000000004
         }
       }
     ],

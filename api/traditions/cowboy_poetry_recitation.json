@@ -5,7 +5,7 @@
   "lineage": "Rhymed, metered verse about ranch work, horses, weather and the open range, composed and recited by working cowboys and ranch people of the American West since the late 19th century, with classics by poets such as Badger Clark and Bruce Kiskaddon circulating orally. The National Cowboy Poetry Gathering, first held in Elko, Nevada in 1985 and organised by the Western Folklife Center, revived it as a public performance form in which poets such as Waddie Mitchell and Baxter Black recite from memory, usually without accompaniment.",
   "recipe": "classic mid-1980s cowboy poetry, spoken Word, stage performance branch, pre commercial country. heightened speech stylized intonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 214,
-  "score": 3.446,
+  "score": 3.298,
   "config": {
     "traditions": [
       "cowboy_poetry_recitation"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.9764999999999999,
+          "voice_speech_song": 0.6915,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.09,
+          "voice_processing_chain": 0.2265,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

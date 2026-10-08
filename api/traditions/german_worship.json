@@ -5,7 +5,7 @@
   "lineage": "German worship repertoire supports Christian devotion through congregational, choral and individual singing. Published arrangements help songs move between different communities and ensemble sizes.",
   "recipe": "classic german worship, ritual Devotional, christian gospel branch. one note per syllable, group vocals, live take. grand piano. shoebox concert hall.",
   "recipe_chars": 150,
-  "score": 6.091,
+  "score": 6.095,
   "config": {
     "traditions": [
       "german_worship"
@@ -68,11 +68,11 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.9099999999999999,
-          "grand_piano_brand": 1.3,
+          "grand_piano_brand": 1.2730000000000001,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.7149999999999999
         }

@@ -5,7 +5,7 @@
   "lineage": "Santali pop — contemporary popular songs in the Santal language, carried by cassette and video production, regional performers and a newer generation of online musicians.",
   "recipe": "classic santali pop, functional Song, south Asian pop branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones parlor acoustic guitar, ukulele, cajon peruano. shoebox concert hall.",
   "recipe_chars": 268,
-  "score": 15.262,
+  "score": 15.493,
   "config": {
     "traditions": [
       "santali_pop"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.8400000000000001,
-          "voice_ensemble_config": 1.5225000000000002,
+          "voice_speech_song": 0.8715,
+          "voice_ensemble_config": 1.6905000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
@@ -62,7 +62,7 @@
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 11.95,
+          "acoustic_technique": 11.981499999999999,
           "string_tuning": 0,
           "top_wood_parlor": 0,
           "back_sides_parlor": 0,

@@ -5,7 +5,7 @@
   "lineage": "Indo-Caribbean local classical song of Trinidad and Guyana, developed by descendants of indentured labourers from North Indian light-classical and devotional song genres and sung at weddings and in competitions. A solo singer is accompanied by harmonium, dholak and dhantal (a struck steel rod), and the name comes from the tan, the virtuosic melismatic runs the singer improvises; Peter Manuel's study documents it.",
   "recipe": "classic modern tan singing, art Music, south Asian branch. solo with instrumental accompaniment, single lead single track no stacking. harmonium indian, rope laced steel ring dholak. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 262,
-  "score": 15.488,
+  "score": 15.572,
   "config": {
     "traditions": [
       "tan_singing"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.5775,
+          "voice_multitrack_stack": 0.609,
           "voice_tessitura": 0
         }
       },
@@ -62,8 +62,8 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "harmonium_action": 0.8609999999999999,
-          "harmonium_voicing": 0.1575,
+          "harmonium_action": 0.8924999999999998,
+          "harmonium_voicing": 0.252,
           "harmonium_use": 5.2
         }
       },
@@ -76,9 +76,9 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.1365,
+          "dholak_use": 0.168,
           "dholak_construction": -0.035,
-          "dholak_head": 0.44099999999999995,
+          "dholak_head": 0.33599999999999997,
           "dholak_tensioning": 1.3
         }
       }

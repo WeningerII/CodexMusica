@@ -5,7 +5,7 @@
   "lineage": "Arab experimental music explores relationships between inherited musical practices, contemporary technology and improvisation. Musicians such as Kareem Samara use the oud as a starting point for new sound worlds and collaborations across traditional and electronic instruments.",
   "recipe": "classic arab experimental, experimental Elec, ambient branch. nylon plastic walnut ribs canonical mid tier pyramid oud, prepared piano, glitched textural sampler, glitched textural granular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 295,
-  "score": 35.224,
+  "score": 35.339,
   "config": {
     "traditions": [
       "arab_experimental"
@@ -25,10 +25,10 @@
         "scores": {
           "plucked_traditional_technique": -0.15000000000000002,
           "oud_school": 0.441,
-          "oud_strings": 0,
+          "oud_strings": 0.105,
           "oud_pick": 1.1365,
-          "oud_body_wood": 1.2285000000000001,
-          "oud_soundboard_wood": 0.9555000000000002,
+          "oud_body_wood": 1.092,
+          "oud_soundboard_wood": 0.8190000000000002,
           "oud_string_material": 2.6
         }
       },
@@ -44,7 +44,7 @@
           "keyboard_technique": -0.07,
           "prepared_piano_object": 0,
           "prepared_piano_zone": 0.3,
-          "prepared_piano_instrument": 0.3045
+          "prepared_piano_instrument": 0.441
         }
       },
       {
@@ -59,7 +59,7 @@
         "scores": {
           "electronic_technique": 8.867999999999999,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.4515,
+          "sampler_bit_depth": 0.5985,
           "sampler_workflow": 8.7,
           "sampler_classic_context": 1.3
         }

@@ -5,7 +5,7 @@
   "lineage": "Pop Jawa is the popular song of the Javanese community of Suriname, descendants of contract labourers brought from Java under Dutch colonial rule from 1890, who also brought gamelan. Sung in Javanese over Western band instruments, it is popular among Javanese-Surinamese audiences in Suriname and the Netherlands.",
   "recipe": "classic early-1890s pop jawa, functional Song, east Asian pop branch, tropical song functional song. solo with instrumental accompaniment, single lead single track no stacking. clean strummed single coil electric guitar, electric bass, rompler workstation, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 445,
-  "score": 61,
+  "score": 60.565,
   "config": {
     "traditions": [
       "pop_jawa_suriname"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.9049999999999998,
+          "voice_ensemble_config": 1.6649999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.15,
-          "voice_multitrack_stack": 0.915,
+          "voice_multitrack_stack": 0.675,
           "voice_tessitura": 0
         }
       },
@@ -102,7 +102,7 @@
           "body_wood": 0.15,
           "pickup_config": 0,
           "string_type": -0.1,
-          "scale_length_b": 0.735,
+          "scale_length_b": 0.78,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0

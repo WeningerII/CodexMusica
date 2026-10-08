@@ -1,70 +1,90 @@
 {
-  "id": "alternative_americana",
-  "name": "Alternative americana",
-  "family": "country",
-  "lineage": "Alternative Americana connects roots songwriting with independent approaches to folk, country, blues and rock. Arrangements range from intimate acoustic songs to more layered band textures.",
-  "recipe": "classic alternative americana, functional Song, americana branch. unprocessed natural acoustic. dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, soft felt lacquer voiced 17 ply hard rock maple a 432 grand piano, mandola, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 525,
-  "score": 43.545,
+  "id": "alt_country_americana",
+  "merged_from": "alternative_americana",
+  "name": "Americana",
+  "family": "vernacular",
+  "lineage": "Post-1980s amalgamation of country, folk, rock, blues, and Appalachian string-band traditions into a roots-music umbrella — codified through No Depression magazine (1995-onward), Uncle Tupelo / Wilco / Son Volt, Lucinda Williams, Steve Earle, Gillian Welch, Jason Isbell, Drive-By Truckers",
+  "recipe": "classic Southern American modern americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller progressive folk. thick, incomplete closure resting, wide pitch sway, interlocked note trading. sitka spruce spruce maple bronze travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, folk strummed open chord ringing overtones autoharp, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon wurlitzer ep, bowl back Italian hard rock maple thomastik flatwound jazz mandolin mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre.",
+  "recipe_chars": 981,
+  "score": 444.2,
   "config": {
     "traditions": [
-      "alternative_americana"
+      "alt_country_americana",
+      "texas_country_folk_storyteller",
+      "progressive_folk"
     ],
     "instruments": [
       {
-        "id": "voice",
+        "id": "acoustic_guitar_dread",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_live_duet",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "open_d",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 0.363,
-          "voice_ornament_system": 0.1365,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.5310000000000001,
-          "voice_multitrack_stack": 0.363
+          "acoustic_technique": 25.06,
+          "string_tuning": 2.73,
+          "top_wood": 1.39,
+          "back_sides": 1.4949999999999999,
+          "string_acoustic": 1.39
         }
       },
       {
-        "id": "acoustic_guitar_dread",
+        "id": "electric_guitar_single_coil",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "open_d",
-          "top_wood": "cedar",
-          "back_sides": "koa_bs",
-          "string_acoustic": "silk_steel"
+          "electric_technique": "electric_fingerstyle_country",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "d_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "acoustic_technique": -0.07,
-          "string_tuning": 1.513,
-          "top_wood": 0.168,
-          "back_sides": 0.0315,
-          "string_acoustic": 0.49349999999999994
+          "electric_technique": 15.484999999999998,
+          "amp_make": 15.314999999999996,
+          "body_wood": 0.43499999999999994,
+          "neck_wood": 1.39,
+          "fretboard": 1.39,
+          "pickup_magnet": 1.39,
+          "string_material": 2.275,
+          "string_gauge": 0.585,
+          "bridge": 0.045,
+          "scale_length": 0.8700000000000001,
+          "finish": 0.5,
+          "string_tuning": 5.83,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_double_neck_d10",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 15.209999999999997,
+          "amp_make": 15.314999999999996,
+          "pickup_steel": 0.43499999999999994,
+          "string_setup": 5.939999999999999,
+          "bar_material": 2.275,
+          "pedal_steel_brand": 16.334999999999997,
+          "pedal_steel_neck_config": 14.759999999999998,
+          "pedal_steel_strings": 15.11
         }
       },
       {
@@ -72,162 +92,212 @@
         "slots": {
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerpicked_country_b",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.251,
-          "body_wood": 0.273,
-          "pickup_config": 0.0315,
-          "string_type": 3.25,
-          "scale_length_b": 0.1365,
-          "fretted_or_not": 0.363,
-          "bass_technique": 8.9705,
+          "amp_make": 14.944999999999997,
+          "body_wood": 0.8700000000000001,
+          "pickup_config": 0,
+          "string_type": 9.72,
+          "scale_length_b": 0.43499999999999994,
+          "fretted_or_not": 0.135,
+          "bass_technique": 15.484999999999998,
           "electric_bass_string_configuration": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "drum_kit",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
-          "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.1365,
-          "grand_piano_brand": 0.36750000000000005,
-          "piano_hammer": 1.17,
-          "piano_rim": 1.56,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": -0.05,
-          "piano_plate": -0.05,
-          "piano_pitch_standard": 2.4855
+          "drum_technique": 12.219999999999995,
+          "drumhead": 3.0599999999999996,
+          "drum_kit_kick_pedal": 0
         }
       },
       {
-        "id": "mandola",
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 39.525,
+          "voice_quality": 6.055,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 16.42,
+          "voice_articulation": 11.309999999999995,
+          "voice_microtone": 11.764999999999992,
+          "voice_tradition": 17.349999999999998,
+          "voice_mechanism_compound": 1.625,
+          "voice_estill_quality": 17.529999999999998,
+          "voice_speech_song": 17.419999999999995,
+          "voice_ensemble_config": 11.244999999999994,
+          "voice_ornament_system": 3.0550000000000006,
+          "voice_pitch_organization": 1.7224999999999997,
+          "voice_processing_chain": 4.895,
+          "voice_multitrack_stack": 5.8100000000000005
+        }
+      },
+      {
+        "id": "autoharp",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "mandola_size": "mandola_alto",
-          "mandola_context": "mandola_art",
-          "mandola_top": "mandola_italian_alpine",
-          "mandola_back": "mandola_big_leaf_maple",
-          "mandola_strings": "mandola_phosphor"
+          "autoharp_chord_bars": "autoharp_15_chord",
+          "autoharp_context": "autoharp_folk_revival",
+          "autoharp_strings": "autoharp_steel_modern",
+          "autoharp_body_wood": "autoharp_spruce_maple"
         },
         "scores": {
-          "acoustic_technique": -0.07,
-          "mandola_size": 0.4095,
-          "mandola_context": 0.47250000000000003,
-          "mandola_top": 0.231,
-          "mandola_back": 0.651,
-          "mandola_strings": 0
+          "acoustic_technique": 3.3099999999999996,
+          "autoharp_chord_bars": 5.59,
+          "autoharp_context": 6.305000000000001,
+          "autoharp_strings": 0.975,
+          "autoharp_body_wood": -1.3050000000000002
         }
       },
       {
-        "id": "tonewheel_organ",
+        "id": "wurlitzer_ep",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "drawbar_setting": "rock_drawbars",
-          "rotary_speed": "fast_tremolo",
-          "percussion_setting": "percussion_on_long",
-          "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_760_solid_state"
+          "wurlitzer_use": "wurlitzer_supertramp",
+          "wurlitzer_ep_voice": "wurlitzer_ep_overdrive",
+          "wurlitzer_model": "wurlitzer_200a_canonical",
+          "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
         },
         "scores": {
-          "keyboard_technique": -0.1,
-          "drawbar_setting": 2.5,
-          "rotary_speed": 2.5865,
-          "percussion_setting": 1.3,
-          "tonewheel_model": 1.1049999999999998,
-          "leslie_cabinet_model": 2.105
+          "keyboard_technique": 2.975,
+          "wurlitzer_use": 0.49499999999999994,
+          "wurlitzer_ep_voice": 4.2,
+          "wurlitzer_model": 4.42,
+          "wurlitzer_reed_material": 0.78
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "flat_back",
+          "mandolin_top": "redwood_m",
+          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 3.3099999999999996,
+          "mandolin_shape": 5.785,
+          "mandolin_top": 0.5249999999999999,
+          "mandolin_back": 4.155,
+          "mandolin_bracing": -0.05,
+          "mandolin_strings": 2.12,
+          "mandolin_fingerboard": 0.09,
+          "mandolin_pickup": 12.479999999999997
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack"
-      ],
-      "acoustic_guitar_dread": [
-        "acoustic_technique"
-      ],
-      "grand_piano": [
-        "keyboard_technique"
-      ],
-      "mandola": [
-        "acoustic_technique"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "studio_in_the_country_bogalusa",
+    "archetype": "arch_late60s_us_multitrack",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
-      "amp": null,
-      "medium": "digital_high"
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
     },
-    "tuning": "twelve_tet",
+    "tuning": "americana_train_beat_4_4",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "tuning": "americana_train_beat_4_4",
+    "room": "studio_in_the_country_bogalusa",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_live_duet",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "body_wood": "swamp_ash",
+      "pickup_magnet": "alnico_5",
+      "string_material": "nickel_plated",
+      "bridge": "hardtail",
+      "scale_length": "scale_fender",
+      "electric_technique": "electric_country_chicken_pickin",
+      "pickup_config": "dual_single",
+      "string_type": "half_round",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerpicked_country_b",
+      "drumhead": "single_coated",
+      "drum_technique": "brushes_and_sticks",
+      "voice_register": "chest_voice",
+      "voice_quality": "twang_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_oral_twang",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
       "acoustic_technique": "acoustic_strummed_ringing",
-      "keyboard_technique": "keyboard_classical_legato"
+      "mandolin_shape": "a_style",
+      "mandolin_bracing": "mandolin_x_brace",
+      "top_wood": "sitka",
+      "back_sides": "rosewood_bs",
+      "string_acoustic": "phosphor_bronze",
+      "amp_make": "amp_american_fender_blackface",
+      "pickup_steel": "single_coil_steel",
+      "string_setup": "standard_e9",
+      "bar_material": "steel_bar",
+      "pedal_steel_brand": "sho_bud_classic",
+      "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+      "pedal_steel_strings": "pedal_steel_george_l_e9",
+      "autoharp_chord_bars": "autoharp_21_chord",
+      "autoharp_context": "autoharp_appalachian",
+      "autoharp_strings": "autoharp_steel_modern",
+      "autoharp_body_wood": "autoharp_spruce_maple",
+      "keyboard_technique": "keyboard_gospel_chord_runs",
+      "wurlitzer_use": "wurlitzer_ray_charles",
+      "wurlitzer_ep_voice": "wurlitzer_ep_bell",
+      "wurlitzer_model": "wurlitzer_200a_canonical",
+      "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical",
+      "string_tuning": "standard_tuning"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s",
+    "chain_amp": "amp_american_blackface",
+    "chain_amp_guitar": "amp_american_fender_blackface",
     "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

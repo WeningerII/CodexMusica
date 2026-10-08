@@ -5,7 +5,7 @@
   "lineage": "Hindustani vocal genre using non-lexical vocalized syllables (tom, na, dir, dani, todani, yala, nadiri, drim) attributed by tradition to Amir Khusraus 13th-century court innovation — typically performed at the end of a khayal concert as a fast-tempo rhythmically dazzling concert-closer, with the syllables functioning as vocal-equivalent to tabla bols",
   "recipe": "classic South Asian early-1950s tarana, improv On Frame, indian classical improv branch, Sufi ritual devotional sufi sama maijbhandari gan. vocal fry, declaimed, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, vocal female harmonium indian, suited to female vocal wooden body miraj style tanpura. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 425,
-  "score": 145.433,
+  "score": 145.328,
   "config": {
     "traditions": [
       "tarana",
@@ -42,9 +42,9 @@
           "voice_articulation": 3.4450000000000003,
           "voice_microtone": 4.940000000000001,
           "voice_tradition": 19.9875,
-          "voice_mechanism_compound": 5.6450000000000005,
-          "voice_estill_quality": 9.545,
-          "voice_speech_song": 10.36,
+          "voice_mechanism_compound": 5.45,
+          "voice_estill_quality": 9.59,
+          "voice_speech_song": 10.405,
           "voice_ensemble_config": 3.755,
           "voice_ornament_system": 10.825,
           "voice_pitch_organization": 6.865,

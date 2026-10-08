@@ -5,7 +5,7 @@
   "lineage": "Community fiddle tradition of Prince Edward Island, played for house parties, square dances, ceilidhs and church picnics, with a Scottish-derived style strongest in the east of the Island, especially Kings County, and an Acadian French style in the Evangeline region of Prince County. Ken Perlman's fieldwork documented both strands and how they differ from neighbouring Cape Breton fiddling, and the Prince Edward Island Fiddlers Society keeps its repertoire of Scottish, Irish and local reels, jigs, strathspeys and marches in community play. Fiddlers commonly keep time with their feet and are accompanied by piano or guitar; the foot-tap card stands for that foot percussion.",
   "recipe": "classic modern prince edward island fiddling, improv On Frame, Celtic traditional branch. fiddle, upright piano, dreadnought acoustic guitar, foot tap. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 231,
-  "score": 5.56,
+  "score": 5.591,
   "config": {
     "traditions": [
       "prince_edward_island_fiddle"
@@ -39,7 +39,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "upright_use": 0.273,
+          "upright_use": 0.3045,
           "upright_piano_size": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Romanian folk-pop hybrid that emerged on private television and cable radio after 1995 and consolidated around 2000-2010, taking muzică populară melodies and doina-style nai and fluier lines and setting them over programmed four-on-the-floor and 2/4 hora beats at 125-140 BPM with synth pads, sampled cimbalom, sequenced bass and heavily tuned pop-belt vocals, arranged in verse-chorus pop form for playback performance in sequinned costume.",
   "recipe": "classic mid-2000s muzică etno, functional Song, europop branch, eurodance electronic dance, mid east n African pop functional song, European wedding turkish pop bubblegum dance. thick, chest mix belt, slow rate, interlocked note trading. staccato nai romanian, weltmeister east German mid tier vintage volk straight accordion, singing lead analog poly synth, melodic pitched sampler, mahogany pyramid pure nickel bass British mid 60s era electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 656,
-  "score": 265.405,
+  "score": 265.43,
   "config": {
     "traditions": [
       "muzica_etno",
@@ -40,15 +40,15 @@
           "voice_effort": 0,
           "voice_vibrato": 2.21,
           "voice_articulation": 19.824999999999996,
-          "voice_microtone": 23.224999999999994,
-          "voice_tradition": 25.46,
+          "voice_microtone": 23.269999999999996,
+          "voice_tradition": 25.505,
           "voice_mechanism_compound": 4.225,
           "voice_estill_quality": 4.03,
           "voice_speech_song": 24.569999999999997,
           "voice_ensemble_config": 23.074999999999996,
           "voice_ornament_system": 0.65,
-          "voice_pitch_organization": 3.0950000000000006,
-          "voice_processing_chain": 6.4350000000000005,
+          "voice_pitch_organization": 2.9450000000000003,
+          "voice_processing_chain": 6.48,
           "voice_multitrack_stack": 3.0550000000000006
         }
       },
@@ -77,13 +77,13 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 4.3500000000000005,
-          "accordion_reed_material": 1.9299999999999997,
+          "free_reed_technique": 4.500000000000001,
+          "accordion_reed_material": 1.9749999999999999,
           "musette_offset": 0.195,
           "reed_config": 0.65,
           "bellows": 0,
-          "voicing_chamber": 0.24,
-          "accordion_maker_school": 3.44
+          "voicing_chamber": 0.285,
+          "accordion_maker_school": 3.335
         }
       },
       {
@@ -95,7 +95,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 22.935,
+          "electronic_technique": 23.085,
           "poly_archetypes": 0.905,
           "poly_voices": 0.195,
           "poly_maker_lineage": -1.7199999999999998
@@ -108,14 +108,14 @@
           "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_one_shot_pitched",
-          "sampler_classic_context": "sampler_classic_pop_production"
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 1.29,
           "sampler_archetypes": 0.75,
           "sampler_bit_depth": 1.7849999999999997,
           "sampler_workflow": 1.365,
-          "sampler_classic_context": 21.175
+          "sampler_classic_context": 21.125
         }
       },
       {
@@ -133,11 +133,11 @@
         "scores": {
           "amp_make": 2.73,
           "body_wood": 2.0799999999999996,
-          "pickup_config": 0.57,
+          "pickup_config": 0.48,
           "string_type": 3.9,
-          "scale_length_b": 1.93,
+          "scale_length_b": 1.9749999999999999,
           "fretted_or_not": 0.045,
-          "bass_technique": 2.09,
+          "bass_technique": 1.94,
           "electric_bass_string_configuration": 0
         }
       }

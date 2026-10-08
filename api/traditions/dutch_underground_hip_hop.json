@@ -5,7 +5,7 @@
   "lineage": "Netherlands independent rap; selected Opgezwolle sample/electronic MC-DJ branch",
   "recipe": "classic modern dutch underground hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler, digital subtractive, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 424,
-  "score": 45.458,
+  "score": 45.427,
   "config": {
     "traditions": [
       "dutch_underground_hip_hop"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 10.985,
-          "voice_ensemble_config": 0.57,
+          "voice_ensemble_config": 0.5385,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.08549999999999999,

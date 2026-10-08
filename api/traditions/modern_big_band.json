@@ -5,7 +5,7 @@
   "lineage": "Contemporary large-ensemble jazz extending the big-band tradition through new composition and arranging.",
   "recipe": "classic modern big band, improv On Frame, American jazz branch. yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris saxophone, bach stradivarius 180 canonical American orchestral student friendly ensemble trumpet, bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, tuba, humbucker electric guitar, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 622,
-  "score": 103.046,
+  "score": 101.47,
   "config": {
     "traditions": [
       "modern_big_band"
@@ -23,10 +23,10 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 1.885,
+          "wind_articulation": 1.8804999999999998,
           "sax_size": -0.035,
           "sax_reed": 0.1785,
-          "sax_body_alloy": 4.2035,
+          "sax_body_alloy": 4.130000000000001,
           "sax_mouthpiece": 0.1365,
           "sax_technique": -0.10500000000000001,
           "sax_maker_school": 12.284999999999998
@@ -44,11 +44,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.885,
+          "wind_articulation": 1.8804999999999998,
           "brass_size": 0.3045,
-          "trumpet_mouthpiece": 3.305,
+          "trumpet_mouthpiece": 3.2,
           "brass_mute": 0.147,
-          "trumpet_technique": 1.885,
+          "trumpet_technique": 1.8804999999999998,
           "trumpet_bell_metal": 0.39,
           "trumpet_maker_school": 1.95
         }
@@ -65,9 +65,9 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 1.885,
+          "wind_articulation": 1.8804999999999998,
           "trombone_type": 9.6365,
-          "trombone_mouthpiece": 3.6095,
+          "trombone_mouthpiece": 3.3995,
           "trombone_mute": 0.147,
           "trombone_technique": 0.39,
           "trombone_bell_metal": 0.39,
@@ -85,9 +85,9 @@
           "tuba_maker_school": "tuba_miraphone_german"
         },
         "scores": {
-          "wind_articulation": 1.885,
+          "wind_articulation": 1.8804999999999998,
           "tuba_pitch": 0.0315,
-          "tuba_context": 0.8505000000000001,
+          "tuba_context": 0.609,
           "tuba_bell_metal": 0.39,
           "tuba_valve_system": 0.105,
           "tuba_maker_school": 0.105
@@ -113,15 +113,15 @@
         "scores": {
           "electric_technique": 0.7,
           "amp_make": 0,
-          "body_wood": 0.483,
-          "neck_wood": 0.34650000000000003,
+          "body_wood": 0.378,
+          "neck_wood": 0.2415,
           "fretboard": -0.035,
-          "pickup_magnet": 0.063,
+          "pickup_magnet": 0,
           "pickup_winding": 0.147,
-          "string_material": 0.063,
-          "bridge": 0.063,
-          "scale_length": 0.693,
-          "string_gauge": 0.441,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0.483,
+          "string_gauge": 0.5145,
           "finish": 0,
           "string_tuning": 0.0315
         }
@@ -142,10 +142,10 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.147,
-          "grand_piano_brand": 0.168,
-          "piano_hammer": 3.8615,
-          "piano_rim": 3.7565,
-          "piano_soundboard": 3.305,
+          "grand_piano_brand": 0.1365,
+          "piano_hammer": 3.935,
+          "piano_rim": 3.7985,
+          "piano_soundboard": 3.2,
           "piano_pinblock": 3.2,
           "piano_plate": 3.2,
           "piano_pitch_standard": 4.225
@@ -158,7 +158,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.23099999999999998,
+          "upright_strings": 0.19949999999999998,
           "upright_play": 9.5
         }
       },
@@ -179,16 +179,16 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.0945,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2835,
           "shell_thickness": 0,
           "bearing_edges": 1.69,
           "snare_wires": 0.147,
           "cymbal_alloy": 9.601999999999999,
-          "cymbal_hammering": 3.3600000000000003,
-          "cymbal_lathing": 3.4965,
-          "cymbal_finish": 0.063
+          "cymbal_hammering": 3.2550000000000003,
+          "cymbal_lathing": 3.3915,
+          "cymbal_finish": 0
         }
       }
     ],

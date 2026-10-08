@@ -5,7 +5,7 @@
   "lineage": "Barcelona Gypsy style of the Gràcia and Hostafrancs barrios formed in the late 1950s, codified by Peret and Antonio González 'El Pescaílla' — Cuban guaracha rhythm reworked on flamenco guitar with the ventilador percussive strum, palmas and bongos at 110–130 BPM, plus rasping copla-inflected vocals and short cyclic refrains.",
   "recipe": "classic Iberian 1957-1959 rumba catalana, functional Song, iberian branch, rumba Cuban, Mediterranean ballad ballad poetry rumba cubana yambú. vocal fry, blues-shouter, slow rate, interlocked note trading. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco cedar plain gut sheep gut unsplit fan strum classical nylon-string guitar, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, electric bass, maracas. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 721,
-  "score": 176.252,
+  "score": 176.957,
   "config": {
     "traditions": [
       "rumba_catalana",
@@ -23,7 +23,7 @@
         "scores": {
           "flamenco_body": 5.005,
           "flamenco_features": 4.55,
-          "flamenco_technique": 3.7900000000000005
+          "flamenco_technique": 3.9850000000000003
         }
       },
       {
@@ -35,9 +35,9 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 6.180000000000001,
+          "percussion_technique": 6.48,
           "bongos_skin": 7.149999999999999,
-          "bongos_context": 0.8850000000000001,
+          "bongos_context": 0.8400000000000001,
           "bongos_shell_wood": 7.214999999999998
         }
       },
@@ -50,7 +50,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 6.180000000000001,
+          "percussion_technique": 6.48,
           "conga_set": 0.585,
           "conga_skin": 7.214999999999998,
           "conga_shell_wood": 7.214999999999998
@@ -60,9 +60,9 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "pyramid_pure_nickel",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "slap_pop",
@@ -71,7 +71,7 @@
         "scores": {
           "amp_make": 0.5199999999999999,
           "body_wood": 0.48,
-          "pickup_config": 0.39,
+          "pickup_config": 0.345,
           "string_type": 0.26,
           "scale_length_b": 0.285,
           "fretted_or_not": 1,

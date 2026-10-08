@@ -5,7 +5,7 @@
   "lineage": "Kelantanese Malay competitive group-singing form consolidated in the mid-20th century on the Malaysia-Thailand border and popularized nationally from the 1980s, in which a tukang karut improvises rhyming pantun verse and a juara leads while a seated awok-awok chorus of twenty or more answers in unison with synchronized hand-clapping and body movement, driven by rebana and kompang frame drums, canang kettle gongs and a gong, accelerating from a slow declamatory opening to a fast interlocked chant.",
   "recipe": "classic mid-1980s dikir barat, groove Percussion, east Asian branch, middle east n African praise song, islamic ritual devotional zikir al-barʿah. kargyraa, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, rebana ubi, kompang frame drum, canang kettle gong, gong chau hard beater gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 524,
-  "score": 146.45,
+  "score": 146.24,
   "config": {
     "traditions": [
       "dikir_barat",
@@ -46,8 +46,8 @@
           "voice_estill_quality": 2.405,
           "voice_speech_song": 16.574999999999996,
           "voice_ensemble_config": 14.299999999999995,
-          "voice_ornament_system": 4.915,
-          "voice_pitch_organization": 3.285,
+          "voice_ornament_system": 4.87,
+          "voice_pitch_organization": 3.1950000000000003,
           "voice_processing_chain": 7.475,
           "voice_multitrack_stack": 4.225000000000001
         }
@@ -61,9 +61,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 15.48,
-          "choir_polyphonic_configuration": 1.6749999999999998,
-          "choir_regional_canonical_configuration": 11.869999999999997,
+          "choir_size": 15.585,
+          "choir_polyphonic_configuration": 1.39,
+          "choir_regional_canonical_configuration": 11.974999999999998,
           "choir_ensemble_repertoire": 3.185
         }
       },

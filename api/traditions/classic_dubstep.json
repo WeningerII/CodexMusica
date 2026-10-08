@@ -5,7 +5,7 @@
   "lineage": "A historical dubstep discovery cluster spanning more than one era. Skream’s first-person 2006 account anchors this selected early Croydon branch in instrumental dark garage, bass-led stripped-down programming and occasional background samples.",
   "recipe": "classic mid-2000s classic dubstep, bass System, uk soundsystem branch. sampler drum machine, low sub bass analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 332,
-  "score": 22.381,
+  "score": 22.386,
   "config": {
     "traditions": [
       "classic_dubstep"
@@ -38,7 +38,7 @@
         "scores": {
           "electronic_technique": 11.375,
           "oscillator": 3.6399999999999997,
-          "filter_topology": 0.38549999999999995,
+          "filter_topology": 0.39,
           "envelope": 0.2055,
           "modulation": 0
         }

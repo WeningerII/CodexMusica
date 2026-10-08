@@ -5,7 +5,7 @@
   "lineage": "Playback song of the Bengali-language film industry of Dhaka, centred on the studios of the Bangladesh Film Development Corporation, founded in 1957 as the East Pakistan Film Development Corporation. Playback singers such as Runa Laila, Sabina Yasmin and Andrew Kishore recorded songs by film music directors, issued by EMI and later by local labels such as Sargam.",
   "recipe": "classic late-1950s dhallywood film song, functional Song, south Asian pop branch. solo with instrumental accompaniment. credited strings credited bamboo flute unspecified, song accompaniment harmonium indian, tabla, dholak. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
   "recipe_chars": 357,
-  "score": 9.4,
+  "score": 8.444,
   "config": {
     "traditions": [
       "dhallywood_film_song"
@@ -84,8 +84,8 @@
         },
         "scores": {
           "free_reed_technique": 0.19500000000000003,
-          "harmonium_action": 0.37312499999999993,
-          "harmonium_voicing": 0.546,
+          "harmonium_action": 0.10012499999999999,
+          "harmonium_voicing": 0.273,
           "harmonium_use": 4.55
         }
       },
@@ -111,10 +111,10 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.5145,
+          "dholak_use": 0.378,
           "dholak_construction": -0.035,
-          "dholak_head": 0.7874999999999999,
-          "dholak_tensioning": 0.7874999999999999
+          "dholak_head": 0.651,
+          "dholak_tensioning": 0.651
         }
       }
     ],

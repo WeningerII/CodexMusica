@@ -5,7 +5,7 @@
   "lineage": "Shyama sangeet are Bengali Shakta devotional songs addressed to the goddess Kali (Shyama), a genre shaped in the eighteenth century by Ramprasad Sen, whose plain 'Ramprasadi' tunes became a model, and continued by Kamalakanta Bhattacharya and later by Kazi Nazrul Islam. In the gramophone era it became a staple of Calcutta recording, sung solo with harmonium and tabla.",
   "recipe": "classic South Asian early-1950s shyama sangeet, ritual Devotional, hindu branch. solo with instrumental accompaniment. harmonium indian, tabla. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 290,
-  "score": 9.698,
+  "score": 9.739,
   "config": {
     "traditions": [
       "shyama_sangeet"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3045,
+          "voice_multitrack_stack": 0.37649999999999995,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "harmonium_action": 0.714,
+          "harmonium_action": 0.6824999999999999,
           "harmonium_voicing": 0,
           "harmonium_use": 4.9399999999999995
         }

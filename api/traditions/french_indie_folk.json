@@ -5,7 +5,7 @@
   "lineage": "An independent folk-song discovery cluster whose exact roster includes Piers Faccini, Moriarty and Yodelice. France-based Faccini’s documented voice, guitar and cello collaboration supplies this intimate, cross-cultural branch.",
   "recipe": "classic modern french indie folk, ballad Poetry, indie folk branch. thick, neutral third half flat, opera quality low larynx anchored, notated speech melody. fingerpicked acoustic guitar, pirastro cellisto cello specific cello. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 365,
-  "score": 52.141,
+  "score": 52.224,
   "config": {
     "traditions": [
       "french_indie_folk"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 1.755,
           "voice_pitch_organization": 0.505,
           "voice_processing_chain": 1.5545,
-          "voice_multitrack_stack": 1.24225
+          "voice_multitrack_stack": 1.2534999999999998
         }
       },
       {
@@ -63,8 +63,8 @@
           "string_tuning": 0,
           "top_wood": 0.45149999999999996,
           "back_sides": 0.2415,
-          "string_acoustic": 0.5257499999999999,
-          "acoustic_om_technique": 12.145999999999997
+          "string_acoustic": 0.537,
+          "acoustic_om_technique": 12.157249999999998
         }
       },
       {
@@ -82,12 +82,12 @@
         },
         "scores": {
           "bowed_technique": 0.2,
-          "cello_strings": 0.273,
+          "cello_strings": 0.3105,
           "cello_top_wood": -0.035,
           "cello_back_wood": -0.035,
           "cello_varnish": -0.035,
           "cello_setup_period": -0.07,
-          "cello_bow_grip": 0.24225000000000002,
+          "cello_bow_grip": 0.2535,
           "cello_rosin": 1.4415,
           "cello_bow_stick": -0.05
         }

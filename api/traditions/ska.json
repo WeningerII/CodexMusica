@@ -5,7 +5,7 @@
   "lineage": "The ska tradition — Jamaican popular music built on the upstroke offbeat and walking bass, the direct precursor to rocksteady and reggae",
   "recipe": "classic Caribbean mid-1970s ska, bass System, Jamaican branch, Caribbean groove percussion calypso brukdown. breath veiled tone, pure, interlocked note trading, neutral third half flat. single coil electric guitar, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass, ride-driven brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, heavy one piece matched to monette horn trumpet, saxophone, bass leaning trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 681,
-  "score": 157.757,
+  "score": 157.542,
   "config": {
     "traditions": [
       "ska",
@@ -110,7 +110,7 @@
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_ska_skank",
           "trumpet_bell_metal": "trumpet_red_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
+          "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
           "wind_articulation": 10.875,
@@ -119,7 +119,7 @@
           "brass_mute": 1,
           "trumpet_technique": 10.875,
           "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 0.285
+          "trumpet_maker_school": 0.195
         }
       },
       {
@@ -186,21 +186,21 @@
         "id": "trombone",
         "slots": {
           "wind_articulation": "wind_ska_skank_stab",
-          "trombone_type": "valve_trombone",
+          "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_3g",
           "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
-          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
           "wind_articulation": 10.875,
-          "trombone_type": 0.15,
+          "trombone_type": 0.12999999999999998,
           "trombone_mouthpiece": 3.425,
           "trombone_mute": 1,
           "trombone_technique": 0.78,
           "trombone_bell_metal": 0.39,
-          "trombone_maker_school": 0.33
+          "trombone_maker_school": 0.225
         }
       }
     ],

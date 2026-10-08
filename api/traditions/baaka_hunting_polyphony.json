@@ -1,16 +1,17 @@
 {
-  "id": "baaka_hunting_polyphony",
-  "name": "Baaka (Aka pygmy) hunting polyphony",
+  "id": "aka_baka_polyphony",
+  "merged_from": "baaka_hunting_polyphony",
+  "name": "Aka / Baka forest forager polyphony",
   "family": "global",
-  "lineage": "Baaka (Aka, Bayaka) Central-African pygmy hunting-and-ritual polyphonic-vocal tradition continuous from premodern Congolese-and-Central-African-Republic rainforest hunting practice through 20th-century continuous performance into modern Baaka-and-broader-Mbuti continuous practice",
-  "recipe": "classic Southern African early-1940s baaka (aka pygmy) hunting polyphony, hunting Song, sub saharan African branch, arctic hunting song, sub saharan African praise song, indigenous ritual devotional mapuche tayil genealogical chant ainu upopo and rimse. vocal fry, breath veiled tone, straight note core, interlocked note trading. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 435,
-  "score": 174.575,
+  "lineage": "Central African Republic and southeastern Cameroon Aka / Baka / BaYaka rainforest hunter-gatherer four-and-more-part polyphonic vocal tradition — characterized by four canonical voice-parts in the Aka system (motangole the principal melodic voice, ngue-wa-lembo the equivalent of a bass anchor, osese the middle voice, and diyei the upper yodeled M1-M2-rapid-alternation voice with open vowels in M1 and closed/high vowels in M2), hocket interlocking single-note distribution across the ensemble, polyrhythmic-layered independent ostinato cycles per voice, and overlap-driven entrance-and-exit aesthetic; documented through the Simha Arom canonical ethnomusicological field-recording-and-analysis program (1970s-onward Centre National de la Recherche Scientifique France) and Susanne Fürniss yodel-mechanism phonetic analysis, with parallel Mbenga-Mbuti (Ituri Forest DRC pygmy-polyphonic tradition) related-but-distinct repertoire",
+  "recipe": "classic mid-1970s aka / baka forest forager polyphony, drone Modal, heterophonic branch, indigenous ritual devotional, west African griot ballad poetry tuareg tendé pestle-rhythm song mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional mbenga mbuti three voice ostinato hocket yodel global traditional polyphonic choir ensemble. forest clearing. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 547,
+  "score": 350.91,
   "config": {
     "traditions": [
-      "baaka_hunting_polyphony",
-      "mapuche_tayil_ritual",
-      "ainu_upopo"
+      "aka_baka_polyphony",
+      "tuareg_tende_pestle",
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
@@ -24,36 +25,51 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_tube_saturation",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.68,
-          "voice_quality": 17.549999999999997,
+          "voice_register": 2.73,
+          "voice_quality": 42.12000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4949999999999999,
-          "voice_articulation": 22.164999999999996,
-          "voice_microtone": 17.224999999999994,
-          "voice_tradition": 26.129999999999995,
-          "voice_mechanism_compound": 12.420000000000003,
-          "voice_estill_quality": 4.225,
-          "voice_speech_song": 23.919999999999995,
-          "voice_ensemble_config": 21.059999999999995,
-          "voice_ornament_system": 12.869999999999997,
-          "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 4.55,
-          "voice_multitrack_stack": 5.614999999999999
+          "voice_vibrato": 5.070000000000002,
+          "voice_articulation": 33.28000000000001,
+          "voice_microtone": 27.43,
+          "voice_tradition": 31.004999999999995,
+          "voice_mechanism_compound": 16.185,
+          "voice_estill_quality": 10.854999999999997,
+          "voice_speech_song": 27.365000000000006,
+          "voice_ensemble_config": 49.59500000000001,
+          "voice_ornament_system": 13.355,
+          "voice_pitch_organization": 4.9350000000000005,
+          "voice_processing_chain": 9.604999999999999,
+          "voice_multitrack_stack": 6.500000000000002
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_mbenga_mbuti_three_voice_ostinato",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+        },
+        "scores": {
+          "choir_size": 16.770000000000003,
+          "choir_polyphonic_configuration": 23.019999999999996,
+          "choir_regional_canonical_configuration": 18.784999999999997,
+          "choir_ensemble_repertoire": 12.804999999999996
         }
       }
     ],
-    "room": "outdoor_kalahari_fire_circle",
+    "room": "forest_clearing",
     "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -64,29 +80,30 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
+    "tuning": "just_intonation",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "outdoor_kalahari_fire_circle",
+    "tuning": "just_intonation",
+    "room": "forest_clearing",
     "parts": {
-      "voice_articulation": "hocket_voice",
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_tradition": "inuit_katajjaq_tradition",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_microtone": "tempered_voice",
-      "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+      "voice_ornament_system": "voice_ornament_none",
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-      "voice_register": "chest_voice",
-      "voice_quality": "praise_voice"
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "choir_size": "chamber_choir",
+      "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

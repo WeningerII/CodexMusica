@@ -5,7 +5,7 @@
   "lineage": "Southern Italian traditional dance-and-song heritage — tarantella (the broad family of Southern Italian fast 6/8 dance-music, regional variants from Campania, Calabria, Apulia, Sicily), pizzica (the Salentine Apulian variant historically associated with tarantismo, the cultural-spider-bite-ritual of bitten women dancing the trance out of their bodies), and broader Italian southern pastoral tradition with zampogna (Southern Italian bagpipe with two chanters and drones) and ciaramella (the small shawm partner of zampogna in the Christmas-novena outdoor piping-couple); modern revival through the Notte della Taranta festival (Melpignano, since 1998) and the figures Antonio Castrignanò, Mauro Durante, Alla Bua",
   "recipe": "classic Southern European late-1990s italian southern folk, ballad Poetry, Mediterranean ballad branch, christian gospel ritual devotional, Celtic balladic ballad poetry black gospel ethiopian debtera liturgical incantation. thick, breath veiled tone, wide pitch sway, interlocked note trading. olive wood canonical southern Italian cane arundo donax canonical Italian whole goatskin canonical southern Italian pastoral melodic zampogna, dance driving ciaramella, central Italian healing rite synthetic head tammorra. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 681,
-  "score": 332.485,
+  "score": 332.71,
   "config": {
     "traditions": [
       "italian_southern_folk",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 24.465,
+          "voice_register": 24.51,
           "voice_quality": 25.48,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -79,7 +79,7 @@
         },
         "scores": {
           "wind_articulation": 1.6499999999999997,
-          "ciaramella_use": 22.895
+          "ciaramella_use": 22.939999999999998
         }
       },
       {
@@ -90,8 +90,8 @@
           "tammorra_head": "tammorra_pelle_sintetica"
         },
         "scores": {
-          "tammorra_form": 6.295,
-          "tammorra_context": 21.575000000000003,
+          "tammorra_form": 6.385,
+          "tammorra_context": 21.620000000000005,
           "tammorra_head": 3.75
         }
       }

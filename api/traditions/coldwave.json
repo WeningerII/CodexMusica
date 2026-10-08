@@ -5,7 +5,7 @@
   "lineage": "French and Belgian post-punk offshoot of 1979-1985 centred on Paris and Lille labels such as Sordide Sentimental and L'Invitation au Suicide, marked by mid-tempo 100-120 BPM programmed or minimal drum-machine beats, chorused flanged treble guitar, high melodic bass lines carrying the tune, monophonic analogue synth pads, and deadpan low-register French vocals recorded in small DIY studios.",
   "recipe": "classic Western European mid-1980s coldwave, distorted Rock, gothic rock branch, pop rock synthpop, punk distorted rock metropopolis shiver pop. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, drum machine analog, singing lead analog mono synth. intimate paris small studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 573,
-  "score": 343.06,
+  "score": 342.87,
   "config": {
     "traditions": [
       "coldwave",
@@ -28,7 +28,7 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
@@ -42,11 +42,11 @@
           "voice_articulation": 18.394999999999996,
           "voice_microtone": 35.42500000000001,
           "voice_tradition": 18.85,
-          "voice_mechanism_compound": 2.7600000000000007,
+          "voice_mechanism_compound": 2.6100000000000008,
           "voice_estill_quality": 1.7899999999999996,
           "voice_speech_song": 21.904999999999998,
           "voice_ensemble_config": 19.564999999999998,
-          "voice_ornament_system": 0.3,
+          "voice_ornament_system": 0.26000000000000006,
           "voice_pitch_organization": 1.1699999999999995,
           "voice_processing_chain": 5.145,
           "voice_multitrack_stack": 3.9650000000000003

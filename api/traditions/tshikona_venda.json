@@ -5,7 +5,7 @@
   "lineage": "The national dance of the Venda of the Soutpansberg, performed at chiefs' courts for installations, rituals and other important occasions. Men each blow a single-note end-blown pipe from a graded set, the pipes interlocking in hocket into a single repeating melody, while women play the large ngoma, medium murumba and small thungwa drums. John Blacking's 1950s field recordings, held at the University of Washington Ethnomusicology Archives, and the CNRS-CREM archive document it. The flute card stands in for the pipes and the membrane-drum card for the drums.",
   "recipe": "classic mid-1950s tshikona, groove Percussion, central east south African branch, wind pipe drone modal gaita mirandesa and pauliteiros. flute like credited flute unspecified, membrane drum pulse resonant acoustic membrane drum. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 320,
-  "score": 10.715,
+  "score": 10.025,
   "config": {
     "traditions": [
       "tshikona_venda",
@@ -28,8 +28,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 5.895,
-          "acoustic_membrane_drum_gesture": 4.395
+          "acoustic_membrane_drum_form": 5.55,
+          "acoustic_membrane_drum_gesture": 4.05
         }
       }
     ],

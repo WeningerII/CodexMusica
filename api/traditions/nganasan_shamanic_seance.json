@@ -5,7 +5,7 @@
   "lineage": "Séance singing of the Nganasan, the northernmost Samoyedic people of the Taymyr Peninsula, in which the shaman's songs call on helping spirits while he beats a large frame drum, represented here by the generic frame-drum card. The séances of Tubyaku Kosterkin of Ust-Avam, among the last Nganasan shamans, were recorded by visiting fieldworkers in the 1970s and 1980s.",
   "recipe": "classic mid-1970s nganasan shaman séance, ritual Devotional, arctic branch. solo with instrumental accompaniment. credited frame drums. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 227,
-  "score": 1.006,
+  "score": 0.787,
   "config": {
     "traditions": [
       "nganasan_shamanic_seance"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2779999999999998,
+          "voice_ensemble_config": 1.12725,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.40274999999999994,
+          "voice_multitrack_stack": 0.33524999999999994,
           "voice_tessitura": 0
         }
       },

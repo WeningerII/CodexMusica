@@ -5,7 +5,7 @@
   "lineage": "Music of the Puerto Rican community of Hawaii, descended from the laborers recruited to the islands' sugar plantations who arrived at the start of the twentieth century. Derived from the jibaro music of rural Puerto Rico, it kept seis, aguinaldo and dance repertoire while developing its own local style, known in the islands as kachi-kachi (cachi-cachi), played on cuatro, six-string guitar and gueiro at house parties, dances and community celebrations; ethnomusicologist Ted Solis documented how it diverged from music on the home island.",
   "recipe": "classic modern kachi-kachi, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment, unprocessed natural acoustic. mahogany puerto rican traditional cuatro pr, acoustic guitar, guiro. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 287,
-  "score": 15.384,
+  "score": 13.884,
   "config": {
     "traditions": [
       "kachi_kachi"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.3519999999999994,
+          "voice_ensemble_config": 2.457,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.5775,
+          "voice_processing_chain": 0.714,
           "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
@@ -64,9 +64,9 @@
         "scores": {
           "plucked_traditional_technique": -0.035,
           "cuatro_pr_config": -0.035,
-          "cuatro_pr_context": 4.6825,
-          "cuatro_pr_body_wood": 6.5,
-          "cuatro_pr_string_material": 0.21
+          "cuatro_pr_context": 4.1365,
+          "cuatro_pr_body_wood": 5.546,
+          "cuatro_pr_string_material": 0.105
         }
       },
       {
@@ -80,9 +80,9 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0.378,
+          "top_wood": 0.2415,
           "back_sides": -0.035,
-          "string_acoustic": 0,
+          "string_acoustic": 0.1365,
           "acoustic_om_technique": 0.325
         }
       },
@@ -94,7 +94,7 @@
         },
         "scores": {
           "guiro_origin": -0.035,
-          "guiro_striker": 0.1365
+          "guiro_striker": 0
         }
       }
     ],

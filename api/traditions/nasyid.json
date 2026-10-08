@@ -5,7 +5,7 @@
   "lineage": "Malaysian and Indonesian Islamic popular song that emerged from 1970s-80s campus dakwah movements and went commercial in the 1990s with Raihan and Snada — originally a cappella four-to-five-part male harmony with only frame drum and hand percussion permitted, later expanding to full pop arrangement, in clean twelve-tone diatonic pop melodies at 70-100 BPM with Malay and Arabic lyrics of moral exhortation.",
   "recipe": "classic Southeast Asian mid-1970s nasyid, ritual Devotional, islamic branch, south Asian pop functional song, middle east n African praise song nepali pop mollywood. extended whistle, breath veiled tone, straight note core, interlocked note trading. lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track heavy bus compression glue post 2010 multitrack vocal stack, kompang frame drum, rebana ubi, phosphor bronze bronze fingerpicked acoustic guitar, singing lead analog poly synth. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 730,
-  "score": 238.017,
+  "score": 239.715,
   "config": {
     "traditions": [
       "nasyid",
@@ -29,7 +29,7 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
-          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
@@ -41,13 +41,13 @@
           "voice_vibrato": 1.6899999999999997,
           "voice_articulation": 21.514999999999997,
           "voice_microtone": 24.439999999999998,
-          "voice_tradition": 25.182499999999997,
-          "voice_mechanism_compound": 6.84375,
-          "voice_estill_quality": 7.343750000000001,
+          "voice_tradition": 25.4675,
+          "voice_mechanism_compound": 7.02,
+          "voice_estill_quality": 7.67,
           "voice_speech_song": 31.069999999999997,
           "voice_ensemble_config": 25.024999999999995,
-          "voice_ornament_system": 7.570000000000001,
-          "voice_pitch_organization": 7.075,
+          "voice_ornament_system": 8.005,
+          "voice_pitch_organization": 7.550000000000001,
           "voice_processing_chain": 6.0775,
           "voice_multitrack_stack": 3.932500000000001
         }

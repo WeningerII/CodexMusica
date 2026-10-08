@@ -5,7 +5,7 @@
   "lineage": "Nederreggae connects reggae performers and audiences in the Netherlands and neighboring Low Countries. Dutch-language songs and multilingual circulation link local bands with the wider reggae tradition.",
   "recipe": "classic nederreggae, bass System, reggae diaspora branch. alder rosewood humbucker electric guitar, low coloration balanced alder electric bass, maple rim clicks drum kit, electronic keyboard unspecified, trumpet, trombone, low overtone rich traditional rubber saxophone. live tracking.",
   "recipe_chars": 286,
-  "score": 20.268,
+  "score": 20.52,
   "config": {
     "traditions": [
       "nederreggae"
@@ -72,11 +72,11 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 1.0315,
+          "body_wood": 1.063,
           "neck_wood": 0,
           "fretboard": 1.2349999999999999,
           "pickup_magnet": 0,
-          "pickup_winding": 0,
+          "pickup_winding": 0.0315,
           "string_material": 0.1995,
           "bridge": 0,
           "scale_length": 1.3,
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.0315,
-          "pickup_config": 0.063,
+          "body_wood": 1.063,
+          "pickup_config": 0.16799999999999998,
           "string_type": 0,
-          "scale_length_b": 1,
+          "scale_length_b": 1.063,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 8.7,
-          "drumhead": 1,
+          "drumhead": 1.0315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1,
+          "shell_wood": 1.0315,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
@@ -166,7 +166,7 @@
           "brass_mute": 0.0315,
           "trumpet_technique": 0.19500000000000003,
           "trumpet_bell_metal": 0.21,
-          "trumpet_maker_school": 0.105
+          "trumpet_maker_school": 0
         }
       },
       {
@@ -206,7 +206,7 @@
           "sax_size": -0.035,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 1,
+          "sax_mouthpiece": 1.0315,
           "sax_technique": -0.035,
           "sax_maker_school": -0.07
         }

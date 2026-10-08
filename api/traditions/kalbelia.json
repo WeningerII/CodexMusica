@@ -5,7 +5,7 @@
   "lineage": "The Kalbelia, a once-nomadic Rajasthani community of former snake catchers and charmers, perform songs and a dance in which women in swirling black skirts move with serpentine twists, while men play the been (the snake charmer's gourd pipe), the khanjari, dholak, dufli and the morchang jaw harp. Lyrics drawn from folklore and mythology are often composed and improvised during performance. The songs and dances were inscribed on UNESCO's Representative List in 2010, and Gulabo Sapera brought the dance to international stages. The hand-drum card stands in for the khanjari and dufli.",
   "recipe": "classic early-2010s kalbelia, ballad Poetry, indian bard branch. group vocals, single lead single track no stacking. sapera been, hand drum source unspecified, dholak, morchang. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 257,
-  "score": 3.691,
+  "score": 3.722,
   "config": {
     "traditions": [
       "kalbelia"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.7350000000000001,
+          "voice_multitrack_stack": 0.7034999999999999,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "sapera_been_form": 0.39,
-          "sapera_been_pipe": 0
+          "sapera_been_pipe": 0.0315
         }
       },
       {
@@ -102,7 +102,7 @@
           "morchang_style": "morchang_folk"
         },
         "scores": {
-          "morchang_size": 0,
+          "morchang_size": 0.0315,
           "morchang_style": 0
         }
       }

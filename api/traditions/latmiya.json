@@ -5,7 +5,7 @@
   "lineage": "Shia mourning chant of Iraq, Iran, Lebanon, Bahrain and the Gulf performed in Muharram husseiniya gatherings for the commemoration of Ashura, formalized in Iraqi and Bahraini radud practice through the twentieth century — a solo radud declaims elegiac Arabic verse and a massed male congregation answers while beating their chests, the latm strokes supplying the meter, unaccompanied by melodic instruments and rising in tempo and register across a strophe.",
   "recipe": "classic Middle Eastern mid-1980s latmiya, funeral Lament, middle eastern branch, islamic ritual devotional, middle east n African praise song shailat zikir. extended whistle, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, communal group massed hand clap, tof. qat chew majlis room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 523,
-  "score": 162.679,
+  "score": 162.694,
   "config": {
     "traditions": [
       "latmiya",
@@ -38,7 +38,7 @@
           "voice_quality": 16.18499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7300000000000004,
+          "voice_vibrato": 2.6250000000000004,
           "voice_articulation": 14.754999999999995,
           "voice_microtone": 23.074999999999996,
           "voice_tradition": 10.920000000000002,
@@ -46,8 +46,8 @@
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 18.459999999999994,
           "voice_ensemble_config": 15.144999999999992,
-          "voice_ornament_system": 10.855,
-          "voice_pitch_organization": 7.23625,
+          "voice_ornament_system": 10.96,
+          "voice_pitch_organization": 7.296250000000001,
           "voice_processing_chain": 4.745,
           "voice_multitrack_stack": 3.835
         }
@@ -63,7 +63,7 @@
         "scores": {
           "choir_size": 11.18,
           "choir_polyphonic_configuration": 0.65,
-          "choir_regional_canonical_configuration": 9.423124999999999,
+          "choir_regional_canonical_configuration": 9.378124999999999,
           "choir_ensemble_repertoire": 2.795
         }
       },
@@ -81,7 +81,7 @@
       {
         "id": "tof",
         "slots": {
-          "tof_form": "tof_jingled",
+          "tof_form": "tof_shallow",
           "tof_head": "tof_calf",
           "tof_style": "tof_processional"
         },

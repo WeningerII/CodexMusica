@@ -3,21 +3,21 @@
   "name": "Bahamian Junkanoo",
   "family": "global",
   "lineage": "Bahamian Junkanoo tradition continuous from late-18th-and-19th-century Bahamian-African Christmas-and-Boxing-Day celebration practice through 20th-century continuous performance into modern Bahamas Boxing-Day-and-New-Year's-Day Junkanoo continuous practice; Junkanoo is documented as having African origins (possibly West-African origin via the slave trade) integrated with Caribbean-British Boxing-Day timing",
-  "recipe": "classic Caribbean modern bahamian junkanoo, carnival Processional, Caribbean branch, American south carnival processional, Brazilian carnival processional, African diasporic wedding yoruba aso ebi wedding music second line. thick, breath veiled tone, straight onset, interlocked note trading. synthetic remo modern tar frame drum. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 427,
-  "score": 165.847,
+  "recipe": "classic Caribbean modern bahamian junkanoo, carnival Processional, Caribbean branch, American south carnival processional, Brazilian carnival processional, African diasporic wedding yoruba aso ebi wedding music new orleans mardi gras indians. vocal fry, close mic intimate, straight onset, interlocked note trading. synthetic remo modern hands layered tar frame drum. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 464,
+  "score": 156.912,
   "config": {
     "traditions": [
       "caribbean_junkanoo",
       "yoruba_aso_ebi_wedding",
-      "second_line"
+      "mardi_gras_indians"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 4.370000000000002,
-          "voice_quality": 10.334999999999994,
+          "voice_register": 2.1695,
+          "voice_quality": 7.743500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.492500000000001,
-          "voice_articulation": 17.939999999999998,
-          "voice_microtone": 17.549999999999994,
-          "voice_tradition": 40.002125,
-          "voice_mechanism_compound": 3.185,
-          "voice_estill_quality": 2.990000000000001,
-          "voice_speech_song": 18.589999999999996,
-          "voice_ensemble_config": 17.679999999999993,
-          "voice_ornament_system": 4.3549999999999995,
-          "voice_pitch_organization": 9.769499999999995,
-          "voice_processing_chain": 2.5024999999999995,
-          "voice_multitrack_stack": 2.4050000000000002
+          "voice_vibrato": 5.135,
+          "voice_articulation": 14.559999999999992,
+          "voice_microtone": 14.16999999999999,
+          "voice_tradition": 46.0115,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 15.664999999999992,
+          "voice_ensemble_config": 14.49499999999999,
+          "voice_ornament_system": 5.816,
+          "voice_pitch_organization": 9.814499999999995,
+          "voice_processing_chain": 2.1774999999999998,
+          "voice_multitrack_stack": 2.8600000000000003
         }
       },
       {
@@ -62,11 +62,11 @@
           "tar_frame_head": "tar_frame_synthetic"
         },
         "scores": {
-          "percussion_technique": 2.825,
+          "percussion_technique": 3.2,
           "tar_size": 0,
-          "tar_frame_drum_context": 2.73,
-          "tar_frame_shell_wood": 0.8449999999999999,
-          "tar_frame_head": 2.73
+          "tar_frame_drum_context": 3.575,
+          "tar_frame_shell_wood": 0.39,
+          "tar_frame_head": 3.575
         }
       }
     ],

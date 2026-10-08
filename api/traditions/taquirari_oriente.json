@@ -3,9 +3,9 @@
   "name": "Taquirari (eastern Bolivian lowland song-dance)",
   "family": "global",
   "lineage": "Song-dance of the eastern Bolivian lowlands of Santa Cruz and Beni, the camba repertoire that also takes in the chovena of the Moxos plains, popularised on record from the mid-twentieth century by the singer Gladys Moreno and by lowland groups and trios. It is carried by voices with strummed guitars, and in festival settings by drums and bands.",
-  "recipe": "classic South American mid-1940s taquirari, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment. classical nylon-string guitar, acoustic membrane drum. live tracking. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 262,
-  "score": 5.851,
+  "recipe": "classic South American mid-1940s taquirari, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment, unprocessed natural acoustic. classical nylon-string guitar, acoustic membrane drum. live tracking. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 292,
+  "score": 5.973,
   "config": {
     "traditions": [
       "taquirari_oriente"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.441,
+          "voice_processing_chain": 0.714,
           "voice_multitrack_stack": 0.3315,
           "voice_tessitura": 0
         }
@@ -66,9 +66,9 @@
           "acoustic_technique": 1.2389999999999999,
           "string_tuning": 0,
           "top_wood_classical": 0.168,
-          "bracing_classical": 0.312,
+          "bracing_classical": 0.1755,
           "string_classical": 0,
-          "attack_technique_cl": -0.035
+          "attack_technique_cl": -0.05
         }
       },
       {

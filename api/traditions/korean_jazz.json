@@ -5,7 +5,7 @@
   "lineage": "Korean jazz connects local musicians and international collaborators across instrumental and vocal practices. Song interpretation, modern harmony and improvisation support formats ranging from intimate duos to larger ensembles.",
   "recipe": "classic modern korean jazz, improv On Frame, American jazz branch. solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 323,
-  "score": 23.397,
+  "score": 23.481,
   "config": {
     "traditions": [
       "korean_jazz"
@@ -46,8 +46,8 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3045,
-          "voice_multitrack_stack": 0.33599999999999997
+          "voice_processing_chain": 0.4095,
+          "voice_multitrack_stack": 0.3045
         }
       },
       {
@@ -67,9 +67,9 @@
           "keyboard_technique": 0.2815,
           "grand_piano_size": 0.147,
           "grand_piano_brand": 0.39,
-          "piano_hammer": 3.1115,
-          "piano_rim": 3.0065,
-          "piano_soundboard": 2.555,
+          "piano_hammer": 3.185,
+          "piano_rim": 3.0485,
+          "piano_soundboard": 2.45,
           "piano_pinblock": 2.45,
           "piano_plate": 2.45,
           "piano_pitch_standard": 3.25

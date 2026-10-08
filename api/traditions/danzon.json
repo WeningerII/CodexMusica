@@ -3,9 +3,9 @@
   "name": "Danzón",
   "family": "global",
   "lineage": "Cuban late-19th-century elegant-couple-dance tradition derived from European-contradanza imported through Haitian-French Saint-Domingue refugees 1791-onward, codified 1879-onward in Matanzas-and-Havana by orquesta-típica orchestral ensembles. The dance unfolds through ABACA rondo-form (introduction-and-paseo-promenade, A-section, B-section, A-return, C-trio-section, A-return), allowing partner-couples to alternate between dancing and resting during instrumental-trio-sections. The classic charanga-francesa ensemble: two flutes (one wooden, one metal), two violins, contrabass, piano, timbales (with cáscara stick-rhythm-on-shell), and güiro scraper. The danzón seeded the cha-cha-chá 1953-onward and danzonete vocal-variant 1929-onward and remains a living tradition through danzonera dance-hall events in Havana, Mérida, and Mexico-City.",
-  "recipe": "classic Caribbean modern danzón, groove Percussion, charanga danza branch, rumba Cuban rumba cubana yambú. powell boston canonical American orchestral flute, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, no chemical hardener t rivet beech laminated maple laminated European tradition grand piano, upright bass, open slap hand drum timbales, guiro. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 574,
-  "score": 38.617,
+  "recipe": "classic Caribbean modern danzón, groove Percussion, charanga danza branch, rumba Cuban rumba cubana yambú. powell boston canonical American orchestral flute, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano, upright bass, open slap hand drum timbales, guiro. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 575,
+  "score": 37.844,
   "config": {
     "traditions": [
       "danzon",
@@ -49,12 +49,12 @@
           "orch_strings": 0.105,
           "orch_top_wood": 2.0799999999999996,
           "orch_back_wood": 2.275,
-          "orch_varnish": 1.145,
+          "orch_varnish": 1.1937499999999999,
           "orch_setup_period": -0.07,
           "orch_bow": 5.525,
-          "orch_bow_stick": -0.035,
+          "orch_bow_stick": -0.05,
           "orch_articulation": 0.105,
-          "orch_rosin": 0.95
+          "orch_rosin": 0.9987499999999999
         }
       },
       {
@@ -63,7 +63,7 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "abel_hammer",
+          "piano_hammer": "renner_standard_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
@@ -74,12 +74,12 @@
           "keyboard_technique": 0.52,
           "grand_piano_size": 1.105,
           "grand_piano_brand": 0.3165,
-          "piano_hammer": 1.0499999999999998,
-          "piano_rim": 4.57,
-          "piano_soundboard": 4.725,
+          "piano_hammer": 1.005,
+          "piano_rim": 4.375,
+          "piano_soundboard": 4.53,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
-          "piano_pitch_standard": 7.391
+          "piano_pitch_standard": 7.166
         }
       },
       {
@@ -101,7 +101,7 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 5.8215,
+          "percussion_technique": 5.6265,
           "timbales_shell": 0.7379999999999999,
           "timbales_context": 1.69
         }

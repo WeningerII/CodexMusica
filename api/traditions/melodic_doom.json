@@ -5,7 +5,7 @@
   "lineage": "Doom metal emphasizing melodic lines and atmosphere alongside heavy riffs.",
   "recipe": "classic melodic doom, distorted Rock, doom branch. power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, melodic chordal electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 342,
-  "score": 44.252,
+  "score": 42.861,
   "config": {
     "traditions": [
       "melodic_doom"
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 10.985,
+          "electric_technique": 10.8965,
           "amp_make": 0,
-          "body_wood": 0.4305,
-          "neck_wood": 0.36750000000000005,
+          "body_wood": 0.29400000000000004,
+          "neck_wood": 0.231,
           "fretboard": -0.035,
-          "pickup_magnet": 0.1365,
+          "pickup_magnet": 0,
           "pickup_winding": 0.105,
-          "string_material": 0.1365,
-          "bridge": 0.1365,
-          "scale_length": 0.7665,
-          "string_gauge": 0.1785,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0.49350000000000005,
+          "string_gauge": 0.2835,
           "finish": 0,
-          "string_tuning": 0.26249999999999996
+          "string_tuning": 0.29399999999999993
         }
       },
       {
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.4305,
+          "body_wood": 0.29400000000000004,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.357,
@@ -125,16 +125,16 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.5354999999999999,
+          "drumhead": 0.4305,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.39899999999999997,
+          "shell_wood": 0.4305,
           "shell_thickness": 0,
-          "bearing_edges": 0.2625,
+          "bearing_edges": 0.126,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 6.15,
           "cymbal_lathing": 6.276000000000001,
-          "cymbal_finish": 0.1365
+          "cymbal_finish": 0
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Unaccompanied religious song of the Volga Tatars, sung in Tatar to poetic texts of prayer, repentance and praise of God outside the mosque liturgy. Its melodies share the pentatonic scales of Tatar folk song and are sung in free rhythm with melismatic ornament; recordings are held in the archive of Tatarstan state radio.",
   "recipe": "classic modern munajat, ritual Devotional, islamic branch. many notes per syllable, solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 183,
-  "score": 4.537,
+  "score": 4.506,
   "config": {
     "traditions": [
       "tatar_munajat"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.9660000000000002,
+          "voice_ensemble_config": 1.9345,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

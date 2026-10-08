@@ -1,14 +1,15 @@
 {
-  "id": "dutch_punk_rock",
-  "name": "Dutch punk rock",
+  "id": "dutch_punk",
+  "merged_from": "dutch_punk_rock",
+  "name": "Dutch punk",
   "family": "rock_punk",
-  "lineage": "Dutch punk rock includes socially conscious melodic bands connecting skate punk, emo and independent touring networks.",
-  "recipe": "classic dutch punk rock, distorted Rock, punk branch. one note per syllable. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 385,
-  "score": 60.022,
+  "lineage": "Dutch punk includes street-punk and hardcore-adjacent guitar bands in local independent scenes.",
+  "recipe": "classic dutch punk, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 342,
+  "score": 43.998,
   "config": {
     "traditions": [
-      "dutch_punk_rock"
+      "dutch_punk"
     ],
     "instruments": [
       {
@@ -30,14 +31,14 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 18.527,
-          "body_wood": 1.7954999999999999,
+          "amp_make": 18.1595,
+          "body_wood": 0.756,
           "neck_wood": 0.063,
-          "fretboard": 0.273,
+          "fretboard": 0,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.273,
+          "bridge": 0,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -57,13 +58,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.875,
-          "body_wood": 1.7954999999999999,
+          "amp_make": 2.275,
+          "body_wood": 0.756,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 20.0315,
+          "bass_technique": 15.0315,
           "electric_bass_string_configuration": 0
         }
       },
@@ -75,8 +76,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 8.75,
-          "drumhead": 0.40950000000000003,
+          "drum_technique": 3.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -93,12 +94,12 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
@@ -112,38 +113,13 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.105,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.8895000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.162,
           "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "cello",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_synthetic",
-          "cello_top_wood": "norway_spruce_alpine_cello",
-          "cello_back_wood": "bosnian_flamed_maple_cello",
-          "cello_varnish": "oil_amber_varnish_cello",
-          "cello_setup_period": "modern_setup_cello",
-          "cello_bow_grip": "french_bow_grip",
-          "cello_rosin": "pirastro_cellisto_rosin",
-          "cello_bow_stick": "pernambuco_stick_cello"
-        },
-        "scores": {
-          "bowed_technique": -0.05,
-          "cello_strings": 0.1365,
-          "cello_top_wood": -0.07,
-          "cello_back_wood": -0.07,
-          "cello_varnish": -0.1,
-          "cello_setup_period": 0.26,
-          "cello_bow_grip": 0.3315,
-          "cello_rosin": -0.1,
-          "cello_bow_stick": -0.15000000000000002
         }
       }
     ],
@@ -193,17 +169,6 @@
         "voice_processing_chain",
         "voice_multitrack_stack",
         "voice_tessitura"
-      ],
-      "cello": [
-        "bowed_technique",
-        "cello_strings",
-        "cello_top_wood",
-        "cello_back_wood",
-        "cello_varnish",
-        "cello_setup_period",
-        "cello_bow_grip",
-        "cello_rosin",
-        "cello_bow_stick"
       ]
     },
     "room": "treated_studio",
@@ -233,14 +198,14 @@
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_none",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
       "electric_technique": "electric_power_chord",
       "string_tuning": "standard_tuning",
       "bass_technique": "pick_aggressive",
@@ -261,16 +226,7 @@
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "bowed_technique": "bowed_legato_classical",
-      "cello_strings": "cello_synthetic",
-      "cello_top_wood": "norway_spruce_alpine_cello",
-      "cello_back_wood": "bosnian_flamed_maple_cello",
-      "cello_varnish": "oil_amber_varnish_cello",
-      "cello_setup_period": "modern_setup_cello",
-      "cello_bow_grip": "french_bow_grip",
-      "cello_rosin": "pirastro_cellisto_rosin",
-      "cello_bow_stick": "pernambuco_stick_cello"
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

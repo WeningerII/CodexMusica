@@ -5,7 +5,7 @@
   "lineage": "Working-class popular song of Ecuador, named after the rockolas (jukeboxes) of the bars and cantinas where it was heard, which grew out of the pasillo and the bolero in the 1970s and 1980s with singers such as Segundo Rosero, Jaime Enrique Aymara and Mélida Jara. Its songs of heartbreak, betrayal and drink are sung over guitars and requinto, later with electric bass; the ethnomusicologist Ketty Wong analysed it in Whose National Music? Identity, Mestizaje, and Migration in Ecuador (2012).",
   "recipe": "classic tropical mid-1970s música rocolera, drinking Song, americas branch. solo with instrumental accompaniment. classical nylon-string guitar, credited requinto unspecified, electric bass. live tracking. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 315,
-  "score": 3.945,
+  "score": 3.957,
   "config": {
     "traditions": [
       "musica_rocolera"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.565125,
+          "voice_ensemble_config": 2.588,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.082125,
+          "voice_processing_chain": 0.074625,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -63,10 +63,10 @@
           "attack_technique_cl": "rasgueado_cl"
         },
         "scores": {
-          "acoustic_technique": 0.20750000000000002,
+          "acoustic_technique": 0.205625,
           "string_tuning": 0,
-          "top_wood_classical": 0.007499999999999999,
-          "bracing_classical": 0.168,
+          "top_wood_classical": 0,
+          "bracing_classical": 0.173625,
           "string_classical": 0,
           "attack_technique_cl": -0.05
         }

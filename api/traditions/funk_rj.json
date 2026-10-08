@@ -1,23 +1,24 @@
 {
-  "id": "funk_rj",
-  "name": "Funk RJ (Rio proibidão and tamborzão lineage)",
-  "family": "electronic",
-  "lineage": "Rio de Janeiro's own funk lineage from the 1990s favela bailes onward, codified by DJ Marlboro's Volume series, then the tamborzão beat built by DJ Luciano Oliveira circa 1998 from sampled atabaque, timbal and repique hits, and carried by Cidinho e Doca, MC Cidinho, Bonde do Tigrão and the proibidão MCs — 125-135 BPM in a syncopated non-four-on-floor pattern, minimal or absent harmony, call-and-response chanted refrains, and lyrics reporting favela life and command territory, recorded fast and pressed straight to CD or sound-system playback.",
-  "recipe": "classic Southern American mid-1990s funk rj, groove Percussion, Afro-diasporic electric branch, Brazilian groove percussion, Afro-diasporic MC rhythm pagode deboxe. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sound design field sampler, turntable, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 554,
-  "score": 233.757,
+  "id": "baile_funk",
+  "merged_from": "funk_rj",
+  "name": "Baile funk (funk carioca)",
+  "family": "global",
+  "lineage": "Rio-favela 1985-onward block-party street-music built on the Tamborzão two-bar Brazilian-funk-percussion pattern with Miami-bass / electro-funk roots imported via 1980s American-vinyl-records trade. The genre evolved through four phases: melô-rap early-period (1985-1995, English-language samples over Volt-mix Atomic-Dog DNA), funk-melody and funk-consciente mid-period (1995-2005, Portuguese-language MC vocals layered over 808-kick patterns), proibidão hardcore underground (2000s-onward, drug-trafficking-themed-lyrics often banned from mainstream airwaves), and bregafunk-and-funk-150bpm modern-period (2010s-onward, accelerated-tempo Rio-and-Recife regional variants).",
+  "recipe": "classic Southern American mid-1990s baile funk, electronic Dance, Latin electric branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, low sub bass digital subtractive. rio favela home baile funk. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 467,
+  "score": 319.2,
   "config": {
     "traditions": [
-      "funk_rj",
-      "pagode",
-      "deboxe"
+      "baile_funk",
+      "conscious_hip_hop",
+      "gangsta_rap"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -25,31 +26,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.5749999999999995,
-          "voice_quality": 21.904999999999987,
+          "voice_register": 11.219999999999999,
+          "voice_quality": 30.575,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.79,
-          "voice_articulation": 23.985,
-          "voice_microtone": 23.4,
-          "voice_tradition": 6.955000000000001,
-          "voice_mechanism_compound": 2.6649999999999996,
-          "voice_estill_quality": 3.1200000000000006,
-          "voice_speech_song": 26.455000000000002,
-          "voice_ensemble_config": 26.064999999999998,
-          "voice_ornament_system": 1.6525,
-          "voice_pitch_organization": 1.2924999999999998,
-          "voice_processing_chain": 11.774999999999999,
-          "voice_multitrack_stack": 13.194999999999997
+          "voice_vibrato": 8.344999999999999,
+          "voice_articulation": 18.98,
+          "voice_microtone": 17.484999999999996,
+          "voice_tradition": 11.004999999999999,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 5.194999999999999,
+          "voice_speech_song": 27.514999999999993,
+          "voice_ensemble_config": 19.11,
+          "voice_ornament_system": 4.485000000000002,
+          "voice_pitch_organization": 2.990000000000001,
+          "voice_processing_chain": 25.09,
+          "voice_multitrack_stack": 11.992499999999996
         }
       },
       {
@@ -57,91 +58,90 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_miami",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 1.95,
-          "drum_machine_808_context": 3.4774999999999996,
-          "tr808_production_origin": 0.045
+          "tr808_voice": 10.749999999999998,
+          "drum_machine_808_context": 8.675,
+          "tr808_production_origin": 1.95
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_edm"
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 1.5775,
-          "sampler_archetypes": 1.8199999999999998,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": 2.635,
-          "sampler_classic_context": 29.444999999999997
+          "electronic_technique": 9.264999999999999,
+          "sampler_archetypes": 15.469999999999999,
+          "sampler_bit_depth": 1.95,
+          "sampler_workflow": 9.87,
+          "sampler_classic_context": 29.4775
         }
       },
       {
-        "id": "turntable",
+        "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_chirp_baby"
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 1.5775,
-          "turntable_technique": 0.15
-        }
-      },
-      {
-        "id": "surdo",
-        "slots": {
-          "surdo_size": "surdo_segunda",
-          "surdo_skin": "surdo_nylon",
-          "surdo_shell": "surdo_aluminum_canonical"
-        },
-        "scores": {
-          "surdo_size": 1.885,
-          "surdo_skin": 5.265,
-          "surdo_shell": 5.07
-        }
-      },
-      {
-        "id": "tamborim",
-        "slots": {
-          "tamborim_skin": "tamborim_nylon",
-          "tamborim_striker": "tamborim_cluster",
-          "tamborim_shell": "tamborim_aluminum_canonical"
-        },
-        "scores": {
-          "tamborim_skin": 0.195,
-          "tamborim_striker": 3.574999999999999,
-          "tamborim_shell": 5.07
+          "electronic_technique": 12.634999999999998,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 17.875
         }
       }
     ],
     "room": "rio_favela_home_baile_funk",
-    "archetype": "arch_minimal_daw_bedroom",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "mic_sm58_dynamic_shure",
-      "pre": "transformer_solid_state",
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
       "console": "console_in_the_box",
-      "comp": "comp_dbx_160_vca",
-      "eq": null,
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
       "medium": "digital_std"
     },
-    "tuning": "funk_one_drop_syncopated_4_4",
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "funk_one_drop_syncopated_4_4",
+    "tuning": "twelve_tet",
     "room": "rio_favela_home_baile_funk",
-    "chain_mic": "mic_sm58_dynamic_shure",
-    "chain_pre": "transformer_solid_state",
-    "chain_comp": "comp_dbx_160_vca",
+    "parts": {
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_miami",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "sampler_archetypes": "akai_s900",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "electronic_technique": "electronic_pad_drone"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
     "chain_medium": "digital_std",
     "chain_console": "console_in_the_box"
   }

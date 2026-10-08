@@ -1,21 +1,22 @@
 {
-  "id": "persian_underground_hip_hop",
-  "name": "Persian Underground Hip Hop",
+  "id": "persian_hip_hop",
+  "merged_from": "persian_underground_hip_hop",
+  "name": "Persian hip hop",
   "family": "hip_hop",
-  "lineage": "Persian underground hip hop grew through independent Iranian and diaspora recording, circulation and performance networks, including the community around Hichkas and Moltafet.",
-  "recipe": "classic persian underground hip hop, mc Rhythm, intl hip hop branch. rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 273,
-  "score": 11.603,
+  "lineage": "Persian hip-hop connects Persian-language rappers and producers across local and diasporic communities. Independent recordings, collaborations and performance networks support varied personal and social expression.",
+  "recipe": "classic persian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 200,
+  "score": 38.148,
   "config": {
     "traditions": [
-      "persian_underground_hip_hop"
+      "persian_hip_hop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -34,17 +35,17 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0,
+          "voice_quality": 9.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.6315,
+          "voice_articulation": 0.063,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.467999999999998,
-          "voice_ensemble_config": 0.504,
+          "voice_speech_song": 9.685,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -53,12 +54,20 @@
         }
       },
       {
-        "id": "credited_beat_unspecified",
+        "id": "sampler_classic",
         "slots": {
-          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "credited_beat_identity": 0
+          "electronic_technique": -0.035,
+          "sampler_archetypes": 5.25,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 13.194999999999999
         }
       }
     ],
@@ -82,8 +91,12 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "credited_beat_unspecified": [
-        "credited_beat_identity"
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ]
     },
     "room": "treated_studio",
@@ -104,7 +117,7 @@
     "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
+      "voice_quality": "rap_voice",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
@@ -120,7 +133,11 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "credited_beat_identity": "credited_beat_mechanism_unspecified"
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

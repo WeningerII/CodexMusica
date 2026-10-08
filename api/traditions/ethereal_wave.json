@@ -3,14 +3,14 @@
   "name": "Ethereal Wave",
   "family": "rock",
   "lineage": "British gothic-rock offshoot of 1983-1990 defined by Cocteau Twins, This Mortal Coil and Dead Can Dance on 4AD under producers John Fryer and Ivo Watts-Russell, built from chorused and heavily reverberant guitar, fretless or chorused bass, drum machine, and wordless soprano vocals stacked in cathedral-scale reverb over slow modal 60-100 BPM cycles.",
-  "recipe": "classic Northern European mid-1980s ethereal wave, distorted Rock, gothic rock branch, experimental distorted rock, ambient experimental electric hauntology. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp soft down tuning power chord single coil electric guitar, ampeg svt amp rock bass amp fretless bass, drum machine analog, sustained pad analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, 2000s elastic pitch edited stack multitrack vocal stack. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 834,
-  "score": 228.428,
+  "recipe": "classic Northern European mid-1980s ethereal wave, distorted Rock, gothic rock branch, experimental distorted rock, ambient experimental electric hauntology psychill. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp soft down tuning power chord single coil electric guitar, ampeg svt amp rock bass amp ebony unlined fusion fretless canon fretless bass, drum machine analog, sustained pad analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron, 2000s elastic pitch edited stack multitrack vocal stack. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 820,
+  "score": 221.99,
   "config": {
     "traditions": [
       "ethereal_wave",
-      "hauntology_aesthetic",
-      "hauntology_uk_2010s"
+      "hauntology_uk_2010s",
+      "psychill"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 16.494999999999994,
-          "voice_quality": 6.305000000000001,
+          "voice_register": 14.694999999999993,
+          "voice_quality": 6.4350000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0149999999999997,
-          "voice_articulation": 18.785,
-          "voice_microtone": 20.929999999999996,
-          "voice_tradition": 12.8375,
+          "voice_vibrato": 2.015,
+          "voice_articulation": 17.679999999999993,
+          "voice_microtone": 18.979999999999993,
+          "voice_tradition": 11.7,
           "voice_mechanism_compound": 3.0550000000000006,
-          "voice_estill_quality": 2.9899999999999998,
-          "voice_speech_song": 19.435,
-          "voice_ensemble_config": 18.72,
-          "voice_ornament_system": 0.09,
-          "voice_pitch_organization": 2.71,
-          "voice_processing_chain": 10.245,
-          "voice_multitrack_stack": 3.8675
+          "voice_estill_quality": 1.69,
+          "voice_speech_song": 18.134999999999994,
+          "voice_ensemble_config": 17.419999999999995,
+          "voice_ornament_system": 0.43999999999999995,
+          "voice_pitch_organization": 2.335,
+          "voice_processing_chain": 9.87,
+          "voice_multitrack_stack": 6.207500000000001
         }
       },
       {
@@ -71,15 +71,15 @@
         },
         "scores": {
           "electric_technique": 4.452500000000001,
-          "amp_make": 11.049999999999997,
-          "body_wood": 0.5399999999999999,
+          "amp_make": 10.205,
+          "body_wood": 0.39,
           "neck_wood": 0.7800000000000001,
           "fretboard": 0.7800000000000001,
           "pickup_magnet": 0.7800000000000001,
           "string_material": 0.7800000000000001,
-          "string_gauge": 1.54,
+          "string_gauge": 1.6900000000000002,
           "bridge": 0.6,
-          "scale_length": 0.585,
+          "scale_length": 0.39,
           "finish": 0.195,
           "string_tuning": 9.035,
           "single_coil_pickup_construction": 0
@@ -90,18 +90,18 @@
         "slots": {
           "electric_technique": "electric_bass_walking",
           "amp_make": "amp_american_ampeg_svt",
-          "fretless_use": "fretless_rock",
+          "fretless_use": "fretless_jazz",
           "fretless_bass_construction": "fretless_bass_factory",
           "fretless_fingerboard_wood": "fretless_ebony_unlined",
           "fretless_bass_strings": "fretless_tapewound"
         },
         "scores": {
           "electric_technique": -0.05,
-          "amp_make": 9.425,
-          "fretless_use": 0.5399999999999999,
+          "amp_make": 9.88,
+          "fretless_use": 1.2349999999999999,
           "fretless_bass_construction": 0.045,
-          "fretless_fingerboard_wood": 0.995,
-          "fretless_bass_strings": 0.845
+          "fretless_fingerboard_wood": 1.4949999999999999,
+          "fretless_bass_strings": 1.5899999999999999
         }
       },
       {
@@ -128,10 +128,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 7.015,
-          "poly_archetypes": 7.8,
-          "poly_voices": 0.38999999999999996,
-          "poly_maker_lineage": 0.78
+          "electronic_technique": 7.665,
+          "poly_archetypes": 7.995,
+          "poly_voices": 0.845,
+          "poly_maker_lineage": 0.975
         }
       },
       {
@@ -147,8 +147,8 @@
           "keyboard_technique": 0.9099999999999999,
           "mellotron_voice": 7.8,
           "mellotron_context": 0.39,
-          "mellotron_model": 6.825,
-          "mellotron_tape_material": 1.69
+          "mellotron_model": 5.98,
+          "mellotron_tape_material": 0.845
         }
       },
       {
@@ -160,8 +160,8 @@
         },
         "scores": {
           "multitrack_stack_density": 0.48,
-          "multitrack_stack_era_aesthetic": 2.145,
-          "multitrack_stack_processing": 0.325
+          "multitrack_stack_era_aesthetic": 3.52,
+          "multitrack_stack_processing": 0.975
         }
       }
     ],

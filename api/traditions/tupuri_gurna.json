@@ -5,7 +5,7 @@
   "lineage": "Song-dance society of the Tupuri of the Mayo-Danay in Cameroon and the Mayo-Kebbi in Chad. Men gather in dry-season camps, where composers create new songs that the group then performs in large circle dances; the songs praise, criticise and comment on village life, as James Ignatowski's ethnography Journey of Song describes. Charles Duvelle recorded Tupuri songs in 1966. The voice card, set to a live group, carries the massed singing.",
   "recipe": "classic mid-1960s gurna, praise Song, sub saharan African branch. group vocals, live take. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 182,
-  "score": 4.479,
+  "score": 4.615,
   "config": {
     "traditions": [
       "tupuri_gurna"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.504,
+          "voice_ensemble_config": 3.6405000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

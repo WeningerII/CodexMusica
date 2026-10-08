@@ -5,7 +5,7 @@
   "lineage": "Amateur village ritual associations (yinyue hui) of central Hebei, south of Beijing, play shengguan wind music for funerals, calendrical rituals and temple fairs from gongche scores copied within each association; those of Qujiaying and Gaoluo are the best documented, and the form is listed as national intangible heritage. A guanzi leads, doubled by sheng and dizi with yunluo gong-chimes, over drum, cymbals and gongs (the acoustic drum card stands in for the association drum).",
   "recipe": "classic modern hebei yinyue hui, ritual Devotional. guanzi, sheng, dizi, yunluo, membrane drum pulse resonant acoustic membrane drum, naobo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 220,
-  "score": 8.279,
+  "score": 8.266,
   "config": {
     "traditions": [
       "hebei_shengguan_yinyuehui"
@@ -33,7 +33,7 @@
           "sheng_pipe_material": "sheng_bamboo_canonical"
         },
         "scores": {
-          "free_reed_technique": -0.10500000000000001,
+          "free_reed_technique": -0.11850000000000002,
           "sheng_size": 0.105,
           "sheng_context": 0.40950000000000003,
           "sheng_pipe_material": 0

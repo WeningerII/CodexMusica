@@ -3,14 +3,14 @@
   "name": "Desi Trap",
   "family": "hip_hop",
   "lineage": "South Asian adaptation of Atlanta trap that consolidated in Mumbai, Delhi and the Punjabi diaspora circa 2015-2020 through DIVINE, Raftaar, Sidhu Moose Wala and producers Karan Aujla and Sez on the Beat: 130-150 BPM half-time grids, long-decay 808 glides, triplet hats and rolls, tumbi or sarangi and harmonium samples pitched into minor-key loops, and Hindi-Punjabi-English rapping tracked into a laptop rig.",
-  "recipe": "classic mid-2010s desi trap, mc Rhythm, intl hip hop branch, us hip hop southern, south Asian pop functional song atl trap country rap. thick, rap, wide pitch sway, interlocked note trading. TR-808, sampled chopped sampler drum machine, synthetic steel single string canonical Punjabi tumbi, steel main modern alternative tun cedar sarangi, melodic straight harmonium indian, sub bass monosynth acid bass, 2010s melodyne microtuned stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 707,
-  "score": 237.979,
+  "recipe": "classic mid-2010s desi trap, mc Rhythm, intl hip hop branch, us hip hop southern, south Asian pop functional song dirty south rap atlanta bass. thick, rap, slow rate, interlocked note trading. TR-808, sampled chopped sampler drum machine, steel single string canonical Punjabi tumbi, tun cedar sarangi, vocal female harmonium indian, low sub bass monosynth acid bass, multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 590,
+  "score": 247.268,
   "config": {
     "traditions": [
       "desi_trap",
-      "atl_trap",
-      "country_rap"
+      "dirty_south_rap",
+      "atlanta_bass"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 7.275,
-          "voice_quality": 18.55375,
+          "voice_register": 3.845000000000001,
+          "voice_quality": 17.5,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.69,
-          "voice_articulation": 19.694999999999997,
-          "voice_microtone": 24.11499999999999,
-          "voice_tradition": 8.467500000000001,
-          "voice_mechanism_compound": 3.2499999999999996,
-          "voice_estill_quality": 7.2325,
-          "voice_speech_song": 20.604999999999997,
-          "voice_ensemble_config": 18.524999999999995,
-          "voice_ornament_system": 8.060000000000002,
-          "voice_pitch_organization": 3.25,
-          "voice_processing_chain": 10.545,
-          "voice_multitrack_stack": 3.6399999999999997
+          "voice_vibrato": 1.8200000000000003,
+          "voice_articulation": 23.270000000000003,
+          "voice_microtone": 27.3,
+          "voice_tradition": 8.645,
+          "voice_mechanism_compound": 3.7049999999999996,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 24.375000000000004,
+          "voice_ensemble_config": 22.75,
+          "voice_ornament_system": 7.8000000000000025,
+          "voice_pitch_organization": 3.9299999999999997,
+          "voice_processing_chain": 9.75,
+          "voice_multitrack_stack": 3.185
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 9.110000000000001,
-          "drum_machine_808_context": 2.6,
-          "tr808_production_origin": 0.9099999999999999
+          "tr808_voice": 11.345,
+          "drum_machine_808_context": 5.4350000000000005,
+          "tr808_production_origin": 0.65
         }
       },
       {
@@ -74,25 +74,25 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 7.405000000000001,
-          "sample_bitdepth": 1.4299999999999997,
-          "sample_swing": 12.025,
-          "sample_processing": 0.845
+          "electronic_technique": 7.030000000000001,
+          "sample_bitdepth": 2.14,
+          "sample_swing": 10.92,
+          "sample_processing": 2.34
         }
       },
       {
         "id": "tumbi",
         "slots": {
           "plucked_traditional_technique": "plucked_ornamented_melodic",
-          "tumbi_construction": "tumbi_synthetic",
-          "tumbi_context": "tumbi_film",
+          "tumbi_construction": "tumbi_gourd",
+          "tumbi_context": "tumbi_fusion",
           "tumbi_string": "tumbi_steel_modern"
         },
         "scores": {
           "plucked_traditional_technique": 2.45,
-          "tumbi_construction": 1.105,
-          "tumbi_context": 1.0399999999999998,
-          "tumbi_string": 3.965
+          "tumbi_construction": 0.3,
+          "tumbi_context": 0.9750000000000001,
+          "tumbi_string": 3.769999999999999
         }
       },
       {
@@ -100,33 +100,33 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "sarangi_belly": "goat_skin_sarangi",
-          "sarangi_taraf": "sarangi_40_strings",
+          "sarangi_taraf": "sarangi_35_strings",
           "sarangi_bow": "horse_hair_loose",
           "sarangi_main_strings": "sarangi_steel_main",
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
           "bowed_technique": -0.05,
-          "sarangi_belly": 0.195,
+          "sarangi_belly": 1.69,
           "sarangi_taraf": 0.195,
-          "sarangi_bow": 0.9750000000000001,
-          "sarangi_main_strings": 1.3649999999999998,
-          "sarangi_body_wood": 1.56
+          "sarangi_bow": 1.69,
+          "sarangi_main_strings": 0.38999999999999996,
+          "sarangi_body_wood": 1.7550000000000001
         }
       },
       {
         "id": "harmonium_indian",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
+          "free_reed_technique": "free_reed_overblow_modern",
           "harmonium_action": "harmonium_hand_pump",
-          "harmonium_voicing": "harmonium_male",
+          "harmonium_voicing": "harmonium_female",
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 4.199999999999999,
-          "harmonium_action": 0.195,
-          "harmonium_voicing": 0.195,
-          "harmonium_use": 0.195
+          "free_reed_technique": 0,
+          "harmonium_action": 1.3650000000000002,
+          "harmonium_voicing": 1.9500000000000004,
+          "harmonium_use": 1.3650000000000002
         }
       },
       {
@@ -135,26 +135,26 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "subtle_accent_acid"
+          "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 18.505,
-          "wave_acid": 0.195,
-          "filter_acid": 1.04,
-          "accent_acid": 0.195
+          "electronic_technique": 20.139999999999997,
+          "wave_acid": 0.585,
+          "filter_acid": 1.75,
+          "accent_acid": 0.65
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
           "multitrack_stack_density": "multitrack_density_unison_double",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 0.345,
-          "multitrack_stack_era_aesthetic": 1.2999999999999998,
-          "multitrack_stack_processing": 2.2099999999999995
+          "multitrack_stack_density": 0.8,
+          "multitrack_stack_era_aesthetic": 0.35750000000000015,
+          "multitrack_stack_processing": 0.585
         }
       }
     ],

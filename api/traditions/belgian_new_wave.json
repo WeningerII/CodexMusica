@@ -5,7 +5,7 @@
   "lineage": "Polyphonic Size — Paris, Les Bains Douches, 4 Nov 1982. Representative authored present-day studio arrangement for one documented release branch. Primary sources establish roles, locality and the category relationship. Guitar body and pickup design, bass construction, keyboard synthesis and drum-machine architecture, amp choice, room, chain, technique, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts or universal genre traits.",
   "recipe": "classic early-1980s belgian new wave, distorted Rock, punk branch. humbucker electric guitar, electric bass, digital subtractive, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 237,
-  "score": 18.187,
+  "score": 17.504,
   "config": {
     "traditions": [
       "belgian_new_wave"
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.441,
-          "neck_wood": 0.40950000000000003,
+          "body_wood": 0.3045,
+          "neck_wood": 0.273,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 1,
           "finish": 0,
           "string_tuning": 0
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.441,
+          "body_wood": 0.3045,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

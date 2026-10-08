@@ -5,7 +5,7 @@
   "lineage": "Andean flute music includes distinct Indigenous and regional wind traditions, with the quena playing an important role in Andean communities. Archival recordings document Aymara quena performance in Bolivia, including music associated with San Lorenzo.",
   "recipe": "classic andean flute, drone Modal, wind pipe branch. quena. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 158,
-  "score": 1.345,
+  "score": 1.45,
   "config": {
     "traditions": [
       "andean_flute"
@@ -20,7 +20,7 @@
         },
         "scores": {
           "wind_articulation": 0.26,
-          "quena_material": 0.6944999999999999,
+          "quena_material": 0.7994999999999999,
           "quena_pitch": 0.39
         }
       }

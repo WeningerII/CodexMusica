@@ -5,7 +5,7 @@
   "lineage": "Non-film Tamil popular music took shape in the 1990s when the Chennai studio culture around Ilaiyaraaja and A. R. Rahman spilled into standalone albums — Unnikrishnan and Bombay Jayashri's light-music records, then the 2000s Tamil rock and indie wave (Kadal Pura, Anthony Daasan) and after 2015 an internet-native scene of Hiphop Tamizha, Sean Roldan and Santhosh Narayanan side projects — typically 80-130 BPM 4/4 productions blending programmed kits and synth pads with mridangam, thavil, nadaswaram or urumi accents and Carnatic-trained vocal gamaka over Western chord progressions.",
   "recipe": "classic mid-1990s tamil pop, functional Song, south Asian pop branch, south Asian art music bharatanatyam music afghan traditional. thick, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, plucked short envelope analog poly synth, rock canon ernie ball slinky electric bass, TR-808, bronze strummed open chord ringing overtones dreadnought acoustic guitar, kerala bamboo alternative south indian continuous-airflow legato bansuri, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 949,
-  "score": 311.84,
+  "score": 309.425,
   "config": {
     "traditions": [
       "tamil_pop",
@@ -41,13 +41,13 @@
           "voice_vibrato": 5.46,
           "voice_articulation": 18.914999999999996,
           "voice_microtone": 19.824999999999992,
-          "voice_tradition": 21.970000000000002,
-          "voice_mechanism_compound": 4.234999999999999,
-          "voice_estill_quality": 4.825,
+          "voice_tradition": 21.475,
+          "voice_mechanism_compound": 4.28,
+          "voice_estill_quality": 4.87,
           "voice_speech_song": 21.449999999999996,
           "voice_ensemble_config": 21.18999999999999,
-          "voice_ornament_system": 16.630000000000003,
-          "voice_pitch_organization": 15.375,
+          "voice_ornament_system": 15.850000000000001,
+          "voice_pitch_organization": 14.64,
           "voice_processing_chain": 7.215000000000001,
           "voice_multitrack_stack": 3.7700000000000005
         }
@@ -65,7 +65,7 @@
           "mridangam_heads": 1.95,
           "mridangam_use": 0,
           "mridangam_shell_wood": 2.535,
-          "mridangam_heads_material": 0.6749999999999999,
+          "mridangam_heads_material": 0.525,
           "mridangam_lineage": 2.535
         }
       },
@@ -80,8 +80,8 @@
         "scores": {
           "thavil_context": 0.65,
           "thavil_technique": 0.26999999999999996,
-          "thavil_shell_wood": 4.925,
-          "thavil_head": 0.6749999999999999
+          "thavil_shell_wood": 4.7749999999999995,
+          "thavil_head": 0.525
         }
       },
       {
@@ -94,11 +94,11 @@
           "nadaswaram_lineage": "nadaswaram_thiruvavaduthurai"
         },
         "scores": {
-          "nadaswaram_register": 5.955,
+          "nadaswaram_register": 6.18,
           "nadaswaram_ensemble": 2.2800000000000002,
-          "nadaswaram_body_wood": 4.7299999999999995,
-          "nadaswaram_reed": 4.7749999999999995,
-          "nadaswaram_lineage": 5.619999999999999
+          "nadaswaram_body_wood": 4.579999999999999,
+          "nadaswaram_reed": 4.625,
+          "nadaswaram_lineage": 5.515
         }
       },
       {
@@ -110,8 +110,8 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 9.74,
-          "poly_archetypes": 1.045,
+          "electronic_technique": 9.935,
+          "poly_archetypes": 1.09,
           "poly_voices": 0.045,
           "poly_maker_lineage": -0.7350000000000001
         }
@@ -131,9 +131,9 @@
         "scores": {
           "amp_make": 0.95,
           "body_wood": 0.045,
-          "pickup_config": 0.09,
+          "pickup_config": 0.135,
           "string_type": 2.5,
-          "scale_length_b": 0.195,
+          "scale_length_b": 0.045,
           "fretted_or_not": 0.845,
           "bass_technique": 2.45,
           "electric_bass_string_configuration": 0

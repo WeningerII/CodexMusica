@@ -5,7 +5,7 @@
   "lineage": "Regional song of Chittagong sung in the Chittagonian language, with romantic and humorous themes, made widely known across Bangladesh by the male-female duets of Shefali Ghosh and Shyam Sundar Baishnab broadcast and recorded by Bangladesh Betar Chittagong.",
   "recipe": "classic modern chatgaiya gan, field Work, south Asian branch. vocal male song accompaniment harmonium indian, dholak, credited bamboo flute unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 232,
-  "score": 5.472,
+  "score": 5.697,
   "config": {
     "traditions": [
       "chatgaiya_gan"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0,
+          "voice_ensemble_config": 0.04875,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.024375,
+          "voice_multitrack_stack": 0.04875,
           "voice_tessitura": 0
         }
       },
@@ -61,9 +61,9 @@
           "harmonium_use": "harmonium_folk_song"
         },
         "scores": {
-          "free_reed_technique": -0.11287500000000003,
-          "harmonium_action": 0.20700000000000002,
-          "harmonium_voicing": 1.6360000000000001,
+          "free_reed_technique": -0.10500000000000001,
+          "harmonium_action": 0.261375,
+          "harmonium_voicing": 1.69,
           "harmonium_use": 2.6
         }
       },
@@ -77,9 +77,9 @@
         },
         "scores": {
           "dholak_use": 0,
-          "dholak_construction": -0.05,
-          "dholak_head": 0.149625,
-          "dholak_tensioning": 0.142125
+          "dholak_construction": -0.044375000000000005,
+          "dholak_head": 0.1365,
+          "dholak_tensioning": 0.1365
         }
       },
       {

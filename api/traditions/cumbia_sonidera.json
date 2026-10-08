@@ -1,16 +1,17 @@
 {
-  "id": "cumbia_sonidera",
-  "name": "Cumbia sonidera",
+  "id": "sonidero",
+  "merged_from": "cumbia_sonidera",
+  "name": "Sonidero (Mexican cumbia sound-system)",
   "family": "global",
-  "lineage": "Mexico City and Puebla sound-system cumbia culture, formalized from the late 1970s onward by sonideros such as Sonido La Changa, Sonido Fascinación and Sonido Duende who slowed Colombian and Peruvian cumbia records to 85-100 BPM, drenched them in tape and spring echo, and overlaid live shouted dedicatorias to named neighbourhoods and migrants; the studio-produced strain that followed keeps the guacharaca-and-güiro paseo pattern, syncopated electric bass, teclado organ leads and thick slapback on every voice.",
-  "recipe": "classic South American 1977-1979 cumbia sonidera, groove Percussion, Latin am branch, dub descendants bass system, tropical song functional song trip hop chicha. thick, full chest belt, breath pulsed, interlocked note trading. accordion, guacharaca, guiro, open slap hand drum congas, open slap hand drum timbales, ampeg svt amp rock bass amp mahogany la bella flats Detroit soul bass canon electric bass, lead instrument elevated psychedelic foregrounded organ driven rock combo organ, cencerro, turntable. boombox portable speaker. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
-  "recipe_chars": 653,
-  "score": 196.97,
+  "lineage": "Mexican cumbia DJ-and-sound-system tradition of Mexico City and northern-Mexican border-cities, emerging 1960s-1970s. The sonidero plays cumbia records on large mobile sound-systems at outdoor street-parties, interspersed with extempore MC-shoutouts dedicated to attendees by name and Mexican-immigrant family members in the US. Slowed-down cumbia rebajada emerged through accidental incorrect-speed playback.",
+  "recipe": "classic Mexican mid-1960s sonidero, functional Song, Mexican branch, reggaeton MC rhythm moombahton. thick, full chest belt, straight onset, interlocked note trading. sound design field sampler, TR-808. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 416,
+  "score": 123.925,
   "config": {
     "traditions": [
-      "cumbia_sonidera",
-      "trip_hop",
-      "chicha"
+      "sonidero",
+      "moombahton",
+      "reggaeton"
     ],
     "instruments": [
       {
@@ -20,182 +21,79 @@
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "andean_quechua_tradition",
+          "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.8950000000000014,
-          "voice_quality": 12.544999999999996,
+          "voice_register": 2.2100000000000017,
+          "voice_quality": 12.019999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.105,
-          "voice_articulation": 23.53,
-          "voice_microtone": 25.025,
-          "voice_tradition": 5.095,
-          "voice_mechanism_compound": 2.21,
-          "voice_estill_quality": 4.82,
-          "voice_speech_song": 27.885000000000005,
-          "voice_ensemble_config": 24.895000000000003,
-          "voice_ornament_system": 5.265,
-          "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 6.205,
-          "voice_multitrack_stack": 5.495000000000001
+          "voice_vibrato": 1.3649999999999998,
+          "voice_articulation": 9.36,
+          "voice_microtone": 9.815000000000001,
+          "voice_tradition": 6.305,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 3.315000000000001,
+          "voice_speech_song": 11.309999999999997,
+          "voice_ensemble_config": 9.1,
+          "voice_ornament_system": 4.355,
+          "voice_pitch_organization": 2.3399999999999994,
+          "voice_processing_chain": 9.125,
+          "voice_multitrack_stack": 5.590000000000001
         }
       },
       {
-        "id": "accordion",
-        "slots": {
-          "free_reed_technique": "free_reed_chordal_chugging",
-          "accordion_reed_material": "brass_reeds",
-          "musette_offset": "german_tuning",
-          "reed_config": "lmmm",
-          "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
-          "accordion_maker_school": "accordion_weltmeister"
-        },
-        "scores": {
-          "free_reed_technique": 0.26,
-          "accordion_reed_material": 0.845,
-          "musette_offset": 0.65,
-          "reed_config": 0.195,
-          "bellows": 0,
-          "voicing_chamber": 0,
-          "accordion_maker_school": 0.435
-        }
-      },
-      {
-        "id": "guacharaca",
-        "slots": {
-          "guacharaca_body": "guacharaca_palm_wood"
-        },
-        "scores": {
-          "guacharaca_body": 0.3
-        }
-      },
-      {
-        "id": "guiro",
-        "slots": {
-          "guiro_origin": "guiro_cuban",
-          "guiro_striker": "guiro_wood"
-        },
-        "scores": {
-          "guiro_origin": 0.65,
-          "guiro_striker": 0.845
-        }
-      },
-      {
-        "id": "congas",
-        "slots": {
-          "percussion_technique": "percussion_open_slap",
-          "conga_set": "tumba",
-          "conga_skin": "conga_cowhide",
-          "conga_shell_wood": "conga_mahogany"
-        },
-        "scores": {
-          "percussion_technique": 4.48,
-          "conga_set": 0.65,
-          "conga_skin": 0.39,
-          "conga_shell_wood": 0.045
-        }
-      },
-      {
-        "id": "timbales",
-        "slots": {
-          "percussion_technique": "percussion_open_slap",
-          "timbales_shell": "timbales_steel",
-          "timbales_context": "timbales_son"
-        },
-        "scores": {
-          "percussion_technique": 4.48,
-          "timbales_shell": 0,
-          "timbales_context": 1.695
-        }
-      },
-      {
-        "id": "electric_bass",
-        "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
-          "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "thumb_muted",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
-        },
-        "scores": {
-          "amp_make": 5.719999999999999,
-          "body_wood": 1.3,
-          "pickup_config": 0.845,
-          "string_type": 6.825,
-          "scale_length_b": 1.3,
-          "fretted_or_not": 0,
-          "bass_technique": 6.475,
-          "electric_bass_string_configuration": 0
-        }
-      },
-      {
-        "id": "combo_organ",
-        "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "combo_organ_model": "vox_continental_combo",
-          "combo_organ_voicing": "combo_organ_16_pedal",
-          "combo_organ_context": "combo_organ_doors_psych",
-          "amp_make": "amp_unspecified"
-        },
-        "scores": {
-          "keyboard_technique": -0.07,
-          "combo_organ_model": 1.595,
-          "combo_organ_voicing": 0.78,
-          "combo_organ_context": 2.5249999999999995,
-          "amp_make": 0
-        }
-      },
-      {
-        "id": "cencerro",
-        "slots": {
-          "cencerro_bell_type": "cencerro_bongo_bell",
-          "cencerro_context": "cencerro_charanga",
-          "cencerro_build": "cencerro_hammered_bronze"
-        },
-        "scores": {
-          "cencerro_bell_type": 0.65,
-          "cencerro_context": 0.18,
-          "cencerro_build": 0.045
-        }
-      },
-      {
-        "id": "turntable",
+        "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_backspin"
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.385,
-          "turntable_technique": 1.83
+          "electronic_technique": 0.7149999999999999,
+          "sampler_archetypes": 1.47,
+          "sampler_bit_depth": 0.21,
+          "sampler_workflow": 4.69,
+          "sampler_classic_context": 23.205000000000002
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 0.585,
+          "drum_machine_808_context": 2.6,
+          "tr808_production_origin": 0.255
         }
       }
     ],
-    "room": "boombox_portable_speaker",
-    "archetype": "arch_discos_fuentes_tropical",
+    "room": "mexico_bolero_xochimilco_studio",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "mic_sm58_dynamic_shure",
+      "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
-      "console": "console_home_portastudio",
+      "console": "clean",
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "cassette_medium"
+      "medium": "digital_high"
     },
     "tuning": "cumbia_4_4_paseo",
     "aesthetic": null,
@@ -204,10 +102,31 @@
   },
   "source": {
     "tuning": "cumbia_4_4_paseo",
-    "room": "boombox_portable_speaker",
-    "chain_mic": "mic_sm58_dynamic_shure",
+    "room": "mexico_bolero_xochimilco_studio",
+    "parts": {
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "sampler_archetypes": "akai_s900",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop"
+    },
+    "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "cassette_medium",
-    "chain_console": "console_home_portastudio"
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

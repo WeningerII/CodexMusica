@@ -5,7 +5,7 @@
   "lineage": "Social dance band format standardised in Ireland and Scotland from the 1920s-30s, driven by the Gaelic League's céilí and the Scottish dance-band broadcasts of Jimmy Shand — fixed sets of jigs, reels, polkas and Strip-the-Willow figures played at unvarying dance tempo by a front line of fiddles, accordion and flute or whistle over piano vamp, string bass and drum kit, with arranged unison melody, hard on-beat piano chording and tunes counted in strict eight-bar blocks to match caller-directed figures.",
   "recipe": "classic mid-1920s céilí / ceilidh band music, improv On Frame, Celtic traditional branch, European wedding, Celtic hebridean domestic rhythm puirt-à-beul hebridean waulking song. synthetic magic rosin modern acrylic base fiddle, leather castagnari Italian premium folk music drone like accordion, rhythm chordal piano accordion, upright piano, pre muffled edge muffled brushes-and-sticks drum kit, venice catlin high twist renaissance bass plywood laminate double bass, African blackwood boxwood premium pre modern melodic tin whistle, long-scale strummed tenor banjo irish. irish pub. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
   "recipe_chars": 687,
-  "score": 140.812,
+  "score": 141.427,
   "config": {
     "traditions": [
       "ceilidh",
@@ -24,7 +24,7 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 11.430000000000001,
+          "bowed_technique": 11.475000000000001,
           "fiddle_strings": 1.5399999999999998,
           "fiddle_bow": 3.4899999999999993,
           "fiddle_mute": 0.8049999999999999,
@@ -46,9 +46,9 @@
         "scores": {
           "free_reed_technique": 11.594999999999999,
           "accordion_reed_material": 0.65,
-          "musette_offset": 2.395,
+          "musette_offset": 2.545,
           "reed_config": 0.15,
-          "bellows": 1.85,
+          "bellows": 2,
           "voicing_chamber": 0.8049999999999999,
           "accordion_maker_school": 2.6650000000000005
         }
@@ -61,7 +61,7 @@
           "pa_use": "pa_polka"
         },
         "scores": {
-          "free_reed_technique": 3.2437500000000004,
+          "free_reed_technique": 3.0937500000000004,
           "pa_size": 0.34875,
           "pa_use": 0.34875
         }
@@ -75,8 +75,8 @@
         },
         "scores": {
           "keyboard_technique": 0.12999999999999998,
-          "upright_use": 0,
-          "upright_piano_size": 4.675
+          "upright_use": 0.15,
+          "upright_piano_size": 4.81
         }
       },
       {
@@ -113,9 +113,9 @@
           "bass_top_wood": 3.2499999999999996,
           "bass_back_wood": 5.069999999999999,
           "bass_varnish": 3.2499999999999996,
-          "bass_setup_period": 6.2025,
+          "bass_setup_period": 6.0975,
           "bass_play": 0.545,
-          "bass_rosin": 4.9625,
+          "bass_rosin": 4.8575,
           "bass_bow_stick": 3.2499999999999996
         }
       },
@@ -130,7 +130,7 @@
         "scores": {
           "wind_articulation": 11.945000000000002,
           "whistle_key": 0.345,
-          "whistle_ornament": 1.85,
+          "whistle_ornament": 2,
           "whistle_body_material": 2.1849999999999996
         }
       },
@@ -143,8 +143,8 @@
         },
         "scores": {
           "tenor_banjo_irish_form": 11.250000000000002,
-          "tenor_banjo_irish_style": 12.538750000000002,
-          "tenor_banjo_irish_head": 1.85
+          "tenor_banjo_irish_style": 12.583750000000002,
+          "tenor_banjo_irish_head": 2
         }
       }
     ],

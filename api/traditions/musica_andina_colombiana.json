@@ -5,7 +5,7 @@
   "lineage": "Guafa Trío — complete host-published 29 September 2016 Texas State touring ensemble palette. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic mid-2010s música andina colombiana, improv On Frame. flute, cuatro venezolano, maracas, modern setup heavier bass bar kolstein bass specific double electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 269,
-  "score": 9.026,
+  "score": 9.049,
   "config": {
     "traditions": [
       "musica_andina_colombiana"
@@ -51,7 +51,7 @@
         },
         "scores": {
           "maracas_construction": 0.39,
-          "maracas_filling": 0.105
+          "maracas_filling": 0.159
         }
       },
       {
@@ -77,7 +77,7 @@
           "bass_varnish": -0.1,
           "bass_setup_period": 2.1095,
           "bass_play": 1.3649999999999998,
-          "bass_rosin": 2.0045,
+          "bass_rosin": 1.9729999999999999,
           "bass_bow_stick": -0.15000000000000002
         }
       },

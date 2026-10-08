@@ -5,7 +5,7 @@
   "lineage": "Pan-Latin-American folkloric roots revival crystallizing in the Andes and Southern Cone from the late 1960s through groups such as Inti-Illimani, Quilapayún, Los Jaivas and Bolivia's Los Kjarkas, who took village huayno, carnavalito and bailecito repertoire onto the concert stage — charango and ronroco strumming in fast 2/4 or lilting 6/8, quena and siku panpipe pairs trading interlocking halves of the melody, bombo leguero on a heavy dotted pulse, and unforced chest-voice unison or parallel-third choruses in Spanish and Quechua.",
   "recipe": "classic Andean 1967-1969 raíces, protest Song, iberian Latin branch, Latin am troubadour ballad poetry, andean carnival processional, andean field work bolivian diablada de oruro folklore ecuatoriano. thick, forward-resonance, slow rate, interlocked note trading. naranjillo andean premium wood cedar andean andean classical charango, naranjillo bolivian peruvian gut pre modern andean strummed ronroco, pre hispanic bone quena, andean tradition paired rows interlocking siku panpipes, bombo leguero, low mid rich spectrum broken in fast cedar classical nylon-string guitar, cuatro venezolano. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 771,
-  "score": 256.776,
+  "score": 256.019,
   "config": {
     "traditions": [
       "raices",
@@ -24,7 +24,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 3.9,
-          "charango_back": 6.09125,
+          "charango_back": 6.28175,
           "charango_top_wood": 6.5,
           "charango_strings": 6.305,
           "charango_string_material": 4.485
@@ -55,7 +55,7 @@
           "quena_pitch": "quena_g"
         },
         "scores": {
-          "wind_articulation": 1.2449999999999997,
+          "wind_articulation": 1.5599999999999996,
           "quena_material": 1.69,
           "quena_pitch": 3.265
         }
@@ -95,7 +95,7 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 2.0699999999999994,
+          "acoustic_technique": 2.1194999999999995,
           "string_tuning": 0,
           "top_wood_classical": 7.669999999999999,
           "bracing_classical": 1.8850000000000002,
@@ -131,15 +131,15 @@
           "voice_vibrato": 3.3149999999999995,
           "voice_articulation": 21.644999999999992,
           "voice_microtone": 20.604999999999993,
-          "voice_tradition": 22.776250000000005,
+          "voice_tradition": 22.384750000000004,
           "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 12.693749999999998,
+          "voice_estill_quality": 12.888749999999998,
           "voice_speech_song": 22.944999999999997,
           "voice_ensemble_config": 19.89,
-          "voice_ornament_system": 18.695,
+          "voice_ornament_system": 17.8595,
           "voice_pitch_organization": 1.71375,
           "voice_processing_chain": 2.8599999999999994,
-          "voice_multitrack_stack": 6.996250000000002
+          "voice_multitrack_stack": 6.715750000000002
         }
       },
       {

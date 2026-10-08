@@ -5,7 +5,7 @@
   "lineage": "Swiss jazz connects local improvisers and ensembles with international jazz and contemporary composition. Solo and small-group approaches include both freely developing ideas and tightly organized rhythmic patterns.",
   "recipe": "classic swiss jazz, improv On Frame, American jazz branch. grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 172,
-  "score": 0.12,
+  "score": 0.09,
   "config": {
     "traditions": [
       "swiss_jazz"
@@ -25,12 +25,12 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.25,
+          "keyboard_technique": 0.2815,
           "grand_piano_size": 0.147,
-          "grand_piano_brand": 0.168,
+          "grand_piano_brand": 0.1365,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
-          "piano_soundboard": -0.07,
+          "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
           "piano_pitch_standard": -0.035

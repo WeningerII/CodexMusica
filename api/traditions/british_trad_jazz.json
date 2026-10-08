@@ -5,7 +5,7 @@
   "lineage": "The British revival of New Orleans and Dixieland jazz that grew in London clubs after the Second World War with Humphrey Lyttelton, Ken Colyer and Chris Barber, whose band also launched the skiffle craze through Lonnie Donegan, and that became a mass pop fad around 1959 to 1962. Chris Barber's 'Petite Fleur', Acker Bilk's 'Stranger on the Shore' and Kenny Ball's 'Midnight in Moscow' were international hits before beat groups displaced the bands after 1963. The generic banjo card stands in for the four-string banjos most bands used.",
   "recipe": "classic British late-1950s trad, improv On Frame, early branch. front line trumpet, front line clarinet, front line trombone, credited banjo unspecified, upright bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, block chord grand piano. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 463,
-  "score": 68.893,
+  "score": 69.181,
   "config": {
     "traditions": [
       "british_trad_jazz"
@@ -26,7 +26,7 @@
           "wind_articulation": 5.164,
           "brass_size": 0.24149999999999996,
           "trumpet_mouthpiece": -0.1,
-          "brass_mute": 0,
+          "brass_mute": 0.1365,
           "trumpet_technique": 5.164,
           "trumpet_bell_metal": 0.5497500000000001,
           "trumpet_maker_school": 0.78
@@ -64,9 +64,9 @@
           "wind_articulation": 5.164,
           "trombone_type": 11.25,
           "trombone_mouthpiece": -0.07,
-          "trombone_mute": 0,
+          "trombone_mute": 0.1365,
           "trombone_technique": 1,
-          "trombone_bell_metal": 0.74925,
+          "trombone_bell_metal": 0.71775,
           "trombone_maker_school": 0
         }
       },
@@ -106,10 +106,10 @@
           "cymbal_finish": "hand_hammered"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 0.063,
+          "drum_technique": -0.05,
+          "drumhead": 0.0945,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.30825,
+          "shell_wood": 0.33975,
           "shell_thickness": 0,
           "bearing_edges": -1.05,
           "snare_wires": 0,
@@ -134,12 +134,12 @@
         },
         "scores": {
           "keyboard_technique": 3.2,
-          "grand_piano_size": 0.0945,
+          "grand_piano_size": 0.063,
           "grand_piano_brand": 0.2415,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.4550000000000002
         }

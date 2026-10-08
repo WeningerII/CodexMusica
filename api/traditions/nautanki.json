@@ -5,7 +5,7 @@
   "lineage": "Nautanki is the open-air musical theatre of Uttar Pradesh and neighbouring regions, which grew in the nineteenth century out of the older swang, with Hathras and Kanpur as its two main schools. Its dialogue is sung in verse metres such as doha and chaubola to the thunder of the nakkara kettledrums, with harmonium and dholak. Gulab Bai of the Kanpur school, among the first women to act in Nautanki, became its biggest star.",
   "recipe": "classic modern nautanki, ballad Poetry, indian bard branch. group vocals, single lead single track no stacking. song accompaniment harmonium nagara indian, dholak. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 243,
-  "score": 9.975,
+  "score": 9.671,
   "config": {
     "traditions": [
       "nautanki"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.1365,
+          "voice_effort": 0.0315,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.7350000000000001,
+          "voice_multitrack_stack": 0.7034999999999999,
           "voice_tessitura": 0
         }
       },
@@ -61,10 +61,10 @@
           "harmonium_use": "harmonium_folk_song"
         },
         "scores": {
-          "free_reed_technique": 2.6415,
-          "harmonium_action": 0.7875,
-          "harmonium_voicing": 0.651,
-          "harmonium_use": 1.554
+          "free_reed_technique": 2.6730000000000005,
+          "harmonium_action": 0.756,
+          "harmonium_voicing": 0.5145,
+          "harmonium_use": 1.5224999999999997
         }
       },
       {

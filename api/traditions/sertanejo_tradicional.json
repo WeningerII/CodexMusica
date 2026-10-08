@@ -1,55 +1,56 @@
 {
-  "id": "sertanejo_tradicional",
-  "name": "Sertanejo Tradicional",
+  "id": "viola_caipira",
+  "merged_from": "sertanejo_tradicional",
+  "name": "Viola Caipira (música caipira, moda de viola)",
   "family": "vernacular",
-  "lineage": "Jéssica & Juliana — documented traditional acoustic duo practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic sertanejo tradicional, ballad Poetry. duet, unprocessed natural acoustic. viola caipira, responsive traditional leather accordion, dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 266,
-  "score": 12.708,
+  "lineage": "Rural song tradition of the São Paulo, Minas Gerais, Goiás and Paraná interior, carried on the ten-string viola caipira in cebolão and rio-abaixo tunings and first commercially recorded in 1929 by Cornélio Pires, built on parallel-third duet singing (dupla caipira) in slow moda de viola and mid-tempo cateretê and cururu, with fingerpicked ponteado lines and unadorned nasal chest vocals.",
+  "recipe": "classic North American late-1920s viola caipira, functional Song, Brazilian song branch, Latin am troubadour ballad poetry, pre commercial country folklore surero milonga. thick, breath veiled tone, slow rate, interlocked note trading. pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira, cedar nylon fingerpicked classical nylon-string cedar mahogany martin lifespan sealed dreadnought acoustic guitar, upright bass. wooden barn. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 581,
+  "score": 215.03,
   "config": {
     "traditions": [
-      "sertanejo_tradicional"
+      "viola_caipira",
+      "folklore_surero",
+      "milonga"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_duet",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "sean_nos_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
+          "voice_register": 5.515000000000001,
+          "voice_quality": 11.89499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.6,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.9000000000000001,
-          "voice_multitrack_stack": 0.3,
-          "voice_tessitura": 0
+          "voice_vibrato": 5.785,
+          "voice_articulation": 20.994999999999994,
+          "voice_microtone": 21.904999999999987,
+          "voice_tradition": 8.2225,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 7.67,
+          "voice_speech_song": 31.069999999999993,
+          "voice_ensemble_config": 21.77499999999999,
+          "voice_ornament_system": 2.7950000000000017,
+          "voice_pitch_organization": 1.1949999999999998,
+          "voice_processing_chain": 3.965,
+          "voice_multitrack_stack": 3.1249999999999996
         }
       },
       {
@@ -58,164 +59,90 @@
           "plucked_traditional_technique": "plucked_folk_strummed",
           "viola_caipira_courses": "viola_cebolão",
           "viola_caipira_context": "viola_caipira_caipira",
-          "viola_caipira_top_wood": "viola_caipira_spruce",
-          "viola_caipira_back_wood": "viola_caipira_jacaranda",
+          "viola_caipira_top_wood": "viola_caipira_pinho_brasil",
+          "viola_caipira_back_wood": "viola_caipira_imbuia",
           "viola_caipira_strings": "viola_caipira_steel_doubled"
         },
         "scores": {
-          "plucked_traditional_technique": -0.05,
-          "viola_caipira_courses": 1,
-          "viola_caipira_context": 2.8600000000000003,
-          "viola_caipira_top_wood": 0,
-          "viola_caipira_back_wood": -0.05,
-          "viola_caipira_strings": 0.6
+          "plucked_traditional_technique": 5.5575,
+          "viola_caipira_courses": 4.714999999999998,
+          "viola_caipira_context": 15.049999999999997,
+          "viola_caipira_top_wood": 1.605,
+          "viola_caipira_back_wood": 1.605,
+          "viola_caipira_strings": 1.69
         }
       },
       {
-        "id": "accordion",
+        "id": "classical_nylon_string_guitar",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "steel_reeds",
-          "musette_offset": "german_tuning",
-          "reed_config": "lmm",
-          "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
-          "accordion_maker_school": "accordion_hohner_gola"
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "free_reed_technique": 0.8449999999999999,
-          "accordion_reed_material": 0.39,
-          "musette_offset": 1.9000000000000001,
-          "reed_config": 0,
-          "bellows": 1.9000000000000001,
-          "voicing_chamber": 0,
-          "accordion_maker_school": 0
+          "acoustic_technique": 8.57,
+          "string_tuning": 0,
+          "top_wood_classical": 9.44,
+          "bracing_classical": 1.495,
+          "string_classical": 2.185,
+          "attack_technique_cl": 2.235
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "standard_tuning",
-          "top_wood": "engelmann",
-          "back_sides": "rosewood_bs",
-          "string_acoustic": "eighty_twenty"
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_d",
+          "top_wood": "cedar",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": -0.1,
-          "string_tuning": 0,
-          "top_wood": 0,
-          "back_sides": -0.05,
-          "string_acoustic": 0.273
+          "acoustic_technique": 8.57,
+          "string_tuning": 0.26,
+          "top_wood": 2.235,
+          "back_sides": 1.0499999999999998,
+          "string_acoustic": 1.105
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "upright_strings": 0,
+          "upright_play": 1.8399999999999999
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "viola_caipira": [
-        "plucked_traditional_technique",
-        "viola_caipira_courses",
-        "viola_caipira_context",
-        "viola_caipira_top_wood",
-        "viola_caipira_back_wood",
-        "viola_caipira_strings"
-      ],
-      "accordion": [
-        "free_reed_technique",
-        "accordion_reed_material",
-        "musette_offset",
-        "reed_config",
-        "bellows",
-        "voicing_chamber",
-        "accordion_maker_school"
-      ],
-      "acoustic_guitar_dread": [
-        "acoustic_technique",
-        "string_tuning",
-        "top_wood",
-        "back_sides",
-        "string_acoustic"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "wooden_barn",
+    "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "pre_ua_610_tube",
+      "console": "console_german_tube_50s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
-    "tuning": "twelve_tet",
+    "tuning": "folk_fingerstyle_alternating_bass",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
-    "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_live_duet",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "plucked_traditional_technique": "plucked_folk_strummed",
-      "viola_caipira_courses": "viola_cebolão",
-      "viola_caipira_context": "viola_caipira_caipira",
-      "viola_caipira_top_wood": "viola_caipira_spruce",
-      "viola_caipira_back_wood": "viola_caipira_jacaranda",
-      "viola_caipira_strings": "viola_caipira_steel_doubled",
-      "free_reed_technique": "free_reed_folk_first_position",
-      "accordion_reed_material": "steel_reeds",
-      "musette_offset": "german_tuning",
-      "reed_config": "lmm",
-      "bellows": "cardboard_leather",
-      "voicing_chamber": "cassotto",
-      "accordion_maker_school": "accordion_hohner_gola",
-      "acoustic_technique": "acoustic_strummed_ringing",
-      "string_tuning": "standard_tuning",
-      "top_wood": "engelmann",
-      "back_sides": "rosewood_bs",
-      "string_acoustic": "eighty_twenty"
-    },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "tuning": "folk_fingerstyle_alternating_bass",
+    "room": "wooden_barn",
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

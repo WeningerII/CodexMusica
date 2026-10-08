@@ -5,7 +5,7 @@
   "lineage": "The baile del tambor of La Gomera, in the Canary Islands, is a sung and danced form in which a soloist intones the verses of a traditional romance and a chorus answers each couplet with a fixed refrain, over a large drum beaten with a stick and the chácaras, the island's large castanets, while dancers move in facing lines at patronal fiestas and processions. The Gomeran romance repertoire was documented by Maximiano Trapero. The membrane-drum card stands in for the tambor and the castanets card for the chácaras.",
   "recipe": "classic modern baile del tambor, ballad Poetry, Mediterranean ballad branch, iberian functional song. single leader group response. membrane drum pulse resonant acoustic membrane drum, castanets. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 275,
-  "score": 9.22,
+  "score": 9.28,
   "config": {
     "traditions": [
       "baile_del_tambor_gomera"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.22499999999999998,
-          "voice_multitrack_stack": 0.195,
+          "voice_multitrack_stack": 0.345,
           "voice_tessitura": 0
         }
       },
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 4.585,
-          "acoustic_membrane_drum_gesture": 3.585
+          "acoustic_membrane_drum_form": 4.54,
+          "acoustic_membrane_drum_gesture": 3.54
         }
       },
       {

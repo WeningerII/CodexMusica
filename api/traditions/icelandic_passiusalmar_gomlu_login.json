@@ -5,7 +5,7 @@
   "lineage": "Traditional singing of Hallgrímur Pétursson’s seventeenth-century Passíusálmar (Hymns of the Passion) to the old melodies (gömlu lögin), oral variants of hymn tunes sung slowly and with ornaments in Icelandic homes, especially during Lent. Twentieth-century archive recordings of traditional singers are held by the Árni Magnússon Institute, and the repertoire has been revived in programmes at Hallgrímskirkja.",
   "recipe": "classic early-1940s passíusálmar gömlu lögin, ritual Devotional. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 156,
-  "score": 0.891,
+  "score": 0.986,
   "config": {
     "traditions": [
       "icelandic_passiusalmar_gomlu_login"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

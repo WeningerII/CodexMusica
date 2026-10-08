@@ -5,7 +5,7 @@
   "lineage": "Music of the Carnival of Binche in Hainaut, where the Gilles, costumed dancers in wooden clogs with belts of bells, dance through the streets on Shrove Tuesday to short airs beaten out by drummers and played on the viole, a barrel organ, with brass bands joining the processions. UNESCO proclaimed the carnival a Masterpiece of the Oral and Intangible Heritage of Humanity, and it is now on the Representative List; the tenor-drum card stands in for the carnival drums and the shaker card for the belts of bells.",
   "recipe": "classic modern airs de gilles, carnival Processional, European branch. hand cranked small street organ carousel march brassy dance wooden flue pipes barrel organ, military tight historical tenor drum, yellow brass canonical 70 30 bach stradivarius trumpet, shaker source unspecified. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 363,
-  "score": 12.422,
+  "score": 12.525,
   "config": {
     "traditions": [
       "binche_gilles_carnival"
@@ -38,7 +38,7 @@
           "tenor_drum_form": 4.8100000000000005,
           "tenor_drum_head": -0.035,
           "tenor_drum_beater": -0.05,
-          "tenor_drum_shell": -0.1
+          "tenor_drum_shell": -0.07
         }
       },
       {
@@ -56,7 +56,7 @@
           "wind_articulation": -0.07,
           "brass_size": 0.0315,
           "trumpet_mouthpiece": -0.07,
-          "brass_mute": 0,
+          "brass_mute": 0.0735,
           "trumpet_technique": -0.10500000000000001,
           "trumpet_bell_metal": 1.69,
           "trumpet_maker_school": 0.42

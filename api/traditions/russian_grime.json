@@ -5,7 +5,7 @@
   "lineage": "Russian grime adapts grime’s electronic rhythmic language to Russian-language MC performance and local rap communities. Recorded tracks, live exchanges and unaccompanied verses provide different settings for the same vocal practice.",
   "recipe": "classic russian grime, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. live tracking.",
   "recipe_chars": 165,
-  "score": 29.462,
+  "score": 29.641,
   "config": {
     "traditions": [
       "russian_grime"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 10.53,
-          "voice_ensemble_config": 0.9555,
+          "voice_ensemble_config": 1.1655,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 2.362,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.1785,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

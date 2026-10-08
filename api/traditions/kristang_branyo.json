@@ -5,7 +5,7 @@
   "lineage": "Social dance song of the Kristang, the Portuguese-Eurasian community of the Portuguese Settlement in Malacca, sung in the Kristang creole with verses traded between singers, as in the well-known Jinkli Nona. It is accompanied by violin, guitar and a rabana frame drum (the source-unspecified pandero card stands in), and is closely related to the Malay joget.",
   "recipe": "classic modern branyo, functional Song, iberian branch. melodic bowed song accompaniment fiddle, parlor acoustic guitar, pandero source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 6.412,
+  "score": 6.034,
   "config": {
     "traditions": [
       "kristang_branyo"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1575,
-          "voice_multitrack_stack": 0.378,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -66,8 +66,8 @@
           "bowed_technique": 4.55,
           "fiddle_strings": 0.063,
           "fiddle_bow": 0.063,
-          "fiddle_mute": 0.21000000000000002,
-          "fiddle_articulation": 0.441,
+          "fiddle_mute": 0.0735,
+          "fiddle_articulation": 0.3045,
           "fiddle_string_configuration": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Zikir and zari are Assamese-language Islamic devotional songs attributed to Azan Fakir (Shah Miran), a seventeenth-century Sufi preacher who settled near Sivasagar. Zikir carry Sufi teaching in the idiom of Assamese folk melody, and zari are elegies on the martyrdom at Karbala; both are sung by a lead singer with a responding group.",
   "recipe": "classic modern zikir and zari, ritual Devotional, Sufi branch. single leader group response. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 172,
-  "score": 2.231,
+  "score": 2.262,
   "config": {
     "traditions": [
       "assamese_zikir_zari"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.786,
+          "voice_ensemble_config": 1.8175,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

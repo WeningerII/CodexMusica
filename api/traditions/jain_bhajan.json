@@ -5,7 +5,7 @@
   "lineage": "Jain bhajan, also called stavan, praises the Jinas and expresses Jain devotional ideals. Regional languages and folk-derived melodies connect temple, domestic and public singing, while modern recordings also draw on art-music and popular arrangements.",
   "recipe": "classic jain bhajan, praise Song, indian subcontinent branch. small note groups per syllable, solo with instrumental accompaniment. pitched indian rosewood rosewood tabla, tanpura. shoebox concert hall.",
   "recipe_chars": 202,
-  "score": 8.851,
+  "score": 7.681,
   "config": {
     "traditions": [
       "jain_bhajan"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.08149999999999999,
-          "voice_multitrack_stack": 0.0705,
+          "voice_processing_chain": 0.049999999999999996,
+          "voice_multitrack_stack": 0.0615,
           "voice_tessitura": 0
         }
       },
@@ -61,8 +61,8 @@
         },
         "scores": {
           "tabla_dayan": 1.885,
-          "tabla_bayan": 0.21,
-          "tabla_syahi": 1.5329999999999997
+          "tabla_bayan": 0.105,
+          "tabla_syahi": 0.781
         }
       },
       {
@@ -77,11 +77,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 0.26,
-          "tanpura_size": 0.6794999999999999,
+          "tanpura_size": 0.46349999999999997,
           "tanpura_jawari": 0.7549999999999999,
-          "tanpura_strings": 0.0315,
-          "tanpura_string_material": 0.0315,
-          "tanpura_body_wood": 0.063
+          "tanpura_strings": 0.039,
+          "tanpura_string_material": 0,
+          "tanpura_body_wood": 0.0315
         }
       }
     ],

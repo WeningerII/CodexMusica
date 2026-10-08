@@ -5,7 +5,7 @@
   "lineage": "Umbrella tradition of Chinese-language popular song running from 1930s Shanghai shidaiqu through Hong Kong Cantopop of the 1970s-90s and Taipei-centered Mandopop from the 1980s, codified by Teresa Teng, Sam Hui, Jonathan Lee and Jay Chou, and marked by pentatonically inflected melody set to lush ballad arrangements, verse-prechorus-chorus form built for lyric intelligibility across tonal Chinese, string-and-synth orchestration, and close, heavily compressed lead vocals tracked in Hong Kong and Taipei hit-factory studios.",
   "recipe": "classic East Asian mid-1930s c-pop, functional Song, east Asian pop branch, east Asian pop enka, east Asian Cantonese opera. extended whistle, breath veiled tone, slow rate, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead analog poly synth, sitka spruce European maple bosnian source flamed figure oil varnish violin orchestral, alder pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, python skin snake skin mahogany mid tier bamboo stick horsehair erhu, mahogany rosewood open string slide resonance clean strummed single coil electric guitar, shell padauk mid tier guzheng. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 924,
-  "score": 540.243,
+  "score": 539.887,
   "config": {
     "traditions": [
       "c_pop",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 25.930624999999996,
+          "voice_register": 25.934999999999995,
           "voice_quality": 13.19499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.37,
           "voice_articulation": 27.040000000000006,
           "voice_microtone": 24.7,
-          "voice_tradition": 38.807125,
+          "voice_tradition": 39.275125,
           "voice_mechanism_compound": 1.9000000000000004,
           "voice_estill_quality": 11.976249999999999,
           "voice_speech_song": 35.685,
           "voice_ensemble_config": 24.765000000000004,
           "voice_ornament_system": 13.85,
-          "voice_pitch_organization": 17.345374999999994,
+          "voice_pitch_organization": 17.225374999999993,
           "voice_processing_chain": 8.091375,
           "voice_multitrack_stack": 7.5075
         }
@@ -69,11 +69,11 @@
           "keyboard_technique": 20.050124999999994,
           "grand_piano_size": 2.08,
           "grand_piano_brand": 2.08,
-          "piano_hammer": 25.439499999999995,
-          "piano_rim": 28.667374999999996,
-          "piano_soundboard": 27.283749999999998,
-          "piano_pinblock": 2.1374999999999997,
-          "piano_plate": 2.4989999999999997,
+          "piano_hammer": 25.079499999999996,
+          "piano_rim": 28.511374999999997,
+          "piano_soundboard": 27.367749999999997,
+          "piano_pinblock": 1.9815,
+          "piano_plate": 2.415,
           "piano_pitch_standard": 5.265
         }
       },
@@ -86,8 +86,8 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 21.243624999999998,
-          "poly_archetypes": 0.5265,
+          "electronic_technique": 21.279625,
+          "poly_archetypes": 0.585,
           "poly_voices": 1.105,
           "poly_maker_lineage": 0.325
         }
@@ -102,7 +102,7 @@
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
-          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
         },
@@ -114,9 +114,9 @@
           "orch_varnish": 1.95,
           "orch_setup_period": 3.38,
           "orch_bow": 1.3,
-          "orch_bow_stick": 2.21,
+          "orch_bow_stick": 2.296,
           "orch_articulation": 1.625,
-          "orch_rosin": 3.4115
+          "orch_rosin": 3.4835000000000003
         }
       },
       {
@@ -134,7 +134,7 @@
         "scores": {
           "amp_make": 2.21,
           "body_wood": 2.08,
-          "pickup_config": 0.27699999999999997,
+          "pickup_config": 0.19299999999999998,
           "string_type": 3.5750000000000006,
           "scale_length_b": 2.08,
           "fretted_or_not": 0.1365,
@@ -170,7 +170,7 @@
           "erhu_skin": 6.824999999999999,
           "erhu_use": 0.845,
           "erhu_body_wood": 2.08,
-          "erhu_strings": 0.18899999999999997,
+          "erhu_strings": 0.105,
           "erhu_bow": 1.04
         }
       },
@@ -200,7 +200,7 @@
           "pickup_magnet": 0.21824999999999997,
           "string_material": 0.21824999999999997,
           "string_gauge": 2.47,
-          "bridge": 0.246,
+          "bridge": 0.21,
           "scale_length": 2.08,
           "finish": 0.65,
           "string_tuning": 2.145,
@@ -223,7 +223,7 @@
           "guzheng_picks": 3.380000000000001,
           "guzheng_top_wood": 0.105,
           "guzheng_frame": 3.1200000000000006,
-          "guzheng_string_material": 0.08399999999999998
+          "guzheng_string_material": 0
         }
       }
     ],

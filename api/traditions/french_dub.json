@@ -5,7 +5,7 @@
   "lineage": "French dub connects live-band reggae foundations with electronic and studio experimentation. Collaborations and soundsystem performance sustain a field in which mixing and instrumental interplay share the foreground.",
   "recipe": "classic french dub, bass System, dub descendants branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, la bella flats Detroit soul bass canon electric bass, Hammond a 100 built in Leslie home spinet tonewheel organ, electric piano tine, digital subtractive, saxophone, flute, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 441,
-  "score": 29.146,
+  "score": 28.233,
   "config": {
     "traditions": [
       "french_dub"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.6719999999999999,
+          "voice_multitrack_stack": 0.5355000000000001,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
           "body_wood": "korina",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
           "string_material": "pure_nickel_h",
           "bridge": "stoptail",
@@ -71,16 +71,16 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 1.0915,
+          "amp_make": 1.0599999999999998,
           "body_wood": 1.3,
           "neck_wood": 0.273,
-          "fretboard": 0.1365,
-          "pickup_magnet": 0.1365,
+          "fretboard": 0,
+          "pickup_magnet": 0.105,
           "pickup_winding": 0.0315,
           "string_material": 0,
           "bridge": 0.273,
           "scale_length": 0.546,
-          "string_gauge": 0.5355,
+          "string_gauge": 0.36750000000000005,
           "finish": 0,
           "string_tuning": 0.3675
         }
@@ -100,7 +100,7 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 0.546,
-          "pickup_config": 0.273,
+          "pickup_config": 0.2415,
           "string_type": 2.21,
           "scale_length_b": 0.378,
           "fretted_or_not": 0,
@@ -122,7 +122,7 @@
           "keyboard_technique": -0.07,
           "drawbar_setting": -0.035,
           "rotary_speed": 0.39,
-          "percussion_setting": 0.168,
+          "percussion_setting": 0.0315,
           "tonewheel_model": 2.925,
           "leslie_cabinet_model": 0
         }
@@ -144,12 +144,12 @@
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "va_archetypes": "novation_supernova",
+          "va_archetypes": "access_virus",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
           "electronic_technique": 2.145,
-          "va_archetypes": 0.1785,
+          "va_archetypes": 0.147,
           "digital_subtractive_context": 5.459999999999999
         }
       },
@@ -158,18 +158,18 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "baritone_sax",
-          "sax_reed": "medium_reed",
+          "sax_reed": "hard_reed",
           "sax_body_alloy": "rose_brass_sax",
-          "sax_mouthpiece": "ebonite_vintage",
+          "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
           "wind_articulation": 0.19500000000000003,
-          "sax_size": 0.609,
-          "sax_reed": 0,
+          "sax_size": 0.504,
+          "sax_reed": 0.105,
           "sax_body_alloy": -0.035,
-          "sax_mouthpiece": 0.1365,
+          "sax_mouthpiece": 0,
           "sax_technique": -0.05,
           "sax_maker_school": 0.0315
         }
@@ -188,7 +188,7 @@
           "flute_size": 0.105,
           "flute_material": 0.44099999999999995,
           "flute_technique": 0.105,
-          "flute_maker_school": 0.777
+          "flute_maker_school": 0.7035
         }
       },
       {

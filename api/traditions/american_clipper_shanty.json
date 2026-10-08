@@ -1,16 +1,17 @@
 {
-  "id": "american_clipper_shanty",
-  "name": "American clipper-ship shanty",
-  "family": "global",
-  "lineage": "American-clipper-ship-era shanty tradition continuous from 1830s-1880s American-merchant-marine clipper-ship work-song practice (the heyday of American clipper-ship trade between American-Eastern-Seaboard, California, China, and Australia) through 20th-century revival into modern American-folk-revival continuous practice; foundational repertoire includes \"Sacramento\" (capstan-shanty for California-gold-rush trade), \"Shenandoah\"",
-  "recipe": "classic mid-1830s american clipper-ship shanty, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry british folk revival anti-folk. thick, breath veiled tone, breath pulsed, interlocked note trading. Celtic Irish straight concertina, magic rosin modern acrylic base drone like fiddle. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 426,
-  "score": 163.805,
+  "id": "shanty",
+  "merged_from": "american_clipper_shanty",
+  "name": "Shanty (Shipboard Work Song)",
+  "family": "vernacular",
+  "lineage": "The functional labour song of Atlantic deep-water merchant sail, consolidated roughly 1815-1875 on packet and clipper crews out of Liverpool, London, Mobile and New York and first systematically transcribed by Richard Runciman Terry, Cecil Sharp, W.B. Whall and later Stan Hugill, whose Shanties from the Seven Seas remains the codifying text; a shantyman improvised solo lines against a fixed crew refrain, with the pull or push of the work fixing the metre - short-drag shanties with two hauls per verse, halyard shanties with a longer chorus, capstan shanties in continuous rolling 6/8 or 4/4 for windlass work - sung unaccompanied at moderate tempo in open chest voice.",
+  "recipe": "classic early-1810s shanty, sea Shanty, atlantic branch, blues narrative work song, Celtic balladic English broadside jeju haenyeo songs industrial folk. thick, breath veiled tone, wide pitch sway, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, foot stomp, sharp chains shaken shackle chains, ships bell. field recording. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 474,
+  "score": 229.758,
   "config": {
     "traditions": [
-      "american_clipper_shanty",
-      "british_folk_revival",
-      "antifolk_nyc"
+      "shanty",
+      "jeju_haenyeo_songs",
+      "industrial_folk"
     ],
     "instruments": [
       {
@@ -20,81 +21,97 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 15.999999999999998,
-          "voice_quality": 11.114999999999995,
+          "voice_register": 4.845000000000001,
+          "voice_quality": 31.589999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.65,
-          "voice_articulation": 12.739999999999997,
-          "voice_microtone": 13.194999999999993,
-          "voice_tradition": 22.115,
-          "voice_mechanism_compound": 2.73,
-          "voice_estill_quality": 3.250000000000001,
-          "voice_speech_song": 19.629999999999992,
-          "voice_ensemble_config": 10.984999999999994,
-          "voice_ornament_system": 2.6975000000000016,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 4.49,
-          "voice_multitrack_stack": 4.03
+          "voice_vibrato": 4.01,
+          "voice_articulation": 23.205000000000002,
+          "voice_microtone": 23.854999999999997,
+          "voice_tradition": 18.134999999999998,
+          "voice_mechanism_compound": 9.555,
+          "voice_estill_quality": 9.815,
+          "voice_speech_song": 35.49,
+          "voice_ensemble_config": 24.7,
+          "voice_ornament_system": 8.6125,
+          "voice_pitch_organization": 3.4850000000000008,
+          "voice_processing_chain": 5.654999999999999,
+          "voice_multitrack_stack": 1.69
         }
       },
       {
-        "id": "concertina",
+        "id": "choir_ensemble",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
-          "concertina_type": "anglo_concertina",
-          "concertina_reed_grade": "concertina_traditional"
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "free_reed_technique": 13.574999999999996,
-          "concertina_type": 10.669999999999998,
-          "concertina_reed_grade": 0.09
+          "choir_size": 14.754999999999999,
+          "choir_polyphonic_configuration": 3.3799999999999994,
+          "choir_regional_canonical_configuration": 7.669999999999999,
+          "choir_ensemble_repertoire": 2.34
         }
       },
       {
-        "id": "fiddle",
+        "id": "foot_stomp",
         "slots": {
-          "bowed_technique": "bowed_rough_drone",
-          "fiddle_strings": "plain_lamb_gut_fiddle",
-          "fiddle_bow": "magic_rosin_fiddle",
-          "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "arco",
-          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+          "stomp_footwear": "stomp_bare_foot",
+          "stomp_surface": "stomp_wood_stage"
         },
         "scores": {
-          "bowed_technique": 13.304999999999996,
-          "fiddle_strings": 0.585,
-          "fiddle_bow": 2.185,
-          "fiddle_mute": 0.7,
-          "fiddle_articulation": 0.3,
-          "fiddle_string_configuration": 0
+          "stomp_footwear": 0,
+          "stomp_surface": 0.09
+        }
+      },
+      {
+        "id": "shackle_chains",
+        "slots": {
+          "shackle_chains_type": "shackle_chains_leg_irons",
+          "shackle_chains_motion": "shackle_chains_shaken"
+        },
+        "scores": {
+          "shackle_chains_type": 0,
+          "shackle_chains_motion": 1.3
+        }
+      },
+      {
+        "id": "ships_bell",
+        "slots": {
+          "ships_bell_type": "ships_bell_ships",
+          "ships_bell_pattern": "ships_bell_watch_paired"
+        },
+        "scores": {
+          "ships_bell_type": 0,
+          "ships_bell_pattern": 0.45499999999999996
         }
       }
     ],
-    "room": "beach",
-    "archetype": "arch_nagra_ethnographic_field",
+    "room": "field_recording",
+    "archetype": "arch_acoustic_horn_pre1925",
     "inline_chain": {
-      "mic": "condenser_sdc",
+      "mic": "mic_acoustic_horn_pre1925",
       "pre": "pre_field_recorder_portable",
-      "console": "clean",
+      "console": "broken",
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "shellac_78"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -103,31 +120,10 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "beach",
-    "parts": {
-      "voice_articulation": "call_response_voice",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_register": "chest_voice",
-      "voice_quality": "speech_voice",
-      "voice_tradition": "modern_pop_vocal_training",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_microtone": "tempered_voice",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_estill_quality": "voice_estill_speech",
-      "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "bowed_technique": "bowed_chopped_old_time",
-      "fiddle_articulation": "arco",
-      "free_reed_technique": "free_reed_folk_first_position",
-      "concertina_type": "anglo_concertina",
-      "concertina_reed_grade": "concertina_traditional"
-    },
-    "chain_mic": "condenser_sdc",
+    "room": "field_recording",
+    "chain_mic": "mic_acoustic_horn_pre1925",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_high",
-    "chain_console": "clean"
+    "chain_medium": "shellac_78",
+    "chain_console": "broken"
   }
 }

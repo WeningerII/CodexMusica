@@ -5,7 +5,7 @@
   "lineage": "Burrakatha is a Telugu narrative performance in which a lead storyteller, wearing ankle bells and strumming a tambura, sings and acts out the story while two companions beside him beat small dakki drums, interject comic and topical commentary and take up the refrains. It grew out of the narratives of the Jangam devotees of Shiva, and in the 1940s Sheikh Nazar and the Praja Natya Mandali troupes used it for political mobilisation in Andhra. The hand-drum card stands in for the dakki.",
   "recipe": "classic mid-1940s burrakatha, ballad Poetry, indian bard branch. narrative, single lead single track no stacking. tanpura, hand drum source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 232,
-  "score": 4.937,
+  "score": 5.347,
   "config": {
     "traditions": [
       "burrakatha"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.105,
+          "voice_effort": 0.0315,
           "voice_vibrato": 0,
           "voice_articulation": 2.34,
           "voice_microtone": 0,
@@ -47,7 +47,7 @@
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 1.69,
           "voice_tessitura": 0
         }
@@ -66,9 +66,9 @@
           "plucked_traditional_technique": 0.26,
           "tanpura_size": 0.042749999999999996,
           "tanpura_jawari": -0.05,
-          "tanpura_strings": 0.18525,
+          "tanpura_strings": 0.29025,
           "tanpura_string_material": 0,
-          "tanpura_body_wood": 0.6194999999999999
+          "tanpura_body_wood": 0.7244999999999999
         }
       },
       {
@@ -83,7 +83,7 @@
         "scores": {
           "hand_drum_structure_neutral": 0,
           "hand_drum_material_neutral": 0,
-          "hand_drum_excitation_neutral": 0,
+          "hand_drum_excitation_neutral": 0.1365,
           "hand_drum_damping_neutral": 0,
           "hand_drum_tension_neutral": 0
         }

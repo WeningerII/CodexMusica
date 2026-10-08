@@ -5,7 +5,7 @@
   "lineage": "Russian modern jazz connects contemporary composers and improvisers through local ensembles and international collaboration. Piano-trio music is one established strand within a wider instrumental field.",
   "recipe": "classic russian modern jazz, improv On Frame, American jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 71.631,
+  "score": 71.522,
   "config": {
     "traditions": [
       "russian_modern_jazz"
@@ -27,13 +27,13 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.147,
-          "grand_piano_brand": 0.105,
-          "piano_hammer": 5.5485,
-          "piano_rim": 6.579125,
-          "piano_soundboard": 5.431125,
+          "grand_piano_brand": 0.1365,
+          "piano_hammer": 5.58,
+          "piano_rim": 6.5735,
+          "piano_soundboard": 5.326125,
           "piano_pinblock": 4.95,
           "piano_plate": 4.95,
-          "piano_pitch_standard": 7.354875
+          "piano_pitch_standard": 7.294125
         }
       },
       {

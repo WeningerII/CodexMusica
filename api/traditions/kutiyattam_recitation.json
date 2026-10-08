@@ -5,7 +5,7 @@
   "lineage": "Kutiyattam is the Sanskrit temple theatre of Kerala in southwestern India, the oldest continuously performed classical theatre tradition of the subcontinent, staged in the kuttampalam theatres of Hindu temples and transmitted through the Chakyar and Nangyar hereditary performer families. Its recitation delivers Sanskrit and Prakrit verse in stylized, raga-based intonation with greatly elongated syllables, accompanied by the mizhavu copper drum, so that a single verse may be expanded across many hours of vachika (vocal) and angika (gestural) elaboration. The guru Ammannur Madhava Chakyar (1917-2008) is the emblematic 20th-century master. It is documented under UNESCO's intangible-cultural-heritage inscription (2001/2008) and in the Margi and Kerala Kalamandalam training institutions.",
   "recipe": "classic South Asian early-1910s kutiyattam sanskrit recitation, art Music, south Asian branch tibetan ache lhamo opera beijing opera. vocal fry, breath veiled tone, slow rate, interlocked note trading. chennai madras music academy sabha. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 300,
-  "score": 269.607,
+  "score": 266.624,
   "config": {
     "traditions": [
       "kutiyattam_recitation",
@@ -41,13 +41,13 @@
           "voice_vibrato": 15.925,
           "voice_articulation": 23.66,
           "voice_microtone": 25.349999999999994,
-          "voice_tradition": 36.926,
-          "voice_mechanism_compound": 14.126,
-          "voice_estill_quality": 21.787499999999998,
+          "voice_tradition": 35.0135,
+          "voice_mechanism_compound": 13.870999999999999,
+          "voice_estill_quality": 22.374,
           "voice_speech_song": 24.31,
           "voice_ensemble_config": 26.064999999999998,
           "voice_ornament_system": 19.199999999999996,
-          "voice_pitch_organization": 16.793,
+          "voice_pitch_organization": 15.390499999999998,
           "voice_processing_chain": 9.035,
           "voice_multitrack_stack": 5.395000000000001
         }

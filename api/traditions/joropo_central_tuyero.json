@@ -5,7 +5,7 @@
   "lineage": "Joropo central, or joropo tuyero, is the harp joropo of the Tuy valleys of Miranda and of Aragua in north-central Venezuela, distinct from the plains joropo llanero. Its arpa central (arpa tuyera or mirandina) has metal strings in the treble, and the usual group is only harp and maracas, the maraquero often being the singer, in pasajes and in the revuelta, a linked suite of sections. The arpa llanera card stands in for the arpa central.",
   "recipe": "classic modern joropo central, groove Percussion, Latin am branch, Latin am troubadour ballad poetry huapango arribeño. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. diatonic only joropo tradition fast runs arpa llanera, maracas. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 369,
-  "score": 26.125,
+  "score": 26.305,
   "config": {
     "traditions": [
       "joropo_central_tuyero",
@@ -45,10 +45,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.5549999999999997,
+          "voice_ensemble_config": 3.7049999999999996,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.6299999999999999,
+          "voice_processing_chain": 1.02,
           "voice_multitrack_stack": 0.545,
           "voice_tessitura": 0
         }
@@ -62,7 +62,7 @@
           "arpa_llanera_role": "arpa_llanera_bass_and_treble"
         },
         "scores": {
-          "arpa_llanera_strings": 12.254999999999999,
+          "arpa_llanera_strings": 12.284999999999998,
           "arpa_llanera_body_wood": 0,
           "arpa_llanera_string_material": 0.7,
           "arpa_llanera_role": 8.775
@@ -75,8 +75,8 @@
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 0.195,
-          "maracas_filling": 0.195
+          "maracas_construction": 0,
+          "maracas_filling": 0
         }
       }
     ],

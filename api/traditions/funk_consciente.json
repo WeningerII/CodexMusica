@@ -5,7 +5,7 @@
   "lineage": "Socially engaged strain of Rio de Janeiro funk carioca that emerged in the favelas around 1994-2000, codified by MC Leonardo e MC Junior's 'Rap da Felicidade' and by MV Bill's Cidade de Deus recordings, using the Miami-bass-derived Volt Mix and later the tamborzão pattern at 125-135 BPM with sampled atabaque and timbal hits, a booming 808 kick, minimal synth bass, and rapid declaimed Portuguese verses that report police violence, poverty and favela life over sung refrains.",
   "recipe": "classic Southern American mid-1990s funk consciente, mc Rhythm, Afro-diasporic branch, Afro-diasporic electric groove percussion, intl hip hop MC rhythm, Brazilian groove percussion grime haryanvi hip hop. thick, rap, slow rate, interlocked note trading. TR-808, sampled chopped sampler drum machine, atabaque, timbal brasileiro, low sub bass analog mono synth, hand clap. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 499,
-  "score": 178.057,
+  "score": 177.212,
   "config": {
     "traditions": [
       "funk_consciente",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.780000000000002,
-          "voice_quality": 16.2,
+          "voice_register": 4.735000000000001,
+          "voice_quality": 16.145,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.8199999999999998,
@@ -46,9 +46,9 @@
           "voice_estill_quality": 4.030000000000001,
           "voice_speech_song": 18.394999999999996,
           "voice_ensemble_config": 18.134999999999994,
-          "voice_ornament_system": 5.005000000000002,
+          "voice_ornament_system": 4.747500000000001,
           "voice_pitch_organization": 0.5199999999999999,
-          "voice_processing_chain": 8.725,
+          "voice_processing_chain": 8.749999999999998,
           "voice_multitrack_stack": 4.030000000000001
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr808_voice": 8.76,
-          "drum_machine_808_context": 5.324999999999999,
+          "drum_machine_808_context": 5.279999999999999,
           "tr808_production_origin": 0.2725
         }
       },
@@ -74,7 +74,7 @@
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 5.705000000000001,
+          "electronic_technique": 5.510000000000001,
           "sample_bitdepth": 0.6950000000000001,
           "sample_swing": 4.91,
           "sample_processing": 1.25
@@ -103,7 +103,7 @@
         "scores": {
           "timbal_head": 0,
           "timbal_size": 0.0975,
-          "timbal_style": 2.34
+          "timbal_style": 2.2024999999999997
         }
       },
       {
@@ -120,7 +120,7 @@
           "mono_oscillator": 0.045,
           "mono_filter": 0.585,
           "mono_archetypes": 1.2349999999999999,
-          "mono_maker_lineage": -1.435
+          "mono_maker_lineage": -1.5699999999999998
         }
       },
       {

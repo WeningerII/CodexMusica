@@ -5,7 +5,7 @@
   "lineage": "Serbian folk music joins regional singing, instrumental melodies and social dance traditions. Village practice and later ensemble performance preserve local styles, with the communal kolo dance an important part of celebrations and cultural transmission.",
   "recipe": "classic serbian folk, drone Modal, wind pipe branch. ornamented dance driving frula. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 183,
-  "score": 18.324,
+  "score": 18.271,
   "config": {
     "traditions": [
       "serbian_folk"
@@ -16,12 +16,12 @@
         "slots": {
           "frula_size_key": "frula_g_standard",
           "frula_repertoire_style": "frula_kolo_dance",
-          "frula_body_wood": "frula_plum_wood"
+          "frula_body_wood": "frula_maple_wood"
         },
         "scores": {
           "frula_size_key": 5.75,
-          "frula_repertoire_style": 12.573500000000001,
-          "frula_body_wood": 0
+          "frula_repertoire_style": 12.416,
+          "frula_body_wood": 0.105
         }
       }
     ],

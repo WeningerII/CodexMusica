@@ -5,7 +5,7 @@
   "lineage": "Congregational hymn practice of Black Baptist and other Protestant churches, above all in the devotional service that opens worship: a deacon or leader chants out a line or couplet of a hymn by Isaac Watts or another English hymn writer, and the congregation answers by singing it very slowly in long meter. It continues the lining out of 17th- and 18th-century British and colonial churches, transformed in African American worship into long, melismatic, heterophonic singing without instruments; Library of Congress field recordings and William T. Dargan's study Lining Out the Word document it.",
   "recipe": "classic modern dr. watts hymnody, ritual Devotional, American sacred branch. leader call answered, many notes per syllable, same melody all voices. country church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 226,
-  "score": 9.717,
+  "score": 9.741,
   "config": {
     "traditions": [
       "dr_watts_lined_hymnody"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 5.05075,
-          "voice_ensemble_config": 2.880500000000001,
+          "voice_speech_song": 5.0657499999999995,
+          "voice_ensemble_config": 2.889500000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

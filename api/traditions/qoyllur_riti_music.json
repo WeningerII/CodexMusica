@@ -5,7 +5,7 @@
   "lineage": "Qoyllur Rit'i is the pilgrimage to the Sinakara valley below the Qullqipunku glacier in Cusco, held in the days before Corpus Christi and inscribed by UNESCO in 2011, to which dance troupes of ch'unchu, qhapaq qolla and other nations climb with their own musicians. Each troupe's small band, of cane flutes and drum or of violin and harp, plays its own dance tunes, so the sanctuary resounds with many ensembles at once, cut by the falsetto calls and whistles of the ukuku guardians. The quena card stands in for the troupes' cane flutes and the membrane-drum card for their drums.",
   "recipe": "classic early-2010s qoyllur rit'i, carnival Processional, andean branch, indigenous ritual devotional. group vocals. quena, membrane drum pulse resonant acoustic membrane drum, melodic bowed song accompaniment fiddle, arpa peruana. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 311,
-  "score": 15.515,
+  "score": 14.889,
   "config": {
     "traditions": [
       "qoyllur_riti_music"
@@ -20,7 +20,7 @@
         },
         "scores": {
           "wind_articulation": -0.07,
-          "quena_material": 0.72,
+          "quena_material": 0.7387499999999999,
           "quena_pitch": -0.05
         }
       },
@@ -46,11 +46,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 3.8099999999999996,
+          "bowed_technique": 3.315,
           "fiddle_strings": 0,
           "fiddle_bow": 0,
           "fiddle_mute": 0.24,
-          "fiddle_articulation": 1.515,
+          "fiddle_articulation": 1.365,
           "fiddle_string_configuration": 0
         }
       },

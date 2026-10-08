@@ -5,7 +5,7 @@
   "lineage": "North Indian sarod tradition centered on the Maihar gharana of Allauddin Khan (1862-1972, the patriarch who taught both his son Ali Akbar Khan and his son-in-law Ravi Shankar) and the Senia Bangash gharana of the Bangash family (Hafiz Ali Khan, Amjad Ali Khan) — the sarod is the fretless metal-fingerboard plucked-lute derivation of the Afghan rabab brought to Hindustani classical from the 18th-19th centuries",
   "recipe": "classic South Asian early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal maand tan singing. steel coconut shell shell tun indian cedar sarod, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, maihar gharana instrumental concert lineage classical trained lineage sitar. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 469,
-  "score": 163.485,
+  "score": 163.76,
   "config": {
     "traditions": [
       "hindustani_sarod",
@@ -26,9 +26,9 @@
           "sarod_gharana": "sarod_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 18.745,
+          "plucked_traditional_technique": 18.79,
           "sarod_fingerboard": 1.4300000000000002,
-          "sarod_belly": 0.09,
+          "sarod_belly": 0.18,
           "sarod_pluck": 9.879999999999999,
           "sarod_taraf": 9.879999999999999,
           "sarod_body_wood": 3.9,
@@ -57,15 +57,15 @@
           "tanpura_jawari": "curved_jawari",
           "tanpura_strings": "five_string_chitra",
           "tanpura_string_material": "tanpura_bronze_steel",
-          "tanpura_body_wood": "tanpura_gourd_body"
+          "tanpura_body_wood": "tanpura_wooden_body"
         },
         "scores": {
-          "plucked_traditional_technique": 18.745,
+          "plucked_traditional_technique": 18.79,
           "tanpura_size": 2.21,
           "tanpura_jawari": 18.25,
           "tanpura_strings": 2.34,
           "tanpura_string_material": 0.65,
-          "tanpura_body_wood": 0.63
+          "tanpura_body_wood": 0.635
         }
       },
       {
@@ -83,11 +83,11 @@
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 18.745,
+          "plucked_traditional_technique": 18.79,
           "sitar_neck": 0.045,
           "sitar_resonator": 0.39,
           "sitar_jawari": 0.09,
-          "sitar_taraf": 0.51,
+          "sitar_taraf": 0.5549999999999999,
           "sitar_frets": 0.045,
           "sitar_pluck": 9.49,
           "sitar_main_strings": 0.545,

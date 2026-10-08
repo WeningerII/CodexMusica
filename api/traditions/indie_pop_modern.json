@@ -5,7 +5,7 @@
   "lineage": "Post-2000 streaming-era indie-pop with bedroom-recording aesthetic and DIY production — codified through Vampire Weekend (Vampire Weekend 2008), Beach House (Teen Dream 2010), Grimes (Visions 2012), and the broader Pitchfork-canonical indie ecosystem; characterized by reverb-soaked guitars, drum-machine programming, and confessional first-person lyrical register",
   "recipe": "classic early-2000s indie pop, functional Song, pop rock branch, alternative distorted rock stomp pop arunachal indie. equal tempered, one note per syllable, solo with instrumental accompaniment, no specific ornament system. clean strummed single coil electric guitar, electric short scale bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth, ukulele. live tracking. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital klon centaur.",
   "recipe_chars": 540,
-  "score": 168.18,
+  "score": 168.615,
   "config": {
     "traditions": [
       "indie_pop_modern",
@@ -72,14 +72,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 20.74,
+          "electric_technique": 20.695,
           "amp_make": 0,
           "body_wood": 0.195,
-          "neck_wood": 0.15,
+          "neck_wood": 0.345,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "string_material": 0.15,
-          "string_gauge": 2.09,
+          "string_material": 0.345,
+          "string_gauge": 1.9399999999999997,
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
@@ -131,7 +131,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.345,
           "shell_thickness": 0,
-          "bearing_edges": 1.45,
+          "bearing_edges": 1.645,
           "snare_wires": 0,
           "cymbal_alloy": 0.30000000000000004,
           "cymbal_hammering": 35.67,
@@ -167,7 +167,7 @@
         "scores": {
           "electric_technique": 1.45,
           "amp_make": 0,
-          "short_scale_bass_model": 1.32,
+          "short_scale_bass_model": 1.3650000000000002,
           "short_scale_bass_context": 1.345,
           "short_scale_bass_pickup": 0.845,
           "short_scale_bass_strings": 0.7149999999999999

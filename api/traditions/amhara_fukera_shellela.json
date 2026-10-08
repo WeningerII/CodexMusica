@@ -3,9 +3,9 @@
   "name": "Fukera and shellela (Amhara war-boast and war chant)",
   "family": "global",
   "lineage": "Martial vocal genres of the Amhara highlands of Gondar, Gojjam and Shewa. In fukera a man declaims a boast of his own bravery and deeds, and in shellela a singer chants heroic verses that once roused warriors before battle; both are still performed at weddings, holidays and public ceremonies, and the saxophonist Getatchew Mekurya adapted the shellela style to his instrument.",
-  "recipe": "classic modern fukera and shellela, praise Song, sub saharan African branch. single lead single track no stacking. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 194,
-  "score": 1.397,
+  "recipe": "classic modern fukera and shellela, praise Song, sub saharan African branch. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 156,
+  "score": 1.082,
   "config": {
     "traditions": [
       "amhara_fukera_shellela"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.79425,
+          "voice_multitrack_stack": 0.47924999999999995,
           "voice_tessitura": 0
         }
       }

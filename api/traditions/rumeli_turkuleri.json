@@ -3,9 +3,9 @@
   "name": "Rumeli Türküleri",
   "family": "global",
   "lineage": "Turkish-language folk repertoire of the Balkan Ottoman lands — Thrace, Macedonia, Kosovo, Bulgaria — carried into Turkey by muhacir populations after 1878 and 1923 and codified in the TRT repertoire by collectors such as Muzaffer Sarısözen, marked by 9/8 karşılama and 7/8 meters, clarinet and accordion lead over davul and darbuka, major-leaning makams like hicaz and rast, and lyrical march-tempo strophic songs.",
-  "recipe": "classic Southern European late-1870s rumeli türküleri, ballad Poetry, med east poetic branch, middle eastern wedding, balkan drinking song dabke bandari. thick, breath veiled tone, straight onset, interlocked note trading. grenadilla African blackwood traditional clarinet, weltmeister east German mid tier vintage volk accordion, davul, clay pre modern traditional goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, kanun ornamented tortoiseshell traditional kanun, carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, saz loud aluminum rim skin head modern banjo like strummed cumbus. balkan sevdalinka kafana tavern. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 781,
-  "score": 266.072,
+  "recipe": "classic Southern European late-1870s rumeli türküleri, ballad Poetry, med east poetic branch, middle eastern wedding, balkan drinking song dabke bandari. thick, breath veiled tone, straight onset, interlocked note trading. grenadilla African blackwood traditional clarinet, weltmeister east German mid tier vintage volk accordion, small under arm davul, clay pre modern traditional goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, kanun ornamented tortoiseshell traditional kanun, carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, saz loud aluminum rim skin head modern banjo like strummed cumbus. balkan sevdalinka kafana tavern. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 797,
+  "score": 264.9,
   "config": {
     "traditions": [
       "rumeli_turkuleri",
@@ -24,7 +24,7 @@
         },
         "scores": {
           "wind_articulation": 0.7149999999999999,
-          "clarinet_body": 3.0875,
+          "clarinet_body": 2.795,
           "clarinet_size": 1.045,
           "clarinet_reed": 0,
           "clarinet_articulation": 0
@@ -42,24 +42,24 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 2.4450000000000003,
+          "free_reed_technique": 2.4000000000000004,
           "accordion_reed_material": 0.45499999999999996,
           "musette_offset": 1.045,
           "reed_config": 0.585,
           "bellows": 0.5,
           "voicing_chamber": 0.45499999999999996,
-          "accordion_maker_school": 3.33
+          "accordion_maker_school": 3.225
         }
       },
       {
         "id": "davul",
         "slots": {
-          "davul_form": "davul_anatolian",
+          "davul_form": "davul_koltuk",
           "davul_context": "davul_zurna_pairing",
           "davul_head_material": "davul_synthetic"
         },
         "scores": {
-          "davul_form": 4.39,
+          "davul_form": 4.495,
           "davul_context": 37.894999999999996,
           "davul_head_material": 1.7750000000000001
         }
@@ -74,9 +74,9 @@
         },
         "scores": {
           "percussion_technique": 0.06499999999999999,
-          "darbuka_material": 1.4949999999999999,
+          "darbuka_material": 1.4349999999999998,
           "darbuka_skin": 2.9899999999999998,
-          "darbuka_regional_style": 3.66
+          "darbuka_regional_style": 3.555
         }
       },
       {
@@ -120,7 +120,7 @@
           "voice_vibrato": 0.7149999999999999,
           "voice_articulation": 21.514999999999993,
           "voice_microtone": 32.72749999999999,
-          "voice_tradition": 10.075,
+          "voice_tradition": 9.79,
           "voice_mechanism_compound": 4.500000000000001,
           "voice_estill_quality": 1.4949999999999997,
           "voice_speech_song": 25.934999999999995,
@@ -141,7 +141,7 @@
           "orch_varnish": "french_polish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
-          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "sul_pont_orch",
           "orch_rosin": "magic_rosin_orch"
         },
@@ -150,10 +150,10 @@
           "orch_strings": 0.325,
           "orch_top_wood": 3.185,
           "orch_back_wood": 3.305,
-          "orch_varnish": 1.91,
-          "orch_setup_period": 2.0475000000000003,
+          "orch_varnish": 1.76,
+          "orch_setup_period": 1.9650000000000003,
           "orch_bow": 4.225,
-          "orch_bow_stick": 2.06,
+          "orch_bow_stick": 1.9825000000000002,
           "orch_articulation": 0.195,
           "orch_rosin": 2.1125
         }
@@ -172,7 +172,7 @@
           "plucked_traditional_technique": 6.825,
           "cumbus_neck": 1.345,
           "cumbus_context": 1.4949999999999999,
-          "cumbus_body": 2.145,
+          "cumbus_body": 2.07,
           "cumbus_head_skin": 0.845,
           "cumbus_strings": 0.845
         }

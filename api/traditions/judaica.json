@@ -5,7 +5,7 @@
   "lineage": "Debbie Friedman, L’chi Lach, complete two-page Joe Marks instrumental classical-guitar edition, oySongs16840 and Hal Leonard1000320897. One solo guitarist and zero singers; source text Genesis12 describes underlying song inspiration, not an additional sung part in the explicitly instrumental edition. Select this entire separately issued arrangement, not the similarly named Classical Guitar Remix Band recording or original vocal master. Public publisher metadata establishes scope; purchased score and audio have not been inspected. Authored intimate classical-guitar rendition of the complete devotional song edition. Spruce top, Torres fan bracing, high-tension nylon, standard tuning, fingerpicked melodic/chordal support and rest-stroke attack are coherent editorial construction and technique choices, not specified original hardware or a transcription of the paid score. Controlled live-room capture is an authored recording environment; optional signal apparatus and global tuning remain omitted. Jewish devotional parent follows publisher Shabbat, life-cycle and Torah functions, not an inference of Western art music from notation or nylon strings.",
   "recipe": "classic judaica, ritual Devotional, Jewish branch. spruce nylon classical nylon-string guitar. live tracking.",
   "recipe_chars": 109,
-  "score": 15.304,
+  "score": 15.199,
   "config": {
     "traditions": [
       "judaica"
@@ -24,7 +24,7 @@
         "scores": {
           "acoustic_technique": 1.0499999999999998,
           "string_tuning": 0,
-          "top_wood_classical": 1.405,
+          "top_wood_classical": 1.3,
           "bracing_classical": 0.1995,
           "string_classical": 2.5999999999999996,
           "attack_technique_cl": 10.049999999999999

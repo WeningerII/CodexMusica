@@ -5,7 +5,7 @@
   "lineage": "Independent São Paulo song movement of about 1979-1985 centred on the Lira Paulistana theatre in Pinheiros and its label, with artists such as Arrigo Barnabé, Itamar Assumpção, Grupo Rumo, Premeditando o Breque and Língua de Trapo. Arrigo Barnabé brought atonal and serial writing into comic-strip song narratives for a horn-and-keyboard rock band, Itamar Assumpção built songs on interlocking bass and guitar riffs with funk and reggae, and Rumo developed a speech-melody style of singing.",
   "recipe": "classic mid-1980s vanguarda paulista, functional Song, Brazilian song branch. solo with instrumental accompaniment. pocket fingerstyle locked electric bass, single coil electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, saxophone, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano. treated studio. large-diaphragm condenser, ultra-clean solid-state pre, colored vintage console, clean digital mastering EQ. Studer 30ips tape.",
   "recipe_chars": 497,
-  "score": 30.43,
+  "score": 30.763,
   "config": {
     "traditions": [
       "vanguarda_paulista"
@@ -96,14 +96,14 @@
           "electric_technique": 2.45,
           "amp_make": 0,
           "body_wood": 0.6195,
-          "neck_wood": 0.063,
+          "neck_wood": 0.0945,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0,
           "string_gauge": 0.273,
           "bridge": 0.1365,
           "scale_length": 0,
-          "finish": 0,
+          "finish": 0.0315,
           "string_tuning": 0,
           "single_coil_pickup_construction": 0
         }
@@ -132,8 +132,8 @@
           "bearing_edges": 0.1995,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 5.181,
-          "cymbal_lathing": 5.359500000000001,
+          "cymbal_hammering": 5.391,
+          "cymbal_lathing": 5.4645,
           "cymbal_finish": 0
         }
       },
@@ -153,7 +153,7 @@
           "sax_size": -0.035,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.3045,
+          "sax_mouthpiece": 0.1995,
           "sax_technique": -0.05,
           "sax_maker_school": -0.035
         }
@@ -175,7 +175,7 @@
           "keyboard_technique": 0.25,
           "grand_piano_size": 0.273,
           "grand_piano_brand": 1.3,
-          "piano_hammer": 1.1099999999999999,
+          "piano_hammer": 1.17,
           "piano_rim": 1.17,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.07,

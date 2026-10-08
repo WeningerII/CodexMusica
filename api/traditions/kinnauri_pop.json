@@ -5,7 +5,7 @@
   "lineage": "Kinnauri popular song brings regional-language singing into recorded dance songs, contemporary arrangements and local digital releases. Singers and producers from the Kinnaur repertoire circulate alongside wider Himachali and Pahadi popular music.",
   "recipe": "classic kinnauri pop, functional Song. one note per syllable. credited programming unspecified. treated studio.",
   "recipe_chars": 111,
-  "score": 1.72,
+  "score": 1.84,
   "config": {
     "traditions": [
       "kinnauri_pop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.1792500000000001,
+          "voice_speech_song": 1.3,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

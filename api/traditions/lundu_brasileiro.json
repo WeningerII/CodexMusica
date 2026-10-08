@@ -5,7 +5,7 @@
   "lineage": "Afro-Brazilian couple dance of colonial Brazil, described from the eighteenth century with hand-clapping and the umbigada, that became in the nineteenth century a comic, syncopated song genre of salons and theatres, the lundu-canção, sung alongside the modinha. Xisto Bahia's Isto é bom, sung by Baiano for Casa Edison in 1902, is usually cited as the first Brazilian commercial record. The lundu dance survives on the island of Marajó in Pará.",
   "recipe": "classic early-1900s lundu, functional Song, Brazilian song branch. solo with instrumental accompaniment. low mid rich spectrum soft attack cedar classical nylon-string guitar. parlor. acoustic horn. 78rpm shellac.",
   "recipe_chars": 213,
-  "score": 7.574,
+  "score": 7.5,
   "config": {
     "traditions": [
       "lundu_brasileiro"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.273,
-          "voice_multitrack_stack": 0.2415,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -66,7 +66,7 @@
           "acoustic_technique": 0.26,
           "string_tuning": 0,
           "top_wood_classical": 4.68,
-          "bracing_classical": 0.5145,
+          "bracing_classical": 0.4095,
           "string_classical": 0,
           "attack_technique_cl": -0.035
         }

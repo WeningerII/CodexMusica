@@ -5,7 +5,7 @@
   "lineage": "Chill R&B is a relaxed contemporary R&B and neo-soul listening strand shaped by intimate songwriting and studio production. Independent releases combine sung hooks with live instrumental details and programmed rhythm tracks.",
   "recipe": "classic chill r&b, functional Song, soul R&B branch. solo with instrumental accompaniment. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, digital subtractive, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 436,
-  "score": 49.595,
+  "score": 50.134,
   "config": {
     "traditions": [
       "chill_r_and_b"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.486,
+          "voice_multitrack_stack": 0.39149999999999996,
           "voice_tessitura": 0
         }
       },
@@ -58,31 +58,31 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_c"
         },
         "scores": {
           "electric_technique": 2.45,
-          "amp_make": 6.533,
-          "body_wood": 1.1145000000000003,
-          "neck_wood": 0.33599999999999997,
-          "fretboard": 0.2415,
+          "amp_make": 6.470000000000001,
+          "body_wood": 1.1460000000000001,
+          "neck_wood": 0.378,
+          "fretboard": 0.378,
           "pickup_magnet": 0.369,
           "pickup_winding": 0.369,
-          "string_material": 0.2415,
-          "bridge": 0.33599999999999997,
-          "scale_length": 1.1460000000000001,
-          "string_gauge": 0.33599999999999997,
+          "string_material": 0.378,
+          "bridge": 0.2535,
+          "scale_length": 1.3875000000000004,
+          "string_gauge": 0.2535,
           "finish": 0,
-          "string_tuning": 1.0200000000000002
+          "string_tuning": 1.2930000000000004
         }
       },
       {
@@ -98,9 +98,9 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.231,
-          "body_wood": 0.6720000000000002,
-          "pickup_config": 0.5055,
+          "amp_make": 7.3045,
+          "body_wood": 0.462,
+          "pickup_config": 0.6419999999999999,
           "string_type": 8.45,
           "scale_length_b": 0.369,
           "fretted_or_not": 0.3315,

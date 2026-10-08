@@ -119,16 +119,6 @@
     "speech-like",
     "rasping"
   ],
-  "polish_village_fiddle": [
-    "drone-foundation",
-    "drone-like",
-    "folk-tradition",
-    "folkloric",
-    "sustained-tone",
-    "historical-gut",
-    "plain-gut",
-    "sheep-gut"
-  ],
   "delta_blues": [
     "blues-shouter",
     "blues-derived",
@@ -1002,13 +992,6 @@
     "machine-hammered",
     "symmetric-pattern"
   ],
-  "southern_trap": [
-    "speech-mimicking",
-    "speech-mimicry",
-    "rhythmic-speech",
-    "funk-derived",
-    "sub-bass"
-  ],
   "drill": [
     "speech-mimicking",
     "rhythmic-speech",
@@ -1157,25 +1140,6 @@
     "softer-tone",
     "klezmer-tradition"
   ],
-  "shape_note": [
-    "sacred-traditional",
-    "liturgical",
-    "medieval",
-    "choir-blendable",
-    "devotional",
-    "ceremonial",
-    "reverberant",
-    "intimate-aspirated",
-    "lament-leaning",
-    "sustained-high-register",
-    "sustained-projection",
-    "mournful",
-    "close-harmony",
-    "naturally-reverberant",
-    "singing-sustain",
-    "glassy",
-    "harmonizing-foundational"
-  ],
   "work_songs_hollers": [
     "blues-shouter",
     "blues-derived",
@@ -1213,15 +1177,6 @@
     "funky",
     "rapid-tremolo",
     "breathy-low",
-    "warm-glowing"
-  ],
-  "northern_soul_motown": [
-    "gospel-rooted",
-    "gospel-runs",
-    "blues-derived",
-    "blues-inflected",
-    "funky",
-    "warmed",
     "warm-glowing"
   ],
   "philly_soul_intl": [
@@ -1348,18 +1303,6 @@
     "drone-foundation",
     "dark-romantic",
     "German-traditional"
-  ],
-  "math_rock_post_rock": [
-    "rock-context",
-    "rock-context",
-    "distorted",
-    "haunted-romantic",
-    "sub-bass-foundational",
-    "dark",
-    "high-gain-saturation",
-    "dynamic-arc-foundational",
-    "crescendo-build",
-    "loud-soft-loud-structure"
   ],
   "industrial": [
     "high-gain-cascading-saturation",
@@ -2023,12 +1966,6 @@
     "sub-bass",
     "sample-foundational"
   ],
-  "k_rap": [
-    "speech-mimicking",
-    "rhythmic-speech",
-    "funk-derived",
-    "sub-bass"
-  ],
   "rebetiko": [
     "urban-Greek",
     "Turkish-makam-base",
@@ -2358,13 +2295,6 @@
     "German-traditional",
     "late-Romantic-onward"
   ],
-  "eurovision_pop": [
-    "smoothed",
-    "synthesized",
-    "synthetic",
-    "dance-friendly",
-    "intimate-aspirated"
-  ],
   "scandi_pop": [
     "smoothed",
     "synthesized",
@@ -2645,15 +2575,6 @@
     "transient-grab-aggressive",
     "fast-tremolo"
   ],
-  "liquid_funk": [
-    "dub-friendly",
-    "sub-bass",
-    "sub-driven",
-    "sub-bass-foundational",
-    "sub-fundamental-buzz",
-    "machine-hammered",
-    "symmetric-pattern"
-  ],
   "dubstep_140": [
     "dub-friendly",
     "sub-bass",
@@ -2767,13 +2688,6 @@
     "chant-foundational",
     "chorus-chant"
   ],
-  "athan_call_prayer": [
-    "ornamental-melismatic",
-    "devotional",
-    "sacred-traditional",
-    "melismatic",
-    "court-ceremonial"
-  ],
   "islamic_anasheed": [
     "sufi-mystical",
     "ornamental-melismatic",
@@ -2879,12 +2793,6 @@
     "sugarbag-beeswax",
     "shaped-rim"
   ],
-  "galician_pipe_solo": [
-    "celtic",
-    "drone-foundation",
-    "drone-like",
-    "folk-tradition"
-  ],
   "mumble_rap": [
     "speech-mimicking",
     "rhythmic-speech",
@@ -2912,12 +2820,6 @@
     "intimate-aspirated",
     "speech-derived",
     "rapid-tremolo"
-  ],
-  "interior_confessional_60s": [
-    "folk",
-    "folk-tradition",
-    "intimate-aspirated",
-    "speech-derived"
   ],
   "laurel_canyon_70s": [
     "folk",
@@ -2976,11 +2878,6 @@
     "free-rhythm",
     "ornamented"
   ],
-  "bothy_ballad_doric": [
-    "celtic",
-    "Scottish-influenced",
-    "lament-leaning"
-  ],
   "child_ballad_revival": [
     "celtic",
     "Scottish-influenced",
@@ -2998,20 +2895,6 @@
   "cape_breton_milling": [
     "celtic",
     "Scottish-influenced",
-    "lament-leaning"
-  ],
-  "newfoundland_outport": [
-    "celtic",
-    "Irish-traditional",
-    "Scottish-influenced",
-    "english-folk",
-    "lament-leaning"
-  ],
-  "piedmont_fingerpicking": [
-    "blues-shouter",
-    "blues-derived",
-    "blues-inflected",
-    "bluesy",
     "lament-leaning"
   ],
   "parchman_prison_song": [
@@ -3180,18 +3063,6 @@
     "ecstatic",
     "harmonizing-foundational"
   ],
-  "anglican_choral_evensong": [
-    "gospel-runs",
-    "gospel-friendly",
-    "devotional",
-    "congregation-loud",
-    "liturgical",
-    "medieval",
-    "sacred-traditional",
-    "ceremonial",
-    "court-ceremonial",
-    "sustained-high-register"
-  ],
   "russian_orthodox_chant": [
     "gospel-runs",
     "gospel-friendly",
@@ -3215,14 +3086,6 @@
     "twangy-foundational"
   ],
   "hot_country_2010s": [
-    "folk",
-    "folk-rock",
-    "folkloric",
-    "walking",
-    "dance-friendly",
-    "twangy-foundational"
-  ],
-  "country_pop_crossover": [
     "folk",
     "folk-rock",
     "folkloric",
@@ -3597,12 +3460,6 @@
     "drone-foundation",
     "sacred-traditional"
   ],
-  "sikh_gurmat_sangeet": [
-    "raga-bound",
-    "devotional",
-    "drone-foundation",
-    "sacred-traditional"
-  ],
   "sufi_sama": [
     "sufi",
     "sufi-mystical",
@@ -3688,12 +3545,6 @@
     "funky",
     "dance-driving"
   ],
-  "jibaro": [
-    "folk",
-    "folk-tradition",
-    "dark-romantic",
-    "lament-leaning"
-  ],
   "parang_trini": [
     "dub-friendly",
     "walking-bass",
@@ -3722,13 +3573,6 @@
     "funky",
     "dance-driving"
   ],
-  "kompa_direkt": [
-    "dub-friendly",
-    "walking-bass",
-    "swung",
-    "funky",
-    "dance-driving"
-  ],
   "bouyon": [
     "dub-friendly",
     "walking-bass",
@@ -3737,13 +3581,6 @@
     "dance-driving"
   ],
   "chouval_bwa": [
-    "dub-friendly",
-    "walking-bass",
-    "swung",
-    "funky",
-    "dance-driving"
-  ],
-  "soca_soul": [
     "dub-friendly",
     "walking-bass",
     "swung",
@@ -4044,9 +3881,6 @@
     "devotional",
     "melismatic",
     "folk-tradition"
-  ],
-  "finnish_kantele_folk": [
-    "lament-leaning"
   ],
   "swedish_nyckelharpa_folk": [
     "lament-leaning"
@@ -5302,19 +5136,6 @@
     "rapid-tremolo",
     "cutting"
   ],
-  "atmospheric_post_metal": [
-    "metal-context",
-    "ambient",
-    "reverberant",
-    "sustained-tone",
-    "dynamic-arc-foundational",
-    "dark",
-    "dark-romantic",
-    "sub-bass-foundational",
-    "low-end-heavy",
-    "layered-ambient",
-    "naturally-reverberant"
-  ],
   "ambient_black_metal": [
     "metal-context",
     "ambient",
@@ -5465,32 +5286,6 @@
     "smoothed",
     "mellow",
     "sample-foundational"
-  ],
-  "ambient_fusion": [
-    "ambient",
-    "layered-ambient",
-    "lush-ambient",
-    "sustained-tone",
-    "reverberant",
-    "soft-onset",
-    "smoothed",
-    "warm-glowing",
-    "mellow",
-    "jazz-improvisation",
-    "overlapping",
-    "soft",
-    "controlled",
-    "present",
-    "focused",
-    "quiet",
-    "intimate",
-    "minimal",
-    "stable",
-    "clean-articulation-low-blur",
-    "clean",
-    "tight-articulation",
-    "contemplative",
-    "meditative-tempo"
   ],
   "ambient_psychill": [
     "ambient",
@@ -5651,20 +5446,6 @@
     "percussive-attack",
     "rhythmic-speech",
     "sharp"
-  ],
-  "chill_abstract_hip_hop": [
-    "mellow",
-    "soft",
-    "smoothed",
-    "warm-glowing",
-    "swung",
-    "intimate",
-    "soft-onset",
-    "quiet",
-    "low-projection-volume",
-    "controlled",
-    "meditative-tempo",
-    "warmed"
   ],
   "trap_soul": [
     "half-sung",
@@ -6162,12 +5943,6 @@
     "sub-bass",
     "percussive-attack"
   ],
-  "uk_tech_house": [
-    "dance-friendly",
-    "sample-foundational",
-    "sub-bass",
-    "percussive-attack"
-  ],
   "progressive_electro_house": [
     "synthesized",
     "synthetic",
@@ -6461,13 +6236,6 @@
     "haunted-romantic",
     "high-gain-saturation"
   ],
-  "classic_finnish_rock": [
-    "blues-derived",
-    "rhythmic",
-    "melodic",
-    "articulated",
-    "gritty"
-  ],
   "cinematic_post_rock": [
     "melodic",
     "layered-ambient",
@@ -6520,20 +6288,6 @@
     "driving"
   ],
   "dutch_trance": [
-    "synthesized",
-    "melodic",
-    "dance-pulse",
-    "layered",
-    "crescendo-build"
-  ],
-  "german_trance": [
-    "synthesized",
-    "melodic",
-    "dance-pulse",
-    "layered",
-    "crescendo-build"
-  ],
-  "deep_techno": [
     "synthesized",
     "melodic",
     "dance-pulse",
@@ -6596,12 +6350,6 @@
     "layered",
     "plucked"
   ],
-  "danish_modern_jazz": [
-    "jazz-improvisation",
-    "melodic",
-    "plucked",
-    "warm-glowing"
-  ],
   "indie_jazz": [
     "jazz-improvisation",
     "percussive-attack",
@@ -6611,11 +6359,6 @@
     "jazz-improvisation",
     "melodic",
     "layered"
-  ],
-  "classic_japanese_jazz": [
-    "jazz-improvisation",
-    "melodic",
-    "percussive-attack"
   ],
   "italian_jazz_fusion": [
     "jazz-improvisation",
@@ -6666,12 +6409,6 @@
     "jazz-improvisation",
     "melodic",
     "layered"
-  ],
-  "finnish_modern_jazz": [
-    "jazz-improvisation",
-    "melodic",
-    "breath-driven",
-    "percussive-attack"
   ],
   "finnish_jazz": [
     "jazz-improvisation",
@@ -6803,11 +6540,6 @@
     "breath-driven",
     "melodic"
   ],
-  "norwegian_contemporary_jazz": [
-    "jazz-improvisation",
-    "melodic",
-    "warm-glowing"
-  ],
   "jazz_violin": [
     "jazz-improvisation",
     "melodic",
@@ -6817,11 +6549,6 @@
     "jazz-improvisation",
     "breath-driven",
     "melodic"
-  ],
-  "polish_modern_jazz": [
-    "jazz-improvisation",
-    "melodic",
-    "plucked"
   ],
   "polish_free_jazz": [
     "jazz-improvisation",
@@ -6870,23 +6597,11 @@
     "sub-bass",
     "sample-foundational"
   ],
-  "uk_dnb": [
-    "sub-bass",
-    "layered",
-    "sample-foundational",
-    "ambient"
-  ],
   "brazilian_bass": [
     "sub-bass",
     "synthetic",
     "percussive-attack",
     "melodic"
-  ],
-  "classic_garage_rock": [
-    "distorted",
-    "percussive-attack",
-    "melodic",
-    "dry"
   ],
   "garage_pop": [
     "distorted",
@@ -6919,13 +6634,6 @@
     "dance-pulse",
     "layered",
     "crescendo-build"
-  ],
-  "jazzy_dnb": [
-    "melodic",
-    "layered",
-    "sub-bass",
-    "percussive-attack",
-    "sustained"
   ],
   "electric_bass": [
     "funk-derived",
@@ -6978,13 +6686,6 @@
     "backbeat",
     "percussive-attack",
     "melodic"
-  ],
-  "garage_punk_blues": [
-    "blues-derived",
-    "distorted",
-    "backbeat",
-    "rhythmic",
-    "percussive-attack"
   ],
   "garage_rock_mexicano": [
     "distorted",
@@ -7090,17 +6791,7 @@
     "rhythmic",
     "backbeat"
   ],
-  "protest_folk": [
-    "group-vocals",
-    "strummed",
-    "plucked"
-  ],
   "traditional_folk": [
-    "sung-narration",
-    "plucked",
-    "melodic"
-  ],
-  "traditional_southern_folk": [
     "sung-narration",
     "plucked",
     "melodic"
@@ -7110,11 +6801,6 @@
     "plucked",
     "strummed"
   ],
-  "traditional_bluegrass": [
-    "bowed",
-    "picked",
-    "rhythmic"
-  ],
   "traditional_country": [
     "sung-narration",
     "strummed",
@@ -7123,11 +6809,6 @@
   "spanish_folk": [
     "bowed",
     "sung-narration",
-    "acoustic-only"
-  ],
-  "vintage_country_folk": [
-    "sung-narration",
-    "strummed",
     "acoustic-only"
   ],
   "scottish_folk": [
@@ -7149,11 +6830,6 @@
     "sung-narration",
     "fingerpicked",
     "intimate"
-  ],
-  "swedish_americana": [
-    "strummed",
-    "melodic",
-    "sung-narration"
   ],
   "swedish_country": [
     "strummed",
@@ -7218,27 +6894,12 @@
     "sung-narration",
     "bowed"
   ],
-  "kentucky_mountain_folk": [
-    "sung-narration",
-    "plucked",
-    "melodic"
-  ],
-  "german_indie_folk": [
-    "sung-narration",
-    "strummed",
-    "melodic"
-  ],
   "german_singer_songwriter": [
     "sung-narration",
     "strummed",
     "melodic"
   ],
   "icelandic_folk": [
-    "sung-narration",
-    "intimate",
-    "melodic"
-  ],
-  "icelandic_singer_songwriter": [
     "sung-narration",
     "intimate",
     "melodic"
@@ -7464,15 +7125,6 @@
     "high-gain-cascading-saturation",
     "percussive-attack"
   ],
-  "argentine_heavy_metal": [
-    "metal-context",
-    "melodic",
-    "layered",
-    "sustained",
-    "backbeat",
-    "distorted",
-    "high-gain-cascading-saturation"
-  ],
   "argentine_metal": [
     "metal-context",
     "melodic",
@@ -7531,14 +7183,6 @@
     "high-gain-cascading-saturation",
     "percussive-attack"
   ],
-  "british_grindcore": [
-    "metal-context",
-    "distorted",
-    "percussive-attack",
-    "driving",
-    "rhythmic",
-    "high-gain-cascading-saturation"
-  ],
   "american_grindcore": [
     "metal-context",
     "distorted",
@@ -7553,14 +7197,6 @@
     "backbeat",
     "high-gain-cascading-saturation",
     "percussive-attack"
-  ],
-  "brutal_deathcore": [
-    "metal-context",
-    "distorted",
-    "low-register",
-    "percussive-attack",
-    "rhythmic",
-    "high-gain-cascading-saturation"
   ],
   "british_black_metal": [
     "metal-context",
@@ -7670,11 +7306,6 @@
     "percussive-attack",
     "breath-driven"
   ],
-  "roots_americana": [
-    "sung-narration",
-    "fingerpicked",
-    "ringing"
-  ],
   "southern_americana": [
     "sung-narration",
     "slide",
@@ -7719,16 +7350,6 @@
     "fingerpicked",
     "ringing"
   ],
-  "bhojpuri_folk": [
-    "sung-narration",
-    "group-vocals",
-    "rhythmic"
-  ],
-  "folk_siciliana": [
-    "sung-narration",
-    "hand-struck",
-    "rhythmic"
-  ],
   "indian_singer_songwriter": [
     "fingerpicked",
     "melodic",
@@ -7769,17 +7390,7 @@
     "melodic",
     "group-vocals"
   ],
-  "indonesian_singer_songwriter": [
-    "fingerpicked",
-    "melodic",
-    "group-vocals"
-  ],
   "korean_indie_folk": [
-    "group-vocals",
-    "strummed",
-    "intimate"
-  ],
-  "korean_singer_songwriter": [
     "group-vocals",
     "strummed",
     "intimate"
@@ -7820,11 +7431,6 @@
     "intimate"
   ],
   "nashville_americana": [
-    "sung-narration",
-    "slide",
-    "strummed"
-  ],
-  "new_americana": [
     "sung-narration",
     "slide",
     "strummed"
@@ -7884,19 +7490,9 @@
     "plucked",
     "melodic"
   ],
-  "musica_folk_asturiana": [
-    "ornamented",
-    "bowed",
-    "strummed"
-  ],
   "manitoba_country": [
     "sung-narration",
     "strummed",
-    "melodic"
-  ],
-  "okinawan_folk": [
-    "sung-narration",
-    "plucked",
     "melodic"
   ],
   "oklahoma_country": [
@@ -7913,16 +7509,6 @@
     "strummed",
     "melodic",
     "sung-narration"
-  ],
-  "bluegrass_fiddle": [
-    "bowed",
-    "melodic",
-    "acoustic-only"
-  ],
-  "classic_australian_country": [
-    "sung-narration",
-    "acoustic-only",
-    "folk"
   ],
   "canadian_folk": [
     "sung-narration",
@@ -8010,11 +7596,6 @@
     "melodic",
     "vocal-accompaniment"
   ],
-  "contemporary_folk": [
-    "fingerpicked",
-    "sung-narration",
-    "melodic"
-  ],
   "canadian_country": [
     "melodic",
     "layered",
@@ -8044,11 +7625,6 @@
     "sung-narration",
     "strummed",
     "plucked"
-  ],
-  "czech_singer_songwriter": [
-    "sung-narration",
-    "fingerpicked",
-    "melodic"
   ],
   "boston_folk": [
     "sung-narration",
@@ -8126,30 +7702,10 @@
     "fingerpicked",
     "intimate"
   ],
-  "deep_indie_singer_songwriter": [
-    "melodic",
-    "melodic",
-    "intimate"
-  ],
-  "country_dawn": [
-    "sung-narration",
-    "strummed",
-    "melodic"
-  ],
-  "country_quebecois": [
-    "sung-narration",
-    "slide",
-    "melodic"
-  ],
   "experimental_folk": [
     "sung-narration",
     "dynamic-arc-foundational",
     "distorted"
-  ],
-  "deep_new_americana": [
-    "sung-narration",
-    "melodic",
-    "tonal-groove"
   ],
   "electro_pop_francais": [
     "melodic",
@@ -8200,10 +7756,6 @@
     "melodic",
     "resonant"
   ],
-  "classic_french_pop": [
-    "melodic",
-    "rhythmic"
-  ],
   "estonian_pop": [
     "melodic",
     "layered",
@@ -8234,10 +7786,6 @@
     "melodic",
     "funk-derived"
   ],
-  "instrumental_funk": [
-    "funky",
-    "tonal-groove"
-  ],
   "african_reggae": [
     "melodic"
   ],
@@ -8253,11 +7801,6 @@
   ],
   "chinese_r_and_b": [
     "layered"
-  ],
-  "gospel_r_and_b": [
-    "electric",
-    "layered",
-    "backbeat"
   ],
   "finnish_soul": [
     "melismatic",
@@ -8332,11 +7875,6 @@
     "jazz-improvisation",
     "plucked",
     "melodic"
-  ],
-  "bronx_hip_hop": [
-    "rhythmic-speech",
-    "dance-rhythm",
-    "funk-derived"
   ],
   "canadian_old_school_hip_hop": [
     "rhythmic-speech",
@@ -8506,20 +8044,10 @@
     "layered",
     "percussive-attack"
   ],
-  "aggressive_phonk": [
-    "sample-foundational",
-    "distorted",
-    "percussive-attack"
-  ],
   "australian_trap": [
     "sample-foundational",
     "percussive-attack",
     "layered"
-  ],
-  "australian_underground_hip_hop": [
-    "sample-foundational",
-    "vinyl-sampled",
-    "percussive-attack"
   ],
   "balkan_hip_hop": [
     "sample-foundational",
@@ -8568,11 +8096,6 @@
     "rhythmic-speech",
     "sustained",
     "backbeat"
-  ],
-  "deep_southern_trap": [
-    "rhythmic",
-    "sub-bass",
-    "sustained"
   ],
   "deep_underground_hip_hop": [
     "rhythmic-speech",
@@ -8634,16 +8157,6 @@
     "sample-foundational",
     "layered-rhythm"
   ],
-  "j_rap": [
-    "rhythmic-speech",
-    "sample-foundational",
-    "rhythmic"
-  ],
-  "japanese_old_school_hip_hop": [
-    "rhythmic-speech",
-    "sample-foundational",
-    "rhythmic"
-  ],
   "japanese_underground_rap": [
     "rhythmic-speech",
     "sample-foundational",
@@ -8664,11 +8177,6 @@
     "sample-foundational",
     "sub-bass",
     "sustained"
-  ],
-  "kazakh_hip_hop": [
-    "rhythmic",
-    "sustained",
-    "sample-foundational"
   ],
   "kentucky_hip_hop": [
     "rhythmic-speech",
@@ -8723,10 +8231,6 @@
     "articulated",
     "resonant",
     "rhythmic"
-  ],
-  "c_pop_girl_group": [
-    "melodic",
-    "layered"
   ],
   "classic_country_pop": [
     "melodic",
@@ -8799,10 +8303,6 @@
   "coral_gospel": [
     "layered"
   ],
-  "deep_funk": [
-    "electric",
-    "backbeat"
-  ],
   "family_gospel": [
     "layered"
   ],
@@ -8851,11 +8351,6 @@
     "funk-derived",
     "backbeat"
   ],
-  "korean_old_school_hip_hop": [
-    "rhythmic-speech",
-    "sample-foundational",
-    "swung"
-  ],
   "flute_rock": [
     "wind-driven",
     "breathing",
@@ -8888,11 +8383,6 @@
     "rhythmic-speech",
     "sample-foundational",
     "layered"
-  ],
-  "hindi_hip_hop": [
-    "rhythmic-speech",
-    "percussive-attack",
-    "low-register"
   ],
   "hip_hop_experimental": [
     "jazz-improvisation",
@@ -9208,11 +8698,6 @@
     "sample-foundational",
     "strummed"
   ],
-  "malay_rap": [
-    "rhythmic-speech",
-    "sub-bass",
-    "rhythmic"
-  ],
   "malaysian_hip_hop": [
     "rhythmic-speech",
     "sub-bass",
@@ -9259,16 +8744,6 @@
     "rhythmic-speech",
     "rhythmic"
   ],
-  "old_school_hip_hop": [
-    "vinyl-sampled",
-    "sample-foundational",
-    "percussive-attack"
-  ],
-  "old_school_rap_francais": [
-    "rhythmic-speech",
-    "vinyl-sampled",
-    "swung"
-  ],
   "palestinian_hip_hop": [
     "rhythmic-speech",
     "sample-foundational",
@@ -9289,11 +8764,6 @@
     "distorted",
     "rhythmic",
     "synthetic"
-  ],
-  "german_power_metal": [
-    "distorted",
-    "melodic",
-    "layered"
   ],
   "estonian_rock": [
     "electric",
@@ -9491,10 +8961,6 @@
     "rhythmic-speech",
     "backbeat"
   ],
-  "rap_liegeois": [
-    "rhythmic-speech",
-    "backbeat"
-  ],
   "rap_lyonnais": [
     "rhythmic-speech",
     "backbeat"
@@ -9517,10 +8983,6 @@
     "backbeat"
   ],
   "rap_moldovenesc": [
-    "rhythmic-speech",
-    "backbeat"
-  ],
-  "rap_montrealais": [
     "rhythmic-speech",
     "backbeat"
   ],
@@ -9588,10 +9050,6 @@
     "sample-foundational"
   ],
   "rap_underground_argentino": [
-    "rhythmic-speech",
-    "backbeat"
-  ],
-  "rap_underground_colombiano": [
     "rhythmic-speech",
     "backbeat"
   ],
@@ -9728,10 +9186,6 @@
     "backbeat"
   ],
   "south_carolina_hip_hop": [
-    "backbeat"
-  ],
-  "spanish_hip_hop": [
-    "rhythmic-speech",
     "backbeat"
   ],
   "spiritual_hip_hop": [
@@ -9919,10 +9373,6 @@
     "rhythmic-speech",
     "backbeat"
   ],
-  "trap_pesado": [
-    "rhythmic-speech",
-    "backbeat"
-  ],
   "trap_tuga": [
     "rhythmic-speech",
     "backbeat"
@@ -9976,11 +9426,6 @@
     "cyclic"
   ],
   "upstate_ny_rap": [
-    "rhythmic-speech",
-    "cyclic",
-    "close"
-  ],
-  "urdu_hip_hop": [
     "rhythmic-speech",
     "cyclic",
     "close"
@@ -10206,11 +9651,6 @@
     "distorted",
     "rhythmic"
   ],
-  "fantasy_metal": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "french_black_metal": [
     "electric",
     "distorted",
@@ -10258,26 +9698,6 @@
     "melodic",
     "driving"
   ],
-  "deep_folk_metal": [
-    "distorted",
-    "melodic",
-    "driving"
-  ],
-  "deep_melodic_death_metal": [
-    "distorted",
-    "low-register",
-    "driving"
-  ],
-  "deep_symphonic_black_metal": [
-    "tremolo",
-    "rasping",
-    "distorted"
-  ],
-  "depressive_black_metal": [
-    "tremolo",
-    "rasping",
-    "distorted"
-  ],
   "downtempo_deathcore": [
     "distorted",
     "melodic",
@@ -10308,11 +9728,6 @@
     "distorted",
     "rhythmic"
   ],
-  "forest_black_metal": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "german_grindcore": [
     "electric",
     "distorted",
@@ -10328,11 +9743,6 @@
     "rhythmic",
     "percussive-attack",
     "backbeat"
-  ],
-  "gothenburg_metal": [
-    "distorted",
-    "melodic",
-    "sustained"
   ],
   "gothic_black_metal": [
     "distorted",
@@ -10421,21 +9831,6 @@
     "distorted",
     "tremolo",
     "sustained"
-  ],
-  "instrumental_death_metal": [
-    "distorted",
-    "percussive-attack",
-    "rhythmic"
-  ],
-  "instrumental_djent": [
-    "percussive-attack",
-    "rhythmic",
-    "melodic"
-  ],
-  "instrumental_progressive_metal": [
-    "distorted",
-    "tight-rhythmic-articulation",
-    "driving"
   ],
   "iranian_metal": [
     "distorted",
@@ -10667,11 +10062,6 @@
     "distorted",
     "driving"
   ],
-  "metal_gotico": [
-    "dark",
-    "melodic",
-    "sustained"
-  ],
   "metal_guitar": [
     "tight-rhythmic-articulation",
     "melodic",
@@ -10708,16 +10098,6 @@
     "rhythmic"
   ],
   "melodic_metal": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
-  "melodic_power_metal": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
-  "melodic_progressive_metal": [
     "electric",
     "distorted",
     "rhythmic"
@@ -10772,16 +10152,6 @@
     "distorted",
     "rhythmic"
   ],
-  "melodic_groove_metal": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
-  "melodic_metalcore": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "metal_balear": [
     "electric",
     "distorted",
@@ -10827,11 +10197,6 @@
     "melodic",
     "driving"
   ],
-  "neo_trad_doom_metal": [
-    "distorted",
-    "sustained",
-    "melodic"
-  ],
   "neo_trad_metal": [
     "distorted",
     "melodic",
@@ -10842,17 +10207,7 @@
     "low-register",
     "driving"
   ],
-  "new_wave_of_glam_metal": [
-    "distorted",
-    "melodic",
-    "driving"
-  ],
   "new_wave_of_speed_metal": [
-    "distorted",
-    "melodic",
-    "driving"
-  ],
-  "new_wave_of_thrash_metal": [
     "distorted",
     "melodic",
     "driving"
@@ -10862,20 +10217,10 @@
     "low-register",
     "driving"
   ],
-  "nordic_folk_metal": [
-    "distorted",
-    "melodic",
-    "driving"
-  ],
   "north_carolina_metal": [
     "distorted",
     "melodic",
     "driving"
-  ],
-  "norwegian_black_metal": [
-    "tremolo",
-    "rasping",
-    "distorted"
   ],
   "norwegian_death_metal": [
     "distorted",
@@ -10911,11 +10256,6 @@
     "tremolo",
     "rasping",
     "distorted"
-  ],
-  "opera_metal": [
-    "distorted",
-    "choral",
-    "sustained"
   ],
   "oriental_metal": [
     "distorted",
@@ -11178,11 +10518,6 @@
     "distorted",
     "rhythmic"
   ],
-  "slavic_metal": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "slovak_metal": [
     "electric",
     "distorted",
@@ -11264,11 +10599,6 @@
     "rhythmic"
   ],
   "swedish_heavy_metal": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
-  "swedish_melodeath": [
     "electric",
     "distorted",
     "rhythmic"
@@ -11383,11 +10713,6 @@
     "distorted",
     "rhythmic"
   ],
-  "thrash_groove_metal": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "tolkien_metal": [
     "electric",
     "distorted",
@@ -11486,11 +10811,6 @@
   "5th_wave_emo": [
     "electric",
     "melodic",
-    "rhythmic"
-  ],
-  "acoustic_punk": [
-    "strummed",
-    "plucked",
     "rhythmic"
   ],
   "adelaide_punk": [
@@ -11723,16 +11043,6 @@
     "distorted",
     "rhythmic"
   ],
-  "diy_emo": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "diy_pop_punk": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "dutch_punk": [
     "electric",
     "distorted",
@@ -11786,11 +11096,6 @@
     "distorted",
     "rhythmic"
   ],
-  "dutch_punk_rock": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "fast_melodic_punk": [
     "electric",
     "distorted",
@@ -11831,20 +11136,10 @@
     "distorted",
     "rhythmic"
   ],
-  "early_us_punk": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "emo_mexicano": [
     "electric",
     "melodic",
     "sustained"
-  ],
-  "emo_punk": [
-    "electric",
-    "melodic",
-    "rhythmic"
   ],
   "finnish_post_punk": [
     "electric",
@@ -11864,26 +11159,6 @@
   "french_post_punk": [
     "electric",
     "clean",
-    "rhythmic"
-  ],
-  "deep_hardcore_punk": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
-  "deep_pop_emo": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "deep_power_pop_punk": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
-  "deep_punk_rock": [
-    "electric",
-    "distorted",
     "rhythmic"
   ],
   "freeform_hardcore": [
@@ -11911,11 +11186,6 @@
     "distorted",
     "rhythmic"
   ],
-  "german_punk_rock": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "german_street_punk": [
     "electric",
     "distorted",
@@ -11924,11 +11194,6 @@
   "glam_punk": [
     "electric",
     "distorted",
-    "rhythmic"
-  ],
-  "gothic_post_punk": [
-    "electric",
-    "sustained",
     "rhythmic"
   ],
   "greek_punk": [
@@ -12076,11 +11341,6 @@
     "distorted",
     "rhythmic"
   ],
-  "japanese_melodic_punk": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "japanese_pop_punk": [
     "electric",
     "distorted",
@@ -12094,11 +11354,6 @@
   "japanese_post_punk": [
     "electric",
     "melodic",
-    "rhythmic"
-  ],
-  "japanese_punk_rock": [
-    "electric",
-    "distorted",
     "rhythmic"
   ],
   "japanese_screamo": [
@@ -12241,11 +11496,6 @@
     "distorted",
     "rhythmic"
   ],
-  "norwegian_punk_rock": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "nz_hardcore": [
     "electric",
     "distorted",
@@ -12257,11 +11507,6 @@
     "rhythmic"
   ],
   "modern_ska_punk": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "neon_pop_punk": [
     "electric",
     "melodic",
     "rhythmic"
@@ -12299,11 +11544,6 @@
   "polish_punk": [
     "electric",
     "distorted",
-    "rhythmic"
-  ],
-  "pop_emo": [
-    "electric",
-    "melodic",
     "rhythmic"
   ],
   "portland_punk": [
@@ -12406,32 +11646,12 @@
     "distorted",
     "rhythmic"
   ],
-  "punk_rock_italiano": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
-  "punk_rock_mexicano": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
-  "punk_ska": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "punk_tico": [
     "electric",
     "distorted",
     "rhythmic"
   ],
   "punk_tuga": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
-  "punk_urbano": [
     "electric",
     "distorted",
     "rhythmic"
@@ -12472,11 +11692,6 @@
     "rhythmic"
   ],
   "russian_punk": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
-  "russian_punk_rock": [
     "electric",
     "distorted",
     "rhythmic"
@@ -12616,11 +11831,6 @@
     "melodic",
     "rhythmic"
   ],
-  "uk_post_punk": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "uk_post_punk_revival": [
     "electric",
     "rhythmic",
@@ -12671,11 +11881,6 @@
     "distorted",
     "layered"
   ],
-  "atmospheric_post_rock": [
-    "electric",
-    "layered",
-    "ambient"
-  ],
   "austin_rock": [
     "electric",
     "distorted",
@@ -12706,17 +11911,7 @@
     "melodic",
     "rhythmic"
   ],
-  "classic_psychedelic_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "cosmic_post_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "classic_j_rock": [
     "electric",
     "melodic",
     "rhythmic"
@@ -12727,11 +11922,6 @@
     "rhythmic"
   ],
   "deep_active_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "deep_christian_rock": [
     "electric",
     "melodic",
     "rhythmic"
@@ -12836,42 +12026,12 @@
     "melodic",
     "rhythmic"
   ],
-  "classic_greek_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "classic_hungarian_rock": [
     "electric",
     "melodic",
     "rhythmic"
   ],
-  "classic_indonesian_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "classic_russian_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "croatian_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "deep_indie_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "deep_melodic_hard_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "deep_space_rock": [
     "electric",
     "melodic",
     "rhythmic"
@@ -12882,11 +12042,6 @@
     "rhythmic"
   ],
   "ecuadorian_alternative_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "english_indie_rock": [
     "electric",
     "melodic",
     "rhythmic"
@@ -12971,11 +12126,6 @@
     "melodic",
     "rhythmic"
   ],
-  "hard_stoner_rock": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "heavy_gothic_rock": [
     "electric",
     "distorted",
@@ -13021,11 +12171,6 @@
     "distorted",
     "rhythmic"
   ],
-  "indie_rock_colombiano": [
-    "electric",
-    "distorted",
-    "rhythmic"
-  ],
   "indie_rock_italiano": [
     "electric",
     "distorted",
@@ -13040,11 +12185,6 @@
     "electric",
     "rhythmic",
     "melodic"
-  ],
-  "indie_shoegaze": [
-    "electric",
-    "distorted",
-    "rhythmic"
   ],
   "indonesian_alternative_rock": [
     "electric",
@@ -13071,16 +12211,6 @@
     "distorted",
     "rhythmic"
   ],
-  "instrumental_math_rock": [
-    "electric",
-    "rhythmic",
-    "melodic"
-  ],
-  "instrumental_post_rock": [
-    "electric",
-    "rhythmic",
-    "melodic"
-  ],
   "instrumental_stoner_rock": [
     "electric",
     "distorted",
@@ -13102,11 +12232,6 @@
     "rhythmic"
   ],
   "italian_rockabilly": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "japanese_indie_rock": [
     "electric",
     "melodic",
     "rhythmic"
@@ -13177,11 +12302,6 @@
     "rhythmic"
   ],
   "modern_blues_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "modern_j_rock": [
     "electric",
     "melodic",
     "rhythmic"
@@ -13257,11 +12377,6 @@
     "rhythmic"
   ],
   "italian_stoner_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "jangle_rock": [
     "electric",
     "melodic",
     "rhythmic"
@@ -13452,11 +12567,6 @@
     "rhythmic"
   ],
   "psychedelic_folk_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "psychedelic_space_rock": [
     "electric",
     "melodic",
     "rhythmic"
@@ -13821,11 +12931,6 @@
     "melodic",
     "rhythmic"
   ],
-  "swedish_hard_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "swedish_indie_rock": [
     "electric",
     "melodic",
@@ -13906,11 +13011,6 @@
     "melodic",
     "rhythmic"
   ],
-  "traditional_rockabilly": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "trash_rock": [
     "electric",
     "melodic",
@@ -13956,22 +13056,12 @@
     "melodic",
     "rhythmic"
   ],
-  "underground_grunge": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "varmland_rock": [
     "electric",
     "melodic",
     "rhythmic"
   ],
   "venezuelan_rock": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "vintage_rockabilly": [
     "electric",
     "melodic",
     "rhythmic"
@@ -13997,11 +13087,6 @@
     "rhythmic"
   ],
   "alternative_pop": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "amharic_pop": [
     "electric",
     "melodic",
     "rhythmic"
@@ -14111,11 +13196,6 @@
     "melodic",
     "rhythmic"
   ],
-  "chill_dream_pop": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "chill_pop": [
     "electric",
     "melodic",
@@ -14131,22 +13211,12 @@
     "melodic",
     "rhythmic"
   ],
-  "christian_pop": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "classic_assamese_pop": [
     "electric",
     "melodic",
     "rhythmic"
   ],
   "classic_azeri_pop": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "classic_city_pop": [
     "electric",
     "melodic",
     "rhythmic"
@@ -14169,11 +13239,6 @@
     "melodic",
     "rhythmic"
   ],
-  "classic_indo_pop": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "classic_italian_folk_pop": [
     "electric",
     "melodic",
@@ -14184,11 +13249,6 @@
     "rhythmic"
   ],
   "classic_korean_pop": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "classic_malaysian_pop": [
     "electric",
     "melodic",
     "rhythmic"
@@ -14241,21 +13301,12 @@
     "melodic",
     "rhythmic"
   ],
-  "classic_punjabi_pop": [
-    "melodic",
-    "rhythmic"
-  ],
   "classic_romanian_pop": [
     "electric",
     "melodic",
     "rhythmic"
   ],
   "classic_russian_pop": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "classic_sinhala_pop": [
     "electric",
     "melodic",
     "rhythmic"
@@ -14286,11 +13337,6 @@
     "melodic",
     "plucked"
   ],
-  "deep_acoustic_pop": [
-    "ringing",
-    "melodic",
-    "plucked"
-  ],
   "deep_brazilian_pop": [
     "electric",
     "melodic",
@@ -14310,11 +13356,6 @@
     "ringing",
     "melodic",
     "plucked"
-  ],
-  "ethiopian_pop": [
-    "electric",
-    "melodic",
-    "rhythmic"
   ],
   "experimental_pop": [
     "electric",
@@ -14386,17 +13427,7 @@
     "melodic",
     "rhythmic"
   ],
-  "idol_kayo": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "igbo_pop": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "indie_dream_pop": [
     "electric",
     "melodic",
     "rhythmic"
@@ -14453,11 +13484,6 @@
   ],
   "italian_pop": [
     "sample-foundational",
-    "melodic",
-    "rhythmic"
-  ],
-  "j_idol": [
-    "electric",
     "melodic",
     "rhythmic"
   ],
@@ -14541,11 +13567,6 @@
     "melodic",
     "rhythmic"
   ],
-  "dark_synthpop": [
-    "electric",
-    "dark",
-    "melodic"
-  ],
   "japanese_viral_pop": [
     "electric",
     "melodic",
@@ -14571,15 +13592,7 @@
     "melodic",
     "rhythmic"
   ],
-  "deep_idm": [
-    "synthesized",
-    "rhythmic"
-  ],
   "french_synthpop": [
-    "synthesized",
-    "rhythmic"
-  ],
-  "early_synthpop": [
     "synthesized",
     "rhythmic"
   ],
@@ -14688,15 +13701,7 @@
     "sample-foundational",
     "rhythmic"
   ],
-  "deep_neo_synthpop": [
-    "synthesized",
-    "rhythmic"
-  ],
   "german_dance": [
-    "melodic",
-    "rhythmic"
-  ],
-  "irish_dance": [
     "melodic",
     "rhythmic"
   ],
@@ -14738,11 +13743,6 @@
     "melodic",
     "rhythmic"
   ],
-  "classic_disco_polo": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
   "electro_trash": [
     "synthesized",
     "rhythmic"
@@ -14754,10 +13754,6 @@
   "frankfurt_electronic": [
     "synthesized",
     "sustained"
-  ],
-  "deep_italo_disco": [
-    "synthesized",
-    "rhythmic"
   ],
   "estonian_electronic": [
     "synthesized",
@@ -14798,10 +13794,6 @@
   "edm": [
     "synthesized",
     "rhythmic"
-  ],
-  "deep_disco": [
-    "rhythmic",
-    "sustained"
   ],
   "german_electronica": [
     "sustained"
@@ -14851,10 +13843,6 @@
     "rhythmic"
   ],
   "hamburg_electronic": [
-    "sample-foundational",
-    "rhythmic"
-  ],
-  "kawaii_edm": [
     "sample-foundational",
     "rhythmic"
   ],
@@ -14954,10 +13942,6 @@
     "rhythmic",
     "driving"
   ],
-  "post_disco_soul": [
-    "synthesized",
-    "melodic"
-  ],
   "serbian_electronic": [
     "synthesized",
     "rhythmic"
@@ -14987,10 +13971,6 @@
     "rhythmic"
   ],
   "swedish_electronic": [
-    "synthesized",
-    "rhythmic"
-  ],
-  "swedish_synth": [
     "synthesized",
     "rhythmic"
   ],
@@ -15043,48 +14023,13 @@
     "melodic",
     "rhythmic"
   ],
-  "belgian_modern_jazz": [
-    "acoustic-only",
-    "melodic",
-    "rhythmic"
-  ],
   "chinese_jazz": [
     "electric",
     "melodic",
     "rhythmic"
   ],
-  "classical_jazz_fusion": [
-    "acoustic-only",
-    "melodic",
-    "rhythmic"
-  ],
-  "contemporary_jazz": [
-    "acoustic-only",
-    "melodic",
-    "rhythmic"
-  ],
-  "deep_free_jazz": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "deep_jazz_fusion": [
-    "electric",
-    "melodic",
-    "rhythmic"
-  ],
-  "deep_latin_jazz": [
-    "acoustic-only",
-    "melodic",
-    "rhythmic"
-  ],
   "czech_swing": [
     "acoustic-only",
-    "melodic",
-    "rhythmic"
-  ],
-  "bossa_nova_jazz": [
-    "electric",
     "melodic",
     "rhythmic"
   ],
@@ -15113,10 +14058,6 @@
   "indonesian_jazz": [
     "melodic",
     "rhythmic"
-  ],
-  "jazz_boom_bap": [
-    "rhythmic",
-    "melodic"
   ],
   "jazz_caraibes": [
     "jazz-trained",
@@ -15169,10 +14110,6 @@
   "jazz_tico": [
     "jazz-trained",
     "rhythmic"
-  ],
-  "south_african_modern_jazz": [
-    "rhythmic",
-    "sustained"
   ],
   "jazz_worship": [
     "rhythmic",
@@ -15247,10 +14184,6 @@
     "rhythmic"
   ],
   "swiss_jazz": [
-    "melodic",
-    "rhythmic"
-  ],
-  "uk_contemporary_jazz": [
     "melodic",
     "rhythmic"
   ],
@@ -15527,10 +14460,6 @@
     "acoustic-only",
     "melodic"
   ],
-  "cambridge_choir": [
-    "classical-trained",
-    "melodic"
-  ],
   "canadian_choir": [
     "classical-trained",
     "melodic"
@@ -15545,10 +14474,6 @@
   ],
   "children_s_choir": [
     "classical-trained",
-    "melodic"
-  ],
-  "classical_mandolin": [
-    "acoustic-only",
     "melodic"
   ],
   "classical_mezzo_soprano": [
@@ -15697,10 +14622,6 @@
     "acoustic-only",
     "melodic"
   ],
-  "indian_classical": [
-    "acoustic-only",
-    "melodic"
-  ],
   "irish_classical": [
     "acoustic-only",
     "melodic"
@@ -15763,10 +14684,6 @@
     "melodic"
   ],
   "korean_classical_piano": [
-    "acoustic-only",
-    "melodic"
-  ],
-  "latin_american_classical_piano": [
     "acoustic-only",
     "melodic"
   ],
@@ -16059,12 +14976,6 @@
     "acoustic-only",
     "melodic"
   ],
-  "alternative_country": [
-    "melodic"
-  ],
-  "alternative_americana": [
-    "melodic"
-  ],
   "appenzeller_folk": [
     "acoustic-only",
     "melodic"
@@ -16140,14 +15051,6 @@
     "electric",
     "melodic"
   ],
-  "grim_death_metal": [
-    "distorted",
-    "electric"
-  ],
-  "dub_reggae": [
-    "electric",
-    "melodic"
-  ],
   "east_coast_reggae": [
     "electric",
     "melodic"
@@ -16208,10 +15111,6 @@
     "electric",
     "melodic"
   ],
-  "dub_product": [
-    "electric",
-    "melodic"
-  ],
   "dancehall_mauricien": [
     "electric",
     "melodic"
@@ -16223,10 +15122,6 @@
   "japanese_dub": [
     "rhythmic",
     "tonal-groove"
-  ],
-  "grisly_death_metal": [
-    "distorted",
-    "electric"
   ],
   "nz_reggae": [
     "rhythmic",
@@ -16280,10 +15175,6 @@
     "electric",
     "melodic"
   ],
-  "minimal_dub": [
-    "rhythmic",
-    "sparse"
-  ],
   "pinoy_reggae": [
     "rhythmic",
     "tonal-groove"
@@ -16317,10 +15208,6 @@
     "melodic"
   ],
   "romanian_folk": [
-    "acoustic-only",
-    "melodic"
-  ],
-  "puerto_rican_folk": [
     "acoustic-only",
     "melodic"
   ],
@@ -16372,10 +15259,6 @@
   "viking_folk": [
     "melodic"
   ],
-  "reggaeton_flow": [
-    "rhythmic",
-    "tonal-groove"
-  ],
   "russian_ska": [
     "electric",
     "melodic"
@@ -16420,14 +15303,6 @@
     "electric",
     "melodic"
   ],
-  "west_coast_reggae": [
-    "electric",
-    "melodic"
-  ],
-  "vintage_reggae": [
-    "electric",
-    "melodic"
-  ],
   "aarhus_indie": [
     "electric",
     "melodic"
@@ -16452,10 +15327,6 @@
     "electric",
     "melodic"
   ],
-  "traditional_reggae": [
-    "electric",
-    "melodic"
-  ],
   "abstract": [
     "electric",
     "melodic"
@@ -16463,10 +15334,6 @@
   "swedish_dancehall": [
     "electric",
     "melodic"
-  ],
-  "japanese_ska": [
-    "rhythmic",
-    "tonal-groove"
   ],
   "dub_brasileiro": [
     "electric",
@@ -16504,30 +15371,6 @@
     "electric",
     "melodic"
   ],
-  "dark_r_and_b": [
-    "electric",
-    "melodic"
-  ],
-  "deep_delta_blues": [
-    "acoustic-only",
-    "melodic"
-  ],
-  "deep_funk_ostentacao": [
-    "electric",
-    "rhythmic"
-  ],
-  "deep_g_funk": [
-    "electric",
-    "rhythmic"
-  ],
-  "deep_northern_soul": [
-    "melodic",
-    "rhythmic"
-  ],
-  "deep_r_and_b": [
-    "electric",
-    "melodic"
-  ],
   "deep_smooth_r_and_b": [
     "electric",
     "melodic"
@@ -16537,10 +15380,6 @@
     "rhythmic"
   ],
   "dutch_blues": [
-    "melodic",
-    "rhythmic"
-  ],
-  "experimental_r_and_b": [
     "melodic",
     "rhythmic"
   ],
@@ -16557,10 +15396,6 @@
     "rhythmic"
   ],
   "gospel_italiano": [
-    "melodic",
-    "rhythmic"
-  ],
-  "indie_r_and_b": [
     "melodic",
     "rhythmic"
   ],
@@ -16740,10 +15575,6 @@
     "hand-percussion",
     "paired-drums"
   ],
-  "afro_cuban_traditional": [
-    "devotional",
-    "drum-pulse"
-  ],
   "afrobeat_brasileiro": [
     "dance",
     "group-vocals"
@@ -16816,10 +15647,6 @@
     "melodic",
     "soft"
   ],
-  "anglican_liturgy": [
-    "melodic",
-    "soft"
-  ],
   "animal_singing": [
     "melodic",
     "soft"
@@ -16837,10 +15664,6 @@
     "soft"
   ],
   "anime_piano": [
-    "melodic",
-    "soft"
-  ],
-  "anime_score": [
     "melodic",
     "soft"
   ],
@@ -16884,10 +15707,6 @@
   "arab_groove": [
     "melodic"
   ],
-  "arabic_instrumental": [
-    "acoustic-only",
-    "melodic"
-  ],
   "argentine_indie": [
     "acoustic-only",
     "melodic"
@@ -16919,10 +15738,6 @@
     "melodic"
   ],
   "atmospheric_doom": [
-    "distorted",
-    "melodic"
-  ],
-  "atmospheric_sludge": [
     "distorted",
     "melodic"
   ],
@@ -16982,10 +15797,6 @@
     "melodic",
     "soft"
   ],
-  "auteur_compositeur_interprete_quebecois": [
-    "melodic",
-    "soft"
-  ],
   "autoharp": [
     "melodic",
     "soft"
@@ -16997,10 +15808,6 @@
   "azeri_alternative": [
     "melodic",
     "synthesized"
-  ],
-  "bachchon_ke_geet": [
-    "melodic",
-    "soft"
   ],
   "background_music": [
     "melodic",
@@ -17094,9 +15901,6 @@
     "plucked",
     "melodic"
   ],
-  "bard": [
-    "melodic"
-  ],
   "bardcore": [
     "melodic"
   ],
@@ -17111,10 +15915,6 @@
   ],
   "barnsagor": [
     "sparse"
-  ],
-  "barockinterpreten": [
-    "melodic",
-    "acoustic-only"
   ],
   "basel_indie": [
     "melodic",
@@ -17153,10 +15953,6 @@
     "melodic"
   ],
   "beatdown": [
-    "electric",
-    "melodic"
-  ],
-  "beatlesque": [
     "electric",
     "melodic"
   ],
@@ -17243,9 +16039,6 @@
   "blackened_crust": [
     "melodic"
   ],
-  "blasmusik": [
-    "melodic"
-  ],
   "boeremusiek": [
     "melodic"
   ],
@@ -17277,10 +16070,6 @@
   "boy_soprano": [
     "acoustic-only",
     "melodic"
-  ],
-  "braindance": [
-    "synthesized",
-    "dance-pulse"
   ],
   "brasilia_indie": [
     "melodic",
@@ -17331,9 +16120,6 @@
     "melodic"
   ],
   "british_soundtrack": [
-    "melodic"
-  ],
-  "britpop_revival": [
     "melodic"
   ],
   "brno_indie": [
@@ -17392,9 +16178,6 @@
     "melodic"
   ],
   "canberra_indie": [
-    "melodic"
-  ],
-  "cancion_infantil_latinoamericana": [
     "melodic"
   ],
   "cancion_infantil_mexicana": [
@@ -17518,9 +16301,6 @@
   "charlottesville_indie": [
     "melodic"
   ],
-  "charred_death": [
-    "melodic"
-  ],
   "chattanooga_indie": [
     "distorted",
     "sustained"
@@ -17584,9 +16364,6 @@
   "chip_hop": [
     "melodic"
   ],
-  "choro_contemporaneo": [
-    "melodic"
-  ],
   "christchurch_indie": [
     "melodic"
   ],
@@ -17621,9 +16398,6 @@
     "melodic"
   ],
   "clarinet_ensemble": [
-    "melodic"
-  ],
-  "classic_praise": [
     "melodic"
   ],
   "classic_schlager": [
@@ -17750,16 +16524,7 @@
   "pop_quebecois": [
     "melodic"
   ],
-  "classic_mandopop": [
-    "melodic"
-  ],
-  "classic_opm": [
-    "melodic"
-  ],
   "classic_soundtrack": [
-    "melodic"
-  ],
-  "college_marching_band": [
     "melodic"
   ],
   "combos_nacionales": [
@@ -17795,13 +16560,7 @@
     "speech-derived",
     "sustained"
   ],
-  "deep_filthstep": [
-    "melodic"
-  ],
   "deep_flow": [
-    "melodic"
-  ],
-  "deep_freestyle": [
     "melodic"
   ],
   "deep_german_indie": [
@@ -17810,25 +16569,7 @@
   "deep_latin_alternative": [
     "melodic"
   ],
-  "deep_latin_christian": [
-    "melodic"
-  ],
-  "deep_liquid": [
-    "melodic"
-  ],
-  "deep_neofolk": [
-    "melodic"
-  ],
-  "deep_new_wave": [
-    "melodic"
-  ],
-  "deep_orgcore": [
-    "melodic"
-  ],
   "deep_soundtrack": [
-    "melodic"
-  ],
-  "deep_surf_music": [
     "melodic"
   ],
   "delaware_indie": [
@@ -17865,9 +16606,6 @@
   "dortmund_indie": [
     "melodic"
   ],
-  "dreamgaze": [
-    "melodic"
-  ],
   "dreamo": [
     "melodic"
   ],
@@ -17899,9 +16637,6 @@
   ],
   "erotik": [],
   "esperanto": [
-    "melodic"
-  ],
-  "ethereal_gothic": [
     "melodic"
   ],
   "euphonium": [
@@ -17937,9 +16672,6 @@
   ],
   "fluxwork": [],
   "folclore_castilla_y_leon": [
-    "melodic"
-  ],
-  "football": [
     "melodic"
   ],
   "fort_wayne_indie": [
@@ -18116,9 +16848,6 @@
   "hard_chime": [
     "melodic"
   ],
-  "hard_glam": [
-    "melodic"
-  ],
   "hard_motivation": [
     "speech-derived"
   ],
@@ -18258,16 +16987,10 @@
   "iowa_indie": [
     "melodic"
   ],
-  "irish_accordion": [
-    "melodic"
-  ],
   "irish_experimental": [
     "melodic"
   ],
   "irish_fiddle": [
-    "melodic"
-  ],
-  "irish_flute": [
     "melodic"
   ],
   "irish_indie": [
@@ -18351,9 +17074,6 @@
   "israeli_indie": [
     "melodic"
   ],
-  "israeli_mediterranean": [
-    "melodic"
-  ],
   "israeli_traditional": [
     "melodic"
   ],
@@ -18394,7 +17114,6 @@
     "melodic"
   ],
   "italogaze": [],
-  "jamtronica": [],
   "jugendchor": [
     "melodic"
   ],
@@ -18422,9 +17141,6 @@
     "ensemble"
   ],
   "kerkkoor": [
-    "melodic"
-  ],
-  "khmer": [
     "melodic"
   ],
   "kinderchor": [
@@ -18463,12 +17179,6 @@
     "sustained"
   ],
   "kosovan_indie": [
-    "melodic"
-  ],
-  "kritika": [
-    "bowed",
-    "plucked",
-    "sustained",
     "melodic"
   ],
   "kundalini": [
@@ -18512,9 +17222,6 @@
     "speech-derived",
     "breathing"
   ],
-  "lata": [
-    "melodic"
-  ],
   "latin_afrobeat": [
     "melodic"
   ],
@@ -18540,12 +17247,6 @@
   "lds": [
     "melodic"
   ],
-  "lds_instrumental": [
-    "melodic"
-  ],
-  "lds_youth": [
-    "melodic"
-  ],
   "lebanese_indie": [
     "melodic"
   ],
@@ -18562,9 +17263,6 @@
     "melodic"
   ],
   "lesotho_traditional": [
-    "melodic"
-  ],
-  "lexington_ky_indie": [
     "melodic"
   ],
   "light_music": [
@@ -18751,9 +17449,6 @@
   "medieval": [
     "melodic"
   ],
-  "medieval_ensemble": [
-    "melodic"
-  ],
   "medway_sound": [
     "melodic"
   ],
@@ -18778,9 +17473,6 @@
   "mexican_experimental": [
     "melodic"
   ],
-  "mexican_indie": [
-    "melodic"
-  ],
   "miami_indie": [
     "melodic"
   ],
@@ -18791,9 +17483,6 @@
     "melodic"
   ],
   "milwaukee_indie": [
-    "melodic"
-  ],
-  "minneapolis_indie": [
     "melodic"
   ],
   "mississippi_indie": [
@@ -18812,9 +17501,6 @@
     "melodic"
   ],
   "modern_mod": [
-    "melodic"
-  ],
-  "modern_old_time": [
     "melodic"
   ],
   "modern_performance": [
@@ -19160,9 +17846,6 @@
   "nwocr": [
     "melodic"
   ],
-  "nwothm": [
-    "melodic"
-  ],
   "nz_children_s_music": [
     "melodic"
   ],
@@ -19257,9 +17940,6 @@
   "noel_quebecois": [
     "melodic"
   ],
-  "noise": [
-    "melodic"
-  ],
   "nordic_soundtrack": [
     "melodic"
   ],
@@ -19288,12 +17968,6 @@
   "ok_indie": [
     "melodic"
   ],
-  "old_school_ebm": [
-    "melodic"
-  ],
-  "old_school_thrash": [
-    "melodic"
-  ],
   "olympia_wa_indie": [
     "melodic"
   ],
@@ -19309,16 +17983,10 @@
   "oratory": [
     "melodic"
   ],
-  "orebro_indie": [
-    "melodic"
-  ],
   "orgcore": [
     "melodic"
   ],
   "orlando_indie": [
-    "melodic"
-  ],
-  "orquesta_tipica": [
     "melodic"
   ],
   "oslo_indie": [
@@ -19355,9 +18023,6 @@
     "melodic"
   ],
   "papuan_traditional": [
-    "melodic"
-  ],
-  "papuri": [
     "melodic"
   ],
   "parody": [
@@ -19500,9 +18165,6 @@
   "orquesta_cubana": [
     "melodic"
   ],
-  "orquesta_tropical": [
-    "melodic"
-  ],
   "orquestas_de_galicia": [
     "melodic"
   ],
@@ -19618,9 +18280,6 @@
   "sardinia_indie": [
     "melodic"
   ],
-  "sarod": [
-    "melodic"
-  ],
   "saskatchewan_indie": [
     "melodic"
   ],
@@ -19636,13 +18295,7 @@
   "schrammelmusik": [
     "melodic"
   ],
-  "scottish_indie": [
-    "melodic"
-  ],
   "scottish_new_wave": [
-    "melodic"
-  ],
-  "screamocore": [
     "melodic"
   ],
   "sda_a_cappella": [
@@ -19664,9 +18317,6 @@
     "melodic"
   ],
   "serbian_indie": [
-    "melodic"
-  ],
-  "sertanejo_tradicional": [
     "melodic"
   ],
   "shanghai_indie": [
@@ -19805,7 +18455,6 @@
     "melodic"
   ],
   "spacesynth": [],
-  "spanish_prog": [],
   "spectra": [],
   "st_petersburg_fl_indie": [
     "melodic"
@@ -19828,13 +18477,7 @@
   "substep": [
     "melodic"
   ],
-  "sufi": [
-    "melodic"
-  ],
   "sunnlensk_tonlist": [
-    "melodic"
-  ],
-  "suomirap": [
     "melodic"
   ],
   "surabaya_indie": [
@@ -19875,9 +18518,6 @@
     "melodic"
   ],
   "tabla": [],
-  "tagalog_worship": [
-    "melodic"
-  ],
   "taiwan_experimental": [],
   "taiwan_indie": [
     "melodic"
@@ -20047,9 +18687,6 @@
     "melodic"
   ],
   "thai_worship": [
-    "melodic"
-  ],
-  "tibetan_mantra": [
     "melodic"
   ],
   "tone": [
@@ -20235,7 +18872,6 @@
   "swedish_house": [],
   "vapor_house": [],
   "australian_techno": [],
-  "hard_industrial_techno": [],
   "israeli_techno": [],
   "mexican_techno": [],
   "portuguese_techno": [],
@@ -20247,7 +18883,6 @@
   "trance_mexicano": [],
   "french_dnb": [],
   "german_dnb": [],
-  "modern_jungle": [],
   "russian_dnb": [],
   "south_african_dnb": [],
   "bass_trip": [],
@@ -20269,7 +18904,6 @@
   "drill_beats": [],
   "drill_tuga": [],
   "egyptian_hip_hop": [],
-  "electronic_trap": [],
   "gambian_hip_hop": [],
   "gothenburg_hip_hop": [],
   "greek_underground_rap": [],
@@ -20289,12 +18923,9 @@
   "nottingham_hip_hop": [],
   "nz_hip_hop": [],
   "old_school_uk_hip_hop": [],
-  "perth_hip_hop": [],
   "peruvian_hip_hop": [],
-  "pinoy_hip_hop": [],
   "polish_hip_hop": [],
   "rap_alagoano": [],
-  "rap_francais": [],
   "swedish_underground_rap": [],
   "trap_kreyol": [],
   "vocaloid_metal": [],
@@ -20309,9 +18940,6 @@
   "ilocano_pop": [],
   "indonesian_idol_pop": [],
   "kikuyu_pop": [],
-  "latin_arena_pop": [
-    "melodic"
-  ],
   "moldovan_pop": [
     "melodic"
   ],
@@ -20353,7 +18981,6 @@
   "rock_nacional_feminino": [],
   "eritrean_pop": [],
   "garhwali_pop": [],
-  "himachali_pop": [],
   "j_pop_girl_group": [],
   "k_pop_reality_show": [],
   "malagasy_pop": [
@@ -20404,8 +19031,6 @@
   "christian_afrobeat": [],
   "circuit": [],
   "classic_afrobeat": [],
-  "classic_anime": [],
-  "classic_hardstyle": [],
   "cornetas_y_tambores": [],
   "coverchill": [],
   "crank_wave": [],
@@ -20447,7 +19072,6 @@
   "essex_indie": [],
   "estonian_indie": [],
   "eugene_indie": [],
-  "fado_instrumental": [],
   "finlandssvenska_musik": [],
   "finnish_indie": [],
   "finnish_new_wave": [],
@@ -20493,7 +19117,6 @@
   "euphoric_hardstyle": [],
   "eventyr": [],
   "experimental_club": [],
-  "experimental_indie": [],
   "experimental_psych": [],
   "fantasy": [],
   "fo_jing": [],
@@ -20517,7 +19140,6 @@
   "histoire_pour_enfants": [],
   "hoerspiel": [],
   "hokkaido_indie": [],
-  "hong_kong_tv_drama": [],
   "honky_tonk_piano": [],
   "houston_indie": [],
   "huzunlu_sarkilar": [],
@@ -20596,7 +19218,6 @@
   "musica_chiapaneca": [],
   "musica_colombiana_instrumental": [],
   "musica_mocambicana": [],
-  "musica_para_criancas": [],
   "musica_paranaense": [],
   "musica_per_bambini": [],
   "musica_piauiense": [],
@@ -20653,7 +19274,6 @@
   "rozpravky": [],
   "sad_sierreno": [],
   "smooth_saxophone": [],
-  "sound_team": [],
   "springfield_mo_indie": [],
   "talentkonkurranse": [],
   "tamaulipas_indie": [],
@@ -20709,7 +19329,6 @@
   "south_african_pop_dance": [],
   "sudanese_pop": [],
   "surinamese_pop": [],
-  "t_pop_girl_group": [],
   "tongan_pop": [],
   "vietnamese_idol_pop": [],
   "west_bengali_pop": [],
@@ -20723,11 +19342,9 @@
   "chinese_soundtrack": [],
   "cuban_alternative": [],
   "cumbia_sonorense": [],
-  "dansei_seiyu": [],
   "dansk_lovsang": [],
   "dansktop": [],
   "danspunk": [],
-  "deep_full_on": [],
   "draga": [],
   "drama": [],
   "euroska": [],
@@ -20735,7 +19352,6 @@
   "folclore_extremeno": [],
   "french_indietronica": [],
   "french_worship": [],
-  "full_on_groove": [],
   "ghanaian_traditional": [],
   "glass": [],
   "granada_indie": [],
@@ -20745,7 +19361,6 @@
   "gyerekdalok": [],
   "hipco": [],
   "humour_francais": [],
-  "indian_violin": [],
   "indie_sudcaliforniano": [],
   "indonesian_worship": [],
   "japanese_boom_bap": [],
@@ -20766,7 +19381,6 @@
   "turkce_remix": [],
   "ugandan_traditional": [],
   "ulkucu_sarkilar": [],
-  "underground_boom_bap": [],
   "dark_progressive_house": [],
   "anime_rap": [],
   "armenian_hip_hop": [],
@@ -20791,7 +19405,6 @@
   "mongolian_hip_hop": [],
   "northeast_indian_hip_hop": [],
   "norwegian_trap": [],
-  "persian_underground_hip_hop": [],
   "pinoy_alternative_rap": [],
   "polish_drill": [],
   "polish_old_school_hip_hop": [],
@@ -20840,7 +19453,6 @@
   "folklore_peruano": [],
   "frafra": [],
   "french_movie_tunes": [],
-  "grupero_romantico": [],
   "gumbe": [],
   "hyperpop_brasileiro": [],
   "ilahiler": [],
@@ -20850,7 +19462,6 @@
   "indie_liguria": [],
   "indie_nica": [],
   "japanese_psychedelic": [],
-  "japanese_vgm": [],
   "kabyle_moderne": [],
   "korean_soundtrack": [],
   "korean_talent_show": [],
@@ -20877,12 +19488,10 @@
   "musica_triste_brasileira": [],
   "musica_urbana_oaxaquena": [],
   "musique_traditionnelle_congolaise": [],
-  "nasheed": [],
   "new_hampshire_indie": [],
   "norrbotten_indie": [],
   "ny_roots": [],
   "old_school_nederhop": [],
-  "oldschool_deutschrap": [],
   "otacore": [],
   "pinoy_praise": [],
   "polish_alternative": [],
@@ -20909,7 +19518,6 @@
   "talentos_brasileiros": [],
   "telugu_indie": [],
   "telugu_remix": [],
-  "vintage_hollywood": [],
   "violao_classico": [],
   "volkstumliche_musik": [],
   "german_dark_minimal_techno": [],
@@ -20978,14 +19586,12 @@
   "minimal_melodic_techno": [],
   "drill_dominicano": [],
   "lithuanian_trap": [],
-  "middle_east_hip_hop": [],
   "nz_gangsta_rap": [],
   "rap_criolo": [],
   "turkce_trap_metal": [],
   "classic_bulgarian_pop": [],
   "vintage_swedish_pop": [],
   "fotbollslatar": [],
-  "gaita": [],
   "grave_wave": [],
   "ho_munda": [],
   "jain_bhajan": [],
@@ -20994,41 +19600,29 @@
   "muzica_maramureseana": [],
   "necrotrap": [],
   "rave": [],
-  "south_african_soulful_deep_house": [],
   "deep_dubstep": [],
   "malayalam_hip_hop": [],
   "chhattisgarhi_pop": [],
   "dakke_dak": [],
   "healing_hz": [],
   "hopebeat": [],
-  "louvor": [],
   "modern_downshift": [],
   "movie_tunes": [],
-  "new_jack_smooth": [],
   "nova_musica_amazonense": [],
   "oeteldonk": [],
-  "sunset_lounge": [],
   "swazi_traditional": [],
-  "underground_amapiano": [],
-  "deep_tech_house": [],
   "deep_psytrance": [],
   "chill_breakcore": [],
   "detroit_trap_en_espanol": [],
-  "modern_jangle_pop": [],
   "pop_reggaeton": [],
   "calming_instrumental": [],
   "carnaval_limburg": [],
   "chill_lounge": [],
-  "deep_darkpsy": [],
   "ghanaian_alternative": [],
   "ghoststep": [],
-  "grimewave": [],
-  "gruperas_inmortales": [],
   "j_division": [],
   "japanese_new_wave": [],
-  "kizomba_antigas": [],
   "mezmur": [],
-  "modern_enka": [],
   "pygmy_music": [],
   "rominimal": [],
   "russian_hyperpop": [],
@@ -21037,48 +19631,33 @@
   "voetbal": [],
   "chill_phonk": [],
   "deep_progressive_rock": [],
-  "classic_k_pop": [],
   "classic_turkish_pop": [],
   "vintage_spanish_pop": [],
-  "electro_bailando": [],
-  "british_industrial": [],
   "christmas_product": [],
   "electrofox": [],
   "indie_triste": [],
-  "kuduro_antigo": [],
   "lo_fi_chill": [],
   "lo_fi_product": [],
   "lo_fi_sleep": [],
-  "melbourne_bounce_international": [],
   "modern_bhajan": [],
   "modern_darkwave": [],
   "modern_goth": [],
   "nova_musica_maranhense": [],
-  "old_school_bassline": [],
   "pixel": [],
   "previa": [],
   "psychokore": [],
   "relaxative": [],
   "romantico": [],
-  "skinhead_oi": [],
   "viet_remix": [],
-  "vintage_chanson": [],
-  "deep_deep_house": [],
-  "deep_deep_tech_house": [],
   "hard_minimal_techno": [],
-  "cosmic_uplifting_trance": [],
   "focus_trance": [],
   "glitter_trance": [],
-  "classic_pakistani_pop": [],
   "pop_cristiano": [],
   "pop_edm": [],
   "thai_folk_pop": [],
   "vintage_cantonese_pop": [],
   "vintage_italian_pop": [],
-  "vintage_norwegian_pop": [],
   "abstract_idm": [],
-  "canadian_psychedelic": [],
-  "charva": [],
   "deep_chill_out": [],
   "game_mood": [],
   "musica_prehispanica": [],
@@ -21087,33 +19666,21 @@
   "scottish_hush": [],
   "slaskie_piosenki": [],
   "tallava": [],
-  "vintage_old_time": [],
   "vintage_radio_show": [],
-  "wind_symphony": [],
   "deep_soul_house": [],
   "deep_tropical_house": [],
-  "soulful_house": [],
   "deep_german_hip_hop": [],
   "drill_brasileiro": [],
-  "emo_trap_italiana": [],
-  "new_school_turkce_rap": [],
   "norwegian_pop_rap": [],
   "outer_hip_hop": [],
-  "deep_melodic_metalcore": [],
-  "deep_metalcore": [],
   "deep_happy_hardcore": [],
   "deep_hardcore": [],
-  "deep_psychobilly": [],
-  "deep_soft_rock": [],
   "rebel_blues": [],
   "boom_bap_espanol": [],
-  "classic_bollywood": [],
-  "classic_cantopop": [],
   "covertrance": [],
   "covertronica": [],
   "deep_chill": [],
   "deep_comedy": [],
-  "deep_rai": [],
   "deep_talent_show": [],
   "downtempo_fusion": [],
   "electropowerpop": [],
@@ -21122,27 +19689,21 @@
   "groove_room": [],
   "muzica_copii": [],
   "novos_talentos_brasileiros": [],
-  "nubian_traditional": [],
   "polka_nortena": [],
   "proto_hyperpop": [],
   "punjabi_lo_fi": [],
   "remix_product": [],
-  "sky_room": [],
   "slow_game": [],
   "speed_up_brasileiro": [],
   "twin_cities_indie": [],
   "voidgrind": [],
   "westcoast_flow": [],
-  "deep_turkish_pop": [],
   "carnaval_cadiz": [],
   "pop_electronico": [],
   "dark_minimal_techno": [],
   "dutch_drill": [],
   "polish_trap": [],
-  "soda_pop": [],
   "deep_pop_edm": [],
-  "twee_indie_pop": [],
-  "deep_big_room": [],
   "czsk_electropop": [],
   "melanesian_pop": [],
   "marathi_hip_hop": [],
@@ -21158,13 +19719,10 @@
   "libyan_hip_hop": [],
   "russian_trap_metal": [],
   "glitch_beats": [],
-  "taiwanese_indie": [],
   "flamenco_fusion": [],
-  "redneck": [],
   "antilliaanse_rap": [],
   "thai_teen_pop": [],
   "regional_mexicano_femenil": [],
-  "classic_progressive_house": [],
   "deep_euro_house": [],
   "musica_tropical_guatemalteca": [],
   "indonesian_viral_pop": [],
@@ -21184,7 +19742,6 @@
   "viral_afropop": [],
   "gong": [],
   "zxc": [],
-  "nerdcore_brasileiro": [],
   "lounge_house": [],
   "chakma_pop": [],
   "hyperpop_italiano": [],
@@ -21198,33 +19755,24 @@
   "indie_surf": [],
   "musica_catarinense": [],
   "deep_minimal_techno": [],
-  "classic_luk_thung": [],
   "stomp_pop": [],
   "nuevo_tango": [],
-  "old_school_hard_trance": [],
   "speed_plug_brasileiro": [],
   "plena_uruguaya": [],
   "breaks": [],
   "deep_ccm": [],
   "techno_rave": [],
   "deep_progressive_trance": [],
-  "deep_classic_garage_rock": [],
-  "deep_liquid_bass": [],
   "gaming_dubstep": [],
-  "deep_eurodance": [],
   "men_chika": [],
   "zen": [],
-  "deep_breakcore": [],
   "anime_drill": [],
-  "deep_sunset_lounge": [],
   "koligeet": [],
   "soul_flow": [],
-  "deep_adult_standards": [],
   "russian_drain": [],
   "japanese_concert_band": [],
   "finnish_drill": [],
   "rap_anime": [],
-  "deep_motown": [],
   "persian_melodic_rap": [],
   "latin_viral_rap": [],
   "sludgecore": [],
@@ -21235,39 +19783,30 @@
   "rasiya": [],
   "glitchbreak": [],
   "experimental_big_band": [],
-  "funk_das_antigas": [],
   "plug_brasileiro": [],
-  "deep_uplifting_trance": [],
-  "goa_psytrance": [],
   "dubstep_product": [],
   "filthstep": [],
   "desi_emo_rap": [],
   "vintage_schlager": [],
   "tape_club": [],
-  "vintage_tollywood": [],
   "swedish_trap_pop": [],
   "persian_trap": [],
   "futuristic_swag": [],
   "gbvfi": [],
   "corrosion": [],
   "indie_rockism": [],
-  "deep_smooth_jazz": [],
   "gymcore": [],
-  "vintage_chinese_pop": [],
   "modern_dream_pop": [],
   "pop_r_and_b": [],
   "flamenco_urbano": [],
   "dubsteppe": [],
-  "deep_ragga": [],
   "corridos_adictivos": [],
   "classic_bangla_pop": [],
   "classic_thai_pop": [],
-  "deep_dance_pop": [],
   "kinnauri_pop": [],
   "speed_up_turkce": [],
   "zambian_pop": [],
   "classic_kollywood": [],
-  "classic_tollywood": [],
   "musica_sinaloense": [],
   "nova_musica_paulista": [],
   "modern_alternative_pop": [],
@@ -21276,10 +19815,7 @@
   "khandeshi_pop": [],
   "spanish_invasion": [],
   "dangdut_remix": [],
-  "neo_r_and_b": [],
   "indonesian_hyperpop": [],
-  "marwadi_pop": [],
-  "japanese_chillhop": [],
   "indie_fuzzpop": [],
   "japanese_hyperpop": [],
   "kavkaz": [],
@@ -21293,7 +19829,6 @@
   "modern_power_pop": [],
   "pop_nacional_antigas": [],
   "radio_symphony": [],
-  "violao": [],
   "meenawati": [],
   "nu_age": [],
   "musica_colimense": [],
@@ -21303,10 +19838,8 @@
   "plugg_francais": [],
   "sirmauri_pop": [],
   "gospel_antigas": [],
-  "son_cubano_clasico": [],
   "philly_drill": [],
   "cumbia": [],
-  "italo_beats": [],
   "nanyin": [
     "ornamental-melismatic",
     "sparse",

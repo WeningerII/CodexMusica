@@ -5,7 +5,7 @@
   "lineage": "Israeli late-1990s Goa-trance variant (from nitzachon, 'victory'), built on the Phonokol and Krembo Records compilation series and the post-army Sinai and Negev party circuit — 145-155 BPM with a hard four-on-floor kick and continuous 16th-note offbeat bass, extended uplifting lead melodies in harmonic minor and Hijaz with Middle Eastern ornament and rapid trills, stacked supersaw and PPG-style digital lead layers, and long two-to-four-minute breakdowns that strip to pad and melody before an anthemic full return.",
   "recipe": "classic 1997-1999 nitzhonot, electronic Dance, trance branch, eurodance electronic dance, mid east n African pop functional song, hardstyle electronic dance rabiz arab pop. singing lead analog mono singing lead analog poly synth, singing lead digital subtractive, roland tr 8s modern aira digital recreation TR-909, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 528,
-  "score": 114.52,
+  "score": 115.165,
   "config": {
     "traditions": [
       "nitzhonot",
@@ -23,10 +23,10 @@
           "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 13.134999999999998,
+          "electronic_technique": 13.284999999999998,
           "mono_oscillator": 0.045,
-          "mono_filter": 3.075,
-          "mono_archetypes": 6.545,
+          "mono_filter": 3.12,
+          "mono_archetypes": 6.695,
           "mono_maker_lineage": -1.7199999999999998
         }
       },
@@ -39,7 +39,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 13.134999999999998,
+          "electronic_technique": 13.284999999999998,
           "poly_archetypes": 1.495,
           "poly_voices": 1.045,
           "poly_maker_lineage": -1.7199999999999998
@@ -53,7 +53,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 13.134999999999998,
+          "electronic_technique": 13.284999999999998,
           "va_archetypes": 5.539999999999999,
           "digital_subtractive_context": 26.975000000000005
         }

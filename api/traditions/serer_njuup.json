@@ -3,9 +3,9 @@
   "name": "Njuup (Serer song, Sine-Saloum)",
   "family": "global",
   "lineage": "Song tradition of the Serer of the Sine and Saloum regions of west-central Senegal, often led by women singers with a responding chorus, drumming and hand claps at wrestling matches, ceremonies and community gatherings; Senegalese musicians cite its rhythms as a source of mbalax. A generic drum card stands in for the Serer drums.",
-  "recipe": "classic modern njuup, praise Song, sub saharan African branch. single leader group response. membrane drum pulse resonant acoustic membrane drum, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 236,
-  "score": 5.97,
+  "recipe": "classic modern njuup, praise Song, sub saharan African branch. single leader group response, live take. membrane drum pulse resonant acoustic membrane drum, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 247,
+  "score": 6.232,
   "config": {
     "traditions": [
       "serer_njuup"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.7675,
+          "voice_ensemble_config": 1.8199999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.4724999999999999,
+          "voice_multitrack_stack": 0.5774999999999999,
           "voice_tessitura": 0
         }
       },
@@ -71,7 +71,7 @@
         },
         "scores": {
           "clap_technique": 0,
-          "clap_capture": 0
+          "clap_capture": 0.105
         }
       }
     ],

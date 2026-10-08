@@ -5,7 +5,7 @@
   "lineage": "Popular song of interwar Warsaw, written for revue cabarets such as Qui Pro Quo and for gramophone and film, in which the Argentine-derived tango and the slow foxtrot became the main vehicles for Polish-language sentimental song. Composers such as Jerzy Petersburski and Henryk Wars wrote for salon dance orchestras of violins, saxophones, piano, bass and drums that accompanied crooning singers and cabaret stars, recorded on 78s by Syrena Rekord and other labels.",
   "recipe": "classic mid-1930s tango polskie, functional Song, europop branch. melodic bowed song accompaniment violin orchestral, saxophone, grand piano, kolstein bass specific bowed song accompaniment double bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 430,
-  "score": 12.335,
+  "score": 12.395,
   "config": {
     "traditions": [
       "polish_interwar_tango"
@@ -175,7 +175,7 @@
           "shell_thickness": 0,
           "bearing_edges": -1.2585,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": 2.6730000000000005,
           "cymbal_lathing": 2.4352500000000004,
           "cymbal_finish": 0.0315

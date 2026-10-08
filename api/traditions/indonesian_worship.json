@@ -5,7 +5,7 @@
   "lineage": "Indonesian worship connects Christian devotional songs and musical communities in Indonesia. Choirs, soloists and groups circulate repertoire through churches, performances and recordings.",
   "recipe": "classic indonesian worship, ritual Devotional, christian gospel branch. small note groups per syllable neumatic singing small groups per syllable human voice ensemble unspecified, dreadnought acoustic guitar. live tracking.",
   "recipe_chars": 223,
-  "score": 2.613,
+  "score": 2.55,
   "config": {
     "traditions": [
       "indonesian_worship"
@@ -66,7 +66,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0,
-          "string_acoustic": 0.8400000000000001
+          "string_acoustic": 0.777
         }
       }
     ],

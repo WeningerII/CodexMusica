@@ -5,7 +5,7 @@
   "lineage": "Sinhala sung verse in which a singer improvises or recites four-line stanzas on topical, moral or humorous subjects to the hand-held rabana frame drum, sometimes as a contest between singers; it became a recognised broadcast genre on Sri Lankan radio. The frame-drum card stands in for the rabana.",
   "recipe": "classic modern virindu, ballad Poetry, indian bard branch. solo with instrumental accompaniment, single lead single track no stacking. credited frame drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 236,
-  "score": 1.641,
+  "score": 1.925,
   "config": {
     "traditions": [
       "virindu_sinhala"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.568,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.778,
           "voice_tessitura": 0
         }
       },
@@ -58,7 +58,7 @@
           "credited_frame_drums_identity": "credited_frame_drums_source_unspecified"
         },
         "scores": {
-          "credited_frame_drums_identity": 0.063
+          "credited_frame_drums_identity": 0
         }
       }
     ],

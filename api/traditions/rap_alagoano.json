@@ -5,7 +5,7 @@
   "lineage": "Rap alagoano develops through Alagoas’s MC and performance communities, including Maceió. Arielly Oliveira exemplifies a strand that connects local rap identity with sung material and live-band influences.",
   "recipe": "classic rap alagoano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. clean strummed single coil electric dreadnought acoustic guitar, electric bass, drum kit. live tracking.",
   "recipe_chars": 232,
-  "score": 38.614,
+  "score": 39.66,
   "config": {
     "traditions": [
       "rap_alagoano"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 14.53,
+          "voice_speech_song": 14.782,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -73,12 +73,12 @@
           "electric_technique": 4.45,
           "amp_make": 0,
           "body_wood": 0,
-          "neck_wood": 0.1365,
+          "neck_wood": 0.2415,
           "fretboard": -0.05,
           "pickup_magnet": 0,
-          "string_material": 0,
+          "string_material": 0.105,
           "string_gauge": 0.9099999999999999,
-          "bridge": 0.105,
+          "bridge": 0.1785,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,
@@ -100,7 +100,7 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0,
-          "pickup_config": 0.105,
+          "pickup_config": 0.4515,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -129,9 +129,9 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.2415,
+          "bearing_edges": 0.315,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.15000000000000002,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
@@ -147,7 +147,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0,

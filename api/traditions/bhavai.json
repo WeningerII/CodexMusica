@@ -5,7 +5,7 @@
   "lineage": "Bhavai is the folk theatre of northern Gujarat, performed by hereditary troupes of the Targala (Nayak) community, who trace it to the fourteenth-century Asait Thakar. A troupe plays a sequence of short plays (vesh) in the village square through the night, mixing song, dance and comic dialogue. Its signature sound is the bhungal, a long copper trumpet, heard with pakhawaj, tabla and manjira cymbals; the karna card stands in for the bhungal.",
   "recipe": "classic modern bhavai, ballad Poetry, indian bard branch. solo with instrumental accompaniment, single lead single track no stacking. karna trumpet, pakhawaj, pitched indian rosewood rosewood tabla, manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 287,
-  "score": 7.05,
+  "score": 7.392,
   "config": {
     "traditions": [
       "bhavai"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.39,
+          "voice_effort": 0.37424999999999997,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.672,
+          "voice_multitrack_stack": 0.6719999999999999,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "karna_form": 0,
-          "karna_use": 1.5415
+          "karna_use": 1.69
         }
       },
       {
@@ -73,7 +73,7 @@
         },
         "scores": {
           "pakhawaj_context": 0.3045,
-          "pakhawaj_construction": 0,
+          "pakhawaj_construction": 0.105,
           "pakhawaj_head": 0.588,
           "pakhawaj_lineage": 0
         }
@@ -87,7 +87,7 @@
         },
         "scores": {
           "tabla_dayan": 1.885,
-          "tabla_bayan": 0.4095,
+          "tabla_bayan": 0.5145,
           "tabla_syahi": 0.14775
         }
       },

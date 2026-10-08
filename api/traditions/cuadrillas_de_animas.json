@@ -5,7 +5,7 @@
   "lineage": "Cuadrillas de ánimas are village string bands of the Murcia region and the adjoining north-east of Almería, tied to brotherhoods of the souls in purgatory, which in the Christmas season go from house to house singing aguilandos and collecting alms for masses for the dead, then play for dancing. A cuadrilla combines violins, guitars, laúdes and bandurrias with small cymbals, castanets and tambourines, and its repertoire mixes aguilandos and pascuas with malagueñas, jotas and parrandas; the Fiesta de las Cuadrillas of Barranda, near Caravaca, gathers them each year. The bandurria card stands for the laúdes and bandurrias.",
   "recipe": "classic modern cuadrillas de ánimas, functional Song, iberian branch. fiddle, classical nylon-string guitar, bandurria, credited cymbals, castanets, tambourine orch. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 245,
-  "score": 5.874,
+  "score": 5.737,
   "config": {
     "traditions": [
       "cuadrillas_de_animas"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1575,
-          "voice_multitrack_stack": 0.1365,
+          "voice_multitrack_stack": 0.2415,
           "voice_tessitura": 0
         }
       },
@@ -66,8 +66,8 @@
           "bowed_technique": 1.95,
           "fiddle_strings": 0,
           "fiddle_bow": 0.063,
-          "fiddle_mute": 0.21000000000000002,
-          "fiddle_articulation": 0.441,
+          "fiddle_mute": 0.0735,
+          "fiddle_articulation": 0.3045,
           "fiddle_string_configuration": 0
         }
       },
@@ -84,9 +84,9 @@
         "scores": {
           "acoustic_technique": 0.2,
           "string_tuning": 0,
-          "top_wood_classical": 0.16799999999999998,
+          "top_wood_classical": 0.0945,
           "bracing_classical": 1.3,
-          "string_classical": 0.16799999999999998,
+          "string_classical": 0.063,
           "attack_technique_cl": -0.035
         }
       },
@@ -99,7 +99,7 @@
         },
         "scores": {
           "bandurria_form": -0.15000000000000002,
-          "bandurria_playing": 0.7,
+          "bandurria_playing": 0.9099999999999999,
           "bandurria_stringing": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Italian power metal is known for melodic, dramatic approaches, including Rhapsody of Fire’s symphonic fantasy narratives.",
   "recipe": "classic modern italian power metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 548,
-  "score": 35.608,
+  "score": 35.609,
   "config": {
     "traditions": [
       "italian_power_metal"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.7244999999999999,
-          "voice_ensemble_config": 0.8099999999999998,
+          "voice_speech_song": 0.5145,
+          "voice_ensemble_config": 0.8834999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.50475,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.53625,
           "voice_tessitura": 0
         }
       },
@@ -73,16 +73,16 @@
           "electric_technique": -0.07,
           "amp_make": 4.355,
           "body_wood": 4.55,
-          "neck_wood": 0.08549999999999999,
+          "neck_wood": 0.1905,
           "fretboard": 0.39,
           "pickup_magnet": 0.39,
           "pickup_winding": 0.0735,
-          "string_material": 0.08549999999999999,
+          "string_material": 0.1905,
           "bridge": 0.39,
           "scale_length": 4.55,
-          "string_gauge": 0.49349999999999994,
+          "string_gauge": 0.46199999999999997,
           "finish": 0.042749999999999996,
-          "string_tuning": 0.23174999999999998
+          "string_tuning": 0.20024999999999998
         }
       },
       {
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.20024999999999998,
+          "drumhead": 0.1905,
           "drum_kit_kick_pedal": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Orthodox Jewish popular idiom created in late-1960s New York by Shlomo Carlebach and the Rabbis' Sons and industrialized from the 1980s through Mordechai Ben David, Avraham Fried and the arranger Yisroel Lamm — Hebrew liturgical and biblical verse texts set to major-key or Ahava Raba pop melodies at moderate 4/4, with synth-and-brass big-band arrangements, boys'-choir doubling of the hook, and a fast 'freilach' double-time section built for wedding dancing.",
   "recipe": "classic North American 1967-1969 chasidic pop, functional Song, europop branch, Jewish ritual devotional, klezmer improv improv on frame abayudaya music matrouz and piyyut. extended whistle, breath veiled tone, fast rate, interlocked note trading. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, singing lead analog poly synth, fast-attack-transient alder electric bass, pre muffled edge muffled brushes-and-sticks drum kit, yellow brass canonical 70 30 bach stradivarius heavy one piece matched to monette horn ensemble trumpet, yellow brass modern standard saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ebonite hard rubber klezmer tradition clarinet. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ.",
   "recipe_chars": 987,
-  "score": 275.1,
+  "score": 274.44,
   "config": {
     "traditions": [
       "chasidic_pop",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 9.535,
+          "voice_register": 9.235,
           "voice_quality": 14.559999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 6.700000000000001,
           "voice_pitch_organization": 2.405,
           "voice_processing_chain": 4.390000000000001,
-          "voice_multitrack_stack": 6.875000000000001
+          "voice_multitrack_stack": 6.830000000000001
         }
       },
       {
@@ -62,7 +62,7 @@
         },
         "scores": {
           "choir_size": 6.695,
-          "choir_polyphonic_configuration": 2.4499999999999997,
+          "choir_polyphonic_configuration": 2.3,
           "choir_regional_canonical_configuration": 2.99,
           "choir_ensemble_repertoire": 3.25
         }
@@ -71,14 +71,14 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "jupiter_8",
-          "poly_voices": "poly_8_voice",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
           "electronic_technique": 9.295,
-          "poly_archetypes": 0.15,
-          "poly_voices": 0.15,
+          "poly_archetypes": 0.09,
+          "poly_voices": 0.045,
           "poly_maker_lineage": -0.05
         }
       },
@@ -188,7 +188,7 @@
       {
         "id": "clarinet",
         "slots": {
-          "wind_articulation": "wind_split_tone_overblown",
+          "wind_articulation": "wind_classical_legato",
           "clarinet_body": "ebonite_clarinet",
           "clarinet_size": "a_clarinet",
           "clarinet_reed": "medium_clarinet_reed",

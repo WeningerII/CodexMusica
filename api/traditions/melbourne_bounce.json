@@ -3,20 +3,20 @@
   "name": "Melbourne Bounce",
   "family": "electronic",
   "lineage": "Melbourne bounce emerged in Melbourne's inner-north club and Melbourne-shuffle scene around 2012–2014 out of Dutch house and Melbourne's earlier 'Melbourne shuffle' hard-dance culture, codified by Joel Fletcher, Will Sparks, Timmy Trumpet and the Orkestrated crew — 128–132 BPM four-on-the-floor with a heavily sidechained detuned offbeat saw bass on the upbeat eighths, aggressive open-hat rides, long white-noise risers into silent-drop breakdowns, and chopped pitched-up vocal or trumpet hooks in place of sung toplines.",
-  "recipe": "classic 2012-2014 melbourne bounce, electronic Dance, house branch, tech house house, hardstyle electronic dance, continental electronic dance gym phonk drift phonk. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. TR-909, monosynth acid bass, analog poly synth, snappy to palm hand clap, sampler drum machine. bedroom. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 477,
-  "score": 169.767,
+  "recipe": "classic 2012-2014 melbourne bounce, electronic Dance, house branch, tech house house, hardstyle electronic dance, continental electronic dance gym phonk electroclash. thick, breath veiled tone, breath pulsed, interlocked note trading. TR-909, monosynth acid bass, plucked short envelope analog poly synth, snappy to palm hand clap, sampler drum machine. bedroom. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 497,
+  "score": 178.528,
   "config": {
     "traditions": [
       "melbourne_bounce",
       "gym_phonk",
-      "drift_phonk"
+      "electroclash"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.905,
-          "voice_quality": 9.620000000000001,
+          "voice_register": 2.707500000000001,
+          "voice_quality": 9.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.04,
-          "voice_articulation": 13.064999999999996,
-          "voice_microtone": 13.519999999999992,
-          "voice_tradition": 6.862714285714286,
-          "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 5.07,
-          "voice_speech_song": 13.064999999999996,
-          "voice_ensemble_config": 15.339999999999996,
-          "voice_ornament_system": 1.4132142857142858,
-          "voice_pitch_organization": 1.7249999999999999,
-          "voice_processing_chain": 20.660714285714285,
-          "voice_multitrack_stack": 5.3950000000000005
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 14.559999999999995,
+          "voice_microtone": 15.209999999999992,
+          "voice_tradition": 4.773214285714286,
+          "voice_mechanism_compound": 4.42,
+          "voice_estill_quality": 5.915000000000001,
+          "voice_speech_song": 15.014999999999993,
+          "voice_ensemble_config": 17.224999999999994,
+          "voice_ornament_system": 1.5632142857142857,
+          "voice_pitch_organization": 1.815,
+          "voice_processing_chain": 21.160714285714285,
+          "voice_multitrack_stack": 6.402500000000001
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 11.25,
-          "drum_machine_909_context": 1.69,
+          "tr909_voice": 11.625,
+          "drum_machine_909_context": 2.08,
           "tr909_production_origin": 0.45499999999999996
         }
       },
@@ -71,27 +71,27 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "no_accent_acid"
+          "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 2.925,
+          "electronic_technique": 2.2424999999999997,
           "wave_acid": 0.18,
-          "filter_acid": 0.195,
-          "accent_acid": 0.65
+          "filter_acid": 0.24,
+          "accent_acid": 0.5850000000000001
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_pluck_short",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 2.925,
-          "poly_archetypes": 0.65,
-          "poly_voices": 0.325,
+          "electronic_technique": 3.26,
+          "poly_archetypes": 1.56,
+          "poly_voices": 0.39000000000000007,
           "poly_maker_lineage": -1.9
         }
       },
@@ -102,8 +102,8 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 2.275,
-          "clap_capture": 0.3
+          "clap_technique": 1.8199999999999998,
+          "clap_capture": 0.345
         }
       },
       {
@@ -115,10 +115,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 2.045,
+          "electronic_technique": 1.565,
           "sample_bitdepth": 0.45499999999999996,
-          "sample_swing": 19.548214285714284,
-          "sample_processing": 1.2349999999999999
+          "sample_swing": 19.698214285714286,
+          "sample_processing": 1.04
         }
       }
     ],

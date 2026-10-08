@@ -1,76 +1,77 @@
 {
-  "id": "forro_tradicional",
-  "name": "Forró Tradicional (trio nordestino forró)",
-  "family": "vernacular",
-  "lineage": "Northeastern Brazilian dance music codified nationally by Luiz Gonzaga and Humberto Teixeira from 1946 onward around the baião, xote and xaxado, played by the classic trio of eight-bass sanfona, zabumba struck with mallet and bacalhau, and steel triângulo at 100-140 BPM, with declamatory sertanejo vocal delivery over harmonically plain, mixolydian-inflected melodies.",
-  "recipe": "classic South American mid-1940s forró tradicional, functional Song, Brazilian song branch, Brazilian carnival processional, tropical song functional song música costeña marchinha. vocal fry, breath veiled tone, slow rate, interlocked note trading. castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, triangulo forro, steel Brazilian rosewood pre 1992 choro choro tradition violao 7 cordas, sustaining steel upright bass. recife brazilian northeast forro house. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 617,
-  "score": 142.307,
+  "id": "forro_pe_de_serra",
+  "merged_from": "forro_tradicional",
+  "name": "Forró pé-de-serra (traditional forró)",
+  "family": "global",
+  "lineage": "Traditional Brazilian forró sub-form preserving the canonical Luiz Gonzaga-era 1940s-1960s northeastern Brazilian dance-music form. Trio configuration: sanfona button-accordion lead, zabumba double-headed bass-drum, triangle, plus voice. Distinguished from later forró eletrônico and forró universitário by pé-de-serra's acoustic-trio (vs full-band-electronic) instrumental signature. Repertoire centers on Luiz Gonzaga's canonical compositional corpus and parallel northeastern forró composers.",
+  "recipe": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion pagode bumba-meu-boi do maranhão. thick, breath veiled tone, pure, interlocked note trading. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 443,
+  "score": 137.447,
   "config": {
     "traditions": [
-      "forro_tradicional",
-      "musica_costena",
-      "marchinha_carnaval"
+      "forro_pe_de_serra",
+      "pagode",
+      "bumba_meu_boi_maranhao"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.6300000000000001,
-          "voice_quality": 13.064999999999994,
+          "voice_register": 1.0999999999999996,
+          "voice_quality": 20.799999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.56,
-          "voice_articulation": 18.134999999999994,
-          "voice_microtone": 17.354999999999993,
-          "voice_tradition": 5.3950000000000005,
-          "voice_mechanism_compound": 4.9399999999999995,
-          "voice_estill_quality": 4.550000000000001,
-          "voice_speech_song": 26.84499999999999,
-          "voice_ensemble_config": 17.029999999999994,
-          "voice_ornament_system": 1.1549999999999998,
-          "voice_pitch_organization": 0.39499999999999996,
-          "voice_processing_chain": 3.9050000000000002,
-          "voice_multitrack_stack": 1.9174999999999998
+          "voice_vibrato": 1.69,
+          "voice_articulation": 14.039999999999996,
+          "voice_microtone": 13.454999999999993,
+          "voice_tradition": 4.225,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 18.459999999999994,
+          "voice_ensemble_config": 18.849999999999994,
+          "voice_ornament_system": 1.6349999999999998,
+          "voice_pitch_organization": 3.185,
+          "voice_processing_chain": 6.8950000000000005,
+          "voice_multitrack_stack": 7.0200000000000005
         }
       },
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_overblow_modern",
+          "free_reed_technique": "free_reed_chromatic_jazz",
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "german_tuning",
-          "reed_config": "lmm",
+          "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 0,
-          "accordion_reed_material": 1.0999999999999999,
-          "musette_offset": 0.585,
-          "reed_config": 1,
-          "bellows": 0.585,
-          "voicing_chamber": 0.255,
-          "accordion_maker_school": 1.69
+          "free_reed_technique": 1.9600000000000002,
+          "accordion_reed_material": 0.195,
+          "musette_offset": 2.5399999999999996,
+          "reed_config": 1.3,
+          "bellows": 2.5399999999999996,
+          "voicing_chamber": 0.45499999999999996,
+          "accordion_maker_school": 4.965
         }
       },
       {
@@ -80,60 +81,32 @@
           "zabumba_technique": "zabumba_baiao_pattern"
         },
         "scores": {
-          "zabumba_shell": 1.04,
-          "zabumba_technique": 7.215
+          "zabumba_shell": 3.0349999999999997,
+          "zabumba_technique": 2.8599999999999994
         }
       },
       {
-        "id": "triangulo_forro",
+        "id": "guiro",
         "slots": {
-          "triangulo_size": "triangulo_large_forro",
-          "triangulo_pattern": "triangulo_forro_pattern"
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "triangulo_size": 0.9450000000000001,
-          "triangulo_pattern": 0.795
-        }
-      },
-      {
-        "id": "violao_7_cordas",
-        "slots": {
-          "violao_7_string7": "violao_7_low_C",
-          "violao_7_strings": "violao_7_steel",
-          "violao_7_body_wood": "violao_7_brazilian_rosewood",
-          "violao_7_top_wood": "violao_7_cedar_top",
-          "violao_7_role": "violao_7_bordao_counter"
-        },
-        "scores": {
-          "violao_7_string7": 2.73,
-          "violao_7_strings": 1.3,
-          "violao_7_body_wood": 2.4050000000000002,
-          "violao_7_top_wood": 0.9749999999999999,
-          "violao_7_role": 2.73
-        }
-      },
-      {
-        "id": "upright_bass",
-        "slots": {
-          "upright_strings": "steel_upright",
-          "upright_play": "slap_upright"
-        },
-        "scores": {
-          "upright_strings": 1.045,
-          "upright_play": 0.43499999999999994
+          "guiro_origin": 2.5399999999999996,
+          "guiro_striker": 2.5399999999999996
         }
       }
     ],
-    "room": "recife_brazilian_northeast_forro_house",
-    "archetype": "arch_early_tape_us_commercial",
+    "room": "estudio_rozenblit_recife",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
-      "mic": "mic_rca_44bx_ribbon",
-      "pre": "pre_tube_german_v72",
-      "console": "console_german_tube_50s",
-      "comp": "comp_vari_mu",
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "tape_15ips"
+      "medium": "digital_high"
     },
     "tuning": "baiao_2_4_beat_one_bass",
     "aesthetic": null,
@@ -142,11 +115,32 @@
   },
   "source": {
     "tuning": "baiao_2_4_beat_one_bass",
-    "room": "recife_brazilian_northeast_forro_house",
-    "chain_mic": "mic_rca_44bx_ribbon",
-    "chain_pre": "pre_tube_german_v72",
-    "chain_comp": "comp_vari_mu",
-    "chain_medium": "tape_15ips",
-    "chain_console": "console_german_tube_50s"
+    "room": "estudio_rozenblit_recife",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "reed_config": "lmm",
+      "musette_offset": "dry_tuning",
+      "guiro_origin": "guiro_cuban",
+      "guiro_striker": "guiro_wood",
+      "zabumba_shell": "zabumba_wood_shallow",
+      "zabumba_technique": "zabumba_baiao_pattern"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

@@ -404,6 +404,21 @@ function compactImageManifest() {
     instruments: Object.fromEntries(ids.map((id) => [id, out[id]])),
   };
 }
+// Retired tradition ids (references/_tradition_aliases.json). The embedded page
+// carries the tradition tables, so it carries their aliases beside them; the lazy
+// shell reads the same map from api/browse.json (Catalog.bootFromIndex).
+if (!LAZY) {
+  const reg = JSON.parse(
+    fs.readFileSync(path.join(REFS, '_tradition_aliases.json'), 'utf8')
+  ).aliases;
+  const compact = Object.fromEntries(
+    Object.keys(reg)
+      .sort()
+      .map((id) => [id, { of: reg[id].of, name: reg[id].name }])
+  );
+  openScript('tradition aliases (references/_tradition_aliases.json)');
+  dataParts.push(`const TRADITION_ALIASES = ${JSON.stringify(compact).replace(/</g, '\\u003c')};`);
+}
 const imageManifest = compactImageManifest();
 openScript('instrument images (references/_image_manifest.json)');
 dataParts.push(

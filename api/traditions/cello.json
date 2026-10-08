@@ -5,7 +5,7 @@
   "lineage": "Cello-centered music reaches across composed repertoire, chamber performance and contemporary improvisation. Musicians such as Oliver Barrett explore the instrument as a complete solo sound world as well as a familiar ensemble voice.",
   "recipe": "classic cello, improv On Frame, jam free branch. pirastro cellisto cello specific cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 187,
-  "score": 1.499,
+  "score": 1.624,
   "config": {
     "traditions": [
       "cello"
@@ -26,13 +26,13 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "cello_strings": 0.0315,
+          "cello_strings": 0.0945,
           "cello_top_wood": -0.07,
           "cello_back_wood": -0.07,
-          "cello_varnish": -0.1,
+          "cello_varnish": -0.07,
           "cello_setup_period": -0.07,
           "cello_bow_grip": 0.0315,
-          "cello_rosin": 1.9315,
+          "cello_rosin": 1.9629999999999999,
           "cello_bow_stick": -0.15000000000000002
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Out Island dance music of the Bahamas, strongest on Cat Island and Long Island, played on a carpenter's handsaw bent and scraped with a screwdriver or knife, a goatskin goombay drum and a button accordion, sometimes with guitar. It accompanied quadrilles and other social dances and is celebrated at an annual festival on Cat Island; the scraper card stands in for the saw and the hand-drum card for the goatskin drum.",
   "recipe": "classic modern rake-and-scrape, groove Percussion, Caribbean branch. solo with instrumental accompaniment, single lead single track no stacking. accordion, guayo source hand drum source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 278,
-  "score": 4.469,
+  "score": 4.784,
   "config": {
     "traditions": [
       "rake_and_scrape"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.6509999999999999,
+          "voice_multitrack_stack": 0.8609999999999999,
           "voice_tessitura": 0
         }
       },
@@ -94,7 +94,7 @@
         "scores": {
           "hand_drum_structure_neutral": 0,
           "hand_drum_material_neutral": 0,
-          "hand_drum_excitation_neutral": 0,
+          "hand_drum_excitation_neutral": 0.105,
           "hand_drum_damping_neutral": 0,
           "hand_drum_tension_neutral": 0
         }

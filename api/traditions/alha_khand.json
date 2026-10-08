@@ -5,7 +5,7 @@
   "lineage": "Alha singers of Bundelkhand and the wider Hindi-speaking region sing the Alha-Khand, the epic of the twelfth-century warrior brothers Alha and Udal of Mahoba and their battles in the service of the Chandela king Parmal, traditionally in the rainy season. The singer delivers the verses at full voice over the dholak, often with harmonium and cymbals added. Lallu Bajpai is among its best-known recorded singers.",
   "recipe": "classic modern alha, ballad Poetry, indian bard branch. solo with instrumental accompaniment, single lead single track no stacking. song accompaniment harmonium indian, dholak, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 274,
-  "score": 7.98,
+  "score": 7.78,
   "config": {
     "traditions": [
       "alha_khand"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.105,
+          "voice_effort": 0.0315,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.85725,
+          "voice_multitrack_stack": 0.8572500000000001,
           "voice_tessitura": 0
         }
       },
@@ -64,7 +64,7 @@
           "free_reed_technique": -0.10500000000000001,
           "harmonium_action": 0.756,
           "harmonium_voicing": 0.39,
-          "harmonium_use": 1.4805000000000001
+          "harmonium_use": 1.4174999999999998
         }
       },
       {
@@ -88,7 +88,7 @@
           "credited_cymbals_identity": "credited_cymbals_source_unspecified"
         },
         "scores": {
-          "credited_cymbals_identity": 0.063
+          "credited_cymbals_identity": 0
         }
       }
     ],

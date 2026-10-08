@@ -3,9 +3,9 @@
   "name": "Bashkir kurai and uzun-kyuy (Bashkir long song)",
   "family": "global",
   "lineage": "The kurai, an end-blown flute traditionally cut from the stem of an umbellifer plant, is the national instrument of the Bashkirs of the southern Urals and is played with a drone hummed in the throat beneath the melody. Its core repertoire is the uzun-kyuy, slow, free-rhythm and heavily ornamented long songs on historical and lyrical subjects, alongside quicker dance tunes, and its 20th-century masters included Ishmulla Dilmukhametov and Gata Suleymanov. The sybyzgy card stands in for the kurai.",
-  "recipe": "classic Eastern European early-1940s bashkir kurai and uzun-kyuy, drone Modal, wind pipe branch. many notes per syllable, solo unaccompanied, single lead single track no stacking. sybyzgy. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 393,
-  "score": 2.885,
+  "recipe": "classic Eastern European early-1940s bashkir kurai and uzun-kyuy, drone Modal, wind pipe branch. many notes per syllable. sybyzgy. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 335,
+  "score": 2.01,
   "config": {
     "traditions": [
       "bashkir_kurai_uzun_kyuy"
@@ -18,8 +18,8 @@
           "sybyzgy_technique": "sybyzgy_throat_drone"
         },
         "scores": {
-          "sybyzgy_material": 0.3315,
-          "sybyzgy_technique": 0.6719999999999999
+          "sybyzgy_material": 0.39,
+          "sybyzgy_technique": 0.504
         }
       },
       {
@@ -55,11 +55,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.5670000000000001,
+          "voice_ensemble_config": 0.33599999999999997,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.7350000000000001,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       }

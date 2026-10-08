@@ -5,7 +5,7 @@
   "lineage": "Bahamian popular song of the mid-20th century, played for visitors in Nassau hotels and nightclubs, sharing calypso's humorous topical lyrics while keeping Bahamian folk songs and the beat of the goatskin goombay drum, played by small acoustic groups. Its best-known performers included the banjo player and singer Blind Blake (Alphonso Higgs), resident at the Royal Victoria Hotel and heard on 1950s LPs, and the singer George Symonette; the hand-drum card stands in for the goombay drum.",
   "recipe": "classic mid-1950s goombay, functional Song, tropical song branch. unprocessed natural acoustic. credited banjo shaker source hand drum source unspecified, parlor acoustic guitar. live tracking. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 268,
-  "score": 3.741,
+  "score": 3.71,
   "config": {
     "traditions": [
       "bahamian_goombay_calypso"
@@ -73,7 +73,7 @@
         "scores": {
           "acoustic_technique": 0.26,
           "string_tuning": 0,
-          "top_wood_parlor": 0.7314999999999999,
+          "top_wood_parlor": 0.7,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 0
         }

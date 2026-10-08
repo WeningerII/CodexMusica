@@ -5,7 +5,7 @@
   "lineage": "Drum ensemble of the tabuik festival of Pariaman on the West Sumatran coast, the local form of the Muharram commemoration of the martyrdom of Husain at Karbala, rooted in South Asian Shia practice brought to the coast in the colonial era; Bengkulu's related tabot festival keeps its own dol-and-tasa drumming. A single tasa, a small kettle-shaped drum of the South Asian tasha family with a thin head beaten with rattan sticks (the tasha card), leads a group of large double-headed gandang tambua drums carried by their players (the generic membrane-drum card stands in).",
   "recipe": "classic modern gandang tasa, ritual Devotional, islamic branch. tasha, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 203,
-  "score": 10.695,
+  "score": 10.789,
   "config": {
     "traditions": [
       "gandang_tasa_tabuik"
@@ -18,7 +18,7 @@
           "tasha_context": "tasha_dhol_tasha"
         },
         "scores": {
-          "tasha_shell": 0.6,
+          "tasha_shell": 0.6315,
           "tasha_context": 2.3
         }
       },
@@ -29,8 +29,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 4.4725,
-          "acoustic_membrane_drum_gesture": 3.4725
+          "acoustic_membrane_drum_form": 4.504,
+          "acoustic_membrane_drum_gesture": 3.504
         }
       }
     ],

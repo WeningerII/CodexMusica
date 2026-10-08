@@ -5,7 +5,7 @@
   "lineage": "Thai television and screen soundtrack songs, closely connected to the country’s pop industry and performers. Romantic drama themes, character songs and series tie-ins circulate both through their productions and as independent pop releases.",
   "recipe": "classic thai ost, functional Song. unprocessed natural acoustic. clean strummed humbucker electric guitar, electric bass, full lathed both sides lathed drum kit, block chord upright piano. live tracking.",
   "recipe_chars": 203,
-  "score": 27.257,
+  "score": 27.473,
   "config": {
     "traditions": [
       "thai_ost"
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 8.254,
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.054,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -99,8 +99,8 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0,
-          "pickup_config": 0,
+          "body_wood": 0.054,
+          "pickup_config": 0.054,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -133,7 +133,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.1,
-          "cymbal_lathing": 9.329999999999998,
+          "cymbal_lathing": 9.383999999999999,
           "cymbal_finish": 0
         }
       },

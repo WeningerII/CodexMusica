@@ -5,7 +5,7 @@
   "lineage": "Songs of European settler life in nineteenth- and early twentieth-century New Zealand, from Otago and West Coast goldfields songs to whaling, shearing, swagging and station songs, often new local words set to British and Irish tunes. Rona Bailey and Herbert Roth's songbook Shanties by the Way (1967) and Neil Colquhoun's Song of a Young Country, a 1971 Kiwi Records double LP followed by a 1972 songbook, gathered the repertoire, and revival singers such as Phil Garland recorded it with acoustic folk accompaniment.",
   "recipe": "classic late-1960s new zealand colonial folk song, ballad Poetry, Celtic balladic branch. solo with instrumental accompaniment, unprocessed natural acoustic. parlor acoustic guitar, chromatic straight concertina. hardwood living. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 304,
-  "score": 16.164,
+  "score": 15.586,
   "config": {
     "traditions": [
       "nz_colonial_folk_song"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1,
-          "voice_multitrack_stack": 0.40950000000000003,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
           "string_acoustic_parlor": "eighty_twenty_p"
         },
         "scores": {
-          "acoustic_technique": 1.75,
+          "acoustic_technique": 1.7815,
           "string_tuning": 0,
           "top_wood_parlor": 0,
           "back_sides_parlor": 0,
@@ -77,8 +77,8 @@
           "concertina_reed_grade": "concertina_traditional"
         },
         "scores": {
-          "free_reed_technique": 7.4815000000000005,
-          "concertina_type": 1.7010000000000003,
+          "free_reed_technique": 7.45,
+          "concertina_type": 1.3965000000000003,
           "concertina_reed_grade": 0
         }
       }

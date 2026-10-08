@@ -5,7 +5,7 @@
   "lineage": "Danish post-punk connects angular guitar-band playing with melodic alternative-rock and electronic textures.",
   "recipe": "classic danish post-punk, distorted Rock, alternative branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric dreadnought acoustic guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, analog poly synth, roland jc120 amp solid state stereo chorus arpeggiated clean twelve string electric, mandolin, melodic chordal electronic keyboard unspecified. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 547,
-  "score": 40.99,
+  "score": 39.505,
   "config": {
     "traditions": [
       "danish_post_punk"
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.3680000000000003,
+          "electric_technique": 3.3365,
           "amp_make": 9.555,
-          "body_wood": 2.6984999999999997,
+          "body_wood": 2.394,
           "neck_wood": 0.105,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.105,
-          "bridge": 0.273,
+          "bridge": 0.168,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 2.6984999999999997,
+          "body_wood": 2.394,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.651,
+          "drumhead": 0.40950000000000003,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,7 +114,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0,
-          "voice_ornament_system": 0.273,
+          "voice_ornament_system": 0.312,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
           "voice_multitrack_stack": 0,
@@ -135,7 +135,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0.27299999999999996,
-          "string_acoustic": 0.714
+          "string_acoustic": 0.546
         }
       },
       {
@@ -147,7 +147,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "poly_archetypes": 0.1365,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
@@ -164,8 +164,8 @@
           "twelve_string_electric_pickup": "twelve_string_toaster_rick"
         },
         "scores": {
-          "electric_technique": 3.3680000000000003,
-          "amp_make": 3.7485000000000004,
+          "electric_technique": 3.3365,
+          "amp_make": 3.6540000000000004,
           "twelve_string_electric_model": -0.05,
           "twelve_string_electric_context": 0,
           "twelve_string_electric_strings": 0.105,
@@ -190,7 +190,7 @@
           "mandolin_top": -0.035,
           "mandolin_back": -0.05,
           "mandolin_bracing": -0.035,
-          "mandolin_strings": 0.714,
+          "mandolin_strings": 0.546,
           "mandolin_fingerboard": 0.21000000000000002,
           "mandolin_pickup": 0.39
         }

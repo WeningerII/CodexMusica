@@ -5,7 +5,7 @@
   "lineage": "Songs of the Sri Lankan Tamil national movement, produced in Jaffna and the Vanni and circulated on cassette from the 1980s until the end of the civil war in 2009, with further releases in the diaspora. They set Tamil poetry on homeland, sacrifice and struggle for solo voices and chorus over keyboard and percussion arrangements.",
   "recipe": "classic mid-1980s eelam tamil songs, protest Song. electronic keyboard hand drum source unspecified. treated studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
   "recipe_chars": 255,
-  "score": 3.422,
+  "score": 3.359,
   "config": {
     "traditions": [
       "eelam_tamil_songs"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.30074999999999996,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.26925,
           "voice_tessitura": 0
         }
       },

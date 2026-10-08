@@ -5,7 +5,7 @@
   "lineage": "Rio de Janeiro and São Paulo hybrid that broke nationally around 2021-2022 when funk carioca producers began welding euro-rave and big-room material onto the tamborzão grid, codified by DJ Ramon Sucesso, DJ Guuga and the 'automotivo' producer network — 130-150 BPM, four-on-the-floor kick alternating with syncopated tamborzão fills, screaming detuned supersaw and hoover leads, pitched vocal chops of MC shouts, and abrupt drop-and-silence arrangement borrowed from festival EDM.",
   "recipe": "classic Southern American 2021-2022 rave funk, electronic Dance, Latin electric branch, Afro-diasporic electric groove percussion, hardstyle electronic dance frenchcore dubstyle. vocal fry, breath veiled tone, wide pitch sway, interlocked note trading. sampler drum machine, sub bass analog poly synth, TR-808, classic acid sub bass monosynth acid bass, sub bass digital subtractive. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 510,
-  "score": 211.119,
+  "score": 211.314,
   "config": {
     "traditions": [
       "rave_funk",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 21.449999999999996,
           "voice_ornament_system": 1.0399999999999996,
           "voice_pitch_organization": 1.9044999999999999,
-          "voice_processing_chain": 18.214000000000002,
+          "voice_processing_chain": 18.274,
           "voice_multitrack_stack": 6.987500000000001
         }
       },
@@ -76,7 +76,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 7.669499999999999,
+          "electronic_technique": 7.714499999999999,
           "poly_archetypes": 0.39,
           "poly_voices": 0.18,
           "poly_maker_lineage": -1.085
@@ -104,7 +104,7 @@
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 7.669499999999999,
+          "electronic_technique": 7.714499999999999,
           "wave_acid": 0.345,
           "filter_acid": 1.2095,
           "accent_acid": 2.015
@@ -118,7 +118,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 7.669499999999999,
+          "electronic_technique": 7.714499999999999,
           "va_archetypes": 0.045,
           "digital_subtractive_context": 18.785
         }

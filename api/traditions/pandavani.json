@@ -5,7 +5,7 @@
   "lineage": "Pandavani is the sung and acted telling of the Mahabharata story of the Pandava brothers, with Bhima as its hero, in Chhattisgarh. The lead performer holds a tambura, used as a prop as well as a drone, and sings, speaks and acts out the episodes, while a seated group of harmonium, tabla, dholak and manjira players answers, one of them as the ragi who responds to the narrator. It has two styles, the seated vedamati and the theatrical kapalik, the style of Teejan Bai.",
   "recipe": "classic modern pandavani, ballad Poetry, indian bard branch. single leader group response, single lead single track no stacking. tanpura, harmonium indian, pitched indian rosewood rosewood tabla, dholak, manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 292,
-  "score": 12.23,
+  "score": 12.035,
   "config": {
     "traditions": [
       "pandavani"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.1365,
+          "voice_effort": 0.0315,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
@@ -65,10 +65,10 @@
         "scores": {
           "plucked_traditional_technique": 1.56,
           "tanpura_size": 0,
-          "tanpura_jawari": -0.05,
-          "tanpura_strings": 0.6615,
+          "tanpura_jawari": -0.035,
+          "tanpura_strings": 0.5565,
           "tanpura_string_material": 0,
-          "tanpura_body_wood": 0.7244999999999999
+          "tanpura_body_wood": 0.8294999999999999
         }
       },
       {
@@ -81,9 +81,9 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "harmonium_action": 0.7875,
-          "harmonium_voicing": 0.7139999999999999,
-          "harmonium_use": 0.5565
+          "harmonium_action": 0.756,
+          "harmonium_voicing": 0.7454999999999998,
+          "harmonium_use": 0.4515
         }
       },
       {

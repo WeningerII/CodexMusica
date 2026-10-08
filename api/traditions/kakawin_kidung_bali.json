@@ -5,7 +5,7 @@
   "lineage": "Balinese vocal art in which Old Javanese kakawin and Middle Javanese kidung poetry are sung unaccompanied by members of pesantian groups; in mabebasan sessions a singer intones each kakawin line and a partner paraphrases it in Balinese. Kidung are sung during temple and life-cycle ceremonies, and pesantian singing also circulates on Balinese radio and in recordings.",
   "recipe": "classic modern kakawin and kidung, ritual Devotional, hindu branch. many notes per syllable, solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 192,
-  "score": 4.803,
+  "score": 4.732,
   "config": {
     "traditions": [
       "kakawin_kidung_bali"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.9899999999999998,
+          "voice_speech_song": 2.9194999999999998,
           "voice_ensemble_config": 1.573,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

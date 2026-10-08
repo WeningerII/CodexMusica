@@ -5,7 +5,7 @@
   "lineage": "Bengali Sufi song of Bangladesh: murshidi songs address the spiritual guide (murshid) and marfati songs the inner, mystical knowledge (marifat) of the divine, closely related to the dehatattva songs of the body. Sung by fakirs and folk singers, the repertoire reached HMV 78s and radio through Abbasuddin Ahmed and Abdul Alim, and Bangladesh Betar has broadcast it since.",
   "recipe": "classic early-1950s murshidi and marfati gan, ritual Devotional, Sufi branch. solo with instrumental accompaniment. dotara, song accompaniment harmonium indian, dholak. treated studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 251,
-  "score": 16.313,
+  "score": 16.449,
   "config": {
     "traditions": [
       "murshidi_marfati_gan"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.2205,
+          "voice_multitrack_stack": 0.357,
           "voice_tessitura": 0
         }
       },

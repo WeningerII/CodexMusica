@@ -5,7 +5,7 @@
   "lineage": "Mexican trío romántico bolero-trio tradition emerging in 1930s-1940s Mexico City. Three-male-voice harmonized chorus with two acoustic guitars and one requinto (smaller higher-tuned lead guitar). Trio Los Panchos (founded 1944, New York) crystallized the form, established the requinto-lead-with-three-voice-harmony as canonical, and exported the genre internationally throughout Latin America.",
   "recipe": "classic Mexican mid-1930s trío romántico, functional Song, Mexican branch, Latin am troubadour ballad poetry milonga filipino kundiman. thick, breath veiled tone, straight note core, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cedrillo canonical veracruz strummed requinto jarocho. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 527,
-  "score": 149.209,
+  "score": 149.339,
   "config": {
     "traditions": [
       "trio_romantico_mexicano",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 15.144999999999992,
           "voice_ornament_system": 3.445,
           "voice_pitch_organization": 7.962499999999998,
-          "voice_processing_chain": 3.5749999999999993,
-          "voice_multitrack_stack": 4.92875
+          "voice_processing_chain": 3.51,
+          "voice_multitrack_stack": 5.123749999999999
         }
       },
       {

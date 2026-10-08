@@ -5,7 +5,7 @@
   "lineage": "Experimental music and sound art from Peru, connecting electronic exploration, noise and post-psychedelic practice.",
   "recipe": "classic peruvian experimental, experimental Elec. analog synth, hybrid groovebox electribe2. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 191,
-  "score": 1.549,
+  "score": 1.518,
   "config": {
     "traditions": [
       "peruvian_experimental"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 0.2815,
           "oscillator": 0,
-          "filter_topology": 0.273,
+          "filter_topology": 0.2415,
           "envelope": 0.3,
           "modulation": 0
         }

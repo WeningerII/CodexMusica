@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.2445000000000004,
+          "voice_ensemble_config": 2.1815,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.105,
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 4.013999999999999,
-          "acoustic_membrane_drum_gesture": 2.909
+          "acoustic_membrane_drum_form": 4.0455,
+          "acoustic_membrane_drum_gesture": 2.9405
         }
       },
       {

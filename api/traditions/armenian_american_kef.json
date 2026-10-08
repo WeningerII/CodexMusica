@@ -5,7 +5,7 @@
   "lineage": "Party and dance music of Armenian-American communities in Fresno, Watertown, Detroit, New York and Providence, played at 'kef time' picnics, weddings and church dances by ensembles of oud, clarinet, violin, kanun and dumbek, later joined by electric bass and keyboards. Its repertoire grew from the Anatolian music the immigrants brought from their home towns in the Ottoman Empire, with improvised taksims, line dances in even and odd meters and songs in Armenian and Turkish; the Fresno oudist Richard Hagopian, an NEA National Heritage Fellow, is among its best-known players. The darbuka card stands in for the dumbek.",
   "recipe": "classic modern kef music, wedding, middle eastern branch. solo with instrumental accompaniment. oud, clarinet, fiddle, kanun tortoiseshell traditional kanun, goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 328,
-  "score": 18.695,
+  "score": 18.463,
   "config": {
     "traditions": [
       "armenian_american_kef"
@@ -60,11 +60,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.33599999999999997,
+          "bowed_technique": 0.27299999999999996,
           "fiddle_strings": 0,
           "fiddle_bow": 0,
           "fiddle_mute": 0,
-          "fiddle_articulation": 0.0315,
+          "fiddle_articulation": 0,
           "fiddle_string_configuration": 0
         }
       },
@@ -91,7 +91,7 @@
         },
         "scores": {
           "percussion_technique": 0.26,
-          "darbuka_material": 0.47250000000000003,
+          "darbuka_material": 0.1995,
           "darbuka_skin": 2.5145,
           "darbuka_regional_style": 2.4095
         }
@@ -132,8 +132,8 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.063,
+          "voice_processing_chain": 0.21,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       }

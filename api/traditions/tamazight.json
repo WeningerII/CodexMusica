@@ -3,14 +3,14 @@
   "name": "Tamazight (Amazigh-language song, Middle Atlas)",
   "family": "global",
   "lineage": "Tamazight-language song of Morocco's Middle Atlas, carried by the izlan and ahidus repertoires of Khenifra and Azrou and professionalized from the 1970s by cassette artists such as Rouicha Mohamed, Hadda Ouakki and the amdyaz poet-singers — lotar three-string lute ostinato and bendir line-drumming in an even 6/8 or 4/4, antiphonal male-female verse exchange in a narrow pentatonic range, and long strophic poems on love, drought and migration sung in a high tense open-throated voice.",
-  "recipe": "classic North African mid-1970s tamazight, ballad Poetry, med east poetic branch, middle eastern wedding, sub saharan African field work berber amazigh ahidus lezginka. sygyt, breath veiled tone, straight note core, interlocked note trading. folk song Berber melodic single line mandole, synthetic remo modern world music bendir, hand clap, tar frame drum, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral. atlas mountain village square. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 568,
-  "score": 192.43,
+  "recipe": "classic North African mid-1970s tamazight, ballad Poetry, med east poetic branch, middle eastern wedding, sub saharan African field work folclor afrocolombiano mande-wolof west-african harvest-and-field song. sygyt, breath veiled tone, straight note core, interlocked note trading. folk song Berber melodic single line mandole, synthetic remo modern world music bendir, hand clap, tar frame drum, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral. atlas mountain village square. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 608,
+  "score": 198.675,
   "config": {
     "traditions": [
       "tamazight",
-      "berber_ahidus_wedding",
-      "lezginka"
+      "folclor_afrocolombiano",
+      "mande_wolof_harvest"
     ],
     "instruments": [
       {
@@ -21,8 +21,8 @@
           "mandole_strings": "mandole_steel"
         },
         "scores": {
-          "mandole_form": 12.719999999999999,
-          "mandole_role": 4.915,
+          "mandole_form": 4.64,
+          "mandole_role": 1.625,
           "mandole_strings": -0.035
         }
       },
@@ -35,10 +35,10 @@
           "bendir_head": "bendir_synthetic_modern"
         },
         "scores": {
-          "bendir_snares": 0.975,
-          "bendir_context": 0.39,
+          "bendir_snares": 1.04,
+          "bendir_context": 0.32999999999999996,
           "bendir_shell_wood": 0.845,
-          "bendir_head": 2.08
+          "bendir_head": 1.04
         }
       },
       {
@@ -52,32 +52,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 2.5350000000000006,
-          "voice_quality": 10.399999999999995,
+          "voice_register": 1.7349999999999999,
+          "voice_quality": 7.085000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.915,
-          "voice_articulation": 19.629999999999995,
-          "voice_microtone": 23.984999999999992,
-          "voice_tradition": 13.195,
-          "voice_mechanism_compound": 3.2000000000000006,
-          "voice_estill_quality": 2.7300000000000004,
-          "voice_speech_song": 23.919999999999995,
-          "voice_ensemble_config": 20.604999999999993,
-          "voice_ornament_system": 4.125,
-          "voice_pitch_organization": 4.9,
-          "voice_processing_chain": 5.175000000000001,
-          "voice_multitrack_stack": 2.3000000000000007
+          "voice_vibrato": 1.525,
+          "voice_articulation": 23.595000000000002,
+          "voice_microtone": 24.375,
+          "voice_tradition": 26.490000000000002,
+          "voice_mechanism_compound": 0.975,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 29.120000000000005,
+          "voice_ensemble_config": 24.765,
+          "voice_ornament_system": 8.174999999999999,
+          "voice_pitch_organization": 3.9850000000000003,
+          "voice_processing_chain": 5.025,
+          "voice_multitrack_stack": 2.3450000000000006
         }
       },
       {
@@ -87,7 +87,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0.54,
+          "clap_technique": 0.195,
           "clap_capture": 0
         }
       },
@@ -95,43 +95,43 @@
         "id": "tar_frame_drum",
         "slots": {
           "percussion_technique": "percussion_hands_layered",
-          "tar_size": "tar_small",
-          "tar_frame_drum_context": "tar_frame_drum_art",
+          "tar_size": "tar_large",
+          "tar_frame_drum_context": "tar_frame_drum_sufi",
           "tar_frame_shell_wood": "tar_frame_walnut",
           "tar_frame_head": "tar_frame_synthetic"
         },
         "scores": {
-          "percussion_technique": -0.07,
-          "tar_size": 0.195,
-          "tar_frame_drum_context": 0.845,
-          "tar_frame_shell_wood": 0.78,
+          "percussion_technique": 2.495,
+          "tar_size": 0.09,
+          "tar_frame_drum_context": 0.85,
+          "tar_frame_shell_wood": 0.39,
           "tar_frame_head": 0.845
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_klezmer_ornamented",
-          "orch_strings": "half_rectified_gut_violin",
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "french_polish_violin",
           "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
-          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "pizz_orch",
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.4625,
-          "orch_strings": 0.78,
-          "orch_top_wood": 4.55,
-          "orch_back_wood": 3.8049999999999997,
-          "orch_varnish": 4.01,
-          "orch_setup_period": 2.1,
-          "orch_bow": 2.6649999999999996,
-          "orch_bow_stick": 2.06,
-          "orch_articulation": 0.49499999999999994,
+          "bowed_technique": -0.05,
+          "orch_strings": 0,
+          "orch_top_wood": 3.7950000000000004,
+          "orch_back_wood": 3.4549999999999996,
+          "orch_varnish": 3.0600000000000005,
+          "orch_setup_period": 2.145,
+          "orch_bow": 0.845,
+          "orch_bow_stick": 1.9825000000000002,
+          "orch_articulation": 0.3,
           "orch_rosin": 2.1125
         }
       }

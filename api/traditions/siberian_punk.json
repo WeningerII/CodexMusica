@@ -5,7 +5,7 @@
   "lineage": "A punk scene of Omsk, Novosibirsk and Tyumen from the mid-1980s, led by Yegor Letov's Grazhdanskaya Oborona, Yanka Dyagileva and Kommunizm, which recorded at home on reel-to-reel and cassette at Letov's GrOb Records studio in Omsk and circulated by magnitizdat tape copying. Its songs pair abrasive distorted guitar and crude drums with existential and political lyrics, and the albums were later reissued on CD.",
   "recipe": "classic Eastern European 1984-1986 sibirsky pank, distorted Rock, punk branch. solo with instrumental accompaniment. low mid rich spectrum oily pore damping rosewood single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. bedroom. dynamic moving-coil, tube pre. Walkman cassette.",
   "recipe_chars": 357,
-  "score": 32.56,
+  "score": 32.548,
   "config": {
     "traditions": [
       "siberian_punk"
@@ -74,7 +74,7 @@
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0.063,
-          "fretboard": 1.2349999999999999,
+          "fretboard": 1.2229999999999999,
           "pickup_magnet": 0,
           "string_material": 0,
           "string_gauge": 0,

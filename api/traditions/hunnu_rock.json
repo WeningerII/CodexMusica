@@ -5,7 +5,7 @@
   "lineage": "Heavy rock from Ulaanbaatar that sets Mongolian throat singing, the morin khuur horse-head fiddle, the tovshuur lute and the jaw harp over electric guitar, bass and drums; the name is the one The HU, a band formed in 2016, gave its style, after the Hunnu (Xiongnu), the ancient steppe empire. The Mongolian tömör khuur jaw harp is represented by the khomus card in its Altai temir-komus form, and the earlier Ulaanbaatar band Altan Urag had already combined the morin khuur and throat singing with rock.",
   "recipe": "classic mid-2010s hunnu rock, distorted Rock, folk metal branch. central Asian steppe canonical research site throat singing voice, morin khuur sycamore canonical mongolian morin khuur, traditional mongolian tuvan tradition tovshuur, khomus, low-mid-thick articulate mahogany maple humbucker electric guitar, low-mid-thick articulate mahogany maple electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 598,
-  "score": 94.906,
+  "score": 95.001,
   "config": {
     "traditions": [
       "hunnu_rock"
@@ -85,7 +85,7 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 3.2333749999999997,
+          "body_wood": 3.2648749999999995,
           "neck_wood": 0.39,
           "fretboard": 0.325,
           "pickup_magnet": 0,
@@ -112,7 +112,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 3.2333749999999997,
+          "body_wood": 3.2648749999999995,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.063,
@@ -140,7 +140,7 @@
           "drum_technique": 11.287125,
           "drumhead": 0.0945,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.0945,
+          "shell_wood": 0.126,
           "shell_thickness": 0,
           "bearing_edges": 0.063,
           "snare_wires": 0,

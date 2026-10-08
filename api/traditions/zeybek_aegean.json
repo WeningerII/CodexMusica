@@ -5,7 +5,7 @@
   "lineage": "Dance and dance-song repertoire of the Aegean hinterland of western Anatolia around Aydın, Muğla, Denizli and İzmir, named after the zeybek and efe irregulars of the late Ottoman countryside. Its signature is the slow, heavy ağır zeybek in a long nine-beat aksak metre (often written 9/4, the quicker kıvrak zeybek in 9/8), danced solo or in small groups with arms raised, beside quicker kıvrak zeybeks; outdoors it is played by davul and zurna, indoors on bağlama or with sung verses, and state radio collectors recorded it widely for the TRT folk-music archive.",
   "recipe": "classic modern zeybek, wedding, middle eastern branch. solo with instrumental accompaniment. apricot canonical anatolian ottoman arundo donax metal staple canonical ottoman zurna, davul, saz baglama. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 279,
-  "score": 36.633,
+  "score": 36.738,
   "config": {
     "traditions": [
       "zeybek_aegean"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 3.9,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.063,
+          "voice_processing_chain": 0.21,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -64,7 +64,7 @@
         "scores": {
           "wind_articulation": 0.19500000000000003,
           "zurna_size": 1.0315,
-          "zurna_context": 0.126,
+          "zurna_context": 0.0945,
           "zurna_body_wood": 1.0945,
           "zurna_reed": 1.1995
         }

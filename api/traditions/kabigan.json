@@ -3,9 +3,9 @@
   "name": "Kabigan (Bengali poets' sung debate)",
   "family": "global",
   "lineage": "Kabigan is the Bengali sung contest in which two kabiyals, each backed by a dohar chorus, answer one another in improvised verse on mythological, social and topical themes before a village or festival audience. It flourished in nineteenth-century Calcutta, with kabiyals such as Bhola Moira and Anthony Firingee, and survives in rural West Bengal and Bangladesh. The generic drum card stands in for the Bengali dhol and the chengila card for the kansi bell-metal plate.",
-  "recipe": "classic modern kabigan, ballad Poetry, indian bard branch. membrane drum pulse resonant acoustic membrane drum, chengila. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 201,
-  "score": 3.599,
+  "recipe": "classic modern kabigan, ballad Poetry, indian bard branch. live take. membrane drum pulse resonant acoustic membrane drum, chengila. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 212,
+  "score": 4.249,
   "config": {
     "traditions": [
       "kabigan"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.27399999999999997,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.8199999999999998,
           "voice_tessitura": 0
         }
       },
@@ -70,7 +70,7 @@
           "chengila_size": "chengila_standard"
         },
         "scores": {
-          "chengila_beater": 0.0315,
+          "chengila_beater": 0,
           "chengila_size": 0.168
         }
       }

@@ -3,9 +3,9 @@
   "name": "Lalibalocc (Amhara dawn blessing songs)",
   "family": "global",
   "lineage": "Songs of the Lalibalocc, a hereditary group of itinerant singers in the Amhara region around Gondar who go from house to house before dawn, singing blessings and praise outside each door until the household gives food or money. The practice is popularly linked with leprosy, which the singing is said to ward off, and Itsushi Kawase has documented it in field recordings and films.",
-  "recipe": "classic modern lalibalocc, praise Song, sub saharan African branch. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 147,
-  "score": 1.835,
+  "recipe": "classic modern lalibalocc, praise Song, sub saharan African branch. duet, live take. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 164,
+  "score": 2.045,
   "config": {
     "traditions": [
       "lalibalocc_dawn_songs"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.4724999999999999,
+          "voice_ensemble_config": 0.5774999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.4724999999999999,
+          "voice_multitrack_stack": 0.5774999999999999,
           "voice_tessitura": 0
         }
       }

@@ -1,44 +1,51 @@
 {
-  "id": "classical_mandolin",
-  "name": "Classical mandolin",
+  "id": "mandolin",
+  "merged_from": "classical_mandolin",
+  "name": "Mandolin",
   "family": "classical",
-  "lineage": "Classical mandolin performance encompasses original concert repertoire and transcriptions, from solo works to chamber and orchestral settings. Its plucked strings support articulated melody and compact polyphony.",
-  "recipe": "classic classical mandolin, art Music. German spruce classical leaning x brace modern mandolin thomastik mandolin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 213,
-  "score": 19.401,
+  "lineage": "Mandolin repertoire centers on a small plucked lute whose paired strings support clear melody, ringing chords and rapid repeated-note articulation.",
+  "recipe": "classic mandolin, art Music. mandolin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 137,
+  "score": 0.126,
   "config": {
     "traditions": [
-      "classical_mandolin"
+      "mandolin"
     ],
     "instruments": [
       {
         "id": "mandolin",
         "slots": {
           "acoustic_technique": "acoustic_flatpicked",
-          "mandolin_shape": "a_style",
-          "mandolin_top": "german_spruce_m",
-          "mandolin_back": "big_leaf_maple",
-          "mandolin_bracing": "mandolin_x_brace",
-          "mandolin_strings": "thomastik_jazz_mandolin_flat",
+          "mandolin_shape": "f_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "phosphor_m",
           "mandolin_fingerboard": "mandolin_ebony_fb",
-          "mandolin_pickup": "mandolin_k_k_twin_internal"
+          "mandolin_pickup": "mandolin_no_pickup"
         },
         "scores": {
-          "acoustic_technique": 0.8999999999999999,
-          "mandolin_shape": 0,
-          "mandolin_top": 9.225,
-          "mandolin_back": 0.315,
-          "mandolin_bracing": 2,
-          "mandolin_strings": 1.95,
-          "mandolin_fingerboard": 0.3315,
-          "mandolin_pickup": 4.68
+          "acoustic_technique": 0.2,
+          "mandolin_shape": -0.05,
+          "mandolin_top": -0.05,
+          "mandolin_back": -0.05,
+          "mandolin_bracing": -0.05,
+          "mandolin_strings": 0.0315,
+          "mandolin_fingerboard": 0.0315,
+          "mandolin_pickup": 0.063
         }
       }
     ],
     "pinned": {
       "mandolin": [
         "acoustic_technique",
-        "mandolin_shape"
+        "mandolin_shape",
+        "mandolin_top",
+        "mandolin_back",
+        "mandolin_bracing",
+        "mandolin_strings",
+        "mandolin_fingerboard",
+        "mandolin_pickup"
       ]
     },
     "room": "treated_studio",
@@ -61,7 +68,13 @@
     "room": "treated_studio",
     "parts": {
       "acoustic_technique": "acoustic_flatpicked",
-      "mandolin_shape": "a_style"
+      "mandolin_shape": "f_style",
+      "mandolin_top": "adirondack_m",
+      "mandolin_back": "european_maple_loar",
+      "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+      "mandolin_strings": "phosphor_m",
+      "mandolin_fingerboard": "mandolin_ebony_fb",
+      "mandolin_pickup": "mandolin_no_pickup"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

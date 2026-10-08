@@ -5,7 +5,7 @@
   "lineage": "Soviet popular jazz of the 1930s to the 1950s, typified by Leonid Utyosov's Tea-Jazz (teatralny jazz, theatrical jazz) orchestra, founded in Leningrad in 1929, which mixed dance-band arrangements with song, comedy and staged numbers and reached a mass audience through the film Jolly Fellows (1934). Alexander Tsfasman's orchestra in Moscow and Eddie Rosner's State Jazz Orchestra of Belarus played swing-based dance music in the same years, before jazz was suppressed in the late 1940s.",
   "recipe": "classic tea-jazz, improv On Frame, early branch. solo with instrumental accompaniment. bright high register shallow cup lead trumpet trumpet, trombone, continuous-airflow legato saxophone, grand piano, double bass, bronze bell bronze brushes-and-sticks drum kit. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 400,
-  "score": 153.77,
+  "score": 154.145,
   "config": {
     "traditions": [
       "soviet_tea_jazz"
@@ -66,8 +66,8 @@
         "scores": {
           "wind_articulation": -0.1,
           "brass_size": 0.24149999999999996,
-          "trumpet_mouthpiece": 27.0455,
-          "brass_mute": 0,
+          "trumpet_mouthpiece": 27.077,
+          "brass_mute": 0.1365,
           "trumpet_technique": -0.10500000000000001,
           "trumpet_bell_metal": 0.5497500000000001,
           "trumpet_maker_school": 0
@@ -88,9 +88,9 @@
           "wind_articulation": -0.1,
           "trombone_type": 26.25,
           "trombone_mouthpiece": -0.07,
-          "trombone_mute": 0,
+          "trombone_mute": 0.1365,
           "trombone_technique": 0.48574999999999996,
-          "trombone_bell_metal": 0.74925,
+          "trombone_bell_metal": 0.71775,
           "trombone_maker_school": 0
         }
       },
@@ -129,13 +129,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "grand_piano_size": 0.0945,
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.063,
           "grand_piano_brand": 3.5414999999999996,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
-          "piano_soundboard": 0.23525000000000001,
-          "piano_pinblock": -0.1,
+          "piano_soundboard": 0.26,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.06500000000000011
         }
@@ -184,9 +184,9 @@
         },
         "scores": {
           "drum_technique": 18.979999999999997,
-          "drumhead": 0.063,
+          "drumhead": 0.0945,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.3045,
+          "shell_wood": 0.33599999999999997,
           "shell_thickness": 0,
           "bearing_edges": -1.05,
           "snare_wires": 0,

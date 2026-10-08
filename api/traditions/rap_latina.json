@@ -5,7 +5,7 @@
   "lineage": "A transnational Latin American women-led rap field, including the alliances associated with Rebeca Lane and Somos Guerreras.",
   "recipe": "classic modern rap latina, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 300,
-  "score": 32.796,
+  "score": 32.907,
   "config": {
     "traditions": [
       "rap_latina"
@@ -56,13 +56,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0.108
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Songs of the mondine, the seasonal women workers who weeded and transplanted the flooded rice fields of the Vercelli, Novara and Lomellina plains and parts of Emilia from the late nineteenth century until mechanisation and herbicides ended the work in the decades after the Second World War. Sung together in the paddies and dormitories, the repertoire mixes work, love and protest songs, including songs of the struggle for the eight-hour day; folk-revival researchers recorded it from former mondine such as Giovanna Daffini, and community choirs such as the Coro delle Mondine di Novi still sing it.",
   "recipe": "classic modern canti delle mondine, field Work, European protest song. one note per syllable. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 173,
-  "score": 2.88,
+  "score": 2.94,
   "config": {
     "traditions": [
       "canti_delle_mondine"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.7800000000000001,
+          "voice_speech_song": 0.8400000000000002,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

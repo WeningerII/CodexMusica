@@ -1,87 +1,137 @@
 {
-  "id": "deep_full_on",
-  "name": "Deep Full On",
+  "id": "full_on",
+  "merged_from": "deep_full_on",
+  "name": "Full On (Psytrance)",
   "family": "electronic",
-  "lineage": "Deep full-on belongs to psychedelic trance production and its night-oriented dance networks. Artists and DJs develop extended electronic grooves with layered melodic and timbral movement.",
-  "recipe": "classic deep full on, electronic Dance, trance branch. analog poly synth, drum machine analog. treated studio.",
-  "recipe_chars": 110,
-  "score": 2.86,
+  "lineage": "Israeli psytrance style codified 1997-2002 by Astrix, GMS, Infected Mushroom, Skazi and the Phonokol/HOMmega labels, running 142-148 BPM with a punchy short kick, a triplet rolling bass figure syncopated against it, bright major-key supersaw and pluck leads, big filtered breakdowns with spoken-word samples, and a peak-time arrangement built for large outdoor festival systems.",
+  "recipe": "classic mid-2000s full on, electronic Dance, trance branch, hardstyle electronic dance, techno electronic dance j-core dubstyle. sub bass analog mono sub bass analog poly sub bass wavetable yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm synth, TR-909, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 502,
+  "score": 80.075,
   "config": {
     "traditions": [
-      "deep_full_on"
+      "full_on",
+      "j_core",
+      "dubstyle"
     ],
     "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_korg_kato"
+        },
+        "scores": {
+          "electronic_technique": 9.684999999999999,
+          "mono_oscillator": 0,
+          "mono_filter": -0.35,
+          "mono_archetypes": 0.65,
+          "mono_maker_lineage": -0.6600000000000001
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0.45,
+          "drum_machine_909_context": 0.65,
+          "tr909_production_origin": 0.135
+        }
+      },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_5_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.19500000000000003,
-          "poly_archetypes": 2.1365,
-          "poly_voices": 0.1365,
-          "poly_maker_lineage": -0.035
+          "electronic_technique": 9.684999999999999,
+          "poly_archetypes": 1.345,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": -0.7350000000000001
         }
       },
       {
-        "id": "drum_machine_analog",
+        "id": "wavetable_synth",
         "slots": {
-          "kick_voice": "sine_burst_kick",
-          "snare_voice": "two_oscillator_snare",
-          "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "straight_quantize"
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_poly"
         },
         "scores": {
-          "kick_voice": 0.231,
-          "snare_voice": 0,
-          "hat_voice": 0.231,
-          "shuffle_quantize": -0.035
+          "electronic_technique": 9.684999999999999,
+          "wt_position": 9.685,
+          "wt_family": 0.195,
+          "wt_polyphony": 1.345
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_poly",
+          "fm_model_lineage": "fm_yamaha_tx81z"
+        },
+        "scores": {
+          "electronic_technique": 9.684999999999999,
+          "fm_algorithm": 0.345,
+          "fm_modulator_ratio": 0.65,
+          "fm_polyphony": 1.345,
+          "fm_model_lineage": 2.0799999999999996
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.7499999999999998,
+          "sampler_archetypes": 0.78,
+          "sampler_bit_depth": 0.525,
+          "sampler_workflow": 1.7499999999999998,
+          "sampler_classic_context": 14.234999999999996
         }
       }
     ],
-    "pinned": {
-      "analog_poly_synth": [
-        "electronic_technique",
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
-      ],
-      "drum_machine_analog": [
-        "kick_voice",
-        "snare_voice",
-        "hat_voice",
-        "shuffle_quantize"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_festival_edm_itb",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
       "comp": null,
-      "eq": null,
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
-    "parts": {
-      "kick_voice": "sine_burst_kick",
-      "snare_voice": "two_oscillator_snare",
-      "hat_voice": "square_summed_hat",
-      "shuffle_quantize": "straight_quantize",
-      "electronic_technique": "electronic_bass_sub",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith"
-    },
-    "pin_parts": true
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

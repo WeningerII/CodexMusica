@@ -5,7 +5,7 @@
   "lineage": "Playing tradition of the langeleik, a long box zither with one fretted melody string and several drone strings, strummed with a plectrum while the left hand stops the melody string, kept alive above all in Valdres. The National Library of Norway issued Høyre du mann - langeleikopptak 1955-83, a compilation of 42 archival langeleik recordings.",
   "recipe": "classic mid-1950s langeleik, drone Modal, string branch. rhythmic dance driving langeleik. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 182,
-  "score": 8.296,
+  "score": 8.191,
   "config": {
     "traditions": [
       "valdres_langeleik"
@@ -19,7 +19,7 @@
           "langeleik_strings": "dutar_strings_unspecified"
         },
         "scores": {
-          "langeleik_form": 7.671,
+          "langeleik_form": 7.566,
           "langeleik_repertoire": 1.2999999999999998,
           "langeleik_strings": 0
         }

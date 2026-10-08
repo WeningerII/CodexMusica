@@ -5,7 +5,7 @@
   "lineage": "Song-and-dance tradition of the Torres Strait Islands, in which songs in Meriam Mir, Kala Lagaw Ya and Torres Strait Creole are sung by a group of singers to the warup, a long hourglass drum, while dancers in lines perform with handheld props. Jeremy Beckett and Trevor Jones's recordings were issued by the Australian Institute of Aboriginal Studies as Traditional Music of Torres Strait (1972), and the dances are now carried at festivals across the Strait and on the mainland. The kundu card stands in for the warup.",
   "recipe": "classic early-1970s ailan dans, praise Song, oceania pacific branch. group vocals. hourglass shell wooden lizard skin kundu. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 204,
-  "score": 5.2,
+  "score": 5.503,
   "config": {
     "traditions": [
       "torres_strait_ailan_dans"
@@ -60,8 +60,8 @@
           "kundu_setup": "kundu_setup_group"
         },
         "scores": {
-          "kundu_build": 1.597375,
-          "kundu_stroke": 0.34162499999999996,
+          "kundu_build": 1.69,
+          "kundu_stroke": 0.551625,
           "kundu_setup": 1.69
         }
       }

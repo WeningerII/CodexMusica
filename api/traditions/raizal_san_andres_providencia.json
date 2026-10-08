@@ -3,9 +3,9 @@
   "name": "Raizal music (San Andrés and Providencia)",
   "family": "global",
   "lineage": "The Raizal people, the English-Creole-speaking Protestant islanders of San Andrés, Providencia and Santa Catalina, keep a string-band dance music of polka, mazurka, waltz and schottische alongside mento and calypso, played by the conjunto típico of mandolin, guitar, fiddle, the one-string washtub bass (tub bass or tinajo), horse-jawbone rattle and maracas, next to the islands' Baptist hymn singing. The tea-chest-bass card stands in for the washtub bass.",
-  "recipe": "classic modern raizal music, functional Song, tropical song branch. solo with instrumental accompaniment, single lead single track no stacking. mandolin, parlor acoustic guitar, melodic bowed song accompaniment fiddle, tea chest bass, maracas. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 323,
-  "score": 9.388,
+  "recipe": "classic modern raizal music, functional Song, tropical song branch. solo with instrumental accompaniment. mandolin, parlor acoustic guitar, melodic bowed song accompaniment fiddle, tea chest bass, maracas. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 285,
+  "score": 9.021,
   "config": {
     "traditions": [
       "raizal_san_andres_providencia"
@@ -31,7 +31,7 @@
           "mandolin_bracing": -0.05,
           "mandolin_strings": 0,
           "mandolin_fingerboard": 0.0315,
-          "mandolin_pickup": 0.21
+          "mandolin_pickup": 0.105
         }
       },
       {
@@ -46,7 +46,7 @@
         "scores": {
           "acoustic_technique": 0.26,
           "string_tuning": 0,
-          "top_wood_parlor": 0.0315,
+          "top_wood_parlor": 0,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 0
         }
@@ -66,7 +66,7 @@
           "fiddle_strings": 0,
           "fiddle_bow": 0.3045,
           "fiddle_mute": 0,
-          "fiddle_articulation": 0.1365,
+          "fiddle_articulation": 0.2415,
           "fiddle_string_configuration": 0
         }
       },
@@ -123,11 +123,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3335,
+          "voice_ensemble_config": 1.1655,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.6405000000000001,
+          "voice_multitrack_stack": 0.47250000000000003,
           "voice_tessitura": 0
         }
       }

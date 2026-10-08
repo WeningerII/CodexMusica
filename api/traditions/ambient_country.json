@@ -5,7 +5,7 @@
   "lineage": "Late-2010s onward instrumental country-ambient convergence represented by New York group SUSS: sustained pedal steel and resonator-guitar traces against synthesizer beds, with country timbre retained while dance pulse and verse-chorus singing recede. The selected three-instrument arrangement and clean digital recording chain are authored models, not a reconstruction of a documented studio session.",
   "recipe": "classic 2017-2019 ambient country, experimental Elec, ambient branch, americana country, modal electric drone modal virginia indie south african country. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, metal body three cone system national steel resonator guitar, resonant pad like pad analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, American clean tube combo, tilt EQ. 24-bit digital analog bucket-brigade delay hall reverb.",
   "recipe_chars": 571,
-  "score": 161.315,
+  "score": 161.195,
   "config": {
     "traditions": [
       "ambient_country",
@@ -26,14 +26,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 28.7,
-          "amp_make": 25.649999999999995,
-          "pickup_steel": 0.195,
+          "electric_technique": 28.61,
+          "amp_make": 25.499999999999993,
+          "pickup_steel": 0.24,
           "string_setup": 12.415,
           "bar_material": 3.055,
           "pedal_steel_brand": 24.41,
-          "pedal_steel_neck_config": 28.96,
-          "pedal_steel_strings": 24.4
+          "pedal_steel_neck_config": 28.915,
+          "pedal_steel_strings": 24.355
         }
       },
       {
@@ -44,7 +44,7 @@
           "resonator_technique": "resonator_bottleneck_slide_fingerpicked"
         },
         "scores": {
-          "resonator_body": 4.3549999999999995,
+          "resonator_body": 4.265,
           "resonator_strings": 0,
           "resonator_technique": 0.195
         }
@@ -60,8 +60,8 @@
         },
         "scores": {
           "electronic_technique": 11.649999999999999,
-          "oscillator": 0.045,
-          "filter_topology": 1.24,
+          "oscillator": 0.09,
+          "filter_topology": 1.45,
           "envelope": 4.3999999999999995,
           "modulation": 0.045
         }

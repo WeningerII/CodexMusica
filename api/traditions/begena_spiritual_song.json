@@ -5,7 +5,7 @@
   "lineage": "Paraliturgical devotional song of Ethiopian Orthodox Christians, sung by a solo performer to the begena, a large ten-string box lyre associated with King David whose strings are made to buzz by small leather pieces set between them and the bridge. It belongs to private and domestic devotion rather than the church service and is heard above all in the Lenten fasting season, with texts on God, mortality and the vanity of worldly life.",
   "recipe": "classic modern begena song, ritual Devotional. solo with instrumental accompaniment. ten string box lyre deep buzzing leather plectrum canonical ethiopian tewahedo devotional canonical ethiopian orthodox begena. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 291,
-  "score": 24.066,
+  "score": 24.143,
   "config": {
     "traditions": [
       "begena_spiritual_song"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 4.29,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -60,7 +60,7 @@
         },
         "scores": {
           "begena_body": 10.8,
-          "begena_tradition": 8.45
+          "begena_tradition": 8.432
         }
       }
     ],

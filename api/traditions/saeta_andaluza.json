@@ -5,7 +5,7 @@
   "lineage": "The saeta is the song addressed from a balcony or the street to the images of Christ and the Virgin carried in Andalusian Holy Week processions, sung while the float halts and the band falls silent. Older saetas survive as local forms such as the saetas cuarteleras of Puente Genil and the saetas of Marchena and Arcos de la Frontera; in the early twentieth century flamenco singers recast the song on the seguiriya and martinete, producing the saeta flamenca, which was recorded on 78-rpm discs from its first decades.",
   "recipe": "classic modern saeta, ritual Devotional. cante jondo, many notes per syllable, flamenco quejio ayeo temple afilla quiebro tercio. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 209,
-  "score": 9.587,
+  "score": 9.713,
   "config": {
     "traditions": [
       "saeta_andaluza"
@@ -43,11 +43,11 @@
           "voice_tradition": 4.7,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.4575,
+          "voice_speech_song": 1.489,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 2.45,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Norsk lovsang connects Norwegian church songwriters, worship bands and congregations through local ministries and national networks. Contemporary songs circulate alongside hymn and gospel traditions across denominations.",
   "recipe": "classic norsk lovsang, ritual Devotional, christian gospel branch. humbucker electric guitar, electric bass, drum kit, electronic keyboard unspecified. live tracking.",
   "recipe_chars": 166,
-  "score": 2.253,
+  "score": 2.19,
   "config": {
     "traditions": [
       "norsk_lovsang"
@@ -100,7 +100,7 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0,
-          "pickup_config": 0.7035,
+          "pickup_config": 0.6405,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -128,8 +128,8 @@
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
-          "shell_thickness": 0,
-          "bearing_edges": 0.40950000000000003,
+          "shell_thickness": 0.1365,
+          "bearing_edges": 0.273,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": -0.15000000000000002,

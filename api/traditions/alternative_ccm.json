@@ -3,9 +3,9 @@
   "name": "Alternative ccm",
   "family": "vernacular",
   "lineage": "Alternative CCM connects contemporary Christian music audiences with alternative rock. Bands such as San Diego’s Switchfoot developed a following across both markets, bringing spiritually engaged songwriting into guitar-led rock performance.",
-  "recipe": "classic alternative ccm, distorted Rock, alternative branch. equal tempered, notated speech melody, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, digital subtractive, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 454,
-  "score": 57.224,
+  "recipe": "classic alternative ccm, distorted Rock, alternative branch. equal tempered, notated speech melody, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, digital subtractive, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 463,
+  "score": 58.263,
   "config": {
     "traditions": [
       "alternative_ccm"
@@ -18,7 +18,7 @@
           "voice_quality": "voice_quality_source_unspecified",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "voice_articulation_source_unspecified",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "voice_tradition_source_unspecified",
@@ -37,7 +37,7 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.4724999999999999,
+          "voice_vibrato": 0.36750000000000005,
           "voice_articulation": 0,
           "voice_microtone": 8.499999999999996,
           "voice_tradition": 0,
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.546,
           "voice_tessitura": 0
         }
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 4.42,
-          "body_wood": 2.4255,
-          "neck_wood": 0.441,
+          "body_wood": 2.667,
+          "neck_wood": 0.546,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 0.441,
-          "scale_length": 1.743,
-          "string_gauge": 0.441,
+          "bridge": 0.546,
+          "scale_length": 1.8795000000000002,
+          "string_gauge": 0.546,
           "finish": 0,
           "string_tuning": 4.55
         }
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 4.875,
-          "body_wood": 0.8820000000000001,
-          "pickup_config": 0.273,
+          "body_wood": 1.0920000000000003,
+          "pickup_config": 0.40950000000000003,
           "string_type": 11.375,
-          "scale_length_b": 0.441,
+          "scale_length_b": 0.546,
           "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -130,7 +130,7 @@
         },
         "scores": {
           "drum_technique": 8.75,
-          "drumhead": 0.5145,
+          "drumhead": 0.546,
           "drum_kit_kick_pedal": 0
         }
       }

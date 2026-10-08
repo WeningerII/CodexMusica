@@ -5,7 +5,7 @@
   "lineage": "Unaccompanied multi-voice arrangement of popular repertoire, established on US and UK college campuses from the mid-twentieth century and codified commercially by the Bobs, Take 6, the King's Singers' pop sets and post-2000 groups such as Pentatonix — four to sixteen voices covering bass line, chordal pads and lead, with vocal percussion supplying kick, snare and hi-hat, close-miked and multitracked, in strophic pop forms at 70-130 BPM.",
   "recipe": "classic early-2000s a cappella, functional Song, pop rock branch, soul R&B doowop, christian gospel jubilee quartet doo-wop. thick, breath veiled tone, straight onset, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, close dry group massed hand clap. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 521,
-  "score": 268.239,
+  "score": 268.075,
   "config": {
     "traditions": [
       "a_cappella",
@@ -38,16 +38,16 @@
           "voice_quality": 24.830000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.2315,
+          "voice_vibrato": 5.326,
           "voice_articulation": 21.839999999999996,
           "voice_microtone": 21.449999999999996,
-          "voice_tradition": 21.514499999999995,
+          "voice_tradition": 21.997499999999995,
           "voice_mechanism_compound": 3.4450000000000003,
           "voice_estill_quality": 16.7,
           "voice_speech_song": 24.504999999999995,
           "voice_ensemble_config": 25.28499999999999,
           "voice_ornament_system": 6.15,
-          "voice_pitch_organization": 5.485,
+          "voice_pitch_organization": 4.75,
           "voice_processing_chain": 10.919999999999998,
           "voice_multitrack_stack": 8.515
         }
@@ -62,8 +62,8 @@
         },
         "scores": {
           "choir_size": 8.06,
-          "choir_polyphonic_configuration": 7.1564999999999985,
-          "choir_regional_canonical_configuration": 3.6399999999999997,
+          "choir_polyphonic_configuration": 7.214999999999998,
+          "choir_regional_canonical_configuration": 3.5845,
           "choir_ensemble_repertoire": 3.12
         }
       },
@@ -75,7 +75,7 @@
         },
         "scores": {
           "clap_technique": 2.9899999999999993,
-          "clap_capture": 2.925
+          "clap_capture": 2.916
         }
       }
     ],

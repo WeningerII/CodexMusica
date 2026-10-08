@@ -3,9 +3,9 @@
   "name": "Ekitaguriro (Ankole cattle dance)",
   "family": "global",
   "lineage": "Dance-song of the Banyankole of southwestern Uganda, centred on Mbarara, whose stamping, arm-raising movements imitate the gait and horns of the long-horned cattle at the heart of Ankole herding life. Songs in praise of cattle alternate with okwevuga, rapid recited praise-poetry declaimed by the performers, and the dance is often accompanied by the endingidi tube fiddle.",
-  "recipe": "classic modern ekitaguriro, praise Song, sub saharan African branch. melodic bowed song accompaniment endingidi, foot stomp. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 204,
-  "score": 8.204,
+  "recipe": "classic modern ekitaguriro, praise Song, sub saharan African branch. live take. melodic bowed song accompaniment endingidi, foot stomp. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 215,
+  "score": 8.157,
   "config": {
     "traditions": [
       "ekitaguriro"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.4514999999999999,
+          "voice_speech_song": 0.315,
           "voice_ensemble_config": 0.19500000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.4724999999999999,
+          "voice_multitrack_stack": 0.5774999999999999,
           "voice_tessitura": 0
         }
       },
@@ -65,7 +65,7 @@
           "bowed_technique": 3.6399999999999997,
           "endingidi_body": 3.7,
           "endingidi_context": -0.07,
-          "endingidi_membrane": -0.035,
+          "endingidi_membrane": -0.05,
           "endingidi_string": 0
         }
       },

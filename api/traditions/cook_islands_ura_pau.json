@@ -5,7 +5,7 @@
   "lineage": "Drum-dance tradition of the Cook Islands, centred on Rarotonga and Aitutaki, in which an ensemble of tōkere slit drums, the larger ka'ara and the skin-headed pa'u drum drives fast dances, alongside chanted pe'e and the ukulele-and-guitar kaparima action songs. Island and village teams compete at the Te Maeva Nui festival, and the Cook Islands National Arts Theatre has toured the repertoire. The Pacific slit-gong card stands in for the tōkere and ka'ara, and a generic membrane-drum card for the pa'u.",
   "recipe": "classic modern ura pa'u, praise Song, oceania pacific branch. high pitched fast dance interlocking pacific slit gong, membrane drum pulse resonant acoustic membrane drum, ukulele. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 259,
-  "score": 27.02,
+  "score": 27.264,
   "config": {
     "traditions": [
       "cook_islands_ura_pau"
@@ -19,7 +19,7 @@
           "pacific_slit_gong_wood": "pacific_slit_gong_toa"
         },
         "scores": {
-          "pacific_slit_gong_form": 4.214,
+          "pacific_slit_gong_form": 4.2875000000000005,
           "pacific_slit_gong_role": 6.9464999999999995,
           "pacific_slit_gong_wood": -0.035
         }
@@ -31,8 +31,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 6.0455,
-          "acoustic_membrane_drum_gesture": 5.0455
+          "acoustic_membrane_drum_form": 6.119,
+          "acoustic_membrane_drum_gesture": 5.119
         }
       },
       {
@@ -72,7 +72,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },
@@ -85,7 +85,7 @@
         },
         "scores": {
           "ukulele_size": 3.7,
-          "ukulele_style": 1.181,
+          "ukulele_style": 1.2349999999999999,
           "ukulele_wood": -0.035
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Solomon Islands panpipe ensemble tradition of the Are'are people of southern Malaita island and adjacent Solomons communities, featuring large coordinated ensembles of stopped-bamboo-pipes-arranged-in-rafts played in interlocking hocketed polyphonic patterns. The au tahana (raft-panpipe) and au kuita (bundle-panpipe) instrumental categories support distinct repertoire layers. Performance contexts span feast-day celebrations, mourning-rituals, and (post-1978 independence) international-festival and recording-circuit work through the canonical Narasirato Pan Pipers ensemble formed in the 1990s. The genre is one of the most internationally circulated Melanesian musical traditions through twentieth-century ethnomusicological recording.",
   "recipe": "classic Southeast Asian mid-1990s solomon islands panpipe ensemble, ritual Devotional, indigenous branch, wind pipe drone modal dudácká muzika kuvikly. kargyraa, breath veiled tone, pure, interlocked note trading. raft bound interlocking melanesian panpipes. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 416,
-  "score": 141.175,
+  "score": 141.775,
   "config": {
     "traditions": [
       "solomon_islands_panpipe",
@@ -38,7 +38,7 @@
           "voice_quality": 18.589999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.435,
+          "voice_vibrato": 1.6300000000000001,
           "voice_articulation": 16.574999999999996,
           "voice_microtone": 18.589999999999993,
           "voice_tradition": 10.334999999999999,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 14.169999999999996,
           "voice_ornament_system": 3.65,
           "voice_pitch_organization": 3.5100000000000002,
-          "voice_processing_chain": 10.749999999999996,
+          "voice_processing_chain": 10.854999999999997,
           "voice_multitrack_stack": 0.9749999999999999
         }
       },
@@ -60,8 +60,8 @@
           "melanesian_panpipes_technique": "melanesian_panpipes_blown"
         },
         "scores": {
-          "melanesian_panpipes_form": 6.645,
-          "melanesian_panpipes_role": 13.09,
+          "melanesian_panpipes_form": 6.795,
+          "melanesian_panpipes_role": 13.24,
           "melanesian_panpipes_technique": 0.195
         }
       }

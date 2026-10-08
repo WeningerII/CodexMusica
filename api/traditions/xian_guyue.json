@@ -5,7 +5,7 @@
   "lineage": "Wind-and-percussion ensemble music kept by temple, village and urban music societies in and around Xi'an, inscribed by UNESCO in 2009 as the Xi'an wind and percussion ensemble and preserved in gongche-notated manuscript scores. Seated suites (zuoyue) and processional pieces (xingyue) set dizi, sheng and guanzi melody with yunluo gong-chimes against several drums, gongs and cymbals (the acoustic drum card stands in for its drums).",
   "recipe": "classic late-2000s xi'an guyue, ritual Devotional. dizi, sheng, guanzi, yunluo, membrane drum pulse resonant acoustic membrane drum, naobo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 219,
-  "score": 4.032,
+  "score": 4.018,
   "config": {
     "traditions": [
       "xian_guyue"
@@ -37,7 +37,7 @@
           "sheng_pipe_material": "sheng_bamboo_canonical"
         },
         "scores": {
-          "free_reed_technique": -0.10500000000000001,
+          "free_reed_technique": -0.11850000000000002,
           "sheng_size": 0.105,
           "sheng_context": 0.40950000000000003,
           "sheng_pipe_material": 0

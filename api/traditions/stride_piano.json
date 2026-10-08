@@ -5,7 +5,7 @@
   "lineage": "1920s-1940s Harlem virtuoso solo-piano tradition extending ragtime through dramatic ten-finger leaps in the left hand alternating bass-note and chord — codified through James P. Johnson (Carolina Shout 1921), Willie The Lion Smith, Fats Waller (Ain't Misbehavin' 1929) and Art Tatum, with later inheritors including Erroll Garner and Thelonious Monk drawing directly on the stride harmonic language",
   "recipe": "classic mid-1920s stride piano, improv On Frame, stride piano branch, American jazz pre jazz ragtime, American jazz early continental jazz. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright piano. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 379,
-  "score": 57.112,
+  "score": 57.323,
   "config": {
     "traditions": [
       "stride_piano",
@@ -27,7 +27,7 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 8.784999999999998,
+          "keyboard_technique": 8.889999999999999,
           "grand_piano_size": 0.78,
           "grand_piano_brand": 1.2349999999999999,
           "piano_hammer": 10.822499999999998,
@@ -46,7 +46,7 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 8.784999999999998,
+          "keyboard_technique": 8.889999999999999,
           "upright_use": 0.78,
           "upright_piano_size": 0.15
         }

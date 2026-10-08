@@ -5,7 +5,7 @@
   "lineage": "Submotion Orchestra — full promoter-listed seven-person JazzClub Hipnoza 2011 concert setup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic early-2010s substep, bass System, uk soundsystem branch. one note per syllable. trumpet, electronic keyboard unspecified, electric bass, credited auxiliary percussion, full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital ping-pong delay.",
   "recipe_chars": 330,
-  "score": 5.484,
+  "score": 5.264,
   "config": {
     "traditions": [
       "substep"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.714,
+          "voice_speech_song": 0.7769999999999999,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -65,7 +65,7 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "brass_size": 0.168,
+          "brass_size": 0.1365,
           "trumpet_mouthpiece": -0.1,
           "brass_mute": 1.468,
           "trumpet_technique": -0.05,
@@ -81,7 +81,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.36750000000000005
+          "keyboard_technique": 0.231
         }
       },
       {
@@ -98,10 +98,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.40950000000000003,
+          "body_wood": 0.273,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -133,15 +133,15 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.0315,
           "shell_thickness": 0,
           "bearing_edges": 0.1365,
           "snare_wires": 0,
-          "cymbal_alloy": -0.14,
-          "cymbal_hammering": -0.10500000000000001,
-          "cymbal_lathing": 1.2129999999999999,
+          "cymbal_alloy": -0.1685,
+          "cymbal_hammering": -0.11850000000000002,
+          "cymbal_lathing": 1.1815,
           "cymbal_finish": 0
         }
       }

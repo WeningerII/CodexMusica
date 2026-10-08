@@ -5,7 +5,7 @@
   "lineage": "Basotho men’s mohobelo dance song; a selected communal singing and clapping arrangement, with movement-led rhythm.",
   "recipe": "classic modern mohobelo, praise Song, sub saharan African branch. group vocals, live take. hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 181,
-  "score": 1.431,
+  "score": 1.819,
   "config": {
     "traditions": [
       "mohobelo"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.7379999999999999,
+          "voice_ensemble_config": 1.053,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.1365,
+          "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.7064999999999998
+          "voice_multitrack_stack": 0.8114999999999999
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "clap_technique": 0,
-          "clap_capture": 0
+          "clap_capture": 0.105
         }
       }
     ],

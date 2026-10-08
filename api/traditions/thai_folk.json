@@ -5,7 +5,7 @@
   "lineage": "Village song traditions of Thailand's Central, Northern and Isan regions — repartee genres such as lam klon, phleng choi and so phrae — carried by itinerant singers into the twentieth century and documented by mid-century field collectors, built on free-reed khaen drone-and-ostinato, plucked phin or sueng, hand-drum and ching cymbal timekeeping, and rapid syllabic call-and-response verse improvised over a single mode.",
   "recipe": "classic early-1940s thai folk, field Work, east Asian branch, southeast Asian Thai classical, wind pipe drone modal sepha khrueang sai. thick, breath veiled tone, slow rate, interlocked note trading. khaen, phin, calfskin silk canonical Thai court sustained line legato saw u, central Thai ching chap open and damped ching, klong that, khim. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 433,
-  "score": 334.17,
+  "score": 330.525,
   "config": {
     "traditions": [
       "thai_folk",
@@ -38,18 +38,18 @@
           "voice_quality": 14.104999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.864999999999998,
+          "voice_vibrato": 15.91,
           "voice_articulation": 17.484999999999996,
           "voice_microtone": 18.199999999999992,
-          "voice_tradition": 19.37,
+          "voice_tradition": 19.1,
           "voice_mechanism_compound": 11.15,
           "voice_estill_quality": 12.625,
           "voice_speech_song": 20.669999999999995,
           "voice_ensemble_config": 17.159999999999993,
           "voice_ornament_system": 11.299999999999999,
-          "voice_pitch_organization": 29.72,
+          "voice_pitch_organization": 28.805,
           "voice_processing_chain": 2.9899999999999998,
-          "voice_multitrack_stack": 3.01
+          "voice_multitrack_stack": 2.4849999999999994
         }
       },
       {
@@ -60,8 +60,8 @@
           "khaen_context": "khaen_fusion"
         },
         "scores": {
-          "free_reed_technique": 2.7750000000000004,
-          "khaen_size": 2,
+          "free_reed_technique": 2.7300000000000004,
+          "khaen_size": 2.045,
           "khaen_context": 2.6
         }
       },
@@ -74,7 +74,7 @@
         },
         "scores": {
           "phin_form": 22.619999999999997,
-          "phin_repertoire": 4.345000000000001,
+          "phin_repertoire": 4.42,
           "phin_construction": 2.5
         }
       },
@@ -88,11 +88,11 @@
           "saw_u_ornament": "saw_u_sparse_sustained"
         },
         "scores": {
-          "bowed_technique": 11.295,
+          "bowed_technique": 11.34,
           "saw_u_membrane": 13.2,
-          "saw_u_strings": 15.989999999999998,
-          "saw_u_ensemble": 13.469999999999999,
-          "saw_u_ornament": 6.975
+          "saw_u_strings": 15.029999999999998,
+          "saw_u_ensemble": 13.17,
+          "saw_u_ornament": 7.02
         }
       },
       {
@@ -103,7 +103,7 @@
           "ching_alloy": "ching_bronze"
         },
         "scores": {
-          "ching_form": 20.74,
+          "ching_form": 19.855,
           "ching_stroke": 18.915,
           "ching_alloy": -0.035
         }
@@ -115,7 +115,7 @@
           "klong_that_tuning": "klong_that_rice_paste"
         },
         "scores": {
-          "klong_that_setup": 0.15,
+          "klong_that_setup": 0.195,
           "klong_that_tuning": 0.195
         }
       },
@@ -127,7 +127,7 @@
           "khim_strings": "khim_steel"
         },
         "scores": {
-          "khim_form": 0.045,
+          "khim_form": 0,
           "khim_mallets": 0.195,
           "khim_strings": 0.045
         }

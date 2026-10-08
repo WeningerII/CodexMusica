@@ -5,7 +5,7 @@
   "lineage": "Khmer pinpeat ceremonial ensemble — the largest classical Cambodian instrumental tradition, accompanying the Royal Ballet of Cambodia and Sbek Thom shadow-puppet. Pre-Angkor Khmer roots; royal court and wat temple ceremonial repertoire. Canonical instrumentation of nine-to-ten instruments dominated by wind and percussion: roneat ek high bamboo xylophone (twenty-one bars, boat-shaped resonator, melodic lead), roneat thung low bamboo xylophone (second voice, counterpoint to ek), sralai quadruple-reed conical-bore oboe (palm-leaf reed, sustained melodic lead), sampho double-headed barrel timekeeper drum (sets tempo and cadence — ensemble leader), skor thom large barrel drum pair (stick-struck bass), kong vong thom large gong circle (sixteen tuned bronze bossed gongs in rattan frame — melodic skeleton sustaining the harmonic foundation), ching small finger cymbals (time-keeping). Seven-equal-tempered tuning shared with Thai piphat. The Khmer Rouge era 1975-1979 nearly destroyed the tradition; post-1980 reconstruction led by surviving masters including Chum Ngek, with the Royal University of Fine Arts Phnom Penh restoring transmission infrastructure. Distinguished from Thai piphat by Khmer-language repertoire and dialect-specific cadential conventions; distinguished from Lao seb-noi by the larger pinpeat ensemble configuration and royal-court ceremonial repertoire base",
   "recipe": "classic Southeast Asian 1975-1979 khmer pinpeat royal-court ensemble, art Music, southeast Asian branch, southeast Asian Thai classical mon traditional music. twenty one bamboo bars boat resonator canonical pinpeat lead royal court pinpeat canonical pre 1975 lineage roneat ek, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung, palm leaf quadruple reed conical bore canonical khmer pinpeat melodic lead sustained voice sralai, double headed barrel tunable canonical pinpeat timekeeper pinpeat leader tempo cadence signal sampho, large barrel pair stick struck canonical pinpeat bass skor sixteen tuned bronze bossed gongs rattan frame canonical pinpeat melodic backbone pinpeat melodic skeleton sustains core under roneat elaboration kong vong thom, central Thai ching chap open and damped bronze ching. phnom penh royal pinpeat palace court. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 974,
-  "score": 237.577,
+  "score": 239.083,
   "config": {
     "traditions": [
       "khmer_pinpeat",
@@ -20,8 +20,8 @@
           "roneat_ek_tradition": "roneat_ek_royal_court_canonical"
         },
         "scores": {
-          "roneat_ek_bars": 17.907999999999998,
-          "roneat_ek_tradition": 20.6055
+          "roneat_ek_bars": 18.287499999999998,
+          "roneat_ek_tradition": 20.1435
         }
       },
       {
@@ -31,8 +31,8 @@
           "roneat_thung_role": "roneat_thung_pinpeat_counter"
         },
         "scores": {
-          "roneat_thung_bars": 13.7815,
-          "roneat_thung_role": 17.504
+          "roneat_thung_bars": 14.479,
+          "roneat_thung_role": 17.549
         }
       },
       {
@@ -42,8 +42,8 @@
           "sralai_role": "sralai_pinpeat_lead_melodic"
         },
         "scores": {
-          "sralai_reed": 17.485,
-          "sralai_role": 14.2525
+          "sralai_reed": 17.473,
+          "sralai_role": 14.4505
         }
       },
       {
@@ -53,8 +53,8 @@
           "sampho_role": "sampho_leader_timekeeper"
         },
         "scores": {
-          "sampho_construction": 13.285,
-          "sampho_role": 8.19
+          "sampho_construction": 13.572999999999999,
+          "sampho_role": 8.31
         }
       },
       {
@@ -63,7 +63,7 @@
           "skor_thom_construction": "skor_thom_large_pair_canonical"
         },
         "scores": {
-          "skor_thom_construction": 19.0745
+          "skor_thom_construction": 19.814000000000004
         }
       },
       {
@@ -73,8 +73,8 @@
           "kong_vong_thom_role": "kong_vong_thom_pinpeat_melodic_skeleton"
         },
         "scores": {
-          "kong_vong_thom_construction": 23.1695,
-          "kong_vong_thom_role": 13.144499999999999
+          "kong_vong_thom_construction": 23.654,
+          "kong_vong_thom_role": 13.0575
         }
       },
       {
@@ -85,7 +85,7 @@
           "ching_alloy": "ching_bronze"
         },
         "scores": {
-          "ching_form": 34.439499999999995,
+          "ching_form": 33.5545,
           "ching_stroke": 21.970000000000002,
           "ching_alloy": 4.1425
         }

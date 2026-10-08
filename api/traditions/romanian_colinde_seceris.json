@@ -5,7 +5,7 @@
   "lineage": "Romanian harvest-carol (colinde de seceriş, \"harvest-colinde\") tradition continuous from premodern Romanian-agricultural village-labor practice through 19th-century Romanian-folklorist documentation (Vasile Alecsandri and Constantin Brăiloiu documented the Romanian harvest-carol corpus) through 20th-century Béla Bartók-and-Constantin-Brăiloiu canonical-ethnomusicology into modern Romanian-folk-revival continuous practice",
   "recipe": "classic Northern European modern romanian colinde de seceriş, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby chinese chayang-diao japanese taue-uta. thick, close mic intimate, straight onset, unrestrained. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 337,
-  "score": 110.995,
+  "score": 109.885,
   "config": {
     "traditions": [
       "romanian_colinde_seceris",
@@ -35,18 +35,18 @@
         },
         "scores": {
           "voice_register": 7.500000000000002,
-          "voice_quality": 5.272499999999999,
+          "voice_quality": 5.1225,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2500000000000004,
           "voice_articulation": 11,
           "voice_microtone": 10.204999999999997,
-          "voice_tradition": 30.197500000000005,
+          "voice_tradition": 29.282500000000006,
           "voice_mechanism_compound": 1.8199999999999998,
           "voice_estill_quality": 1.0399999999999998,
           "voice_speech_song": 11.699999999999996,
           "voice_ensemble_config": 9.945,
-          "voice_ornament_system": 5.6450000000000005,
+          "voice_ornament_system": 5.6000000000000005,
           "voice_pitch_organization": 6.759999999999999,
           "voice_processing_chain": 1.6899999999999997,
           "voice_multitrack_stack": 1.8199999999999996

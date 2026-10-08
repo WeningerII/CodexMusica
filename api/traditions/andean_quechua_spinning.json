@@ -3,20 +3,20 @@
   "name": "Andean Quechua-Aymara spinning song",
   "family": "global",
   "lineage": "Andean Quechua-and-Aymara spinning-and-weaving song tradition continuous from pre-Hispanic Andean-textile labor practice through Spanish-colonial-era continuous performance into modern Quechua-and-Aymara-speaking Andean-rural continuous practice across Bolivia, Peru, and Ecuador",
-  "recipe": "classic Andean modern andean quechua-aymara spinning song, domestic Rhythm, south Asian branch, sub saharan African domestic rhythm, European lullaby, andean field work andean huayno-de-trabajo música andina. vocal fry, forward-resonance, straight onset, interlocked note trading. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 369,
-  "score": 261.9,
+  "recipe": "classic Andean modern andean quechua-aymara spinning song, domestic Rhythm, south Asian branch, sub saharan African domestic rhythm, European lullaby, andean field work música andina pinkillu. thick, forward-resonance, straight onset, interlocked note trading. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 349,
+  "score": 204.35,
   "config": {
     "traditions": [
       "andean_quechua_spinning",
-      "andean_huayno_trabajo",
-      "musica_andina"
+      "musica_andina",
+      "pinkillu_norte_potosi"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "twang_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.04,
-          "voice_quality": 34.575,
+          "voice_register": 1.5850000000000002,
+          "voice_quality": 24.449999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4050000000000002,
-          "voice_articulation": 15.664999999999994,
-          "voice_microtone": 16.31499999999999,
-          "voice_tradition": 60.724999999999994,
-          "voice_mechanism_compound": 3.0549999999999997,
-          "voice_estill_quality": 28.674999999999994,
-          "voice_speech_song": 22.099999999999994,
-          "voice_ensemble_config": 29.759999999999994,
-          "voice_ornament_system": 39.724999999999994,
-          "voice_pitch_organization": 6.5649999999999995,
-          "voice_processing_chain": 2.145,
-          "voice_multitrack_stack": 1.6249999999999998
+          "voice_vibrato": 1.56,
+          "voice_articulation": 13.454999999999997,
+          "voice_microtone": 13.519999999999992,
+          "voice_tradition": 46.62500000000001,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 22.325,
+          "voice_speech_song": 18.394999999999992,
+          "voice_ensemble_config": 23.259999999999998,
+          "voice_ornament_system": 30.674999999999997,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 4.17,
+          "voice_multitrack_stack": 2.2749999999999995
         }
       }
     ],

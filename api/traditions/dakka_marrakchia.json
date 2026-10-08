@@ -5,7 +5,7 @@
   "lineage": "Percussion-and-chant genre of Marrakech, with a related form in Taroudant (dakka roudania), performed by men's troupes during the Ashura festivities of the tenth of Muharram. Massed taarija clay drums and a struck iron (naqqus) accompany sung verses in sections that move from slow to very fast. The anvil card in its brake-drum form stands in for the naqqus.",
   "recipe": "classic modern dakka marrakchia, ritual Devotional, islamic branch. taarija, ringing brake drum anvil, hand clap. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 193,
-  "score": 4.086,
+  "score": 4.191,
   "config": {
     "traditions": [
       "dakka_marrakchia"
@@ -72,7 +72,7 @@
           "anvil_striker": "anvil_metal_beater"
         },
         "scores": {
-          "anvil_type": 2.6734999999999998,
+          "anvil_type": 2.8099999999999996,
           "anvil_striker": 0.3
         }
       },
@@ -84,7 +84,7 @@
         },
         "scores": {
           "clap_technique": 0,
-          "clap_capture": 0.0315
+          "clap_capture": 0
         }
       }
     ],

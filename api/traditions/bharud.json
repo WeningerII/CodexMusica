@@ -5,7 +5,7 @@
   "lineage": "Bharud is a Marathi devotional song-drama in which the performer takes on a stock character from village life and, through comic song, dialogue and mime, teaches a spiritual lesson. The saint Eknath of Paithan composed some three hundred bharuds in the sixteenth century, and Varkari performers still sing them in kirtans and on the pilgrimage to Pandharpur, with cymbals, mridang (pakhawaj) and harmonium.",
   "recipe": "classic modern bharud, ritual Devotional, hindu branch. pakhawaj, small manjira, harmonium indian. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 178,
-  "score": 12.658,
+  "score": 12.836,
   "config": {
     "traditions": [
       "bharud"
@@ -63,7 +63,7 @@
         "scores": {
           "pakhawaj_context": 0.378,
           "pakhawaj_construction": 0,
-          "pakhawaj_head": 0.546,
+          "pakhawaj_head": 0.819,
           "pakhawaj_lineage": 0
         }
       },
@@ -90,9 +90,9 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "harmonium_action": 0.714,
-          "harmonium_voicing": 0.6194999999999999,
-          "harmonium_use": 1.701
+          "harmonium_action": 0.6824999999999999,
+          "harmonium_voicing": 0.5880000000000001,
+          "harmonium_use": 1.6695
         }
       }
     ],

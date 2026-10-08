@@ -5,7 +5,7 @@
   "lineage": "Deep tropical house connects melodic, vocal-centered house with the softer textures of the 2010s tropical-house crossover. Producers and DJs link radio-friendly songs with club and festival sets.",
   "recipe": "classic mid-2010s deep tropical house, electronic Dance, deep house branch. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 122,
-  "score": 0.063,
+  "score": 0.032,
   "config": {
     "traditions": [
       "deep_tropical_house"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0315
         }
       }
     ],

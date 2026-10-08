@@ -5,7 +5,7 @@
   "lineage": "Japanese ambient music spans the environmental music of the 1980s and later electronic and electroacoustic experimentation. Home-studio synthesis, restrained melodic patterns and attention to listening space connect its varied generations.",
   "recipe": "classic mid-1980s j-ambient, experimental Elec, ambient branch, musique concrete experimental electric. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity sustained fm synth, sustained sampler. treated studio. large-diaphragm condenser, ultra-clean solid-state pre. 24-bit digital true-stereo reverb.",
   "recipe_chars": 333,
-  "score": 23.25,
+  "score": 22.995,
   "config": {
     "traditions": [
       "j_ambient"
@@ -40,9 +40,9 @@
         "scores": {
           "electronic_technique": 8.75,
           "sampler_archetypes": 2.5,
-          "sampler_bit_depth": 0.525,
+          "sampler_bit_depth": 0.42,
           "sampler_workflow": -0.1,
-          "sampler_classic_context": 0.885
+          "sampler_classic_context": 0.735
         }
       }
     ],

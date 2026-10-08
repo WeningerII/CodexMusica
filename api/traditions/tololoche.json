@@ -5,7 +5,7 @@
   "lineage": "Northern Mexican and Texan conjunto practice formed in Nuevo León, Tamaulipas and the Rio Grande valley in the 1930s–50s, in which the tololoche — a three-quarter-size slapped upright bass — supplies the walking-and-slapped two-beat under diatonic button accordion and bajo sexto at 90–130 BPM in polka, redova and vals rhythms, with paired parallel-third male vocals delivered plainly and loudly.",
   "recipe": "classic Southwestern American mid-1930s tololoche norteño, functional Song, tejano border branch, tejano border corrido, tejano border ranchera, Mexican functional song corridos alternativos. thick, full chest belt, slow rate, interlocked note trading. tololoche, castagnari Italian premium folk music chordal accordion, nickel wound modern tejano bajo sexto, double bass rapid double strokes bass drum. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 602,
-  "score": 179.81,
+  "score": 180.11,
   "config": {
     "traditions": [
       "tololoche",
@@ -20,7 +20,7 @@
           "tololoche_technique": "tololoche_slap"
         },
         "scores": {
-          "tololoche_size": 2.2750000000000004,
+          "tololoche_size": 2.23,
           "tololoche_technique": 0.3
         }
       },
@@ -28,8 +28,8 @@
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_chordal_chugging",
-          "accordion_reed_material": "brass_reeds",
-          "musette_offset": "dry_tuning",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "italian_tuning",
           "reed_config": "lm_only",
           "bellows": "all_leather",
           "voicing_chamber": "cassotto",
@@ -37,8 +37,8 @@
         },
         "scores": {
           "free_reed_technique": 14.375000000000002,
-          "accordion_reed_material": 0.43499999999999994,
-          "musette_offset": 0.15,
+          "accordion_reed_material": 0.585,
+          "musette_offset": 0.195,
           "reed_config": 0.3,
           "bellows": 0.195,
           "voicing_chamber": 0,
@@ -56,7 +56,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 1.3649999999999998,
-          "bajo_courses": 13.875000000000002,
+          "bajo_courses": 14.070000000000002,
           "bajo_top": 0.65,
           "bajo_strings": 6.305000000000001,
           "bajo_back_wood": 0
@@ -109,7 +109,7 @@
         },
         "scores": {
           "bass_drum_size": 0,
-          "bass_drum_beater": 1.975
+          "bass_drum_beater": 1.9300000000000002
         }
       }
     ],

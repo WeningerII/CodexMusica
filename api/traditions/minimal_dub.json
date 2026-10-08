@@ -1,50 +1,60 @@
 {
-  "id": "minimal_dub",
-  "name": "Minimal dub",
-  "family": "global",
-  "lineage": "Minimal dub concentrates on repetition, space and a reduced set of sounds. Dub-derived production meets restrained electronic arrangement, allowing small changes in texture and timing to remain audible.",
-  "recipe": "classic minimal dub, bass System, dub descendants branch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital tape echo spring reverb.",
-  "recipe_chars": 189,
-  "score": 3.395,
+  "id": "dub_techno",
+  "merged_from": "minimal_dub",
+  "name": "Dub techno",
+  "family": "electronic",
+  "lineage": "Berlin dub-techno subgenre codified by Basic Channel and Chain Reaction (founded 1993 by Moritz von Oswald and Mark Ernestus, at the Hardwax record store / Kreuzberg techno-scene infrastructure) — fuses Detroit techno-foundational vocabulary with King Tubby-derived dub mixing aesthetic; recordings: Basic Channel Phylyps Trak 1993, Maurizio Domina 1995, Porter Ricks Biokinetics 1996",
+  "recipe": "classic Central European early-1990s dub techno, bass System, dub descendants branch, techno electronic dance detroit techno italian techno. drum machine analog, analog synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb roland RE-201 space echo hall reverb.",
+  "recipe_chars": 472,
+  "score": 10.836,
   "config": {
     "traditions": [
-      "minimal_dub"
+      "dub_techno",
+      "detroit_techno",
+      "italian_techno"
     ],
     "instruments": [
       {
-        "id": "sampler_classic",
+        "id": "drum_machine_analog",
         "slots": {
-          "electronic_technique": "electronic_sustained_layering",
-          "sampler_archetypes": "mpc_modern",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_edm"
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "electronic_technique": 0.325,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": 0.26,
-          "sampler_classic_context": 2.8600000000000003
+          "kick_voice": 0.3,
+          "snare_voice": 0.195,
+          "hat_voice": 0.15,
+          "shuffle_quantize": 2.4162500000000002
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 1.9499999999999997,
+          "oscillator": 2.145,
+          "filter_topology": 2.795,
+          "envelope": 1.04,
+          "modulation": 0.195
         }
       }
     ],
-    "pinned": {
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_berlin_dub_techno_dm",
     "inline_chain": {
       "mic": "condenser_sdc",
-      "pre": "transformerless",
+      "pre": "pre_neve_1073_input",
       "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
       "medium": "digital_high"
     },
@@ -52,30 +62,29 @@
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
-      "tape_echo",
-      "spring_reverb"
+      "fx_roland_space_echo",
+      "hall_reverb"
     ]
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "berlin_techno_kreuzberg_studio",
     "parts": {
-      "electronic_technique": "electronic_sustained_layering",
-      "sampler_archetypes": "mpc_modern",
-      "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_edm"
+      "electronic_technique": "electronic_bass_sub",
+      "kick_voice": "bridged_t_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
-    "pin_parts": true,
     "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
     "chain_medium": "digital_high",
     "chain_console": "console_in_the_box",
     "chain_fx": [
-      "tape_echo",
-      "spring_reverb"
+      "fx_roland_space_echo",
+      "hall_reverb"
     ]
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Pre-revolutionary Shanghai Mandarin popular jazz-and-pop song tradition codified 1927-1949, the foundational stratum of Chinese-language popular music — Li Jinhui (1891-1967, the father of Chinese popular music, composer of the seminal 1927 song Drizzle / Maomao Yu often cited as the first shidaiqu) establishing the genre by fusing Western jazz-band orchestration with Mandarin-language vocal melodic vocabulary at his Bright Moon Song-and-Dance Troupe in Shanghai; the seven great singing stars (qida ge xing) era of the 1940s through Zhou Xuan (1918-1957, the Golden Voice, the canonical female playback voice through When Will You Return / He Ri Jun Zai Lai 1937 and Shanghai Nights / Ye Shanghai 1947), Bai Hong, Yao Lee, Bai Guang, Li Xianglan (Yamaguchi Yoshiko, the Japanese-Manchurian crossover voice), Wu Yingyin, Gong Qiuxia; composer-arranger lineage Chen Gexin (Rose Rose I Love You 1940), Yao Min (Zhou Xuan collaborator), Li Houxiang; production infrastructure of the EMI Pathé / Pathé Records Shanghai studios on Hengshan Road and Great China Records on the French Concession (the dominant pre-revolutionary recording labels for Mandarin popular music); ended abruptly with the 1949 Communist takeover when shidaiqu was banned in Mainland China as \"yellow music\" / huang se yinyue (pornographic music) and many singers and composers fled to British Hong Kong where the tradition continued under the Pathé Hong Kong umbrella through Yao Lee and Pan Wan-ching late careers, seeding the later Mandopop and Cantopop traditions of the 1970s-onward",
   "recipe": "classic East Asian mid-1930s shidaiqu, functional Song, east Asian pop branch, American jazz early trad modern swing. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, silver wound lamb gut core plywood laminate European maple double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, python skin snake skin red sandalwood zitan premium silk pre 1950s historical erhu, silk red sandalwood zitan premium pipa, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral. shanghai emi pathe 1930s. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 965,
-  "score": 614.395,
+  "score": 614.883,
   "config": {
     "traditions": [
       "shidaiqu",
@@ -30,15 +30,15 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 34.61500000000001,
-          "voice_quality": 34.69500000000001,
+          "voice_register": 34.46500000000001,
+          "voice_quality": 34.78500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.955,
+          "voice_vibrato": 23.104999999999997,
           "voice_articulation": 20.21500000000001,
           "voice_microtone": 36.375,
           "voice_tradition": 28.502499999999998,
@@ -46,9 +46,9 @@
           "voice_estill_quality": 4.68,
           "voice_speech_song": 26.455000000000013,
           "voice_ensemble_config": 25.675000000000004,
-          "voice_ornament_system": 3.35,
+          "voice_ornament_system": 3.395,
           "voice_pitch_organization": 15.789999999999994,
-          "voice_processing_chain": 7.572499999999999,
+          "voice_processing_chain": 7.595000000000001,
           "voice_multitrack_stack": 3.9350000000000005
         }
       },
@@ -67,13 +67,13 @@
         },
         "scores": {
           "keyboard_technique": 11.825,
-          "grand_piano_size": 0.675,
+          "grand_piano_size": 0.48,
           "grand_piano_brand": 1.645,
-          "piano_hammer": 15.485,
+          "piano_hammer": 15.68,
           "piano_rim": 17.64,
           "piano_soundboard": 15,
           "piano_pinblock": 1.82,
-          "piano_plate": 2.369999999999999,
+          "piano_plate": 2.6099999999999994,
           "piano_pitch_standard": 4.8425
         }
       },
@@ -90,9 +90,9 @@
         },
         "scores": {
           "wind_articulation": 3.2825000000000006,
-          "brass_size": 1.9500000000000002,
+          "brass_size": 2.145,
           "trumpet_mouthpiece": 28.112499999999997,
-          "brass_mute": 0.65,
+          "brass_mute": 0.845,
           "trumpet_technique": 3.2825000000000006,
           "trumpet_bell_metal": 2.9899999999999998,
           "trumpet_maker_school": 4.16
@@ -111,10 +111,10 @@
         },
         "scores": {
           "wind_articulation": 1.45,
-          "sax_size": 0.48,
+          "sax_size": 0.28500000000000003,
           "sax_reed": 0.38999999999999996,
           "sax_body_alloy": 24.699999999999996,
-          "sax_mouthpiece": 0.74,
+          "sax_mouthpiece": 0.845,
           "sax_technique": 21.624999999999996,
           "sax_maker_school": 26.747499999999995
         }
@@ -171,7 +171,7 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "erhu_skin": 2.275,
+          "erhu_skin": 2.125,
           "erhu_use": 0.57,
           "erhu_body_wood": 1.2349999999999999,
           "erhu_strings": 2.9599999999999995,
@@ -190,7 +190,7 @@
         "scores": {
           "plucked_traditional_technique": -0.035,
           "pipa_frets": 0.345,
-          "pipa_strings": 2.275,
+          "pipa_strings": 2.125,
           "pipa_pick": 0.15,
           "pipa_body_wood": 1.2349999999999999
         }
@@ -210,11 +210,11 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.4500000000000002,
+          "bowed_technique": 1.495,
           "orch_strings": 1.5949999999999998,
           "orch_top_wood": 4.0625,
           "orch_back_wood": 3.6750000000000003,
-          "orch_varnish": 3.62,
+          "orch_varnish": 3.665,
           "orch_setup_period": 0.8775000000000001,
           "orch_bow": 1.69,
           "orch_bow_stick": 1.67,

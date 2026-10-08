@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.19949999999999998,
+          "voice_multitrack_stack": 0.231,
           "voice_tessitura": 0
         }
       },
@@ -59,7 +59,7 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 2.336,
+          "acoustic_membrane_drum_form": 2.3045,
           "acoustic_membrane_drum_gesture": 1.3
         }
       }

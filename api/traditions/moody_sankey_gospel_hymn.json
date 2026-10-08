@@ -5,7 +5,7 @@
   "lineage": "Popular evangelical song of the urban revival campaigns led by the preacher Dwight L. Moody with the singer Ira D. Sankey from the 1870s, collected in Gospel Hymns and Sacred Songs (1875) and its many successors and written by Fanny Crosby, Philip P. Bliss, William H. Doane and others. Verse-and-refrain songs with simple tonic-dominant harmony and personal, testimonial texts were sung by a soloist at a reed organ and taken up by mass congregations and choirs, and Homer Rodeheaver, song leader for the evangelist Billy Sunday, carried the style onto records in the 1910s and 1920s.",
   "recipe": "classic mid-1870s gospel hymn, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. american reed organ, mixed satb canonical 4 part western sacred liturgical global choir ensemble, upright piano. blanket damped 1925-1945 commercial-major electrical era office. acoustic horn. 78rpm shellac.",
   "recipe_chars": 320,
-  "score": 7.692,
+  "score": 7.765,
   "config": {
     "traditions": [
       "moody_sankey_gospel_hymn"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.7455,
+          "voice_ensemble_config": 2.8819999999999997,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -76,8 +76,8 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 1.59,
-          "choir_polyphonic_configuration": 0,
+          "choir_size": 1.4535,
+          "choir_polyphonic_configuration": 0.0735,
           "choir_regional_canonical_configuration": 0,
           "choir_ensemble_repertoire": 2.6
         }

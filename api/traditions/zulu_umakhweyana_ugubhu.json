@@ -5,7 +5,7 @@
   "lineage": "Zulu song accompanied by gourd-resonated musical bows, played mainly by women: the ugubhu, a long unbraced bow whose struck string is stopped by the fingers, and the umakhweyana, a braced bow whose divided string gives two fundamentals. Princess Constance Magogo kaDinuzulu was its outstanding performer and was recorded by the ethnomusicologist David Rycroft. The braced makhoyane card, its Swazi counterpart, stands in for the umakhweyana.",
   "recipe": "classic early-1940s umakhweyana and ugubhu, drone Modal, string branch. solo with instrumental accompaniment. harmonic shifting two tone drone ugubhu, shifting harmonics two tone drone makhoyane. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 287,
-  "score": 10.602,
+  "score": 10.665,
   "config": {
     "traditions": [
       "zulu_umakhweyana_ugubhu"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.3834999999999997,
+          "voice_ensemble_config": 2.415,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.189,
+          "voice_processing_chain": 0.2205,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

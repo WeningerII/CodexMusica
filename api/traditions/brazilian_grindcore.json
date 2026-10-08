@@ -3,9 +3,9 @@
   "name": "Brazilian grindcore",
   "family": "rock_punk",
   "lineage": "Brazilian grindcore discovery field represented by Desalmado’s São Paulo underground practice from2004 onward. The band names grindcore roots and a deathgrind identity; this record selects that overlap rather than reducing the national field to one fixed sound.",
-  "recipe": "classic modern brazilian grindcore, distorted Rock, metal branch, punk distorted rock modern hardcore nz hardcore. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, kevlar aramid extreme tension blast beat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 541,
-  "score": 73.39,
+  "recipe": "classic modern brazilian grindcore, distorted Rock, metal branch, punk distorted rock modern hardcore nz hardcore. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension blast beat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 532,
+  "score": 72.61,
   "config": {
     "traditions": [
       "brazilian_grindcore",
@@ -27,14 +27,14 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 14.365,
           "body_wood": 4.029999999999999,
-          "neck_wood": 0.585,
+          "neck_wood": 0.39,
           "fretboard": 0.39,
           "pickup_magnet": 1.2349999999999999,
           "pickup_winding": 1.145,
@@ -42,7 +42,7 @@
           "bridge": 1.56,
           "scale_length": 4.029999999999999,
           "string_gauge": 1.2,
-          "finish": 0.195,
+          "finish": 0,
           "string_tuning": 0.585
         }
       },
@@ -50,7 +50,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -60,7 +60,7 @@
         },
         "scores": {
           "amp_make": 5.915000000000001,
-          "body_wood": 1.1700000000000002,
+          "body_wood": 0.78,
           "pickup_config": 1.145,
           "string_type": 12.025,
           "scale_length_b": 1.145,

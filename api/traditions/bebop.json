@@ -5,7 +5,7 @@
   "lineage": "1944-1955 small-group jazz vocabulary codified by Charlie Parker, Dizzy Gillespie, Thelonious Monk, Bud Powell, Max Roach, Kenny Clarke — rapid chord changes, virtuosic melodic improvisation, complex rhythmic displacement, intimate quintet-sextet format displacing swing-era big bands",
   "recipe": "classic North American mid-1950s bebop, improv On Frame, bop branch, American jazz early bombay jazz trad. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. converted living room 1944-1959 indie-commercial van gelder hackensack. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 619,
-  "score": 218.672,
+  "score": 218.282,
   "config": {
     "traditions": [
       "bebop",
@@ -70,8 +70,8 @@
         },
         "scores": {
           "keyboard_technique": 3.1750000000000003,
-          "grand_piano_size": 0.675,
-          "grand_piano_brand": 0.675,
+          "grand_piano_size": 0.48,
+          "grand_piano_brand": 0.48,
           "piano_hammer": 5.3950000000000005,
           "piano_rim": 5.3950000000000005,
           "piano_soundboard": 1.5750000000000002,

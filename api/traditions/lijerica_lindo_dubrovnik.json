@@ -5,7 +5,7 @@
   "lineage": "Dance music of the Dubrovnik coast, the Konavle valley and the Pelješac peninsula, played on the lijerica, a small pear-shaped three-string bowed lira held upright on the knee, whose player keeps time by stamping his foot. Its best-known dance is the linđo, a couple dance of the poskočica type whose figures are called out in rhymed commands by a dance leader (kolovođa).",
   "recipe": "classic modern lijerica and linđo, carnival Processional, European branch. solo with instrumental accompaniment. lijerica. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 202,
-  "score": 30.487,
+  "score": 30.349,
   "config": {
     "traditions": [
       "lijerica_lindo_dubrovnik"
@@ -22,10 +22,10 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "lijerica_mode": 14.2465,
-          "lijerica_repertoire": 14.537999999999998,
+          "lijerica_mode": 14.351499999999998,
+          "lijerica_repertoire": 14.328,
           "lijerica_drone": -0.05,
-          "lijerica_region": -0.1
+          "lijerica_region": -0.07
         }
       },
       {
@@ -61,7 +61,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.5435000000000003,
+          "voice_ensemble_config": 1.4805000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,

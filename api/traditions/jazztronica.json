@@ -5,7 +5,7 @@
   "lineage": "Late-1990s Scandinavian and British hybrid of live jazz improvisation with programmed electronics, codified by Nils Petter Molvær's Khmer (1997), Bugge Wesseltoft's New Conception of Jazz and Jaga Jazzist — 90-140 BPM broken-beat and drum-and-bass programming under long modal trumpet or saxophone lines, dub-scale delay and granular processing on horns, Rhodes and analogue synth pads, and post-production editing treated as a compositional stage equal to the take.",
   "recipe": "classic 1997-1999 jazztronica, improv On Frame, fusion branch, ambient experimental electric ambient house berlin school. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral shallow cup lead trumpet trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ebonite continuous-airflow saxophone, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, sustained pad analog poly synth, field textural sampler, fiberskyn synthetic calf brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character flatwound walking electric bass, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 897,
-  "score": 188.25,
+  "score": 187.703,
   "config": {
     "traditions": [
       "jazztronica",
@@ -25,12 +25,12 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.6449999999999999,
+          "wind_articulation": 0.6899999999999998,
           "brass_size": 0.65,
           "trumpet_mouthpiece": 11.94,
           "brass_mute": 0.09,
-          "trumpet_technique": 0.6449999999999999,
-          "trumpet_bell_metal": 1.5150000000000001,
+          "trumpet_technique": 0.6899999999999998,
+          "trumpet_bell_metal": 1.32,
           "trumpet_maker_school": 1.95
         }
       },
@@ -46,13 +46,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.6449999999999999,
+          "wind_articulation": 0.6899999999999998,
           "sax_size": 0.585,
           "sax_reed": 1.11,
           "sax_body_alloy": 11.125,
           "sax_mouthpiece": 1.155,
           "sax_technique": 10.25,
-          "sax_maker_school": 9.76
+          "sax_maker_school": 9.37
         }
       },
       {
@@ -67,8 +67,8 @@
         },
         "scores": {
           "keyboard_technique": 0.7,
-          "rhodes_model": 10.88,
-          "rhodes_use": 0.825,
+          "rhodes_model": 10.925,
+          "rhodes_use": 0.87,
           "rhodes_tine_material": 1.7550000000000001,
           "rhodes_hammer_tip": 0.5850000000000002,
           "rhodes_pickup_position": 1.3
@@ -100,7 +100,7 @@
         },
         "scores": {
           "electronic_technique": 5.690000000000001,
-          "sampler_archetypes": 1.13,
+          "sampler_archetypes": 1.1374999999999997,
           "sampler_bit_depth": 0.45499999999999996,
           "sampler_workflow": 6.865,
           "sampler_classic_context": 28.145000000000003
@@ -132,7 +132,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.5800000000000005,
+          "amp_make": 3.3850000000000007,
           "body_wood": 0.8700000000000001,
           "pickup_config": 0.45499999999999996,
           "string_type": 11.309999999999999,

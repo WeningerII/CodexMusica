@@ -5,7 +5,7 @@
   "lineage": "Christmas folk play of Pernambuco and Alagoas descended from Iberian nativity pastorals, in which girls and young women (pastoras) in two rival cordões, the blue and the red, with the Diana between them, sing and dance jornadas before the Nativity scene while the audience cheers its side. The pastoril profano of Recife added a ribald old clown, the Velho, whose jokes and songs alternate with the jornadas. The pastoras keep time on small tambourines (pandeirinhos), for which a source-unspecified pandero card stands in.",
   "recipe": "classic modern pastoril, functional Song, Brazilian song branch. pandero source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 172,
-  "score": 0.791,
+  "score": 0.823,
   "config": {
     "traditions": [
       "pastoril_nordestino"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.273,
-          "voice_multitrack_stack": 0.273,
+          "voice_multitrack_stack": 0.3045,
           "voice_tessitura": 0
         }
       },

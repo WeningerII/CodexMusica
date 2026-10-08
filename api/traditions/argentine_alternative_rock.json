@@ -5,7 +5,7 @@
   "lineage": "Argentine alternative rock includes power trios combining riff-centered playing and shared voices.",
   "recipe": "classic argentine alternative rock, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood power chord humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 29.037,
+  "score": 29.279,
   "config": {
     "traditions": [
       "argentine_alternative_rock"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": 3.1200000000000006,
           "amp_make": 4.42,
-          "body_wood": 2.4255,
+          "body_wood": 2.667,
           "neck_wood": 0.105,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.105,
-          "bridge": 0.5069999999999999,
+          "bridge": 0.40199999999999997,
           "scale_length": 0,
-          "string_gauge": 0.507,
+          "string_gauge": 0.40199999999999997,
           "finish": 0,
           "string_tuning": 0.054
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 4.875,
-          "body_wood": 2.4255,
+          "body_wood": 2.667,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 8.75,
-          "drumhead": 0.5145,
+          "drumhead": 0.546,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,10 +113,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.381,
+          "voice_ensemble_config": 0.3495,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

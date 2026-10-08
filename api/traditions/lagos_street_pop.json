@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr808_voice": 0,
-          "drum_machine_808_context": 0.24599999999999997,
+          "drum_machine_808_context": 0.2145,
           "tr808_production_origin": -1.5145
         }
       },
@@ -88,7 +88,7 @@
           "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "electronic_technique": 2.6915,
+          "electronic_technique": 2.7230000000000003,
           "va_archetypes": -0.4685,
           "digital_subtractive_context": -0.035
         }

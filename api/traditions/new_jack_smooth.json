@@ -1,50 +1,187 @@
 {
-  "id": "new_jack_smooth",
-  "name": "New Jack Smooth",
+  "id": "new_jack_swing",
+  "merged_from": "new_jack_smooth",
+  "name": "New jack swing",
   "family": "pop",
-  "lineage": "New Jack Smooth connects the rhythmic appeal of new jack swing with smooth R&B songs and slow jams. The name appears in remix and selector culture, drawing on the melodic production associated with Teddy Riley and Babyface.",
-  "recipe": "classic new jack smooth, functional Song, soul R&B branch. dj playback mixing unspecified. parlor.",
-  "recipe_chars": 98,
-  "score": 0.21,
+  "lineage": "Late-1980s-and-early-1990s R&B-and-hip-hop hybrid genre invented by producer Teddy Riley (born 1967), characterized by syncopated-swing-eighth-note hip-hop drum-programming, R&B vocal-delivery, and explicit hip-hop production-aesthetic-and-fashion integration. Bobby Brown's Don't Be Cruel (1988), Guy's self-titled debut (1988), Bell Biv DeVoe's Poison (1990), and the early Mary J. Blige and Jodeci catalogs constitute the canonical core. Direct precursor of broader 1990s R&B and hip-hop-soul.",
+  "recipe": "classic Los Angeles 1987-1989 new jack swing, functional Song, soul R&B branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, straight onset, narrative. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris honking saxophone. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 693,
+  "score": 408.95,
   "config": {
     "traditions": [
-      "new_jack_smooth"
+      "new_jack_swing",
+      "conscious_hip_hop",
+      "gangsta_rap"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "voice",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.21
+          "voice_register": 18.469999999999995,
+          "voice_quality": 34.275,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.163749999999999,
+          "voice_articulation": 30.405,
+          "voice_microtone": 24.114999999999995,
+          "voice_tradition": 19.480000000000004,
+          "voice_mechanism_compound": 1.625,
+          "voice_estill_quality": 12.194999999999997,
+          "voice_speech_song": 34.066250000000004,
+          "voice_ensemble_config": 24.439999999999998,
+          "voice_ornament_system": 6.1750000000000025,
+          "voice_pitch_organization": 4.88,
+          "voice_processing_chain": 26.264999999999997,
+          "voice_multitrack_stack": 11.877499999999998
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 17.493750000000002,
+          "drum_machine_808_context": 9.725,
+          "tr808_production_origin": 2.8600000000000003
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "saw_single",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 19.37875,
+          "oscillator": 0.495,
+          "filter_topology": 1.9300000000000002,
+          "envelope": 0.38999999999999996,
+          "modulation": 0.105
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 16.748749999999998,
+          "body_wood": 1.04,
+          "pickup_config": 0.45499999999999996,
+          "string_type": 14.644999999999998,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0.34124999999999994,
+          "bass_technique": 12.45,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_honking_attack",
+          "sax_size": "tenor_sax",
+          "sax_reed": "hard_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 11.274999999999999,
+          "sax_size": 11.469999999999997,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 5.249999999999998,
+          "sax_mouthpiece": 0.39,
+          "sax_technique": 11.274999999999999,
+          "sax_maker_school": 4.389999999999999
         }
       }
     ],
-    "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ]
-    },
-    "room": "parlor",
+    "room": "studio_la_rock_70s_90s",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
-      "amp": null,
-      "medium": null
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "digital_high"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "parlor",
+    "tuning": "twelve_tet",
+    "room": "studio_la_rock_70s_90s",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "la_bella_flats_motown",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_motown",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "gospel_pentecostal_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_belt",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_rb",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "electronic_technique": "electronic_pad_drone",
+      "wind_articulation": "wind_honking_attack",
+      "sax_size": "tenor_sax",
+      "sax_technique": "sax_honking_attack"
     },
-    "pin_parts": true
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_british_inline_80s",
+    "chain_amp": "amp_ampeg_b15_bass",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

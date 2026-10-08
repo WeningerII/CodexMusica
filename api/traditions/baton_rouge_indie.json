@@ -5,7 +5,7 @@
   "lineage": "Brother’s Bear — Say. Representative authored present-day studio arrangement for one documented release branch. Primary sources establish roles, locality and the category relationship. Guitar body and pickup design, bass construction, keyboard synthesis and drum-machine architecture, amp choice, room, chain, technique, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts or universal genre traits.",
   "recipe": "classic baton rouge indie, distorted Rock, alternative branch. dreadnought acoustic guitar, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, European maple bosnian source flamed figure modern setup longer neck violin orchestral, upright bass, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 407,
-  "score": 19.468,
+  "score": 19.06,
   "config": {
     "traditions": [
       "baton_rouge_indie"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.32699999999999996,
+          "voice_ensemble_config": 0.2955,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.222,
+          "voice_processing_chain": 0.1905,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -85,10 +85,10 @@
         },
         "scores": {
           "banjo_back": 0.5775,
-          "tone_ring": 0.168,
-          "banjo_head": 0.3045,
+          "tone_ring": 0.1365,
+          "banjo_head": 0.273,
           "banjo_pot": 0.105,
-          "banjo_play": 0.40950000000000003,
+          "banjo_play": 0.21,
           "banjo_rim_wood": -0.035,
           "banjo_neck_wood": -0.05,
           "banjo_strings": -0.05,
@@ -111,7 +111,7 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.9135000000000001,
+          "bowed_technique": 0.777,
           "orch_strings": 0,
           "orch_top_wood": -0.07,
           "orch_back_wood": 1.17,
@@ -120,7 +120,7 @@
           "orch_bow": 0,
           "orch_bow_stick": 0.6499999999999999,
           "orch_articulation": 0.504,
-          "orch_rosin": 0.8079999999999999
+          "orch_rosin": 0.862
         }
       },
       {

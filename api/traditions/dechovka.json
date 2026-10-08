@@ -3,47 +3,47 @@
   "name": "Dechovka",
   "family": "global",
   "lineage": "Czech brass band music consolidated in Bohemia in the second half of the 19th century out of military bands and the polka craze, with František Kmoch of Kolín as its 1880s codifier and Václav Bláha and Ladislav Kubeš carrying it through the state-label era — E-flat and B-flat clarinets and flugelhorns in thirds, tenor horn counter-melody, tuba and off-beat horns under polkas at 110-125 BPM, plus waltzes and marches, commonly with a sung couplet verse.",
-  "recipe": "classic Central European mid-1880s dechovka, drinking Song, European branch, European carnival processional, European wedding pasodoble brass band. balanced, breath veiled tone, slow rate, interlocked note trading. brass yellow brass flugelhorn, grenadilla African blackwood traditional clarinet, yellow brass canonical 70 30 bach stradivarius heavy one piece matched to monette horn ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor extra large cup tenor bottom heavy trombone, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, brass yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, bass drum. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 943,
-  "score": 249.725,
+  "recipe": "classic Central European mid-1880s dechovka, drinking Song, European branch, European carnival processional, European wedding pasodoble vlach music of eastern serbia. extended whistle, breath veiled tone, straight note core, interlocked note trading. brass yellow brass flugelhorn, clarinet, yellow brass canonical 70 30 bach stradivarius heavy one piece matched to monette horn ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, brass silver plated British brass band ceremonial besson sovereign canonical British brass band euphonium, bass drum. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 927,
+  "score": 201.387,
   "config": {
     "traditions": [
       "dechovka",
       "pasodoble",
-      "brass_band"
+      "serbian_vlach_timok_homolje"
     ],
     "instruments": [
       {
         "id": "flugelhorn",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_cool_lyrical",
           "flugel_use": "flugel_brass_band",
           "flugelhorn_pitch": "flugelhorn_bb",
           "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
           "flugelhorn_maker_school": "flugelhorn_kanstul"
         },
         "scores": {
-          "wind_articulation": 1.56,
-          "flugel_use": 5.005000000000001,
+          "wind_articulation": 0.25,
+          "flugel_use": 2.925,
           "flugelhorn_pitch": 0,
-          "flugelhorn_bell_metal": 3.7700000000000005,
-          "flugelhorn_maker_school": 0.195
+          "flugelhorn_bell_metal": 2.73,
+          "flugelhorn_maker_school": 0.315
         }
       },
       {
         "id": "clarinet",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "clarinet_body": "grenadilla_clarinet",
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "ebonite_clarinet",
           "clarinet_size": "e_flat_clarinet",
-          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 1.56,
-          "clarinet_body": 1.2999999999999998,
-          "clarinet_size": 0.845,
-          "clarinet_reed": 0.65,
+          "wind_articulation": 0.2,
+          "clarinet_body": 0.06499999999999999,
+          "clarinet_size": 0.195,
+          "clarinet_reed": 0.105,
           "clarinet_articulation": 0.15
         }
       },
@@ -51,21 +51,21 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "trumpet_b_flat",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
-          "brass_mute": "straight_mute",
+          "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 2.5350000000000006,
-          "brass_size": 0.65,
-          "trumpet_mouthpiece": 4.16,
-          "brass_mute": 1.49,
-          "trumpet_technique": 2.5350000000000006,
-          "trumpet_bell_metal": 3.7700000000000005,
-          "trumpet_maker_school": 0.195
+          "wind_articulation": 1.6899999999999997,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 1.625,
+          "brass_mute": 0.345,
+          "trumpet_technique": 1.6899999999999997,
+          "trumpet_bell_metal": 2.73,
+          "trumpet_maker_school": 0.6
         }
       },
       {
@@ -73,26 +73,26 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "bass_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_4g",
+          "trombone_mouthpiece": "bach_trombone_mp_5g",
           "trombone_mute": "straight_mute_trb",
-          "trombone_technique": "big_band_punch",
+          "trombone_technique": "tailgate_slide",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 2.5350000000000006,
+          "wind_articulation": 1.6899999999999997,
           "trombone_type": 0,
-          "trombone_mouthpiece": 3.59,
-          "trombone_mute": 0.845,
-          "trombone_technique": 0.39,
-          "trombone_bell_metal": 3.7700000000000005,
-          "trombone_maker_school": 2.73
+          "trombone_mouthpiece": 1.34,
+          "trombone_mute": 0.195,
+          "trombone_technique": 0.24,
+          "trombone_bell_metal": 2.73,
+          "trombone_maker_school": 1.69
         }
       },
       {
         "id": "tuba",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_classical_legato",
           "tuba_pitch": "tuba_eb",
           "tuba_context": "tuba_brass_band",
           "tuba_bell_metal": "tuba_yellow_brass",
@@ -100,29 +100,29 @@
           "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": 1.56,
-          "tuba_pitch": 4.27,
-          "tuba_context": 6.11,
-          "tuba_bell_metal": 3.7700000000000005,
+          "wind_articulation": -0.05,
+          "tuba_pitch": 3.7250000000000005,
+          "tuba_context": 3.575,
+          "tuba_bell_metal": 2.73,
           "tuba_valve_system": 0.32999999999999996,
-          "tuba_maker_school": 6.875
+          "tuba_maker_school": 4.8100000000000005
         }
       },
       {
         "id": "euphonium",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_classical_legato",
           "euph_use": "euph_brass_band",
           "euphonium_pitch": "euphonium_bb",
-          "euphonium_bell_metal": "euphonium_yellow_brass",
+          "euphonium_bell_metal": "euphonium_silver_plated",
           "euphonium_maker_school": "euphonium_besson_sovereign"
         },
         "scores": {
-          "wind_articulation": 1.56,
-          "euph_use": 4.01,
-          "euphonium_pitch": 6.59,
-          "euphonium_bell_metal": 7.085,
-          "euphonium_maker_school": 6.875
+          "wind_articulation": -0.05,
+          "euph_use": 2.925,
+          "euphonium_pitch": 4.8100000000000005,
+          "euphonium_bell_metal": 5.005,
+          "euphonium_maker_school": 4.8100000000000005
         }
       },
       {
@@ -139,11 +139,11 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "mix_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -151,28 +151,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.65,
-          "voice_quality": 13.129999999999992,
+          "voice_register": 0.7149999999999999,
+          "voice_quality": 15.339999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.925,
-          "voice_articulation": 25.805,
-          "voice_microtone": 31.2,
-          "voice_tradition": 9.262499999999998,
-          "voice_mechanism_compound": 5.069999999999999,
-          "voice_estill_quality": 5.4275,
-          "voice_speech_song": 29.315,
-          "voice_ensemble_config": 25.740000000000002,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 5.265000000000001,
-          "voice_processing_chain": 2.92,
-          "voice_multitrack_stack": 1.8849999999999996
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 24.44,
+          "voice_microtone": 28.794999999999998,
+          "voice_tradition": 6.37,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 4.7775,
+          "voice_speech_song": 28.145000000000003,
+          "voice_ensemble_config": 23.919999999999998,
+          "voice_ornament_system": 1.295,
+          "voice_pitch_organization": 4.42,
+          "voice_processing_chain": 2.9899999999999998,
+          "voice_multitrack_stack": 1.6899999999999997
         }
       }
     ],

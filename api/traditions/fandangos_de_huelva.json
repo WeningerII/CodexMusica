@@ -5,7 +5,7 @@
   "lineage": "Fandangos de Huelva are the large family of local fandangos of Huelva province, sung and danced at village fiestas in the Andévalo and the Sierra and named after their towns — Alosno, Calañas, Almonaster and others — along with the choqueros of the city of Huelva. Singers such as Paco Toronjo of Alosno and Paco Isidro carried them onto commercial records, where they became one of the most widely recorded fandango families in flamenco.",
   "recipe": "classic Iberian early-1950s fandangos de huelva, functional Song, iberian branch. solo with instrumental accompaniment. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, hand clap. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 380,
-  "score": 7.332,
+  "score": 7.227,
   "config": {
     "traditions": [
       "fandangos_de_huelva"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1575,
-          "voice_multitrack_stack": 0.378,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },

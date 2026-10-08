@@ -5,7 +5,7 @@
   "lineage": "Modern Atlanta trap subgenre developed in 2010s as evolution of classic Atlanta trap, characterized by melodic-singing-rapping hybrid vocal delivery, more elaborate keyboard-and-string production, and Auto-Tune integration. Future's 2014-onward catalog inaugurated the canonical modern trap sound; Migos, Young Thug, 21 Savage, Lil Baby, and Gunna anchor the canonical contemporary roster. Producer Metro Boomin defines the dominant late-2010s production aesthetic.",
   "recipe": "classic modern atlanta trap modern, mc Rhythm, southern branch, soul R&B functional song, house electronic dance doo-wop diva house. thick, breath veiled tone, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 465,
-  "score": 230.137,
+  "score": 230.542,
   "config": {
     "traditions": [
       "atlanta_trap_modern",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 16.325,
+          "voice_register": 16.279999999999998,
           "voice_quality": 19.825000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 9.614999999999998,
           "voice_articulation": 15.534999999999995,
           "voice_microtone": 14.75499999999999,
-          "voice_tradition": 16.489999999999995,
+          "voice_tradition": 16.249999999999996,
           "voice_mechanism_compound": 3.0549999999999997,
-          "voice_estill_quality": 11.569999999999999,
+          "voice_estill_quality": 11.764999999999997,
           "voice_speech_song": 18.13499999999999,
           "voice_ensemble_config": 18.459999999999994,
           "voice_ornament_system": 2.9900000000000015,
           "voice_pitch_organization": 4.225,
-          "voice_processing_chain": 10.805,
-          "voice_multitrack_stack": 17.419999999999995
+          "voice_processing_chain": 10.76,
+          "voice_multitrack_stack": 17.374999999999996
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.8000000000000003,
-          "drum_machine_808_context": 5.795,
+          "tr808_voice": 3.995,
+          "drum_machine_808_context": 5.99,
           "tr808_production_origin": 4.35
         }
       },
@@ -75,7 +75,7 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 15.999999999999998,
+          "electronic_technique": 16.195,
           "oscillator": 1.885,
           "filter_topology": 2.6649999999999996,
           "envelope": 0.845,

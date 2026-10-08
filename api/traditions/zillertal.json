@@ -3,9 +3,9 @@
   "name": "Zillertal",
   "family": "vernacular",
   "lineage": "Zillertal music connects the Tyrolean valley’s folk traditions with contemporary Alpine folk-pop. Dance tunes, communal singing and accordion-led ensembles remain prominent in its regional identity.",
-  "recipe": "classic zillertal, functional Song. small note groups per syllable, group vocals. dance driving straight steirische harmonika, dreadnought acoustic guitar, electric bass, electronic keyboard unspecified. live tracking.",
-  "recipe_chars": 218,
-  "score": 19.694,
+  "recipe": "classic zillertal, functional Song. small note groups per syllable. dance driving straight steirische harmonika, dreadnought acoustic guitar, electric bass, electronic keyboard unspecified. live tracking.",
+  "recipe_chars": 204,
+  "score": 19.284,
   "config": {
     "traditions": [
       "zillertal"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.3,
-          "voice_ensemble_config": 0.546,
+          "voice_ensemble_config": 0.40950000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -62,8 +62,8 @@
         },
         "scores": {
           "free_reed_technique": 4.9,
-          "steirische_harmonika_form": 4.3055,
-          "steirische_harmonika_repertoire": 5.9055,
+          "steirische_harmonika_form": 4.1690000000000005,
+          "steirische_harmonika_repertoire": 5.769,
           "steirische_harmonika_bass_reeds": 0
         }
       },

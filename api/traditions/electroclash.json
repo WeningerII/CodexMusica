@@ -3,14 +3,14 @@
   "name": "Electroclash",
   "family": "electronic",
   "lineage": "New York, Berlin and Paris scene of 1998-2004, named by promoter Larry Tee and defined by Fischerspooner, Miss Kittin & The Hacker, Peaches and Ladytron, pairing stiff 808/909 electro beats and cheap analog monosynth basslines at 120-130 BPM with deadpan spoken-sung vocals, heavy new-wave pastiche and vocoder, deliberately cold and campy.",
-  "recipe": "classic mid-2000s electroclash, electronic Dance, continental branch, pop rock synthpop, techno electronic dance, punk distorted rock synthpunk dance-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. singing lead analog mono singing lead analog poly synth, behringer rd 8 modern clone analog circuit reproduction TR-808, TR-909, vocoder, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation roasted maple single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 664,
-  "score": 191.18,
+  "recipe": "classic mid-2000s electroclash, electronic Dance, continental branch, pop rock synthpop, techno electronic dance, punk distorted rock new romanticism shiver pop. thick, breath veiled tone, breath pulsed, interlocked note trading. singing lead analog mono singing lead analog poly synth, behringer rd 8 modern clone analog circuit reproduction TR-808, TR-909, vocoder, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 662,
+  "score": 239.025,
   "config": {
     "traditions": [
       "electroclash",
-      "synthpunk",
-      "dance_punk"
+      "new_romantic",
+      "shiver_pop"
     ],
     "instruments": [
       {
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.539999999999994,
-          "voice_quality": 9.295000000000002,
+          "voice_register": 23.18999999999999,
+          "voice_quality": 6.890000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
-          "voice_articulation": 20.149999999999995,
-          "voice_microtone": 19.694999999999993,
-          "voice_tradition": 3.5424999999999995,
-          "voice_mechanism_compound": 3.120000000000001,
-          "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 20.799999999999997,
-          "voice_ensemble_config": 19.629999999999995,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 0.39,
-          "voice_processing_chain": 12.31,
-          "voice_multitrack_stack": 5.850000000000001
+          "voice_vibrato": 2.845,
+          "voice_articulation": 18.004999999999995,
+          "voice_microtone": 23.049999999999997,
+          "voice_tradition": 17.712499999999995,
+          "voice_mechanism_compound": 3.1849999999999996,
+          "voice_estill_quality": 2.99,
+          "voice_speech_song": 21.96999999999999,
+          "voice_ensemble_config": 19.434999999999995,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 1.1699999999999995,
+          "voice_processing_chain": 11.385,
+          "voice_multitrack_stack": 4.55
         }
       },
       {
@@ -59,14 +59,14 @@
           "mono_oscillator": "mono_voltage_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_roland_kakehashi"
+          "mono_maker_lineage": "mono_korg_kato"
         },
         "scores": {
-          "electronic_technique": 3.3474999999999997,
-          "mono_oscillator": 0.39000000000000007,
-          "mono_filter": 1.04,
-          "mono_archetypes": 0.93,
-          "mono_maker_lineage": -0.9800000000000002
+          "electronic_technique": 15.509999999999996,
+          "mono_oscillator": 1.1900000000000002,
+          "mono_filter": 1.8850000000000002,
+          "mono_archetypes": 1.69,
+          "mono_maker_lineage": -1.435
         }
       },
       {
@@ -78,10 +78,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 3.3474999999999997,
-          "poly_archetypes": 4.225,
-          "poly_voices": 0.39000000000000007,
-          "poly_maker_lineage": -0.28
+          "electronic_technique": 15.509999999999996,
+          "poly_archetypes": 5.135,
+          "poly_voices": 1.1900000000000002,
+          "poly_maker_lineage": -0.9800000000000001
         }
       },
       {
@@ -92,9 +92,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0.78,
-          "drum_machine_808_context": 1.7399999999999998,
-          "tr808_production_origin": 1.04
+          "tr808_voice": 1.6249999999999998,
+          "drum_machine_808_context": 2.39,
+          "tr808_production_origin": 1.8850000000000002
         }
       },
       {
@@ -105,8 +105,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 2.5,
-          "drum_machine_909_context": 0.78,
+          "tr909_voice": 0.75,
+          "drum_machine_909_context": 1.595,
           "tr909_production_origin": 0.375
         }
       },
@@ -118,41 +118,41 @@
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
-          "voc_band_count": 0.28500000000000003,
-          "voc_carrier": 0.195,
+          "voc_band_count": 0.845,
+          "voc_carrier": 0.845,
           "voc_modulator": 0.15
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_palm_muted_chug",
+          "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
-          "neck_wood": "roasted_maple",
-          "fretboard": "ebony_fb",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "maple_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
+          "finish": "poly",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 10.745,
-          "amp_make": 17.267999999999997,
+          "electric_technique": 14.094999999999999,
+          "amp_make": 8.7425,
           "body_wood": 0.24,
-          "neck_wood": 1.04,
-          "fretboard": 0.5,
-          "pickup_magnet": 0.15,
-          "string_material": 0.15,
+          "neck_wood": 0.24,
+          "fretboard": 0.24,
+          "pickup_magnet": 0.65,
+          "string_material": 0,
           "string_gauge": 1.3,
-          "bridge": 1.7999999999999998,
+          "bridge": 1.15,
           "scale_length": 0.43499999999999994,
-          "finish": 0.195,
-          "string_tuning": 4.42,
+          "finish": 0.15,
+          "string_tuning": 5.135,
           "single_coil_pickup_construction": 0
         }
       }

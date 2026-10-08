@@ -5,7 +5,7 @@
   "lineage": "Music of the Qashqai, a Turkic-speaking nomadic tribal confederation that migrates between summer and winter pastures in Fars province in southern Iran. Wedding and festival music is played on shawm and naqqareh drum (sāz o naqqāreh), with tunes for the women's handkerchief dance (dastmal bazi) and the men's stick dance, while ashiq bards sing lyric and epic songs in Qashqai Turkic. The sorna card stands in for the Qashqai shawm and the generic drum card for the naqqāreh drum that partners it.",
   "recipe": "classic modern qashqai music, wedding, middle eastern branch. solo with instrumental accompaniment. sorna, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 239,
-  "score": 13.134,
+  "score": 13.764,
   "config": {
     "traditions": [
       "qashqai_music"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.105,
           "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
@@ -70,8 +70,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 3.633,
-          "acoustic_membrane_drum_gesture": 3.633
+          "acoustic_membrane_drum_form": 3.9479999999999995,
+          "acoustic_membrane_drum_gesture": 3.843
         }
       }
     ],

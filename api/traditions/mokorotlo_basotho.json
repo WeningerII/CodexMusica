@@ -3,9 +3,9 @@
   "name": "Mokorotlo (Basotho men's war song)",
   "family": "global",
   "lineage": "Mokorotlo is a group song of Basotho men, described as a war or riding song and sung on ceremonial and national occasions, with individual men stepping out to declaim lithoko praise poetry over the song while the singers stamp in a slow, stately dance. Hugh Tracey recorded unaccompanied mokorotlo with lithoko by groups of Sotho men for the International Library of African Music.",
-  "recipe": "classic modern mokorotlo, praise Song, sub saharan African branch. group vocals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 160,
-  "score": 1.623,
+  "recipe": "classic modern mokorotlo, praise Song, sub saharan African branch. group vocals, live take. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 171,
+  "score": 1.728,
   "config": {
     "traditions": [
       "mokorotlo_basotho"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.4724999999999999,
+          "voice_multitrack_stack": 0.5774999999999999,
           "voice_tessitura": 0
         }
       }

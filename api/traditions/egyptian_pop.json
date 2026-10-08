@@ -3,14 +3,14 @@
   "name": "Egyptian Pop",
   "family": "pop",
   "lineage": "Cairo's al-jeel ('generation') pop, formed circa 1980 around Hamid El Shaeri and Egyptian-Libyan cassette-kiosk production, layering Casio/Roland preset keyboards and drum machines over maqsum and baladi patterns at 110-125 BPM with darbuka, riq, accordion and mizmar interjections and a nasal, forward-placed street vocal in colloquial Egyptian Arabic.",
-  "recipe": "classic North African early-1980s egyptian pop, functional Song, mid east n African pop branch, middle eastern wedding, med east poetic ballad poetry rumeli türküleri bandari. thick, breath veiled tone, slow rate, interlocked note trading. spun aluminum Egyptian sombaty fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive riq, weltmeister east German mid tier vintage volk accordion, apricot canonical Egyptian mizmar, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean brass wound bass oud, mahogany sub heavy electric bass, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, drum machine analog. stone plaster medina room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe": "classic North African early-1980s egyptian pop, functional Song, mid east n African pop branch, middle eastern wedding, med east poetic ballad poetry bandari rumeli türküleri. thick, breath veiled tone, slow rate, interlocked note trading. spun aluminum Egyptian sombaty fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive riq, weltmeister east German mid tier vintage volk accordion, apricot canonical Egyptian mizmar, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean brass wound bass oud, mahogany sub heavy electric bass, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, drum machine analog. stone plaster medina room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 886,
-  "score": 268.303,
+  "score": 267.357,
   "config": {
     "traditions": [
       "egyptian_pop",
-      "rumeli_turkuleri",
-      "bandari_hormozgan"
+      "bandari_hormozgan",
+      "rumeli_turkuleri"
     ],
     "instruments": [
       {
@@ -40,16 +40,16 @@
           "voice_effort": 0,
           "voice_vibrato": 1.885,
           "voice_articulation": 19.694999999999997,
-          "voice_microtone": 40.0075,
-          "voice_tradition": 15.02,
+          "voice_microtone": 40.00749999999999,
+          "voice_tradition": 14.825,
           "voice_mechanism_compound": 3.9,
           "voice_estill_quality": 3.2500000000000004,
           "voice_speech_song": 24.049999999999997,
-          "voice_ensemble_config": 20.409999999999997,
+          "voice_ensemble_config": 20.409999999999993,
           "voice_ornament_system": 6.245,
           "voice_pitch_organization": 6.53,
           "voice_processing_chain": 3.7750000000000004,
-          "voice_multitrack_stack": 2.08
+          "voice_multitrack_stack": 2.035
         }
       },
       {
@@ -63,8 +63,8 @@
         "scores": {
           "percussion_technique": 1.56,
           "darbuka_material": 3.48,
-          "darbuka_skin": 5.02,
-          "darbuka_regional_style": 9.06
+          "darbuka_skin": 4.63,
+          "darbuka_regional_style": 8.955
         }
       },
       {
@@ -78,7 +78,7 @@
         },
         "scores": {
           "riq_size": 0.8849999999999999,
-          "riq_context": 0.605,
+          "riq_context": 0.5,
           "riq_shell_wood": 3.625,
           "riq_head_material": 3.48,
           "riq_jingles": 0.39
@@ -96,13 +96,13 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 1.4949999999999999,
+          "free_reed_technique": 1.45,
           "accordion_reed_material": 1.755,
           "musette_offset": 0.545,
           "reed_config": 1.0499999999999998,
           "bellows": 0.5,
           "voicing_chamber": 0.45499999999999996,
-          "accordion_maker_school": 5.58
+          "accordion_maker_school": 5.4750000000000005
         }
       },
       {
@@ -151,7 +151,7 @@
           "pickup_config": "soapbar",
           "string_type": "half_round",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "sub_bass_synth_blend",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -175,7 +175,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 13.815,
+          "electronic_technique": 13.86,
           "poly_archetypes": 0.045,
           "poly_voices": 0.045,
           "poly_maker_lineage": 3.575

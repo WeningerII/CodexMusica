@@ -5,7 +5,7 @@
   "lineage": "Music and dance of the Songhai and Tuareg communities of the Gao region of eastern Mali, played at weddings and celebrations, in which a singer is accompanied by the small tehardent lute, often amplified, and calabash percussion while dancers move with slow, stylised arm and shoulder gestures. Recordings by Gao groups such as Super Onze and reissued Gao cassettes have carried it beyond the region.",
   "recipe": "classic modern takamba, drone Modal, string branch. solo with instrumental accompaniment. tehardent, mid strong calabash inverted calabash. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 219,
-  "score": 5.563,
+  "score": 5.731,
   "config": {
     "traditions": [
       "takamba_gao"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.189,
+          "voice_processing_chain": 0.2205,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -60,7 +60,7 @@
         },
         "scores": {
           "tehardent_body": 0.0315,
-          "tehardent_style": 0.273
+          "tehardent_style": 0.378
         }
       },
       {
@@ -71,7 +71,7 @@
         },
         "scores": {
           "inverted_calabash_size": 2.4995,
-          "inverted_calabash_technique": 0.6405000000000001
+          "inverted_calabash_technique": 0.672
         }
       }
     ],

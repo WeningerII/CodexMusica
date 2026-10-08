@@ -3,9 +3,9 @@
   "name": "Mestvireoba (Georgian gudastviri bagpipe bards)",
   "family": "global",
   "lineage": "Tradition of the mestvire, itinerant Georgian bard-musicians who sang humorous, satirical and topical verses to the gudastviri, a bagpipe with a skin bag and a double chanter, notably in Racha and Kartli; in Adjara the related bagpipe is the chiboni, and the chiboni card, set to its gudastviri form, stands for the gudastviri.",
-  "recipe": "classic modern mestvireoba, drone Modal, wind pipe branch. solo with instrumental accompaniment, single lead single track no stacking. chiboni. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 223,
-  "score": 3.028,
+  "recipe": "classic modern mestvireoba, drone Modal, wind pipe branch. solo with instrumental accompaniment. chiboni. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 185,
+  "score": 2.466,
   "config": {
     "traditions": [
       "georgian_gudastviri_mestvire"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.7350000000000001,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "chiboni_form": 0.363,
-          "chiboni_style": 0.39
+          "chiboni_style": 0.363
         }
       }
     ],

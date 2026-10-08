@@ -5,7 +5,7 @@
   "lineage": "The corridinho is the fast couple dance of the Algarve in southern Portugal, in a lively duple metre, danced by couples in quick turns across the floor. It is played above all on the accordion, which the Algarve has cultivated through generations of local accordionists, and is accompanied in ranchos folclóricos by triangle and bass drum and sometimes sung.",
   "recipe": "classic modern corridinho, functional Song, iberian branch. accordion, concert triangle, bass drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 179,
-  "score": 0.491,
+  "score": 0.417,
   "config": {
     "traditions": [
       "corridinho_algarvio"
@@ -24,7 +24,7 @@
         },
         "scores": {
           "free_reed_technique": 0.2,
-          "accordion_reed_material": 0,
+          "accordion_reed_material": 0.0315,
           "musette_offset": 0.1365,
           "reed_config": 0,
           "bellows": 0.1995,
@@ -48,7 +48,7 @@
           "bass_drum_beater": "bass_drum_felt_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.105,
+          "bass_drum_size": 0,
           "bass_drum_beater": 0
         }
       }

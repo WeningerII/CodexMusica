@@ -3,9 +3,9 @@
   "name": "Gondze (Dagbamba one-string fiddle music)",
   "family": "global",
   "lineage": "Fiddle music of the Dagbamba (Dagomba) of northern Ghana, centred on Yendi and Tamale, played on the gondze (gonje), a one-string bowed spike fiddle of the Sahelian goje family. Groups of fiddlers perform for chiefs and at social occasions, singing over the fiddles with gourd-rattle accompaniment; a generic shaker card stands in for the rattles.",
-  "recipe": "classic modern gondze, praise Song, sub saharan African branch. melodic bowed song accompaniment gonje, shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 210,
-  "score": 6.141,
+  "recipe": "classic modern gondze, praise Song, sub saharan African branch. live take. melodic bowed song accompaniment gonje, shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 221,
+  "score": 6.288,
   "config": {
     "traditions": [
       "dagbamba_gondze"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.4724999999999999,
+          "voice_multitrack_stack": 0.5774999999999999,
           "voice_tessitura": 0
         }
       },
@@ -64,7 +64,7 @@
           "bowed_technique": 4.9399999999999995,
           "gonje_form": 0.39,
           "gonje_string": 0,
-          "gonje_role": 0.2625
+          "gonje_role": 0.3045
         }
       },
       {

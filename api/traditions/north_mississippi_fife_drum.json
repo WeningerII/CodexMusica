@@ -5,7 +5,7 @@
   "lineage": "African American fife-and-drum band music of the north Mississippi hill country around Como, Senatobia and Gravel Springs in Panola and Tate counties, played at summer picnics and dances. Alan Lomax recorded Sid Hemphill's band in 1942, and Napoleon Strickland and Othar Turner's Rising Star Fife and Drum Band carried it to the end of the 20th century, continued by Turner's granddaughter Sharde Thomas. A homemade cane fife plays short, blues-inflected riffs and hollered phrases over two snare drums and a bass drum locked in dense polyrhythmic patterns, while dancers press close around the drummers.",
   "recipe": "classic early-1940s north mississippi fife-and-drum, functional Song, blues acoustic branch, American marching groove percussion. unprocessed natural acoustic, single lead single track no stacking. blues inflected fife, snare bass drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 316,
-  "score": 17.065,
+  "score": 18.42,
   "config": {
     "traditions": [
       "north_mississippi_fife_drum"
@@ -20,10 +20,10 @@
           "fife_role": "fife_role_blues_lead"
         },
         "scores": {
-          "fife_tradition": 3.5050000000000003,
+          "fife_tradition": 4.040500000000001,
           "fife_build": 5.7,
           "fife_pitch": 2.2399999999999998,
-          "fife_role": 3.5500000000000003
+          "fife_role": 4.085500000000001
         }
       },
       {
@@ -79,11 +79,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.045,
+          "voice_ensemble_config": 0.0765,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.5,
-          "voice_multitrack_stack": 0.6750000000000002,
+          "voice_processing_chain": 1.689,
+          "voice_multitrack_stack": 0.7380000000000002,
           "voice_tessitura": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Bahamian folk includes varied song, instrumental and community music traditions. Guitar-centred performances form one distinctive strand alongside other vocal and ensemble practices.",
   "recipe": "classic bahamian folk, functional Song, tropical song branch. solo with instrumental accompaniment. fingerpicked dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 240,
-  "score": 9.309,
+  "score": 9.333,
   "config": {
     "traditions": [
       "bahamian_folk"
@@ -64,9 +64,9 @@
         "scores": {
           "acoustic_technique": 5.1000000000000005,
           "string_tuning": 0,
-          "top_wood": 0.483,
+          "top_wood": 0.5145,
           "back_sides": 0.3045,
-          "string_acoustic": 0.7635
+          "string_acoustic": 0.7559999999999999
         }
       }
     ],

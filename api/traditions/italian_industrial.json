@@ -5,7 +5,7 @@
   "lineage": "Italian industrial and experimental electronics — tape-era experimentation, noise and electronic rhythm.",
   "recipe": "classic italian industrial, experimental Elec, industrial noise branch. analog synth, drum machine analog, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 214,
-  "score": 25.91,
+  "score": 25.71,
   "config": {
     "traditions": [
       "italian_industrial"
@@ -22,8 +22,8 @@
         },
         "scores": {
           "electronic_technique": 0.325,
-          "oscillator": 0.0315,
-          "filter_topology": 0.9870000000000001,
+          "oscillator": 0.1365,
+          "filter_topology": 0.8505,
           "envelope": 0,
           "modulation": 0
         }
@@ -37,7 +37,7 @@
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 0.063,
+          "kick_voice": 0.0315,
           "snare_voice": 0,
           "hat_voice": 0.1995,
           "shuffle_quantize": 0
@@ -55,7 +55,7 @@
         "scores": {
           "electronic_technique": 0.325,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.5985,
+          "sampler_bit_depth": 0.462,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 23.5
         }

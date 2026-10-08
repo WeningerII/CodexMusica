@@ -5,7 +5,7 @@
   "lineage": "French worship connects French-language Christian devotional songwriting with congregational and recorded practice. Solo artists and groups circulate songs through churches, concerts and media.",
   "recipe": "classic french worship, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. upright piano. treated studio.",
   "recipe_chars": 136,
-  "score": 3.889,
+  "score": 4.041,
   "config": {
     "traditions": [
       "french_worship"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.146,
+          "voice_ensemble_config": 3.2824999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -60,7 +60,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "upright_use": 0,
           "upright_piano_size": 0.49350000000000005
         }

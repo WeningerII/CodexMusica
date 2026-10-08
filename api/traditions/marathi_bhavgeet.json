@@ -5,7 +5,7 @@
   "lineage": "Bhavgeet is Marathi light song that sets modern lyric poetry, by poets such as Mangesh Padgaonkar and Shanta Shelke, to simple, raga-tinged melodies. It took shape on gramophone records in the 1930s and spread through All India Radio, shaped by composer-singers such as Sudhir Phadke, composer of the radio song-cycle Geet Ramayan, and Shrinivas Khale, and by singers such as Arun Date.",
   "recipe": "classic mid-1930s bhavgeet, functional Song, south Asian pop branch. solo with instrumental accompaniment. harmonium indian, tabla, low overtone rich assam bamboo bambusa tulda canonical Hindustani bansuri. blanket damped 1925-1945 commercial-major electrical era office. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 338,
-  "score": 10.932,
+  "score": 9.977,
   "config": {
     "traditions": [
       "marathi_bhavgeet"
@@ -63,8 +63,8 @@
         "scores": {
           "free_reed_technique": -0.10500000000000001,
           "harmonium_action": 0.39,
-          "harmonium_voicing": 0.546,
-          "harmonium_use": 1.1864999999999999
+          "harmonium_voicing": 0.273,
+          "harmonium_use": 0.7769999999999999
         }
       },
       {
@@ -92,9 +92,9 @@
         "scores": {
           "wind_articulation": -0.1,
           "bansuri_length": 1.69,
-          "bansuri_ornament": 3.586,
-          "bansuri_body_material": 1.4529999999999998,
-          "bansuri_lineage": 0.168
+          "bansuri_ornament": 3.313,
+          "bansuri_body_material": 1.3165,
+          "bansuri_lineage": 0.3045
         }
       }
     ],

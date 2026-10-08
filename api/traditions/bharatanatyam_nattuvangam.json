@@ -5,7 +5,7 @@
   "lineage": "Bharatanatyam, the classical dance of Tamil Nadu that grew out of sadir, the dance of temple and court dancers, is accompanied by a Carnatic ensemble led by the nattuvanar, who recites rhythmic syllables (sollukattu) and keeps time on small cymbals (nattuvangam; the manjira card stands in for them), with a vocalist, mridangam, violin and flute. The margam, the concert order running from alarippu and jatiswaram through varnam and padam to tillana, was codified by the Tanjore Quartet, four brothers at the Thanjavur court in the early nineteenth century.",
   "recipe": "classic South Asian modern bharatanatyam music, art Music, south Asian branch. carnatic, solo with instrumental accompaniment, carnatic gamaka kampita nokku jaaru sphurita, single lead single track no stacking. jackwood barrel canonical carnatic thanjavur lineage mridangam, manjira, lalgudi lineage carnatic violin venu carnatic. chennai madras music academy sabha. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 429,
-  "score": 49.358,
+  "score": 48.697,
   "config": {
     "traditions": [
       "bharatanatyam_nattuvangam"
@@ -45,10 +45,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 11.3085,
+          "voice_ornament_system": 10.7625,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.5775,
+          "voice_multitrack_stack": 0.609,
           "voice_tessitura": 0
         }
       },
@@ -65,8 +65,8 @@
           "mridangam_heads": 2.6,
           "mridangam_use": 0,
           "mridangam_shell_wood": 1.69,
-          "mridangam_heads_material": 0.4725,
-          "mridangam_lineage": 1.168
+          "mridangam_heads_material": 0.36749999999999994,
+          "mridangam_lineage": 1.1995
         }
       },
       {
@@ -92,7 +92,7 @@
           "violin_carnatic_lineage": "violin_carnatic_lalgudi"
         },
         "scores": {
-          "bowed_technique": 0.8085000000000001,
+          "bowed_technique": 0.735,
           "violin_carnatic_tuning": 9.23,
           "violin_carnatic_posture": 1.3,
           "violin_carnatic_strings": 0,

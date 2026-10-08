@@ -5,7 +5,7 @@
   "lineage": "Punjabi lo-fi connects Punjabi popular-song repertoire with online remix and bedroom-production communities. Producers such as MixSingh and Swattrex circulate new songs alongside softened, slowed and reverberant versions of existing recordings. The discovery field also overlaps bilingual South Asian pop and international lo-fi remix culture.",
   "recipe": "classic punjabi lo-fi, experimental Elec, lofi branch. software lofi reworking. treated studio. true-stereo reverb.",
   "recipe_chars": 115,
-  "score": 0.678,
+  "score": 0.573,
   "config": {
     "traditions": [
       "punjabi_lo_fi"
@@ -30,7 +30,7 @@
           "software_lofi_reworking_input": 0,
           "software_lofi_reworking_tempo": 0.1365,
           "software_lofi_reworking_pitch": 0,
-          "software_lofi_reworking_distortion": 0.2415,
+          "software_lofi_reworking_distortion": 0.1365,
           "software_lofi_reworking_threshold": 0,
           "software_lofi_reworking_hardness": 0,
           "software_lofi_reworking_makeup": 0,

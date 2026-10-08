@@ -5,7 +5,7 @@
   "lineage": "Grew from ethnographic cylinder collecting around 1890 into an autonomous listening practice after R. Murray Schafer's World Soundscape Project in Vancouver in the early 1970s, extended by Chris Watson, Annea Lockwood, Hildegard Westerkamp and Francisco Lopez — unaccompanied environmental sound captured with stereo or hydrophone arrays to portable recorders, presented with minimal edit, no metre and no pitch centre, structured only by the duration and dynamics of the place itself.",
   "recipe": "classic 1970-1973 field recording, field Work, musique concrete experimental electric, ambient experimental electric isolationism lowercase. extended whistle, breath veiled tone, straight note core, interlocked note trading. prepared piano, glitched textural granular synth, bass drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 365,
-  "score": 145.589,
+  "score": 145.699,
   "config": {
     "traditions": [
       "field_recording",
@@ -41,14 +41,14 @@
           "voice_vibrato": 2.195,
           "voice_articulation": 14.494999999999994,
           "voice_microtone": 14.29999999999999,
-          "voice_tradition": 15.153270833333336,
+          "voice_tradition": 15.263520833333336,
           "voice_mechanism_compound": 4.29,
           "voice_estill_quality": 4.095000000000001,
           "voice_speech_song": 15.794999999999993,
           "voice_ensemble_config": 15.274999999999993,
           "voice_ornament_system": 4.095,
           "voice_pitch_organization": 3.835000000000001,
-          "voice_processing_chain": 8.856875,
+          "voice_processing_chain": 9.156125,
           "voice_multitrack_stack": 6.760000000000002
         }
       },
@@ -62,8 +62,8 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "prepared_piano_object": 0.29174999999999995,
-          "prepared_piano_zone": 0.3075,
+          "prepared_piano_object": 0.15,
+          "prepared_piano_zone": 0.15,
           "prepared_piano_instrument": 1.8850000000000002
         }
       },

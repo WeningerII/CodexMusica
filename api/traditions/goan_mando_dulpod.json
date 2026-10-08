@@ -5,7 +5,7 @@
   "lineage": "Mando is the slow, sentimental Konkani song-and-dance of Goan Catholic society, shaped in the nineteenth and early twentieth centuries from Portuguese-era salon music and local melody on themes of love, separation and social events; dulpod are the quick, light songs of everyday life that follow it. They are sung, often by mixed groups, to violin, guitar and the ghumot clay-pot drum, and are showcased at the Goa Mando Festival.",
   "recipe": "classic modern mando and dulpod, functional Song, south Asian pop branch. melodic bowed song accompaniment fiddle, strummed open chord ringing overtones parlor acoustic guitar, ghumot. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 263,
-  "score": 10.571,
+  "score": 10.419,
   "config": {
     "traditions": [
       "goan_mando_dulpod"
@@ -67,7 +67,7 @@
           "fiddle_strings": 0.0315,
           "fiddle_bow": 0.0315,
           "fiddle_mute": 0.0315,
-          "fiddle_articulation": 1.0499999999999998,
+          "fiddle_articulation": 0.7769999999999999,
           "fiddle_string_configuration": 0
         }
       },
@@ -81,7 +81,7 @@
           "string_acoustic_parlor": "dutar_strings_unspecified"
         },
         "scores": {
-          "acoustic_technique": 4,
+          "acoustic_technique": 4.0315,
           "string_tuning": 0,
           "top_wood_parlor": 0,
           "back_sides_parlor": 0,
@@ -96,7 +96,7 @@
           "ghumot_context": "ghumot_mando"
         },
         "scores": {
-          "ghumot_head": 0.3,
+          "ghumot_head": 0.39,
           "ghumot_technique": 0,
           "ghumot_context": 0
         }

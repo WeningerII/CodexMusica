@@ -3,9 +3,9 @@
   "name": "Czech punk",
   "family": "rock_punk",
   "lineage": "Czech punk connects melodic punk and pop-punk songwriting with harder-edged local scenes.",
-  "recipe": "classic czech punk, distorted Rock, punk branch. one note per syllable. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, pre muffled edge muffled sticks drum kit, saxophone, bach stradivarius 180 canonical American orchestral trumpet, bach 42 canonical American orchestral tenor trombone, melodic chordal electronic keyboard unspecified. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 536,
-  "score": 68.544,
+  "recipe": "classic czech punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, pre muffled edge muffled sticks drum kit, saxophone, bach stradivarius 180 canonical American orchestral trumpet, bach 42 canonical American orchestral tenor trombone, melodic chordal electronic keyboard unspecified. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 513,
+  "score": 66.696,
   "config": {
     "traditions": [
       "czech_punk"
@@ -30,8 +30,8 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 19.003,
-          "body_wood": 1.8494999999999997,
+          "amp_make": 18.793,
+          "body_wood": 1.44,
           "neck_wood": 0.063,
           "fretboard": 0.273,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.8494999999999997,
+          "body_wood": 1.44,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -112,11 +112,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.609,
+          "voice_speech_song": 0.47250000000000003,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -157,10 +157,10 @@
           "wind_articulation": -0.1,
           "brass_size": 0.063,
           "trumpet_mouthpiece": -0.1,
-          "brass_mute": 0.273,
+          "brass_mute": 0.1365,
           "trumpet_technique": -0.05,
           "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 1.8075
+          "trumpet_maker_school": 1.5345
         }
       },
       {
@@ -178,10 +178,10 @@
           "wind_articulation": -0.1,
           "trombone_type": -0.035,
           "trombone_mouthpiece": -0.1,
-          "trombone_mute": 0.273,
+          "trombone_mute": 0.1365,
           "trombone_technique": 0,
           "trombone_bell_metal": 0.39,
-          "trombone_maker_school": 1.6815
+          "trombone_maker_school": 1.4085
         }
       },
       {

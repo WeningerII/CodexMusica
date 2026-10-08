@@ -3,9 +3,9 @@
   "name": "Progressive technical death metal",
   "family": "rock_punk",
   "lineage": "Progressive technical death metal develops death-metal intensity through intricate instrumental interplay and extended forms.",
-  "recipe": "classic modern progressive technical death metal, distorted Rock, death branch, prog metal progressive deathcore progressive metalcore. solo with instrumental accompaniment, single lead single track no stacking. eight string electric, ampeg svt amp rock bass amp fretless bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 432,
-  "score": 13.41,
+  "recipe": "classic modern progressive technical death metal, distorted Rock, death branch, prog metal progressive deathcore progressive metalcore. solo with instrumental accompaniment. eight string electric, ampeg svt amp rock bass amp fretless bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 394,
+  "score": 12.66,
   "config": {
     "traditions": [
       "progressive_technical_death_metal",
@@ -20,8 +20,8 @@
           "eight_string_technique": "eight_string_djent_chug"
         },
         "scores": {
-          "eight_string_tuning": 0.09,
-          "eight_string_technique": 0.42
+          "eight_string_tuning": 0,
+          "eight_string_technique": 0.18
         }
       },
       {
@@ -37,7 +37,7 @@
         "scores": {
           "electric_technique": -0.15000000000000002,
           "amp_make": 7.085,
-          "fretless_use": 0.135,
+          "fretless_use": 0.09,
           "fretless_bass_construction": 0.045,
           "fretless_fingerboard_wood": 0.325,
           "fretless_bass_strings": 0
@@ -90,10 +90,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 2.08,
-          "voice_ornament_system": 0.225,
+          "voice_ornament_system": 0.09,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.135,
-          "voice_multitrack_stack": 0.6599999999999999,
+          "voice_multitrack_stack": 0.41999999999999993,
           "voice_tessitura": 0
         }
       }

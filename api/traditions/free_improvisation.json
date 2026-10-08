@@ -5,7 +5,7 @@
   "lineage": "Post-1960s European and American non-idiomatic improvisation tradition — codified through Derek Bailey’s Improvisation: Its Nature and Practice in Music (1980) as theoretical foundation, the Spontaneous Music Ensemble (London 1966 onward), AMM, Music Improvisation Company, the Globe Unity Orchestra, and the Bay Area / Knitting Factory NYC American scenes — characterized by genre-disavowal posture, no-pre-arranged-material premise, and timbre-and-extended-technique-foreground performance",
   "recipe": "classic European mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète chinese experimental. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel carpathian spruce European maple sycamore maple Baroque setup double bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural granular synth, vocal whale song waterphone. treated studio. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 600,
-  "score": 136.657,
+  "score": 136.117,
   "config": {
     "traditions": [
       "free_improvisation",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 11.179999999999996,
           "voice_ornament_system": 2.755000000000001,
           "voice_pitch_organization": 0.78,
-          "voice_processing_chain": 4.485,
+          "voice_processing_chain": 4.35,
           "voice_multitrack_stack": 3.640000000000001
         }
       },
@@ -90,8 +90,8 @@
         "scores": {
           "bowed_technique": 0.75,
           "bass_size": 0,
-          "bass_strings": 2.145,
-          "bass_top_wood": 1.8199999999999998,
+          "bass_strings": 2.07,
+          "bass_top_wood": 1.685,
           "bass_back_wood": 2.125,
           "bass_varnish": 0.8749999999999999,
           "bass_setup_period": 1.17,
@@ -109,7 +109,7 @@
         },
         "scores": {
           "drum_technique": 10.919999999999998,
-          "drumhead": 3.965,
+          "drumhead": 3.815,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -136,7 +136,7 @@
         },
         "scores": {
           "waterphone_model": 4.545,
-          "waterphone_excitation": 0.39,
+          "waterphone_excitation": 0.345,
           "waterphone_context": 7.044999999999999,
           "waterphone_construction": 0.195
         }

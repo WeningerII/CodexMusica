@@ -1,115 +1,135 @@
 {
-  "id": "bomba",
-  "name": "Bomba (Puerto Rico)",
+  "id": "bomba_puertorican",
+  "merged_from": "bomba",
+  "name": "Bomba (Puerto Rican)",
   "family": "global",
-  "lineage": "Afro-Puerto Rican drum-and-dance tradition rooted in seventeenth- and eighteenth-century sugar-plantation communities of Loíza, Mayagüez, Ponce and Santurce, sustained by families such as the Cepedas and Ayalas — a call-and-response song over two or more barriles de bomba, with the buleador drums holding the sicá, yubá or holandés rhythm, a cuá stick pattern on the drum shell, maraca, and the lead subidor drummer improvising in direct dialogue with a single dancer's piquetes.",
-  "recipe": "classic Caribbean modern bomba, groove Percussion, Caribbean branch, Afro-diasporic ritual devotional, rumba Cuban nyahbinghi. kargyraa, breath veiled tone, slow rate, interlocked note trading. buleador and subidor paired set barril de bomba, cua, maracas. san juan puerto rican bomba plena yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 359,
-  "score": 195.648,
+  "lineage": "Afro-Puerto Rican drum-and-dance ritual tradition traced directly to West African Yoruba and Ashanti rhythmic-drum-and-call-response heritage brought through 17-18th-century enslaved African labor, with Loíza (the Black-majority town on the northeast coast), Mayagüez, Ponce, and Cataño as the bomba towns; played on the bomba barril (single-headed barrel drum carved from rum cask) with the soloist drummer (subidor or primo) tracing the dancers steps in real-time dialogue while a secondary drum (buleador) maintains rhythmic foundation, plus maracas and cuá (struck wood block) — preserved through the Cepeda and Ayala families and modern groups like Los Pleneros de la 21",
+  "recipe": "classic Caribbean modern bomba, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, breath veiled tone, straight onset, interlocked note trading. log drum, plastic synthetic maracas, buleador and subidor paired set barril de bomba. san juan puerto rican bomba plena yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 378,
+  "score": 205.182,
   "config": {
     "traditions": [
-      "bomba",
-      "nyahbinghi",
-      "cuban_rumba"
+      "bomba_puertorican",
+      "chouval_bwa",
+      "plena_puertorican"
     ],
     "instruments": [
       {
-        "id": "barril_de_bomba",
-        "slots": {
-          "barril_de_bomba_form": "barril_de_bomba_cuerda",
-          "barril_de_bomba_repertoire": "barril_de_bomba_piquetes",
-          "barril_de_bomba_shell": "barril_de_bomba_rum_barrel"
-        },
-        "scores": {
-          "barril_de_bomba_form": 29.314999999999998,
-          "barril_de_bomba_repertoire": 29.705,
-          "barril_de_bomba_shell": 0.7149999999999999
-        }
-      },
-      {
-        "id": "cua",
-        "slots": {
-          "cua_form": "cua_barril_side",
-          "cua_pattern": "cua_sica"
-        },
-        "scores": {
-          "cua_form": 1.15,
-          "cua_pattern": 0.5
-        }
-      },
-      {
-        "id": "maracas",
-        "slots": {
-          "maracas_construction": "maracas_leather",
-          "maracas_filling": "maracas_beads"
-        },
-        "scores": {
-          "maracas_construction": 0.195,
-          "maracas_filling": 0.195
-        }
-      },
-      {
         "id": "voice",
         "slots": {
-          "voice_register": "kargyraa_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.545,
-          "voice_quality": 13.259999999999993,
+          "voice_register": 2.5199999999999996,
+          "voice_quality": 18.589999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 18.719999999999995,
-          "voice_microtone": 19.174999999999994,
-          "voice_tradition": 11.764999999999997,
-          "voice_mechanism_compound": 4.9399999999999995,
-          "voice_estill_quality": 3.6400000000000006,
-          "voice_speech_song": 20.019999999999996,
-          "voice_ensemble_config": 21.44999999999999,
-          "voice_ornament_system": 4.775,
-          "voice_pitch_organization": 2.2099999999999995,
-          "voice_processing_chain": 5.812500000000001,
-          "voice_multitrack_stack": 5.359999999999999
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 15.859999999999994,
+          "voice_microtone": 15.664999999999992,
+          "voice_tradition": 19.005,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 3.7375,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 19.044999999999995,
+          "voice_ornament_system": 4.525,
+          "voice_pitch_organization": 2.8850000000000002,
+          "voice_processing_chain": 2.145,
+          "voice_multitrack_stack": 2.6
+        }
+      },
+      {
+        "id": "log_drum",
+        "slots": {
+          "log_drum_voice": "log_drum_mid",
+          "log_drum_context": "log_drum_sa_house"
+        },
+        "scores": {
+          "log_drum_voice": 3.13,
+          "log_drum_context": 4.31
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_plastic",
+          "maracas_filling": "maracas_beads"
+        },
+        "scores": {
+          "maracas_construction": 1.8,
+          "maracas_filling": 4.28
+        }
+      },
+      {
+        "id": "barril_de_bomba",
+        "slots": {
+          "barril_de_bomba_form": "barril_de_bomba_cuerda",
+          "barril_de_bomba_repertoire": "barril_de_bomba_piquetes",
+          "barril_de_bomba_shell": "barril_de_bomba_fiberglass"
+        },
+        "scores": {
+          "barril_de_bomba_form": 29.379999999999995,
+          "barril_de_bomba_repertoire": 29.899999999999995,
+          "barril_de_bomba_shell": 4.05
         }
       }
     ],
     "room": "san_juan_puerto_rican_bomba_plena_yard",
     "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
-      "mic": "condenser_ldc",
+      "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
-      "console": "console_in_the_box",
+      "console": "clean",
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
+    "tuning": "just_intonation",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
+    "tuning": "just_intonation",
     "room": "san_juan_puerto_rican_bomba_plena_yard",
-    "chain_mic": "condenser_ldc",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "praise_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "yoruba_tonal_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "log_drum_voice": "log_drum_mid",
+      "log_drum_context": "log_drum_sa_house",
+      "maracas_construction": "maracas_gourd",
+      "maracas_filling": "maracas_seeds"
+    },
+    "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_std",
-    "chain_console": "console_in_the_box"
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

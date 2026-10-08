@@ -1,16 +1,36 @@
 {
-  "id": "belgian_modern_jazz",
-  "name": "Belgian modern jazz",
+  "id": "belgian_jazz",
+  "merged_from": "belgian_modern_jazz",
+  "name": "Belgian jazz",
   "family": "jazz",
-  "lineage": "Belgian modern jazz develops through contemporary ensembles and local scenes that connect jazz composition with responsive improvisation.",
-  "recipe": "classic belgian modern jazz, improv On Frame, American jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 310,
-  "score": 74.946,
+  "lineage": "Belgian jazz connects local scenes with international improvising traditions. Brussels-born Toots Thielemans made the chromatic harmonica a distinctive melodic voice in this history, bringing lyrical phrasing to small-group jazz and collaborations abroad.",
+  "recipe": "classic modern belgian jazz, improv On Frame, bop branch. solo canonical chromatic lead chromatic harmonica, a 440 modern pitch us standard grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 380,
+  "score": 91.307,
   "config": {
     "traditions": [
-      "belgian_modern_jazz"
+      "belgian_jazz"
     ],
     "instruments": [
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "abs_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_chromatic_jazz",
+          "harmonica_maker_school": "harmonica_maker_unspecified",
+          "harmonica_tuning": "harmonica_solo_chromatic"
+        },
+        "scores": {
+          "harmonica_type": 7.15,
+          "harmonica_comb": -0.035,
+          "harmonica_reed": -0.07,
+          "harmonica_technique": 15.0125,
+          "harmonica_maker_school": 0,
+          "harmonica_tuning": 15.123125
+        }
+      },
       {
         "id": "grand_piano",
         "slots": {
@@ -25,25 +45,25 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.147,
-          "grand_piano_brand": 0.105,
-          "piano_hammer": 5.5485,
-          "piano_rim": 5.95125,
-          "piano_soundboard": 5.058,
-          "piano_pinblock": 5.13525,
-          "piano_plate": 4.95,
-          "piano_pitch_standard": 6.09575
+          "keyboard_technique": 1.0865,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0,
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.625
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "gut_upright",
+          "upright_strings": "steel_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0,
+          "upright_strings": 0.142125,
           "upright_play": 13.75
         }
       },
@@ -51,17 +71,41 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "fiberskyn_drumhead",
-          "drum_kit_kick_pedal": "dk_kick_single_felt"
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_round",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 9.49,
-          "drumhead": 18.75,
-          "drum_kit_kick_pedal": 0
+          "drum_technique": 8.71,
+          "drumhead": 0.0315,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.0315,
+          "shell_thickness": 0,
+          "bearing_edges": 0.168,
+          "snare_wires": 0.0315,
+          "cymbal_alloy": 13.599999999999998,
+          "cymbal_hammering": 13.805,
+          "cymbal_lathing": 0.15000000000000002,
+          "cymbal_finish": 0
         }
       }
     ],
     "pinned": {
+      "harmonica": [
+        "harmonica_type",
+        "harmonica_comb",
+        "harmonica_reed",
+        "harmonica_technique",
+        "harmonica_maker_school",
+        "harmonica_tuning"
+      ],
       "grand_piano": [
         "keyboard_technique",
         "grand_piano_size",
@@ -78,14 +122,25 @@
         "upright_play"
       ],
       "drum_kit": [
-        "drum_technique"
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "dynamic_mic",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
       "comp": "comp_none",
       "eq": "eq_active_parametric",
       "amp": null,
@@ -98,10 +153,15 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
+      "harmonica_type": "chromatic_harm",
+      "harmonica_comb": "abs_comb",
+      "harmonica_reed": "brass_harm",
+      "harmonica_technique": "harm_chromatic_jazz",
+      "harmonica_maker_school": "harmonica_maker_unspecified",
+      "harmonica_tuning": "harmonica_solo_chromatic",
       "keyboard_technique": "keyboard_jazz_comping",
-      "drum_technique": "brushes_and_sticks",
       "grand_piano_size": "grand_9_foot",
       "grand_piano_brand": "steinway_d",
       "piano_hammer": "steinway_original_hammer",
@@ -110,15 +170,27 @@
       "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
       "piano_plate": "gray_iron_full_perimeter_plate",
       "piano_pitch_standard": "a_440_modern",
-      "upright_strings": "gut_upright",
-      "upright_play": "pizz_upright"
+      "upright_strings": "steel_upright",
+      "upright_play": "pizz_upright",
+      "drum_technique": "brushes_and_sticks",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_round",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "hand_random_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish"
     },
     "pin_parts": true,
-    "chain_mic": "dynamic_mic",
-    "chain_pre": "transformerless",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
     "chain_comp": "comp_none",
     "chain_eq": "eq_active_parametric",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_console": "clean",
+    "chain_fx": []
   }
 }

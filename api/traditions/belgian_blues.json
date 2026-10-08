@@ -5,7 +5,7 @@
   "lineage": "Belgian blues covers Belgium’s locally sustained blues practice. Roland Van Campenhout supplies this deliberately small singer-guitarist branch: his blues turn followed seeing John Lee Hooker at Antwerp’s De Muze and his Jazz Bilzen performances established a live reputation. The authored acoustic-guitar accompaniment selects the folk-blues side of a career also spanning rock and country.",
   "recipe": "classic modern belgian blues, functional Song, blues acoustic branch. equal tempered, one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. fingerpicked acoustic guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 410,
-  "score": 18.769,
+  "score": 18.495,
   "config": {
     "traditions": [
       "belgian_blues"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.7139999999999999,
+          "voice_speech_song": 0.6404999999999998,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.19949999999999998,
-          "voice_pitch_organization": 0.2355,
+          "voice_pitch_organization": 0.20400000000000001,
           "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 0.702
+          "voice_multitrack_stack": 0.639
         }
       },
       {
@@ -63,8 +63,8 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.273,
-          "acoustic_om_technique": 3.9650000000000007
+          "string_acoustic": 0.2415,
+          "acoustic_om_technique": 3.8900000000000006
         }
       }
     ],

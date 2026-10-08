@@ -5,7 +5,7 @@
   "lineage": "Manchester hip-hop encompasses grime-derived MC practice and melodic recorded rap. Bugzy Malone exemplify a narrative approach that can combine piano-led production with sung vocal collaborations.",
   "recipe": "classic modern manchester hip hop, mc Rhythm, intl hip hop branch. rap. a 440 modern pitch us standard grand piano, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 289,
-  "score": 20.826,
+  "score": 20.829,
   "config": {
     "traditions": [
       "manchester_hip_hop"
@@ -87,9 +87,9 @@
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": -0.05,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

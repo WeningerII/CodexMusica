@@ -5,7 +5,7 @@
   "lineage": "Indonesian popular form of Islamic song that grew out of rebana frame-drum qasidah singing into amplified bands from the 1970s, with Indonesian-language lyrics of moral and religious message. The all-woman group Nasida Ria, founded in Semarang in 1975, became its best-known cassette act. Bands keep the rebana frame drums (the credited frame-drum card stands in) beside electric guitar, bass and keyboards.",
   "recipe": "classic mid-1970s qasidah modern, ritual Devotional, islamic branch. group vocals. credited frame drums, single coil electric guitar, electric bass, electronic keyboard unspecified. live tracking. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 288,
-  "score": 10.477,
+  "score": 10.367,
   "config": {
     "traditions": [
       "qasidah_modern"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.126,
+          "voice_ensemble_config": 1.0945,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0315,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -83,7 +83,7 @@
           "amp_make": 0,
           "body_wood": 0.1365,
           "neck_wood": 0,
-          "fretboard": -0.05,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0,
           "string_gauge": 0.9099999999999999,
@@ -124,8 +124,8 @@
           "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_keyboard_identity": 1.0315,
-          "keyboard_technique": 0.29400000000000004
+          "electronic_keyboard_identity": 1,
+          "keyboard_technique": 0.1995
         }
       }
     ],

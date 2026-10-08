@@ -3,14 +3,14 @@
   "name": "Hawaiian kanikau (mele kanikau, mourning-chant)",
   "family": "global",
   "lineage": "Hawaiian mourning-chant tradition continuous from pre-contact Hawaiian ritual-practice through 19th-century Hawaiian-Kingdom-era continuous performance and publication (kanikau were published in Hawaiian-language newspapers from the 1830s-onward) into 20th-century Hawaiian-cultural-revival",
-  "recipe": "classic Oceanian mid-1830s hawaiian kanikau, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, indian bard ballad poetry mapuche tayil genealogical chant música mapuche. vocal fry, breath veiled tone, straight note core, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 390,
-  "score": 159.857,
+  "recipe": "classic Oceanian mid-1830s hawaiian kanikau, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, indian bard ballad poetry mapuche tayil genealogical chant old norse seiðr ritual vocalization. vocal fry, breath veiled tone, straight note core, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 411,
+  "score": 165.89,
   "config": {
     "traditions": [
       "hawaiian_kanikau",
       "mapuche_tayil_ritual",
-      "musica_mapuche"
+      "norse_seidr"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 1.95,
-          "voice_quality": 22.1,
+          "voice_quality": 23.14,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8525,
-          "voice_articulation": 14.364999999999998,
-          "voice_microtone": 14.884999999999994,
+          "voice_vibrato": 2.1449999999999996,
+          "voice_articulation": 14.82,
+          "voice_microtone": 15.339999999999996,
           "voice_tradition": 45.8,
-          "voice_mechanism_compound": 7.719999999999999,
-          "voice_estill_quality": 5.005,
-          "voice_speech_song": 16.054999999999996,
-          "voice_ensemble_config": 15.079999999999997,
+          "voice_mechanism_compound": 9.645,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 16.315,
+          "voice_ensemble_config": 15.534999999999998,
           "voice_ornament_system": 6.2749999999999995,
           "voice_pitch_organization": 3.250000000000001,
-          "voice_processing_chain": 8.19,
-          "voice_multitrack_stack": 5.005000000000001
+          "voice_processing_chain": 7.345000000000001,
+          "voice_multitrack_stack": 5.200000000000001
         }
       }
     ],

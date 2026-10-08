@@ -5,7 +5,7 @@
   "lineage": "South African township street music of the early 1950s, born on Johannesburg and Pretoria pavements and commercialized through Gallo by Spokes Mashiyane and the Lerole brothers, built on a bright pennywhistle lead improvising over a bouncing 4/4 marabi-derived I–IV–I(6/4)–V cycle at 130–160 BPM with strummed guitar, tea-chest or double bass, and a chugging offbeat.",
   "recipe": "classic Southern African 1950-1953 kwela, functional Song, African pop branch, American jazz early, central east south African groove percussion trad continental jazz. African blackwood boxwood premium pre modern tin whistle, strummed open chord ringing overtones parlor acoustic guitar, tea chest venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, snappy to palm hand clap. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
   "recipe_chars": 710,
-  "score": 87.995,
+  "score": 87.695,
   "config": {
     "traditions": [
       "kwela",
@@ -35,14 +35,14 @@
           "string_tuning": "standard_tuning",
           "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "mahogany_bs_p",
-          "string_acoustic_parlor": "phosphor_p"
+          "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
           "acoustic_technique": 7.375,
           "string_tuning": 0,
-          "top_wood_parlor": 0.57,
+          "top_wood_parlor": 0.375,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.48
+          "string_acoustic_parlor": 0.375
         }
       },
       {

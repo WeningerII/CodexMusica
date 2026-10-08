@@ -5,7 +5,7 @@
   "lineage": "Mozambican popular dance music from Maputo that emerged in the 2000s, blending marrabenta rhythms with ragga and dancehall over programmed electronic beats, sung mostly in Portuguese and Changana. N'Star, Ziqo and Dj Ardiles popularised it, and singers such as Lizha James took it into the mainstream.",
   "recipe": "classic Southern African mid-2000s pandza, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine, singing lead rompler workstation, electric bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 325,
-  "score": 23.625,
+  "score": 23.555,
   "config": {
     "traditions": [
       "pandza"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.7770000000000001,
+          "voice_multitrack_stack": 0.814125,
           "voice_tessitura": 0
         }
       },
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0.609,
+          "sample_bitdepth": 0.6461250000000001,
           "sample_swing": 5,
-          "sample_processing": 0.3045
+          "sample_processing": 0.205125
         }
       },
       {
@@ -76,9 +76,9 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 6.6725,
+          "electronic_technique": 6.833375,
           "rompler_preset_bank": 0,
-          "rompler_context": 6.523,
+          "rompler_context": 6.3865,
           "rompler_lineage": 0
         }
       },
@@ -96,12 +96,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.168,
+          "body_wood": 0.06862499999999999,
           "pickup_config": 0.1365,
           "string_type": 0,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.1365,
-          "bass_technique": -0.1,
+          "bass_technique": -0.07,
           "electric_bass_string_configuration": 0
         }
       }

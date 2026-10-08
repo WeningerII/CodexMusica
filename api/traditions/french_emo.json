@@ -5,7 +5,7 @@
   "lineage": "French emo includes guitar bands balancing intimate lyrics, melodic detail and forceful ensemble dynamics.",
   "recipe": "classic french emo, distorted Rock, emo branch. duet, live take. basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 16.182,
+  "score": 15.636,
   "config": {
     "traditions": [
       "french_emo"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": 0.19500000000000003,
           "amp_make": 1.8199999999999998,
-          "body_wood": 1.764,
+          "body_wood": 1.4805000000000001,
           "neck_wood": 0.168,
-          "fretboard": 0.1365,
+          "fretboard": 0.168,
           "pickup_magnet": 0,
           "pickup_winding": 0.168,
           "string_material": 0.168,
-          "bridge": 0.273,
+          "bridge": 0.3045,
           "scale_length": 0,
-          "string_gauge": 0.3045,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.1365
+          "string_tuning": 0.0315
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.764,
+          "body_wood": 1.4805000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.063,
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.0315,
+          "voice_ensemble_config": 1.168,
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.042749999999999996,
-          "voice_multitrack_stack": 1.1365,
+          "voice_multitrack_stack": 1.168,
           "voice_tessitura": 0
         }
       }

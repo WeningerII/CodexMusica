@@ -5,7 +5,7 @@
   "lineage": "Congregational protest singing of the Southern civil-rights movement of the 1950s and 1960s, made by adapting spirituals, hymns, gospel and union songs with new words in mass meetings, marches and jail cells. It was especially strong in the 1961-62 Albany Movement in Georgia, out of which Cordell Reagon, Bernice Johnson (Reagon), Rutha Harris and Charles Neblett formed the SNCC Freedom Singers in 1962 to carry the songs on tour. A song leader raises or lines out a verse and the crowd answers in full-voiced unison and harmony, usually unaccompanied except for handclaps.",
   "recipe": "classic mid-1950s freedom songs, protest Song. leader call answered, single leader group response. hand clap. country church. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 200,
-  "score": 8.631,
+  "score": 8.505,
   "config": {
     "traditions": [
       "civil_rights_freedom_songs"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.6376250000000003,
+          "voice_ensemble_config": 3.6061250000000005,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.01875,
           "voice_tessitura": 0
         }
@@ -59,7 +59,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0.18675,
+          "clap_technique": 0.12375,
           "clap_capture": 0.31875
         }
       }

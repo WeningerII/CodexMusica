@@ -5,7 +5,7 @@
   "lineage": "Merengue caraqueño, also called merengue venezolano, is the urban dance music of Caracas that took shape in the late 19th and early 20th centuries, notated in a lopsided 5/8 and danced as the merengue rucaneao. Small dance groups and later the city's dance orchestras played it for parties and on record, and from the 1980s the Ensamble Gurrufío recast it as chamber music for flute, mandolin, cuatro and double bass. The mandolin card stands in for the Venezuelan bandolín, and a generic flute card is used for the concert flute.",
   "recipe": "classic mid-1980s merengue caraqueño, functional Song, tropical song branch. flute like credited flute unspecified, mandolin, cedar canonical Venezuelan cuatro venezolano, modern setup heavier bass bar kolstein bass specific double bass, maracas. treated studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 325,
-  "score": 11.287,
+  "score": 11.214,
   "config": {
     "traditions": [
       "merengue_caraqueno"
@@ -34,13 +34,13 @@
         },
         "scores": {
           "acoustic_technique": 0.26,
-          "mandolin_shape": 0.6195,
+          "mandolin_shape": 0.651,
           "mandolin_top": -0.05,
           "mandolin_back": -0.035,
           "mandolin_bracing": -0.05,
           "mandolin_strings": 0,
           "mandolin_fingerboard": 0.0315,
-          "mandolin_pickup": 0.21
+          "mandolin_pickup": 0.105
         }
       },
       {

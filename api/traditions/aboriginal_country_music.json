@@ -5,7 +5,7 @@
   "lineage": "Country and gospel-country song made by Aboriginal singers on missions and reserves and in country towns from the mid-twentieth century, drawing on hillbilly records and radio and on a strong local voice-and-guitar tradition. Recorded artists include Jimmy Little, born at Cummeragunja, whose Royal Telephone was a 1963 hit, Dougie Young, Vic Simms, Harry Williams and the Country Outcasts and Roger Knox; Clinton Walker's book, CD compilation and film Buried Country (2000) documented the tradition.",
   "recipe": "classic early-1960s aboriginal country music, functional Song, country branch. dreadnought acoustic single coil electric guitar, electric bass, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 299,
-  "score": 7.378,
+  "score": 6.982,
   "config": {
     "traditions": [
       "aboriginal_country_music"
@@ -64,7 +64,7 @@
         "scores": {
           "acoustic_technique": 0.26,
           "string_tuning": 0,
-          "top_wood": 0.105,
+          "top_wood": 0,
           "back_sides": -0.05,
           "string_acoustic": 0
         }
@@ -87,14 +87,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.26,
+          "electric_technique": 0.2315,
           "amp_make": 0,
-          "body_wood": 0.1365,
+          "body_wood": 0.168,
           "neck_wood": 0,
           "fretboard": 0.95,
-          "pickup_magnet": 0.105,
+          "pickup_magnet": 0,
           "string_material": 0,
-          "string_gauge": 0.504,
+          "string_gauge": 0.38849999999999996,
           "bridge": 0.0315,
           "scale_length": 0,
           "finish": 0,
@@ -116,7 +116,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.1365,
+          "body_wood": 0.168,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 1,
@@ -142,7 +142,7 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.1995,
+          "drumhead": 0.0945,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.36750000000000005,
           "shell_thickness": 0,

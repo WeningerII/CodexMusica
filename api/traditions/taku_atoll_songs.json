@@ -5,7 +5,7 @@
   "lineage": "Song and dance repertoire of Takū (Takuu), a Polynesian outlier atoll north-east of Bougainville in Papua New Guinea, where sung poetry accompanies ceremonies and communal dances in the Takū language. Richard Moyle's Songs from the Second Float: A Musical Ethnography of Takū Atoll documents the repertoire.",
   "recipe": "classic modern takū song and dance, praise Song, oceania pacific branch. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 152,
-  "score": 0.123,
+  "score": 0.154,
   "config": {
     "traditions": [
       "taku_atoll_songs"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.2415,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0315,
+          "voice_multitrack_stack": 0.168,
           "voice_tessitura": 0
         }
       }

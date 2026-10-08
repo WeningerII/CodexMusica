@@ -5,7 +5,7 @@
   "lineage": "Pedi (Northern Sotho) dance of Sekhukhuneland in which each man in a team blows a single-note end-blown pipe (dinaka) from a graded set, the pipes combining in hocket into one repeating melody over drums; women's kiba, mmapadi, is a sung dance in which a leading singer is answered by a chorus over the same drums. Migrant workers carried kiba to hostels and competitions on the Witwatersrand. Hugh Tracey recorded it for ILAM and it has been studied in the journal African Music. The flute card stands in for the dinaka pipes and the membrane-drum card for the meropa drums.",
   "recipe": "classic modern kiba, groove Percussion, central east south African branch, wind pipe drone modal gaita mirandesa and pauliteiros. single leader group response. flute like credited flute unspecified, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 331,
-  "score": 12.93,
+  "score": 12.135,
   "config": {
     "traditions": [
       "kiba_dinaka_pedi",
@@ -45,11 +45,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.145,
+          "voice_ensemble_config": 1.6949999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.045,
+          "voice_processing_chain": 0.195,
+          "voice_multitrack_stack": 0.195,
           "voice_tessitura": 0
         }
       },
@@ -69,8 +69,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 6.295,
-          "acoustic_membrane_drum_gesture": 4.795
+          "acoustic_membrane_drum_form": 5.95,
+          "acoustic_membrane_drum_gesture": 4.45
         }
       }
     ],

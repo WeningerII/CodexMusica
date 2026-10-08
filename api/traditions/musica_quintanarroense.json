@@ -5,7 +5,7 @@
   "lineage": "Korto Circuito — Legalize It, Impacto Records Full Band Recording2015. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic música quintanarroense, bass System, reggae diaspora branch. maple rim clicks drum kit, electric bass, conventional tuning standard pitch humbucker electric guitar, trumpet, trombone, saxophone, electronic keyboard unspecified, congas. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 342,
-  "score": 23.403,
+  "score": 23.628,
   "config": {
     "traditions": [
       "musica_quintanarroense"
@@ -69,9 +69,9 @@
         },
         "scores": {
           "drum_technique": 4.45,
-          "drumhead": 1.3,
+          "drumhead": 1.3315000000000001,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.6,
+          "shell_wood": 1.6315000000000002,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
@@ -95,10 +95,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.48299999999999993,
+          "body_wood": 0.483,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -124,14 +124,14 @@
         "scores": {
           "electric_technique": -0.11850000000000002,
           "amp_make": 0,
-          "body_wood": 0.48299999999999993,
-          "neck_wood": 0.3465,
+          "body_wood": 0.483,
+          "neck_wood": 0.4095,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "pickup_winding": 0,
+          "pickup_winding": 0.0315,
           "string_material": 0.1995,
           "bridge": 0,
-          "scale_length": 0.693,
+          "scale_length": 0.819,
           "string_gauge": 2.4364999999999997,
           "finish": 0,
           "string_tuning": 1.3
@@ -155,7 +155,7 @@
           "brass_mute": 1.0315,
           "trumpet_technique": 1.5,
           "trumpet_bell_metal": 0.78,
-          "trumpet_maker_school": 0.39
+          "trumpet_maker_school": 0.3
         }
       },
       {
@@ -174,7 +174,7 @@
           "trombone_type": -0.05,
           "trombone_mouthpiece": 0.26,
           "trombone_mute": 1.0315,
-          "trombone_technique": 0.399,
+          "trombone_technique": 0.36750000000000005,
           "trombone_bell_metal": 0.78,
           "trombone_maker_school": 0.705
         }
@@ -195,7 +195,7 @@
           "sax_size": 0.325,
           "sax_reed": 0,
           "sax_body_alloy": 0.26,
-          "sax_mouthpiece": 0,
+          "sax_mouthpiece": 0.0315,
           "sax_technique": -0.15000000000000002,
           "sax_maker_school": -0.07
         }
@@ -208,7 +208,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.294
+          "keyboard_technique": 0.26249999999999996
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "An online ambient scene combining quiet piano, sustained electronic textures and intimate, softened recording surfaces. Its contemporary repertoire ranges from repeating keyboard miniatures to slowly evolving soundscapes and environmental recordings.",
   "recipe": "classic modern ambient lo-fi, experimental Elec, ambient branch, lofi experimental electric. pad like pad analog synth, grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 348,
-  "score": 17.345,
+  "score": 16.85,
   "config": {
     "traditions": [
       "ambient_lo_fi"
@@ -22,10 +22,10 @@
         },
         "scores": {
           "electronic_technique": 9.834999999999999,
-          "oscillator": 0.195,
+          "oscillator": 0.045,
           "filter_topology": 0.39,
-          "envelope": 4.22,
-          "modulation": 0.045
+          "envelope": 3.77,
+          "modulation": 0.15
         }
       },
       {

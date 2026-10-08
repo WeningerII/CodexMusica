@@ -3,14 +3,14 @@
   "name": "Live Electronics",
   "family": "classical",
   "lineage": "Post-war European and American art music from the late 1950s, codified by Karlheinz Stockhausen's Mikrophonie and Mixtur, John Cage and David Tudor's Cartridge Music, Luigi Nono's Milan work and later IRCAM real-time systems — acoustic instruments and voices transformed onstage by ring modulators, tape delay networks, live filtering and spatialisation, from graphic or verbal scores with substantial performer latitude over timing and gesture.",
-  "recipe": "classic Asian 1957-1959 live electronics, art Music, western modern branch, musique concrete experimental electric, experimental distorted rock rock in opposition. thick, breath veiled tone, straight onset, interlocked note trading. prepared piano, glitched textural modular glitched textural granular synth, moog music etherwave canonical modern reissue 1996 present theremin, dark classical legato bass clarinet. shoebox concert hall. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 570,
-  "score": 194.746,
+  "recipe": "classic Asian 1957-1959 live electronics, art Music, western modern branch, musique concrete experimental electric, experimental distorted rock tape music. thick, breath veiled tone, slow rate, interlocked note trading. prepared piano, glitched textural modular glitched textural granular synth, moog music etherwave canonical modern reissue 1996 present theremin, dark classical legato bass clarinet. shoebox concert hall. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 557,
+  "score": 195.065,
   "config": {
     "traditions": [
       "live_electronics",
-      "experimental_rock",
-      "rock_in_opposition"
+      "tape_music",
+      "experimental_rock"
     ],
     "instruments": [
       {
@@ -35,36 +35,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 21.069999999999993,
-          "voice_quality": 4.745000000000002,
+          "voice_register": 14.569999999999995,
+          "voice_quality": 7.8,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.66725,
-          "voice_articulation": 20.214999999999993,
-          "voice_microtone": 22.999999999999993,
-          "voice_tradition": 11.7,
-          "voice_mechanism_compound": 4.311250000000001,
-          "voice_estill_quality": 2.8350000000000004,
-          "voice_speech_song": 22.814999999999998,
-          "voice_ensemble_config": 19.044999999999995,
-          "voice_ornament_system": 3.0575000000000006,
-          "voice_pitch_organization": 3.0300000000000002,
-          "voice_processing_chain": 4.875000000000001,
-          "voice_multitrack_stack": 3.185
+          "voice_vibrato": 4.985,
+          "voice_articulation": 19.629999999999995,
+          "voice_microtone": 18.134999999999994,
+          "voice_tradition": 12.8375,
+          "voice_mechanism_compound": 3.9,
+          "voice_estill_quality": 3.9350000000000005,
+          "voice_speech_song": 22.554999999999996,
+          "voice_ensemble_config": 18.264999999999997,
+          "voice_ornament_system": 4.3075,
+          "voice_pitch_organization": 4.735,
+          "voice_processing_chain": 5.7250000000000005,
+          "voice_multitrack_stack": 2.6000000000000005
         }
       },
       {
@@ -76,9 +76,9 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 8.495,
+          "electronic_technique": 9.37,
           "mod_voltage_source": 0.045,
-          "mod_patch_density": 1.04,
+          "mod_patch_density": 1.4949999999999999,
           "mod_lineage": 0.39
         }
       },
@@ -105,7 +105,7 @@
         },
         "scores": {
           "bass_clarinet_range": 0.65,
-          "bass_clarinet_style": 1.3
+          "bass_clarinet_style": 1.95
         }
       },
       {
@@ -116,9 +116,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 8.495,
+          "electronic_technique": 9.37,
           "granular_use": 0.045,
-          "granular_synth_source": 5.46
+          "granular_synth_source": 6.37
         }
       }
     ],

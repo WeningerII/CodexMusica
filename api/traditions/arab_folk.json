@@ -5,7 +5,7 @@
   "lineage": "Arab folk encompasses regional song, instrumental and dance traditions across diverse communities. Contemporary collaborations can connect these practices with other acoustic and popular musical approaches.",
   "recipe": "classic arab folk, drone Modal, string branch. fingerpicked dreadnought acoustic guitar, nylon plastic pyramid arab school drone like oud. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 237,
-  "score": 15.136,
+  "score": 15.062,
   "config": {
     "traditions": [
       "arab_folk"
@@ -16,16 +16,16 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
-          "top_wood": "mahogany_top",
+          "top_wood": "cedar",
           "back_sides": "mahogany_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
           "acoustic_technique": 4.863,
           "string_tuning": 0,
-          "top_wood": 0.147,
-          "back_sides": 0.147,
-          "string_acoustic": 0.4724999999999999
+          "top_wood": 0.1365,
+          "back_sides": 0.0735,
+          "string_acoustic": 0.5354999999999999
         }
       },
       {
@@ -36,16 +36,16 @@
           "oud_strings": "oud_thirteen",
           "oud_pick": "risha_plastic",
           "oud_body_wood": "oud_walnut_body",
-          "oud_soundboard_wood": "oud_western_red_cedar_face",
+          "oud_soundboard_wood": "oud_spruce_face",
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
           "plucked_traditional_technique": 3.7700000000000005,
           "oud_school": 0.79575,
-          "oud_strings": 0.273,
+          "oud_strings": 0.2415,
           "oud_pick": 1.15525,
           "oud_body_wood": 0.5565,
-          "oud_soundboard_wood": 0.441,
+          "oud_soundboard_wood": 0.42,
           "oud_string_material": 2.5145
         }
       }

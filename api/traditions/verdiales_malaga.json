@@ -5,7 +5,7 @@
   "lineage": "Verdiales is the fandango music of the Montes de Málaga and the neighbouring hill country, played by pandas: bands of violin, guitars, laúd, a large pandero frame drum, small cymbals and castanets, led by an alcalde with a staff, while a singer delivers fandango verses and couples dance. Its three styles are named after Montes, Almogía and Comares; the pandas meet every 28 December at the Fiesta Mayor de Verdiales, the tradition is inscribed as a Bien de Interés Cultural, and verdiales are commonly described as a root of the malagueña. The bandurria card stands in for the laúd.",
   "recipe": "classic modern verdiales, functional Song, iberian branch. solo with instrumental accompaniment. fiddle, classical nylon-string guitar, bandurria, pandero source unspecified, credited cymbals, castanets. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 283,
-  "score": 6.402,
+  "score": 6.16,
   "config": {
     "traditions": [
       "verdiales_malaga"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.0315,
+          "voice_effort": 0.1365,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1575,
-          "voice_multitrack_stack": 0.378,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -66,8 +66,8 @@
           "bowed_technique": 1.95,
           "fiddle_strings": 0,
           "fiddle_bow": 0.063,
-          "fiddle_mute": 0.21000000000000002,
-          "fiddle_articulation": 0.441,
+          "fiddle_mute": 0.0735,
+          "fiddle_articulation": 0.3045,
           "fiddle_string_configuration": 0
         }
       },
@@ -84,9 +84,9 @@
         "scores": {
           "acoustic_technique": 0.2,
           "string_tuning": 0,
-          "top_wood_classical": 0.16799999999999998,
+          "top_wood_classical": 0.0945,
           "bracing_classical": 0.3045,
-          "string_classical": 0.16799999999999998,
+          "string_classical": 0.063,
           "attack_technique_cl": -0.035
         }
       },
@@ -99,7 +99,7 @@
         },
         "scores": {
           "bandurria_form": -0.15000000000000002,
-          "bandurria_playing": 0.7,
+          "bandurria_playing": 0.9099999999999999,
           "bandurria_stringing": 0
         }
       },

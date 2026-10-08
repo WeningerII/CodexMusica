@@ -3,14 +3,14 @@
   "name": "Cantorial khazonus (chazzanut)",
   "family": "global",
   "lineage": "Ashkenazi Jewish synagogue cantorial tradition — the solo lead-singer (chazzan / khazn / cantor) liturgical practice of the Eastern European Yiddish-speaking world, codified through Yossele Rosenblatt (the golden-age chazzan, 1882-1933), Gershon Sirota, Mordechai Hershman, Moishe Oysher, Jan Peerce (the cantor-to-opera-tenor crossover), Moshe Koussevitzky",
-  "recipe": "classic Eastern European early-1880s cantorial khazonus, ritual Devotional, Jewish branch, vocal drone modal, European funeral lament armenian duduk-accompanied chant toyuk. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. klezmer simcha celebration hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 520,
-  "score": 165.083,
+  "recipe": "classic Eastern European early-1880s cantorial khazonus, ritual Devotional, Jewish branch, vocal drone modal, European funeral lament toyuk skolt sámi leuʹdd. vocal fry, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. klezmer simcha celebration hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 514,
+  "score": 107.575,
   "config": {
     "traditions": [
       "cantorial_khazonus",
-      "armenian_duduk_chant",
-      "sakha_toyuk"
+      "sakha_toyuk",
+      "sami_skolt_leudd"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_solo_over_choral_drone",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_persian_dastgah",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 6.24,
+          "voice_register": 5.3950000000000005,
           "voice_quality": 4.810000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.4125,
-          "voice_articulation": 12.025,
-          "voice_microtone": 21.5475,
-          "voice_tradition": 19.987499999999997,
-          "voice_mechanism_compound": 9.684999999999999,
-          "voice_estill_quality": 11.975,
-          "voice_speech_song": 12.675,
-          "voice_ensemble_config": 13.65,
-          "voice_ornament_system": 5.1000000000000005,
-          "voice_pitch_organization": 5.4399999999999995,
-          "voice_processing_chain": 6.11,
-          "voice_multitrack_stack": 7.735
+          "voice_vibrato": 1.1049999999999998,
+          "voice_articulation": 4.550000000000001,
+          "voice_microtone": 6.955000000000002,
+          "voice_tradition": 13.519999999999998,
+          "voice_mechanism_compound": 5.2,
+          "voice_estill_quality": 9.95,
+          "voice_speech_song": 6.500000000000001,
+          "voice_ensemble_config": 10.464999999999998,
+          "voice_ornament_system": 4.525,
+          "voice_pitch_organization": 3.0550000000000006,
+          "voice_processing_chain": 7.605000000000006,
+          "voice_multitrack_stack": 6.045
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 8.125,
-          "choir_polyphonic_configuration": 7.93,
-          "choir_regional_canonical_configuration": 6.24,
-          "choir_ensemble_repertoire": 6.045
+          "choir_size": 6.629999999999999,
+          "choir_polyphonic_configuration": 5.3950000000000005,
+          "choir_regional_canonical_configuration": 4.745,
+          "choir_ensemble_repertoire": 4.55
         }
       }
     ],

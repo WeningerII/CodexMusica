@@ -5,7 +5,7 @@
   "lineage": "Adventist music forms part of the worldwide Seventh-day Adventist community’s worship and musical life. Congregational singing, choirs and smaller groups connect sacred texts with local musical cultures and church education.",
   "recipe": "classic adventista, ritual Devotional, christian gospel branch. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 175,
-  "score": 2.244,
+  "score": 2.317,
   "config": {
     "traditions": [
       "adventista"
@@ -67,7 +67,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.294,
+          "grand_piano_size": 0.3675,
           "grand_piano_brand": 1.573,
           "piano_hammer": 0.25,
           "piano_rim": 0.26,

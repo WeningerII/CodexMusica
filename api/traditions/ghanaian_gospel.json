@@ -5,7 +5,7 @@
   "lineage": "Ghanaian gospel is a Ghana-based Christian recording and worship scene with diverse musical branches. Joe Mettle’s Mehia Wo Yesu supplies a documented song-led branch: the official video credits lead and three supporting singers, KODA on bass and guitars, and Emmanuel Bludo Jnr on drums. This reduced authored model follows those roles, with communal vocal harmony and a band foundation; it does not infer a highlife percussion battery or claim all Ghanaian gospel has this arrangement.",
   "recipe": "classic modern ghanaian gospel, ritual Devotional, christian gospel branch. one note per syllable, no specific ornament system. single coil electric guitar, electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 385,
-  "score": 2.727,
+  "score": 2.454,
   "config": {
     "traditions": [
       "ghanaian_gospel"
@@ -44,7 +44,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0.6825000000000001,
           "voice_ensemble_config": 0.3055,
-          "voice_ornament_system": 0.6825000000000001,
+          "voice_ornament_system": 0.546,
           "voice_pitch_organization": 0.16899999999999998,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.16899999999999998
@@ -76,7 +76,7 @@
           "pickup_magnet": 0,
           "string_material": 0,
           "string_gauge": 0.294,
-          "bridge": 0.40950000000000003,
+          "bridge": 0.273,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,

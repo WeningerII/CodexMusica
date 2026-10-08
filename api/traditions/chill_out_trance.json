@@ -5,7 +5,7 @@
   "lineage": "Chill-out trance connects trance repertoire with relaxed listening, including reinterpretations of vocal-trance songs. Remixers and labels such as Seven24’s network, RNM and Suanda link melodic dance music with atmospheric listening arrangements.",
   "recipe": "classic chill-out trance, electronic Dance, trance branch. analog poly synth, drum machine analog. shoebox concert hall.",
   "recipe_chars": 120,
-  "score": 1.625,
+  "score": 1.474,
   "config": {
     "traditions": [
       "chill_out_trance"
@@ -37,8 +37,8 @@
         "scores": {
           "kick_voice": 0.231,
           "snare_voice": 0,
-          "hat_voice": 0.231,
-          "shuffle_quantize": -0.035
+          "hat_voice": 0.0945,
+          "shuffle_quantize": -0.05
         }
       }
     ],

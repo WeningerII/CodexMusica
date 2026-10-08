@@ -3,14 +3,14 @@
   "name": "Saraiki pop",
   "family": "global",
   "lineage": "Popular music in Saraiki from the southern Punjab belt of Multan, Dera Ghazi Khan and Bahawalpur, professionalized through Radio Pakistan Multan from the 1970s and the Lahore cassette-and-VCD trade of the 1980s-2000s with Attaullah Khan Esakhelvi, Pathanay Khan and Abida Parveen, marked by dholak-and-tabla duple grooves, alghoza double-flute and harmonium riffs, kafi and doha poetic texts of Khwaja Ghulam Farid, and long melismatic laments in a plaintive high register.",
-  "recipe": "classic South Asian mid-1970s saraiki pop, functional Song, south Asian pop branch, Sufi ritual devotional, indian bard ballad poetry rajasthani folk lavani. extended whistle, breath veiled tone, slow rate, interlocked note trading. dholak, algoza, treble-extended vocal female harmonium indian, steel single string canonical Punjabi ornamented tumbi, ornamented ektara, pitched indian rosewood rosewood tabla. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
-  "recipe_chars": 588,
-  "score": 200.605,
+  "recipe": "classic South Asian mid-1970s saraiki pop, functional Song, south Asian pop branch, Sufi ritual devotional, indian bard ballad poetry lok dohori baithak gana. extended whistle, breath veiled tone, slow rate, interlocked note trading. dholak, algoza, low overtone rich vocal male harmonium indian, steel single string canonical Punjabi ornamented tumbi, ornamented ektara, ringing pitched indian rosewood rosewood tabla. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 597,
+  "score": 197.093,
   "config": {
     "traditions": [
       "saraiki_pop",
-      "rajasthani_folk_thar",
-      "lavani_dholki"
+      "lok_dohori",
+      "baithak_gana"
     ],
     "instruments": [
       {
@@ -19,11 +19,11 @@
           "dholak_use": "dholak_classical",
           "dholak_construction": "dholak_large",
           "dholak_head": "dholak_goat_skin_canonical",
-          "dholak_tensioning": "dholak_bolt_tuned"
+          "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.09,
-          "dholak_construction": 1.3,
+          "dholak_use": 0.59,
+          "dholak_construction": 0.6900000000000001,
           "dholak_head": 0.38999999999999996,
           "dholak_tensioning": 0.65
         }
@@ -36,7 +36,7 @@
         },
         "scores": {
           "algoza_pair": 0,
-          "algoza_breath": 1.2349999999999999
+          "algoza_breath": 1.69
         }
       },
       {
@@ -44,13 +44,13 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "harmonium_action": "harmonium_hand_pump",
-          "harmonium_voicing": "harmonium_female",
+          "harmonium_voicing": "harmonium_male",
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 0.695,
-          "harmonium_action": 0.975,
-          "harmonium_voicing": 1.4300000000000002,
+          "free_reed_technique": 1.5699999999999998,
+          "harmonium_action": 0.78,
+          "harmonium_voicing": 1.855,
           "harmonium_use": 1.56
         }
       },
@@ -63,7 +63,7 @@
           "tumbi_string": "tumbi_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 4.8999999999999995,
+          "plucked_traditional_technique": 3.7250000000000005,
           "tumbi_construction": 0.78,
           "tumbi_context": 0.7149999999999999,
           "tumbi_string": 1.2349999999999999
@@ -78,23 +78,23 @@
           "ektara_string": "ektara_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 4.8999999999999995,
-          "ektara_use": 2.145,
+          "plucked_traditional_technique": 3.7250000000000005,
+          "ektara_use": 2.34,
           "ektara_body": 0.5399999999999999,
-          "ektara_string": 0.5399999999999999
+          "ektara_string": 0.65
         }
       },
       {
         "id": "tabla",
         "slots": {
           "tabla_dayan": "shisham_dayan",
-          "tabla_bayan": "copper_bayan",
+          "tabla_bayan": "clay_bayan",
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 2.99,
-          "tabla_bayan": 0.7050000000000001,
-          "tabla_syahi": 4.29
+          "tabla_dayan": 4.03,
+          "tabla_bayan": 0.585,
+          "tabla_syahi": 6.89
         }
       },
       {
@@ -112,28 +112,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 10.794999999999998,
-          "voice_quality": 10.919999999999993,
+          "voice_register": 10.82,
+          "voice_quality": 10.139999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.365,
+          "voice_vibrato": 1.4625,
           "voice_articulation": 22.490000000000002,
-          "voice_microtone": 22.75,
-          "voice_tradition": 14.169999999999998,
-          "voice_mechanism_compound": 4.2250000000000005,
-          "voice_estill_quality": 4.620000000000001,
-          "voice_speech_song": 27.365000000000002,
-          "voice_ensemble_config": 23.66,
-          "voice_ornament_system": 4.72,
-          "voice_pitch_organization": 4.445,
-          "voice_processing_chain": 5.95,
-          "voice_multitrack_stack": 3.8900000000000006
+          "voice_microtone": 21.45,
+          "voice_tradition": 11.8625,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 27.625000000000004,
+          "voice_ensemble_config": 22.36,
+          "voice_ornament_system": 5.645,
+          "voice_pitch_organization": 4.995000000000001,
+          "voice_processing_chain": 6.7,
+          "voice_multitrack_stack": 4.640000000000001
         }
       }
     ],

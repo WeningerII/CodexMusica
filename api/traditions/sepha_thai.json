@@ -5,7 +5,7 @@
   "lineage": "Thai narrative recitation in which a solo reciter delivers verse from the epic Khun Chang Khun Phaen, keeping time with krap sepha, two pairs of hardwood bars clicked together in each hand. In the early Bangkok period a piphat sepha ensemble was added to play pieces between passages of recitation, and its repertoire became part of the Thai classical canon. An auxiliary-percussion card stands in for the krap sepha and a generic drum card for the ensemble drum.",
   "recipe": "classic modern sepha, art Music, Thai classical branch. narrative, solo with instrumental accompaniment, seven equal 171 cent steps. credited auxiliary percussion, central Thai ching chap open and damped ching, ranat ek, khong wong yai, pi nai, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 377,
-  "score": 97.74,
+  "score": 95.882,
   "config": {
     "traditions": [
       "sepha_thai"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.289375,
+          "voice_ensemble_config": 4.047875,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 21.244374999999998,
+          "voice_pitch_organization": 20.404374999999998,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.376125,
+          "voice_multitrack_stack": 0.34462499999999996,
           "voice_tessitura": 0
         }
       },
@@ -69,7 +69,7 @@
           "ching_alloy": "ching_bronze"
         },
         "scores": {
-          "ching_form": 15.6505,
+          "ching_form": 15.030999999999999,
           "ching_stroke": 2.925,
           "ching_alloy": -0.035
         }
@@ -80,7 +80,7 @@
           "ranat_ek_technique": "ranat_ek_kep"
         },
         "scores": {
-          "ranat_ek_technique": 13.98925
+          "ranat_ek_technique": 13.92625
         }
       },
       {
@@ -98,7 +98,7 @@
           "pi_nai_style": "pi_nai_piphat"
         },
         "scores": {
-          "pi_nai_style": 14.02075
+          "pi_nai_style": 13.95775
         }
       },
       {

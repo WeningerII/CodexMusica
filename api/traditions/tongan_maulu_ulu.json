@@ -5,7 +5,7 @@
   "lineage": "Tongan group dance-song performed by rows of seated performers who sing poetry while executing arm movements, distinct from the standing lakalaka. It is accompanied by wooden slit drums and is performed especially by school and church groups; Adrienne Kaeppler documented the form in her studies of Tongan dance.",
   "recipe": "classic modern maʻuluʻulu, praise Song, oceania pacific branch. interlocking pacific slit gong. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 175,
-  "score": 8.106,
+  "score": 8.2,
   "config": {
     "traditions": [
       "tongan_maulu_ulu"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3465,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.168,
+          "voice_multitrack_stack": 0.3045,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "pacific_slit_gong_form": -0.07,
-          "pacific_slit_gong_role": 7.8465,
+          "pacific_slit_gong_role": 8.0145,
           "pacific_slit_gong_wood": -0.035
         }
       }

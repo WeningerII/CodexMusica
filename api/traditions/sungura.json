@@ -3,85 +3,85 @@
   "name": "Sungura",
   "family": "global",
   "lineage": "Zimbabwean guitar-band dance music formed in Harare in the early 1980s from Congolese rumba-soukous imported by migrant musicians and codified by Ephraim Joe, the Khiama Boys, Nicholas Zakaria, System Tazvida and Alick Macheso — roughly 120-140 BPM with a snare-and-hi-hat kanindo shuffle, three-guitar stratification of lead, rhythm and bass playing rapid triplet-feel runs, and paired Shona vocals over a long instrumental seben break.",
-  "recipe": "classic Southern African 1980-1983 sungura, functional Song, congolese rumba branch, African pop functional song rumba congolaise sebene. extended whistle, breath veiled tone, straight note core, interlocked note trading. mahogany rosewood ceramic nickel plated steel nickel single coil electric mahogany maple rosewood nickel plated steel nickel humbucker electric guitar, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, pre muffled edge muffled brushes-and-sticks drum kit, hosho, a cappella small 3 to 8 one per part homophonic chordal rhythm aligned sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
-  "recipe_chars": 867,
-  "score": 318.218,
+  "recipe": "classic Southern African 1980-1983 sungura, functional Song, congolese rumba branch, African pop functional song. thick, breath veiled tone, straight onset, interlocked note trading. clean strummed single coil electric clean strummed humbucker electric guitar, ampeg svt amp rock bass amp alder thomastik infeld low tension electric bass, pre muffled edge muffled brushes-and-sticks drum kit, hosho, a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 756,
+  "score": 289.569,
   "config": {
     "traditions": [
       "sungura",
-      "rumba_congolaise",
-      "sebene"
+      "congolese_rumba",
+      "jit"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 14.1375,
-          "voice_quality": 14.949999999999996,
+          "voice_register": 13.975249999999992,
+          "voice_quality": 12.414999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7680000000000002,
-          "voice_articulation": 20.475,
-          "voice_microtone": 20.279999999999994,
-          "voice_tradition": 18.98,
-          "voice_mechanism_compound": 2.795,
-          "voice_estill_quality": 2.145,
-          "voice_speech_song": 27.3,
-          "voice_ensemble_config": 20.214999999999996,
-          "voice_ornament_system": 2.990000000000001,
-          "voice_pitch_organization": 2.0149999999999997,
-          "voice_processing_chain": 8.604000000000001,
-          "voice_multitrack_stack": 7.15
+          "voice_vibrato": 3.997499999999999,
+          "voice_articulation": 18.46,
+          "voice_microtone": 19.174999999999997,
+          "voice_tradition": 18.947500000000005,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 2.7300000000000004,
+          "voice_speech_song": 24.375,
+          "voice_ensemble_config": 20.345,
+          "voice_ornament_system": 1.6899999999999997,
+          "voice_pitch_organization": 2.4025,
+          "voice_processing_chain": 10.164625000000001,
+          "voice_multitrack_stack": 8.092500000000001
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_british_hiwatt",
           "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "neck_wood": "maple",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
-          "bridge": "locking_trem",
-          "scale_length": "scale_gibson",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
+          "scale_length": "scale_short",
           "finish": "nitro",
-          "string_tuning": "drop_d",
+          "string_tuning": "dadgad",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 17.488000000000003,
-          "amp_make": 1.6249999999999998,
-          "body_wood": 1.69,
-          "neck_wood": 1.69,
-          "fretboard": 1.625,
-          "pickup_magnet": 1.04,
-          "string_material": 1.04,
-          "string_gauge": 2.0799999999999996,
-          "bridge": 0.255,
-          "scale_length": 1.69,
-          "finish": 0.195,
-          "string_tuning": 1.235,
+          "electric_technique": 13.995875,
+          "amp_make": 1.2349999999999999,
+          "body_wood": 0.39,
+          "neck_wood": 0.5025,
+          "fretboard": 0.845,
+          "pickup_magnet": 0.5025,
+          "string_material": 0.5025,
+          "string_gauge": 0.39,
+          "bridge": 0.845,
+          "scale_length": 0.65,
+          "finish": 0,
+          "string_tuning": 0.9099999999999999,
           "single_coil_pickup_construction": 0
         }
       },
@@ -89,33 +89,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_british_hiwatt",
           "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "dadgad"
         },
         "scores": {
-          "electric_technique": 17.488000000000003,
-          "amp_make": 1.6249999999999998,
-          "body_wood": 1.69,
-          "neck_wood": 1.69,
-          "fretboard": 1.625,
-          "pickup_magnet": 0.195,
+          "electric_technique": 13.995875,
+          "amp_make": 1.2349999999999999,
+          "body_wood": 0.39,
+          "neck_wood": 0.5025,
+          "fretboard": 0.845,
+          "pickup_magnet": 0.845,
           "pickup_winding": 0.39,
-          "string_material": 1.04,
-          "bridge": 1.69,
-          "scale_length": 1.69,
-          "string_gauge": 2.0799999999999996,
-          "finish": 0.195,
-          "string_tuning": 1.235
+          "string_material": 0.5025,
+          "bridge": 0.845,
+          "scale_length": 0.39,
+          "string_gauge": 0.39,
+          "finish": 0,
+          "string_tuning": 0.9099999999999999
         }
       },
       {
@@ -123,21 +123,21 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "soapbar",
-          "string_type": "pyramid_pure_nickel",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_walking",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.25,
-          "body_wood": 2.08,
-          "pickup_config": 1.0399999999999998,
-          "string_type": 4.290000000000001,
-          "scale_length_b": 2.9899999999999998,
-          "fretted_or_not": 0.1215,
-          "bass_technique": 3.43,
+          "amp_make": 3.9,
+          "body_wood": 1.2349999999999999,
+          "pickup_config": 0.845,
+          "string_type": 4.7124999999999995,
+          "scale_length_b": 1.69,
+          "fretted_or_not": 0.09,
+          "bass_technique": 4.46875,
           "electric_bass_string_configuration": 0
         }
       },
@@ -149,8 +149,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.555,
-          "drumhead": 10.586500000000001,
+          "drum_technique": 20.019999999999996,
+          "drumhead": 10.662125,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -162,23 +162,23 @@
           "hosho_filler": "hosho_hota_seeds"
         },
         "scores": {
-          "hosho_form": 6.617000000000001,
-          "hosho_groove": 6.362,
-          "hosho_filler": 3.295
+          "hosho_form": 7.768375000000001,
+          "hosho_groove": 9.573375,
+          "hosho_filler": 4.59
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 10.529999999999998,
-          "choir_polyphonic_configuration": 2.9899999999999998,
-          "choir_regional_canonical_configuration": 8.189999999999998,
+          "choir_size": 8.709999999999999,
+          "choir_polyphonic_configuration": 2.6,
+          "choir_regional_canonical_configuration": 6.564999999999999,
           "choir_ensemble_repertoire": 2.6
         }
       }

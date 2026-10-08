@@ -5,7 +5,7 @@
   "lineage": "Congregational psalm singing of orthodox Reformed churches in the Dutch Bible Belt, from Zeeland to Staphorst, where the Genevan psalm melodies in the 1773 Dutch metrical psalter are sung 'op de oude wijze', the old way, with every note levelled to the same long value. The whole congregation sings in unison, led and sustained by the church organ, keeping the levelled rhythm that took hold in Dutch churches in the seventeenth and eighteenth centuries, which most other Dutch Protestant churches gave up for the original rhythmic tunes in the twentieth century.",
   "recipe": "classic early-1770s psalmzingen op de oude wijze, ritual Devotional, christian gospel branch. gang vocal unison octave non tuned overlap. schnitger hamburg canonical north German Baroque late 17th century pipe organ. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 294,
-  "score": 3.471,
+  "score": 2.935,
   "config": {
     "traditions": [
       "dutch_psalm_singing_oude_wijze"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.56,
+          "voice_ensemble_config": 1.4729999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -64,13 +64,13 @@
           "pipe_organ_action": "pipe_organ_mechanical_tracker"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "pipe_organ_class": 0,
           "pipe_organ_context": 0,
           "pipe_organ_voicing_school": 1.3,
-          "pipe_organ_pipe_alloy": 0.8190000000000002,
-          "pipe_organ_temperament": -1.4,
-          "pipe_organ_action": 0.9555
+          "pipe_organ_pipe_alloy": 0.6825000000000001,
+          "pipe_organ_temperament": -1.5905,
+          "pipe_organ_action": 0.819
         }
       }
     ],

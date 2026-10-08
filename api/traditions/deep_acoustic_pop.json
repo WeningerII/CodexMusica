@@ -1,31 +1,32 @@
 {
-  "id": "deep_acoustic_pop",
-  "name": "Deep acoustic pop",
+  "id": "acoustic_pop",
+  "merged_from": "deep_acoustic_pop",
+  "name": "Acoustic pop",
   "family": "pop",
-  "lineage": "Deep acoustic pop emphasizes intimate, less-mainstream acoustic songwriting and close attention to melody, lyric and vocal blend.",
-  "recipe": "classic deep acoustic pop, functional Song, pop rock branch. unprocessed natural acoustic. indian rosewood rosewood nickel bronze modern blend dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 272,
-  "score": 6.809,
+  "lineage": "Acoustic pop brings the directness of acoustic performance to melodic popular songwriting.",
+  "recipe": "classic acoustic pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 253,
+  "score": 17.536,
   "config": {
     "traditions": [
-      "deep_acoustic_pop"
+      "acoustic_pop"
     ],
     "instruments": [
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "rosewood_bs",
-          "string_acoustic": "nickel_bronze"
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 0.05000000000000002,
+          "acoustic_technique": 13.022499999999999,
           "string_tuning": 0,
-          "top_wood": 0.3465,
-          "back_sides": 2.055,
-          "string_acoustic": 1.168
+          "top_wood": 0.2415,
+          "back_sides": 0.105,
+          "string_acoustic": 0.33599999999999997
         }
       },
       {
@@ -60,11 +61,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.063,
+          "voice_ensemble_config": 0.11699999999999999,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 3.0315,
-          "voice_multitrack_stack": 0.063
+          "voice_processing_chain": 3.5654999999999997,
+          "voice_multitrack_stack": 0.11699999999999999
         }
       }
     ],
@@ -127,7 +128,7 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "acoustic_technique": "acoustic_fingerpicked",
+      "acoustic_technique": "acoustic_strummed_ringing",
       "string_tuning": "standard_tuning"
     },
     "pin_parts": true,

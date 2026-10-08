@@ -5,7 +5,7 @@
   "lineage": "Modern Meitei-language song, composed lyric song as distinct from Manipur's ritual and traditional genres, spread through stage, radio and records and was broadcast by All India Radio Imphal; Manipuri cinema, beginning with Matamgi Manipur, the first Manipuri feature film, added film songs to the repertoire. Contemporary productions set the voice over guitar, keyboard, bass and drum kit.",
   "recipe": "classic modern meitei modern song, functional Song, south Asian pop branch. solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 548,
-  "score": 34.761,
+  "score": 34.897,
   "config": {
     "traditions": [
       "meitei_modern_song"
@@ -62,7 +62,7 @@
           "string_acoustic": "dutar_strings_unspecified"
         },
         "scores": {
-          "acoustic_technique": 4,
+          "acoustic_technique": 4.0315,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
@@ -128,7 +128,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.1685,
           "cymbal_hammering": 8.867999999999999,
-          "cymbal_lathing": 9.1365,
+          "cymbal_lathing": 9.2415,
           "cymbal_finish": 0.0315
         }
       }

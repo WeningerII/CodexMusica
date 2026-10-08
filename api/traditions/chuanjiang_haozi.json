@@ -5,7 +5,7 @@
   "lineage": "Work chants of the boatmen and trackers of the Upper Yangtze (Chuanjiang) and its tributaries through Sichuan and Chongqing. A lead chanter, the haozi tou, sets the rhythm of the work and the crew answers, with different chant types for rowing on calm water, hauling against the current and driving through rapids; Chuanjiang haozi is listed on China's national intangible-heritage register.",
   "recipe": "classic modern chuanjiang haozi, sea Shanty. leader call answered, single leader group response. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 176,
-  "score": 1.491,
+  "score": 1.39,
   "config": {
     "traditions": [
       "chuanjiang_haozi"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.9099999999999997,
+          "voice_articulation": 0.8089999999999997,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,

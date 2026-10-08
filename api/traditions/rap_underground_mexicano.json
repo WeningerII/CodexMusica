@@ -5,7 +5,7 @@
   "lineage": "The Mexican independent rap network is represented by Bocafloja’s sample-based spoken-word and rap branch; distinct from imposing this political or musical approach on all Mexican hip hop.",
   "recipe": "classic modern rap underground mexicano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 307,
-  "score": 52.053,
+  "score": 52.536,
   "config": {
     "traditions": [
       "rap_underground_mexicano"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 18.776999999999997,
+          "voice_quality": 18.965999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 20.869,
+          "voice_speech_song": 21.054999999999996,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 3.7,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.213,
+          "sampler_bit_depth": 0.321,
           "sampler_workflow": 0.5539999999999999,
           "sampler_classic_context": 6.954999999999999
         }

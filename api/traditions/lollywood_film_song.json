@@ -5,7 +5,7 @@
   "lineage": "Playback song of the Urdu and Punjabi film industry centred on the studios of Lahore after 1947, composed by music directors such as Khurshid Anwar and Nisar Bazmi, sung by playback singers including Noor Jehan, Ahmed Rushdi, Mehdi Hassan and Mala, and issued on EMI Pakistan records. It developed separately from the Bombay film-song industry.",
   "recipe": "classic late-1940s lollywood film song, functional Song, south Asian pop branch. solo with instrumental accompaniment. credited strings credited bamboo flute unspecified, sitar, song accompaniment harmonium indian, tabla, dholak. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
   "recipe_chars": 363,
-  "score": 16.14,
+  "score": 14.281,
   "config": {
     "traditions": [
       "lollywood_film_song"
@@ -58,7 +58,7 @@
           "credited_strings_unspecified_identity": "credited_strings_unspecified_identity_unspecified"
         },
         "scores": {
-          "credited_strings_unspecified_identity": 0.9877499999999999
+          "credited_strings_unspecified_identity": 0.71475
         }
       },
       {
@@ -76,15 +76,15 @@
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 2.45,
-          "sitar_neck": 0.5295000000000001,
-          "sitar_resonator": 0.1995,
-          "sitar_jawari": 0.2415,
-          "sitar_taraf": 0.1995,
-          "sitar_frets": 0.1995,
-          "sitar_pluck": 0.8505,
+          "plucked_traditional_technique": 2.48525,
+          "sitar_neck": 0.393,
+          "sitar_resonator": 0.063,
+          "sitar_jawari": 0.3615,
+          "sitar_taraf": 0.063,
+          "sitar_frets": 0.063,
+          "sitar_pluck": 0.714,
           "sitar_main_strings": 0,
-          "sitar_jawari_style": 0,
+          "sitar_jawari_style": 0.03525,
           "sitar_gharana": 0.39
         }
       },
@@ -111,8 +111,8 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "harmonium_action": 0.45599999999999996,
-          "harmonium_voicing": 0.546,
+          "harmonium_action": 0.3364999999999999,
+          "harmonium_voicing": 0.39049999999999996,
           "harmonium_use": 5.85
         }
       },
@@ -125,7 +125,7 @@
         },
         "scores": {
           "tabla_dayan": -0.035,
-          "tabla_bayan": 0.231,
+          "tabla_bayan": 0.0945,
           "tabla_syahi": 0
         }
       },
@@ -138,10 +138,10 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.5145,
+          "dholak_use": 0.378,
           "dholak_construction": -0.035,
-          "dholak_head": 0.7874999999999999,
-          "dholak_tensioning": 0.7874999999999999
+          "dholak_head": 0.5145,
+          "dholak_tensioning": 0.5145
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Kantrum (Northern Khmer song of Surin)",
   "family": "global",
   "lineage": "Music of the Northern Khmer communities of lower Isan in Thailand, chiefly Surin, Buriram and Sisaket provinces, sung in the Northern Khmer language for festivals, weddings and dancing. The traditional band accompanies singers with the tro fiddle, drums and ching cymbals; later singers made electrified kantrum, with keyboards and drum kit, a commercial genre on cassette. The tro u card represents the tro and a generic drum card the drums.",
-  "recipe": "classic modern kantrum, field Work, east Asian branch. solo with instrumental accompaniment, tonal language syllable tone locked melody, single lead single track no stacking. coconut shell threaded between strings wedding context tro u, membrane drum pulse resonant acoustic membrane drum, khmer ching chap open and damped ching. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 409,
-  "score": 46.09,
+  "recipe": "classic modern kantrum, field Work, east Asian branch. solo with instrumental accompaniment, tonal language syllable tone locked melody, single lead single track no stacking. coconut shell threaded between strings wedding context tro u, membrane drum pulse resonant acoustic membrane drum, khmer ching chap open and damped bronze ching. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 416,
+  "score": 46.038,
   "config": {
     "traditions": [
       "kantrum_surin"
@@ -63,8 +63,8 @@
         "scores": {
           "bowed_technique": 1.3,
           "tro_u_strings": 0,
-          "tro_u_body": 8.2375,
-          "tro_u_ensemble": 8.632
+          "tro_u_body": 8.1745,
+          "tro_u_ensemble": 8.6005
         }
       },
       {
@@ -74,8 +74,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 3.0725,
-          "acoustic_membrane_drum_gesture": 3.0725
+          "acoustic_membrane_drum_form": 3.0409999999999995,
+          "acoustic_membrane_drum_gesture": 3.0409999999999995
         }
       },
       {
@@ -88,7 +88,7 @@
         "scores": {
           "ching_form": 7.4815000000000005,
           "ching_stroke": 8.515,
-          "ching_alloy": 0.95
+          "ching_alloy": 1.055
         }
       }
     ],

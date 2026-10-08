@@ -5,7 +5,7 @@
   "lineage": "Australian indie rock includes melodic guitar-pop ensembles with interlocking instrumental lines.",
   "recipe": "classic australian indie rock, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood arpeggiated clean humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 360,
-  "score": 33.273,
+  "score": 32.906,
   "config": {
     "traditions": [
       "australian_indie_rock"
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.368,
+          "electric_technique": 5.3365,
           "amp_make": 4.42,
-          "body_wood": 2.6984999999999997,
+          "body_wood": 2.667,
           "neck_wood": 0.105,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.105,
-          "bridge": 0.273,
+          "bridge": 0.168,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 4.875,
-          "body_wood": 2.6984999999999997,
+          "body_wood": 2.667,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -113,10 +113,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Netherlands Antillean folklore includes distinct island repertoires and dance traditions. Curaçao’s composers, including Jan Gerard Palm, developed a rich dance-music legacy that continues through local preservation and modern performance.",
   "recipe": "classic antilliaanse folklore, functional Song, tropical song branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 259,
-  "score": 19.511,
+  "score": 19.46,
   "config": {
     "traditions": [
       "antilliaanse_folklore"
@@ -20,20 +20,20 @@
           "piano_hammer": "renner_blue_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": -0.05,
           "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.8925000000000001,
+          "grand_piano_brand": 0.924,
           "piano_hammer": 2.7545,
           "piano_rim": 2.8280000000000003,
           "piano_soundboard": 2.6915,
-          "piano_pinblock": 2.5,
+          "piano_pinblock": 2.555,
           "piano_plate": 3.185,
-          "piano_pitch_standard": 4.319
+          "piano_pitch_standard": 4.1825
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "UK post-metal is represented here by Bossk. This selected branch has an authored present-day studio realization.",
   "recipe": "classic uk post-metal, distorted Rock, post metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 382,
-  "score": 43.494,
+  "score": 42.675,
   "config": {
     "traditions": [
       "uk_post_metal"
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.19500000000000003,
-          "amp_make": 7.085,
-          "body_wood": 7.279999999999999,
+          "electric_technique": 0.18150000000000002,
+          "amp_make": 6.939500000000001,
+          "body_wood": 7.089499999999999,
           "neck_wood": 0.173625,
           "fretboard": 0.173625,
           "pickup_magnet": 0.005625,
-          "pickup_winding": 0.19949999999999998,
+          "pickup_winding": 0.09449999999999999,
           "string_material": 0.173625,
-          "bridge": 1.4416250000000002,
-          "scale_length": 7.279999999999999,
-          "string_gauge": 1.473125,
+          "bridge": 1.368125,
+          "scale_length": 7.233124999999999,
+          "string_gauge": 1.3996250000000001,
           "finish": 0,
           "string_tuning": 0.31124999999999997
         }
@@ -63,7 +63,7 @@
           "string_type": 4.875,
           "scale_length_b": 0.0315,
           "fretted_or_not": 0.007499999999999999,
-          "bass_technique": 3.7315,
+          "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
       },
@@ -128,9 +128,9 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 0.26,
+          "electronic_technique": 0.205625,
           "poly_archetypes": 1.95,
-          "poly_voices": 0.39,
+          "poly_voices": 0.305625,
           "poly_maker_lineage": -0.035
         }
       }

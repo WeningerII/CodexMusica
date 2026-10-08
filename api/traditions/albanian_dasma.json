@@ -5,7 +5,7 @@
   "lineage": "Albanian wedding-music tradition continuous from medieval Albanian rural practice through 19th-20th century continuous performance; particularly preserved in Northern Albanian highland zones, Southern Albanian iso-polyphonic zones, Kosovo, and Arbëresh-Italian diaspora",
   "recipe": "classic Eastern European modern albanian dasma, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal persian aroosi lebanese-arab wedding takht. vocal fry, breath veiled tone, slow rate, interlocked note trading. grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian darbuka, magic rosin modern acrylic base drone like fiddle. klezmer simcha celebration hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 629,
-  "score": 207.653,
+  "score": 206.738,
   "config": {
     "traditions": [
       "albanian_dasma",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 2.6445,
+          "voice_register": 2.5995,
           "voice_quality": 3.3800000000000012,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,13 +43,13 @@
           "voice_microtone": 20.669999999999995,
           "voice_tradition": 20.147,
           "voice_mechanism_compound": 16.599999999999998,
-          "voice_estill_quality": 10.639,
+          "voice_estill_quality": 10.834,
           "voice_speech_song": 11.667499999999997,
           "voice_ensemble_config": 9.295,
           "voice_ornament_system": 17.447499999999998,
           "voice_pitch_organization": 17.8825,
-          "voice_processing_chain": 2.4995000000000003,
-          "voice_multitrack_stack": 3.1845
+          "voice_processing_chain": 2.4545000000000003,
+          "voice_multitrack_stack": 3.1395
         }
       },
       {
@@ -62,8 +62,8 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 10.599,
-          "clarinet_body": 8.345,
+          "wind_articulation": 10.209,
+          "clarinet_body": 8.045,
           "clarinet_size": 2.9899999999999998,
           "clarinet_reed": 0,
           "clarinet_articulation": 0
@@ -86,8 +86,8 @@
           "musette_offset": 0.045,
           "reed_config": 0.15,
           "bellows": 0,
-          "voicing_chamber": 0.42,
-          "accordion_maker_school": 10.703
+          "voicing_chamber": 0.525,
+          "accordion_maker_school": 10.508
         }
       },
       {
@@ -118,7 +118,7 @@
         "scores": {
           "bowed_technique": 6.065000000000001,
           "fiddle_strings": 0.845,
-          "fiddle_bow": 2.0795,
+          "fiddle_bow": 1.8845,
           "fiddle_mute": 0.045,
           "fiddle_articulation": 0.135,
           "fiddle_string_configuration": 0

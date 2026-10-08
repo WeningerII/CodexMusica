@@ -5,7 +5,7 @@
   "lineage": "Oral tradition of liturgical singing in Old Church Slavonic within the Roman Catholic rite, kept in parishes of Istria, the Kvarner islands such as Krk, and the Dalmatian coast and islands, where the Glagolitic liturgy was permitted from the Middle Ages. Melodies were passed on by ear among priests and congregations rather than from notation and differ from parish to parish, sung in folk-style unison and multipart textures; Jerko Bezić documented its development in the Zadar area.",
   "recipe": "classic modern glagoljaško pjevanje, ritual Devotional. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 133,
-  "score": 0.639,
+  "score": 0.734,
   "config": {
     "traditions": [
       "croatian_glagolitic_chant"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.19500000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }

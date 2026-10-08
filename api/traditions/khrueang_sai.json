@@ -5,7 +5,7 @@
   "lineage": "One of the three principal ensembles of Thai classical music, alongside piphat and mahori, played indoors for entertainment and refined listening. The standard ensemble combines the saw duang and saw u fiddles, the jakhe floor zither, the khlui duct flute, the thon-rammana drums and ching; the khrueang sai pi chawa variant adds the pi chawa oboe and replaces the thon-rammana with klong khaek drums. The krapeu card stands in for the jakhe and a hand-drum card for the thon-rammana.",
   "recipe": "classic modern khrueang sai, art Music, Thai classical branch. sustained legato saw duang, cowhide warm threaded between strings legato saw u, krapeu, seven equal 171 cent steps bamboo khlui, central Thai string ensemble ching, hand drum source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 337,
-  "score": 131.455,
+  "score": 129.433,
   "config": {
     "traditions": [
       "khrueang_sai"
@@ -23,7 +23,7 @@
         "scores": {
           "bowed_technique": 11.25375,
           "saw_duang_body_form": 0.0037499999999999994,
-          "saw_duang_repertoire": 0.162,
+          "saw_duang_repertoire": 0.126,
           "saw_duang_strings": 0,
           "saw_duang_face": 0.03525
         }
@@ -39,9 +39,9 @@
         },
         "scores": {
           "bowed_technique": 11.25375,
-          "saw_u_membrane": 5.3365,
+          "saw_u_membrane": 5.305000000000001,
           "saw_u_strings": 0,
-          "saw_u_ensemble": 11.473714285714285,
+          "saw_u_ensemble": 11.23392857142857,
           "saw_u_ornament": 5.25
         }
       },
@@ -66,9 +66,9 @@
         },
         "scores": {
           "khlui_size": 15.076714285714285,
-          "khlui_context": 20.5095,
-          "khlui_tuning": 16.314392857142856,
-          "khlui_build": 9.0375
+          "khlui_context": 20.037214285714285,
+          "khlui_tuning": 15.909392857142857,
+          "khlui_build": 9.051428571428572
         }
       },
       {
@@ -79,8 +79,8 @@
           "ching_alloy": "ching_bronze"
         },
         "scores": {
-          "ching_form": 13.25925,
-          "ching_stroke": 6.723964285714286,
+          "ching_form": 12.63975,
+          "ching_stroke": 6.491892857142857,
           "ching_alloy": -0.035
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Pinoy shoegaze combines the Philippines’ independent-band scene with layered, atmospheric guitar music.",
   "recipe": "classic pinoy shoegaze, distorted Rock, alternative branch. basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, sustained pad analog synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 294,
-  "score": 28.723,
+  "score": 28.358,
   "config": {
     "traditions": [
       "pinoy_shoegaze"
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.26,
+          "electric_technique": 0.2315,
           "amp_make": 1.8199999999999998,
-          "body_wood": 1.1969999999999998,
-          "neck_wood": 0.3045,
+          "body_wood": 1.302,
+          "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.5775,
           "string_material": 0.105,
-          "bridge": 1.443,
-          "scale_length": 0.651,
-          "string_gauge": 1.443,
+          "bridge": 1.338,
+          "scale_length": 0.7875000000000001,
+          "string_gauge": 1.338,
           "finish": 0,
           "string_tuning": 0.27
         }
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.609,
+          "body_wood": 0.546,
           "pickup_config": 0.1365,
           "string_type": 4.875,
-          "scale_length_b": 0.3045,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.489,
+          "voice_ensemble_config": 0.4575,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0
         }
       },
@@ -126,14 +126,14 @@
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "sustain_env",
-          "modulation": "no_mod"
+          "modulation": "lfo_pitch"
         },
         "scores": {
           "electronic_technique": 4.95,
           "oscillator": 0.39,
           "filter_topology": 0.39,
-          "envelope": 1.4115,
-          "modulation": 0.0735
+          "envelope": 1.3065,
+          "modulation": 0
         }
       }
     ],

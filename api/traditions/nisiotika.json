@@ -1,165 +1,196 @@
 {
-  "id": "nisiotika",
-  "name": "Nisiótika",
+  "id": "greek_nisiotika",
+  "merged_from": "nisiotika",
+  "name": "Greek nisiotika (island music)",
   "family": "global",
-  "lineage": "Song and dance repertoire of the Aegean islands — Cyclades, Dodecanese, Ikaria — carried orally through panigyria and commercialised on Athenian labels from the 1950s by the Konitopoulos family of Naxos — violi leading ornamented melody with laouto strumming a driving offbeat, santouri fills and tsampouna drone in older village practice, brisk syrtos and ballos in 2/4 and 7/8 kalamatianos, with bright open-throat unison singing",
-  "recipe": "classic Southern European mid-1950s nisiótika, sea Shanty, Mediterranean branch, European carnival processional, Mediterranean ballad ballad poetry organetto horo. breath veiled tone, fast rate, interlocked note trading, neutral third half flat. silver wound lamb gut core carpathian spruce hard rock maple acer saccharum violin orchestral, drone like modal santur, floyera, open slap hand drum darbuka, low mid rich spectrum broken in fast cedar classical nylon-string guitar. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 649,
-  "score": 160.1,
+  "lineage": "Greek nisiotika (\"island music\") folk-popular music tradition of the Greek Aegean Sea islands — Naxos, Mykonos, Tinos, Andros, Skyros, Lesbos, Chios, Samos, and adjacent islands — distinguished from mainland Greek demotic music by characteristic island-dance-rhythm repertoire (the syrtos, sousta, ballos), instrumental signature (lyra Cretan-style three-string fiddle on some islands, violin elsewhere, laouto long-neck lute, and santouri hammered-dulcimer), and the broader Aegean-island maritime-cultural orientation. The mid-twentieth-century commercial-recording era at Columbia, HMV, and Pathé Athens documented the canonical island repertoire. Distinguished from the parallel Cretan lyra tradition by nisiotika's broader-Aegean-island-network and lighter dance-emphasis register.",
+  "recipe": "classic Southern European early-1930s greek nisiotika, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, mulberry canonical cretan gut pre modern cretan cretan lyra, island rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 734,
+  "score": 254.972,
   "config": {
     "traditions": [
-      "nisiotika",
-      "organetto_italiano",
-      "horo"
+      "greek_nisiotika",
+      "indonesian_jaipongan",
+      "fuji"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 0.45500000000000007,
-          "voice_quality": 8.58,
+          "voice_register": 5.655000000000001,
+          "voice_quality": 17.679999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4300000000000002,
-          "voice_articulation": 20.474999999999998,
-          "voice_microtone": 19.044999999999995,
-          "voice_tradition": 9.674999999999999,
-          "voice_mechanism_compound": 5.6549999999999985,
-          "voice_estill_quality": 6.499999999999999,
-          "voice_speech_song": 23.529999999999998,
-          "voice_ensemble_config": 18.719999999999995,
-          "voice_ornament_system": 1.675,
-          "voice_pitch_organization": 3.0550000000000015,
-          "voice_processing_chain": 3.0550000000000006,
-          "voice_multitrack_stack": 1.7349999999999999
+          "voice_vibrato": 3.3150000000000004,
+          "voice_articulation": 14.624999999999993,
+          "voice_microtone": 14.42999999999999,
+          "voice_tradition": 30.322499999999998,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 14.624999999999993,
+          "voice_ensemble_config": 14.559999999999992,
+          "voice_ornament_system": 2.469999999999999,
+          "voice_pitch_organization": 7.664999999999998,
+          "voice_processing_chain": 6.465000000000001,
+          "voice_multitrack_stack": 5.1850000000000005
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "oud_school": 4.615,
+          "oud_strings": 0,
+          "oud_pick": 3.38,
+          "oud_body_wood": 4.03,
+          "oud_soundboard_wood": 1.69,
+          "oud_string_material": 1.69
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_klezmer_ornamented",
-          "orch_strings": "silver_wound_lamb_gut_violin",
-          "orch_top_wood": "carpathian_spruce_violin",
-          "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "french_polish_violin",
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "spirit_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
-          "orch_articulation": "pizz_orch",
+          "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.0949999999999998,
-          "orch_strings": 1.43,
-          "orch_top_wood": 3.7050000000000005,
-          "orch_back_wood": 4.290000000000001,
-          "orch_varnish": 0.585,
-          "orch_setup_period": 2.145,
-          "orch_bow": 3.38,
-          "orch_bow_stick": -0.035,
-          "orch_articulation": 0.3,
-          "orch_rosin": -0.035
+          "bowed_technique": 3.0500000000000007,
+          "orch_strings": 0.65,
+          "orch_top_wood": 1.625,
+          "orch_back_wood": 0.78,
+          "orch_varnish": -0.035,
+          "orch_setup_period": 5.665000000000001,
+          "orch_bow": 5.915,
+          "orch_bow_stick": 2.245,
+          "orch_articulation": 0.51,
+          "orch_rosin": 0.78
         }
       },
       {
-        "id": "santur",
+        "id": "cimbalom",
         "slots": {
-          "plucked_traditional_technique": "plucked_drone_modal",
-          "santur_school": "santur_iraqi",
-          "santur_technique": "santur_mizrab"
+          "cimbalom_size": "cimbalom_concert_pedal",
+          "cimbalom_mallet": "cimbalom_hard_wood"
         },
         "scores": {
-          "plucked_traditional_technique": 3.1200000000000006,
-          "santur_school": 1.17,
-          "santur_technique": 0.195
+          "cimbalom_size": 19.434999999999995,
+          "cimbalom_mallet": 0.24
         }
       },
       {
-        "id": "floyera",
+        "id": "cretan_lyra",
         "slots": {
-          "floyera_material": "floyera_metal",
-          "floyera_style": "floyera_dance"
+          "bowed_technique": "bowed_legato_classical",
+          "lyra_strings": "lyra_3",
+          "lyra_use": "lyra_dance",
+          "lyra_body_wood": "lyra_mulberry",
+          "lyra_string_material": "lyra_gut_historical"
         },
         "scores": {
-          "floyera_material": 1.3,
-          "floyera_style": 2.145
+          "bowed_technique": -0.05,
+          "lyra_strings": 2.145,
+          "lyra_use": 3.17,
+          "lyra_body_wood": 4.289999999999999,
+          "lyra_string_material": 1.8949999999999996
         }
       },
       {
-        "id": "darbuka",
+        "id": "laouto",
         "slots": {
-          "percussion_technique": "percussion_open_slap",
-          "darbuka_material": "darbuka_brass",
-          "darbuka_skin": "darbuka_goat_skin",
-          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+          "laouto_form": "laouto_nisiotiko",
+          "laouto_role": "laouto_synodeia",
+          "laouto_strings": "laouto_strings_steel"
         },
         "scores": {
-          "percussion_technique": 3.055,
-          "darbuka_material": 0.72,
-          "darbuka_skin": 0.15,
-          "darbuka_regional_style": 0.32999999999999996
-        }
-      },
-      {
-        "id": "classical_nylon_string_guitar",
-        "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
-          "string_tuning": "standard_tuning",
-          "top_wood_classical": "cedar_cl",
-          "bracing_classical": "fan_torres_cl",
-          "string_classical": "gut_cl",
-          "attack_technique_cl": "rasgueado_cl"
-        },
-        "scores": {
-          "acoustic_technique": 2.2749999999999995,
-          "string_tuning": 0,
-          "top_wood_classical": 5.004999999999999,
-          "bracing_classical": 2.295,
-          "string_classical": 0.845,
-          "attack_technique_cl": 0.5499999999999999
+          "laouto_form": 30.949999999999996,
+          "laouto_role": 15.599999999999994,
+          "laouto_strings": -0.05
         }
       }
     ],
     "room": "athens_minos_studios_60s_70s",
     "archetype": "arch_greek_columbia_rizoupoli",
     "inline_chain": {
-      "mic": "condenser_ldc",
-      "pre": "tube_pre",
-      "console": "colored",
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "tape_15ips"
+      "medium": "digital_high"
     },
-    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "tuning": "balkan_odd_meter_aksak",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "tuning": "balkan_odd_meter_aksak",
     "room": "athens_minos_studios_60s_70s",
-    "chain_mic": "condenser_ldc",
-    "chain_pre": "tube_pre",
-    "chain_medium": "tape_15ips",
-    "chain_console": "colored"
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "twang_voice",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_tradition": "mediterranean_demotic_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+      "voice_estill_quality": "voice_estill_oral_twang",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "bowed_technique": "bowed_chopped_old_time",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "cimbalom_size": "cimbalom_small_taraf",
+      "cimbalom_mallet": "cimbalom_cotton_wound",
+      "lyra_strings": "lyra_3",
+      "lyra_use": "lyra_dance",
+      "lyra_body_wood": "lyra_mulberry",
+      "lyra_string_material": "lyra_steel_modern"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

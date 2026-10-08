@@ -5,7 +5,7 @@
   "lineage": "The auroros are lay Catholic brotherhoods, called campanas de auroros, of the Huerta de Murcia and neighbouring districts, who go out before dawn on Sundays to sing salves and coplas to the Virgin of the Rosary through the lanes and at the church door, and who also sing for the dead. A leader gives out each verse and the group answers in orally transmitted polyphony, while a bell marks the start and close of each copla; the tradition is inscribed as a Bien de Interés Cultural. The handbells card stands in for the campana.",
   "recipe": "classic modern auroros, ritual Devotional. single leader group response. sacred liturgical global choir ensemble, handbells diatonic handbells rung handbells. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 238,
-  "score": 6.662,
+  "score": 6.956,
   "config": {
     "traditions": [
       "auroros_murcia"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.005000000000001,
+          "voice_ensemble_config": 3.2360000000000007,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.09449999999999999,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },

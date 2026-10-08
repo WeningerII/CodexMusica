@@ -5,7 +5,7 @@
   "lineage": "Polish synthpop combines electronic songwriting with the energy of independent pop and live performance.",
   "recipe": "classic polish synthpop, functional Song. solo with instrumental accompaniment. analog poly synth, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 234,
-  "score": 6.458,
+  "score": 6.415,
   "config": {
     "traditions": [
       "polish_synthpop"
@@ -75,7 +75,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.34275
+          "voice_multitrack_stack": 0.3
         }
       }
     ],

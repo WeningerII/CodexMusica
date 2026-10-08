@@ -5,7 +5,7 @@
   "lineage": "The żaqq is the Maltese bagpipe: a whole animal skin fitted with a double chanter of two parallel cane pipes ending in a horn bell, without separate drones. It was played with the tanbur, a large frame drum with jingles, for dancing and festive occasions, but by the later twentieth century only a few elderly players remained, recorded by fieldworkers in their last years of playing; the revival group Etnika later brought the żaqq and tanbur back on record.",
   "recipe": "classic modern żaqq u tanbur, drone Modal, wind pipe branch. paired reeds cane pipes horn bell melody continuous drone zaqq, single head frame drum jingles tanbur maltese. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 12.765,
+  "score": 12.209,
   "config": {
     "traditions": [
       "zaqq_u_tanbur"
@@ -29,8 +29,8 @@
           "tanbur_maltese_stroke": "tanbur_maltese_stroke_open"
         },
         "scores": {
-          "tanbur_maltese_build": 5.366499999999999,
-          "tanbur_maltese_stroke": 0.1365
+          "tanbur_maltese_build": 4.778499999999999,
+          "tanbur_maltese_stroke": 0.16799999999999998
         }
       }
     ],

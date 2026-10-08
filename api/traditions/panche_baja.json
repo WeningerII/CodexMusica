@@ -5,7 +5,7 @@
   "lineage": "Auspicious outdoor ensemble of the Damai tailor-musician caste of Nepal, played at weddings and wedding processions (janti), temple rites and other life-cycle and calendrical occasions; the name means 'five instruments', and the larger naumati baja has nine. It combines the sahanai shawm (or the narsinga curved horn and karnal straight trumpet), the jhyali cymbals, the large damaha kettledrum, the small tyamko kettledrum and the dholaki barrel drum. The karna card stands in for the karnal, the horns card for the narsinga, the dhamsa card for the damaha and the tasha card for the tyamko.",
   "recipe": "classic modern panche baja, wedding, south Asian branch. auspicious sahnai, karna trumpet, credited horns unspecified, credited cymbals, dhamsa, tasha, dholak. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 239,
-  "score": 3.172,
+  "score": 3.007,
   "config": {
     "traditions": [
       "panche_baja"
@@ -19,7 +19,7 @@
         },
         "scores": {
           "sahnai_form": 0.315,
-          "sahnai_style": 1.039
+          "sahnai_style": 1.0465
         }
       },
       {
@@ -30,7 +30,7 @@
         },
         "scores": {
           "karna_form": 0.007499999999999999,
-          "karna_use": 0.11299999999999999
+          "karna_use": 0.063
         }
       },
       {
@@ -86,8 +86,8 @@
         "scores": {
           "dholak_use": 0.063,
           "dholak_construction": -0.035,
-          "dholak_head": 0.09649999999999999,
-          "dholak_tensioning": 0.23299999999999998
+          "dholak_head": 0.0315,
+          "dholak_tensioning": 0.17550000000000002
         }
       }
     ],

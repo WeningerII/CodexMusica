@@ -3,14 +3,12 @@
   "name": "Medieval Latin chant and Notre Dame organum",
   "family": "classical",
   "lineage": "Medieval Western European liturgical music tradition spanning monophonic Gregorian chant (canonized late ninth century, eight church modes, Latin liturgical text) and the early-polyphonic organum that emerged from it. Ninth-century parallel organum (the chant doubled at the fifth or fourth, with optional octave doubling); twelfth-century melismatic organum (the chant slowed to drone-tone in the lower voice while the upper voice elaborates ornamentally over each chant pitch). The Notre Dame school, Paris, c.1160-1250, codified the rhythmic-modes system and expanded to three-and-four-voice organum: Léonin (c.1135-1201), credited with the Magnus Liber Organi (the great book of organum), set the two-voice canonical repertoire; Pérotin (fl. c.1200), expanded to three and four voices and composed canonical large-scale organum-quadruplum settings of Viderunt omnes (1198) and Sederunt principes. Cantus firmus practice: the chant melody remains in one voice (typically the tenor) while the other voices counterpoint above. Anonymous IV (English theorist, c.1270s, his treatise survives in a thirteenth-century Bury St Edmunds manuscript) preserves the attribution of these works to Léonin and Pérotin. Distinguished from Renaissance sacred polyphony by limited-voice-count and modal-not-tonal harmonic vocabulary; distinguished from Byzantine chant by Latin-language and Roman-rite cantus-firmus framing; distinguished from Old Roman chant by Frankish-redacted melodic-formulae lineage",
-  "recipe": "classic European early-1160s medieval latin chant and notre dame organum, art Music, western early branch, christian gospel anglican choral anglican choral evensong anglican liturgy. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, double rank octave doubled chant doubling portative organ, late medieval dance driving gut bourdon drone legato vielle medieval. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 602,
-  "score": 376.128,
+  "recipe": "classic European early-1160s medieval latin chant and notre dame organum, art Music, western early branch, christian gospel anglican choral. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, double rank octave doubled chant doubling portative organ, late medieval dance driving gut bourdon drone vielle medieval. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 553,
+  "score": 335.003,
   "config": {
     "traditions": [
-      "medieval_latin_chant_organum",
-      "anglican_choral_evensong",
-      "anglican_liturgy"
+      "medieval_latin_chant_organum"
     ],
     "instruments": [
       {
@@ -34,20 +32,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 7.7745,
-          "voice_quality": 29.76150000000001,
+          "voice_register": 3.1359999999999997,
+          "voice_quality": 26.26000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.17,
-          "voice_articulation": 27.625000000000004,
-          "voice_microtone": 24.05,
-          "voice_tradition": 13.480500000000003,
-          "voice_mechanism_compound": 6.323499999999999,
-          "voice_estill_quality": 10.405499999999998,
-          "voice_speech_song": 28.827500000000004,
-          "voice_ensemble_config": 45.2085,
+          "voice_vibrato": 6.586499999999999,
+          "voice_articulation": 21.38500000000001,
+          "voice_microtone": 17.810000000000002,
+          "voice_tradition": 11.927000000000003,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 9.174999999999999,
+          "voice_speech_song": 21.38500000000001,
+          "voice_ensemble_config": 37.18000000000001,
           "voice_ornament_system": 8.382499999999999,
-          "voice_pitch_organization": 34.33,
+          "voice_pitch_organization": 33.941500000000005,
           "voice_processing_chain": 10.142,
           "voice_multitrack_stack": 7.0009999999999994
         }
@@ -61,10 +59,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 10.0335,
-          "choir_polyphonic_configuration": 16.7105,
-          "choir_regional_canonical_configuration": 18.124,
-          "choir_ensemble_repertoire": 7.150999999999999
+          "choir_size": 10.130999999999998,
+          "choir_polyphonic_configuration": 16.651999999999997,
+          "choir_regional_canonical_configuration": 14.939,
+          "choir_ensemble_repertoire": 7.2875
         }
       },
       {
@@ -77,8 +75,8 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "portative_organ_form": 2.6950000000000003,
-          "portative_organ_repertoire": 49.75650000000001,
+          "portative_organ_form": 2.5000000000000004,
+          "portative_organ_repertoire": 47.93650000000001,
           "portative_organ_pipework": -0.1
         }
       },
@@ -91,7 +89,7 @@
           "vielle_medieval_stringing": "vielle_medieval_bourdon_gut"
         },
         "scores": {
-          "bowed_technique": 3.75,
+          "bowed_technique": 2.5,
           "vielle_medieval_form": 4.1145,
           "vielle_medieval_repertoire": 1.69,
           "vielle_medieval_stringing": 4.2909999999999995

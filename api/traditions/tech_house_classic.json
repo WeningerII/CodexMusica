@@ -5,7 +5,7 @@
   "lineage": "House-and-techno hybrid subgenre codified through Mr. C’s End-Recordings, Terry Francis, Eddie Richards, Layo and Bushwacka — characterized by minimal-techno-derived rhythmic foundation with house-tempo (124-128 BPM), jazz-funk influence, and the European-clubland 2000s production aesthetic",
   "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance portuguese techno techno argentina. digital subtractive, TR-909, sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 329,
-  "score": 97.625,
+  "score": 97.565,
   "config": {
     "traditions": [
       "tech_house_classic",
@@ -49,11 +49,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "sampler_archetypes": 0.3,
           "sampler_bit_depth": 0.26,
           "sampler_workflow": 0.325,
-          "sampler_classic_context": 41.63
+          "sampler_classic_context": 41.45
         }
       },
       {
@@ -66,7 +66,7 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 16.824999999999996,
+          "electronic_technique": 16.974999999999994,
           "mono_oscillator": 0,
           "mono_filter": 0.39,
           "mono_archetypes": 0.39,

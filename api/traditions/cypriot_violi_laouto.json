@@ -5,7 +5,7 @@
   "lineage": "Village music of Greek-speaking Cyprus played by a duo of violin (violi) and laouto lute for weddings, feasts and saints'-day fairs (panigyria). Its repertoire joins the island's dances, among them the syrtos, the kartsilamades couple dances and the tatsia, with the fones, regional melody-types to which singers set traditional or improvised couplets in the fifteen-syllable line. Older ensembles also used the pithkiavli shepherd's flute and the tamboutsia frame drum, and the Cyprus Broadcasting Corporation recorded the repertoire from the mid-twentieth century.",
   "recipe": "classic modern violi kai laouto, wedding, European branch. solo with instrumental accompaniment. fiddle, island rhythmic laouto. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 208,
-  "score": 16.45,
+  "score": 16.66,
   "config": {
     "traditions": [
       "cypriot_violi_laouto"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.21,
           "voice_tessitura": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Line and circle dance music of central, eastern and southeastern Anatolia, called govend in Kurdish, in which dancers link arms, shoulders or little fingers behind a leader who waves a handkerchief at the head of the line. Davul and zurna play it outdoors at weddings and festivals, and many halays are sung folk songs that open at a moderate tempo and accelerate into a fast closing section; Sivas, Erzincan, Elazığ, Diyarbakır and Gaziantep keep distinct regional halay repertoires.",
   "recipe": "classic modern halay, wedding, middle eastern branch. solo with instrumental accompaniment. apricot canonical anatolian ottoman zurna, dance pulse davul. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 233,
-  "score": 18.849,
+  "score": 19.006,
   "config": {
     "traditions": [
       "halay_davul_zurna"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.1025000000000003,
+          "voice_ensemble_config": 1.1445,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.063,
+          "voice_processing_chain": 0.21,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -64,7 +64,7 @@
         "scores": {
           "wind_articulation": 0.19500000000000003,
           "zurna_size": 1.0315,
-          "zurna_context": 0.126,
+          "zurna_context": 0.0945,
           "zurna_body_wood": 1.0945,
           "zurna_reed": 0.1995
         }
@@ -78,7 +78,7 @@
         },
         "scores": {
           "davul_form": 4.723,
-          "davul_context": 9.909,
+          "davul_context": 9.9195,
           "davul_head_material": -0.05
         }
       }

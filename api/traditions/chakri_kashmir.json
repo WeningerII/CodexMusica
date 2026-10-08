@@ -5,7 +5,7 @@
   "lineage": "Chakri is one of the most popular folk song forms of the Kashmir Valley, a responsorial song heard at weddings and festive gatherings and also used to tell love stories and tales. A lead singer and a chorus that repeats the refrain are accompanied by harmonium, rabab, sarangi, the clay pot noot, the goblet drum tumbaknari and the chimta tongs. Here the rubab card stands in for the Kashmiri rabab, the ghatam for the noot and the zerbaghali, a clay goblet drum, for the tumbaknari.",
   "recipe": "classic modern chakri, ballad Poetry, indian bard branch. single lead single track no stacking. melodic straight harmonium indian, carved mulberry rhythmic strum percussive dance driving rubab, melodic bowed song accompaniment sarangi, ghatam, zerbaghali. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 335,
-  "score": 21.415,
+  "score": 20.974,
   "config": {
     "traditions": [
       "chakri_kashmir"
@@ -61,10 +61,10 @@
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 5.141500000000001,
-          "harmonium_action": 0.7875,
-          "harmonium_voicing": 0.7139999999999999,
-          "harmonium_use": 0.5565
+          "free_reed_technique": 5.173,
+          "harmonium_action": 0.756,
+          "harmonium_voicing": 0.7454999999999998,
+          "harmonium_use": 0.4515
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "rubab_form": 1.56,
-          "rubab_style": 5.496,
+          "rubab_style": 5.328,
           "rubab_strings": 0
         }
       },
@@ -92,9 +92,9 @@
         },
         "scores": {
           "bowed_technique": 4.29,
-          "sarangi_belly": 0.273,
+          "sarangi_belly": 0.2415,
           "sarangi_taraf": 0,
-          "sarangi_bow": 0.105,
+          "sarangi_bow": 0,
           "sarangi_main_strings": 0,
           "sarangi_body_wood": 0.45149999999999996
         }
@@ -106,7 +106,7 @@
           "ghatam_technique": "ghatam_full"
         },
         "scores": {
-          "ghatam_school": 0.0315,
+          "ghatam_school": 0,
           "ghatam_technique": 0.105
         }
       },
@@ -117,7 +117,7 @@
           "zerbaghali_stroke": "zerbaghali_finger"
         },
         "scores": {
-          "zerbaghali_shell": 0.3315,
+          "zerbaghali_shell": 0.3,
           "zerbaghali_stroke": 0
         }
       }

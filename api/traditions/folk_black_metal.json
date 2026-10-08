@@ -5,7 +5,7 @@
   "lineage": "Folk-inflected black-metal practice represented by Windir’s Sogn-centered repertoire. Season of Mist describes their black/heavy-metal music with old Norwegian folk elements and documents the four 1997-2003 albums and the shift to a full band on 1184. The compact authored seed carries folk-facing melodic continuity through guitar and voice rather than inferring a compulsory folk-instrument ensemble.",
   "recipe": "classic mid-2000s folk black metal, distorted Rock, black branch, folk metal metal, modal electric drone modal polish folk metal italian folk metal. interlocked note trading, equal tempered, solo with instrumental accompaniment, plate reverb medium decay vocal classic. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier humbucker electric guitar, ampeg svt amp rock bass amp electric bass, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 594,
-  "score": 55.331,
+  "score": 55.481,
   "config": {
     "traditions": [
       "folk_black_metal",
@@ -41,7 +41,7 @@
           "string_material": 0.045,
           "bridge": 0.8249999999999998,
           "scale_length": 1.6499999999999997,
-          "string_gauge": 1.97375,
+          "string_gauge": 2.12375,
           "finish": 0,
           "string_tuning": 0.195
         }

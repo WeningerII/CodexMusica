@@ -5,7 +5,7 @@
   "lineage": "Pan-Indian (Hindi-Urdu, Punjabi, Bengali, and broader North-Indian) pre-wedding sangeet ceremony music continuous from medieval Mughal-era domestic-music practice through 20th-century filmi-Bollywood appropriation into modern South-Asian-and-diaspora wedding practice",
   "recipe": "classic modern indian sangeet, wedding, south Asian branch, middle eastern wedding, south Asian pop functional song, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. synthetic remo modern stable bolt tuned modern concert stable dholak, treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 479,
-  "score": 230.061,
+  "score": 229.584,
   "config": {
     "traditions": [
       "indian_sangeet",
@@ -43,13 +43,13 @@
           "voice_microtone": 10.659999999999995,
           "voice_tradition": 30.85625,
           "voice_mechanism_compound": 13.374999999999998,
-          "voice_estill_quality": 13.719999999999995,
+          "voice_estill_quality": 13.914999999999996,
           "voice_speech_song": 14.202499999999997,
           "voice_ensemble_config": 9.814999999999998,
           "voice_ornament_system": 21.349999999999998,
           "voice_pitch_organization": 19.4025,
           "voice_processing_chain": 5.2,
-          "voice_multitrack_stack": 4.01875
+          "voice_multitrack_stack": 3.92875
         }
       },
       {
@@ -61,10 +61,10 @@
           "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 0.945,
+          "dholak_use": 0.8999999999999999,
           "dholak_construction": 4.7325,
-          "dholak_head": 1.885,
-          "dholak_tensioning": 2.2175000000000002
+          "dholak_head": 1.7225,
+          "dholak_tensioning": 2.0225
         }
       },
       {
@@ -76,10 +76,10 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 0.7949999999999998,
-          "harmonium_action": 4.2212499999999995,
-          "harmonium_voicing": 4.02375,
-          "harmonium_use": 8.87375
+          "free_reed_technique": 0.7499999999999998,
+          "harmonium_action": 4.13125,
+          "harmonium_voicing": 3.9787500000000002,
+          "harmonium_use": 8.82875
         }
       },
       {
@@ -91,7 +91,7 @@
         },
         "scores": {
           "tabla_dayan": 12.199999999999998,
-          "tabla_bayan": 5.844999999999999,
+          "tabla_bayan": 5.89,
           "tabla_syahi": 2.6649999999999996
         }
       }

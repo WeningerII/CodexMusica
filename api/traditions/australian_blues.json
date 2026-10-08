@@ -5,7 +5,7 @@
   "lineage": "Australian blues develops through local performers and touring communities interpreting acoustic and amplified blues traditions. Songwriting and instrumental personality connect the field with wider blues practice.",
   "recipe": "classic australian blues, functional Song, blues acoustic branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 299,
-  "score": 8.585,
+  "score": 8.364,
   "config": {
     "traditions": [
       "australian_blues"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 0.693,
+          "voice_multitrack_stack": 0.63,
           "voice_tessitura": 0
         }
       },
@@ -57,16 +57,16 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
-          "top_wood": "cedar",
+          "top_wood": "sitka",
           "back_sides": "maple_bs",
-          "string_acoustic": "martin_lifespan"
+          "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
           "acoustic_technique": 0.06500000000000002,
           "string_tuning": 0,
-          "top_wood": 0.3045,
+          "top_wood": 0.273,
           "back_sides": 0.273,
-          "string_acoustic": 0.6194999999999999
+          "string_acoustic": 0.4935
         }
       }
     ],

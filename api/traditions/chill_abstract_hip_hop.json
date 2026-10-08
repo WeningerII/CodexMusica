@@ -1,16 +1,17 @@
 {
-  "id": "chill_abstract_hip_hop",
-  "name": "Chill abstract hip hop",
+  "id": "abstract_hip_hop",
+  "merged_from": "chill_abstract_hip_hop",
+  "name": "Abstract hip hop",
   "family": "hip_hop",
-  "lineage": "A restrained, hazy strand of abstract rap in which reflective associative MC writing remains foreground while the accompaniment and delivery soften. Chester Watson’s Project 0, particularly 40 Acres with Tufu, anchors this selected late-2010s model. The category is not instrumental study-beat music: its MC and verbal narrative remain essential to the selected practice.",
-  "recipe": "classic 2017-2019 chill abstract hip hop, mc Rhythm, experimental branch, lofi experimental electric, us hip hop modern viral rap viral trap. thick, rap, minimal subglottal pressure, pure. sampled chopped sampler. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital digital delay.",
-  "recipe_chars": 344,
-  "score": 85.095,
+  "lineage": "Late-1990s and 2000s independent hip-hop emphasizing associative imagery and densely constructed MC writing. Aesop Rock and Blockhead’s Labor Days (2001), issued through Definitive Jux, anchors the selected New York sample-based strand. Abstract describes the writing and approach, rather than a single production technology; this authored studio recipe selects an articulate solo flow and chopped sample bed.",
+  "recipe": "classic 1997-1999 abstract hip hop, mc Rhythm, experimental branch, us hip hop east coast mafioso rap harlem hip hop. thick, rap, narrative, equal tempered. sampled chopped sampler drum machine, chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 357,
+  "score": 171.967,
   "config": {
     "traditions": [
-      "chill_abstract_hip_hop",
-      "viral_rap",
-      "viral_trap"
+      "abstract_hip_hop",
+      "mafioso_rap",
+      "harlem_hip_hop"
     ],
     "instruments": [
       {
@@ -19,9 +20,9 @@
           "voice_register": "chest_voice",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_minimal_undersung",
+          "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "narrative_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_single_source",
@@ -30,43 +31,58 @@
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 1.345,
-          "voice_quality": 20.125,
+          "voice_register": 5.690000000000001,
+          "voice_quality": 25.74,
           "voice_vocal_tract": 0,
-          "voice_effort": 1.17,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 0.5399999999999999,
-          "voice_microtone": 1.55,
+          "voice_effort": 0,
+          "voice_vibrato": 0.345,
+          "voice_articulation": 13.01,
+          "voice_microtone": 3.045000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.39,
-          "voice_speech_song": 18.435,
-          "voice_ensemble_config": 5.07,
-          "voice_ornament_system": 0.195,
-          "voice_pitch_organization": 0.435,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39
+          "voice_mechanism_compound": 1.09,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 22.425,
+          "voice_ensemble_config": 4.615,
+          "voice_ornament_system": 0.15,
+          "voice_pitch_organization": 0.045,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 1.435
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 11.36,
+          "sample_bitdepth": 0.54,
+          "sample_swing": 16.25,
+          "sample_processing": -0.05
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "mpc_modern",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_loop_layered",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.83,
-          "sampler_archetypes": 5.605,
-          "sampler_bit_depth": -0.42000000000000004,
-          "sampler_workflow": 0.245,
-          "sampler_classic_context": 14.494999999999997
+          "electronic_technique": 11.36,
+          "sampler_archetypes": 16.25,
+          "sampler_bit_depth": 0.54,
+          "sampler_workflow": 11.795,
+          "sampler_classic_context": 27.007499999999997
         }
       }
     ],
@@ -74,7 +90,6 @@
       "voice": [
         "voice_register",
         "voice_quality",
-        "voice_effort",
         "voice_vibrato",
         "voice_articulation",
         "voice_microtone",
@@ -88,6 +103,12 @@
         "voice_processing_chain",
         "voice_multitrack_stack"
       ],
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
       "sampler_classic": [
         "electronic_technique",
         "sampler_archetypes",
@@ -96,13 +117,13 @@
         "sampler_classic_context"
       ]
     },
-    "room": "carpeted_bedroom",
-    "archetype": "arch_minimal_daw_bedroom",
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_fet",
       "pre": "transformerless",
       "console": "console_in_the_box",
-      "comp": "comp_la2a_optical",
+      "comp": "comp_fet",
       "eq": "eq_active_parametric",
       "amp": null,
       "medium": "digital_std"
@@ -110,13 +131,11 @@
     "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": [
-      "digital_delay"
-    ]
+    "fx_extras": []
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "carpeted_bedroom",
+    "room": "treated_studio",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "rap_voice",
@@ -128,26 +147,25 @@
       "voice_ornament_system": "voice_ornament_none",
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "voice_estill_quality": "voice_estill_speech",
-      "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+      "voice_processing_chain": "voice_processing_unprocessed",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_articulation": "spoken_voice",
-      "voice_effort": "effort_minimal_undersung",
       "electronic_technique": "electronic_sample_chopped",
-      "sampler_archetypes": "mpc_modern",
-      "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_hiphop"
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "chopped_break",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_archetypes": "ensoniq_asr10",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "voice_articulation": "narrative_voice",
+      "voice_multitrack_stack": "voice_multitrack_single_lead"
     },
     "pin_parts": true,
     "chain_mic": "condenser_fet",
     "chain_pre": "transformerless",
-    "chain_comp": "comp_la2a_optical",
+    "chain_comp": "comp_fet",
     "chain_eq": "eq_active_parametric",
     "chain_medium": "digital_std",
-    "chain_console": "console_in_the_box",
-    "chain_fx": [
-      "digital_delay"
-    ]
+    "chain_console": "console_in_the_box"
   }
 }

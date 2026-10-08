@@ -3,9 +3,9 @@
   "name": "Torbellino and guabina (Santander-Boyacá highland song)",
   "family": "global",
   "lineage": "Torbellino and guabina are old rural song-dances of the eastern Andes of Santander and Boyacá. Torbellino, a circling couple dance and processional music in triple time, is played on tiple and requinto with the chucho cane rattle, sometimes adding guitar and the esterilla scraper; guabina is a slower sung form whose long, high, plaintive verses are celebrated at the Festival Nacional de la Guabina y el Tiple in Vélez. The shaker card stands in for the chucho and the requinto card for the Colombian requinto.",
-  "recipe": "classic modern torbellino and guabina, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment, unprocessed natural acoustic. cedar canonical andean tiple, credited requinto shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 304,
-  "score": 6.054,
+  "recipe": "classic modern torbellino and guabina, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment, unprocessed natural acoustic. tiple, credited requinto shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 281,
+  "score": 5.235,
   "config": {
     "traditions": [
       "torbellino_guabina"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.5775,
+          "voice_processing_chain": 0.714,
           "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
@@ -65,8 +65,8 @@
           "plucked_traditional_technique": -0.035,
           "tiple_region": -0.035,
           "tiple_context": 1.3,
-          "tiple_body_wood": 1.428,
-          "tiple_strings": 0.819
+          "tiple_body_wood": 0.7455,
+          "tiple_strings": 0.546
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Atlantic Records New York 1948-1962 small-combo R&B canon — Ruth Brown, LaVern Baker, the Drifters, Ray Charles I Got a Woman and What Did I Say, Big Joe Turner Shake Rattle and Roll, the Coasters — tracked by Tom Dowd at Atlantic Studios 11 West 60th Street with a recurring NYC session rhythm section, distinct from later Stax / Motown / Philly Soul subgenres",
   "recipe": "classic North American classic r&b, functional Song, soul R&B branch, christian gospel black gospel black british gospel. thick, declaimed, wide pitch sway, multi note runs per syllable. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning chicken-scratch single coil electric guitar, upright bass, pre muffled edge muffled brushes-and-sticks drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble honking saxophone. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 654,
-  "score": 390.433,
+  "score": 389.287,
   "config": {
     "traditions": [
       "classic_rb",
@@ -31,18 +31,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 10.481499999999999,
-          "amp_make": 16.1215,
-          "body_wood": 0.7364999999999999,
-          "neck_wood": 0.7364999999999999,
-          "fretboard": 0.6864999999999999,
+          "electric_technique": 10.45,
+          "amp_make": 15.985,
+          "body_wood": 0.6315,
+          "neck_wood": 0.6315,
+          "fretboard": 0.5814999999999999,
           "pickup_magnet": 0.195,
           "string_material": 0.195,
-          "string_gauge": 0.7364999999999999,
+          "string_gauge": 0.6315,
           "bridge": 0,
-          "scale_length": 0.78,
+          "scale_length": 0.663,
           "finish": 0,
-          "string_tuning": 2.366,
+          "string_tuning": 2.2925,
           "single_coil_pickup_construction": 0
         }
       },
@@ -66,7 +66,7 @@
         },
         "scores": {
           "drum_technique": 15.144999999999998,
-          "drumhead": 2.213,
+          "drumhead": 2.1814999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -78,8 +78,8 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 40.29050000000001,
-          "upright_use": 0.7364999999999999,
+          "keyboard_technique": 40.25900000000001,
+          "upright_use": 0.6315,
           "upright_piano_size": 0.65
         }
       },
@@ -95,7 +95,7 @@
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 12.346499999999999,
+          "wind_articulation": 12.1785,
           "sax_size": 9.649999999999999,
           "sax_reed": 0.195,
           "sax_body_alloy": 1.539,
@@ -125,8 +125,8 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 40.95350000000001,
-          "voice_quality": 30.6605,
+          "voice_register": 40.92200000000001,
+          "voice_quality": 30.692,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.575,
@@ -136,7 +136,7 @@
           "voice_mechanism_compound": 4.16,
           "voice_estill_quality": 34.48000000000001,
           "voice_speech_song": 20.279999999999998,
-          "voice_ensemble_config": 25.215500000000002,
+          "voice_ensemble_config": 25.184,
           "voice_ornament_system": 5.4,
           "voice_pitch_organization": 0.65,
           "voice_processing_chain": 6.045,

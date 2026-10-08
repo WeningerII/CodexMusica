@@ -5,7 +5,7 @@
   "lineage": "Kathaprasangam is a Malayalam storytelling form in which a single narrator tells a story, often adapted from literature, alternating spoken narration with songs, accompanied by a small group on harmonium, tabla and other instruments. It emerged in early twentieth-century Kerala and reached mass popularity through V. Sambasivan, who adapted Malayalam and world literature and whose performances circulated widely on LP and cassette.",
   "recipe": "classic modern kathaprasangam, ballad Poetry, indian bard branch. narrative, solo with instrumental accompaniment, single lead single track no stacking. harmonium indian, pitched indian rosewood rosewood tabla. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 289,
-  "score": 11.673,
+  "score": 11.306,
   "config": {
     "traditions": [
       "kathaprasangam"
@@ -36,14 +36,14 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.1365,
+          "voice_effort": 0.0315,
           "voice_vibrato": 0,
           "voice_articulation": 2.7300000000000004,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.47250000000000003,
+          "voice_speech_song": 0.40950000000000003,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "harmonium_action": 0.7875,
-          "harmonium_voicing": 0.651,
-          "harmonium_use": 0.8294999999999999
+          "harmonium_action": 0.756,
+          "harmonium_voicing": 0.5145,
+          "harmonium_use": 0.798
         }
       },
       {

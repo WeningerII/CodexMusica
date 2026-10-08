@@ -5,7 +5,7 @@
   "lineage": "Calipso de El Callao is the carnival song of the gold-mining town of El Callao in Venezuela's Bolívar state, brought by English- and French-Creole-speaking migrants from Trinidad and the Antilles who came for the 19th-century gold rush. Sung in English Creole and Spanish, it is played on the bumbac (a large hand drum), cuatro, a rallo scraper and maracas, later with bass and electric instruments, and accompanies the carnival's madamas, mediopintos and diablos; UNESCO inscribed the carnival in 2016. The membrane-drum card stands in for the bumbac and the guayo card for the rallo.",
   "recipe": "classic mid-2010s calipso de el callao, carnival Processional, Caribbean branch, Caribbean groove percussion. membrane drum pulse resonant acoustic membrane drum, cedar canonical Venezuelan cuatro venezolano, guayo source unspecified, maracas. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 323,
-  "score": 9.481,
+  "score": 9.781,
   "config": {
     "traditions": [
       "calipso_el_callao"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.135,
-          "voice_multitrack_stack": 0.24,
+          "voice_multitrack_stack": 0.135,
           "voice_tessitura": 0
         }
       },
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 3.585,
-          "acoustic_membrane_drum_gesture": 2.585
+          "acoustic_membrane_drum_form": 3.735,
+          "acoustic_membrane_drum_gesture": 2.735
         }
       },
       {
@@ -84,7 +84,7 @@
           "guayo_source_unspecified_identity": "guayo_source_unspecified_named_role"
         },
         "scores": {
-          "guayo_source_unspecified_identity": 0.77625
+          "guayo_source_unspecified_identity": 0.5812499999999999
         }
       },
       {
@@ -94,8 +94,8 @@
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 0.219375,
-          "maracas_filling": 0
+          "maracas_construction": 0.369375,
+          "maracas_filling": 0.15
         }
       }
     ],

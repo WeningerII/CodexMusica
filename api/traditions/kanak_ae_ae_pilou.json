@@ -5,7 +5,7 @@
   "lineage": "Customary dance music of the Kanak of New Caledonia's Grande Terre, documented by Raymond Ammann in Kanak Dance and Music (1997, with CD): men's dance songs such as the ae-ae, sung by small groups for the pilou and other collective dances, accompanied by bark clappers (bwanjep) and bamboo stamping tubes struck on the ground. The cupped hand-clap card stands in for the bark clappers and the stamping-tube card for the Kanak bamboo tubes.",
   "recipe": "classic late-1990s ae-ae and pilou, praise Song, oceania pacific branch. group vocals. cupped muffled hand clap, tagunggak. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 203,
-  "score": 2.695,
+  "score": 3.094,
   "config": {
     "traditions": [
       "kanak_ae_ae_pilou"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.504,
+          "voice_ensemble_config": 0.9135000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.168,
+          "voice_multitrack_stack": 0.3045,
           "voice_tessitura": 0
         }
       },
@@ -59,7 +59,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 1.5415,
+          "clap_technique": 1.3,
           "clap_capture": 0
         }
       },
@@ -70,7 +70,7 @@
           "tagunggak_technique": "tagunggak_stamped"
         },
         "scores": {
-          "tagunggak_set": 0.6315,
+          "tagunggak_set": 0.726,
           "tagunggak_technique": 0
         }
       }

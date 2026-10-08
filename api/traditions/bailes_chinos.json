@@ -5,7 +5,7 @@
   "lineage": "Devotional brotherhoods of central Chile, whose members are mostly fishermen, miners and peasants, who honour the Virgin and the saints at patronal feasts by dancing while they blow large cane or wooden flutes, set out in two facing rows and jumping and crouching as they play. Each flute sounds a single harsh, beating tone (sonido rajado), the rows answer each other over a drum, and between dances the alférez sings improvised verses of praise. UNESCO inscribed the bailes chinos on the Representative List of the Intangible Cultural Heritage of Humanity; a generic flute card stands in for the chino flute.",
   "recipe": "classic modern bailes chinos, ritual Devotional. single lead single track no stacking. flute like credited flute unspecified, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 258,
-  "score": 8.276,
+  "score": 8.371,
   "config": {
     "traditions": [
       "bailes_chinos"
@@ -67,7 +67,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 1.3,
           "voice_tessitura": 0
         }

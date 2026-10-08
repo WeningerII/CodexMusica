@@ -5,7 +5,7 @@
   "lineage": "Folk music of the U.S. Virgin Islands, rooted on St Croix, played by scratch bands of flute, banjo, ukulele, guitar, a squash (gourd scraper), a steel triangle and a blown bass pipe, and sung in Virgin Islands Creole English with topical, satirical and often bawdy lyrics. It accompanies quadrilles and other social dances and was later named the official music of the U.S. Virgin Islands by law; the fungi bands of the British Virgin Islands are a closely related scratch-band music. The vaksin card (a blown single-note pipe) stands in for the bass pipe and the scraper card for the squash.",
   "recipe": "classic modern quelbe, groove Percussion, Caribbean branch, tropical song functional song. solo with instrumental accompaniment, single lead single track no stacking. flute like credited flute credited banjo guayo source unspecified, vaksin, ukulele, parlor acoustic guitar, concert triangle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 372,
-  "score": 6.36,
+  "score": 6.315,
   "config": {
     "traditions": [
       "quelbe"
@@ -106,7 +106,7 @@
         "scores": {
           "acoustic_technique": 0.26,
           "string_tuning": 0,
-          "top_wood_parlor": 0.045,
+          "top_wood_parlor": 0,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 0
         }

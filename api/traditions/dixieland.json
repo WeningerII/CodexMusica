@@ -5,7 +5,7 @@
   "lineage": "New Orleans-derived collective-improvisation jazz recorded from 1917 by the Original Dixieland Jass Band and revived nationally from the late 1930s by Lu Watters, Turk Murphy and Eddie Condon — brisk 2/4 and 4/4 at 180-240 BPM, a cornet lead ornamented simultaneously by clarinet obbligato above and trombone tailgate below, banjo and tuba or string bass rhythm, and multi-strain march-and-rag forms ending in stop-time breaks.",
   "recipe": "classic North American 1937-1939 dixieland, improv On Frame, early branch, American jazz pre jazz ragtime, blues narrative jug band novelty piano. yellow brass canonical brass band conn vintage early jazz canon front line cornet, bach 42 canonical American orchestral tenor front line student commercial trombone, ebonite hard rubber klezmer tradition front line clarinet, wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, compact tuba brass piston valves American school besson sovereign British brass band tuba, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 860,
-  "score": 261.435,
+  "score": 261.489,
   "config": {
     "traditions": [
       "dixieland",
@@ -23,9 +23,9 @@
           "cornet_maker_school": "cornet_conn_vintage"
         },
         "scores": {
-          "wind_articulation": 10.477,
-          "cornet_pitch": 14.426249999999998,
-          "cornet_context": 4.918750000000001,
+          "wind_articulation": 10.615857142857143,
+          "cornet_pitch": 14.226749999999997,
+          "cornet_context": 4.7402500000000005,
           "cornet_bell_metal": 7.994999999999998,
           "cornet_maker_school": 12.35
         }
@@ -42,10 +42,10 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 10.477,
+          "wind_articulation": 10.615857142857143,
           "trombone_type": 18.75,
-          "trombone_mouthpiece": 19.625,
-          "trombone_mute": 0.11999999999999998,
+          "trombone_mouthpiece": 19.659714285714287,
+          "trombone_mute": 0.1547142857142857,
           "trombone_technique": 0.39,
           "trombone_bell_metal": 0.39,
           "trombone_maker_school": 5.07
@@ -61,7 +61,7 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 10.477,
+          "wind_articulation": 10.615857142857143,
           "clarinet_body": 1.7550000000000001,
           "clarinet_size": 0.45499999999999996,
           "clarinet_reed": 0,
@@ -84,13 +84,13 @@
         },
         "scores": {
           "banjo_back": 0.65,
-          "tone_ring": 1.863,
+          "tone_ring": 1.8,
           "banjo_head": 22.620000000000005,
           "banjo_pot": 0,
           "banjo_play": 1.15,
           "banjo_rim_wood": 0.195,
           "banjo_neck_wood": 0.39,
-          "banjo_strings": 0.16799999999999998,
+          "banjo_strings": 0.063,
           "banjo_bridge": 0,
           "banjo_setup_period": 22.1
         }
@@ -148,7 +148,7 @@
         },
         "scores": {
           "drum_technique": 31.784999999999997,
-          "drumhead": 23.37275,
+          "drumhead": 23.487178571428572,
           "drum_kit_kick_pedal": 0
         }
       }

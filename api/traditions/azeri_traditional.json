@@ -3,14 +3,14 @@
   "name": "Azerbaijani Traditional Music",
   "family": "global",
   "lineage": "Umbrella village and ashiq repertoire of Azerbaijan and Iranian Azerbaijan, transmitted by saz-playing ashiq bards and by wedding zurna-nagara duos and codified in transcription by Uzeyir Hajibeyov from the 1920s, spanning strophic ashiq epics in 6/8 declaimed over strummed drone chords, yalli line dances in 6/8 at 120-150 BPM, and Absheron wedding music where paired zurna trade a piercing lead over an unbroken circular-breathed drone and interlocking nagara.",
-  "recipe": "classic mid-1920s azerbaijani traditional music, art Music, middle eastern classical branch, middle eastern wedding, Persian arab improv improv on frame iraqi maqam tarab. vocal fry, breath veiled tone, slow rate, interlocked note trading. zurna, naghara balaban eleven string reformed tar azerbaijani, four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory legato kamancha, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe": "classic mid-1920s azerbaijani traditional music, art Music, middle eastern classical branch, middle eastern wedding, Persian arab improv improv on frame iraqi maqam dabke. vocal fry, breath veiled tone, slow rate, interlocked note trading. zurna, naghara balaban eleven string reformed tar azerbaijani, four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory legato kamancha, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 602,
-  "score": 211.492,
+  "score": 212.193,
   "config": {
     "traditions": [
       "azeri_traditional",
       "iraqi_maqam",
-      "tarab_egyptian"
+      "dabke"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.885,
-          "voice_quality": 8.645000000000001,
+          "voice_register": 2.13,
+          "voice_quality": 6.175000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.895,
-          "voice_articulation": 12.024999999999999,
-          "voice_microtone": 25.5125,
-          "voice_tradition": 20.41,
-          "voice_mechanism_compound": 18,
-          "voice_estill_quality": 9.129999999999999,
-          "voice_speech_song": 12.414999999999996,
-          "voice_ensemble_config": 12.219999999999995,
-          "voice_ornament_system": 18.78,
-          "voice_pitch_organization": 18.865000000000002,
-          "voice_processing_chain": 6.629999999999999,
-          "voice_multitrack_stack": 1.885
+          "voice_vibrato": 7.844999999999999,
+          "voice_articulation": 16.964999999999996,
+          "voice_microtone": 26.4225,
+          "voice_tradition": 18.085,
+          "voice_mechanism_compound": 15.475000000000001,
+          "voice_estill_quality": 7.575,
+          "voice_speech_song": 17.972499999999993,
+          "voice_ensemble_config": 16.509999999999994,
+          "voice_ornament_system": 16.255000000000003,
+          "voice_pitch_organization": 16.34,
+          "voice_processing_chain": 6.825,
+          "voice_multitrack_stack": 2.3724999999999996
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "wind_articulation": "wind_ornament_heavy",
           "zurna_size": "zurna_kaba",
-          "zurna_context": "zurna_sufi",
+          "zurna_context": "zurna_wedding",
           "zurna_body_wood": "zurna_apricot_canonical",
           "zurna_reed": "zurna_arundo_canonical"
         },
         "scores": {
           "wind_articulation": -0.10500000000000001,
-          "zurna_size": 4.29,
-          "zurna_context": 0.45499999999999996,
+          "zurna_size": 6.11,
+          "zurna_context": 0.135,
           "zurna_body_wood": 0.935,
           "zurna_reed": 0.65
         }
@@ -76,8 +76,8 @@
           "naghara_technique": "naghara_sticks"
         },
         "scores": {
-          "naghara_size": 0.285,
-          "naghara_technique": 0.345
+          "naghara_size": 0.135,
+          "naghara_technique": 0.39
         }
       },
       {
@@ -87,7 +87,7 @@
           "balaban_body": "balaban_apricot"
         },
         "scores": {
-          "balaban_role": 1.885,
+          "balaban_role": 2.085,
           "balaban_body": 0
         }
       },
@@ -100,7 +100,7 @@
         },
         "scores": {
           "tar_azerbaijani_form": 3.2,
-          "tar_azerbaijani_repertoire": 5.31,
+          "tar_azerbaijani_repertoire": 5.135,
           "tar_azerbaijani_membrane": 1.25
         }
       },
@@ -113,10 +113,10 @@
           "kamancha_tradition": "kamancha_persian_radif"
         },
         "scores": {
-          "bowed_technique": 7.5,
+          "bowed_technique": 6.25,
           "kamancha_body": 0.65,
-          "kamancha_string": 1.04,
-          "kamancha_tradition": 4.745
+          "kamancha_string": 2.535,
+          "kamancha_tradition": 2.925
         }
       },
       {
@@ -126,7 +126,7 @@
           "gaval_tradition": "gaval_khananda_canonical"
         },
         "scores": {
-          "gaval_body": 4.675,
+          "gaval_body": 3.88,
           "gaval_tradition": 1.135
         }
       }

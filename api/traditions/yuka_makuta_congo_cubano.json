@@ -5,7 +5,7 @@
   "lineage": "Secular drum-dances of Cubans of Congo (Central African, Bantu-speaking) descent, documented by Fernando Ortiz and counted among the forerunners of rumba. Yuka is played on three single-headed drums cut from hollowed tree trunks, the large caja, the middle mula and the small cachimbo, with a hoe blade or piece of iron struck as a bell and rattles; its couple dance includes the pelvic gesture (vacunao) later taken into guaguancó. Makuta, danced in the Congo cabildos, uses its own drums. A generic membrane-drum card stands in for the drums, the agogo card for the struck hoe blade and a generic shaker card for the rattles.",
   "recipe": "classic modern yuka and makuta, groove Percussion, rumba branch. single leader group response. membrane drum pulse resonant acoustic membrane drum, agogo source shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 267,
-  "score": 12.124,
+  "score": 11.914,
   "config": {
     "traditions": [
       "yuka_makuta_congo_cubano"
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 4.8595,
-          "acoustic_membrane_drum_gesture": 3.747
+          "acoustic_membrane_drum_form": 4.7545,
+          "acoustic_membrane_drum_gesture": 3.642
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Festival-born song movement of Rio Grande do Sul launched by the Califórnia da Canção Nativa festival at Uruguaiana and followed by many regional nativist festivals, which renewed gaúcho song with literary lyrics about the pampa, the Missões and rural life, apart from the CTG traditionalist movement. Singers such as Noel Guarany and Cenair Maicá set these songs mostly to violão and accordion in milonga and other border rhythms.",
   "recipe": "classic nativismo gaúcho, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment, unprocessed natural acoustic. classical nylon-string guitar, accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 277,
-  "score": 5.753,
+  "score": 5.738,
   "config": {
     "traditions": [
       "nativismo_gaucho"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.5775,
+          "voice_processing_chain": 0.714,
           "voice_multitrack_stack": 0.3315,
           "voice_tessitura": 0
         }
@@ -65,10 +65,10 @@
         "scores": {
           "acoustic_technique": 2.3815,
           "string_tuning": 0,
-          "top_wood_classical": 0.168,
-          "bracing_classical": 0.273,
+          "top_wood_classical": 0.3045,
+          "bracing_classical": 0.1365,
           "string_classical": 0.3,
-          "attack_technique_cl": -0.035
+          "attack_technique_cl": -0.05
         }
       },
       {
@@ -87,7 +87,7 @@
           "accordion_reed_material": 0,
           "musette_offset": 0,
           "reed_config": 0,
-          "bellows": 0.1365,
+          "bellows": 0,
           "voicing_chamber": 0,
           "accordion_maker_school": 0
         }

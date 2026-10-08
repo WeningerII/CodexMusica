@@ -5,7 +5,7 @@
   "lineage": "JamRock —2016 Igarapé Musical published five-person lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s música roraimense, bass System, reggae diaspora branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, pearwood marine band tradition hohner marine band 1896 canonical blues trossingen harmonica, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 429,
-  "score": 22.376,
+  "score": 22.712,
   "config": {
     "traditions": [
       "musica_roraimense"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.33599999999999997,
+          "voice_ensemble_config": 0.1995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": -0.11850000000000002,
           "amp_make": 0,
-          "body_wood": 0.3465,
-          "neck_wood": 0.3465,
+          "body_wood": 0.4095,
+          "neck_wood": 0.4095,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "pickup_winding": 0,
+          "pickup_winding": 0.0315,
           "string_material": 0.1995,
           "bridge": 0,
-          "scale_length": 0.693,
+          "scale_length": 0.819,
           "string_gauge": 1.4365,
           "finish": 0,
           "string_tuning": 1.3
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.3465,
+          "body_wood": 0.4095,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 5.2,
-          "drumhead": 1.3,
+          "drumhead": 1.3315000000000001,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.6,
+          "shell_wood": 1.6315000000000002,
           "shell_thickness": 0,
           "bearing_edges": 0.3315,
           "snare_wires": 0,

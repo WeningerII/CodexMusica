@@ -1,18 +1,19 @@
 {
-  "id": "tagalog_worship",
-  "name": "Tagalog worship",
+  "id": "pinoy_praise",
+  "merged_from": "tagalog_worship",
+  "name": "Pinoy Praise",
   "family": "blues_gospel",
-  "lineage": "Danny Estioco and JC Radio — Awit Ng Pagsamba, complete release-role union (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s tagalog worship, ritual Devotional, christian gospel branch. one note per syllable, unprocessed natural acoustic. dreadnought acoustic guitar, electric bass, cajon peruano, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 323,
-  "score": 3.182,
+  "lineage": "Pinoy praise encompasses Philippine Christian praise repertoires and performance communities across languages and denominations. Tagalog and English songs circulate through Catholic and evangelical ministries, choirs and popular recordings.",
+  "recipe": "classic pinoy praise, ritual Devotional. human voice ensemble unspecified. shoebox concert hall.",
+  "recipe_chars": 96,
+  "score": 0.735,
   "config": {
     "traditions": [
-      "tagalog_worship"
+      "pinoy_praise"
     ],
     "instruments": [
       {
-        "id": "voice",
+        "id": "human_voice_ensemble_unspecified",
         "slots": {
           "voice_register": "voice_register_source_unspecified",
           "voice_quality": "voice_quality_source_unspecified",
@@ -25,11 +26,11 @@
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_duet",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
@@ -43,80 +44,18 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6825000000000001,
-          "voice_ensemble_config": 0,
+          "voice_speech_song": 0.504,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.2,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.23099999999999998,
+          "human_voice_ensemble_source_status": 0,
+          "human_voice_tracking_source_status": 0,
           "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "acoustic_guitar_dread",
-        "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "standard_tuning",
-          "top_wood": "engelmann",
-          "back_sides": "rosewood_bs",
-          "string_acoustic": "eighty_twenty"
-        },
-        "scores": {
-          "acoustic_technique": 0.7,
-          "string_tuning": 0,
-          "top_wood": 0,
-          "back_sides": -0.05,
-          "string_acoustic": 0
-        }
-      },
-      {
-        "id": "electric_bass",
-        "slots": {
-          "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
-          "string_type": "roundwound_n",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
-        },
-        "scores": {
-          "amp_make": 0,
-          "body_wood": 0,
-          "pickup_config": 0,
-          "string_type": 0,
-          "scale_length_b": 0,
-          "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002,
-          "electric_bass_string_configuration": 0
-        }
-      },
-      {
-        "id": "cajon_peruano",
-        "slots": {
-          "cajon_peruano_construction": "cajon_peruano_open_back",
-          "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
-        },
-        "scores": {
-          "cajon_peruano_construction": 0.39,
-          "cajon_peruano_role": 0
-        }
-      },
-      {
-        "id": "electronic_keyboard_unspecified",
-        "slots": {
-          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-          "keyboard_technique": "electronic_keyboard_melodic_chordal"
-        },
-        "scores": {
-          "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.4095
         }
       }
     ],
     "pinned": {
-      "voice": [
+      "human_voice_ensemble_unspecified": [
         "voice_register",
         "voice_quality",
         "voice_vocal_tract",
@@ -128,57 +67,30 @@
         "voice_mechanism_compound",
         "voice_estill_quality",
         "voice_speech_song",
-        "voice_ensemble_config",
+        "human_voice_ensemble_source_status",
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack",
+        "human_voice_tracking_source_status",
         "voice_tessitura"
-      ],
-      "acoustic_guitar_dread": [
-        "acoustic_technique",
-        "string_tuning",
-        "top_wood",
-        "back_sides",
-        "string_acoustic"
-      ],
-      "electric_bass": [
-        "amp_make",
-        "body_wood",
-        "pickup_config",
-        "string_type",
-        "scale_length_b",
-        "fretted_or_not",
-        "bass_technique",
-        "electric_bass_string_configuration"
-      ],
-      "cajon_peruano": [
-        "cajon_peruano_construction",
-        "cajon_peruano_role"
-      ],
-      "electronic_keyboard_unspecified": [
-        "electronic_keyboard_identity",
-        "keyboard_technique"
       ]
     },
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -191,36 +103,13 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_live_duet",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "acoustic_technique": "acoustic_strummed_ringing",
-      "string_tuning": "standard_tuning",
-      "top_wood": "engelmann",
-      "back_sides": "rosewood_bs",
-      "string_acoustic": "eighty_twenty",
-      "amp_make": "amp_unspecified",
-      "body_wood": "alder_b",
-      "pickup_config": "split_coil",
-      "string_type": "roundwound_n",
-      "scale_length_b": "long_scale_b",
-      "fretted_or_not": "fretted",
-      "bass_technique": "fingerstyle_locked",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "cajon_peruano_construction": "cajon_peruano_open_back",
-      "cajon_peruano_role": "cajon_peruano_role_source_unspecified",
-      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-      "keyboard_technique": "electronic_keyboard_melodic_chordal"
+      "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+      "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

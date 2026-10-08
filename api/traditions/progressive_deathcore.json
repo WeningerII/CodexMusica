@@ -3,14 +3,14 @@
   "name": "Progressive deathcore",
   "family": "rock_punk",
   "lineage": "Progressive-deathcore field represented by the internationally produced Slice the Cake concept album Odyssey to the West, whose contributors span England, Sweden and Australia.",
-  "recipe": "classic modern progressive deathcore, distorted Rock, prog branch, death metal, punk distorted rock progressive technical death metal japanese post-hardcore. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, analog poly synth, sampler drum machine, djembe. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 582,
-  "score": 90.865,
+  "recipe": "classic modern progressive deathcore, distorted Rock, prog branch, death metal, punk distorted rock progressive technical death metal progressive death metal. solo with instrumental accompaniment, unprocessed natural acoustic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, analog poly synth, sampler drum machine, djembe. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 613,
+  "score": 93.025,
   "config": {
     "traditions": [
       "progressive_deathcore",
       "progressive_technical_death_metal",
-      "japanese_post_hardcore"
+      "progressive_death_metal"
     ],
     "instruments": [
       {
@@ -19,10 +19,10 @@
           "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
@@ -31,19 +31,19 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 15.065,
-          "amp_make": 13.3575,
-          "body_wood": 5.590000000000001,
-          "neck_wood": 1.2449999999999999,
-          "fretboard": 0.845,
+          "electric_technique": 17.19,
+          "amp_make": 8.71,
+          "body_wood": 7.67,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4949999999999999,
           "pickup_magnet": 0.48,
-          "pickup_winding": 0.38999999999999996,
-          "string_material": 0.845,
-          "bridge": 1.3649999999999998,
-          "scale_length": 6.435000000000001,
+          "pickup_winding": 0.46499999999999997,
+          "string_material": 1.4949999999999999,
+          "bridge": 1.8199999999999998,
+          "scale_length": 9.165000000000001,
           "string_gauge": 1.875,
           "finish": 0.045,
-          "string_tuning": 1.02
+          "string_tuning": 0.195
         }
       },
       {
@@ -59,12 +59,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.930000000000001,
+          "amp_make": 7.93,
           "body_wood": 2.4899999999999993,
           "pickup_config": 0.24,
-          "string_type": 17.0625,
+          "string_type": 16.575,
           "scale_length_b": 1.515,
-          "fretted_or_not": 0.345,
+          "fretted_or_not": 0.49499999999999994,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -101,10 +101,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
+          "voice_ensemble_config": 1.2349999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 1.1,
           "voice_multitrack_stack": 0.195
         }
       },
@@ -117,8 +117,8 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 1.35,
-          "poly_archetypes": 7.215,
+          "electronic_technique": -0.1,
+          "poly_archetypes": 7.02,
           "poly_voices": 0.3,
           "poly_maker_lineage": -1.4799999999999998
         }
@@ -133,7 +133,7 @@
         },
         "scores": {
           "electronic_technique": 0.2,
-          "sample_bitdepth": 0.39,
+          "sample_bitdepth": 0.585,
           "sample_swing": 0.15,
           "sample_processing": 1.5899999999999999
         }

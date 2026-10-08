@@ -3,9 +3,9 @@
   "name": "South african punk",
   "family": "rock_punk",
   "lineage": "South african punk is represented here by Droniac. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic south african punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 350,
-  "score": 52.058,
+  "recipe": "classic south african punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 341,
+  "score": 50.83,
   "config": {
     "traditions": [
       "south_african_punk"
@@ -25,22 +25,22 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 2.21,
-          "amp_make": 15.404749999999998,
-          "body_wood": 1.0717499999999998,
-          "neck_wood": 0.273,
+          "amp_make": 15.268249999999998,
+          "body_wood": 0.7987500000000001,
+          "neck_wood": 0.1365,
           "fretboard": 0.07425,
           "pickup_magnet": 0.17925000000000002,
           "pickup_winding": 0.147,
           "string_material": 0.063,
           "bridge": 1,
-          "scale_length": 0.7875,
+          "scale_length": 0.651,
           "string_gauge": 1,
-          "finish": 0.1365,
+          "finish": 0,
           "string_tuning": 0.3
         }
       },
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 2.6650000000000005,
-          "body_wood": 0.546,
+          "body_wood": 0.273,
           "pickup_config": 0.1365,
           "string_type": 5.85,
-          "scale_length_b": 0.273,
+          "scale_length_b": 0.1365,
           "fretted_or_not": 0.0315,
           "bass_technique": 14.7815,
           "electric_bass_string_configuration": 0

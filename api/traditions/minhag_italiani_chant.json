@@ -5,7 +5,7 @@
   "lineage": "The liturgical chant of the Italian Jewish rite (minhag italiani, or bené Romì), the old local rite of Rome and of communities in central and northern Italy, distinct from the Ashkenazi and Sephardi rites also followed in Italian synagogues. Its cantillation and prayer melodies are passed on orally by cantors and congregations and differ from city to city; the ethnomusicologist Leo Levi recorded them across Italian communities between 1954 and 1961, in a collection held by the Accademia di Santa Cecilia and the Hebrew University's sound archive.",
   "recipe": "classic mid-1950s minhag italiani, ritual Devotional, Jewish branch. ametrical pitched chant free rhythm, responsorial cantor congregation. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 231,
-  "score": 3.898,
+  "score": 3.772,
   "config": {
     "traditions": [
       "minhag_italiani_chant"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 3.0619999999999994,
+          "voice_speech_song": 2.9675,
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.168,
           "voice_tessitura": 0
         }

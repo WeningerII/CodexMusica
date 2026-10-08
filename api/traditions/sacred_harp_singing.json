@@ -3,14 +3,14 @@
   "name": "Sacred Harp singing",
   "family": "global",
   "lineage": "Southern-US shape-note congregational hymn-singing tradition preserved through the Sacred Harp tunebook (compiled by B.F. White and E.J. King 1844, revised through successive editions, the 1991 revision still in current use) — the tradition uses 4-shape and 7-shape notation (shapes assigned to scale degrees as a pedagogical mnemonic, facilitating singing without keyboard training), with the singing-square arrangement of four sections (treble / alto / tenor / bass) seated facing inward and led by a rotating song-leader who beats time with the hand",
-  "recipe": "classic Southern American mid-1840s sacred harp singing, ritual Devotional, sacred harp branch, Celtic balladic ballad poetry welsh hymn-balladry welsh folk. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, shape note voice, choir brother duet, pump organ harmonium, choir sacred harp. southern white church gospel quartet. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 579,
-  "score": 189.455,
+  "recipe": "classic Southern American mid-1840s sacred harp singing, ritual Devotional, sacred harp branch, Celtic balladic ballad poetry newfoundland traditional song and dance music welsh hymn-balladry. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional aka four part motangole ngue osese diyei sacred liturgical global choir ensemble, shape note voice, choir brother duet, pump organ harmonium, choir sacred harp. southern white church gospel quartet. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 607,
+  "score": 199.761,
   "config": {
     "traditions": [
       "sacred_harp_singing",
-      "welsh_hymn_balladry",
-      "welsh_folk"
+      "newfoundland_folk",
+      "welsh_hymn_balladry"
     ],
     "instruments": [
       {
@@ -18,14 +18,14 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_regional_canonical_configuration": "choir_regional_aka_four_part",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 8.35625,
-          "choir_polyphonic_configuration": 4.25375,
-          "choir_regional_canonical_configuration": 4.425,
-          "choir_ensemble_repertoire": 7.7924999999999995
+          "choir_size": 6.167678571428571,
+          "choir_polyphonic_configuration": 3.7700000000000005,
+          "choir_regional_canonical_configuration": 3.7050000000000005,
+          "choir_ensemble_repertoire": 7.15
         }
       },
       {
@@ -40,42 +40,42 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.223750000000001,
-          "voice_quality": 13.649999999999993,
+          "voice_register": 6.600000000000001,
+          "voice_quality": 13.064999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4949999999999999,
-          "voice_articulation": 14.104999999999997,
-          "voice_microtone": 12.479999999999993,
-          "voice_tradition": 23.6275,
-          "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 4.425000000000001,
-          "voice_speech_song": 14.624999999999995,
-          "voice_ensemble_config": 18.102499999999992,
-          "voice_ornament_system": 10.399999999999997,
-          "voice_pitch_organization": 2.99,
-          "voice_processing_chain": 6.759999999999999,
-          "voice_multitrack_stack": 4.225
+          "voice_vibrato": 3.6050000000000004,
+          "voice_articulation": 16.575000000000003,
+          "voice_microtone": 14.690000000000001,
+          "voice_tradition": 18.33,
+          "voice_mechanism_compound": 4.029999999999999,
+          "voice_estill_quality": 6.6625,
+          "voice_speech_song": 15.990000000000002,
+          "voice_ensemble_config": 20.767500000000002,
+          "voice_ornament_system": 15.145,
+          "voice_pitch_organization": 2.785000000000001,
+          "voice_processing_chain": 8.059999999999999,
+          "voice_multitrack_stack": 4.68
         }
       },
       {
         "id": "shape_note_voice",
         "slots": {
           "shape_note_part": "shape_bass",
-          "shape_note_voice_context": "shape_note_voice_sacred_harp"
+          "shape_note_voice_context": "shape_note_voice_revival"
         },
         "scores": {
           "shape_note_part": 0.3,
-          "shape_note_voice_context": 1.2349999999999999
+          "shape_note_voice_context": 1.235
         }
       },
       {
@@ -85,7 +85,7 @@
           "tradition": "duet_gospel"
         },
         "scores": {
-          "arrangement": 1.2349999999999999,
+          "arrangement": 1.04,
           "tradition": 0.915
         }
       },
@@ -94,12 +94,12 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "pump_organ_construction": "pump_organ_late_19th_revival",
-          "pump_organ_stops": "pump_organ_celeste_stop"
+          "pump_organ_stops": "pump_organ_diapason_stop"
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "pump_organ_construction": 13.649999999999999,
-          "pump_organ_stops": 9.75
+          "pump_organ_construction": 16.965000000000003,
+          "pump_organ_stops": 8.72375
         }
       },
       {
@@ -109,8 +109,8 @@
           "arrangement": "hollow_square"
         },
         "scores": {
-          "parts": 1.2349999999999999,
-          "arrangement": 3.31875
+          "parts": 1.04,
+          "arrangement": 3.3149999999999995
         }
       }
     ],

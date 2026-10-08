@@ -5,7 +5,7 @@
   "lineage": "Angolan rap developed through local crews, radio programmes, home studios and exchanges with wider hip-hop networks. Luanda and other cities sustained varied commercial and independent approaches, with practitioners debating how local experience and language should shape the music.",
   "recipe": "classic rap angolano, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
   "recipe_chars": 165,
-  "score": 17.576,
+  "score": 17.705,
   "config": {
     "traditions": [
       "rap_angolano"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.308,
-          "voice_ensemble_config": 3.769999999999999,
+          "voice_speech_song": 13.455,
+          "voice_ensemble_config": 3.7519999999999993,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

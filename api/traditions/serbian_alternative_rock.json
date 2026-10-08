@@ -5,7 +5,7 @@
   "lineage": "Serbian alternative rock includes independent garage-rock bands and heavier, noisier approaches.",
   "recipe": "classic serbian alternative rock, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 348,
-  "score": 60.546,
+  "score": 62.583,
   "config": {
     "traditions": [
       "serbian_alternative_rock"
@@ -19,7 +19,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": 0.26,
           "amp_make": 7.0200000000000005,
-          "body_wood": 1.8795,
-          "neck_wood": 0.34725000000000006,
-          "fretboard": 0.1365,
-          "pickup_magnet": 0,
-          "pickup_winding": 0.5775,
+          "body_wood": 2.394,
+          "neck_wood": 0.45225000000000004,
+          "fretboard": 0.21000000000000002,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 0.34725000000000006,
-          "scale_length": 1.3335000000000001,
-          "string_gauge": 0.3045,
+          "bridge": 0.45225000000000004,
+          "scale_length": 1.743,
+          "string_gauge": 0.40950000000000003,
           "finish": 0,
           "string_tuning": 0
         }
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 7.475,
-          "body_wood": 0.65175,
+          "body_wood": 0.8617500000000002,
           "pickup_config": 0.273,
           "string_type": 17.875,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.042749999999999996,
+          "scale_length_b": 0.40950000000000003,
+          "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 13.75,
-          "drumhead": 0.378,
+          "drumhead": 0.40950000000000003,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
-          "voice_ornament_system": 0.1365,
+          "voice_ensemble_config": 0.2415,
+          "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0
         }
       },

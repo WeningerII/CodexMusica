@@ -3,9 +3,9 @@
   "name": "Encomendação das almas (Portuguese Lenten souls chant)",
   "family": "global",
   "lineage": "The encomendação das almas is a nocturnal Lenten ritual of rural Portugal, found in the Beira Baixa, the Alto Alentejo, Trás-os-Montes and other regions, in which a group of villagers goes out after dark to crossroads, hilltops or other high places to sing slow chants commending the souls in purgatory and asking the living to pray for them. Michel Giacometti recorded it for his RTP television series Povo que Canta in the early 1970s.",
-  "recipe": "classic 1970-1973 encomendação das almas, ritual Devotional. raised subglottal pressure, ametrical pitched chant free rhythm. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 217,
-  "score": 3.99,
+  "recipe": "classic 1970-1973 encomendação das almas, ritual Devotional. raised subglottal pressure, ametrical pitched chant free rhythm, single lead single track no stacking. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 255,
+  "score": 4.483,
   "config": {
     "traditions": [
       "encomendacao_das_almas"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.2835,
+          "voice_multitrack_stack": 0.7769999999999999,
           "voice_tessitura": 0
         }
       }

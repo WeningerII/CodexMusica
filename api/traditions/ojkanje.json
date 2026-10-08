@@ -3,20 +3,20 @@
   "name": "Ojkanje",
   "family": "global",
   "lineage": "Two-voice shouted singing of the Dinaric hinterland of Croatia, Bosnia and western Herzegovina, documented ethnographically from the early twentieth century and inscribed by UNESCO in 2010 — a lead voice sustaining a tone with a fast pulsating tremolo on the syllable 'oj' while a second voice holds a major or minor second below, unmetered, at maximum chest volume, cadencing on a unison after a prolonged shake",
-  "recipe": "classic Southern European early-2010s ojkanje, field Work, Slavic balkan branch, vocal drone modal, Slavic bard ballad poetry naturjodel alpine yodeling. vocal fry, breath veiled tone, slow rate, interlocked note trading. maple carved canonical balkan horsehair canonical single string drone like gusle. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 392,
-  "score": 156.01,
+  "recipe": "classic Southern European early-2010s ojkanje, field Work, Slavic balkan branch, vocal drone modal, Slavic bard ballad poetry naturjodel lemko folk. kargyraa, breath veiled tone, slow rate, interlocked note trading. maple carved canonical balkan horsehair canonical single string gusle. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 375,
+  "score": 142.722,
   "config": {
     "traditions": [
       "ojkanje",
       "naturjodel",
-      "alpine_yodeling"
+      "lemko_folk"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "kargyraa_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.355,
-          "voice_quality": 14.299999999999994,
+          "voice_register": 4.6145000000000005,
+          "voice_quality": 14.754999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.615,
-          "voice_articulation": 14.689999999999994,
-          "voice_microtone": 19.629999999999992,
-          "voice_tradition": 18.525,
-          "voice_mechanism_compound": 6.11,
-          "voice_estill_quality": 3.7700000000000005,
-          "voice_speech_song": 15.664999999999994,
-          "voice_ensemble_config": 19.759999999999994,
-          "voice_ornament_system": 5.46,
-          "voice_pitch_organization": 8.515,
-          "voice_processing_chain": 7.865,
-          "voice_multitrack_stack": 4.8100000000000005
+          "voice_vibrato": 3.575,
+          "voice_articulation": 12.804999999999993,
+          "voice_microtone": 16.50999999999999,
+          "voice_tradition": 18.394999999999996,
+          "voice_mechanism_compound": 7.0200000000000005,
+          "voice_estill_quality": 3.835,
+          "voice_speech_song": 13.064999999999994,
+          "voice_ensemble_config": 16.574999999999996,
+          "voice_ornament_system": 4.8100000000000005,
+          "voice_pitch_organization": 5.0375,
+          "voice_processing_chain": 9.035,
+          "voice_multitrack_stack": 4.550000000000001
         }
       },
       {
@@ -62,10 +62,10 @@
           "gusle_string_material": "gusle_horsehair_canonical"
         },
         "scores": {
-          "bowed_technique": 4.29,
-          "gusle_region": 1.69,
+          "bowed_technique": 2.8600000000000003,
+          "gusle_region": 2.34,
           "gusle_context": 0.63,
-          "gusle_body_wood": 1.95,
+          "gusle_body_wood": 2.4050000000000002,
           "gusle_string_material": 1.6049999999999998
         }
       }

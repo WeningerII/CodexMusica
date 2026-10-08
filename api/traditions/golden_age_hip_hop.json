@@ -1,55 +1,56 @@
 {
-  "id": "golden_age_hip_hop",
-  "name": "Golden Age Hip Hop",
-  "family": "hip_hop",
-  "lineage": "New York-centred hip hop of roughly 1986-1994 codified by Rakim, KRS-One, Big Daddy Kane, Public Enemy's Bomb Squad and De La Soul with the Native Tongues, built on dense SP-1200 and Akai S950 sampling of James Brown and jazz breaks at 90-100 BPM, hard swung boom-bap kick-and-snare, dusty filtered basslines, and multisyllabic internal-rhyme rapping delivered on the beat with no melodic singing.",
-  "recipe": "classic North American mid-1990s golden age hip hop, mc Rhythm, east coast branch, us hip hop conscious rap conscious hip-hop gangsta rap. thick, rap, straight onset, narrative. chopped sampler, sampled chopped turntable, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, harder neoprene late 1970s bark grit ostinato rhodes electric. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 677,
-  "score": 499.19,
+  "id": "golden_age_hip_hop_1986_1991",
+  "merged_from": "golden_age_hip_hop",
+  "name": "Golden-age sample-collage hip-hop (1986-1991)",
+  "family": "vernacular",
+  "lineage": "The golden-age sampler-defined era of hip-hop, codified by the E-mu SP-1200 (released 1987) and Akai S950 (released 1988) drum-and-sampler workstations that enabled the boom-bap breakbeat-and-sample-collage production aesthetic — Public Enemy It Takes a Nation of Millions to Hold Us Back 1988 produced by the Bomb Squad (Hank Shocklee), Boogie Down Productions Criminal Minded 1987 produced by KRS-One and Scott La Rock, Eric B and Rakim Paid in Full 1987, EPMD Strictly Business 1988, A Tribe Called Quest The Low End Theory 1991, De La Soul 3 Feet High and Rising 1989, the broader Native Tongues collective",
+  "recipe": "classic North American golden-age sample-collage hip-hop, mc Rhythm, east coast branch, funk percussive groove percussion minneapolis synth-funk-pop. thick, breath veiled tone, straight note core, interlocked note trading. chopped sampler, TR-808, sampled chopped turntable. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 509,
+  "score": 217.17,
   "config": {
     "traditions": [
-      "golden_age_hip_hop",
-      "conscious_hip_hop",
-      "gangsta_rap"
+      "golden_age_hip_hop_1986_1991",
+      "minneapolis_synth_funk_pop",
+      "funk"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
           "voice_estill_quality": "voice_estill_belt",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 15.887999999999995,
-          "voice_quality": 43.94,
+          "voice_register": 11.215,
+          "voice_quality": 15.599999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.537999999999998,
-          "voice_articulation": 24.9015,
-          "voice_microtone": 20.344999999999995,
-          "voice_tradition": 17.695875,
-          "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 7.832249999999999,
-          "voice_speech_song": 41.435125,
-          "voice_ensemble_config": 20.669999999999998,
-          "voice_ornament_system": 7.345000000000002,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 29.733749999999993,
-          "voice_multitrack_stack": 9.131499999999999
+          "voice_vibrato": 1.8525,
+          "voice_articulation": 14.364999999999995,
+          "voice_microtone": 13.584999999999992,
+          "voice_tradition": 12.1875,
+          "voice_mechanism_compound": 0.8999999999999998,
+          "voice_estill_quality": 5.300000000000001,
+          "voice_speech_song": 14.819999999999997,
+          "voice_ensemble_config": 15.014999999999993,
+          "voice_ornament_system": 2.990000000000001,
+          "voice_pitch_organization": 1.02,
+          "voice_processing_chain": 13.354999999999999,
+          "voice_multitrack_stack": 7.669999999999999
         }
       },
       {
@@ -62,22 +63,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 17.199250000000003,
-          "sampler_archetypes": 27.17,
-          "sampler_bit_depth": 2.175,
-          "sampler_workflow": 18.862125,
-          "sampler_classic_context": 42.4125
-        }
-      },
-      {
-        "id": "turntable",
-        "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_scratch"
-        },
-        "scores": {
-          "electronic_technique": 17.199250000000003,
-          "turntable_technique": 20.521500000000003
+          "electronic_technique": 6.22,
+          "sampler_archetypes": 9.049999999999999,
+          "sampler_bit_depth": 2.1,
+          "sampler_workflow": 8.125,
+          "sampler_classic_context": 21.482499999999998
         }
       },
       {
@@ -88,62 +78,31 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 17.676375,
-          "drum_machine_808_context": 6.703875,
-          "tr808_production_origin": 1.56
+          "tr808_voice": 8.735,
+          "drum_machine_808_context": 3.6399999999999997,
+          "tr808_production_origin": 0.325
         }
       },
       {
-        "id": "electric_bass",
+        "id": "turntable",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
-          "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_walking",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "amp_make": 11.797499999999994,
-          "body_wood": 1.4299999999999997,
-          "pickup_config": 0,
-          "string_type": 11.7975,
-          "scale_length_b": 1.4299999999999997,
-          "fretted_or_not": 1.3,
-          "bass_technique": 8.465,
-          "electric_bass_string_configuration": 0
-        }
-      },
-      {
-        "id": "rhodes_electric",
-        "slots": {
-          "keyboard_technique": "keyboard_ostinato_groove",
-          "rhodes_model": "rhodes_mark1_stage",
-          "rhodes_use": "rhodes_soul",
-          "rhodes_tine_material": "rhodes_torrington_tine",
-          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
-          "rhodes_pickup_position": "rhodes_pickup_centered"
-        },
-        "scores": {
-          "keyboard_technique": 7.999999999999998,
-          "rhodes_model": 10.476624999999999,
-          "rhodes_use": 2.2099999999999995,
-          "rhodes_tine_material": 0.195,
-          "rhodes_hammer_tip": 1.885,
-          "rhodes_pickup_position": 0.195
+          "electronic_technique": 6.22,
+          "turntable_technique": 9.71
         }
       }
     ],
-    "room": "studio_multitrack_flagship_us_80s",
+    "room": "nyc_bronx_hip_hop_block_party_studio",
     "archetype": "arch_late60s_us_multitrack",
     "inline_chain": {
-      "mic": "mic_u87_condenser_neumann",
-      "pre": "pre_api_312",
-      "console": "console_sony_mxp3000",
-      "comp": "comp_1176_fet",
-      "eq": "eq_api_550",
+      "mic": "dynamic_mic",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
       "amp": null,
       "medium": "tape_15ips"
     },
@@ -154,12 +113,35 @@
   },
   "source": {
     "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
-    "room": "studio_multitrack_flagship_us_80s",
-    "chain_mic": "mic_u87_condenser_neumann",
-    "chain_pre": "pre_api_312",
-    "chain_comp": "comp_1176_fet",
-    "chain_eq": "eq_api_550",
+    "room": "nyc_bronx_hip_hop_block_party_studio",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "rap_voice",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "sampler_archetypes": "emu_sp1200",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "electronic_technique": "electronic_sample_chopped",
+      "turntable_technique": "turntable_scratch"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
     "chain_medium": "tape_15ips",
-    "chain_console": "console_sony_mxp3000"
+    "chain_console": "console_british_inline_80s"
   }
 }

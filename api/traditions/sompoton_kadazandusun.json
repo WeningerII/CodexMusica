@@ -5,7 +5,7 @@
   "lineage": "Music of the sompoton, the Kadazandusun gourd mouth organ of Sabah, made of bamboo pipes with free reeds set into a dried gourd wind chest and associated especially with Tambunan. It is played solo or to accompany dancing; the Iban engkerurai card, a closely related gourd mouth organ, stands in.",
   "recipe": "classic modern sompoton, drone Modal, wind pipe branch. engkerurai. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 147,
-  "score": 0.35,
+  "score": 0.423,
   "config": {
     "traditions": [
       "sompoton_kadazandusun"
@@ -20,8 +20,8 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "engkerurai_pipes": 0.3315,
-          "engkerurai_style": 0.273
+          "engkerurai_pipes": 0.3,
+          "engkerurai_style": 0.378
         }
       }
     ],

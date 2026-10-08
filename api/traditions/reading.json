@@ -5,7 +5,7 @@
   "lineage": "Music for reading is a functional listening field cultivated by composers, publishers and playlist curators. Quiet piano, ambient textures and restrained instrumental arrangements provide a continuous backdrop to books and other sustained reading.",
   "recipe": "classic reading, experimental Elec, ambient branch. upright piano. live tracking.",
   "recipe_chars": 81,
-  "score": 0.406,
+  "score": 0.438,
   "config": {
     "traditions": [
       "reading"
@@ -20,7 +20,7 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "upright_use": 0.441,
+          "upright_use": 0.47250000000000003,
           "upright_piano_size": 0
         }
       }

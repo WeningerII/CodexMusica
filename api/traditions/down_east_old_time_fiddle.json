@@ -5,7 +5,7 @@
   "lineage": "Canadian old-time dance fiddling spread from the Maritimes by the New Brunswick-born fiddler Don Messer, whose band the Islanders broadcast from Charlottetown radio from 1939, recorded for the Apex label and reached a national audience on CBC radio and on the Halifax-produced CBC television show Don Messer's Jubilee until its cancellation in 1969. The style plays reels, jigs, hornpipes, breakdowns, waltzes and two-steps with a clean, lightly ornamented melody in strict dance tempo over a small band of piano, bass, guitar and drums, and it became a standard of Canadian old-time fiddling and its contests.",
   "recipe": "classic North American late-1930s down east old-time fiddling, functional Song, pre commercial branch. fiddle, upright piano, upright bass, dreadnought acoustic guitar, drum kit. hardwood living. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
   "recipe_chars": 261,
-  "score": 7.316,
+  "score": 7.115,
   "config": {
     "traditions": [
       "down_east_old_time_fiddle"
@@ -24,9 +24,9 @@
         "scores": {
           "bowed_technique": 2.34,
           "fiddle_strings": 0.1365,
-          "fiddle_bow": 1.3315000000000001,
-          "fiddle_mute": 0.07371428571428572,
-          "fiddle_articulation": 0.04221428571428571,
+          "fiddle_bow": 1.3,
+          "fiddle_mute": 0.017276785714285713,
+          "fiddle_articulation": 0.017276785714285713,
           "fiddle_string_configuration": 0
         }
       },
@@ -39,7 +39,7 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "upright_use": 0.0315,
+          "upright_use": 0,
           "upright_piano_size": 0
         }
       },
@@ -67,7 +67,7 @@
           "acoustic_technique": 0.26,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": -0.05,
+          "back_sides": -0.043437500000000004,
           "string_acoustic": 0.21
         }
       },
@@ -87,16 +87,16 @@
           "cymbal_finish": "hand_hammered"
         },
         "scores": {
-          "drum_technique": -0.035,
+          "drum_technique": -0.05,
           "drumhead": 0.105,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.254,
+          "shell_wood": 0.27127678571428576,
           "shell_thickness": 0,
-          "bearing_edges": -1.4685,
-          "snare_wires": 0.0315,
-          "cymbal_alloy": -0.2,
+          "bearing_edges": -1.5,
+          "snare_wires": 0.0380625,
+          "cymbal_alloy": -0.18406250000000002,
           "cymbal_hammering": -0.10500000000000001,
-          "cymbal_lathing": 0.9269285714285713,
+          "cymbal_lathing": 0.869955357142857,
           "cymbal_finish": 0.147
         }
       }

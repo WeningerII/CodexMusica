@@ -5,7 +5,7 @@
   "lineage": "Goblet-drum practice of Egypt, Turkey and the Levant, transformed by the mid-20th-century shift from clay-and-skin tabla baladi to aluminium shells with tunable synthetic heads, codified through Cairo film-orchestra percussionists and Turkish soloists such as Misirli Ahmet and Hossam Ramzy, marked by doum-tek finger technique, split-hand and clarinet-finger rolls, iqa cycles such as maqsum, baladi, sa'idi, chiftetelli and 10/8 curcuna, and cadenza-like solos that fragment the cycle before restoring it.",
   "recipe": "classic North African mid-1980s darbuka solo, art Music, middle eastern classical branch, Persian arab improv improv on frame, middle eastern wedding oyun havası iraqi maqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. clay pre modern traditional goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin open slap hand drum darbuka, beech mid tier modern fish skin canonical Egyptian light responsive brass jingles canonical takht riq, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, tabl baladi, mazhar. stone plaster medina room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 711,
-  "score": 276.71,
+  "score": 276.717,
   "config": {
     "traditions": [
       "darbuka_solo",
@@ -22,10 +22,10 @@
           "darbuka_regional_style": "darbuka_turkish_split"
         },
         "scores": {
-          "percussion_technique": 4.295,
+          "percussion_technique": 4.194999999999999,
           "darbuka_material": 2.08,
-          "darbuka_skin": 5.86,
-          "darbuka_regional_style": 9.565
+          "darbuka_skin": 6.076666666666667,
+          "darbuka_regional_style": 9.781666666666666
         }
       },
       {
@@ -103,7 +103,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.605,
+          "voice_register": 2.7625,
           "voice_quality": 8.515,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -112,11 +112,11 @@
           "voice_microtone": 34.0275,
           "voice_tradition": 19.4675,
           "voice_mechanism_compound": 15.670000000000002,
-          "voice_estill_quality": 9.205,
+          "voice_estill_quality": 9.01,
           "voice_speech_song": 21.319999999999997,
           "voice_ensemble_config": 19.695,
-          "voice_ornament_system": 18.1,
-          "voice_pitch_organization": 18.865,
+          "voice_ornament_system": 17.875,
+          "voice_pitch_organization": 18.800833333333333,
           "voice_processing_chain": 5.9799999999999995,
           "voice_multitrack_stack": 5.07
         }

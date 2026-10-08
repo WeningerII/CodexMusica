@@ -5,7 +5,7 @@
   "lineage": "London dance genre of 2008-2010 built by Crazy Cousinz, Roska, Marcus Nasty, Geeneus and Lil Silva after grime's chart decline — 128-132 BPM four-to-the-floor or broken kick patterns overlaid with soca, kuduro and Afro-Latin percussion (congas, timbales, shaker), sparse synth pads, and sung or MC'd hooks drawn from UK garage's vocal tradition.",
   "recipe": "classic 2008-2010 uk funky, bass System, uk soundsystem branch, house electronic dance, African dance electronic dance latin house freestyle house. vocal fry, breath veiled tone, slow rate, interlocked note trading. TR-909, brass open slap hand drum timbales, sub bass digital subtractive, layered sampler, foundational bass rhythm calabash shekere. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3.",
   "recipe_chars": 497,
-  "score": 241.764,
+  "score": 240.882,
   "config": {
     "traditions": [
       "uk_funky",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
@@ -47,8 +47,8 @@
           "voice_speech_song": 17.419999999999995,
           "voice_ensemble_config": 20.279999999999994,
           "voice_ornament_system": 1.6949999999999998,
-          "voice_pitch_organization": 1.1193749999999998,
-          "voice_processing_chain": 14.264999999999999,
+          "voice_pitch_organization": 0.8999999999999997,
+          "voice_processing_chain": 14.294999999999998,
           "voice_multitrack_stack": 6.045000000000002
         }
       },
@@ -70,12 +70,12 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "timbales_shell": "timbales_brass",
-          "timbales_context": "timbales_son"
+          "timbales_context": "timbales_salsa"
         },
         "scores": {
           "percussion_technique": 17.184999999999995,
           "timbales_shell": 1.9300000000000002,
-          "timbales_context": 0.26437499999999997
+          "timbales_context": 0.09
         }
       },
       {
@@ -86,7 +86,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 3.6399999999999997,
+          "electronic_technique": 3.505,
           "va_archetypes": 0.195,
           "digital_subtractive_context": 18.459999999999997
         }
@@ -105,7 +105,7 @@
           "sampler_archetypes": 0.3,
           "sampler_bit_depth": 0.7149999999999999,
           "sampler_workflow": 1.1049999999999998,
-          "sampler_classic_context": 50.66749999999999
+          "sampler_classic_context": 50.404999999999994
         }
       },
       {
@@ -116,7 +116,7 @@
         },
         "scores": {
           "shekere_size": 2.795,
-          "shekere_beads": 1.3
+          "shekere_beads": 1.18
         }
       }
     ],

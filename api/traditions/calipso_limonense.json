@@ -5,7 +5,7 @@
   "lineage": "Calipso limonense is the calypso of the Afro-Caribbean community of Costa Rica's Limón province, descendants of Jamaican and other West Indian workers who came from the late nineteenth century to build the railway and work the banana plantations. Its songs, in Limón Creole English, comment with wit on local life and are sung to guitar with light percussion; Walter 'Gavitt' Ferguson of Cahuita is its best-known singer-composer, and the genre has been declared part of Costa Rica's cultural heritage.",
   "recipe": "classic modern calipso limonense, functional Song, tropical song branch, Caribbean groove percussion. solo with instrumental accompaniment, single lead single track no stacking. parlor acoustic guitar, shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 308,
-  "score": 5.485,
+  "score": 5.68,
   "config": {
     "traditions": [
       "calipso_limonense"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 1.23,
+          "voice_multitrack_stack": 1.62,
           "voice_tessitura": 0
         }
       },
@@ -75,7 +75,7 @@
           "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
         },
         "scores": {
-          "shaker_source_unspecified_identity": 0.6749999999999999
+          "shaker_source_unspecified_identity": 0.48
         }
       }
     ],

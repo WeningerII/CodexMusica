@@ -5,7 +5,7 @@
   "lineage": "Piano-centred blues that formed in St. Louis and East St. Louis during the 1920s-30s Great Migration and was codified on Decca and Bluebird sides by Roosevelt Sykes, Peetie Wheatstraw, Walter Davis and Henry Townsend — a rolling barrelhouse left hand of walking octaves and light boogie eights at 80-120 BPM, guitar doubling in single-string counterpoint rather than slide, dry declamatory vocals with a taunting spoken edge, and 12-bar frames padded with piano turnarounds; a second postwar generation around Ike Turner and Albert King electrified the same repertoire.",
   "recipe": "classic mid-1920s st. louis blues, functional Song, blues acoustic branch, blues electric functional song, American jazz boogie woogie, blues narrative delta narrative british blues. thick, blues-shouter, wide pitch sway, interlocked note trading. stride upright piano, open g tuning mahogany slide parlor acoustic Fender blackface amp American 60s amp spring reverb bright roasted maple maple single coil electric guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, growly gut upright bass. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 696,
-  "score": 439.58,
+  "score": 440.03,
   "config": {
     "traditions": [
       "st_louis_blues",
@@ -51,7 +51,7 @@
           "voice_quality": 14.819999999999986,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 32.155,
+          "voice_vibrato": 31.855,
           "voice_articulation": 22.555,
           "voice_microtone": 32.294999999999995,
           "voice_tradition": 15.534999999999997,
@@ -75,11 +75,11 @@
           "string_acoustic_parlor": "eighty_twenty_p"
         },
         "scores": {
-          "acoustic_technique": 11.01,
+          "acoustic_technique": 11.055,
           "string_tuning": 11.12,
           "top_wood_parlor": 1,
           "back_sides_parlor": 1,
-          "string_acoustic_parlor": 1.845
+          "string_acoustic_parlor": 1.9949999999999999
         }
       },
       {
@@ -94,10 +94,10 @@
         },
         "scores": {
           "harmonica_type": 1.3649999999999998,
-          "harmonica_comb": 31.834999999999994,
-          "harmonica_reed": 30.705,
-          "harmonica_technique": 39.91,
-          "harmonica_maker_school": 34.705,
+          "harmonica_comb": 32.044999999999995,
+          "harmonica_reed": 31.005,
+          "harmonica_technique": 39.715,
+          "harmonica_maker_school": 34.989999999999995,
           "harmonica_tuning": 15.665
         }
       },
@@ -117,13 +117,13 @@
         "slots": {
           "electric_technique": "electric_fingerstyle_country",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "swamp_ash",
+          "body_wood": "mahogany",
           "neck_wood": "roasted_maple",
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
-          "bridge": "hardtail",
+          "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "open_g",
@@ -132,7 +132,7 @@
         "scores": {
           "electric_technique": 4.405,
           "amp_make": 3.7375000000000007,
-          "body_wood": 0.24,
+          "body_wood": 0.195,
           "neck_wood": 1,
           "fretboard": 0.195,
           "pickup_magnet": 0.195,

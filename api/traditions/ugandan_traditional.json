@@ -5,7 +5,7 @@
   "lineage": "Ugandan traditional music encompasses varied community repertoires and instrumental practices. Singing with adungu is one strand within a wider heritage of vocal, harp and ensemble performance.",
   "recipe": "classic ugandan traditional, ritual Devotional. solo with instrumental accompaniment, single lead single track no stacking. adungu. shoebox concert hall.",
   "recipe_chars": 153,
-  "score": 6.938,
+  "score": 7.082,
   "config": {
     "traditions": [
       "ugandan_traditional"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 3.3799999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.7769999999999999,
+          "voice_processing_chain": 0.23099999999999998,
+          "voice_multitrack_stack": 0.8084999999999999,
           "voice_tessitura": 0
         }
       },
@@ -60,9 +60,9 @@
           "adungu_stringing": "adungu_stringing_nylon_hide"
         },
         "scores": {
-          "adungu_size": 0.9944999999999999,
+          "adungu_size": 1.0259999999999998,
           "adungu_setting": 1.755,
-          "adungu_stringing": -0.10500000000000001
+          "adungu_stringing": -0.11850000000000002
         }
       }
     ],

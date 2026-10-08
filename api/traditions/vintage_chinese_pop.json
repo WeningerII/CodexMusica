@@ -1,172 +1,295 @@
 {
-  "id": "vintage_chinese_pop",
-  "name": "Vintage Chinese Pop",
-  "family": "pop",
-  "lineage": "Vintage Chinese pop brings historical Chinese-language popular songs into a continuing repertoire of recordings, films and revivals. Shanghai and Hong Kong song traditions circulated through Taiwan and Southeast Asia, where singers and arrangers continue to reinterpret familiar melodies in intimate and orchestral settings.",
-  "recipe": "classic vintage chinese pop, functional Song, east Asian pop branch. solo with instrumental accompaniment. archtop, song accompaniment string quartet inst. shoebox concert hall.",
-  "recipe_chars": 177,
-  "score": 9.132,
+  "id": "shidaiqu",
+  "merged_from": "vintage_chinese_pop",
+  "name": "Shidaiqu (Shanghai Mandarin jazz-pop)",
+  "family": "global",
+  "lineage": "Pre-revolutionary Shanghai Mandarin popular jazz-and-pop song tradition codified 1927-1949, the foundational stratum of Chinese-language popular music — Li Jinhui (1891-1967, the father of Chinese popular music, composer of the seminal 1927 song Drizzle / Maomao Yu often cited as the first shidaiqu) establishing the genre by fusing Western jazz-band orchestration with Mandarin-language vocal melodic vocabulary at his Bright Moon Song-and-Dance Troupe in Shanghai; the seven great singing stars (qida ge xing) era of the 1940s through Zhou Xuan (1918-1957, the Golden Voice, the canonical female playback voice through When Will You Return / He Ri Jun Zai Lai 1937 and Shanghai Nights / Ye Shanghai 1947), Bai Hong, Yao Lee, Bai Guang, Li Xianglan (Yamaguchi Yoshiko, the Japanese-Manchurian crossover voice), Wu Yingyin, Gong Qiuxia; composer-arranger lineage Chen Gexin (Rose Rose I Love You 1940), Yao Min (Zhou Xuan collaborator), Li Houxiang; production infrastructure of the EMI Pathé / Pathé Records Shanghai studios on Hengshan Road and Great China Records on the French Concession (the dominant pre-revolutionary recording labels for Mandarin popular music); ended abruptly with the 1949 Communist takeover when shidaiqu was banned in Mainland China as \"yellow music\" / huang se yinyue (pornographic music) and many singers and composers fled to British Hong Kong where the tradition continued under the Pathé Hong Kong umbrella through Yao Lee and Pan Wan-ching late careers, seeding the later Mandopop and Cantopop traditions of the 1970s-onward",
+  "recipe": "classic East Asian mid-1930s shidaiqu, functional Song, east Asian pop branch, American jazz early trad modern swing. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, silver wound lamb gut core plywood laminate European maple double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, python skin snake skin red sandalwood zitan premium silk pre 1950s historical erhu, silk red sandalwood zitan premium pipa, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral. shanghai emi pathe 1930s. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 965,
+  "score": 614.883,
   "config": {
     "traditions": [
-      "vintage_chinese_pop"
+      "shidaiqu",
+      "british_trad_jazz",
+      "modern_swing"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "jazz_scat_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
+          "voice_register": 34.46500000000001,
+          "voice_quality": 34.78500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.78,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3315,
-          "voice_multitrack_stack": 0.16799999999999998,
-          "voice_tessitura": 0
+          "voice_vibrato": 23.104999999999997,
+          "voice_articulation": 20.21500000000001,
+          "voice_microtone": 36.375,
+          "voice_tradition": 28.502499999999998,
+          "voice_mechanism_compound": 4.874999999999999,
+          "voice_estill_quality": 4.68,
+          "voice_speech_song": 26.455000000000013,
+          "voice_ensemble_config": 25.675000000000004,
+          "voice_ornament_system": 3.395,
+          "voice_pitch_organization": 15.789999999999994,
+          "voice_processing_chain": 7.595000000000001,
+          "voice_multitrack_stack": 3.9350000000000005
         }
       },
       {
-        "id": "archtop_jazz",
+        "id": "grand_piano",
         "slots": {
-          "amp_make": "amp_unspecified",
-          "archtop_body": "archtop_full_hollow",
-          "archtop_pickup": "archtop_floating",
-          "archtop_top_wood": "archtop_carved_spruce",
-          "archtop_strings": "thomastik_jazz_flat",
-          "archtop_technique": "archtop_walking_chords",
-          "archtop_string_tuning": "archtop_tuning_source_unspecified"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "amp_make": 0,
-          "archtop_body": 0.813,
-          "archtop_pickup": 0.78,
-          "archtop_top_wood": 0.813,
-          "archtop_strings": 0.975,
-          "archtop_technique": 0.881625,
-          "archtop_string_tuning": 0
+          "keyboard_technique": 11.825,
+          "grand_piano_size": 0.48,
+          "grand_piano_brand": 1.645,
+          "piano_hammer": 15.68,
+          "piano_rim": 17.64,
+          "piano_soundboard": 15,
+          "piano_pinblock": 1.82,
+          "piano_plate": 2.6099999999999994,
+          "piano_pitch_standard": 4.8425
         }
       },
       {
-        "id": "string_quartet_inst",
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 3.2825000000000006,
+          "brass_size": 2.145,
+          "trumpet_mouthpiece": 28.112499999999997,
+          "brass_mute": 0.845,
+          "trumpet_technique": 3.2825000000000006,
+          "trumpet_bell_metal": 2.9899999999999998,
+          "trumpet_maker_school": 4.16
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "baritone_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 1.45,
+          "sax_size": 0.28500000000000003,
+          "sax_reed": 0.38999999999999996,
+          "sax_body_alloy": 24.699999999999996,
+          "sax_mouthpiece": 0.845,
+          "sax_technique": 21.624999999999996,
+          "sax_maker_school": 26.747499999999995
+        }
+      },
+      {
+        "id": "double_bass",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "quartet_school": "quartet_classical",
-          "string_quartet_inst_era": "string_quartet_inst_popular_song_accompaniment"
+          "bass_size": "bass_seven_eighth",
+          "bass_strings": "silver_wound_lamb_gut_bass",
+          "bass_top_wood": "plywood_bass_top",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "cremonese_pre_1750_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "quartet_school": 0,
-          "string_quartet_inst_era": 3.25
+          "bowed_technique": -0.035,
+          "bass_size": 0.045,
+          "bass_strings": 1.5949999999999998,
+          "bass_top_wood": 1.625,
+          "bass_back_wood": 1.8150000000000002,
+          "bass_varnish": 1.8849999999999996,
+          "bass_setup_period": 0.8775000000000001,
+          "bass_play": 21.669999999999998,
+          "bass_rosin": 28.89249999999999,
+          "bass_bow_stick": 1.625
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 32.56500000000001,
+          "drumhead": 28.047499999999992,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_jiangnan",
+          "erhu_body_wood": "erhu_red_sandalwood",
+          "erhu_strings": "erhu_silk_historical",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "erhu_skin": 2.125,
+          "erhu_use": 0.57,
+          "erhu_body_wood": 1.2349999999999999,
+          "erhu_strings": 2.9599999999999995,
+          "erhu_bow": 1.3
+        }
+      },
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_modern_frets",
+          "pipa_strings": "pipa_silk",
+          "pipa_pick": "pipa_fingerpicks",
+          "pipa_body_wood": "pipa_red_sandalwood"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "pipa_frets": 0.345,
+          "pipa_strings": 2.125,
+          "pipa_pick": 0.15,
+          "pipa_body_wood": 1.2349999999999999
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 1.495,
+          "orch_strings": 1.5949999999999998,
+          "orch_top_wood": 4.0625,
+          "orch_back_wood": 3.6750000000000003,
+          "orch_varnish": 3.665,
+          "orch_setup_period": 0.8775000000000001,
+          "orch_bow": 1.69,
+          "orch_bow_stick": 1.67,
+          "orch_articulation": 2.095,
+          "orch_rosin": 1.5750000000000002
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "archtop_jazz": [
-        "amp_make",
-        "archtop_body",
-        "archtop_pickup",
-        "archtop_top_wood",
-        "archtop_strings",
-        "archtop_technique",
-        "archtop_string_tuning"
-      ],
-      "string_quartet_inst": [
-        "bowed_technique",
-        "quartet_school",
-        "string_quartet_inst_era"
-      ]
-    },
-    "room": "concert_hall_shoebox",
+    "room": "shanghai_emi_pathe_1930s",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": null
+      "medium": "shellac_78"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "concert_hall_shoebox",
+    "tuning": "twelve_tet",
+    "room": "shanghai_emi_pathe_1930s",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "drumhead": "calfskin_drum",
+      "drum_technique": "brushes_jazz",
+      "voice_register": "chest_voice",
+      "voice_quality": "crooner_voice",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "amp_make": "amp_unspecified",
-      "archtop_body": "archtop_full_hollow",
-      "archtop_pickup": "archtop_floating",
-      "archtop_top_wood": "archtop_carved_spruce",
-      "archtop_strings": "thomastik_jazz_flat",
-      "archtop_technique": "archtop_walking_chords",
-      "archtop_string_tuning": "archtop_tuning_source_unspecified",
-      "bowed_technique": "bowed_legato_classical",
-      "quartet_school": "quartet_classical",
-      "string_quartet_inst_era": "string_quartet_inst_popular_song_accompaniment"
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_sob",
+      "voice_vibrato": "delayed_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "piano_pitch_standard": "a_440_modern",
+      "wind_articulation": "wind_bebop_runs",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "sax_size": "tenor_sax",
+      "sax_technique": "sax_bebop_runs",
+      "bowed_technique": "bowed_chopped_old_time",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "bass_size": "bass_three_quarter",
+      "bass_top_wood": "norway_spruce_alpine_bass",
+      "bass_back_wood": "bosnian_flamed_maple_bass",
+      "bass_setup_period": "modern_setup_bass",
+      "bass_play": "bass_arco",
+      "erhu_skin": "erhu_python",
+      "erhu_use": "erhu_classical",
+      "erhu_body_wood": "erhu_red_sandalwood",
+      "erhu_strings": "erhu_steel_modern",
+      "erhu_bow": "erhu_bamboo_horsehair",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "pipa_frets": "pipa_modern_frets",
+      "pipa_strings": "pipa_steel_nylon",
+      "pipa_pick": "pipa_fingernail",
+      "pipa_body_wood": "pipa_red_sandalwood"
     },
-    "pin_parts": true
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "shellac_78",
+    "chain_console": "console_german_tube_50s"
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Hindi indie connects independent Hindi-language songwriters and listeners through recordings and live performance. Intimate acoustic writing forms one strand alongside fuller band and electronic arrangements.",
   "recipe": "classic hindi indie, functional Song, south Asian pop branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 318,
-  "score": 10.267,
+  "score": 10.298,
   "config": {
     "traditions": [
       "hindi_indie"
@@ -62,7 +62,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 6.5,
+          "acoustic_technique": 6.5315,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,

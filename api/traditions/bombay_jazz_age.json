@@ -5,7 +5,7 @@
   "lineage": "From the 1930s to the 1960s Bombay's hotel ballrooms and nightclubs, led by the Taj Mahal Hotel, employed dance bands playing swing and foxtrots; American bandleaders such as Leon Abbey led early bands there, and Goan musicians trained in parish music schools soon became the core players and bandleaders. Many of them also arranged and played for Hindi film music.",
   "recipe": "classic mid-1930s bombay jazz, improv On Frame, early branch. trumpet, continuous-airflow legato saxophone, clarinet, grand piano, upright bass, bronze bell bronze brushes-and-sticks drum kit. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 330,
-  "score": 47.917,
+  "score": 48.125,
   "config": {
     "traditions": [
       "bombay_jazz_age"
@@ -85,8 +85,8 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.36749999999999994,
-          "grand_piano_brand": 0.52425,
+          "grand_piano_size": 0.336,
+          "grand_piano_brand": 0.62925,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
@@ -127,7 +127,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.3045,
           "shell_thickness": 0,
-          "bearing_edges": -1.185,
+          "bearing_edges": -1.05,
           "snare_wires": 0,
           "cymbal_alloy": 11.881499999999997,
           "cymbal_hammering": -0.11475000000000002,

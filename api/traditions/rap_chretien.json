@@ -5,7 +5,7 @@
   "lineage": "Rap chrétien connects French-language Christian testimony with hip-hop performance and production. Manou Bolomik exemplifies its movement between rap, electronic music, church networks and concert audiences.",
   "recipe": "classic modern rap chrétien, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 12.448,
+  "score": 12.451,
   "config": {
     "traditions": [
       "rap_chretien"
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 6.5,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

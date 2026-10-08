@@ -5,7 +5,7 @@
   "lineage": "Cuban art-song genre created in Havana in 1909 by Luis Casas Romero with 'Mujer Bayamesa' and developed by Jorge Anckermann and Eliseo Grenet through the 1920s-40s teatro vernáculo, a slow lyrical 6/8 derived from the clave cubana and criolla-bolero: nylon guitar and tres accompaniment with a gently rocking hemiola, subtle claves and maracas, and refined duo or solo voices singing pastoral, patriotic and nostalgic texts.",
   "recipe": "classic Caribbean mid-1920s criolla, ballad Poetry, Latin am troubadour branch, tropical song functional song leo kiʻekiʻe bolero cubano. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon classical nylon-string guitar, cedar canonical Cuban tres cubano, claves, maracas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, sitka spruce diaphragmatic a 441 Japanese orchestral grand piano. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 602,
-  "score": 189.3,
+  "score": 188.52,
   "config": {
     "traditions": [
       "criolla",
@@ -29,7 +29,7 @@
           "top_wood_classical": 7.214999999999998,
           "bracing_classical": 1.95,
           "string_classical": 1.2349999999999999,
-          "attack_technique_cl": 0.69
+          "attack_technique_cl": 0.735
         }
       },
       {
@@ -43,8 +43,8 @@
         },
         "scores": {
           "plucked_traditional_technique": 0.9099999999999999,
-          "tres_courses": 2.88,
-          "tres_cubano_context": 1.845,
+          "tres_courses": 2.835,
+          "tres_cubano_context": 1.65,
           "tres_cubano_body_wood": 2.535,
           "tres_cubano_strings": 0.195
         }
@@ -85,7 +85,7 @@
           "voice_ornament_system": 0.7999999999999998,
           "voice_pitch_organization": 0.995,
           "voice_processing_chain": 4.095,
-          "voice_multitrack_stack": 1.1400000000000001
+          "voice_multitrack_stack": 0.9
         }
       },
       {
@@ -120,8 +120,8 @@
         },
         "scores": {
           "percussion_technique": 6.605,
-          "bongos_skin": 4.82,
-          "bongos_context": 1.275,
+          "bongos_skin": 4.775,
+          "bongos_context": 1.125,
           "bongos_shell_wood": 2.535
         }
       },
@@ -140,14 +140,14 @@
         },
         "scores": {
           "keyboard_technique": 0.585,
-          "grand_piano_size": 0.885,
+          "grand_piano_size": 0.93,
           "grand_piano_brand": 2.54,
           "piano_hammer": 0.585,
           "piano_rim": -0.035,
           "piano_soundboard": 1.545,
           "piano_pinblock": -0.05,
           "piano_plate": -0.05,
-          "piano_pitch_standard": 5.2749999999999995
+          "piano_pitch_standard": 5.08
         }
       }
     ],

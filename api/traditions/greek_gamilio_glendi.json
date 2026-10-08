@@ -5,7 +5,7 @@
   "lineage": "Greek wedding-music tradition continuous from Byzantine-era through Ottoman-period through 19th-20th-century modern-Greek continuous practice; regionally distributed with strongest preservation in Crete, Mani, Epirus, and Pontic-Greek diaspora",
   "recipe": "classic Southern European modern greek gamílio glendí, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal lebanese-arab wedding takht persian aroosi. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek steel canonical octave unison pairs ornamented bouzouki, mulberry canonical cretan steel modern legato cretan lyra, grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, cretan rhythmic laouto. athens piraeus rebetadika. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 781,
-  "score": 274.22,
+  "score": 272.03,
   "config": {
     "traditions": [
       "greek_gamilio_glendi",
@@ -41,15 +41,15 @@
           "voice_vibrato": 6.994999999999999,
           "voice_articulation": 10.334999999999997,
           "voice_microtone": 21.449999999999996,
-          "voice_tradition": 23.224999999999998,
+          "voice_tradition": 22.939999999999998,
           "voice_mechanism_compound": 16.599999999999998,
-          "voice_estill_quality": 6.579999999999999,
+          "voice_estill_quality": 6.7749999999999995,
           "voice_speech_song": 14.982499999999996,
           "voice_ensemble_config": 10.464999999999995,
           "voice_ornament_system": 17.38,
           "voice_pitch_organization": 17.815,
           "voice_processing_chain": 1.8199999999999998,
-          "voice_multitrack_stack": 2.325
+          "voice_multitrack_stack": 2.235
         }
       },
       {
@@ -63,8 +63,8 @@
         },
         "scores": {
           "plucked_traditional_technique": 5.330000000000001,
-          "bouzouki_courses": 2.43,
-          "bouzouki_pick": 2.3850000000000002,
+          "bouzouki_courses": 2.2350000000000003,
+          "bouzouki_pick": 2.1900000000000004,
           "bouzouki_body_wood": 6.684999999999999,
           "bouzouki_strings": 1.365
         }
@@ -81,9 +81,9 @@
         "scores": {
           "bowed_technique": 5.75,
           "lyra_strings": 0.045,
-          "lyra_use": 0.9600000000000002,
+          "lyra_use": 0.81,
           "lyra_body_wood": 1.485,
-          "lyra_string_material": 3.57
+          "lyra_string_material": 3.375
         }
       },
       {
@@ -96,8 +96,8 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 10.575,
-          "clarinet_body": 11.295,
+          "wind_articulation": 10.185,
+          "clarinet_body": 10.995,
           "clarinet_size": 2.9899999999999998,
           "clarinet_reed": 0,
           "clarinet_articulation": 0
@@ -120,8 +120,8 @@
           "musette_offset": 0.045,
           "reed_config": 0.15,
           "bellows": 0,
-          "voicing_chamber": 0.42,
-          "accordion_maker_school": 9.639999999999999
+          "voicing_chamber": 0.525,
+          "accordion_maker_school": 9.444999999999999
         }
       },
       {
@@ -134,8 +134,8 @@
         },
         "scores": {
           "percussion_technique": 0.26,
-          "darbuka_material": 2.73,
-          "darbuka_skin": 3.6149999999999998,
+          "darbuka_material": 2.3850000000000002,
+          "darbuka_skin": 3.42,
           "darbuka_regional_style": 1.365
         }
       },
@@ -147,7 +147,7 @@
           "laouto_strings": "laouto_strings_steel"
         },
         "scores": {
-          "laouto_form": 17.645,
+          "laouto_form": 17.689999999999998,
           "laouto_role": 12.122499999999997,
           "laouto_strings": 4.875
         }

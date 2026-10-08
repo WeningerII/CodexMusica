@@ -5,7 +5,7 @@
   "lineage": "Dance-song of Saharan communities of southern Morocco around Guelmim and Tan-Tan, named for the guedra, a cooking pot covered with skin and beaten as a drum. A woman dances on her knees with veiled head and expressive hand movements while a circle of men and women clap and chant around her; it is performed at the Moussem of Tan-Tan, a UNESCO-listed cultural space. The acoustic membrane drum card stands in for the guedra pot drum.",
   "recipe": "classic North African modern guedra, ritual Devotional. unprocessed natural acoustic. membrane drum pulse resonant acoustic membrane drum, hand clap. outdoor desert anechoic. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 237,
-  "score": 10.665,
+  "score": 10.896,
   "config": {
     "traditions": [
       "guedra_saharan"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.19500000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.1365,
+          "voice_processing_chain": 1.2309999999999999,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -71,7 +71,7 @@
         },
         "scores": {
           "clap_technique": 0.39,
-          "clap_capture": 0.504
+          "clap_capture": 0.6405000000000001
         }
       }
     ],

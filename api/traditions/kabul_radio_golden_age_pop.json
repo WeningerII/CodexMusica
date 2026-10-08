@@ -3,9 +3,9 @@
   "name": "Kabul golden-age pop (1960s-70s Radio Afghanistan song)",
   "family": "pop",
   "lineage": "Popular song of Kabul in the 1960s and 1970s, when Radio Afghanistan and its studio musicians broadcast new Dari and Pashto songs that joined Afghan and Indian-derived melody to Western instruments. The leading singers of the period recorded with harmonium and tabla alongside electric guitar, organ and drum kit, and their LPs and radio tapes later circulated widely in the diaspora.",
-  "recipe": "classic kabul golden-age pop, functional Song, south Asian pop branch. solo with instrumental accompaniment. song accompaniment melodic chordal hand pumped harmonium, pitched indian rosewood rosewood tabla, clean strummed single coil electric guitar, block chord combo organ, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
-  "recipe_chars": 499,
-  "score": 55.255,
+  "recipe": "classic kabul golden-age pop, functional Song, south Asian pop branch. solo with instrumental accompaniment. song accompaniment hand pumped harmonium, pitched indian rosewood rosewood tabla, clean strummed single coil electric guitar, block chord combo organ, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 483,
+  "score": 54.751,
   "config": {
     "traditions": [
       "kabul_radio_golden_age_pop"
@@ -61,10 +61,10 @@
           "free_reed_technique": "hand_pumped_harmonium_song_support"
         },
         "scores": {
-          "harmonium_action": 0.36749999999999994,
-          "harmonium_voicing": 0.777,
+          "harmonium_action": 0.1995,
+          "harmonium_voicing": 0.609,
           "harmonium_use": 4.55,
-          "free_reed_technique": 1.0499999999999998
+          "free_reed_technique": 0.7769999999999999
         }
       },
       {
@@ -155,7 +155,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.1685,
           "cymbal_hammering": 8.817999999999998,
-          "cymbal_lathing": 8.786499999999998,
+          "cymbal_lathing": 8.891499999999999,
           "cymbal_finish": 0.0315
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Sopana sangeetham is the devotional singing of Kerala temples, performed by the Marar and Pothuval temple-servant communities on the steps (sopanam) that lead to the inner sanctum during worship, its central repertoire being the ashtapadi songs of Jayadeva's Gita Govinda. The singer accompanies himself on the idakka, the hourglass drum whose pitch is bent by squeezing its lacing. Njeralathu Rama Poduval carried the style from the temple to the concert platform.",
   "recipe": "classic modern sopana sangeetham, ritual Devotional, hindu branch. solo with instrumental accompaniment, single lead single track no stacking. singing melodic pitch bending idakka. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 260,
-  "score": 15.895,
+  "score": 15.759,
   "config": {
     "traditions": [
       "sopana_sangeetham"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3860000000000001,
+          "voice_ensemble_config": 1.3544999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -63,7 +63,7 @@
         "scores": {
           "idakka_repertoire": 8.969999999999999,
           "idakka_bend": 2.925,
-          "idakka_stroke": 1.1099999999999999,
+          "idakka_stroke": 1.005,
           "idakka_build": -0.1
         }
       }

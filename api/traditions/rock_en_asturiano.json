@@ -3,9 +3,9 @@
   "name": "Rock en asturiano",
   "family": "rock",
   "lineage": "Rock en asturiano brings Asturian-language expression into rock and punk-band songwriting.",
-  "recipe": "classic rock en asturiano, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, driving sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 365,
-  "score": 55.426,
+  "recipe": "classic rock en asturiano, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, driving sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 356,
+  "score": 53.798,
   "config": {
     "traditions": [
       "rock_en_asturiano"
@@ -24,23 +24,23 @@
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
-          "finish": "oil_satin_hum",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 2.21,
-          "amp_make": 16.054999999999996,
-          "body_wood": 1.029,
-          "neck_wood": 0.273,
+          "amp_make": 15.953249999999997,
+          "body_wood": 0.756,
+          "neck_wood": 0.1365,
           "fretboard": 0.16899999999999998,
           "pickup_magnet": 0.3055,
           "pickup_winding": 0.147,
           "string_material": 0.063,
           "bridge": 0.29899999999999993,
-          "scale_length": 0.7875,
-          "string_gauge": 0.273,
-          "finish": 0.1365,
+          "scale_length": 0.651,
+          "string_gauge": 0.17274999999999996,
+          "finish": 0,
           "string_tuning": 0.03899999999999999
         }
       },
@@ -48,20 +48,20 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 7.475,
-          "body_wood": 0.546,
+          "body_wood": 0.3055,
           "pickup_config": 0.17925000000000002,
-          "string_type": 17.48975,
-          "scale_length_b": 0.273,
+          "string_type": 17.21675,
+          "scale_length_b": 0.17925000000000002,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 7.377999999999999,
-          "drumhead": 0.273,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },

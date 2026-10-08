@@ -5,7 +5,7 @@
   "lineage": "Sentimental songs for voice and piano published as sheet music for middle-class American homes from the 1820s through the 1890s by composers including Henry Russell, Stephen Foster, George F. Root and Henry Clay Work, on themes of home, lost love, mothers, death and temperance. Strophic verses, often with a refrain for vocal quartet, sit over simple tonic-dominant accompaniment on the parlor piano or guitar; the songs passed into early commercial recordings and into later historically informed revivals.",
   "recipe": "classic mid-1820s american parlor song, functional Song, crooners branch. solo with instrumental accompaniment, single lead single track no stacking. square piano, low tension plain gut sheep gut pre 1900 parlor parlor acoustic guitar. hardwood living. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 335,
-  "score": 8.78,
+  "score": 8.842,
   "config": {
     "traditions": [
       "american_parlor_song"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.5459999999999999,
+          "voice_multitrack_stack": 0.6089999999999999,
           "voice_tessitura": 0
         }
       },

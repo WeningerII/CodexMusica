@@ -5,7 +5,7 @@
   "lineage": "String bands of Carriacou, built around violin, cuatro and guitar, play for dances, among them the island's European-derived quadrille, and go serenading house to house in the Christmas parang season, now showcased at the Carriacou Parang Festival. Alan Lomax recorded Carriacou string-band music on his Caribbean field trip, and the ethnomusicologist Rebecca Miller has documented the tradition; the cuatro card stands in for the local four-string cuatro.",
   "recipe": "classic modern carriacou string band, functional Song, tropical song branch, Caribbean groove percussion. single lead single track no stacking. melodic bowed song accompaniment fiddle, cuatro venezolano, parlor acoustic guitar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 307,
-  "score": 6.544,
+  "score": 6.994,
   "config": {
     "traditions": [
       "carriacou_string_band"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.135,
-          "voice_multitrack_stack": 0.9794999999999999,
+          "voice_multitrack_stack": 1.2794999999999999,
           "voice_tessitura": 0
         }
       },
@@ -67,7 +67,7 @@
           "fiddle_strings": 0,
           "fiddle_bow": 0.15,
           "fiddle_mute": 0.15,
-          "fiddle_articulation": 0.09,
+          "fiddle_articulation": 0.24,
           "fiddle_string_configuration": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "UK doom metal is represented here by My Dying Bride. This selected branch has an authored present-day studio realization.",
   "recipe": "classic uk doom metal, distorted Rock, doom branch. solo with instrumental accompaniment. orange amp British heavy crunch basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, hard rock maple acer saccharum liebenzeller metal infused violin orchestral, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 445,
-  "score": 64.209,
+  "score": 63.432,
   "config": {
     "traditions": [
       "uk_doom_metal"
@@ -19,7 +19,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -30,12 +30,12 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 11.412499999999998,
+          "amp_make": 11.170999999999998,
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.39,
           "fretboard": 0.39,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 0.336,
+          "pickup_winding": 0.231,
           "string_material": 0.39,
           "bridge": 1.69,
           "scale_length": 5.329999999999999,
@@ -57,11 +57,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.412499999999998,
-          "body_wood": 0.7035,
+          "amp_make": 11.170999999999998,
+          "body_wood": 0.49350000000000005,
           "pickup_config": 0,
           "string_type": 4.875,
-          "scale_length_b": 0.49350000000000005,
+          "scale_length_b": 0.5565,
           "fretted_or_not": 0.063,
           "bass_technique": 3.8365,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5145,
+          "drumhead": 0.4095,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.4095
+          "voice_multitrack_stack": 0.44099999999999995
         }
       },
       {
@@ -157,7 +157,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "poly_archetypes": 1.95,
-          "poly_voices": 0.504,
+          "poly_voices": 0.5355,
           "poly_maker_lineage": -0.035
         }
       }

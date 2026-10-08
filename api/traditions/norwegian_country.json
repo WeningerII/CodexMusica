@@ -3,9 +3,9 @@
   "name": "Norwegian country",
   "family": "vernacular",
   "lineage": "Norwegian country spans local-language country-rock bands and transatlantic country influences. Hellbillies’ documented blend of Norwegian and American musical traditions provides the selected electric-band branch.",
-  "recipe": "classic modern norwegian country, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. nickel bronze modern blend dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar, soft felt lacquer voiced 17 ply hard rock maple grand piano, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, sticks backbeat drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 603,
-  "score": 106.318,
+  "recipe": "classic modern norwegian country, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. nickel bronze modern blend dreadnought acoustic Fender tweed amp American 50s amp tweed breakup lower tension down tuning single coil electric guitar, cold pressed wurzen felt 17 ply hard rock maple grand piano, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, sticks backbeat drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 592,
+  "score": 104.247,
   "config": {
     "traditions": [
       "norwegian_country"
@@ -36,12 +36,12 @@
           "voice_quality": 1.6899999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.8615,
+          "voice_vibrato": 13.7,
           "voice_articulation": -0.14,
           "voice_microtone": 3.380000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.9229999999999998,
-          "voice_estill_quality": 14.467999999999998,
+          "voice_mechanism_compound": 0.46724999999999994,
+          "voice_estill_quality": 14.051249999999998,
           "voice_speech_song": 5.525,
           "voice_ensemble_config": 3.5100000000000002,
           "voice_ornament_system": 0,
@@ -63,7 +63,7 @@
           "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0.3,
-          "back_sides": 0.42,
+          "back_sides": 0.25549999999999995,
           "string_acoustic": 1.039
         }
       },
@@ -71,7 +71,7 @@
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_blackface",
+          "amp_make": "amp_american_fender_tweed",
           "body_wood": "pine",
           "neck_wood": "maple",
           "fretboard": "maple_fb",
@@ -86,17 +86,17 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 14.620499999999996,
-          "body_wood": 0.42,
+          "amp_make": 14.6,
+          "body_wood": 0.25549999999999995,
           "neck_wood": 0,
           "fretboard": 0.3,
-          "pickup_magnet": 0.105,
-          "string_material": 0.5009999999999999,
-          "string_gauge": 0.5564999999999999,
+          "pickup_magnet": 0,
+          "string_material": 0.5714999999999998,
+          "string_gauge": 0.429125,
           "bridge": 0.03899999999999999,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 1.3,
+          "string_tuning": 1.1095,
           "single_coil_pickup_construction": 0
         }
       },
@@ -106,7 +106,7 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
+          "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
@@ -115,9 +115,9 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.1365,
-          "grand_piano_brand": 0.519,
-          "piano_hammer": 1.0299999999999998,
+          "grand_piano_size": 0.173625,
+          "grand_piano_brand": 0.485625,
+          "piano_hammer": 1.089125,
           "piano_rim": 1.17,
           "piano_soundboard": 0.2,
           "piano_pinblock": -0.05,
@@ -141,9 +141,9 @@
           "amp_make": 14.6,
           "body_wood": 0.3,
           "pickup_config": 0.3,
-          "string_type": 2.63,
-          "scale_length_b": 0.1335,
-          "fretted_or_not": 0.597,
+          "string_type": 2.5,
+          "scale_length_b": 0.102,
+          "fretted_or_not": 0.5246249999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -157,7 +157,7 @@
         },
         "scores": {
           "drum_technique": 2.5315,
-          "drumhead": 0.42,
+          "drumhead": 0.25549999999999995,
           "drum_kit_kick_pedal": 0
         }
       }

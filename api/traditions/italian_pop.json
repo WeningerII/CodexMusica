@@ -5,7 +5,7 @@
   "lineage": "Italian pop encompasses a broad field of melodic songwriting, performance and studio production. Acoustic, band-based and electronic approaches coexist, including collaborations across countries.",
   "recipe": "classic italian pop, functional Song, pop rock branch. unprocessed natural acoustic. ernie ball slinky electric bass, sampler drum machine, singing lead rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 274,
-  "score": 46.08,
+  "score": 45.943,
   "config": {
     "traditions": [
       "italian_pop"
@@ -60,7 +60,7 @@
         "scores": {
           "electronic_technique": 11.5945,
           "rompler_preset_bank": 11.3235,
-          "rompler_context": 11.523,
+          "rompler_context": 11.3865,
           "rompler_lineage": 0
         }
       },

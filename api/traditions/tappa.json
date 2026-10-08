@@ -5,7 +5,7 @@
   "lineage": "Hindustani semi-classical vocal genre originating in late-18th-century Punjab through Mian Ghulam Nabi Shori (Shori Mian), who adapted Punjabi camel-driver folk songs into a fast-melisma classical-vocal genre — characterized by its rapid-fire intricate ornamental melisma patterns (different from khayal sustained-then-fast structure) and continued through the Banaras gharana lineage (Girija Devi, Naina Devi, Shobha Gurtu)",
   "recipe": "classic South Asian early-1950s tappa, improv On Frame, indian classical improv branch, south Asian art music carnatic kacheri afghan traditional. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, vocal female straight harmonium indian, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 433,
-  "score": 272.255,
+  "score": 270.005,
   "config": {
     "traditions": [
       "tappa",
@@ -38,16 +38,16 @@
           "voice_quality": 10.919999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 19.11,
+          "voice_vibrato": 19.185,
           "voice_articulation": 9.23,
           "voice_microtone": 10.789999999999994,
-          "voice_tradition": 32.69,
-          "voice_mechanism_compound": 16.235,
-          "voice_estill_quality": 16.674999999999997,
+          "voice_tradition": 31.025,
+          "voice_mechanism_compound": 16.279999999999998,
+          "voice_estill_quality": 16.72,
           "voice_speech_song": 16.279999999999998,
           "voice_ensemble_config": 9.75,
-          "voice_ornament_system": 27.535,
-          "voice_pitch_organization": 20.775000000000002,
+          "voice_ornament_system": 27.580000000000002,
+          "voice_pitch_organization": 20.040000000000003,
           "voice_processing_chain": 3.77,
           "voice_multitrack_stack": 3.3799999999999994
         }
@@ -74,8 +74,8 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 3.27,
-          "harmonium_action": 5.529999999999999,
+          "free_reed_technique": 3.3150000000000004,
+          "harmonium_action": 5.574999999999999,
           "harmonium_voicing": 3.1849999999999996,
           "harmonium_use": 11.18
         }
@@ -96,7 +96,7 @@
           "sarangi_taraf": 0.195,
           "sarangi_bow": 0,
           "sarangi_main_strings": 3.575,
-          "sarangi_body_wood": 0.585
+          "sarangi_body_wood": 0.43499999999999994
         }
       }
     ],

@@ -1,14 +1,15 @@
 {
-  "id": "malay_rap",
-  "name": "Malay rap",
+  "id": "malaysian_hip_hop",
+  "merged_from": "malay_rap",
+  "name": "Malaysian hip hop",
   "family": "hip_hop",
-  "lineage": "Malay rap centers Malay-language delivery, often with flexible bilingual phrasing. Joe Flizzow, Altimet and SonaOne exemplify collaborative exchanges connecting local MC practice with electronic production.",
-  "recipe": "classic modern malay rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 258,
-  "score": 29.543,
+  "lineage": "Malaysian hip-hop connects multilingual MC and producer networks across the country. Joe Flizzow, Altimet and SonaOne exemplify a collaborative electronic-production strand within this broader field.",
+  "recipe": "classic modern malaysian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 266,
+  "score": 25.741,
   "config": {
     "traditions": [
-      "malay_rap"
+      "malaysian_hip_hop"
     ],
     "instruments": [
       {
@@ -34,7 +35,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 13.455,
+          "voice_quality": 10.01,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,8 +44,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.068999999999999,
-          "voice_ensemble_config": 0.2115,
+          "voice_speech_song": 9.035,
+          "voice_ensemble_config": 0.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -60,7 +61,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.6969999999999996,
+          "tr808_voice": 5.7299999999999995,
           "drum_machine_808_context": 0.39,
           "tr808_production_origin": 0.159
         }
@@ -73,7 +74,7 @@
           "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "electronic_technique": 0.254,
+          "electronic_technique": -0.07,
           "va_archetypes": 0.054,
           "digital_subtractive_context": -0.035
         }

@@ -3,14 +3,14 @@
   "name": "Ritual ambient",
   "family": "electronic",
   "lineage": "An experimental ambient field linking ceremonial imagery, incantatory voices and sustained sound. It encompasses electronic studio composition and ritual-centered performance, drawing on varied practices rather than one shared religious institution.",
-  "recipe": "classic modern ritual ambient, experimental Elec, ambient branch, industrial noise experimental electric death industrial british industrial. interlocked note trading, neutral third half flat, opera quality low larynx anchored, ametrical pitched chant free rhythm. layered sustained sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
+  "recipe": "classic modern ritual ambient, experimental Elec, ambient branch, industrial noise experimental electric death industrial italian industrial. interlocked note trading, neutral third half flat, opera quality low larynx anchored, ametrical pitched chant free rhythm. layered sustained sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
   "recipe_chars": 437,
-  "score": 66.112,
+  "score": 68.905,
   "config": {
     "traditions": [
       "ritual_ambient",
       "death_industrial",
-      "british_industrial"
+      "italian_industrial"
     ],
     "instruments": [
       {
@@ -38,18 +38,18 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.37499999999999994,
-          "voice_articulation": 11.894999999999996,
-          "voice_microtone": 10.01,
+          "voice_vibrato": 0.41999999999999993,
+          "voice_articulation": 10.789999999999996,
+          "voice_microtone": 8.905,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
-          "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 0.845,
+          "voice_estill_quality": 3.6075,
+          "voice_speech_song": 2.415,
+          "voice_ensemble_config": 0.195,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.195,
-          "voice_multitrack_stack": 3.3475
+          "voice_multitrack_stack": 3.1525000000000003
         }
       },
       {
@@ -62,11 +62,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 11.629999999999999,
+          "electronic_technique": 11.93,
           "sampler_archetypes": 2.5,
           "sampler_bit_depth": 1.4299999999999997,
           "sampler_workflow": 0.06499999999999999,
-          "sampler_classic_context": 27.25
+          "sampler_classic_context": 30.5
         }
       }
     ],

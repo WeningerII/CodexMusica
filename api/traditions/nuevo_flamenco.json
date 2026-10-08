@@ -5,7 +5,7 @@
   "lineage": "Madrid and Andalusian scene of the late 1970s-1980s, codified by Paco de Lucía's sextet, Camarón's 'La Leyenda del Tiempo' (1979), Ketama, Pata Negra and Lole y Manuel, keeping flamenco's 12-beat compás and Phrygian cadence while adding Peruvian cajón, electric bass, Latin percussion, jazz and Brazilian harmony, saxophone or flute lines, and studio-produced song forms alongside traditional palmas and cante jondo delivery.",
   "recipe": "classic Los Angeles 1977-1979 nuevo flamenco, functional Song, iberian branch, string improv improv on frame flamenco guitar cimbálová muzika. thick, nasal, straight onset, interlocked note trading. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco cedar nylon fan strum classical nylon-string guitar, festejo tradition marinera tradition open back Afro peruvian tradition cajon peruano, hand clap, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, open slap hand drum congas. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 875,
-  "score": 246.873,
+  "score": 246.032,
   "config": {
     "traditions": [
       "nuevo_flamenco",
@@ -22,8 +22,8 @@
         },
         "scores": {
           "flamenco_body": 6.499999999999999,
-          "flamenco_features": 3.1399999999999997,
-          "flamenco_technique": 6.434999999999999
+          "flamenco_features": 3.3799999999999994,
+          "flamenco_technique": 6.209999999999999
         }
       },
       {
@@ -45,7 +45,7 @@
         },
         "scores": {
           "clap_technique": 0.65,
-          "clap_capture": 0.15
+          "clap_capture": 0.3
         }
       },
       {
@@ -67,7 +67,7 @@
           "string_type": 4.65,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.39,
-          "bass_technique": 3.73,
+          "bass_technique": 3.49,
           "electric_bass_string_configuration": 0
         }
       },
@@ -92,22 +92,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 4.320000000000001,
+          "voice_register": 4.275000000000001,
           "voice_quality": 7.999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.085,
+          "voice_vibrato": 4.04,
           "voice_articulation": 22.1,
           "voice_microtone": 21.904999999999998,
           "voice_tradition": 16.564999999999998,
           "voice_mechanism_compound": 3.575,
-          "voice_estill_quality": 13.194999999999999,
+          "voice_estill_quality": 13.059999999999999,
           "voice_speech_song": 25.707500000000003,
           "voice_ensemble_config": 22.489999999999995,
           "voice_ornament_system": 11.839999999999998,
-          "voice_pitch_organization": 1.695,
-          "voice_processing_chain": 8.275,
-          "voice_multitrack_stack": 6.185000000000001
+          "voice_pitch_organization": 1.95,
+          "voice_processing_chain": 8.23,
+          "voice_multitrack_stack": 5.990000000000001
         }
       },
       {
@@ -140,7 +140,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 4.220000000000001,
+          "percussion_technique": 3.9800000000000004,
           "conga_set": 0.845,
           "conga_skin": 0.15,
           "conga_shell_wood": 0.15
@@ -157,10 +157,10 @@
           "attack_technique_cl": "rasgueado_cl"
         },
         "scores": {
-          "acoustic_technique": 1.56,
+          "acoustic_technique": 1.44,
           "string_tuning": 0,
           "top_wood_classical": 4.03,
-          "bracing_classical": 1.645,
+          "bracing_classical": 1.45,
           "string_classical": 1.4299999999999997,
           "attack_technique_cl": 8.974999999999998
         }

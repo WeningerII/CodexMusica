@@ -5,7 +5,7 @@
   "lineage": "Ritual music of the Alevi and Bektaşi cem ceremony of Anatolia, in which a zâkir accompanies himself on the bağlama, treated as sacred in the rite, singing deyiş and nefes hymns by poets such as Pir Sultan Abdal and Hatayi, düvaz-imam hymns naming the Twelve Imams, and the music of the semah, a turning ritual dance performed by men and women together that moves from slow to fast sections. Semah, Alevi-Bektaşi ritual is inscribed on UNESCO's Representative List of the Intangible Cultural Heritage.",
   "recipe": "classic modern cem, ritual Devotional, Sufi branch. solo with instrumental accompaniment. alevi cem devotional saz baglama. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 203,
-  "score": 10.211,
+  "score": 10.316,
   "config": {
     "traditions": [
       "alevi_bektasi_cem"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8714999999999999,
+          "voice_ensemble_config": 0.9764999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

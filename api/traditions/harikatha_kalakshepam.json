@@ -5,7 +5,7 @@
   "lineage": "Harikatha, or kathakalakshepam, is a solo religious discourse in which the performer (bhagavatar) tells a story from the epics or the lives of saints, moving between spoken exposition and songs in Carnatic ragas while keeping time on a pair of wooden clappers (chipla). It took shape in Thanjavur in the nineteenth century out of the Marathi Naradiya kirtan brought south under the Maratha rulers, with Thanjavur Krishna Bhagavatar as its founding exponent, and is accompanied by harmonium or violin and mridangam. The jingled chapri card stands in for the chipla.",
   "recipe": "classic modern harikatha kalakshepam, ritual Devotional, hindu branch. carnatic, solo with instrumental accompaniment, carnatic gamaka kampita nokku jaaru sphurita. jackwood barrel canonical carnatic thanjavur lineage mridangam, harmonium indian, chapri. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 17.535,
+  "score": 17.714,
   "config": {
     "traditions": [
       "harikatha_kalakshepam"
@@ -65,7 +65,7 @@
           "mridangam_heads": 1.0815000000000001,
           "mridangam_use": 0,
           "mridangam_shell_wood": 1.69,
-          "mridangam_heads_material": 0.546,
+          "mridangam_heads_material": 0.819,
           "mridangam_lineage": 2.1365
         }
       },
@@ -79,9 +79,9 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "harmonium_action": 0.714,
-          "harmonium_voicing": 0.6194999999999999,
-          "harmonium_use": 1.701
+          "harmonium_action": 0.6824999999999999,
+          "harmonium_voicing": 0.5880000000000001,
+          "harmonium_use": 1.6695
         }
       },
       {

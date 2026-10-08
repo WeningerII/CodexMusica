@@ -3,14 +3,14 @@
   "name": "Latin Ballad (balada romántica)",
   "family": "pop",
   "lineage": "Pan-Hispanic romantic ballad codified in Mexico City, Madrid and Rio between roughly 1965 and 1975 through Roberto Carlos, Camilo Sesto, José José, Juan Gabriel and the arranger-producers of RCA Mexico and Ariola — slow 4/4 and 12/8 forms at 60-80 BPM, bolero-derived harmonic motion with descending bass lines and dramatic key-change final choruses, nylon-string guitar and piano foundation, lush string and horn charts, and a declamatory, vibrato-heavy lead vocal that builds from near-whisper to full belt.",
-  "recipe": "classic Mexican mid-1960s latin ballad, functional Song, Mexican branch, tropical song functional song, Latin am troubadour ballad poetry, crooners functional song cantautora mexicana bolero cubano. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, mahogany la bella flats Detroit soul bass canon sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, lead open slap hand drum congas, concert harp. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 869,
-  "score": 285.93,
+  "recipe": "classic Mexican mid-1960s latin ballad, functional Song, Mexican branch, tropical song functional song, Latin am troubadour ballad poetry, crooners functional song cantautora mexicana brill building pop. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon strummed open chord ringing overtones classical nylon-string guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, rock canon ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, lead open slap hand drum congas, concert harp. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 870,
+  "score": 290.343,
   "config": {
     "traditions": [
       "latin_ballad",
       "cantautora_mexicana",
-      "bolero_cubano"
+      "brill_building_pop"
     ],
     "instruments": [
       {
@@ -23,39 +23,39 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sami_yoik",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_processing_chain": "voice_processing_tape_saturation",
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 9.945,
-          "voice_quality": 13.454999999999991,
+          "voice_register": 14.414999999999996,
+          "voice_quality": 11.049999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6650000000000005,
-          "voice_articulation": 26.910000000000004,
-          "voice_microtone": 26.715,
-          "voice_tradition": 8.905000000000001,
-          "voice_mechanism_compound": 5.329999999999999,
-          "voice_estill_quality": 5.330000000000001,
-          "voice_speech_song": 35.88000000000001,
-          "voice_ensemble_config": 28.925,
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 26.325000000000003,
+          "voice_microtone": 26.130000000000003,
+          "voice_tradition": 9.3,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 4.0200000000000005,
+          "voice_speech_song": 34.385000000000005,
+          "voice_ensemble_config": 28.145000000000003,
           "voice_ornament_system": 1.7,
-          "voice_pitch_organization": 2.195,
-          "voice_processing_chain": 3.0199999999999996,
+          "voice_pitch_organization": 2.3449999999999998,
+          "voice_processing_chain": 1.9849999999999999,
           "voice_multitrack_stack": 2.34
         }
       },
       {
         "id": "classical_nylon_string_guitar",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
@@ -63,11 +63,11 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 6.6,
+          "acoustic_technique": 8.030000000000001,
           "string_tuning": 0,
-          "top_wood_classical": 7.345000000000001,
-          "bracing_classical": 0.845,
-          "string_classical": 2.47,
+          "top_wood_classical": 4.55,
+          "bracing_classical": 0.195,
+          "string_classical": 2.6650000000000005,
           "attack_technique_cl": 0.95
         }
       },
@@ -76,7 +76,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -85,15 +85,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 6.135,
+          "keyboard_technique": 9.535,
           "grand_piano_size": 1.3,
-          "grand_piano_brand": 2.54,
-          "piano_hammer": 3.7150000000000003,
-          "piano_rim": 5.32,
-          "piano_soundboard": 4.825,
+          "grand_piano_brand": 1.4949999999999999,
+          "piano_hammer": 6.59,
+          "piano_rim": 8.195,
+          "piano_soundboard": 7.700000000000001,
           "piano_pinblock": -0.05,
           "piano_plate": 0.8999999999999999,
-          "piano_pitch_standard": 4.075
+          "piano_pitch_standard": 3.53
         }
       },
       {
@@ -113,13 +113,13 @@
         "scores": {
           "bowed_technique": 0.7,
           "orch_strings": 0.75,
-          "orch_top_wood": 1.04,
-          "orch_back_wood": 2.015,
-          "orch_varnish": -0.035,
-          "orch_setup_period": 1.8199999999999998,
-          "orch_bow": 2.04,
+          "orch_top_wood": 1.7449999999999999,
+          "orch_back_wood": 2.6649999999999996,
+          "orch_varnish": 0.325,
+          "orch_setup_period": 1.17,
+          "orch_bow": 1.3,
           "orch_bow_stick": 0.325,
-          "orch_articulation": 1.195,
+          "orch_articulation": 1.3,
           "orch_rosin": 0.12999999999999998
         }
       },
@@ -129,20 +129,20 @@
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
-          "bass_technique": "sub_bass_synth_blend",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.0799999999999996,
-          "body_wood": 1.3800000000000001,
+          "amp_make": 2.925,
+          "body_wood": 0.195,
           "pickup_config": 0.045,
-          "string_type": 3.1200000000000006,
-          "scale_length_b": 0.735,
-          "fretted_or_not": 0.5,
-          "bass_technique": 1.645,
+          "string_type": 3.2199999999999998,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0,
+          "bass_technique": 2.9749999999999996,
           "electric_bass_string_configuration": 0
         }
       },
@@ -154,8 +154,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.675000000000004,
-          "drumhead": 4.9750000000000005,
+          "drum_technique": 25.090000000000003,
+          "drumhead": 7.700000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -168,10 +168,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 9.93,
-          "conga_set": 1.69,
-          "conga_skin": 0.845,
-          "conga_shell_wood": 0.845
+          "percussion_technique": 8.105,
+          "conga_set": 1.885,
+          "conga_skin": 0.8249999999999998,
+          "conga_shell_wood": 0.8249999999999998
         }
       },
       {

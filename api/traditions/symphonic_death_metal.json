@@ -5,7 +5,7 @@
   "lineage": "Symphonic death metal combines death-metal density with piano and orchestral arrangement.",
   "recipe": "classic symphonic death metal, distorted Rock, death branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, drum kit, soft felt lacquer voiced 17 ply hard rock maple a 441 grand piano, melodic band keyboard rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 453,
-  "score": 38.314,
+  "score": 38.381,
   "config": {
     "traditions": [
       "symphonic_death_metal"
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 0.147,
           "finish": 0,
-          "string_tuning": 0.126
+          "string_tuning": 0.0945
         }
       },
       {
@@ -63,7 +63,7 @@
           "string_type": 0,
           "scale_length_b": 0.63,
           "fretted_or_not": 0.0315,
-          "bass_technique": 3.8890000000000002,
+          "bass_technique": 3.8575000000000004,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ensemble_config": 0.37799999999999995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3315,
+          "voice_processing_chain": 0.3,
           "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
@@ -157,7 +157,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "rompler_preset_bank": -0.05,
-          "rompler_context": 1.4594999999999998,
+          "rompler_context": 1.6203749999999997,
           "rompler_lineage": 0
         }
       }

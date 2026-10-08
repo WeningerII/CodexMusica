@@ -1040,7 +1040,7 @@ function uiStart() {
     history.replaceState(null, '', location.pathname + (rest ? '?' + rest : '') + location.hash);
   }
   if (deep && !UI_PAGES[route] && Tradition(deep)) {
-    UI.genre = deep;
+    UI.genre = Tradition(deep).id; // an old link to a merged tradition opens the survivor
     uiNavigate('genre');
   } else uiNavigate(route || 'genre');
 }

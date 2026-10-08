@@ -3,14 +3,14 @@
   "name": "Mollywood (Malayalam film song)",
   "family": "global",
   "lineage": "Malayalam-language film song of Kerala's cinema industry, recorded in Madras and Trivandrum from the 1950s and codified by composers G. Devarajan, M. S. Baburaj, Salil Chowdhury, Raveendran and later Johnson and Ouseppachan with lyricist Vayalar Ramavarma and singers K. J. Yesudas and P. Susheela — Carnatic raga-derived melodies with sparing gamaka, light 6/8 and kaiyaal-derived 4/4 rhythms carried by tabla and mridangam alongside a Western string section, harmonium and flute, and a clear un-nasal legato vocal delivery closer to concert Carnatic tone than to Bombay filmi.",
-  "recipe": "classic South Asian mid-1950s mollywood, functional Song, south Asian pop branch, south Asian art music, indian bard ballad poetry sinhala vannama telugu kirtana. thick, breath veiled tone, slow rate, interlocked note trading. aluminum wound carpathian spruce European maple sycamore maple oil varnish violin orchestral, yamaha modern Japanese mid to premium legato flute, indian rosewood rosewood copper tabla, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, low overtone rich vocal male harmonium indian, jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian ornamented veena, oversize maple tension resonator Asian spruce hokkaido source 7 ply grand piano, silver wound lamb gut core carpathian spruce European maple sycamore maple cello. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. large-diaphragm condenser, console-strip pre.",
-  "recipe_chars": 972,
-  "score": 469.03,
+  "recipe": "classic South Asian mid-1950s mollywood, functional Song, south Asian pop branch, south Asian art music, indian bard ballad poetry sinhala vannama kathakali sangeetham. thick, breath veiled tone, slow rate, interlocked note trading. aluminum wound carpathian spruce European maple bosnian source flamed figure violin orchestral, yamaha modern Japanese mid to premium legato flute, indian rosewood rosewood copper tabla, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, low overtone rich vocal male harmonium indian, jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian ornamented veena, cold pressed royal george felt oversize maple tension resonator Asian spruce grand piano, silver wound lamb gut core carpathian spruce European maple bosnian source cello. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. large-diaphragm condenser, console-strip pre.",
+  "recipe_chars": 989,
+  "score": 378.452,
   "config": {
     "traditions": [
       "mollywood",
       "sinhala_vannama",
-      "telugu_kirtana"
+      "kathakali_sangeetham"
     ],
     "instruments": [
       {
@@ -24,31 +24,31 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
           "voice_register": 7.400000000000002,
-          "voice_quality": 17.29,
+          "voice_quality": 14.689999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.475,
-          "voice_articulation": 20.605,
-          "voice_microtone": 20.019999999999996,
-          "voice_tradition": 31.740000000000002,
-          "voice_mechanism_compound": 6.305,
-          "voice_estill_quality": 8.325,
-          "voice_speech_song": 28.535,
-          "voice_ensemble_config": 21.775,
-          "voice_ornament_system": 27.33,
-          "voice_pitch_organization": 26.374999999999996,
-          "voice_processing_chain": 4.355,
+          "voice_vibrato": 5.3625,
+          "voice_articulation": 21.645000000000003,
+          "voice_microtone": 20.865000000000002,
+          "voice_tradition": 21.95,
+          "voice_mechanism_compound": 4.654999999999999,
+          "voice_estill_quality": 7.744999999999999,
+          "voice_speech_song": 28.730000000000008,
+          "voice_ensemble_config": 22.815,
+          "voice_ornament_system": 16.8,
+          "voice_pitch_organization": 15.889999999999999,
+          "voice_processing_chain": 4.29,
           "voice_multitrack_stack": 2.145
         }
       },
@@ -58,25 +58,25 @@
           "bowed_technique": "bowed_legato_classical",
           "orch_strings": "aluminum_wound_gut_violin",
           "orch_top_wood": "carpathian_spruce_violin",
-          "orch_back_wood": "european_maple_general_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "bernardel_rosin_orch"
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 7.094999999999999,
+          "bowed_technique": 5.47,
           "orch_strings": 2.04,
-          "orch_top_wood": 6.275,
-          "orch_back_wood": 6.545,
-          "orch_varnish": 5.7,
-          "orch_setup_period": 5.745,
-          "orch_bow": 1.145,
-          "orch_bow_stick": 7.345000000000001,
+          "orch_top_wood": 4.695,
+          "orch_back_wood": 4.6450000000000005,
+          "orch_varnish": 4.075,
+          "orch_setup_period": 4.12,
+          "orch_bow": 1.645,
+          "orch_bow_stick": 5.2325,
           "orch_articulation": 0.845,
-          "orch_rosin": 5.795
+          "orch_rosin": 4.575
         }
       },
       {
@@ -89,11 +89,11 @@
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 7.049999999999999,
+          "wind_articulation": 5.53,
           "flute_size": 0.345,
           "flute_material": 0.09,
-          "flute_technique": 0.845,
-          "flute_maker_school": 2.63
+          "flute_technique": 0.675,
+          "flute_maker_school": 2.675
         }
       },
       {
@@ -104,9 +104,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 3.835,
-          "tabla_bayan": 2.9899999999999998,
-          "tabla_syahi": 2.535
+          "tabla_dayan": 2.9899999999999998,
+          "tabla_bayan": 2.145,
+          "tabla_syahi": 4.03
         }
       },
       {
@@ -119,11 +119,11 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 2.9899999999999998,
+          "mridangam_heads": 2.145,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 10.084999999999997,
-          "mridangam_heads_material": 2.5349999999999997,
-          "mridangam_lineage": 9.434999999999997
+          "mridangam_shell_wood": 5.404999999999999,
+          "mridangam_heads_material": 1.6899999999999997,
+          "mridangam_lineage": 4.6499999999999995
         }
       },
       {
@@ -137,15 +137,15 @@
         "scores": {
           "free_reed_technique": 0.6499999999999999,
           "harmonium_action": 1.3,
-          "harmonium_voicing": 2.145,
-          "harmonium_use": 4.29
+          "harmonium_voicing": 2.34,
+          "harmonium_use": 3.445
         }
       },
       {
         "id": "veena",
         "slots": {
           "plucked_traditional_technique": "plucked_ornamented_melodic",
-          "veena_construction": "ottu",
+          "veena_construction": "ekanda",
           "veena_resonator": "gourd_resonator",
           "veena_pluck": "wire_plectrum_veena",
           "veena_body_wood": "veena_jackwood_canonical",
@@ -153,13 +153,13 @@
           "veena_lineage": "veena_thanjavur_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 6.775,
-          "veena_construction": 0.845,
-          "veena_resonator": 0.09,
-          "veena_pluck": 2.9899999999999998,
-          "veena_body_wood": 2.5349999999999997,
-          "veena_strings": 2.5349999999999997,
-          "veena_lineage": 9.099999999999998
+          "plucked_traditional_technique": 5.795000000000001,
+          "veena_construction": 0.195,
+          "veena_resonator": 0.18,
+          "veena_pluck": 2.145,
+          "veena_body_wood": 1.6899999999999997,
+          "veena_strings": 1.6899999999999997,
+          "veena_lineage": 7.41
         }
       },
       {
@@ -168,7 +168,7 @@
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "renner_standard_hammer",
+          "piano_hammer": "ronsen_royal_george_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -176,15 +176,15 @@
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 7.049999999999999,
+          "keyboard_technique": 5.425,
           "grand_piano_size": 0.09,
           "grand_piano_brand": 0.345,
-          "piano_hammer": 8.71,
-          "piano_rim": 8.825,
+          "piano_hammer": 6.8599999999999985,
+          "piano_rim": 5.509999999999999,
           "piano_soundboard": 9.620000000000001,
-          "piano_pinblock": 6.33,
-          "piano_plate": 5.745,
-          "piano_pitch_standard": 10.469999999999999
+          "piano_pinblock": 4.75,
+          "piano_plate": 4.165,
+          "piano_pitch_standard": 10.035
         }
       },
       {
@@ -193,7 +193,7 @@
           "bowed_technique": "bowed_legato_classical",
           "cello_strings": "silver_wound_lamb_gut_cello",
           "cello_top_wood": "carpathian_spruce_cello",
-          "cello_back_wood": "european_maple_cello_back",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
           "cello_varnish": "oil_amber_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
@@ -201,15 +201,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 7.094999999999999,
-          "cello_strings": 1.8849999999999998,
-          "cello_top_wood": 6.275,
-          "cello_back_wood": 6.545,
-          "cello_varnish": 5.7,
-          "cello_setup_period": 5.745,
-          "cello_bow_grip": 3.8349999999999995,
-          "cello_rosin": 6.545,
-          "cello_bow_stick": 7.345000000000001
+          "bowed_technique": 5.47,
+          "cello_strings": 1.04,
+          "cello_top_wood": 4.695,
+          "cello_back_wood": 4.6450000000000005,
+          "cello_varnish": 4.075,
+          "cello_setup_period": 4.12,
+          "cello_bow_grip": 2.145,
+          "cello_rosin": 4.92,
+          "cello_bow_stick": 5.2325
         }
       }
     ],

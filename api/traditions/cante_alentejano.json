@@ -5,7 +5,7 @@
   "lineage": "Unaccompanied male choral singing of Portugal's Alentejo plains, formed among landless agricultural labourers in the 19th century and inscribed by UNESCO in 2014, structured as a solo ponto who announces the line, an alto who ornaments a third above, and a slow-moving massed coro entering underneath in parallel thirds at a very slow free-pulse tempo with long held cadences and social-protest texts.",
   "recipe": "classic mid-2010s cante alentejano, drone Modal, vocal branch, iberian Latin protest song, iberian functional song ópera flamenca revista à portuguesa. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 452,
-  "score": 141.105,
+  "score": 142.92,
   "config": {
     "traditions": [
       "cante_alentejano",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.79,
+          "voice_register": 2.21,
           "voice_quality": 12.349999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.525,
           "voice_articulation": 13.714999999999996,
           "voice_microtone": 16.574999999999992,
-          "voice_tradition": 11.934999999999997,
+          "voice_tradition": 12.939999999999996,
           "voice_mechanism_compound": 6.4350000000000005,
           "voice_estill_quality": 5.720000000000001,
           "voice_speech_song": 17.679999999999996,
           "voice_ensemble_config": 14.429999999999994,
-          "voice_ornament_system": 8.5,
+          "voice_ornament_system": 8.74,
           "voice_pitch_organization": 1.74,
           "voice_processing_chain": 5.07,
-          "voice_multitrack_stack": 2.585
+          "voice_multitrack_stack": 2.66
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 10.894999999999998,
-          "choir_polyphonic_configuration": 2.585,
-          "choir_regional_canonical_configuration": 7.774999999999999,
-          "choir_ensemble_repertoire": 2.225
+          "choir_size": 10.7,
+          "choir_polyphonic_configuration": 2.495,
+          "choir_regional_canonical_configuration": 8.03,
+          "choir_ensemble_repertoire": 2.33
         }
       }
     ],

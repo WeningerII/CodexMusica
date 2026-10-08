@@ -5,7 +5,7 @@
   "lineage": "Modern free jazz continues the exploration of open form and collective improvisation through contemporary ensembles. Composed outlines may guide a performance without fixing every phrase or harmonic change.",
   "recipe": "classic modern free jazz, improv On Frame, avant branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, fiberskyn synthetic calf brushes drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 288,
-  "score": 72.07,
+  "score": 71.965,
   "config": {
     "traditions": [
       "modern_free_jazz"
@@ -27,13 +27,13 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0,
-          "piano_hammer": 5.359500000000001,
-          "piano_rim": 5.391,
-          "piano_soundboard": 5.2815,
+          "grand_piano_brand": 0.0315,
+          "piano_hammer": 5.2965,
+          "piano_rim": 5.359500000000001,
+          "piano_soundboard": 5.313,
           "piano_pinblock": 4.95,
           "piano_plate": 4.95,
-          "piano_pitch_standard": 7.4235
+          "piano_pitch_standard": 7.35
         }
       },
       {

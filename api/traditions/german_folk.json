@@ -5,7 +5,7 @@
   "lineage": "Regional German traditional music surveyed and codified by nineteenth-century collectors Ludwig Erk and Franz Böhme and by twentieth-century Bavarian revivalists Kiem Pauli and Wastl Fanderl, built on strophic diatonic songs and on Alpine Stubenmusik and brass Blasmusik dance sets in walking 3/4 Ländler and 2/4 Polka tempos, voiced by Steirische harmonika, zither, Hackbrett, clarinet and tuba with parallel-thirds two-part singing and yodel refrains.",
   "recipe": "classic early-1940s german folk, drinking Song, European branch, European wedding, European carnival processional basque folk venetian carnevale. thick, breath veiled tone, straight note core, interlocked note trading. dance driving helicon booming straight steirische harmonika, harp armed dance lilting concert zither alpine, leather walnut spruce canonical appalachian hammered dulcimer, grenadilla African blackwood traditional clarinet, compact tuba yellow brass canonical orchestral rotary valves canonical German orchestral miraphone canonical German orchestral tuba, alpine 3 4m alphorn, magic rosin modern acrylic base drone like rubber fiddle. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 745,
-  "score": 229.01,
+  "score": 228.457,
   "config": {
     "traditions": [
       "german_folk",
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 5.449999999999999,
+          "voice_register": 5.299999999999999,
           "voice_quality": 8.58,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.8599999999999997,
           "voice_articulation": 24.50500000000001,
           "voice_microtone": 25.155000000000012,
-          "voice_tradition": 7.41,
+          "voice_tradition": 7.1825,
           "voice_mechanism_compound": 5.719999999999999,
           "voice_estill_quality": 6.11,
           "voice_speech_song": 27.690000000000012,
@@ -62,8 +62,8 @@
         },
         "scores": {
           "free_reed_technique": 3.745,
-          "steirische_harmonika_form": 12.645000000000001,
-          "steirische_harmonika_repertoire": 12.94,
+          "steirische_harmonika_form": 12.495000000000001,
+          "steirische_harmonika_repertoire": 12.79,
           "steirische_harmonika_bass_reeds": 1.04
         }
       },
@@ -75,7 +75,7 @@
           "concert_zither_alpine_strings": "concert_zither_alpine_strings_silverwound"
         },
         "scores": {
-          "concert_zither_alpine_type": 4.8500000000000005,
+          "concert_zither_alpine_type": 4.745,
           "concert_zither_alpine_context": 7.280000000000001,
           "concert_zither_alpine_strings": -0.05
         }
@@ -90,7 +90,7 @@
         },
         "scores": {
           "hammer_dulcimer_courses": 1.045,
-          "hammer_material": 1.8,
+          "hammer_material": 1.95,
           "hammered_dulcimer_body_wood": 1.04,
           "hammered_dulcimer_strings": 0.7799999999999996
         }
@@ -102,14 +102,14 @@
           "clarinet_body": "grenadilla_clarinet",
           "clarinet_size": "e_flat_clarinet",
           "clarinet_reed": "soft_clarinet_reed",
-          "clarinet_articulation": "doina_clarinet"
+          "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
           "wind_articulation": 0.7149999999999999,
-          "clarinet_body": 5.039999999999999,
+          "clarinet_body": 5.1899999999999995,
           "clarinet_size": 1.24,
           "clarinet_reed": 0.15,
-          "clarinet_articulation": 0.5849999999999999
+          "clarinet_articulation": 0.5
         }
       },
       {
@@ -125,7 +125,7 @@
         "scores": {
           "wind_articulation": 0.7149999999999999,
           "tuba_pitch": 1.195,
-          "tuba_context": 5.3149999999999995,
+          "tuba_context": 5.329999999999999,
           "tuba_bell_metal": 2.325,
           "tuba_valve_system": 3.6849999999999996,
           "tuba_maker_school": 3.6849999999999996

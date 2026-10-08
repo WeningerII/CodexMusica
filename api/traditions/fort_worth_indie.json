@@ -5,7 +5,7 @@
   "lineage": "Fort Worth indie connects local bands, venues and recording networks within the wider Dallas–Fort Worth and Texas musical landscape. Guitar-pop, punk and alternative approaches contribute to a diverse independent scene.",
   "recipe": "classic fort worth indie, distorted Rock, punk branch. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 274,
-  "score": 22.354,
+  "score": 21.808,
   "config": {
     "traditions": [
       "fort_worth_indie"
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": 2.21,
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
+          "body_wood": 0.546,
           "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0,
           "finish": 0,
           "string_tuning": 0
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
+          "body_wood": 0.546,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

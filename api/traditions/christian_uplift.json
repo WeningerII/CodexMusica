@@ -5,7 +5,7 @@
   "lineage": "Christian uplift gathers faith-centered repertoire associated with encouragement, consolation and hope. Hymn interpretations and contemporary devotional songwriting connect inherited texts with personal musical expression.",
   "recipe": "classic christian uplift, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. cedar carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 256,
-  "score": 8.872,
+  "score": 9.061,
   "config": {
     "traditions": [
       "christian_uplift"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.846,
+          "voice_ensemble_config": 2.9825,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -65,10 +65,10 @@
         "scores": {
           "acoustic_technique": 0.9864999999999999,
           "string_tuning": 0,
-          "top_wood_classical": 2.3204999999999996,
+          "top_wood_classical": 2.8664999999999994,
           "bracing_classical": 0.273,
-          "string_classical": 1.428,
-          "attack_technique_cl": 1.0185
+          "string_classical": 1.113,
+          "attack_technique_cl": 0.84
         }
       }
     ],

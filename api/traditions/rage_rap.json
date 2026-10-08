@@ -5,7 +5,7 @@
   "lineage": "Late-2010s onward Atlanta-and-Memphis trap-derived hip-hop subgenre characterized by aggressive 808-bass-driven instrumentals, screamed-and-rasping vocal delivery, mosh-pit-targeted live-show energy, and explicit punk-and-metal cross-pollination — codified through Trippie Redd, Lil Uzi Vert, Playboi Carti (Whole Lotta Red 2020, the genre's definitive statement), Ken Carson, Destroy Lonely",
   "recipe": "classic Southern American 2017-2019 rage, mc Rhythm, experimental branch, punk distorted rock atlanta punk sibirsky pank. thick, rap, straight onset, interlocked note trading. sub bass digital subtractive, TR-808, field textural sampler. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay eventide harmonizer.",
   "recipe_chars": 398,
-  "score": 175.115,
+  "score": 174.725,
   "config": {
     "traditions": [
       "rage_rap",
@@ -41,11 +41,11 @@
           "voice_vibrato": 1.755,
           "voice_articulation": 13.844999999999995,
           "voice_microtone": 13.649999999999993,
-          "voice_tradition": 5.085,
+          "voice_tradition": 4.890000000000001,
           "voice_mechanism_compound": 9.295,
           "voice_estill_quality": 1.69,
           "voice_speech_song": 13.844999999999995,
-          "voice_ensemble_config": 14.180000000000001,
+          "voice_ensemble_config": 13.985000000000001,
           "voice_ornament_system": 1.7399999999999998,
           "voice_pitch_organization": 0.645,
           "voice_processing_chain": 6.995,

@@ -5,7 +5,7 @@
   "lineage": "Sacred singing of the Doukhobors, Russian dissenting Christians who rejected the Orthodox liturgy and priesthood, about 7,500 of whom emigrated to Canada at the end of the nineteenth century and later settled in the Kootenay valleys of British Columbia around Castlegar and Grand Forks. Their psalms, transmitted orally as the 'Living Book', are sung unaccompanied at prayer meetings alongside later hymns and folk songs; the folklorist Kenneth Peacock published a study of them, 'Songs of the Doukhobors', through the National Museum of Canada.",
   "recipe": "classic modern doukhobor psalm singing, ritual Devotional. many notes per syllable. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 163,
-  "score": 2.692,
+  "score": 2.817,
   "config": {
     "traditions": [
       "doukhobor_psalmody"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.4575,
+          "voice_speech_song": 2.489,
           "voice_ensemble_config": -0.21,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }

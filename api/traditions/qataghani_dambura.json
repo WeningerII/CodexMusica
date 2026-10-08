@@ -5,7 +5,7 @@
   "lineage": "Regional song style of the former Qataghan province of north-eastern Afghanistan, around Kunduz, Baghlan and Takhar, sung to the two-string dambura lute. Mark Slobin documented the dambura and its song repertoire in his monograph Music in the Culture of Northern Afghanistan; the dombyra card stands for the dambura, and a goblet drum may join for dance songs.",
   "recipe": "classic modern qataghani, drone Modal, string branch. single lead single track no stacking. dombyra, zerbaghali. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 192,
-  "score": 1.464,
+  "score": 1.257,
   "config": {
     "traditions": [
       "qataghani_dambura"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.189,
-          "voice_multitrack_stack": 0.84,
+          "voice_processing_chain": 0.2205,
+          "voice_multitrack_stack": 0.5565,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "dombyra_form": -0.10500000000000001,
-          "dombyra_style": 0.15000000000000002,
+          "dombyra_style": 0.19500000000000003,
           "dombyra_strings": 0
         }
       },

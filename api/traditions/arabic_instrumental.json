@@ -1,80 +1,165 @@
 {
-  "id": "arabic_instrumental",
-  "name": "Arabic instrumental",
+  "id": "oud_taqsim",
+  "merged_from": "arabic_instrumental",
+  "name": "Oud taqsim (Arab short-neck lute art music)",
   "family": "global",
-  "lineage": "Arabic instrumental music encompasses composed and improvised practices centred on instrumental melody. Solo oud taqsim is one important strand, allowing performers to explore the character of a maqam and move between related modal areas.",
-  "recipe": "classic arabic instrumental, improv On Frame, Persian arab improv branch. pyramid nylon arab school oud. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 203,
-  "score": 5.236,
+  "lineage": "Fretless short-necked pear-bodied lute at the center of Arab, Turkish and Iraqi art music, its modern courses and risha technique settled in Cairo and Baghdad between the 1900s and 1930s and codified by Sharif Muhieddin Haydar, Riyad al-Sunbati, Farid al-Atrash, Munir Bashir and Jamil Bashir, marked by eagle-feather or plastic plectrum tremolo, fretless microtonal sliding within maqam, unmetered taqsim exposition, and characteristic rest-stroke accents against low open-string drones.",
+  "recipe": "classic Middle Eastern mid-1900s oud taqsim, improv On Frame, Persian arab improv branch, middle eastern classical art music, string drone modal majass and sahba. vocal fry, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, riq, kanun drone like modal tortoiseshell traditional kanun, arundo donax cane canonical Persian nine segment canonical 20th century Persian radif continuous-airflow legato ney, goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka. baghdad iraqi maqam context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 703,
+  "score": 305.242,
   "config": {
     "traditions": [
-      "arabic_instrumental"
+      "oud_taqsim",
+      "tar_persian_classical",
+      "hijazi_majass_sahba"
     ],
     "instruments": [
       {
         "id": "oud",
         "slots": {
-          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "plucked_traditional_technique": "plucked_drone_modal",
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
-          "oud_pick": "risha_plastic",
-          "oud_body_wood": "oud_walnut_body",
-          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_rosewood_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": -0.10500000000000001,
-          "oud_school": 1.365,
-          "oud_strings": 1.4069999999999996,
-          "oud_pick": 0.105,
-          "oud_body_wood": 0.4095,
-          "oud_soundboard_wood": 0.105,
-          "oud_string_material": 1.95
+          "plucked_traditional_technique": 10.042500000000002,
+          "oud_school": 1.95,
+          "oud_strings": 3.705,
+          "oud_pick": 1.71,
+          "oud_body_wood": 2.925,
+          "oud_soundboard_wood": 2.8600000000000003,
+          "oud_string_material": 5.784999999999999
+        }
+      },
+      {
+        "id": "riq",
+        "slots": {
+          "riq_size": "riq_medium",
+          "riq_context": "riq_takht",
+          "riq_shell_wood": "riq_walnut_premium",
+          "riq_head_material": "riq_fish_skin_canonical",
+          "riq_jingles": "riq_brass_jingles"
+        },
+        "scores": {
+          "riq_size": 3.705,
+          "riq_context": 1.35,
+          "riq_shell_wood": 0,
+          "riq_head_material": 0.39,
+          "riq_jingles": 0.845
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "kanun_school": "kanun_arab",
+          "kanun_articulation": "kanun_tortoiseshell_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": 10.042500000000002,
+          "kanun_school": 6.165000000000001,
+          "kanun_articulation": 1.085
+        }
+      },
+      {
+        "id": "ney",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "ney_use": "ney_persian_classical",
+          "ney_pitch": "ney_kerdaniye",
+          "ney_body_material": "ney_arundo_canonical",
+          "ney_lineage": "ney_hassan_kassai"
+        },
+        "scores": {
+          "wind_articulation": 7.465,
+          "ney_use": 0.65,
+          "ney_pitch": 3.705,
+          "ney_body_material": 2.795,
+          "ney_lineage": 4.029999999999999
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_brass",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_iraqi_zarb"
+        },
+        "scores": {
+          "percussion_technique": 2.405,
+          "darbuka_material": 0.845,
+          "darbuka_skin": 1.885,
+          "darbuka_regional_style": 3.835
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 1.95,
+          "voice_quality": 16.24999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 10.5625,
+          "voice_articulation": 21.06,
+          "voice_microtone": 36.725,
+          "voice_tradition": 22.555,
+          "voice_mechanism_compound": 15.89,
+          "voice_estill_quality": 10.284,
+          "voice_speech_song": 25.154999999999998,
+          "voice_ensemble_config": 18.654999999999998,
+          "voice_ornament_system": 20.0805,
+          "voice_pitch_organization": 20.2605,
+          "voice_processing_chain": 4.874999999999999,
+          "voice_multitrack_stack": 2.34
         }
       }
     ],
-    "pinned": {
-      "oud": [
-        "plucked_traditional_technique",
-        "oud_school",
-        "oud_strings",
-        "oud_pick",
-        "oud_body_wood",
-        "oud_soundboard_wood",
-        "oud_string_material"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "baghdad_iraqi_maqam_context",
+    "archetype": "arch_arab_east_state_radio",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_ua_610_tube",
+      "console": "console_german_tube_50s",
+      "comp": "comp_la2a_optical",
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
+    "tuning": "maqam_24edo",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
-    "parts": {
-      "plucked_traditional_technique": "plucked_ornamented_melodic",
-      "oud_school": "oud_arab_classic",
-      "oud_strings": "oud_eleven",
-      "oud_pick": "risha_plastic",
-      "oud_body_wood": "oud_walnut_body",
-      "oud_soundboard_wood": "oud_spruce_face",
-      "oud_string_material": "oud_pyramid_nylon"
-    },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "tuning": "maqam_24edo",
+    "room": "baghdad_iraqi_maqam_context",
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

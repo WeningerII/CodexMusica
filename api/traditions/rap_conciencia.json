@@ -5,7 +5,7 @@
   "lineage": "Spanish-language conscious hip hop consolidated in Madrid, Zaragoza, Santiago de Chile and Mexico City from the mid-1990s onward, codified by El Chojin and Nach in Spain and by Portavoz and Ana Tijoux in the Southern Cone — boom-bap and jazz-sample production at 85-95 BPM with filtered upright bass loops, dusty drum breaks and piano or horn samples, and dense multisyllabic Castilian or Latin American Spanish verses on colonialism, class, migration and political memory, delivered in a measured, articulated flow over sung or scratched hooks.",
   "recipe": "classic 1994-1996 rap de conciencia, mc Rhythm, intl hip hop branch, us hip hop conscious rap, iberian Latin protest song jazz rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, chopped sampler, growly gut upright bass, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 678,
-  "score": 451.268,
+  "score": 453.761,
   "config": {
     "traditions": [
       "rap_conciencia",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.999999999999996,
-          "voice_quality": 34.34499999999999,
+          "voice_register": 15.042749999999996,
+          "voice_quality": 34.67949999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.01,
+          "voice_vibrato": 11.302499999999998,
           "voice_articulation": 26.97500000000001,
           "voice_microtone": 26.130000000000006,
-          "voice_tradition": 12.739999999999998,
+          "voice_tradition": 12.880249999999998,
           "voice_mechanism_compound": 3.9650000000000003,
           "voice_estill_quality": 6.039999999999999,
-          "voice_speech_song": 32.779999999999994,
+          "voice_speech_song": 33.086,
           "voice_ensemble_config": 26.195000000000007,
-          "voice_ornament_system": 5.970000000000001,
+          "voice_ornament_system": 6.278250000000002,
           "voice_pitch_organization": 1.3649999999999998,
           "voice_processing_chain": 26.374999999999996,
           "voice_multitrack_stack": 7.3125
@@ -59,8 +59,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 11.999999999999998,
-          "turntable_technique": 13.839999999999998
+          "electronic_technique": 12.142499999999998,
+          "turntable_technique": 13.830249999999998
         }
       },
       {
@@ -73,8 +73,8 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 11.999999999999998,
-          "sampler_archetypes": 18.485,
+          "electronic_technique": 12.142499999999998,
+          "sampler_archetypes": 18.8825,
           "sampler_bit_depth": 2.9250000000000003,
           "sampler_workflow": 14.7,
           "sampler_classic_context": 44.265000000000015
@@ -106,14 +106,14 @@
         },
         "scores": {
           "keyboard_technique": 5.949999999999999,
-          "grand_piano_size": 2.4250000000000003,
-          "grand_piano_brand": 2.62,
+          "grand_piano_size": 2.47,
+          "grand_piano_brand": 2.6650000000000005,
           "piano_hammer": 3.3149999999999995,
           "piano_rim": 4.16,
           "piano_soundboard": 1.17,
           "piano_pinblock": 0.9199999999999999,
-          "piano_plate": 2.4699999999999993,
-          "piano_pitch_standard": 11.135
+          "piano_plate": 2.5104999999999995,
+          "piano_pitch_standard": 11.183
         }
       },
       {
@@ -128,13 +128,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 7.244999999999999,
+          "wind_articulation": 7.387499999999999,
           "sax_size": 5.8999999999999995,
           "sax_reed": 0.195,
-          "sax_body_alloy": 9.92,
+          "sax_body_alloy": 10.10525,
           "sax_mouthpiece": 0.585,
-          "sax_technique": 9.565,
-          "sax_maker_school": 7.634999999999999
+          "sax_technique": 9.37,
+          "sax_maker_school": 7.818
         }
       },
       {
@@ -146,7 +146,7 @@
         },
         "scores": {
           "tr909_voice": 0,
-          "drum_machine_909_context": 0.48,
+          "drum_machine_909_context": 0.38249999999999995,
           "tr909_production_origin": 0.9099999999999999
         }
       }

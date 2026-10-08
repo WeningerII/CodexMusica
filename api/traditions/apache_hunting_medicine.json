@@ -5,7 +5,7 @@
   "lineage": "Apache-and-broader-Native-American hunting-medicine song tradition continuous from premodern Indigenous-North-American hunting-and-ritual practice through colonial-era continuous performance into modern Native-American continuous practice",
   "recipe": "classic Midwestern American early-1890s apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional música indígena mexicana ainu upopo and rimse. extended whistle, breath veiled tone, fast rate, interlocked note trading. powwow drum circle. plains northern powwow drum circle outdoor. acoustic horn. wax cylinder.",
   "recipe_chars": 401,
-  "score": 148.61,
+  "score": 149.39,
   "config": {
     "traditions": [
       "apache_hunting_medicine",
@@ -41,8 +41,8 @@
           "voice_vibrato": 1.235,
           "voice_articulation": 15.599999999999998,
           "voice_microtone": 15.209999999999994,
-          "voice_tradition": 25.869999999999997,
-          "voice_mechanism_compound": 23.145,
+          "voice_tradition": 26.064999999999998,
+          "voice_mechanism_compound": 23.34,
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 24.96,
           "voice_ensemble_config": 16.769999999999996,
@@ -59,8 +59,8 @@
           "style": "pw_northern"
         },
         "scores": {
-          "members": 0.735,
-          "style": 0.54
+          "members": 0.9299999999999999,
+          "style": 0.7350000000000001
         }
       }
     ],

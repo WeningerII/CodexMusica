@@ -5,7 +5,7 @@
   "lineage": "Politically engaged Turkish song movement of the late 1970s to the 1990s that set poetry by writers such as Nâzım Hikmet and Ahmed Arif, alongside the singers' own lyrics, to arrangements joining the bağlama and Anatolian folk melody with guitar, bass and Western harmony, building on the earlier political folk singing of Ruhi Su. It circulated widely on cassette and LP, and its leading voices included Zülfü Livaneli, Ahmet Kaya and the collective Grup Yorum.",
   "recipe": "classic 1977-1979 özgün müzik, protest Song, middle east n African branch. solo with instrumental accompaniment. mulberry bowl canonical anatolian saz baglama, dreadnought acoustic guitar, electric bass. treated studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 311,
-  "score": 7.356,
+  "score": 7.362,
   "config": {
     "traditions": [
       "ozgun_muzik"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.8711250000000001,
+          "voice_ensemble_config": 1.8598750000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.320625,
+          "voice_processing_chain": 0.315,
           "voice_multitrack_stack": 0.34462499999999996,
           "voice_tessitura": 0
         }
@@ -66,7 +66,7 @@
           "plucked_traditional_technique": -0.15000000000000002,
           "saz_size": 0,
           "saz_frets": 0,
-          "saz_body_wood": 1.037125,
+          "saz_body_wood": 1.0315,
           "saz_strings": 0,
           "saz_tradition": 0
         }
@@ -81,9 +81,9 @@
           "string_acoustic": "dutar_strings_unspecified"
         },
         "scores": {
-          "acoustic_technique": 0.505625,
+          "acoustic_technique": 0.49999999999999994,
           "string_tuning": 0,
-          "top_wood": 0.0045,
+          "top_wood": 0.0195,
           "back_sides": -0.036875000000000005,
           "string_acoustic": 0
         }
@@ -104,8 +104,8 @@
           "amp_make": 0,
           "body_wood": 0.120375,
           "pickup_config": 0,
-          "string_type": -0.1,
-          "scale_length_b": 0.009,
+          "string_type": -0.0955,
+          "scale_length_b": 0.024,
           "fretted_or_not": 0.0045,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0

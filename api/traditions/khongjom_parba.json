@@ -5,7 +5,7 @@
   "lineage": "Khongjom Parba is a Meitei ballad-singing genre of Manipur that began with Samjetsabam Leinou (Dhobi Leinou), who sang eyewitness accounts of the Anglo-Manipur War against the British, above all the stand of the Manipuri forces at Khongjom, first beating time on his knees or a tin can and later on the dholak. A lead singer narrates and sings the story to the dholak, the repertoire has widened to other historical and legendary episodes, and the genre has been performed on stage and broadcast by All India Radio Imphal.",
   "recipe": "classic modern khongjom parba, ballad Poetry, indian bard branch. solo with instrumental accompaniment, single lead single track no stacking. dholak. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 229,
-  "score": 5.379,
+  "score": 5.82,
   "config": {
     "traditions": [
       "khongjom_parba"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 1.69,
           "voice_tessitura": 0
         }
@@ -61,10 +61,10 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.1365,
+          "dholak_use": 0.168,
           "dholak_construction": -0.035,
-          "dholak_head": 0.45149999999999996,
-          "dholak_tensioning": 0.5565
+          "dholak_head": 0.588,
+          "dholak_tensioning": 0.6930000000000001
         }
       }
     ],

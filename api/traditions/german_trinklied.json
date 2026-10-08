@@ -3,21 +3,21 @@
   "name": "German Trinklieder (drinking songs)",
   "family": "global",
   "lineage": "German Trinklieder (drinking-song) tradition continuous from medieval Vagantenlieder (the Carmina Burana 13th-century goliardic-Latin-drinking-song manuscript), 16th-century Reformation-era Tischlieder (table-songs), and 19th-century Studentenlieder fraternity-and-Burschenschaft drinking-song tradition into modern Bavarian Oktoberfest and broader German Bierstube practice; foundational repertoire includes \"Ein Prosit,\" \"Trink, trink, Brüderlein, trink,\" \"Die ganze Woche fröhlich sein\"",
-  "recipe": "classic modern german trinklieder, drinking Song, European branch, americas drinking song, americana country, chanson fado ballad poetry american drinking song. thick, breath veiled tone, straight note core, interlocked note trading. hohner gola canonical premium German concert straight accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 372,
-  "score": 153.629,
+  "recipe": "classic modern german trinklieder, drinking Song, European branch, americas drinking song, americana country, chanson fado ballad poetry american drinking song mexican cantina drinking song. thick, close mic intimate, straight note core, interlocked note trading. hohner gola canonical premium German concert straight accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 402,
+  "score": 134.514,
   "config": {
     "traditions": [
       "german_trinklied",
       "american_drinking_song",
-      "chanson"
+      "mexican_cantina_drinking"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 7.440000000000001,
-          "voice_quality": 10.269999999999996,
+          "voice_register": 5.015000000000001,
+          "voice_quality": 8.36625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.873749999999999,
-          "voice_articulation": 17.614999999999995,
-          "voice_microtone": 16.769999999999992,
-          "voice_tradition": 7.800000000000001,
-          "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 7.953749999999999,
-          "voice_speech_song": 33.53999999999999,
-          "voice_ensemble_config": 18.589999999999993,
-          "voice_ornament_system": 2.3750000000000004,
-          "voice_pitch_organization": 3.4850000000000003,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 2.8600000000000003
+          "voice_vibrato": 5.373750000000001,
+          "voice_articulation": 14.169999999999993,
+          "voice_microtone": 13.97499999999999,
+          "voice_tradition": 7.54,
+          "voice_mechanism_compound": 0.845,
+          "voice_estill_quality": 6.240000000000001,
+          "voice_speech_song": 32.175,
+          "voice_ensemble_config": 14.68999999999999,
+          "voice_ornament_system": 1.375,
+          "voice_pitch_organization": 4.7775,
+          "voice_processing_chain": 3.4374999999999996,
+          "voice_multitrack_stack": 0.795
         }
       },
       {
@@ -57,20 +57,20 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "brass_reeds",
-          "musette_offset": "french_musette",
-          "reed_config": "lmmm",
+          "musette_offset": "demi_swing",
+          "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_hohner_gola"
         },
         "scores": {
-          "free_reed_technique": 4.74,
+          "free_reed_technique": 4.239999999999999,
           "accordion_reed_material": 0.33,
-          "musette_offset": 1.25,
-          "reed_config": 1.345,
+          "musette_offset": 0.21,
+          "reed_config": 0.285,
           "bellows": 0,
-          "voicing_chamber": 1.28625,
-          "accordion_maker_school": 6.337499999999999
+          "voicing_chamber": 1.63625,
+          "accordion_maker_school": 8.087499999999999
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Catholic devotional dance of Bauan and Alitagtag, Batangas, performed as a prayer to the Holy Cross at the feast of the Mahal na Poon in May by paired men and women dancers (manunubli). It has no melodic instruments: drums beat throughout, punctuated by wooden castanets (kalaste) clacked by the men, and women may open with a chant narrating the finding of the cross in archaic metaphorical Tagalog. The castanets card stands in for the kalaste.",
   "recipe": "classic modern subli, ritual Devotional. acoustic membrane drum, castanets. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 155,
-  "score": 2.562,
+  "score": 2.719,
   "config": {
     "traditions": [
       "subli_batangas"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.25049999999999994,
+          "voice_ensemble_config": 0.3449999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.09449999999999999,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },

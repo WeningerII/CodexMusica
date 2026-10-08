@@ -5,7 +5,7 @@
   "lineage": "Balkan folk metal brings heavy electric-band music into contact with regional folk-derived melodies and vocal styles. Pero Defformero’s Serbian punk-spirited satire is one distinctive strand, deliberately contrasting metal riffs with parodic popular-folk delivery.",
   "recipe": "classic modern balkan folk metal, distorted Rock, metal branch. many notes per syllable, solo with instrumental accompaniment, aurally tuned. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 530,
-  "score": 49.341,
+  "score": 49.721,
   "config": {
     "traditions": [
       "balkan_folk_metal"
@@ -29,15 +29,15 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 15.621625,
+          "electric_technique": 15.61225,
           "amp_make": 5.655000000000001,
-          "body_wood": 0.5775,
+          "body_wood": 0.70125,
           "neck_wood": 0.105,
           "fretboard": 0.168,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.5775,
+          "bridge": 0.70125,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.5775,
+          "body_wood": 0.70125,
           "pickup_config": 0,
           "string_type": 0.105,
           "scale_length_b": 0.168,
@@ -90,7 +90,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.7865,
           "cymbal_lathing": 3.89225,
           "cymbal_finish": 0
@@ -122,7 +122,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.21824999999999997,
+          "voice_articulation": 0.17924999999999996,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -131,7 +131,7 @@
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.5145,
-          "voice_processing_chain": 0.14475,
+          "voice_processing_chain": 0.14287499999999997,
           "voice_multitrack_stack": 0.21
         }
       }

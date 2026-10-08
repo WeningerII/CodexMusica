@@ -1,50 +1,185 @@
 {
-  "id": "underground_amapiano",
-  "name": "Underground Amapiano",
-  "family": "electronic",
-  "lineage": "Underground amapiano circulates through producer networks, specialist selections and club communities in South Africa and abroad. Selectors connect vocal tracks, weighty bass grooves and spacious instrumental arrangements, bringing less widely circulated work into conversation with established releases.",
-  "recipe": "classic underground amapiano, electronic Dance, African dance branch. dj playback mixing unspecified. shoebox concert hall.",
-  "recipe_chars": 123,
-  "score": 0,
+  "id": "amapiano",
+  "merged_from": "underground_amapiano",
+  "name": "Amapiano",
+  "family": "global",
+  "lineage": "South African Pretoria-Johannesburg late-2010s house-jazz hybrid characterized by deep log-drum sub-bass figures, jazzy keys, and slowed 110-115 BPM tempo — codified through Kabza De Small, DJ Maphorisa, Mas Musiq, MFR Souls, and Vigro Deep from 2017 onward, exploding internationally 2020-2023",
+  "recipe": "classic Southern African 2020-2023 amapiano, electronic Dance, African dance branch, central east south African groove percussion ndombolo mutuashi. thick, breath veiled tone, straight onset, interlocked note trading. log drum, rhodes electric, low sub bass digital subtractive, TR-808, sampler. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 394,
+  "score": 166.852,
   "config": {
     "traditions": [
-      "underground_amapiano"
+      "amapiano",
+      "ndombolo",
+      "mutuashi"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "voice",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "voice_register": 4.435000000000001,
+          "voice_quality": 7.215000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.23,
+          "voice_articulation": 7.6049999999999995,
+          "voice_microtone": 7.215,
+          "voice_tradition": 22.2625,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 0.8449999999999999,
+          "voice_speech_song": 8.254999999999999,
+          "voice_ensemble_config": 7.734999999999999,
+          "voice_ornament_system": 1.54,
+          "voice_pitch_organization": 3.150000000000001,
+          "voice_processing_chain": 5.535,
+          "voice_multitrack_stack": 10.18
+        }
+      },
+      {
+        "id": "log_drum",
+        "slots": {
+          "log_drum_voice": "log_drum_sub",
+          "log_drum_context": "log_drum_amapiano"
+        },
+        "scores": {
+          "log_drum_voice": 2.17,
+          "log_drum_context": 17.225
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 0.7,
+          "rhodes_model": 5.14,
+          "rhodes_use": 1.56,
+          "rhodes_tine_material": 0.585,
+          "rhodes_hammer_tip": -0.35,
+          "rhodes_pickup_position": 0.3
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 4.315000000000001,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 7.994999999999998
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 4.175,
+          "drum_machine_808_context": 4.66,
+          "tr808_production_origin": 0.195
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 1.15,
+          "sampler_bit_depth": 0.6499999999999999,
+          "sampler_workflow": 0.325,
+          "sampler_classic_context": 19.044999999999998
         }
       }
     ],
-    "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ]
-    },
-    "room": "concert_hall_shoebox",
+    "room": "live_room",
+    "archetype": "arch_sa_township_digital",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "concert_hall_shoebox",
+    "tuning": "twelve_tet",
+    "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_jazz",
+      "log_drum_voice": "log_drum_sub",
+      "log_drum_context": "log_drum_amapiano",
+      "electronic_technique": "electronic_bass_sub",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance"
     },
-    "pin_parts": true
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

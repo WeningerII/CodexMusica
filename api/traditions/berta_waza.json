@@ -5,7 +5,7 @@
   "lineage": "Ensemble music of the Berta people of the Blue Nile borderlands of Sudan and Ethiopia, played on waza, end-blown trumpets built from joined gourd segments. Sets of many differently sized and tuned trumpets are each blown by one player sounding a single tone, so that melodies are assembled in hocket at communal celebrations; the bigwala card, another single-tone gourd-trumpet set, stands in for the waza.",
   "recipe": "classic modern waza, groove Percussion, central east south African branch, wind pipe drone modal. single tone per player hocket gourd trumpets bigwala trumpets. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 240,
-  "score": 12.365,
+  "score": 11.885,
   "config": {
     "traditions": [
       "berta_waza"
@@ -17,7 +17,7 @@
           "bigwala_trumpets_form": "bigwala_trumpets_documented"
         },
         "scores": {
-          "bigwala_trumpets_form": 12.515
+          "bigwala_trumpets_form": 12.035
         }
       }
     ],

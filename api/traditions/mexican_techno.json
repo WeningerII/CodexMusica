@@ -5,7 +5,7 @@
   "lineage": "Mexican techno includes club production and exploratory electronics that overlap ambient, dub and experimental sound. Murcof exemplifies its attention to texture, space and transformed recorded material.",
   "recipe": "classic mexican techno, electronic Dance, techno branch. drum machine analog, modular synth, sound design field sampler.",
   "recipe_chars": 120,
-  "score": 16.469,
+  "score": 16.311,
   "config": {
     "traditions": [
       "mexican_techno"
@@ -22,7 +22,7 @@
         "scores": {
           "kick_voice": 0,
           "snare_voice": 0,
-          "hat_voice": 0.2415,
+          "hat_voice": 0.21,
           "shuffle_quantize": 2.836
         }
       },
@@ -53,8 +53,8 @@
         "scores": {
           "electronic_technique": 2.45,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.063,
-          "sampler_workflow": 4.0905000000000005,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 4.0275,
           "sampler_classic_context": 1.3
         }
       }

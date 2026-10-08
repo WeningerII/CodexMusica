@@ -5,7 +5,7 @@
   "lineage": "Classical countertenor singing connects high male vocal practice with early repertoire and contemporary composition. Recitals, opera and ensemble works make use of its distinctive register and expressive range.",
   "recipe": "classic classical countertenor, art Music. countertenor developed head, solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 284,
-  "score": 63.401,
+  "score": 63.57,
   "config": {
     "traditions": [
       "classical_countertenor"
@@ -32,7 +32,7 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 13.8435,
+          "voice_register": 14.0125,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

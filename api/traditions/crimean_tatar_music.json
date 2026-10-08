@@ -5,7 +5,7 @@
   "lineage": "Music of the Crimean Tatars, the Turkic Muslim people of the Crimean peninsula, whose repertoire shares modal melody and asymmetric dance rhythms with its Turkish and Balkan neighbours. Clarinet, violin, accordion and the daire frame drum accompany dances such as the haytarma, in a seven-beat metre, alongside lyrical songs. After the Soviet deportation of the Crimean Tatars during the Second World War the music was kept alive in exile, chiefly in Uzbekistan, where the state song and dance ensemble Haytarma (Qaytarma) was re-formed, and it returned with the community to Crimea at the end of the Soviet period. The frame-drum card stands in for the daire.",
   "recipe": "classic modern qırımtatar musiqisi, wedding, European branch. many notes per syllable, solo with instrumental accompaniment. clarinet, fiddle, accordion, credited frame drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 255,
-  "score": 8.459,
+  "score": 8.69,
   "config": {
     "traditions": [
       "crimean_tatar_music"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6089999999999999,
+          "voice_speech_song": 0.7770000000000001,
           "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -80,7 +80,7 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 2.4619999999999997,
+          "bowed_technique": 2.42,
           "fiddle_strings": 0,
           "fiddle_bow": 0,
           "fiddle_mute": 0,
@@ -104,7 +104,7 @@
           "accordion_reed_material": 0.168,
           "musette_offset": 0,
           "reed_config": 0.105,
-          "bellows": 0,
+          "bellows": 0.105,
           "voicing_chamber": 0.0735,
           "accordion_maker_school": 0
         }

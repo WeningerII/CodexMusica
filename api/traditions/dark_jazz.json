@@ -5,7 +5,7 @@
   "lineage": "Slow noir-jazz idiom formed in Germany and the Netherlands from the mid-1990s, codified by Bohren & der Club of Gore's 'Sunset Mission' (2000) and The Kilimanjaro Darkjazz Ensemble — funereal 40-70 BPM tempos, sustained Rhodes and vibraphone chords, breathy near-static tenor saxophone lines, bowed bass and brushed kit under heavy reverb, film-noir minor modality, and long through-composed pieces with no soloing in the bebop sense.",
   "recipe": "classic North American 1994-1996 dark jazz, improv On Frame, avant branch, ambient experimental electric, modal electric drone modal melancholia musique mauritanienne. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, vibraphone, silver wound lamb gut core carpathian spruce European maple sycamore maple double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, sustained pad analog poly synth. denver gothic basement studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 734,
-  "score": 213.8,
+  "score": 213.26,
   "config": {
     "traditions": [
       "dark_jazz",
@@ -31,7 +31,7 @@
           "sax_body_alloy": 16.249999999999996,
           "sax_mouthpiece": 1.69,
           "sax_technique": 15.149999999999999,
-          "sax_maker_school": 14.509999999999998
+          "sax_maker_school": 14.119999999999997
         }
       },
       {
@@ -46,7 +46,7 @@
         },
         "scores": {
           "keyboard_technique": 0.25,
-          "rhodes_model": 17.296249999999997,
+          "rhodes_model": 17.34125,
           "rhodes_use": 2.34,
           "rhodes_tine_material": 1.69,
           "rhodes_hammer_tip": 0.3899999999999998,
@@ -91,7 +91,7 @@
           "bass_varnish": 1.25,
           "bass_setup_period": 3.4937500000000004,
           "bass_play": 15.089999999999996,
-          "bass_rosin": 16.989999999999995,
+          "bass_rosin": 16.794999999999995,
           "bass_bow_stick": 1.56
         }
       },

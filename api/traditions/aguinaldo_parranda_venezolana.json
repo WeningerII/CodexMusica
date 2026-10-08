@@ -5,7 +5,7 @@
   "lineage": "Venezuelan aguinaldos are the Christmas songs carried from house to house by parrandas around Christmas, the religious aguinaldo telling of the Nativity and the secular parranda asking for food, drink and good cheer. The parranda plays cuatro, maracas, the furruco friction drum, a charrasca scraper and a small tambora drum, sometimes with guitar and mandolin, under a soloist answered by the group. The guayo card stands in for the charrasca and the membrane-drum card for the tambora.",
   "recipe": "classic modern aguinaldo venezolano, ritual Devotional. single leader group response. cedar canonical Venezuelan cuatro venezolano, furruco, maracas, guayo source unspecified, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 308,
-  "score": 11.949,
+  "score": 12.106,
   "config": {
     "traditions": [
       "aguinaldo_parranda_venezolana"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.1049999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
@@ -74,7 +74,7 @@
           "furruco_build": "furruco_barrel"
         },
         "scores": {
-          "furruco_role": 0.063,
+          "furruco_role": 0.126,
           "furruco_build": 0.3
         }
       },

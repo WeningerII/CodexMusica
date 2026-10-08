@@ -3,9 +3,9 @@
   "name": "Odia Pop",
   "family": "global",
   "lineage": "Odisha's Odia-language popular song, moving from HMV Cuttack and Odia cinema playback in the 1960s-80s into a cassette and now YouTube-driven album industry — verse-refrain songs at 90-130 BPM with lightly ornamented melodic lines derived from Odissi and bhajan phrasing, harmonium and bansuri counterlines over dholak, mardala, or programmed kit, and a bright forward-placed lead vocal doubled in the chorus.",
-  "recipe": "classic mid-1960s odia pop, functional Song, south Asian pop branch, indian subcontinent praise song, indian bard ballad poetry mappila paattu nadagam. thick, breath veiled tone, straight note core, interlocked note trading. vocal male straight harmonium indian, dholak, mardala, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, ringing pitched indian rosewood rosewood tabla, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 892,
-  "score": 228.727,
+  "recipe": "classic mid-1960s odia pop, functional Song, south Asian pop branch, indian subcontinent praise song, indian bard ballad poetry mappila paattu nadagam. thick, breath veiled tone, straight note core, interlocked note trading. vocal male straight harmonium indian, dholak, mardala, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, indian rosewood rosewood copper tabla, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 883,
+  "score": 230.447,
   "config": {
     "traditions": [
       "odia_pop",
@@ -28,13 +28,13 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 10.929999999999993,
+          "voice_register": 10.839999999999993,
           "voice_quality": 13.129999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -46,10 +46,10 @@
           "voice_estill_quality": 3.835000000000001,
           "voice_speech_song": 24.374999999999996,
           "voice_ensemble_config": 19.43499999999999,
-          "voice_ornament_system": 3.2,
-          "voice_pitch_organization": 3.2350000000000003,
+          "voice_ornament_system": 3.4250000000000007,
+          "voice_pitch_organization": 3.1900000000000004,
           "voice_processing_chain": 4.095,
-          "voice_multitrack_stack": 4.1049999999999995
+          "voice_multitrack_stack": 4.165
         }
       },
       {
@@ -61,7 +61,7 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 3.4300000000000006,
+          "free_reed_technique": 3.5800000000000005,
           "harmonium_action": 2.9899999999999998,
           "harmonium_voicing": 1.69,
           "harmonium_use": 1.69
@@ -72,14 +72,14 @@
         "slots": {
           "dholak_use": "dholak_classical",
           "dholak_construction": "dholak_large",
-          "dholak_head": "dholak_synthetic_head",
-          "dholak_tensioning": "dholak_bolt_tuned"
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 2.325,
+          "dholak_use": 2.475,
           "dholak_construction": 1.95,
-          "dholak_head": 0.735,
-          "dholak_tensioning": 0.885
+          "dholak_head": 0.6449999999999999,
+          "dholak_tensioning": 0.7949999999999999
         }
       },
       {
@@ -103,9 +103,9 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 3.4800000000000004,
+          "wind_articulation": 3.6300000000000003,
           "bansuri_length": 1.25,
-          "bansuri_ornament": 1.475,
+          "bansuri_ornament": 1.385,
           "bansuri_body_material": 8.905,
           "bansuri_lineage": 1.95
         }
@@ -114,12 +114,12 @@
         "id": "tabla",
         "slots": {
           "tabla_dayan": "shisham_dayan",
-          "tabla_bayan": "clay_bayan",
+          "tabla_bayan": "copper_bayan",
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
           "tabla_dayan": 4.745,
-          "tabla_bayan": 0.65,
+          "tabla_bayan": 1.095,
           "tabla_syahi": 6.175
         }
       },
@@ -132,9 +132,9 @@
           "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
-          "electronic_technique": 10.52,
-          "rompler_preset_bank": 10.715,
-          "rompler_context": 8.65,
+          "electronic_technique": 10.58,
+          "rompler_preset_bank": 11.495,
+          "rompler_context": 8.5,
           "rompler_lineage": 1.3
         }
       },
@@ -146,9 +146,9 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 1.135,
+          "multitrack_stack_density": 1.2850000000000001,
           "multitrack_stack_era_aesthetic": 2.2749999999999995,
-          "multitrack_stack_processing": 1.195
+          "multitrack_stack_processing": 1.3
         }
       }
     ],

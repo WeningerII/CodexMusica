@@ -5,7 +5,7 @@
   "lineage": "Song and dance of the Baggara cattle-herding Arabs of Kordofan and Darfur in western Sudan. The mardoum (merdoum) is their communal dance rhythm, and the hakkamat are women singer-poets whose songs praise courage and generosity and comment on the community's affairs. The mardoum rhythm was carried into Sudanese urban popular music above all by the Kordofan-born singer Abdel Gadir Salim; the membrane-drum card stands in for the local drums.",
   "recipe": "classic modern mardoum and hakkamat song, praise Song, sub saharan African branch. hand clap, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 226,
-  "score": 4.692,
+  "score": 4.629,
   "config": {
     "traditions": [
       "baggara_mardoum_hakkamat"
@@ -60,7 +60,7 @@
         },
         "scores": {
           "clap_technique": 0,
-          "clap_capture": 0
+          "clap_capture": 0.105
         }
       },
       {
@@ -70,7 +70,7 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 2.867,
+          "acoustic_membrane_drum_form": 2.699,
           "acoustic_membrane_drum_gesture": 1.69
         }
       }

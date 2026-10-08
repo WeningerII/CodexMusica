@@ -5,7 +5,7 @@
   "lineage": "Rhythmic-noise style codified in Germany from 1994 onward by Ant-Zen, Hymen and acts such as Converter and Winterkälte, applying distorted 4/4 kick-drum sequencing and clipped percussive loops at 130-160 BPM to noise source material, with layered granular texture, no vocals, and hardware-plus-DAW production aimed at industrial dancefloors.",
   "recipe": "classic Central European mid-1990s power noise, experimental Elec, industrial noise branch, techno electronic dance, hardstyle electronic dance, idm glitch experimental electric live coding glitchbreak. TR-909, sampler drum machine, analog evolving modular modular evolving modular granular glitched textural wavetable synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
   "recipe_chars": 585,
-  "score": 78.279,
+  "score": 78.799,
   "config": {
     "traditions": [
       "power_noise",
@@ -35,8 +35,8 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sample_bitdepth": 0.45125,
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0.45499999999999996,
           "sample_swing": 11.780000000000001,
           "sample_processing": 0.39
         }
@@ -54,7 +54,7 @@
           "electronic_technique": 0.45500000000000007,
           "oscillator": 1,
           "filter_topology": 1.04,
-          "envelope": 2.145,
+          "envelope": 2.19375,
           "modulation": 0.35
         }
       },
@@ -68,8 +68,8 @@
         },
         "scores": {
           "electronic_technique": 15.05,
-          "mod_voltage_source": 2.295,
-          "mod_patch_density": 2.0006250000000003,
+          "mod_voltage_source": 2.34375,
+          "mod_patch_density": 2.211875,
           "mod_lineage": 0.9937500000000001
         }
       },
@@ -77,13 +77,13 @@
         "id": "granular_synth",
         "slots": {
           "electronic_technique": "electronic_modular_patch",
-          "granular_use": "granular_ambient",
+          "granular_use": "granular_idm",
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
           "electronic_technique": 15.05,
-          "granular_use": 0,
-          "granular_synth_source": 6.364750000000001
+          "granular_use": 0.16249999999999998,
+          "granular_synth_source": 6.57425
         }
       },
       {
@@ -97,7 +97,7 @@
         "scores": {
           "electronic_technique": 14.75,
           "wt_position": 6.11,
-          "wt_family": 0.8449999999999999,
+          "wt_family": 0.6499999999999999,
           "wt_polyphony": 0.24
         }
       }

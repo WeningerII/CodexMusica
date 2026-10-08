@@ -5,7 +5,7 @@
   "lineage": "Acoustic trio format from the Sierra Madre Occidental (Sinaloa, Durango, Chihuahua) that spread through Southern California Mexican-American communities in the 1990s-2000s — requinto or twelve-string lead guitar picking the melody, second guitar strumming the 2/4 polka or 3/4 vals rhythm, and tuba or tololoche walking the bass, under two unornamented chest voices in parallel thirds narrating corridos at 90-130 BPM with no drum kit at all",
   "recipe": "classic mid-1990s sierreño, functional Song, Mexican branch, tejano border corrido, tejano border ranchera corridos alternativos. thick, full chest belt, slow rate, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string guitar, dreadnought bass open tuning 12 string acoustic guitar 12 string, tololoche, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, nickel wound modern tejano strummed bajo sexto. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 726,
-  "score": 176.144,
+  "score": 176.463,
   "config": {
     "traditions": [
       "sierreno",
@@ -79,7 +79,7 @@
           "twelve_string_strings": "coated_nano_12"
         },
         "scores": {
-          "twelve_string_body": 2.6437500000000003,
+          "twelve_string_body": 2.59875,
           "twelve_string_tuning": 2.10525,
           "twelve_string_strings": 0.195
         }
@@ -91,7 +91,7 @@
           "tololoche_technique": "tololoche_polka_pump"
         },
         "scores": {
-          "tololoche_size": 1.975,
+          "tololoche_size": 1.9300000000000002,
           "tololoche_technique": 0
         }
       },
@@ -107,10 +107,10 @@
         },
         "scores": {
           "wind_articulation": 0.375,
-          "tuba_pitch": 1.7422499999999999,
+          "tuba_pitch": 1.87875,
           "tuba_context": 5.265,
           "tuba_bell_metal": 1.04,
-          "tuba_valve_system": 1.7422499999999999,
+          "tuba_valve_system": 1.87875,
           "tuba_maker_school": 1.04
         }
       },
@@ -125,7 +125,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 3.055,
-          "bajo_courses": 9.375,
+          "bajo_courses": 9.5115,
           "bajo_top": 0.65,
           "bajo_strings": 5.525,
           "bajo_back_wood": 0

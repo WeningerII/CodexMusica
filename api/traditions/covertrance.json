@@ -3,9 +3,9 @@
   "name": "Covertrance",
   "family": "electronic",
   "lineage": "Covertrance gathers dance-oriented cover versions and reinterpretations of familiar songs and themes. Trance and club producers recast recognizable melodies through electronic arrangements, vocal versions and instrumental mixes, with lounge adaptations also circulating in the wider catalogue.",
-  "recipe": "classic covertrance, electronic Dance, trance branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. credited synthesizer credited beat unspecified. treated studio.",
-  "recipe_chars": 216,
-  "score": 4.281,
+  "recipe": "classic covertrance, electronic Dance, trance branch. solo with instrumental accompaniment, single lead single track no stacking. credited synthesizer credited beat unspecified. treated studio.",
+  "recipe_chars": 193,
+  "score": 4.113,
   "config": {
     "traditions": [
       "covertrance"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.5249999999999998,
+          "voice_speech_song": 0.4934999999999998,
           "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.6615,
+          "voice_multitrack_stack": 0.525,
           "voice_tessitura": 0
         }
       },

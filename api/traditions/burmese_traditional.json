@@ -3,20 +3,20 @@
   "name": "Burmese traditional song (thachin gyi and village repertoire)",
   "family": "global",
   "lineage": "Court-derived and village song repertoire of central Myanmar, its canon fixed after the 18th-century Ayutthaya contact and preserved through the Konbaung palace and 20th-century state ensembles — heptatonic near-equal tuning, sharply syncopated melody with the vocal line deliberately offset from the instruments, saung gauk arched harp or pattala xylophone accompaniment, and time marked strictly by si bell and wa clapper rather than by drums.",
-  "recipe": "classic Southeast Asian early-1940s burmese traditional song, art Music, southeast Asian branch, southeast Asian Thai classical, heterophonic drone modal sepha thai traditional. thick, breath veiled tone, slow rate, interlocked note trading. court classical saung gauk, ornate gilded pattala, ensemble lead hne, linkwin, byo, ozi drum. wooden pagoda hall. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe": "classic Southeast Asian early-1940s burmese traditional song, art Music, southeast Asian branch, southeast Asian Thai classical, heterophonic drone modal sepha khrueang sai. vocal fry, breath veiled tone, slow rate, interlocked note trading. court classical saung gauk, ornate gilded pattala, ensemble lead hne, linkwin, byo, ozi drum. wooden pagoda hall. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 430,
-  "score": 250.889,
+  "score": 262.839,
   "config": {
     "traditions": [
       "burmese_traditional",
       "sepha_thai",
-      "thai_traditional"
+      "khrueang_sai"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 1.5249999999999997,
-          "voice_quality": 14.494999999999994,
+          "voice_register": 1.4949999999999999,
+          "voice_quality": 19.564999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.8625,
-          "voice_articulation": 19.304999999999996,
-          "voice_microtone": 18.71999999999999,
-          "voice_tradition": 15.275,
-          "voice_mechanism_compound": 9.504999999999999,
-          "voice_estill_quality": 10.874999999999998,
-          "voice_speech_song": 22.294999999999998,
-          "voice_ensemble_config": 18.459999999999997,
-          "voice_ornament_system": 9.114999999999998,
-          "voice_pitch_organization": 28.875,
-          "voice_processing_chain": 3.445,
+          "voice_vibrato": 14.2845,
+          "voice_articulation": 18.654999999999998,
+          "voice_microtone": 17.679999999999993,
+          "voice_tradition": 17.29,
+          "voice_mechanism_compound": 11.63,
+          "voice_estill_quality": 13.299999999999999,
+          "voice_speech_song": 21.449999999999996,
+          "voice_ensemble_config": 17.029999999999994,
+          "voice_ornament_system": 11.239999999999998,
+          "voice_pitch_organization": 27.225,
+          "voice_processing_chain": 2.6,
           "voice_multitrack_stack": 3.25
         }
       },
@@ -60,9 +60,9 @@
           "saung_gauk_strings": "saung_gauk_silk_strings"
         },
         "scores": {
-          "saung_gauk_form": 11.309999999999999,
-          "saung_gauk_role": 4.7745,
-          "saung_gauk_strings": 4.595000000000001
+          "saung_gauk_form": 11.765,
+          "saung_gauk_role": 5.1645,
+          "saung_gauk_strings": 4.745
         }
       },
       {
@@ -73,9 +73,9 @@
           "pattala_body": "pattala_gilt_box"
         },
         "scores": {
-          "pattala_type": 9.325000000000001,
-          "pattala_repertoire": 8.905000000000001,
-          "pattala_body": 3.4450000000000003
+          "pattala_type": 8.8,
+          "pattala_repertoire": 10.6,
+          "pattala_body": 3.25
         }
       },
       {
@@ -86,9 +86,9 @@
           "hne_reed": "hne_reed_toddy_palm"
         },
         "scores": {
-          "hne_form": 9.835,
-          "hne_style": 7.15,
-          "hne_reed": 3.505
+          "hne_form": 9.46,
+          "hne_style": 6.955000000000001,
+          "hne_reed": 3.7
         }
       },
       {
@@ -99,9 +99,9 @@
           "linkwin_context": "linkwin_hsaing_waing"
         },
         "scores": {
-          "linkwin_size": 0.045,
+          "linkwin_size": 0,
           "linkwin_stroke": 0.345,
-          "linkwin_context": 0.045
+          "linkwin_context": 0.24
         }
       },
       {
@@ -112,7 +112,7 @@
         },
         "scores": {
           "byo_form": 0.47999999999999987,
-          "byo_beater": 0.045
+          "byo_beater": 0.195
         }
       },
       {

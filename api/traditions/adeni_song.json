@@ -5,7 +5,7 @@
   "lineage": "Modern song of Aden that took shape in the 1950s and 1960s, when singer-composers such as Mohammed Murshid Naji and Ahmed Qasim, working with the city's radio and record companies, set new lyric poetry for oud, violins and percussion, drawing on Lahji, Sanaani and Hadrami song and on Egyptian song; the fiddle card stands for the violins.",
   "recipe": "classic mid-1950s al-ughniya al-ʿadaniyya, functional Song, mid east n African pop branch. solo with instrumental accompaniment. walnut ribs canonical mid tier oud, melodic bowed song accompaniment fiddle, hand drum source unspecified. am radio booth. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
   "recipe_chars": 362,
-  "score": 17.029,
+  "score": 16.408,
   "config": {
     "traditions": [
       "adeni_song"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.33899999999999997,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -66,7 +66,7 @@
         "scores": {
           "plucked_traditional_technique": -0.11100000000000003,
           "oud_school": 1.95,
-          "oud_strings": 0.861,
+          "oud_strings": 0.2625,
           "oud_pick": 1.95,
           "oud_body_wood": 1.95,
           "oud_soundboard_wood": 0.105,
@@ -87,7 +87,7 @@
           "bowed_technique": 7.15,
           "fiddle_strings": 0,
           "fiddle_bow": 0,
-          "fiddle_mute": 0.147,
+          "fiddle_mute": 0.0735,
           "fiddle_articulation": 0.168,
           "fiddle_string_configuration": 0
         }

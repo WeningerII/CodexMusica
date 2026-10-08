@@ -5,7 +5,7 @@
   "lineage": "Historical Norwegian popular song and schlager represented by Wenche Myhre’s hit repertoire. The selected voice-and-piano arrangement follows a documented later concert presentation of her well-known songs; it does not reconstruct a 1960s single.",
   "recipe": "classic mid-1960s classic norwegian pop, functional Song, europop branch. solo with instrumental accompaniment, single lead single track no stacking. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 386,
-  "score": 28.756,
+  "score": 28.98,
   "config": {
     "traditions": [
       "classic_norwegian_pop"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.2625,
-          "voice_ensemble_config": 1.008,
+          "voice_ensemble_config": 1.491,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 0.1365,
@@ -61,18 +61,18 @@
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": 4.95,
           "grand_piano_size": 0.3045,
           "grand_piano_brand": 0.36750000000000005,
           "piano_hammer": 5.1915000000000004,
-          "piano_rim": 6.4094999999999995,
+          "piano_rim": 6.3045,
           "piano_soundboard": 4.95,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
-          "piano_pitch_standard": 3.25
+          "piano_pitch_standard": 3.096
         }
       }
     ],

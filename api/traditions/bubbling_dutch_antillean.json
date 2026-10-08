@@ -5,7 +5,7 @@
   "lineage": "Party music of Dutch-Antillean, mostly Curaçaoan, youth in The Hague and Rotterdam, begun in the late 1980s and early 1990s when DJ Moortje played Jamaican dancehall records at a faster speed, and MCs chatted over them in Papiamento. Producers later made original tracks at the raised tempo, and its fast, syncopated drum patterns fed into Dutch house in the 2000s.",
   "recipe": "classic 1987-1989 bubbling, bass System, reggae diaspora branch. pitched rhythmic chat. dj playback mixing credited drum machine credited synthesizer unspecified. bedroom. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 306,
-  "score": 18.313,
+  "score": 18.271,
   "config": {
     "traditions": [
       "bubbling_dutch_antillean"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.417499999999999,
+          "voice_speech_song": 11.406999999999998,
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -70,7 +70,7 @@
         },
         "scores": {
           "credited_drum_machine_generator": 0,
-          "credited_drum_machine_pattern": 0.1995,
+          "credited_drum_machine_pattern": 0.168,
           "credited_drum_machine_interface": 0
         }
       },

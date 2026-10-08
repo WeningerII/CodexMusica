@@ -5,7 +5,7 @@
   "lineage": "Drum-dance of Dominica in which a chantwèl (lead singer) raises Kwéyòl songs answered by a chorus while a drummer plays the tanbou bélé and dancers come forward in turn to answer the drum. It is performed at village gatherings and at Creole festivals such as Jounen Kwéyòl, and is related to the bèlè of Martinique; the membrane-drum card stands in for the tanbou bélé.",
   "recipe": "classic modern bélé, groove Percussion, Caribbean branch. membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 190,
-  "score": 10.611,
+  "score": 10.579,
   "config": {
     "traditions": [
       "dominica_bele"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.19949999999999998,
+          "voice_multitrack_stack": 0.231,
           "voice_tessitura": 0
         }
       },
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 5.636,
-          "acoustic_membrane_drum_gesture": 4.636
+          "acoustic_membrane_drum_form": 5.6045,
+          "acoustic_membrane_drum_gesture": 4.6045
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Caught In Joy — Disconnected (24 July 2025), complete four-track album. The artist explicitly states that the entire hand-played ambient album uses only a Moog Minimoog Model D recorded to reel-to-reel tape. All four tracks are retained; no drum machine, sampled acoustic instrument, singer or other synthesizer is inferred from the artist’s other albums. The analog synthesizer represents the actual sound-making instrument, not playback of an opaque finished master. Existing analog_mono_synth retains the source-positive Minimoog Model D, voltage-controlled oscillators and four-pole Moog ladder filter, corroborated by the manufacturer manual. Lead-line keyboard gesture is an authored representative hand-played realization, not a claim every album layer uses one preset. Room and equal-tempered tuning are authored; no exact oscillator settings, tape speed, serial year, microphone or tracking topology is invented. The low-confidence microphone image is generic recording context, not a Moog instrument depiction or source-session equipment.",
   "recipe": "classic mid-2020s moog, experimental Elec, ambient branch. moog lineage canonical minimoog 1970 trumansburg ny analog mono synth. treated studio.",
   "recipe_chars": 145,
-  "score": 18.846,
+  "score": 18.709,
   "config": {
     "traditions": [
       "moog"
@@ -25,7 +25,7 @@
           "mono_oscillator": 1.3,
           "mono_filter": 2.9045,
           "mono_archetypes": 2.9045,
-          "mono_maker_lineage": 10.536999999999997
+          "mono_maker_lineage": 10.400499999999997
         }
       }
     ],

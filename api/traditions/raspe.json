@@ -5,7 +5,7 @@
   "lineage": "Raspe is a Honduran dance-music current rooted in the north-coast scene. Producers and singers combine electronic melody with dancehall-derived percussion, developing a local name and community through songs, parties and online circulation.",
   "recipe": "classic raspe, bass System, reggae diaspora branch. solo with instrumental accompaniment. analog poly synth, drum machine analog. live tracking.",
   "recipe_chars": 144,
-  "score": 2.774,
+  "score": 2.837,
   "config": {
     "traditions": [
       "raspe"
@@ -76,9 +76,9 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0,
+          "kick_voice": 0.0315,
           "snare_voice": 0.0315,
-          "hat_voice": 0,
+          "hat_voice": 0.0315,
           "shuffle_quantize": -0.05
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Court drum orchestra of the Asante and other Akan states, played for the Asantehene and paramount chiefs at durbars, festivals and royal funerals. A pair of tall fontomfrom drums leads atumpan talking drums, petia and other supporting drums and the dawuro bell in dance pieces and drummed praises; a generic card stands in for the bell.",
   "recipe": "classic modern fontomfrom, praise Song, sub saharan African branch. interlocking booming open ringing fontomfrom, narrow open ringing hardwood shell atumpan, petia, agogo source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 270,
-  "score": 50.708,
+  "score": 49.491,
   "config": {
     "traditions": [
       "fontomfrom_asante"
@@ -20,10 +20,10 @@
           "fontomfrom_technique": "fontomfrom_curved_open"
         },
         "scores": {
-          "fontomfrom_scope": 5.5625,
+          "fontomfrom_scope": 5.3629999999999995,
           "fontomfrom_court": 8.9225,
-          "fontomfrom_function": 7.6365,
-          "fontomfrom_technique": 3.455
+          "fontomfrom_function": 7.5,
+          "fontomfrom_technique": 3.35
         }
       },
       {
@@ -35,9 +35,9 @@
           "atumpan_build": "atumpan_tweneboa_antelope"
         },
         "scores": {
-          "atumpan_mode": 5.75,
-          "atumpan_interval": 8.151,
-          "atumpan_stroke": 2.855,
+          "atumpan_mode": 5.7815,
+          "atumpan_interval": 7.7205,
+          "atumpan_stroke": 2.75,
           "atumpan_build": 4.95
         }
       },
@@ -49,7 +49,7 @@
         },
         "scores": {
           "petia_size": 0.273,
-          "petia_role": 0.2415
+          "petia_role": 0
         }
       },
       {
@@ -58,7 +58,7 @@
           "agogo_source_unspecified_identity": "agogo_source_unspecified_named_role"
         },
         "scores": {
-          "agogo_source_unspecified_identity": 0.1365
+          "agogo_source_unspecified_identity": 0.105
         }
       }
     ],

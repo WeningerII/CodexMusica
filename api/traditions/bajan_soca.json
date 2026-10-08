@@ -5,7 +5,7 @@
   "lineage": "Barbadian soca style shaped around the Crop Over festival since the 1980s and codified by Square One, Krosfyah and later producers such as Nicholas Brancker and Stiffy's circle, mixing 130-155 BPM soca grooves with the local 'ragga soca' and bashment-soca accents, live or sampled horn sections, tuk-band snare-and-bass-drum inflections, and melodic sung hooks alongside chanted crowd calls.",
   "recipe": "classic North American mid-1980s bajan soca, carnival Processional, Caribbean branch, tropical song functional song, reggae diaspora bass system cumbia argentina panamanian pop. thick, breath veiled tone, straight note core, interlocked note trading. pre muffled edge muffled brushes-and-sticks drum kit, la bella flats Detroit soul bass canon thumb muted electric bass, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, saxophone, heavy one piece matched to monette horn ensemble trumpet, soca engine room iron trinidadian iron, tambourine orch. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 827,
-  "score": 203.922,
+  "score": 204.77,
   "config": {
     "traditions": [
       "bajan_soca",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 3.2950000000000017,
+          "voice_register": 3.490000000000002,
           "voice_quality": 11.569999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4050000000000002,
+          "voice_vibrato": 2.555,
           "voice_articulation": 18.589999999999996,
           "voice_microtone": 19.499999999999993,
           "voice_tradition": 4.030000000000001,
@@ -47,9 +47,9 @@
           "voice_speech_song": 26.259999999999998,
           "voice_ensemble_config": 18.524999999999995,
           "voice_ornament_system": 0.825,
-          "voice_pitch_organization": 0.39999999999999997,
-          "voice_processing_chain": 5.859999999999999,
-          "voice_multitrack_stack": 7.749999999999999
+          "voice_pitch_organization": 0.5199999999999999,
+          "voice_processing_chain": 5.664999999999999,
+          "voice_multitrack_stack": 8.049999999999999
         }
       },
       {
@@ -97,9 +97,9 @@
           "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
-          "electronic_technique": 3.0225,
+          "electronic_technique": 3,
           "rompler_preset_bank": 4.2299999999999995,
-          "rompler_context": 4.94,
+          "rompler_context": 5.09,
           "rompler_lineage": 1
         }
       },
@@ -118,7 +118,7 @@
           "wind_articulation": 1.8849999999999998,
           "sax_size": 0.195,
           "sax_reed": 0.435,
-          "sax_body_alloy": 0.75,
+          "sax_body_alloy": 0.78,
           "sax_mouthpiece": 0.78,
           "sax_technique": -0.035,
           "sax_maker_school": 0.345
@@ -133,16 +133,16 @@
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_red_brass",
-          "trumpet_maker_school": "trumpet_schilke"
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
           "wind_articulation": 1.8849999999999998,
           "brass_size": 0.435,
-          "trumpet_mouthpiece": 4.935,
-          "brass_mute": 0.195,
+          "trumpet_mouthpiece": 5.234999999999999,
+          "brass_mute": 0.15,
           "trumpet_technique": 1.8849999999999998,
-          "trumpet_bell_metal": 0.8,
-          "trumpet_maker_school": 0.9600000000000001
+          "trumpet_bell_metal": 0.845,
+          "trumpet_maker_school": 0.7799999999999998
         }
       },
       {

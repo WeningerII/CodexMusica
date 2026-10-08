@@ -5,7 +5,7 @@
   "lineage": "Andalusian dance-song derived from the Castilian seguidilla and fixed in its modern four-copla form in nineteenth-century Seville, becoming the mass repertoire of the Feria de Abril and the El Rocío pilgrimage — a bright 3/4 at about 120-140 beats per minute in four short linked coplas each danced as a separate figure, with strummed nylon-string guitar rasgueado, palmas, castanets and paired male-female or group vocals in parallel thirds.",
   "recipe": "classic Iberian early-1950s sevillanas, functional Song, iberian branch, European wedding, European carnival processional trikiti cologne karneval. thick, breath veiled tone, straight onset, interlocked note trading. cedar concert modern carbon fiber fan strum classical nylon-string cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, snappy to palm hand clap, traditional iberian pomegranate wood castanets, open back Afro peruvian tradition festejo tradition cajon peruano. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 674,
-  "score": 149.41,
+  "score": 149.515,
   "config": {
     "traditions": [
       "sevillanas",
@@ -24,7 +24,7 @@
           "attack_technique_cl": "rasgueado_cl"
         },
         "scores": {
-          "acoustic_technique": 0.975,
+          "acoustic_technique": 1.02,
           "string_tuning": 0,
           "top_wood_classical": 10.009999999999998,
           "bracing_classical": 1.2349999999999997,
@@ -53,7 +53,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 2.7249999999999996,
+          "voice_register": 2.5749999999999997,
           "voice_quality": 11.764999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -66,7 +66,7 @@
           "voice_speech_song": 20.085,
           "voice_ensemble_config": 17.16,
           "voice_ornament_system": 6.125,
-          "voice_pitch_organization": 8.23,
+          "voice_pitch_organization": 8.275,
           "voice_processing_chain": 3.425,
           "voice_multitrack_stack": 2.8600000000000008
         }
@@ -89,7 +89,7 @@
           "castanets_mounting": "castanets_palillos"
         },
         "scores": {
-          "castanets_material": 2.24,
+          "castanets_material": 2.4050000000000002,
           "castanets_mounting": 2.74
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Ceremonial music of the court of the sultan (alifa) of Kanem at Mao, in the Sahelian court tradition of Kanem-Bornu, whose royal ensembles combine long metal trumpets, shawms and drums; Monique Brandily's recordings of the sultan's orchestra are held in the CREM archive. The kakaki, the Kanuri-form algaita and a generic drum card represent the ensemble.",
   "recipe": "classic modern kanem sultan's orchestra, praise Song, sub saharan African branch. call ritual kakaki, ceremonial praise driven algaita, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 268,
-  "score": 21.303,
+  "score": 20.988,
   "config": {
     "traditions": [
       "kanem_sultan_orchestra"
@@ -20,10 +20,10 @@
           "kakaki_bell_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 4.103,
-          "kakaki_length": 4.9405,
+          "wind_articulation": 3.6830000000000003,
+          "kakaki_length": 5.077,
           "kakaki_context": 0,
-          "kakaki_bell_metal": 0.063
+          "kakaki_bell_metal": 0.0315
         }
       },
       {
@@ -34,9 +34,9 @@
           "algaita_reed": "algaita_cane_reed"
         },
         "scores": {
-          "algaita_form": 3.75,
+          "algaita_form": 3.7815,
           "algaita_context": 3.5100000000000002,
-          "algaita_reed": 0.2815
+          "algaita_reed": 0.25
         }
       },
       {

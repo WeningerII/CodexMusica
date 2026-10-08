@@ -5,7 +5,7 @@
   "lineage": "Gaana is the street song of the working-class, largely Dalit neighbourhoods of North Chennai, sung at funerals, festivals and neighbourhood gatherings in colloquial Madras Tamil, its verses often improvised and full of wordplay. Singers perform over driving hand percussion; from the 1990s gaana songs entered Tamil film soundtracks, and Gaana Bala and The Casteless Collective, a band brought together by the Neelam Cultural Centre, carried it to wider audiences. The hand-drum card stands in for the assorted street percussion.",
   "recipe": "classic mid-1990s gaana, functional Song, south Asian pop branch. solo with instrumental accompaniment. dholak, hand drum source unspecified. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 221,
-  "score": 5.39,
+  "score": 4.876,
   "config": {
     "traditions": [
       "gaana_chennai"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.5225000000000002,
+          "voice_ensemble_config": 1.6905000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -61,10 +61,10 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.5145,
+          "dholak_use": 0.378,
           "dholak_construction": -0.035,
-          "dholak_head": 0.9239999999999999,
-          "dholak_tensioning": 0.9239999999999999
+          "dholak_head": 0.651,
+          "dholak_tensioning": 0.651
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Algerian wedding music brings regional song traditions into celebrations, from Chaâbi and Hawzi to Kabyle, Chaoui and contemporary popular repertories. Performers adapt ensemble size and repertoire to families and different stages of the festivities.",
   "recipe": "classic musique mariage algérien, wedding. solo with instrumental accompaniment. upright piano, bendir, qanun. live tracking.",
   "recipe_chars": 125,
-  "score": 4.163,
+  "score": 4.187,
   "config": {
     "traditions": [
       "musique_mariage_algerien"
@@ -61,7 +61,7 @@
         },
         "scores": {
           "keyboard_technique": -0.09250000000000001,
-          "upright_use": 0.007499999999999999,
+          "upright_use": 0.031875,
           "upright_piano_size": 0
         }
       },

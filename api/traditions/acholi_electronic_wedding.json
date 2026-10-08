@@ -5,7 +5,7 @@
   "lineage": "Electronic dance music of Gulu, northern Uganda, made in small studios for weddings and parties. From the early 2000s the singer Otim Alpha and the producer Leo Palayeng reworked larakaraka and other Acholi wedding songs on computer software, setting them to drum-machine beats and keyboards at high tempos, and later Gulu producers followed; from 2017 Nyege Nyege Tapes releases brought the style to international audiences.",
   "recipe": "classic 2000-2003 acholi electronic wedding music, electronic Dance, African dance branch. credited drum machine electronic keyboard unspecified. tin roofed shack. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 262,
-  "score": 3.898,
+  "score": 3.73,
   "config": {
     "traditions": [
       "acholi_electronic_wedding"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.03712499999999999,
-          "voice_multitrack_stack": 0.3045,
+          "voice_multitrack_stack": 0.16799999999999998,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "credited_drum_machine_generator": 0,
-          "credited_drum_machine_pattern": 0.223875,
+          "credited_drum_machine_pattern": 0.192375,
           "credited_drum_machine_interface": 0
         }
       },

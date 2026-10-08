@@ -5,7 +5,7 @@
   "lineage": "Czech and Slovak emo rap connects confessional writing with the region’s independent rap and alternative-music networks. Local-language releases and cross-border radio sessions bring emotionally direct rap into contact with punk, electronic music and melodic pop.",
   "recipe": "classic czsk emo rap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
   "recipe_chars": 165,
-  "score": 20.686,
+  "score": 20.833,
   "config": {
     "traditions": [
       "czsk_emo_rap"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 16.808,
+          "voice_speech_song": 16.955,
           "voice_ensemble_config": 3.3799999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

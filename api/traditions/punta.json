@@ -1,26 +1,27 @@
 {
-  "id": "punta",
-  "name": "Punta (Honduras Garifuna traditional)",
+  "id": "punta_garifuna",
+  "merged_from": "punta",
+  "name": "Punta (Garifuna)",
   "family": "global",
-  "lineage": "Garifuna wake-and-celebration dance of the Honduran and Belizean coast, sung in Garifuna at a brisk 2/4 with the segunda drum holding a steady low pulse against the primero's improvised high strokes, sisira shakers, hand-clapping and a woman lead singer answered by chorus, the fertility-themed hip-driven dance performed at beluria wakes and at community festivals.",
-  "recipe": "classic early-1940s punta, groove Percussion, Caribbean branch, African diasporic funeral lament, Afro-diasporic ritual devotional maloya candomblé ritual music. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, brisk ka drum, boula, traditional gourd calabash maracas, call ritual conch shell horn, foot stomp. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 595,
-  "score": 177.683,
+  "lineage": "Garifuna (Black-Carib) Honduran-Belizean-Guatemalan-Nicaraguan Caribbean-coast Afro-Amerindian song-and-dance tradition descended from the 1797 British-deportation of the surviving Carib-Arawak-Afro-Caribbean people from St-Vincent to Roatan-island (now eastern-Caribbean-coast Central-America). The canonical punta ensemble: three garaon barrel-drums (primero high-improvisation, segunda middle-rhythm, tercera bass-drum) with maracas (sisira), conch-shell-trumpet, and call-and-response female-vocal-leadership. The 2/4 rapid-tempo punta-rhythm accentuates the dance characterized by virtuosic hip-and-glute movement. (under the broader Garifuna language-music-and-dance category). The 1980s-onward punta-rock electrified-and-commercialized variant brought guitar-and-keyboard to the genre.",
+  "recipe": "classic Caribbean mid-1980s punta, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, breath veiled tone, straight note core, interlocked note trading. log drum, maracas, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, interlocking celebratory fast hardwood shell deerskin head garaon. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 540,
+  "score": 232.979,
   "config": {
     "traditions": [
-      "punta",
-      "maloya",
-      "candomble"
+      "punta_garifuna",
+      "chouval_bwa",
+      "plena_puertorican"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -29,126 +30,123 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.3145,
-          "voice_quality": 11.764999999999993,
+          "voice_register": 3.570000000000001,
+          "voice_quality": 19.889999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.3545,
-          "voice_articulation": 16.119999999999997,
-          "voice_microtone": 15.729999999999993,
-          "voice_tradition": 14.754999999999999,
-          "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 3.8445000000000005,
-          "voice_speech_song": 16.379999999999995,
-          "voice_ensemble_config": 16.834999999999994,
-          "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 3.29,
-          "voice_processing_chain": 5.85,
-          "voice_multitrack_stack": 2.535
+          "voice_vibrato": 1.365,
+          "voice_articulation": 17.029999999999998,
+          "voice_microtone": 18.849999999999994,
+          "voice_tradition": 10.985,
+          "voice_mechanism_compound": 2.0799999999999996,
+          "voice_estill_quality": 4.335,
+          "voice_speech_song": 19.824999999999996,
+          "voice_ensemble_config": 18.914999999999996,
+          "voice_ornament_system": 6.075,
+          "voice_pitch_organization": 1.7449999999999999,
+          "voice_processing_chain": 3.5750000000000006,
+          "voice_multitrack_stack": 3.380000000000001
+        }
+      },
+      {
+        "id": "log_drum",
+        "slots": {
+          "log_drum_voice": "log_drum_mid",
+          "log_drum_context": "log_drum_sa_house"
+        },
+        "scores": {
+          "log_drum_voice": 0.65,
+          "log_drum_context": 5.3205
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_plastic",
+          "maracas_filling": "maracas_beads"
+        },
+        "scores": {
+          "maracas_construction": 0.65,
+          "maracas_filling": 0.65
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 9.879999999999999,
-          "choir_polyphonic_configuration": 2.145,
-          "choir_regional_canonical_configuration": 8.319999999999999,
+          "choir_size": 5.9799999999999995,
+          "choir_polyphonic_configuration": 4.34,
+          "choir_regional_canonical_configuration": 3.445,
           "choir_ensemble_repertoire": 3.9
         }
       },
       {
-        "id": "ka_drum",
+        "id": "garaon",
         "slots": {
-          "ka_voice": "ka_boula_voice",
-          "ka_rhythm": "ka_grage",
-          "ka_build": "ka_carved"
+          "garaon_drum": "garaon_cuerda",
+          "garaon_repertoire": "garaon_punta",
+          "garaon_build": "garaon_mahogany_deerskin"
         },
         "scores": {
-          "ka_voice": 0.195,
-          "ka_rhythm": 1.09,
-          "ka_build": 0.15
-        }
-      },
-      {
-        "id": "boula",
-        "slots": {
-          "boula_tradition": "boula_haitian_rada",
-          "boula_head": "boula_goatskin_rope"
-        },
-        "scores": {
-          "boula_tradition": 3.575,
-          "boula_head": 0
-        }
-      },
-      {
-        "id": "maracas",
-        "slots": {
-          "maracas_construction": "maracas_gourd",
-          "maracas_filling": "maracas_seeds"
-        },
-        "scores": {
-          "maracas_construction": 1.09,
-          "maracas_filling": 1
-        }
-      },
-      {
-        "id": "conch_shell_horn",
-        "slots": {
-          "wind_articulation": "wind_call_blowing",
-          "conch_use": "conch_andean",
-          "conch_shell_horn_region": "conch_shell_horn_polynesian"
-        },
-        "scores": {
-          "wind_articulation": 6.825,
-          "conch_use": 1.345,
-          "conch_shell_horn_region": 16.314999999999998
-        }
-      },
-      {
-        "id": "foot_stomp",
-        "slots": {
-          "stomp_footwear": "stomp_bare_foot",
-          "stomp_surface": "stomp_wood_stage"
-        },
-        "scores": {
-          "stomp_footwear": 0,
-          "stomp_surface": 0
+          "garaon_drum": 46.9235,
+          "garaon_repertoire": 20.049999999999997,
+          "garaon_build": 10.75
         }
       }
     ],
-    "room": "field_recording",
-    "archetype": "arch_nagra_ethnographic_field",
+    "room": "havana_solar_outdoor_courtyard",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
-      "console": "console_in_the_box",
+      "console": "clean",
       "comp": null,
       "eq": null,
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "equal_heptatonic_west_african",
+    "tuning": "rumba_clave_3_2",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "equal_heptatonic_west_african",
-    "room": "field_recording",
+    "tuning": "rumba_clave_3_2",
+    "room": "havana_solar_outdoor_courtyard",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "praise_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "yoruba_tonal_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "choir_size": "chamber_choir",
+      "choir_ensemble_repertoire": "choir_ensemble_global_traditional",
+      "log_drum_voice": "log_drum_mid",
+      "log_drum_context": "log_drum_sa_house",
+      "maracas_construction": "maracas_gourd",
+      "maracas_filling": "maracas_seeds"
+    },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_console": "clean"
   }
 }

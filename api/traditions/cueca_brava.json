@@ -3,9 +3,9 @@
   "name": "Cueca brava (Santiago urban cueca chilenera)",
   "family": "global",
   "lineage": "Urban cueca of the markets, slaughterhouse district and taverns of Santiago and Valparaíso, also called cueca chilenera or centrina, sung by men in a harder, faster and more ornamented style than the rural huaso cueca, to piano, guitar, accordion and pandero (tambourine) with hand claps. Los Chileneros, founded by Hernán 'Nano' Núñez, recorded the style's first LP, La cueca centrina, and Roberto Parra wrote and sang in the style; young Santiago groups such as Los Trukeros revived it around the turn of the twenty-first century in bars and fondas.",
-  "recipe": "classic modern cueca brava, ballad Poetry, Latin am troubadour branch. upright piano, classical nylon-string guitar, accordion, pandero source unspecified, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 246,
-  "score": 3.24,
+  "recipe": "classic modern cueca brava, ballad Poetry, Latin am troubadour branch. unprocessed natural acoustic. upright piano, classical nylon-string guitar, accordion, pandero source unspecified, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 276,
+  "score": 2.994,
   "config": {
     "traditions": [
       "cueca_brava"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.36750000000000005,
+          "voice_ensemble_config": 0.336,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.441,
-          "voice_multitrack_stack": 0.231,
+          "voice_processing_chain": 0.714,
+          "voice_multitrack_stack": 0.1995,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "upright_use": 0.429,
+          "upright_use": 0.2925,
           "upright_piano_size": 0.0315
         }
       },
@@ -79,9 +79,9 @@
           "acoustic_technique": 0.2,
           "string_tuning": 0,
           "top_wood_classical": 0.168,
-          "bracing_classical": 0.273,
+          "bracing_classical": 0.1365,
           "string_classical": 0,
-          "attack_technique_cl": -0.035
+          "attack_technique_cl": -0.05
         }
       },
       {
@@ -100,7 +100,7 @@
           "accordion_reed_material": 0,
           "musette_offset": 0,
           "reed_config": 0.105,
-          "bellows": 0.1365,
+          "bellows": 0,
           "voicing_chamber": 0.7,
           "accordion_maker_school": 0
         }
@@ -111,7 +111,7 @@
           "pandero_source_unspecified_identity": "pandero_source_unspecified_named_role"
         },
         "scores": {
-          "pandero_source_unspecified_identity": 0.0315
+          "pandero_source_unspecified_identity": 0
         }
       },
       {

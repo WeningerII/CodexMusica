@@ -5,7 +5,7 @@
   "lineage": "Carnival tradition of Recife and the Pernambuco Zona da Mata in which groups costumed as Indigenous warriors dance in rows to a small terno; IPHAN has registered it as Brazilian cultural heritage. The terno combines a small cane pipe (gaita), a shaker (caracaxá) and a bass drum, while the dancers click wooden bow-and-arrow preacás in rhythm. The credited bamboo-flute card stands in for the gaita, the surdo for the bass drum, a source-unspecified shaker for the caracaxá and palitos for the preacás.",
   "recipe": "classic modern caboclinho, carnival Processional, Brazilian branch. bamboo credited bamboo flute shaker source unspecified, surdo, palitos. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 219,
-  "score": 2.302,
+  "score": 2.092,
   "config": {
     "traditions": [
       "caboclinho_pernambucano"
@@ -42,8 +42,8 @@
         },
         "scores": {
           "surdo_size": 0,
-          "surdo_skin": 0.2415,
-          "surdo_shell": 0.2415
+          "surdo_skin": 0.1365,
+          "surdo_shell": 0.1365
         }
       },
       {

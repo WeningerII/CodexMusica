@@ -1,50 +1,172 @@
 {
-  "id": "soulful_house",
-  "name": "Soulful House",
-  "family": "electronic",
-  "lineage": "Soulful house connects house rhythms with soul and gospel singing, jazz-derived harmony and producer-DJ communities. Labels, vocalists and musicians sustain the field through releases, remixes and dance-floor programmes.",
-  "recipe": "classic soulful house, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 101,
-  "score": 0.3,
+  "id": "deep_house_soulful",
+  "merged_from": "soulful_house",
+  "name": "Deep house (soulful)",
+  "family": "global",
+  "lineage": "Soulful-jazz house sub-style codified through 1990s New York and New Jersey production — Kerri Chandler, Masters at Work, Blaze, and Kenny Bobien (vocalist), extending the 1980s Chicago deep-house template of Larry Heard / Mr. Fingers — characterized by jazz-chord harmonic vocabulary, gospel-soul vocal performances, and warm analog-instrument production aesthetic",
+  "recipe": "classic Asian mid-1990s deep house, electronic Dance, deep house branch, soul R&B functional song doo-wop souldies. thick, blues-shouter, straight onset, interlocked note trading. gospel runs rhodes electric, singing lead digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 487,
+  "score": 337.86,
   "config": {
     "traditions": [
-      "soulful_house"
+      "deep_house_soulful",
+      "doo_wop",
+      "souldies"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "voice",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.3
+          "voice_register": 31.104999999999993,
+          "voice_quality": 17.779999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.614999999999998,
+          "voice_articulation": 18.979999999999997,
+          "voice_microtone": 18.979999999999997,
+          "voice_tradition": 21.375,
+          "voice_mechanism_compound": 1.95,
+          "voice_estill_quality": 20.539999999999992,
+          "voice_speech_song": 23.399999999999995,
+          "voice_ensemble_config": 18.914999999999992,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 2.665000000000001,
+          "voice_processing_chain": 10.735,
+          "voice_multitrack_stack": 6.305
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 20.34,
+          "rhodes_model": 7.324999999999999,
+          "rhodes_use": 6.89,
+          "rhodes_tine_material": -0.98,
+          "rhodes_hammer_tip": -0.2100000000000002,
+          "rhodes_pickup_position": 0.975
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 4.329999999999999,
+          "va_archetypes": 1.24,
+          "digital_subtractive_context": 20.214999999999996
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 18,
+          "drum_machine_909_context": 1.95,
+          "tr909_production_origin": 1.2349999999999999
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 2.7299999999999995,
+          "sampler_bit_depth": 1.755,
+          "sampler_workflow": 0.4875,
+          "sampler_classic_context": 50.44
         }
       }
     ],
-    "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ]
-    },
-    "room": "live_room",
+    "room": "treated_studio",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": null
+      "medium": "digital_std"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "keyboard_technique": "keyboard_gospel_chord_runs",
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_soul",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_house",
+      "tr909_production_origin": "tr909_roland_osaka_canonical",
+      "electronic_technique": "electronic_bass_sub",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance"
     },
-    "pin_parts": true
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
   }
 }

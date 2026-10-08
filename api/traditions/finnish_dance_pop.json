@@ -5,7 +5,7 @@
   "lineage": "Finnish-language dance-pop represented by Antti Tuisku’s En kommentoi period and Peto on irti. The authored production combines a sung lead and overdubbed backing with a keyboard synthesizer and sampled programmed rhythm, following credited keyboard/programming/vocal roles. Exact synthesizer and sampler types are contemporary design choices. Separately credited human handclaps remain a distinct body-percussion instrument rather than being silently relabeled as drum samples.",
   "recipe": "classic modern finnish dance pop, functional Song, europop branch. one note per syllable, solo with instrumental accompaniment, lead plus third fifth harmony stack 3 part. plucked short envelope wavetable synth, sampler drum machine, hand clap. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 390,
-  "score": 16.7,
+  "score": 16.668,
   "config": {
     "traditions": [
       "finnish_dance_pop"
@@ -88,7 +88,7 @@
         },
         "scores": {
           "clap_technique": 0.12999999999999998,
-          "clap_capture": 0.063
+          "clap_capture": 0.0315
         }
       }
     ],

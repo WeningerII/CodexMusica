@@ -5,7 +5,7 @@
   "lineage": "Puerto Rican politically committed song movement of the late 1960s and 1970s, tied to the independence movement and university circles in San Juan. Singers such as Roy Brown and Andrés Jiménez and the group Haciendo Punto en Otro Son set topical texts to guitar and the cuatro, drawing on jíbaro forms such as the seis and aguinaldo, and early albums of the movement appeared on the independent Disco Libre label.",
   "recipe": "classic Caribbean 1967-1969 nueva trova puertorriqueña, protest Song, iberian Latin branch. acoustic guitar, mahogany puerto rican traditional cuatro pr, guiro, upright bass. treated studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
   "recipe_chars": 307,
-  "score": 6.034,
+  "score": 5.747,
   "config": {
     "traditions": [
       "nueva_trova_puertorriquena"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.310875,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.27375,
+          "voice_multitrack_stack": 0.01125,
           "voice_tessitura": 0
         }
       },
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0.328875,
-          "back_sides": 0.363,
+          "top_wood": 0.316125,
+          "back_sides": 0.3315,
           "string_acoustic": 0,
-          "acoustic_om_technique": 0.325
+          "acoustic_om_technique": 0.309625
         }
       },
       {
@@ -81,8 +81,8 @@
         "scores": {
           "plucked_traditional_technique": 0.325,
           "cuatro_pr_config": -1.55,
-          "cuatro_pr_context": 0.43462499999999993,
-          "cuatro_pr_body_wood": 4.100125,
+          "cuatro_pr_context": 0.255375,
+          "cuatro_pr_body_wood": 4.063,
           "cuatro_pr_string_material": 0
         }
       },
@@ -93,7 +93,7 @@
           "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "guiro_origin": -0.05,
+          "guiro_origin": -0.035,
           "guiro_striker": 0.0315
         }
       },

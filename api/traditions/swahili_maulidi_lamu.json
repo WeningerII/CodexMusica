@@ -5,7 +5,7 @@
   "lineage": "Devotional poetry in Swahili and Arabic honouring the birth of the Prophet Muhammad, sung along the Kenyan coast and above all during the annual Maulidi festival of Lamu, which centres on the town's Riyadha mosque. Some forms, such as maulidi ya homu, set lead singers against a responding male chorus over frame drums, and kasida hymns belong to the same repertoire; the frame-drum card stands in for the local frame drums.",
   "recipe": "classic modern maulidi, ritual Devotional, islamic branch. credited frame drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 160,
-  "score": -0.161,
+  "score": -0.192,
   "config": {
     "traditions": [
       "swahili_maulidi_lamu"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0945,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },

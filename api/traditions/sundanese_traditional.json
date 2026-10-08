@@ -5,7 +5,7 @@
   "lineage": "West Javanese Sundanese repertoire complex — tembang Sunda cianjuran vocal poetry codified in mid-19th-century Cianjur under Bupati R.A.A. Kusumahningrat, gamelan degung, and kacapi-suling chamber music — marked by free-rhythm mamaos vocal lines over zither ostinato, breathy end-blown suling ornament, and pentatonic laras pelog/degung and salendro tunings, with kendang-driven jaipongan and bamboo angklung as its rural and popular offshoots.",
   "recipe": "classic Southeast Asian modern sundanese traditional, art Music, southeast Asian branch, string drone modal, med east poetic ballad poetry balochi folk kazakh traditional music. vocal fry, breath veiled tone, slow rate, interlocked note trading. flat bodied pentatonic kacapi, bamboo rattan band fipple canonical javanese balinese suling, gamelan foundational carved hardwood canonical javanese goat skin canonical javanese silk pre modern gamelan drone like rebab, gamelan sundanese jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, bonang, pentatonic pale bamboo angklung. javanese pendopo pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 724,
-  "score": 208.99,
+  "score": 209.53,
   "config": {
     "traditions": [
       "sundanese_traditional",
@@ -22,9 +22,9 @@
           "kacapi_construction": "kacapi_sawo_brass"
         },
         "scores": {
-          "kacapi_form": 8.540000000000001,
+          "kacapi_form": 8.495000000000001,
           "kacapi_repertoire": 8.15,
-          "kacapi_laras": 1.45,
+          "kacapi_laras": 1.645,
           "kacapi_construction": 0.15
         }
       },
@@ -96,7 +96,7 @@
           "angklung_bamboo": "angklung_awi_temen"
         },
         "scores": {
-          "angklung_form": 9.069999999999999,
+          "angklung_form": 9.264999999999999,
           "angklung_playing": 0.12999999999999998,
           "angklung_bamboo": 1.0999999999999999
         }
@@ -135,7 +135,7 @@
           "voice_speech_song": 20.279999999999998,
           "voice_ensemble_config": 21.904999999999998,
           "voice_ornament_system": 3.175,
-          "voice_pitch_organization": 8.709999999999999,
+          "voice_pitch_organization": 8.905,
           "voice_processing_chain": 5.069999999999999,
           "voice_multitrack_stack": 5.46
         }

@@ -5,7 +5,7 @@
   "lineage": "The fulía is the Afro-Venezuelan devotional song of the velorio de Cruz de Mayo, the all-night May wake held before a decorated cross, sung above all in Barlovento and the coastal towns of Miranda and also in Sucre and on Margarita. A solo singer gives out a copla or décima and the gathering answers with a refrain, over cuatro, maracas and a small drum, and groups such as Un Solo Pueblo brought fulías to records from the late 1970s. The membrane-drum card stands in for the fulía drum.",
   "recipe": "classic 1977-1979 fulía, ritual Devotional, Afro-diasporic branch, Latin am troubadour ballad poetry. unprocessed natural acoustic. cedar canonical Venezuelan cuatro venezolano, maracas, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 319,
-  "score": 13.545,
+  "score": 13.02,
   "config": {
     "traditions": [
       "fulia_velorio_de_cruz"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.6299999999999999,
-          "voice_multitrack_stack": 0.33,
+          "voice_processing_chain": 1.02,
+          "voice_multitrack_stack": 0.28500000000000003,
           "voice_tessitura": 0
         }
       },
@@ -74,8 +74,8 @@
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 0.195,
-          "maracas_filling": 0.195
+          "maracas_construction": 0,
+          "maracas_filling": 0
         }
       },
       {
@@ -85,8 +85,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 5.034999999999999,
-          "acoustic_membrane_drum_gesture": 4.034999999999999
+          "acoustic_membrane_drum_form": 4.795,
+          "acoustic_membrane_drum_gesture": 3.7949999999999995
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Ceremonial chanting of the Vesîletü'n-Necât, the Turkish verse poem on the birth of the Prophet Muhammad completed by Süleyman Çelebi in Bursa in the early fifteenth century, performed in mosques and homes on the Prophet's birthday and holy nights, at births, and at memorials for the dead. Trained mevlidhan reciters take up its sections in turn, unaccompanied, moving through a succession of makams, with Qur'an recitation, prayers and ilahi hymns between the sections.",
   "recipe": "classic modern mevlid, ritual Devotional, islamic branch. solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 157,
-  "score": 2.238,
+  "score": 2.206,
   "config": {
     "traditions": [
       "mevlid_turkish"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.9660000000000002,
+          "voice_ensemble_config": 1.9345,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

@@ -5,7 +5,7 @@
   "lineage": "Blackened hardcore combines hardcore’s direct ensemble attack with black-metal-derived guitar texture.",
   "recipe": "classic blackened hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, soft attack transient modern metal basswood electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 394,
-  "score": 31.156,
+  "score": 31.02,
   "config": {
     "traditions": [
       "blackened_hardcore"
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.912,
-          "drumhead": 0.273,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },

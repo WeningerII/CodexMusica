@@ -5,7 +5,7 @@
   "lineage": "Shima-uta of the Amami Islands, between Kyushu and Okinawa, are sung at gatherings and in song exchanges to a sanshin played with a thin bamboo plectrum, with a chijin drum and the answering calls of listeners. Singers flip between chest voice and a high falsetto break called guin, and much of the repertoire uses a scale closer to mainland min'yō than to the Okinawan Ryūkyū scale. Local masters were recorded by the Central Gakki label in Naze. The membrane-drum card stands in for the chijin.",
   "recipe": "classic modern amami shima-uta, field Work, east Asian branch. solo with instrumental accompaniment, single lead single track no stacking. song accompaniment bamboo sliver sanshin, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 313,
-  "score": 17.786,
+  "score": 17.754,
   "config": {
     "traditions": [
       "amami_shimauta"
@@ -61,7 +61,7 @@
           "sanshin_plectrum": "sanshin_bamboo_stick"
         },
         "scores": {
-          "sanshin_kata": 1.7316250000000002,
+          "sanshin_kata": 1.700125,
           "sanshin_repertoire": 2.6,
           "sanshin_skin": -0.035,
           "sanshin_plectrum": 2.2630000000000003

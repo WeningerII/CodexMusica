@@ -5,7 +5,7 @@
   "lineage": "Devotional song of the nineteenth-century Swedish revival and free-church movements, whose core repertoire was written by Lina Sandell and set by Oscar Ahnfelt, who sang the songs to his own guitar (the parlour-guitar card stands in for his ten-string guitar), and which spread through mission-house songbooks such as Pilgrimsharpan. Einar Ekberg's 78 rpm records are among its best-known recordings.",
   "recipe": "classic väckelsesång, ritual Devotional. solo with instrumental accompaniment, single lead single track no stacking. parlor acoustic guitar. country church. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 239,
-  "score": 2.22,
+  "score": 2.377,
   "config": {
     "traditions": [
       "swedish_vackelsesang"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.26,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.7769999999999999,
+          "voice_processing_chain": 0.23099999999999998,
+          "voice_multitrack_stack": 0.8084999999999999,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
           "string_acoustic_parlor": "dutar_strings_unspecified"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood_parlor": 0.147,
           "back_sides_parlor": 0,

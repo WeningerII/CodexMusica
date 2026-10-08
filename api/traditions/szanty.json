@@ -3,9 +3,9 @@
   "name": "Szanty",
   "family": "vernacular",
   "lineage": "The Polish sailor-song movement that emerged from Baltic yacht clubs and student sailing culture in the 1970s-80s, institutionalised by the Shanties festival in Krakow (from 1981) and by groups such as Stare Dzwony, Mechanicy Shanty, Perły i Łotry and Ryczące Dwudziestki; sung in Polish - part translated Anglo-American repertoire, part newly composed - at driving 4/4 or 6/8 tempos with strummed acoustic guitars, accordion, fiddle and a shouted unison male chorus, closer to campfire student song (piosenka turystyczna) than to shipboard labour practice.",
-  "recipe": "classic Central European mid-1970s szanty, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, Slavic bard ballad poetry russian chanson. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, narrative fingerpicked dreadnought acoustic guitar, castagnari Italian premium folk music straight accordion, double stops fiddle, half rectified brazilwood student tier double bass. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 754,
-  "score": 189.747,
+  "recipe": "classic Central European mid-1970s szanty, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, Slavic bard ballad poetry russian chanson. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part heterophonic same melody variant ornament per voice sardinian cantu a tenore oche mesu contra bassu choir ensemble, narrative fingerpicked dreadnought acoustic guitar, castagnari Italian premium folk music straight accordion, double stops fiddle, half rectified brazilwood student tier double bass. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 774,
+  "score": 190.337,
   "config": {
     "traditions": [
       "szanty",
@@ -49,20 +49,20 @@
           "voice_ornament_system": 1.0074999999999996,
           "voice_pitch_organization": 2.0799999999999996,
           "voice_processing_chain": 5.9799999999999995,
-          "voice_multitrack_stack": 5.565000000000001
+          "voice_multitrack_stack": 5.610000000000001
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_polyphonic_configuration": "choir_polyphony_heterophonic",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 10.704500000000001,
-          "choir_polyphonic_configuration": 1.71,
+          "choir_size": 10.9295,
+          "choir_polyphonic_configuration": 1.4949999999999999,
           "choir_regional_canonical_configuration": 3.9,
           "choir_ensemble_repertoire": 1.4949999999999999
         }
@@ -77,11 +77,11 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 8.27,
+          "acoustic_technique": 8.555,
           "string_tuning": 1.6499999999999997,
           "top_wood": 0.105,
           "back_sides": 0.105,
-          "string_acoustic": 0.195
+          "string_acoustic": 0.24
         }
       },
       {
@@ -96,12 +96,12 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 4.245,
-          "accordion_reed_material": 0.3,
-          "musette_offset": 2.715,
+          "free_reed_technique": 4.29,
+          "accordion_reed_material": 0.345,
+          "musette_offset": 2.76,
           "reed_config": 0.3,
-          "bellows": 0,
-          "voicing_chamber": 0.21,
+          "bellows": 0.045,
+          "voicing_chamber": 0.255,
           "accordion_maker_school": 1.4949999999999999
         }
       },
@@ -109,17 +109,17 @@
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_bluegrass_double_stops",
-          "fiddle_strings": "gut_wound",
+          "fiddle_strings": "plain_lamb_gut_fiddle",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "rubber_mute",
+          "fiddle_mute": "practice_mute",
           "fiddle_articulation": "sul_pont",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 5.6000000000000005,
-          "fiddle_strings": 0.24,
-          "fiddle_bow": 0,
-          "fiddle_mute": 0.21,
+          "fiddle_strings": 0.12999999999999998,
+          "fiddle_bow": 0.045,
+          "fiddle_mute": 0.105,
           "fiddle_articulation": 0.6,
           "fiddle_string_configuration": 0
         }
@@ -141,7 +141,7 @@
         "scores": {
           "bowed_technique": 0.12999999999999998,
           "bass_size": 0.15,
-          "bass_strings": 3.09,
+          "bass_strings": 3.2399999999999998,
           "bass_top_wood": 0.39,
           "bass_back_wood": 0.52,
           "bass_varnish": -0.05,

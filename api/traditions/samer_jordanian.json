@@ -5,7 +5,7 @@
   "lineage": "Evening wedding and celebration performance of Jordan's Bedouin and rural communities, in which rows of men facing each other clap and sway while chanting alternating verses led by a poet, sometimes with a dancer moving between them; the related sahja is sung in northern Palestine. UNESCO inscribed As-Samer in Jordan on the Representative List in 2018.",
   "recipe": "classic late-2010s as-sāmer, wedding, middle eastern branch. two spatially opposed choirs. hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 181,
-  "score": 2.122,
+  "score": 2.059,
   "config": {
     "traditions": [
       "samer_jordanian"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4859999999999998,
+          "voice_ensemble_config": 1.423,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21,

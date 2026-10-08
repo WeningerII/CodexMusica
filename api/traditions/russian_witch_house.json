@@ -5,7 +5,7 @@
   "lineage": "A Russian witch-house discovery cluster whose roster includes IC3PEAK, CHVRN, Summer Of Haze and Fraunhofer Diffraction. The selected 2010s–2020 electronic branch is represented by IC3PEAK’s contrast between floating synthesizers, heavy 808-type beats and a lead voice moving between high singing and harsher delivery.",
   "recipe": "classic mid-2010s russian witch house, experimental Elec, ambient branch. solo with instrumental accompaniment, hall reverb long decay cinematic, single lead single track no stacking. TR-808, pad like pad analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 422,
-  "score": 11.717,
+  "score": 12.106,
   "config": {
     "traditions": [
       "russian_witch_house"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.819,
+          "voice_ensemble_config": 0.6825000000000001,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.7455,
+          "voice_pitch_organization": 0.105,
+          "voice_processing_chain": 1.0185,
           "voice_multitrack_stack": 1.3
         }
       },
@@ -59,8 +59,8 @@
         },
         "scores": {
           "tr808_voice": -0.035,
-          "drum_machine_808_context": 0.3465,
-          "tr808_production_origin": 0.1785
+          "drum_machine_808_context": 0.42,
+          "tr808_production_origin": 0.252
         }
       },
       {

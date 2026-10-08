@@ -5,7 +5,7 @@
   "lineage": "Liturgical chant of the Georgian Orthodox Church, sung in an indigenous three-part polyphony and handed down orally through regional schools such as those of Gelati in Imereti, Shemokmedi in Guria and the Kartli-Kakhetian tradition associated with the Karbelashvili family. Chanters including the Karbelashvili brothers transcribed large parts of the repertoire into staff notation, and after Soviet-era suppression church choirs revived the chant from these transcriptions.",
   "recipe": "classic modern galoba, ritual Devotional, christian gospel branch. three independent lines, pure fifth anchored chords. archaic choir georgian polyphonic. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 232,
-  "score": 30.498,
+  "score": 30.387,
   "config": {
     "traditions": [
       "georgian_galoba_chant"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.940000000000001,
+          "voice_ensemble_config": 4.7555000000000005,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 4.9,
           "voice_processing_chain": 0,
@@ -61,7 +61,7 @@
         },
         "scores": {
           "choir_georgian_polyphonic_style": 4.9,
-          "choir_georgian_polyphonic_context": 10.535,
+          "choir_georgian_polyphonic_context": 10.6085,
           "choir_georgian_polyphonic_voices": 5.0865
         }
       }

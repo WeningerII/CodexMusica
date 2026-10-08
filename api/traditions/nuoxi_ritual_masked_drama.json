@@ -5,7 +5,7 @@
   "lineage": "Music of nuo, the masked exorcistic ritual drama of southwest and central China, including the nuo rites of Guizhou, the dixi masked drama of Anshun and the Nanfeng nuo dances of Jiangxi, several of which entered China's national intangible heritage list in 2006. Masked performers sing and chant in local dialect to gong and drum, with cymbals in many troupes; in Anshun dixi a single gong and drum accompany a lead singer whose line endings the group takes up.",
   "recipe": "classic mid-2000s nuoxi, ritual Devotional. single leader group response, single lead single track no stacking. gong chau gong tamtam, membrane drum pulse resonant acoustic membrane drum, naobo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 274,
-  "score": 12.962,
+  "score": 13.056,
   "config": {
     "traditions": [
       "nuoxi_ritual_masked_drama"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 2.7440000000000007,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 2.6,
           "voice_tessitura": 0
         }

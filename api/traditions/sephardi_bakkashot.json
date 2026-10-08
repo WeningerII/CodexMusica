@@ -3,14 +3,14 @@
   "name": "Sephardi bakkashot",
   "family": "global",
   "lineage": "Sephardi Jewish Saturday-night-into-pre-dawn-Sunday-morning supplicatory liturgical-poetry singing tradition performed during the autumn-and-winter months — built on Arab maqam-derived modal vocabulary, classical Arabic and Hebrew poetic structures (piyyutim by Yehuda Halevi, Ibn Gabirol, Israel Najara), with the Aleppo Syrian school (the dominant Eastern Sephardi tradition until the 1947 dispersal) and parallel Salonican / Western Sephardi tradition (until the 1943 Nazi destruction of Greek Jewry), continuing today in Israeli, Mexican, Argentine, and Brooklyn Syrian-Sephardi communities",
-  "recipe": "classic Middle Eastern late-1940s sephardi bakkashot, ritual Devotional, Jewish branch, middle eastern classical art music, vocal drone modal armenian duduk-accompanied chant türk sanat müziği. thick, breath veiled tone, slow rate, interlocked note trading. maple ribs Turkish school Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks maple body Turkish school goat skin bridge plate gut historical qanun, call ritual shofar. mediterranean sephardi synagogue. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 550,
-  "score": 406.902,
+  "recipe": "classic Middle Eastern late-1940s sephardi bakkashot, ritual Devotional, Jewish branch, middle eastern classical art music, vocal drone modal armenian liturgical and folk majass and sahba. thick, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate drone like qanun, call ritual shofar. mediterranean sephardi synagogue. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 547,
+  "score": 315.334,
   "config": {
     "traditions": [
       "sephardi_bakkashot",
-      "armenian_duduk_chant",
-      "turk_sanat_muzigi"
+      "armenian_traditional",
+      "hijazi_majass_sahba"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.3999999999999995,
-          "voice_quality": 28.274999999999995,
+          "voice_register": 5.6000000000000005,
+          "voice_quality": 16.704999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.257499999999997,
-          "voice_articulation": 26.519999999999996,
-          "voice_microtone": 49.400000000000006,
-          "voice_tradition": 29.270000000000003,
-          "voice_mechanism_compound": 17.54,
-          "voice_estill_quality": 18.093999999999998,
-          "voice_speech_song": 27.95,
-          "voice_ensemble_config": 25.025,
-          "voice_ornament_system": 23.91,
-          "voice_pitch_organization": 25.104499999999998,
-          "voice_processing_chain": 5.2,
-          "voice_multitrack_stack": 7.54
+          "voice_vibrato": 13.975,
+          "voice_articulation": 17.939999999999998,
+          "voice_microtone": 36.2375,
+          "voice_tradition": 27.4925,
+          "voice_mechanism_compound": 15.014999999999999,
+          "voice_estill_quality": 13.059499999999998,
+          "voice_speech_song": 21.644999999999992,
+          "voice_ensemble_config": 17.484999999999992,
+          "voice_ornament_system": 24.64,
+          "voice_pitch_organization": 24.82,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 2.73
         }
       },
       {
@@ -59,18 +59,18 @@
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
-          "oud_body_wood": "oud_maple_body",
+          "oud_body_wood": "oud_padauk_body",
           "oud_soundboard_wood": "oud_lebanese_cedar_face",
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 15.535000000000002,
-          "oud_school": 5.46,
-          "oud_strings": 6.5649999999999995,
-          "oud_pick": 1.8745,
-          "oud_body_wood": 3.445,
-          "oud_soundboard_wood": 3.6399999999999997,
-          "oud_string_material": 6.565000000000001
+          "plucked_traditional_technique": 12.88,
+          "oud_school": 1.95,
+          "oud_strings": 5.59,
+          "oud_pick": 0.345,
+          "oud_body_wood": 2.045,
+          "oud_soundboard_wood": 4.16,
+          "oud_string_material": 4.42
         }
       },
       {
@@ -80,18 +80,18 @@
           "qanun_strings": "qanun_arab_72",
           "qanun_levers": "mandal_brass",
           "qanun_pick": "qanun_finger_picks",
-          "qanun_body_wood": "qanun_maple_body",
+          "qanun_body_wood": "qanun_rosewood_body",
           "qanun_bridge_skin": "qanun_goat_skin_bridge",
-          "qanun_string_material": "qanun_gut_historical"
+          "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 15.535000000000002,
-          "qanun_strings": 6.5649999999999995,
-          "qanun_levers": -0.84,
-          "qanun_pick": 6.5649999999999995,
-          "qanun_body_wood": 3.445,
-          "qanun_bridge_skin": 2.145,
-          "qanun_string_material": 2.7950000000000004
+          "plucked_traditional_technique": 12.88,
+          "qanun_strings": 5.59,
+          "qanun_levers": -0.49,
+          "qanun_pick": 5.59,
+          "qanun_body_wood": 3.0550000000000006,
+          "qanun_bridge_skin": 1.125,
+          "qanun_string_material": 0
         }
       },
       {
@@ -102,9 +102,9 @@
           "shofar_context": "shofar_shabbat"
         },
         "scores": {
-          "wind_articulation": 12.6275,
-          "shofar_shape": 4.1245,
-          "shofar_context": 5.720000000000001
+          "wind_articulation": 8.23,
+          "shofar_shape": 2.8800000000000003,
+          "shofar_context": 6.369999999999999
         }
       }
     ],

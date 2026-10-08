@@ -5,7 +5,7 @@
   "lineage": "Synagogue chant and paraliturgical song of the Arabic-speaking Jews of Baghdad and other Iraqi cities, whose rite follows the Babylonian tradition and whose cantors set prayers and Hebrew pizmonim hymns in the maqamat of Iraqi art music, a repertoire many Jewish musicians also played in Baghdad's secular chalghi ensembles. A. Z. Idelsohn transcribed it in the second volume of his Thesaurus of Hebrew Oriental Melodies, and it continued in Israeli congregations after the community's emigration in 1950-51.",
   "recipe": "classic early-1950s babylonian jewish liturgy and pizmonim, ritual Devotional, Jewish branch. neutral third half flat, many notes per syllable, responsorial cantor congregation, arab 24 quartertone maqam fixed pitch. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 296,
-  "score": 18.172,
+  "score": 17.887,
   "config": {
     "traditions": [
       "babylonian_jewish_liturgy"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
+          "voice_speech_song": 1.468,
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 3.2670000000000003,
+          "voice_pitch_organization": 3.2355,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.399,
+          "voice_multitrack_stack": 0.36749999999999994,
           "voice_tessitura": 0
         }
       }

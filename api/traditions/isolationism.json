@@ -3,9 +3,9 @@
   "name": "Isolationism",
   "family": "electronic",
   "lineage": "Named by Kevin Martin for the 1994 Virgin compilation Ambient 4: Isolationism, gathering British, American and European artists such as Thomas Koner, Main, Scorn, Paul Schutze and Aphex Twin — beatless or near-beatless ambient stripped of consonance and warmth, built from corroded guitar drones, processed metal, tape decay and sub-bass hum, with static harmonic fields, minimal event density and a bleak, depopulated affect.",
-  "recipe": "classic European mid-1990s isolationism, experimental Elec, ambient branch, industrial noise experimental electric, experimental distorted rock japanoise death industrial. orange amp British heavy crunch basswood mahogany ebony single coil electric guitar, modular granular pad like pad analog glitched textural modular synth, gong tamtam, field textural sampler. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 470,
-  "score": 172.93,
+  "recipe": "classic European mid-1990s isolationism, experimental Elec, ambient branch, industrial noise experimental electric, experimental distorted rock japanoise death industrial. orange amp British heavy crunch basswood mahogany ebony single coil electric guitar, modular granular pad like pad analog modular modular synth, gong tamtam, field textural sampler. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 460,
+  "score": 173.26,
   "config": {
     "traditions": [
       "isolationism",
@@ -32,14 +32,14 @@
         },
         "scores": {
           "electric_technique": 9.649999999999999,
-          "amp_make": 6.26,
+          "amp_make": 6.155,
           "body_wood": 2.735,
           "neck_wood": 1.4299999999999997,
-          "fretboard": 2.58,
+          "fretboard": 2.685,
           "pickup_magnet": 0.845,
           "string_material": 0.585,
-          "string_gauge": 3.4850000000000003,
-          "bridge": 2.2350000000000003,
+          "string_gauge": 3.5300000000000002,
+          "bridge": 2.1900000000000004,
           "scale_length": 1.4299999999999997,
           "finish": 0.345,
           "string_tuning": 4.9399999999999995,
@@ -54,7 +54,7 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 14.450000000000001,
+          "electronic_technique": 14.495000000000001,
           "granular_use": 0,
           "granular_synth_source": 7.930000000000001
         }
@@ -107,15 +107,15 @@
       {
         "id": "modular_synth",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "mod_voltage_source": "mod_keyboard",
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_sequencer",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 14.450000000000003,
-          "mod_voltage_source": 0.285,
-          "mod_patch_density": 7.039999999999999,
+          "electronic_technique": 14.495000000000001,
+          "mod_voltage_source": 0.33,
+          "mod_patch_density": 7.2349999999999985,
           "mod_lineage": 0.65
         }
       }

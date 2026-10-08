@@ -5,7 +5,7 @@
   "lineage": "Instrumental repertoire for the pear-shaped twelve-string guitarra portuguesa, codified in Lisbon and Coimbra from the 1920s by Armandinho and later Carlos Paredes, in which the fado accompanist becomes soloist — fan-shaped preservation of fado harmonic frames plus variações, played with fingernail plectra, dense tremolo and cascading triplet runs over viola de fado bass-chord accompaniment at variable rubato tempi.",
   "recipe": "classic Iberian mid-1920s guitarrada, ballad Poetry, fado lisboa branch, chanson fado fado coimbra, iberian functional song ópera flamenca. twelve string paired courses high pitched ringing fado lisboa tradition jacaranda Portuguese rosewood spruce canonical fado guitarra portuguesa, cedar fingerpicked classical nylon-string guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, viola campanica. coimbra university outdoor quad. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 579,
-  "score": 82.297,
+  "score": 82.47,
   "config": {
     "traditions": [
       "guitarrada_portuguesa",
@@ -23,7 +23,7 @@
           "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
         },
         "scores": {
-          "guitarra_tuning_school": 23.195,
+          "guitarra_tuning_school": 23.045,
           "guitarra_body_wood": 1.8199999999999998,
           "guitarra_top_wood": 15.225000000000001,
           "guitarra_strings": 1.885,
@@ -64,13 +64,13 @@
           "bass_bow_stick": "brazilwood_stick_bass"
         },
         "scores": {
-          "bowed_technique": 0.4875,
-          "bass_size": 0.195,
-          "bass_strings": 1.3849999999999998,
+          "bowed_technique": 0.375,
+          "bass_size": 0,
+          "bass_strings": 1.4299999999999997,
           "bass_top_wood": 0.4875,
           "bass_back_wood": 0.4225,
           "bass_varnish": 0.325,
-          "bass_setup_period": 2.11,
+          "bass_setup_period": 2.3499999999999996,
           "bass_play": 0.195,
           "bass_rosin": 2.3074999999999997,
           "bass_bow_stick": 3.2499999999999996
@@ -84,7 +84,7 @@
         },
         "scores": {
           "campanica_tuning": 0.345,
-          "campanica_role": 0
+          "campanica_role": 0.345
         }
       }
     ],

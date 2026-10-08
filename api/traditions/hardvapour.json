@@ -3,14 +3,14 @@
   "name": "Hardvapour",
   "family": "electronic",
   "lineage": "Online micro-genre launched in late 2015 by Dream Catalogue affiliates Sandtimer and Wanderer, explicitly framed as an aggressive rebuttal to vaporwave's mall-lounge softness: 150-180 BPM distorted 909 and gabber kicks, detuned hoover and rave-stab leads, blown-out mastering, Eastern-European and post-Soviet imagery, and screamed, pitched-down or entirely absent vocals.",
-  "recipe": "classic mid-2010s hardvapour, experimental Elec, retro aesthetic branch, industrial noise experimental electric, hardstyle electronic dance power noise aggrotech. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-909, monosynth acid bass, analog mono synth, glitched textural sampler, digital subtractive. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 439,
-  "score": 204.811,
+  "recipe": "classic mid-2010s hardvapour, experimental Elec, retro aesthetic branch, industrial noise experimental electric, hardstyle electronic dance power noise dark electro / aggrotech. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-909, monosynth acid bass, analog mono synth, glitched textural sampler, digital subtractive. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 454,
+  "score": 200.332,
   "config": {
     "traditions": [
       "hardvapour",
       "power_noise",
-      "aggrotech"
+      "dark_electro_aggrotech"
     ],
     "instruments": [
       {
@@ -22,7 +22,7 @@
         },
         "scores": {
           "tr909_voice": 3.25,
-          "drum_machine_909_context": 2.085625,
+          "drum_machine_909_context": 2.540625,
           "tr909_production_origin": 0
         }
       },
@@ -32,13 +32,13 @@
           "electronic_technique": "electronic_acid_squelch",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "subtle_accent_acid"
+          "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 2.45,
-          "wave_acid": 0.045,
-          "filter_acid": 0.4125,
-          "accent_acid": 0.845
+          "electronic_technique": 1.5750000000000002,
+          "wave_acid": 0.24,
+          "filter_acid": 0.45749999999999996,
+          "accent_acid": 0.195
         }
       },
       {
@@ -48,14 +48,14 @@
           "mono_oscillator": "mono_digitally_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_arp_pearlman"
+          "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 2.45,
+          "electronic_technique": 1.5750000000000002,
           "mono_oscillator": 0,
           "mono_filter": -0.245,
           "mono_archetypes": 0.195,
-          "mono_maker_lineage": -1.8549999999999998
+          "mono_maker_lineage": -1.0550000000000002
         }
       },
       {
@@ -70,9 +70,9 @@
         "scores": {
           "electronic_technique": 11.000000000000002,
           "sampler_archetypes": 0.195,
-          "sampler_bit_depth": 2.535,
+          "sampler_bit_depth": 1.69,
           "sampler_workflow": 12.000000000000002,
-          "sampler_classic_context": 29.375
+          "sampler_classic_context": 31.875
         }
       },
       {
@@ -84,8 +84,8 @@
         },
         "scores": {
           "electronic_technique": 0.6499999999999999,
-          "va_archetypes": 0.585,
-          "digital_subtractive_context": 16.444999999999997
+          "va_archetypes": 0.39,
+          "digital_subtractive_context": 16.249999999999996
         }
       },
       {
@@ -104,26 +104,26 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 0.64875,
-          "voice_quality": 4.745000000000001,
+          "voice_register": 0.6937500000000001,
+          "voice_quality": 3.0550000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 17.094999999999995,
-          "voice_microtone": 16.249999999999993,
-          "voice_tradition": 13.018125000000001,
-          "voice_mechanism_compound": 10.854999999999997,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 16.249999999999996,
+          "voice_microtone": 15.859999999999992,
+          "voice_tradition": 13.162500000000001,
+          "voice_mechanism_compound": 12.512499999999998,
           "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 17.094999999999995,
-          "voice_ensemble_config": 17.679999999999993,
+          "voice_speech_song": 16.249999999999996,
+          "voice_ensemble_config": 17.484999999999992,
           "voice_ornament_system": 0.8499999999999999,
-          "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 14.690624999999999,
+          "voice_pitch_organization": 0.6499999999999999,
+          "voice_processing_chain": 13.570625,
           "voice_multitrack_stack": 3.185000000000001
         }
       }

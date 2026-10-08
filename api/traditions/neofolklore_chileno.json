@@ -5,7 +5,7 @@
   "lineage": "Commercial folk movement of mid-1960s Santiago in which vocal groups such as Los Cuatro Cuartos, Las Cuatro Brujas and Los de Ramón sang cuecas, tonadas and new songs in folk rhythms in polished close-harmony arrangements for radio, television and LP. It ran alongside, and was soon overtaken by, the nueva canción chilena.",
   "recipe": "classic neofolklore chileno, ballad Poetry, Latin am troubadour branch. small vocal ensemble, unprocessed natural acoustic. classical nylon-string guitar, bombo leguero. live tracking.",
   "recipe_chars": 184,
-  "score": 6.501,
+  "score": 6.591,
   "config": {
     "traditions": [
       "neofolklore_chileno"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.5775,
-          "voice_multitrack_stack": 0.36750000000000005,
+          "voice_processing_chain": 0.714,
+          "voice_multitrack_stack": 0.1995,
           "voice_tessitura": 0
         }
       },
@@ -63,12 +63,12 @@
           "attack_technique_cl": "rasgueado_cl"
         },
         "scores": {
-          "acoustic_technique": 2.75,
+          "acoustic_technique": 2.8865,
           "string_tuning": 0,
-          "top_wood_classical": 0.168,
-          "bracing_classical": 0.273,
+          "top_wood_classical": 0.3045,
+          "bracing_classical": 0.1365,
           "string_classical": 0,
-          "attack_technique_cl": -0.035
+          "attack_technique_cl": -0.05
         }
       },
       {

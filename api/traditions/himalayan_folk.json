@@ -3,14 +3,14 @@
   "name": "Himalayan folk (trans-Himalayan hill song)",
   "family": "global",
   "lineage": "Village song of the mid-Himalayan belt from Kumaon and Nepal through Sikkim and Bhutan, transmitted orally and documented by ethnographers from the mid-20th century — seasonal, agricultural and wedding songs in narrow-range modal melody with heavy nasal vocal placement, accompanied by madal or damphu hand drum, murali/bansuri flute and sarangi, in walking-tempo duple or free-metered outdoor calls.",
-  "recipe": "classic early-1940s himalayan folk, domestic Rhythm, south Asian branch, indian bard ballad poetry, south Asian field work, south Asian pop functional song chutney punjabi folk. thick, breath veiled tone, slow rate, interlocked note trading. dance driving slung madal, self accompanied damped bent pitch damphu, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, four string nepali sarangi, hand clap. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 536,
-  "score": 275.38,
+  "recipe": "classic early-1940s himalayan folk, domestic Rhythm, south Asian branch, indian bard ballad poetry, south Asian field work, south Asian pop functional song punjabi folk bengali folk. thick, breath veiled tone, slow rate, interlocked note trading. dance driving slung madal, self accompanied damped bent pitch damphu, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, speech like four string nepali sarangi, hand clap. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 553,
+  "score": 271.752,
   "config": {
     "traditions": [
       "himalayan_folk",
-      "chutney_bhojpuri",
-      "punjabi_folk_boli"
+      "punjabi_folk_boli",
+      "bengali_folk_lokgeeti"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 8.200000000000001,
-          "voice_quality": 9.945,
+          "voice_register": 5.95,
+          "voice_quality": 11.244999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.535,
-          "voice_articulation": 17.224999999999994,
-          "voice_microtone": 17.419999999999995,
-          "voice_tradition": 19.749000000000002,
+          "voice_articulation": 20.019999999999996,
+          "voice_microtone": 20.214999999999996,
+          "voice_tradition": 19.439,
           "voice_mechanism_compound": 5.915,
-          "voice_estill_quality": 6.76,
-          "voice_speech_song": 25.154999999999998,
-          "voice_ensemble_config": 17.029999999999994,
-          "voice_ornament_system": 8.614999999999998,
-          "voice_pitch_organization": 8.71,
+          "voice_estill_quality": 6.5649999999999995,
+          "voice_speech_song": 26.065,
+          "voice_ensemble_config": 20.019999999999996,
+          "voice_ornament_system": 9.219999999999999,
+          "voice_pitch_organization": 8.86,
           "voice_processing_chain": 4.9399999999999995,
-          "voice_multitrack_stack": 4.517500000000001
+          "voice_multitrack_stack": 2.5350000000000006
         }
       },
       {
@@ -58,13 +58,13 @@
           "madal_role": "madal_role_jhyaure",
           "madal_posture": "madal_posture_patuka",
           "madal_paste": "madal_paste_khari",
-          "madal_shell": "madal_shell_composite"
+          "madal_shell": "madal_shell_hardwood"
         },
         "scores": {
-          "madal_role": 17.219499999999996,
-          "madal_posture": 12.4995,
-          "madal_paste": 0.585,
-          "madal_shell": -0.07
+          "madal_role": 13.774500000000002,
+          "madal_posture": 8.974499999999999,
+          "madal_paste": -0.035,
+          "madal_shell": -0.1
         }
       },
       {
@@ -76,10 +76,10 @@
           "damphu_head": "damphu_head_warmed"
         },
         "scores": {
-          "damphu_form": 9.024999999999999,
+          "damphu_form": 9.719999999999999,
           "damphu_technique": 8.295,
-          "damphu_role": 17.57,
-          "damphu_head": 0.26
+          "damphu_role": 14.82,
+          "damphu_head": 0.9099999999999999
         }
       },
       {
@@ -92,10 +92,10 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 5.17,
-          "bansuri_length": 4.92,
-          "bansuri_ornament": 2.3395,
-          "bansuri_body_material": 8.84,
+          "wind_articulation": 4.795,
+          "bansuri_length": 4.65,
+          "bansuri_ornament": 1.6444999999999999,
+          "bansuri_body_material": 8.905000000000001,
           "bansuri_lineage": 3.9
         }
       },
@@ -109,19 +109,19 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "nepali_sarangi_form": 13.8,
-          "nepali_sarangi_context": 14.045,
+          "nepali_sarangi_form": 14.075,
+          "nepali_sarangi_context": 11.59,
           "nepali_sarangi_build": 0.975
         }
       },
       {
         "id": "hand_clap",
         "slots": {
-          "clap_technique": "clap_fingers_to_palm",
+          "clap_technique": "clap_flat_sharp",
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0.39,
+          "clap_technique": 0.935,
           "clap_capture": 0.585
         }
       }

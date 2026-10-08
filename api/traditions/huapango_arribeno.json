@@ -5,7 +5,7 @@
   "lineage": "Huapango arribeño is the music of the Sierra Gorda and the Zona Media where Guanajuato, Querétaro and San Luis Potosí meet, played by a four-man group: a trovador who improvises décimas while playing the guitarra quinta huapanguera, a vihuela and two violins. Its central event is the topada, an all-night contest in which two groups face each other from opposite tarimas, trading improvised poetry and playing sones and valonas for zapateado dancers. The single violin card stands for the pair of violins.",
   "recipe": "classic modern huapango arribeño, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. sierra gorda quinta huapanguera, vihuela mexicana, fiddle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 321,
-  "score": 12.255,
+  "score": 12.118,
   "config": {
     "traditions": [
       "huapango_arribeno"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.3519999999999994,
+          "voice_ensemble_config": 2.457,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.5775,
+          "voice_processing_chain": 0.714,
           "voice_multitrack_stack": 1.0315,
           "voice_tessitura": 0
         }
@@ -61,7 +61,7 @@
           "quinta_huapanguera_body_wood": "quinta_huapanguera_palo_escrito"
         },
         "scores": {
-          "quinta_huapanguera_form": 4.441,
+          "quinta_huapanguera_form": 4.3045,
           "quinta_huapanguera_context": 0.0315,
           "quinta_huapanguera_strings": 0,
           "quinta_huapanguera_body_wood": -0.035
@@ -78,8 +78,8 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.035,
-          "vihuela_mexicana_back": 0.21,
-          "vihuela_mexicana_context": 0.504,
+          "vihuela_mexicana_back": 0.105,
+          "vihuela_mexicana_context": 0.609,
           "vihuela_mexicana_body_wood": 0,
           "vihuela_mexicana_strings": 0
         }
@@ -95,11 +95,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 2.205,
+          "bowed_technique": 1.9635000000000002,
           "fiddle_strings": 0,
-          "fiddle_bow": 0,
+          "fiddle_bow": 0.1365,
           "fiddle_mute": 0,
-          "fiddle_articulation": 0.47250000000000003,
+          "fiddle_articulation": 0.336,
           "fiddle_string_configuration": 0
         }
       }

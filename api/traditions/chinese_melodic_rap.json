@@ -5,7 +5,7 @@
   "lineage": "Gummy B — DESERVE + ALL WELL, complete2025 Legacy TERA published concert medley. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
   "recipe": "classic chinese melodic rap, mc Rhythm, intl hip hop branch. clean strummed humbucker electric guitar, electric bass, maple bronze bell bronze drum kit, melodic chordal electronic keyboard credited electronics unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 321,
-  "score": 7.979,
+  "score": 9.402,
   "config": {
     "traditions": [
       "chinese_melodic_rap"
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": 3.7,
           "amp_make": 0,
-          "body_wood": 0,
-          "neck_wood": 0,
-          "fretboard": -0.05,
+          "body_wood": 0.2415,
+          "neck_wood": 0.2415,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
           "bridge": 0,
-          "scale_length": 0,
-          "string_gauge": 0.147,
+          "scale_length": 0.483,
+          "string_gauge": 0.0735,
           "finish": 0,
           "string_tuning": 0
         }
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.2415,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -129,11 +129,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 1,
           "shell_thickness": 0,
-          "bearing_edges": 0.315,
+          "bearing_edges": 0.3885,
           "snare_wires": 0,
           "cymbal_alloy": 1.3729999999999998,
           "cymbal_hammering": -0.15000000000000002,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_lathing": -0.11850000000000002,
           "cymbal_finish": 0
         }
       },
@@ -145,7 +145,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 1.4995
+          "keyboard_technique": 1.6675
         }
       },
       {

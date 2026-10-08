@@ -5,7 +5,7 @@
   "lineage": "Performance tradition revived 1955-1965, of the 305 narrative ballads catalogued by Francis James Child in The English and Scottish Popular Ballads (1882-1898) — revived through the Lowland Scottish travelling family tradition (Jeannie Robertson, Belle Stewart, Lizzie Higgins) and the parallel UK folk-revival concert-performance lineage (Ewan MacColl, Peggy Seeger, June Tabor, Martin Carthy, Frankie Armstrong)",
   "recipe": "classic Northern European mid-1960s child ballad revival, ballad Poetry, Scottish ballad branch, anglo singer song britfolk britfolk revival string folk. thick, incomplete closure resting, interlocked note trading, neutral third half flat. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, concert harp. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 482,
-  "score": 178.808,
+  "score": 178.339,
   "config": {
     "traditions": [
       "child_ballad_revival",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 9.35,
+          "voice_register": 9.354499999999998,
           "voice_quality": 16.69,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.345,
+          "voice_vibrato": 0.3495,
           "voice_articulation": 10.594999999999995,
           "voice_microtone": 10.789999999999992,
-          "voice_tradition": 25.639,
+          "voice_tradition": 25.453,
           "voice_mechanism_compound": 2.4050000000000002,
           "voice_estill_quality": 4.485,
           "voice_speech_song": 15.079999999999995,
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 24.31,
-          "top_wood": 0.39,
-          "back_sides": 0.39,
-          "string_acoustic": 2.6374999999999997,
-          "acoustic_om_technique": 24.80875
+          "top_wood": 0.3,
+          "back_sides": 0.3,
+          "string_acoustic": 2.642,
+          "acoustic_om_technique": 24.81775
         }
       },
       {
@@ -80,9 +80,9 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 9.581499999999998,
-          "fiddle_strings": 0.38999999999999996,
-          "fiddle_bow": 0.345,
+          "bowed_technique": 9.5365,
+          "fiddle_strings": 0.3495,
+          "fiddle_bow": 0.3495,
           "fiddle_mute": 0.65,
           "fiddle_articulation": 0.39,
           "fiddle_string_configuration": 0
@@ -95,7 +95,7 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 0.0765,
+          "harp_strings": 0.0315,
           "harp_pedals": 0.15
         }
       }

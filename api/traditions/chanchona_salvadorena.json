@@ -5,7 +5,7 @@
   "lineage": "String-band dance music of eastern El Salvador, around San Miguel and La Unión, named after the double bass (the chanchona, 'big sow') at its core, which joins one or two violins, guitar and percussion to play cumbias, rancheras and other dances for village fiestas. Los Hermanos Lovo carried the style to Salvadoran communities in the United States. The upright-bass card stands in for the plucked chanchona.",
   "recipe": "classic modern chanchona, functional Song, tropical song branch. melodic bowed song accompaniment fiddle, upright bass, classical nylon-string guitar, congas, guiro. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 245,
-  "score": 7.713,
+  "score": 7.849,
   "config": {
     "traditions": [
       "chanchona_salvadorena"
@@ -26,7 +26,7 @@
           "fiddle_strings": 0,
           "fiddle_bow": 0.3045,
           "fiddle_mute": 0,
-          "fiddle_articulation": 0.1365,
+          "fiddle_articulation": 0.2415,
           "fiddle_string_configuration": 0
         }
       },
@@ -71,7 +71,7 @@
         "scores": {
           "percussion_technique": -0.1,
           "conga_set": 0.105,
-          "conga_skin": 0.483,
+          "conga_skin": 0.5145,
           "conga_shell_wood": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "The discovery roster centers modern medieval-inspired ensembles such as FAUN, OMNIA and Blackmore’s Night. It denotes contemporary revival/fusion practice, not proof that these recordings reconstruct medieval performance unchanged.",
   "recipe": "classic modern medieval folk, ballad Poetry. thick, incomplete closure resting, straight onset, neutral third half flat. steel modern bal folk hurdy gurdy, celtic harp, irish bouzouki. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 322,
-  "score": 40.159,
+  "score": 39.316,
   "config": {
     "traditions": [
       "medieval_folk"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0.39,
           "voice_estill_quality": 0.19500000000000003,
           "voice_speech_song": 4.355,
-          "voice_ensemble_config": -0.10725000000000003,
+          "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0.6499999999999998,
-          "voice_pitch_organization": 7.339,
+          "voice_pitch_organization": 7.300000000000001,
           "voice_processing_chain": 1.8365,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.351
         }
       },
       {
@@ -61,11 +61,11 @@
           "hurdy_tradition": "hurdy_modern_medieval_folk"
         },
         "scores": {
-          "bowed_technique": 1.5595,
-          "hurdy_strings": 4.599,
+          "bowed_technique": 1.3125,
+          "hurdy_strings": 4.43,
           "hurdy_buzz": 0,
-          "hurdy_wheel_rosin": 0.25999999999999995,
-          "hurdy_string_material": 2.30275,
+          "hurdy_wheel_rosin": 0.12999999999999998,
+          "hurdy_string_material": 2.1727499999999997,
           "hurdy_tradition": 0.39
         }
       },
@@ -77,8 +77,8 @@
           "celtic_harp_strings": "celtic_wire_strung"
         },
         "scores": {
-          "acoustic_technique": 1.4889999999999999,
-          "celtic_harp_levers": 2.26,
+          "acoustic_technique": 1.45,
+          "celtic_harp_levers": 2.169,
           "celtic_harp_strings": 3
         }
       },
@@ -86,13 +86,13 @@
         "id": "irish_bouzouki",
         "slots": {
           "irish_bouzouki_form": "irish_bouzouki_standard",
-          "irish_bouzouki_playing": "irish_bouzouki_backing",
-          "irish_bouzouki_top_wood": "irish_bouzouki_spruce_top"
+          "irish_bouzouki_playing": "irish_bouzouki_countermelody",
+          "irish_bouzouki_top_wood": "irish_bouzouki_carved_top"
         },
         "scores": {
           "irish_bouzouki_form": -0.05,
           "irish_bouzouki_playing": -0.035,
-          "irish_bouzouki_top_wood": 0
+          "irish_bouzouki_top_wood": 0.03899999999999999
         }
       }
     ],

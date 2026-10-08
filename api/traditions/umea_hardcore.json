@@ -5,7 +5,7 @@
   "lineage": "Umeå hardcore develops through the Swedish city’s independent hardcore-band community.",
   "recipe": "classic umea hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 363,
-  "score": 28.963,
+  "score": 29.436,
   "config": {
     "traditions": [
       "umea_hardcore"
@@ -31,13 +31,13 @@
         "scores": {
           "electric_technique": 2.21,
           "amp_make": 9.620000000000001,
-          "body_wood": 1.1655,
+          "body_wood": 1.239,
           "neck_wood": 0.063,
-          "fretboard": 0,
+          "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0,
+          "bridge": 0.1365,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.1655,
+          "body_wood": 1.239,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -117,7 +117,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.054,
+          "voice_multitrack_stack": 0.108,
           "voice_tessitura": 0
         }
       }

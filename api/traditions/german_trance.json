@@ -1,46 +1,32 @@
 {
-  "id": "german_trance",
-  "name": "German trance",
+  "id": "classic_trance",
+  "merged_from": "german_trance",
+  "name": "Classic Trance",
   "family": "electronic",
-  "lineage": "German trance developed through electronic club networks and producers combining melodic synthesis with programmed rhythm. Hardware sequencing, acid textures and later software production connect several generations of the scene.",
-  "recipe": "classic modern german trance, electronic Dance, trance branch. analog synth, classic acid monosynth acid bass, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 322,
-  "score": 9.678,
+  "lineage": "German-centred style codified 1993-1999 through Frankfurt and Berlin labels (Eye Q, Harthouse, MFS, Superstition) by Paul van Dyk, Oliver Lieb, Cosmic Baby, Jam & Spoon and Sven Väth — 135-142 BPM four-on-floor with rolling offbeat sixteenth bass, layered detuned saw arpeggios, a long instrumental breakdown with a sustained pad chord progression, and a snare-roll build into the main melodic drop.",
+  "recipe": "classic Central European mid-1990s classic trance, electronic Dance, trance branch, techno electronic dance, eurodance electronic dance hi-nrg freestyle music. analog poly analog mono wavetable synth, TR-909, melodic pitched sampler. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 464,
+  "score": 50.667,
   "config": {
     "traditions": [
-      "german_trance"
+      "classic_trance",
+      "hi_nrg",
+      "freestyle_music"
     ],
     "instruments": [
       {
-        "id": "analog_synth",
+        "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "oscillator": "saw_super",
-          "filter_topology": "svf",
-          "envelope": "sustain_env",
-          "modulation": "no_mod"
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "oscillator": 8.8865,
-          "filter_topology": 0.1755,
-          "envelope": 0.1425,
-          "modulation": 0
-        }
-      },
-      {
-        "id": "monosynth_acid_bass",
-        "slots": {
-          "electronic_technique": "electronic_arpeggiated",
-          "wave_acid": "saw_acid",
-          "filter_acid": "opening_acid",
-          "accent_acid": "subtle_accent_acid"
-        },
-        "scores": {
-          "electronic_technique": -0.05,
-          "wave_acid": 0.39,
-          "filter_acid": 1.3,
-          "accent_acid": 0.0945
+          "electronic_technique": 0.975,
+          "poly_archetypes": 2.99,
+          "poly_voices": 2.6900000000000004,
+          "poly_maker_lineage": -0.875
         }
       },
       {
@@ -48,78 +34,102 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_techno",
-          "tr909_production_origin": "tr909_roland_osaka_canonical"
+          "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": -0.035,
-          "drum_machine_909_context": -0.035,
-          "tr909_production_origin": -1.56625
+          "tr909_voice": 1.49,
+          "drum_machine_909_context": 2.015,
+          "tr909_production_origin": 0.39
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
+        },
+        "scores": {
+          "electronic_technique": 0.975,
+          "mono_oscillator": 0,
+          "mono_filter": 0.78,
+          "mono_archetypes": 3.3149999999999995,
+          "mono_maker_lineage": -0.875
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 0.975,
+          "wt_position": 9.165000000000001,
+          "wt_family": 0.39,
+          "wt_polyphony": 1.7349999999999999
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.4749999999999999,
+          "sampler_archetypes": 1,
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": 2.3724999999999996,
+          "sampler_classic_context": 19.304999999999996
         }
       }
     ],
     "pinned": {
-      "analog_synth": [
-        "electronic_technique",
-        "oscillator",
-        "filter_topology",
-        "envelope",
-        "modulation"
+      "analog_poly_synth": [
+        "electronic_technique"
       ],
-      "monosynth_acid_bass": [
-        "electronic_technique",
-        "wave_acid",
-        "filter_acid",
-        "accent_acid"
+      "analog_mono_synth": [
+        "electronic_technique"
       ],
-      "drum_machine_909": [
-        "tr909_voice",
-        "drum_machine_909_context",
-        "tr909_production_origin"
+      "wavetable_synth": [
+        "electronic_technique"
       ]
     },
-    "room": "studio_auteur_home_pro",
-    "archetype": "arch_modern_pro_daw_studio",
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_festival_edm_itb",
     "inline_chain": {
       "mic": "condenser_ldc",
-      "pre": "pre_di_box_dedicated",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
+      "pre": "pre_neve_1073_input",
+      "console": "clean",
+      "comp": null,
       "eq": "eq_active_parametric",
       "amp": null,
-      "medium": "digital_high"
+      "medium": "medium_dat_pro_late80s_90s"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": [
-      "digital_delay"
-    ]
+    "fx_extras": []
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_auteur_home_pro",
+    "room": "berlin_techno_kreuzberg_studio",
     "parts": {
-      "electronic_technique": "electronic_arpeggiated",
-      "oscillator": "saw_super",
-      "filter_topology": "svf",
-      "envelope": "sustain_env",
-      "modulation": "no_mod",
-      "wave_acid": "saw_acid",
-      "filter_acid": "opening_acid",
-      "accent_acid": "subtle_accent_acid",
-      "tr909_voice": "tr909_kick",
-      "drum_machine_909_context": "drum_machine_909_techno",
-      "tr909_production_origin": "tr909_roland_osaka_canonical"
+      "electronic_technique": "electronic_arpeggiated"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",
-    "chain_pre": "pre_di_box_dedicated",
-    "chain_comp": "comp_none",
+    "chain_pre": "pre_neve_1073_input",
     "chain_eq": "eq_active_parametric",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box",
-    "chain_fx": [
-      "digital_delay"
-    ]
+    "chain_medium": "medium_dat_pro_late80s_90s",
+    "chain_console": "clean"
   }
 }

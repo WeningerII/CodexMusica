@@ -5,7 +5,7 @@
   "lineage": "Italian gospel brings African American gospel repertoire and contemporary arrangements into Italian choirs, workshops and concert networks. Groups such as the Sunshine Gospel Choir combine amateur and professional singers and collaborate with visiting gospel leaders.",
   "recipe": "classic gospel italiano, ritual Devotional, christian gospel branch. declaimed, leader call answered, small note groups per syllable, single leader group response. gospel runs grand piano, electric bass, humbucker electric guitar, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 339,
-  "score": 88.987,
+  "score": 89.437,
   "config": {
     "traditions": [
       "gospel_italiano"
@@ -66,13 +66,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 17.9115,
-          "grand_piano_size": 0.294,
+          "keyboard_technique": 18.048,
+          "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.273,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.325
         }
@@ -128,7 +128,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.294,
+          "string_gauge": 0.3675,
           "finish": 0,
           "string_tuning": 0
         }
@@ -153,7 +153,7 @@
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
-          "shell_thickness": 0,
+          "shell_thickness": 0.1365,
           "bearing_edges": 0,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,

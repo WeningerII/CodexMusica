@@ -5,7 +5,7 @@
   "lineage": "A late-2010s Dutch offshoot of raw hardstyle, driven by producers such as Rebelion, Sub Sonik, Vertile and Sickmode on Gearbox and Dirty Workz — running 150-165 BPM with an extremely overdriven, screech-tailed reverse-bass kick, minor-key detuned lead screeches, heavy sidechained pumping, and drops whose energy comes from kick timbre and pitch bending rather than the euphoric melodies of classic hardstyle.",
   "recipe": "classic 2017-2019 xtra raw, electronic Dance, hardstyle branch, techno electronic dance peak-time techno belgian techno. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. TR-909, low sub bass digital subtractive, low sub bass wavetable synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 510,
-  "score": 172.507,
+  "score": 171.487,
   "config": {
     "traditions": [
       "xtra_raw",
@@ -23,7 +23,7 @@
         "scores": {
           "tr909_voice": 2.5149999999999997,
           "drum_machine_909_context": 2.08,
-          "tr909_production_origin": 0.13499999999999998
+          "tr909_production_origin": 0.43499999999999994
         }
       },
       {
@@ -34,7 +34,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 5.660000000000001,
+          "electronic_technique": 5.270000000000001,
           "va_archetypes": 0,
           "digital_subtractive_context": 15.469999999999995
         }
@@ -48,10 +48,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 5.660000000000001,
+          "electronic_technique": 5.270000000000001,
           "wt_position": 9.165000000000001,
-          "wt_family": 0.345,
-          "wt_polyphony": 1.24
+          "wt_family": 0.3,
+          "wt_polyphony": 1.285
         }
       },
       {
@@ -79,7 +79,7 @@
           "voice_quality": 5.46,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.7899999999999998,
+          "voice_vibrato": 1.7449999999999999,
           "voice_articulation": 14.754999999999995,
           "voice_microtone": 15.469999999999992,
           "voice_tradition": 2.795,
@@ -87,9 +87,9 @@
           "voice_estill_quality": 2.4699999999999998,
           "voice_speech_song": 16.444999999999993,
           "voice_ensemble_config": 15.144999999999992,
-          "voice_ornament_system": 2.19,
+          "voice_ornament_system": 1.995,
           "voice_pitch_organization": 2.400000000000001,
-          "voice_processing_chain": 17.715,
+          "voice_processing_chain": 17.52,
           "voice_multitrack_stack": 9.23
         }
       },
@@ -102,8 +102,8 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.06499999999999999,
-          "sample_bitdepth": 0.5399999999999999,
+          "electronic_technique": 0.04999999999999999,
+          "sample_bitdepth": 0.44999999999999996,
           "sample_swing": 16.855,
           "sample_processing": 0.195
         }

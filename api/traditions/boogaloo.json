@@ -5,7 +5,7 @@
   "lineage": "Nuyorican dance style crystallized in East Harlem and the South Bronx between 1965 and 1969 when second-generation Puerto Rican bandleaders fused Afro-Cuban son montuno with black American R&B and soul: mid-tempo 4/4 with a heavy backbeat handclap over a 2-3 clave feel, English and Spanglish shout-chorus vocals, hammered piano montunos, blaring two- or three-horn frontline, and a rhythm section of congas, timbales and electric bass punctuated by party shouts and cowbell.",
   "recipe": "classic North American mid-1960s boogaloo, groove Percussion, son salsa branch, soul R&B functional song, Latin jazz improv on frame doo-wop souldies. thick, breath veiled tone, slow rate, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, bach 42 canonical American orchestral tenor ensemble student commercial trombone. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre.",
   "recipe_chars": 995,
-  "score": 470.515,
+  "score": 470.56,
   "config": {
     "traditions": [
       "boogaloo",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 20.599999999999998,
+          "voice_register": 20.554999999999996,
           "voice_quality": 17.42000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.12,
           "voice_articulation": 24.309999999999988,
           "voice_microtone": 23.529999999999994,
-          "voice_tradition": 15.919999999999998,
+          "voice_tradition": 15.874999999999998,
           "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 14.844999999999997,
+          "voice_estill_quality": 15.039999999999996,
           "voice_speech_song": 28.339999999999996,
           "voice_ensemble_config": 22.944999999999993,
           "voice_ornament_system": 1.5999999999999999,
           "voice_pitch_organization": 1.2899999999999998,
           "voice_processing_chain": 4.614999999999999,
-          "voice_multitrack_stack": 8.57
+          "voice_multitrack_stack": 8.225000000000001
         }
       },
       {
@@ -66,7 +66,7 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 14.885,
+          "keyboard_technique": 14.84,
           "grand_piano_size": 1.4949999999999999,
           "grand_piano_brand": 2.0799999999999996,
           "piano_hammer": 3.575,
@@ -74,7 +74,7 @@
           "piano_soundboard": 3.1999999999999993,
           "piano_pinblock": -0.05,
           "piano_plate": 0.9450000000000001,
-          "piano_pitch_standard": 6.925000000000001
+          "piano_pitch_standard": 6.775
         }
       },
       {
@@ -90,11 +90,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 19.365,
+          "amp_make": 19.47,
           "body_wood": 1.4949999999999999,
           "pickup_config": 0,
           "string_type": 21.384999999999998,
-          "scale_length_b": 2.675,
+          "scale_length_b": 2.525,
           "fretted_or_not": 0.39,
           "bass_technique": 12.649999999999999,
           "electric_bass_string_configuration": 0
@@ -109,10 +109,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 7.8149999999999995,
-          "conga_set": 1.78,
-          "conga_skin": 3.385,
-          "conga_shell_wood": 3.385
+          "percussion_technique": 7.77,
+          "conga_set": 1.735,
+          "conga_skin": 3.58,
+          "conga_shell_wood": 3.58
         }
       },
       {
@@ -123,7 +123,7 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 7.8149999999999995,
+          "percussion_technique": 7.77,
           "timbales_shell": 0.9099999999999999,
           "timbales_context": 0.975
         }
@@ -137,10 +137,10 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 7.8149999999999995,
-          "bongos_skin": 10.384999999999998,
+          "percussion_technique": 7.77,
+          "bongos_skin": 10.579999999999998,
           "bongos_context": 0.195,
-          "bongos_shell_wood": 3.385
+          "bongos_shell_wood": 3.58
         }
       },
       {
@@ -155,12 +155,12 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 17.695,
-          "brass_size": 0.345,
+          "wind_articulation": 17.455,
+          "brass_size": 0.54,
           "trumpet_mouthpiece": 4.745,
           "brass_mute": 0.195,
-          "trumpet_technique": 17.695,
-          "trumpet_bell_metal": 0.72,
+          "trumpet_technique": 17.455,
+          "trumpet_bell_metal": 0.8700000000000001,
           "trumpet_maker_school": 3.8349999999999995
         }
       },
@@ -176,11 +176,11 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 17.695,
+          "wind_articulation": 17.455,
           "sax_size": 13.149999999999999,
-          "sax_reed": 0.345,
+          "sax_reed": 0.54,
           "sax_body_alloy": 1.7499999999999998,
-          "sax_mouthpiece": 0.345,
+          "sax_mouthpiece": 0.54,
           "sax_technique": 12.649999999999999,
           "sax_maker_school": 1.2999999999999998
         }
@@ -197,12 +197,12 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 17.695,
+          "wind_articulation": 17.455,
           "trombone_type": 1.7949999999999997,
           "trombone_mouthpiece": 5.195,
           "trombone_mute": 0.195,
           "trombone_technique": 2.4699999999999998,
-          "trombone_bell_metal": 0.72,
+          "trombone_bell_metal": 0.8700000000000001,
           "trombone_maker_school": 4.484999999999999
         }
       }

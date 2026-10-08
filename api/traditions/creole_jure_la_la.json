@@ -5,7 +5,7 @@
   "lineage": "Older layers of the Black Creole French music of the prairies of southwest Louisiana, before zydeco took its name. Juré was unaccompanied singing for dancing, a leader answered by a group over handclaps and stamping feet, recorded by John and Alan Lomax in 1934 around Jennings; la-la was the Creole house-dance music in which a single-row diatonic accordion and fiddle played two-steps, waltzes and bluesy reels over a scraped rubboard, kept up into the late 20th century by the accordionist Alphonse 'Bois Sec' Ardoin and the fiddler Canray Fontenot. The Cajun-accordion card stands for this single-row diatonic button accordion, an instrument Creole and Cajun musicians share.",
   "recipe": "classic mid-1930s juré and la-la, drone Modal, string branch. single leader group response, single lead single track no stacking. hand clap, foot stomp, single row diatonic Cajun tradition bellows chop drone foot cajun accordion, fiddle, frottoir. hardwood living. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 339,
-  "score": 28.766,
+  "score": 28.68,
   "config": {
     "traditions": [
       "creole_jure_la_la"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 4.549,
+          "voice_ensemble_config": 4.4755,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.189,
-          "voice_multitrack_stack": 2.6,
+          "voice_processing_chain": 0.2205,
+          "voice_multitrack_stack": 2.5564999999999998,
           "voice_tessitura": 0
         }
       },

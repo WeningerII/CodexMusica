@@ -5,7 +5,7 @@
   "lineage": "Australian post-hardcore combines hardcore-derived energy with contrasting textures, including grunge and shoegaze influences.",
   "recipe": "classic australian post-hardcore, distorted Rock, emo branch. basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 248,
-  "score": 16.248,
+  "score": 15.639,
   "config": {
     "traditions": [
       "australian_post_hardcore"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 1.8199999999999998,
-          "body_wood": 1.5225,
+          "body_wood": 1.239,
           "neck_wood": 0.168,
-          "fretboard": 0,
+          "fretboard": 0.105,
           "pickup_magnet": 0,
           "pickup_winding": 0.168,
           "string_material": 0.168,
-          "bridge": 0.1365,
+          "bridge": 0.2415,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "finish": 0,
-          "string_tuning": 0.105
+          "string_tuning": 0
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.5225,
+          "body_wood": 1.239,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -71,7 +71,7 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.054,
+          "voice_ensemble_config": 0.08549999999999999,
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.054,
-          "voice_multitrack_stack": 0.159,
+          "voice_multitrack_stack": 0.08549999999999999,
           "voice_tessitura": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Jazz brass foregrounds the melodic, rhythmic and timbral possibilities of brass instruments within jazz. Settings range from intimate duos to full ensemble arrangements.",
   "recipe": "classic jazz brass, improv On Frame, American jazz branch. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance trumpet, double bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 293,
-  "score": 43.694,
+  "score": 43.59,
   "config": {
     "traditions": [
       "jazz_brass"
@@ -24,7 +24,7 @@
         },
         "scores": {
           "wind_articulation": 1.1049999999999998,
-          "brass_size": 0.4029999999999999,
+          "brass_size": 0.4344999999999999,
           "trumpet_mouthpiece": 17.875,
           "brass_mute": 1.147,
           "trumpet_technique": -0.05,
@@ -48,9 +48,9 @@
         },
         "scores": {
           "bowed_technique": 0.2315,
-          "bass_size": 2.105,
+          "bass_size": 2,
           "bass_strings": 0,
-          "bass_top_wood": -0.07,
+          "bass_top_wood": -0.1,
           "bass_back_wood": -0.07,
           "bass_varnish": -0.1,
           "bass_setup_period": 0.26,

@@ -5,7 +5,7 @@
   "lineage": "Villu paattu ('bow song') is a narrative song form of southern Tamil Nadu, above all Tirunelveli and Kanyakumari, performed at temple festivals: the lead singer beats the string of a large bow hung with bells with a pair of sticks while telling the story, and a small troupe answers him in chorus and accompanies on the kudam (a clay pot), the udukkai hourglass drum and cymbals. Subbu Arumugam carried it to radio and the concert stage in the twentieth century, extending it from temple stories to social themes. The ghatam card stands in for the kudam.",
   "recipe": "classic modern villu paattu, ballad Poetry, indian bard branch. narrative, single lead single track no stacking. villu pattu bow, ghatam, udukkai, small manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 241,
-  "score": 8.21,
+  "score": 8.157,
   "config": {
     "traditions": [
       "villu_paattu"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 1.69,
           "voice_tessitura": 0
         }
@@ -62,7 +62,7 @@
         "scores": {
           "villu_size": 0.78,
           "villu_attachments": 0,
-          "villu_technique": 0.0945
+          "villu_technique": 0
         }
       },
       {
@@ -72,7 +72,7 @@
           "ghatam_technique": "ghatam_full"
         },
         "scores": {
-          "ghatam_school": 0.3315,
+          "ghatam_school": 0.3,
           "ghatam_technique": 0.39
         }
       },
@@ -84,9 +84,9 @@
           "udukkai_technique": "udukkai_steady"
         },
         "scores": {
-          "udukkai_form": 0.126,
-          "udukkai_head": 0.063,
-          "udukkai_technique": 0.3045
+          "udukkai_form": 0.063,
+          "udukkai_head": 0.0315,
+          "udukkai_technique": 0.33599999999999997
         }
       },
       {

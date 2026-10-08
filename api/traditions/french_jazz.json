@@ -5,7 +5,7 @@
   "lineage": "French jazz scenes; selected Galliano New Musette quartet branch",
   "recipe": "classic modern french jazz, improv On Frame, American jazz branch. accordion, acoustic leaning carved top solid spruce Gibson canon thomastik archtop, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 378,
-  "score": 99.219,
+  "score": 99.597,
   "config": {
     "traditions": [
       "french_jazz"
@@ -27,7 +27,7 @@
           "accordion_reed_material": 0.19949999999999998,
           "musette_offset": 0.363,
           "reed_config": 0.105,
-          "bellows": 0.08174999999999999,
+          "bellows": 0.29174999999999995,
           "voicing_chamber": 0,
           "accordion_maker_school": 0
         }
@@ -45,7 +45,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "archtop_body": 13.26,
+          "archtop_body": 13.2915,
           "archtop_pickup": 6.629999999999999,
           "archtop_top_wood": 12.75,
           "archtop_strings": 16.575,
@@ -81,13 +81,13 @@
         },
         "scores": {
           "drum_technique": 7.279999999999999,
-          "drumhead": 0.3,
+          "drumhead": 0.3315,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.78,
           "shell_thickness": 0,
           "bearing_edges": 0.39,
           "snare_wires": 0.147,
-          "cymbal_alloy": 12.746999999999998,
+          "cymbal_alloy": 12.851999999999999,
           "cymbal_hammering": 13.141,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0

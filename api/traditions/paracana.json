@@ -3,14 +3,14 @@
   "name": "Paracaná (batidão paraense)",
   "family": "global",
   "lineage": "Belém do Pará sound-system dance style of the 2000s named for the group Paracanã, fusing carimbó and lambada figures with tecnobrega production — 140-160 BPM in 4/4, a hammered programmed tom-and-kick batidão, sampled cuíca and whistle hits, chanted unison refrains, and MC exhortations tracked straight to DAW for aparelhagem playback.",
-  "recipe": "classic mid-2000s paracaná, electronic Dance, Latin electric branch, tropical song functional song, bass descendants bass system dancefloor drum and bass jump-up. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, sub bass analog synth, chopped sampler, mahogany rosewood clean strummed single coil electric guitar, wood shell pre modern traditional hands layered cuica. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 574,
-  "score": 241.505,
+  "recipe": "classic mid-2000s paracaná, electronic Dance, Latin electric branch, tropical song functional song, bass descendants bass system dancefloor drum and bass raggatek. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, sub bass analog synth, sound design field sampler, single coil electric guitar, wood shell pre modern traditional hands layered cuica. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 553,
+  "score": 214.282,
   "config": {
     "traditions": [
       "paracana",
       "dancefloor_dnb",
-      "jump_up"
+      "raggatek"
     ],
     "instruments": [
       {
@@ -21,8 +21,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 10.649999999999999,
-          "drum_machine_808_context": 10.92,
+          "tr808_voice": 8.275,
+          "drum_machine_808_context": 8.97,
           "tr808_production_origin": 0.78
         }
       },
@@ -32,14 +32,14 @@
           "electronic_technique": "electronic_bass_sub",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
-          "envelope": "gated_env",
+          "envelope": "pluck_env",
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 10.549999999999997,
-          "oscillator": 10.274999999999999,
-          "filter_topology": 10.42,
-          "envelope": 0.825,
+          "electronic_technique": 8.175,
+          "oscillator": 8.475000000000001,
+          "filter_topology": 7.0200000000000005,
+          "envelope": 0.8475,
           "modulation": 0
         }
       },
@@ -47,47 +47,47 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_archetypes": "maschine_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.6525000000000003,
-          "sampler_archetypes": 0.6749999999999999,
-          "sampler_bit_depth": 0.9099999999999997,
-          "sampler_workflow": 1.875,
-          "sampler_classic_context": 23.237499999999997
+          "electronic_technique": 2.7275000000000005,
+          "sampler_archetypes": 0.345,
+          "sampler_bit_depth": 0.69,
+          "sampler_workflow": 2.4049999999999994,
+          "sampler_classic_context": 21.352499999999996
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_mesa_dual_rectifier",
+          "amp_make": "amp_unspecified",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
-          "bridge": "locking_trem",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 3.57,
-          "amp_make": 1.4949999999999997,
-          "body_wood": 1.6899999999999997,
-          "neck_wood": 1.6899999999999997,
-          "fretboard": 1.6249999999999998,
+          "electric_technique": 2.645,
+          "amp_make": 0,
+          "body_wood": 0.69,
+          "neck_wood": 0.69,
+          "fretboard": 0.8475,
           "pickup_magnet": 0.435,
           "string_material": 0.435,
-          "string_gauge": 1.6899999999999997,
-          "bridge": 0.3525,
-          "scale_length": 1.6899999999999997,
+          "string_gauge": 0.735,
+          "bridge": 0.49499999999999994,
+          "scale_length": 1.3800000000000001,
           "finish": 0,
           "string_tuning": 1.78,
           "single_coil_pickup_construction": 0
@@ -126,27 +126,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 5.135,
-          "voice_quality": 6.76,
+          "voice_register": 4.485,
+          "voice_quality": 8.905,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.63,
-          "voice_articulation": 19.434999999999995,
-          "voice_microtone": 20.149999999999995,
-          "voice_tradition": 4.8100000000000005,
-          "voice_mechanism_compound": 3.1200000000000006,
-          "voice_estill_quality": 2.925000000000001,
-          "voice_speech_song": 22.554999999999996,
-          "voice_ensemble_config": 20.019999999999996,
-          "voice_ornament_system": 4.355,
-          "voice_pitch_organization": 1.75,
-          "voice_processing_chain": 10.135000000000002,
-          "voice_multitrack_stack": 8.677500000000002
+          "voice_vibrato": 1.4799999999999998,
+          "voice_articulation": 17.809999999999995,
+          "voice_microtone": 17.874999999999993,
+          "voice_tradition": 4.160000000000001,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 20.279999999999994,
+          "voice_ensemble_config": 19.239999999999995,
+          "voice_ornament_system": 4.155,
+          "voice_pitch_organization": 1.195,
+          "voice_processing_chain": 10.059999999999999,
+          "voice_multitrack_stack": 8.177500000000002
         }
       }
     ],

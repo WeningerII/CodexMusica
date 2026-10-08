@@ -5,7 +5,7 @@
   "lineage": "Essex indie develops through local bands, venues and recording networks connected to the wider British independent scene. Guitar music, punk and alternative-pop approaches contribute to a regional culture extending across towns and generations.",
   "recipe": "classic essex indie, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 196,
-  "score": 30.827,
+  "score": 30.554,
   "config": {
     "traditions": [
       "essex_indie"
@@ -79,7 +79,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0

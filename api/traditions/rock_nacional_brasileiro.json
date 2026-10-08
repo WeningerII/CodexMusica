@@ -5,7 +5,7 @@
   "lineage": "Brazilian-language rock consolidated in Rio de Janeiro, Brasília and São Paulo between 1982 and 1989 — codified by Blitz, Barão Vermelho, Legião Urbana, Titãs and Os Paralamas do Sucesso and broadcast nationally after Rock in Rio 1985 — built on chorused clean-to-overdriven guitar, driving eighth-note bass, straight 4/4 kit at 130-160 BPM with occasional reggae or ska upstrokes, DX-era synth pads, and declamatory Portuguese vocals delivering long narrative and political lyrics.",
   "recipe": "classic Southern American early-1980s rock nacional brasileiro, functional Song, pop rock branch, Brazilian song functional song, pop rock new wave, pop punk distorted rock oshare kei easycore. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, saxophone. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 724,
-  "score": 424.545,
+  "score": 424.44,
   "config": {
     "traditions": [
       "rock_nacional_brasileiro",
@@ -41,7 +41,7 @@
           "voice_vibrato": 3.04,
           "voice_articulation": 21.18999999999999,
           "voice_microtone": 44.32500000000002,
-          "voice_tradition": 17.125,
+          "voice_tradition": 16.884999999999998,
           "voice_mechanism_compound": 3.1750000000000007,
           "voice_estill_quality": 2.34,
           "voice_speech_song": 25.609999999999992,
@@ -66,7 +66,7 @@
           "bridge": "string_thru",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
-          "finish": "poly_hum",
+          "finish": "nitro_hum",
           "string_tuning": "eb_standard"
         },
         "scores": {
@@ -81,8 +81,8 @@
           "bridge": 0.9950000000000001,
           "scale_length": 0.39,
           "string_gauge": 0.845,
-          "finish": 0.15,
-          "string_tuning": 13.585
+          "finish": 0.195,
+          "string_tuning": 13.735000000000001
         }
       },
       {
@@ -98,7 +98,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 14.295,
+          "amp_make": 14.34,
           "body_wood": 0.585,
           "pickup_config": 0.585,
           "string_type": 29.300000000000004,
@@ -130,7 +130,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 16.47,
+          "electronic_technique": 16.515,
           "poly_archetypes": 12.290000000000001,
           "poly_voices": 0.445,
           "poly_maker_lineage": 0.585
@@ -152,7 +152,7 @@
           "sax_size": 0.5,
           "sax_reed": 0.09,
           "sax_body_alloy": 0.7149999999999999,
-          "sax_mouthpiece": 0.435,
+          "sax_mouthpiece": 0.285,
           "sax_technique": -0.035,
           "sax_maker_school": 0.845
         }

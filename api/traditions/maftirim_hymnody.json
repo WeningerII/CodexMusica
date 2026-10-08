@@ -5,7 +5,7 @@
   "lineage": "Paraliturgical Hebrew hymns sung by male choirs of the Sephardic congregations of Edirne, Istanbul, Izmir and other Ottoman cities, a practice traced to seventeenth-century Edirne, where the choirs sang suites of these poems before the Sabbath morning service. The hymns were set in the makam and usul of Ottoman court and Mevlevi music, often to existing compositions, and grouped into suites resembling the Ottoman fasıl; the repertoire was gathered in printed song collections, recordings of the last Edirne singers and the Sephardic Center of Istanbul's collection preserve it, and a maftirim choir still sings in Istanbul.",
   "recipe": "classic modern maftirim, ritual Devotional, Jewish branch. Turkish 53 comma makam fixed pitch. sacred liturgical global choir ensemble. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 215,
-  "score": 6.559,
+  "score": 6.296,
   "config": {
     "traditions": [
       "maftirim_hymnody"
@@ -46,9 +46,9 @@
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 2.3365,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.4305,
+          "voice_pitch_organization": 2.305,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.36749999999999994,
           "voice_tessitura": 0
         }
       },
@@ -61,8 +61,8 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 0.2415,
-          "choir_polyphonic_configuration": 0.672,
+          "choir_size": 0.1365,
+          "choir_polyphonic_configuration": 0.6405000000000001,
           "choir_regional_canonical_configuration": 0,
           "choir_ensemble_repertoire": 1.3
         }

@@ -6,6 +6,54 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — merged 649 duplicate traditions; every retired id stays an alias
+
+The duplicate pass's merge map was applied. 649 traditions were retired into 512
+survivors: 316 were one tradition under two names, and 333 were era, market or mood
+slices with no documented difference. The catalog is now 7713. <!-- check_docs:ignore -->
+
+**Held back.**
+
+- 18 pairs that `scripts/_duplicate_rulings.json` had ruled distinct.
+- 15 pairs whose survivor would have been an umbrella record.
+
+**Which record survives.** For a "same" pair it is the better-documented record. In
+138 clusters that overrides the pass's own pick, so hand-researched chains such as
+`surf_rock`'s spring reverb are not lost. For a slice, the broader entry survives. No
+surviving record was edited.
+
+**Aliases.**
+
+- **The registry.** `references/_tradition_aliases.json` maps each retired id to its
+  survivor, and `scripts/_loader.js` exposes `resolveTraditionId`.
+- **Every surface resolves it:** the CLIs, seeding and search, the connector's
+  `start_recipe`, `add_tradition`, `remove_tradition` and `get_tradition` (which adds
+  `merged_from`), saved workspaces, and the app's import, search, `?trad=` links and
+  the atlas.
+- **Static API.** `api/traditions/<alias>.json` serves the survivor's record plus
+  `merged_from`, and the index files, `all.json` and `browse.json` carry the alias map.
+- **Gates.** The new `scripts/check_aliases.js` (`npm run check:aliases`) checks every
+  alias on every surface. `check_api.js` checks the alias files and now also fails on
+  stale files in `api/traditions/`. `validate.js` and `placement_check.js` keep a
+  retired id from shadowing or being reused. The `retired-ids-resolve` promise is
+  documented in AGENTS.md.
+
+**The retired records' side data.**
+
+- **Removed:** their pins, signatures, signature rulings, images, review-list entries
+  and voice overrides.
+- **Repointed:** atlas routes and threads.
+- **Carried over:** five distinct rulings now name the surviving pairs.
+- **Preface fixtures:** the five on retired ids were repointed (two dropped as
+  duplicates, one re-recorded).
+
+**Effect on surviving recipes.**
+
+- 876 recipe texts change through neighbour adjacency.
+- No instrument, room, tuning or chain moved, and two archetypes were re-picked.
+- 269 regression fixtures are re-recorded.
+- The pairs are in `docs/geographic-attribution-audit/merge-recipe-changes.csv`.
+
 ### Changed — Arbitrary-pin review: 43 atlas pins moved to a documented origin
 
 The rest of the geographic attribution audit's first recommendation is done. Every pin it called

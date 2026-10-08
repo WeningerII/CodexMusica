@@ -5,7 +5,7 @@
   "lineage": "Scottish indie folk includes performer-led independent song networks such as King Creosote’s Fife-based practice. His From Scotland with Love arrangements supply one acoustic and free-reed branch rather than a generic tartan soundtrack.",
   "recipe": "classic modern scottish indie folk, ballad Poetry, indie folk branch. thick, neutral third half flat, m1 with m0 pulse borrowing, opera quality low larynx anchored. dadgad tuning acoustic guitar, accordion. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 344,
-  "score": 32.441,
+  "score": 32.626,
   "config": {
     "traditions": [
       "scottish_indie_folk"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 1.755,
           "voice_pitch_organization": 0.105,
           "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 1.2730000000000001
+          "voice_multitrack_stack": 1.2955
         }
       },
       {
@@ -62,8 +62,8 @@
         "scores": {
           "string_tuning": 4.85,
           "top_wood": 0.45149999999999996,
-          "back_sides": 0.313,
-          "string_acoustic": 0.483,
+          "back_sides": 0.325,
+          "string_acoustic": 0.5579999999999999,
           "acoustic_om_technique": -0.035
         }
       },
@@ -82,7 +82,7 @@
           "free_reed_technique": -0.07,
           "accordion_reed_material": 0.42,
           "musette_offset": 0.0315,
-          "reed_config": 0.2415,
+          "reed_config": 0.3165,
           "bellows": 0.0315,
           "voicing_chamber": 0,
           "accordion_maker_school": 0

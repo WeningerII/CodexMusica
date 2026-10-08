@@ -5,7 +5,7 @@
   "lineage": "Song of the Gandharva (Gaine) caste of hereditary itinerant musicians of Nepal, who sing to their own four-string bowed sarangi, carrying news and praise songs and karkha ballads that recount the deeds of heroes. Batulechaur near Pokhara is a noted Gandharva settlement; Mireille Helffer's Musee de l'Homme LP documents the tradition.",
   "recipe": "classic modern gaine git, ballad Poetry, indian bard branch, indian subcontinent praise song. solo with instrumental accompaniment. four string nepali sarangi. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 239,
-  "score": 4.479,
+  "score": 4.452,
   "config": {
     "traditions": [
       "gandharva_gaine_git"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 0.363,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.381,
           "voice_tessitura": 0
         }
       },

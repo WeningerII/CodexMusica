@@ -5,7 +5,7 @@
   "lineage": "Electronic party and dance music from Limpopo, sung and chanted mainly in Sepedi, that rose to national prominence through local parties and streaming in the early 2020s. Producers build tracks from programmed drums and repeating keyboard riffs under chanted and shouted vocals, and performers such as Shebeshxt brought it national attention. Press accounts treat it as distinct from neighbouring Bolobedu house.",
   "recipe": "classic 2020-2023 lekompo, electronic Dance, African dance branch. programmed credited programmed drums electronic keyboard unspecified. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 294,
-  "score": 4.962,
+  "score": 4.794,
   "config": {
     "traditions": [
       "lekompo"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.3045,
+          "voice_multitrack_stack": 0.16799999999999998,
           "voice_tessitura": 0
         }
       },
@@ -58,7 +58,7 @@
           "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
         },
         "scores": {
-          "credited_programmed_drums_identity": 1.468
+          "credited_programmed_drums_identity": 1.4365
         }
       },
       {

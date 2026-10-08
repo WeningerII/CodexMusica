@@ -1,16 +1,17 @@
 {
-  "id": "bakersfield_sound",
-  "name": "Bakersfield Sound",
-  "family": "country",
-  "lineage": "California honky-tonk style codified in Bakersfield, Kern County, between 1955 and 1970 by Buck Owens with guitarist Don Rich and by Merle Haggard with the Strangers, recorded largely at Capitol Studios in Hollywood, defined by trebly Fender Telecaster leads through amp reverb, pedal steel, a driving 2/4 shuffle or freight-train backbeat with slap-hard snare, minimal or no string sweetening, high tenor harmony doubling the lead vocal a third above, and dance-hall tempos around 120-150 BPM.",
-  "recipe": "classic North American mid-1950s bakersfield sound, functional Song, honky tonk era branch, outlaw country, neo trad country redneck rock classic texas country. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric cedar indian rosewood rosewood steel silk dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel double stops fiddle, upright piano. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 857,
-  "score": 670.024,
+  "id": "bakersfield",
+  "merged_from": "bakersfield_sound",
+  "name": "Bakersfield country",
+  "family": "vernacular",
+  "lineage": "California Central Valley honky-tonk-derived country tradition that emerged in 1950s-60s Bakersfield as a West Coast reaction against the smoother Nashville Sound — codified through Buck Owens (Capitol Records Bakersfield voice from 1959 onward, Together Again 1964) and Merle Haggard (post-Owens Bakersfield extension, Mama Tried 1968, Okie from Muskogee 1969), played by the Buckaroos (Owens band led by Don Rich) and the Strangers (Haggards band); built on Telecaster-and-pedal-steel-foreground arrangement, faster shuffle tempos than typical Nashville fare, and Dust-Bowl-migration cultural lineage",
+  "recipe": "classic Southern American mid-1950s bakersfield country, functional Song, honky tonk era branch, outlaw country lubbock sound. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
+  "recipe_chars": 851,
+  "score": 478.993,
   "config": {
     "traditions": [
-      "bakersfield_sound",
-      "redneck_rock",
-      "classic_texas_country"
+      "bakersfield",
+      "outlaw_country",
+      "lubbock_sound"
     ],
     "instruments": [
       {
@@ -29,60 +30,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 35.061500000000024,
+          "voice_register": 28.274999999999995,
           "voice_quality": 12.089999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 27.938000000000002,
-          "voice_articulation": 16.899999999999995,
-          "voice_microtone": 17.549999999999994,
-          "voice_tradition": 9.815,
-          "voice_mechanism_compound": 6.802375,
-          "voice_estill_quality": 34.00887500000002,
-          "voice_speech_song": 24.83,
-          "voice_ensemble_config": 14.429999999999994,
-          "voice_ornament_system": 1.8565,
-          "voice_pitch_organization": 1,
-          "voice_processing_chain": 6.4350000000000005,
-          "voice_multitrack_stack": 4.5355
-        }
-      },
-      {
-        "id": "electric_guitar_single_coil",
-        "slots": {
-          "electric_technique": "electric_country_chicken_pickin",
-          "amp_make": "amp_american_fender_tweed",
-          "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
-          "string_material": "nickel_plated",
-          "string_gauge": "g_12",
-          "bridge": "hardtail",
-          "scale_length": "scale_gibson",
-          "finish": "oil_satin",
-          "string_tuning": "drop_d",
-          "single_coil_pickup_construction": "single_coil_construction_unspecified"
-        },
-        "scores": {
-          "electric_technique": 31.025000000000002,
-          "amp_make": 30.570000000000004,
-          "body_wood": 1.69,
-          "neck_wood": 1.69,
-          "fretboard": 1.625,
-          "pickup_magnet": 0.195,
-          "string_material": 4.159999999999999,
-          "string_gauge": 0.39,
-          "bridge": 0,
-          "scale_length": 1.69,
-          "finish": 0.0315,
-          "string_tuning": 4.484999999999999,
-          "single_coil_pickup_construction": 0
+          "voice_vibrato": 23.537374999999994,
+          "voice_articulation": 12.154999999999994,
+          "voice_microtone": 11.959999999999992,
+          "voice_tradition": 4.875,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 26.543874999999996,
+          "voice_speech_song": 18.784999999999993,
+          "voice_ensemble_config": 13.779999999999994,
+          "voice_ornament_system": 1.4300000000000002,
+          "voice_pitch_organization": 1.9499999999999997,
+          "voice_processing_chain": 6.43175,
+          "voice_multitrack_stack": 3.184999999999999
         }
       },
       {
@@ -92,20 +60,53 @@
           "amp_make": "amp_american_fender_blackface",
           "pickup_steel": "humbucker_steel",
           "string_setup": "standard_e9",
-          "bar_material": "steel_bar",
+          "bar_material": "brass_bar",
           "pedal_steel_brand": "sho_bud_classic",
           "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 35.948625,
-          "amp_make": 30.42,
-          "pickup_steel": 0.3315,
-          "string_setup": 14.495000000000003,
-          "bar_material": 4.55,
-          "pedal_steel_brand": 30.270750000000003,
-          "pedal_steel_neck_config": 34.97537500000001,
-          "pedal_steel_strings": 29.865125000000006
+          "electric_technique": 27.309499999999996,
+          "amp_make": 24.233499999999992,
+          "pickup_steel": 0.65,
+          "string_setup": 11.83,
+          "bar_material": 1.95,
+          "pedal_steel_brand": 30.4,
+          "pedal_steel_neck_config": 28.147375,
+          "pedal_steel_strings": 28.475749999999998
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_country_chicken_pickin",
+          "amp_make": "amp_american_fender_blackface",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 26.15,
+          "amp_make": 24.233499999999992,
+          "body_wood": 1.95,
+          "neck_wood": 1.95,
+          "fretboard": 1.885,
+          "pickup_magnet": 0.3,
+          "string_material": 1.885,
+          "string_gauge": 0.65,
+          "bridge": 0.2415,
+          "scale_length": 1.95,
+          "finish": 0.03712499999999999,
+          "string_tuning": 1.755,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -113,21 +114,21 @@
         "slots": {
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerpicked_country_b",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 30.570000000000004,
-          "body_wood": 2.0365,
-          "pickup_config": 0.3,
-          "string_type": 9.546,
-          "scale_length_b": 0.363,
-          "fretted_or_not": 0.09,
-          "bass_technique": 27.170000000000005,
+          "amp_make": 23.8085,
+          "body_wood": 1.95,
+          "pickup_config": 0,
+          "string_type": 4.3875,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.04462499999999999,
+          "bass_technique": 23.154999999999998,
           "electric_bass_string_configuration": 0
         }
       },
@@ -135,12 +136,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.364999999999997,
-          "drumhead": 1.2315,
+          "drum_technique": 12.609999999999996,
+          "drumhead": 1.055,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -150,73 +151,92 @@
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "no_mute",
-          "fiddle_articulation": "pizz",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_pont",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 32.075,
-          "fiddle_strings": 4.615,
-          "fiddle_bow": 0.195,
-          "fiddle_mute": 0.4065,
-          "fiddle_articulation": 0.15,
+          "bowed_technique": 24.224999999999998,
+          "fiddle_strings": 1.885,
+          "fiddle_bow": 0.045,
+          "fiddle_mute": 0.2415,
+          "fiddle_articulation": 0.39,
           "fiddle_string_configuration": 0
-        }
-      },
-      {
-        "id": "acoustic_guitar_dread",
-        "slots": {
-          "acoustic_technique": "acoustic_travis_picking",
-          "string_tuning": "eb_standard",
-          "top_wood": "cedar",
-          "back_sides": "rosewood_bs",
-          "string_acoustic": "silk_steel"
-        },
-        "scores": {
-          "acoustic_technique": 27.225,
-          "string_tuning": 2.327125,
-          "top_wood": 2.0365,
-          "back_sides": 1.355,
-          "string_acoustic": 4.159999999999999
-        }
-      },
-      {
-        "id": "upright_piano",
-        "slots": {
-          "keyboard_technique": "keyboard_honky_tonk",
-          "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_concert"
-        },
-        "scores": {
-          "keyboard_technique": 32.60000000000001,
-          "upright_use": 0.3315,
-          "upright_piano_size": 0.39
         }
       }
     ],
-    "room": "capitol_tower_studios_la",
-    "archetype": "arch_60s_la_smallroom_chambers",
+    "room": "nashville_rca_studio_b_quonset_hut",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
-      "mic": "mic_u47_tube_neumann",
-      "pre": "pre_ua_610_tube",
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_api_312",
       "console": "console_american_op_amp",
-      "comp": "comp_la2a_optical",
-      "eq": null,
-      "amp": null,
-      "medium": "tape_15ips"
+      "comp": "comp_api_525",
+      "eq": "eq_api_550",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
     },
     "tuning": "country_nashville_three_chord_train_beat",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": []
+    "fx_extras": [
+      "spring_reverb",
+      "analog_delay"
+    ]
   },
   "source": {
     "tuning": "country_nashville_three_chord_train_beat",
-    "room": "capitol_tower_studios_la",
-    "chain_mic": "mic_u47_tube_neumann",
-    "chain_pre": "pre_ua_610_tube",
-    "chain_comp": "comp_la2a_optical",
-    "chain_medium": "tape_15ips",
-    "chain_console": "console_american_op_amp"
+    "room": "nashville_rca_studio_b_quonset_hut",
+    "parts": {
+      "body_wood": "swamp_ash",
+      "pickup_magnet": "alnico_5",
+      "string_material": "nickel_plated",
+      "bridge": "hardtail",
+      "scale_length": "scale_fender",
+      "electric_technique": "electric_country_chicken_pickin",
+      "pickup_config": "dual_single",
+      "string_type": "half_round",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerpicked_country_b",
+      "drumhead": "single_coated",
+      "drum_technique": "brushes_and_sticks",
+      "voice_register": "chest_voice",
+      "voice_quality": "twang_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_oral_twang",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "bowed_technique": "bowed_chopped_old_time",
+      "fiddle_articulation": "arco",
+      "amp_make": "amp_american_fender_blackface",
+      "pickup_steel": "single_coil_steel",
+      "string_setup": "standard_e9",
+      "bar_material": "steel_bar",
+      "pedal_steel_brand": "sho_bud_classic",
+      "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+      "pedal_steel_strings": "pedal_steel_george_l_e9",
+      "string_tuning": "standard_tuning"
+    },
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_api_312",
+    "chain_comp": "comp_api_525",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_american_op_amp",
+    "chain_fx": [
+      "spring_reverb",
+      "analog_delay"
+    ],
+    "chain_amp": "amp_american_blackface",
+    "chain_amp_guitar": "amp_american_fender_blackface",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Music of the tsuur, a three-hole vertical end-blown pipe played by the Altai Uriankhai of Khovd aimag in western Mongolia, inscribed on UNESCO's List of Intangible Cultural Heritage in Need of Urgent Safeguarding. The player hums a low guttural drone in the throat while blowing, so that pipe tone and voice sound together, and the repertoire, including praises of the Altai mountains, imitates the sounds of water, birds and animals.",
   "recipe": "classic modern tsuur, drone Modal, wind pipe branch. tsuur. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 139,
-  "score": 1.322,
+  "score": 1.185,
   "config": {
     "traditions": [
       "altai_uriankhai_tsuur"
@@ -19,7 +19,7 @@
         },
         "scores": {
           "tsuur_material": 0.3315,
-          "tsuur_technique": 0.6405
+          "tsuur_technique": 0.504
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "The tambrin band of Tobago, goatskin tambrin frame drums with a fiddle and a steel triangle, plays for the Tobago reel, a dance associated with the ancestral spirits, and for the jig and other social dances descended from British dances. It is a staple of the Tobago Heritage Festival; the frame-drum card stands in for the tambrins.",
   "recipe": "classic modern tambrin band music, groove Percussion, Caribbean branch. fiddle, credited frame drums, concert triangle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 199,
-  "score": 1.739,
+  "score": 1.949,
   "config": {
     "traditions": [
       "tobago_tambrin_reel_jig"
@@ -22,11 +22,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 1.2529999999999997,
+          "bowed_technique": 1.3579999999999997,
           "fiddle_strings": 0,
           "fiddle_bow": 0.105,
           "fiddle_mute": 0.105,
-          "fiddle_articulation": 0.063,
+          "fiddle_articulation": 0.16799999999999998,
           "fiddle_string_configuration": 0
         }
       },

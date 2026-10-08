@@ -5,7 +5,7 @@
   "lineage": "Polyphonic sacred choral style of Ukrainian Orthodox church music. Partes singing, multi-voice part-writing for unaccompanied choir codified in Mykola Dyletsky's seventeenth-century Grammar of music, spread from the Kyiv and Lviv church brotherhoods into Muscovy; in the later eighteenth century it culminated in the a cappella sacred concerto of Dmytro Bortniansky, Maksym Berezovsky and Artem Vedel, trained in Hlukhiv, Kyiv and in Bortniansky's and Berezovsky's case in Italy, who joined Italianate counterpoint and dramatic contrast to Church Slavonic texts, writing for single and double choir.",
   "recipe": "classic Eastern European early-1940s partesnyi spiv and dukhovnyi kontsert, ritual Devotional, Russian orthodox branch. choir cathedral satb. parish church. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 290,
-  "score": 2.6,
+  "score": 2.562,
   "config": {
     "traditions": [
       "ukrainian_partes_concerto"
@@ -18,7 +18,7 @@
           "repertoire": "baroque_choral"
         },
         "scores": {
-          "voicing": 1.3,
+          "voicing": 1.262142857142857,
           "repertoire": 1
         }
       }

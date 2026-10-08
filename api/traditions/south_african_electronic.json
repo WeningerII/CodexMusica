@@ -5,7 +5,7 @@
   "lineage": "South African electronic music encompasses dance production and electronic songwriting shaped by local artists and collaborative networks. Vocal house is one strand within a much broader national electronic field.",
   "recipe": "classic south african electronic, electronic Dance, African dance branch. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 214,
-  "score": 0.998,
+  "score": 1.103,
   "config": {
     "traditions": [
       "south_african_electronic"
@@ -35,7 +35,7 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.4095,
+          "kick_voice": 0.483,
           "snare_voice": 0.0315,
           "hat_voice": 0.0315,
           "shuffle_quantize": -0.035
@@ -74,7 +74,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.0315,
-          "voice_ornament_system": 0.2415,
+          "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.0315

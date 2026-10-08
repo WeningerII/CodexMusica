@@ -3,9 +3,9 @@
   "name": "Plena (Puerto Rican)",
   "family": "global",
   "lineage": "Puerto Rican narrative-and-news song tradition originating in Ponce c. 1900 — built on the three sizes of pandereta frame drum (requinto small high-pitched lead, seguidor medium-pitched, segundo bass), plus voice and güiro scraper, performing topical-narrative songs about working-class urban Puerto Rican life and current events (the genres defining periódico cantado newspaper-set-to-music function); codified through Manuel Jiménez Canario (the first commercially-recorded plenero, 1925-onward), Mon Rivera (the mid-20th-century voice), and the modern Plena Libre, Los Pleneros de la 21, and Viento de Agua extensions",
-  "recipe": "classic Caribbean modern plena, groove Percussion, Caribbean branch, Latin am troubadour ballad poetry milonga folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, guiro, cedar nylon fingerpicked classical nylon-string guitar. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 511,
-  "score": 158.195,
+  "recipe": "classic Caribbean modern plena, groove Percussion, Caribbean branch, Latin am troubadour ballad poetry milonga folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. hands layered pandeiro, guiro, cedar nylon fingerpicked classical nylon-string guitar. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 391,
+  "score": 157.34,
   "config": {
     "traditions": [
       "plena_puertorican",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.055,
           "voice_pitch_organization": 1.3499999999999999,
           "voice_processing_chain": 3.3149999999999995,
-          "voice_multitrack_stack": 3.63
+          "voice_multitrack_stack": 3.8249999999999997
         }
       },
       {
@@ -66,9 +66,9 @@
           "percussion_technique": 8.5,
           "pandeiro_size": 0.39,
           "pandeiro_context": 1.235,
-          "pandeiro_head": 1.17,
-          "pandeiro_shell_wood": 1.17,
-          "pandeiro_jingles": 1.17
+          "pandeiro_head": 0.885,
+          "pandeiro_shell_wood": 0.885,
+          "pandeiro_jingles": 0.885
         }
       },
       {
@@ -97,8 +97,8 @@
           "string_tuning": 0,
           "top_wood_classical": 7.02,
           "bracing_classical": 0.585,
-          "string_classical": 2.275,
-          "attack_technique_cl": 2.34
+          "string_classical": 2.185,
+          "attack_technique_cl": 2.235
         }
       }
     ],

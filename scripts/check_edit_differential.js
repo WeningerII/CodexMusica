@@ -113,8 +113,8 @@ function lcg(seed) {
 // Small fixed pools rather than the whole catalog: the point is to explore
 // COMPOSITIONS of edits, and a wide id space would spend every script on ids
 // that never interact. These cover a range of roster sizes and families.
-const TRADITIONS = ['afrobeat', 'bluegrass', 'gamelan', 'zydeco', 'bossa_nova'].filter((id) =>
-  (C.TRADITIONS || []).some((t) => t.id === id)
+const TRADITIONS = ['afrobeat', 'bluegrass', 'javanese_gamelan', 'zydeco', 'bossa_nova'].filter(
+  (id) => (C.TRADITIONS || []).some((t) => t.id === id)
 );
 const INSTRUMENTS = ['kithara', 'guqin', 'concert_harp', 'drum_kit', 'saxophone'].filter((id) =>
   (C.INSTRUMENTS || []).some((i) => i.id === id)

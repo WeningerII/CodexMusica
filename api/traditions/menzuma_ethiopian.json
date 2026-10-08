@@ -5,7 +5,7 @@
   "lineage": "Islamic devotional song of Ethiopian Muslims, composed and sung in Amharic, Oromo and other Ethiopian languages rather than in Arabic, with poems praising the Prophet and saints and conveying religious teaching. It is closely tied to the Sufi scholarship of Wollo, is performed at religious gatherings, and since the late twentieth century has circulated widely on commercial cassettes and video discs.",
   "recipe": "classic modern menzuma, ritual Devotional, islamic branch. hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 149,
-  "score": 0.561,
+  "score": 0.498,
   "config": {
     "traditions": [
       "menzuma_ethiopian"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0945,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "clap_technique": 0.39,
-          "clap_capture": 0.0315
+          "clap_capture": 0
         }
       }
     ],

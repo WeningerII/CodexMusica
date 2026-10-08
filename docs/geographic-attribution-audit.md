@@ -248,9 +248,11 @@ A streaming-listenership taxonomy cannot supply these.
    of their parent genre, or as a layer that is off by default.
 4. **Do a duplicate pass before merging anything.** Near-duplicates are under-counted:
    blind re-labels flagged them about twice as often as the first pass. The current
-   duplicate graph also has 23 mutual pairs and 91 chains to untangle. Done as analysis
-   on 2026-10-08; nothing is merged yet. See
-   [Duplicate pass](#duplicate-pass-2026-10-08).
+   duplicate graph also has 23 mutual pairs and 91 chains to untangle. Done on
+   2026-10-08: the duplicate pass mapped the merges, and 649 duplicates were then
+   merged, each keeping its id as an alias. See
+   [Duplicate pass](#duplicate-pass-2026-10-08) and
+   [Applied: duplicate merge](#applied-duplicate-merge-2026-10-08).
 5. **Fill gaps in rate order:** China, Maritime and Mainland Southeast Asia, the rest of
    South Asia, Central and East Africa, Siberia and Russia's peoples, the Andes and
    Amazonia, and Indigenous North America. Start from the verified candidates in
@@ -439,9 +441,8 @@ verified duplicate map, so that any merge can be decided from evidence.
     others;
   - Americana: `alt_country_americana`, `new_americana`, `roots_americana` and others.
 
-**Not decided here.** How a fold should work: deleting, keeping the retired id as an
-alias, or redirecting the URL. A fold also changes stable API URLs and neighbouring
-recipes, so it is left for the owner.
+**Not decided here.** How a fold should work. The owner chose to keep each retired id
+as an alias, and the merge followed the same day; see below.
 
 **Records.**
 
@@ -449,6 +450,92 @@ recipes, so it is left for the owner.
   gives each pair's judge and skeptic verdicts, reasons and the id to keep.
 - [`geographic-attribution-audit/duplicate-clusters.csv`](geographic-attribution-audit/duplicate-clusters.csv)
   gives each clustered id and its surviving entry.
+
+## Applied: duplicate merge (2026-10-08)
+
+The owner chose to merge the duplicates and keep every retired id as an alias.
+649 traditions were retired into 512 survivors:
+
+- 316 "same" merges: one tradition under two names;
+- 333 "slice" merges: an era, market or mood slice with no documented difference.
+
+The catalog went from 8362 to 7713 traditions. <!-- check_docs:ignore -->
+
+**What was held back.** The duplicate map was applied with two exceptions, both
+decisions the repository had already recorded:
+
+- **18 pairs** that `scripts/_duplicate_rulings.json` had ruled distinct, such as
+  `southern_trap` / `trap` and `k_pop_modern` / `kpop`.
+- **15 pairs** whose survivor would have been one of the 22 umbrella records (`trap`,
+  `country`, `kpop`, `metal` and the rest). The engine deliberately keeps those out of
+  similarity scoring, and the changelog records the decision not to merge specific
+  genres into them.
+
+The remaining edges were re-clustered.
+
+**Which record survives.**
+
+- **Slice:** the broader entry survives.
+- **Same:** the better-documented record survives. That is the one with more of its
+  recording chain, parts, exemplars and prose authored.
+  - In 138 clusters this differs from the duplicate pass's "keep". For example,
+    `bakersfield` (12 chain fields, two effects) survives over `bakersfield_sound`
+    (7, none).
+  - Otherwise a hand-researched chain, such as `surf_rock`'s spring reverb and
+    tremolo, would have been lost behind an alias.
+- **Survivors are unchanged.** No surviving record was edited.
+
+**What an alias does.** `references/_tradition_aliases.json` maps each retired id to
+`{of, name, verdict}`. Every surface resolves it before anything else:
+
+- **CLI:** `recipe.js` and the other CLIs; it says so on stderr.
+- **Engine:** seeding and search.
+- **Connector:** `start_recipe`, `add_tradition`, `remove_tradition` and
+  `get_tradition`. The last answers with the survivor and `merged_from`. Naming an
+  alias and its survivor together is refused as a repeat.
+- **Saved workspaces:** cards carrying a retired id, in the connector and in the app,
+  are rewritten to the survivor.
+- **Browser app:** import, search (an old name ranks as a name match) and `?trad=` links.
+- **Atlas:** `?trad=` links.
+- **Static API:**
+  - `api/traditions/<alias>.json` is the survivor's record plus `merged_from`, so
+    old links still return a recipe;
+  - `traditions/index.json`, `all.json`, `browse.json` and `index.json` carry the alias
+    map;
+  - `scripts/check_aliases.js` and `scripts/check_api.js` gate all of it.
+
+**What else moved with the retired records.**
+
+- **Removed:** their pins, signatures and signature rulings, image-manifest entries,
+  geo-meta review entries and voice-part overrides.
+- **Repointed:** atlas routes and threads, deduplicated.
+- **Carried over:** the 5 distinct rulings that named a retired id now name the
+  surviving pair, so the duplicate gate keeps the decision.
+- **Preface regression fixtures:** the 5 on retired ids were repointed to their
+  survivors.
+  - 2 were dropped because they duplicated a survivor's own fixture.
+  - 1 expectation was re-recorded: `scottish_bothy_ballad`'s melodeon now draws
+    "street-pulsing", one of the engine's known odd prefaces, where
+    `bothy_ballad_doric`'s drew "hiraeth".
+
+**Effect on surviving recipes.** The engine scores each tradition against its
+neighbours, so removing 649 records changes how many survivors compile.
+
+- **Survivors' own records:** none was edited.
+- **Recipe text:** 876 of the 7713 changed. 536 of those name different related styles;
+  the rest re-pick an automatic part variant against the new neighbourhood.
+- **Variant picks only:** another 2714 change only internal picks that the recipe text
+  does not show.
+- **Instruments, rooms, tunings and chains:** none moved.
+- **Archetypes:** two re-picked against the new neighbours.
+  - `franco_country` moved to its authored `arch_early_tape_us_commercial`;
+  - `western_music` moved from it to `arch_early_tape_havana`.
+- **Regression fixtures:** 269 of the 1149 were re-recorded. 52 of them are keyed by a
+  retired id and now record the survivor's recipe, so they double as regression cover
+  for alias resolution.
+
+Every changed recipe text is in
+[`geographic-attribution-audit/merge-recipe-changes.csv`](geographic-attribution-audit/merge-recipe-changes.csv).
 
 ## Limits
 
@@ -497,4 +584,9 @@ recipes, so it is left for the owner.
   review, decision and any new coordinate.
 - [`geographic-attribution-audit/duplicates.csv`](geographic-attribution-audit/duplicates.csv)
   and [`duplicate-clusters.csv`](geographic-attribution-audit/duplicate-clusters.csv): the
-  2026-10-08 duplicate pass, pair verdicts and the resulting merge map.
+  2026-10-08 duplicate pass, pair verdicts and the proposed merge map. The map actually
+  applied, after the held-back pairs and survivor swaps, is
+  [`references/_tradition_aliases.json`](../references/_tradition_aliases.json).
+- [`geographic-attribution-audit/merge-recipe-changes.csv`](geographic-attribution-audit/merge-recipe-changes.csv):
+  every surviving tradition whose static recipe text changed with the merge, before and
+  after.

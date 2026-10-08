@@ -5,7 +5,7 @@
   "lineage": "Southeast European commercial popular song that consolidated in Belgrade, Zagreb, Sofia and Skopje from the 1960s Jugoton/PGP-RTB era and mutated after 1990 into the pop-folk mainstream — 4/4 dance-pop tempos of 100-140 BPM with occasional 7/8 and 9/8 quotation, melodic lines built on augmented-second Balkan and Ottoman-derived modes, heavily ornamented melismatic female lead vocals, and arrangements pairing synthesizers and drum machines with amplified accordion, clarinet and tapan.",
   "recipe": "classic Central European mid-1960s balkan pop, functional Song, europop branch, European wedding qırımtatar musiqisi roma balkan svatba. thick, breath veiled tone, straight note core, interlocked note trading. brass castagnari Italian premium folk music straight accordion, ebonite hard rubber klezmer tradition clarinet, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, behringer rd 8 modern clone analog circuit reproduction TR-808, pyramid pure nickel bass British mid 60s era electric bass, bolt tuned tapan, tamburica prim. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
   "recipe_chars": 776,
-  "score": 257.237,
+  "score": 256.257,
   "config": {
     "traditions": [
       "balkan_pop",
@@ -29,25 +29,25 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 17.199999999999992,
+          "voice_register": 17.049999999999994,
           "voice_quality": 17.93999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.7100000000000004,
           "voice_articulation": 20.605,
           "voice_microtone": 23.822499999999998,
-          "voice_tradition": 24.325000000000003,
+          "voice_tradition": 23.92,
           "voice_mechanism_compound": 6.305,
           "voice_estill_quality": 4.68,
           "voice_speech_song": 25.285,
           "voice_ensemble_config": 21.970000000000002,
           "voice_ornament_system": 1.6899999999999995,
-          "voice_pitch_organization": 1.8849999999999996,
+          "voice_pitch_organization": 1.8199999999999998,
           "voice_processing_chain": 4.925,
           "voice_multitrack_stack": 5.98
         }
@@ -68,7 +68,7 @@
           "accordion_reed_material": 1.34,
           "musette_offset": 0.65,
           "reed_config": 0.15,
-          "bellows": 0,
+          "bellows": 0.15,
           "voicing_chamber": 0.45499999999999996,
           "accordion_maker_school": 4.225
         }
@@ -87,7 +87,7 @@
           "clarinet_body": 1.3649999999999998,
           "clarinet_size": 1.6900000000000002,
           "clarinet_reed": 0,
-          "clarinet_articulation": 0.5849999999999999
+          "clarinet_articulation": 0.47999999999999987
         }
       },
       {
@@ -99,7 +99,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 12.944999999999999,
+          "electronic_technique": 12.794999999999998,
           "poly_archetypes": 0.195,
           "poly_voices": 0.195,
           "poly_maker_lineage": 3.0150000000000006
@@ -136,7 +136,7 @@
           "pickup_config": 0.39,
           "string_type": 2.21,
           "scale_length_b": 0.845,
-          "fretted_or_not": 0.195,
+          "fretted_or_not": 0.045,
           "bass_technique": 0.4875,
           "electric_bass_string_configuration": 0
         }
@@ -149,9 +149,9 @@
           "tapan_build": "tapan_modern_tensioned"
         },
         "scores": {
-          "tapan_form": 17.599999999999994,
+          "tapan_form": 17.449999999999996,
           "tapan_role": 11.314999999999998,
-          "tapan_build": 2.42
+          "tapan_build": 2.465
         }
       },
       {

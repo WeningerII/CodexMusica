@@ -5,7 +5,7 @@
   "lineage": "Antideutsche: Egotronic — documented production-plan arrangement (2012). Egotronic’s 2012 post documents a production plan, including intended guitar/bass/drums and partly analog and digital hardware synths. These planned roles inspire an authored present-day arrangement; this is not evidence that the planned album or that hardware session was completed. Political scene membership does not prescribe a universal timbre. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic early-2010s antideutsche, distorted Rock, alternative branch. solo with instrumental accompaniment, no specific ornament system, single lead single track no stacking. basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog synth, digital subtractive. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 401,
-  "score": 37.662,
+  "score": 36.854,
   "config": {
     "traditions": [
       "antideutsche"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4587499999999998,
+          "voice_ensemble_config": 1.16475,
           "voice_ornament_system": 0.507,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.68025
         }
       },
@@ -69,16 +69,16 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 1.4475,
-          "body_wood": 1.1969999999999998,
-          "neck_wood": 0.3045,
+          "amp_make": 1.3425,
+          "body_wood": 1.302,
+          "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.76275,
           "string_material": 0.105,
-          "bridge": 2.558,
-          "scale_length": 0.651,
-          "string_gauge": 2.558,
+          "bridge": 2.453,
+          "scale_length": 0.7875000000000001,
+          "string_gauge": 2.453,
           "finish": 0,
           "string_tuning": 0.042749999999999996
         }
@@ -96,11 +96,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.4475,
-          "body_wood": 0.609,
+          "amp_make": 1.3425,
+          "body_wood": 0.546,
           "pickup_config": 0.1365,
           "string_type": 5.85,
-          "scale_length_b": 0.3045,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 4.5,
-          "drumhead": 0.378,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -133,7 +133,7 @@
           "oscillator": 1.69,
           "filter_topology": 3.38,
           "envelope": 0.45825,
-          "modulation": 0.0735
+          "modulation": 0
         }
       },
       {

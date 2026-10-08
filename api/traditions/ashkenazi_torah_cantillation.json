@@ -3,9 +3,9 @@
   "name": "Ashkenazi Torah cantillation (leyning)",
   "family": "global",
   "lineage": "Chanted public reading of the Hebrew Bible in Ashkenazi synagogues, in which the reader (baal koreh) sings each word to the melodic motif of its ta'amei ha-mikra accent sign, with distinct motif sets for the Torah, the haftarah, the scrolls of Esther, Lamentations and the festival megillot, and the High Holy Days. The system is passed on orally and through trope charts in bar and bat mitzvah training, and its melodies differ from the Sephardi, Yemenite and other reading traditions.",
-  "recipe": "classic modern ashkenazi torah cantillation, ritual Devotional, Jewish branch. ametrical pitched chant free rhythm, solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 215,
-  "score": 2.232,
+  "recipe": "classic modern ashkenazi torah cantillation, ritual Devotional, Jewish branch. ametrical pitched chant free rhythm. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 195,
+  "score": 1.897,
   "config": {
     "traditions": [
       "ashkenazi_torah_cantillation"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.609,
+          "voice_ensemble_config": 0.36750000000000005,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.4305,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.36749999999999994,
           "voice_tessitura": 0
         }
       }

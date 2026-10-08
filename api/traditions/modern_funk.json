@@ -3,14 +3,14 @@
   "name": "Modern Funk",
   "family": "electronic",
   "lineage": "A Los Angeles-centred 2008-onward revival of early-1980s boogie and synth-funk led by Dâm-Funk, XL Middleton, Zackey Force Funk, Moniquea and the MoFunk and Peanut Butter Wolf label circles — programmed LinnDrum and 808 patterns at 98-112 BPM, Moog and Juno synth basslines in place of electric bass, glassy poly-synth chords, talkbox and vocoder leads, and hazy, deliberately lo-fi analogue mixes produced largely by one person in a home studio.",
-  "recipe": "classic modern modern funk, functional Song, soul R&B branch, funk percussive groove percussion, lofi house house boogie brit funk. thick, breath veiled tone, straight onset, interlocked note trading. linn electronics lm 2 linndrum canonical 1982 1984 8 bit sample rom linndrum, behringer rd 8 modern clone analog circuit reproduction TR-808, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, low sub bass monosynth acid bass, talkbox, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 658,
-  "score": 215.477,
+  "recipe": "classic modern modern funk, functional Song, soul R&B branch, funk percussive groove percussion, lofi house house brit funk new orleans funk. thick, breath veiled tone, straight onset, interlocked note trading. classic source linndrum, behringer rd 8 modern clone analog circuit reproduction TR-808, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, low sub bass monosynth acid bass, talkbox, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 615,
+  "score": 226.362,
   "config": {
     "traditions": [
       "modern_funk",
-      "boogie_post_disco",
-      "brit_funk"
+      "brit_funk",
+      "new_orleans_funk"
     ],
     "instruments": [
       {
@@ -28,41 +28,41 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 13.264999999999999,
-          "voice_quality": 7.215,
+          "voice_register": 12.989999999999998,
+          "voice_quality": 10.464999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.335,
-          "voice_articulation": 21.774999999999995,
-          "voice_microtone": 21.384999999999994,
-          "voice_tradition": 7.720000000000001,
-          "voice_mechanism_compound": 3.0549999999999997,
-          "voice_estill_quality": 6.640000000000001,
-          "voice_speech_song": 24.83,
-          "voice_ensemble_config": 22.81499999999999,
-          "voice_ornament_system": 0.45500000000000007,
-          "voice_pitch_organization": 1.1049999999999998,
-          "voice_processing_chain": 29.139999999999997,
-          "voice_multitrack_stack": 8.125000000000002
+          "voice_vibrato": 6.9399999999999995,
+          "voice_articulation": 23.59499999999999,
+          "voice_microtone": 22.09999999999999,
+          "voice_tradition": 8.854999999999999,
+          "voice_mechanism_compound": 4.159999999999999,
+          "voice_estill_quality": 6.925000000000001,
+          "voice_speech_song": 25.154999999999998,
+          "voice_ensemble_config": 22.42499999999999,
+          "voice_ornament_system": 0.9099999999999997,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 30.280000000000005,
+          "voice_multitrack_stack": 7.085000000000001
         }
       },
       {
         "id": "linndrum",
         "slots": {
           "linndrum_voice": "linndrum_hat_perc",
-          "linndrum_context": "linndrum_rb",
-          "linndrum_production_origin": "linndrum_lm_2_canonical"
+          "linndrum_context": "linndrum_hiphop_sample",
+          "linndrum_production_origin": "linndrum_lm_1_earlier"
         },
         "scores": {
           "linndrum_voice": 2.875,
-          "linndrum_context": 5.2,
-          "linndrum_production_origin": 1.3649999999999998
+          "linndrum_context": 5.849999999999999,
+          "linndrum_production_origin": 0.8450000000000002
         }
       },
       {
@@ -73,8 +73,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 3.1200000000000006,
-          "drum_machine_808_context": 5.07,
+          "tr808_voice": 4.3225,
+          "drum_machine_808_context": 5.915000000000001,
           "tr808_production_origin": 1.8850000000000002
         }
       },
@@ -83,14 +83,14 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "juno_60",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 3.380000000000001,
+          "electronic_technique": 5.135,
           "poly_archetypes": 0.39,
-          "poly_voices": 0.3,
-          "poly_maker_lineage": 3.78
+          "poly_voices": 0.39,
+          "poly_maker_lineage": 1.59
         }
       },
       {
@@ -99,13 +99,13 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "opening_acid",
-          "accent_acid": "heavy_accent_acid"
+          "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 3.380000000000001,
-          "wave_acid": 0.65,
+          "electronic_technique": 5.135,
+          "wave_acid": 0.345,
           "filter_acid": 0.195,
-          "accent_acid": 0.4875
+          "accent_acid": 0.65
         }
       },
       {
@@ -116,7 +116,7 @@
         },
         "scores": {
           "talkbox_use": 0,
-          "talkbox_construction": 1.345
+          "talkbox_construction": 1.405
         }
       },
       {
@@ -127,9 +127,9 @@
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
-          "voc_band_count": 1.3900000000000001,
+          "voc_band_count": 1.3,
           "voc_carrier": 0.9950000000000001,
-          "voc_modulator": 0.43500000000000005
+          "voc_modulator": 0.48000000000000004
         }
       }
     ],

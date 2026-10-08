@@ -3,9 +3,9 @@
   "name": "Tiatr kantaram (Konkani theatre song)",
   "family": "global",
   "lineage": "Tiatr is Konkani-language popular musical theatre, first staged in Bombay at the end of the nineteenth century with Lucasinho Ribeiro's Italian Bhurgo and carried to Goa, where it remains a mass entertainment. Its kantaram are songs performed between the scenes, often comic or topical, satirical or political commentary independent of the plot, accompanied by a live band of keyboard, trumpet, saxophone, bass guitar and drums.",
-  "recipe": "classic modern tiatr kantaram, functional Song, south Asian pop branch. solo with instrumental accompaniment, single lead single track no stacking. trumpet, saxophone, melodic chordal electronic keyboard unspecified, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 467,
-  "score": 14.148,
+  "recipe": "classic modern tiatr kantaram, functional Song, south Asian pop branch. solo with instrumental accompaniment, single lead single track no stacking. trumpet, saxophone, electronic keyboard unspecified, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 451,
+  "score": 14.1,
   "config": {
     "traditions": [
       "tiatr_kantaram"
@@ -64,11 +64,11 @@
           "trumpet_maker_school": "trumpet_monette"
         },
         "scores": {
-          "wind_articulation": -0.1,
+          "wind_articulation": -0.07,
           "brass_size": 0.0315,
           "trumpet_mouthpiece": -0.1,
           "brass_mute": 0,
-          "trumpet_technique": -0.15000000000000002,
+          "trumpet_technique": -0.10500000000000001,
           "trumpet_bell_metal": 0.0315,
           "trumpet_maker_school": 0
         }
@@ -85,12 +85,12 @@
           "sax_maker_school": "sax_selmer_balanced_action"
         },
         "scores": {
-          "wind_articulation": -0.1,
+          "wind_articulation": -0.07,
           "sax_size": -0.035,
           "sax_reed": 0.2415,
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0.1995,
-          "sax_technique": -0.05,
+          "sax_technique": -0.035,
           "sax_maker_school": -1.9869999999999999
         }
       },
@@ -102,7 +102,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 1.0499999999999998
+          "keyboard_technique": 0.7769999999999999
         }
       },
       {
@@ -153,7 +153,7 @@
           "snare_wires": 0,
           "cymbal_alloy": 0.8314999999999998,
           "cymbal_hammering": 3.8180000000000005,
-          "cymbal_lathing": 4.0865,
+          "cymbal_lathing": 4.1915000000000004,
           "cymbal_finish": 0.0315
         }
       }

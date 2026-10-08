@@ -5,7 +5,7 @@
   "lineage": "Paraliturgical song of the Jews of Yemen, drawn from the diwan, a collection of Hebrew, Aramaic and Judeo-Arabic poems led by those of the seventeenth-century poet Shalom Shabazi, and sung by men at weddings, circumcisions and Sabbath gatherings. A lead singer and his partner alternate with the company through an unmetred nashid, a metred shira that brings dancing and a closing hallel, with rhythm beaten on a tin can or copper tray in place of instruments; the credited auxiliary percussion card stands for that tin. The repertoire continues among Yemenite Jews in Israel.",
   "recipe": "classic modern diwan, ritual Devotional, Jewish branch. credited auxiliary percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 166,
-  "score": -0.024,
+  "score": -0.069,
   "config": {
     "traditions": [
       "yemenite_jewish_diwan"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ensemble_config": -0.11850000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.168,
           "voice_tessitura": 0
         }

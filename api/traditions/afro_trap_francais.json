@@ -5,7 +5,7 @@
   "lineage": "French rap style named by the Paris rapper MHD, from the 19th arrondissement, whose Afro Trap series of videos from 2015 set rap and chanted hooks over beats mixing trap drum programming with the rhythms and guitar-like riffs of West and Central African popular dance music. The series and his 2016 debut album spread the style among French and Francophone African audiences, and other French rappers took up the formula.",
   "recipe": "classic Western European mid-2010s afro trap, mc Rhythm, Afro-diasporic branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. TR-808, sampler drum machine, wavetable synth. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 412,
-  "score": 24.665,
+  "score": 24.602,
   "config": {
     "traditions": [
       "afro_trap_francais"
@@ -76,7 +76,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 0.19949999999999998,
-          "sample_swing": 0.8714999999999999,
+          "sample_swing": 0.8084999999999999,
           "sample_processing": 0.39
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Persian-language music of Tajikistan spanning the Bukharan classical falak and shashmaqam repertory and the Pamiri highland maddoh devotional song, transmitted through hereditary ustod lineages and documented from the 1930s by Soviet folklorists — sato bowed long-necked lute and rubab plucked lute with ghijak, doira and daf, over a plaintive high-register solo voice whose falak laments use free-rhythm melisma before settling into a fast doira usul.",
   "recipe": "classic Central Asian mid-1930s tajik traditional music, art Music, middle eastern classical branch, Sufi ritual devotional, middle eastern funeral lament sindhi latmiya. sygyt, declaimed, slow rate, interlocked note trading. mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, devotional ornamented lead melodic rubab, sustained legato ghijak pamiri, doira frame drum, walnut bent frame canonical Persian daf, nay tajik. bukhara shashmaqam courtyard chamber. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 574,
-  "score": 238.386,
+  "score": 238.431,
   "config": {
     "traditions": [
       "tajik_traditional",
@@ -22,7 +22,7 @@
         },
         "scores": {
           "bowed_technique": 7.344999999999999,
-          "sato_body": 3.8589999999999995,
+          "sato_body": 4.0089999999999995,
           "sato_tradition": 4.895
         }
       },
@@ -35,7 +35,7 @@
         },
         "scores": {
           "rubab_form": 4.485,
-          "rubab_style": 3.09,
+          "rubab_style": 3.135,
           "rubab_strings": -0.035
         }
       },
@@ -111,8 +111,8 @@
           "voice_articulation": 17.419999999999995,
           "voice_microtone": 25.479999999999997,
           "voice_tradition": 16.19,
-          "voice_mechanism_compound": 14.870000000000001,
-          "voice_estill_quality": 10.669499999999996,
+          "voice_mechanism_compound": 14.675,
+          "voice_estill_quality": 10.714499999999996,
           "voice_speech_song": 20.279999999999998,
           "voice_ensemble_config": 19.694999999999997,
           "voice_ornament_system": 14.975000000000001,

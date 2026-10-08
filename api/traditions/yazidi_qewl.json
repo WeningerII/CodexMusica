@@ -5,7 +5,7 @@
   "lineage": "Sacred hymns of the Yazidi religion, sung in Kurmanji by the qewwals, a hereditary class of religious musicians based mainly in Bashiqa and Bahzani, at religious ceremonies and at festivals at Lalish such as the autumn Feast of the Assembly. The qewwals accompany the hymns on the def, a large frame drum, and the shibab, a long end-blown flute; the frame drums card stands for the def and the shabbaba card for the shibab.",
   "recipe": "classic modern qewl, ritual Devotional. credited frame drums, shabbaba. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 151,
-  "score": 0.958,
+  "score": 1.021,
   "config": {
     "traditions": [
       "yazidi_qewl"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.21824999999999997,
+          "voice_multitrack_stack": 0.28125,
           "voice_tessitura": 0
         }
       },

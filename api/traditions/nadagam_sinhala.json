@@ -5,7 +5,7 @@
   "lineage": "Sung folk drama of Sri Lanka's western coastal belt, adapted in the nineteenth century from South Indian Tamil nadagam and associated with the Catholic communities around Negombo and Moratuwa; Philippu Sinno is remembered as its pioneer. A narrator-singer, the pothe gura, introduces the action and the actors sing their roles to drum and cymbal accompaniment. Ediriweera Sarachchandra drew on it for his stage play Maname. A generic membrane-drum card stands in for the drum and the manjira card for the talampata cymbals.",
   "recipe": "classic modern nadagam, ballad Poetry, indian bard branch. live take. membrane drum pulse resonant acoustic membrane drum, manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 211,
-  "score": 9.422,
+  "score": 9.307,
   "config": {
     "traditions": [
       "nadagam_sinhala"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.6509999999999999,
+          "voice_multitrack_stack": 0.6824999999999999,
           "voice_tessitura": 0
         }
       },
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 4.7725,
-          "acoustic_membrane_drum_gesture": 3.7725
+          "acoustic_membrane_drum_form": 4.699,
+          "acoustic_membrane_drum_gesture": 3.699
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Music of the Teke region of southwestern Anatolia around Burdur, Antalya and Isparta, rooted in its Yörük pastoralist communities. Its best-known form is the zortlatma, fast and vigorous men's dance tunes in aksak 9/8 played on the sipsi, a small single-reed cane pipe, together with the bağlama, alongside sung türkü; TRT recordings and Kalan Müzik regional anthologies document the repertoire.",
   "recipe": "classic modern teke zortlatması, wedding, middle eastern branch. solo with instrumental accompaniment, single lead single track no stacking. sipsi, saz baglama. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 240,
-  "score": 6.144,
+  "score": 6.249,
   "config": {
     "traditions": [
       "teke_zortlatmasi"
@@ -81,7 +81,7 @@
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.105,
           "voice_multitrack_stack": 1.063,
           "voice_tessitura": 0
         }

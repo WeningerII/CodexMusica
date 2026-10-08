@@ -3,14 +3,14 @@
   "name": "Lithuanian folk music",
   "family": "vernacular",
   "lineage": "The wider Lithuanian village repertoire outside sutartinės — dainos (lyric, war-and-orphan, wedding and work songs) in narrow-range modal melody, raudos laments, and the instrumental dance layer of polkas, valses and suktinis played on kanklės box zither, birbynė single-reed pipe, skudučiai panpipes and, from the later 19th century, the button accordion and fiddle; collected by Basanavičius and Niemi and standardized in the Soviet-era state ensemble and Skamba Skamba Kankliai revival.",
-  "recipe": "classic Northern European early-1940s lithuanian folk music, domestic Rhythm, Slavic baltic branch, vocal drone modal, European wedding, north Southeast Asian baltic Southeast Asian shanty naturjodel alpine yodeling. vocal fry, breath veiled tone, slow rate, interlocked note trading. board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, warm reed birbyne, drone like fiddle, brass castagnari Italian premium folk music drone like accordion, multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai. baltic outdoor village. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 705,
-  "score": 215.225,
+  "recipe": "classic Northern European early-1940s lithuanian folk music, domestic Rhythm, Slavic baltic branch, vocal drone modal, European wedding, north Southeast Asian baltic Southeast Asian shanty naturjodel karachay-balkar song. vocal fry, breath veiled tone, slow rate, interlocked note trading. board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, warm reed birbyne, drone like fiddle, brass castagnari Italian premium folk music drone like accordion, multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai. baltic outdoor village. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 710,
+  "score": 198.617,
   "config": {
     "traditions": [
       "lithuanian_folk_music",
       "naturjodel",
-      "alpine_yodeling"
+      "karachay_balkar_song"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.355,
-          "voice_quality": 13.259999999999993,
+          "voice_register": 3.705,
+          "voice_quality": 13.194999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3149999999999995,
-          "voice_articulation": 26.259999999999998,
-          "voice_microtone": 28.989999999999995,
-          "voice_tradition": 14.43,
-          "voice_mechanism_compound": 6.11,
-          "voice_estill_quality": 5.07,
-          "voice_speech_song": 28.015,
-          "voice_ensemble_config": 25.740000000000002,
-          "voice_ornament_system": 2.4050000000000002,
-          "voice_pitch_organization": 8.905000000000001,
-          "voice_processing_chain": 4.225,
-          "voice_multitrack_stack": 3.9
+          "voice_vibrato": 1.625,
+          "voice_articulation": 22.75,
+          "voice_microtone": 25.025,
+          "voice_tradition": 18.33,
+          "voice_mechanism_compound": 6.5,
+          "voice_estill_quality": 4.615,
+          "voice_speech_song": 24.245000000000005,
+          "voice_ensemble_config": 21.384999999999998,
+          "voice_ornament_system": 2.2099999999999995,
+          "voice_pitch_organization": 7.247500000000001,
+          "voice_processing_chain": 4.42,
+          "voice_multitrack_stack": 3.055
         }
       },
       {
@@ -85,11 +85,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 7.995,
-          "fiddle_strings": 0.6499999999999999,
+          "bowed_technique": 9.36,
+          "fiddle_strings": 0.3,
           "fiddle_bow": 0.51,
           "fiddle_mute": 0.845,
-          "fiddle_articulation": 1.5450000000000002,
+          "fiddle_articulation": 1.195,
           "fiddle_string_configuration": 0
         }
       },
@@ -98,20 +98,20 @@
         "slots": {
           "free_reed_technique": "free_reed_drone_under",
           "accordion_reed_material": "brass_reeds",
-          "musette_offset": "american_swing",
+          "musette_offset": "dry_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 4.680000000000001,
-          "accordion_reed_material": 1.8900000000000001,
-          "musette_offset": 1.5450000000000002,
+          "free_reed_technique": 4.42,
+          "accordion_reed_material": 1.4949999999999999,
+          "musette_offset": 1.3,
           "reed_config": 0.51,
           "bellows": 0.42000000000000004,
-          "voicing_chamber": 0,
-          "accordion_maker_school": 2.9899999999999998
+          "voicing_chamber": 0.35,
+          "accordion_maker_school": 3.6399999999999997
         }
       },
       {

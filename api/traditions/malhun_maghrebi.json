@@ -5,7 +5,7 @@
   "lineage": "Moroccan-Algerian sung-poetry (al-malhun) tradition originating in 16th-century Tafilalt and codified through 18th-19th-century Fez and Meknes urban poetic circles — preserves a corpus of classical-Maghrebi-Arabic poetry set to elaborate melodic-modal vocal compositions in the Andalusi-derived modal vocabulary; figures: Houcine Toulali, El Haj Houcine Toulali, the post-WWII Fez and Marrakech malhun masters",
   "recipe": "classic North African early-1950s malhun, improv On Frame, Persian arab improv branch, Sufi ritual devotional maijbhandari gan qawwali. vocal fry, declaimed, slow rate, interlocked note trading. pyramid nylon arab school oud, darbuka. fez andalusi palace riad. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 341,
-  "score": 157.542,
+  "score": 157.392,
   "config": {
     "traditions": [
       "malhun_maghrebi",
@@ -42,8 +42,8 @@
           "voice_articulation": 10.919999999999996,
           "voice_microtone": 17.874999999999996,
           "voice_tradition": 27.397500000000004,
-          "voice_mechanism_compound": 8.77,
-          "voice_estill_quality": 7.82,
+          "voice_mechanism_compound": 8.575,
+          "voice_estill_quality": 7.865,
           "voice_speech_song": 12.869999999999996,
           "voice_ensemble_config": 10.659999999999995,
           "voice_ornament_system": 13.45,

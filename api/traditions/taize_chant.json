@@ -5,7 +5,7 @@
   "lineage": "Ecumenical meditative chant of the Taizé Community, the monastic community founded by Brother Roger, who settled in the Burgundian village of Taizé during the Second World War. From 1975 the composer Jacques Berthier, working with the brothers, wrote short ostinato refrains, canons, litanies and acclamations, first mostly in Latin and later in many languages, so that the international gatherings of young pilgrims could sing together; the community's Ateliers et Presses de Taizé has issued recordings.",
   "recipe": "classic European mid-1970s chants de taizé, ritual Devotional. single lead single track no stacking. choir ensemble, classical nylon-string guitar, credited flute unspecified, oboe, cello. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 278,
-  "score": 3.85,
+  "score": 3.923,
   "config": {
     "traditions": [
       "taize_chant"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.7769999999999999,
+          "voice_processing_chain": 0.23099999999999998,
+          "voice_multitrack_stack": 0.8084999999999999,
           "voice_tessitura": 0
         }
       },
@@ -81,9 +81,9 @@
           "acoustic_technique": -0.2185,
           "string_tuning": 0,
           "top_wood_classical": 0,
-          "bracing_classical": 0.168,
+          "bracing_classical": 0.126,
           "string_classical": 0,
-          "attack_technique_cl": 0.7865
+          "attack_technique_cl": 0.7129999999999999
         }
       },
       {
@@ -106,7 +106,7 @@
         },
         "scores": {
           "wind_articulation": -0.035,
-          "oboe_reed": 0.0945,
+          "oboe_reed": 0.126,
           "oboe_class": 0,
           "oboe_body_wood": -0.035,
           "oboe_maker_school": 0
@@ -132,7 +132,7 @@
           "cello_back_wood": -0.07,
           "cello_varnish": -0.1,
           "cello_setup_period": -0.07,
-          "cello_bow_grip": 0.1995,
+          "cello_bow_grip": 0.231,
           "cello_rosin": 0.26,
           "cello_bow_stick": -0.10500000000000001
         }

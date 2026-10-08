@@ -3,9 +3,9 @@
   "name": "Ingoma (Ngoni war dance of Malawi and Zambia)",
   "family": "global",
   "lineage": "War dance-song of the Ngoni, descendants of Nguni groups, among them the followers of Zwangendaba, who migrated north across the Zambezi in the nineteenth century and settled in northern and central Malawi and eastern Zambia. Men in skins with shields and sticks dance in lines with high kicks and heavy stamping while singing war and praise songs; it is performed at the Umthetho festival of the M'mbelwa Ngoni at Mzimba and at the Ncwala ceremony of the Mpezeni Ngoni near Chipata.",
-  "recipe": "classic modern ingoma, praise Song, sub saharan African branch. hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 154,
-  "score": 1.907,
+  "recipe": "classic modern ingoma, praise Song, sub saharan African branch. live take. hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 165,
+  "score": 2.117,
   "config": {
     "traditions": [
       "ngoni_ingoma"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.4724999999999999,
+          "voice_multitrack_stack": 0.5774999999999999,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "clap_technique": 0.39,
-          "clap_capture": 0
+          "clap_capture": 0.105
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Urban popular music of Yerevan that grew in the 1970s and 1980s among singers performing at weddings, restaurants and celebrations, setting Armenian songs in the ornamented vocal style and dance rhythms shared with the wider Middle Eastern and Caucasian city tradition. The name is usually traced to rabis, the Soviet abbreviation for art workers; the style spread on cassette, at concerts and later on video.",
   "recipe": "classic mid-1970s rabiz, functional Song, mid east n African pop branch. many notes per syllable, solo with instrumental accompaniment. rompler workstation, grenadilla African blackwood traditional clarinet, drum machine analog, fast-attack-transient alder electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 417,
-  "score": 19.685,
+  "score": 19.694,
   "config": {
     "traditions": [
       "rabiz_yerevan"
@@ -79,7 +79,7 @@
         "scores": {
           "wind_articulation": -0.1,
           "clarinet_body": 1.755,
-          "clarinet_size": 0.861,
+          "clarinet_size": 0.8699999999999999,
           "clarinet_reed": 0,
           "clarinet_articulation": 0.147
         }

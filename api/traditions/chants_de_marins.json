@@ -5,7 +5,7 @@
   "lineage": "Work and leisure songs of French sailors on the merchant, fishing and naval ships of the Breton and Atlantic coasts: chants à hisser for hauling halyards, chants à virer for the capstan and windlass, and gaillard d'avant forecastle songs for rest hours. Collected from former sailors along the coast, the repertoire was revived from the 1980s by the maritime heritage magazine Le Chasse-Marée, whose multi-volume anthology of sea-song field recordings documents it, and by festivals such as the chant de marin festival at Paimpol.",
   "recipe": "classic mid-1980s chants de marins, sea Shanty, atlantic branch. leader call answered. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 166,
-  "score": 3.304,
+  "score": 3.265,
   "config": {
     "traditions": [
       "chants_de_marins"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 3.027,
+          "voice_articulation": 2.989,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,

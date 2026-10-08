@@ -5,7 +5,7 @@
   "lineage": "Judeo-Arabic songs of Yemenite Jewish women, who were not taught the Hebrew liturgy of the men and kept their own oral repertoire for the henna night before a wedding, the wedding itself, births and circumcisions and daily work. A woman singer or a pair of singers leads songs on love, the bride and groom, family and current events while beating a tin can or a copper tray, which the credited auxiliary percussion card stands for. The practice continued among Yemenite Jews in Israel after the 1949-50 migration.",
   "recipe": "classic late-1940s shirat nashim, wedding, middle eastern branch. credited auxiliary percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 176,
-  "score": 0.413,
+  "score": 0.549,
   "config": {
     "traditions": [
       "yemenite_jewish_womens_song"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.063,
+          "voice_processing_chain": 0.21,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },

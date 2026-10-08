@@ -5,7 +5,7 @@
   "lineage": "Shred-guitar idiom codified by Yngwie Malmsteen's Rising Force (1984) after Ritchie Blackmore and Uli Jon Roth, and carried on by Tony MacAlpine, Jason Becker and Symphony X — harmonic-minor and Phrygian-dominant scalar runs, diminished-seventh sequences and pedal-point arpeggio sweeps modeled on Paganini and Bach, fast 4/4 or 6/8 double-kick backing, prominent Hammond or string-synth continuo, and a high operatic clean tenor over baroque chord cycles.",
   "recipe": "classic North American mid-1980s neoclassical metal, distorted Rock, power branch, prog metal, classic distorted rock, western common practice art music ostrock flute rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp basswood ebony alnico humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ, norway spruce European alpine hard rock maple acer saccharum cremonese pre 1750 violin orchestral, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ.",
   "recipe_chars": 978,
-  "score": 463.03,
+  "score": 462.085,
   "config": {
     "traditions": [
       "neoclassical_metal",
@@ -21,7 +21,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -34,14 +34,14 @@
           "electric_technique": 21.455,
           "amp_make": 10.985,
           "body_wood": 5.915,
-          "neck_wood": 0.4799999999999999,
-          "fretboard": 1.225,
-          "pickup_magnet": 1.15,
+          "neck_wood": 0.285,
+          "fretboard": 1.09,
+          "pickup_magnet": 1.24,
           "pickup_winding": 2.245,
-          "string_material": 0.4799999999999999,
+          "string_material": 0.285,
           "bridge": 1.3,
           "scale_length": 5.915,
-          "string_gauge": 0.44999999999999996,
+          "string_gauge": 0.495,
           "finish": 0,
           "string_tuning": 20.475
         }
@@ -61,9 +61,9 @@
         "scores": {
           "amp_make": 13,
           "body_wood": 1,
-          "pickup_config": 1,
-          "string_type": 24.615000000000002,
-          "scale_length_b": 0.22499999999999998,
+          "pickup_config": 1.195,
+          "string_type": 24.57,
+          "scale_length_b": 0.28500000000000003,
           "fretted_or_not": 0.65,
           "bass_technique": 22.670000000000005,
           "electric_bass_string_configuration": 0
@@ -73,12 +73,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 21.525,
-          "drumhead": 0.4875,
+          "drumhead": 0.51,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -115,10 +115,10 @@
           "voice_estill_quality": 2.6650000000000005,
           "voice_speech_song": 18.719999999999995,
           "voice_ensemble_config": 17.679999999999993,
-          "voice_ornament_system": 0.225,
-          "voice_pitch_organization": 4.03,
-          "voice_processing_chain": 4.465,
-          "voice_multitrack_stack": 2.2649999999999997
+          "voice_ornament_system": 0.09,
+          "voice_pitch_organization": 3.7900000000000005,
+          "voice_processing_chain": 4.555,
+          "voice_multitrack_stack": 2.175
         }
       },
       {
@@ -172,11 +172,11 @@
         "scores": {
           "bowed_technique": 1.2,
           "orch_strings": 0.6,
-          "orch_top_wood": 4.03,
+          "orch_top_wood": 3.94,
           "orch_back_wood": 14.5275,
-          "orch_varnish": 2.165,
-          "orch_setup_period": 4.870000000000001,
-          "orch_bow": 0.345,
+          "orch_varnish": 1.9700000000000002,
+          "orch_setup_period": 4.735,
+          "orch_bow": 0.3,
           "orch_bow_stick": 1.2000000000000002,
           "orch_articulation": 1.04,
           "orch_rosin": 6.142499999999999
@@ -198,13 +198,13 @@
         "scores": {
           "keyboard_technique": 1.25,
           "grand_piano_size": 0.635,
-          "grand_piano_brand": 0.9150000000000001,
+          "grand_piano_brand": 0.8250000000000001,
           "piano_hammer": 12.3825,
           "piano_rim": 12.5775,
           "piano_soundboard": 2.94,
           "piano_pinblock": 0.4875,
-          "piano_plate": 0.4875,
-          "piano_pitch_standard": 7.375
+          "piano_plate": 0.46499999999999997,
+          "piano_pitch_standard": 7.54
         }
       }
     ],

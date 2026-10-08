@@ -5,7 +5,7 @@
   "lineage": "This label’s actual discovery roster includes contemporary Indonesian acoustic folk acts. Endah N Rhesa’s documented guitar-bass-vocal duo is the selected branch, not a proxy for Indonesia’s many regional traditional ensembles.",
   "recipe": "classic modern indonesian folk, ballad Poetry. thick, breath veiled tone, notated speech melody, slendro near equidistant. fingerpicked acoustic guitar, la bella flats Detroit soul bass canon electric bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 344,
-  "score": 30.896,
+  "score": 30.145,
   "config": {
     "traditions": [
       "indonesian_folk"
@@ -36,35 +36,35 @@
           "voice_quality": 2.0799999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.29899999999999993,
+          "voice_vibrato": 0.16899999999999998,
           "voice_articulation": 0,
           "voice_microtone": 0.39,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
           "voice_estill_quality": 0.19500000000000003,
           "voice_speech_song": 1.885,
-          "voice_ensemble_config": -0.10725000000000003,
-          "voice_ornament_system": 0.03899999999999999,
-          "voice_pitch_organization": 5.08,
-          "voice_processing_chain": 2.054,
-          "voice_multitrack_stack": 1.6075
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 4.9,
+          "voice_processing_chain": 2.039,
+          "voice_multitrack_stack": 1.651
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
           "string_tuning": "standard_tuning",
-          "top_wood": "sitka_om",
+          "top_wood": "cedar_om",
           "back_sides": "mahogany_bs_om",
           "string_acoustic": "silk_steel_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0,
-          "back_sides": 0.03899999999999999,
-          "string_acoustic": 0.39,
-          "acoustic_om_technique": 7.178000000000001
+          "top_wood": 0.03899999999999999,
+          "back_sides": 0,
+          "string_acoustic": 0.34275,
+          "acoustic_om_technique": 7.139
         }
       },
       {
@@ -72,20 +72,20 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.70075,
+          "amp_make": 1.59275,
           "body_wood": 0,
-          "pickup_config": 0,
-          "string_type": 1.65075,
+          "pickup_config": 0.03899999999999999,
+          "string_type": 1.54275,
           "scale_length_b": 0.03899999999999999,
-          "fretted_or_not": 0.611,
+          "fretted_or_not": 0.442,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

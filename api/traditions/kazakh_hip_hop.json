@@ -1,14 +1,15 @@
 {
-  "id": "kazakh_hip_hop",
-  "name": "Kazakh hip hop",
+  "id": "central_asian_hip_hop",
+  "merged_from": "kazakh_hip_hop",
+  "name": "Central Asian hip hop",
   "family": "hip_hop",
-  "lineage": "Kazakhstan’s hip-hop field includes Kazakh-language and Russian-language work. Skryptonite’s Pavlodar-rooted producer-rapper practice supplies the selected branch; language is not used to erase its Kazakhstani context.",
-  "recipe": "classic modern kazakh hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampler, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 264,
-  "score": 19.621,
+  "lineage": "A multi-country Central Asian rap field with local-language and Russian-language branches. Kazakhstan’s Skryptonite supplies the selected Pavlodar-rooted producer-rapper branch.",
+  "recipe": "classic modern central asian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampler, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 271,
+  "score": 19.472,
   "config": {
     "traditions": [
-      "kazakh_hip_hop"
+      "central_asian_hip_hop"
     ],
     "instruments": [
       {
@@ -33,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 9.1,
+          "voice_quality": 10.465,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -62,9 +63,9 @@
         "scores": {
           "electronic_technique": -0.035,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.213,
+          "sampler_bit_depth": 0.321,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 8.905
+          "sampler_classic_context": 6.954999999999999
         }
       },
       {
@@ -79,9 +80,9 @@
         "scores": {
           "electronic_technique": -0.035,
           "oscillator": 0,
-          "filter_topology": 0.159,
+          "filter_topology": 0.108,
           "envelope": 0,
-          "modulation": 0.0735
+          "modulation": 0
         }
       }
     ],

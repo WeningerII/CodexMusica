@@ -5,7 +5,7 @@
   "lineage": "Brazilian EDM connects Brazilian electronic dance producers with club music, pop songwriting and online listening communities.",
   "recipe": "classic brazilian edm, electronic Dance. solo with instrumental accompaniment. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 201,
-  "score": 10.889,
+  "score": 10.921,
   "config": {
     "traditions": [
       "brazilian_edm"
@@ -62,7 +62,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063
+          "voice_multitrack_stack": 0.0945
         }
       }
     ],

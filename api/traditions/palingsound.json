@@ -5,7 +5,7 @@
   "lineage": "Melodic pop from the fishing town of Volendam, named after the smoked eel (paling) the town is known for, that grew out of local beat groups in the 1960s. The Cats set its template of soft, sentimental songs with close-harmony vocals, and BZN, later the 3JS and Jan Smit carried it on into the twenty-first century.",
   "recipe": "classic mid-1960s palingsound, functional Song, europop branch. mid 1960s double tracking era 2 to 4 track multitrack vocal stack, strummed open chord ringing overtones dreadnought acoustic clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited strings unspecified. treated studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 498,
-  "score": 34.237,
+  "score": 34.374,
   "config": {
     "traditions": [
       "palingsound"
@@ -162,7 +162,7 @@
           "bearing_edges": -1.2585,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 7.5365,
+          "cymbal_hammering": 7.673,
           "cymbal_lathing": 7.434312500000001,
           "cymbal_finish": 0.0315
         }

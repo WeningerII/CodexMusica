@@ -5,7 +5,7 @@
   "lineage": "Music of the Romanian-speaking Vlachs of north-eastern Serbia, in the Timok Krajina around Negotin and Zaječar and in Homolje and Braničevo, sung in the Vlach dialect at weddings, village dances and the rites of the life cycle. Songs and dance tunes were carried by the gajde bagpipe and the frula shepherd's flute, later joined and largely replaced by violin and accordion, and are presented at festivals such as Homoljski motivi in Kučevo.",
   "recipe": "classic modern vlach music of eastern serbia, wedding, European branch. ornamented dance accompaniment gajda, fast ornamented dance driving frula, fiddle, accordion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 245,
-  "score": 6.11,
+  "score": 6.457,
   "config": {
     "traditions": [
       "serbian_vlach_timok_homolje"
@@ -72,7 +72,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.21,
           "voice_tessitura": 0
         }
       },
@@ -87,7 +87,7 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.499125,
+          "bowed_technique": 0.425625,
           "fiddle_strings": 0,
           "fiddle_bow": 0,
           "fiddle_mute": 0,
@@ -108,11 +108,11 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "accordion_reed_material": 0.168,
-          "musette_offset": 0,
+          "accordion_reed_material": 0.1995,
+          "musette_offset": 0.105,
           "reed_config": 0.105,
           "bellows": 0.12374999999999999,
-          "voicing_chamber": 0.0735,
+          "voicing_chamber": 0.147,
           "accordion_maker_school": 0
         }
       }

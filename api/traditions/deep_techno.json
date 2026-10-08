@@ -1,105 +1,159 @@
 {
-  "id": "deep_techno",
-  "name": "Deep techno",
+  "id": "melodic_techno",
+  "merged_from": "deep_techno",
+  "name": "Melodic techno (2010s emotional-arpeggiated techno)",
   "family": "electronic",
-  "lineage": "Deep techno is a listening and discovery field linking atmospheric, melodic and hypnotic club production. Expressive synthesizer performance and carefully spaced percussion connect gradual development with sustained dance-floor rhythm.",
-  "recipe": "classic modern deep techno, electronic Dance, techno branch. analog mono synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 317,
-  "score": 6.047,
+  "lineage": "2010s techno subgenre emphasizing emotional-melodic-development over rhythmic-functional dance-floor utility, with characteristic long arpeggiated-synth lead-melodies and sweeping-orchestral pad textures. Tale of Us (Italian duo Carmine Conte and Matteo Milleri) and their Afterlife label (founded 2016) anchored the canonical sound. Mind Against, Mathame, Adriatique, and the broader Innervisions-Diynamic-Afterlife label network defined the contemporary roster.",
+  "recipe": "classic melodic techno, electronic Dance, techno branch, house electronic dance italo house melodic house. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, pad like pad analog synth, 18 ply hard rock maple vintage production wet sand cast cast iron grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 498,
+  "score": 155.125,
   "config": {
     "traditions": [
-      "deep_techno"
+      "melodic_techno",
+      "italo_house_piano",
+      "melodic_house"
     ],
     "instruments": [
       {
-        "id": "analog_mono_synth",
+        "id": "voice",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "mono_oscillator": "mono_voltage_controlled",
-          "mono_filter": "moog_ladder",
-          "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_moog_robert"
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "bel_canto_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "mono_oscillator": 0,
-          "mono_filter": 0.39,
-          "mono_archetypes": 0.39,
-          "mono_maker_lineage": -1.435
+          "voice_register": 1.56,
+          "voice_quality": 10.14,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 4.68,
+          "voice_articulation": 12.609999999999994,
+          "voice_microtone": 13.259999999999993,
+          "voice_tradition": 6.325000000000001,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 7.335000000000001,
+          "voice_speech_song": 13.844999999999994,
+          "voice_ensemble_config": 12.739999999999995,
+          "voice_ornament_system": 5.900000000000001,
+          "voice_pitch_organization": 4.875,
+          "voice_processing_chain": 16.01375,
+          "voice_multitrack_stack": 11.667499999999997
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "drum_machine_808",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
-          "sample_swing": "tight_swing",
-          "sample_processing": "one_shots_layered"
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sample_bitdepth": 0.0315,
-          "sample_swing": 6.586,
-          "sample_processing": 0
+          "tr808_voice": 0.12999999999999998,
+          "drum_machine_808_context": 2.6649999999999996,
+          "tr808_production_origin": 0.845
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "saw_single",
+          "filter_topology": "resonant_acid",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 3.975,
+          "oscillator": 2.7037500000000003,
+          "filter_topology": 0.345,
+          "envelope": 2.9,
+          "modulation": 1.3
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.2,
+          "grand_piano_size": 1.345,
+          "grand_piano_brand": 4.03,
+          "piano_hammer": -0.035,
+          "piano_rim": 1.105,
+          "piano_soundboard": 0.7149999999999999,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.105,
+          "piano_pitch_standard": 1.8199999999999998
         }
       }
     ],
-    "pinned": {
-      "analog_mono_synth": [
-        "electronic_technique",
-        "mono_oscillator",
-        "mono_filter",
-        "mono_archetypes",
-        "mono_maker_lineage"
-      ],
-      "sampler_drum_machine": [
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
-      ]
-    },
-    "room": "studio_auteur_home_pro",
+    "room": "studio_distributed_production",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
-      "pre": "pre_di_box_dedicated",
+      "pre": "transformerless",
       "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_active_parametric",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
       "medium": "digital_high"
     },
     "tuning": "twelve_tet",
-    "aesthetic": null,
+    "aesthetic": "cologne_techno_aesthetic",
     "arrangement": null,
-    "fx_extras": [
-      "digital_delay",
-      "hall_reverb"
-    ]
+    "fx_extras": []
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_auteur_home_pro",
+    "room": "studio_distributed_production",
     "parts": {
-      "electronic_technique": "electronic_lead_line",
-      "mono_oscillator": "mono_voltage_controlled",
-      "mono_filter": "moog_ladder",
-      "mono_archetypes": "minimoog",
-      "mono_maker_lineage": "mono_moog_robert",
-      "sample_bitdepth": "twenty_four_bit",
-      "sample_swing": "tight_swing",
-      "sample_processing": "one_shots_layered"
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "electronic_technique": "electronic_bass_sub",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "piano_pitch_standard": "a_440_modern"
     },
-    "pin_parts": true,
     "chain_mic": "condenser_ldc",
-    "chain_pre": "pre_di_box_dedicated",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_active_parametric",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box",
-    "chain_fx": [
-      "digital_delay",
-      "hall_reverb"
-    ]
+    "chain_console": "console_in_the_box"
   }
 }

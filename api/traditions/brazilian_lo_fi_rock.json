@@ -5,7 +5,7 @@
   "lineage": "Brazilian lo-fi rock connects rough-edged guitar bands and home-recording practices in independent scenes.",
   "recipe": "classic brazilian lo-fi rock, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. cassette.",
   "recipe_chars": 310,
-  "score": 26.016,
+  "score": 26.982,
   "config": {
     "traditions": [
       "brazilian_lo_fi_rock"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 4.42,
-          "body_wood": 2.6984999999999997,
-          "neck_wood": 0.105,
+          "body_wood": 3.1499999999999995,
+          "neck_wood": 0.2415,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
-          "string_material": 0.105,
-          "bridge": 0.273,
+          "string_material": 0.2415,
+          "bridge": 0.168,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 4.875,
-          "body_wood": 2.6984999999999997,
+          "body_wood": 3.1499999999999995,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 8.75,
-          "drumhead": 0.651,
+          "drumhead": 0.6825000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

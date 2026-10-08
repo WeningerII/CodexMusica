@@ -5,7 +5,7 @@
   "lineage": "Kasékò is the principal Creole drum-dance genre of French Guiana, centred on Cayenne. A long drum laid on the ground is played with the hands while sticks (tibwa) beat on wood and shakers (chacha) keep the pulse, under a lead singer answered by a chorus of dancers. It shares its name, usually glossed from French 'casser le corps', with the Surinamese kaseko band genre but is a distinct drum-and-song form. The membrane-drum card stands in for the kasékò drum and the palitos card for the tibwa.",
   "recipe": "classic modern kasékò, groove Percussion, Caribbean branch. membrane drum pulse resonant acoustic membrane drum, palitos, shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 19.29,
+  "score": 19.216,
   "config": {
     "traditions": [
       "kaseko_guyane"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.16799999999999998,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },

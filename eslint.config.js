@@ -92,6 +92,7 @@ module.exports = [
         ROOM_GLYPH: 'readonly',
         TRADITIONS: 'readonly',
         TRADITION_EXTRAS: 'readonly',
+        TRADITION_ALIASES: 'readonly',
         TREE_NODES: 'readonly',
         TUNINGS: 'readonly',
         mergeFamilyParts: 'readonly',

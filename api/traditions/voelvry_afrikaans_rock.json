@@ -5,7 +5,7 @@
   "lineage": "Afrikaans-language protest-rock movement launched by Shifty Records, whose 1989 Voëlvry tour of university campuses brought Johannes Kerkorrel en die Gereformeerde Blues Band, Koos Kombuis and Bernoldus Niemand (James Phillips) to young Afrikaner audiences. Its songs mocked apartheid and the conservative Afrikaner establishment in blues- and punk-inflected rock and are regarded as a turning point in Afrikaans popular music. The name means both 'free as a bird' and 'outlawed'.",
   "recipe": "classic voëlvry, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. single coil electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, electronic keyboard unspecified. live tracking. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 384,
-  "score": 73.453,
+  "score": 73.222,
   "config": {
     "traditions": [
       "voelvry_afrikaans_rock"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.449,
+          "voice_ensemble_config": 1.0185,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.546,
           "voice_tessitura": 0
         }
@@ -73,11 +73,11 @@
           "electric_technique": -0.07,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.105,
+          "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0.1365,
           "string_material": 0,
-          "string_gauge": 0.9099999999999999,
+          "string_gauge": 0.868,
           "bridge": 0.1365,
           "scale_length": 0,
           "finish": 0,
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": 5.6,
           "cymbal_hammering": 14.431499999999998,

@@ -5,7 +5,7 @@
   "lineage": "Consolidated in Detroit and Ann Arbor between 1966 and 1972 through the MC5, the Stooges, the Amboy Dukes, SRC and Grand Funk Railroad, working the Grande Ballroom circuit — high-volume twin-humbucker guitars run into overdriven amplifiers, mid-tempo 4/4 backbeats around 120-150 BPM played hard on the snare, one- and two-chord blues-pentatonic riff vamps, and a shouted, hectoring lead vocal derived from Detroit R&B revue delivery.",
   "recipe": "classic North American mid-1960s detroit rock, distorted Rock, regional branch, classic distorted rock, punk distorted rock, noise rock distorted rock queercore. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. live tracking. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 855,
-  "score": 575.694,
+  "score": 576.115,
   "config": {
     "traditions": [
       "detroit_rock",
@@ -38,11 +38,11 @@
           "voice_quality": 15.144999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.185,
+          "voice_vibrato": 3.35,
           "voice_articulation": 19.174999999999997,
           "voice_microtone": 33.05000000000001,
           "voice_tradition": 4.745000000000001,
-          "voice_mechanism_compound": 15.1325,
+          "voice_mechanism_compound": 15.1775,
           "voice_estill_quality": 1.6249999999999998,
           "voice_speech_song": 20.149999999999995,
           "voice_ensemble_config": 18.589999999999993,
@@ -111,7 +111,7 @@
           "pickup_magnet": 0.39,
           "string_material": 0.39,
           "string_gauge": 1.6899999999999997,
-          "bridge": 0.3,
+          "bridge": 0.3495,
           "scale_length": 1.6899999999999997,
           "finish": 0.195,
           "string_tuning": 18.07,
@@ -133,8 +133,8 @@
         "scores": {
           "amp_make": 17.81,
           "body_wood": 2.0799999999999996,
-          "pickup_config": 0.3,
-          "string_type": 37.837500000000006,
+          "pickup_config": 0.3495,
+          "string_type": 37.791000000000004,
           "scale_length_b": 1.6899999999999997,
           "fretted_or_not": 0.65,
           "bass_technique": 42.835,
@@ -149,7 +149,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 31.140000000000004,
+          "drum_technique": 31.189500000000006,
           "drumhead": 2.5999999999999996,
           "drum_kit_kick_pedal": 0
         }
@@ -165,12 +165,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 4.08,
+          "keyboard_technique": 4.245,
           "drawbar_setting": 32.335,
-          "rotary_speed": 31.000000000000004,
+          "rotary_speed": 31.049500000000002,
           "percussion_setting": 15.99,
           "tonewheel_model": 13.844999999999999,
-          "leslie_cabinet_model": 1.4049999999999998
+          "leslie_cabinet_model": 1.2999999999999998
         }
       }
     ],

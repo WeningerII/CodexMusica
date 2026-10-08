@@ -5,7 +5,7 @@
   "lineage": "Consolidated in the Netherlands and Belgium circa 2014-2018 out of the raw hardcore scene via producers such as N-Vitral, Dr Donk, Lunatic and Killshot on labels like Barbaric Records and Triumph — running 200-260 BPM with a short, brutally clipped and pitched kick programmed in rolling triplet and gabber-roll patterns, screamed or pitch-shifted vocal shouts, and drops built from kick-pattern variation rather than melody.",
   "recipe": "classic 2014-2018 uptempo hardcore, electronic Dance, hardstyle branch, techno electronic dance, industrial noise experimental electric free tekno peak-time techno. vocal fry, breath veiled tone, wide pitch sway, interlocked note trading. TR-909, digital subtractive, sampler drum machine, analog mono synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 517,
-  "score": 198.115,
+  "score": 197.575,
   "config": {
     "traditions": [
       "uptempo_hardcore",
@@ -23,7 +23,7 @@
         "scores": {
           "tr909_voice": 1.265,
           "drum_machine_909_context": 1.4300000000000002,
-          "tr909_production_origin": 0.13499999999999998
+          "tr909_production_origin": 0.285
         }
       },
       {
@@ -75,7 +75,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.79,
+          "voice_register": 2.64,
           "voice_quality": 8.384999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -83,13 +83,13 @@
           "voice_articulation": 20.019999999999996,
           "voice_microtone": 18.134999999999994,
           "voice_tradition": 5.7200000000000015,
-          "voice_mechanism_compound": 13.253124999999999,
+          "voice_mechanism_compound": 12.908124999999998,
           "voice_estill_quality": 3.1200000000000006,
           "voice_speech_song": 21.514999999999997,
           "voice_ensemble_config": 19.109999999999992,
           "voice_ornament_system": 1.69,
-          "voice_pitch_organization": 1.545,
-          "voice_processing_chain": 18.113750000000003,
+          "voice_pitch_organization": 1.395,
+          "voice_processing_chain": 18.068750000000005,
           "voice_multitrack_stack": 5.07
         }
       },

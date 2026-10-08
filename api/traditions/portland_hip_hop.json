@@ -5,7 +5,7 @@
   "lineage": "Portland hip hop includes the politically engaged MC and DJ practice documented by Mic Crenshaw. His Earthbound project credits guest vocals and DJ Klavical scratches. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
   "recipe": "classic modern portland hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. pitched chopped sampler, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 362,
-  "score": 64.264,
+  "score": 64.349,
   "config": {
     "traditions": [
       "portland_hip_hop"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.035,
-          "voice_ensemble_config": 1.1655,
+          "voice_ensemble_config": 1.197,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.78
         }
       },
@@ -55,14 +55,14 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.5,
+          "electronic_technique": 5.5315,
           "sampler_archetypes": 9.1,
-          "sampler_bit_depth": 0.1365,
+          "sampler_bit_depth": 0.063,
           "sampler_workflow": 5.25,
           "sampler_classic_context": 10.985
         }
@@ -74,8 +74,8 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 5.5,
-          "turntable_technique": 6.0225
+          "electronic_technique": 5.5315,
+          "turntable_technique": 6.054
         }
       }
     ],

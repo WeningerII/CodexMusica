@@ -5,7 +5,7 @@
   "lineage": "Christian alternative rock connects bands, audiences and recording networks associated with Christian music and the wider alternative-rock scene. Switchfoot, Relient K and Jars of Clay exemplify its range of songcraft and guitar-led production.",
   "recipe": "classic christian alternative rock, distorted Rock, alternative branch. song supporting rock context torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, rompler workstation. treated studio. large-diaphragm condenser, console-strip pre, vox AC30 top boost, parallel compression, parametric EQ. 24-bit digital analog bucket-brigade delay low-gain overdrive.",
   "recipe_chars": 632,
-  "score": 47.678,
+  "score": 48.024,
   "config": {
     "traditions": [
       "christian_alternative_rock"
@@ -25,9 +25,9 @@
           "keyboard_technique": -0.1,
           "rhodes_model": -0.035,
           "rhodes_use": 6.24,
-          "rhodes_tine_material": 1.407,
-          "rhodes_hammer_tip": 1.5015,
-          "rhodes_pickup_position": 1.1969999999999998
+          "rhodes_tine_material": 1.5435,
+          "rhodes_hammer_tip": 1.7429999999999999,
+          "rhodes_pickup_position": 1.3335
         }
       },
       {
@@ -55,7 +55,7 @@
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.105,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "bridge": 0.1365,
           "scale_length": 0,
           "finish": 0,
@@ -162,10 +162,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0
         }
       }

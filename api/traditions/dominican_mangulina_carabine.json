@@ -5,7 +5,7 @@
   "lineage": "Rural Dominican dances of the south and the Cibao that are distinct from merengue: the mangulina, the carabiné of the south and the zapateo, a stamping dance. They are played by accordion, tambora and güira groups, with sung verses in some pieces; Verna Gillis recorded examples for Folkways. The membrane-drum card stands in for the two-headed tambora.",
   "recipe": "classic modern mangulina and carabiné, groove Percussion, Caribbean branch. single lead single track no stacking. accordion, membrane drum pulse resonant acoustic membrane drum, guira dominicana. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 275,
-  "score": 28.357,
+  "score": 28.672,
   "config": {
     "traditions": [
       "dominican_mangulina_carabine"
@@ -25,7 +25,7 @@
         "scores": {
           "free_reed_technique": -0.1,
           "accordion_reed_material": 0.105,
-          "musette_offset": 0.3465,
+          "musette_offset": 0.483,
           "reed_config": 0,
           "bellows": 0.0315,
           "voicing_chamber": 0.8049999999999999,
@@ -39,8 +39,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 2.6359999999999997,
-          "acoustic_membrane_drum_gesture": 1.6360000000000001
+          "acoustic_membrane_drum_form": 2.6045,
+          "acoustic_membrane_drum_gesture": 1.6045
         }
       },
       {
@@ -53,7 +53,7 @@
         "scores": {
           "guira_dominicana_form": 9.05,
           "guira_dominicana_pattern": 7.5,
-          "guira_dominicana_sheet": 5.5415
+          "guira_dominicana_sheet": 5.51
         }
       },
       {
@@ -93,7 +93,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.8609999999999999,
+          "voice_multitrack_stack": 1.134,
           "voice_tessitura": 0
         }
       }

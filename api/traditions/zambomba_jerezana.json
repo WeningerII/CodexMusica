@@ -5,7 +5,7 @@
   "lineage": "The zambomba is Jerez de la Frontera's Advent and Christmas gathering, held in the courtyards of neighbourhood houses and in the streets of quarters such as Santiago and San Miguel, where people sing traditional villancicos and romances around a fire to the friction drum it is named after, tambourines, palmas, guitar and scraped anise bottles, often turning the songs into bulerías. The Cátedra de Flamencología de Jerez documented it in the record series 'Así canta nuestra tierra en Navidad', and it is inscribed as a Bien de Interés Cultural.",
   "recipe": "classic modern zambomba jerezana, functional Song, iberian branch. single leader group response. villancico pulse zambomba, rasgueado strum picado scale runs alzapua thumb flamenco vocabulary flamenco guitar, hand clap, tambourine orch. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 316,
-  "score": 18.116,
+  "score": 18.158,
   "config": {
     "traditions": [
       "zambomba_jerezana"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1575,
-          "voice_multitrack_stack": 0.1365,
+          "voice_multitrack_stack": 0.2415,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "zambomba_regional_form": 7.5680000000000005,
-          "zambomba_performance_context": 7.968,
+          "zambomba_performance_context": 7.9365,
           "zambomba_body_build": -0.15000000000000002
         }
       },
@@ -75,7 +75,7 @@
         "scores": {
           "flamenco_body": 0.39,
           "flamenco_features": 0.39,
-          "flamenco_technique": 1.071
+          "flamenco_technique": 1.0395
         }
       },
       {

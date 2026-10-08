@@ -5,7 +5,7 @@
   "lineage": "Dance-song music of Iran's Persian Gulf coast and islands around Bandar Abbas, Qeshm and Minab in Hormozgan, shaped by long maritime contact with Arabia, East Africa and South Asia. Traditional bandari is played on sorna, the neyanban bagpipe and drums for weddings and for ceremonies including the leiva and zar rites, while the modern form that spread across Iran and its diaspora sets its bouncing 6/8 dance rhythm on electronic keyboard; the Mahoor Institute has issued a Hormozgan anthology.",
   "recipe": "classic modern bandari, wedding, middle eastern branch. solo with instrumental accompaniment. sorna, dohol, electronic keyboard unspecified, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 231,
-  "score": 7.613,
+  "score": 7.707,
   "config": {
     "traditions": [
       "bandari_hormozgan"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.368625,
+          "voice_processing_chain": 0.21,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -71,7 +71,7 @@
         },
         "scores": {
           "dohol_stroke": 0,
-          "dohol_context": 0.126
+          "dohol_context": 0.0945
         }
       },
       {
@@ -82,7 +82,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0.105,
-          "keyboard_technique": 0.0315
+          "keyboard_technique": 0
         }
       },
       {
@@ -92,7 +92,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0.3315,
+          "clap_technique": 0.363,
           "clap_capture": 0
         }
       }

@@ -1,30 +1,17 @@
 {
-  "id": "balinese_traditional",
-  "name": "Balinese Traditional (Gong Kebyar)",
-  "family": "global",
-  "lineage": "North Balinese village gamelan style that erupted around 1915 in Buleleng and was carried across the island by figures such as I Wayan Lotring, I Nyoman Kaler and later I Wayan Beratha, defined by sudden unison kebyar attacks, extreme dynamic and tempo shifts, and interlocking kotekan figuration split between paired instruments deliberately tuned a few cycles apart to produce the characteristic ombak beating, driven by kendang lanang-wadon drum pairs, crashing ceng-ceng cymbals and the reyong kettle row in five-tone pelog.",
-  "recipe": "classic Southeast Asian mid-1910s balinese traditional, art Music, southeast Asian branch, east Asian groove percussion, east Asian carnival processional samul nori. rapid interlocking gamelan gong kebyar, refined gamelan balinese full, pelog tuned interlocking reyong, interlocking ceng ceng, gamelan balinese paired male female jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, gambang bali, gender, bamboo rattan band fipple canonical javanese balinese suling. balinese banjar courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 625,
-  "score": 49.818,
+  "id": "balinese_gamelan_gong_kebyar",
+  "merged_from": "balinese_traditional",
+  "name": "Balinese gamelan gong kebyar (twentieth-century virtuosic gamelan)",
+  "family": "classical",
+  "lineage": "Balinese gamelan gong kebyar Indonesian virtuosic gamelan ensemble form crystallizing in early-twentieth-century north Bali (Buleleng region) from the older gamelan gong gede court-ensemble form. The kebyar style is characterized by sudden dynamic-and-tempo contrasts (the term \"kebyar\" means \"burst of flame\"), virtuoso metallophone-player technique, and a more compressed performance duration suited to the post-colonial Balinese village-and-tourist performance economy. Performance configuration: ensemble of approximately 25-30 musicians playing tuned bronze metallophones (gangsa, ugal, jegogan, calung), gong chimes (reyong, trompong), kendang drums, and gong-cymbals. The annual Bali Arts Festival in Denpasar features kebyar competitions across all Bali regencies.",
+  "recipe": "classic Southeast Asian mid-1930s balinese gamelan gong kebyar, art Music, southeast Asian branch, indigenous ritual devotional. refined gamelan balinese full, gamelan balinese paired male female jackwood barrel canonical javanese balinese kendang indonesian, saron gamelan. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 442,
+  "score": 26.934,
   "config": {
     "traditions": [
-      "balinese_traditional",
-      "samul_nori"
+      "balinese_gamelan_gong_kebyar"
     ],
     "instruments": [
-      {
-        "id": "gamelan_gong_kebyar",
-        "slots": {
-          "gk_repertoire": "gk_kebyar_instrumental",
-          "gk_texture": "gk_kotekan",
-          "gk_ensemble_size": "gk_full"
-        },
-        "scores": {
-          "gk_repertoire": 1.54,
-          "gk_texture": 2.125,
-          "gk_ensemble_size": 0.2282142857142857
-        }
-      },
       {
         "id": "gamelan_balinese_full",
         "slots": {
@@ -32,34 +19,8 @@
           "characteristic": "gb_kotekan"
         },
         "scores": {
-          "type": 1.04,
-          "characteristic": 0.39
-        }
-      },
-      {
-        "id": "reyong",
-        "slots": {
-          "reyong_form": "reyong_gong_kebyar_twelve",
-          "reyong_technique": "reyong_norot",
-          "reyong_tuning": "reyong_pelog_selisir"
-        },
-        "scores": {
-          "reyong_form": 1.6749999999999998,
-          "reyong_technique": 2.125,
-          "reyong_tuning": 5.08
-        }
-      },
-      {
-        "id": "ceng_ceng",
-        "slots": {
-          "ceng_ceng_form": "ceng_ceng_ricik",
-          "ceng_ceng_technique": "ceng_ceng_kotekan",
-          "ceng_ceng_alloy": "ceng_ceng_perunggu"
-        },
-        "scores": {
-          "ceng_ceng_form": 1.54,
-          "ceng_ceng_technique": 1.72,
-          "ceng_ceng_alloy": 0
+          "type": 1,
+          "characteristic": 1.45
         }
       },
       {
@@ -71,60 +32,32 @@
           "kendang_head": "kendang_buffalo_hide_canonical"
         },
         "scores": {
-          "kendang_size": 4.680000000000001,
-          "kendang_context": 7.625000000000001,
-          "kendang_shell_wood": 4.875,
-          "kendang_head": 1.04
+          "kendang_size": 6.515,
+          "kendang_context": 11.55875,
+          "kendang_shell_wood": 4.484999999999999,
+          "kendang_head": 0.7350000000000001
         }
       },
       {
-        "id": "gambang_bali",
+        "id": "saron_gamelan",
         "slots": {
-          "gambang_bali_keys": "gambang_bali_bamboo_keys",
-          "gambang_bali_mallet": "gambang_bali_forked_panggul",
-          "gambang_bali_context": "gambang_bali_pitra_yadnya"
+          "saron_size": "saron_panerus",
+          "saron_tuning_system": "saron_slendro"
         },
         "scores": {
-          "gambang_bali_keys": 0,
-          "gambang_bali_mallet": 1.8249999999999997,
-          "gambang_bali_context": 0.195
-        }
-      },
-      {
-        "id": "gender",
-        "slots": {
-          "gender_use": "gender_javanese",
-          "gender_tuning": "gender_bali_tuning"
-        },
-        "scores": {
-          "gender_use": 1.04,
-          "gender_tuning": 4.555
-        }
-      },
-      {
-        "id": "suling",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "suling_use": "suling_gamelan",
-          "suling_tuning": "suling_slendro",
-          "suling_body_material": "suling_bamboo_canonical"
-        },
-        "scores": {
-          "wind_articulation": 1.395,
-          "suling_use": 0.65,
-          "suling_tuning": 2.235,
-          "suling_body_material": 3.7899999999999996
+          "saron_size": 0.39,
+          "saron_tuning_system": 0.15
         }
       }
     ],
-    "room": "balinese_banjar_courtyard",
-    "archetype": "arch_nagra_ethnographic_field",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "pre_field_recorder_portable",
-      "console": "clean",
-      "comp": null,
-      "eq": null,
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
       "medium": "tape_15ips"
     },
@@ -135,10 +68,22 @@
   },
   "source": {
     "tuning": "pelog_slendro_balinese",
-    "room": "balinese_banjar_courtyard",
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "pre_field_recorder_portable",
+    "room": "jakarta_bangkok_southeast_asian_studio",
+    "parts": {
+      "type": "gb_gong_kebyar",
+      "characteristic": "gb_kotekan",
+      "kendang_size": "kendang_ciblon",
+      "kendang_context": "kendang_balinese",
+      "kendang_shell_wood": "kendang_jackwood_canonical",
+      "kendang_head": "kendang_buffalo_hide_canonical",
+      "saron_size": "saron_barung",
+      "saron_tuning_system": "saron_pelog"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
     "chain_medium": "tape_15ips",
-    "chain_console": "clean"
+    "chain_console": "colored"
   }
 }

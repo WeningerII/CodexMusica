@@ -5,7 +5,7 @@
   "lineage": "Traditional chant and dance of the Marshall Islands. Roro are chants recounting ancient legends, performed to give guidance during navigation and strength to mothers in labour; the jebwa (jobwa) is a stick dance, now kept for special occasions, in which men strike their staffs together as part of the choreography. Marshallese aje hourglass drums were formerly played almost exclusively by women, in ensembles of singer-drummers that accompanied men's dances. Recordings are held at the Alele Museum in Majuro, and Jessica Schwartz's Radiation Sounds (Duke University Press) documents Marshallese song. A generic membrane-drum card stands in for the aje.",
   "recipe": "classic modern roro and jebwa, praise Song, oceania pacific branch. membrane drum pulse acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 191,
-  "score": 3.326,
+  "score": 3.651,
   "config": {
     "traditions": [
       "marshallese_roro_jebwa"
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_short"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 2.6918749999999996,
-          "acoustic_membrane_drum_gesture": 0.363
+          "acoustic_membrane_drum_form": 2.9899999999999998,
+          "acoustic_membrane_drum_gesture": 0.39
         }
       }
     ],

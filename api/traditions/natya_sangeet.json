@@ -5,7 +5,7 @@
   "lineage": "Natya sangeet is the song of Marathi musical theatre (sangeet natak), which began with Annasaheb Kirloskar's Sangeet Shakuntal in 1880 and drew its tunes increasingly from Hindustani classical and light-classical forms. In the 1910s and 1920s Bal Gandharva, who sang the heroines' roles for his Gandharva Natak Mandali, and Deenanath Mangeshkar made it a star repertoire, carried on 78 rpm discs, sung to harmonium or the stage organ and tabla.",
   "recipe": "classic mid-1910s natya sangeet, functional Song, south Asian pop branch. khyal, solo with instrumental accompaniment, Hindustani meend gamak khatka murki zamzama krintan andolan, single lead single track no stacking. harmonium indian, legato pump organ harmonium, pitched indian rosewood rosewood tabla. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 442,
-  "score": 38.507,
+  "score": 38.459,
   "config": {
     "traditions": [
       "natya_sangeet"
@@ -40,7 +40,7 @@
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
-          "voice_tradition": 10.5705,
+          "voice_tradition": 10.706999999999999,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
@@ -62,8 +62,8 @@
         },
         "scores": {
           "free_reed_technique": 0.19500000000000003,
-          "harmonium_action": 0.36749999999999994,
-          "harmonium_voicing": 0.609,
+          "harmonium_action": 0.1995,
+          "harmonium_voicing": 0.441,
           "harmonium_use": 2.9899999999999998
         }
       },
@@ -75,9 +75,9 @@
           "pump_organ_stops": "pump_organ_celeste_stop"
         },
         "scores": {
-          "keyboard_technique": 5.75,
+          "keyboard_technique": 5.8865,
           "pump_organ_construction": -0.05,
-          "pump_organ_stops": -0.05
+          "pump_organ_stops": -0.035
         }
       },
       {

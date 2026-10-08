@@ -5,7 +5,7 @@
   "lineage": "Intimate solo tradition for the small four-string Iranian long-necked lute plucked with the nail of the right index finger, historically the instrument of Sufi khaneqah practice and of private radif study, brought to the concert stage by Ahmad Ebadi, Dariush Talai and Mohammad Reza Lotfi in 20th-century Tehran — extremely low volume, sympathetic-resonating open strings, a continuous nail tremolo for sustain, and long unmetred avaz explorations of a single dastgah with minimal metric material.",
   "recipe": "classic European early-1970s setar, drone Modal, string branch, Sufi ritual devotional, Persian arab improv improv on frame, heterophonic drone modal ney taksim oud taqsim. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut bowl canonical Persian gut historical pre modern radif radif setar persian, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, Sufi mystical arundo donax cane canonical Persian nine segment canonical 20th century Persian radif continuous-airflow legato ney. parlor. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 656,
-  "score": 262.819,
+  "score": 262.624,
   "config": {
     "traditions": [
       "setar_persian_solo",
@@ -61,7 +61,7 @@
           "voice_articulation": 16.314999999999998,
           "voice_microtone": 26.877499999999998,
           "voice_tradition": 20.229821428571427,
-          "voice_mechanism_compound": 12.870000000000001,
+          "voice_mechanism_compound": 12.675,
           "voice_estill_quality": 6.955000000000001,
           "voice_speech_song": 18.687499999999996,
           "voice_ensemble_config": 16.509999999999994,

@@ -5,7 +5,7 @@
   "lineage": "Jazz blues develops blues melodies and recurring harmonic forms through jazz improvisation, reharmonization and ensemble interplay. Small instrumental groups and vocal-led ensembles explore the relationship between repeated choruses, swing and expressive melodic variation.",
   "recipe": "classic modern jazz blues, improv On Frame, American jazz branch. grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 306,
-  "score": 65.383,
+  "score": 65.584,
   "config": {
     "traditions": [
       "jazz_blues"
@@ -30,7 +30,7 @@
           "grand_piano_brand": 0.1365,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
-          "piano_soundboard": -0.07,
+          "piano_soundboard": -0.1,
           "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.325
@@ -64,13 +64,13 @@
         },
         "scores": {
           "drum_technique": 13.389999999999997,
-          "drumhead": 0.03899999999999999,
+          "drumhead": 0.0705,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.32999999999999996,
+          "shell_wood": 0.36149999999999993,
           "shell_thickness": 0,
-          "bearing_edges": 0.1755,
+          "bearing_edges": 0.2385,
           "snare_wires": 0.147,
-          "cymbal_alloy": 22.046999999999997,
+          "cymbal_alloy": 22.151999999999997,
           "cymbal_hammering": 14.141,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0

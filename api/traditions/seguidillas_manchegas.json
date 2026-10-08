@@ -5,7 +5,7 @@
   "lineage": "Seguidillas manchegas are the sung couple-dance of La Mancha, across Ciudad Real, Toledo, Albacete and Cuenca provinces, played by rondallas of guitars, bandurrias and laúdes with household and small percussion such as the brass mortar (almirez), the scraped anís bottle, the triangle (hierrillos) and castanets. Alan Lomax recorded in Castilla-La Mancha on his Spanish field trip, and the regional government has declared the seguidilla manchega a Bien de Interés Cultural in the category of intangible heritage. The bandurria card also covers the laúd, the triangle card stands for the hierrillos and the credited-percussion card for the almirez and the anís bottle.",
   "recipe": "classic modern seguidillas manchegas, functional Song, iberian branch. solo with instrumental accompaniment. classical nylon-string guitar, bandurria, castanets, concert triangle, credited auxiliary percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 290,
-  "score": 7.458,
+  "score": 7.49,
   "config": {
     "traditions": [
       "seguidillas_manchegas"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1575,
-          "voice_multitrack_stack": 0.378,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -65,7 +65,7 @@
         "scores": {
           "acoustic_technique": 0.2,
           "string_tuning": 0,
-          "top_wood_classical": 0.16799999999999998,
+          "top_wood_classical": 0.0945,
           "bracing_classical": 0.3045,
           "string_classical": 0,
           "attack_technique_cl": -0.035
@@ -80,7 +80,7 @@
         },
         "scores": {
           "bandurria_form": 2.7,
-          "bandurria_playing": 0.7,
+          "bandurria_playing": 0.9099999999999999,
           "bandurria_stringing": 0
         }
       },

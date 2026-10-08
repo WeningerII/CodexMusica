@@ -5,7 +5,7 @@
   "lineage": "Instrumental band tradition of the Northeastern agreste and sertão, also called zabumba or terno de pífanos, playing for saints' novenas, processions and festas: two cane fifes (pífanos) carry the tune in parallel over zabumba, snare drum and cymbals. The best-known group, the Banda de Pífanos de Caruaru of the Biano family, has made a long series of commercial records. The credited bamboo-flute card stands in for the cane pífano and a generic membrane-drum card for the zabumba bass drum.",
   "recipe": "classic modern banda de pífanos, carnival Processional, Brazilian branch. bamboo credited bamboo flute unspecified, membrane drum pulse resonant acoustic membrane snare drum, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 272,
-  "score": 9.715,
+  "score": 9.505,
   "config": {
     "traditions": [
       "banda_de_pifanos"
@@ -31,8 +31,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 4.880125,
-          "acoustic_membrane_drum_gesture": 3.8801249999999996
+          "acoustic_membrane_drum_form": 4.775125,
+          "acoustic_membrane_drum_gesture": 3.7751249999999996
         }
       },
       {

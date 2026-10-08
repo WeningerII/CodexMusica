@@ -5,7 +5,7 @@
   "lineage": "Rap dominicano connects Dominican MCs and producers through recordings, collaborations and cyphers. MECAL and fellow Santo Domingo performers exemplify an ensemble approach centered on successive verses over a shared beat.",
   "recipe": "classic modern rap dominicano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, group vocals, live take. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 291,
-  "score": 34.642,
+  "score": 34.769,
   "config": {
     "traditions": [
       "rap_dominicano"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.518999999999998,
-          "voice_ensemble_config": 1.2115,
+          "voice_speech_song": 12.674999999999997,
+          "voice_ensemble_config": 1.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

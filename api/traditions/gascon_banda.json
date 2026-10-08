@@ -5,7 +5,7 @@
   "lineage": "Festive brass-and-percussion bands of the Landes, Gers, Béarn and French Basque Country that play in the streets and arenas at férias, bullfights, rugby matches and village fêtes. Bands in matching costume play pasodobles, marches and popular tunes taken up by the crowd, a repertoire drawing heavily on the Spanish pasodoble, and many gather each year at the festival of bandas in Condom, documented in the INA regional archive.",
   "recipe": "classic modern banda, carnival Processional, European branch. yellow brass canonical 70 30 bach stradivarius trumpet, yellow brass canonical 70 30 bach 42 standard trombone, saxophone section alto tenor, sousaphone, snare bass drum, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 330,
-  "score": 5.887,
+  "score": 5.826,
   "config": {
     "traditions": [
       "gascon_banda"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "wind_articulation": -0.10500000000000001,
-          "brass_size": 0.1365,
+          "brass_size": 0.0315,
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0.0735,
           "trumpet_technique": -0.10500000000000001,
           "trumpet_bell_metal": 2.6,
-          "trumpet_maker_school": 0
+          "trumpet_maker_school": 0.0315
         }
       },
       {
@@ -46,9 +46,9 @@
         "scores": {
           "wind_articulation": -0.10500000000000001,
           "trombone_type": 0.325,
-          "trombone_mouthpiece": -0.07,
+          "trombone_mouthpiece": -0.1,
           "trombone_mute": 0.0735,
-          "trombone_technique": 0.126,
+          "trombone_technique": 0.0945,
           "trombone_bell_metal": 2.6,
           "trombone_maker_school": 0
         }
@@ -59,7 +59,7 @@
           "alto_tenor_section_articulation": "alto_tenor_section_articulation_short"
         },
         "scores": {
-          "alto_tenor_section_articulation": 0.168
+          "alto_tenor_section_articulation": 0.0315
         }
       },
       {
@@ -79,7 +79,7 @@
           "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
         },
         "scores": {
-          "standalone_snare_construction": 0
+          "standalone_snare_construction": 0.105
         }
       },
       {
@@ -88,7 +88,7 @@
           "credited_cymbals_identity": "credited_cymbals_source_unspecified"
         },
         "scores": {
-          "credited_cymbals_identity": 0
+          "credited_cymbals_identity": 0.105
         }
       },
       {

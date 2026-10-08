@@ -3,9 +3,9 @@
   "name": "Microtonal Music (interval-scale practice)",
   "family": "classical",
   "lineage": "Twentieth-century concert practice codified by Alois Hába in Prague from 1923 with quarter-tone piano and clarinet, Ivan Wyschnegradsky in Paris, Julián Carrillo in Mexico and later Ligeti, Haas and the spectral school, using intervals smaller than the semitone — quarter- and sixth-tones, beating dyads and slow glissando drift — on retuned pianos, specially fingered winds and unfretted strings, fully notated with accidental systems invented for the purpose.",
-  "recipe": "classic British early-1920s microtonal music, art Music, western modern branch, overtone drone modal, musique concrete experimental electric tape music mongolian khoomei overtone singing. sygyt, false fold engaged, slow rate, interlocked note trading. silver wound lamb gut core sitka spruce European maple sycamore maple violin orchestral, silver wound lamb gut core norway spruce European alpine European maple cello, yamaha modern Japanese mid to premium breath tone airy low dynamic level flute, grenadilla African blackwood traditional breath tone airy low dynamic level clarinet, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, gold brass warmer tone selmer mark vi canonical 1954 1974 jazz paris breath tone airy low dynamic level saxophone, bach 42 canonical American orchestral tenor continuous-airflow legato tenor standard standard backbore trombone. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe": "classic British early-1920s microtonal music, art Music, western modern branch, overtone drone modal, musique concrete experimental electric tape music mongolian khoomei overtone singing. sygyt, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core sitka spruce European maple sycamore maple violin orchestral, silver wound lamb gut core norway spruce European alpine European maple cello, yamaha modern Japanese mid to premium breath tone airy low dynamic level flute, grenadilla African blackwood traditional breath tone airy low dynamic level clarinet, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, gold brass warmer tone selmer mark vi canonical 1954 1974 jazz paris breath tone airy low dynamic level saxophone, bach 42 canonical American orchestral tenor continuous-airflow legato tenor standard standard backbore trombone. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
   "recipe_chars": 984,
-  "score": 492.67,
+  "score": 492.515,
   "config": {
     "traditions": [
       "microtonal",
@@ -28,13 +28,13 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 5.075,
+          "bowed_technique": 5.03,
           "orch_strings": 4.55,
           "orch_top_wood": 7.2475000000000005,
           "orch_back_wood": 8.525,
           "orch_varnish": 8.375,
-          "orch_setup_period": 7.13,
-          "orch_bow": 0.09,
+          "orch_setup_period": 7.085,
+          "orch_bow": 0.24,
           "orch_bow_stick": 8.475,
           "orch_articulation": 3.12,
           "orch_rosin": 8.375
@@ -54,12 +54,12 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 5.075,
+          "bowed_technique": 5.03,
           "cello_strings": 4.55,
-          "cello_top_wood": 5.655000000000001,
+          "cello_top_wood": 5.4750000000000005,
           "cello_back_wood": 8.525,
           "cello_varnish": 8.375,
-          "cello_setup_period": 7.13,
+          "cello_setup_period": 7.085,
           "cello_bow_grip": 3.6399999999999997,
           "cello_rosin": 9.325,
           "cello_bow_stick": 8.475
@@ -93,9 +93,9 @@
         },
         "scores": {
           "wind_articulation": 4.485,
-          "clarinet_body": 8.670000000000002,
+          "clarinet_body": 8.520000000000001,
           "clarinet_size": 3.965,
-          "clarinet_reed": 0.7,
+          "clarinet_reed": 0.8049999999999999,
           "clarinet_articulation": 0.15
         }
       },
@@ -117,8 +117,8 @@
           "grand_piano_size": 1.69,
           "grand_piano_brand": 1.6899999999999997,
           "piano_hammer": 12.985,
-          "piano_rim": 11.170000000000002,
-          "piano_soundboard": 8.825,
+          "piano_rim": 11.365000000000002,
+          "piano_soundboard": 8.87,
           "piano_pinblock": 8.375,
           "piano_plate": 8.57,
           "piano_pitch_standard": 16.2825
@@ -128,7 +128,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "sygyt_register",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -146,7 +146,7 @@
         },
         "scores": {
           "voice_register": 21.644999999999996,
-          "voice_quality": 19.919999999999998,
+          "voice_quality": 19.824999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 10.009999999999998,
@@ -177,7 +177,7 @@
         "scores": {
           "wind_articulation": 4.485,
           "sax_size": 2.535,
-          "sax_reed": 0.7,
+          "sax_reed": 0.8049999999999999,
           "sax_body_alloy": 12.835,
           "sax_mouthpiece": 3.965,
           "sax_technique": 3.705,
@@ -196,7 +196,7 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 4.09,
+          "wind_articulation": 3.9400000000000004,
           "trombone_type": 1.6249999999999998,
           "trombone_mouthpiece": 8.375,
           "trombone_mute": 1.89,

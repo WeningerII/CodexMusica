@@ -5,7 +5,7 @@
   "lineage": "Afro-Martinican drum-dance centred on the north Atlantic coast around Sainte-Marie, in which a lead singer and the lavwa chorus answer each other over the tanbou bèlè, played by a drummer seated astride it, while the tibwa player beats two sticks on the drum's body; dancers perform in quadrille-like sets of couples. Its family of dances includes bèlè, gran bèlè, bèlè linò and kalennda, and a late-twentieth-century revival brought it back into community swaré bèlè; the palitos card stands in for the tibwa.",
   "recipe": "classic modern bèlè, groove Percussion, Caribbean branch. boula, palitos. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 153,
-  "score": 2.639,
+  "score": 2.671,
   "config": {
     "traditions": [
       "bele_martinique"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.19949999999999998,
+          "voice_multitrack_stack": 0.231,
           "voice_tessitura": 0
         }
       },

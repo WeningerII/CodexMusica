@@ -1,16 +1,17 @@
 {
-  "id": "rajasthani_folk_thar",
-  "name": "Rajasthani folk (Thar desert hereditary-musician song)",
+  "id": "rajasthani_manganiyar",
+  "merged_from": "rajasthani_folk_thar",
+  "name": "Rajasthani Manganiyar tradition",
   "family": "global",
-  "lineage": "Repertoire of the hereditary Manganiyar and Langa musician castes of Jaisalmer, Barmer and Jodhpur, patronised by Rajput and Sindhi Muslim jajman families and brought to concert circulation from the 1960s by Komal Kothari's Rupayan Sansthan — kamaicha or Langa sarangi bowing a heterophonic shadow under a solo male voice, khartal wooden clappers and dholak marking a springy 8-beat keherwa, morchang and narh flute in solo interludes, with long ornamented ascents and a distinctive open-throat cry at phrase peaks.",
-  "recipe": "classic South Asian mid-1960s rajasthani folk, ballad Poetry, indian bard branch, south Asian field work, Sufi ritual devotional, string drone modal indian folk bengali folk. thick, breath veiled tone, slow rate, interlocked note trading. mango sheesham wood canonical thar desert build langa hereditary lineage alternate kamaicha, sarangi, wooden castanet pair canonical manganiyar percussion manganiyar accompaniment canonical thar desert khartal, bolt tuned modern concert stable dholak, morchang, narh flute, vocal male straight harmonium indian. manganiyar haveli courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 642,
-  "score": 213.18,
+  "lineage": "Rajasthani Manganiyar hereditary musician tradition of the Thar Desert region of western Rajasthan, India (Jaisalmer, Barmer, and Jodhpur districts), with the parallel Langa community sharing many features. The Manganiyar are Muslim-by-religion-but-Hindu-by-patron-relation hereditary musicians whose performance-economic configuration centers on the jajmani patron-relationship: each Manganiyar family is bound to specific Rajput patron-families across generations, performing at patron weddings, births, and funerals as the ritual-and-aesthetic specialist providers. Canonical instrumentation: kamaicha (gourd-bowled bowed lute with sympathetic strings) as the primary melodic carrier in deeper-register sustained-tone repertoire, plus khartal wooden-castanet-pair, dholak two-headed barrel drum, and sometimes algoza double-flute or sarangi. Repertoire spans devotional Sufi qawwali-adjacent material, Rajput court-praise repertoire, panihari water-bearer women's-song accompaniment, and the canonical drone-and-narrative-improvisation pieces such as Niambat Khan and Padharo Mhare Des. Modal vocabulary draws on regional raga-frameworks distinct from Hindustani classical but related — the Manganiyar mode-system uses approximately just-intonation tonal hierarchies. Komal Kothari's Rupayan Sansthan in Borunda (founded 1960s) and the Archives & Research Center for Ethnomusicology (AIIS Gurugram, Shubha Chaudhuri) provide the principal scholarly documentation; Daniel Neuman & Shubha Chaudhuri's Bards, Ballads and Boundaries (Seagull 2006) anchors the contemporary scholarship. Sakar Khan and Anwar Khan among the canonical twentieth-century kamaicha and singing masters. Distinguished from Hindustani classical by Manganiyar's jajmani-patron-relationship economic structure and folk-classical hybrid modal system; distinguished from Langa (the parallel Sindhi-influenced hereditary community) by Manganiyar-Marwari dialect and Rajput-patron-relationship base.",
+  "recipe": "classic South Asian mid-1960s rajasthani manganiyar tradition, ballad Poetry, indian bard branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. mango sheesham wood canonical thar desert build gut main sympathetic resonance manganiyar hereditary lineage legato kamaicha, wooden castanet pair canonical manganiyar percussion manganiyar accompaniment canonical thar desert khartal, goat skin syahi rope laced steel ring dholak, gut 3 main playing strings tun cedar legato sarangi. manganiyar haveli courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 685,
+  "score": 437.78,
   "config": {
     "traditions": [
-      "rajasthani_folk_thar",
-      "indian_folk_lok_geet",
-      "bengali_folk_lokgeeti"
+      "rajasthani_manganiyar",
+      "thumri",
+      "carnatic_vocal"
     ],
     "instruments": [
       {
@@ -23,33 +24,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 7.525,
-          "voice_quality": 9.295,
+          "voice_register": 4.425000000000001,
+          "voice_quality": 26.78,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3075,
-          "voice_articulation": 24.830000000000002,
-          "voice_microtone": 25.544999999999998,
-          "voice_tradition": 18.320999999999998,
-          "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 5.330000000000001,
-          "voice_speech_song": 28.015,
-          "voice_ensemble_config": 27.494999999999997,
-          "voice_ornament_system": 8.515,
-          "voice_pitch_organization": 7.170000000000001,
-          "voice_processing_chain": 7.995,
-          "voice_multitrack_stack": 5.07
+          "voice_vibrato": 24.109999999999996,
+          "voice_articulation": 22.164999999999996,
+          "voice_microtone": 25.869999999999994,
+          "voice_tradition": 33.625,
+          "voice_mechanism_compound": 20.404999999999998,
+          "voice_estill_quality": 22.294999999999998,
+          "voice_speech_song": 25.707500000000003,
+          "voice_ensemble_config": 24.244999999999997,
+          "voice_ornament_system": 29.605,
+          "voice_pitch_organization": 22.814999999999998,
+          "voice_processing_chain": 7.214999999999999,
+          "voice_multitrack_stack": 7.455000000000001
         }
       },
       {
@@ -58,32 +59,13 @@
           "bowed_technique": "bowed_legato_classical",
           "kamaicha_body": "kamaicha_mango_sheesham_canonical",
           "kamaicha_strings": "kamaicha_gut_main_plus_sympathetic_canonical",
-          "kamaicha_tradition": "kamaicha_langa_alt"
+          "kamaicha_tradition": "kamaicha_manganiyar_canonical"
         },
         "scores": {
-          "bowed_technique": 1.625,
-          "kamaicha_body": 2.4949999999999997,
-          "kamaicha_strings": 0.39,
-          "kamaicha_tradition": 4.6645
-        }
-      },
-      {
-        "id": "sarangi",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "sarangi_belly": "goat_skin_sarangi",
-          "sarangi_taraf": "sarangi_35_strings",
-          "sarangi_bow": "horse_hair_loose",
-          "sarangi_main_strings": "sarangi_gut_main",
-          "sarangi_body_wood": "sarangi_tun_body"
-        },
-        "scores": {
-          "bowed_technique": 1.625,
-          "sarangi_belly": 0.195,
-          "sarangi_taraf": 0.195,
-          "sarangi_bow": 1,
-          "sarangi_main_strings": 0.325,
-          "sarangi_body_wood": 0.195
+          "bowed_technique": 20.92,
+          "kamaicha_body": 6.424999999999999,
+          "kamaicha_strings": 5.319999999999999,
+          "kamaicha_tradition": 17.015
         }
       },
       {
@@ -93,8 +75,8 @@
           "khartal_tradition": "khartal_manganiyar_canonical"
         },
         "scores": {
-          "khartal_body": 2.585,
-          "khartal_tradition": 3.7049999999999996
+          "khartal_body": 15.684999999999999,
+          "khartal_tradition": 16.42
         }
       },
       {
@@ -103,59 +85,39 @@
           "dholak_use": "dholak_classical",
           "dholak_construction": "dholak_large",
           "dholak_head": "dholak_goat_skin_canonical",
-          "dholak_tensioning": "dholak_bolt_tuned"
+          "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.09,
-          "dholak_construction": 0.585,
-          "dholak_head": 0.195,
-          "dholak_tensioning": 1.39
+          "dholak_use": 2.14,
+          "dholak_construction": 5.484999999999999,
+          "dholak_head": 3.78,
+          "dholak_tensioning": 3.735
         }
       },
       {
-        "id": "morchang",
+        "id": "sarangi",
         "slots": {
-          "morchang_size": "morchang_std",
-          "morchang_style": "morchang_konnakol_style"
+          "bowed_technique": "bowed_legato_classical",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_40_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "sarangi_gut_main",
+          "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "morchang_size": 0,
-          "morchang_style": 0.0945
-        }
-      },
-      {
-        "id": "narh_flute",
-        "slots": {
-          "narh_body": "narh_kangor",
-          "narh_technique": "narh_throat_drone",
-          "narh_length": "narh_short"
-        },
-        "scores": {
-          "narh_body": 0,
-          "narh_technique": 0,
-          "narh_length": 0.65
-        }
-      },
-      {
-        "id": "harmonium_indian",
-        "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
-          "harmonium_action": "harmonium_foot_pump",
-          "harmonium_voicing": "harmonium_male",
-          "harmonium_use": "harmonium_kirtan"
-        },
-        "scores": {
-          "free_reed_technique": 6.82,
-          "harmonium_action": 0.65,
-          "harmonium_voicing": 2.145,
-          "harmonium_use": 1.7550000000000001
+          "bowed_technique": 20.92,
+          "sarangi_belly": 3.7399999999999998,
+          "sarangi_taraf": 0.195,
+          "sarangi_bow": 0.65,
+          "sarangi_main_strings": 8.81,
+          "sarangi_body_wood": 3.735
         }
       }
     ],
     "room": "manganiyar_haveli_courtyard",
-    "archetype": "arch_ethnographic_field_digital",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
-      "mic": "condenser_ldc",
+      "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
       "console": "clean",
       "comp": null,
@@ -163,15 +125,42 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "tuning": "just_intonation",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "tuning": "just_intonation",
     "room": "manganiyar_haveli_courtyard",
-    "chain_mic": "condenser_ldc",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "dholak_use": "dholak_classical",
+      "dholak_construction": "dholak_mango",
+      "dholak_head": "dholak_goat_skin_canonical",
+      "dholak_tensioning": "dholak_rope_tuning",
+      "bowed_technique": "bowed_microtonal_inflected",
+      "sarangi_belly": "goat_skin_sarangi",
+      "sarangi_taraf": "sarangi_35_strings",
+      "sarangi_bow": "horse_hair_tensioned",
+      "sarangi_main_strings": "sarangi_gut_main",
+      "sarangi_body_wood": "sarangi_tun_body",
+      "khartal_body": "khartal_wooden_castanet_pair_canonical",
+      "khartal_tradition": "khartal_manganiyar_canonical"
+    },
+    "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
     "chain_medium": "digital_high",
     "chain_console": "clean"

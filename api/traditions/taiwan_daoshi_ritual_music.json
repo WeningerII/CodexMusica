@@ -5,7 +5,7 @@
   "lineage": "Ritual music of Taiwan's Zhengyi (Celestial Master) Daoist priests (daoshi), who perform community jiao offering rites and funeral rites of merit, with the southern lineages of Tainan and the northern lineages of Hsinchu documented in detail by ethnographers. The high priest and his assistants chant and sing scripture in Minnan, keeping time with ritual percussion, while a hired ensemble of suona, drum, gong and cymbal players supplies qupai interludes.",
   "recipe": "classic modern taiwanese daoshi ritual music, ritual Devotional. metrical pitched chant fixed rhythm, live take. suona, muyu, danpigu, gong chau gong tamtam, naobo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 244,
-  "score": 4.785,
+  "score": 4.88,
   "config": {
     "traditions": [
       "taiwan_daoshi_ritual_music"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1,
+          "voice_speech_song": 1.0315,
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 1.0945,
+          "voice_multitrack_stack": 1.1575,
           "voice_tessitura": 0
         }
       },

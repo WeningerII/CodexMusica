@@ -5,7 +5,7 @@
   "lineage": "Cantares ao desafio, also called desgarrada, are the sung verse challenges of the Minho and neighbouring northern Portugal, in which two or more cantadores, very often a man and a woman, improvise alternating quatrains of teasing, argument and flirtation at fairs, romarias and village festivals. A concertina, in Portugal a diatonic button accordion, usually carries the repeated tune and interludes, sometimes with a triangle (ferrinhos), and northern cantadores have issued desgarradas on commercial cassettes and CDs since the late twentieth century; the accordion card stands for the concertina.",
   "recipe": "classic modern desgarrada minhota, functional Song, iberian branch. accordion, concert triangle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 176,
-  "score": 1,
+  "score": 1.05,
   "config": {
     "traditions": [
       "desgarrada_minhota"
@@ -33,10 +33,10 @@
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": -0.38499999999999995,
+          "voice_register": -0.42399999999999993,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.3315,
+          "voice_effort": 0.39,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.1365,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1575,
-          "voice_multitrack_stack": 0.378,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -65,7 +65,7 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "accordion_reed_material": 0,
+          "accordion_reed_material": 0.0315,
           "musette_offset": 0.1365,
           "reed_config": 0,
           "bellows": 0.1995,

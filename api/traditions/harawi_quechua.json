@@ -3,9 +3,9 @@
   "name": "Harawi (Quechua women's ritual song)",
   "family": "global",
   "lineage": "Harawi is an old Quechua song genre of the southern Peruvian highlands, sung chiefly by older women at agricultural rites such as sowing and harvest, at weddings, roof-raisings and farewells, in a very high voice with long held tones that fall away at phrase ends. It is usually sung without instruments, and its name gave rise to the colonial mestizo yaraví.",
-  "recipe": "classic modern harawi, ritual Devotional, indigenous branch, andean field work. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 159,
-  "score": 1.708,
+  "recipe": "classic modern harawi, ritual Devotional, indigenous branch, andean field work. group vocals. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 173,
+  "score": 1.813,
   "config": {
     "traditions": [
       "harawi_quechua"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.40800000000000003,
+          "voice_ensemble_config": 0.513,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.15,

@@ -72,3 +72,20 @@ for (const t of TABLES) {
 // engine and the shipped app see identical inst.parts.
 const { mergeFamilyParts } = require('./_merge.js');
 mergeFamilyParts(module.exports.INSTRUMENTS, module.exports.INSTRUMENT_FAMILY_PARTS);
+
+// ─────────── Retired tradition ids ───────────
+// Merged duplicates keep their old id as an alias of the surviving tradition
+// (references/_tradition_aliases.json). Resolve at every place a caller hands
+// in a TRADITION id — never for instrument or variant ids, some of which share
+// a spelling with a retired tradition. An id that is neither live nor an alias
+// comes back unchanged, so the caller's own "Unknown tradition" still fires.
+const ALIAS_FILE = path.join(REFS, '_tradition_aliases.json');
+module.exports.TRADITION_ALIASES = JSON.parse(fs.readFileSync(ALIAS_FILE, 'utf8')).aliases;
+// Also a global, as the reference tables are, for src/app.js run under Node.
+globalThis.TRADITION_ALIASES = module.exports.TRADITION_ALIASES;
+const LIVE_TRADITION_IDS = new Set(module.exports.TRADITIONS.map((t) => t.id));
+module.exports.resolveTraditionId = function resolveTraditionId(id) {
+  if (typeof id !== 'string' || LIVE_TRADITION_IDS.has(id)) return id;
+  const alias = module.exports.TRADITION_ALIASES[id];
+  return alias ? alias.of : id;
+};

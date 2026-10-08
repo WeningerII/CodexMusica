@@ -5,7 +5,7 @@
   "lineage": "Chowtal is the springtime group song of the Phagwah (Holi) festival among Hindus of Guyana, Trinidad and Suriname, brought by Bhojpuri-speaking indentured labourers from north India in the nineteenth century. Two rows of men sit facing each other and alternate the verses of devotional and seasonal songs, many about Krishna and Rama, over the dholak and large jhanjh cymbals, the tempo and volume rising to a climax. Peter Manuel documents it in 'East Indian Music in the West Indies'. The manjira card, set to its jhanj form, stands for the jhanjh.",
   "recipe": "classic modern chowtal, ritual Devotional, hindu branch. two spatially opposed choirs. dholak, manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 183,
-  "score": 4.501,
+  "score": 5.047,
   "config": {
     "traditions": [
       "chowtal_indo_caribbean"
@@ -63,8 +63,8 @@
         "scores": {
           "dholak_use": 0.1365,
           "dholak_construction": -0.05,
-          "dholak_head": 0.546,
-          "dholak_tensioning": 0.546
+          "dholak_head": 0.819,
+          "dholak_tensioning": 0.819
         }
       },
       {

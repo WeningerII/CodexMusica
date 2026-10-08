@@ -5,7 +5,7 @@
   "lineage": "Saint Lucian Kwéyòl form of the European quadrille, a suite of figured set dances for couples, played by a band of violon (fiddle), banjo, cuatro and guitar with the chak-chak rattle. Long a mainstay of village dances, it is kept up by rural community groups and was documented on Smithsonian Folkways' Musical Traditions of St. Lucia; the shaker card stands in for the chak-chak.",
   "recipe": "classic modern kwadril, groove Percussion, Caribbean branch. fiddle, credited banjo shaker source unspecified, cuatro venezolano, parlor acoustic guitar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 233,
-  "score": 2.181,
+  "score": 2.318,
   "config": {
     "traditions": [
       "saint_lucian_kwadril"
@@ -22,11 +22,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 1.176,
+          "bowed_technique": 1.3545,
           "fiddle_strings": 0,
           "fiddle_bow": 0.105,
           "fiddle_mute": 0.105,
-          "fiddle_articulation": 0.16799999999999998,
+          "fiddle_articulation": 0.19949999999999998,
           "fiddle_string_configuration": 0
         }
       },
@@ -48,8 +48,8 @@
           "cuatro_venezolano_strings": "dutar_strings_unspecified"
         },
         "scores": {
-          "cuatro_venezolano_tuning": 0,
-          "cuatro_venezolano_technique": 0,
+          "cuatro_venezolano_tuning": 0.0315,
+          "cuatro_venezolano_technique": 0.0315,
           "cuatro_venezolano_body_wood": 0,
           "cuatro_venezolano_strings": 0
         }
@@ -77,7 +77,7 @@
           "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
         },
         "scores": {
-          "shaker_source_unspecified_identity": 0.47250000000000003
+          "shaker_source_unspecified_identity": 0.336
         }
       }
     ],

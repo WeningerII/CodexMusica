@@ -5,7 +5,7 @@
   "lineage": "The Misteri d'Elx is a sung medieval drama of the death, Assumption and Coronation of the Virgin, performed in Valencian with some Latin inside the Basílica de Santa Maria in Elche every 14 and 15 August, with aerial machinery lowering angels from the dome. It is sung throughout by men and boys, the boys taking the female and angel roles, and combines monodic chant with polyphony added in the sixteenth century; UNESCO proclaimed it a Masterpiece of the Oral and Intangible Heritage of Humanity.",
   "recipe": "classic modern misteri d'elx, ritual Devotional. solo unaccompanied, single lead single track no stacking. a cappella small 3 to 8 one per part choir ensemble. cathedral. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 233,
-  "score": 6.359,
+  "score": 6.549,
   "config": {
     "traditions": [
       "misteri_d_elx"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.7769999999999999,
+          "voice_processing_chain": 0.23099999999999998,
+          "voice_multitrack_stack": 0.8084999999999999,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
         },
         "scores": {
           "choir_size": 2.9899999999999998,
-          "choir_polyphonic_configuration": 0.126,
+          "choir_polyphonic_configuration": 0.189,
           "choir_regional_canonical_configuration": 0,
           "choir_ensemble_repertoire": 1.3
         }

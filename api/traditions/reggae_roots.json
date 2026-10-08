@@ -3,14 +3,14 @@
   "name": "Reggae roots",
   "family": "global",
   "lineage": "Jamaican roots reggae genre that emerged in the early-to-mid 1970s as the Rastafarian-political-prophetic extension of ska and rocksteady — recordings tracked at Channel One Studios (the Sly and Robbie / Roots Radics house band era), Studio One, and Treasure Isle through Bob Marley and the Wailers (Catch a Fire 1973, Natty Dread 1974, Rastaman Vibration 1976), Peter Tosh, Bunny Wailer, Burning Spear (Marcus Garvey 1975), Culture (Two Sevens Clash 1977), the Mighty Diamonds, the Abyssinians, Israel Vibration",
-  "recipe": "classic Caribbean 1974-1976 reggae roots, bass System, Jamaican branch, Afro-diasporic ritual devotional afro-cuban traditional parranda de san pedro. kargyraa, breath veiled tone, slow rate, interlocked note trading. mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, brushes-and-sticks drum kit, mahogany rosewood single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, folk hohner melodica canonical 1959 dub roots tradition melodica. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips roland RE-201 space echo spring reverb.",
-  "recipe_chars": 795,
-  "score": 170.36,
+  "recipe": "classic Caribbean 1974-1976 reggae roots, bass System, Jamaican branch, Afro-diasporic ritual devotional parranda de san pedro umbanda ceremonial. kargyraa, breath veiled tone, slow rate, interlocked note trading. mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, brushes-and-sticks drum kit, mahogany rosewood single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, folk hohner melodica canonical 1959 dub roots tradition melodica. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips roland RE-201 space echo spring reverb.",
+  "recipe_chars": 791,
+  "score": 166.42,
   "config": {
     "traditions": [
       "reggae_roots",
-      "afro_cuban_traditional",
-      "parranda_san_pedro_guatire"
+      "parranda_san_pedro_guatire",
+      "umbanda_brazilian"
     ],
     "instruments": [
       {
@@ -29,25 +29,25 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 3.0450000000000004,
-          "voice_quality": 19.889999999999997,
+          "voice_quality": 18.719999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.625,
-          "voice_articulation": 13.194999999999997,
-          "voice_microtone": 13.194999999999993,
-          "voice_tradition": 4.290000000000001,
-          "voice_mechanism_compound": 3.295,
-          "voice_estill_quality": 4.615000000000001,
-          "voice_speech_song": 14.819999999999997,
-          "voice_ensemble_config": 13.129999999999995,
+          "voice_articulation": 12.999999999999995,
+          "voice_microtone": 12.804999999999993,
+          "voice_tradition": 5.005000000000001,
+          "voice_mechanism_compound": 2.4949999999999997,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 13.389999999999997,
+          "voice_ensemble_config": 12.934999999999995,
           "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 1.3,
+          "voice_pitch_organization": 1.2999999999999998,
           "voice_processing_chain": 4.8950000000000005,
           "voice_multitrack_stack": 3.8950000000000005
         }
@@ -83,7 +83,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.259999999999996,
+          "drum_technique": 13.064999999999996,
           "drumhead": 1.6,
           "drum_kit_kick_pedal": 0
         }
@@ -136,7 +136,7 @@
           "drawbar_setting": 1.65,
           "rotary_speed": 1.54,
           "percussion_setting": 0.78,
-          "tonewheel_model": 7.15,
+          "tonewheel_model": 7.215,
           "leslie_cabinet_model": 1.5
         }
       },
@@ -151,8 +151,8 @@
         "scores": {
           "keyboard_technique": -0.07,
           "melodica_use": 1.6,
-          "melodica_pitch": 1.4449999999999998,
-          "melodica_maker_school": 4.8100000000000005
+          "melodica_pitch": 0.645,
+          "melodica_maker_school": 5.46
         }
       }
     ],

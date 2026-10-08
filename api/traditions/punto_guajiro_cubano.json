@@ -3,9 +3,9 @@
   "name": "Punto guajiro (Cuban improvised décima song)",
   "family": "global",
   "lineage": "Sung poetry of the Cuban countryside, in which singers, often improvising, set ten-line décimas to traditional melodies (tonadas) accompanied by laúd, tres, guitar and light percussion such as güiro and claves; UNESCO inscribed Punto on its Representative List of the Intangible Cultural Heritage of Humanity. Punto libre, where the accompaniment drops out under the free-rhythm vocal line, is tied to the west of the island and punto fijo, in strict time, to the centre; the controversia is a sung duel of improvised décimas between two poets.",
-  "recipe": "classic modern punto guajiro, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment. laud cedar canonical Cuban octave doubled bronze steel rural traditional tres cubano, classical nylon-string guitar, claves, gourd wood guiro. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 333,
-  "score": 16.694,
+  "recipe": "classic modern punto guajiro, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment, unprocessed natural acoustic. laud cedar canonical Cuban octave doubled bronze steel rural traditional tres cubano, classical nylon-string guitar, claves, gourd wood guiro. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 363,
+  "score": 16.074,
   "config": {
     "traditions": [
       "punto_guajiro_cubano"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.441,
+          "voice_processing_chain": 0.714,
           "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
@@ -76,10 +76,10 @@
         },
         "scores": {
           "plucked_traditional_technique": 1.625,
-          "tres_courses": 2.3045,
-          "tres_cubano_context": 1.2730000000000001,
+          "tres_courses": 2.273,
+          "tres_cubano_context": 1.1365,
           "tres_cubano_body_wood": 2.6,
-          "tres_cubano_strings": 1.3
+          "tres_cubano_strings": 1
         }
       },
       {
@@ -96,9 +96,9 @@
           "acoustic_technique": 0.26,
           "string_tuning": 0,
           "top_wood_classical": 0.168,
-          "bracing_classical": 1.2730000000000001,
+          "bracing_classical": 1.1365,
           "string_classical": 0,
-          "attack_technique_cl": -0.035
+          "attack_technique_cl": -0.05
         }
       },
       {
@@ -119,8 +119,8 @@
           "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "guiro_origin": 1.1365,
-          "guiro_striker": 1.1365
+          "guiro_origin": 1,
+          "guiro_striker": 1
         }
       }
     ],

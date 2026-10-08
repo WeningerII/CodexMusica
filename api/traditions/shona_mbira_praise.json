@@ -1,70 +1,71 @@
 {
-  "id": "shona_mbira_praise",
-  "name": "Shona mbira praise music (Zimbabwe)",
+  "id": "mbira_tradition",
+  "merged_from": "shona_mbira_praise",
+  "name": "Mbira tradition",
   "family": "global",
-  "lineage": "Shona mbira-and-vocal praise-music tradition continuous from pre-colonial Zimbabwe Karanga-Shona ritual-practice through colonial-period continuous performance into modern Zimbabwean Shona-cultural practice; the mbira dzavadzimu (mbira of the ancestors) is the canonical Shona ritual-and-praise instrument",
-  "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion kantele music música mapuche. vocal fry, declaimed, straight note core, interlocked note trading. steel maple mbira, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 473,
-  "score": 216.562,
+  "lineage": "Zimbabwean Shona spiritual mbira-dzavadzimu (ancestor-spirit lamellophone) ceremonial tradition, codified through the bira ritual context — Stella Chiweshe and Ephat Mujuru as the canonical 1970s-1980s exponents bringing Shona mbira to international audiences, with interlocking kushaura (first part) and kutsinhira (second part) patterns played at all-night ceremonies",
+  "recipe": "classic North American mid-1970s mbira tradition, drone Modal, string branch, central east south African groove percussion, Afro-diasporic ritual devotional fulía kidumbak. kargyraa, breath veiled tone, slow rate, interlocked note trading. hardwood calabash mbira, hosho. wooden barn. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 431,
+  "score": 155.882,
   "config": {
     "traditions": [
-      "shona_mbira_praise",
-      "kantele_music",
-      "musica_mapuche"
+      "mbira_tradition",
+      "fulia_velorio_de_cruz",
+      "kidumbak"
     ],
     "instruments": [
       {
+        "id": "mbira",
+        "slots": {
+          "tine_material": "recycled_metal",
+          "mbira_board": "mubvamaropa",
+          "mbira_resonator": "deze_calabash",
+          "mbira_buzz": "metal_beads"
+        },
+        "scores": {
+          "tine_material": 0.3,
+          "mbira_board": 1.945,
+          "mbira_resonator": 2.545,
+          "mbira_buzz": 0.54
+        }
+      },
+      {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 2.925,
-          "voice_quality": 20.114499999999992,
+          "voice_register": 1.6849999999999996,
+          "voice_quality": 3.380000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.6475,
-          "voice_articulation": 14.689999999999996,
-          "voice_microtone": 17.029999999999994,
-          "voice_tradition": 20.67,
-          "voice_mechanism_compound": 5.85,
-          "voice_estill_quality": 3.6400000000000006,
-          "voice_speech_song": 18.719999999999995,
-          "voice_ensemble_config": 15.209999999999994,
-          "voice_ornament_system": 6.08,
-          "voice_pitch_organization": 4.035,
-          "voice_processing_chain": 4.42,
-          "voice_multitrack_stack": 3.12
-        }
-      },
-      {
-        "id": "mbira",
-        "slots": {
-          "tine_material": "spring_steel",
-          "mbira_board": "maple_kalimba",
-          "mbira_resonator": "box_resonator",
-          "mbira_buzz": "metal_beads"
-        },
-        "scores": {
-          "tine_material": 1.495,
-          "mbira_board": 1.495,
-          "mbira_resonator": 1.495,
-          "mbira_buzz": 1.6600000000000001
+          "voice_vibrato": 0.975,
+          "voice_articulation": 13.064999999999996,
+          "voice_microtone": 14.624999999999993,
+          "voice_tradition": 14.364999999999997,
+          "voice_mechanism_compound": 4.875,
+          "voice_estill_quality": 3.835000000000001,
+          "voice_speech_song": 14.364999999999997,
+          "voice_ensemble_config": 13.584999999999994,
+          "voice_ornament_system": 5.149999999999999,
+          "voice_pitch_organization": 2.0250000000000004,
+          "voice_processing_chain": 7.85,
+          "voice_multitrack_stack": 5.655000000000001
         }
       },
       {
@@ -75,22 +76,22 @@
           "hosho_filler": "hosho_hota_seeds"
         },
         "scores": {
-          "hosho_form": 22.644999999999996,
-          "hosho_groove": 32.144999999999996,
-          "hosho_filler": 16.625
+          "hosho_form": 10.424999999999999,
+          "hosho_groove": 20.969999999999995,
+          "hosho_filler": 7.384999999999999
         }
       }
     ],
-    "room": "harare_zimbabwean_chimurenga_studio",
-    "archetype": "arch_ethnographic_field_digital",
+    "room": "wooden_barn",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
       "mic": "condenser_sdc",
-      "pre": "pre_field_recorder_portable",
-      "console": "clean",
-      "comp": null,
-      "eq": null,
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_30ips"
     },
     "tuning": "mbira_seven_tone",
     "aesthetic": null,
@@ -99,21 +100,20 @@
   },
   "source": {
     "tuning": "mbira_seven_tone",
-    "room": "harare_zimbabwean_chimurenga_studio",
+    "room": "wooden_barn",
     "parts": {
-      "voice_articulation": "call_response_voice",
-      "voice_speech_song": "voice_syllabic_singing",
       "voice_register": "chest_voice",
       "voice_quality": "praise_voice",
+      "voice_speech_song": "voice_syllabic_singing",
       "voice_tradition": "yoruba_tonal_vocal_tradition",
       "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
       "voice_microtone": "tempered_voice",
       "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
       "voice_estill_quality": "voice_estill_speech",
-      "voice_vibrato": "straight_tone",
+      "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "tine_material": "iron_forged",
       "mbira_board": "mubvamaropa",
@@ -121,8 +121,10 @@
       "mbira_buzz": "bottle_caps"
     },
     "chain_mic": "condenser_sdc",
-    "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_high",
-    "chain_console": "clean"
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_30ips",
+    "chain_console": "colored"
   }
 }

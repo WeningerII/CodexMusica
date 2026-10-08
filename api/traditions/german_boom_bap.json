@@ -5,7 +5,7 @@
   "lineage": "German boom bap connects hip-hop producers and performers through sample-based beats and rhythmic vocal traditions. Instrumental beat releases and scratch-based performance form part of the same wider community.",
   "recipe": "classic german boom bap, mc Rhythm, intl hip hop branch. sampled chopped sampler drum machine, sampled chopped turntable. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 220,
-  "score": 19.433,
+  "score": 19.643,
   "config": {
     "traditions": [
       "german_boom_bap"
@@ -21,7 +21,7 @@
         },
         "scores": {
           "electronic_technique": 4,
-          "sample_bitdepth": 0.1785,
+          "sample_bitdepth": 0.252,
           "sample_swing": 6.5,
           "sample_processing": -0.05
         }
@@ -34,7 +34,7 @@
         },
         "scores": {
           "electronic_technique": 4,
-          "turntable_technique": 4.805000000000001
+          "turntable_technique": 4.9415000000000004
         }
       }
     ],

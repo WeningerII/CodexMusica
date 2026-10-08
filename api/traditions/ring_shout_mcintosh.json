@@ -5,7 +5,7 @@
   "lineage": "Counterclockwise sacred shuffle-dance and song of the Gullah-Geechee communities of the Georgia and South Carolina coast, described in accounts of the 1860s and regarded as the oldest African American performance tradition still practised in North America. In Bolden (Briar Patch), McIntosh County, the McIntosh County Shouters kept it alive and brought it to wider attention in the 1980s. A songster raises the song, a group of basers answers, and a stickman beats time with a broomstick on the wooden floor while the shouters move in a ring with shuffling feet that never cross, clapping; the auxiliary-percussion card stands in for the stick and the foot-stomp card for the shouters' feet.",
   "recipe": "classic mid-1860s ring shout, ritual Devotional, spirituals branch. leader call answered, single leader group response. a cappella small 3 to 8 one per part call response single leader group response sacred liturgical global choir ensemble, group massed hand clap, bare foot foot stomp, credited auxiliary percussion. country church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 396,
-  "score": 25.436,
+  "score": 24.9,
   "config": {
     "traditions": [
       "ring_shout_mcintosh"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.15525,
-          "voice_multitrack_stack": 0.130125,
+          "voice_multitrack_stack": 0.06712499999999999,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 8.279874999999999,
+          "choir_size": 7.838875,
           "choir_polyphonic_configuration": 2.08,
           "choir_regional_canonical_configuration": 0,
           "choir_ensemble_repertoire": 2.4547499999999998
@@ -85,7 +85,7 @@
           "stomp_surface": "stomp_wood_stage"
         },
         "scores": {
-          "stomp_footwear": 1.168,
+          "stomp_footwear": 1.1365,
           "stomp_surface": 0.03
         }
       },

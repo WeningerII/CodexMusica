@@ -5,7 +5,7 @@
   "lineage": "Tarkeada is the carnival and rainy-season (anata) music of the Bolivian and southern Peruvian altiplano, played by large troupes of tarkas, hexagonal wooden duct flutes made in three sizes that sound in parallel octaves and fifths, over bombos and snare drums. The players blow hard for the tarka's deliberately hoarse, buzzing tone, and the troupe dances through fields and streets.",
   "recipe": "classic Andean modern tarkeada, carnival Processional, andean branch, andean field work. altiplano tarka, bombo andino, snare drum. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 220,
-  "score": 8.096,
+  "score": 7.961,
   "config": {
     "traditions": [
       "tarkeada"
@@ -22,7 +22,7 @@
         "scores": {
           "tarka_form": 7.0265,
           "tarka_context": 0.045,
-          "tarka_consort_voice": 0.3165,
+          "tarka_consort_voice": 0.37649999999999995,
           "tarka_body_wood": 0.0315
         }
       },
@@ -34,7 +34,7 @@
           "bombo_andino_shell_wood": "bombo_andino_quebracho"
         },
         "scores": {
-          "bombo_andino_construction": 0.3315,
+          "bombo_andino_construction": 0.1365,
           "bombo_andino_skin": -0.05,
           "bombo_andino_shell_wood": 0.045
         }

@@ -5,7 +5,7 @@
   "lineage": "Aragonese music, connecting regional traditions with contemporary song and instrumental performance.",
   "recipe": "classic música aragonesa, improv On Frame. accordion, cello, violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 178,
-  "score": -0.281,
+  "score": -0.257,
   "config": {
     "traditions": [
       "musica_aragonesa"
@@ -25,7 +25,7 @@
         "scores": {
           "free_reed_technique": -0.07,
           "accordion_reed_material": 0,
-          "musette_offset": 0.063,
+          "musette_offset": 0.11699999999999999,
           "reed_config": 0,
           "bellows": 0.39,
           "voicing_chamber": 0,
@@ -53,7 +53,7 @@
           "cello_varnish": -0.1,
           "cello_setup_period": -0.07,
           "cello_bow_grip": 0,
-          "cello_rosin": -0.07,
+          "cello_rosin": -0.1,
           "cello_bow_stick": -0.15000000000000002
         }
       },

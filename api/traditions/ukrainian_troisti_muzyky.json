@@ -5,7 +5,7 @@
   "lineage": "Instrumental village dance band of Ukraine, named for its classic three players, fiddle, tsymbaly dulcimer and drum (buben or baraban), sometimes joined or replaced by sopilka, a bass fiddle (basolia) or, later, accordion. It played kolomyiky, the kozachok and hopak, polkas and wedding marches for weddings and village dances across Galicia, Podillia and central Ukraine, and was carried to North America by emigrants, where the fiddler Pawlo Humeniuk recorded it on 78 rpm discs between the world wars. The hammered-dulcimer card stands in for the tsymbaly and the frame-drum card for the buben.",
   "recipe": "classic modern troisti muzyky, wedding, European branch. fiddle, hammered dulcimer, credited frame drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 185,
-  "score": 0.406,
+  "score": 0.364,
   "config": {
     "traditions": [
       "ukrainian_troisti_muzyky"
@@ -22,7 +22,7 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.46199999999999997,
+          "bowed_technique": 0.41999999999999993,
           "fiddle_strings": 0,
           "fiddle_bow": 0,
           "fiddle_mute": 0,

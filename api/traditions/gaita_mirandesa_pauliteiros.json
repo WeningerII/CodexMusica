@@ -5,7 +5,7 @@
   "lineage": "In the Terra de Miranda of north-eastern Trás-os-Montes, where the Mirandese language is spoken, the gaita de foles mirandesa bagpipe with snare drum (caixa) and bass drum (bombo) plays for the pauliteiros, teams of men who dance the lhaços while striking wooden sticks together, and for processions, feasts and songs. The repertoire has been documented by Mário Correia's Sons da Terra recordings and carried on by younger groups; the single-drone Asturian gaita card stands in for the Mirandese bagpipe, the tenor-drum and membrane-drum cards for the caixa and bombo, and the credited-percussion card for the dancers' sticks.",
   "recipe": "classic modern gaita mirandesa and pauliteiros, drone Modal, wind pipe branch. gaita asturiana, cutting sticks articulate tenor membrane drum pulse resonant acoustic membrane drum, credited auxiliary percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 291,
-  "score": 13.244,
+  "score": 12.698,
   "config": {
     "traditions": [
       "gaita_mirandesa_pauliteiros"
@@ -20,8 +20,8 @@
         },
         "scores": {
           "gaita_ast_tuning": 0.3,
-          "gaita_ast_drone": 0.0945,
-          "gaita_ast_style": 0.0315
+          "gaita_ast_drone": 0.063,
+          "gaita_ast_style": 0
         }
       },
       {
@@ -46,8 +46,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 5.9464999999999995,
-          "acoustic_membrane_drum_gesture": 4.9464999999999995
+          "acoustic_membrane_drum_form": 5.705,
+          "acoustic_membrane_drum_gesture": 4.705
         }
       },
       {

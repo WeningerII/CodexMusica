@@ -5,7 +5,7 @@
   "lineage": "Indonesian shoegaze combines indie-pop clarity with sustained guitar noise.",
   "recipe": "classic indonesian shoegaze, distorted Rock, alternative branch. basswood feedback humbucker electric guitar, basswood electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital hall reverb silicon fuzz.",
   "recipe_chars": 310,
-  "score": 25.429,
+  "score": 25.702,
   "config": {
     "traditions": [
       "indonesian_shoegaze"
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 8.54275,
+          "electric_technique": 8.5,
           "amp_make": 1.8199999999999998,
-          "body_wood": 2.4255,
+          "body_wood": 2.667,
           "neck_wood": 0.105,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.105,
-          "bridge": 0.273,
+          "bridge": 0.168,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 2.4255,
+          "body_wood": 2.667,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0,
+          "voice_ensemble_config": 0.03712499999999999,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.03712499999999999,
           "voice_tessitura": 0
         }
       }

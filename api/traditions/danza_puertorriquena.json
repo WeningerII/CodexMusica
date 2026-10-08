@@ -5,7 +5,7 @@
   "lineage": "Puerto Rican salon dance that grew from the contradanza in the mid-19th century and was raised to a concert art by Manuel Gregorio Tavárez and his pupil Juan Morel Campos in Ponce. Danzas were written for piano and for dance orchestras in which the bombardino (euphonium) carries a characteristic countermelody, and the anthem 'La Borinqueña' is itself a danza.",
   "recipe": "classic modern danza puertorriqueña, art Music, western common practice branch, tropical song functional song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 269,
-  "score": 25.665,
+  "score": 25.77,
   "config": {
     "traditions": [
       "danza_puertorriquena"
@@ -29,11 +29,11 @@
           "grand_piano_size": 1.3,
           "grand_piano_brand": 0.39,
           "piano_hammer": 2.645,
-          "piano_rim": 2.6900000000000004,
+          "piano_rim": 2.8400000000000003,
           "piano_soundboard": 2.795,
-          "piano_pinblock": 2.45,
+          "piano_pinblock": 2.6,
           "piano_plate": 2.45,
-          "piano_pitch_standard": 7.319999999999999
+          "piano_pitch_standard": 7.125
         }
       }
     ],

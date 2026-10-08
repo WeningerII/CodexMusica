@@ -5,7 +5,7 @@
   "lineage": "Japanese matsuri (祭, festival) drumming tradition continuous from premodern Shinto-Buddhist festival-procession practice through Edo-period (1603-1868) codification of canonical city-festival drumming (the Tokyo-Asakusa Sanja Matsuri, Kyoto Gion Matsuri, Osaka Tenjin Matsuri, Aomori Nebuta Matsuri) into modern Japanese-and-Japanese-diaspora continuous festival-practice",
   "recipe": "classic East Asian early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music tarantella. thick, breath veiled tone, straight note core, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium silk nagauta jiuta shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 737,
-  "score": 168.582,
+  "score": 168.137,
   "config": {
     "traditions": [
       "japanese_matsuri_taiko",
@@ -34,7 +34,7 @@
         "id": "shamisen",
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
-          "shamisen_size": "futozao",
+          "shamisen_size": "chuzao",
           "shamisen_skin": "shamisen_dog",
           "shamisen_pick": "bachi_acrylic",
           "shamisen_neck_wood": "shamisen_red_sandalwood",
@@ -43,12 +43,12 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.035,
-          "shamisen_size": 0.15,
+          "shamisen_size": 0,
           "shamisen_skin": 0.15,
           "shamisen_pick": 2.535,
           "shamisen_neck_wood": 2.8950000000000005,
           "shamisen_strings": 2.9450000000000003,
-          "shamisen_tradition": 1.755
+          "shamisen_tradition": 1.6999999999999997
         }
       },
       {
@@ -96,9 +96,9 @@
           "voice_vibrato": 3.315000000000001,
           "voice_articulation": 13.129999999999997,
           "voice_microtone": 13.974999999999994,
-          "voice_tradition": 23.169999999999998,
+          "voice_tradition": 22.884999999999998,
           "voice_mechanism_compound": 2.47,
-          "voice_estill_quality": 3.2250000000000005,
+          "voice_estill_quality": 3.2700000000000005,
           "voice_speech_song": 13.324999999999998,
           "voice_ensemble_config": 13.454999999999997,
           "voice_ornament_system": 5.04875,

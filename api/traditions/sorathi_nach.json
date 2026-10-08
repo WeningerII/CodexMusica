@@ -5,7 +5,7 @@
   "lineage": "Dance-drama song of the Magar of Nepal's western hills, among them Syangja, taken up also by the Gurung and neighbouring peoples. Village troupes perform it for about two weeks from Laxmi Puja in the Tihar festival to Thuli Ekadashi: sung episodes tell the story of King Jayasinge and his daughter Sorathi while a male dancer as the king dances in turn with dancers representing his queens, accompanied by madal drums.",
   "recipe": "classic modern sorathi, ballad Poetry, indian bard branch. live take. slung madal. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 162,
-  "score": 6.112,
+  "score": 6.039,
   "config": {
     "traditions": [
       "sorathi_nach"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.6509999999999999,
+          "voice_multitrack_stack": 0.6824999999999999,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
         },
         "scores": {
           "madal_role": -0.07,
-          "madal_posture": 5.16,
+          "madal_posture": 5.055000000000001,
           "madal_paste": -0.035,
           "madal_shell": -0.1
         }

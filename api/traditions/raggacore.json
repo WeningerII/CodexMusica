@@ -3,14 +3,14 @@
   "name": "Raggacore",
   "family": "electronic",
   "lineage": "Emerged in Berlin and London around 2003-07 from breakcore's collision with dancehall, codified by Bong-Ra, Aaron Spectre, DJ Scotch Egg and the Wasted Sound / Death$ucker circles — 170-200 BPM distorted Amen and Mentasm edits under looped ragga toasting and dancehall riddim samples, produced entirely in-the-box with heavy clipping and abrupt cut-and-paste structure.",
-  "recipe": "classic early-2000s raggacore, bass System, bass descendants branch, uk soundsystem bass system, industrial noise experimental electric, idm glitch experimental electric oldschool jungle industrial hardcore. rhythmic, toasting deejay flow, pitched rhythmic chat, solo with instrumental accompaniment. software sample playback, sampler drum machine, low sub bass monosynth acid bass, low sub bass wavetable synth, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 596,
-  "score": 90.761,
+  "recipe": "classic early-2000s raggacore, bass System, bass descendants branch, uk soundsystem bass system, industrial noise experimental electric, idm glitch experimental electric oldschool jungle darkcore. rhythmic, toasting deejay flow, pitched rhythmic chat, solo with instrumental accompaniment. software sample playback, sampler drum machine, low sub bass monosynth acid bass, low sub bass wavetable synth, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 585,
+  "score": 94.206,
   "config": {
     "traditions": [
       "raggacore",
       "oldschool_jungle",
-      "industrial_hardcore"
+      "darkcore"
     ],
     "instruments": [
       {
@@ -31,10 +31,10 @@
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 2.6000000000000005,
-          "sample_bitdepth": 0.39,
-          "sample_swing": 7.624999999999999,
-          "sample_processing": 2.2199999999999998
+          "electronic_technique": 1.56,
+          "sample_bitdepth": 0.195,
+          "sample_swing": 6.750000000000001,
+          "sample_processing": 2.82
         }
       },
       {
@@ -63,18 +63,18 @@
           "voice_quality": 0.045,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.285,
+          "voice_vibrato": 0.195,
           "voice_articulation": 0.63,
           "voice_microtone": 0,
-          "voice_tradition": 12.626249999999999,
+          "voice_tradition": 12.521249999999998,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.597499999999998,
-          "voice_ensemble_config": 4.68,
-          "voice_ornament_system": 4.29,
+          "voice_speech_song": 11.702499999999999,
+          "voice_ensemble_config": 4.029999999999999,
+          "voice_ornament_system": 5.720000000000001,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 11.937499999999998,
-          "voice_multitrack_stack": 2.8600000000000003,
+          "voice_processing_chain": 11.607500000000002,
+          "voice_multitrack_stack": 3.51,
           "voice_tessitura": 0
         }
       },
@@ -84,13 +84,13 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "subtle_accent_acid"
+          "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 8.32,
-          "wave_acid": 0.345,
-          "filter_acid": 1.235,
-          "accent_acid": 0.345
+          "electronic_technique": 11.699999999999998,
+          "wave_acid": 0.195,
+          "filter_acid": 1.69,
+          "accent_acid": 0.25
         }
       },
       {
@@ -102,9 +102,9 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 8.32,
-          "wt_position": 4.615,
-          "wt_family": 0.15,
+          "electronic_technique": 11.699999999999998,
+          "wt_position": 3.5100000000000002,
+          "wt_family": 0.195,
           "wt_polyphony": 0.345
         }
       },
@@ -115,7 +115,7 @@
           "turntable_technique": "turntable_chirp_baby"
         },
         "scores": {
-          "electronic_technique": 2.6000000000000005,
+          "electronic_technique": 1.56,
           "turntable_technique": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Unaccompanied congregational hymn singing of the Old Regular Baptists, a conservative Baptist association of the central Appalachian coalfields of eastern Kentucky, southwestern Virginia and southern West Virginia that uses no instruments in worship. A song leader chants each line of a hymn from a words-only hymnbook and the congregation follows in slow, free-flowing unison, each singer adding personal ornaments so that the voices overlap in a dense heterophony; Smithsonian Folkways issued recordings made among the Indian Bottom Association of Letcher County and neighbouring congregations in 1997.",
   "recipe": "classic late-1990s old regular baptist lined hymnody, ritual Devotional, American sacred branch, appalachian drone modal. leader call answered, many notes per syllable, same melody all voices. country church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 271,
-  "score": 6.96,
+  "score": 6.915,
   "config": {
     "traditions": [
       "old_regular_baptist_lined_hymnody"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 2.9900000000000015,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.045,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.045,
           "voice_tessitura": 0
         }

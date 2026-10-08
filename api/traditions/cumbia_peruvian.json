@@ -5,7 +5,7 @@
   "lineage": "Peruvian Amazonian-and-coastal cumbia hybrid 1960s-onward, evolved from Colombian-cumbia-mainstream into a distinct fuzz-electric-guitar-led psychedelic-rock-fused subform centered in Lima, Iquitos, and Chiclayo. Built on Colombian-cumbia 4-beat-clave rhythmic-foundation but substituting electric-guitar (often with fuzz, wah, reverb, surf-twang) and electric-bass for the original gaitas-and-acoustic-bass. The chicha-cumbia 1965-1975-era originated in Andean-migrant Lima working-class-barrios and fused Andean huayno-pentatonic melodic-vocabulary with cumbia-rhythm and Anglo-American garage-and-psychedelic guitar-aesthetics. The 1970s-cumbia-amazonica branch (Iquitos-and-Pucallpa Amazon-basin) added more Afro-Caribbean and Brazilian-Northeastern-forró rhythmic-elements. 2000s-onward international-rediscovery via reissue-labels.",
   "recipe": "classic Andean mid-1960s cumbia peruana, groove Percussion, Latin am branch, string drone modal folkmusik takamba. thick, full chest belt, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright riff driven single coil electric guitar, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass, open slap hand drum timbales, open slap hand drum congas, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ. andean altiplano outdoor. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 719,
-  "score": 245.405,
+  "score": 246.05,
   "config": {
     "traditions": [
       "cumbia_peruvian",
@@ -43,13 +43,13 @@
           "voice_microtone": 26.064999999999998,
           "voice_tradition": 11.764999999999997,
           "voice_mechanism_compound": 9.425,
-          "voice_estill_quality": 8.389999999999999,
+          "voice_estill_quality": 8.344999999999999,
           "voice_speech_song": 23.66,
           "voice_ensemble_config": 24.18,
           "voice_ornament_system": 8.309999999999999,
           "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 9.844999999999999,
-          "voice_multitrack_stack": 5.305000000000001
+          "voice_processing_chain": 10.04,
+          "voice_multitrack_stack": 5.260000000000001
         }
       },
       {
@@ -57,30 +57,30 @@
         "slots": {
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany",
+          "body_wood": "pine",
           "neck_wood": "mahogany_neck",
           "fretboard": "ebony_fb",
-          "pickup_magnet": "alnico_2",
+          "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
-          "bridge": "vintage_trem",
+          "bridge": "hardtail",
           "scale_length": "scale_short",
           "finish": "oil_satin",
           "string_tuning": "dadgad",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 4.95,
+          "electric_technique": 4.995,
           "amp_make": 5.140000000000001,
-          "body_wood": 0.40499999999999997,
-          "neck_wood": 0.40499999999999997,
-          "fretboard": 0.435,
-          "pickup_magnet": 0,
+          "body_wood": 0.39,
+          "neck_wood": 0.3,
+          "fretboard": 0.5399999999999999,
+          "pickup_magnet": 0.195,
           "string_material": 0.09,
           "string_gauge": 0.65,
-          "bridge": 0.255,
+          "bridge": 0.345,
           "scale_length": 0.7199999999999999,
-          "finish": 0.36,
+          "finish": 0.255,
           "string_tuning": 4.095,
           "single_coil_pickup_construction": 0
         }
@@ -98,12 +98,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.82,
-          "body_wood": 0.435,
-          "pickup_config": 0.24,
-          "string_type": 3.8150000000000004,
+          "amp_make": 3.775,
+          "body_wood": 0.5399999999999999,
+          "pickup_config": 0.54,
+          "string_type": 3.7700000000000005,
           "scale_length_b": 0.24,
-          "fretted_or_not": 0.24,
+          "fretted_or_not": 0.285,
           "bass_technique": 2.915,
           "electric_bass_string_configuration": 0
         }
@@ -116,7 +116,7 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 7.965,
+          "percussion_technique": 7.92,
           "timbales_shell": 0.09,
           "timbales_context": 0.39
         }
@@ -130,7 +130,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 7.965,
+          "percussion_technique": 7.92,
           "conga_set": 0.585,
           "conga_skin": 0.7949999999999999,
           "conga_shell_wood": 0.7949999999999999
@@ -149,10 +149,10 @@
         "scores": {
           "keyboard_technique": -0.07,
           "drawbar_setting": 2.92,
-          "rotary_speed": 3.0650000000000004,
+          "rotary_speed": 3.17,
           "percussion_setting": 1.4949999999999999,
           "tonewheel_model": 9.165,
-          "leslie_cabinet_model": 2.3850000000000002
+          "leslie_cabinet_model": 2.3400000000000003
         }
       }
     ],

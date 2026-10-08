@@ -5,7 +5,7 @@
   "lineage": "Symphonic melodic death metal is represented here by BRYMIR. This selected branch has an authored present-day studio realization.",
   "recipe": "classic symphonic melodic death metal, distorted Rock, symphonic branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, drum kit, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 484,
-  "score": 33.136,
+  "score": 33.084,
   "config": {
     "traditions": [
       "symphonic_melodic_death_metal"
@@ -32,7 +32,7 @@
           "electric_technique": -0.07,
           "amp_make": 4.355,
           "body_wood": 4.55,
-          "neck_wood": 0,
+          "neck_wood": 0.0325,
           "fretboard": 0.0735,
           "pickup_magnet": 0.0735,
           "pickup_winding": 0.0735,
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.0735,
-          "pickup_config": 0.273,
+          "body_wood": 0.106,
+          "pickup_config": 0.2415,
           "string_type": 4.875,
           "scale_length_b": 0.0315,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.0375,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
-          "drum_technique": 0.3315,
+          "drum_technique": 0.3325,
           "drumhead": 0.39,
           "drum_kit_kick_pedal": 0.78
         }
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.063,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.04875,
-          "voice_multitrack_stack": 0.126
+          "voice_multitrack_stack": 0.0945
         }
       },
       {
@@ -129,8 +129,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.126,
-          "rompler_context": 0.5519999999999999,
+          "rompler_preset_bank": 0.127,
+          "rompler_context": 0.4899999999999999,
           "rompler_lineage": 1.69
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Costumed marching bands of the Philadelphia Mummers Parade held every New Year's Day, organised as clubs rooted in the South Philadelphia neighbourhoods around Two Street and judged in a String Band Division. Parade rules bar brass instruments, so dozens of banjos and saxophones with accordions, violins, string basses, glockenspiels and drums play arranged popular songs and marches while the members strut in elaborate costumes; the Ferko String Band's 'Alabama Jubilee' became a national hit in 1955.",
   "recipe": "classic mid-1950s mummers string band, carnival Processional, American marching groove percussion. credited banjo unspecified, yellow brass modern standard saxophone, piano accordion, fiddle, upright bass, mounted vertical brass glockenspiel, snare drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 8.628,
+  "score": 8.154,
   "config": {
     "traditions": [
       "philadelphia_mummers_string_band",
@@ -66,11 +66,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.345,
+          "bowed_technique": 0.38212499999999994,
           "fiddle_strings": 0,
           "fiddle_bow": 0,
-          "fiddle_mute": 0.885,
-          "fiddle_articulation": 0.33,
+          "fiddle_mute": 0.532125,
+          "fiddle_articulation": 0.172125,
           "fiddle_string_configuration": 0
         }
       },

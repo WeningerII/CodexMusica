@@ -5,7 +5,7 @@
   "lineage": "Swiss folk includes varied regional instrumental and vocal traditions maintained through community performance, teaching and festivals. Contemporary musicians also develop new arrangements and solo approaches.",
   "recipe": "classic swiss folk, drone Modal, string branch. hammered dulcimer. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 165,
-  "score": 3.614,
+  "score": 3.73,
   "config": {
     "traditions": [
       "swiss_folk"
@@ -20,10 +20,10 @@
           "hammered_dulcimer_strings": "hd_steel_bronze_modern"
         },
         "scores": {
-          "hammer_dulcimer_courses": 0.168,
-          "hammer_material": 2.65875,
-          "hammered_dulcimer_body_wood": 0.168,
-          "hammered_dulcimer_strings": 0.6194999999999999
+          "hammer_dulcimer_courses": 0.2415,
+          "hammer_material": 2.55375,
+          "hammered_dulcimer_body_wood": 0.2415,
+          "hammered_dulcimer_strings": 0.693
         }
       }
     ],

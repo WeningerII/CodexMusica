@@ -3,14 +3,14 @@
   "name": "Desi Pop (Indipop)",
   "family": "pop",
   "lineage": "Non-film Indian popular song that broke out of Bombay's playback monopoly in the late 1980s and peaked 1993-2002 through Biddu's productions for Alisha Chinai, Daler Mehndi's dhol-driven bhangra-pop and Lucky Ali's acoustic ballads, distributed on T-Series and Magnasound cassettes: 90-130 BPM four-on-the-floor or dhol-derived chaal patterns, DX7 and Korg M1 pads, tumbi and dholak layered over programmed kits, and film-trained melismatic vocals sung in Hindi-Punjabi code-mixing.",
-  "recipe": "classic South Asian mid-1990s desi pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. thick, declaimed, straight onset, interlocked note trading. dhol, dholak, gut pre modern Punjabi ornamented tumbi, harmonium indian, singing lead analog poly synth, layered sub heavy electric bass, late 1980s reverb saturated bus stack multitrack vocal stack. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
-  "recipe_chars": 617,
-  "score": 246.708,
+  "recipe": "classic South Asian mid-1990s desi pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu jain bhajan. thick, declaimed, straight onset, interlocked note trading. dhol, dholak, gut pre modern Punjabi tumbi, harmonium indian, singing lead analog poly synth, layered sub heavy electric bass, late 1980s reverb saturated bus stack multitrack vocal stack. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 613,
+  "score": 227.941,
   "config": {
     "traditions": [
       "desi_pop",
       "mappila_paattu",
-      "naat_south_asian"
+      "jain_bhajan"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 13.957999999999991,
-          "voice_quality": 12.537749999999997,
+          "voice_register": 16.454499999999996,
+          "voice_quality": 9.41575,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.56,
-          "voice_articulation": 20.085,
-          "voice_microtone": 25.674999999999997,
-          "voice_tradition": 14.733999999999998,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 2.2749999999999995,
-          "voice_speech_song": 27.819999999999997,
-          "voice_ensemble_config": 21.775,
-          "voice_ornament_system": 7.45,
-          "voice_pitch_organization": 4.20775,
-          "voice_processing_chain": 4.49275,
-          "voice_multitrack_stack": 6.33825
+          "voice_vibrato": 2.21,
+          "voice_articulation": 16.705,
+          "voice_microtone": 20.864999999999995,
+          "voice_tradition": 17.015,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 2.4699999999999998,
+          "voice_speech_song": 24.439999999999998,
+          "voice_ensemble_config": 17.939999999999998,
+          "voice_ornament_system": 4.824999999999999,
+          "voice_pitch_organization": 3.1877500000000003,
+          "voice_processing_chain": 4.5977500000000004,
+          "voice_multitrack_stack": 5.785000000000001
         }
       },
       {
@@ -57,12 +57,12 @@
         "slots": {
           "dhol_form": "dhol_punjabi",
           "dhol_repertoire": "dhol_bhangra_chaal",
-          "dhol_shell": "dhol_mango"
+          "dhol_shell": "dhol_fiberglass"
         },
         "scores": {
-          "dhol_form": 26.845000000000006,
-          "dhol_repertoire": 7.225250000000001,
-          "dhol_shell": -0.05
+          "dhol_form": 21.97,
+          "dhol_repertoire": 7.5927500000000006,
+          "dhol_shell": 0.52
         }
       },
       {
@@ -74,10 +74,10 @@
           "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 0.845,
-          "dholak_construction": 1.95,
-          "dholak_head": 0.735,
-          "dholak_tensioning": 0.735
+          "dholak_use": 1.235,
+          "dholak_construction": 1.3,
+          "dholak_head": 0.65,
+          "dholak_tensioning": 0.65
         }
       },
       {
@@ -85,14 +85,14 @@
         "slots": {
           "plucked_traditional_technique": "plucked_ornamented_melodic",
           "tumbi_construction": "tumbi_synthetic",
-          "tumbi_context": "tumbi_fusion",
+          "tumbi_context": "tumbi_film",
           "tumbi_string": "tumbi_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 3.9327500000000004,
-          "tumbi_construction": 0.92025,
-          "tumbi_context": 0.65,
-          "tumbi_string": 2.47
+          "plucked_traditional_technique": 2.7177500000000006,
+          "tumbi_construction": 0.65,
+          "tumbi_context": 0.585,
+          "tumbi_string": 2.275
         }
       },
       {
@@ -100,14 +100,14 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "harmonium_action": "harmonium_hand_pump",
-          "harmonium_voicing": "harmonium_male",
+          "harmonium_voicing": "harmonium_double",
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 0.6499999999999999,
-          "harmonium_action": 1.04,
-          "harmonium_voicing": 0.39,
-          "harmonium_use": 2.21
+          "free_reed_technique": 2.5349999999999997,
+          "harmonium_action": 1.4300000000000002,
+          "harmonium_voicing": 0.65,
+          "harmonium_use": 1.4949999999999999
         }
       },
       {
@@ -119,16 +119,16 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 13.76775,
-          "poly_archetypes": 0.5129999999999999,
-          "poly_voices": 0.23775000000000002,
-          "poly_maker_lineage": 0.78
+          "electronic_technique": 14.345749999999997,
+          "poly_archetypes": 0.6359999999999999,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.035
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "roundwound_s",
@@ -138,13 +138,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.13000000000000003,
-          "body_wood": 0.35475,
-          "pickup_config": 0.84,
-          "string_type": 0.735,
-          "scale_length_b": 0.8700000000000001,
-          "fretted_or_not": 0.65,
-          "bass_technique": 1.25,
+          "amp_make": 0.7149999999999999,
+          "body_wood": 0.45499999999999996,
+          "pickup_config": 1.105,
+          "string_type": 0.65,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 1.4949999999999999,
+          "bass_technique": 2.55,
           "electric_bass_string_configuration": 0
         }
       },
@@ -153,12 +153,12 @@
         "slots": {
           "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
           "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
-          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
+          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 0.17775000000000002,
-          "multitrack_stack_era_aesthetic": 4.9205000000000005,
-          "multitrack_stack_processing": 0.195
+          "multitrack_stack_density": 0.30074999999999996,
+          "multitrack_stack_era_aesthetic": 5.267,
+          "multitrack_stack_processing": 0.75
         }
       }
     ],

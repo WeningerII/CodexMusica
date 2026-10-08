@@ -5,7 +5,7 @@
   "lineage": "Urban popular song of Oran whose modern orchestral form flourished in the 1950s and 1960s, when singers such as Blaoui Houari and Ahmed Wahby set Oranian dialect poetry to an ensemble led by oud, violins and darbuka, drawing on the local bédoui and Andalusi repertoires. It was carried by Algerian radio and records and fed later Oran popular music.",
   "recipe": "classic North African mid-1950s wahrani, functional Song, mid east n African pop branch. solo with instrumental accompaniment. walnut ribs canonical mid tier oud, melodic bowed song accompaniment fiddle, Egyptian sombaty canonical mid east darbuka. stone plaster medina room. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 356,
-  "score": 19.444,
+  "score": 18.931,
   "config": {
     "traditions": [
       "wahrani_oran"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2285,
+          "voice_ensemble_config": 1.0855,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3,
+          "voice_multitrack_stack": 0.33899999999999997,
           "voice_tessitura": 0
         }
       },
@@ -69,7 +69,7 @@
           "oud_strings": 0.861,
           "oud_pick": 1.95,
           "oud_body_wood": 1.95,
-          "oud_soundboard_wood": 0.2415,
+          "oud_soundboard_wood": 0.105,
           "oud_string_material": 0
         }
       },
@@ -86,9 +86,9 @@
         "scores": {
           "bowed_technique": 4.55,
           "fiddle_strings": 0,
-          "fiddle_bow": 0.1365,
+          "fiddle_bow": 0,
           "fiddle_mute": 0.147,
-          "fiddle_articulation": 0.3045,
+          "fiddle_articulation": 0.168,
           "fiddle_string_configuration": 0
         }
       },

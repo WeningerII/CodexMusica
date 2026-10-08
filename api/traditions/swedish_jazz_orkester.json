@@ -5,7 +5,7 @@
   "lineage": "Swedish jazz orchestras developed through dance bands, radio ensembles and concert performance. Arrangers and improvisers continue a big-band tradition with local repertoire and international influences.",
   "recipe": "classic swedish jazz orkester, improv On Frame, early branch. bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, a 440 modern pitch us standard grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 525,
-  "score": 119.986,
+  "score": 120.67,
   "config": {
     "traditions": [
       "swedish_jazz_orkester"
@@ -24,11 +24,11 @@
         },
         "scores": {
           "wind_articulation": 0.585,
-          "brass_size": 0,
+          "brass_size": 0.24149999999999996,
           "trumpet_mouthpiece": 14.625,
           "brass_mute": 0.0315,
           "trumpet_technique": 0.585,
-          "trumpet_bell_metal": 0.51525,
+          "trumpet_bell_metal": 0.65175,
           "trumpet_maker_school": 1.95
         }
       },
@@ -49,7 +49,7 @@
           "trombone_mouthpiece": 11.231499999999999,
           "trombone_mute": 0.0315,
           "trombone_technique": 0.39,
-          "trombone_bell_metal": 0.51525,
+          "trombone_bell_metal": 0.65175,
           "trombone_maker_school": 1.95
         }
       },
@@ -58,7 +58,7 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "baritone_sax",
-          "sax_reed": "medium_reed",
+          "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_continuous_legato",
@@ -66,10 +66,10 @@
         },
         "scores": {
           "wind_articulation": 0.585,
-          "sax_size": 0.168,
-          "sax_reed": 0,
+          "sax_size": 0.063,
+          "sax_reed": 0.27299999999999996,
           "sax_body_alloy": 11.25,
-          "sax_mouthpiece": 0.2115,
+          "sax_mouthpiece": 0.243,
           "sax_technique": 11.25,
           "sax_maker_school": 14.559999999999999
         }
@@ -91,7 +91,7 @@
           "keyboard_technique": -0.05,
           "grand_piano_size": 0.063,
           "grand_piano_brand": 0.1365,
-          "piano_hammer": -0.07,
+          "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.1,

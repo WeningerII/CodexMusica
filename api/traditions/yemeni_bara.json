@@ -5,7 +5,7 @@
   "lineage": "Men's dagger dance of the tribes of the Yemeni highlands, danced in lines or a circle with the jambiya drawn, to drumming on the small tasa kettle drum and the larger marfa'; a performance moves through sections that grow faster and more intricate, and each region and tribe keeps its own steps and rhythms. The hand drum card stands for the tasa and the acoustic membrane drum card for the marfa'.",
   "recipe": "classic modern barāʿ, wedding, middle eastern branch. membrane drum pulse resonant acoustic membrane drum, hand drum source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 216,
-  "score": 8.176,
+  "score": 8.239,
   "config": {
     "traditions": [
       "yemeni_bara"
@@ -18,8 +18,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 4.6405,
-          "acoustic_membrane_drum_gesture": 3.5355
+          "acoustic_membrane_drum_form": 4.672,
+          "acoustic_membrane_drum_gesture": 3.567
         }
       },
       {

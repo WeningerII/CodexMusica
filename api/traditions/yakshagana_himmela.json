@@ -5,7 +5,7 @@
   "lineage": "Yakshagana is the night-long dance-theatre of coastal Karnataka, enacting episodes from the epics and Puranas. Its music ensemble (himmela) is led by the bhagavata, the singer-narrator who sings the verses of the play text and directs the performance while keeping time on small cymbals (the manjira card stands in for them), with the chande drum (the chenda card in its chande form) and the maddale barrel drum (the generic membrane-drum card stands in for it); the actors improvise spoken dialogue between the songs.",
   "recipe": "classic modern yakshagana, ballad Poetry, indian bard branch. solo with instrumental accompaniment. chenda, membrane drum pulse resonant acoustic membrane drum, high pitched small manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 268,
-  "score": 13.733,
+  "score": 13.512,
   "config": {
     "traditions": [
       "yakshagana_himmela"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.142125,
+          "voice_effort": 0.06862499999999999,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
@@ -72,8 +72,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 5.078125,
-          "acoustic_membrane_drum_gesture": 4.078125
+          "acoustic_membrane_drum_form": 5.004625,
+          "acoustic_membrane_drum_gesture": 4.004625
         }
       },
       {

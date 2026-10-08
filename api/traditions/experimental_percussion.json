@@ -5,7 +5,7 @@
   "lineage": "Chris Corsano — Cut (2012), solo acoustic drumming. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2010s experimental percussion, improv On Frame, jam free branch. maple brushes-and-sticks drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 212,
-  "score": 12.215,
+  "score": 12.532,
   "config": {
     "traditions": [
       "experimental_percussion"
@@ -28,13 +28,13 @@
         },
         "scores": {
           "drum_technique": 5.979999999999999,
-          "drumhead": 1.8730000000000002,
+          "drumhead": 2.0095,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.8730000000000002,
+          "shell_wood": 2.0095,
           "shell_thickness": 0.063,
           "bearing_edges": 0.39,
           "snare_wires": 0,
-          "cymbal_alloy": 0.7364999999999999,
+          "cymbal_alloy": 0.7799999999999998,
           "cymbal_hammering": 0.6499999999999999,
           "cymbal_lathing": 0.6499999999999999,
           "cymbal_finish": 0

@@ -3,14 +3,14 @@
   "name": "Future garage",
   "family": "electronic",
   "lineage": "Late-2000s and early-2010s UK electronic subgenre integrating UK garage 2-step rhythmic foundation with deep-bass production, atmospheric pads, and melodic-emotional content. Burial's Untrue (2007) inaugurated the canonical sound; Mount Kimbie, James Blake (early-career), and the broader Hyperdub label roster extended the genre into broader UK-electronic-cultural visibility.",
-  "recipe": "classic British 2007-2009 future garage, bass System, uk soundsystem branch, ambient experimental electric vaporwave aesthetic hauntology. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, pad like pad analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 476,
-  "score": 154.127,
+  "recipe": "classic British 2007-2009 future garage, bass System, uk soundsystem branch, ambient experimental electric hauntology witch house. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, pad like pad analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 468,
+  "score": 151.457,
   "config": {
     "traditions": [
       "future_garage",
-      "vapor_aesthetic",
-      "hauntology_uk_2010s"
+      "hauntology_uk_2010s",
+      "witch_house_2010s"
     ],
     "instruments": [
       {
@@ -30,38 +30,38 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.7375000000000007,
-          "voice_quality": 10.594999999999994,
+          "voice_register": 1.56,
+          "voice_quality": 9.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.215,
-          "voice_articulation": 12.479999999999997,
-          "voice_microtone": 13.974999999999994,
+          "voice_vibrato": 3.2399999999999998,
+          "voice_articulation": 14.169999999999996,
+          "voice_microtone": 15.664999999999994,
           "voice_tradition": 11.115,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 12.479999999999997,
-          "voice_ensemble_config": 13.259999999999996,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 14.169999999999996,
+          "voice_ensemble_config": 14.104999999999995,
           "voice_ornament_system": 1.695,
           "voice_pitch_organization": 7.41,
-          "voice_processing_chain": 19.625,
-          "voice_multitrack_stack": 10.789999999999996
+          "voice_processing_chain": 18.845,
+          "voice_multitrack_stack": 9.945000000000002
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_miami",
+          "drum_machine_808_context": "drum_machine_808_trap",
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 2.84,
-          "drum_machine_808_context": 4.869999999999999,
+          "tr808_voice": 3.8649999999999998,
+          "drum_machine_808_context": 3.4,
           "tr808_production_origin": 0.7150000000000001
         }
       },

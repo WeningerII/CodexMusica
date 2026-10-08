@@ -5,7 +5,7 @@
   "lineage": "Colombian Caribbean-coast cortejo-procession couple-dance tradition originating mid-17th-century onward in Cartagena-and-Barranquilla Atlantic-coastal-region from Afro-Indigenous-Spanish fusion (enslaved-Africans-of-the-Bantu-Yoruba diaspora + Zenú-Wayuu Indigenous-coast + Spanish colonial Catholic-feast-day procession). The canonical conjunto-de-cumbia ensemble: gaitas Indigenous-Wayuu vertical-clay-and-cane flutes (gaita-macho lead, gaita-hembra accompaniment), tambor-mayor low-bass-drum (African-derived), llamador high-pulse-drum, alegre middle-improvisation-drum, maracas-and-guache shakers. The cumbia-clave 4-beat pattern emphasizes beats 1 and 3 (the conga-pattern echo). The 1940s-1960s commercial-mainstream cumbia adaptation by big-band-with-accordion-and-brass (cumbia-de-orquesta) spread Colombian-cumbia internationally; the 1960s-onward Peruvian-Mexican-and-Argentine cumbia-variants emerged from this diaspora.",
   "recipe": "classic South American mid-1940s cumbia colombiana, groove Percussion, Latin am branch, tropical song functional song chanchona bachata. thick, full chest belt, slow rate, interlocked note trading. castagnari Italian premium folk music chromatic lead accordion, gaita macho rhythmic drone gaita deep barrel coastal cumbia head and shell steady pulse tambora colombiana, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, guiro, maracas, cumbia lead gaita ensemble tambor alegre. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
   "recipe_chars": 687,
-  "score": 310.85,
+  "score": 311.002,
   "config": {
     "traditions": [
       "cumbia_colombiana",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "polynesian_oli_tradition",
+          "voice_tradition": "inuit_katajjaq_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.0199999999999996,
+          "voice_register": 2.1774999999999993,
           "voice_quality": 25.95,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.835,
           "voice_articulation": 16.639999999999997,
           "voice_microtone": 17.289999999999996,
-          "voice_tradition": 10.285,
+          "voice_tradition": 10.31,
           "voice_mechanism_compound": 8.799999999999999,
           "voice_estill_quality": 3.6400000000000006,
           "voice_speech_song": 24.244999999999997,
           "voice_ensemble_config": 16.965,
           "voice_ornament_system": 1.4949999999999992,
-          "voice_pitch_organization": 2.3000000000000003,
+          "voice_pitch_organization": 2.495,
           "voice_processing_chain": 5.51,
-          "voice_multitrack_stack": 11.479999999999999
+          "voice_multitrack_stack": 11.374999999999998
         }
       },
       {
@@ -64,7 +64,7 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 3.055,
+          "free_reed_technique": 3.0250000000000004,
           "accordion_reed_material": 2.6,
           "musette_offset": 1,
           "reed_config": 0.15,
@@ -81,7 +81,7 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "gaita_colombiana_pair": 27.75
+          "gaita_colombiana_pair": 27.795
         }
       },
       {
@@ -115,8 +115,8 @@
           "tambora_colombiana_build": "tambora_colombiana_build_goatskin"
         },
         "scores": {
-          "tambora_colombiana_form": 21.555000000000003,
-          "tambora_colombiana_pattern": 39.815000000000005,
+          "tambora_colombiana_form": 21.6,
+          "tambora_colombiana_pattern": 40.11500000000001,
           "tambora_colombiana_build": -0.15000000000000002
         }
       },
@@ -150,8 +150,8 @@
           "tambor_alegre_build": "tambor_alegre_build_moderno"
         },
         "scores": {
-          "tambor_alegre_form": 31.56,
-          "tambor_alegre_role": 10.065,
+          "tambor_alegre_form": 31.32,
+          "tambor_alegre_role": 9.825,
           "tambor_alegre_build": 1.3949999999999998
         }
       }

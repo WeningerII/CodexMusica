@@ -5,7 +5,7 @@
   "lineage": "Amateur brass choirs of German Protestant parishes, which go back to the trombone choirs of the Moravian Brethren at Herrnhut in the eighteenth century and grew into a mass movement during the nineteenth-century revival in Minden-Ravensberg, Westphalia. Johannes Kuhlo of Bethel near Bielefeld shaped its repertoire of four-part chorale settings and its non-transposing notation, and the choirs play in services, at open-air and tower music and at large church festivals.",
   "recipe": "classic modern posaunenchor, ritual Devotional, christian gospel branch. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, brass yellow brass flugelhorn, baritone horn bb, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor trombone, yellow brass canonical orchestral rotary valves canonical German orchestral miraphone canonical German orchestral tuba. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 527,
-  "score": 25.794,
+  "score": 25.505,
   "config": {
     "traditions": [
       "posaunenchor"
@@ -29,7 +29,7 @@
           "brass_mute": 0.9099999999999999,
           "trumpet_technique": -0.05,
           "trumpet_bell_metal": 2.9899999999999998,
-          "trumpet_maker_school": 1.4385000000000001
+          "trumpet_maker_school": 1.302
         }
       },
       {
@@ -45,7 +45,7 @@
           "wind_articulation": -0.035,
           "flugel_use": 2.3,
           "flugelhorn_pitch": 0,
-          "flugelhorn_bell_metal": 2.9899999999999998,
+          "flugelhorn_bell_metal": 2.9825,
           "flugelhorn_maker_school": -1.4699999999999998
         }
       },
@@ -76,7 +76,7 @@
           "trombone_mute": 0.9099999999999999,
           "trombone_technique": 0.9099999999999999,
           "trombone_bell_metal": 2.9899999999999998,
-          "trombone_maker_school": 1.4385000000000001
+          "trombone_maker_school": 1.302
         }
       },
       {
@@ -93,7 +93,7 @@
           "wind_articulation": -0.05,
           "tuba_pitch": 0,
           "tuba_context": 0.1365,
-          "tuba_bell_metal": 2.9899999999999998,
+          "tuba_bell_metal": 2.9825,
           "tuba_valve_system": 2.6,
           "tuba_maker_school": 2.6
         }

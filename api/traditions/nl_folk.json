@@ -5,7 +5,7 @@
   "lineage": "The exact discovery roster resolves NL to Newfoundland and Labrador, with Great Big Sea, Alan Doyle and the Irish Descendants; it is not an abbreviation for the Netherlands. The selected branch follows Doyle’s modern Newfoundland kitchen-party folk-rock practice.",
   "recipe": "classic modern nl folk, functional Song, folk rock branch. thick, breath veiled tone, straight onset, equal tempered. phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, synthetic magic rosin modern acrylic base fiddle, castagnari Italian premium folk music straight accordion, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 575,
-  "score": 124.964,
+  "score": 125.132,
   "config": {
     "traditions": [
       "nl_folk"
@@ -32,20 +32,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 22.162999999999993,
+          "voice_register": 22.131499999999996,
           "voice_quality": 5.200000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.673,
           "voice_articulation": -0.1685,
-          "voice_microtone": 13.581499999999997,
+          "voice_microtone": 13.791499999999997,
           "voice_tradition": 0,
           "voice_mechanism_compound": 1.3,
           "voice_estill_quality": 1.1049999999999998,
           "voice_speech_song": 7.215,
           "voice_ensemble_config": -0.07,
-          "voice_ornament_system": 3.0230000000000006,
-          "voice_pitch_organization": 0.063,
+          "voice_ornament_system": 2.9180000000000006,
+          "voice_pitch_organization": 0.273,
           "voice_processing_chain": 2.5350000000000006,
           "voice_multitrack_stack": 2.145
         }
@@ -62,7 +62,7 @@
         "scores": {
           "acoustic_technique": 3.7,
           "string_tuning": 1.6204999999999998,
-          "top_wood": 0.2625,
+          "top_wood": 0.1995,
           "back_sides": 0.105,
           "string_acoustic": 1.3
         }
@@ -81,7 +81,7 @@
           "bowed_technique": 1.95,
           "fiddle_strings": 1.1995,
           "fiddle_bow": 2.668,
-          "fiddle_mute": 0.8925000000000001,
+          "fiddle_mute": 0.9240000000000002,
           "fiddle_articulation": 0.3315,
           "fiddle_string_configuration": 0
         }
@@ -98,11 +98,11 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 8.786499999999998,
-          "accordion_reed_material": 0.231,
+          "free_reed_technique": 8.754999999999999,
+          "accordion_reed_material": 0.1995,
           "musette_offset": 0.3315,
           "reed_config": 0,
-          "bellows": 0.363,
+          "bellows": 0.3315,
           "voicing_chamber": 0,
           "accordion_maker_school": 4.55
         }
@@ -121,10 +121,10 @@
         },
         "scores": {
           "amp_make": 5.525,
-          "body_wood": 0.46199999999999997,
+          "body_wood": 0.399,
           "pickup_config": 1.168,
           "string_type": 13,
-          "scale_length_b": 1.294,
+          "scale_length_b": 1.231,
           "fretted_or_not": 0.363,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -139,7 +139,7 @@
         },
         "scores": {
           "drum_technique": 4.419999999999999,
-          "drumhead": 6.25,
+          "drumhead": 6.3865,
           "drum_kit_kick_pedal": 0
         }
       }

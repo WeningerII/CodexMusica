@@ -3,9 +3,9 @@
   "name": "Daskathia (Odia ballad with kathi clappers)",
   "family": "global",
   "lineage": "Daskathia is a two-man ballad form of Odisha, strongest in Ganjam, in which the lead singer (gayaka) plays the kathi, a pair of wooden clappers, and his partner (palia) answers him and joins the refrains as they tell mythological stories in song and speech. The name joins das, a devotee, with the kathi he plays. Here the kartal card stands in for the kathi.",
-  "recipe": "classic modern daskathia, ballad Poetry, indian bard branch. single lead single track no stacking. kartal rajasthani. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 197,
-  "score": 2.571,
+  "recipe": "classic modern daskathia, ballad Poetry, indian bard branch. duet, single lead single track no stacking. kartal rajasthani. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 203,
+  "score": 3.264,
   "config": {
     "traditions": [
       "daskathia"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.105,
+          "voice_ensemble_config": 0.7559999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 1.69,
           "voice_tessitura": 0
         }
@@ -59,7 +59,7 @@
           "kartal_style": "kartal_bhajan"
         },
         "scores": {
-          "kartal_form": 0.0945,
+          "kartal_form": 0,
           "kartal_style": 0.3315
         }
       }

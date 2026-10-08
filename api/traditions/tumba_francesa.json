@@ -5,7 +5,7 @@
   "lineage": "Drum, song and dance societies founded in eastern Cuba in the 19th century by Haitian-born and Franco-Haitian people who arrived with French planters after the Haitian Revolution; the surviving societies are La Caridad de Oriente in Santiago de Cuba, Pompadour Santa Catalina de Riccis in Guantánamo and Bejuco in Sagua de Tánamo, and UNESCO proclaimed the tradition a Masterpiece of the Oral and Intangible Heritage of Humanity. A lead singer (composé) sings in Creole and Spanish, answered by a chorus, over large hand-played drums (tumbas), the catá, a hollow log beaten with sticks, and the chachá, a metal rattle; masón, yubá and frenté are its main dances. A generic membrane-drum card stands in for the tumbas, the palitos card for the sticks on the catá and a generic shaker card for the chachá.",
   "recipe": "classic modern tumba francesa, groove Percussion, Caribbean branch. membrane drum pulse resonant acoustic membrane drum, hollow toned palitos, shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 249,
-  "score": 10.694,
+  "score": 10.831,
   "config": {
     "traditions": [
       "tumba_francesa"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.16799999999999998,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 5.0695,
-          "acoustic_membrane_drum_gesture": 3.9269999999999996
+          "acoustic_membrane_drum_form": 5.1745,
+          "acoustic_membrane_drum_gesture": 4.032
         }
       },
       {

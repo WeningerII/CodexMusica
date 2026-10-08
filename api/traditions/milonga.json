@@ -5,7 +5,7 @@
   "lineage": "Argentine-Uruguayan rural-pampas tango-precursor and parallel folk genre 1870s-onward with habanera-derived dotted-eighth-sixteenth ostinato bass and characteristic 2/4 milonga-clave. Originated in Rio-de-la-Plata gaucho-payada improvisatory-sung-poetry combined with Afro-Cuban habanera rhythm imported via 19th-century maritime ship-traffic between Buenos Aires and Havana. The milonga-campera rural form remains payada-derived (guitar-accompanied gaucho ballads), while the milonga-ciudadana urban form 1920s-onward fed directly into orquesta-típica tango via the 6/8-against-2/4 polyrhythmic dance variant played at faster tempo than mainline tango.",
   "recipe": "classic South American mid-1870s milonga, ballad Poetry, milonga branch, tropical song functional song goombay ʻūtē. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, tango virtuoso premier German tango premium alternative bellows articulated bandoneon, hard rock maple acer saccharum Baroque setup short neck shorter fingerboard violin orchestral, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 563,
-  "score": 184.35,
+  "score": 184.43,
   "config": {
     "traditions": [
       "milonga",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.145000000000001,
+          "voice_register": 8.340000000000002,
           "voice_quality": 11.309999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.4050000000000002,
           "voice_articulation": 16.184999999999995,
           "voice_microtone": 15.989999999999991,
-          "voice_tradition": 12.260000000000002,
+          "voice_tradition": 11.855000000000002,
           "voice_mechanism_compound": 4.225,
           "voice_estill_quality": 4.42,
           "voice_speech_song": 23.984999999999992,
@@ -93,7 +93,7 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "orch_strings": "steel_orch",
-          "orch_top_wood": "italian_alpine_spruce_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
@@ -105,13 +105,13 @@
         "scores": {
           "bowed_technique": 0.75,
           "orch_strings": 0.435,
-          "orch_top_wood": 0.85,
+          "orch_top_wood": 0.9450000000000001,
           "orch_back_wood": 1.625,
-          "orch_varnish": 0.7,
+          "orch_varnish": 0.745,
           "orch_setup_period": 1.3649999999999998,
           "orch_bow": 1.69,
           "orch_bow_stick": 0.7999999999999999,
-          "orch_articulation": 0.195,
+          "orch_articulation": 0.345,
           "orch_rosin": 0.975
         }
       },

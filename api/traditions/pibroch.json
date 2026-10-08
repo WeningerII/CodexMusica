@@ -1,74 +1,53 @@
 {
-  "id": "pibroch",
-  "name": "Pibroch (ceòl mòr Highland piping)",
+  "id": "piobaireachd",
+  "merged_from": "pibroch",
+  "name": "Pìobaireachd (Highland classical)",
   "family": "global",
-  "lineage": "The Scottish Highland 'great music' of the Great Highland bagpipe, codified by the MacCrimmon hereditary pipers of Skye and the MacArthurs from roughly 1600 onward and fixed in the Campbell Canntaireachd and Angus MacKay's 1838 collection — a slow ground (ùrlar) in free, elastic pulse followed by fixed variation sets (siubhal, taorluath, crunluath) built from named grace-note gestures over an unbroken two-octave-plus-drone texture, typically fifteen to twenty minutes for a single tune.",
-  "recipe": "classic Northern European early-1600s pibroch, drone Modal, wind pipe branch, Celtic balladic ballad poetry, Celtic traditional improv on frame scottish gaelic folk song sean-nós singing. kargyraa, breath veiled tone, slow rate, interlocked note trading. African blackwood grenadilla canonical Scottish cane drone reeds traditional arundo donax highland bagpipes. scottish galician piping outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 460,
-  "score": 214.537,
+  "lineage": "Highland Scottish solo bagpipe classical art-music — the highest formal genre of Great Highland Bagpipe music, distinct from light music (marches, strathspeys, reels); built around the urlar (ground), the slow-tempo composed melodic theme, and successive variations of increasing complexity through movements including siubhal (passing variation), taorluath (cumulative grace-note variation), and crunluath (the most complex variation). The 18th-century MacCrimmon family tradition (the hereditary pipers of Clan MacLeod of Skye, with the Boreraig piping college), preserved through the Piobaireachd Society codification from 1903 onward",
+  "recipe": "classic Northern European early-1900s pìobaireachd, drone Modal, wind pipe branch, Celtic balladic ballad poetry child ballad revival gwerz breton. African blackwood grenadilla canonical Scottish synthetic drone reeds ezeedrone selbie melodic highland bagpipes, bellows blown d major border pipe tradition African blackwood canonical Scottish cane arundo donax canonical Scottish smallpipes scottish smallpipes. scottish galician piping outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 508,
+  "score": 49.335,
   "config": {
     "traditions": [
-      "pibroch",
-      "scottish_gaelic_folk",
-      "sean_nos_singing"
+      "piobaireachd",
+      "child_ballad_revival",
+      "gwerz_breton"
     ],
     "instruments": [
       {
         "id": "highland_bagpipes",
         "slots": {
-          "wind_articulation": "wind_ornament_heavy",
+          "wind_articulation": "wind_folk_melodic",
           "highland_drones": "highland_3_drones",
           "highland_chanter": "highland_blackwood",
-          "highland_drone_reeds": "highland_cane_drone_reeds",
+          "highland_drone_reeds": "highland_synthetic_drone_reeds",
           "highland_chanter_reed": "highland_cane_chanter_reed",
-          "highland_bag": "highland_hide_bag"
+          "highland_bag": "highland_synthetic_bag"
         },
         "scores": {
-          "wind_articulation": 12.22,
+          "wind_articulation": 11.795,
           "highland_drones": 0.15,
-          "highland_chanter": 2.0799999999999996,
-          "highland_drone_reeds": 4.115,
-          "highland_chanter_reed": 0.09,
-          "highland_bag": 0.9099999999999999
+          "highland_chanter": 5.785,
+          "highland_drone_reeds": 2.795,
+          "highland_chanter_reed": 0.845,
+          "highland_bag": 0.845
         }
       },
       {
-        "id": "voice",
+        "id": "scottish_smallpipes",
         "slots": {
-          "voice_register": "kargyraa_register",
-          "voice_quality": "aspirated_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "smallpipes_bellows_blown": "smallpipes_bellows_blown",
+          "smallpipes_pitch": "smallpipes_d_major",
+          "smallpipes_chanter_wood": "smallpipes_african_blackwood",
+          "smallpipes_reed": "smallpipes_cane_canonical",
+          "smallpipes_bag": "smallpipes_leather_canonical"
         },
         "scores": {
-          "voice_register": 1.1049999999999998,
-          "voice_quality": 20.019999999999992,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 4.615,
-          "voice_articulation": 20.994999999999997,
-          "voice_microtone": 21.904999999999994,
-          "voice_tradition": 29.152499999999996,
-          "voice_mechanism_compound": 8.97,
-          "voice_estill_quality": 4.485,
-          "voice_speech_song": 21.644999999999996,
-          "voice_ensemble_config": 22.034999999999993,
-          "voice_ornament_system": 26.575,
-          "voice_pitch_organization": 4.795,
-          "voice_processing_chain": 6.76,
-          "voice_multitrack_stack": 9.165000000000001
+          "smallpipes_bellows_blown": 7.995,
+          "smallpipes_pitch": 5.59,
+          "smallpipes_chanter_wood": 5.785,
+          "smallpipes_reed": 5.85,
+          "smallpipes_bag": 5.85
         }
       }
     ],
@@ -81,7 +60,7 @@
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
     "tuning": "just_intonation",
     "aesthetic": null,
@@ -91,9 +70,22 @@
   "source": {
     "tuning": "just_intonation",
     "room": "scottish_galician_piping_outdoor",
+    "parts": {
+      "wind_articulation": "wind_ornament_heavy",
+      "highland_drones": "highland_3_drones",
+      "highland_chanter": "highland_blackwood",
+      "highland_drone_reeds": "highland_synthetic_drone_reeds",
+      "highland_chanter_reed": "highland_cane_chanter_reed",
+      "highland_bag": "highland_synthetic_bag",
+      "smallpipes_bellows_blown": "smallpipes_bellows_blown",
+      "smallpipes_pitch": "smallpipes_a_major",
+      "smallpipes_chanter_wood": "smallpipes_african_blackwood",
+      "smallpipes_reed": "smallpipes_cane_canonical",
+      "smallpipes_bag": "smallpipes_leather_canonical"
+    },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_std",
+    "chain_medium": "digital_high",
     "chain_console": "clean"
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Japanese Celtic music connects musicians and listeners in Japan with Irish, Scottish and related repertories. Sessions, touring ensembles and local communities sustain varied approaches to tunes and songs.",
   "recipe": "classic japanese celtic, improv On Frame, Celtic traditional branch. fiddle, dreadnought acoustic guitar, upright piano, goat skin canonical Irish ash pre modern traditional Irish bodhran, credited auxiliary percussion. live tracking.",
   "recipe_chars": 234,
-  "score": 20.155,
+  "score": 20.123,
   "config": {
     "traditions": [
       "japanese_celtic"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.0945,
+          "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.0945,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -84,7 +84,7 @@
           "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0.147,
-          "back_sides": 0.22049999999999997,
+          "back_sides": 0.252,
           "string_acoustic": 0.44099999999999995
         }
       },

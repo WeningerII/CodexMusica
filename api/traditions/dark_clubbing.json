@@ -5,7 +5,7 @@
   "lineage": "Dark Clubbing brings shadowy electronic dance styles together through club events, labels and DJ networks. House, techno, electro, midtempo and industrial influences coexist without a single fixed tempo or historical lineage defining the whole field.",
   "recipe": "classic dark clubbing, electronic Dance. analog synth, sampler. treated studio.",
   "recipe_chars": 79,
-  "score": 9.635,
+  "score": 9.659,
   "config": {
     "traditions": [
       "dark_clubbing"
@@ -21,7 +21,7 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 0.313,
+          "electronic_technique": 0.325,
           "oscillator": -0.035,
           "filter_topology": 0.063,
           "envelope": 0,
@@ -38,7 +38,7 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.313,
+          "electronic_technique": 0.325,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.126,
           "sampler_workflow": 0.26,

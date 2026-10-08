@@ -23,9 +23,9 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 6,
+          "electronic_technique": 6.15,
           "mono_oscillator": 0.65,
-          "mono_filter": 2.235,
+          "mono_filter": 2.34,
           "mono_archetypes": 1.69,
           "mono_maker_lineage": -1.1375
         }
@@ -34,12 +34,12 @@
         "id": "granular_synth",
         "slots": {
           "electronic_technique": "electronic_modular_patch",
-          "granular_use": "granular_idm",
+          "granular_use": "granular_ambient",
           "granular_synth_source": "granular_synth_synthesized"
         },
         "scores": {
           "electronic_technique": 10.625,
-          "granular_use": 0.045,
+          "granular_use": 0,
           "granular_synth_source": 7.345000000000001
         }
       },
@@ -51,7 +51,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 5.585,
+          "electronic_technique": 5.195,
           "va_archetypes": 3.0999999999999996,
           "digital_subtractive_context": 17.095
         }
@@ -68,7 +68,7 @@
         "scores": {
           "electronic_technique": 10.625,
           "sampler_archetypes": 3.07,
-          "sampler_bit_depth": 2.09,
+          "sampler_bit_depth": 2.21,
           "sampler_workflow": 11.625,
           "sampler_classic_context": 33.897499999999994
         }
@@ -83,7 +83,7 @@
         "scores": {
           "tr909_voice": 12.865,
           "drum_machine_909_context": 2.34,
-          "tr909_production_origin": 0.785
+          "tr909_production_origin": 0.845
         }
       }
     ],

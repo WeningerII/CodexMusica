@@ -37,7 +37,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.126,
+          "voice_articulation": 0.0945,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -92,7 +92,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 3.83,
+          "electronic_technique": 3.8615,
           "rompler_preset_bank": 0,
           "rompler_context": 0,
           "rompler_lineage": 0

@@ -3,14 +3,14 @@
   "name": "Lagu Jawa (Javanese Popular Song)",
   "family": "global",
   "lineage": "Central Javanese popular song strand running from 1950s-70s langgam Jawa — Western-derived kroncong song form sung in Javanese over gamelan-imitating guitar, cello pizzicato and siter, codified by Gesang and Waldjinah — into 1990s campursari, where Manthous and later Didi Kempot fused slendro/pelog-tuned gamelan instruments with electric bass, keyboard and kendang-driven dangdut rhythm at 90-120 BPM.",
-  "recipe": "classic Southeast Asian mid-1950s lagu jawa, functional Song, east Asian pop branch, southeast Asian art music, Mediterranean ballad ballad poetry gamelan thai traditional. thick, breath veiled tone, slow rate, interlocked note trading. gamelan javanese full, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian, pelog tuning saron gamelan, gender, bamboo rattan band fipple canonical javanese balinese suling, pyramid pure nickel bass British mid 60s era electric bass, singing lead digital subtractive. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 720,
-  "score": 239.923,
+  "recipe": "classic Southeast Asian mid-1950s lagu jawa, functional Song, east Asian pop branch, southeast Asian art music, Mediterranean ballad ballad poetry calung banyumasan indonesian keroncong. thick, breath veiled tone, slow rate, interlocked note trading. gamelan javanese full, lively gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian, pentatonic slendro tuning saron gamelan, gender, bamboo rattan band fipple canonical javanese balinese melodic suling, alder pyramid pure nickel bass British mid 60s era electric bass, singing lead digital subtractive. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 768,
+  "score": 218.95,
   "config": {
     "traditions": [
       "lagu_jawa",
-      "gamelan",
-      "thai_traditional"
+      "calung_banyumasan",
+      "indonesian_keroncong"
     ],
     "instruments": [
       {
@@ -23,70 +23,70 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.650000000000001,
-          "voice_quality": 9.295,
+          "voice_register": 7.550000000000001,
+          "voice_quality": 6.240000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.16,
-          "voice_articulation": 19.759999999999998,
-          "voice_microtone": 19.174999999999997,
-          "voice_tradition": 9.3925,
-          "voice_mechanism_compound": 5.0200000000000005,
-          "voice_estill_quality": 4.030000000000001,
-          "voice_speech_song": 26.585,
-          "voice_ensemble_config": 20.929999999999996,
-          "voice_ornament_system": 4.715,
-          "voice_pitch_organization": 29.174999999999997,
-          "voice_processing_chain": 3.185,
-          "voice_multitrack_stack": 4.810000000000001
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 15.339999999999996,
+          "voice_microtone": 13.909999999999993,
+          "voice_tradition": 9.425,
+          "voice_mechanism_compound": 3.645,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 21.124999999999996,
+          "voice_ensemble_config": 18.004999999999995,
+          "voice_ornament_system": 3.64,
+          "voice_pitch_organization": 28.684999999999995,
+          "voice_processing_chain": 4.8100000000000005,
+          "voice_multitrack_stack": 2.2749999999999995
         }
       },
       {
         "id": "gamelan_javanese_full",
         "slots": {
-          "sections": "gj_punctuating",
+          "sections": "gj_rebab_voice",
           "tuning": "gj_pelog"
         },
         "scores": {
-          "sections": 2.145,
-          "tuning": 1.8199999999999998
+          "sections": 2.8949999999999996,
+          "tuning": 3.7649999999999992
         }
       },
       {
         "id": "kendang_indonesian",
         "slots": {
-          "kendang_size": "kendang_gendhing",
+          "kendang_size": "kendang_ciblon",
           "kendang_context": "kendang_javanese",
           "kendang_shell_wood": "kendang_teak",
           "kendang_head": "kendang_buffalo_hide_canonical"
         },
         "scores": {
-          "kendang_size": 3.769999999999999,
-          "kendang_context": 9.294999999999998,
-          "kendang_shell_wood": 6.5649999999999995,
-          "kendang_head": 5.329999999999999
+          "kendang_size": 4.419999999999999,
+          "kendang_context": 8.514999999999999,
+          "kendang_shell_wood": 4.68,
+          "kendang_head": 4.29
         }
       },
       {
         "id": "saron_gamelan",
         "slots": {
           "saron_size": "saron_barung",
-          "saron_tuning_system": "saron_pelog"
+          "saron_tuning_system": "saron_slendro"
         },
         "scores": {
-          "saron_size": 0.585,
-          "saron_tuning_system": 4.42
+          "saron_size": 0.39,
+          "saron_tuning_system": 2.08
         }
       },
       {
@@ -96,45 +96,45 @@
           "gender_tuning": "gender_pelog"
         },
         "scores": {
-          "gender_use": 1.17,
-          "gender_tuning": 1.8199999999999998
+          "gender_use": 2.8949999999999996,
+          "gender_tuning": 3.7649999999999992
         }
       },
       {
         "id": "suling",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_folk_melodic",
           "suling_use": "suling_gamelan",
-          "suling_tuning": "suling_pelog",
+          "suling_tuning": "suling_slendro",
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 2.245,
-          "suling_use": 1.17,
-          "suling_tuning": 3.055,
-          "suling_body_material": 5.525
+          "wind_articulation": 5.004999999999999,
+          "suling_use": 2.8949999999999996,
+          "suling_tuning": 1.425,
+          "suling_body_material": 8.58
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_60s_selmer",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerpicked_country_b",
+          "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.755,
-          "body_wood": 0.6900000000000001,
+          "amp_make": 2.0149999999999997,
+          "body_wood": 1.7949999999999997,
           "pickup_config": 0.495,
-          "string_type": 2.21,
-          "scale_length_b": 0.63,
-          "fretted_or_not": 0.045,
-          "bass_technique": -0.035,
+          "string_type": 4.140000000000001,
+          "scale_length_b": 1.6449999999999998,
+          "fretted_or_not": 0.195,
+          "bass_technique": 0.06499999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -142,13 +142,13 @@
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "access_virus",
+          "va_archetypes": "novation_supernova",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 4.375,
-          "va_archetypes": 0.345,
-          "digital_subtractive_context": 19.565
+          "electronic_technique": 5.025,
+          "va_archetypes": 0.255,
+          "digital_subtractive_context": 15.144999999999998
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Mid-2010s international house-and-bass-music convergence represented by Jauz, Habstrakt and Dustycloud: club kick patterns meet mobile, distorted bass sound design and short vocal cuts. This seed selects the bass-led club-single strand rather than the full catalog of any artist.",
   "recipe": "classic 2014-2016 bass house, electronic Dance, house branch, bass system, tech house house electric powwow jungle and drum-and-bass. sub bass wavetable synth, sampler drum machine, chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion mono maker / bass-mono.",
   "recipe_chars": 388,
-  "score": 87.839,
+  "score": 87.074,
   "config": {
     "traditions": [
       "bass_house",
@@ -22,9 +22,9 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 21.228125,
+          "electronic_technique": 20.748124999999998,
           "wt_position": 0.3,
-          "wt_family": 0.15,
+          "wt_family": 0,
           "wt_polyphony": 0.09
         }
       },
@@ -37,7 +37,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 2.5968750000000003,
+          "electronic_technique": 2.5518750000000003,
           "sample_bitdepth": 0.135,
           "sample_swing": 10.875,
           "sample_processing": 0
@@ -53,10 +53,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.5968750000000003,
+          "electronic_technique": 2.5518750000000003,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.135,
-          "sampler_workflow": 2.546875,
+          "sampler_workflow": 2.501875,
           "sampler_classic_context": 41.85999999999999
         }
       }

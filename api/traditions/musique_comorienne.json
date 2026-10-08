@@ -3,9 +3,9 @@
   "name": "Musique Comorienne",
   "family": "jazz",
   "lineage": "Music of Comoros, connecting island song traditions with the wider Indian Ocean musical world.",
-  "recipe": "classic musique comorienne, improv On Frame, fusion branch. oud, violin orchestral, cello, accordion, darbuka, torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, electric bass, bronze bell bronze brushes-and-sticks drum kit, qanun, walnut bent frame canonical Persian daf, bongos, comorian gambusi, selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, singing indian rosewood rosewood acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 674,
-  "score": 63.822,
+  "recipe": "classic musique comorienne, improv On Frame, fusion branch. oud, violin orchestral, cello, accordion, darbuka, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s rhodes electric, electric bass, bronze bell bronze brushes-and-sticks drum kit, qanun, walnut bent frame canonical Persian daf, bongos, comorian gambusi, selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, singing indian rosewood rosewood acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 559,
+  "score": 60.711,
   "config": {
     "traditions": [
       "musique_comorienne"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
@@ -67,10 +67,10 @@
           "plucked_traditional_technique": -0.15000000000000002,
           "oud_school": 0.1365,
           "oud_strings": 0.378,
-          "oud_pick": 0.1365,
-          "oud_body_wood": 0.6825000000000001,
-          "oud_soundboard_wood": 0.546,
-          "oud_string_material": 0.6825000000000001
+          "oud_pick": 0.1995,
+          "oud_body_wood": 0.546,
+          "oud_soundboard_wood": 0.40950000000000003,
+          "oud_string_material": 0.546
         }
       },
       {
@@ -88,15 +88,15 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": -0.05,
+          "bowed_technique": -0.035,
           "orch_strings": 0,
           "orch_top_wood": -0.07,
           "orch_back_wood": -0.07,
           "orch_varnish": -0.1,
           "orch_setup_period": -0.07,
-          "orch_bow": 0,
+          "orch_bow": 0.105,
           "orch_bow_stick": -0.10500000000000001,
-          "orch_articulation": 0.168,
+          "orch_articulation": 0.1995,
           "orch_rosin": -0.07
         }
       },
@@ -114,7 +114,7 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": -0.05,
+          "bowed_technique": -0.035,
           "cello_strings": 0.315,
           "cello_top_wood": -0.07,
           "cello_back_wood": -0.07,
@@ -138,12 +138,12 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "accordion_reed_material": 0.5145,
-          "musette_offset": 0,
+          "accordion_reed_material": 0.5459999999999999,
+          "musette_offset": 0.0315,
           "reed_config": 0,
           "bellows": 0,
           "voicing_chamber": 0,
-          "accordion_maker_school": 0.6825000000000001
+          "accordion_maker_school": 0.546
         }
       },
       {
@@ -156,9 +156,9 @@
         },
         "scores": {
           "percussion_technique": -0.07,
-          "darbuka_material": 0.546,
-          "darbuka_skin": 0.861,
-          "darbuka_regional_style": 0.6825000000000001
+          "darbuka_material": 0.40950000000000003,
+          "darbuka_skin": 0.7244999999999999,
+          "darbuka_regional_style": 0.546
         }
       },
       {
@@ -174,10 +174,10 @@
         "scores": {
           "keyboard_technique": -0.07,
           "rhodes_model": 7.136499999999999,
-          "rhodes_use": 0.1365,
-          "rhodes_tine_material": 1.2285000000000001,
-          "rhodes_hammer_tip": 1.7745000000000002,
-          "rhodes_pickup_position": 1.092
+          "rhodes_use": 0.2415,
+          "rhodes_tine_material": 0.819,
+          "rhodes_hammer_tip": 1.0605000000000002,
+          "rhodes_pickup_position": 0.6825
         }
       },
       {
@@ -194,11 +194,11 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.273,
+          "body_wood": 0.1995,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
-          "fretted_or_not": 0.147,
+          "fretted_or_not": 0.0735,
           "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -224,7 +224,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.8294999999999999,
+          "bearing_edges": 0.8609999999999999,
           "snare_wires": 0,
           "cymbal_alloy": 11.649999999999999,
           "cymbal_hammering": -0.15000000000000002,
@@ -247,9 +247,9 @@
           "plucked_traditional_technique": -0.15000000000000002,
           "qanun_strings": 0.378,
           "qanun_levers": 0.315,
-          "qanun_pick": 0.8925,
-          "qanun_body_wood": 0.546,
-          "qanun_bridge_skin": 0.546,
+          "qanun_pick": 0.9239999999999999,
+          "qanun_body_wood": 0.40950000000000003,
+          "qanun_bridge_skin": 0.40950000000000003,
           "qanun_string_material": 0.315
         }
       },
@@ -266,8 +266,8 @@
           "daf_rings": 0,
           "daf_context": 0,
           "daf_shell_wood": 1.95,
-          "daf_head_material": 0.546,
-          "daf_jingle_metal": 0.546
+          "daf_head_material": 0.40950000000000003,
+          "daf_jingle_metal": 0.40950000000000003
         }
       },
       {
@@ -281,8 +281,8 @@
         "scores": {
           "percussion_technique": -0.07,
           "bongos_skin": -0.035,
-          "bongos_context": 0.21000000000000002,
-          "bongos_shell_wood": 0.546
+          "bongos_context": 0.1365,
+          "bongos_shell_wood": 0.40950000000000003
         }
       },
       {
@@ -327,7 +327,7 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 1.2349999999999999,
+          "back_sides": 1.1915,
           "string_acoustic": 0.1365,
           "acoustic_om_technique": -0.25
         }

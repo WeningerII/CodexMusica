@@ -5,7 +5,7 @@
   "lineage": "Light urban popular song of Athens of the interwar and early postwar decades, rooted in the Athenian kantada and operetta and absorbing European dance forms such as the tango, waltz and foxtrot. Its songs were written by composers working for revue and recording and sung by star vocalists to salon and dance orchestras of piano, strings, accordion, guitar and bass, issued on Columbia and Odeon 78-rpm discs.",
   "recipe": "classic European early-1930s elafró tragoúdi, functional Song, europop branch. grand piano, melodic bowed song accompaniment fiddle, accordion, classical nylon-string guitar, norway spruce European alpine European maple sycamore maple kolstein double bass. treated studio. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 376,
-  "score": 17.367,
+  "score": 17.297,
   "config": {
     "traditions": [
       "greek_elafro_tragoudi"
@@ -155,7 +155,7 @@
           "bass_size": 0.0315,
           "bass_strings": 0,
           "bass_top_wood": 1.17,
-          "bass_back_wood": 1.17,
+          "bass_back_wood": 1.0995,
           "bass_varnish": -0.1,
           "bass_setup_period": -0.20999999999999996,
           "bass_play": 0.0315,

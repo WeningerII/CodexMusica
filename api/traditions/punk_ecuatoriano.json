@@ -5,7 +5,7 @@
   "lineage": "Ecuadorian punk develops through local electric-band scenes, including compact Andean duos.",
   "recipe": "classic punk ecuatoriano, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 304,
-  "score": 22.818,
+  "score": 22.396,
   "config": {
     "traditions": [
       "punk_ecuatoriano"
@@ -31,13 +31,13 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 14.104999999999997,
-          "body_wood": 1.6485,
+          "body_wood": 1.239,
           "neck_wood": 0.063,
-          "fretboard": 0.1365,
+          "fretboard": 0.26649999999999996,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.1365,
+          "bridge": 0.26649999999999996,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -53,7 +53,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -89,7 +89,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.46425,
+          "voice_speech_song": 0.32775,
           "voice_ensemble_config": 0.042749999999999996,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

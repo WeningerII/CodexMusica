@@ -5,7 +5,7 @@
   "lineage": "The zambra of Sacromonte is the song-and-dance performance of the Gitano families of the cave houses on Granada's Sacromonte hill, staged in the caves for visitors from the nineteenth century onward. Its set of three dances — the alboreá, the cachucha and the mosca — is said to retrace a Gitano wedding, and family troupes, central to Granada flamenco, sing and dance it to guitar, castanets, palmas and footwork.",
   "recipe": "classic Iberian modern zambra gitana, functional Song, iberian branch. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, castanets, hand clap, foot stomp. andalusian tablao seville madrid. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 309,
-  "score": 7.294,
+  "score": 7.399,
   "config": {
     "traditions": [
       "zambra_sacromonte"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1575,
-          "voice_multitrack_stack": 0.1365,
+          "voice_multitrack_stack": 0.2415,
           "voice_tessitura": 0
         }
       },

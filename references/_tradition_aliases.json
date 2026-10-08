@@ -1,0 +1,3251 @@
+{
+  "_doc": "Retired tradition ids, each kept as an alias of the tradition it was merged into. Every surface that takes a tradition id resolves an alias to its surviving id first (scripts/_loader.js resolveTraditionId; the browser's copy is inlined into src/app.js by scripts/build_aliases.js), and api/traditions/<alias>.json serves the surviving record marked alias_of. An alias is never a live id, its target is always live, and a retired id is never reused. verdict: 'same' = one tradition under two names; 'slice' = an era/market/mood slice with no documented difference in sound or practice. Which record survives: for 'same', the better-documented of the two (more of its recording chain, parts, exemplars and prose authored); for 'slice', the broader entry. Evidence for each merge: docs/geographic-attribution-audit/duplicates.csv.",
+  "merged": "2026-10-08",
+  "aliases": {
+    "acousmatic": {
+      "of": "acousmatic_music",
+      "name": "Acousmatic Music (loudspeaker concert practice)",
+      "verdict": "same"
+    },
+    "acoustic_blues": {
+      "of": "country_blues",
+      "name": "Acoustic Blues",
+      "verdict": "same"
+    },
+    "acoustic_punk": {
+      "of": "folk_punk",
+      "name": "Acoustic punk",
+      "verdict": "slice"
+    },
+    "adult_standards": {
+      "of": "traditional_pop_music",
+      "name": "Adult Standards",
+      "verdict": "slice"
+    },
+    "afro_cuban_traditional": {
+      "of": "santeria_lucumi",
+      "name": "Afro-Cuban traditional",
+      "verdict": "slice"
+    },
+    "aggressive_phonk": {
+      "of": "drift_phonk_modern",
+      "name": "Aggressive phonk",
+      "verdict": "slice"
+    },
+    "aggrotech": {
+      "of": "dark_electro_aggrotech",
+      "name": "Aggrotech",
+      "verdict": "same"
+    },
+    "alpine_yodeling": {
+      "of": "alpine_yodel",
+      "name": "Alpine Yodeling",
+      "verdict": "same"
+    },
+    "alternative_americana": {
+      "of": "alt_country_americana",
+      "name": "Alternative americana",
+      "verdict": "slice"
+    },
+    "alternative_country": {
+      "of": "alt_country_americana",
+      "name": "Alternative country",
+      "verdict": "same"
+    },
+    "ambient_fusion": {
+      "of": "fourth_world",
+      "name": "Ambient fusion",
+      "verdict": "slice"
+    },
+    "american_clipper_shanty": {
+      "of": "shanty",
+      "name": "American clipper-ship shanty",
+      "verdict": "slice"
+    },
+    "amharic_pop": {
+      "of": "ethio_pop_modern",
+      "name": "Amharic pop",
+      "verdict": "slice"
+    },
+    "anatolian_rock": {
+      "of": "anadolu_rock",
+      "name": "Anatolian Rock",
+      "verdict": "same"
+    },
+    "andean_huayno_trabajo": {
+      "of": "andean_huayno",
+      "name": "Andean huayno-de-trabajo (agricultural-labor huayno)",
+      "verdict": "slice"
+    },
+    "anglican_choral_evensong": {
+      "of": "anglican_choral_cathedral",
+      "name": "Anglican choral evensong",
+      "verdict": "slice"
+    },
+    "anglican_liturgy": {
+      "of": "anglican_choral_cathedral",
+      "name": "Anglican liturgy",
+      "verdict": "same"
+    },
+    "anime_lofi": {
+      "of": "lofi_hiphop",
+      "name": "Anime lo-fi",
+      "verdict": "slice"
+    },
+    "anime_score": {
+      "of": "japanese_soundtrack",
+      "name": "Anime score",
+      "verdict": "slice"
+    },
+    "anison_anime_song": {
+      "of": "anison",
+      "name": "Anison (anime song)",
+      "verdict": "same"
+    },
+    "apala": {
+      "of": "apala_yoruba",
+      "name": "Apala",
+      "verdict": "same"
+    },
+    "arabesk": {
+      "of": "arabesk_turkish",
+      "name": "Arabesk",
+      "verdict": "same"
+    },
+    "arabic_instrumental": {
+      "of": "oud_taqsim",
+      "name": "Arabic instrumental",
+      "verdict": "slice"
+    },
+    "argentine_heavy_metal": {
+      "of": "argentine_metal",
+      "name": "Argentine heavy metal",
+      "verdict": "same"
+    },
+    "armenian_duduk_chant": {
+      "of": "duduk",
+      "name": "Armenian duduk-accompanied chant",
+      "verdict": "slice"
+    },
+    "asturian_gaita": {
+      "of": "asturian_folk",
+      "name": "Asturian gaita (Iberian Celtic bagpipe)",
+      "verdict": "slice"
+    },
+    "athan_call_prayer": {
+      "of": "islamic_recitation_mujawwad",
+      "name": "Athān (Islamic call to prayer)",
+      "verdict": "slice"
+    },
+    "atl_trap": {
+      "of": "atlanta_trap_classic",
+      "name": "ATL trap (Atlanta canon)",
+      "verdict": "same"
+    },
+    "atmospheric_post_metal": {
+      "of": "post_metal",
+      "name": "Atmospheric post-metal",
+      "verdict": "slice"
+    },
+    "atmospheric_post_rock": {
+      "of": "post_rock_extended",
+      "name": "Atmospheric post-rock",
+      "verdict": "slice"
+    },
+    "atmospheric_sludge": {
+      "of": "post_metal",
+      "name": "Atmospheric sludge",
+      "verdict": "slice"
+    },
+    "australian_didgeridoo_yidaki_extended": {
+      "of": "didgeridoo_yidaki_solo",
+      "name": "Aboriginal didgeridoo solo songlines (extended)",
+      "verdict": "same"
+    },
+    "australian_indigenous_music": {
+      "of": "aboriginal_australian_songlines",
+      "name": "Australian Aboriginal clan song and manikay",
+      "verdict": "same"
+    },
+    "australian_underground_hip_hop": {
+      "of": "australian_hip_hop",
+      "name": "Australian underground hip hop",
+      "verdict": "slice"
+    },
+    "auteur_compositeur_interprete_quebecois": {
+      "of": "chanson_quebecois",
+      "name": "Auteur-compositeur-interprete quebecois",
+      "verdict": "slice"
+    },
+    "azontobeats": {
+      "of": "azonto",
+      "name": "Azontobeats",
+      "verdict": "same"
+    },
+    "baaka_hunting_polyphony": {
+      "of": "aka_baka_polyphony",
+      "name": "Baaka (Aka pygmy) hunting polyphony",
+      "verdict": "same"
+    },
+    "bachata_dominicana": {
+      "of": "bachata",
+      "name": "Bachata dominicana",
+      "verdict": "same"
+    },
+    "bachchon_ke_geet": {
+      "of": "hindi_nursery_rhyme",
+      "name": "Bachchon ke geet",
+      "verdict": "same"
+    },
+    "bakersfield_sound": {
+      "of": "bakersfield",
+      "name": "Bakersfield Sound",
+      "verdict": "same"
+    },
+    "bal_musette": {
+      "of": "french_musette",
+      "name": "Bal-musette (Parisian dance-hall practice)",
+      "verdict": "same"
+    },
+    "baladas_y_boleros": {
+      "of": "latin_ballad",
+      "name": "Baladas y Boleros",
+      "verdict": "slice"
+    },
+    "balearic": {
+      "of": "balearic_beat",
+      "name": "Balearic",
+      "verdict": "same"
+    },
+    "balinese_traditional": {
+      "of": "balinese_gamelan_gong_kebyar",
+      "name": "Balinese Traditional (Gong Kebyar)",
+      "verdict": "same"
+    },
+    "balkan_brass": {
+      "of": "balkan_brass_fanfara",
+      "name": "Balkan Brass Band",
+      "verdict": "same"
+    },
+    "barbershop": {
+      "of": "barbershop_quartet",
+      "name": "Barbershop Harmony",
+      "verdict": "same"
+    },
+    "bard": {
+      "of": "russian_bard_song",
+      "name": "Bard",
+      "verdict": "same"
+    },
+    "barockinterpreten": {
+      "of": "baroque_period",
+      "name": "Barockinterpreten",
+      "verdict": "slice"
+    },
+    "bassline": {
+      "of": "bassline_uk",
+      "name": "Bassline",
+      "verdict": "same"
+    },
+    "beatlesque": {
+      "of": "power_pop",
+      "name": "Beatlesque",
+      "verdict": "slice"
+    },
+    "belgian_modern_jazz": {
+      "of": "belgian_jazz",
+      "name": "Belgian modern jazz",
+      "verdict": "slice"
+    },
+    "berber_ahidus_wedding": {
+      "of": "berber_ahidus_ahwash",
+      "name": "Berber Amazigh ahidus (wedding dance)",
+      "verdict": "slice"
+    },
+    "bhojpuri_folk": {
+      "of": "bhojpuri_lok_geet",
+      "name": "Bhojpuri folk",
+      "verdict": "same"
+    },
+    "blasmusik": {
+      "of": "blaskapelle",
+      "name": "Blasmusik",
+      "verdict": "same"
+    },
+    "bluegrass_fiddle": {
+      "of": "bluegrass",
+      "name": "Bluegrass fiddle",
+      "verdict": "slice"
+    },
+    "bmore_club": {
+      "of": "baltimore_club",
+      "name": "Bmore club",
+      "verdict": "same"
+    },
+    "bomba": {
+      "of": "bomba_puertorican",
+      "name": "Bomba (Puerto Rico)",
+      "verdict": "same"
+    },
+    "boogie_post_disco": {
+      "of": "post_disco",
+      "name": "Boogie (Post-Disco)",
+      "verdict": "same"
+    },
+    "bossa_nova_jazz": {
+      "of": "bossa_nova",
+      "name": "Bossa nova jazz",
+      "verdict": "slice"
+    },
+    "bothy_ballad_doric": {
+      "of": "scottish_bothy_ballad",
+      "name": "Bothy ballad (Doric)",
+      "verdict": "same"
+    },
+    "braindance": {
+      "of": "idm",
+      "name": "Braindance",
+      "verdict": "slice"
+    },
+    "brass_band": {
+      "of": "british_brass_band",
+      "name": "Brass Band (British)",
+      "verdict": "same"
+    },
+    "brazilian_mpb_protest": {
+      "of": "mpb",
+      "name": "Brazilian MPB-era protest (música popular brasileira during dictatorship)",
+      "verdict": "slice"
+    },
+    "breakbeat_hardcore": {
+      "of": "uk_hardcore_breakbeat",
+      "name": "Breakbeat Hardcore",
+      "verdict": "same"
+    },
+    "brick_city_club": {
+      "of": "jersey_club",
+      "name": "Brick City Club",
+      "verdict": "same"
+    },
+    "british_grindcore": {
+      "of": "grindcore",
+      "name": "British grindcore",
+      "verdict": "slice"
+    },
+    "british_industrial": {
+      "of": "industrial",
+      "name": "British Industrial",
+      "verdict": "slice"
+    },
+    "britpop_revival": {
+      "of": "britpop",
+      "name": "Britpop revival",
+      "verdict": "slice"
+    },
+    "broadway": {
+      "of": "show_tunes",
+      "name": "Broadway (musical theatre song)",
+      "verdict": "same"
+    },
+    "bronx_hip_hop": {
+      "of": "pre_sampling_hip_hop_1979_1985",
+      "name": "Bronx hip hop",
+      "verdict": "slice"
+    },
+    "brutal_deathcore": {
+      "of": "deathcore",
+      "name": "Brutal deathcore",
+      "verdict": "slice"
+    },
+    "byzantine_ecclesiastical": {
+      "of": "byzantine_chant",
+      "name": "Byzantine ecclesiastical music (papadic and sticheraric styles)",
+      "verdict": "same"
+    },
+    "byzantine_psaltic": {
+      "of": "byzantine_chant",
+      "name": "Byzantine psaltic art (modern Greek Orthodox)",
+      "verdict": "same"
+    },
+    "c_pop_girl_group": {
+      "of": "mandopop",
+      "name": "C-pop girl group",
+      "verdict": "slice"
+    },
+    "cajun_fiddle_tunes": {
+      "of": "cajun",
+      "name": "Cajun Fiddle Tunes",
+      "verdict": "slice"
+    },
+    "cambridge_choir": {
+      "of": "anglican_choral_cathedral",
+      "name": "Cambridge choir",
+      "verdict": "slice"
+    },
+    "canadian_psychedelic": {
+      "of": "canadian_psychedelic_rock",
+      "name": "Canadian Psychedelic",
+      "verdict": "same"
+    },
+    "cancion_infantil_latinoamericana": {
+      "of": "musica_infantil",
+      "name": "Cancion infantil latinoamericana",
+      "verdict": "slice"
+    },
+    "cancion_melodica": {
+      "of": "latin_ballad",
+      "name": "Canción melódica",
+      "verdict": "same"
+    },
+    "candombe_tamboril": {
+      "of": "candombe_uruguayan",
+      "name": "Candombe (tamboril llamada)",
+      "verdict": "same"
+    },
+    "candomble": {
+      "of": "candomble_ceremonial",
+      "name": "Candomblé ritual music",
+      "verdict": "same"
+    },
+    "canto_a_tenore": {
+      "of": "sardinian_polyphony",
+      "name": "Canto a Tenore",
+      "verdict": "same"
+    },
+    "canzone_dautore": {
+      "of": "cantautore_italiano",
+      "name": "Canzone d'Autore",
+      "verdict": "same"
+    },
+    "capoeira": {
+      "of": "capoeira_music",
+      "name": "Capoeira roda music",
+      "verdict": "same"
+    },
+    "chaabi_algerien": {
+      "of": "algerian_chaabi",
+      "name": "Chaabi algérien (Algiers casbah chaabi)",
+      "verdict": "same"
+    },
+    "chaabi_marocain": {
+      "of": "chaabi_moroccan",
+      "name": "Chaabi marocain (Moroccan wedding chaabi)",
+      "verdict": "same"
+    },
+    "chacarera_doble": {
+      "of": "chacarera_argentina",
+      "name": "Chacarera (doble, Santiago del Estero core form)",
+      "verdict": "same"
+    },
+    "champeta": {
+      "of": "champeta_cartagenera",
+      "name": "Champeta (Colombian Caribbean picó style)",
+      "verdict": "same"
+    },
+    "chanson": {
+      "of": "chanson_classique",
+      "name": "Chanson",
+      "verdict": "same"
+    },
+    "charred_death": {
+      "of": "black_death",
+      "name": "Charred death",
+      "verdict": "same"
+    },
+    "charva": {
+      "of": "bassline_uk",
+      "name": "Charva",
+      "verdict": "slice"
+    },
+    "chicago_drill": {
+      "of": "drill",
+      "name": "Chicago drill",
+      "verdict": "same"
+    },
+    "chill_abstract_hip_hop": {
+      "of": "abstract_hip_hop",
+      "name": "Chill abstract hip hop",
+      "verdict": "slice"
+    },
+    "chill_dream_pop": {
+      "of": "dream_pop",
+      "name": "Chill dream pop",
+      "verdict": "slice"
+    },
+    "chipmusic_lsdj_tracker": {
+      "of": "chiptune_8bit",
+      "name": "Chipmusic (LSDj and Game Boy live scene)",
+      "verdict": "slice"
+    },
+    "choro_contemporaneo": {
+      "of": "choro",
+      "name": "Choro contemporâneo",
+      "verdict": "slice"
+    },
+    "christian_pop": {
+      "of": "ccm",
+      "name": "Christian pop",
+      "verdict": "same"
+    },
+    "chutney_bhojpuri": {
+      "of": "chutney_indo_caribbean",
+      "name": "Chutney (Trinidad-Guyana Bhojpuri dance song)",
+      "verdict": "same"
+    },
+    "city_pop_modern": {
+      "of": "city_pop",
+      "name": "City pop modern revival",
+      "verdict": "slice"
+    },
+    "classic_anime": {
+      "of": "anison",
+      "name": "Classic anime",
+      "verdict": "slice"
+    },
+    "classic_australian_country": {
+      "of": "bush_ballad",
+      "name": "Classic Australian country",
+      "verdict": "slice"
+    },
+    "classic_bollywood": {
+      "of": "hindi_filmi",
+      "name": "Classic Bollywood",
+      "verdict": "slice"
+    },
+    "classic_cantopop": {
+      "of": "cantopop",
+      "name": "Classic Cantopop",
+      "verdict": "slice"
+    },
+    "classic_city_pop": {
+      "of": "city_pop",
+      "name": "Classic city pop",
+      "verdict": "slice"
+    },
+    "classic_disco_polo": {
+      "of": "disco_polo",
+      "name": "Classic disco polo",
+      "verdict": "slice"
+    },
+    "classic_female_blues": {
+      "of": "classic_blues_women",
+      "name": "Classic Female Blues",
+      "verdict": "same"
+    },
+    "classic_finnish_rock": {
+      "of": "suomi_rock",
+      "name": "Classic Finnish rock",
+      "verdict": "slice"
+    },
+    "classic_french_pop": {
+      "of": "variete_francaise",
+      "name": "Classic french pop",
+      "verdict": "slice"
+    },
+    "classic_garage_rock": {
+      "of": "garage_rock",
+      "name": "Classic garage rock",
+      "verdict": "slice"
+    },
+    "classic_greek_rock": {
+      "of": "greek_rock",
+      "name": "Classic Greek rock",
+      "verdict": "slice"
+    },
+    "classic_hardstyle": {
+      "of": "hardstyle",
+      "name": "Classic hardstyle",
+      "verdict": "slice"
+    },
+    "classic_indo_pop": {
+      "of": "indonesian_pop",
+      "name": "Classic indo pop",
+      "verdict": "slice"
+    },
+    "classic_indonesian_rock": {
+      "of": "indonesian_rock",
+      "name": "Classic Indonesian rock",
+      "verdict": "slice"
+    },
+    "classic_j_rock": {
+      "of": "j_rock",
+      "name": "Classic J-rock",
+      "verdict": "slice"
+    },
+    "classic_japanese_jazz": {
+      "of": "japanese_jazz",
+      "name": "Classic Japanese jazz",
+      "verdict": "slice"
+    },
+    "classic_k_pop": {
+      "of": "classic_korean_pop",
+      "name": "Classic K-pop",
+      "verdict": "same"
+    },
+    "classic_luk_thung": {
+      "of": "thai_luk_thung",
+      "name": "Classic Luk Thung",
+      "verdict": "slice"
+    },
+    "classic_malaysian_pop": {
+      "of": "malaysian_pop",
+      "name": "Classic malaysian pop",
+      "verdict": "slice"
+    },
+    "classic_mandopop": {
+      "of": "mandopop",
+      "name": "Classic Mandopop",
+      "verdict": "slice"
+    },
+    "classic_opm": {
+      "of": "opm",
+      "name": "Classic Opm",
+      "verdict": "slice"
+    },
+    "classic_pakistani_pop": {
+      "of": "pakistani_pop",
+      "name": "Classic Pakistani Pop",
+      "verdict": "slice"
+    },
+    "classic_praise": {
+      "of": "praise_and_worship",
+      "name": "Classic Praise",
+      "verdict": "slice"
+    },
+    "classic_progressive_house": {
+      "of": "progressive_house",
+      "name": "Classic Progressive House",
+      "verdict": "slice"
+    },
+    "classic_psychedelic_rock": {
+      "of": "psychedelic_rock",
+      "name": "Classic psychedelic rock",
+      "verdict": "slice"
+    },
+    "classic_punjabi_pop": {
+      "of": "punjabi_pop",
+      "name": "Classic punjabi pop",
+      "verdict": "slice"
+    },
+    "classic_russian_rock": {
+      "of": "russian_rock",
+      "name": "Classic Russian rock",
+      "verdict": "slice"
+    },
+    "classic_sinhala_pop": {
+      "of": "sinhala_pop",
+      "name": "Classic sinhala pop",
+      "verdict": "slice"
+    },
+    "classic_tollywood": {
+      "of": "tollywood",
+      "name": "Classic Tollywood",
+      "verdict": "slice"
+    },
+    "classical_era": {
+      "of": "classical_period_18c",
+      "name": "Viennese Classical Era",
+      "verdict": "same"
+    },
+    "classical_jazz_fusion": {
+      "of": "third_stream",
+      "name": "Classical jazz fusion",
+      "verdict": "same"
+    },
+    "classical_mandolin": {
+      "of": "mandolin",
+      "name": "Classical mandolin",
+      "verdict": "same"
+    },
+    "coco": {
+      "of": "coco_brasileiro",
+      "name": "Coco de Roda (Northeastern Brazilian circle coco)",
+      "verdict": "same"
+    },
+    "college_marching_band": {
+      "of": "marching_band",
+      "name": "College Marching Band",
+      "verdict": "slice"
+    },
+    "compas_direk": {
+      "of": "kompa",
+      "name": "Compas (Haitian konpa dirèk)",
+      "verdict": "same"
+    },
+    "conjunto": {
+      "of": "texas_conjunto",
+      "name": "Conjunto (Tejano)",
+      "verdict": "same"
+    },
+    "contemporary_folk": {
+      "of": "singer_songwriter",
+      "name": "Contemporary folk",
+      "verdict": "slice"
+    },
+    "contemporary_jazz": {
+      "of": "british_jazz",
+      "name": "Contemporary jazz",
+      "verdict": "slice"
+    },
+    "coptic_hymn": {
+      "of": "coptic_orthodox_chant",
+      "name": "Coptic hymnody (Alexandrian Tasbeha)",
+      "verdict": "same"
+    },
+    "corridos_clasicos": {
+      "of": "corrido",
+      "name": "Corridos Clásicos",
+      "verdict": "slice"
+    },
+    "cosmic_uplifting_trance": {
+      "of": "uplifting_trance",
+      "name": "Cosmic Uplifting Trance",
+      "verdict": "slice"
+    },
+    "country_dawn": {
+      "of": "traditional_country",
+      "name": "Country dawn",
+      "verdict": "slice"
+    },
+    "country_pop_crossover": {
+      "of": "country_pop",
+      "name": "Country-pop crossover",
+      "verdict": "slice"
+    },
+    "country_quebecois": {
+      "of": "franco_country",
+      "name": "Country québécois",
+      "verdict": "same"
+    },
+    "country_rap": {
+      "of": "country_rap_hick_hop",
+      "name": "Country Rap",
+      "verdict": "same"
+    },
+    "cuban_rumba": {
+      "of": "rumba_cubana",
+      "name": "Cuban Rumba (guaguancó, yambú, columbia complex)",
+      "verdict": "same"
+    },
+    "cumbia_sonidera": {
+      "of": "sonidero",
+      "name": "Cumbia sonidera",
+      "verdict": "same"
+    },
+    "czech_singer_songwriter": {
+      "of": "czech_pisnicka",
+      "name": "Czech singer-songwriter",
+      "verdict": "same"
+    },
+    "dancehall": {
+      "of": "jamaican_dancehall",
+      "name": "Dancehall",
+      "verdict": "same"
+    },
+    "dancehall_queen_style": {
+      "of": "ragga",
+      "name": "Dancehall Queen (1990s digital ragga dance style)",
+      "verdict": "slice"
+    },
+    "danish_modern_jazz": {
+      "of": "danish_jazz",
+      "name": "Danish modern jazz",
+      "verdict": "slice"
+    },
+    "danseband": {
+      "of": "dansband",
+      "name": "Danseband (Nordic dance-band pop)",
+      "verdict": "same"
+    },
+    "dansei_seiyu": {
+      "of": "seiyu",
+      "name": "Dansei Seiyu",
+      "verdict": "slice"
+    },
+    "dark_ambient": {
+      "of": "dark_ambient_industrial",
+      "name": "Dark Ambient (cavernous ritual drone)",
+      "verdict": "same"
+    },
+    "dark_folk": {
+      "of": "neofolk",
+      "name": "Dark Folk",
+      "verdict": "same"
+    },
+    "dark_psytrance": {
+      "of": "darkpsy",
+      "name": "Dark Psytrance",
+      "verdict": "same"
+    },
+    "dark_r_and_b": {
+      "of": "alt_rnb",
+      "name": "Dark r&b",
+      "verdict": "slice"
+    },
+    "dark_synthpop": {
+      "of": "synthpop",
+      "name": "Dark synthpop",
+      "verdict": "slice"
+    },
+    "darkside_jungle": {
+      "of": "darkcore",
+      "name": "Darkside Jungle",
+      "verdict": "same"
+    },
+    "deep_acoustic_pop": {
+      "of": "acoustic_pop",
+      "name": "Deep acoustic pop",
+      "verdict": "slice"
+    },
+    "deep_adult_standards": {
+      "of": "traditional_pop_music",
+      "name": "Deep Adult Standards",
+      "verdict": "slice"
+    },
+    "deep_big_room": {
+      "of": "big_room_house",
+      "name": "Deep Big Room",
+      "verdict": "slice"
+    },
+    "deep_breakcore": {
+      "of": "breakcore",
+      "name": "Deep Breakcore",
+      "verdict": "slice"
+    },
+    "deep_christian_rock": {
+      "of": "christian_rock",
+      "name": "Deep Christian rock",
+      "verdict": "slice"
+    },
+    "deep_classic_garage_rock": {
+      "of": "garage_rock",
+      "name": "Deep Classic Garage Rock",
+      "verdict": "slice"
+    },
+    "deep_dance_pop": {
+      "of": "dance_pop_2010s",
+      "name": "Deep Dance Pop",
+      "verdict": "slice"
+    },
+    "deep_darkpsy": {
+      "of": "darkpsy",
+      "name": "Deep Darkpsy",
+      "verdict": "slice"
+    },
+    "deep_deep_house": {
+      "of": "deep_house_soulful",
+      "name": "Deep Deep House",
+      "verdict": "slice"
+    },
+    "deep_deep_tech_house": {
+      "of": "tech_house_classic",
+      "name": "Deep Deep Tech House",
+      "verdict": "slice"
+    },
+    "deep_delta_blues": {
+      "of": "delta_blues",
+      "name": "Deep delta blues",
+      "verdict": "slice"
+    },
+    "deep_disco": {
+      "of": "disco",
+      "name": "Deep disco",
+      "verdict": "slice"
+    },
+    "deep_eurodance": {
+      "of": "eurodance_90s",
+      "name": "Deep Eurodance",
+      "verdict": "slice"
+    },
+    "deep_filthstep": {
+      "of": "filthstep",
+      "name": "Deep Filthstep",
+      "verdict": "slice"
+    },
+    "deep_folk_metal": {
+      "of": "folk_metal_european",
+      "name": "Deep folk metal",
+      "verdict": "slice"
+    },
+    "deep_free_jazz": {
+      "of": "free_jazz",
+      "name": "Deep free jazz",
+      "verdict": "slice"
+    },
+    "deep_freestyle": {
+      "of": "freestyle_music",
+      "name": "Deep Freestyle",
+      "verdict": "slice"
+    },
+    "deep_full_on": {
+      "of": "full_on",
+      "name": "Deep Full On",
+      "verdict": "slice"
+    },
+    "deep_funk": {
+      "of": "funk",
+      "name": "Deep funk",
+      "verdict": "slice"
+    },
+    "deep_funk_ostentacao": {
+      "of": "funk_ostentacao",
+      "name": "Deep funk ostentacao",
+      "verdict": "slice"
+    },
+    "deep_g_funk": {
+      "of": "g_funk",
+      "name": "Deep g funk",
+      "verdict": "slice"
+    },
+    "deep_hardcore_punk": {
+      "of": "hardcore_punk",
+      "name": "Deep hardcore punk",
+      "verdict": "slice"
+    },
+    "deep_idm": {
+      "of": "idm",
+      "name": "Deep idm",
+      "verdict": "slice"
+    },
+    "deep_indie_rock": {
+      "of": "indie_rock",
+      "name": "Deep indie rock",
+      "verdict": "slice"
+    },
+    "deep_indie_singer_songwriter": {
+      "of": "indie_singer_songwriter",
+      "name": "Deep indie singer-songwriter",
+      "verdict": "slice"
+    },
+    "deep_italo_disco": {
+      "of": "italo_disco",
+      "name": "Deep italo disco",
+      "verdict": "slice"
+    },
+    "deep_jazz_fusion": {
+      "of": "fusion",
+      "name": "Deep jazz fusion",
+      "verdict": "slice"
+    },
+    "deep_latin_christian": {
+      "of": "latin_christian",
+      "name": "Deep Latin Christian",
+      "verdict": "slice"
+    },
+    "deep_latin_jazz": {
+      "of": "latin_jazz",
+      "name": "Deep latin jazz",
+      "verdict": "slice"
+    },
+    "deep_liquid": {
+      "of": "liquid_dnb",
+      "name": "Deep Liquid",
+      "verdict": "slice"
+    },
+    "deep_liquid_bass": {
+      "of": "liquid_dnb",
+      "name": "Deep Liquid Bass",
+      "verdict": "slice"
+    },
+    "deep_melodic_death_metal": {
+      "of": "melodic_death_metal",
+      "name": "Deep melodic death metal",
+      "verdict": "slice"
+    },
+    "deep_melodic_hard_rock": {
+      "of": "melodic_hard_rock",
+      "name": "Deep melodic hard rock",
+      "verdict": "slice"
+    },
+    "deep_melodic_metalcore": {
+      "of": "metalcore",
+      "name": "Deep Melodic Metalcore",
+      "verdict": "slice"
+    },
+    "deep_metalcore": {
+      "of": "metalcore",
+      "name": "Deep Metalcore",
+      "verdict": "slice"
+    },
+    "deep_motown": {
+      "of": "motown",
+      "name": "Deep Motown",
+      "verdict": "slice"
+    },
+    "deep_neo_synthpop": {
+      "of": "neo_synthpop",
+      "name": "Deep neo-synthpop",
+      "verdict": "slice"
+    },
+    "deep_neofolk": {
+      "of": "neofolk",
+      "name": "Deep Neofolk",
+      "verdict": "slice"
+    },
+    "deep_new_americana": {
+      "of": "alt_country_americana",
+      "name": "Deep new americana",
+      "verdict": "slice"
+    },
+    "deep_new_wave": {
+      "of": "new_wave",
+      "name": "Deep New Wave",
+      "verdict": "slice"
+    },
+    "deep_northern_soul": {
+      "of": "northern_soul",
+      "name": "Deep northern soul",
+      "verdict": "slice"
+    },
+    "deep_orgcore": {
+      "of": "orgcore",
+      "name": "Deep Orgcore",
+      "verdict": "slice"
+    },
+    "deep_pop_emo": {
+      "of": "pop_punk",
+      "name": "Deep pop emo",
+      "verdict": "slice"
+    },
+    "deep_power_pop_punk": {
+      "of": "power_pop_punk",
+      "name": "Deep power-pop punk",
+      "verdict": "slice"
+    },
+    "deep_psychobilly": {
+      "of": "psychobilly",
+      "name": "Deep Psychobilly",
+      "verdict": "slice"
+    },
+    "deep_punk_rock": {
+      "of": "punk",
+      "name": "Deep punk rock",
+      "verdict": "slice"
+    },
+    "deep_r_and_b": {
+      "of": "alt_rnb",
+      "name": "Deep r&b",
+      "verdict": "slice"
+    },
+    "deep_ragga": {
+      "of": "ragga",
+      "name": "Deep Ragga",
+      "verdict": "slice"
+    },
+    "deep_rai": {
+      "of": "rai",
+      "name": "Deep Rai",
+      "verdict": "slice"
+    },
+    "deep_smooth_jazz": {
+      "of": "smooth_jazz_80s",
+      "name": "Deep Smooth Jazz",
+      "verdict": "slice"
+    },
+    "deep_soft_rock": {
+      "of": "soft_rock",
+      "name": "Deep Soft Rock",
+      "verdict": "slice"
+    },
+    "deep_southern_trap": {
+      "of": "atlanta_trap_classic",
+      "name": "Deep southern trap",
+      "verdict": "slice"
+    },
+    "deep_space_rock": {
+      "of": "space_rock",
+      "name": "Deep space rock",
+      "verdict": "slice"
+    },
+    "deep_sunset_lounge": {
+      "of": "chill_lounge",
+      "name": "Deep Sunset Lounge",
+      "verdict": "slice"
+    },
+    "deep_surf_music": {
+      "of": "surf_rock",
+      "name": "Deep Surf Music",
+      "verdict": "slice"
+    },
+    "deep_symphonic_black_metal": {
+      "of": "symphonic_black_metal",
+      "name": "Deep symphonic black metal",
+      "verdict": "slice"
+    },
+    "deep_tech_house": {
+      "of": "tech_house_classic",
+      "name": "Deep Tech House",
+      "verdict": "slice"
+    },
+    "deep_techno": {
+      "of": "melodic_techno",
+      "name": "Deep techno",
+      "verdict": "slice"
+    },
+    "deep_turkish_pop": {
+      "of": "turkish_pop",
+      "name": "Deep Turkish Pop",
+      "verdict": "slice"
+    },
+    "deep_uplifting_trance": {
+      "of": "uplifting_trance",
+      "name": "Deep Uplifting Trance",
+      "verdict": "slice"
+    },
+    "denpa_kei": {
+      "of": "denpa_song",
+      "name": "Denpa-kei",
+      "verdict": "same"
+    },
+    "depressive_black_metal": {
+      "of": "dsbm_black_metal",
+      "name": "Depressive black metal",
+      "verdict": "same"
+    },
+    "didgeridoo_drone_practice": {
+      "of": "didgeridoo_yidaki_solo",
+      "name": "Didgeridoo drone practice (yidaki and mago technique)",
+      "verdict": "same"
+    },
+    "diy_emo": {
+      "of": "emo_revival_2010s",
+      "name": "Diy emo",
+      "verdict": "slice"
+    },
+    "diy_pop_punk": {
+      "of": "pop_punk",
+      "name": "Diy pop punk",
+      "verdict": "slice"
+    },
+    "doina": {
+      "of": "romanian_doina",
+      "name": "Doina",
+      "verdict": "same"
+    },
+    "dream_house": {
+      "of": "dream_trance",
+      "name": "Dream House",
+      "verdict": "same"
+    },
+    "dreamgaze": {
+      "of": "shoegaze",
+      "name": "Dreamgaze",
+      "verdict": "slice"
+    },
+    "drift_phonk": {
+      "of": "drift_phonk_modern",
+      "name": "Drift Phonk",
+      "verdict": "same"
+    },
+    "drill_and_bass": {
+      "of": "drill_n_bass",
+      "name": "Drill'n'bass",
+      "verdict": "same"
+    },
+    "dub_product": {
+      "of": "dub",
+      "name": "Dub product",
+      "verdict": "slice"
+    },
+    "dub_reggae": {
+      "of": "dub",
+      "name": "Dub reggae",
+      "verdict": "same"
+    },
+    "dutch_pop": {
+      "of": "nederpop",
+      "name": "Nederpop (Dutch pop)",
+      "verdict": "same"
+    },
+    "dutch_punk_rock": {
+      "of": "dutch_punk",
+      "name": "Dutch punk rock",
+      "verdict": "same"
+    },
+    "early_romantic_era": {
+      "of": "early_romantic_19c",
+      "name": "Early Romantic Era",
+      "verdict": "same"
+    },
+    "early_synthpop": {
+      "of": "synthpop",
+      "name": "Early synthpop",
+      "verdict": "slice"
+    },
+    "early_us_punk": {
+      "of": "punk",
+      "name": "Early us punk",
+      "verdict": "slice"
+    },
+    "ecm_style_jazz": {
+      "of": "ecm_jazz_aesthetic",
+      "name": "ECM-style Jazz",
+      "verdict": "same"
+    },
+    "electro_bailando": {
+      "of": "electro_latino",
+      "name": "Electro Bailando",
+      "verdict": "slice"
+    },
+    "electronic_trap": {
+      "of": "festival_trap",
+      "name": "Electronic trap",
+      "verdict": "slice"
+    },
+    "emo_punk": {
+      "of": "emo",
+      "name": "Emo punk",
+      "verdict": "slice"
+    },
+    "emo_rap": {
+      "of": "sad_rap_emo_trap",
+      "name": "Emo Rap",
+      "verdict": "same"
+    },
+    "emo_trap_italiana": {
+      "of": "emo_rap_italiano",
+      "name": "Emo Trap Italiana",
+      "verdict": "same"
+    },
+    "english_halyard_shanty": {
+      "of": "shanty",
+      "name": "English halyard shanty (Atlantic merchant-marine work-song)",
+      "verdict": "slice"
+    },
+    "english_indie_rock": {
+      "of": "british_indie_rock",
+      "name": "English indie rock",
+      "verdict": "same"
+    },
+    "entehno": {
+      "of": "greek_entechno",
+      "name": "Éntekhno",
+      "verdict": "same"
+    },
+    "ethereal_gothic": {
+      "of": "ethereal_wave",
+      "name": "Ethereal gothic",
+      "verdict": "slice"
+    },
+    "ethiopian_pop": {
+      "of": "ethio_pop_modern",
+      "name": "Ethiopian pop",
+      "verdict": "same"
+    },
+    "eurovision_pop": {
+      "of": "europop",
+      "name": "Eurovision pop",
+      "verdict": "slice"
+    },
+    "experimental_indie": {
+      "of": "experimental_indie_rock",
+      "name": "Experimental Indie",
+      "verdict": "same"
+    },
+    "experimental_r_and_b": {
+      "of": "alt_rnb",
+      "name": "Experimental r&b",
+      "verdict": "slice"
+    },
+    "fado_instrumental": {
+      "of": "guitarrada_portuguesa",
+      "name": "Fado Instrumental",
+      "verdict": "same"
+    },
+    "fantasy_metal": {
+      "of": "symphonic_power_metal",
+      "name": "Fantasy metal",
+      "verdict": "slice"
+    },
+    "festejo": {
+      "of": "festejo_afroperuano",
+      "name": "Festejo (Lima criollo cajón dance)",
+      "verdict": "same"
+    },
+    "fijiri": {
+      "of": "bahraini_fjiri",
+      "name": "Fijiri",
+      "verdict": "same"
+    },
+    "filmi_playback": {
+      "of": "hindi_filmi",
+      "name": "Filmi (Indian film playback song)",
+      "verdict": "same"
+    },
+    "finnish_kantele_folk": {
+      "of": "kantele_music",
+      "name": "Finnish kantele folk and Kalevala-recitation",
+      "verdict": "slice"
+    },
+    "finnish_modern_jazz": {
+      "of": "finnish_jazz",
+      "name": "Finnish modern jazz",
+      "verdict": "slice"
+    },
+    "folk_siciliana": {
+      "of": "canzone_siciliane",
+      "name": "Folk siciliana",
+      "verdict": "same"
+    },
+    "football": {
+      "of": "fan_chant",
+      "name": "Football",
+      "verdict": "slice"
+    },
+    "forest_black_metal": {
+      "of": "atmospheric_black_metal",
+      "name": "Forest black metal",
+      "verdict": "slice"
+    },
+    "forro_tradicional": {
+      "of": "forro_pe_de_serra",
+      "name": "Forró Tradicional (trio nordestino forró)",
+      "verdict": "same"
+    },
+    "freestyle": {
+      "of": "freestyle_music",
+      "name": "Freestyle (Latin Freestyle)",
+      "verdict": "same"
+    },
+    "french_house": {
+      "of": "french_touch",
+      "name": "French House",
+      "verdict": "same"
+    },
+    "fuji_music": {
+      "of": "fuji",
+      "name": "Fújì Music (Yoruba Muslim percussion pop)",
+      "verdict": "same"
+    },
+    "full_on_groove": {
+      "of": "full_on",
+      "name": "Full On Groove",
+      "verdict": "slice"
+    },
+    "funk_das_antigas": {
+      "of": "baile_funk",
+      "name": "Funk das Antigas",
+      "verdict": "slice"
+    },
+    "funk_rj": {
+      "of": "baile_funk",
+      "name": "Funk RJ (Rio proibidão and tamborzão lineage)",
+      "verdict": "same"
+    },
+    "fusion_70s_electric": {
+      "of": "fusion",
+      "name": "Jazz fusion (1970s post-Bitches-Brew electric jazz-rock)",
+      "verdict": "slice"
+    },
+    "future_funk_edit_scene": {
+      "of": "future_funk_vaporwave",
+      "name": "Future funk (Japanese city-pop edit scene)",
+      "verdict": "same"
+    },
+    "gaita": {
+      "of": "galician_folk",
+      "name": "Gaita",
+      "verdict": "slice"
+    },
+    "galician_pipe_solo": {
+      "of": "galician_folk",
+      "name": "Gaita galega solo",
+      "verdict": "slice"
+    },
+    "gamelan": {
+      "of": "javanese_gamelan",
+      "name": "Gamelan (Javanese Court)",
+      "verdict": "same"
+    },
+    "garage_punk_60s": {
+      "of": "garage_rock",
+      "name": "Garage punk (60s American)",
+      "verdict": "same"
+    },
+    "garage_punk_blues": {
+      "of": "punk_blues",
+      "name": "Garage punk blues",
+      "verdict": "slice"
+    },
+    "georgian_polyphony": {
+      "of": "georgian_three_voice_polyphony",
+      "name": "Georgian Polyphony",
+      "verdict": "same"
+    },
+    "german_indie_folk": {
+      "of": "german_singer_songwriter",
+      "name": "German indie folk",
+      "verdict": "slice"
+    },
+    "german_power_metal": {
+      "of": "power_metal_european",
+      "name": "German power metal",
+      "verdict": "slice"
+    },
+    "german_punk_rock": {
+      "of": "german_punk",
+      "name": "German punk rock",
+      "verdict": "same"
+    },
+    "german_rock": {
+      "of": "deutschrock",
+      "name": "German Rock (Deutschrock)",
+      "verdict": "same"
+    },
+    "german_trance": {
+      "of": "classic_trance",
+      "name": "German trance",
+      "verdict": "slice"
+    },
+    "ghettotech": {
+      "of": "ghettotech_detroit",
+      "name": "Ghettotech",
+      "verdict": "same"
+    },
+    "glam_metal": {
+      "of": "hair_metal",
+      "name": "Glam Metal",
+      "verdict": "same"
+    },
+    "go_go": {
+      "of": "dc_go_go",
+      "name": "Go-go",
+      "verdict": "same"
+    },
+    "goa_psytrance": {
+      "of": "goa_trance",
+      "name": "Goa Psytrance",
+      "verdict": "same"
+    },
+    "golden_age_hip_hop": {
+      "of": "golden_age_hip_hop_1986_1991",
+      "name": "Golden Age Hip Hop",
+      "verdict": "same"
+    },
+    "goralski": {
+      "of": "polish_goralski",
+      "name": "Góralski",
+      "verdict": "same"
+    },
+    "gospel_r_and_b": {
+      "of": "contemporary_urban_gospel",
+      "name": "Gospel r&b",
+      "verdict": "same"
+    },
+    "goth": {
+      "of": "gothic_rock",
+      "name": "Goth",
+      "verdict": "same"
+    },
+    "gothenburg_metal": {
+      "of": "melodic_death_metal",
+      "name": "Gothenburg metal",
+      "verdict": "same"
+    },
+    "gothic_post_punk": {
+      "of": "gothic_rock",
+      "name": "Gothic post-punk",
+      "verdict": "same"
+    },
+    "greek_entechno_politicized": {
+      "of": "greek_entechno",
+      "name": "Greek éntechno politicized (Theodorakis era)",
+      "verdict": "slice"
+    },
+    "grim_death_metal": {
+      "of": "death_metal",
+      "name": "Grim death metal",
+      "verdict": "slice"
+    },
+    "grimewave": {
+      "of": "experimental_club",
+      "name": "Grimewave",
+      "verdict": "slice"
+    },
+    "griot_praise_song": {
+      "of": "mande_griot",
+      "name": "Griot Praise Song (Jeliya)",
+      "verdict": "same"
+    },
+    "grisly_death_metal": {
+      "of": "death_metal",
+      "name": "Grisly death metal",
+      "verdict": "same"
+    },
+    "gruperas_inmortales": {
+      "of": "grupera",
+      "name": "Gruperas Inmortales",
+      "verdict": "slice"
+    },
+    "grupero_romantico": {
+      "of": "grupera",
+      "name": "Grupero Romántico",
+      "verdict": "slice"
+    },
+    "hard_glam": {
+      "of": "hair_metal",
+      "name": "Hard Glam",
+      "verdict": "slice"
+    },
+    "hard_industrial_techno": {
+      "of": "industrial_techno",
+      "name": "Hard Industrial Techno",
+      "verdict": "slice"
+    },
+    "hard_stoner_rock": {
+      "of": "stoner_metal",
+      "name": "Hard stoner rock",
+      "verdict": "slice"
+    },
+    "hardingfele": {
+      "of": "hardanger_fiddle",
+      "name": "Hardingfele (Hardanger-fiddle practice)",
+      "verdict": "same"
+    },
+    "hardingfele_slatt": {
+      "of": "hardanger_fiddle",
+      "name": "Hardingfele slått (Hardanger-fiddle dance-tunes)",
+      "verdict": "same"
+    },
+    "hauntology_aesthetic": {
+      "of": "hauntology_uk_2010s",
+      "name": "Hauntology (library-music aesthetic)",
+      "verdict": "same"
+    },
+    "hawaiian_haa_ancestral_chant": {
+      "of": "hawaiian_oli_mele",
+      "name": "Hawaiian haʻa ancestral chant",
+      "verdict": "slice"
+    },
+    "himachali_pop": {
+      "of": "pahadi_pop",
+      "name": "Himachali pop",
+      "verdict": "slice"
+    },
+    "himene_tarava_society": {
+      "of": "polynesian_himene_tarava",
+      "name": "Himene tārava (Society Islands village choir)",
+      "verdict": "same"
+    },
+    "hindi_hip_hop": {
+      "of": "desi_hip_hop",
+      "name": "Hindi hip hop",
+      "verdict": "slice"
+    },
+    "hindu_stuti_bhajan": {
+      "of": "bhajan",
+      "name": "Hindu stuti and bhajan (praise of deities)",
+      "verdict": "same"
+    },
+    "hong_kong_tv_drama": {
+      "of": "cantopop",
+      "name": "Hong Kong TV drama",
+      "verdict": "slice"
+    },
+    "horo": {
+      "of": "bulgarian_dance_traditional",
+      "name": "Horo (Bulgarian dance music)",
+      "verdict": "same"
+    },
+    "huapango": {
+      "of": "son_huasteco",
+      "name": "Huapango",
+      "verdict": "same"
+    },
+    "hyphy": {
+      "of": "bay_area_hyphy",
+      "name": "Hyphy",
+      "verdict": "same"
+    },
+    "icelandic_singer_songwriter": {
+      "of": "icelandic_folk",
+      "name": "Icelandic singer-songwriter",
+      "verdict": "slice"
+    },
+    "idol_kayo": {
+      "of": "japanese_teen_pop",
+      "name": "Idol kayo",
+      "verdict": "same"
+    },
+    "impressionist_art_music": {
+      "of": "impressionism",
+      "name": "Impressionist (Art Music)",
+      "verdict": "same"
+    },
+    "indian_classical": {
+      "of": "hindustani",
+      "name": "Indian classical",
+      "verdict": "slice"
+    },
+    "indian_violin": {
+      "of": "carnatic_instrumental",
+      "name": "Indian violin",
+      "verdict": "slice"
+    },
+    "indie_dream_pop": {
+      "of": "dream_pop",
+      "name": "Indie dream pop",
+      "verdict": "slice"
+    },
+    "indie_r_and_b": {
+      "of": "alt_rnb",
+      "name": "Indie r&b",
+      "verdict": "slice"
+    },
+    "indie_rock_colombiano": {
+      "of": "colombian_indie",
+      "name": "Indie rock colombiano",
+      "verdict": "slice"
+    },
+    "indie_shoegaze": {
+      "of": "shoegaze",
+      "name": "Indie shoegaze",
+      "verdict": "slice"
+    },
+    "indonesian_dangdut_classic": {
+      "of": "dangdut",
+      "name": "Indonesian dangdut (classical era)",
+      "verdict": "slice"
+    },
+    "indonesian_singer_songwriter": {
+      "of": "indonesian_folk",
+      "name": "Indonesian singer-songwriter",
+      "verdict": "slice"
+    },
+    "instrumental_death_metal": {
+      "of": "death_metal",
+      "name": "Instrumental death metal",
+      "verdict": "slice"
+    },
+    "instrumental_djent": {
+      "of": "djent",
+      "name": "Instrumental djent",
+      "verdict": "slice"
+    },
+    "instrumental_funk": {
+      "of": "funk",
+      "name": "Instrumental funk",
+      "verdict": "slice"
+    },
+    "instrumental_math_rock": {
+      "of": "math_rock_classic",
+      "name": "Instrumental math rock",
+      "verdict": "slice"
+    },
+    "instrumental_post_rock": {
+      "of": "math_rock_classic",
+      "name": "Instrumental post-rock",
+      "verdict": "slice"
+    },
+    "instrumental_progressive_metal": {
+      "of": "djent",
+      "name": "Instrumental progressive metal",
+      "verdict": "slice"
+    },
+    "interior_confessional_60s": {
+      "of": "singer_songwriter",
+      "name": "Late-60s interior confessional songwriter",
+      "verdict": "slice"
+    },
+    "irish_accordion": {
+      "of": "celtic_irish_trad",
+      "name": "Irish accordion",
+      "verdict": "slice"
+    },
+    "irish_dance": {
+      "of": "celtic_irish_trad",
+      "name": "Irish dance",
+      "verdict": "slice"
+    },
+    "irish_flute": {
+      "of": "celtic_irish_trad",
+      "name": "Irish flute",
+      "verdict": "slice"
+    },
+    "israeli_mediterranean": {
+      "of": "mizrahi_israeli",
+      "name": "Israeli Mediterranean",
+      "verdict": "same"
+    },
+    "italo_beats": {
+      "of": "italo_dance",
+      "name": "Italo Beats",
+      "verdict": "slice"
+    },
+    "j_idol": {
+      "of": "japanese_teen_pop",
+      "name": "J-idol",
+      "verdict": "slice"
+    },
+    "j_rap": {
+      "of": "japanese_hip_hop",
+      "name": "J-rap",
+      "verdict": "same"
+    },
+    "j_synth": {
+      "of": "japanese_electropop",
+      "name": "J-Synth (Japanese technopop)",
+      "verdict": "same"
+    },
+    "jam_bands": {
+      "of": "jam_band",
+      "name": "Jam Bands (festival circuit)",
+      "verdict": "same"
+    },
+    "jamtronica": {
+      "of": "livetronica",
+      "name": "Jamtronica",
+      "verdict": "same"
+    },
+    "jangle_rock": {
+      "of": "jangle_pop",
+      "name": "Jangle rock",
+      "verdict": "same"
+    },
+    "japanese_chillhop": {
+      "of": "japanese_beats",
+      "name": "Japanese Chillhop",
+      "verdict": "slice"
+    },
+    "japanese_city_pop": {
+      "of": "city_pop",
+      "name": "Japanese City Pop",
+      "verdict": "same"
+    },
+    "japanese_indie_rock": {
+      "of": "j_indie",
+      "name": "Japanese indie rock",
+      "verdict": "slice"
+    },
+    "japanese_melodic_punk": {
+      "of": "japanese_melodic_hardcore",
+      "name": "Japanese melodic punk",
+      "verdict": "same"
+    },
+    "japanese_old_school_hip_hop": {
+      "of": "japanese_hip_hop",
+      "name": "Japanese old school hip hop",
+      "verdict": "slice"
+    },
+    "japanese_punk_rock": {
+      "of": "j_punk",
+      "name": "Japanese punk rock",
+      "verdict": "same"
+    },
+    "japanese_ska": {
+      "of": "j_ska",
+      "name": "Japanese ska",
+      "verdict": "same"
+    },
+    "japanese_vgm": {
+      "of": "video_game_music",
+      "name": "Japanese VGM",
+      "verdict": "slice"
+    },
+    "javanese_dangdut": {
+      "of": "dangdut_koplo",
+      "name": "Javanese Dangdut",
+      "verdict": "slice"
+    },
+    "jazz_boom_bap": {
+      "of": "jazz_rap",
+      "name": "Jazz boom bap",
+      "verdict": "slice"
+    },
+    "jazz_fusion": {
+      "of": "fusion",
+      "name": "Jazz Fusion (electric jazz-rock idiom)",
+      "verdict": "same"
+    },
+    "jazzy_dnb": {
+      "of": "atmospheric_dnb",
+      "name": "Jazzy drum and bass",
+      "verdict": "slice"
+    },
+    "jazzy_hip_hop": {
+      "of": "lofi_hiphop",
+      "name": "Jazzy hip-hop / lo-fi hip-hop",
+      "verdict": "same"
+    },
+    "jewish_cantorial_recitative": {
+      "of": "cantorial_khazonus",
+      "name": "Jewish cantorial recitative (golden-age hazzanut)",
+      "verdict": "same"
+    },
+    "jibaro": {
+      "of": "musica_jibara",
+      "name": "Jíbaro",
+      "verdict": "same"
+    },
+    "jig_and_reel": {
+      "of": "celtic_irish_trad",
+      "name": "Jig and reel (Irish dance tune repertoire)",
+      "verdict": "slice"
+    },
+    "jump_up": {
+      "of": "jump_up_dnb",
+      "name": "Jump-Up",
+      "verdict": "same"
+    },
+    "k_rap": {
+      "of": "korean_hip_hop",
+      "name": "Korean rap",
+      "verdict": "same"
+    },
+    "kabyle": {
+      "of": "kabyle_music_algerian",
+      "name": "Kabyle (Kabylie chanson)",
+      "verdict": "same"
+    },
+    "kansas_city_jazz": {
+      "of": "kansas_city_swing",
+      "name": "Kansas City Jazz",
+      "verdict": "same"
+    },
+    "kawaii_edm": {
+      "of": "kawaii_future_bass",
+      "name": "Kawaii edm",
+      "verdict": "same"
+    },
+    "kazakh_hip_hop": {
+      "of": "central_asian_hip_hop",
+      "name": "Kazakh hip hop",
+      "verdict": "slice"
+    },
+    "kazakh_kuy": {
+      "of": "dombra_kuy",
+      "name": "Kazakh küy (instrumental dombyra art)",
+      "verdict": "same"
+    },
+    "kentucky_mountain_folk": {
+      "of": "appalachian_folk",
+      "name": "Kentucky mountain folk",
+      "verdict": "slice"
+    },
+    "khaliji_gulf": {
+      "of": "khaliji",
+      "name": "Khaliji (Arabian Gulf music)",
+      "verdict": "same"
+    },
+    "khmer": {
+      "of": "cambodian_pop",
+      "name": "Khmer",
+      "verdict": "slice"
+    },
+    "khmer_court_music": {
+      "of": "khmer_pinpeat",
+      "name": "Khmer Court Music (Pinpeat)",
+      "verdict": "same"
+    },
+    "kizomba_antigas": {
+      "of": "kizomba",
+      "name": "Kizomba Antigas",
+      "verdict": "slice"
+    },
+    "klapa": {
+      "of": "croatian_klapa_dalmatian",
+      "name": "Klapa",
+      "verdict": "same"
+    },
+    "kompa_direkt": {
+      "of": "kompa",
+      "name": "Kompa-direkt (Haitian)",
+      "verdict": "same"
+    },
+    "kompa_twoubadou_ballad": {
+      "of": "twoubadou_haitian",
+      "name": "Twoubadou (Haitian guitar-and-accordion ballad)",
+      "verdict": "same"
+    },
+    "korean_old_school_hip_hop": {
+      "of": "korean_hip_hop",
+      "name": "Korean old school hip hop",
+      "verdict": "slice"
+    },
+    "korean_singer_songwriter": {
+      "of": "korean_indie_folk",
+      "name": "Korean singer-songwriter",
+      "verdict": "same"
+    },
+    "kritika": {
+      "of": "cretan_lyra",
+      "name": "Kritika",
+      "verdict": "same"
+    },
+    "kuduro_antigo": {
+      "of": "kuduro",
+      "name": "Kuduro Antigo",
+      "verdict": "slice"
+    },
+    "kundiman": {
+      "of": "filipino_kundiman",
+      "name": "Kundiman",
+      "verdict": "same"
+    },
+    "lagu_sunda": {
+      "of": "pop_sunda",
+      "name": "Lagu Sunda (Pop Sunda)",
+      "verdict": "same"
+    },
+    "lambada_carimbo": {
+      "of": "carimbo",
+      "name": "Lambada and carimbó (Amazonian Pará)",
+      "verdict": "slice"
+    },
+    "lata": {
+      "of": "hindi_filmi",
+      "name": "Lata",
+      "verdict": "slice"
+    },
+    "late_romantic_era": {
+      "of": "late_romantic_19c",
+      "name": "Late Romantic Era",
+      "verdict": "same"
+    },
+    "latin_american_classical_piano": {
+      "of": "latin_classical",
+      "name": "Latin american classical piano",
+      "verdict": "slice"
+    },
+    "latin_arena_pop": {
+      "of": "latin_pop",
+      "name": "Latin arena pop",
+      "verdict": "slice"
+    },
+    "latvian_dainas": {
+      "of": "latvian_folk_music",
+      "name": "Latvian dainas (folk-song quatrains)",
+      "verdict": "slice"
+    },
+    "lavani_dholki": {
+      "of": "lavani_maharashtra",
+      "name": "Lavani (Maharashtrian dholki stage song)",
+      "verdict": "same"
+    },
+    "lds_instrumental": {
+      "of": "lds",
+      "name": "Lds Instrumental",
+      "verdict": "slice"
+    },
+    "lds_youth": {
+      "of": "lds",
+      "name": "Lds Youth",
+      "verdict": "slice"
+    },
+    "lexington_ky_indie": {
+      "of": "kentucky_indie",
+      "name": "Lexington Ky Indie",
+      "verdict": "slice"
+    },
+    "liquid_funk": {
+      "of": "liquid_dnb",
+      "name": "Liquid funk (drum & bass)",
+      "verdict": "same"
+    },
+    "lofi_beats": {
+      "of": "lofi_hiphop",
+      "name": "Lo-fi beats",
+      "verdict": "same"
+    },
+    "london_rap": {
+      "of": "uk_hip_hop",
+      "name": "London Rap",
+      "verdict": "slice"
+    },
+    "louisiana_blues": {
+      "of": "swamp_blues",
+      "name": "Louisiana Blues",
+      "verdict": "same"
+    },
+    "louvor": {
+      "of": "adoracao",
+      "name": "Louvor",
+      "verdict": "same"
+    },
+    "luk_krung": {
+      "of": "thai_luk_krung",
+      "name": "Luk Krung (Bangkok dance-band lineage)",
+      "verdict": "same"
+    },
+    "luk_thung": {
+      "of": "thai_luk_thung",
+      "name": "Luk Thung",
+      "verdict": "same"
+    },
+    "m_base": {
+      "of": "m_base_collective",
+      "name": "M-Base (odd-metre Brooklyn jazz language)",
+      "verdict": "same"
+    },
+    "madchester": {
+      "of": "madchester_baggy",
+      "name": "Madchester (Manchester Scene)",
+      "verdict": "same"
+    },
+    "madrigal": {
+      "of": "renaissance_madrigal",
+      "name": "Madrigal",
+      "verdict": "same"
+    },
+    "malay_rap": {
+      "of": "malaysian_hip_hop",
+      "name": "Malay rap",
+      "verdict": "same"
+    },
+    "mande_pop": {
+      "of": "sahel_praise",
+      "name": "Mande Pop",
+      "verdict": "same"
+    },
+    "mandopop_modern": {
+      "of": "mandopop",
+      "name": "Mandopop modern (2000s-onward Taiwan-Mainland Mandarin R&B-influenced)",
+      "verdict": "slice"
+    },
+    "marwadi_pop": {
+      "of": "rajasthani_pop",
+      "name": "Marwadi Pop",
+      "verdict": "same"
+    },
+    "math_rock_post_rock": {
+      "of": "math_rock_classic",
+      "name": "Math rock and post-rock",
+      "verdict": "slice"
+    },
+    "mbase_jazz": {
+      "of": "m_base_collective",
+      "name": "M-Base Jazz",
+      "verdict": "same"
+    },
+    "mbira_dzavadzimu_ceremony": {
+      "of": "mbira_tradition",
+      "name": "Mbira dzaVadzimu Ceremonial Music",
+      "verdict": "same"
+    },
+    "medieval_ensemble": {
+      "of": "medieval",
+      "name": "Medieval Ensemble",
+      "verdict": "slice"
+    },
+    "melbourne_bounce_international": {
+      "of": "melbourne_bounce",
+      "name": "Melbourne Bounce International",
+      "verdict": "slice"
+    },
+    "mellow_gold": {
+      "of": "soft_rock",
+      "name": "Mellow gold",
+      "verdict": "slice"
+    },
+    "melodic_groove_metal": {
+      "of": "groove_metal",
+      "name": "Melodic groove metal",
+      "verdict": "slice"
+    },
+    "melodic_metalcore": {
+      "of": "metalcore",
+      "name": "Melodic metalcore",
+      "verdict": "slice"
+    },
+    "melodic_power_metal": {
+      "of": "power_metal_european",
+      "name": "Melodic power metal",
+      "verdict": "same"
+    },
+    "melodic_progressive_metal": {
+      "of": "progressive_metal_classic",
+      "name": "Melodic progressive metal",
+      "verdict": "slice"
+    },
+    "memphis_hip_hop_tape": {
+      "of": "memphis_rap_horrorcore",
+      "name": "Memphis hip-hop (Bluff City tape scene)",
+      "verdict": "same"
+    },
+    "memphis_phonk": {
+      "of": "memphis_rap_horrorcore",
+      "name": "Memphis phonk",
+      "verdict": "same"
+    },
+    "memphis_rap": {
+      "of": "memphis_rap_horrorcore",
+      "name": "Memphis rap (Bluff City lineage)",
+      "verdict": "same"
+    },
+    "merengue_de_calle": {
+      "of": "merengue_urbano",
+      "name": "Merengue de Calle",
+      "verdict": "same"
+    },
+    "metal_gotico": {
+      "of": "gothic_metal",
+      "name": "Metal gótico",
+      "verdict": "same"
+    },
+    "mexican_indie": {
+      "of": "indie_rock_mexicano",
+      "name": "Mexican indie",
+      "verdict": "same"
+    },
+    "mexican_rondas": {
+      "of": "spanish_rondas",
+      "name": "Mexican rondas infantiles (children's circle-songs)",
+      "verdict": "slice"
+    },
+    "miami_electro": {
+      "of": "miami_bass",
+      "name": "Miami Electro (Miami Bass)",
+      "verdict": "same"
+    },
+    "middle_east_hip_hop": {
+      "of": "arabic_hip_hop",
+      "name": "Middle East Hip Hop",
+      "verdict": "slice"
+    },
+    "minimal_dub": {
+      "of": "dub_techno",
+      "name": "Minimal dub",
+      "verdict": "slice"
+    },
+    "minimal_synth": {
+      "of": "minimal_wave",
+      "name": "Minimal Synth",
+      "verdict": "slice"
+    },
+    "minneapolis_indie": {
+      "of": "twin_cities_indie",
+      "name": "Minneapolis indie",
+      "verdict": "same"
+    },
+    "minneapolis_sound": {
+      "of": "minneapolis_synth_funk_pop",
+      "name": "Minneapolis Sound",
+      "verdict": "same"
+    },
+    "minyo": {
+      "of": "japanese_minyo",
+      "name": "Min'yō",
+      "verdict": "same"
+    },
+    "mizrahi": {
+      "of": "mizrahi_israeli",
+      "name": "Mizrahi (Israeli Mediterranean Music)",
+      "verdict": "same"
+    },
+    "modern_enka": {
+      "of": "enka",
+      "name": "Modern Enka",
+      "verdict": "slice"
+    },
+    "modern_j_rock": {
+      "of": "j_rock",
+      "name": "Modern j-rock",
+      "verdict": "slice"
+    },
+    "modern_jangle_pop": {
+      "of": "jangle_pop",
+      "name": "Modern Jangle Pop",
+      "verdict": "slice"
+    },
+    "modern_jungle": {
+      "of": "jungle",
+      "name": "Modern jungle",
+      "verdict": "slice"
+    },
+    "modern_old_time": {
+      "of": "old_time",
+      "name": "Modern old-time",
+      "verdict": "slice"
+    },
+    "molam": {
+      "of": "mor_lam",
+      "name": "Molam",
+      "verdict": "same"
+    },
+    "mongolian_hunting_khoomei": {
+      "of": "mongolian_khoomei",
+      "name": "Mongolian hunting-khoomei (throat-singing)",
+      "verdict": "slice"
+    },
+    "musica_folk_asturiana": {
+      "of": "asturian_folk",
+      "name": "Música folk asturiana",
+      "verdict": "same"
+    },
+    "musica_llanera": {
+      "of": "joropo",
+      "name": "Música llanera",
+      "verdict": "same"
+    },
+    "musica_para_criancas": {
+      "of": "cancoes_infantis",
+      "name": "Música para crianças",
+      "verdict": "same"
+    },
+    "muzica_lautareasca": {
+      "of": "romanian_lautari",
+      "name": "Muzică lăutărească",
+      "verdict": "same"
+    },
+    "naat_south_asian": {
+      "of": "naat_devotional",
+      "name": "Naat (South Asian Prophetic praise recitation)",
+      "verdict": "same"
+    },
+    "nasheed": {
+      "of": "islamic_anasheed",
+      "name": "Nasheed",
+      "verdict": "same"
+    },
+    "negro_spiritual": {
+      "of": "spirituals",
+      "name": "Negro Spiritual (concert arrangement)",
+      "verdict": "same"
+    },
+    "neo_r_and_b": {
+      "of": "alt_rnb",
+      "name": "Neo R&B",
+      "verdict": "same"
+    },
+    "neo_soul": {
+      "of": "neo_soul_classic",
+      "name": "Neo Soul",
+      "verdict": "same"
+    },
+    "neo_swing": {
+      "of": "swing_revival",
+      "name": "Neo-Swing",
+      "verdict": "same"
+    },
+    "neo_trad_doom_metal": {
+      "of": "traditional_doom",
+      "name": "Neo-trad doom metal",
+      "verdict": "slice"
+    },
+    "neon_pop_punk": {
+      "of": "pop_punk",
+      "name": "Neon pop punk",
+      "verdict": "slice"
+    },
+    "nerdcore_brasileiro": {
+      "of": "rap_geek",
+      "name": "Nerdcore Brasileiro",
+      "verdict": "same"
+    },
+    "new_americana": {
+      "of": "alt_country_americana",
+      "name": "New americana",
+      "verdict": "slice"
+    },
+    "new_jack_smooth": {
+      "of": "new_jack_swing",
+      "name": "New Jack Smooth",
+      "verdict": "slice"
+    },
+    "new_school_turkce_rap": {
+      "of": "turkish_hip_hop",
+      "name": "New School Türkçe Rap",
+      "verdict": "slice"
+    },
+    "new_tejano": {
+      "of": "tejano",
+      "name": "New Tejano",
+      "verdict": "slice"
+    },
+    "new_wave_of_glam_metal": {
+      "of": "sleaze_rock",
+      "name": "New wave of glam metal",
+      "verdict": "slice"
+    },
+    "new_wave_of_thrash_metal": {
+      "of": "thrash_metal",
+      "name": "New wave of thrash metal",
+      "verdict": "slice"
+    },
+    "new_york_garage_house": {
+      "of": "garage_house_paradise",
+      "name": "New York Garage House",
+      "verdict": "same"
+    },
+    "newfoundland_outport": {
+      "of": "newfoundland_folk",
+      "name": "Newfoundland outport balladry",
+      "verdict": "slice"
+    },
+    "nisiotika": {
+      "of": "greek_nisiotika",
+      "name": "Nisiótika",
+      "verdict": "same"
+    },
+    "noise": {
+      "of": "noise_music",
+      "name": "Noise",
+      "verdict": "same"
+    },
+    "nordic_folk_metal": {
+      "of": "folk_metal_european",
+      "name": "Nordic folk metal",
+      "verdict": "slice"
+    },
+    "northern_soul_motown": {
+      "of": "northern_soul",
+      "name": "Northern soul and Motown",
+      "verdict": "slice"
+    },
+    "norwegian_black_metal": {
+      "of": "black_metal",
+      "name": "Norwegian black metal",
+      "verdict": "slice"
+    },
+    "norwegian_contemporary_jazz": {
+      "of": "norwegian_jazz",
+      "name": "Norwegian contemporary jazz",
+      "verdict": "slice"
+    },
+    "norwegian_punk_rock": {
+      "of": "norwegian_punk",
+      "name": "Norwegian punk rock",
+      "verdict": "same"
+    },
+    "nova_canco": {
+      "of": "catalan_nova_canco",
+      "name": "Nova Cançó (Catalan singer-songwriter movement, 1960s)",
+      "verdict": "same"
+    },
+    "nu_cumbia": {
+      "of": "cumbia_electronica",
+      "name": "Nu-Cumbia",
+      "verdict": "same"
+    },
+    "nu_jazz": {
+      "of": "nu_jazz_2000s",
+      "name": "Nu Jazz",
+      "verdict": "same"
+    },
+    "nubian_traditional": {
+      "of": "nubian_music_nile",
+      "name": "Nubian Traditional",
+      "verdict": "same"
+    },
+    "nwothm": {
+      "of": "neo_trad_metal",
+      "name": "NWOTHM",
+      "verdict": "same"
+    },
+    "nyckelharpa_tradition": {
+      "of": "swedish_nyckelharpa_folk",
+      "name": "Nyckelharpa (keyed-fiddle tradition)",
+      "verdict": "same"
+    },
+    "oakland_hip_hop": {
+      "of": "bay_area_hip_hop",
+      "name": "Oakland hip-hop",
+      "verdict": "slice"
+    },
+    "okinawan_folk": {
+      "of": "okinawa_minyo",
+      "name": "Okinawan folk",
+      "verdict": "same"
+    },
+    "old_school_bassline": {
+      "of": "bassline_uk",
+      "name": "Old School Bassline",
+      "verdict": "slice"
+    },
+    "old_school_ebm": {
+      "of": "ebm_european_body",
+      "name": "Old school EBM",
+      "verdict": "slice"
+    },
+    "old_school_hard_trance": {
+      "of": "hard_trance",
+      "name": "Old School Hard Trance",
+      "verdict": "slice"
+    },
+    "old_school_highlife": {
+      "of": "highlife",
+      "name": "Old School Highlife (Ghana dance band era)",
+      "verdict": "slice"
+    },
+    "old_school_hip_hop": {
+      "of": "pre_sampling_hip_hop_1979_1985",
+      "name": "Old school hip hop",
+      "verdict": "same"
+    },
+    "old_school_rap_francais": {
+      "of": "french_rap",
+      "name": "Old school rap français",
+      "verdict": "slice"
+    },
+    "old_school_thrash": {
+      "of": "thrash_metal",
+      "name": "Old school thrash",
+      "verdict": "slice"
+    },
+    "oldschool_deutschrap": {
+      "of": "german_deutschrap",
+      "name": "Oldschool Deutschrap",
+      "verdict": "slice"
+    },
+    "opera_metal": {
+      "of": "symphonic_metal_classic",
+      "name": "Opera metal",
+      "verdict": "slice"
+    },
+    "orebro_indie": {
+      "of": "swedish_indie_rock",
+      "name": "Orebro Indie",
+      "verdict": "slice"
+    },
+    "orquesta_tipica": {
+      "of": "tango_traditional",
+      "name": "Orquesta Tipica",
+      "verdict": "same"
+    },
+    "orquesta_tropical": {
+      "of": "plena_uruguaya",
+      "name": "Orquesta Tropical",
+      "verdict": "slice"
+    },
+    "orthodox_chant": {
+      "of": "russian_orthodox_chant",
+      "name": "Orthodox chant (Slavonic obikhod and znamenny)",
+      "verdict": "same"
+    },
+    "papuri": {
+      "of": "pinoy_praise",
+      "name": "Papuri",
+      "verdict": "slice"
+    },
+    "persian_traditional": {
+      "of": "persian_dastgah",
+      "name": "Persian Traditional Music (Radif)",
+      "verdict": "same"
+    },
+    "persian_underground_hip_hop": {
+      "of": "persian_hip_hop",
+      "name": "Persian Underground Hip Hop",
+      "verdict": "slice"
+    },
+    "perth_hip_hop": {
+      "of": "west_australian_hip_hop",
+      "name": "Perth Hip Hop",
+      "verdict": "same"
+    },
+    "philly_soul": {
+      "of": "philly_soul_intl",
+      "name": "Philly Soul",
+      "verdict": "same"
+    },
+    "phonk": {
+      "of": "phonk_old_memphis",
+      "name": "Phonk",
+      "verdict": "same"
+    },
+    "pibroch": {
+      "of": "piobaireachd",
+      "name": "Pibroch (ceòl mòr Highland piping)",
+      "verdict": "same"
+    },
+    "piedmont_fingerpicking": {
+      "of": "piedmont_blues",
+      "name": "Piedmont fingerpicking blues",
+      "verdict": "same"
+    },
+    "pinoy_hip_hop": {
+      "of": "tagalog_rap",
+      "name": "Pinoy Hip Hop",
+      "verdict": "same"
+    },
+    "piphat_ceremonial": {
+      "of": "thai_classical",
+      "name": "Piphat (Thai-Khmer ceremonial ensemble)",
+      "verdict": "same"
+    },
+    "polish_modern_jazz": {
+      "of": "polish_jazz",
+      "name": "Polish modern jazz",
+      "verdict": "slice"
+    },
+    "polish_village_fiddle": {
+      "of": "polish_folk",
+      "name": "Polish village fiddle",
+      "verdict": "slice"
+    },
+    "polyphonies_corses": {
+      "of": "corsican_paghjella_modern",
+      "name": "Polyphonies corses (Corsican ensemble polyphony)",
+      "verdict": "same"
+    },
+    "pontian_folk": {
+      "of": "pontic_greek",
+      "name": "Pontian Folk Music",
+      "verdict": "same"
+    },
+    "pop_emo": {
+      "of": "pop_punk",
+      "name": "Pop emo",
+      "verdict": "slice"
+    },
+    "popera": {
+      "of": "operatic_pop",
+      "name": "Popera (classical crossover)",
+      "verdict": "same"
+    },
+    "post_disco_soul": {
+      "of": "post_disco",
+      "name": "Post-disco soul",
+      "verdict": "same"
+    },
+    "protest_folk": {
+      "of": "american_folk_revival_protest",
+      "name": "Protest folk",
+      "verdict": "slice"
+    },
+    "proto_techno": {
+      "of": "detroit_techno",
+      "name": "Proto-Techno",
+      "verdict": "slice"
+    },
+    "psychedelic_space_rock": {
+      "of": "space_rock",
+      "name": "Psychedelic space rock",
+      "verdict": "slice"
+    },
+    "puerto_rican_folk": {
+      "of": "musica_jibara",
+      "name": "Puerto Rican folk",
+      "verdict": "slice"
+    },
+    "punk_rock_italiano": {
+      "of": "italian_punk",
+      "name": "Punk rock italiano",
+      "verdict": "same"
+    },
+    "punk_rock_mexicano": {
+      "of": "punk_mexicano",
+      "name": "Punk rock mexicano",
+      "verdict": "same"
+    },
+    "punk_ska": {
+      "of": "ska_punk_third_wave",
+      "name": "Punk ska",
+      "verdict": "same"
+    },
+    "punk_urbano": {
+      "of": "street_punk_espanol",
+      "name": "Punk urbano",
+      "verdict": "same"
+    },
+    "punta": {
+      "of": "punta_garifuna",
+      "name": "Punta (Honduras Garifuna traditional)",
+      "verdict": "same"
+    },
+    "punta_rock": {
+      "of": "garifuna_punta_rock",
+      "name": "Punta Rock",
+      "verdict": "same"
+    },
+    "quechua_wayno_traditional": {
+      "of": "andean_huayno",
+      "name": "Quechua wayno (traditional Andean)",
+      "verdict": "same"
+    },
+    "rai_algerien": {
+      "of": "rai",
+      "name": "Raï algérien (Oran pop-raï)",
+      "verdict": "same"
+    },
+    "rajasthani_folk_thar": {
+      "of": "rajasthani_manganiyar",
+      "name": "Rajasthani folk (Thar desert hereditary-musician song)",
+      "verdict": "same"
+    },
+    "rap_francais": {
+      "of": "french_rap",
+      "name": "Rap français (contemporary)",
+      "verdict": "same"
+    },
+    "rap_liegeois": {
+      "of": "rap_belge",
+      "name": "Rap liégeois",
+      "verdict": "slice"
+    },
+    "rap_montrealais": {
+      "of": "hip_hop_quebecois",
+      "name": "Rap montréalais",
+      "verdict": "slice"
+    },
+    "rap_politico": {
+      "of": "rap_conciencia",
+      "name": "Rap Político",
+      "verdict": "same"
+    },
+    "rap_underground_colombiano": {
+      "of": "colombian_hip_hop",
+      "name": "Rap underground colombiano",
+      "verdict": "slice"
+    },
+    "rasin": {
+      "of": "rasin_haitian",
+      "name": "Rasin",
+      "verdict": "same"
+    },
+    "redneck": {
+      "of": "country_rap_hick_hop",
+      "name": "Redneck",
+      "verdict": "same"
+    },
+    "reggaeton_chileno": {
+      "of": "urbano_chileno",
+      "name": "Reggaeton Chileno",
+      "verdict": "same"
+    },
+    "reggaeton_flow": {
+      "of": "reggaeton",
+      "name": "Reggaetón flow",
+      "verdict": "slice"
+    },
+    "roots_americana": {
+      "of": "alt_country_americana",
+      "name": "Roots Americana",
+      "verdict": "slice"
+    },
+    "rumba_congolaise": {
+      "of": "congolese_rumba",
+      "name": "Rumba congolaise (Kinshasa golden age)",
+      "verdict": "same"
+    },
+    "rumba_lingala": {
+      "of": "congolese_rumba",
+      "name": "Rumba Lingala",
+      "verdict": "same"
+    },
+    "russian_punk_rock": {
+      "of": "russian_punk",
+      "name": "Russian punk rock",
+      "verdict": "same"
+    },
+    "sakara_music": {
+      "of": "sakara_yoruba",
+      "name": "Sákárà (Lagos sakara-drum praise song)",
+      "verdict": "same"
+    },
+    "samba_de_roda": {
+      "of": "brazilian_samba_de_roda",
+      "name": "Samba de Roda (Recôncavo Baiano circle samba, rural practice)",
+      "verdict": "same"
+    },
+    "samba_enredo": {
+      "of": "brazilian_samba_school_enredo",
+      "name": "Samba-Enredo (escola de samba competition theme samba)",
+      "verdict": "same"
+    },
+    "sambass": {
+      "of": "sambass_brazilian_dnb",
+      "name": "Sambass",
+      "verdict": "same"
+    },
+    "sami_yoik_tradition": {
+      "of": "sami_yoik",
+      "name": "Sami yoik (Sápmi vocal tradition)",
+      "verdict": "same"
+    },
+    "sarod": {
+      "of": "hindustani_sarod",
+      "name": "Sarod",
+      "verdict": "same"
+    },
+    "sawt_khaliji": {
+      "of": "sawt_bahraini_kuwaiti",
+      "name": "Sawt (Gulf khaliji urban song)",
+      "verdict": "same"
+    },
+    "schranz": {
+      "of": "schranz_hard_techno",
+      "name": "Schranz",
+      "verdict": "same"
+    },
+    "scottish_indie": {
+      "of": "scottish_indie_rock",
+      "name": "Scottish Indie",
+      "verdict": "same"
+    },
+    "screamocore": {
+      "of": "screamo",
+      "name": "Screamocore",
+      "verdict": "slice"
+    },
+    "sean_nos_singing": {
+      "of": "sean_nos_solo",
+      "name": "Sean-nós singing (Conamara tradition)",
+      "verdict": "same"
+    },
+    "sebene": {
+      "of": "soukous",
+      "name": "Sebene (soukous guitar section)",
+      "verdict": "slice"
+    },
+    "second_line": {
+      "of": "new_orleans_brass_parade",
+      "name": "Second line",
+      "verdict": "same"
+    },
+    "sertanejo_tradicional": {
+      "of": "viola_caipira",
+      "name": "Sertanejo Tradicional",
+      "verdict": "same"
+    },
+    "shaabi": {
+      "of": "shaabi_egyptian",
+      "name": "Shaabi (pan-Arab popular street music)",
+      "verdict": "same"
+    },
+    "shabad_gurmat_sangeet": {
+      "of": "sikh_shabad_kirtan",
+      "name": "Shabad (Gurmat sangeet raga-set hymn)",
+      "verdict": "same"
+    },
+    "shape_note": {
+      "of": "sacred_harp_singing",
+      "name": "Shape-note singing (fasola tradition)",
+      "verdict": "same"
+    },
+    "shashmaqam": {
+      "of": "shashmaqam_central_asian",
+      "name": "Shashmaqam",
+      "verdict": "same"
+    },
+    "sheffield_bleep_techno": {
+      "of": "bleep_techno",
+      "name": "Sheffield bleep techno",
+      "verdict": "same"
+    },
+    "shimmer_pop": {
+      "of": "dream_pop",
+      "name": "Shimmer pop",
+      "verdict": "slice"
+    },
+    "shona_mbira_praise": {
+      "of": "mbira_tradition",
+      "name": "Shona mbira praise music (Zimbabwe)",
+      "verdict": "same"
+    },
+    "sikh_gurmat_sangeet": {
+      "of": "sikh_shabad_kirtan",
+      "name": "Gurmat Sangeet (Sikh devotional)",
+      "verdict": "same"
+    },
+    "singeli": {
+      "of": "singeli_tanzanian",
+      "name": "Singeli",
+      "verdict": "same"
+    },
+    "ska_punk": {
+      "of": "ska_punk_third_wave",
+      "name": "Ska Punk",
+      "verdict": "same"
+    },
+    "skinhead_oi": {
+      "of": "oi_punk",
+      "name": "Skinhead Oi",
+      "verdict": "same"
+    },
+    "sky_room": {
+      "of": "big_room_house",
+      "name": "Sky Room",
+      "verdict": "slice"
+    },
+    "slack_key_guitar": {
+      "of": "hawaiian_slack_key",
+      "name": "Slack-key guitar (kī hōʻalu instrumental)",
+      "verdict": "same"
+    },
+    "slavic_metal": {
+      "of": "slavic_folk_metal",
+      "name": "Slavic metal",
+      "verdict": "slice"
+    },
+    "sludge": {
+      "of": "sludge_metal",
+      "name": "Sludge",
+      "verdict": "same"
+    },
+    "snap": {
+      "of": "snap_music",
+      "name": "Snap",
+      "verdict": "same"
+    },
+    "soca_soul": {
+      "of": "soca",
+      "name": "Soca soul",
+      "verdict": "slice"
+    },
+    "soda_pop": {
+      "of": "doo_wop",
+      "name": "Soda Pop",
+      "verdict": "slice"
+    },
+    "son_cubano_clasico": {
+      "of": "son_cubano",
+      "name": "Son Cubano Clásico",
+      "verdict": "slice"
+    },
+    "soulful_house": {
+      "of": "deep_house_soulful",
+      "name": "Soulful House",
+      "verdict": "same"
+    },
+    "sound_team": {
+      "of": "video_game_music",
+      "name": "Sound team",
+      "verdict": "slice"
+    },
+    "south_african_modern_jazz": {
+      "of": "south_african_jazz",
+      "name": "South african modern jazz",
+      "verdict": "slice"
+    },
+    "south_african_soulful_deep_house": {
+      "of": "south_african_deep_house",
+      "name": "South African Soulful Deep House",
+      "verdict": "slice"
+    },
+    "southern_trap": {
+      "of": "atlanta_trap_classic",
+      "name": "Trap (southern)",
+      "verdict": "slice"
+    },
+    "spanish_hip_hop": {
+      "of": "rap_espanol",
+      "name": "Spanish hip hop",
+      "verdict": "same"
+    },
+    "spanish_prog": {
+      "of": "spanish_progressive_rock",
+      "name": "Spanish Prog",
+      "verdict": "same"
+    },
+    "standards": {
+      "of": "great_american_songbook",
+      "name": "Standards (Great American Songbook)",
+      "verdict": "same"
+    },
+    "stoner_rock": {
+      "of": "stoner_metal",
+      "name": "Stoner rock",
+      "verdict": "same"
+    },
+    "stride": {
+      "of": "stride_piano",
+      "name": "Stride",
+      "verdict": "same"
+    },
+    "string_band": {
+      "of": "old_time",
+      "name": "String band (Southern pre-war)",
+      "verdict": "slice"
+    },
+    "stutter_house": {
+      "of": "french_touch",
+      "name": "Stutter House",
+      "verdict": "slice"
+    },
+    "sufi": {
+      "of": "qawwali",
+      "name": "Sufi",
+      "verdict": "slice"
+    },
+    "sung_poetry": {
+      "of": "polish_poezja_spiewana",
+      "name": "Sung Poetry (Poezja Śpiewana)",
+      "verdict": "same"
+    },
+    "sunset_lounge": {
+      "of": "chill_lounge",
+      "name": "Sunset Lounge",
+      "verdict": "slice"
+    },
+    "suomirap": {
+      "of": "finnish_hip_hop",
+      "name": "Suomirap",
+      "verdict": "same"
+    },
+    "super_eurobeat": {
+      "of": "eurobeat",
+      "name": "Super Eurobeat",
+      "verdict": "slice"
+    },
+    "surf_music": {
+      "of": "surf_rock",
+      "name": "Surf Music",
+      "verdict": "same"
+    },
+    "sutartines": {
+      "of": "lithuanian_sutartines",
+      "name": "Sutartinės",
+      "verdict": "same"
+    },
+    "swedish_americana": {
+      "of": "swedish_country",
+      "name": "Swedish Americana",
+      "verdict": "slice"
+    },
+    "swedish_hard_rock": {
+      "of": "hard_rock",
+      "name": "Swedish hard rock",
+      "verdict": "slice"
+    },
+    "swedish_melodeath": {
+      "of": "melodic_death_metal",
+      "name": "Swedish melodeath",
+      "verdict": "slice"
+    },
+    "swedish_synth": {
+      "of": "swedish_synthpop",
+      "name": "Swedish synth",
+      "verdict": "slice"
+    },
+    "swing_house": {
+      "of": "electroswing",
+      "name": "Swing House",
+      "verdict": "slice"
+    },
+    "syro_aramaic_chant": {
+      "of": "syriac_orthodox_chant",
+      "name": "Syro-Aramaic chant (Beth Gazo modal cycle)",
+      "verdict": "same"
+    },
+    "t_pop": {
+      "of": "thai_pop",
+      "name": "T-Pop",
+      "verdict": "same"
+    },
+    "t_pop_girl_group": {
+      "of": "thai_pop",
+      "name": "T-Pop Girl Group",
+      "verdict": "slice"
+    },
+    "tagalog_worship": {
+      "of": "pinoy_praise",
+      "name": "Tagalog worship",
+      "verdict": "slice"
+    },
+    "taiwan_pop": {
+      "of": "mandopop",
+      "name": "Taiwanese Mandopop (Taipei ballad industry)",
+      "verdict": "slice"
+    },
+    "taiwanese_indie": {
+      "of": "taiwan_indie",
+      "name": "Taiwanese Indie",
+      "verdict": "same"
+    },
+    "telugu_kirtana": {
+      "of": "kriti",
+      "name": "Telugu kirtana (Carnatic devotional song)",
+      "verdict": "slice"
+    },
+    "tex_mex": {
+      "of": "texas_conjunto",
+      "name": "Tex-Mex",
+      "verdict": "same"
+    },
+    "thai_traditional": {
+      "of": "thai_classical",
+      "name": "Thai Traditional (Piphat and Mahori)",
+      "verdict": "same"
+    },
+    "thrash_groove_metal": {
+      "of": "groove_metal",
+      "name": "Thrash-groove metal",
+      "verdict": "slice"
+    },
+    "tibetan_mantra": {
+      "of": "tibetan_mantra_recitation",
+      "name": "Tibetan Mantra",
+      "verdict": "same"
+    },
+    "timba": {
+      "of": "salsa_cubana_timba",
+      "name": "Timba",
+      "verdict": "same"
+    },
+    "tipico": {
+      "of": "merengue_tipico",
+      "name": "Merengue Típico (Perico Ripiao)",
+      "verdict": "same"
+    },
+    "traditional_bluegrass": {
+      "of": "bluegrass",
+      "name": "Traditional bluegrass",
+      "verdict": "slice"
+    },
+    "traditional_funk": {
+      "of": "funk",
+      "name": "Traditional Funk",
+      "verdict": "same"
+    },
+    "traditional_reggae": {
+      "of": "early_reggae",
+      "name": "Traditional reggae",
+      "verdict": "slice"
+    },
+    "traditional_rockabilly": {
+      "of": "rockabilly_50s",
+      "name": "Traditional rockabilly",
+      "verdict": "slice"
+    },
+    "traditional_southern_folk": {
+      "of": "traditional_folk",
+      "name": "Traditional Southern folk",
+      "verdict": "slice"
+    },
+    "trancecore": {
+      "of": "electronicore",
+      "name": "Trancecore (electronicore)",
+      "verdict": "same"
+    },
+    "trap_boricua": {
+      "of": "latin_trap",
+      "name": "Trap boricua (Puerto Rican trap)",
+      "verdict": "slice"
+    },
+    "trap_latino": {
+      "of": "latin_trap",
+      "name": "Trap Latino (pan-Hispanic trap)",
+      "verdict": "same"
+    },
+    "trap_pesado": {
+      "of": "trap_brasileiro",
+      "name": "Trap pesado",
+      "verdict": "slice"
+    },
+    "trio_huasteco": {
+      "of": "son_huasteco",
+      "name": "Trío Huasteco",
+      "verdict": "same"
+    },
+    "trip_hop": {
+      "of": "bristol_trip_hop",
+      "name": "Trip hop",
+      "verdict": "same"
+    },
+    "trova": {
+      "of": "trova_cubana",
+      "name": "Trova (Cuban troubadour song)",
+      "verdict": "same"
+    },
+    "tuareg_guitar": {
+      "of": "desert_blues",
+      "name": "Tuareg guitar (assouf electric style)",
+      "verdict": "same"
+    },
+    "turk_sanat_muzigi": {
+      "of": "turkish_makam",
+      "name": "Türk Sanat Müziği",
+      "verdict": "same"
+    },
+    "turkish_psych": {
+      "of": "anadolu_rock",
+      "name": "Turkish psychedelic (Anadolu psych)",
+      "verdict": "same"
+    },
+    "twee_indie_pop": {
+      "of": "twee_pop",
+      "name": "Twee Indie Pop",
+      "verdict": "same"
+    },
+    "two_tone_ska": {
+      "of": "ska_revival_2tone",
+      "name": "2-Tone",
+      "verdict": "same"
+    },
+    "uilleann_pipes": {
+      "of": "uilleann_pipe_solo",
+      "name": "Uilleann piping (Irish pipe tradition)",
+      "verdict": "same"
+    },
+    "uk82": {
+      "of": "street_punk",
+      "name": "UK82",
+      "verdict": "same"
+    },
+    "uk_contemporary_jazz": {
+      "of": "british_jazz",
+      "name": "Uk contemporary jazz",
+      "verdict": "slice"
+    },
+    "uk_dnb": {
+      "of": "jungle",
+      "name": "UK drum and bass",
+      "verdict": "slice"
+    },
+    "uk_grime_classic": {
+      "of": "grime",
+      "name": "UK grime (classic mid-2000s)",
+      "verdict": "slice"
+    },
+    "uk_hard_house": {
+      "of": "hard_house",
+      "name": "UK Hard House",
+      "verdict": "same"
+    },
+    "uk_post_punk": {
+      "of": "post_punk",
+      "name": "Uk post-punk",
+      "verdict": "slice"
+    },
+    "uk_tech_house": {
+      "of": "tech_house_classic",
+      "name": "UK tech house",
+      "verdict": "slice"
+    },
+    "umbanda": {
+      "of": "umbanda_brazilian",
+      "name": "Umbanda ritual music (pontos cantados)",
+      "verdict": "same"
+    },
+    "underground_amapiano": {
+      "of": "amapiano",
+      "name": "Underground Amapiano",
+      "verdict": "slice"
+    },
+    "underground_boom_bap": {
+      "of": "boom_bap",
+      "name": "Underground Boom Bap",
+      "verdict": "slice"
+    },
+    "underground_grunge": {
+      "of": "grunge",
+      "name": "Underground grunge",
+      "verdict": "slice"
+    },
+    "urdu_hip_hop": {
+      "of": "pakistani_hip_hop",
+      "name": "Urdu hip hop",
+      "verdict": "slice"
+    },
+    "us_garage": {
+      "of": "garage_house_paradise",
+      "name": "US Garage",
+      "verdict": "same"
+    },
+    "vapor_aesthetic": {
+      "of": "vaporwave",
+      "name": "Vaporwave aesthetic",
+      "verdict": "same"
+    },
+    "vintage_chanson": {
+      "of": "chanson_classique",
+      "name": "Vintage Chanson",
+      "verdict": "slice"
+    },
+    "vintage_chinese_pop": {
+      "of": "shidaiqu",
+      "name": "Vintage Chinese Pop",
+      "verdict": "slice"
+    },
+    "vintage_country_folk": {
+      "of": "classic_nz_country",
+      "name": "Vintage country folk",
+      "verdict": "slice"
+    },
+    "vintage_hollywood": {
+      "of": "hollywood",
+      "name": "Vintage Hollywood",
+      "verdict": "slice"
+    },
+    "vintage_norwegian_pop": {
+      "of": "classic_norwegian_pop",
+      "name": "Vintage Norwegian Pop",
+      "verdict": "same"
+    },
+    "vintage_old_time": {
+      "of": "old_time",
+      "name": "Vintage Old-Time",
+      "verdict": "slice"
+    },
+    "vintage_reggae": {
+      "of": "early_reggae",
+      "name": "Vintage reggae",
+      "verdict": "slice"
+    },
+    "vintage_rockabilly": {
+      "of": "rockabilly_50s",
+      "name": "Vintage rockabilly",
+      "verdict": "slice"
+    },
+    "vintage_swing": {
+      "of": "swing_revival",
+      "name": "Vintage swing (retro-swing revival)",
+      "verdict": "same"
+    },
+    "vintage_tollywood": {
+      "of": "tollywood",
+      "name": "Vintage Tollywood",
+      "verdict": "same"
+    },
+    "violao": {
+      "of": "violao_brasileiro",
+      "name": "Violão",
+      "verdict": "same"
+    },
+    "vocaloid_producer_scene": {
+      "of": "vocaloid_synth_voice",
+      "name": "Vocaloid producer scene (Niconico bokaro-P music)",
+      "verdict": "same"
+    },
+    "vogue_beat": {
+      "of": "ballroom_house",
+      "name": "Vogue Beat",
+      "verdict": "same"
+    },
+    "volksmusik": {
+      "of": "german_folk",
+      "name": "Volksmusik",
+      "verdict": "same"
+    },
+    "waiata_maori_song": {
+      "of": "maori_waiata",
+      "name": "Waiata (Māori song tradition)",
+      "verdict": "same"
+    },
+    "west_coast_reggae": {
+      "of": "reggae_rock",
+      "name": "West coast reggae",
+      "verdict": "slice"
+    },
+    "wind_symphony": {
+      "of": "wind_ensemble",
+      "name": "Wind Symphony",
+      "verdict": "same"
+    },
+    "xinyao": {
+      "of": "singaporean_xinyao",
+      "name": "Xinyao",
+      "verdict": "same"
+    },
+    "yodel": {
+      "of": "alpine_yodel",
+      "name": "Yodel",
+      "verdict": "same"
+    },
+    "yorkshire_bleeps_and_bass": {
+      "of": "bleep_techno",
+      "name": "Yorkshire Bleeps and Bass",
+      "verdict": "same"
+    },
+    "zamba_folklorica": {
+      "of": "zamba_argentina",
+      "name": "Zamba (Argentine folklore pañuelo dance)",
+      "verdict": "same"
+    },
+    "zeuhl": {
+      "of": "zeuhl_french",
+      "name": "Zeuhl (Kobaïan movement)",
+      "verdict": "same"
+    }
+  }
+}

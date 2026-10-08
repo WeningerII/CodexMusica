@@ -3,9 +3,9 @@
   "name": "Nordic folk (pan-Scandinavian umbrella)",
   "family": "global",
   "lineage": "Pan-Scandinavian traditional-music complex spanning Norway, Sweden, Denmark, Finland, Iceland and Sápmi, consolidated as a shared category by the 20th-century revival and festival circuit (Førde, Falun, Kaustinen) — uneven-beat polska and springar dance tunes, drone-heavy bowed strings, narrow-range herding calls and yoik-adjacent vocal styles, modal melodies with raised fourths and neutral thirds, and minimal or foot-supplied percussion.",
-  "recipe": "classic North American early-1970s nordic folk, drone Modal, string branch, string improv improv on frame, Slavic baltic domestic rhythm estonian folk music latvian folk music. thick, breath veiled tone, fast rate, interlocked note trading. magic rosin modern acrylic base drone like fiddle, archaic traditional nyckelharpa, mother of pearl bone inlay canonical norwegian decorative hardanger fiddle inst, archaic gut pre modern five string fingerpicked kantele, estonian four string dance driving steel wound jouhikko, leather castagnari Italian premium folk music straight accordion, estonian Swedish four string drone under melody alder spruce canonical nordic tagelharpa. hexham head studio pa chamber folk. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
-  "recipe_chars": 819,
-  "score": 270.985,
+  "recipe": "classic North American early-1970s nordic folk, drone Modal, string branch, string improv improv on frame, Slavic baltic domestic rhythm estonian folk music latvian folk music. thick, breath veiled tone, fast rate, interlocked note trading. magic rosin modern acrylic base drone like fiddle, archaic traditional nyckelharpa, mother of pearl bone inlay canonical norwegian decorative hardanger fiddle inst, archaic gut pre modern five string fingerpicked kantele, estonian four string dance driving steel wound jouhikko, leather castagnari Italian premium folk music drone like accordion, estonian Swedish four string drone under melody alder spruce canonical nordic tagelharpa. hexham head studio pa chamber folk. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 821,
+  "score": 270.055,
   "config": {
     "traditions": [
       "nordic_folk",
@@ -27,7 +27,7 @@
           "bowed_technique": 8.944999999999999,
           "fiddle_strings": 0.585,
           "fiddle_bow": 1.4625,
-          "fiddle_mute": 0.345,
+          "fiddle_mute": 0.645,
           "fiddle_articulation": 0.41999999999999993,
           "fiddle_string_configuration": 0
         }
@@ -38,17 +38,17 @@
           "bowed_technique": "bowed_legato_classical",
           "nyckel_keys": "traditional_silverbas",
           "nyckel_strings": "nyckel_12_sympathetic",
-          "nyckel_body_wood": "nyckel_birch_alder",
+          "nyckel_body_wood": "nyckel_spruce_maple",
           "nyckel_string_material": "nyckel_gut_historical",
-          "nyckel_mechanism": "nyckel_2_row_diatonic_silverbas"
+          "nyckel_mechanism": "nyckel_3_row_chromatic"
         },
         "scores": {
           "bowed_technique": -0.035,
-          "nyckel_keys": 1.95,
+          "nyckel_keys": 2.145,
           "nyckel_strings": 4.15,
-          "nyckel_body_wood": 0.195,
+          "nyckel_body_wood": 0.345,
           "nyckel_string_material": 0.7149999999999999,
-          "nyckel_mechanism": -1.55
+          "nyckel_mechanism": -1.46
         }
       },
       {
@@ -63,11 +63,11 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "hardingfele_strings": 8.18,
+          "hardingfele_strings": 8.135,
           "hardingfele_tuning": 1.45,
           "hardingfele_strings_material": 0.585,
           "hardingfele_inlay": 1.2349999999999999,
-          "hardingfele_body_wood": 0.15
+          "hardingfele_body_wood": 0.195
         }
       },
       {
@@ -80,7 +80,7 @@
           "kantele_string_material": "kantele_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 4.045,
+          "plucked_traditional_technique": 4,
           "kantele_strings": 1,
           "kantele_context": 2.73,
           "kantele_body_wood": 0.585,
@@ -98,8 +98,8 @@
         "scores": {
           "bowed_technique": -0.035,
           "jouhikko_form": 8.8075,
-          "jouhikko_context": 7.515000000000001,
-          "jouhikko_strings": 1.17
+          "jouhikko_context": 7.260000000000001,
+          "jouhikko_strings": 1.125
         }
       },
       {
@@ -123,20 +123,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.945,
+          "voice_register": 5.9,
           "voice_quality": 12.609999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.95,
           "voice_articulation": 21.449999999999996,
           "voice_microtone": 26.45499999999999,
-          "voice_tradition": 20.864999999999995,
+          "voice_tradition": 20.415,
           "voice_mechanism_compound": 8.515,
           "voice_estill_quality": 5.905,
           "voice_speech_song": 23.529999999999998,
           "voice_ensemble_config": 21.384999999999994,
-          "voice_ornament_system": 3.225000000000001,
-          "voice_pitch_organization": 5.200000000000001,
+          "voice_ornament_system": 3.180000000000001,
+          "voice_pitch_organization": 4.840000000000001,
           "voice_processing_chain": 3.8349999999999995,
           "voice_multitrack_stack": 3.7700000000000005
         }
@@ -144,7 +144,7 @@
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
+          "free_reed_technique": "free_reed_drone_under",
           "accordion_reed_material": "brass_reeds",
           "musette_offset": "scottish_musette",
           "reed_config": "lm_only",
@@ -153,13 +153,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 5,
+          "free_reed_technique": 4.8950000000000005,
           "accordion_reed_material": 0.43500000000000005,
-          "musette_offset": 2.235,
+          "musette_offset": 2.19,
           "reed_config": 0.7499999999999999,
           "bellows": 1.45,
           "voicing_chamber": 0.345,
-          "accordion_maker_school": 4.12
+          "accordion_maker_school": 4.135000000000001
         }
       },
       {
@@ -174,7 +174,7 @@
         "scores": {
           "bowed_technique": 8.944999999999999,
           "tagelharpa_form": 8.8075,
-          "tagelharpa_context": 8.790000000000001,
+          "tagelharpa_context": 8.505,
           "tagelharpa_string_material": 0.585,
           "tagelharpa_body_wood": 1.45
         }

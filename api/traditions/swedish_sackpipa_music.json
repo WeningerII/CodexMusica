@@ -5,7 +5,7 @@
   "lineage": "Music of the Swedish bagpipe, a mouth-blown pipe with a cylindrical chanter and a single drone, which survived in western Dalarna into the twentieth century. Per Gudmundson's Caprice album Säckpipa, recorded in 1982-83, carried it into the folk-music revival, where polskas, marches and walking tunes are often played together with fiddle.",
   "recipe": "classic early-1980s säckpipa, drone Modal, wind pipe branch. sackpipa, fiddle. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 170,
-  "score": 18.92,
+  "score": 18.678,
   "config": {
     "traditions": [
       "swedish_sackpipa_music"
@@ -19,7 +19,7 @@
           "sackpipa_reeds": "sackpipa_cane_reeds"
         },
         "scores": {
-          "sackpipa_pitch_form": 17.489500000000003,
+          "sackpipa_pitch_form": 17.216500000000003,
           "sackpipa_repertoire": 0.9099999999999999,
           "sackpipa_reeds": 0.2815
         }
@@ -35,11 +35,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.507375,
+          "bowed_technique": 0.643875,
           "fiddle_strings": 0,
           "fiddle_bow": 0.105,
-          "fiddle_mute": 0.24150000000000002,
-          "fiddle_articulation": 0.21,
+          "fiddle_mute": 0.105,
+          "fiddle_articulation": 0.2415,
           "fiddle_string_configuration": 0
         }
       }

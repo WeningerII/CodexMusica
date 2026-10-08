@@ -5,7 +5,7 @@
   "lineage": "Ainu folk encompasses song, instrumental music and dance practices maintained and renewed by Ainu communities and musicians. Contemporary performers connect inherited melodies with new settings and collaborations.",
   "recipe": "classic ainu folk, drone Modal, string branch. solo with instrumental accompaniment, single lead single track no stacking. epic accompaniment drone and melody tonkori. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 266,
-  "score": 24.878,
+  "score": 24.669,
   "config": {
     "traditions": [
       "ainu_folk"
@@ -44,10 +44,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 4.16,
-          "voice_ornament_system": 0.16799999999999998,
+          "voice_ornament_system": 0.19949999999999998,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.189,
-          "voice_multitrack_stack": 0.84
+          "voice_processing_chain": 0.2205,
+          "voice_multitrack_stack": 0.5565
         }
       },
       {
@@ -58,7 +58,7 @@
           "tonkori_build": "tonkori_build_gut"
         },
         "scores": {
-          "tonkori_form": 11.8565,
+          "tonkori_form": 11.866999999999999,
           "tonkori_setting": 7.735,
           "tonkori_build": -0.07
         }

@@ -5,7 +5,7 @@
   "lineage": "Tanzanian Swahili-language hip-hop and R&B hybrid tradition codified through Diamond Platnumz, Ali Kiba, Professor Jay, and Lady Jaydee — emerging late 1990s from Dar es Salaam street hip-hop scene, then evolving into mainstream Swahili-pop with R&B crossover; characterized by Swahili vocals over hip-hop and afropop production",
   "recipe": "classic Southern African 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm uk alternative hip hop arbantone. extended whistle, rap, straight onset, interlocked note trading. TR-808, pitched chopped sampler, sub bass analog poly synth, heavy gauge flatwound la bella flats Detroit soul bass canon electric bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 468,
-  "score": 220.727,
+  "score": 222.538,
   "config": {
     "traditions": [
       "bongo_flava",
@@ -34,17 +34,17 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.550000000000001,
-          "voice_quality": 22.74,
+          "voice_register": 7.265000000000001,
+          "voice_quality": 23.107499999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.455,
+          "voice_vibrato": 2.56,
           "voice_articulation": 11.894999999999996,
           "voice_microtone": 11.699999999999992,
           "voice_tradition": 13.65,
           "voice_mechanism_compound": 3.12,
           "voice_estill_quality": 2.9250000000000007,
-          "voice_speech_song": 20.814999999999998,
+          "voice_speech_song": 21.325,
           "voice_ensemble_config": 11.829999999999995,
           "voice_ornament_system": 4.485000000000001,
           "voice_pitch_organization": 2.3400000000000003,
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 10.505,
+          "tr808_voice": 10.49,
           "drum_machine_808_context": 2.08,
-          "tr808_production_origin": 0.3
+          "tr808_production_origin": 0.36
         }
       },
       {
@@ -77,8 +77,8 @@
         "scores": {
           "electronic_technique": 9.549999999999999,
           "sampler_archetypes": 16.38,
-          "sampler_bit_depth": 0.51,
-          "sampler_workflow": 10.035,
+          "sampler_bit_depth": 0.72,
+          "sampler_workflow": 10.275,
           "sampler_classic_context": 24.375
         }
       },
@@ -91,9 +91,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 10.405,
+          "electronic_technique": 10.389999999999999,
           "poly_archetypes": 0.3,
-          "poly_voices": 0.435,
+          "poly_voices": 0.39,
           "poly_maker_lineage": -1.435
         }
       },
@@ -102,7 +102,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
@@ -111,10 +111,10 @@
         },
         "scores": {
           "amp_make": 2.3725,
-          "body_wood": 0.65,
-          "pickup_config": 0.65,
-          "string_type": 2.8749999999999996,
-          "scale_length_b": 0.255,
+          "body_wood": 0.845,
+          "pickup_config": 0.9,
+          "string_type": 2.957499999999999,
+          "scale_length_b": 0.40499999999999997,
           "fretted_or_not": 0,
           "bass_technique": 0.9249999999999998,
           "electric_bass_string_configuration": 0

@@ -5,7 +5,7 @@
   "lineage": "German show tunes connect German-speaking musical theatre with domestic productions and translated international repertoire. Performers and cast recordings carry stage songs into touring concerts, cabaret and independent interpretations.",
   "recipe": "classic german show tunes, functional Song. solo with instrumental accompaniment. grand piano. shoebox concert hall.",
   "recipe_chars": 116,
-  "score": 6.415,
+  "score": 6.445,
   "config": {
     "traditions": [
       "german_show_tunes"
@@ -70,7 +70,7 @@
           "grand_piano_size": 1,
           "grand_piano_brand": 0.39,
           "piano_hammer": -0.1,
-          "piano_rim": -0.1,
+          "piano_rim": -0.07,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.1,
           "piano_plate": 0.8999999999999999,

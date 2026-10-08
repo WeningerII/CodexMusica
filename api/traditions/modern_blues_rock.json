@@ -5,7 +5,7 @@
   "lineage": "Modern blues rock includes stripped-back duos emphasizing amplified guitar and rhythmic drive.",
   "recipe": "classic modern blues rock, distorted Rock, alternative branch. single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 329,
-  "score": 29.389,
+  "score": 29.421,
   "config": {
     "traditions": [
       "modern_blues_rock"
@@ -32,14 +32,14 @@
           "electric_technique": -0.07,
           "amp_make": 5.720000000000001,
           "body_wood": 2.6,
-          "neck_wood": 0.105,
+          "neck_wood": 0.2415,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0,
           "pickup_winding": 2.1365,
-          "string_material": 0.105,
-          "bridge": 0.273,
+          "string_material": 0.2415,
+          "bridge": 0.168,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -93,7 +93,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.546,
           "voice_tessitura": 0
         }

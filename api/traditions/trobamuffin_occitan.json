@@ -5,7 +5,7 @@
   "lineage": "Occitan-language ragga developed in Marseille from the mid-1980s by Massilia Sound System, whose members named it trobamuffin, joining Jamaican sound-system toasting to the troubadour heritage and to Provençal Occitan and Marseille street speech. Its songs on local identity, politics and fêtes were carried by self-organised sound-system parties and concerts, and in Toulouse the Fabulous Trobadors developed a related Occitan chatted-verse style.",
   "recipe": "classic 1984-1986 trobamuffin, bass System, reggae diaspora branch. pitched rhythmic chat. drum machine analog, fast-attack-transient mid rich alder electric bass, credited synthesizer unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 296,
-  "score": 9.742,
+  "score": 9.857,
   "config": {
     "traditions": [
       "trobamuffin_occitan"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 7.917500000000001,
+          "voice_speech_song": 7.907000000000001,
           "voice_ensemble_config": 0.19500000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -61,9 +61,9 @@
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 0,
+          "kick_voice": 0.0315,
           "snare_voice": 0.0315,
-          "hat_voice": 0,
+          "hat_voice": 0.0315,
           "shuffle_quantize": 0.0315
         }
       },
@@ -84,7 +84,7 @@
           "body_wood": 1.69,
           "pickup_config": 0,
           "string_type": -0.1,
-          "scale_length_b": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0

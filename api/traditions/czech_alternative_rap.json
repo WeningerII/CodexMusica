@@ -5,7 +5,7 @@
   "lineage": "Czech alternative rap connects experimental rap and related Czech–Slovak independent scenes. Slovak group Berlin Manson illustrates a cross-border synth-punk approach combining rap, singing, DIY electronics and live-band energy.",
   "recipe": "classic modern czech alternative rap, mc Rhythm, intl hip hop branch. rap, duet, live take. analog synth, single coil electric guitar, sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 287,
-  "score": 27.997,
+  "score": 28.476,
   "config": {
     "traditions": [
       "czech_alternative_rap"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 17.977,
+          "voice_quality": 18.166,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -64,9 +64,9 @@
         "scores": {
           "electronic_technique": 0.254,
           "oscillator": 0.2985,
-          "filter_topology": 0.20099999999999998,
+          "filter_topology": 0.288,
           "envelope": 0,
-          "modulation": 0.0735
+          "modulation": 0
         }
       },
       {
@@ -75,11 +75,11 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood",
-          "neck_wood": "maple",
+          "neck_wood": "mahogany_neck",
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
+          "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -89,14 +89,14 @@
         "scores": {
           "electric_technique": 0.5539999999999999,
           "amp_make": 2.35,
-          "body_wood": 0.1905,
-          "neck_wood": 0.1365,
+          "body_wood": 0.2445,
+          "neck_wood": 0.162,
           "fretboard": 0.1365,
           "pickup_magnet": 0.1365,
           "string_material": 0.2445,
-          "string_gauge": 0.0735,
-          "bridge": 0.159,
-          "scale_length": 0.108,
+          "string_gauge": 0.108,
+          "bridge": 0.213,
+          "scale_length": 0.216,
           "finish": 0,
           "string_tuning": 0,
           "single_coil_pickup_construction": 0

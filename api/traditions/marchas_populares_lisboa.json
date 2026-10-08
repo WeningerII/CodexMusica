@@ -5,7 +5,7 @@
   "lineage": "The marchas populares are the neighbourhood marching songs and costumed parades of Lisbon's Santo António festivities, run as a competition between the bairros since the interwar years, in which bairros such as Alfama, Mouraria, Bica and Madragoa each present a new marcha with its own song and choreography before parading down the Avenida da Liberdade on the night of 12 June. Each marcha's song is sung by its marchantes to a band that parades with them, and the year's official Grande Marcha de Lisboa and many neighbourhood marchas are issued on record. The credited-horns card stands for the band's brass and saxophones.",
   "recipe": "classic modern marchas populares, carnival Processional, European branch. credited horns unspecified, clarinet, snare bass drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 208,
-  "score": 0.397,
+  "score": 0.439,
   "config": {
     "traditions": [
       "marchas_populares_lisboa"
@@ -58,7 +58,7 @@
           "credited_horns_identity": "credited_horns_source_unspecified"
         },
         "scores": {
-          "credited_horns_identity": 0.0945
+          "credited_horns_identity": 0.063
         }
       },
       {
@@ -73,7 +73,7 @@
         "scores": {
           "wind_articulation": -0.07,
           "clarinet_body": -0.10500000000000001,
-          "clarinet_size": 0.063,
+          "clarinet_size": 0.0315,
           "clarinet_reed": 0.0735,
           "clarinet_articulation": 0.105
         }
@@ -84,7 +84,7 @@
           "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
         },
         "scores": {
-          "standalone_snare_construction": 0
+          "standalone_snare_construction": 0.105
         }
       },
       {

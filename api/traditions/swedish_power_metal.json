@@ -5,7 +5,7 @@
   "lineage": "Swedish power metal develops traditional heavy metal through prominent sung themes and coordinated guitar writing.",
   "recipe": "classic swedish power metal, distorted Rock, power branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 418,
-  "score": 32.007,
+  "score": 31.692,
   "config": {
     "traditions": [
       "swedish_power_metal"
@@ -112,12 +112,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.7244999999999999,
-          "voice_ensemble_config": 0.756,
+          "voice_speech_song": 0.5145,
+          "voice_ensemble_config": 0.6509999999999999,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.4620000000000001,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.49350000000000005,
           "voice_tessitura": 0
         }
       }

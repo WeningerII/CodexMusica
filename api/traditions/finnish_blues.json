@@ -5,7 +5,7 @@
   "lineage": "Finnish blues has developed through performers, clubs, record releases and the Finnish Blues Society’s long-running support network. Acoustic singer-guitarists such as Jantso Jokelin continue a storytelling strand alongside amplified ensembles.",
   "recipe": "classic finnish blues, functional Song, blues acoustic branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. national canon medium heavy delta blues glass slide fingerpicked resonator long life coated nanoweb dreadnought acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 507,
-  "score": 85.101,
+  "score": 84.912,
   "config": {
     "traditions": [
       "finnish_blues"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 0.693,
+          "voice_multitrack_stack": 0.63,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
           "resonator_technique": "resonator_bottleneck_slide_fingerpicked"
         },
         "scores": {
-          "resonator_body": 0.9569999999999999,
+          "resonator_body": 0.9255,
           "resonator_strings": 6.629999999999999,
           "resonator_technique": 7.02
         }
@@ -70,14 +70,14 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
-          "top_wood": "cedar",
+          "top_wood": "sitka",
           "back_sides": "maple_bs",
           "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
           "acoustic_technique": 0.45499999999999996,
           "string_tuning": 0,
-          "top_wood": 0.3045,
+          "top_wood": 0.273,
           "back_sides": 0.273,
           "string_acoustic": 1
         }
@@ -94,8 +94,8 @@
         },
         "scores": {
           "harmonica_type": 0.3885,
-          "harmonica_comb": 13.2355,
-          "harmonica_reed": 13.109499999999999,
+          "harmonica_comb": 13.203999999999999,
+          "harmonica_reed": 13.078,
           "harmonica_technique": 13.085499999999998,
           "harmonica_maker_school": 16.509999999999998,
           "harmonica_tuning": 6.629999999999999

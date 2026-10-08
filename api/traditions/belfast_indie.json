@@ -5,7 +5,7 @@
   "lineage": "Escape Act — Loosely Based On Fiction. Representative authored present-day studio arrangement for one documented release branch. Primary sources establish roles, locality and the category relationship. Guitar body and pickup design, bass construction, keyboard synthesis and drum-machine architecture, amp choice, room, chain, technique, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts or universal genre traits.",
   "recipe": "classic belfast indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 225,
-  "score": 8.74,
+  "score": 8.709,
   "config": {
     "traditions": [
       "belfast_indie"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.222,
+          "voice_processing_chain": 0.1905,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

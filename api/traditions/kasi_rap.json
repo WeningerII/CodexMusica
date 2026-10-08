@@ -5,7 +5,7 @@
   "lineage": "Kasi rap centers South African township vernacular, local narratives and street performance networks. Its evolving production spans several styles, including Cassper Nyovest’s trap- and kwaito-inflected approach.",
   "recipe": "classic modern kasi rap, mc Rhythm, intl hip hop branch. rap, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 249,
-  "score": 20.698,
+  "score": 20.731,
   "config": {
     "traditions": [
       "kasi_rap"
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.6969999999999996,
+          "tr808_voice": 2.73,
           "drum_machine_808_context": 0.39,
           "tr808_production_origin": 0.159
         }

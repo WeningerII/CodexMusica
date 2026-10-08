@@ -1,50 +1,113 @@
 {
-  "id": "deep_deep_tech_house",
-  "name": "Deep Deep Tech House",
-  "family": "electronic",
-  "lineage": "Deep deep tech house is a discovery label within groove-led house and techno production. Its DJs connect compact rhythmic patterns, low melodic lines and electronic club textures through sustained mixed programmes.",
-  "recipe": "classic deep deep tech house, electronic Dance, tech house branch. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 113,
-  "score": 0.3,
+  "id": "tech_house_classic",
+  "merged_from": "deep_deep_tech_house",
+  "name": "Tech-house",
+  "family": "global",
+  "lineage": "House-and-techno hybrid subgenre codified through Mr. C’s End-Recordings, Terry Francis, Eddie Richards, Layo and Bushwacka — characterized by minimal-techno-derived rhythmic foundation with house-tempo (124-128 BPM), jazz-funk influence, and the European-clubland 2000s production aesthetic",
+  "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance portuguese techno techno argentina. digital subtractive, TR-909, sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 329,
+  "score": 97.565,
   "config": {
     "traditions": [
-      "deep_deep_tech_house"
+      "tech_house_classic",
+      "portuguese_techno",
+      "techno_argentina"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "digital_subtractive",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.3
+          "electronic_technique": 0.585,
+          "va_archetypes": 0.15,
+          "digital_subtractive_context": 12.024999999999999
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 23.490000000000006,
+          "drum_machine_909_context": 2.47,
+          "tr909_production_origin": 0.7150000000000001
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "roland_s750",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 0.3,
+          "sampler_bit_depth": 0.26,
+          "sampler_workflow": 0.325,
+          "sampler_classic_context": 41.45
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 16.974999999999994,
+          "mono_oscillator": 0,
+          "mono_filter": 0.39,
+          "mono_archetypes": 0.39,
+          "mono_maker_lineage": -1.435
         }
       }
     ],
-    "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ]
-    },
-    "room": "live_room",
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": null
+      "medium": "digital_std"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_bass_sub",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_house",
+      "tr909_production_origin": "tr909_roland_osaka_canonical"
     },
-    "pin_parts": true
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Progressive metalcore develops metalcore’s rhythmic attack through technical guitar writing and contrasting forms.",
   "recipe": "classic modern progressive metalcore, distorted Rock, prog branch, punk distorted rock japanese post-hardcore norwegian hardcore. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 475,
-  "score": 51.06,
+  "score": 50.865,
   "config": {
     "traditions": [
       "progressive_metalcore",
@@ -41,7 +41,7 @@
           "string_material": 0.09,
           "bridge": 0.9099999999999999,
           "scale_length": 0,
-          "string_gauge": 0.585,
+          "string_gauge": 0.39,
           "finish": 0,
           "string_tuning": 6.695
         }

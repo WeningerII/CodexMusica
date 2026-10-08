@@ -1,16 +1,17 @@
 {
-  "id": "uilleann_pipes",
-  "name": "Uilleann piping (Irish pipe tradition)",
+  "id": "uilleann_pipe_solo",
+  "merged_from": "uilleann_pipes",
+  "name": "Uilleann pipe solo",
   "family": "global",
-  "lineage": "Irish bellows-blown pipe tradition developed from the union pipes of the late eighteenth century and codified by the Taylor and Rowsome making families and by Leo Rowsome, Willie Clancy and Séamus Ennis in the twentieth century — a two-octave chanter in D over three drones and three regulators, played seated on the knee with staccato 'tight' or legato 'open' fingering, crans and popping, supplying dance tunes at session tempo and free-time slow airs shaped to the sung Irish-language line.",
-  "recipe": "classic modern uilleann piping, drone Modal, wind pipe branch, Celtic traditional improv on frame, Celtic balladic sean nos sean-nós singing sean-nós solo singing. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American uilleann pipes, fiddle, melodic tin whistle, irish wooden flute, low mid rich spectrum traditional gut gut string celtic harp, modern Irish carroll suttner premium revival drone like concertina anglo. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 678,
-  "score": 155.03,
+  "lineage": "Irish bellows-blown indoor bagpipe (uilleann pipes, formerly called union pipes) solo virtuoso tradition codified through Leo Rowsome, Seamus Ennis, Willie Clancy, Liam OFlynn, Paddy Keenan, Davy Spillane — the most complex bagpipe instrument in the world with three drones, three regulators (chord-producing keys operated by the elbow), and a chanter capable of full chromatic range",
+  "recipe": "classic Northern European mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame scottish fiddle tradition irish trad session. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed dublin tradition uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 496,
+  "score": 29.705,
   "config": {
     "traditions": [
-      "uilleann_pipes",
-      "sean_nos_singing",
-      "sean_nos_solo"
+      "uilleann_pipe_solo",
+      "scottish_fiddle",
+      "celtic_irish_trad"
     ],
     "instruments": [
       {
@@ -22,108 +23,29 @@
           "uilleann_chanter_wood": "uilleann_african_blackwood",
           "uilleann_reed": "uilleann_cane_canonical",
           "uilleann_bag": "uilleann_leather_canonical",
-          "uilleann_lineage": "uilleann_taylor_egan"
+          "uilleann_lineage": "uilleann_rowsome"
         },
         "scores": {
-          "wind_articulation": 10.925,
-          "uilleann_set": 8.189999999999998,
-          "uilleann_pipes_pitch": 1.6899999999999997,
-          "uilleann_chanter_wood": 7.299999999999999,
-          "uilleann_reed": 7.304999999999999,
-          "uilleann_bag": 8.604999999999999,
-          "uilleann_lineage": 7.499999999999999
-        }
-      },
-      {
-        "id": "fiddle",
-        "slots": {
-          "bowed_technique": "bowed_celtic_session",
-          "fiddle_strings": "synthetic_core",
-          "fiddle_bow": "dark_rosin",
-          "fiddle_mute": "no_mute",
-          "fiddle_articulation": "sul_pont",
-          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
-        },
-        "scores": {
-          "bowed_technique": 10.82,
-          "fiddle_strings": 0.09,
-          "fiddle_bow": 0.15,
-          "fiddle_mute": 1,
-          "fiddle_articulation": 0.54,
-          "fiddle_string_configuration": 0
-        }
-      },
-      {
-        "id": "tin_whistle",
-        "slots": {
-          "wind_articulation": "wind_folk_melodic",
-          "whistle_key": "d_whistle",
-          "whistle_ornament": "cut_ornament",
-          "whistle_body_material": "whistle_aluminum_anodized"
-        },
-        "scores": {
-          "wind_articulation": 10.925,
-          "whistle_key": 15.794999999999998,
-          "whistle_ornament": 1.6899999999999997,
-          "whistle_body_material": 0.045
-        }
-      },
-      {
-        "id": "irish_wooden_flute",
-        "slots": {
-          "irish_wooden_flute_pattern": "irish_wooden_flute_keyless_folk",
-          "irish_wooden_flute_keys": "irish_wooden_flute_four_key",
-          "irish_wooden_flute_idiom": "irish_wooden_flute_leitrim",
-          "irish_wooden_flute_material": "irish_wooden_flute_cocuswood"
-        },
-        "scores": {
-          "irish_wooden_flute_pattern": 16.5,
-          "irish_wooden_flute_keys": 1.6249999999999998,
-          "irish_wooden_flute_idiom": 9.825000000000001,
-          "irish_wooden_flute_material": 0.09999999999999999
-        }
-      },
-      {
-        "id": "celtic_harp",
-        "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
-          "celtic_harp_levers": "lever_camac",
-          "celtic_harp_strings": "celtic_gut"
-        },
-        "scores": {
-          "acoustic_technique": 1.7449999999999999,
-          "celtic_harp_levers": 0.39,
-          "celtic_harp_strings": 1.6899999999999997
-        }
-      },
-      {
-        "id": "concertina_anglo",
-        "slots": {
-          "free_reed_technique": "free_reed_drone_under",
-          "concertina_anglo_config": "concertina_anglo_30",
-          "concertina_anglo_context": "concertina_anglo_morris",
-          "concertina_anglo_maker_school": "concertina_irish_made_modern",
-          "concertina_anglo_reed": "concertina_anglo_steel_reeds"
-        },
-        "scores": {
-          "free_reed_technique": 12.139999999999999,
-          "concertina_anglo_config": 9.879999999999999,
-          "concertina_anglo_context": 2.5349999999999997,
-          "concertina_anglo_maker_school": 8.534999999999998,
-          "concertina_anglo_reed": 0.195
+          "wind_articulation": 6.475,
+          "uilleann_set": 7.41,
+          "uilleann_pipes_pitch": 4.29,
+          "uilleann_chanter_wood": 2.8600000000000003,
+          "uilleann_reed": 2.73,
+          "uilleann_bag": 4.255000000000001,
+          "uilleann_lineage": 3.185
         }
       }
     ],
-    "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "room": "connemara_kitchen_sean_nos",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
-      "mic": "condenser_sdc",
+      "mic": "mic_u87_condenser_neumann",
       "pre": "pre_neve_1073_input",
-      "console": "console_in_the_box",
-      "comp": null,
-      "eq": "eq_active_parametric",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_30ips"
     },
     "tuning": "celtic_irish_modal_dorian_mixolydian",
     "aesthetic": null,
@@ -132,11 +54,21 @@
   },
   "source": {
     "tuning": "celtic_irish_modal_dorian_mixolydian",
-    "room": "live_room",
-    "chain_mic": "condenser_sdc",
+    "room": "connemara_kitchen_sean_nos",
+    "parts": {
+      "wind_articulation": "wind_ornament_heavy",
+      "uilleann_set": "full_set",
+      "uilleann_pipes_pitch": "uilleann_pipes_d",
+      "uilleann_chanter_wood": "uilleann_african_blackwood",
+      "uilleann_reed": "uilleann_cane_canonical",
+      "uilleann_bag": "uilleann_leather_canonical",
+      "uilleann_lineage": "uilleann_taylor_egan"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
     "chain_pre": "pre_neve_1073_input",
-    "chain_eq": "eq_active_parametric",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_transformer_70s"
   }
 }

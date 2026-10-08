@@ -5,7 +5,7 @@
   "lineage": "Argentine bandoneón-and-violin orquesta-típica tradition codified through the Buenos Aires studio canon from Carlos Gardel onward",
   "recipe": "classic South American mid-1940s tango, ballad Poetry, Latin am troubadour branch, tropical song functional song chanchona cariso. sygyt, breath veiled tone, straight note core, interlocked note trading. tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, upright piano, upright bass, venice catlin high twist renaissance bass Baroque setup cello. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 607,
-  "score": 116.18,
+  "score": 116.33,
   "config": {
     "traditions": [
       "tango",
@@ -43,12 +43,12 @@
           "voice_microtone": 10.919999999999993,
           "voice_tradition": 7.865,
           "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 1.7849999999999997,
+          "voice_estill_quality": 1.8899999999999997,
           "voice_speech_song": 18.524999999999995,
           "voice_ensemble_config": 10.854999999999995,
           "voice_ornament_system": 0.705,
           "voice_pitch_organization": 0.585,
-          "voice_processing_chain": 3.47,
+          "voice_processing_chain": 3.365,
           "voice_multitrack_stack": 2.860000000000001
         }
       },
@@ -86,7 +86,7 @@
         "scores": {
           "bowed_technique": 0.9099999999999997,
           "orch_strings": 0.54,
-          "orch_top_wood": 1.54,
+          "orch_top_wood": 1.645,
           "orch_back_wood": -0.035,
           "orch_varnish": -0.035,
           "orch_setup_period": 2.34,
@@ -105,7 +105,7 @@
         },
         "scores": {
           "keyboard_technique": 0.12999999999999998,
-          "upright_use": 0.885,
+          "upright_use": 0.93,
           "upright_piano_size": 1.15
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "New Zealand electronic music includes studio producers and live acts working across dance-oriented and exploratory styles. Local scenes connect with international performance and production networks.",
   "recipe": "classic nz electronic, electronic Dance. sampler, rompler workstation. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 150,
-  "score": 4.618,
+  "score": 4.681,
   "config": {
     "traditions": [
       "nz_electronic"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.063,
+          "sampler_bit_depth": 0.126,
           "sampler_workflow": 0.26,
           "sampler_classic_context": 4.615
         }

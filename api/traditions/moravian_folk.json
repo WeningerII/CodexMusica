@@ -5,7 +5,7 @@
   "lineage": "Song tradition of Moravia's Slovácko, Horňácko, Wallachia and Haná regions, collected systematically by František Sušil in the 1830s-1860s and by Leoš Janáček and Pavel Váša around 1900 — modal melodies using Lydian and Mixolydian inflections, unaccompanied or lightly cimbalom-backed strophic songs, slow rubato table songs with wide ornamented leaps giving way to duple dance songs, and two-part women's singing in thirds at village festivals and harvest work.",
   "recipe": "classic mid-1830s moravian folk song, field Work, Slavic balkan branch, string improv improv on frame, European funeral lament cimbálová muzika corsican voceru. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles paghjella corsican secondu bassu terzu choir ensemble, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, magic rosin modern acrylic base drone like fiddle, ebonite hard rubber klezmer tradition clarinet. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 651,
-  "score": 188.78,
+  "score": 188.285,
   "config": {
     "traditions": [
       "moravian_folk",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
         },
         "scores": {
-          "voice_register": 4.795000000000001,
+          "voice_register": 4.750000000000001,
           "voice_quality": 8.905000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.2349999999999999,
           "voice_articulation": 16.314999999999998,
           "voice_microtone": 18.264999999999993,
-          "voice_tradition": 19.74,
+          "voice_tradition": 19.35,
           "voice_mechanism_compound": 5.85,
           "voice_estill_quality": 3.120000000000001,
           "voice_speech_song": 20.735,
           "voice_ensemble_config": 17.224999999999994,
-          "voice_ornament_system": 2.5750000000000006,
-          "voice_pitch_organization": 5.205,
+          "voice_ornament_system": 2.5300000000000007,
+          "voice_pitch_organization": 5.370000000000001,
           "voice_processing_chain": 5.265,
           "voice_multitrack_stack": 2.535
         }
@@ -62,7 +62,7 @@
         },
         "scores": {
           "choir_size": 6.305,
-          "choir_polyphonic_configuration": 1.8199999999999998,
+          "choir_polyphonic_configuration": 1.79,
           "choir_regional_canonical_configuration": 5.999999999999998,
           "choir_ensemble_repertoire": 2.9899999999999998
         }
@@ -75,7 +75,7 @@
         },
         "scores": {
           "cimbalom_size": 25.349999999999994,
-          "cimbalom_mallet": 0.42
+          "cimbalom_mallet": 0.375
         }
       },
       {
@@ -90,10 +90,10 @@
         },
         "scores": {
           "bowed_technique": 6.4700000000000015,
-          "fiddle_strings": 0.38999999999999996,
+          "fiddle_strings": 0.345,
           "fiddle_bow": 1.7199999999999998,
           "fiddle_mute": 0.39,
-          "fiddle_articulation": 0.9099999999999999,
+          "fiddle_articulation": 0.895,
           "fiddle_string_configuration": 0
         }
       },
@@ -109,7 +109,7 @@
         "scores": {
           "wind_articulation": 0.6399999999999999,
           "clarinet_body": 4.03,
-          "clarinet_size": 2.08,
+          "clarinet_size": 2.035,
           "clarinet_reed": 0.345,
           "clarinet_articulation": 0.105
         }

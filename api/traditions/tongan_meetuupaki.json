@@ -5,7 +5,7 @@
   "lineage": "Standing dance-song of Tonga performed by a large group of men holding carved paddles (paki), whose poetry and movements are counted among the oldest surviving in Tongan dance and were already reported by Captain Cook's voyages. The dancers sing the song themselves, often joined by other singers, while the dance master keeps the beat on a small lali slit drum; Adrienne Kaeppler's research on Tongan dance documents the form and its texts. The Pacific slit-gong card stands in for the small lali.",
   "recipe": "classic modern meʻetuʻupaki, praise Song, oceania pacific branch. group vocals. pacific slit gong. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 178,
-  "score": 1.788,
+  "score": 1.757,
   "config": {
     "traditions": [
       "tongan_meetuupaki"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },

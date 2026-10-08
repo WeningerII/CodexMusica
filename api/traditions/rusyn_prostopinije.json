@@ -5,7 +5,7 @@
   "lineage": "Congregational plainchant of the Byzantine Catholic (Greek Catholic) Ruthenians of the Carpathians, in the eparchies of Mukachevo and Prešov, sung in Church Slavonic by a cantor (diak) and the whole congregation in unison without instruments, on melodies grouped in the eight tones. Rooted in older East Slavic church chant and coloured by local folk song, it was codified in Ioann Bokšaj's Uzhhorod chant book Cerkovnoje prostopinije and carried by emigrants to the Ruthenian Byzantine Catholic parishes of the United States.",
   "recipe": "classic modern prostopinije, ritual Devotional, Russian orthodox branch. one note per syllable, choral. country church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 182,
-  "score": 3.489,
+  "score": 3.388,
   "config": {
     "traditions": [
       "rusyn_prostopinije"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.17,
-          "voice_ensemble_config": 2.047,
+          "voice_ensemble_config": 1.9465000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,

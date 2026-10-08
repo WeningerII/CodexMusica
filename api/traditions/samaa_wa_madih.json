@@ -5,7 +5,7 @@
   "lineage": "Moroccan Sufi vocal art in which brotherhood choirs and their munshid leaders sing mystical poetry (samaʿ) and praise of the Prophet (madih), including al-Busiri's Burda and Hamziyya, on the melodic modes of the Andalusi tradition and without instruments, in Fez, Tetouan, Salé, Marrakech and other cities.",
   "recipe": "classic North African modern samaʿ wa madih, ritual Devotional, Sufi branch. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 166,
-  "score": -0.066,
+  "score": -0.035,
   "config": {
     "traditions": [
       "samaa_wa_madih"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.189,
+          "voice_multitrack_stack": 0.2205,
           "voice_tessitura": 0
         }
       }

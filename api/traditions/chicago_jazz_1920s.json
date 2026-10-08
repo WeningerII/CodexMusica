@@ -5,7 +5,7 @@
   "lineage": "Late-1920s jazz style developed in Chicago by young white musicians influenced by the New Orleans tradition transplanted to Chicago through the 1917 closure of Storyville. Characterized by greater solo-improvisation emphasis (vs Dixieland collective-improvisation), introduction of tenor saxophone, four-beat-to-the-bar rhythm (vs Dixieland's two-beat), and harder-edged \"Chicago bite\" articulation. The Austin High Gang (Bud Freeman, Frank Teschemacher, Jimmy McPartland) is the canonical Chicago school.",
   "recipe": "classic North American 1927-1929 chicago jazz, improv On Frame, early branch, American jazz pre jazz ragtime novelty piano. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, ebonite hard rubber klezmer tradition front line clarinet, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
   "recipe_chars": 680,
-  "score": 329.198,
+  "score": 329.072,
   "config": {
     "traditions": [
       "chicago_jazz_1920s",
@@ -27,7 +27,7 @@
         "scores": {
           "wind_articulation": 9.006499999999999,
           "brass_size": 0.24149999999999996,
-          "trumpet_mouthpiece": 35.9505,
+          "trumpet_mouthpiece": 35.919,
           "brass_mute": 0.375,
           "trumpet_technique": 9.006499999999999,
           "trumpet_bell_metal": 1.885,
@@ -64,12 +64,12 @@
         },
         "scores": {
           "wind_articulation": 2.325,
-          "sax_size": 1.3599999999999999,
+          "sax_size": 1.3915,
           "sax_reed": 0.27299999999999996,
           "sax_body_alloy": 30.974999999999998,
           "sax_mouthpiece": 0.24149999999999996,
           "sax_technique": 30.375,
-          "sax_maker_school": 35.4735
+          "sax_maker_school": 35.442
         }
       },
       {
@@ -87,8 +87,8 @@
         },
         "scores": {
           "keyboard_technique": 1.9500000000000002,
-          "grand_piano_size": 1.5310000000000001,
-          "grand_piano_brand": 1.5310000000000001,
+          "grand_piano_size": 1.4995,
+          "grand_piano_brand": 1.4995,
           "piano_hammer": 7.6375,
           "piano_rim": 11.7975,
           "piano_soundboard": 3.9974999999999996,
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 30.375,
-          "drumhead": 35.9005,
+          "drumhead": 35.869,
           "drum_kit_kick_pedal": 0
         }
       }

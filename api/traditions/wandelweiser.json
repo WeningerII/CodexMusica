@@ -5,7 +5,7 @@
   "lineage": "Founded in Germany in 1992 by Antoine Beuger and Burkhard Schlothauer as a composers' collective and publishing house, extending Cage's 4'33\" into a full practice — long durations built mostly of measured silence, single quiet sustained tones on flute, clarinet, strings, piano or sine tone placed at notated intervals, near-static dynamics at the edge of audibility, and performance rooms where ambient sound is treated as part of the score.",
   "recipe": "classic European early-1990s wandelweiser, art Music, western modern branch, ambient experimental electric, overtone drone modal tuvan kargyraa subharmonic throat-singing tuvan sygyt high-whistle overtone. sygyt, false fold engaged, breath pulsed, interlocked note trading. yamaha modern Japanese mid to premium breath tone airy low dynamic level flute, composite resin blackwood dust breath tone airy low dynamic level clarinet, gut sitka spruce European maple sycamore maple oil varnish violin orchestral, silver wound lamb gut core norway spruce European alpine European maple cello, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, doepfer eurorack canonical 1995 present small format standardization pad modular synth. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 833,
-  "score": 500.505,
+  "score": 501.555,
   "config": {
     "traditions": [
       "wandelweiser",
@@ -27,7 +27,7 @@
           "flute_size": 2.34,
           "flute_material": 9.52,
           "flute_technique": 1.95,
-          "flute_maker_school": 4.685
+          "flute_maker_school": 4.595
         }
       },
       {
@@ -67,9 +67,9 @@
           "orch_top_wood": 7.244999999999999,
           "orch_back_wood": 6.4,
           "orch_varnish": 6.25,
-          "orch_setup_period": 6.595,
+          "orch_setup_period": 6.7,
           "orch_bow": 0.7,
-          "orch_bow_stick": 6.5,
+          "orch_bow_stick": 6.65,
           "orch_articulation": 6.39,
           "orch_rosin": 6.835
         }
@@ -93,10 +93,10 @@
           "cello_top_wood": 3.795,
           "cello_back_wood": 6.4,
           "cello_varnish": 6.25,
-          "cello_setup_period": 6.595,
-          "cello_bow_grip": 2.8,
+          "cello_setup_period": 6.7,
+          "cello_bow_grip": 2.9499999999999997,
           "cello_rosin": 7.25,
-          "cello_bow_stick": 6.5
+          "cello_bow_stick": 6.65
         }
       },
       {
@@ -116,11 +116,11 @@
           "keyboard_technique": 3.3449999999999998,
           "grand_piano_size": 2.3499999999999996,
           "grand_piano_brand": 2.145,
-          "piano_hammer": 9.735,
+          "piano_hammer": 9.975,
           "piano_rim": 8.06,
-          "piano_soundboard": 7.25,
+          "piano_soundboard": 7.4,
           "piano_pinblock": 6.445,
-          "piano_plate": 7.9,
+          "piano_plate": 8.05,
           "piano_pitch_standard": 14.785
         }
       },
@@ -168,13 +168,13 @@
           "voice_articulation": 17.744999999999997,
           "voice_microtone": 20.279999999999994,
           "voice_tradition": 28.22,
-          "voice_mechanism_compound": 29.514999999999997,
+          "voice_mechanism_compound": 29.319999999999997,
           "voice_estill_quality": 7.4350000000000005,
           "voice_speech_song": 20.409999999999993,
           "voice_ensemble_config": 20.279999999999994,
           "voice_ornament_system": 2.7900000000000005,
-          "voice_pitch_organization": 33.23,
-          "voice_processing_chain": 10.044999999999998,
+          "voice_pitch_organization": 33.275,
+          "voice_processing_chain": 10.134999999999998,
           "voice_multitrack_stack": 5.2250000000000005
         }
       }

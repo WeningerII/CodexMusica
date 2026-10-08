@@ -3,14 +3,14 @@
   "name": "Grenada Soca",
   "family": "global",
   "lineage": "Grenadian branch of soca consolidated from the late 1970s Spice Mas carnival circuit and codified by Ajamu, Mr Killa, and Lil Natty & Thunda, running 145-165 BPM over a four-on-floor kick with heavy offbeat iron and jab-jab tempo-drop breaks, brass or synth-brass stabs, and hoarse shouted lead vocals delivering call-and-response ramajay commands to a road crowd.",
-  "recipe": "classic North American 1977-1979 grenada soca, carnival Processional, Caribbean branch, Caribbean groove percussion, reggae diaspora bass system punta rock bomba y plena. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, analog poly synth, alder la bella flats Detroit soul bass canon thumb muted electric bass, red brass 90 10 darkest schilke chicago lead bright heavy one piece matched to monette horn ensemble trumpet, red brass 90 10 darker orchestral bass leaning trombone, agogo, steelpan. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 769,
-  "score": 171.675,
+  "recipe": "classic North American 1977-1979 grenada soca, carnival Processional, Caribbean branch, Caribbean groove percussion, reggae diaspora bass system bomba y plena soca. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, analog poly synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, red brass 90 10 darkest schilke chicago lead bright ensemble heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard ensemble tenor standard standard backbore trombone, agogo, steelpan. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 841,
+  "score": 175.13,
   "config": {
     "traditions": [
       "grenada_soca",
-      "punta_rock",
-      "bomba_y_plena"
+      "bomba_y_plena",
+      "soca"
     ],
     "instruments": [
       {
@@ -29,40 +29,40 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 1.5274999999999999,
-          "voice_quality": 9.620000000000001,
+          "voice_register": 3.5700000000000003,
+          "voice_quality": 9.555,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 17.679999999999993,
-          "voice_microtone": 17.679999999999993,
-          "voice_tradition": 6.825,
-          "voice_mechanism_compound": 5.720000000000001,
-          "voice_estill_quality": 4.875,
-          "voice_speech_song": 18.784999999999993,
-          "voice_ensemble_config": 19.109999999999992,
-          "voice_ornament_system": 0.85,
-          "voice_pitch_organization": 0.5199999999999999,
-          "voice_processing_chain": 6.045,
-          "voice_multitrack_stack": 5.590000000000001
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 15.859999999999994,
+          "voice_microtone": 15.859999999999992,
+          "voice_tradition": 7.0200000000000005,
+          "voice_mechanism_compound": 3.965,
+          "voice_estill_quality": 3.7700000000000005,
+          "voice_speech_song": 17.159999999999993,
+          "voice_ensemble_config": 17.744999999999994,
+          "voice_ornament_system": 1.3499999999999996,
+          "voice_pitch_organization": 0.45500000000000007,
+          "voice_processing_chain": 6.05,
+          "voice_multitrack_stack": 3.9325000000000006
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
+          "drum_machine_808_context": "drum_machine_808_miami",
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 1.69,
-          "drum_machine_808_context": 1.95,
-          "tr808_production_origin": 1.3
+          "tr808_voice": 1.4949999999999999,
+          "drum_machine_808_context": 3.0875,
+          "tr808_production_origin": 2.45
         }
       },
       {
@@ -70,36 +70,36 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 2.03,
-          "poly_archetypes": 0.195,
-          "poly_voices": 0.15,
-          "poly_maker_lineage": -0.035
+          "electronic_technique": 1.5299999999999998,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": 0.325
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "thumb_muted",
+          "bass_technique": "sub_bass_synth_blend",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.885,
-          "body_wood": 1.2950000000000002,
-          "pickup_config": 0.5,
-          "string_type": 2.9250000000000007,
-          "scale_length_b": 0.78,
+          "amp_make": 3.335000000000001,
+          "body_wood": 0.585,
+          "pickup_config": 0.65,
+          "string_type": 4.6000000000000005,
+          "scale_length_b": 0.65,
           "fretted_or_not": 0.195,
-          "bass_technique": 2.12,
+          "bass_technique": 2.295,
           "electric_bass_string_configuration": 0
         }
       },
@@ -107,7 +107,7 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "flugelhorn",
+          "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "cup_mute",
           "trumpet_technique": "trumpet_punchy_ensemble",
@@ -115,45 +115,45 @@
           "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 1.9499999999999997,
-          "brass_size": 0.24,
-          "trumpet_mouthpiece": 3.185,
+          "wind_articulation": 3.59,
+          "brass_size": 0.65,
+          "trumpet_mouthpiece": 3.575,
           "brass_mute": 0,
-          "trumpet_technique": 1.9499999999999997,
-          "trumpet_bell_metal": 2.42,
-          "trumpet_maker_school": 2.04
+          "trumpet_technique": 3.59,
+          "trumpet_bell_metal": 2.675,
+          "trumpet_maker_school": 1.54
         }
       },
       {
         "id": "trombone",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "trombone_type": "valve_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_3g",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
           "trombone_mute": "cup_mute_trb",
           "trombone_technique": "tailgate_slide",
-          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 1.9499999999999997,
-          "trombone_type": 0.15,
-          "trombone_mouthpiece": 1.69,
+          "wind_articulation": 3.59,
+          "trombone_type": 0,
+          "trombone_mouthpiece": 1.635,
           "trombone_mute": 0,
-          "trombone_technique": 1.15,
-          "trombone_bell_metal": 2.42,
-          "trombone_maker_school": 0.345
+          "trombone_technique": 1,
+          "trombone_bell_metal": 2.675,
+          "trombone_maker_school": 0.65
         }
       },
       {
         "id": "agogo",
         "slots": {
-          "agogo_bell": "agogo_double",
+          "agogo_bell": "agogo_triple",
           "agogo_context": "agogo_bateria"
         },
         "scores": {
-          "agogo_bell": 0.6950000000000001,
-          "agogo_context": 5.52
+          "agogo_bell": 1.885,
+          "agogo_context": 6.075
         }
       },
       {
@@ -164,7 +164,7 @@
         },
         "scores": {
           "steelpan_voice": 1.2349999999999999,
-          "steelpan_context": 1.17
+          "steelpan_context": 2.6
         }
       }
     ],

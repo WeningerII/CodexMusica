@@ -5,7 +5,7 @@
   "lineage": "Argentine R&B connects local singers and bands with contemporary soul and funk. Collaborative projects such as Sophie Sobral y Factor Paracaídas bring Spanish-language songwriting together with instrumental experimentation across Buenos Aires and Rosario.",
   "recipe": "classic r&b argentino, functional Song, soul R&B branch. Fender blackface amp American 60s amp spring reverb bright humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, digital subtractive, sticks pocket drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 395,
-  "score": 52.48,
+  "score": 51.791,
   "config": {
     "traditions": [
       "r_and_b_argentino"
@@ -58,31 +58,31 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_9_hum",
           "finish": "nitro_hum",
           "string_tuning": "open_g"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 8.873,
-          "body_wood": 0.7875000000000001,
-          "neck_wood": 0.33599999999999997,
+          "amp_make": 8.7365,
+          "body_wood": 0.8190000000000002,
+          "neck_wood": 0.2415,
           "fretboard": 0.2415,
           "pickup_magnet": 0.315,
           "pickup_winding": 0.315,
           "string_material": 0.2415,
-          "bridge": 0.33599999999999997,
-          "scale_length": 0.819,
-          "string_gauge": 0.33599999999999997,
+          "bridge": 0.231,
+          "scale_length": 0.9240000000000002,
+          "string_gauge": 0.3,
           "finish": 0,
-          "string_tuning": 0.8340000000000001
+          "string_tuning": 0.9075
         }
       },
       {
@@ -92,17 +92,17 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.1290000000000004,
-          "body_wood": 0.6720000000000002,
+          "amp_make": 6.992500000000001,
+          "body_wood": 0.462,
           "pickup_config": 0.45149999999999996,
           "string_type": 8.45,
-          "scale_length_b": 0.39,
+          "scale_length_b": 0.315,
           "fretted_or_not": 0.2115,
           "bass_technique": 8.7,
           "electric_bass_string_configuration": 0
@@ -130,7 +130,7 @@
         },
         "scores": {
           "drum_technique": 6.2,
-          "drumhead": 0.4095,
+          "drumhead": 0.3045,
           "drum_kit_kick_pedal": 0
         }
       }

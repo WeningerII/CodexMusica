@@ -5,7 +5,7 @@
   "lineage": "Bolivian cumbia of Cochabamba, Santa Cruz and La Paz from the late 1970s, codified by Maroyu, Grupo Néctar's Bolivian antecedents and Los Ronisch — minor-key 90–100 BPM cumbia with charango and zampoña or synth-panpipe leads, huayno-derived melodic cells and a plaintive high male vocal.",
   "recipe": "classic Andean 1977-1979 cumbia boliviana, groove Percussion, Latin am branch, andean field work, andean carnival processional huayno peruano folklore ecuatoriano. sygyt, forward-resonance, straight note core, interlocked note trading. naranjillo andean premium wood cedar andean andean classical charango, paired rows interlocking standard register siku panpipes, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, la bella flats Detroit soul bass canon electric bass, guiro, open slap hand drum timbales, bombo andino. andean altiplano outdoor. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 723,
-  "score": 212.81,
+  "score": 212.9,
   "config": {
     "traditions": [
       "cumbia_boliviana",
@@ -51,7 +51,7 @@
         },
         "scores": {
           "electronic_technique": 1.17,
-          "poly_archetypes": 0.39,
+          "poly_archetypes": 0.435,
           "poly_voices": 0,
           "poly_maker_lineage": 1.2349999999999999
         }
@@ -71,7 +71,7 @@
         "scores": {
           "amp_make": 2.73,
           "body_wood": 0.195,
-          "pickup_config": 0.54,
+          "pickup_config": 0.5850000000000001,
           "string_type": 1.17,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.65,

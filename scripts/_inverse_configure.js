@@ -25,6 +25,7 @@ const SIGS = (() => {
 function seedCard(instrumentId, traditionId) {
   const inst = C.INSTRUMENTS.find((x) => x.id === instrumentId);
   if (!inst) return null;
+  if (traditionId) traditionId = C.resolveTraditionId(traditionId);
   const trad = traditionId ? C.TRADITIONS.find((t) => t.id === traditionId) : null;
 
   const parts = {};

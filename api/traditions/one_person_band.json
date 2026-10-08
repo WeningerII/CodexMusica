@@ -5,7 +5,7 @@
   "lineage": "Bob Log III — issuing-label documented solo stage configuration. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic one-person band, functional Song, blues electric branch. one note per syllable, solo with instrumental accompaniment. slide archtop guitar, bass drum, foot operated cymbal, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 300,
-  "score": 6.531,
+  "score": 6.468,
   "config": {
     "traditions": [
       "one_person_band"
@@ -60,7 +60,7 @@
           "slide_archtop_tuning_scope": "slide_archtop_low_open_unspecified"
         },
         "scores": {
-          "slide_archtop_construction": 0.3045,
+          "slide_archtop_construction": 0.27299999999999996,
           "slide_archtop_technique": 0.7149999999999999,
           "slide_archtop_tuning_scope": 0
         }
@@ -72,7 +72,7 @@
           "bass_drum_beater": "bass_drum_felt_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.0315,
+          "bass_drum_size": 0,
           "bass_drum_beater": 0
         }
       },

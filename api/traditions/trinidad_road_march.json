@@ -3,14 +3,14 @@
   "name": "Trinidad calypso-soca road march",
   "family": "global",
   "lineage": "Trinidadian Carnival road-march tradition continuous from 19th-century post-emancipation Carnival celebrations through 20th-century calypso (1930s-1960s Lord Kitchener and Mighty Sparrow era) and soca (1970s-onward Lord Shorty era) into modern Trinidad-and-Tobago Carnival continuous practice; the \"Road March\" is the canonical Carnival competition for the song most-played during Carnival processional",
-  "recipe": "classic Caribbean mid-1930s trinidad calypso-soca road march, carnival Processional, Caribbean branch, Brazilian carnival processional, americas wedding, iberian Latin protest song brazilian samba-school enredo rap político. thick, breath veiled tone, straight onset, interlocked note trading. concert stage steel steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato standard rim trumpet, kevlar aramid extreme tension brushes-and-sticks drum kit, steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 739,
-  "score": 169.497,
+  "recipe": "classic Caribbean mid-1930s trinidad calypso-soca road march, carnival Processional, Caribbean branch, Brazilian carnival processional, americas wedding, iberian Latin protest song raíces nueva canción. thick, breath veiled tone, straight onset, interlocked note trading. arranged concert stage steel steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato standard rim trumpet, pre muffled edge muffled brushes-and-sticks drum kit, arranged concert stage steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 744,
+  "score": 195.055,
   "config": {
     "traditions": [
       "trinidad_road_march",
-      "brazilian_samba_school_enredo",
-      "rap_politico"
+      "raices",
+      "nueva_cancion"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_tradition": "andean_quechua_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_oral_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.9,
-          "voice_quality": 23.82249999999999,
+          "voice_register": 0.6749999999999999,
+          "voice_quality": 11.309999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4050000000000002,
-          "voice_articulation": 14.949999999999996,
-          "voice_microtone": 14.949999999999992,
-          "voice_tradition": 5.815,
-          "voice_mechanism_compound": 1.13,
-          "voice_estill_quality": 1.825,
-          "voice_speech_song": 20.734999999999992,
-          "voice_ensemble_config": 14.884999999999994,
-          "voice_ornament_system": 3.5749999999999997,
-          "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 5.35,
-          "voice_multitrack_stack": 6.240000000000001
+          "voice_vibrato": 3.0550000000000006,
+          "voice_articulation": 21.58,
+          "voice_microtone": 20.734999999999992,
+          "voice_tradition": 11.407499999999999,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 4.825,
+          "voice_speech_song": 26.325,
+          "voice_ensemble_config": 19.369999999999997,
+          "voice_ornament_system": 7.8975,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 6.6000000000000005,
+          "voice_multitrack_stack": 8.84
         }
       },
       {
@@ -59,15 +59,15 @@
           "steelpan_context": "steelpan_orchestra"
         },
         "scores": {
-          "steelpan_voice": 0.78,
-          "steelpan_context": 2.79
+          "steelpan_voice": 0.585,
+          "steelpan_context": 3.6799999999999997
         }
       },
       {
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "brass_size": "trumpet_b_flat",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "bach_trumpet_mp_3c",
           "brass_mute": "cup_mute",
           "trumpet_technique": "trumpet_punchy_ensemble",
@@ -75,25 +75,25 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.9399999999999995,
-          "brass_size": 0.045,
-          "trumpet_mouthpiece": 4.87,
+          "wind_articulation": 3.25,
+          "brass_size": 1.04,
+          "trumpet_mouthpiece": 3.3950000000000005,
           "brass_mute": 0,
-          "trumpet_technique": 0.7349999999999999,
-          "trumpet_bell_metal": 3.619999999999999,
-          "trumpet_maker_school": 3.715
+          "trumpet_technique": 1.2349999999999999,
+          "trumpet_bell_metal": 2.08,
+          "trumpet_maker_school": 2.73
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.014999999999997,
-          "drumhead": 5.025,
+          "drum_technique": 18.85,
+          "drumhead": 3.395,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -101,13 +101,13 @@
         "id": "steel_orchestra",
         "slots": {
           "steel_orchestra_sections": "steel_orchestra_mid_harmony",
-          "steel_orchestra_context": "steel_orchestra_pan_on_the_road",
-          "steel_orchestra_size": "steel_orchestra_large_conventional"
+          "steel_orchestra_context": "steel_orchestra_concert_session",
+          "steel_orchestra_size": "steel_orchestra_stageside"
         },
         "scores": {
-          "steel_orchestra_sections": 0.615,
-          "steel_orchestra_context": 0.195,
-          "steel_orchestra_size": 0.15
+          "steel_orchestra_sections": 0.65,
+          "steel_orchestra_context": 1.69,
+          "steel_orchestra_size": 0.195
         }
       }
     ],

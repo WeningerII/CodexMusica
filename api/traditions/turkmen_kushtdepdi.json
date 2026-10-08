@@ -5,7 +5,7 @@
   "lineage": "Rite of singing and dancing of the Turkmen, inscribed on the UNESCO Representative List, performed at weddings, festivals and other celebrations: a lead singer sings verses while a group of dancers moves in a circle, answering with stamping steps, clapping and shouted refrains. It is kept up by village performers and by folklore ensembles.",
   "recipe": "classic modern küşt depdi, ritual Devotional. single leader group response. foot stomp, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 178,
-  "score": 2.053,
+  "score": 2.347,
   "config": {
     "traditions": [
       "turkmen_kushtdepdi"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.1049999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
@@ -59,7 +59,7 @@
           "stomp_surface": "stomp_wood_stage"
         },
         "scores": {
-          "stomp_footwear": 0.3,
+          "stomp_footwear": 0.3315,
           "stomp_surface": 0
         }
       },
@@ -70,8 +70,8 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0,
-          "clap_capture": 0.504
+          "clap_technique": 0.0315,
+          "clap_capture": 0.6405000000000001
         }
       }
     ],

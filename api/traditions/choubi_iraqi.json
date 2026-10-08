@@ -5,7 +5,7 @@
   "lineage": "Iraqi wedding and party dance music, the country's counterpart to the Levantine dabke, built on a driving signature beat topped by crisp, rapid-fire figures on the khishba hand drum. Fiddles, double-reed shawms, oud, bass and keyboards can carry the melody, and the style is heard on Iraqi wedding and party recordings from the 1980s onward; the darbuka card stands in for the khishba.",
   "recipe": "classic mid-1980s choubi, wedding, middle eastern branch. darbuka, fiddle, oud, electronic keyboard unspecified. urban courtyard. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 221,
-  "score": 9.895,
+  "score": 9.612,
   "config": {
     "traditions": [
       "choubi_iraqi"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.368625,
+          "voice_processing_chain": 0.21,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -62,9 +62,9 @@
         },
         "scores": {
           "percussion_technique": -0.07,
-          "darbuka_material": 0.72,
+          "darbuka_material": 0.44699999999999995,
           "darbuka_skin": 0,
-          "darbuka_regional_style": 0.69075
+          "darbuka_regional_style": 0.61725
         }
       },
       {
@@ -82,7 +82,7 @@
           "fiddle_strings": 0,
           "fiddle_bow": 0,
           "fiddle_mute": 0,
-          "fiddle_articulation": 0.0315,
+          "fiddle_articulation": 0,
           "fiddle_string_configuration": 0
         }
       },
@@ -115,7 +115,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0.105,
-          "keyboard_technique": 0.0315
+          "keyboard_technique": 0
         }
       }
     ],

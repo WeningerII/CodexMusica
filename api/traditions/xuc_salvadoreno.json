@@ -5,7 +5,7 @@
   "lineage": "Salvadoran dance genre created in the 1940s by the bandleader and composer Francisco 'Paquito' Palaviccini, whose Orquesta Internacional Polío recorded it with a dance-band line-up of trumpets, saxophones, trombones, piano, bass and drums. His 'El carnaval de San Miguel' tied the xuc to the carnival of San Miguel, and it is often described as El Salvador's national dance.",
   "recipe": "classic tropical mid-1940s xuc, functional Song, tropical song branch. trumpet, saxophone, trombone, upright piano, upright bass, brushes-and-sticks drum kit. live tracking. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 283,
-  "score": 8.075,
+  "score": 8.212,
   "config": {
     "traditions": [
       "xuc_salvadoreno"
@@ -83,8 +83,8 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "upright_use": 0.6195,
-          "upright_piano_size": 0
+          "upright_use": 0.651,
+          "upright_piano_size": 0.105
         }
       },
       {

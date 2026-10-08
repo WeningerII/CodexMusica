@@ -1,14 +1,15 @@
 {
-  "id": "punk_rock_italiano",
-  "name": "Punk rock italiano",
+  "id": "italian_punk",
+  "merged_from": "punk_rock_italiano",
+  "name": "Italian punk",
   "family": "rock_punk",
-  "lineage": "Italian punk rock connects guitar-band directness with garage, glam and rock-and-roll influences.",
-  "recipe": "classic punk rock italiano, distorted Rock, punk branch. one note per syllable. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, glockenspiel, tambourine orch, maracas, cencerro, saxophone, upright piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 457,
-  "score": 64.772,
+  "lineage": "Italian punk includes direct guitar-band practice linked to independent hardcore scenes.",
+  "recipe": "classic italian punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 306,
+  "score": 38.674,
   "config": {
     "traditions": [
-      "punk_rock_italiano"
+      "italian_punk"
     ],
     "instruments": [
       {
@@ -30,14 +31,14 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 17.326999999999998,
-          "body_wood": 1.7954999999999999,
+          "amp_make": 15.145,
+          "body_wood": 0.9359999999999999,
           "neck_wood": 0.063,
-          "fretboard": 0.273,
+          "fretboard": 0.18,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.273,
+          "bridge": 0.18,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -57,13 +58,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.5649999999999995,
-          "body_wood": 1.7954999999999999,
+          "amp_make": 2.275,
+          "body_wood": 0.9359999999999999,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 20.7815,
+          "bass_technique": 12.5855,
           "electric_bass_string_configuration": 0
         }
       },
@@ -75,8 +76,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 0.40950000000000003,
+          "drum_technique": 3.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -93,8 +94,8 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
@@ -112,95 +113,13 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.609,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.23399999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.23399999999999999,
           "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "glockenspiel",
-        "slots": {
-          "percussion_technique": "percussion_mallets_orchestral",
-          "glockenspiel_size": "glockenspiel_orch_25",
-          "glockenspiel_mallet": "glockenspiel_brass"
-        },
-        "scores": {
-          "percussion_technique": -0.05,
-          "glockenspiel_size": 0,
-          "glockenspiel_mallet": -0.05
-        }
-      },
-      {
-        "id": "tambourine_orch",
-        "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_brass",
-          "tambourine_orch_context": "tambourine_orch_pop"
-        },
-        "scores": {
-          "tambourine_orch_jingle": -0.05,
-          "tambourine_orch_context": -0.035
-        }
-      },
-      {
-        "id": "maracas",
-        "slots": {
-          "maracas_construction": "maracas_gourd",
-          "maracas_filling": "maracas_seeds"
-        },
-        "scores": {
-          "maracas_construction": 0.336,
-          "maracas_filling": 0
-        }
-      },
-      {
-        "id": "cencerro",
-        "slots": {
-          "cencerro_bell_type": "cencerro_cha_cha_bell",
-          "cencerro_context": "cencerro_charanga",
-          "cencerro_build": "cencerro_welded_steel"
-        },
-        "scores": {
-          "cencerro_bell_type": 0.0315,
-          "cencerro_context": 0,
-          "cencerro_build": 0
-        }
-      },
-      {
-        "id": "saxophone",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "sax_size": "alto_sax",
-          "sax_reed": "medium_reed",
-          "sax_body_alloy": "yellow_brass_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_continuous_legato",
-          "sax_maker_school": "sax_selmer_mark_vi"
-        },
-        "scores": {
-          "wind_articulation": -0.1,
-          "sax_size": -0.035,
-          "sax_reed": 0,
-          "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0,
-          "sax_technique": -0.05,
-          "sax_maker_school": -0.07
-        }
-      },
-      {
-        "id": "upright_piano",
-        "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_standard"
-        },
-        "scores": {
-          "keyboard_technique": -0.07,
-          "upright_use": 0.546,
-          "upright_piano_size": 0
         }
       }
     ],
@@ -250,38 +169,6 @@
         "voice_processing_chain",
         "voice_multitrack_stack",
         "voice_tessitura"
-      ],
-      "glockenspiel": [
-        "percussion_technique",
-        "glockenspiel_size",
-        "glockenspiel_mallet"
-      ],
-      "tambourine_orch": [
-        "tambourine_orch_jingle",
-        "tambourine_orch_context"
-      ],
-      "maracas": [
-        "maracas_construction",
-        "maracas_filling"
-      ],
-      "cencerro": [
-        "cencerro_bell_type",
-        "cencerro_context",
-        "cencerro_build"
-      ],
-      "saxophone": [
-        "wind_articulation",
-        "sax_size",
-        "sax_reed",
-        "sax_body_alloy",
-        "sax_mouthpiece",
-        "sax_technique",
-        "sax_maker_school"
-      ],
-      "upright_piano": [
-        "keyboard_technique",
-        "upright_use",
-        "upright_piano_size"
       ]
     },
     "room": "treated_studio",
@@ -311,8 +198,8 @@
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
       "voice_ornament_system": "voice_ornament_none",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
@@ -339,27 +226,7 @@
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
-      "percussion_technique": "percussion_mallets_orchestral",
-      "glockenspiel_size": "glockenspiel_orch_25",
-      "glockenspiel_mallet": "glockenspiel_brass",
-      "tambourine_orch_jingle": "tambourine_orch_brass",
-      "tambourine_orch_context": "tambourine_orch_pop",
-      "maracas_construction": "maracas_gourd",
-      "maracas_filling": "maracas_seeds",
-      "cencerro_bell_type": "cencerro_cha_cha_bell",
-      "cencerro_context": "cencerro_charanga",
-      "cencerro_build": "cencerro_welded_steel",
-      "wind_articulation": "wind_continuous_legato",
-      "sax_size": "alto_sax",
-      "sax_reed": "medium_reed",
-      "sax_body_alloy": "yellow_brass_sax",
-      "sax_mouthpiece": "hard_rubber_mp",
-      "sax_technique": "sax_continuous_legato",
-      "sax_maker_school": "sax_selmer_mark_vi",
-      "keyboard_technique": "keyboard_block_chord_pop",
-      "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard"
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

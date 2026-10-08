@@ -5,7 +5,7 @@
   "lineage": "Persian wedding-music tradition continuous from medieval Persian-domestic-music practice through Qajar-and-Pahlavi-era documented performance into modern Iranian and Iranian-diaspora practice; defined by daf-and-tar-and-vocal ensemble",
   "recipe": "classic Middle Eastern modern persian aroosi, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab tajik traditional music. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut bent frame canonical Persian synthetic remo modern stable brass rings canonical Iranian daf, synthetic brass gut historical pre modern qajar modern concert tar walnut bowl canonical Persian steel brass wound setar persian, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 713,
-  "score": 355.375,
+  "score": 356.035,
   "config": {
     "traditions": [
       "persian_aroosi",
@@ -38,12 +38,12 @@
           "voice_quality": 8.58,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.390000000000002,
+          "voice_vibrato": 11.690000000000001,
           "voice_articulation": 14.819999999999993,
           "voice_microtone": 32.2725,
-          "voice_tradition": 35.15,
+          "voice_tradition": 34.955,
           "voice_mechanism_compound": 33.725,
-          "voice_estill_quality": 13.23,
+          "voice_estill_quality": 13.29,
           "voice_speech_song": 19.044999999999995,
           "voice_ensemble_config": 16.18499999999999,
           "voice_ornament_system": 33.725,
@@ -63,8 +63,8 @@
         },
         "scores": {
           "daf_rings": 0.35,
-          "daf_context": 15.215,
-          "daf_shell_wood": 10,
+          "daf_context": 15.319999999999999,
+          "daf_shell_wood": 10.045,
           "daf_head_material": 1.54,
           "daf_jingle_metal": 3.7249999999999996
         }
@@ -80,12 +80,12 @@
           "tar_tradition": "tar_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": 11.525000000000002,
+          "plucked_traditional_technique": 11.570000000000002,
           "tar_belly": 1.54,
           "tar_pick": 4.590000000000001,
           "tar_body_wood": 0.78,
           "tar_string_material": 3.285,
-          "tar_tradition": 1.63
+          "tar_tradition": 1.585
         }
       },
       {
@@ -99,7 +99,7 @@
           "setar_tradition": "setar_radif_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 11.525000000000002,
+          "plucked_traditional_technique": 11.570000000000002,
           "setar_strings": -0.05,
           "setar_pluck": 4.4,
           "setar_body_wood": 7.784999999999999,
@@ -117,9 +117,9 @@
         },
         "scores": {
           "percussion_technique": 0.6499999999999999,
-          "darbuka_material": 2.035,
+          "darbuka_material": 2.185,
           "darbuka_skin": 3.5749999999999997,
-          "darbuka_regional_style": 3.035
+          "darbuka_regional_style": 3.185
         }
       }
     ],

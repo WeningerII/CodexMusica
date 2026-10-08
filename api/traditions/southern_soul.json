@@ -5,7 +5,7 @@
   "lineage": "African-American gospel-belt vocal soul tradition codified through Stax Records Memphis (Otis Redding, Sam and Dave, Wilson Pickett, Eddie Floyd, Booker T and the MGs), FAME Studios Muscle Shoals (Aretha Franklin I Never Loved a Man, Wilson Pickett Mustang Sally, Etta James Tell Mama), and Muscle Shoals Sound Studio (Aretha Franklin Spirit in the Dark, Bob Seger, Wilson Pickett)",
   "recipe": "classic Southern American mid-1970s southern soul, functional Song, soul R&B branch, christian gospel ritual devotional jubilee quartet sacred steel. thick, blues-shouter, wide pitch sway, leader call answered. Fender blackface amp American 60s amp spring reverb bright wenge nickel plated steel single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble ebonite saxophone, bach stradivarius 180 canonical American orchestral ensemble standard rim orchestral balance trumpet. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 882,
-  "score": 495.563,
+  "score": 497.602,
   "config": {
     "traditions": [
       "southern_soul",
@@ -21,7 +21,7 @@
           "body_wood": "mahogany",
           "neck_wood": "wenge_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
           "bridge": "hardtail",
@@ -31,12 +31,12 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 14.594999999999997,
-          "amp_make": 19.409999999999997,
+          "electric_technique": 14.639999999999997,
+          "amp_make": 19.74,
           "body_wood": 0.585,
           "neck_wood": 1,
           "fretboard": 0.5199999999999999,
-          "pickup_magnet": 0.345,
+          "pickup_magnet": 0.195,
           "string_material": 4.029999999999999,
           "string_gauge": 0.585,
           "bridge": 0.195,
@@ -59,10 +59,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 22.064999999999998,
+          "amp_make": 22.334999999999997,
           "body_wood": 0.585,
           "pickup_config": 0,
-          "string_type": 17.972499999999997,
+          "string_type": 18.0175,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.78,
           "bass_technique": 14.399999999999999,
@@ -90,7 +90,7 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 40.295,
+          "keyboard_technique": 40.895,
           "upright_use": 0.585,
           "upright_piano_size": 1.04
         }
@@ -108,10 +108,10 @@
         },
         "scores": {
           "wind_articulation": 16.8375,
-          "sax_size": 15.089999999999998,
+          "sax_size": 15.029999999999998,
           "sax_reed": 1,
           "sax_body_alloy": 1.59,
-          "sax_mouthpiece": 1.2999999999999998,
+          "sax_mouthpiece": 1.345,
           "sax_technique": 14.399999999999999,
           "sax_maker_school": 0
         }
@@ -122,7 +122,7 @@
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "bach_trumpet_mp_3c",
-          "brass_mute": "no_mute_brass",
+          "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
@@ -131,7 +131,7 @@
           "wind_articulation": 16.8375,
           "brass_size": 0.78,
           "trumpet_mouthpiece": 1.9475,
-          "brass_mute": 0.24000000000000002,
+          "brass_mute": 0.195,
           "trumpet_technique": 16.8375,
           "trumpet_bell_metal": 0.6,
           "trumpet_maker_school": 3.12
@@ -158,21 +158,21 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 38.34,
+          "voice_register": 38.385,
           "voice_quality": 20.214999999999986,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.25,
-          "voice_articulation": 20.66,
+          "voice_articulation": 20.705,
           "voice_microtone": 15.144999999999989,
-          "voice_tradition": 48.442499999999995,
+          "voice_tradition": 49.177499999999995,
           "voice_mechanism_compound": 2.145,
           "voice_estill_quality": 34.72500000000001,
           "voice_speech_song": 18.32999999999999,
-          "voice_ensemble_config": 20.814999999999998,
+          "voice_ensemble_config": 20.86,
           "voice_ornament_system": 8.025000000000002,
           "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 5.9575000000000005,
+          "voice_processing_chain": 6.0475,
           "voice_multitrack_stack": 3.445
         }
       }

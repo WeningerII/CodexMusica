@@ -5,7 +5,7 @@
   "lineage": "Pala is a sung narrative performance of Odisha whose troupes worship Satya Pir, a figure revered by both Hindus and Muslims. A troupe of five or six performs it: the lead singer (gayaka), who holds a fly-whisk (chamara) and a pair of cymbals, sings and expounds stories from the Puranas and Odia poetry, answered by the chorus (palia), while the drummer (bayaka) plays the mrudanga; here the mardala card stands in for the mrudanga. It is performed seated (baithaki) or standing.",
   "recipe": "classic modern pala, ballad Poetry, indian bard branch. single lead single track no stacking. mardala, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 200,
-  "score": 2.524,
+  "score": 2.462,
   "config": {
     "traditions": [
       "pala_odisha"
@@ -69,7 +69,7 @@
           "credited_cymbals_identity": "credited_cymbals_source_unspecified"
         },
         "scores": {
-          "credited_cymbals_identity": 0.063
+          "credited_cymbals_identity": 0
         }
       }
     ],

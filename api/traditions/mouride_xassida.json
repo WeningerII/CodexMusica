@@ -5,7 +5,7 @@
   "lineage": "Group chanting of the xassida (qasida), the Arabic devotional poems of Cheikh Ahmadou Bamba, founder of the Mouride Sufi order, by kurel groups of singers in Touba, at the Grand Magal pilgrimage and at religious gatherings across Senegal; the related zikr of the Baye Fall is folded into this entry. Performances circulate widely on cassette, radio and online.",
   "recipe": "classic modern xassida, ritual Devotional, Sufi branch. metrical pitched chant fixed rhythm, single leader group response. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 202,
-  "score": 2.211,
+  "score": 2.22,
   "config": {
     "traditions": [
       "mouride_xassida"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
-          "voice_ensemble_config": 1.4859999999999998,
+          "voice_ensemble_config": 1.4949999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

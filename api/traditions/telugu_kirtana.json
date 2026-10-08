@@ -1,55 +1,56 @@
 {
-  "id": "telugu_kirtana",
-  "name": "Telugu kirtana (Carnatic devotional song)",
-  "family": "classical",
-  "lineage": "Telugu kirtana devotional-song genre within the broader Carnatic classical tradition of South India, with Telugu serving as the dominant lyrical language of the Carnatic kriti repertoire. The Telugu-language compositions of the Carnatic Trinity Tyagaraja (1767-1847), Muthuswami Dikshitar (1775-1835), and Syama Sastri (1762-1827) form the canonical core of the entire Carnatic concert repertoire. Performance follows the standard Carnatic kriti structure (pallavi-anupallavi-charanam) with raga-and-tala framework. The Tyagaraja Aradhana annual festival at Tiruvaiyaru constitutes the central institutional anchor of the kriti performance tradition.",
-  "recipe": "classic South Asian early-1760s telugu kirtana, art Music, south Asian branch, hindu ritual devotional borgeet harikatha kalakshepam. vocal fry, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, bronze steel mix gourd body canonical traditional tanpura. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 520,
-  "score": 239.748,
+  "id": "kriti",
+  "merged_from": "telugu_kirtana",
+  "name": "Kriti (Carnatic devotional composition)",
+  "family": "global",
+  "lineage": "The central composition-form of Carnatic classical music, codified by the early-19th-century Trinity (Tyagaraja set Telugu and Sanskrit devotional poetry to ~600 kritis predominantly to Rama; Muthuswami Dikshitar composed in Sanskrit predominantly to various deities; Syama Sastri composed predominantly to the Goddess) — every kriti has the standard pallavi (refrain) / anupallavi (upward-developing second section) / charanam (longer extending section) structure",
+  "recipe": "classic South Asian early-1950s kriti, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music dadra tappa. vocal fry, declaimed, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 516,
+  "score": 257.035,
   "config": {
     "traditions": [
-      "telugu_kirtana",
-      "borgeet_assamese",
-      "harikatha_kalakshepam"
+      "kriti",
+      "dadra",
+      "tappa"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 0.845,
-          "voice_quality": 29.055,
+          "voice_register": 2.34,
+          "voice_quality": 12.708999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.319999999999999,
-          "voice_articulation": 9.945,
-          "voice_microtone": 9.555,
-          "voice_tradition": 28.175,
-          "voice_mechanism_compound": 5.915,
-          "voice_estill_quality": 7.54,
-          "voice_speech_song": 13.129999999999995,
-          "voice_ensemble_config": 9.685,
-          "voice_ornament_system": 29.17,
-          "voice_pitch_organization": 30.04,
-          "voice_processing_chain": 9.49,
-          "voice_multitrack_stack": 1.69
+          "voice_vibrato": 17.225,
+          "voice_articulation": 4.225,
+          "voice_microtone": 4.030000000000001,
+          "voice_tradition": 31.666999999999998,
+          "voice_mechanism_compound": 13.149999999999999,
+          "voice_estill_quality": 19.584,
+          "voice_speech_song": 14.084499999999997,
+          "voice_ensemble_config": 4.355,
+          "voice_ornament_system": 21.294999999999998,
+          "voice_pitch_organization": 21.474999999999998,
+          "voice_processing_chain": 2.73,
+          "voice_multitrack_stack": 2.9899999999999998
         }
       },
       {
@@ -62,11 +63,11 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 2.9899999999999998,
+          "mridangam_heads": 6.89,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 12.94,
-          "mridangam_heads_material": 2.535,
-          "mridangam_lineage": 12.094999999999999
+          "mridangam_shell_wood": 2.9899999999999998,
+          "mridangam_heads_material": 0,
+          "mridangam_lineage": 3.6399999999999997
         }
       },
       {
@@ -76,26 +77,43 @@
           "tanpura_size": "female_size",
           "tanpura_jawari": "curved_jawari",
           "tanpura_strings": "five_string_chitra",
-          "tanpura_string_material": "tanpura_bronze_steel",
-          "tanpura_body_wood": "tanpura_gourd_body"
+          "tanpura_string_material": "tanpura_brass_only",
+          "tanpura_body_wood": "tanpura_wooden_body"
         },
         "scores": {
-          "plucked_traditional_technique": 5.75,
-          "tanpura_size": 0.845,
-          "tanpura_jawari": 5.75,
-          "tanpura_strings": 1.885,
-          "tanpura_string_material": 3.38,
-          "tanpura_body_wood": 2.535
+          "plucked_traditional_technique": 13.96,
+          "tanpura_size": 7.54,
+          "tanpura_jawari": 13.25,
+          "tanpura_strings": 1.4999999999999998,
+          "tanpura_string_material": 0.39,
+          "tanpura_body_wood": 0.285
+        }
+      },
+      {
+        "id": "violin_carnatic",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "violin_carnatic_tuning": "violin_carnatic_carnatic",
+          "violin_carnatic_posture": "violin_carnatic_seated_south",
+          "violin_carnatic_strings": "violin_carnatic_gut_historical",
+          "violin_carnatic_lineage": "violin_carnatic_lalgudi"
+        },
+        "scores": {
+          "bowed_technique": 13.96,
+          "violin_carnatic_tuning": 9.424999999999999,
+          "violin_carnatic_posture": 3.25,
+          "violin_carnatic_strings": 2.7300000000000004,
+          "violin_carnatic_lineage": 3.6399999999999997
         }
       }
     ],
-    "room": "kolkata_hmv_dum_dum_studio",
+    "room": "chennai_madras_music_academy_sabha",
     "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
-      "mic": "mic_u87_condenser_neumann",
-      "pre": "tube_pre",
-      "console": "colored",
-      "comp": "comp_la2a_optical",
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
       "eq": "eq_passive_program_pultec",
       "amp": null,
       "medium": "tape_15ips"
@@ -107,7 +125,7 @@
   },
   "source": {
     "tuning": "carnatic_72_melakarta_kriti_form",
-    "room": "kolkata_hmv_dum_dum_studio",
+    "room": "chennai_madras_music_academy_sabha",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "opera_voice",
@@ -122,18 +140,28 @@
       "voice_estill_quality": "voice_estill_opera",
       "voice_vibrato": "fast_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
+      "mridangam_heads": "mridangam_standard",
+      "mridangam_use": "mridangam_carnatic",
+      "mridangam_shell_wood": "mridangam_jackwood_canonical",
+      "mridangam_heads_material": "mridangam_goat_buffalo",
+      "mridangam_lineage": "mridangam_palghat",
       "plucked_traditional_technique": "plucked_drone_modal",
       "tanpura_size": "female_size",
       "tanpura_jawari": "curved_jawari",
       "tanpura_strings": "four_string_classical",
       "tanpura_string_material": "tanpura_bronze_steel",
-      "tanpura_body_wood": "tanpura_gourd_body"
+      "tanpura_body_wood": "tanpura_gourd_body",
+      "bowed_technique": "bowed_microtonal_inflected",
+      "violin_carnatic_tuning": "violin_carnatic_carnatic",
+      "violin_carnatic_posture": "violin_carnatic_seated_south",
+      "violin_carnatic_strings": "violin_carnatic_synthetic",
+      "violin_carnatic_lineage": "violin_carnatic_lalgudi"
     },
-    "chain_mic": "mic_u87_condenser_neumann",
-    "chain_pre": "tube_pre",
-    "chain_comp": "comp_la2a_optical",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
     "chain_eq": "eq_passive_program_pultec",
     "chain_medium": "tape_15ips",
-    "chain_console": "colored"
+    "chain_console": "console_german_tube_50s"
   }
 }

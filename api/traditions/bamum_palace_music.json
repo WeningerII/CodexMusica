@@ -3,9 +3,9 @@
   "name": "Bamum palace music (Foumban)",
   "family": "classical",
   "lineage": "Court and ritual music of the Bamum kingdom, centred on the sultan's palace at Foumban, where Michel Houdry recorded palace dances and songs for Ocora in 1957. It is performed at palace ceremonies and in the Nguon, the kingdom's ritual of governance, which UNESCO inscribed on its Representative List. Generic drum, double-bell and shaker cards stand in for the palace percussion.",
-  "recipe": "classic late-1950s bamum palace music, praise Song, sub saharan African branch. membrane drum pulse resonant acoustic membrane drum, agogo source shaker source unspecified. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 264,
-  "score": 3.885,
+  "recipe": "classic late-1950s bamum palace music, praise Song, sub saharan African branch. live take. membrane drum pulse resonant acoustic membrane drum, agogo source shaker source unspecified. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 275,
+  "score": 4.096,
   "config": {
     "traditions": [
       "bamum_palace_music"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.4724999999999999,
+          "voice_multitrack_stack": 0.714,
           "voice_tessitura": 0
         }
       },
@@ -69,7 +69,7 @@
           "agogo_source_unspecified_identity": "agogo_source_unspecified_named_role"
         },
         "scores": {
-          "agogo_source_unspecified_identity": 0.1365
+          "agogo_source_unspecified_identity": 0.105
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Solemn collective anthems (singular ihubo) of the Zulu kingdom and its clans, sung by assembled regiments and people at royal ceremonies such as the umkhosi first-fruits festival and by clans at weddings and funerals; each clan and regiment has its own ihubo. They are sung by massed voices in call and response, without instruments. ILAM and SABC archival recordings document them.",
   "recipe": "classic early-1940s amahubo, ritual Devotional, indigenous branch, sub saharan African praise song. single leader group response, live take. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 232,
-  "score": 2.125,
+  "score": 2.275,
   "config": {
     "traditions": [
       "zulu_amahubo"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.6749999999999999,
+          "voice_multitrack_stack": 0.8249999999999998,
           "voice_tessitura": 0
         }
       }

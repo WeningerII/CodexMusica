@@ -5,7 +5,7 @@
   "lineage": "Modern melodic hardcore develops melodic guitar writing within forceful contemporary hardcore and metal-influenced ensembles.",
   "recipe": "classic modern melodic hardcore, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, modeled amp modern rig basswood electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 388,
-  "score": 41.302,
+  "score": 41.711,
   "config": {
     "traditions": [
       "modern_melodic_hardcore"
@@ -33,11 +33,11 @@
           "amp_make": 9.620000000000001,
           "body_wood": 4.29,
           "neck_wood": 0.063,
-          "fretboard": 0.1365,
+          "fretboard": 0.273,
           "pickup_magnet": 0,
           "pickup_winding": 2.1365,
           "string_material": 0.063,
-          "bridge": 0.1365,
+          "bridge": 0.273,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 5.231,
+          "drumhead": 5.3675,
           "drum_kit_kick_pedal": 0
         }
       },

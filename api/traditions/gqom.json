@@ -5,7 +5,7 @@
   "lineage": "South African Durban-Zulu late-2000s minimal-bass dance subgenre, codified through Naked Boys, DJ Lag, Citizen Boy, and Rudeboyz starting circa 2010 — characterized by repetitive 4/4 sub-bass-driven drum patterns at 120-130 BPM, sparse hi-hats, vocal chants in isiZulu, and the deliberately dark / minimal aesthetic distinguishing it from house and amapiano",
   "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm street-pop merenrap. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 368,
-  "score": 138.847,
+  "score": 139.417,
   "config": {
     "traditions": [
       "gqom",
@@ -38,7 +38,7 @@
           "voice_quality": 7.605000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.045,
+          "voice_vibrato": 1.9999999999999998,
           "voice_articulation": 16.444999999999993,
           "voice_microtone": 15.014999999999992,
           "voice_tradition": 12.67,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 16.119999999999994,
           "voice_ornament_system": 4.290000000000002,
           "voice_pitch_organization": 1.6449999999999998,
-          "voice_processing_chain": 5.005,
-          "voice_multitrack_stack": 7.555
+          "voice_processing_chain": 4.96,
+          "voice_multitrack_stack": 7.855
         }
       },
       {
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.959999999999999,
-          "drum_machine_808_context": 5.055,
+          "tr808_voice": 5.05,
+          "drum_machine_808_context": 5.145,
           "tr808_production_origin": 0.195
         }
       },
@@ -74,7 +74,7 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 4.905,
+          "electronic_technique": 4.995,
           "wave_acid": 0,
           "filter_acid": 2.8249999999999997,
           "accent_acid": 2.4499999999999997
@@ -89,7 +89,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 4.905,
+          "electronic_technique": 4.995,
           "poly_archetypes": 0.045,
           "poly_voices": 0.09,
           "poly_maker_lineage": -2.05

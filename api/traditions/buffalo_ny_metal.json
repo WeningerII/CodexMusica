@@ -5,7 +5,7 @@
   "lineage": "Buffalo’s metal scene includes a strong exchange with hardcore and riff-driven heavy rock. Every Time I Die exemplify a locally rooted approach combining disruptive accents, collaborative guitar writing and occasional cleaner or more melodic passages.",
   "recipe": "classic modern buffalo ny metal, distorted Rock, metal branch, punk distorted rock icelandic punk alternative hardcore. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation power chord humbucker electric guitar, ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 562,
-  "score": 110.513,
+  "score": 109.823,
   "config": {
     "traditions": [
       "buffalo_ny_metal",
@@ -33,13 +33,13 @@
         "scores": {
           "electric_technique": 16.509999999999998,
           "amp_make": 19.9225,
-          "body_wood": 0.585,
+          "body_wood": 0.39,
           "neck_wood": 0.09,
           "fretboard": 0.39,
           "pickup_magnet": 0,
           "pickup_winding": 0.195,
           "string_material": 0.09,
-          "bridge": 0.585,
+          "bridge": 0.39,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "amp_make": 6.825,
-          "body_wood": 0.585,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0.28500000000000003,
           "scale_length_b": 0,
@@ -86,7 +86,7 @@
         },
         "scores": {
           "drum_technique": 7.5,
-          "drumhead": 0.585,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0.78,
           "shell_wood": 0.135,
           "shell_thickness": 0,
@@ -133,7 +133,7 @@
           "voice_ensemble_config": 2.0799999999999996,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
+          "voice_processing_chain": 0.39,
           "voice_multitrack_stack": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Yemeni al-ghinā' al-Ṣanʻānī (\"the song of Sana'a\") classical urban-chamber-song tradition of the Yemeni highlands. Origin in the medieval Yemeni-Rasulid period (thirteenth-fifteenth centuries) with development through the Qasimid and Mutawakkilite imamate periods (seventeenth-twentieth centuries) into the modern form. Performance configuration: a male singer (the singer holds the social role of muṭrib, a respected community-cultural-figure rather than a paid entertainer) accompanies himself on the qanbus (the short-neck skin-bellied Yemeni-Arabian lute — distinct from the more familiar oud, with characteristic deep buzzing-resonance from the skin belly), or on the small-frame turbi drum or sahn metal-tray-as-percussion-surface. Performance contexts center on the qat-chew majlis (the afternoon-into-evening social gathering at a private home where male participants consume the mildly stimulant qat leaf while engaging in literary-philosophical-political conversation and song). Repertoire spans three movement-categories within a typical qomah (\"setting\"): das'ah (the slow opening movement), wasṭ (the middle movement), and ghinā' al-bāṣ (the lively concluding movement). Lyric base draws on classical Arabic poetry and especially the seventeenth-century Yemeni mystic-philosopher poet Muhammad ibn Sharaf al-Dīn (1559-1607). Modal vocabulary draws on the Arabic maqam framework with Yemeni-specific cadential and ornamental conventions. The Yemen Music House field-recording archive constitutes the principal documentation. Distinguished from Iraqi maqam by Yemeni-Sanaani's qanbus (vs Iraqi joza-and-santur) instrumental signature and Yemeni-Arabian regional dialect; distinguished from Hejazi and Najdi Arabian song by Yemeni-Sanaani's qat-majlis-chamber (vs court-or-bedouin) functional context.",
   "recipe": "classic Middle Eastern early-1550s yemeni sanaani song, art Music, middle eastern classical branch, islamic ritual devotional naʿat ibtihālāt. thick, breath veiled tone, slow rate, interlocked note trading. short neck skin bellied canonical sanaani al ghina al sanaani classical qanbus. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 371,
-  "score": 313.35,
+  "score": 315.615,
   "config": {
     "traditions": [
       "yemeni_sanaani",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 1.6450000000000002,
-          "voice_quality": 35.02,
+          "voice_quality": 35.59,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.85,
+          "voice_vibrato": 16.285,
           "voice_articulation": 17.875,
-          "voice_microtone": 42.455,
-          "voice_tradition": 29.71,
+          "voice_microtone": 43.34,
+          "voice_tradition": 29.665,
           "voice_mechanism_compound": 15.875,
-          "voice_estill_quality": 16.814999999999998,
+          "voice_estill_quality": 16.574999999999996,
           "voice_speech_song": 27.3,
           "voice_ensemble_config": 18.655,
-          "voice_ornament_system": 27.39,
-          "voice_pitch_organization": 27.525,
+          "voice_ornament_system": 27.54,
+          "voice_pitch_organization": 27.585,
           "voice_processing_chain": 6.630000000000001,
           "voice_multitrack_stack": 2.990000000000001
         }
@@ -60,7 +60,7 @@
         },
         "scores": {
           "qanbus_body": 9.739999999999998,
-          "qanbus_tradition": 14.399999999999999
+          "qanbus_tradition": 14.85
         }
       }
     ],

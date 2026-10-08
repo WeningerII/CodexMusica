@@ -5,7 +5,7 @@
   "lineage": "Music of the Festa do Divino Espírito Santo in Maranhão, especially São Luís and Alcântara, where groups of women drummer-singers called caixeiras, led by a caixeira-mor, play caixas and sing the devotional verses that accompany each stage of the festival, from the raising of the mast to the procession and crowning of the child emperor. Many of these festas are held in the terreiros of tambor de mina. Elsewhere in Brazil the same festival, registered by IPHAN as heritage at Pirenópolis in Goiás, is served instead by viola-led folias do Divino. A generic membrane-drum card stands in for the caixa.",
   "recipe": "classic modern caixeiras do divino, ritual Devotional. membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 187,
-  "score": 5.339,
+  "score": 5.433,
   "config": {
     "traditions": [
       "caixeiras_do_divino"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.19500000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }

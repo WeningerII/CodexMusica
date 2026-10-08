@@ -5,7 +5,7 @@
   "lineage": "Music of the qeej, the Hmong free-reed mouth organ of six bamboo pipes, played in the Hmong communities of Laos, Thailand and Vietnam and in the diaspora of the United States, France and Australia. Its melodies encode Hmong words through the tones of the language, so the player speaks ritual texts through the instrument; at funerals the qeej addresses the dead and guides the soul on its journey to the ancestors, played with the funeral drum, and it is also heard at New Year. The lusheng card in its qeej form stands in for the qeej, and a generic membrane-drum card for the funeral drum.",
   "recipe": "classic modern qeej, ritual Devotional, indigenous branch, east Asian funeral lament, wind pipe drone modal kantaoming. qeej funeral ritual bronze reed bamboo lusheng, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 300,
-  "score": 29.325,
+  "score": 29.175,
   "config": {
     "traditions": [
       "hmong_qeej",
@@ -24,7 +24,7 @@
           "free_reed_technique": -9.714451465470119e-18,
           "lusheng_form": 5.640000000000001,
           "lusheng_performance": 11.7,
-          "lusheng_construction": 3.5949999999999998
+          "lusheng_construction": 3.7449999999999997
         }
       },
       {
@@ -34,8 +34,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 5.895,
-          "acoustic_membrane_drum_gesture": 4.745
+          "acoustic_membrane_drum_form": 5.745,
+          "acoustic_membrane_drum_gesture": 4.595
         }
       }
     ],

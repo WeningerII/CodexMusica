@@ -5,7 +5,7 @@
   "lineage": "The epic of Pabuji, a medieval Rathore hero worshipped as a god in western Rajasthan, is performed through the night by a bhopa, a priest-singer, in front of the phad, a long painted cloth that serves as a portable shrine. The bhopa sings and dances while playing the ravanahatta spike fiddle, and his wife, the bhopi, lights episodes of the painting with an oil lamp and sings lines in turn with him. Performances are commissioned by devotees, many of them Rebari camel herders, to end illness or misfortune.",
   "recipe": "classic modern pabuji ki phad, ballad Poetry, indian bard branch. duet, single lead single track no stacking. ravanahatta. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 202,
-  "score": 2.474,
+  "score": 2.337,
   "config": {
     "traditions": [
       "pabuji_ki_phad"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.1365,
+          "voice_effort": 0.0315,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.7350000000000001,
+          "voice_multitrack_stack": 0.7034999999999999,
           "voice_tessitura": 0
         }
       },

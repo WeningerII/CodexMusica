@@ -5,7 +5,7 @@
   "lineage": "Anthem worship brings Christian devotional messages into contemporary song. Singer-songwriters and worship musicians use accessible refrains to express prayer, hope and shared faith through recordings and communal musical practice.",
   "recipe": "classic anthem worship, ritual Devotional, christian gospel branch. neutral third half flat, notated speech melody. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 243,
-  "score": 12.814,
+  "score": 12.825,
   "config": {
     "traditions": [
       "anthem_worship"
@@ -65,8 +65,8 @@
           "acoustic_technique": 0.2,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 0.294,
-          "string_acoustic": 0.8400000000000001
+          "back_sides": 0.3675,
+          "string_acoustic": 0.777
         }
       }
     ],

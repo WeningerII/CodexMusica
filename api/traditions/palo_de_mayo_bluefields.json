@@ -3,9 +3,9 @@
   "name": "Palo de Mayo (Bluefields Creole maypole music)",
   "family": "global",
   "lineage": "Palo de Mayo is the maypole dance music of the Afro-Caribbean Creole communities of Nicaragua's southern Caribbean coast, centred on Bluefields, where the month-long Mayo Ya! festival in May celebrates the decorated maypole tree with dancing and street parades; it grew from British May Day maypole customs taken up and transformed by Creole song and dance. Its songs, sung largely in Creole English by a leader with an answering chorus, were carried to national popularity by Caribbean-coast bands such as Dimensión Costeña with electric guitar, bass, keyboards and drum kit.",
-  "recipe": "classic palo de mayo, functional Song, tropical song branch. single leader group response, single lead single track no stacking. single coil electric guitar, electric bass, rompler workstation, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 302,
-  "score": 3.048,
+  "recipe": "classic palo de mayo, functional Song, tropical song branch. single leader group response. single coil electric guitar, electric bass, rompler workstation, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 264,
+  "score": 2.912,
   "config": {
     "traditions": [
       "palo_de_mayo_bluefields"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.6405000000000001,
+          "voice_multitrack_stack": 0.47250000000000003,
           "voice_tessitura": 0
         }
       },
@@ -102,7 +102,7 @@
           "body_wood": 0.105,
           "pickup_config": 0,
           "string_type": -0.1,
-          "scale_length_b": 0.5145,
+          "scale_length_b": 0.5459999999999999,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0

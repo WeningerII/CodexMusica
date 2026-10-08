@@ -5,7 +5,7 @@
   "lineage": "Old-time fiddle and step-dance music of the Ottawa Valley along the Ontario-Quebec border, formed in the lumbering communities of Renfrew County and neighbouring districts where Irish, Scottish and French-Canadian settler traditions mixed. Fiddlers play reels, jigs, clogs and waltzes for the Valley's own style of step dancing, usually backed by piano chording, and the Pembroke Old Time Fiddling and Stepdancing Championship has been its main contest stage since the 1970s. The foot-tap card stands for the step dancer's hard-shoe footwork.",
   "recipe": "classic mid-1970s ottawa valley fiddling and step dance, improv On Frame, Celtic traditional branch. fiddle, upright piano, foot tap, dreadnought acoustic guitar. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 242,
-  "score": 5.07,
+  "score": 5.101,
   "config": {
     "traditions": [
       "ottawa_valley_fiddle"
@@ -39,7 +39,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "upright_use": 0.273,
+          "upright_use": 0.3045,
           "upright_piano_size": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Odissi music is the classical music of Odisha, rooted in the temple song of the Jagannath temple at Puri and in Jayadeva's twelfth-century Gita Govinda, with its own treatises, ragas and talas, and enlarged by Odia poet-composers such as Upendra Bhanja and Kavisurya Baladeva Rath. Sung with the mardala barrel drum and gini cymbals (the manjira card stands in for them), often joined by harmonium, it accompanies Odissi dance and is also performed as concert music.",
   "recipe": "classic odissi sangita, art Music, south Asian branch. solo with instrumental accompaniment, single lead single track no stacking. mardala, small manjira, harmonium indian. live tracking.",
   "recipe_chars": 187,
-  "score": 10.264,
+  "score": 10.327,
   "config": {
     "traditions": [
       "odissi_sangita"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.5775,
+          "voice_multitrack_stack": 0.609,
           "voice_tessitura": 0
         }
       },
@@ -86,7 +86,7 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "harmonium_action": 0.8609999999999999,
+          "harmonium_action": 0.8924999999999998,
           "harmonium_voicing": 0.7244999999999999,
           "harmonium_use": 3.9
         }

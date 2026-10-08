@@ -3,20 +3,20 @@
   "name": "Lok dohori (Nepali call-and-response duet)",
   "family": "global",
   "lineage": "Nepali competitive improvised duet song, rooted in village courtship exchanges of the hill districts and commercialized through Radio Nepal and the 1980s-90s cassette industry, in which male and female singers trade extemporized rhyming couplets in a fixed melodic frame over a driving madal ostinato at roughly 100-130 BPM with sarangi, bansuri and later harmonium and keyboard filling the responses.",
-  "recipe": "classic South Asian mid-1980s lok dohori, ballad Poetry, indian bard branch, south Asian domestic rhythm, south Asian pop functional song chutney bhojpuri lok geet. thick, breath veiled tone, straight note core, interlocked note trading. dance driving slung madal, four string nepali sarangi, kerala bamboo alternative south indian foundational concert bansuri melodic bansuri, vocal male straight harmonium indian, tungna. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
-  "recipe_chars": 642,
-  "score": 213.19,
+  "recipe": "classic South Asian mid-1980s lok dohori, ballad Poetry, indian bard branch, south Asian domestic rhythm, south Asian pop functional song bhojpuri lok geet saraiki pop. extended whistle, breath veiled tone, straight note core, interlocked note trading. slung madal, four string nepali sarangi, kerala bamboo alternative south indian foundational concert bansuri melodic bansuri, vocal male straight harmonium indian, tungna. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 643,
+  "score": 206.633,
   "config": {
     "traditions": [
       "lok_dohori",
-      "chutney_bhojpuri",
-      "bhojpuri_lok_geet"
+      "bhojpuri_lok_geet",
+      "saraiki_pop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -30,40 +30,40 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 9.145,
-          "voice_quality": 11.309999999999992,
+          "voice_register": 9.344999999999999,
+          "voice_quality": 11.569999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2999999999999998,
-          "voice_articulation": 18.784999999999997,
-          "voice_microtone": 18.004999999999992,
-          "voice_tradition": 17.387500000000003,
+          "voice_vibrato": 1.1049999999999998,
+          "voice_articulation": 21.58,
+          "voice_microtone": 20.799999999999997,
+          "voice_tradition": 16.51,
           "voice_mechanism_compound": 3.8349999999999995,
-          "voice_estill_quality": 4.745,
-          "voice_speech_song": 25.284999999999993,
-          "voice_ensemble_config": 18.524999999999995,
-          "voice_ornament_system": 7.470000000000001,
-          "voice_pitch_organization": 8.27,
-          "voice_processing_chain": 3.38,
-          "voice_multitrack_stack": 4.355
+          "voice_estill_quality": 3.9000000000000004,
+          "voice_speech_song": 26.91,
+          "voice_ensemble_config": 21.319999999999993,
+          "voice_ornament_system": 6.945,
+          "voice_pitch_organization": 7.745000000000001,
+          "voice_processing_chain": 5.525,
+          "voice_multitrack_stack": 6.115
         }
       },
       {
         "id": "madal",
         "slots": {
-          "madal_role": "madal_role_jhyaure",
+          "madal_role": "madal_role_pop_hook",
           "madal_posture": "madal_posture_patuka",
           "madal_paste": "madal_paste_khari",
           "madal_shell": "madal_shell_hardwood"
         },
         "scores": {
-          "madal_role": 9.324999999999998,
-          "madal_posture": 4.125,
-          "madal_paste": 0.54,
+          "madal_role": 7.010000000000001,
+          "madal_posture": 1.125,
+          "madal_paste": -0.035,
           "madal_shell": -0.1
         }
       },
@@ -76,10 +76,10 @@
           "nepali_sarangi_build": "nepali_sarangi_build_steel"
         },
         "scores": {
-          "bowed_technique": 0.375,
-          "nepali_sarangi_form": 4.34,
-          "nepali_sarangi_context": 4.215,
-          "nepali_sarangi_build": 0.795
+          "bowed_technique": 0.5249999999999999,
+          "nepali_sarangi_form": 2.715,
+          "nepali_sarangi_context": 1.715,
+          "nepali_sarangi_build": 0.295
         }
       },
       {
@@ -92,10 +92,10 @@
           "bansuri_lineage": "bansuri_pannalal_ghosh"
         },
         "scores": {
-          "wind_articulation": 4.87,
-          "bansuri_length": 3.5899999999999994,
-          "bansuri_ornament": 1.3324999999999998,
-          "bansuri_body_material": 7.930000000000001,
+          "wind_articulation": 3.245,
+          "bansuri_length": 1.965,
+          "bansuri_ornament": 0.6824999999999999,
+          "bansuri_body_material": 7.540000000000001,
           "bansuri_lineage": 1.195
         }
       },
@@ -103,15 +103,15 @@
         "id": "harmonium_indian",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_action": "harmonium_foot_pump",
           "harmonium_voicing": "harmonium_male",
-          "harmonium_use": "harmonium_classical"
+          "harmonium_use": "harmonium_qawwali"
         },
         "scores": {
-          "free_reed_technique": 4.82,
-          "harmonium_action": 0.845,
-          "harmonium_voicing": 3.38,
-          "harmonium_use": 1.04
+          "free_reed_technique": 3.1950000000000003,
+          "harmonium_action": 0.63,
+          "harmonium_voicing": 2.73,
+          "harmonium_use": 0.845
         }
       },
       {
@@ -123,7 +123,7 @@
         },
         "scores": {
           "tungna_form": 0,
-          "tungna_style": 3.575,
+          "tungna_style": 2.2749999999999995,
           "tungna_strings": 0
         }
       }

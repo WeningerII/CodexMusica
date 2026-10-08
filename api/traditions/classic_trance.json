@@ -3,14 +3,14 @@
   "name": "Classic Trance",
   "family": "electronic",
   "lineage": "German-centred style codified 1993-1999 through Frankfurt and Berlin labels (Eye Q, Harthouse, MFS, Superstition) by Paul van Dyk, Oliver Lieb, Cosmic Baby, Jam & Spoon and Sven Väth — 135-142 BPM four-on-floor with rolling offbeat sixteenth bass, layered detuned saw arpeggios, a long instrumental breakdown with a sustained pad chord progression, and a snare-roll build into the main melodic drop.",
-  "recipe": "classic Central European mid-1990s classic trance, electronic Dance, trance branch, techno electronic dance, eurodance electronic dance italo beats hi-nrg. analog poly analog mono wavetable synth, TR-909, melodic pitched sampler. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 460,
-  "score": 42.54,
+  "recipe": "classic Central European mid-1990s classic trance, electronic Dance, trance branch, techno electronic dance, eurodance electronic dance hi-nrg freestyle music. analog poly analog mono wavetable synth, TR-909, melodic pitched sampler. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 464,
+  "score": 50.667,
   "config": {
     "traditions": [
       "classic_trance",
-      "italo_beats",
-      "hi_nrg"
+      "hi_nrg",
+      "freestyle_music"
     ],
     "instruments": [
       {
@@ -23,22 +23,22 @@
         },
         "scores": {
           "electronic_technique": 0.975,
-          "poly_archetypes": 2.84,
-          "poly_voices": 2.69,
-          "poly_maker_lineage": -0.9800000000000001
+          "poly_archetypes": 2.99,
+          "poly_voices": 2.6900000000000004,
+          "poly_maker_lineage": -0.875
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_house",
+          "drum_machine_909_context": "drum_machine_909_techno",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
           "tr909_voice": 1.49,
-          "drum_machine_909_context": 1.8850000000000002,
-          "tr909_production_origin": 0.13499999999999998
+          "drum_machine_909_context": 2.015,
+          "tr909_production_origin": 0.39
         }
       },
       {
@@ -48,14 +48,14 @@
           "mono_oscillator": "mono_digitally_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_arp_pearlman"
+          "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
           "electronic_technique": 0.975,
           "mono_oscillator": 0,
-          "mono_filter": -0.03500000000000003,
-          "mono_archetypes": 1.8199999999999998,
-          "mono_maker_lineage": -1.33
+          "mono_filter": 0.78,
+          "mono_archetypes": 3.3149999999999995,
+          "mono_maker_lineage": -0.875
         }
       },
       {
@@ -68,9 +68,9 @@
         },
         "scores": {
           "electronic_technique": 0.975,
-          "wt_position": 10.010000000000002,
-          "wt_family": 0.195,
-          "wt_polyphony": 1.19
+          "wt_position": 9.165000000000001,
+          "wt_family": 0.39,
+          "wt_polyphony": 1.7349999999999999
         }
       },
       {
@@ -78,16 +78,16 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "roland_s750",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.4749999999999999,
           "sampler_archetypes": 1,
-          "sampler_bit_depth": 0.09,
-          "sampler_workflow": 2.0799999999999996,
-          "sampler_classic_context": 16.379999999999995
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": 2.3724999999999996,
+          "sampler_classic_context": 19.304999999999996
         }
       }
     ],

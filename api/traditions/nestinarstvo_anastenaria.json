@@ -5,7 +5,7 @@
   "lineage": "Ritual music of the fire-dancing rite held for Saints Constantine and Helena in the Strandzha village of Bulgari in south-eastern Bulgaria, inscribed on the UNESCO Representative List, and of its Greek counterpart, the Anastenaria of Agia Eleni and Lagadas, kept by descendants of refugees from Kosti and other Strandzha villages and studied by anthropologist Loring Danforth. Nestinari carrying icons enter a trance and dance barefoot across glowing embers to the sacred drum and the gaida bagpipe; among the Anastenarides the three-string Thracian lyra leads with the drum. The gadulka card stands in for the Thracian lyra.",
   "recipe": "classic modern nestinarstvo and anastenaria, ritual Devotional. gaida bulgarian, tapan, gadulka. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 176,
-  "score": 14.12,
+  "score": 14.152,
   "config": {
     "traditions": [
       "nestinarstvo_anastenaria"
@@ -39,7 +39,7 @@
         },
         "scores": {
           "tapan_form": 2.45,
-          "tapan_role": 6.449999999999999,
+          "tapan_role": 6.4815,
           "tapan_build": -0.05
         }
       },

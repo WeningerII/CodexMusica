@@ -1,57 +1,19 @@
 {
-  "id": "jibaro",
-  "name": "Jíbaro",
+  "id": "musica_jibara",
+  "merged_from": "jibaro",
+  "name": "Música Jíbara",
   "family": "global",
-  "lineage": "Rural Puerto Rican mountain (montaña) peasant song tradition rooted in the Spanish décima poetic form (ten-line stanza, 8 syllables per line, ABBAACCDDC rhyme scheme) brought from 17th-century Iberian colonial settlement and preserved in the Puerto Rican mountain interior — performed on the cuatro puertorriqueño (the 10-string national instrument with five double-string courses), classical guitar, güiro, and bongos; figures Ramito (Florencio Morales Ramos, the 20th-century jíbaro voice), Chuíto el de Bayamón, Toño Mayo, and the modern revival through Ecos de Borinquen and the Cuatro Project",
-  "recipe": "classic Caribbean mid-1930s jíbaro, ballad Poetry, Latin am troubadour branch, Caribbean groove percussion, crooners functional song parang calypso. thick, breath veiled tone, slow rate, interlocked note trading. mahogany puerto rican traditional cuatro pr, narrative fingerpicked acoustic guitar, guiro, open slap hand drum bongos. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 445,
-  "score": 135.097,
+  "lineage": "The mountain peasant music of Puerto Rico's interior, descended from Andalusian and Canarian song brought in the seventeenth and eighteenth centuries and codified on record from the 1930s-50s by Ramito and Chuíto el de Bayamón — built on the seis and aguinaldo in duple and triple metres, sung as improvised décimas in ten-line espinela rhyme with a high nasal tenor, over strummed cuatro puertorriqueño, guitar, bordonúa, güiro and maracas.",
+  "recipe": "classic North American mid-1930s música jíbara, ballad Poetry, Latin am troubadour branch, tropical song functional song, iberian functional song polca paraguaya folklore venezolano. nasal, small note groups per syllable, equal tempered 12 fixed pitch. mahogany puerto rican traditional cuatro pr, cedar fingerpicked classical nylon-string guitar, bordonua, guiro, maracas. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 530,
+  "score": 28.55,
   "config": {
     "traditions": [
-      "jibaro",
-      "parang_trini",
-      "calypso"
+      "musica_jibara",
+      "polca_paraguaya",
+      "folklore_venezolano"
     ],
     "instruments": [
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "chinese_classical_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
-        },
-        "scores": {
-          "voice_register": 1.1700000000000002,
-          "voice_quality": 13.194999999999993,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 2.89,
-          "voice_articulation": 15.924999999999997,
-          "voice_microtone": 14.494999999999994,
-          "voice_tradition": 9.49,
-          "voice_mechanism_compound": 3.575,
-          "voice_estill_quality": 6.415,
-          "voice_speech_song": 22.684999999999995,
-          "voice_ensemble_config": 15.534999999999995,
-          "voice_ornament_system": 2.5500000000000003,
-          "voice_pitch_organization": 2.4000000000000004,
-          "voice_processing_chain": 3.2749999999999995,
-          "voice_multitrack_stack": 1.3
-        }
-      },
       {
         "id": "cuatro_pr",
         "slots": {
@@ -62,28 +24,41 @@
           "cuatro_pr_string_material": "cuatro_pr_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 0.8775,
-          "cuatro_pr_config": -0.385,
-          "cuatro_pr_context": 4.225,
-          "cuatro_pr_body_wood": 5.889999999999999,
-          "cuatro_pr_string_material": -0.35
+          "plucked_traditional_technique": 2.925,
+          "cuatro_pr_config": -1.205,
+          "cuatro_pr_context": 4.095,
+          "cuatro_pr_body_wood": 2.34,
+          "cuatro_pr_string_material": -1.155
         }
       },
       {
-        "id": "acoustic_guitar_om",
+        "id": "classical_nylon_string_guitar",
         "slots": {
-          "string_tuning": "open_d",
-          "top_wood": "cedar_om",
-          "back_sides": "walnut_bs_om",
-          "string_acoustic": "phosphor_om",
-          "acoustic_om_technique": "om_fingerpicked"
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_high_cl",
+          "attack_technique_cl": "rasgueado_cl"
         },
         "scores": {
-          "string_tuning": 1.5,
-          "top_wood": 0.195,
-          "back_sides": 0.195,
-          "string_acoustic": 0.195,
-          "acoustic_om_technique": 4.42
+          "acoustic_technique": 3.1,
+          "string_tuning": 0,
+          "top_wood_classical": 9.555,
+          "bracing_classical": 1.95,
+          "string_classical": 0,
+          "attack_technique_cl": 0.75
+        }
+      },
+      {
+        "id": "bordonua",
+        "slots": {
+          "bordonua_form": "bordonua_moderna",
+          "bordonua_role": "bordonua_strum"
+        },
+        "scores": {
+          "bordonua_form": 0.15,
+          "bordonua_role": 1.545
         }
       },
       {
@@ -93,34 +68,95 @@
           "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "guiro_origin": 0.945,
-          "guiro_striker": 0
+          "guiro_origin": 0.75,
+          "guiro_striker": 0.65
         }
       },
       {
-        "id": "bongos",
+        "id": "maracas",
         "slots": {
-          "percussion_technique": "percussion_open_slap",
-          "bongos_skin": "bongos_mule_hide",
-          "bongos_context": "bongos_descarga",
-          "bongos_shell_wood": "bongos_oak_staved"
+          "maracas_construction": "maracas_gourd",
+          "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "percussion_technique": 6.62,
-          "bongos_skin": 0.12999999999999998,
-          "bongos_context": 0.195,
-          "bongos_shell_wood": 0.045
+          "maracas_construction": 0.65,
+          "maracas_filling": 0.65
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "nasal_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": -0.38499999999999995,
+          "voice_quality": 0.95,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.19500000000000003,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": -0.15000000000000002,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.8,
+          "voice_processing_chain": 0.15,
+          "voice_multitrack_stack": 0.39,
+          "voice_tessitura": 0
         }
       }
     ],
-    "room": "san_juan_puerto_rican_bomba_plena_yard",
-    "archetype": "arch_electrical_disc_cut",
+    "pinned": {
+      "guiro": [
+        "guiro_origin"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
-      "pre": "tube_pre",
+      "pre": "pre_tube_german_v72",
       "console": "colored",
       "comp": "comp_la2a_optical",
-      "eq": "eq_passive_program_pultec",
+      "eq": null,
       "amp": null,
       "medium": "tape_15ips"
     },
@@ -131,41 +167,31 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "san_juan_puerto_rican_bomba_plena_yard",
+    "room": "studio_early_tape_us_small",
     "parts": {
-      "voice_register": "mix_voice",
-      "voice_quality": "chest_mix_belt_voice",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_tradition": "modern_pop_vocal_training",
+      "voice_register": "chest_voice",
+      "voice_quality": "nasal_voice",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "terminal_vibrato",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
-      "voice_microtone": "tempered_voice",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_estill_quality": "voice_estill_speech",
-      "voice_vibrato": "slow_vibrato",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "top_wood": "sitka_om",
-      "back_sides": "mahogany_bs_om",
-      "string_acoustic": "phosphor_om",
-      "acoustic_om_technique": "om_strummed_open",
-      "guiro_origin": "guiro_puerto_rican",
-      "guiro_striker": "guiro_wood",
-      "percussion_technique": "percussion_hands_layered",
-      "bongos_skin": "bongos_mule_hide",
-      "bongos_context": "bongos_son",
-      "bongos_shell_wood": "bongos_oak_staved",
-      "plucked_traditional_technique": "plucked_folk_strummed",
-      "cuatro_pr_config": "cuatro_pr_five_double",
-      "cuatro_pr_context": "cuatro_pr_jibaro",
-      "cuatro_pr_body_wood": "cuatro_pr_mahogany",
-      "cuatro_pr_string_material": "cuatro_pr_steel_modern"
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "guiro_origin": "guiro_puerto_rican"
     },
+    "pin_parts": true,
     "chain_mic": "mic_u47_tube_neumann",
-    "chain_pre": "tube_pre",
+    "chain_pre": "pre_tube_german_v72",
     "chain_comp": "comp_la2a_optical",
-    "chain_eq": "eq_passive_program_pultec",
     "chain_medium": "tape_15ips",
     "chain_console": "colored"
   }

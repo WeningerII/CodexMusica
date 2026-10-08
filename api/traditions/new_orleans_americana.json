@@ -5,7 +5,7 @@
   "lineage": "New Orleans Americana connects roots songwriting with the city’s multilingual and Afro-diasporic musical exchanges. Leyla McCalla’s work brings cello-led song into this varied field alongside guitar, banjo and other acoustic traditions.",
   "recipe": "classic modern new orleans americana, ballad Poetry. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. pirastro cellisto cello specific cello. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 321,
-  "score": 8.288,
+  "score": 8.271,
   "config": {
     "traditions": [
       "new_orleans_americana"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": -0.14,
+          "voice_articulation": -0.15725,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,

@@ -5,7 +5,7 @@
   "lineage": "Paraliturgical song of Moroccan Jews: Hebrew piyyutim and the bakkashot sung on winter Sabbath nights, and the matrouz, in which Hebrew and Judeo-Arabic lines alternate within one song, set to the modes of Moroccan Andalusi music. Cantors and singers such as Samy Elmaghribi, Haim Louk and Emile Zrihan carried it into recordings in Morocco, France, Canada and Israel. The fiddle card stands in for the upright-held kamanja and the hand-drum card for the derbouka goblet drum.",
   "recipe": "classic North African early-1950s matrouz and piyyut, ritual Devotional, Jewish branch. oud, melodic bowed song accompaniment fiddle, hand drum source unspecified. stone plaster medina room. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 271,
-  "score": 7.841,
+  "score": 7.642,
   "config": {
     "traditions": [
       "moroccan_jewish_piyyut"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.4305,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.36749999999999994,
           "voice_tessitura": 0
         }
       },
@@ -86,7 +86,7 @@
         "scores": {
           "bowed_technique": 3.9,
           "fiddle_strings": 0,
-          "fiddle_bow": 0.105,
+          "fiddle_bow": 0,
           "fiddle_mute": 0.273,
           "fiddle_articulation": 0.36750000000000005,
           "fiddle_string_configuration": 0

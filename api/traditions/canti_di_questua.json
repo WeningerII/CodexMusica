@@ -5,7 +5,7 @@
   "lineage": "Calendar begging songs of central Italy, sung by groups of singers and players who go from house to house at turning points of the year: the Pasquella or Befanata on the eve of Epiphany, the Cantamaggio or maggiolata on the night of 30 April. The songs wish good fortune on the household and ask for eggs, wine, food or money in return, and the bands, found across the Marche, Umbria, Abruzzo, Romagna and Tuscany, accompany them with organetto or accordion, guitar and tambourine.",
   "recipe": "classic modern canti di questua, carnival Processional, European branch. organetto abruzzese, classical nylon-string guitar, central Italian processional devotional tammorra. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 254,
-  "score": 9.999,
+  "score": 9.002,
   "config": {
     "traditions": [
       "canti_di_questua"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.40950000000000003,
+          "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.40950000000000003,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -64,7 +64,7 @@
           "free_reed_technique": -0.15000000000000002,
           "organetto_rows": 0.3465,
           "organetto_tremolo": 0.0315,
-          "organetto_style": 0.063
+          "organetto_style": 0.0315
         }
       },
       {
@@ -80,8 +80,8 @@
         "scores": {
           "acoustic_technique": 0.26,
           "string_tuning": 0,
-          "top_wood_classical": 0.3465,
-          "bracing_classical": 0.6089999999999999,
+          "top_wood_classical": 0.1365,
+          "bracing_classical": 0.5774999999999999,
           "string_classical": 0,
           "attack_technique_cl": -0.035
         }
@@ -94,7 +94,7 @@
           "tammorra_head": "tammorra_pelle_capra"
         },
         "scores": {
-          "tammorra_form": 6.042000000000001,
+          "tammorra_form": 6.0105,
           "tammorra_context": 1.8199999999999998,
           "tammorra_head": -0.035
         }

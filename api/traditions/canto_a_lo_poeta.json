@@ -5,7 +5,7 @@
   "lineage": "Sung poetry of rural central Chile in ten-line décimas, divided into canto a lo divino, religious verse sung at vigils for saints and at wakes for dead infants (velorios de angelito), and canto a lo humano, secular verse on history, love and wisdom that includes the improvised paya contest. Cantores accompany themselves on the guitarrón chileno, a 25-string guitar with coursed metal strings and short drone strings (diablitos) beside the fingerboard, or on guitar, playing repeated melodic formulas (entonaciones). Pirque, near Santiago, is a centre of guitarrón playing; the twelve-string card stands in for the guitarrón.",
   "recipe": "classic modern canto a lo poeta, ballad Poetry, Latin am troubadour branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. acoustic guitar 12 string, classical nylon-string guitar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 304,
-  "score": 6.678,
+  "score": 6.694,
   "config": {
     "traditions": [
       "canto_a_lo_poeta"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.5775,
+          "voice_processing_chain": 0.714,
           "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
@@ -61,7 +61,7 @@
           "acoustic_technique": "acoustic_twelve_string_fingerpicked"
         },
         "scores": {
-          "twelve_string_body": 0.105,
+          "twelve_string_body": 0,
           "twelve_string_tuning": 0.1365,
           "twelve_string_strings": 0,
           "acoustic_technique": 0
@@ -80,10 +80,10 @@
         "scores": {
           "acoustic_technique": 2.0814999999999997,
           "string_tuning": 0,
-          "top_wood_classical": 0.168,
-          "bracing_classical": 0.273,
+          "top_wood_classical": 0.3045,
+          "bracing_classical": 0.1365,
           "string_classical": 0,
-          "attack_technique_cl": -0.035
+          "attack_technique_cl": -0.05
         }
       }
     ],

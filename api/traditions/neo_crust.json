@@ -3,9 +3,9 @@
   "name": "Neo-Crust",
   "family": "rock_punk",
   "lineage": "A contemporary crust-punk branch connected to d-beat and independent punk scenes.",
-  "recipe": "classic neo-crust, distorted Rock, punk branch. one note per syllable. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
-  "recipe_chars": 217,
-  "score": 16.018,
+  "recipe": "classic neo-crust, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 194,
+  "score": 15.609,
   "config": {
     "traditions": [
       "neo_crust"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.609,
+          "voice_speech_song": 0.47250000000000003,
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -79,7 +79,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0

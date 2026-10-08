@@ -5,7 +5,7 @@
   "lineage": "Light music played on the theatre organs installed in British cinemas and dance halls from the 1920s, mainly Wurlitzer and Compton unit organs whose tibia and string ranks, heavy tremulants and built-in percussion let one player sound like an orchestra. Reginald Dixon, organist at the Blackpool Tower Ballroom from 1930 to 1970, made it a dance-band sound with strict-tempo medleys and his signature tune 'I Do Like to Be Beside the Seaside', and Sandy MacPherson broadcast on the BBC Theatre Organ. The pipe organ card is set to its theatre voicing.",
   "recipe": "classic mid-1920s theatre organ, functional Song, crooners branch. Wurlitzer theater canonical American silent film 1910s 1920s electric pneumatic canonical 20th century American pipe organ. shoebox concert hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
   "recipe_chars": 347,
-  "score": 10.338,
+  "score": 10.075,
   "config": {
     "traditions": [
       "british_theatre_organ"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "keyboard_technique": 2.6180000000000003,
-          "pipe_organ_class": 0.336,
-          "pipe_organ_context": 1.029,
-          "pipe_organ_voicing_school": 1.9529999999999998,
-          "pipe_organ_pipe_alloy": 0.6824999999999999,
-          "pipe_organ_temperament": -3.059,
-          "pipe_organ_action": 2.478
+          "pipe_organ_class": 0.36750000000000005,
+          "pipe_organ_context": 0.9869999999999999,
+          "pipe_organ_voicing_school": 1.9845,
+          "pipe_organ_pipe_alloy": 0.5459999999999999,
+          "pipe_organ_temperament": -3.1955,
+          "pipe_organ_action": 2.4675
         }
       }
     ],
