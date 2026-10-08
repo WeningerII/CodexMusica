@@ -3268,7 +3268,10 @@ def main(argv=None):
 # NOTE 1214 -> 1743 (526 elision notes, three one-line stanza residue notes).
 # FAIL remains zero and WARN remains 38 after duplicate/apparatus review.
 # Research song/calibration populations are unchanged; this audit walks all corpus/.
-PINNED_SHAPE = {"files": 2201, "FAIL": 0, "WARN": 38, "NOTE": 1743}
+# 2026-10-08 next ten Library collections: files 2201 -> 2277; NOTE
+# 1743 -> 1804 (56 elision notes, five actual one-line stanza residue notes).
+# FAIL remains zero; WARN remains 38. Calibration populations unchanged.
+PINNED_SHAPE = {"files": 2277, "FAIL": 0, "WARN": 38, "NOTE": 1804}
 
 
 def _verify_shape(files, findings):

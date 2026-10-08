@@ -1,0 +1,54 @@
+{
+  "gutenberg_id": "934",
+  "title": "Songs of a Savoyard",
+  "author": "W. S. Gilbert",
+  "publication_year": 1920,
+  "supplied_edition_years": [1920, 1884],
+  "edition": "Composite Gutenberg transcription credited to the 1920 Macmillan and Co edition of The Bab Ballads and the 1884 George Routledge and Sons edition of Fifty Bab Ballads. The supplied credit does not allocate individual songs between these witnesses. The latest named historical witness is 1920; it is not claimed as each lyric’s first publication.",
+  "ebook_url": "https://www.gutenberg.org/ebooks/934",
+  "source_url": "https://www.gutenberg.org/ebooks/934.txt.utf-8",
+  "source_sha256": "b750482f5f4272c9e284594b1b8798a7b7d631ebbb4fbb77703e7ef102da9497",
+  "source_bytes": 150645,
+  "retrieved_on": "2026-10-08",
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/ebooks/934",
+    "excerpt": "Transcribed from the 1920 Macmillan and Co edition of “The Bab Ballads”, also from “Fifty Bab Ballads” 1884 George Routledge and Sons edition by David Price"
+  },
+  "rights_evidence": {
+    "url": "https://www.gutenberg.org/ebooks/934",
+    "excerpt": "Copyright: Public domain in the USA.",
+    "jurisdiction": "United States",
+    "scope": "Author-attributed English song texts in the exact supplied composite historical witness. Gutenberg catalog affirmation checked 2026-10-08; no worldwide rights claim.",
+    "publication_year_used": 1920
+  },
+  "counts": {
+    "contents_entries": 87,
+    "supplemental_titled_entries": 0,
+    "candidate_units": 87,
+    "eligible_before_deduplication": 87,
+    "excluded_before_deduplication": 0
+  },
+  "deduplication": "Common batch integration must compare these complete candidate texts against every existing English Library/corpus work and the other nine new collections. Eligibility is not an imported-work count.",
+  "notes": [
+    "All 87 contents entries align one-to-one with complete titled bodies. All are author-attributed original English songs; Latin/French titles and isolated loan phrases do not make a song a translation.",
+    "Narrative within a short standalone song is retained. A Nightmare remains complete as a patter song, with its unusually long verse lines restored from supplied HTML; no arbitrary numeric length cutoff.",
+    "Five standalone THE DUKE./THE DUCHESS. headings and 28 inline HE./SHE./BOTH. speaker labels in three source-attested dialogue songs are marked # APPARATUS; every sung word is retained on its own verse line. No new structural labels. Parenthetic sung words remain intact.",
+    "Comic spellings, nonstandard grammar, accents, proper names, repetitions and stammered words are preserved. Underscores denoting italics are removed only as markup with receipts.",
+    "60 plain-text soft-wrap groups across five songs are joined only where the supplied HTML-rendered verse line agrees exactly after case/underscore/whitespace comparison. Capitals and wording come from the plain-text witness.",
+    "No supplied individual-work provenance assigns a specific 1884 or 1920 printing to each song; the composite source credit is retained honestly."
+  ],
+  "validation": {
+    "contents_coverage": "87 TOC titles and unique body headings, exact order and printed page correspondence asserted",
+    "source_pin": "source.txt.gz decodes to the complete reconstructed consecutive-browser plain-text transcript; its hash is NOT a claim about original HTTP response bytes.",
+    "lineation_witness": {
+      "url": "https://www.gutenberg.org/cache/epub/934/pg934-images.html",
+      "artifact": "html-rendered-lines.json.gz",
+      "decoded_sha256": "e04bf9f2c6f93f66fcaed9452f86efbbd7c3034c9a076f8f195e05e095f7f561",
+      "decoded_bytes": 181653,
+      "browser_lines": 3303,
+      "coverage": "Every zero-based browser line 0..3302 captured; dictionary is browser-rendered text rather than raw HTML. Words verified against plain-text witness for all 87 bodies."
+    },
+    "stanza_boundaries": "Printed plain-text blank stanza boundaries retained; relative verse indentation preserved after removing common three-space margin.",
+    "tests": "python3 imports/gutenberg-next-ten/934/test_adapter.py"
+  }
+}

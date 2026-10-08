@@ -2,8 +2,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { test } from 'node:test';
+import express from 'express';
 import { ReaderJobStore, READER_LIMITS } from './reader_job_store.js';
+import { canonicalJSON, createCatalogResolver } from './reader_scheduler.js';
+import { createReaderRouter, signReaderRequest } from './reader_routes.js';
 
 const identity = {
   snapshot: 'snapshot-a',
@@ -473,4 +477,330 @@ test('FIFO order and yield tail are stable even when all timestamps are identica
   assert.equal(active.id, first.record.id);
   store.pause(active.id, active.attempt, active.fence, { requeue: true, code: 'YIELD' });
   assert.equal(store.lease().id, second.record.id);
+});
+
+const readerSha = (value) => createHash('sha256').update(value).digest('hex');
+function pronunciationCatalogFixture(t, options = {}) {
+  const { directory, store } = fixture(t);
+  const catalog = path.join(directory, 'catalog');
+  const pronunciationRoot = path.join(directory, 'harness');
+  const write = (name, value) => {
+    fs.mkdirSync(path.dirname(name), { recursive: true });
+    const bytes = JSON.stringify(value);
+    fs.writeFileSync(name, bytes);
+    return { bytes: Buffer.byteLength(bytes), sha256: readerSha(bytes) };
+  };
+  const source = {
+    reading_unit_id: 'reading_fixture',
+    language: 'eng',
+    availability: 'readable',
+    source_path: 'corpus/library/gutenberg-next-ten/934/eng_gilbert.txt',
+    title: 'THE MERRYMAN AND HIS MAID [item: PG934-pg934-030]',
+    source_sha256: readerSha('source witness'),
+    normalized_sha256: readerSha('A merrymaid sings.\nA popinjay sings.'),
+    work_id: 'work_fixture',
+    edition_id: 'edition_fixture',
+    lines: [
+      { kind: 'lyric', text: '  A merrymaid sings.', analysis_text: 'A merrymaid sings.' },
+      { kind: 'lyric', text: 'A popinjay sings.' },
+    ],
+    ...options.source,
+  };
+  source.reading_revision = readerSha(canonicalJSON(source));
+  const binding = {
+    reading_revision: source.reading_revision,
+    source_sha256: source.source_sha256,
+    collection: '934',
+    candidate_id: 'pg934-030',
+    ...options.binding,
+  };
+  const pronunciations = [
+    {
+      line: 'A merrymaid sings.',
+      token: 2,
+      word: 'merrymaid',
+      phones: ['M', 'EH1', 'R', 'IY0', 'M', 'EY2', 'D'],
+      basis: 'declared',
+      source: 'Fixture performance choice',
+    },
+    {
+      line: 'A popinjay sings.',
+      token: 2,
+      word: 'popinjay',
+      phones: ['P', 'AA1', 'P', 'IH0', 'N', 'JH', 'EY2'],
+      basis: 'declared',
+      source: 'Fixture performance choice',
+    },
+  ];
+  const files = [];
+  const assetPrefix = 'imports/gutenberg-next-ten/pronunciations/';
+  for (const book of [
+    '13646',
+    '1568',
+    '27195',
+    '3138',
+    '40048',
+    '50878',
+    '51226',
+    '58414',
+    '69378',
+    '934',
+  ]) {
+    const relative = `${assetPrefix}${book}.json`;
+    files.push({
+      path: relative,
+      ...write(
+        path.join(pronunciationRoot, relative),
+        book === '934' ? { 'pg934-030': { pronunciations } } : {}
+      ),
+    });
+  }
+  const relative = `${assetPrefix}bindings.json`;
+  files.push({
+    path: relative,
+    ...write(
+      path.join(pronunciationRoot, relative),
+      options.noBinding ? {} : { [options.bindingId ?? source.reading_unit_id]: binding }
+    ),
+  });
+  const registry = {
+    version: 1,
+    assets: [
+      {
+        id: 'gutenberg_next_ten_pronunciations',
+        base: 'root',
+        runtime: true,
+        decision: 'approved',
+        files,
+      },
+    ],
+  };
+  options.registry?.(registry);
+  write(path.join(pronunciationRoot, 'data/runtime_assets.json'), registry);
+  if (options.corruptFile)
+    fs.appendFileSync(
+      path.join(pronunciationRoot, `${assetPrefix}${options.corruptFile}.json`),
+      ' '
+    );
+  if (options.missingFile)
+    fs.unlinkSync(path.join(pronunciationRoot, `${assetPrefix}${options.missingFile}.json`));
+  const sourcePath = `readings/${source.reading_unit_id}.json`;
+  const artifacts = {
+    [sourcePath]: write(path.join(catalog, sourcePath), source).sha256,
+    'index.json': write(path.join(catalog, 'index.json'), { readings: [] }).sha256,
+  };
+  const manifest = { parser_version: 'fixture', normalizer_version: 'fixture', artifacts };
+  manifest.snapshot_id = readerSha(canonicalJSON(manifest));
+  write(path.join(catalog, 'manifest.json'), manifest);
+  const request = {
+    contract_version: 1,
+    snapshot_id: manifest.snapshot_id,
+    reading_unit_id: source.reading_unit_id,
+    reading_revision: source.reading_revision,
+    declaration_set: {},
+    requested_layers: ['sound'],
+  };
+  const resolver = createCatalogResolver({
+    directory: catalog,
+    engineCommit: 'fixture',
+    pronunciationRoot,
+  });
+  return { directory, store, resolver, request, pronunciations };
+}
+
+test('source-bound defaults attach before identity, preserve other declarations, and do not mutate input', async (t) => {
+  const { resolver, request, pronunciations } = pronunciationCatalogFixture(t);
+  request.declaration_set = { language: 'eng', meter: { feet: 4 }, source: 'Caller provenance' };
+  const before = structuredClone(request);
+  const unpreparedIdentity = await resolver.resolveIdentity(request);
+  const prepared = await resolver.prepareRequest(request);
+  assert.deepEqual(request, before);
+  assert.deepEqual(prepared.declaration_set, { ...before.declaration_set, pronunciations });
+  const preparedIdentity = await resolver.resolveIdentity(prepared);
+  assert.notEqual(preparedIdentity.declaration_hash, unpreparedIdentity.declaration_hash);
+  assert.equal(
+    preparedIdentity.declaration_hash,
+    readerSha(
+      canonicalJSON({
+        ...before.declaration_set,
+        source: true,
+        pronunciations: pronunciations.map((p) => ({ ...p, source: true })),
+      })
+    )
+  );
+  assert.deepEqual(await resolver.prepareRequest(prepared), prepared);
+});
+
+test('caller pronunciation set is authoritative including empty opt-out; non-English declaration skips defaults', async (t) => {
+  const { resolver, request } = pronunciationCatalogFixture(t);
+  for (const pronunciations of [
+    [],
+    [
+      {
+        line: 'A merrymaid sings.',
+        token: 2,
+        word: 'merrymaid',
+        phones: ['M', 'EH1', 'D'],
+        basis: 'declared',
+        source: 'Caller choice',
+      },
+    ],
+  ]) {
+    const explicit = { ...request, declaration_set: { pronunciations, other: 'preserve' } };
+    assert.deepEqual(await resolver.prepareRequest(explicit), explicit);
+  }
+  const finnish = { ...request, declaration_set: { language: 'fin' } };
+  assert.deepEqual(await resolver.prepareRequest(finnish), finnish);
+});
+
+test('unbound and retained sources receive no defaults', async (t) => {
+  for (const options of [
+    { noBinding: true },
+    { source: { source_path: 'corpus/song/eng_hall_ws_gilbert.txt' }, corruptFile: '934' },
+    {
+      source: { source_path: 'corpus/library/gutenberg-ten/934/eng_gilbert.txt' },
+      corruptFile: '934',
+    },
+  ]) {
+    const { resolver, request } = pronunciationCatalogFixture(t, options);
+    assert.deepEqual(await resolver.prepareRequest(request), request);
+  }
+});
+
+test('source-bound defaults reject stale binding IDs, revisions, source hashes, and changed declaration lines', async (t) => {
+  for (const options of [
+    { bindingId: 'reading_previous' },
+    { binding: { reading_revision: readerSha('old revision') } },
+    { binding: { source_sha256: readerSha('old source') } },
+    { source: { title: 'THE MERRYMAN AND HIS MAID' } },
+    {
+      source: {
+        lines: [
+          { kind: 'lyric', text: 'A different merrymaid sings.' },
+          { kind: 'lyric', text: 'A popinjay sings.' },
+        ],
+      },
+    },
+  ]) {
+    const { resolver, request } = pronunciationCatalogFixture(t, options);
+    await assert.rejects(resolver.prepareRequest(request), { code: 'STALE_READING' });
+  }
+});
+
+test('source-bound defaults verify every asset, not just the requested collection', async (t) => {
+  for (const options of [
+    { corruptFile: '934' },
+    { corruptFile: '13646' },
+    { missingFile: 'bindings' },
+    { missingFile: '13646' },
+    {
+      registry: (registry) => {
+        registry.assets[0].files[0].bytes += 1;
+      },
+    },
+    {
+      registry: (registry) => {
+        registry.assets[0].files[0].sha256 = '0'.repeat(64);
+      },
+    },
+    {
+      registry: (registry) => {
+        registry.assets[0].decision = 'pending';
+      },
+    },
+  ]) {
+    const { resolver, request } = pronunciationCatalogFixture(t, options);
+    await assert.rejects(resolver.prepareRequest(request), { code: 'READER_UNAVAILABLE' });
+  }
+});
+
+test('reader route prepares after validation, hashes and stores defaults, and resumes stored choices', async (t) => {
+  const { resolver, store, request, pronunciations } = pronunciationCatalogFixture(t);
+  const secret = 'reader-default-pronunciations-test-secret';
+  const site = 'reader-default-test';
+  const calls = [];
+  let prepareCalls = 0;
+  const app = express();
+  app.use(
+    express.json({
+      verify: (req, _res, bytes) => {
+        req.readerRawBody = Buffer.from(bytes);
+      },
+    })
+  );
+  app.use(
+    createReaderRouter({
+      store,
+      scheduler: { kick() {} },
+      secret,
+      site,
+      prepareRequest: async (input) => {
+        prepareCalls++;
+        return resolver.prepareRequest(input);
+      },
+      resolveIdentity: async (input) => {
+        calls.push(structuredClone(input));
+        return resolver.resolveIdentity(input);
+      },
+    })
+  );
+  const server = await new Promise((resolve) => {
+    const listening = app.listen(0, '127.0.0.1', () => resolve(listening));
+  });
+  t.after(
+    () =>
+      new Promise((resolve) => {
+        server.close(resolve);
+        server.closeAllConnections();
+      })
+  );
+  const call = async (route, input, bindings = {}) => {
+    const body = JSON.stringify(input);
+    const headers = signReaderRequest({
+      secret,
+      method: 'POST',
+      path: route,
+      body,
+      site,
+      viewer: 'viewer-a',
+      idempotency: 'create-defaults',
+      job: '',
+      capability: '',
+      attempt: '',
+      generation: '',
+      ...bindings,
+    });
+    const response = await fetch(`http://127.0.0.1:${server.address().port}${route}`, {
+      method: 'POST',
+      headers: { ...headers, 'content-type': 'application/json' },
+      body,
+    });
+    return { status: response.status, body: await response.json() };
+  };
+  const invalid = await call('/internal/reader/jobs', { ...request, contract_version: 2 });
+  assert.notEqual(invalid.status, 202);
+  assert.equal(prepareCalls, 0);
+  const mismatch = await call('/internal/reader/jobs', { ...request, idempotency_key: 'other' });
+  assert.equal(mismatch.status, 409);
+  assert.equal(prepareCalls, 0);
+  const created = await call('/internal/reader/jobs', request);
+  assert.equal(created.status, 202, JSON.stringify(created.body));
+  assert.equal(prepareCalls, 1);
+  assert.deepEqual(calls[0].declaration_set.pronunciations, pronunciations);
+  const record = store.inspect(created.body.job.id);
+  assert.deepEqual(record.request, calls[0]);
+  assert.equal(
+    record.identity.declaration_hash,
+    (await resolver.resolveIdentity(calls[0])).declaration_hash
+  );
+  const lease = store.lease(record.id);
+  store.pause(lease.id, lease.attempt, lease.fence);
+  const resumed = await call(
+    `/internal/reader/jobs/${record.id}/resume`,
+    {},
+    { job: record.id, capability: created.body.capability, idempotency: 'resume-defaults' }
+  );
+  assert.equal(resumed.status, 202, JSON.stringify(resumed.body));
+  assert.equal(prepareCalls, 1);
+  assert.deepEqual(calls[1], record.request);
 });

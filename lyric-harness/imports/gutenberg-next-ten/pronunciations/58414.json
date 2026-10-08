@@ -1,0 +1,306 @@
+{
+  "2": {
+    "pronunciations": [
+      {
+        "line": "I pity the slave mother, careworn and weary,",
+        "token": 6,
+        "word": "careworn",
+        "phones": ["K", "EH1", "R", "W", "AO2", "R", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "May one day lift up its unmanacled form,",
+        "token": 7,
+        "word": "unmanacled",
+        "phones": ["AH0", "N", "M", "AE1", "N", "AH0", "K", "AH0", "L", "D"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "3": {
+    "pronunciations": [
+      {
+        "line": "When man in his vile lust of mammon hath trod",
+        "token": 8,
+        "word": "mammon",
+        "phones": ["M", "AE1", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "4": {
+    "pronunciations": [
+      {
+        "line": "Till life’s poor toilsome day is o’er;",
+        "token": 4,
+        "word": "toilsome",
+        "phones": ["T", "OY1", "L", "S", "AH0", "M"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "5": {
+    "pronunciations": [
+      {
+        "line": "Shine on, northern star, thou’rt beautiful and bright",
+        "token": 5,
+        "word": "thou'rt",
+        "phones": ["DH", "AW1", "R", "T"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "9": {
+    "pronunciations": [
+      {
+        "line": "That all may hear the gladsome sound,",
+        "token": 6,
+        "word": "gladsome",
+        "phones": ["G", "L", "AE1", "D", "S", "AH0", "M"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Shout! shout aloud! the bondsman’s free!",
+        "token": 5,
+        "word": "bondsman's",
+        "phones": ["B", "AA1", "N", "D", "Z", "M", "AH0", "N", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "18": {
+    "pronunciations": [
+      {
+        "line": "’Mong the hills of the North, where the bondman is free,",
+        "token": 9,
+        "word": "bondman",
+        "phones": ["B", "AA1", "N", "D", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "’Mong the hills of the North, where the bondman is free.",
+        "token": 9,
+        "word": "bondman",
+        "phones": ["B", "AA1", "N", "D", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Till responsive they sing, “Let the bondman go free.”",
+        "token": 7,
+        "word": "bondman",
+        "phones": ["B", "AA1", "N", "D", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Till they cry with one voice, “Let the bondman go free.”",
+        "token": 9,
+        "word": "bondman",
+        "phones": ["B", "AA1", "N", "D", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Shall the North tell the South, “Let the bondman go free.”",
+        "token": 9,
+        "word": "bondman",
+        "phones": ["B", "AA1", "N", "D", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And our blotted escutcheon be washed from its stains,",
+        "token": 4,
+        "word": "escutcheon",
+        "phones": ["IH0", "S", "K", "AH1", "CH", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "20": {
+    "pronunciations": [
+      {
+        "line": "And let it not be furled,",
+        "token": 6,
+        "word": "furled",
+        "phones": ["F", "ER1", "L", "D"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "21": {
+    "pronunciations": [
+      {
+        "line": "Must the groans of your bondman still torture the ear?",
+        "token": 6,
+        "word": "bondman",
+        "phones": ["B", "AA1", "N", "D", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Peace, then, ye blasphemers of Liberty’s name!",
+        "token": 4,
+        "word": "blasphemers",
+        "phones": ["B", "L", "AE0", "S", "F", "IY1", "M", "ER0", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "23": {
+    "pronunciations": [
+      {
+        "line": "Onward cheered amid hosannas,",
+        "token": 4,
+        "word": "hosannas",
+        "phones": ["HH", "OW0", "Z", "AE1", "N", "AH0", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "While the people shout hosannas.",
+        "token": 5,
+        "word": "hosannas",
+        "phones": ["HH", "OW0", "Z", "AE1", "N", "AH0", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Clear the track of ’mancipation!",
+        "token": 5,
+        "word": "'mancipation",
+        "phones": ["M", "AE2", "N", "S", "IH0", "P", "EY1", "SH", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "All take seats with exultation,",
+        "token": 5,
+        "word": "exultation",
+        "phones": ["EH2", "G", "Z", "AH0", "L", "T", "EY1", "SH", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "27": {
+    "pronunciations": [
+      {
+        "line": "Dear Lord! dear Lord! when Slavery’ll cease,",
+        "token": 6,
+        "word": "Slavery'll",
+        "phones": ["S", "L", "EY1", "V", "ER0", "IY0", "L"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "31": {
+    "pronunciations": [
+      {
+        "line": "From the suppliant’s prayer!",
+        "token": 3,
+        "word": "suppliant's",
+        "phones": ["S", "AH1", "P", "L", "IY0", "AH0", "N", "T", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "33": {
+    "pronunciations": [
+      {
+        "line": "Feebly the bondman toiled,",
+        "token": 3,
+        "word": "bondman",
+        "phones": ["B", "AA1", "N", "D", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "34": {
+    "pronunciations": [
+      {
+        "line": "To make the fettered bondman free.",
+        "token": 5,
+        "word": "bondman",
+        "phones": ["B", "AA1", "N", "D", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Poltroons that dare not speak",
+        "token": 1,
+        "word": "Poltroons",
+        "phones": ["P", "AA0", "L", "T", "R", "UW1", "N", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "36": {
+    "pronunciations": [
+      {
+        "line": "Come all ye bondmen far and near,",
+        "token": 4,
+        "word": "bondmen",
+        "phones": ["B", "AA1", "N", "D", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "39": {
+    "pronunciations": [
+      {
+        "line": "Dark Afric’s poor, degraded child;",
+        "token": 2,
+        "word": "Afric's",
+        "phones": ["AE1", "F", "R", "IH0", "K", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Wring from his sinews gold accursed,",
+        "token": 4,
+        "word": "sinews",
+        "phones": ["S", "IH1", "N", "Y", "UW0", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "13": {
+    "pronunciations": [
+      {
+        "line": "Takes the poor panting bondman his flight;",
+        "token": 5,
+        "word": "bondman",
+        "phones": ["B", "AA1", "N", "D", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Then list to the ’plaint of the heart-broken thrall,",
+        "token": 5,
+        "word": "'plaint",
+        "phones": ["P", "L", "EY1", "N", "T"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  }
+}

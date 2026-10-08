@@ -1,0 +1,426 @@
+{
+  "rhyme1_9": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Lady of Chertsey,",
+        "token": 7,
+        "word": "Chertsey",
+        "phones": ["CH", "ER1", "T", "S", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Which distressed all the people of Chertsey.",
+        "token": 7,
+        "word": "Chertsey",
+        "phones": ["CH", "ER1", "T", "S", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_11": {
+    "pronunciations": [
+      {
+        "line": "A \"sarpint\" ran into his boot!",
+        "token": 2,
+        "word": "sarpint",
+        "phones": ["S", "ER1", "P", "AH0", "N", "T"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "But he played day and night, till the \"sarpint\" took flight,",
+        "token": 9,
+        "word": "sarpint",
+        "phones": ["S", "ER1", "P", "AH0", "N", "T"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_13": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Person of Ischia,",
+        "token": 7,
+        "word": "Ischia",
+        "phones": ["IH1", "S", "K", "IY0", "AH0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "That lively Old Person of Ischia",
+        "token": 6,
+        "word": "Ischia",
+        "phones": ["IH1", "S", "K", "IY0", "AH0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_16": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Person of Buda,",
+        "token": 7,
+        "word": "Buda",
+        "phones": ["B", "UW1", "D", "AH0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_29": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Man of the Wrekin,",
+        "token": 8,
+        "word": "Wrekin",
+        "phones": ["R", "IY1", "K", "IH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Or of what, you Old Man of the Wrekin?\"",
+        "token": 9,
+        "word": "Wrekin",
+        "phones": ["R", "IY1", "K", "IH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_32": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Man of Apulia,",
+        "token": 7,
+        "word": "Apulia",
+        "phones": ["AH0", "P", "Y", "UW1", "L", "IY0", "AH0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "That whimsical Man of Apulia.",
+        "token": 5,
+        "word": "Apulia",
+        "phones": ["AH0", "P", "Y", "UW1", "L", "IY0", "AH0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_43": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Man of Nepaul,",
+        "token": 7,
+        "word": "Nepaul",
+        "phones": ["N", "AH0", "P", "AO1", "L"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "They mended that man of Nepaul.",
+        "token": 6,
+        "word": "Nepaul",
+        "phones": ["N", "AH0", "P", "AO1", "L"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_45": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Man of th' Abruzzi,",
+        "token": 8,
+        "word": "Abruzzi",
+        "phones": ["AH0", "B", "R", "UW1", "T", "S", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "That doubtful Old Man of th' Abruzzi.",
+        "token": 7,
+        "word": "Abruzzi",
+        "phones": ["AH0", "B", "R", "UW1", "T", "S", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_52": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Man of Coblenz,",
+        "token": 7,
+        "word": "Coblenz",
+        "phones": ["K", "OW1", "B", "L", "EH0", "N", "T", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "That surprising Old Man of Coblenz.",
+        "token": 6,
+        "word": "Coblenz",
+        "phones": ["K", "OW1", "B", "L", "EH0", "N", "T", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_54": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Man of Corfu,",
+        "token": 7,
+        "word": "Corfu",
+        "phones": ["K", "AO0", "R", "F", "UW1"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "That bewildered Old Man of Corfu.",
+        "token": 6,
+        "word": "Corfu",
+        "phones": ["K", "AO0", "R", "F", "UW1"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_57": {
+    "pronunciations": [
+      {
+        "line": "Whereon, by a thorn her dress being torn,",
+        "token": 1,
+        "word": "Whereon",
+        "phones": ["W", "EH1", "R", "AA1", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_59": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Person of Rheims,",
+        "token": 7,
+        "word": "Rheims",
+        "phones": ["R", "IY1", "M", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Which amused that Old Person of Rheims.",
+        "token": 7,
+        "word": "Rheims",
+        "phones": ["R", "IY1", "M", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_60": {
+    "pronunciations": [
+      {
+        "line": "But quickly snapt up he was once by a Puppy,",
+        "token": 3,
+        "word": "snapt",
+        "phones": ["S", "N", "AE1", "P", "T"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_61": {
+    "pronunciations": [
+      {
+        "line": "Whose waistcoat was spotted with blue;",
+        "token": 2,
+        "word": "waistcoat",
+        "phones": ["W", "EY1", "S", "T", "K", "OW2", "T"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_79": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Person of Anerley,",
+        "token": 7,
+        "word": "Anerley",
+        "phones": ["AE1", "N", "ER0", "L", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "But returned in the evening to Anerley.",
+        "token": 7,
+        "word": "Anerley",
+        "phones": ["AE1", "N", "ER0", "L", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_82": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Person of Tartary,",
+        "token": 7,
+        "word": "Tartary",
+        "phones": ["T", "AA1", "R", "T", "ER0", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Your death will be felt by all Tartary!\"",
+        "token": 8,
+        "word": "Tartary",
+        "phones": ["T", "AA1", "R", "T", "ER0", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_83": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Man of Whitehaven,",
+        "token": 7,
+        "word": "Whitehaven",
+        "phones": ["W", "AY1", "T", "HH", "EY2", "V", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Who danced a quadrille with a Raven;",
+        "token": 4,
+        "word": "quadrille",
+        "phones": ["K", "W", "AH0", "D", "R", "IH1", "L"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "So they smashed that Old Man of Whitehaven.",
+        "token": 8,
+        "word": "Whitehaven",
+        "phones": ["W", "AY1", "T", "HH", "EY2", "V", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_91": {
+    "pronunciations": [
+      {
+        "line": "That oracular Lady of Prague.",
+        "token": 2,
+        "word": "oracular",
+        "phones": ["AO0", "R", "AE1", "K", "Y", "AH0", "L", "ER0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_97": {
+    "pronunciations": [
+      {
+        "line": "Whose toilette was far from complete;",
+        "token": 2,
+        "word": "toilette",
+        "phones": ["T", "W", "AA0", "L", "EH1", "T"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_99": {
+    "pronunciations": [
+      {
+        "line": "There was a Young Lady of Dorking,",
+        "token": 7,
+        "word": "Dorking",
+        "phones": ["D", "AO1", "R", "K", "IH0", "NG"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "That she very soon went back to Dorking.",
+        "token": 8,
+        "word": "Dorking",
+        "phones": ["D", "AO1", "R", "K", "IH0", "NG"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_100": {
+    "pronunciations": [
+      {
+        "line": "That dolorous Man of Cape Horn.",
+        "token": 2,
+        "word": "dolorous",
+        "phones": ["D", "OW1", "L", "ER0", "AH0", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_103": {
+    "pronunciations": [
+      {
+        "line": "That umbrageous Old Person of Spain.",
+        "token": 2,
+        "word": "umbrageous",
+        "phones": ["AH0", "M", "B", "R", "EY1", "JH", "AH0", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_106": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Man in a casement,",
+        "token": 8,
+        "word": "casement",
+        "phones": ["K", "EY1", "S", "M", "AH0", "N", "T"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "That incipient Old Man in a casement.",
+        "token": 7,
+        "word": "casement",
+        "phones": ["K", "EY1", "S", "M", "AH0", "N", "T"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_111": {
+    "pronunciations": [
+      {
+        "line": "There was a Young Lady of Ryde,",
+        "token": 7,
+        "word": "Ryde",
+        "phones": ["R", "AY1", "D"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And frequently walked about Ryde.",
+        "token": 5,
+        "word": "Ryde",
+        "phones": ["R", "AY1", "D"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  }
+}

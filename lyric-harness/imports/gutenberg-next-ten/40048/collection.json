@@ -1,0 +1,56 @@
+{
+  "gutenberg_id": "40048",
+  "title": "The Newcastle Song Book; or, Tyne-Side Songster",
+  "editor": "Various; issued by W. & T. Fordyce",
+  "publication_year": 1842,
+  "edition": "Newcastle upon Tyne: printed and sold by W. & T. Fordyce, No. 15 Grey Street, 1842. Supplied title page, not ebook release year.",
+  "ebook_url": "https://www.gutenberg.org/ebooks/40048",
+  "source_url": "https://www.gutenberg.org/files/40048/40048-h/40048-h.htm",
+  "mirror_url": "https://raw.githubusercontent.com/GITenberg/The-Newcastle-Song-Bookor-Tyne-Side-Songster_40048/master/40048-h/40048-h.htm",
+  "source_sha256": "668fb21076de1db9bea34ca209c3449613b42a208215270c0156862235226e78",
+  "source_bytes": 910467,
+  "retrieved_on": "2026-10-08",
+  "source_transport": "GITenberg HTML mirror response bytes; exact bytes pinned and retained in deterministic source.html.gz for offline replay. No mirror commit claim.",
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/cache/epub/40048/pg40048-images.html",
+    "excerpt": "Newcastle upon Tyne: PRINTED AND SOLD BY W. & T. FORDYCE, No. 15, GREY STREET. 1842."
+  },
+  "rights_evidence": {
+    "url": "https://www.gutenberg.org/ebooks/40048",
+    "excerpt": "Copyright: Public domain in the USA.",
+    "jurisdiction": "United States",
+    "scope": "Supplied 1842 English lyric text, including regional spellings; catalogue checked 2026-10-08. No worldwide rights claim.",
+    "publication_year_used": 1842
+  },
+  "counts": {
+    "contents_entries": 216,
+    "supplemental_titled_entries": 0,
+    "candidate_units": 214,
+    "eligible_before_deduplication": 211,
+    "excluded_before_deduplication": 3,
+    "contents_alias_entries": 2
+  },
+  "deduplication": "Deferred to shared integration across next-ten collections and existing corpus; eligibility counts are not admitted counts.",
+  "notes": [
+    "216 contents entries reconcile to 214 body units: Jenny Hoolet/Lizzie Mudie's Ghost are alternate index titles; Coronation/Invitation index entries refer to one printed song.",
+    "Four body h2 headings have page-only index anchors. Explicit mappings preserve all four without treating page breaks as lyric boundaries.",
+    "The malformed HTML paragraph around the Coronation Invitation is parsed between literal heading boundaries; all 24 verse lines are retained.",
+    "No numerical line cutoff. Three individually reviewed extended narrative/epistolary works are excluded whole; complete performed songs such as Changes on the Tyne and A Voyage to Lunnin remain eligible.",
+    "All source spellings, censored names, dialogue wording and abbreviated refrains retained. Typographic markup, page numbers, footnote callouts, prose spoken interludes and editorial notes are recorded as apparatus rather than sung verse. No pronunciation declarations added.",
+    "Contents authors retained verbatim; conflicting body bylines explicitly recorded for Canny Sheels and Donocht-Head. No invented full-name expansion.",
+    "This screening does not establish exhaustive independent authorship history for anonymous songs; it records the supplied witness and no translation attribution identified."
+  ],
+  "validation": {
+    "contents_coverage": "All216 contents entries asserted against214 extracted units; aliases explicit.",
+    "source_pin": "SHA256 of exact retained decompressed HTML bytes.",
+    "stanza_boundaries": "HTML stanza divs and br breaks retained; malformed container isolated at h2 boundaries.",
+    "structural_labels": "CHORUS/REFRAIN labels normalized to existing structural markers; footnote prose excluded."
+  },
+  "editorial_exclusions": [
+    {
+      "source_locator": "https://www.gutenberg.org/files/40048/40048-h/40048-h.htm#Footnote_36_36",
+      "reason": "incomplete_source_work: six-line newspaper quotation in editorial footnote to A Gipsy's Song; not part of the complete body song and not an independently supplied whole poem.",
+      "text": "\"They brought the piper, Sandy Brown,\nFrae Jedburgh to Lochmaben town;\nThough whaisling sair and broken down\nAuld Sandy seem'd,\nHis chanter for a pleasing sound\nWas still esteem'd.\""
+    }
+  ]
+}
