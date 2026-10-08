@@ -1,0 +1,50 @@
+{
+  "gutenberg_id": "22223",
+  "title": "English Songs and Ballads",
+  "edition_year": 1903,
+  "edition_imprint": "London: Grant Richards, April 1903 second impression",
+  "source_url": "https://www.gutenberg.org/ebooks/22223",
+  "text_url": "https://www.gutenberg.org/ebooks/22223.txt.utf-8",
+  "retrieved_on": "2026-10-08",
+  "source_sha256": "4c4bbef1371755be85100602047479ecb3c91f4b7bd597bae01b8ad3fa0d8767",
+  "rights": {
+    "jurisdiction": "United States",
+    "status": "public_domain",
+    "basis": "Exact supplied print edition published 1903, before 1931. Project Gutenberg catalog explicitly identifies Public domain in the USA.",
+    "evidence_url": "https://www.gutenberg.org/ebooks/22223",
+    "evidence_excerpt": "Public domain in the USA.",
+    "edition_evidence_url": "https://www.gutenberg.org/cache/epub/22223/pg22223-images.html",
+    "edition_evidence_excerpt": "Second Impression April l903"
+  },
+  "candidate_count": 269,
+  "eligible_before_deduplication": 258,
+  "excluded_before_deduplication": 11,
+  "duplicate_count": "assigned by integration across existing corpus and all ten collections",
+  "exclusion_counts": {
+    "long_narrative_poem": 11
+  },
+  "retrieval_url": "https://raw.githubusercontent.com/GITenberg/English-Songs-and-Ballads_22223/master/22223.txt",
+  "source_format": "GITenberg archive of Project Gutenberg plain text, exact 1903 imprint",
+  "index_entry_count": 265,
+  "unindexed_independent_work_count": 4,
+  "index_reconciliation": "269 independently headed pieces include four omitted from first-line index: Weep No More; My True Love; Content; Shakespeare Song (Come away, come away, death). No poem parts are split.",
+  "publication_year": 1903,
+  "edition": "London: Grant Richards, April 1903 second impression",
+  "apparatus_transformations": {
+    "policy": "Standalone ornaments and speaker/prose headings become # APPARATUS: comments; printed chorus labels become [CHORUS], preserving any words following the label. Exact source/output text is recorded per candidate.",
+    "annotated_line_count": 9,
+    "eligible_annotated_line_count": 4,
+    "bracket_normalization": "Remove supplied-word square brackets, preserving their enclosed verse text; remove editorial [sic] and [?] tags. Every changed extracted line has exact before/after evidence.",
+    "bracket_normalized_lines": 1,
+    "sic_removed_lines": 0
+  },
+  "apparatus_review": "apparatus-review.json",
+  "reader_validation": {
+    "reader": "normalized-lyrics-v1",
+    "method": "Generate each eligible item with integration marked_text into a temporary staged file, then compare every lyric row from normalized_rows with all intended non-apparatus candidate lines, in exact order.",
+    "eligible_items_checked": 258,
+    "verse_rows_matched": 7950,
+    "missing_or_altered_rows": 0,
+    "candidates_sha256": "e6ee5a5495760bd89bd6728437e2d70b2cd13d7dc47123ee961f0d4fade54c34"
+  }
+}

@@ -3264,7 +3264,11 @@ def main(argv=None):
 #: its receipt classes the line an editorial note). 1195 + 36 - 16 - 1 = 1214.
 #: ~~Nothing else moved.~~ No other finding COUNT moved; several measurements
 #: did (`quality/RESULTS_CORPUS_AUDIT.md`, the 2026-10-04 result).
-PINNED_SHAPE = {"files": 1477, "FAIL": 0, "WARN": 38, "NOTE": 1214}
+# 2026-10-08, ten Gutenberg Library collections: 1477 -> 2201 files,
+# NOTE 1214 -> 1743 (526 elision notes, three one-line stanza residue notes).
+# FAIL remains zero and WARN remains 38 after duplicate/apparatus review.
+# Research song/calibration populations are unchanged; this audit walks all corpus/.
+PINNED_SHAPE = {"files": 2201, "FAIL": 0, "WARN": 38, "NOTE": 1743}
 
 
 def _verify_shape(files, findings):

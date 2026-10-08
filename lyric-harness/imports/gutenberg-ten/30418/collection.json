@@ -1,0 +1,49 @@
+{
+  "gutenberg_id": "30418",
+  "title": "Traditional Nursery Songs of England",
+  "publication_year": 1843,
+  "edition": "London: Joseph Cundall, 12, Old Bond Street. 1843.",
+  "language": "English",
+  "source_url": "https://www.gutenberg.org/ebooks/30418",
+  "html_url": "https://www.gutenberg.org/cache/epub/30418/pg30418-images.html",
+  "retrieval": {
+    "mirror_url": "https://github.com/GITenberg/Traditional-Nursery-Songs-of-EnglandWith-Pictures-by-Eminent-Modern-Artists_30418",
+    "commit": "b7fb48ae43ca8bf85ef98ef8e03ea2e0a0bb0354",
+    "file": "30418-h/30418-h.htm",
+    "sha256": "456ffda8c1dedbeb57c894b8ff1a416863bb40baeed17f9163c6774e92acefe9",
+    "encoding": "ISO-8859-1",
+    "fetched_on": "2026-10-08",
+    "edition_verification": "Mirror HTML imprint agrees with exact Project Gutenberg ebook HTML, independently inspected through browser."
+  },
+  "rights": {
+    "status": "public_domain",
+    "jurisdiction": "USA",
+    "basis": "Supplied 1843 edition, published before 1931; Project Gutenberg ebook catalogue explicitly identifies Public domain in the USA.",
+    "evidence_url": "https://www.gutenberg.org/ebooks/30418",
+    "evidence_excerpt": "Public domain in the USA.",
+    "edition_evidence_excerpt": "London: Joseph Cundall, 12, Old Bond Street. 1843.",
+    "scope": "Printed words in the supplied edition; no music, images, modern copyrighted versions or PG boilerplate imported."
+  },
+  "counts": {
+    "source_entries": 103,
+    "eligible_before_corpus_deduplication": 103,
+    "other_excluded_entries": 0,
+    "duplicates": "Determined by integration across all ten collections and existing corpus.",
+    "html_verse_blocks": 107
+  },
+  "excluded_non_entry_material": [
+    "title and imprint pages",
+    "preface and introduction",
+    "editorial notes and footnotes",
+    "illustration captions",
+    "contents and index",
+    "Project Gutenberg license and boilerplate"
+  ],
+  "extraction": {
+    "adapter": "adapter.py",
+    "faithfulness": "Complete lyric stanzas; typographical indentation and stanza numbers removed. Original words, punctuation and printed chorus abbreviations retained. No length truncation or modernisation.",
+    "additional_cleaning": "Finger-play directions and number-only counting glosses omitted. Every rhyme retains all printed words."
+  },
+  "count_reconciliation": "107 HTML cpoem blocks resolve to 103 complete rhymes: blocks20–21 Four and twenty tailors; blocks49–51 Little Bo-peep; blocks73–74 Rock-a-bye baby are continuations. The approximate130 supplied count is not the actual count in this edition.",
+  "boundary_review": "Pippin Hill and Little Miss remain separate source entries because the supplied edition inserts the same ornamental divider used between other independent rhymes; other editions grouping them together does not override this edition. Four and twenty tailors, Little Bo-peep, and Rock-a-bye continuations have no intervening source divider."
+}
