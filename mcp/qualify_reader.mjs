@@ -68,7 +68,7 @@ const resolver = createCatalogResolver({
   resourceFingerprint: assets.assets_sha256,
 });
 const catalog = await resolver.probe();
-const pinnedSnapshot = '5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e';
+const pinnedSnapshot = '6534c1c17a6ddf994478b1d0b472d332e5eb2c5dfff3f61bd8dfc0cb830e2a7b';
 assert.equal(
   catalog.snapshot_id,
   pinnedSnapshot,
@@ -80,7 +80,7 @@ if (assets.releaseRequired) {
     pinnedSnapshot,
     'The image must contain admitted reader assets.'
   );
-  assert.equal(assets.reader?.counts?.readable_reading_units, 20865);
+  assert.equal(assets.reader?.counts?.readable_reading_units, 23561);
   assert.match(build.commit || '', /^[a-f0-9]{40}$/);
   assert.ok(build.release_id, 'The image must carry its baked release identity.');
 }
