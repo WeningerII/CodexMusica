@@ -1,0 +1,938 @@
+id,name,earlier_verdict,verdict,parents,origins,reason,skeptic_upheld,action,old_lat,old_lon,old_label,old_region,new_lat,new_lon,new_label,new_region
+21st_century_classical,21st century classical,placeless,no_origin,,,Era slice of global art music; no shared origin.,,no fixed origin,51.7612,-1.2465,Oxfordshire,Europe,,,,
+432hz,432Hz,placeless,no_origin,,,Tuning standard.,,no fixed origin,41.9028,12.4964,Rome,Europe,,,,
+528hz,528 Hz,placeless,no_origin,,,Healing-frequency function category.,,no fixed origin,53.5461,-113.4938,Edmonton,North America,,,,
+5th_wave_emo,5th wave emo,placeless,inherits,emo,"Washington, D.C., USA","Wave of emo, internet-dispersed; emo's D.C. origin is documented.",true,moved,36.852,-121.402,Hollister,North America,38.907,-77.037,Washington,North America
+8d,8D,placeless,no_origin,,,Binaural audio effect.,,no fixed origin,52.5,9.7,Wedemark,Europe,,,,
+abstract,Abstract,placeless,no_origin,,,Placeless descriptor.,,no fixed origin,69.6492,18.9553,Tromsø,Europe,,,,
+abstract_beats,Abstract beats,placeless,inherits,abstract_hip_hop,"London, UK; New York, US",Instrumental abstract hip-hop production; Mo' Wax London and NY abstract scene.,true,moved,45.764,4.8357,Lyon,Europe,51.51,-0.13,London,Europe
+abstract_idm,Abstract IDM,placeless,inherits,idm,"Sheffield, UK",Descriptor slice of IDM; parent's Warp/Sheffield origin applies.,true,moved,40.7128,-74.006,New York,North America,53.38,-1.47,Sheffield,Europe
+abstractro,Abstractro,placeless,no_origin,,,Algorithmic listener tag; no scene.,,no fixed origin,56.3269,44.0059,Nizhny Novgorod,Europe,,,,
+accordion,Accordion,placeless,no_origin,,,Instrument category.,,no fixed origin,53.274,5.604,Sint Jacobiparochie,Europe,,,,
+accordion_band,Accordion band,placeless,no_origin,,,Ensemble type; community accordion bands exist in many countries.,,no fixed origin,53.795,-1.759,Bradford,Europe,,,,
+acid_idm,Acid IDM,placeless,inherits,idm; acid_house,"Sheffield, United Kingdom; Chicago, United States",Texture variant of IDM using acid sound; both parents' origins documented.,true,moved,43.263,-2.935,Bilbao,Europe,53.38,-1.47,Sheffield,Europe
+acoustic_chill,Acoustic chill,placeless,no_origin,,,Mood playlist category.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+acoustic_cover,Acoustic cover,placeless,no_origin,,,Performance format.,,no fixed origin,40.4776,-74.6268,Hillsborough Township,North America,,,,
+acoustic_guitar_cover,Acoustic guitar cover,placeless,no_origin,,,Performance format/playlist category.,,no fixed origin,43.6532,-79.3832,Toronto,North America,,,,
+acoustic_pop,Acoustic pop,placeless,no_origin,,,Arrangement/mood umbrella of pop; parent pop has no single documented origin.,,no fixed origin,39.953,-75.164,Philadelphia,North America,,,,
+acoustic_rock,Acoustic rock,placeless,no_origin,,,Instrumentation/performance-format umbrella.,,no fixed origin,42.36,-71.059,Boston,North America,,,,
+adoracion,Adoracion,placeless,no_origin,,,Spanish-language worship function category.,,no fixed origin,38.2527,-85.7585,Louisville,North America,,,,
+adoracion_pentecostal,Adoración pentecostal,multi_origin,no_origin,,,Transnational religious worship category; no documented formative centre.,,no fixed origin,-34.604,-58.382,Buenos Aires,Latin America & Caribbean,,,,
+adventista,Adventista,placeless,no_origin,,,Denominational worship category with no shared style or place.,,no fixed origin,41.375,2.149,Barcelona,Europe,,,,
+aesthetic_rap,Aesthetic Rap,placeless,no_origin,,,"Internet-native SoundCloud/Discord tag, no place.",,no fixed origin,36.1699,-115.1398,Las Vegas,North America,,,,
+african_electronic,African electronic,placeless,no_origin,,,Continent-wide umbrella; parent electronic music has no single origin.,,no fixed origin,13.5116,2.1254,Niamey,Africa,,,,
+african_experimental,African experimental,placeless,no_origin,,,Continent-wide umbrella.,,no fixed origin,-26.194,28.071,Troyeville,Africa,,,,
+african_gospel,African gospel,multi_origin,no_origin,,,"Continent-wide religious umbrella, no shared style; cities are where national gospels are played.",false,no fixed origin,-26.2678,27.8585,Soweto,Africa,,,,
+african_reggae,African reggae,multi_origin,own_origins,,"Abidjan, Côte d'Ivoire; Johannesburg, South Africa",Abidjan and Johannesburg documented as formative African reggae centres.,true,moved,9.51,-7.57,Odienné,Africa,5.36,-4.0083,Abidjan,Africa
+african_rock,African rock,placeless,no_origin,,,Continental umbrella over many national rock movements; no honest N<=4.,,no fixed origin,-12.528,27.883,Chingola,Africa,,,,
+afrobeat_fusion,Afrobeat fusion,placeless,inherits,afrobeat,"Lagos, Nigeria","Afrobeat-derived hybrid field; parent origin documented, no rival scene.",true,moved,45.815,15.9819,Zagreb,Europe,6.52,3.38,Lagos,Africa
+ai,AI,placeless,no_origin,,,"Production technique, not a style or place.",,no fixed origin,34.052,-118.244,Los Angeles,North America,,,,
+alt_z,Alt-Z,placeless,no_origin,,,Spotify generational playlist brand.,,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+alternative_ccm,Alternative ccm,placeless,inherits,christian_alternative_rock; ccm,"Southern California, United States",Market slice; CCM/Christian alt-rock documented from SoCal Jesus-music scene.,true,moved,32.72,-117.16,San Diego,North America,33.68,-117.8,Southern California,North America
+alternative_dance,Alternative dance,multi_origin,own_origins,,"Manchester, UK; London, UK","Late-1980s UK indie-dance crossover, Madchester-centred.",true,moved,38.9058,-77.0086,Washington,North America,53.4808,-2.2426,Manchester,Europe
+alternative_emo,Alternative emo,placeless,inherits,emo,"Washington, D.C., US",Market slice of emo; DC is emo's documented origin.,true,kept: already at an origin,38.907,-77.037,Washington DC,North America,,,,
+alternative_hardcore,Alternative hardcore,placeless,inherits,hardcore_punk,"Los Angeles, USA; Washington, D.C., USA",Vague variant of hardcore punk; parent's LA/DC origins documented.,true,moved,53.2,-4.2,North Wales,Europe,34.05,-118.24,Los Angeles,North America
+alternative_metalcore,Alternative metalcore,placeless,inherits,metalcore; alternative_metal,"Syracuse, United States; Boston, United States",Market slice of metalcore; Syracuse/Boston documented metalcore centres.,true,moved,39.9612,-82.9988,Columbus,North America,43.05,-76.15,Syracuse,North America
+alternative_pop,Alternative pop,placeless,no_origin,,,Global umbrella tag; parent has no documented origin.,,no fixed origin,51.507,-0.128,London,Europe,,,,
+alternative_pop_rock,Alternative pop rock,placeless,no_origin,,,Market label; no scene.,,no fixed origin,40.713,-74.006,New York,North America,,,,
+alternative_roots_rock,Alternative roots rock,placeless,no_origin,,,Broad roots-rock umbrella with no documented scene; parent roots rock is itself diffuse.,,no fixed origin,30.267,-97.743,Austin,North America,,,,
+ambient_black_metal,Ambient black metal,placeless,inherits,black_metal,"Oslo, Norway; Bergen, Norway",Ambient slice of black metal; Norwegian second-wave centres (Burzum Bergen) documented.,true,moved,46.95,7.45,Berne (Darkspace cultural anchor),Europe,59.9139,10.7522,Oslo,Europe
+ambient_country,Ambient country,placeless,no_origin,,,Diffuse fusion micro-tag with one exemplar; no documented scene.,,no fixed origin,40.71,-74.01,New York (SUSS recording community),North America,,,,
+ambient_dub_techno,Ambient dub techno,multi_origin,inherits,dub_techno,"Berlin, Germany",Dub techno originated in Berlin (Basic Channel); Detroit is merely Deepchord's home.,false,moved,42.33,-83.05,Detroit / Deepchord recording lineage,North America,52.52,13.4,Berlin,Europe
+ambient_folk,Ambient folk,placeless,no_origin,,,Transnational intersection tag; parents lack single origin.,,no fixed origin,45.52,-122.68,Portland (Grouper acoustic-song period),North America,,,,
+ambient_guitar,Ambient guitar,placeless,no_origin,,,Instrument-defined category.,,no fixed origin,42.32,-83.18,Dearborn (Windy & Carl),North America,,,,
+ambient_idm,Ambient IDM,placeless,inherits,idm,"Sheffield, United Kingdom",Mood slice of IDM; Warp Sheffield is IDM's documented defining centre.,true,moved,52.52,13.41,Berlin,Europe,53.38,-1.47,Sheffield,Europe
+ambient_lo_fi,Ambient lo-fi,placeless,no_origin,,,Online listening-context category.,,no fixed origin,50.0755,14.4378,Prague,Europe,,,,
+ambient_pop,Ambient pop,placeless,no_origin,,,Mood-defined global pop umbrella; no documented origin.,,no fixed origin,40.68,-73.95,Brooklyn (Apocalypse recording),North America,,,,
+ambient_post_rock,Ambient post-rock,placeless,inherits,post_rock_extended; ambient,"London, United Kingdom; Chicago, United States; Montreal, Canada","Close post-rock slice; London, Chicago, Montreal are documented post-rock centres.",true,moved,36.16,-86.78,Nashville (Hammock),North America,51.51,-0.13,London,Europe
+ambient_psychill,Ambient psychill,placeless,inherits,psychill,"Goa, India; London, UK",Explicitly the ambient branch of psychedelic chillout; parent origins apply.,true,moved,57.71,11.97,Gothenburg,Europe,15.57,73.74,Goa,South Asia
+ambient_synth,Ambient synth,placeless,inherits,ambient,"London, United Kingdom",Synth-led ambient slice; ambient's London (Eno) origin inherited.,true,moved,41.5,-81.69,Cleveland,North America,51.51,-0.13,London,Europe
+ambient_trance,Ambient trance,placeless,inherits,trance,"Frankfurt, Germany",Atmospheric slice of trance; Gothenburg is only where psychill artists live.,true,moved,57.7089,11.9746,Gothenburg,Europe,50.11,8.68,Frankfurt,Europe
+ambient_worship,Ambient worship,placeless,no_origin,,,Devotional listening mood within global Christian music umbrella.,,no fixed origin,22.3193,114.1694,Hong Kong,East Asia,,,,
+american_drinking_song,"American drinking song (frat, sea-shanty-derived, country)",placeless,no_origin,,,Function category (drinking songs) across styles nationwide.,,no fixed origin,42.36,-71.06,Boston,North America,,,,
+animal_singing,Animal singing,placeless,no_origin,,,Novelty animal-sound category.,,no fixed origin,34.05,-118.24,Los Angeles,North America,,,,
+anime_drill,Anime Drill,placeless,no_origin,,,Online fandom-theme rap category.,,no fixed origin,48.4284,-123.3656,Victoria,North America,,,,
+anime_rap,Anime Rap,placeless,no_origin,,,Internet fan-theme category.,,no fixed origin,-15.78,-47.93,Brazil,Latin America & Caribbean,,,,
+animegrind,Animegrind,placeless,inherits,goregrind,"Liverpool, UK",Theme-defined goregrind slice; Catamarca is one band's home.,true,moved,-28.47,-65.79,Catamarca,Latin America & Caribbean,53.41,-2.98,Liverpool,Europe
+anthem,Anthem,placeless,no_origin,,,Ceremonial function category.,,no fixed origin,29.95,-90.07,New Orleans,North America,,,,
+anthem_emo,Anthem emo,placeless,inherits,emo,"Washington, D.C., US",Mood slice of emo; pop_punk parent dropped since its origin not listed.,true,moved,42.5195,-70.8967,Salem,North America,38.907,-77.037,Washington,North America
+antiviral_pop,Antiviral pop,placeless,no_origin,,,Pandemic-themed playlist category.,,no fixed origin,53.4,-8,Ireland,Europe,,,,
+apostolic_worship,Apostolic worship,placeless,no_origin,,,Denominational worship label; no locality or shared style.,,no fixed origin,33.4,-86.95,Bessemer,North America,,,,
+arab_electronic,Arab Electronic,multi_origin,no_origin,,,Identity/regional umbrella across Arab countries and diaspora; no shared style; capitals are where it's made.,false,no fixed origin,31.24,36.51,Jordan,Middle East,,,,
+arab_experimental,Arab experimental,multi_origin,own_origins,,"Beirut, Lebanon; Cairo, Egypt","Beirut Irtijal free-improv and Cairo (100Copies, Louca) are documented formative centres.",true,moved,51.56,-0.073,Stoke Newington,Europe,33.89,35.5,Beirut,Middle East
+arab_folk,Arab folk,multi_origin,no_origin,,,Pan-Arab umbrella of many distinct traditions; no shared origin.,,no fixed origin,30.0444,31.2357,Cairo,Middle East,,,,
+arab_groove,Arab groove,multi_origin,no_origin,,,"Playlist tag; only auto-generated sources, conflicting eras; record describes a modern Paris club act.",false,no fixed origin,48.857,2.352,Paris,Europe,,,,
+arab_metal,Arab metal,multi_origin,own_origins,,"Beirut, Lebanon; Cairo, Egypt; Tunis, Tunisia; Casablanca, Morocco","Region-named metal; Beirut, Cairo, Tunis, Casablanca scenes documented (LeVine, Heavy Metal Islam).",true,kept: already at an origin,36.8065,10.1815,Tunis,Africa,,,,
+arab_trap,Arab Trap,multi_origin,own_origins,,"Alexandria, Egypt; Cairo, Egypt; Ramallah, Palestine; Casablanca, Morocco","Egyptian, Palestinian (BLTNM) and Moroccan trap scenes formed concurrently; documented centres.",true,moved,25.2048,55.2708,Dubai,Middle East,31.2,29.92,Alexandria,Middle East
+arabic_hip_hop,Arabic hip hop,multi_origin,own_origins,,"Lod, Israel/Palestine; Algiers, Algeria; Beirut, Lebanon; Cairo, Egypt","Early Arabic-language rap scenes documented in these cities; regional tradition, not umbrella.",true,moved,31.951,34.888,Lod / Lydda,Middle East,36.75,3.06,Algiers,Africa
+arabic_jazz,Arabic jazz,multi_origin,own_origins,,"Beirut, Lebanon; Cairo, Egypt; Tunis, Tunisia","Documented pioneers in Beirut, Cairo, Tunis; multi-origin fusion.",true,kept: already at an origin,36.8065,10.1815,Tunis,Africa,,,,
+asmr_whisper_triggers,ASMR whisper and trigger audio,placeless,no_origin,,,Internet-native whisper/sound-trigger audio; speech and sound-effect format.,,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+atmospheric_doom,Atmospheric doom,placeless,inherits,doom,"Birmingham, UK","Textural doom-metal variant; Iranian exemplar is one artist, not an origin.",true,moved,32,53,Iran (regional representative point),Middle East,52.4862,-1.8904,Birmingham,Europe
+audiobook_narration,Audiobook narration,placeless,no_origin,,,Spoken-word narration format.,,no fixed origin,40.75,-73.98,New York,North America,,,,
+audiophile_vocal,Audiophile vocal,placeless,no_origin,,,Production/listening-context category.,,no fixed origin,34.05,-118.24,Los Angeles,North America,,,,
+autonomous_black_metal,Autonomous black metal,placeless,no_origin,,,"Political/DIY descriptor cluster, no documented scene; Oslo pin would mislead ideologically.",false,no fixed origin,55.6761,12.5683,Copenhagen,Europe,,,,
+avant_garde,Avant-garde,placeless,no_origin,,,Broad global experimental umbrella.,,no fixed origin,52.52,13.405,Berlin,Europe,,,,
+avant_metal_classic,Avant-garde metal,multi_origin,no_origin,,,"Approach umbrella; listed places are just pioneer bands' hometowns across continents, no shared scene.",false,no fixed origin,59.91,10.75,Oslo,Europe,,,,
+background_music,Background music,placeless,no_origin,,,Function category.,,no fixed origin,36.2,138.3,Japan,East Asia,,,,
+background_piano,Background piano,placeless,no_origin,,,Functional background/study listening category.,,no fixed origin,43.25,-79.87,Hamilton,North America,,,,
+backing_track,Backing track,placeless,no_origin,,,Function category for practice accompaniment.,,no fixed origin,51.51,-0.13,London,Europe,,,,
+bahai,Bahá’í music,placeless,no_origin,,,Religious affiliation with no shared style or place.,,no fixed origin,49.28,-123.12,Vancouver,North America,,,,
+balkan_folk_metal,Balkan folk metal,multi_origin,own_origins,,Serbia; Bulgaria; Croatia,"Region-named folk metal; Serbian/Bulgarian scenes documented, region defines it.",true,moved,45.2671,19.8335,Novi Sad,Europe,42.73,25.48,Bulgaria,Europe
+balkan_punk,Balkan punk,multi_origin,own_origins,,"Ljubljana, Slovenia; Zagreb, Croatia; Belgrade, Serbia","Yugoslav punk scenes in Ljubljana, Zagreb, Belgrade are documented formative centres.",true,moved,43.724,20.687,Kraljevo,Europe,46.0569,14.5058,Ljubljana,Europe
+ballet_class,Ballet class music,placeless,no_origin,,,Functional accompaniment category.,,no fixed origin,43.55,-79.59,Port Credit,North America,,,,
+band_organ,Band organ music,multi_origin,no_origin,,,"Instrument-defined repertoire; organ-building towns are instrument birthplaces, not music origins.",false,no fixed origin,38.967,-77.14,Glen Echo,North America,,,,
+banda_militar,Banda militar,placeless,no_origin,,,"Military band function, worldwide.",,no fixed origin,-39.81,-73.25,Valdivia,Latin America & Caribbean,,,,
+banjo,Banjo music,placeless,no_origin,,,Instrument category across many genres.,,no fixed origin,38.9,-77.04,Washington,North America,,,,
+bardcore,Bardcore,placeless,no_origin,,,Internet-native 2020 YouTube meme style.,,no fixed origin,56,-106,Canada,North America,,,,
+baroque_brass,Baroque brass,placeless,no_origin,,,Period-instrument performance practice.,,no fixed origin,47.606,-122.332,Seattle,North America,,,,
+baroque_cello,Baroque cello,placeless,no_origin,,,Instrument and historical performance practice; no place.,,no fixed origin,45.502,-73.567,Montréal,North America,,,,
+baroque_ensemble,Baroque ensemble,placeless,no_origin,,,Ensemble format.,,no fixed origin,51.333,-1.398,East Woodhay,Europe,,,,
+baroque_period,Baroque period-instrument,multi_origin,own_origins,,"Florence, Italy; Venice, Italy; Rome, Italy; Paris, France",Baroque style documented as formed in Italian centres; Paris defined French style.,true,moved,51.34,12.37,Leipzig,Europe,43.7696,11.2558,Florence,Europe
+baroque_singing,Baroque singing,placeless,no_origin,,,"Performance-practice/voice category, not a place-bound style.",,no fixed origin,50.356,7.601,Koblenz,Europe,,,,
+baroque_violin,Baroque violin,placeless,no_origin,,,Instrument/performance-practice category.,,no fixed origin,51.947,-3.391,Brecon,Europe,,,,
+baroque_woodwind,Baroque woodwind,placeless,no_origin,,,Instrument/period-practice category.,,no fixed origin,50.85,4.352,Brussels,Europe,,,,
+bases_de_freestyle,Bases de freestyle,placeless,no_origin,,,Function category: battle-rap instrumental beats.,,no fixed origin,-33.45,-70.67,Santiago,Latin America & Caribbean,,,,
+bass_trip,Bass trip,placeless,no_origin,,,Discovery cluster with no documented scene.,,no fixed origin,51.2194,4.4025,Antwerp,Europe,,,,
+basshall,Basshall,placeless,no_origin,,,Producer EDM hybrid with no documented formative centre.,,no fixed origin,17.97,-76.79,Kingston,Latin America & Caribbean,,,,
+beats,Beats,placeless,inherits,hip_hop,"The Bronx, New York, USA",Instrumental production slice of hip-hop; Bronx origin.,true,kept: already at an origin,40.8043,-74.0121,North Bergen,North America,,,,
+bedroom_pop,Bedroom pop,placeless,no_origin,,,Internet-native DIY production category; no place.,,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+bedroom_rnb,Bedroom R&B,placeless,inherits,alt_rnb,"Toronto, Canada; Los Angeles, California, US","DIY production slice of alternative R&B; internet-native, no own centre.",true,kept: already at an origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+bedroom_singer_song,Bedroom singer-songwriter,placeless,inherits,singer_songwriter; bedroom_pop,"New York City, United States; Los Angeles, United States",DIY production slice of singer-songwriter; Greenwich Village/LA documented.,true,kept: already at an origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+bedroom_soul,Bedroom soul,placeless,no_origin,,,Internet bedroom-pop texture only soul-influenced; pinning at Stax/Motown misleads.,false,no fixed origin,37.7749,-122.4194,San Francisco,North America,,,,
+bells,Bells,placeless,no_origin,,,Instrument category.,,no fixed origin,46.2184,7.004,Saint-Maurice,Europe,,,,
+bible,Bible,placeless,no_origin,,,"Spoken scripture recordings; textual category, no musical place.",,no fixed origin,51.507,-0.128,London,Europe,,,,
+binaural,Binaural,placeless,no_origin,,,Audio recording technique/effect.,,no fixed origin,35.961,-83.921,Knoxville,North America,,,,
+birdsong,Birdsong,placeless,no_origin,,,Nature recording.,,no fixed origin,-24.2,26.4,South Africa–Botswana border,Africa,,,,
+birthday,Birthday,placeless,no_origin,,,Function/occasion category.,,no fixed origin,50.85,4.352,Brussels,Europe,,,,
+black_comedy,Black Comedy,placeless,no_origin,,,Comedy speech category.,,no fixed origin,34.181,-118.309,Burbank,North America,,,,
+black_death,Black Death,multi_origin,own_origins,,"Stockholm, Sweden; Gdańsk, Poland","Blackened death formed around Swedish (Necrophobic, Dissection) and Polish (Behemoth) bands.",true,moved,38.79,-77.187,Springfield,North America,59.3293,18.0686,Stockholm,Europe
+black_noise,Black Noise,placeless,no_origin,,,Niche black-metal/noise fusion tag; no documented scene or place.,,no fixed origin,33.749,-84.388,Atlanta,North America,,,,
+black_sludge,Black Sludge,placeless,inherits,sludge_metal,"New Orleans, USA",Blackened sludge is a real sludge branch; New Orleans is sludge's documented centre.,true,moved,41.878,-87.63,Chicago,North America,29.95,-90.07,New Orleans,North America
+black_speed_metal,Black speed metal,multi_origin,inherits,black_metal; speed_metal,"Newcastle upon Tyne, UK","Retrospective fusion label, not own scene; Sodom/Sarcofago towns are single bands. Inherit first-wave Venom origin.",false,moved,57.15,-2.09,Aberdeen / Scotland (Hellripper cultural anchor),Europe,54.9783,-1.6178,Newcastle upon Tyne,Europe
+black_thrash,Black Thrash,multi_origin,own_origins,,"Newcastle upon Tyne, UK; Stockholm, Sweden; Gelsenkirchen, Germany; Belo Horizonte, Brazil","First-wave black/thrash credited to Venom, Bathory, Sodom, Sarcofago hometowns.",true,moved,20.798,-156.332,Maui,Oceania & Pacific,54.9783,-1.6178,Newcastle upon Tyne,Europe
+blackened_crust,Blackened Crust,placeless,unsure,crust_punk,,"Term reportedly coined by Iskra (Victoria, BC); UK crust pin may mislead; evidence thin.",false,unchanged (unsure),65.012,25.466,Oulu,Europe,,,,
+blackened_deathcore,Blackened deathcore,placeless,inherits,deathcore,"Southern California, USA; Phoenix, USA",Texture slice of deathcore; SoCal/Arizona origins.,true,moved,40.5123,-74.8593,Flemington,North America,33.68,-117.8,Southern California,North America
+blackened_hardcore,Blackened hardcore,placeless,no_origin,,,"Hardcore/black-metal fusion; LA/DC misleads, no documented scene of its own.",false,no fixed origin,31.23,121.474,Shanghai,East Asia,,,,
+blackened_screamo,Blackened screamo,placeless,inherits,screamo,"San Diego, USA",Texture slice of screamo; San Diego origin.,true,moved,55.403,10.402,Odense,Europe,32.7157,-117.1611,San Diego,North America
+blues_band,Blues band,placeless,no_origin,,,Ensemble-format category by its own text.,,no fixed origin,41.9186,-87.7138,Rosa’s Lounge,North America,,,,
+blues_latinoamericano,Blues latinoamericano,multi_origin,own_origins,,"Buenos Aires, Argentina; Mexico City, Mexico; Santiago, Chile","Regional blues scenes: Buenos Aires (Manal), Mexico City, Chile documented.",true,moved,-39.8142,-73.2459,Valdivia,Latin America & Caribbean,-34.6,-58.38,Buenos Aires,Latin America & Caribbean
+blues_rock_guitar,Blues-rock guitar,placeless,inherits,blues_rock,"London, UK; Chicago, USA",Guitar slice of blues rock; London and Chicago mid-1960s origins.,true,moved,36.1699,-115.1398,Las Vegas,North America,51.51,-0.13,London,Europe
+bossa_nova_cover,Bossa nova cover,placeless,no_origin,,,Cover/lounge format.,,no fixed origin,48.857,2.352,Paris,Europe,,,,
+bow_pop,Bow pop,placeless,no_origin,,,Instrumentation/arrangement category of string-led pop covers.,,no fixed origin,33.4152,-111.8315,Mesa,North America,,,,
+boy_pop,Boy pop,placeless,no_origin,,,Performer-type category.,,no fixed origin,55.605,13.004,Malmö,Europe,,,,
+boy_soprano,Boy soprano,placeless,no_origin,,,Voice type.,,no fixed origin,63.427,10.397,Trondheim,Europe,,,,
+brain_waves,Brain waves,placeless,no_origin,,,Functional brainwave-entrainment tones.,,no fixed origin,54,-2,United Kingdom,Europe,,,,
+brass_band_pop,Brass band pop,placeless,no_origin,,,Instrumentation/arrangement format for pop covers.,,no fixed origin,40.7128,-74.006,New York City,North America,,,,
+brass_quintet,Brass quintet,placeless,no_origin,,,"Ensemble format, not a regional tradition.",,no fixed origin,43.65,-79.38,Toronto,North America,,,,
+broken_transmission,Broken transmission,placeless,no_origin,,,Internet sound/effect tag with no documented scene.,,no fixed origin,39.8,-98.6,United States,North America,,,,
+bubble_trance,Bubble trance,placeless,inherits,trance,"Frankfurt, Germany",Buoyant 1990s European trance slice; Frankfurt is trance's documented origin.,true,moved,51.5291,6.9447,Bottrop,Europe,50.11,8.68,Frankfurt,Europe
+bubblegrunge,Bubblegrunge,placeless,no_origin,,,"Algorithmic micro-tag, no documented scene.",,no fixed origin,36.16,-86.78,Nashville,North America,,,,
+c64_sid_music,Commodore 64 SID music,multi_origin,own_origins,,United Kingdom; Netherlands,"UK/Dutch codifiers documented, but Manchester specifically unsupported; widened to countries.",false,moved,59.33,18.07,Stockholm,Europe,54,-2,United Kingdom,Europe
+calming_instrumental,Calming Instrumental,placeless,no_origin,,,Mood/function category.,,no fixed origin,43.2557,-79.8711,Hamilton,North America,,,,
+candy_pop,Candy pop,placeless,no_origin,,,"Vague bright-hook pop tag, no documented scene.",,no fixed origin,52.407,-1.51,Coventry,Europe,,,,
+cartoon,Cartoon,placeless,no_origin,,,Animation screen-function category.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+cathedral_choir,Cathedral choir,placeless,no_origin,,,Ensemble/institution type found worldwide.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+cavernous_death_metal,Cavernous death metal,multi_origin,own_origins,,"New York, US","Incantation NY/NJ root documented; Finnish formative role unsupported, Helsinki dropped.",false,moved,64,26,Finland (Krypts country-level practice anchor),Europe,40.7128,-74.006,New York,North America
+cello,Cello,placeless,no_origin,,,Instrument category.,,no fixed origin,55.38,-3.44,United Kingdom,Europe,,,,
+cello_ensemble,Cello ensemble,placeless,no_origin,,,Ensemble type.,,no fixed origin,52.51,13.37,Berlin,Europe,,,,
+chakra,Chakra,placeless,no_origin,,,Meditation function category.,,no fixed origin,33.75,-84.39,Atlanta artist base,North America,,,,
+chamber_folk,Chamber Folk,placeless,no_origin,,,Arrangement approach across UK 1960s and US 2000s acts; no scene.,,no fixed origin,41.88,-87.63,Chicago,North America,,,,
+chamber_orchestra,Chamber orchestra,placeless,no_origin,,,"Ensemble format, not a style with place.",,no fixed origin,44.9537,-93.09,Saint Paul,North America,,,,
+chamber_psych,Chamber psych,placeless,no_origin,,,Algorithmic micro-tag; no documented scene.,,no fixed origin,40.71,-74.01,New York,North America,,,,
+channel_pop,Channel pop,placeless,no_origin,,,YouTube distribution category.,,no fixed origin,42.584,-87.821,Kenosha,North America,,,,
+chanson_virale,Chanson virale,placeless,no_origin,,,Viral/platform circulation category.,,no fixed origin,45.5,-73.57,Montreal artist base,North America,,,,
+chaotic_black_metal,Chaotic black metal,placeless,inherits,black_metal,"Oslo, Norway; Bergen, Norway",Experimental slice of black metal; no distinct documented scene.,true,moved,53.4285,14.5528,Szczecin,Europe,59.9139,10.7522,Oslo,Europe
+children_s_choir,Children's choir,placeless,no_origin,,,Ensemble format.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+children_s_folk,Children’s folk,placeless,no_origin,,,Children's function category.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+children_s_story,Children's story,placeless,no_origin,,,Spoken children's function category.,,no fixed origin,34.501,-85.282,Paradise Garden (Summerville),North America,,,,
+chill_beats,Chill beats,placeless,no_origin,,,Mood/listening playlist category.,,no fixed origin,47,19.5,Hungary — national representative point,Europe,,,,
+chill_breakcore,Chill Breakcore,placeless,inherits,breakcore,"Berlin, Germany; Milwaukee, United States; Newcastle, Australia","Mood slice of breakcore; parent is multi-origin, so Berlin alone understates it.",true,moved,35.6762,139.6503,Tokyo,East Asia,52.52,13.4,Berlin,Europe
+chill_drill,Chill Drill,placeless,inherits,drill; uk_drill,"Chicago, US; London, UK",Mood slice of drill; parent origins documented.,true,moved,53.4808,-2.2426,Manchester,Europe,41.85,-87.65,Chicago,North America
+chill_groove,Chill groove,placeless,no_origin,,,Listening-context category.,,no fixed origin,48.137,11.575,Munich — artist scene,Europe,,,,
+chill_guitar,Chill guitar,placeless,no_origin,,,Mood plus instrument playlist category.,,no fixed origin,51.507,-0.128,London,Europe,,,,
+chill_house,Chill House,placeless,inherits,house; deep_house,"Chicago, USA",Mood slice of house; Chicago origin documented.,true,moved,42.3601,-71.0589,Boston,North America,41.85,-87.65,Chicago,North America
+chill_out_trance,Chill-Out Trance,placeless,inherits,trance,"Frankfurt, Germany",Listening-context slice of trance; Frankfurt trance origin documented.,true,moved,48.0159,37.8028,Donetsk,Europe,50.11,8.68,Frankfurt,Europe
+chill_phonk,Chill Phonk,placeless,inherits,phonk_old_memphis,"Memphis, Tennessee, USA",Mood strand of internet phonk; phonk's documented root is Memphis rap.,true,moved,54,-2,United Kingdom,Europe,35.15,-90.05,Memphis,North America
+chill_pop,Chill pop,placeless,no_origin,,,Mood category.,,no fixed origin,36.163,-86.782,Nashville,North America,,,,
+chill_r_and_b,Chill r&b,placeless,inherits,rnb; alt_rnb,"New York, US; Los Angeles, US; Toronto, Canada",Mood slice of contemporary/alt R&B; parents placed.,true,moved,49.8951,-97.1384,Winnipeg,North America,40.7128,-74.006,New York,North America
+chillstep,Chillstep,placeless,inherits,dubstep,"Croydon, London, UK",Online melodic offshoot of dubstep; dubstep origin Croydon documented.,true,kept: already at an origin,51.51,-0.13,London (internet-native),Europe,,,,
+chillsynth,Chillsynth,placeless,inherits,synthwave,"Paris, France",Widely described as mellow synthwave offshoot; parent's French formative centre is documented.,true,moved,-25,134,Australia (authored national representative point),Oceania & Pacific,48.86,2.35,Paris,Europe
+chinese_audiophile,Chinese audiophile,placeless,no_origin,,,Listening/production-market category of Chinese-language recordings.,,no fixed origin,1.352,103.82,Singapore — artist base,Southeast Asia,,,,
+chinese_bgm,Chinese BGM,placeless,no_origin,,,Background-listening function category.,,no fixed origin,25.033,121.5654,Taipei,East Asia,,,,
+chinese_classical_performance,Chinese classical performance,placeless,no_origin,,,"Performer-ethnicity concert category, Western repertoire.",,no fixed origin,1.3521,103.8198,Singapore,Southeast Asia,,,,
+chinese_electropop,Chinese Electropop,multi_origin,no_origin,,,"Language-market label; cities are where Chinese pop industry sits, no documented formation scene.",false,no fixed origin,1.2897,103.8556,Singapore,Southeast Asia,,,,
+chinese_melodic_rap,Chinese Melodic Rap,multi_origin,inherits,chinese_hip_hop,"Taipei, Taiwan; Beijing, China; Chengdu, China","Melodic slice of Chinese-language hip hop, whose documented centres these are.",true,kept: already at an origin,25.033,121.5654,Taipei,East Asia,,,,
+chip_hop,Chip hop,placeless,no_origin,,,Sound-source technique applied to hip hop; no documented scene.,,no fixed origin,34.05,-118.24,Los Angeles,North America,,,,
+chiptune_8bit,Chiptune / 8-bit,multi_origin,own_origins,,"Japan; United Kingdom; Germany; New York City, United States","Japanese game music, UK/German C64-Amiga tracker scene, NYC 8bitpeoples; Finland undocumented.",false,moved,35.68,139.7,Tokyo (internet-native),East Asia,36.2048,138.2529,Japan,East Asia
+choral,Choral (Western art choral singing),placeless,no_origin,,,Performance medium/ensemble type.,,no fixed origin,51.34,12.37,Leipzig,Europe,,,,
+christian_a_cappella,Christian a cappella,placeless,no_origin,,,Performance format for Christian song.,,no fixed origin,38,-97,United States repertoire,North America,,,,
+christian_alternative_rock,Christian alternative rock,placeless,own_origins,,"Orange County, California, US; Seattle, Washington, US",Frontline (Santa Ana) credited with West Coast Christian alt scene; Tooth & Nail Seattle dominated 1990s.,true,moved,32.7157,-117.1611,San Diego,North America,33.68,-117.83,Orange County,North America
+christian_dance,Christian dance,placeless,no_origin,,,Faith-theme category spanning several dance styles; no shared place.,,no fixed origin,62.2426,25.7473,Jyväskylä,Europe,,,,
+christian_death_metal,Christian death metal,placeless,inherits,death_metal,"Tampa, USA",Faith-lyric slice sharing death-metal style; inherits Tampa origin.,true,moved,-37.8136,144.9631,Melbourne,Oceania & Pacific,27.95,-82.46,Tampa,North America
+christian_deathcore,Christian deathcore,placeless,inherits,deathcore,"Riverside, United States",Religious-theme slice of deathcore; Inland Empire/Riverside is a documented deathcore centre.,true,kept: already at an origin,33.9806,-117.3755,Riverside,North America,,,,
+christian_doom_metal,Christian doom metal,placeless,inherits,doom,"Birmingham, UK; Chicago, USA",Lyrical slice with shared doom style; doom origins apply.,true,moved,-5.4984,-39.3206,Ceará,Latin America & Caribbean,52.4862,-1.8904,Birmingham,Europe
+christian_hard_rock,Christian hard rock,placeless,inherits,hard_rock; christian_rock,"London, UK; Southern California, US",Faith slice; Jesus-movement SoCal and hard rock origins documented.,true,moved,35.0456,-85.3097,Chattanooga,North America,51.51,-0.13,London,Europe
+christian_hardcore,Christian hardcore,placeless,inherits,hardcore_punk,"Los Angeles (South Bay), USA; Washington, D.C., USA","Lyrical-theme slice of hardcore punk; same sound, parent origins documented.",true,kept: already at an origin,33.77,-118.194,Long Beach,North America,,,,
+christian_indie,Christian indie,placeless,no_origin,,,Faith-identity label across styles.,,no fixed origin,35.78,-78.64,Raleigh,North America,,,,
+christian_lo_fi,Christian lo-fi,placeless,no_origin,,,"Lyrical slice of internet lo-fi, itself placeless.",,no fixed origin,34.17,-80.06,Lamar,North America,,,,
+christian_metalcore,Christian metalcore,placeless,inherits,metalcore,"Cleveland, US; Syracuse, US; Boston, US; New York City, US",Lyric-theme slice of metalcore; no distinct style or place.,true,moved,42.4963,-96.4049,Sioux City,North America,41.4993,-81.6944,Cleveland,North America
+christian_music,Christian music,placeless,no_origin,,,Global religious umbrella.,,no fixed origin,38,-97,United States repertoire,North America,,,,
+christian_power_metal,Christian power metal,placeless,inherits,power_metal_european,"Hamburg, Germany",Faith-lyric slice of melodic power metal.,true,moved,33.9519,-83.3576,"Athens, Georgia",North America,53.55,9.99,Hamburg,Europe
+christian_punk,Christian punk,placeless,no_origin,,,Faith-identity label across scenes.,,no fixed origin,41.878,-87.63,Chicago,North America,,,,
+christian_symphonic_metal,Christian symphonic metal,placeless,inherits,symphonic_metal_classic,"Stockholm, Sweden; Kitee, Finland; Netherlands","Lyric-theme slice sharing symphonic metal style; Therion, Nightwish, Within Temptation origins.",true,moved,60.1699,24.9384,Helsinki,Europe,59.3293,18.0686,Stockholm,Europe
+christian_thrash_metal,Christian thrash metal,placeless,inherits,thrash_metal,"San Francisco Bay Area, United States; Los Angeles, United States","Lyrical slice of thrash; key bands (Tourniquet, Vengeance Rising) were LA-area anyway.",true,moved,41.8781,-87.6298,Chicago,North America,37.8,-122.27,San Francisco Bay Area,North America
+christian_uplift,Christian uplift,placeless,no_origin,,,Mood/function category of devotional music.,,no fixed origin,33.52,-86.8,"Birmingham, Alabama",North America,,,,
+christmas_instrumental,Christmas instrumental,placeless,no_origin,,,Seasonal function category.,,no fixed origin,43.65,-79.38,Toronto,North America,,,,
+christmas_product,Christmas Product,placeless,no_origin,,,Seasonal function category.,,no fixed origin,47.1854,-122.2929,Puyallup,North America,,,,
+cinematic_dubstep,Cinematic Dubstep,placeless,inherits,dubstep,"Croydon, London, UK",Mood slice of dubstep; Subotica pin is merely a netlabel scene.,true,moved,46.1,19.667,Subotica,Europe,51.37,-0.1,Croydon,Europe
+cinematic_post_rock,Cinematic post-rock,placeless,inherits,post_rock_extended,"London, UK; Chicago, Illinois, USA; Louisville, Kentucky, USA",Mood slice of post-rock; Bark Psychosis/Tortoise/Slint centres documented.,true,moved,30.2672,-97.7431,Austin,North America,51.51,-0.13,London,Europe
+circuit,Circuit,multi_origin,own_origins,,"New York, US; Miami, US",Grew from US gay circuit-party scene; NYC Roxy/Saint and Miami White Party formative.,true,moved,43.657,-79.379,Toronto,North America,40.7128,-74.006,New York,North America
+circus,Circus,placeless,no_origin,,,Performance-context function category.,,no fixed origin,43.47,-89.74,Baraboo preservation/release context,North America,,,,
+clarinet_ensemble,Clarinet ensemble,placeless,no_origin,,,Instrument ensemble format.,,no fixed origin,33.75,-84.39,Atlanta recording location,North America,,,,
+classic_rock,Classic rock,placeless,no_origin,,,"Retrospective radio-format label, not a place-based style.",,no fixed origin,42.3709,-71.1828,Watertown,North America,,,,
+classic_soundtrack,Classic Soundtrack,placeless,no_origin,,,Screen-music function category.,,no fixed origin,39.8,-98.6,United States,North America,,,,
+classical_accordion,Classical accordion,placeless,no_origin,,,Instrument category.,,no fixed origin,55.9533,-3.1883,Edinburgh,Europe,,,,
+classical_baritone,Classical baritone,placeless,no_origin,,,Voice type.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+classical_bass,Classical bass,placeless,no_origin,,,Voice type category.,,no fixed origin,50.878,0.064,Glyndebourne,Europe,,,,
+classical_bassoon,Classical bassoon,placeless,no_origin,,,Instrument category.,,no fixed origin,51.8127,-2.7143,Monmouth,Europe,,,,
+classical_cello,Classical cello,placeless,no_origin,,,Instrument category.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+classical_clarinet,Classical clarinet,placeless,no_origin,,,Instrument category.,,no fixed origin,51.8127,-2.7143,Monmouth,Europe,,,,
+classical_contralto,Classical contralto,placeless,no_origin,,,Voice-type category within classical music.,,no fixed origin,52.52,13.405,Berlin,Europe,,,,
+classical_countertenor,Classical countertenor,placeless,no_origin,,,Voice type.,,no fixed origin,52.273,1.63,Dunwich,Europe,,,,
+classical_drill,Classical Drill,placeless,inherits,uk_drill; drill,"London, UK; Chicago, USA",Production-texture variant of drill; parents' origins documented.,true,kept: already at an origin,51.507,-0.128,London,Europe,,,,
+classical_flute,Classical flute,placeless,no_origin,,,Instrument category.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+classical_guitar,Classical guitar,placeless,no_origin,,,Instrument category.,,no fixed origin,55.842,-2.989,Crichton,Europe,,,,
+classical_guitar_duo,Classical guitar duo,placeless,no_origin,,,Ensemble format.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+classical_guitar_quartet,Classical guitar quartet,placeless,no_origin,,,Ensemble format.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+classical_harp,Classical harp,placeless,no_origin,,,Instrument category.,,no fixed origin,51.85,-0.295,Kimpton,Europe,,,,
+classical_horn,Classical horn,placeless,no_origin,,,Instrument category.,,no fixed origin,52.1635,1.495,Snape Maltings,Europe,,,,
+classical_mezzo_soprano,Classical mezzo-soprano,placeless,no_origin,,,Voice type.,,no fixed origin,52.2763,1.628,Dunwich,Europe,,,,
+classical_oboe,Classical oboe,placeless,no_origin,,,Instrument category.,,no fixed origin,52.6369,-1.1398,Leicester,Europe,,,,
+classical_organ,Classical organ,placeless,no_origin,,,Instrument category spanning many periods and countries.,,no fixed origin,48.8566,2.3522,Paris,Europe,,,,
+classical_percussion,Classical percussion,placeless,no_origin,,,Instrument family category.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+classical_piano,Classical piano,placeless,no_origin,,,Instrument category.,,no fixed origin,64.1466,-21.9426,Reykjavík,Europe,,,,
+classical_piano_duo,Classical piano duo,placeless,no_origin,,,Ensemble format.,,no fixed origin,47.8095,13.055,Salzburg,Europe,,,,
+classical_piano_quartet,Classical piano quartet,placeless,no_origin,,,Chamber ensemble format.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+classical_piano_trio,Classical piano trio,placeless,no_origin,,,Chamber ensemble format.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+classical_saxophone_quartet,Classical saxophone quartet,placeless,no_origin,,,Ensemble type.,,no fixed origin,50.9375,6.9603,Cologne,Europe,,,,
+classical_soprano,Classical soprano,placeless,no_origin,,,Voice type.,,no fixed origin,52.2763,1.628,Dunwich,Europe,,,,
+classical_string_trio,Classical string trio,placeless,no_origin,,,Chamber ensemble format.,,no fixed origin,59.3293,18.0686,Stockholm,Europe,,,,
+classical_tenor,Classical tenor,placeless,no_origin,,,Voice type; no place.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+classical_trombone,Classical trombone,placeless,no_origin,,,Instrument category.,,no fixed origin,59.3293,18.0686,Stockholm,Europe,,,,
+classical_trumpet,Classical trumpet,placeless,no_origin,,,Instrument category across classical repertoire.,,no fixed origin,51.4545,-2.5879,Bristol,Europe,,,,
+classical_tuba,Classical tuba,placeless,no_origin,,,Instrument category.,,no fixed origin,63.4305,10.3951,Trondheim,Europe,,,,
+classify,Classify,placeless,no_origin,,,Piano-cover function/playlist category.,,no fixed origin,39.8,-98.6,United States,North America,,,,
+clean_comedy,Clean Comedy,placeless,no_origin,,,Comedy content category.,,no fixed origin,34.052,-118.244,Los Angeles,North America,,,,
+collage_pop,Collage pop,placeless,no_origin,,,Sampling-technique category.,,no fixed origin,35.994,-78.899,Durham,North America,,,,
+color_noise,Color Noise,placeless,no_origin,,,Noise-spectrum function category.,,no fixed origin,43.073,-89.401,Madison,North America,,,,
+comedia,Comedia,placeless,no_origin,,,"Spoken comedy, not a music tradition.",,no fixed origin,8.0,-66.0,Venezuela,Latin America & Caribbean,,,,
+comedienne,Comedienne,placeless,no_origin,,,Comedy performer category by gender; no style or place.,,no fixed origin,39.8,-98.6,United States,North America,,,,
+comedy_rap,Comedy rap,placeless,no_origin,,,Comedy function applied to rap.,,no fixed origin,40.76,-73.98,New York / SNL recording anchor,North America,,,,
+comedy_rock,Comedy rock,placeless,no_origin,,,Humorous lyrical-content umbrella; comedy category.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+comfy_synth,Comfy synth,placeless,inherits,dungeon_synth,Norway,Mood slice of dungeon synth; parent's early-1990s Norwegian origin documented (Oslo pin is coarse).,true,moved,42.3314,-83.0458,Detroit,North America,60.472,8.4689,Norway,Europe
+comic,Comic,placeless,no_origin,,,Comic-song function category.,,no fixed origin,39.8,-98.6,United States,North America,,,,
+comic_metal,Comic metal,placeless,no_origin,,,Humour theme across metal worldwide.,,no fixed origin,41.9028,12.4964,Rome,Europe,,,,
+commons,Commons,placeless,no_origin,,,"Creative Commons licensing category, spans styles; no place.",,no fixed origin,42.28,-83.74,Ann Arbor artist base,North America,,,,
+complextro,Complextro,placeless,no_origin,,,"Internet-native, US-led coiners dispersed; electro house London/Paris would mislead.",false,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+comptine_africaine,Comptine africaine,placeless,no_origin,,,Pan-African children's song category.,,no fixed origin,11.18,-4.3,Bobo-Dioulasso repertoire origin,Africa,,,,
+concertina,Concertina,placeless,no_origin,,,Instrument category.,,no fixed origin,51.75,-2.22,Stroud artist base,Europe,,,,
+contemporary_choir,Contemporary choir,placeless,no_origin,,,Ensemble format of contemporary composition.,,no fixed origin,42.7009,-73.1087,North Adams,North America,,,,
+contemporary_classical,Contemporary classical,placeless,no_origin,,,Global art-music umbrella.,,no fixed origin,48.3069,14.2858,Linz,Europe,,,,
+contemporary_classical_piano,Contemporary classical piano,placeless,no_origin,,,Instrument-format category.,,no fixed origin,42.3601,-71.0589,Boston,North America,,,,
+contemporary_vocal_jazz,Contemporary vocal jazz,placeless,inherits,vocal_jazz; jazz,"New Orleans, USA; New York City, USA","Era variant of jazz singing; jazz origins apply, NYC its centre.",true,kept: already at an origin,40.6782,-73.9442,Brooklyn,North America,,,,
+contrabass,Contrabass,placeless,no_origin,,,Instrument category.,,no fixed origin,36.78,-119.42,California,North America,,,,
+convent,Convent,placeless,no_origin,,,Religious-context category without shared style or place.,,no fixed origin,39.61,-94.6,Gower (community),North America,,,,
+corrosion,Corrosion,placeless,inherits,gothic_rock,"Leeds, UK; Northampton, UK",Goth/darkwave revival cluster; gothic rock's Leeds/Northampton origins documented.,true,moved,50.6,8.3833,Ehringshausen,Europe,53.8,-1.549,Leeds,Europe
+cosmic_black_metal,Cosmic black metal,placeless,inherits,black_metal,"Oslo, Norway; Bergen, Norway",Thematic slice of black metal; Norwegian second-wave centres are documented parent origins.,true,moved,-25.27,133.78,Australia (Mesarthim country-level practice anchor),Oceania & Pacific,59.9139,10.7522,Oslo,Europe
+cosmic_death_metal,Cosmic death metal,placeless,inherits,death_metal,"Tampa, USA",Thematic death-metal branch (Nocturnus was Tampa); Tampa documented death-metal centre.,true,moved,39.7392,-104.9903,Denver,North America,27.95,-82.46,Tampa,North America
+cosmic_post_rock,Cosmic post-rock,placeless,inherits,post_rock_extended,"London, UK; Chicago, Illinois, US; Louisville, Kentucky, US",Descriptor slice of post-rock; Wicklow is one band's home.,true,moved,52.98,-6.045,County Wicklow,Europe,51.51,-0.13,London,Europe
+countrygaze,Countrygaze,placeless,no_origin,,,"2020s press micro-tag; artists scattered, no scene.",,no fixed origin,42.36,-71.06,Boston recording-scene anchor,North America,,,,
+coverchill,Coverchill,placeless,no_origin,,,"Cover/lounge listening format, no documented origin.",,no fixed origin,37.806,-0.837,San Javier,Europe,,,,
+covertrance,Covertrance,placeless,no_origin,,,"Cover-version format, not a placed style.",,no fixed origin,48.1486,17.1077,Bratislava,Europe,,,,
+covertronica,Covertronica,placeless,no_origin,,,Cover-remix function category.,,no fixed origin,-37.8136,144.9631,Melbourne,Oceania & Pacific,,,,
+cristiana_para_ninos,Cristiana para niños,placeless,no_origin,,,Children's religious function category; no shared style or place.,,no fixed origin,35.8456,-86.3903,Murfreesboro,North America,,,,
+crossover_prog,Crossover prog,placeless,inherits,progressive_rock,"London, United Kingdom",Accessible-prog classification slice of progressive rock; no distinct place suggested.,true,moved,50.75,4.98,Hélécine,Europe,51.51,-0.13,London,Europe
+cumbia_editada,Cumbia editada,placeless,own_origins,,"San Luis Potosí, Mexico","Afropop/Turbo Sonidero: kumbia editada from San Luis Potosí, mid-2000s.",true,moved,25.68,-100.31,Monterrey,Latin America & Caribbean,22.1565,-100.9855,San Luis Potosí,Latin America & Caribbean
+cumbia_funk,Cumbia funk,placeless,no_origin,,,Fusion playlist tag; no documented scene.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+cyber_metal,Cyber metal,placeless,inherits,industrial_metal,"Chicago, USA; Birmingham, UK","Futuristic slice of industrial metal (Ministry/Wax Trax!, Godflesh); Barletta is one band's home.",true,moved,41.3209,16.2902,Barletta,Europe,41.85,-87.65,Chicago,North America
+cyberpunk,Cyberpunk,placeless,no_origin,,,Aesthetic tag.,,no fixed origin,-22.91,-43.17,Rio de Janeiro,Latin America & Caribbean,,,,
+dance_rock,Dance rock,multi_origin,own_origins,,"New York, US; London, UK; Manchester, UK",Late-70s/80s post-punk/post-disco rock-dance fusion centred in NY and UK.,true,moved,55.8642,-4.2518,Glasgow,Europe,40.7128,-74.006,New York,North America
+dariacore,Dariacore,placeless,no_origin,,,Internet microgenre from one producer; one artist's home doesn't count.,,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+dark_cabaret,Dark cabaret,multi_origin,own_origins,,"Berlin, Germany; London, United Kingdom; Boston, United States",Weimar Berlin roots; Tiger Lillies London 1989 and Dresden Dolls Boston credited as formative.,true,moved,40.71,-74.01,New York City,North America,52.52,13.4,Berlin,Europe
+dark_clubbing,Dark Clubbing,placeless,no_origin,,,Mood-defined cross-genre club grouping.,,no fixed origin,52.3676,4.9041,Amsterdam,Europe,,,,
+dark_disco,Dark disco,placeless,unsure,,,Loose DJ descriptor; European club sound diverges from disco's NYC origins.,,unchanged (unsure),52.3676,4.9041,Amsterdam,Europe,,,,
+dark_hardcore,Dark hardcore,placeless,no_origin,,,Contested listener label (neocrust vs metallic hardcore); UK crust pin would mislead.,false,no fixed origin,45.815,15.982,Zagreb,Europe,,,,
+dark_minimal_techno,Dark minimal techno,placeless,inherits,minimal_techno,"Detroit, USA; Berlin, Germany",Mood slice of minimal techno; no distinct scene documented.,true,moved,48.7758,9.1829,Stuttgart,Europe,42.33,-83.05,Detroit,North America
+dark_pop,Dark pop,placeless,no_origin,,,Mood label across pop styles.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+dark_post_punk,Dark post-punk,placeless,inherits,post_punk,"Manchester, UK; London, UK",Mood slice of post-punk; parent origins documented.,true,moved,39.739,-104.99,Denver,North America,53.4808,-2.2426,Manchester,Europe
+dark_progressive_house,Dark Progressive House,placeless,inherits,progressive_house,"London, UK",Mood slice of UK-born progressive house; Tel Aviv is one DJ.,true,moved,32.0853,34.7818,Tel Aviv,Middle East,51.51,-0.13,London,Europe
+dark_trap,Dark trap,placeless,inherits,trap,"Atlanta, US",Mood variant of trap; Atlanta origin documented.,true,moved,45.42,-75.7,Ottawa recording and artist anchor,North America,33.75,-84.39,Atlanta,North America
+death_doom,Death doom,multi_origin,own_origins,,"Halifax, UK; Bradford, UK; Liverpool, UK; New York City, USA",Peaceville Three plus Winter documented; Liverpool (Anathema) replaces precursor Oakland.,true,moved,38.04,-84.5,Lexington,North America,53.72,-1.86,Halifax,Europe
+deathgrind,Deathgrind,multi_origin,own_origins,,"Los Angeles, US; Birmingham, UK",Terrorizer (LA) and Napalm Death (Birmingham) commonly credited pioneers.,true,moved,51.05,-114.07,Calgary,North America,34.05,-118.24,Los Angeles,North America
+deathrash,Deathrash,multi_origin,own_origins,,"San Francisco Bay Area, USA; Belo Horizonte, Brazil; Essen, Germany","Possessed, Sepultura/Cogumelo, Kreator: documented parallel early death/thrash centres.",true,moved,50.85,4.35,Belgium representative point,Europe,37.8,-122.27,San Francisco Bay Area,North America
+deathstep,Deathstep,placeless,inherits,dubstep,"Croydon, United Kingdom",Heavier dubstep substyle; Croydon origin documented.,true,moved,51.1657,10.4515,Germany,Europe,51.37,-0.1,Croydon,Europe
+deep_active_rock,Deep active rock,placeless,no_origin,,,Discovery slice of a US radio format; no scene or place.,,no fixed origin,39.953,-75.165,Philadelphia,North America,,,,
+deep_ambient,Deep ambient,placeless,inherits,ambient,"London, United Kingdom",Depth variant of ambient; Roach residence alone gives no distinct origin.,true,moved,32.2226,-110.9747,Tucson,North America,51.51,-0.13,London,Europe
+deep_ccm,Deep CCM,multi_origin,inherits,ccm,"Costa Mesa, California, US; Nashville, US",Deep-cuts CCM slice; Jesus-movement Costa Mesa and Nashville industry are CCM's centres.,true,moved,39.0997,-94.5786,Kansas City,North America,33.6411,-117.9187,Costa Mesa,North America
+deep_chill,Deep Chill,placeless,no_origin,,,Mood/listening category of lounge-chill compilations.,,no fixed origin,48.425,10.876,Gersthofen,Europe,,,,
+deep_chill_out,Deep Chill-Out,placeless,inherits,Chill-out; balearic_beat,"London, United Kingdom; Ibiza, Spain","'Deep' variant of chill-out, whose London chill-out rooms and Ibiza origins are documented.",true,kept: already at an origin,51.5074,-0.1278,London,Europe,,,,
+deep_comedy,Deep Comedy,placeless,no_origin,,,Recorded stand-up comedy.,,no fixed origin,30.2672,-97.7431,Austin,North America,,,,
+deep_disco_house,Deep disco house,placeless,inherits,deep_house_soulful; house,"Chicago, US",Disco-flavoured deep house substrand; deep house Chicago origin.,true,moved,48.14,11.58,Munich / COEO production practice,Europe,41.85,-87.65,Chicago,North America
+deep_downtempo_fusion,Deep Downtempo Fusion,placeless,no_origin,,,Streaming/playlist tag with no documented scene.,,no fixed origin,36.0,138.0,Japan,East Asia,,,,
+deep_flow,Deep Flow,placeless,no_origin,,,Algorithmic rap cluster; no documented scene.,,no fixed origin,42.36,-71.059,Boston,North America,,,,
+deep_gothic_post_punk,Deep gothic post-punk,multi_origin,inherits,gothic_rock; post_punk,"London, UK; Leeds, UK; Northampton, UK",Discovery-cluster slice of gothic post-punk; record claims no own geography.,true,moved,47.2357,39.7015,Rostov-on-Don,Europe,51.51,-0.13,London,Europe
+deep_groove_house,Deep groove house,placeless,inherits,house,"Chicago, Illinois, US",Discovery cluster slice of house; consistent with other descriptor house slices.,true,moved,-37.8136,144.9631,Melbourne,Oceania & Pacific,41.85,-87.65,Chicago,North America
+deep_indie_pop,Deep indie pop,placeless,inherits,Indie pop,"Glasgow, UK; London, UK",Less-mainstream slice of indie pop; parent's UK centres documented.,true,moved,38.9072,-77.0369,Washington,North America,55.8642,-4.2518,Glasgow,Europe
+deep_latin_alternative,Deep Latin Alternative,placeless,no_origin,,,Pan-Latin discovery umbrella; parent umbrella has no single origin.,,no fixed origin,-34.604,-58.382,Buenos Aires,Latin America & Caribbean,,,,
+deep_minimal_techno,Deep Minimal Techno,placeless,inherits,minimal_techno,"Detroit, US; Berlin, Germany",Listener cluster slice of minimal techno.,true,moved,45.6669,12.243,Treviso,Europe,42.33,-83.05,Detroit,North America
+deep_pop_edm,Deep Pop EDM,placeless,no_origin,,,Algorithmic streaming tag over global EDM-pop; no scene.,,no fixed origin,59.3293,18.0686,Stockholm,Europe,,,,
+deep_progressive_house,Deep Progressive House,placeless,inherits,progressive_house,"London, UK",Deeper slice of UK-born progressive house; no separate place.,true,moved,43.6532,-79.3832,Toronto,North America,51.51,-0.13,London,Europe
+deep_progressive_rock,Deep Progressive Rock,placeless,inherits,progressive_rock,"London, United Kingdom",Every Noise deep variant of prog; prog's English origins inherited.,true,moved,48.0061,0.1996,Le Mans,Europe,51.51,-0.13,London,Europe
+deep_progressive_trance,Deep Progressive Trance,placeless,inherits,progressive_trance,"Frankfurt, Germany",Deep/streaming slice of progressive trance; Frankfurt origin holds.,true,moved,51.8133,4.6901,Dordrecht,Europe,50.11,8.68,Frankfurt,Europe
+deep_psytrance,Deep Psytrance,placeless,inherits,psytrance,"Goa, India",Listening slice of psytrance; Goa origin documented.,true,moved,41.1579,-8.6291,Porto,Europe,15.57,73.74,Goa,South Asia
+deep_smooth_r_and_b,Deep smooth r&b,placeless,inherits,quiet_storm,"Washington, D.C., US","Smooth R&B is quiet storm's format, documented from DC's WHUR; Oakland is one singer's base.",true,moved,37.8044,-122.2712,Oakland,North America,38.907,-77.037,Washington,North America
+deep_soul_house,Deep Soul House,placeless,inherits,house; deep_house,"Chicago, USA; New York, USA",Soulful deep-house slice; Chicago/New York origins.,true,moved,52.52,13.405,Berlin,Europe,41.85,-87.65,Chicago,North America
+deep_soundtrack,Deep Soundtrack,placeless,no_origin,,,Film-score function category.,,no fixed origin,46.6,2.2,France,Europe,,,,
+deep_talent_show,Deep Talent Show,placeless,no_origin,,,TV talent-show discovery/market slice.,,no fixed origin,41.5214,-84.3072,Archbold,North America,,,,
+deep_tropical_house,Deep Tropical House,multi_origin,inherits,tropical_house,"Bergen, Norway; Australia","'Deep' variant of tropical house; Kygo (Bergen), Thomas Jack (Australia) origins.",true,moved,52.3676,4.9041,Amsterdam,Europe,60.3913,5.3221,Bergen,Europe
+deep_underground_hip_hop,Deep underground hip hop,placeless,no_origin,,,Algorithmic rap discovery cluster with no documented scene.,,no fixed origin,38.2527,-85.7585,Louisville,North America,,,,
+deep_vocal_house,Deep Vocal House,placeless,inherits,vocal_house,"New York, USA; Chicago, USA",'Deep' playlist variant of vocal house; parent origins documented.,true,moved,43.653,-79.383,Toronto,North America,40.7128,-74.006,New York,North America
+deep_vocal_jazz,Deep vocal jazz,placeless,inherits,vocal_jazz; jazz,"New Orleans, United States; New York City, United States",Streaming slice of vocal jazz; jazz origins New Orleans/NYC documented.,true,moved,35.6595,139.7005,Tokyo,East Asia,29.95,-90.07,New Orleans,North America
+destroy_techno,Destroy techno,placeless,no_origin,,,Algorithmic listener cluster; no documented scene.,,no fixed origin,52.52,13.405,Berlin,Europe,,,,
+dinner_jazz,Dinner jazz,placeless,no_origin,,,Background/function category.,,no fixed origin,40.75,-73.98,New York,North America,,,,
+djembe,Djembe,multi_origin,no_origin,,,Instrument category; birthplace of instrument not music's origin.,,no fixed origin,-37.81,144.96,Melbourne,Oceania & Pacific,,,,
+documentary_voiceover,Documentary voiceover,placeless,no_origin,,,Speech narration format.,,no fixed origin,51.51,-0.13,London,Europe,,,,
+doomgaze,Doomgaze,placeless,inherits,doom; shoegaze,"Birmingham, UK; Thames Valley, UK",Close fusion of two parents with documented origins; no own scene place.,true,moved,40.06,-74.4,New Jersey,North America,52.4862,-1.8904,Birmingham,Europe
+double_drumming,Double Drumming,placeless,no_origin,,,"Technique: two drummers in one band, across many genres.",,no fixed origin,50.6292,3.0573,Lille,Europe,,,,
+downtempo_bass,Downtempo Bass,placeless,no_origin,,,Discovery field of placeless bass-music umbrella.,,no fixed origin,39.7392,-104.9903,Denver,North America,,,,
+downtempo_deathcore,Downtempo deathcore,placeless,inherits,deathcore,"Phoenix, USA; Riverside, USA",Tempo slice of deathcore; no documented separate origin.,true,moved,51.2143,-0.7988,Farnham,Europe,33.4484,-112.074,Phoenix,North America
+downtempo_fusion,Downtempo Fusion,placeless,inherits,downtempo,"Bristol, UK; London, UK",Jazz/soul-leaning descriptor slice of downtempo; artists' West Coast homes are not an origin.,true,moved,37.7749,-122.4194,San Francisco,North America,51.4545,-2.5879,Bristol,Europe
+draga,Draga,placeless,no_origin,,,"Drag-performance identity context, not a style.",,no fixed origin,19.4326,-99.1332,Mexico City,Latin America & Caribbean,,,,
+drama,Drama,placeless,no_origin,,,Spoken-word drama recordings.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+dreamo,Dreamo,placeless,inherits,emo,"Washington DC, United States",Reverb-texture slice of emo; nothing suggests a different place.,true,moved,52.23,21.01,Warsaw,Europe,38.9,-77.02,Washington DC,North America
+dreampunk,Dreampunk,placeless,no_origin,,,Internet label scene off placeless vaporwave.,,no fixed origin,45.52,-122.68,Portland (internet-native),North America,,,,
+drill_beats,Drill Beats,multi_origin,inherits,drill; uk_drill,"Chicago, US; London, UK",Instrumental side of drill; Chicago and London documented.,true,kept: already at an origin,51.5074,-0.1278,London,Europe,,,,
+drone_psych,Drone psych,placeless,inherits,psychedelic_rock,"San Francisco, United States; London, United Kingdom",Close drone variant of psychedelic rock; no distinct documented place.,true,moved,39.9526,-75.1652,Philadelphia,North America,37.77,-122.42,San Francisco,North America
+drone_rock,Drone rock,multi_origin,own_origins,,"New York City, United States; Rugby, United Kingdom",Velvet Underground/Theatre of Eternal Music NYC and Spacemen 3 Rugby are standard formative credits.,true,moved,46.2044,6.1432,Geneva,Europe,40.7128,-74.006,New York City,North America
+dronescape,Dronescape,placeless,inherits,drone,"New York, United States",Texture variant of drone; NYC 1960s drone minimalism documented.,true,moved,43.65,-79.38,Toronto,North America,40.7128,-74.006,New York,North America
+dsbm_black_metal,DSBM (depressive-suicidal black metal),multi_origin,own_origins,,"Grevenbroich, Germany; Halmstad, Sweden; Norway","Founding bands Bethlehem, Shining, Strid/Burzum are the codifying centres.",true,moved,59.33,18.07,Stockholm,Europe,51.09,6.59,Grevenbroich,Europe
+dub_punk,Dub punk,multi_origin,own_origins,,"London, UK; Bristol, UK","Late-70s punk/dub crossover documented in London (Ruts, Clash, Slits, PiL) and Bristol (Pop Group).",true,moved,45.502,-73.567,Montreal,North America,51.51,-0.13,London,Europe
+dubstep_product,Dubstep Product,placeless,no_origin,,,"Algorithmic catalogue tag; exemplars are US bass/downtempo acts, so Croydon would mislead.",false,no fixed origin,45.5152,-122.6784,Portland,North America,,,,
+dubtronica,Dubtronica,multi_origin,own_origins,,"London, United Kingdom; Berlin, Germany; New York, United States","Own origins upheld; added London (On-U Sound, Mad Professor) credited as 1980s English origin.",false,moved,51.45,-2.59,"Bristol, UK",Europe,51.51,-0.13,London,Europe
+dungeon_rap,Dungeon Rap,placeless,no_origin,,,Internet-native SoundCloud micro-style; no place.,,no fixed origin,33.75,-84.39,Atlanta (internet-native),North America,,,,
+early_avant_garde,Early avant garde,multi_origin,own_origins,,"Paris, France; Milan, Italy; Zurich, Switzerland","Satie Paris, Futurist Milan, Dada Zurich are documented movement centres.",true,moved,49.4432,1.0993,Rouen,Europe,48.86,2.35,Paris,Europe
+early_music_choir,Early music choir,placeless,no_origin,,,Ensemble format.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+early_music_ensemble,Early music ensemble,placeless,no_origin,,,Ensemble/performance format; pin is one concert.,,no fixed origin,49.2833,-123.1207,Vancouver,North America,,,,
+easycore,Easycore,multi_origin,own_origins,,United States,"Sources say only US, early-mid 2000s; city list was band hometowns.",false,moved,46.6,2.2,France,Europe,39.8,-98.6,United States,North America
+ectofolk,Ectofolk,placeless,no_origin,,,"Affinity named for a mailing list; artists scattered, no scene place.",,no fixed origin,42.65,-73.75,Albany,North America,,,,
+electra,Electra,placeless,no_origin,,,Every Noise discovery cluster; no stylistic place.,,no fixed origin,52.52,13.405,Berlin,Europe,,,,
+electric_bass,Electric bass,placeless,no_origin,,,Instrument category.,,no fixed origin,36.1627,-86.7816,Nashville,North America,,,,
+electro_dub,Electro dub,placeless,unsure,,,Electronic dub fusion; unclear whether Kingston dub or European scenes apply.,,unchanged (unsure),44.4949,11.3426,Bologna,Europe,,,,
+electro_house_2000s,Electro house,multi_origin,own_origins,,"Paris, France; Milan, Italy; London, UK",Ed Banger Paris and Benassi Italy credited; UK scene plausible.,true,kept: already at an origin,51.51,-0.13,London,Europe,,,,
+electro_trash,Electro trash,placeless,no_origin,,,"Loose press/fan label, no documented definition or scene; parent unclear (electroclash vs electropunk).",false,no fixed origin,44.8378,-0.5792,Bordeaux,Europe,,,,
+electronic_djent,Electronic djent,placeless,inherits,djent,"Umeå, Sweden",Electronic crossover slice of djent; parent pin matches.,true,moved,50.9375,6.9603,Cologne,Europe,63.8258,20.263,Umeå,Europe
+electronic_rock,Electronic rock,placeless,no_origin,,,Broad global umbrella with no documented origin.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+electronica_cristiana,Electronica cristiana,placeless,no_origin,,,Religious-function slice of placeless EDM umbrella.,,no fixed origin,4.711,-74.0721,Bogotá,Latin America & Caribbean,,,,
+electropowerpop,Electropowerpop,placeless,no_origin,,,Market-label crossover cohort; no scene.,,no fixed origin,41.8781,-87.6298,Chicago,North America,,,,
+emoplugg,Emoplugg,placeless,inherits,plugg,"Atlanta, US","Plugg slice holds; cloud_rap dropped, its origin is Bay Area not Atlanta.",false,moved,43.6532,-79.3832,Toronto,North America,33.75,-84.39,Atlanta,North America
+emotional_black_metal,Emotional black metal,placeless,inherits,black_metal,"Oslo, Norway; Bergen, Norway",Mood slice of black metal; Norwegian second-wave centres documented.,true,moved,48.1351,11.582,Munich,Europe,59.9139,10.7522,Oslo,Europe
+epic_black_metal,Epic black metal,placeless,inherits,black_metal,"Oslo, Norway; Bergen, Norway",Stylistic slice of black metal.,true,moved,36.6512,117.1201,Jinan,East Asia,59.9139,10.7522,Oslo,Europe
+epic_collage,Epic Collage,placeless,no_origin,,,Streaming discovery/mood tag; no documented scene.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+epunk,Epunk,placeless,no_origin,,,Internet-based punk discovery tag; no documented scene or place.,,no fixed origin,36.1627,-86.7816,Nashville,North America,,,,
+erotica,Erotica,placeless,no_origin,,,Listening-content category.,,no fixed origin,54,-2,United Kingdom,Europe,,,,
+escape_room,Escape Room,placeless,no_origin,,,Every Noise discovery playlist with no documented scene.,,no fixed origin,39.8,-98.6,United States,North America,,,,
+esperanto,Esperanto,placeless,no_origin,,,Language community without homeland or shared style.,,no fixed origin,44.06,12.57,Rimini,Europe,,,,
+etherpop,Etherpop,placeless,no_origin,,,Algorithmic blog-era tag; Sheffield/London synthpop pin would mislead for Grimes/Chvrches-type acts.,false,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+ethnomusicology,Ethnomusicology,placeless,no_origin,,,Field-recording/study category.,,no fixed origin,36.2,138.25,Japan,East Asia,,,,
+ethnotronica,Ethnotronica,placeless,no_origin,,,Transnational fusion/market umbrella; sources vary by collaboration.,,no fixed origin,52.0907,5.1214,Utrecht,Europe,,,,
+euphonium,Euphonium,placeless,no_origin,,,Instrument category.,,no fixed origin,41.0,-99.5,Central Nebraska,North America,,,,
+experimental,Experimental,placeless,no_origin,,,Approach umbrella spanning all media and places.,,no fixed origin,40.71,-74.01,New York City,North America,,,,
+experimental_ambient,Experimental ambient,placeless,inherits,ambient,"London, UK",Descriptor slice of ambient; Montreal is one artist's base.,true,moved,45.5019,-73.5674,Montréal,North America,51.51,-0.13,London,Europe
+experimental_bass,Experimental Bass,placeless,no_origin,,,Loose global bass-music umbrella tag; no documented scene centre.,,no fixed origin,39.0,-105.5,Colorado,North America,,,,
+experimental_big_band,Experimental Big Band,placeless,own_origins,,"New York, USA; Berlin, Germany",Jazz Composer's Orchestra (NYC 1965) and Globe Unity (Berlin 1966) co-founded it; NYC alone misleads.,false,moved,53.0793,8.8017,Bremen,Europe,40.7128,-74.006,New York,North America
+experimental_black_metal,Experimental black metal,placeless,inherits,black_metal,"Oslo, Norway",Avant variant of black metal; mid-90s Oslo avant scene also its own start.,true,moved,48.857,2.352,Paris,Europe,59.9139,10.7522,Oslo,Europe
+experimental_classical,Experimental classical,placeless,no_origin,,,Global approach umbrella without a place.,,no fixed origin,40.9312,-73.8987,Yonkers,North America,,,,
+experimental_dub,Experimental dub,multi_origin,own_origins,,"Kingston, Jamaica; London, United Kingdom; Berlin, Germany","Kingston dub, On-U London, Basic Channel Berlin are documented experimental-dub centres.",true,moved,59.3293,18.0686,Stockholm,Europe,17.97,-76.79,Kingston,Latin America & Caribbean
+experimental_dubstep,Experimental dubstep,placeless,inherits,dubstep,"London, UK",Experimental variant of dubstep; South London (Croydon) origin documented.,true,moved,52.52,13.405,Berlin,Europe,51.51,-0.13,London,Europe
+experimental_folk,Experimental folk,placeless,no_origin,,,Global umbrella; folk itself has no single origin.,,no fixed origin,54.9783,-1.6178,Newcastle upon Tyne,Europe,,,,
+experimental_guitar,Experimental guitar,placeless,no_origin,,,Instrument technique category.,,no fixed origin,35.76,-5.83,Tangier,Africa,,,,
+experimental_hip_hop,Experimental hip hop,placeless,inherits,hip_hop,"New York City, USA","Approach-slice of hip hop; NYC had a major early experimental strand, not misleading.",true,moved,47.61,-122.33,Seattle / Shabazz Palaces artist and performance anchor,North America,40.7128,-74.006,New York City,North America
+experimental_house,Experimental House,placeless,inherits,house,"Chicago, US",Descriptor slice of house; no distinct scene or place suggested.,true,moved,40.7128,-74.006,New York,North America,41.85,-87.65,Chicago,North America
+experimental_indie_rock,Experimental indie rock,placeless,no_origin,,,Transnational umbrella; experimental rock has no origin place.,,no fixed origin,37.775,-122.419,San Francisco,North America,,,,
+experimental_jazz,Experimental jazz,placeless,inherits,avant_garde_jazz; free_jazz,"New York, United States; Chicago, United States",Close umbrella of avant-garde/free jazz; New York and Chicago AACM documented.,true,kept: already at an origin,40.678,-73.944,Brooklyn,North America,,,,
+experimental_percussion,Experimental percussion,placeless,no_origin,,,Instrument/technique category.,,no fixed origin,41.88,-87.63,Chicago,North America,,,,
+experimental_poetry,Experimental poetry,placeless,no_origin,,,Global sound/experimental poetry umbrella; speech practice.,,no fixed origin,52.44,4.83,Zaandam,Europe,,,,
+experimental_pop,Experimental pop,placeless,no_origin,,,Global umbrella with no documented origin.,,no fixed origin,37.7749,-122.4194,San Francisco,North America,,,,
+experimental_psych,Experimental Psych,placeless,inherits,psychedelic_rock,"San Francisco, United States; London, United Kingdom",Exploratory psychedelic-rock variant; parent origins documented.,true,moved,39.9526,-75.1652,Philadelphia,North America,37.77,-122.42,San Francisco,North America
+experimental_synth,Experimental synth,placeless,no_origin,,,Instrument/technique category.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+experimental_techno,Experimental techno,placeless,inherits,techno,"Detroit, United States",Slice of techno with no distinct place; Detroit inheritance fair.,true,moved,60.4518,22.2666,Turku,Europe,42.33,-83.05,Detroit,North America
+experimental_vocal,Experimental vocal,placeless,no_origin,,,Global extended-voice technique umbrella.,,no fixed origin,51.99,5.91,Arnhem,Europe,,,,
+extratone,Extratone,placeless,inherits,speedcore,"Rotterdam, Netherlands","Documented speedcore offshoot, netlabel-circulated; Belgian founder credit is one artist.",true,moved,52.52,13.4,Berlin (internet-native),Europe,51.92,4.48,Rotterdam,Europe
+fake,Fake,placeless,no_origin,,,Tribute/karaoke catalogue label.,,no fixed origin,43.0731,-89.4012,Madison,North America,,,,
+fallen_angel,Fallen angel,placeless,no_origin,,,Opaque creator playlist cluster.,,no fixed origin,39.8,-98.6,United States,North America,,,,
+family_gospel,Family gospel,placeless,no_origin,,,"Ensemble format (family groups), not a place-bound style.",,no fixed origin,36.377,-84.12,LaFollette,North America,,,,
+fantasy,Fantasy,placeless,no_origin,,,Theme/mood category.,,no fixed origin,40.7608,-111.891,Salt Lake City,North America,,,,
+fast_melodic_punk,Fast melodic punk,placeless,inherits,skate_punk; melodic_hardcore,"Los Angeles, US; San Francisco, US",Tempo slice of 90s melodic/skate punk; Epitaph LA and Fat Wreck SF centres.,true,moved,41.387,2.17,Barcelona,Europe,34.05,-118.24,Los Angeles,North America
+fictitious_orchestra,Fictitious Orchestra,placeless,no_origin,,,Playlist/fake-artist category with no style or place.,,no fixed origin,41.9028,12.4964,Rome,Europe,,,,
+field_recording,Field Recording (Phonographic Practice),placeless,no_origin,,,Recording practice/technique.,,no fixed origin,49.28,-123.12,Vancouver,North America,,,,
+filthstep,Filthstep,placeless,inherits,brostep; dubstep,"London, United Kingdom; Los Angeles, United States",Brostep sub-tag; exemplars UK Circus Records; London/LA brostep origins hold.,true,moved,36.8525,-121.4016,Hollister,North America,51.51,-0.13,London,Europe
+flick_hop,Flick Hop,placeless,no_origin,,,"Discovery label across US/EU networks, no documented scene.",,no fixed origin,52.52,13.405,Berlin,Europe,,,,
+float_house,Float House,placeless,inherits,melodic_house; progressive_house,"Berlin, Germany; London, UK",Label-network strand of melodic/progressive house.,true,kept: already at an origin,52.52,13.4,Berlin,Europe,,,,
+flute_rock,Flute rock,placeless,no_origin,,,Instrument-led category.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+fluxwork,Fluxwork,placeless,no_origin,,,"Every Noise micro-cluster tag, no documented scene.",,no fixed origin,38,-123,California,North America,,,,
+fo_jing,Fo Jing,multi_origin,no_origin,,,"Buddhist-sutra recording category; Taipei/KL are producer and singer homes, not origins.",false,no fixed origin,25.033,121.5654,Taipei,East Asia,,,,
+focus,Focus,placeless,no_origin,,,Concentration-playlist function.,,no fixed origin,59.8586,17.6389,Uppsala,Europe,,,,
+focus_beats,Focus Beats,placeless,no_origin,,,Study/work function playlist category.,,no fixed origin,53.4808,-2.2426,Manchester,Europe,,,,
+focus_trance,Focus Trance,placeless,no_origin,,,Focus/function playlist label.,,no fixed origin,3.4516,-76.532,Cali,Latin America & Caribbean,,,,
+folk_black_metal,Folk black metal,multi_origin,own_origins,,"Stockholm, Sweden; Oslo, Norway; Kharkiv, Ukraine","Bathory, Storm/Ulver and Nokturnal Mortum are documented founding strands.",true,moved,61.23,7.1,Sogn / Norway (Windir repertoire-practice anchor),Europe,59.3293,18.0686,Stockholm,Europe
+folk_metal_latinoamericano,Folk metal latinoamericano,multi_origin,own_origins,,"Buenos Aires, Argentina; Mexico City, Mexico","Region-defined branch; region is definitional, leading national scenes are honest.",true,kept: already at an origin,-34.604,-58.382,Buenos Aires,Latin America & Caribbean,,,,
+folk_noir,Folk noir (contemporary dark chamber-folk songwriter tradition),placeless,no_origin,,,"Mood label built around individual artists, not a scene.",,no fixed origin,42.36,-71.06,Boston,North America,,,,
+folk_punk,Folk punk (American 80s-90s),multi_origin,own_origins,,"London, UK; New York, USA; Bloomington, Indiana, USA","Pogues London, NYC antifolk, Plan-It-X Bloomington scenes; Milwaukee is one band's hometown, dropped.",true,moved,43.04,-87.91,Milwaukee,North America,51.51,-0.13,London,Europe
+funky_tech_house,Funky Tech House,placeless,inherits,tech_house_classic,"London, UK",Descriptor slice of tech house.,true,moved,59.9139,10.7522,Oslo,Europe,51.51,-0.13,London,Europe
+furry,Furry,placeless,no_origin,,,Fandom community category.,,no fixed origin,55.4,-3.4,United Kingdom,Europe,,,,
+future_ambient,Future Ambient,placeless,inherits,ambient,"London, UK",Market/texture label for ambient; takes ambient's documented origin.,true,moved,43.6532,-79.3832,Toronto,North America,51.51,-0.13,London,Europe
+future_funk_vaporwave,Future funk (vaporwave subgenre),placeless,no_origin,,,Internet-native vaporwave offshoot; no documented place of origin.,,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+future_rock,Future rock,placeless,no_origin,,,Vague streaming tag pinned to one band.,,no fixed origin,50.823,-0.137,Brighton,Europe,,,,
+gaian_doom,Gaian Doom,placeless,no_origin,,,Ecological-theme tag; one band's home is not an origin.,,no fixed origin,40.761,-111.891,Salt Lake City,North America,,,,
+game_mood,Game Mood,placeless,no_origin,,,Online role-play community category; internet-native.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+gamecore,Gamecore,placeless,no_origin,,,Video-game remix fandom category.,,no fixed origin,38.7828,-77.017,National Harbor,North America,,,,
+gaming_dubstep,Gaming Dubstep,placeless,no_origin,,,"Online gaming-culture discovery tag spanning dubstep, riddim and melodic bass; no scene.",false,no fixed origin,33.7092,-117.9537,Fountain Valley,North America,,,,
+gaming_edm,Gaming EDM,placeless,no_origin,,,Streaming/licensing function category.,,no fixed origin,59.33,18.07,Stockholm (internet-native),Europe,,,,
+gauze_pop,Gauze Pop,placeless,inherits,dream_pop,"London, UK; Grangemouth, UK",Record defines it as hazy branch of 4AD dream pop; parent origins documented.,true,moved,34.05,-118.24,Los Angeles (internet-native),North America,51.51,-0.13,London,Europe
+geek_folk,Geek folk,placeless,no_origin,,,"Fandom/theme songwriting cluster, no shared style or place.",,no fixed origin,45.5152,-122.6784,Portland,North America,,,,
+geek_rock,Geek rock,placeless,no_origin,,,Lyrical-theme label with varied styles.,,no fixed origin,40.6782,-73.9442,Brooklyn,North America,,,,
+gen_z_singer_songwriter,Gen Z singer-songwriter,placeless,no_origin,,,Generational marketing label for songwriters.,,no fixed origin,42.3601,-71.0589,Boston,North America,,,,
+ghoststep,Ghoststep,placeless,no_origin,,,Vague bass-music discovery tag.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+girl_group,Girl group,placeless,no_origin,,,Performer-type category spanning eras; record is an all-female vocal group umbrella.,,no fixed origin,38.905,-77.009,Washington,North America,,,,
+glass,Glass,placeless,no_origin,,,Instrument category (glass harmonica etc.).,,no fixed origin,48.079,7.358,Colmar,Europe,,,,
+glee_club,Glee club,placeless,no_origin,,,Collegiate choral ensemble format.,,no fixed origin,41.31,-72.93,New Haven,North America,,,,
+glitch_beats,Glitch Beats,placeless,inherits,glitch_2000s,"Frankfurt, Germany; Vienna, Austria; Chemnitz, Germany","Close beat-oriented glitch slice; Mille Plateaux, Mego, Raster-Noton centres documented.",true,moved,-33.8688,151.2093,Sydney,Oceania & Pacific,50.11,8.68,Frankfurt,Europe
+glitchbreak,Glitchbreak,placeless,no_origin,,,"Online label/tag spanning breakcore, dnb and remix; no scene.",,no fixed origin,50.8225,-0.1372,Brighton,Europe,,,,
+glitchcore,Glitchcore,placeless,no_origin,,,TikTok/SoundCloud internet-native style.,,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+glitter_trance,Glitter Trance,placeless,no_origin,,,"Discovery label mixing trance, progressive house, chill-out; no scene.",,no fixed origin,40.7128,-74.006,New York,North America,,,,
+gong,Gong,placeless,no_origin,,,Instrument-family umbrella over separate regional gong traditions.,,no fixed origin,-8.519,115.272,Peliatan,Southeast Asia,,,,
+gospel_blues,Gospel Blues,multi_origin,own_origins,,"Texas, USA; Durham, North Carolina, USA; Chicago, Illinois, USA","Prewar guitar-evangelist centres (Texas Johnson/Phillips, Piedmont Davis, Chicago Dorsey/Tharpe) documented.",true,kept: already at an origin,41.85,-87.65,Chicago,North America,,,,
+gospel_singers,Gospel singers,placeless,inherits,gospel; black_gospel_choir,"Chicago, US",Performer tag inside Black gospel; parent's documented Chicago origin applies.,true,moved,34.0983,-118.3267,Hollywood,North America,41.85,-87.65,Chicago,North America
+gospel_soul,Gospel soul,multi_origin,own_origins,,"Chicago, USA; Memphis, USA; Detroit, USA","Gospel-into-soul crossover documented in Chicago, Memphis, Detroit.",true,moved,33.6076,-88.6503,West Point,North America,41.85,-87.65,Chicago,North America
+gothic_alternative,gothic alternative,placeless,no_origin,,,"Algorithmic discovery field spanning gothic rock, gothic metal, hard-rock, acoustic, electronic branches; no scene.",false,no fixed origin,32.0853,34.7818,Tel Aviv,Middle East,,,,
+groove_room,Groove Room,placeless,no_origin,,,"Channel/playlist cluster, no documented scene; not named variant of melodic house.",false,no fixed origin,37.9838,23.7275,Athens,Europe,,,,
+grunge_pop,Grunge pop,placeless,inherits,grunge,"Seattle, USA",Sources describe it as melodic strain of the Seattle grunge sound; inherits grunge.,true,moved,33.749,-84.388,Atlanta,North America,47.6062,-122.3321,Seattle,North America
+grunge_revival,Grunge revival,placeless,inherits,grunge,"Seattle, United States",Era slice of grunge; revival has no documented own centre.,true,moved,53.35,-6.26,Dublin,Europe,47.6062,-122.3321,Seattle,North America
+grungegaze,Grungegaze,placeless,no_origin,,,Internet-era tag blending grunge and shoegaze; no documented scene.,,no fixed origin,39.95,-75.16,Philadelphia,North America,,,,
+guidance,Guidance,placeless,no_origin,,,Self-help spoken-word category.,,no fixed origin,39.8,-98.6,United States,North America,,,,
+guided_meditation,Guided meditation,placeless,no_origin,,,Functional spoken-word wellness category.,,no fixed origin,36.12,-121.64,Big Sur,North America,,,,
+gym_hardstyle,Gym hardstyle,placeless,no_origin,,,"Workout listening context/online fandom, a function category.",,no fixed origin,32.7157,-117.1611,San Diego,North America,,,,
+gym_phonk,Gym Phonk,placeless,no_origin,,,Workout-function playlist slice.,,no fixed origin,55.76,37.62,Moscow (internet-native),Europe,,,,
+gymcore,Gymcore,placeless,no_origin,,,"Workout listening function, not a scene.",,no fixed origin,42.3601,-71.0589,Boston,North America,,,,
+gypsy,Gypsy,multi_origin,no_origin,,,Ethnic identity umbrella over many distinct Romani traditions; no shared style.,,no fixed origin,51.5336,46.0343,Saratov,Europe,,,,
+halloween,Halloween,placeless,no_origin,,,Seasonal function category.,,no fixed origin,47.6553,-122.3035,Seattle,North America,,,,
+hammond_organ,Hammond organ,placeless,no_origin,,,"Instrument category spanning jazz, gospel, rock; no style origin.",,no fixed origin,37.7749,-122.4194,San Francisco,North America,,,,
+handbells,Handbells,placeless,no_origin,,,Instrument/ensemble category; no shared place.,,no fixed origin,41.912,-88.134,Carol Stream,North America,,,,
+hard_alternative,Hard Alternative,placeless,no_origin,,,Radio/market label; alternative-rock umbrella lacks a fixed origin.,,no fixed origin,41.875,-90.445,East Moline,North America,,,,
+hard_chime,Hard Chime,placeless,no_origin,,,One-band micro-label tag; no documented scene.,,no fixed origin,36.738,-119.787,Fresno,North America,,,,
+hard_minimal_techno,Hard Minimal Techno,placeless,inherits,minimal_techno,"Detroit, USA; Berlin, Germany","Harder slice of minimal techno; Swedish exemplars are artist homes, not a documented origin.",true,moved,57.7089,11.9746,Gothenburg,Europe,42.33,-83.05,Detroit,North America
+hard_motivation,Hard Motivation,placeless,no_origin,,,Motivational speech/workout function.,,no fixed origin,39,-98,United States,North America,,,,
+hardvapour,Hardvapour,placeless,no_origin,,,Internet-native vaporwave offshoot; parent itself placeless.,,no fixed origin,51.92,4.48,Rotterdam (internet-native),Europe,,,,
+hardwave,Hardwave,placeless,no_origin,,,"Online-native offshoot of wave, which itself has no place.",,no fixed origin,55.76,37.62,Moscow (internet-native),Europe,,,,
+harmonica_jazz,Harmonica jazz,placeless,no_origin,,,Instrument category within jazz.,,no fixed origin,51.3844,4.4756,Kalmthout,Europe,,,,
+harp,Harp,placeless,no_origin,,,Instrument category.,,no fixed origin,51,10,Germany,Europe,,,,
+harpsichord,Harpsichord,placeless,no_origin,,,Instrument category.,,no fixed origin,48.857,2.352,Paris,Europe,,,,
+healing_hz,Healing Hz,placeless,no_origin,,,Wellness frequency function category.,,no fixed origin,53.5461,-113.4938,Edmonton,North America,,,,
+heartland_rock,Heartland rock,multi_origin,own_origins,,"US Midwest; Asbury Park, USA; Detroit, USA","Documented regional style: Springsteen (NJ), Seger (Detroit), Mellencamp (Midwest).",true,moved,41.5,-81.7,Cleveland,North America,40.22,-74.012,Asbury Park,North America
+heavy_alternative,Heavy Alternative,placeless,inherits,alternative_metal,"Los Angeles, California, US; San Francisco, California, US; Seattle, Washington, US",Streaming slice of alternative metal; parent's late-80s West Coast centres.,true,moved,39,-98,United States,North America,34.05,-118.24,Los Angeles,North America
+heavy_gothic_rock,Heavy gothic rock,placeless,inherits,gothic_rock,"London, UK; Leeds, UK; Northampton, UK",Heavier descriptive variant of gothic rock.,true,moved,52.52,13.405,Berlin,Europe,51.51,-0.13,London,Europe
+heavy_psych,Heavy Psych,placeless,inherits,psychedelic_rock; acid_rock,"San Francisco, United States; London, United Kingdom",Heavier slice of late-1960s psychedelic/acid rock; parent origins documented.,true,moved,49.119,6.175,Metz,Europe,37.77,-122.42,San Francisco,North America
+hellbilly,Hellbilly Music,multi_origin,no_origin,,,"Artist-applied label (Hank III, Rob Zombie); Dallas/Charlotte are acts' home bases, no documented scene.",false,no fixed origin,36.16,-86.78,Nashville,North America,,,,
+hexd,HexD,placeless,no_origin,,,SoundCloud internet-native style.,,no fixed origin,33.75,-84.39,Atlanta (internet-native),North America,,,,
+high_vibe,High Vibe,placeless,no_origin,,,Mood/wellness label.,,no fixed origin,32.716,-117.161,San Diego,North America,,,,
+historic_classical_performance,Historic classical performance,placeless,no_origin,,,Archival era/recording category.,,no fixed origin,51.503,-0.42,Hayes,Europe,,,,
+historic_orchestral_performance,Historic orchestral performance,placeless,no_origin,,,"Recording-era/performance-practice category, not a place-bound style.",,no fixed origin,40.758,-73.979,New York,North America,,,,
+historic_piano_performance,Historic piano performance,placeless,no_origin,,,Historical-recording listening category.,,no fixed origin,52.52,13.4,Berlin,Europe,,,,
+historic_string_quartet,Historic string quartet,placeless,no_origin,,,Archival ensemble-format category.,,no fixed origin,51.532,-0.178,London,Europe,,,,
+historical_keyboard,Historical keyboard,placeless,no_origin,,,"Instrument and period-practice category, not a placed style.",,no fixed origin,39.95,-75.17,Philadelphia,North America,,,,
+hopebeat,Hopebeat,placeless,no_origin,,,Streaming mood label across pop and rock.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+horror_synth,Horror synth,placeless,inherits,darksynth; synthwave,"Paris, France","Horror-cinematic synthwave strand, near-synonym of darksynth; Pittsburgh is only one band's home.",true,moved,40.441,-79.996,Pittsburgh,North America,48.86,2.35,Paris,Europe
+hurdy_gurdy,Hurdy gurdy,placeless,no_origin,,,Instrument used across many traditions.,,no fixed origin,43.6,1.44,Toulouse,Europe,,,,
+hyperpop_rap,Hyperpop-rap (rage rap-adjacent),placeless,no_origin,,,Internet-native digicore/SoundCloud lineage; London PC Music pin misleads for rap side.,false,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+hypertrance,Hypertrance,placeless,unsure,,,Competing accounts: hard-trance slice vs 2020s online hyperpop fusion.,,unchanged (unsure),48.21,16.37,Vienna,Europe,,,,
+hypnotic_techno,Hypnotic techno,multi_origin,own_origins,,"Rome, Italy; Munich, Germany; Stockholm, Sweden","Rome deep/hypnotic scene (Dozzy, Neel), Munich's Prologue and Stockholm's Hypnus are documented formative centres.",true,kept: already at an origin,59.33,18.07,Stockholm / Hypnus label network,Europe,,,,
+indie_anthem_folk,Indie anthem-folk,placeless,no_origin,,,Transnational listener cluster of stomp-clap indie folk; no documented scene.,,no fixed origin,-37.8136,144.9631,Melbourne,Oceania & Pacific,,,,
+indie_electropop,Indie electropop,placeless,inherits,electropop; synthpop,"London, United Kingdom; Sheffield, United Kingdom",Indie-market slice of electropop; nothing points elsewhere; UK synthpop origins documented.,true,moved,34.05,-118.24,Los Angeles,North America,51.51,-0.13,London,Europe
+indie_emo,Indie emo,multi_origin,own_origins,,"Washington, D.C., US; Chicago, Illinois, US; Champaign-Urbana, Illinois, US",1990s indie emo defined by DC and Midwest (Chicago/Champaign) scenes.,true,moved,45.421,-75.697,Ottawa,North America,38.907,-77.037,Washington,North America
+indie_fuzzpop,Indie Fuzzpop,placeless,no_origin,,,"Defined by overlapping listening cohort across twee/indie/noise pop; playlist tag, no scene.",false,no fixed origin,55.8642,-4.2518,Glasgow,Europe,,,,
+indie_game_soundtrack,Indie game soundtrack,placeless,no_origin,,,Function category (game scores).,,no fixed origin,34.05,-118.24,Los Angeles,North America,,,,
+indie_hip_hop,Indie hip hop,placeless,no_origin,,,"Distribution-model label, not a place-based style.",,no fixed origin,45.5152,-122.6784,Portland (Aesop Rock branch),North America,,,,
+indie_jazz,Indie jazz,placeless,no_origin,,,Listener market label spanning many countries.,,no fixed origin,53.4808,-2.2426,Manchester,Europe,,,,
+indie_pop_rap,Indie pop rap,placeless,no_origin,,,"Algorithmic internet-era market tag, no documented scene.",,no fixed origin,34.2746,-119.229,Ventura,North America,,,,
+indie_pop_rock,Indie pop rock,placeless,inherits,Indie pop; indie_rock,"Glasgow, UK; London, UK; Manchester, UK",Plain blend of two parents with documented UK centres; no distinct place.,true,moved,34.052,-118.244,Los Angeles,North America,55.8642,-4.2518,Glasgow,Europe
+indie_poptimism,Indie poptimism,placeless,no_origin,,,Playlist category.,,no fixed origin,34.05,-118.24,Los Angeles,North America,,,,
+indie_psych_pop,Indie psych-pop,placeless,inherits,psychedelic_pop,"Los Angeles, US; London, UK",Indie slice of psychedelic pop; parent origins documented.,true,moved,51.77,0.67,Essex,Europe,34.05,-118.24,Los Angeles,North America
+indie_psychedelic_rock,Indie psychedelic rock,placeless,inherits,psychedelic_rock,"San Francisco, USA; London, UK",Indie slice of psychedelic rock; parent origins documented.,true,kept: already at an origin,51.59,-0.02,Walthamstow,Europe,,,,
+indie_punk,Indie punk,placeless,inherits,punk,"New York City, USA; London, UK","Punk-rooted indie slice; punk origins NYC/London documented, nothing suggests other place.",true,moved,53.868,-1.906,Keighley,Europe,40.7128,-74.006,New York City,North America
+indie_rockism,Indie Rockism,placeless,no_origin,,,Critical/aesthetic discovery label with no geography.,,no fixed origin,39.1031,-84.512,Cincinnati,North America,,,,
+indie_singer_songwriter,Indie singer-songwriter,placeless,no_origin,,,Cross-regional performer-format category.,,no fixed origin,53.3498,-6.2603,Dublin,Europe,,,,
+indie_soul,Indie soul,placeless,no_origin,,,Distribution/indie-pop fusion tag; not a slice of Memphis/Detroit soul. Pin would mislead.,false,no fixed origin,43.2557,-79.8711,Hamilton,North America,,,,
+indiecoustica,Indiecoustica,placeless,no_origin,,,Acoustic-indie mood/playlist category.,,no fixed origin,1.3521,103.8198,Singapore,Southeast Asia,,,,
+industrial_hip_hop,Industrial hip hop,multi_origin,own_origins,,"London, UK; New York, US; San Francisco, US",Tackhead/On-U London-NY axis and SF Consolidated/Disposable Heroes are cited early strands.,true,moved,34.05,-118.24,Los Angeles / clipping. production anchor,North America,51.51,-0.13,London,Europe
+industrial_noise,Industrial noise,placeless,inherits,industrial,"London, UK; Sheffield, UK","Abrasive industrial slice; TG London, Cabaret Voltaire Sheffield. Dropped noise_music parent.",true,moved,42.36,-71.06,Boston,North America,51.51,-0.13,London,Europe
+industrial_pop,Industrial pop,placeless,no_origin,,,Global fusion style label with no documented scene.,,no fixed origin,54.236,-4.548,Isle of Man,Europe,,,,
+instrumental_black_metal,Instrumental black metal,placeless,inherits,black_metal,"Oslo, Norway; Bergen, Norway",Voice-omitted black metal; nothing suggests a different place.,true,moved,49.7913,9.9534,Würzburg,Europe,59.9139,10.7522,Oslo,Europe
+instrumental_lullaby,Instrumental lullaby,placeless,no_origin,,,Functional category for rest and sleep.,,no fixed origin,54,-2,United Kingdom,Europe,,,,
+instrumental_soul,Instrumental soul,placeless,inherits,soul,"Memphis, US; Detroit, US",Soul minus lead vocal; Memphis instrumental soul (Booker T.) fits parent origins.,true,moved,40.6782,-73.9442,Brooklyn,North America,35.15,-90.05,Memphis,North America
+instrumental_stoner_rock,Instrumental stoner rock,placeless,inherits,stoner_metal,"Palm Desert, USA",Instrumental slice of stoner rock; Palm Desert documented origin.,true,moved,32.716,-117.161,San Diego,North America,33.72,-116.37,Palm Desert,North America
+israelite_hip_hop,Israelite hip hop,placeless,no_origin,,,Faith-community identity label without documented scene.,,no fixed origin,35.1495,-90.049,Memphis,North America,,,,
+jaw_harp,Jaw harp,placeless,no_origin,,,"Instrument category, global distribution.",,no fixed origin,47.1625,19.5033,Hungary,Europe,,,,
+jazz_accordion,Jazz accordion,placeless,no_origin,,,Instrument category within jazz.,,no fixed origin,48.8566,2.3522,Paris,Europe,,,,
+jazz_blues,Jazz blues,placeless,inherits,jazz,"New Orleans, United States",Blues form in jazz present from early New Orleans jazz; inheriting jazz origin is fair.,true,moved,34.0928,-118.3287,Hollywood,North America,29.95,-90.07,New Orleans,North America
+jazz_brass,Jazz brass,placeless,no_origin,,,Instrument category.,,no fixed origin,52.52,13.405,Berlin,Europe,,,,
+jazz_clarinet,Jazz clarinet,placeless,no_origin,,,Instrument category within jazz.,,no fixed origin,38.6105,-122.8692,Healdsburg,North America,,,,
+jazz_composition,Jazz composition,placeless,no_origin,,,"Compositional practice category, not a place-based style.",,no fixed origin,40.7128,-74.006,New York,North America,,,,
+jazz_cover,Jazz cover,placeless,no_origin,,,Cover format.,,no fixed origin,48.8566,2.3522,Paris,Europe,,,,
+jazz_double_bass,Jazz double bass,placeless,no_origin,,,Instrument category.,,no fixed origin,33.0214,35.1467,Kabri,Middle East,,,,
+jazz_drums,Jazz drums,placeless,no_origin,,,Instrument category.,,no fixed origin,40.7128,-74.006,New York City,North America,,,,
+jazz_flute,Jazz flute,placeless,no_origin,,,Instrument within jazz.,,no fixed origin,41.8781,-87.6298,Chicago,North America,,,,
+jazz_guitar,Jazz guitar,placeless,no_origin,,,Instrument category.,,no fixed origin,46.0037,8.9511,Lugano,Europe,,,,
+jazz_guitar_trio,Jazz guitar trio,placeless,no_origin,,,Ensemble format.,,no fixed origin,55.6761,12.5683,Copenhagen,Europe,,,,
+jazz_harp,Jazz harp,placeless,no_origin,,,Instrument category.,,no fixed origin,40.8116,-73.9465,Harlem,North America,,,,
+jazz_orchestra,Jazz orchestra,placeless,inherits,big_band,"New York, US; Kansas City, US",Jazz orchestra is the big-band idiom itself; parent centres apply.,true,kept: already at an origin,40.7128,-74.006,New York,North America,,,,
+jazz_organ,Jazz organ,placeless,own_origins,,"Philadelphia, USA; Newark, USA","Organ-trio jazz documented as centred on Philadelphia/Newark organ rooms; a style, not just instrument.",true,kept: already at an origin,40.7128,-74.006,New York City,North America,,,,
+jazz_pop,Jazz pop,placeless,no_origin,,,Global fusion umbrella; no documented origin.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+jazz_quartet,Jazz quartet,placeless,no_origin,,,Ensemble format.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+jazz_trio,Jazz trio,placeless,no_origin,,,Ensemble format.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+jazz_trombone,Jazz trombone,placeless,no_origin,,,Instrument category within jazz.,,no fixed origin,40.7128,-74.006,New York City,North America,,,,
+jazz_tuba,Jazz tuba,placeless,no_origin,,,Instrument category within jazz.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+jazz_vibraphone,Jazz vibraphone,placeless,no_origin,,,Instrument category.,,no fixed origin,47.3769,8.5417,Zürich,Europe,,,,
+jazz_violin,Jazz violin,placeless,no_origin,,,Instrument category within jazz.,,no fixed origin,42.3314,-83.0458,Detroit,North America,,,,
+jazz_worship,Jazz worship,placeless,no_origin,,,Devotional function applied to jazz.,,no fixed origin,29.7604,-95.3698,Houston,North America,,,,
+jewish_pop,Jewish pop,multi_origin,own_origins,,"New York City, USA; Israel",Orthodox pop documented as emerging early 1970s in US and Israel; Jerusalem narrowed to Israel.,true,moved,34.0522,-118.2437,Los Angeles,North America,40.7128,-74.006,New York City,North America
+judaica,Judaica,placeless,no_origin,,,Religious/textual catalogue umbrella of Jewish music; no shared style or place.,,no fixed origin,39.1,-98.5,United States,North America,,,,
+jugendchor,Jugendchor,placeless,no_origin,,,"Youth choir ensemble type, not a regional style.",,no fixed origin,51.8355,10.7852,Wernigerode,Europe,,,,
+keller_synth,Keller synth,placeless,unsure,,,Dungeon synth offshoot possibly German-originated; sourcing weak.,,unchanged (unsure),50.083,8.241,Wiesbaden,Europe,,,,
+kids_dance_party,Kids dance party,placeless,no_origin,,,Function/audience category.,,no fixed origin,43.0389,-87.9065,Milwaukee,North America,,,,
+kids_hip_hop,Kids hip hop,placeless,no_origin,,,Audience category; no place.,,no fixed origin,29.7604,-95.3698,Houston (Lay Lay branch),North America,,,,
+kinderchor,Kinderchor,placeless,no_origin,,,Children's choir ensemble type.,,no fixed origin,50.3135,11.9128,Hof,Europe,,,,
+kindermusik,Kindermusik,placeless,no_origin,,,Children's pedagogy curriculum brand.,,no fixed origin,52.52,13.4,Berlin,Europe,,,,
+kindie_rock,Kindie rock,placeless,no_origin,,,Children's market label.,,no fixed origin,47.606,-122.332,Seattle,North America,,,,
+kol_isha,Kol Isha,placeless,no_origin,,,Religious audience-rule category (women singing for women); no shared style.,,no fixed origin,31.8948,34.8113,Rehovot,Middle East,,,,
+kundalini,Kundalini,placeless,no_origin,,,Meditation/wellness function category.,,no fixed origin,42.1946,-122.7095,Ashland,North America,,,,
+laboratorio,Laboratorio,placeless,no_origin,,,Unclear experimental category; no documented scene.,,no fixed origin,42.043,-74.249,Mount Tremper,North America,,,,
+language,Language,placeless,no_origin,,,Language-learning speech audio.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+latin_afrobeat,Latin afrobeat,placeless,unsure,,,"Pan-Latin afrobeat umbrella; regional scenes scattered, none documented as formative.",,unchanged (unsure),-23.5505,-46.6333,São Paulo,Latin America & Caribbean,,,,
+latin_american_heavy_psych,Latin American heavy psych,multi_origin,own_origins,,"Buenos Aires, Argentina; Mexico City, Mexico; Lima, Peru","Regional category; Buenos Aires, Mexico City, Lima psych/heavy-rock scenes are documented.",true,kept: already at an origin,-34.6037,-58.3816,Buenos Aires,Latin America & Caribbean,,,,
+latin_christian,Latin Christian,placeless,no_origin,,,Language/market religious category with no shared style or place.,,no fixed origin,6.2442,-75.5812,Medellín,Latin America & Caribbean,,,,
+latin_funk,Latin funk,multi_origin,own_origins,,"New York City, United States; Los Angeles, United States; San Francisco, United States","NPR and genre histories credit NY boogaloo/Latin soul and California Latin-rock scenes (War, Malo).",true,moved,30.2672,-97.7431,Austin,North America,40.7128,-74.006,New York City,North America
+latin_hip_hop,Latin hip hop,multi_origin,own_origins,,"New York City, United States; Los Angeles, United States",Nuyorican and Chicano rap origins documented for Latin hip hop.,true,moved,-33.4489,-70.6693,Santiago (Ana Tijoux branch),Latin America & Caribbean,40.7128,-74.006,New York City,North America
+latin_metal,Latin metal,multi_origin,no_origin,,,Pan-Latin identity umbrella since 1970s; listed places are three bands' hometowns.,false,no fixed origin,40.768,-74.032,New York–New Jersey scene,North America,,,,
+latin_shoegaze,Latin shoegaze,multi_origin,own_origins,,"Mexico City, Mexico; Santiago, Chile; Buenos Aires, Argentina; Lima, Peru",Region-named umbrella over documented national shoegaze scenes in these capitals.,true,kept: already at an origin,-12.046,-77.043,Lima,Latin America & Caribbean,,,,
+latin_soundtrack,Latin soundtrack,placeless,no_origin,,,Screen-music function category.,,no fixed origin,38.4792,-1.325,Jumilla,Europe,,,,
+latin_surf_rock,Latin surf rock,multi_origin,own_origins,,"Mexico City, Mexico; Madrid, Spain","Documented Mexican (Lost Acapulco) and Madrid (Relámpagos, Coronas) surf scenes; Barcelona unsupported, dropped.",true,moved,41.387,2.17,Barcelona,Europe,19.43,-99.13,Mexico City,Latin America & Caribbean
+latin_talent_show,Latin Talent Show,placeless,no_origin,,,TV talent-show format category.,,no fixed origin,40.0,-4.0,Spain,Europe,,,,
+latin_tech_house,Latin tech house,placeless,no_origin,,,"Transnational club/market label; 'Latin' blocks inheriting London, no documented own scene.",,no fixed origin,39.4699,-0.3763,Valencia,Europe,,,,
+latin_viral_pop,Latin viral pop,placeless,no_origin,,,Platform-virality category.,,no fixed origin,25.762,-80.192,Miami concert setting,North America,,,,
+latin_viral_rap,Latin Viral Rap,placeless,no_origin,,,Internet fan-rap community; no scene place.,,no fixed origin,8.0,-66.0,Venezuela,Latin America & Caribbean,,,,
+latintronica,Latintronica,placeless,no_origin,,,Pan-Latin electronic umbrella across many countries.,,no fixed origin,20.211,-87.465,Tulum,Latin America & Caribbean,,,,
+lgbtq_hip_hop,LGBTQ+ hip hop,placeless,no_origin,,,Identity label.,,no fixed origin,40.7128,-74.006,New York (Mykki Blanco branch),North America,,,,
+liquid_dub,Liquid Dub,multi_origin,inherits,liquid_dnb; dub_techno,"London, United Kingdom; Berlin, Germany",Record names liquid DnB plus dub techno; London and Berlin documented.,true,kept: already at an origin,51.51,-0.13,London,Europe,,,,
+livetronica,Livetronica,multi_origin,own_origins,,"Philadelphia, United States; Atlanta, United States; Toronto, Canada","Jamtronica scene real; added Toronto, The New Deal widely credited early livetronica pioneers.",false,kept: already at an origin,43.653,-79.383,Toronto,North America,,,,
+lo_fi,Lo-fi,placeless,no_origin,,,Production aesthetic used across genres and eras.,,no fixed origin,47.04,-122.9,Olympia,North America,,,,
+lo_fi_chill,Lo-Fi Chill,placeless,no_origin,,,Mood/listening playlist category; internet-native parent lacks a documented place.,,no fixed origin,42.5195,-70.8967,Salem,North America,,,,
+lo_fi_emo,Lo-fi emo,placeless,inherits,emo; midwest_emo,"Washington, D.C., US; Champaign-Urbana, US",Production-texture slice of emo.,true,moved,39.953,-75.165,Philadelphia,North America,38.907,-77.037,Washington,North America
+lo_fi_indie,Lo-fi indie,placeless,no_origin,,,Playlist production-aesthetic umbrella.,,no fixed origin,41.3083,-72.9279,New Haven,North America,,,,
+lo_fi_latino,Lo-Fi Latino,placeless,no_origin,,,Pan-Latin online beat network; parent lo-fi hip hop placeless.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+lo_fi_product,Lo-Fi Product,placeless,no_origin,,,Commercial playlist/catalogue grouping; distribution-model category.,,no fixed origin,52.1326,5.2913,Netherlands,Europe,,,,
+lo_fi_rap,Lo-fi Rap,placeless,inherits,hip_hop,"The Bronx, New York, United States",Production-texture slice of hip hop; parent origin well documented.,true,moved,56.88,14.81,Växjö,Europe,40.84,-73.9,The Bronx,North America
+lo_fi_sleep,Lo-Fi Sleep,placeless,no_origin,,,Sleep function playlist category.,,no fixed origin,58.5877,16.1924,Norrköping,Europe,,,,
+lo_fi_vgm,Lo-fi VGM,placeless,no_origin,,,Internet lo-fi game-music covers.,,no fixed origin,39.9526,-75.1652,Philadelphia,North America,,,,
+lofi_hiphop,Lo-fi hip hop (chillhop),placeless,no_origin,,,Internet/YouTube-native; Tokyo and Detroit are individual artists' homes.,,no fixed origin,35.68,139.7,Tokyo,East Asia,,,,
+lofi_house_aesthetic,Lo-fi house,placeless,inherits,house,"Chicago, Illinois, US","Sources: internet-born, artists/labels scattered UK/Australia/Sweden/Canada; texture slice of house.",true,moved,-37.81,144.96,Melbourne (internet-native),Oceania & Pacific,41.85,-87.65,Chicago,North America
+louange,Louange,placeless,no_origin,,,Transnational francophone worship function category.,,no fixed origin,5.36,-4.0083,Abidjan,Africa,,,,
+lounge_house,Lounge House,placeless,no_origin,,,Listening-context/background function category for house.,,no fixed origin,43.25,6.63,Saint-Tropez,Europe,,,,
+lovecraftian_metal,Lovecraftian metal,placeless,no_origin,,,Lyrical-theme category across heavy styles.,,no fixed origin,44.838,-0.579,Bordeaux,Europe,,,,
+lute,Lute,placeless,no_origin,,,Instrument category spanning many traditions.,,no fixed origin,52.3676,4.9041,Amsterdam,Europe,,,,
+maga_rap,MAGA rap,placeless,no_origin,,,Political-content category; styles vary.,,no fixed origin,38.9072,-77.0369,United States,North America,,,,
+mainland_se_asia_metal,Mainland se asia metal,multi_origin,own_origins,,"Hanoi, Vietnam; Bangkok, Thailand; Ho Chi Minh City, Vietnam",Region-named scene label; its constituent scenes centre on these cities.,true,kept: already at an origin,21.028,105.834,Hanoi,Southeast Asia,,,,
+mallet,Mallet,placeless,no_origin,,,Instrument category.,,no fixed origin,36.204,138.253,Japan,East Asia,,,,
+mallsoft,Mallsoft (vaporwave subgenre),placeless,no_origin,,,Internet-native vaporwave microgenre; parent itself placeless.,,no fixed origin,45.52,-122.68,Portland (internet-native),North America,,,,
+mandolin,Mandolin,placeless,no_origin,,,Instrument category.,,no fixed origin,42.365,-73.116,Washington,North America,,,,
+marcha_funebre,Marcha Funebre,multi_origin,own_origins,,"Seville, Spain; Antigua Guatemala, Guatemala; San José, Costa Rica","Record scopes Hispanic Holy Week band repertory; Seville, Guatemala, Costa Rica centres.",true,kept: already at an origin,9.7489,-83.7534,Costa Rica,Latin America & Caribbean,,,,
+mashcore,Mashcore,placeless,inherits,breakcore,"Berlin, Germany; London, UK; Milwaukee, USA","Mashcore documented as breakcore subgenre; breakcore centres (Berlin, Milwaukee Addict, London Planet Mu) hold.",true,moved,39.8283,-98.5795,United States,North America,52.52,13.4,Berlin,Europe
+massage,Massage,placeless,no_origin,,,Functional relaxation listening category.,,no fixed origin,52.0344,5.3458,Doorn,Europe,,,,
+math_pop,Math pop,placeless,inherits,math_rock_classic,"Chicago, USA; Louisville, USA",Pop-leaning math rock slice; no distinct documented place of its own.,true,moved,42.331,-83.046,Detroit,North America,41.85,-87.65,Chicago,North America
+math_rock_latinoamericano,Math rock latinoamericano,multi_origin,own_origins,,"Santiago, Chile; Buenos Aires, Argentina; Mexico City, Mexico","National scenes documented: Mexico City (Austin TV, math mexa), Santiago, Buenos Aires.",true,kept: already at an origin,-33.449,-70.669,Santiago,Latin America & Caribbean,,,,
+mathgrind,Mathgrind,placeless,inherits,grindcore; mathcore,"Birmingham, UK; Flint, USA; Salem, USA; Morris Plains, USA",Fusion of two parents; original omitted mathcore's origins.,false,moved,40.7128,-74.006,New York,North America,52.4862,-1.8904,Birmingham,Europe
+medieval,Medieval,placeless,no_origin,,,Continent-wide era category spanning centuries.,,no fixed origin,50.8573,-0.7126,Boxgrove,Europe,,,,
+melodic_black_metal,Melodic black metal,multi_origin,own_origins,,"Strömstad, Sweden; Gothenburg, Sweden","Early-90s west-Swedish scene (Dissection, Sacramentum) credited as founding the style.",true,moved,54.597,-5.93,Belfast,Europe,58.94,11.17,Strömstad,Europe
+melodic_deathcore,Melodic deathcore,placeless,inherits,deathcore; melodic_death_metal,"Riverside, California, United States; Phoenix, Arizona, United States",Melodic slice of deathcore; Riverside and Phoenix documented deathcore centres.,true,moved,49.32,-123.072,North Vancouver,North America,33.9806,-117.3755,Riverside,North America
+melodic_dubstep_2010s,Melodic dubstep,placeless,inherits,dubstep; brostep,"London, UK; Los Angeles, USA",Post-brostep US/UK crossover (Monstercat era); London-only pin misleads.,false,kept: already at an origin,34.05,-118.24,Los Angeles,North America,,,,
+melodic_hard_rock,Melodic hard rock,placeless,inherits,hard_rock; aor,"London, UK; Los Angeles, US","Melodic hard rock is the AOR side of hard rock; close parent, no distinct place.",true,moved,43.653,-79.383,Toronto,North America,51.51,-0.13,London,Europe
+melodic_hardcore,Melodic hardcore,multi_origin,own_origins,,"Los Angeles, United States; Washington, D.C., United States",Sources give early-1980s California and Washington D.C. as cultural origins.,true,moved,51.507,-0.128,London,Europe,34.05,-118.24,Los Angeles,North America
+melodic_metal,Melodic metal,placeless,no_origin,,,Global metal umbrella descriptor.,,no fixed origin,59.329,18.069,Stockholm,Europe,,,,
+melodic_thrash,Melodic Thrash,placeless,inherits,thrash_metal,"San Francisco Bay Area, USA; Los Angeles, USA",Melodic slice of thrash; thrash origins documented.,true,moved,43.4516,-80.4925,Kitchener,North America,37.8,-122.27,San Francisco Bay Area,North America
+meme,Meme music,placeless,no_origin,,,"Internet meme repertoire; function, not style.",,no fixed origin,-27.47,153.02,Brisbane,Oceania & Pacific,,,,
+meme_rap,Meme rap,placeless,no_origin,,,Internet-circulation comic category.,,no fixed origin,44.0121,-92.4802,Rochester (Yung Gravy branch),North America,,,,
+men_s_choir,Men's choir,placeless,no_origin,,,"Ensemble type, not a specific regional tradition.",,no fixed origin,51.658,-3.506,Treorchy,Europe,,,,
+messianic_praise,Messianic Praise,multi_origin,own_origins,,"Chicago, United States; San Francisco, United States","1973 US pioneers: Lamb debuted Chicago; Liberated Wailing Wall (Jews for Jesus, SF). Jerusalem/Philadelphia undocumented.",false,moved,31.0461,34.8516,Israel,Middle East,41.85,-87.65,Chicago,North America
+metal_cover,Metal cover,placeless,no_origin,,,Cover-song function category.,,no fixed origin,59.914,10.752,Oslo,Europe,,,,
+metal_guitar,Metal guitar,placeless,no_origin,,,Instrument-focused category.,,no fixed origin,-33.8688,151.2093,Sydney,Oceania & Pacific,,,,
+metalcore,Metalcore,multi_origin,own_origins,,"Cleveland, US; Syracuse, US; Boston, US; New York City, US",Early-90s formative US hardcore-metal scenes are standard documented credits.,true,moved,43.2965,5.3698,Marseille,Europe,41.4993,-81.6944,Cleveland,North America
+metallic_hardcore,Metallic hardcore,multi_origin,own_origins,,"New York City, USA; Cleveland, USA; Syracuse, USA","Documented NYHC, Cleveland (Integrity), Syracuse (Earth Crisis) formative scenes.",true,moved,-6.917,107.619,Bandung,Southeast Asia,40.7128,-74.006,New York City,North America
+metropopolis,Metropopolis,placeless,no_origin,,,Algorithmic streaming name; exemplars scattered across continents.,,no fixed origin,55.86,-4.25,Glasgow,Europe,,,,
+microtonal,Microtonal Music (interval-scale practice),placeless,no_origin,,,Tuning practice used worldwide.,,no fixed origin,40.72,-74,New York,North America,,,,
+microtonal_composition,Microtonal composition (twentieth-century non-12-TET),multi_origin,no_origin,,,"Tuning technique used worldwide (Haba, Wyschnegradsky, Carrillo); American composers scattered, no single scene.",false,no fixed origin,40.72,-74,New York,North America,,,,
+middle_earth,Middle-earth music,placeless,no_origin,,,Fictional-theme category.,,no fixed origin,51.75,-1.25,Oxford,Europe,,,,
+middle_eastern_traditional,Middle Eastern Traditional,placeless,no_origin,,,Regional umbrella of many distinct traditions; no single style to place.,,no fixed origin,33.3152,44.3661,Baghdad,Middle East,,,,
+middle_of_the_road,Middle of the Road (MOR adult radio pop),placeless,no_origin,,,"Radio-format category, not a scene-born style.",,no fixed origin,40.75,-73.98,New York,North America,,,,
+military_rap,Military Rap,placeless,no_origin,,,"Community/topic category, no shared style.",,no fixed origin,37.775,-122.419,San Francisco,North America,,,,
+minimal_melodic_techno,Minimal Melodic Techno,placeless,inherits,minimal_techno; melodic_techno,"Cologne, Germany; Berlin, Germany",Slice of minimal/melodic techno; 2000s European centres Cologne/Berlin fit.,true,kept: already at an origin,52.52,13.405,Berlin,Europe,,,,
+minimal_wave,Minimal Wave,multi_origin,unsure,,,Retroactive reissue category across 5+ countries; formative centre unclear.,,unchanged (unsure),50.85,4.35,Brussels,Europe,,,,
+modern_alternative_pop,Modern Alternative Pop,placeless,no_origin,,,Market label over umbrella with no origin.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+modern_alternative_rock,Modern alternative rock,placeless,inherits,alternative_rock,"Athens, Georgia, United States; Minneapolis, United States",Modern variant of US alt rock; Athens/Minneapolis canonical college-rock centres.,true,moved,40.678,-73.944,Brooklyn,North America,33.9519,-83.3576,Athens,North America
+modern_big_band,Modern big band,placeless,inherits,big_band,"New York, US; Kansas City, US",Direct continuation of big-band jazz; parent centres documented.,true,moved,42.3601,-71.0589,Boston,North America,40.7128,-74.006,New York,North America
+modern_blues,Modern blues,placeless,inherits,blues,"Mississippi Delta, USA",Era slice of blues; Delta is documented blues origin.,true,moved,34.2001,-90.5709,Clarksdale,North America,33.4,-90.9,Mississippi Delta,North America
+modern_blues_rock,Modern blues rock,placeless,inherits,Blues rock; british_blues,"London, UK; Chicago, US",Era slice of blues rock; London and Chicago are documented blues-rock centres.,true,moved,41.081,-81.519,Akron,North America,51.51,-0.13,London,Europe
+modern_cello,Modern cello,placeless,no_origin,,,Instrument category.,,no fixed origin,44.4759,-73.2121,Burlington,North America,,,,
+modern_chamber_music,Modern chamber music,placeless,no_origin,,,Global art-music umbrella with no place.,,no fixed origin,37.8044,-122.2711,Oakland,North America,,,,
+modern_darkwave,Modern Darkwave,placeless,inherits,darkwave,United Kingdom; West Germany,Revival of darkwave; UK/West Germany documented origins.,true,moved,40.8518,14.2681,Naples,Europe,54,-2,United Kingdom,Europe
+modern_downshift,Modern Downshift,placeless,no_origin,,,Algorithmic hard-rock discovery cluster.,,no fixed origin,43.3616,-80.3144,Cambridge,North America,,,,
+modern_dream_pop,Modern Dream Pop,placeless,inherits,dream_pop,"Grangemouth, Scotland, UK; London, UK",Contemporary slice of dream pop; Baltimore is one band's home.,true,moved,39.2904,-76.6122,Baltimore,North America,56.01,-3.72,Grangemouth,Europe
+modern_folk_rock,Modern folk rock,placeless,inherits,folk_rock,"Los Angeles, US; New York, US",Contemporary slice of folk rock; LA and Greenwich Village are documented origins.,true,moved,38.285,-85.824,New Albany,North America,34.05,-118.24,Los Angeles,North America
+modern_goth,Modern Goth,placeless,inherits,gothic_rock,"London, UK; Leeds, UK; Northampton, UK",Contemporary continuation of gothic rock; no new centre.,true,moved,33.9519,-83.3576,Athens,North America,51.51,-0.13,London,Europe
+modern_hard_rock,Modern hard rock,placeless,inherits,hard_rock,"London, United Kingdom",Modern radio slice of hard rock; inherits hard rock's London origin.,true,moved,34.052,-118.244,Los Angeles,North America,51.51,-0.13,London,Europe
+modern_hardcore,Modern hardcore,placeless,inherits,hardcore_punk,"Los Angeles, United States; Washington, D.C., United States",Era label of hardcore punk; parent origins documented.,true,moved,39.739,-104.99,Denver,North America,34.05,-118.24,Los Angeles,North America
+modern_indie_folk,Modern indie folk,placeless,no_origin,,,Contemporary discovery cluster; indie folk itself lacks documented origin place.,,no fixed origin,45.5019,-73.5674,Montréal,North America,,,,
+modern_jazz_piano,Modern jazz piano,placeless,no_origin,,,Instrument-format category of global contemporary jazz; NY bebop pin misleads.,false,no fixed origin,34.7108,137.7261,Hamamatsu,East Asia,,,,
+modern_jazz_trio,Modern jazz trio,placeless,no_origin,,,Ensemble format.,,no fixed origin,33.0214,35.1467,Kabri,Middle East,,,,
+modern_melodic_hardcore,Modern melodic hardcore,placeless,inherits,melodic_hardcore,"Washington, D.C., USA; Los Angeles, USA",Contemporary slice of melodic hardcore; parent origins documented.,true,moved,45.267,19.834,Novi Sad,Europe,38.907,-77.037,Washington,North America
+modern_mod,Modern mod,placeless,inherits,mod_revival,"London, United Kingdom",Mod-influenced revival slice; mod and mod revival are London-born.,true,moved,53.166,-3.142,Mold,Europe,51.51,-0.13,London,Europe
+modern_performance,Modern performance,placeless,no_origin,,,Concert-performance category.,,no fixed origin,42.712,-73.2037,Williamstown,North America,,,,
+modern_power_pop,Modern Power Pop,placeless,inherits,power_pop,"Memphis, US; Cleveland, US; London, UK","Continuation of power pop; Big Star, Raspberries, UK beat centres documented.",true,kept: already at an origin,41.0814,-81.519,Akron,North America,,,,
+modern_progressive_rock,Modern progressive rock,placeless,inherits,progressive_rock,"London, UK; Canterbury, UK",Era slice of prog; London/Canterbury documented formative centres.,true,moved,4.711,-74.072,Bogotá,Latin America & Caribbean,51.51,-0.13,London,Europe
+modern_psychedelic_folk,Modern psychedelic folk,multi_origin,inherits,psychedelic_folk,"London, UK; Edinburgh, UK; New York City, USA",Contemporary slice; parent's 1960s UK/US centres are documented.,true,moved,39.25,-121,Northern California (songwriting context),North America,51.51,-0.13,London,Europe
+modern_rb,Modern R&B,placeless,no_origin,,,"Broad era umbrella of all current R&B; alt-R&B parent too narrow, Toronto pin misleads.",false,no fixed origin,33.75,-84.39,Atlanta,North America,,,,
+modern_rock,Modern rock,placeless,no_origin,,,Radio-format label.,,no fixed origin,47.606,-122.332,Seattle,North America,,,,
+modern_ska_punk,Modern ska punk,placeless,inherits,ska_punk_third_wave,"Orange County, California, US; Berkeley, California, US; Boston, Massachusetts, US",Era slice of third-wave ska punk; parent origins well documented.,true,moved,38.907,-77.037,Washington,North America,33.68,-117.83,Orange County,North America
+modern_string_quartet,Modern string quartet,placeless,no_origin,,,Ensemble format.,,no fixed origin,38.0616,-122.7008,Nicasio,North America,,,,
+modern_swing,Modern swing,placeless,inherits,swing; swing_revival,"New York City, United States; Kansas City, United States; Los Angeles, United States","Present-day swing playing; parent origins documented, add LA for swing revival.",true,moved,54.6872,25.2797,Vilnius,Europe,40.7128,-74.006,New York City,North America
+modern_uplift,Modern Uplift,placeless,no_origin,,,Discovery/market slice of pop-rock.,,no fixed origin,38.4405,-122.7144,Santa Rosa,North America,,,,
+modular_synth,Modular synth,placeless,no_origin,,,Instrument category.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+modular_techno,Modular techno,placeless,inherits,techno,"Detroit, US",Production-technique variant of techno; techno's Detroit origin documented.,true,moved,52.49,-1.89,Birmingham / Surgeon recording lineage,Europe,42.33,-83.05,Detroit,North America
+moog,Moog,placeless,no_origin,,,Instrument category.,,no fixed origin,26.2517,-80.1789,Coconut Creek,North America,,,,
+motivation,Motivation,placeless,no_origin,,,Spoken self-help audio category.,,no fixed origin,51.209,-4.116,Ilfracombe,Europe,,,,
+multidisciplinary,Multidisciplinary,placeless,no_origin,,,"Cross-media practice, not a musical tradition.",,no fixed origin,41.0082,28.9784,Istanbul,Middle East,,,,
+music_box,Music box,placeless,no_origin,,,Mechanical instrument repertoire.,,no fixed origin,-37.824,144.967,Melbourne,Oceania & Pacific,,,,
+musica_bautista,Música Bautista,placeless,no_origin,,,Transnational Baptist hymnody; religious category with no shared place.,,no fixed origin,15,-90,Latin America,Latin America & Caribbean,,,,
+musica_etnica,Musica Etnica,placeless,no_origin,,,Vague ethnic-music tag.,,no fixed origin,-31.866,-59.027,Villaguay,Latin America & Caribbean,,,,
+musica_indigena_latinoamericana,Musica Indigena Latinoamericana,placeless,no_origin,,,Continental umbrella of many unrelated traditions.,,no fixed origin,8.0,-66.0,Venezuela,Latin America & Caribbean,,,,
+musica_infantil,Musica Infantil,placeless,no_origin,,,Children's-music function/language category.,,no fixed origin,-34.604,-58.382,Buenos Aires,Latin America & Caribbean,,,,
+musica_instrumental_cristiana,Musica Instrumental Cristiana,placeless,no_origin,,,Devotional function category across markets.,,no fixed origin,18.22,-66.59,Puerto Rico,Latin America & Caribbean,,,,
+musica_sinfonica,Música Sinfônica,placeless,no_origin,,,Generic Portuguese label for orchestral music; umbrella.,,no fixed origin,-27.5954,-48.548,Florianópolis,Latin America & Caribbean,,,,
+musical_advocacy,Musical advocacy,placeless,no_origin,,,Charity/cause function category.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+musique_militaire,Musique militaire,placeless,no_origin,,,Military function music across institutions.,,no fixed origin,43.647,0.586,Auch,Europe,,,,
+native_american_black_metal,Native american black metal,placeless,no_origin,,,Identity label across scattered locales.,,no fixed origin,43.95,-74.25,Adirondack Mountains,North America,,,,
+native_american_contemporary,Native American contemporary,multi_origin,no_origin,,,Pan-Indigenous identity label spanning many nations and styles; no shared place.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+necrogrind,Necrogrind,placeless,inherits,goregrind,"Liverpool, United Kingdom",Sub-style of goregrind; Carcass/Liverpool is the documented origin.,true,moved,59.9139,10.7522,Oslo,Europe,53.41,-2.98,Liverpool,Europe
+necrotrap,Necrotrap,placeless,no_origin,,,Online underground micro-genre with no documented scene place.,,no fixed origin,47.1625,19.5033,Hungary,Europe,,,,
+neo_classical,Neo-classical,placeless,no_origin,,,Global contemporary-instrumental umbrella; places are artist homes.,,no fixed origin,53.8008,-1.5491,Leeds,Europe,,,,
+neo_crust,Neo-Crust,placeless,own_origins,,"Memphis, United States; Portland, Oregon, United States",Neocrust defined by His Hero Is Gone (Memphis) and Tragedy (Portland).,true,moved,51.5074,-0.1278,London,Europe,35.15,-90.05,Memphis,North America
+neo_industrial_rock,Neo-industrial rock,placeless,inherits,industrial_rock,"Chicago, USA; London, UK",Later continuation of industrial rock; Chicago/London are documented industrial-rock centres.,true,moved,52.955,-1.158,Nottingham,Europe,41.85,-87.65,Chicago,North America
+neo_mellow,Neo Mellow,placeless,no_origin,,,Streaming mood category.,,no fixed origin,30.3335,-87.1375,Pensacola Beach,North America,,,,
+neo_pagan,Neo Pagan,multi_origin,no_origin,,,"Wikipedia treats it as modern pagan music: religious category across folk, metal, techno; places are artist homes.",false,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+neo_proto,Neo-Proto,placeless,no_origin,,,Algorithmic punk discovery tag with no documented scene.,,no fixed origin,46.8772,-96.7898,Fargo,North America,,,,
+neo_psychedelic,Neo-Psychedelic,placeless,own_origins,,"Los Angeles, USA; Liverpool, UK",Paisley Underground LA and Liverpool post-punk neo-psychedelia are documented formative centres.,true,moved,40.6782,-73.9442,Brooklyn,North America,34.05,-118.24,Los Angeles,North America
+neo_singer_songwriter,Neo-singer-songwriter,placeless,no_origin,,,Market discovery label for a performance format; no scene place.,,no fixed origin,52,-1.5,England (songwriter network),Europe,,,,
+neo_soul_jazz,Neo soul-jazz,placeless,inherits,neo_soul_classic; soul_jazz,"Philadelphia, Pennsylvania, US; New York City, US",Fusion of two catalog parents with documented origins; Seattle is one artist's base.,true,moved,47.6062,-122.3321,Seattle,North America,39.9526,-75.1652,Philadelphia,North America
+neo_synthpop,Neo-synthpop,placeless,inherits,synthpop,"Sheffield, UK; London, UK","Revival slice of synthpop; UK origins documented, no distinct new place.",true,moved,39.2904,-76.6122,Baltimore,North America,53.38,-1.47,Sheffield,Europe
+neo_trad_metal,Neo-trad metal,placeless,inherits,nwobhm; heavy metal,"Birmingham, UK; London, UK",Revival of traditional heavy metal; parent origins documented.,true,moved,40.9,-77.2,Pennsylvania,North America,52.4862,-1.8904,Birmingham,Europe
+neo_trad_prog,Neo-Trad Prog,placeless,inherits,progressive_rock; neo_progressive,"London, United Kingdom",Retro-symphonic era slice of prog; prog's London origin documented.,true,moved,50.9267,-2.3056,Sturminster Newton,Europe,51.51,-0.13,London,Europe
+neoclassical_darkwave,Neoclassical darkwave,multi_origin,own_origins,,"London, United Kingdom; Modena, Italy; Linköping, Sweden","4AD/Dead Can Dance, Ataraxia, Cold Meat Industry are documented codifying centres.",true,moved,48.86,2.35,Paris,Europe,51.51,-0.13,London,Europe
+nerdcore,Nerdcore,placeless,no_origin,,,Topic-defined internet-distributed rap; no scene place.,,no fixed origin,47.61,-122.33,Seattle (internet-native),North America,,,,
+neru,Neru,placeless,no_origin,,,Sleep-function listening category.,,no fixed origin,35.605,140.123,Chiba,East Asia,,,,
+neurostep,Neurostep,placeless,inherits,neurofunk; dubstep,"London, UK; Croydon, UK",Both parents London-origin; crossover suggests no other place.,true,kept: already at an origin,51.5074,-0.1278,London,Europe,,,,
+new_comedy,New Comedy,placeless,no_origin,,,Comedy/stand-up category.,,no fixed origin,40.7301,-74.0004,New York City,North America,,,,
+new_tribe,New Tribe,placeless,no_origin,,,Handpan/festival aesthetic tag; instrument-based.,,no fixed origin,15.6867,73.7045,Arambol,South Asia,,,,
+new_wave_of_osdm,New Wave of OSDM,placeless,inherits,death_metal,"Tampa, US; Stockholm, Sweden",International revival of old-school death metal; parent's Tampa/Stockholm centres documented.,true,moved,37.8044,-122.2712,Oakland,North America,27.95,-82.46,Tampa,North America
+new_wave_of_speed_metal,New wave of speed metal,multi_origin,inherits,speed_metal,"United Kingdom; Germany; San Francisco Bay Area, USA",Fan-coined revival label; given places are band hometowns. Take speed metal's origins.,false,moved,59.6553,12.5852,Arvika,Europe,54,-2,United Kingdom,Europe
+ney,Ney,placeless,no_origin,,,Instrument across many West/Central Asian traditions.,,no fixed origin,32.6546,51.668,Isfahan,Middle East,,,,
+nightrun,Nightrun,placeless,no_origin,,,Every Noise melodic-rock cluster without a scene.,,no fixed origin,50.0,10.0,Europe,Europe,,,,
+no_beat,No Beat,placeless,no_origin,,,Producer-name tag spanning several Brazilian styles.,,no fixed origin,-20.3155,-40.3128,Vitória,Latin America & Caribbean,,,,
+noise_punk,Noise punk,placeless,inherits,punk; noise_rock,"New York, US; London, UK",Abrasive punk variant; NY/London punk and NY noise rock origins.,true,moved,45.515,-122.678,Portland,North America,40.7128,-74.006,New York,North America
+nordic_classical_piano,Nordic classical piano,multi_origin,no_origin,,,Performer-nationality tag over global repertoire; no shared style.,,no fixed origin,64.1466,-21.9426,Reykjavík,Europe,,,,
+nordic_post_rock,Nordic post-rock,multi_origin,own_origins,,"Reykjavík, Iceland; Stockholm, Sweden; Norrköping, Sweden; Oslo, Norway",Region is definitional; Nordic scene cities are honest formative centres.,true,kept: already at an origin,58.588,16.188,Norrköping,Europe,,,,
+nu_age,Nu Age,placeless,no_origin,,,Ambient discovery/playlist field with no scene.,,no fixed origin,36.0999,-80.2442,Winston-Salem,North America,,,,
+nu_gabber,Nu gabber,multi_origin,own_origins,,"Paris, France; Berlin, Germany; Yogyakarta, Indonesia",Revival defined by named collectives in those cities; press-documented.,true,moved,50.0755,14.4378,Prague,Europe,48.86,2.35,Paris,Europe
+nu_metalcore,Nu-metalcore,placeless,no_origin,,,2010s fusion; sources give only US/UK/Australia broadly; Bakersfield pin would mislead.,false,no fixed origin,37.271,-79.9414,Roanoke,North America,,,,
+numbers_station_broadcast,Numbers-station shortwave broadcast,placeless,no_origin,,,Worldwide espionage shortwave broadcasts; not a music with origin.,,no fixed origin,52.52,13.4,Berlin (shortwave),Europe,,,,
+nwocr,NWOCR,placeless,inherits,hard_rock,"London, UK",Revival era-variant of hard rock; no scene city of its own.,true,moved,43.6532,-79.3832,Toronto,North America,51.51,-0.13,London,Europe
+occult_black_metal,Occult black metal,placeless,inherits,black_metal,"Oslo, Norway; Bergen, Norway",Lyrical-theme slice of black metal; Norwegian second-wave origins documented.,true,moved,32.9537,-96.89,Carrollton,North America,59.9139,10.7522,Oslo,Europe
+ocean,Ocean,placeless,no_origin,,,Nature/environmental sound recording category.,,no fixed origin,56.002,-2.517,Dunbar,Europe,,,,
+one_person_band,One-Person Band,placeless,no_origin,,,Performance format.,,no fixed origin,32.2226,-110.9747,Tucson,North America,,,,
+opera_chorus,Opera chorus,placeless,no_origin,,,Ensemble type.,,no fixed origin,-33.8568,151.2153,Sydney,Oceania & Pacific,,,,
+oratory,Oratory,placeless,no_origin,,,Speech recordings.,,no fixed origin,29.7174,-95.4018,Houston,North America,,,,
+orchestra,Orchestra,placeless,no_origin,,,"Ensemble format, not a place-based tradition.",,no fixed origin,57.7089,11.9746,Gothenburg,Europe,,,,
+orchestral_performance,Orchestral performance,placeless,no_origin,,,Performer format.,,no fixed origin,48.2082,16.3738,Vienna,Europe,,,,
+organic_ambient,Organic ambient,placeless,no_origin,,,Texture/mood umbrella of ambient.,,no fixed origin,32.2226,-110.9747,Tucson,North America,,,,
+organic_electronic,Organic electronic,placeless,no_origin,,,Global production aesthetic.,,no fixed origin,52.3676,4.9041,Amsterdam,Europe,,,,
+oriental_classical,Oriental classical,placeless,no_origin,,,Broad discovery label spanning several regions.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+otacore,Otacore,placeless,no_origin,,,"Online anime/game fandom song category, no documented place.",,no fixed origin,-27.4698,153.0251,Brisbane,Oceania & Pacific,,,,
+oth_indie,Oth Indie,placeless,no_origin,,,TV-soundtrack playlist cluster.,,no fixed origin,36.1627,-86.7816,Nashville,North America,,,,
+oud,Oud,placeless,no_origin,,,Instrument category.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+outer_hip_hop,Outer Hip Hop,placeless,no_origin,,,"Every Noise listener cluster, no musical scene or place.",,no fixed origin,49.8951,-97.1384,Winnipeg,North America,,,,
+outsider,Outsider,placeless,no_origin,,,"Approach/identity category, no shared place.",,no fixed origin,41.8781,-87.6298,Chicago,North America,,,,
+parody,Parody,placeless,no_origin,,,Comedic function.,,no fixed origin,37.5483,-121.9886,Fremont,North America,,,,
+pastoral,Pastoral,placeless,no_origin,,,Mood category.,,no fixed origin,34.0967,-117.7198,Claremont,North America,,,,
+permanent_wave,Permanent wave,placeless,no_origin,,,Streaming-derived retroactive radio canon spanning umbrella genres; no documented scene.,false,no fixed origin,51.51,-0.13,London,Europe,,,,
+pet_calming,Pet Calming,placeless,no_origin,,,Function category.,,no fixed origin,42.1946,-122.7095,Ashland,North America,,,,
+pianissimo,Pianissimo,placeless,no_origin,,,Dynamic/mood category.,,no fixed origin,48.8566,2.3522,Paris,Europe,,,,
+piano_cover,Piano Cover,placeless,no_origin,,,Cover-arrangement format on an instrument.,,no fixed origin,39.9526,-75.1652,Philadelphia,North America,,,,
+piano_mpb,Piano MPB,multi_origin,inherits,mpb,"Rio de Janeiro, Brazil; São Paulo, Brazil",Instrument slice of MPB; Rio/São Paulo origins.,true,moved,-22.1211,-51.393,Presidente Prudente,Latin America & Caribbean,-22.91,-43.2,Rio de Janeiro,Latin America & Caribbean
+piano_worship,Piano Worship,placeless,no_origin,,,Instrument plus devotional function category.,,no fixed origin,33.1581,-117.3506,Carlsbad,North America,,,,
+pilates,Pilates,placeless,no_origin,,,Exercise function category.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+pink_noise,Pink noise,placeless,no_origin,,,Generated-noise sound category.,,no fixed origin,52.5,-1.5,England,Europe,,,,
+pirate,Pirate,placeless,no_origin,,,Theme category across styles.,,no fixed origin,28.0395,-81.9498,Lakeland,North America,,,,
+pixel,Pixel,placeless,no_origin,,,Online fan-song platform category.,,no fixed origin,33.4484,-112.074,Phoenix,North America,,,,
+pixie,Pixie (quirky indie pop),placeless,no_origin,,,Internet quirky indie-pop tag; places are just where artists lived.,,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+plugg_en_espanol,Plugg en Español,multi_origin,unsure,,,Language slice of Atlanta plugg; Spanish-language centres undocumented.,,unchanged (unsure),-34.9214,-57.9544,La Plata,Latin America & Caribbean,,,,
+podcast_conversation,Podcast conversation,placeless,no_origin,,,Spoken-word distribution format; no musical place.,,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+poetry,Poetry,placeless,no_origin,,,Spoken literary performance category.,,no fixed origin,-41.29,174.78,Wellington,Oceania & Pacific,,,,
+police_band,Police band,placeless,no_origin,,,Institutional ensemble type.,,no fixed origin,-33.8679,151.2112,Sydney,Oceania & Pacific,,,,
+pop_cristiano,Pop Cristiano,placeless,no_origin,,,Religious-content category across Spanish-speaking world; no shared place.,,no fixed origin,-9.19,-75.0152,Peru,Latin America & Caribbean,,,,
+pop_edm,Pop EDM,placeless,no_origin,,,Transnational market slice of an umbrella without origin.,,no fixed origin,48.7758,9.1829,Stuttgart,Europe,,,,
+pop_electronico,Pop Electrónico,placeless,unsure,,,Spanish-language umbrella across Spain and Latin America; unclear single lineage.,,unchanged (unsure),41.3874,2.1686,Barcelona,Europe,,,,
+pop_house,Pop house,placeless,inherits,house; vocal_house,"Chicago, US; New York, US",Pop-vocal slice of house; Chicago/New York house origins documented.,true,moved,51.5074,-0.1278,London,Europe,41.85,-87.65,Chicago,North America
+pop_r_and_b,Pop R&B,placeless,inherits,rnb,"New York, US; Los Angeles, US; Chicago, US",Market slice of R&B; R&B's documented formative centres.,true,kept: already at an origin,40.6782,-73.9442,Brooklyn,North America,,,,
+pop_rap,Pop rap,placeless,inherits,hip_hop,"The Bronx, New York, USA","Commercial slice of hip-hop; parent origin documented, no distinct place.",true,moved,37.8044,-122.2712,Oakland,North America,40.84,-73.9,The Bronx,North America
+pop_reggaeton,Pop Reggaeton,placeless,inherits,reggaeton,"San Juan, Puerto Rico; Panama City, Panama",Pop slice of reggaeton; San Juan and Panama documented origins.,true,moved,10.4806,-66.9036,Caracas,Latin America & Caribbean,18.44,-66.06,San Juan,Latin America & Caribbean
+pop_rock,Pop rock,placeless,no_origin,,,Broad global commercial umbrella; no formative centre.,,no fixed origin,34.421,-119.698,Santa Barbara,North America,,,,
+pop_romantico,Pop Romantico,multi_origin,own_origins,,"Madrid, Spain; Mexico City, Mexico; Buenos Aires, Argentina","Balada romántica documented from 1960s-70s Spain, Mexico, Argentina.",true,moved,-33.4489,-70.6693,Santiago,Latin America & Caribbean,40.42,-3.7,Madrid,Europe
+pop_violin,Pop violin,placeless,no_origin,,,Instrument category.,,no fixed origin,33.3528,-111.789,Gilbert,North America,,,,
+pop_worship,Pop worship,placeless,inherits,contemporary_worship; ccm,"Sydney, Australia; Costa Mesa, USA; Nashville, USA",Pop slice of contemporary worship/CCM with documented centres.,true,moved,49.895,-97.138,Winnipeg,North America,-33.87,151.21,Sydney,Oceania & Pacific
+popgaze,Popgaze,placeless,inherits,shoegaze,"Thames Valley, UK; London, UK",Pop-leaning slice of shoegaze; parent origins documented.,true,moved,40.7608,-111.891,Salt Lake City,North America,51.46,-0.97,Thames Valley,Europe
+popwave,Popwave,placeless,inherits,synthwave,"Paris, France","Sound-defined pop slice of synthwave; parent's French origin documented, no other place suggested.",true,moved,22.0042,120.7439,Hengchun,East Asia,48.86,2.35,Paris,Europe
+pornogrind,Pornogrind,placeless,own_origins,,"Stuttgart, Germany; United States","Own documented origins: early-1990s Germany (Gut, Stuttgart) and US, not Liverpool.",false,moved,60.2055,24.6559,Espoo,Europe,48.7758,9.1829,Stuttgart,Europe
+post_black_metal,Post-black metal,multi_origin,own_origins,,"Bagnols-sur-Cèze, France; Portland, Oregon, United States","Pioneered by Alcest and early-2000s Agalloch; Deafheaven (2010+) is later, not formative.",false,moved,48.8566,2.3522,Paris,Europe,44.16,4.62,Bagnols-sur-Cèze,Europe
+post_doom_metal,Post-doom metal,placeless,inherits,post_metal; doom,"Boston, US; Oakland, US; Birmingham, UK",Discovery-cluster slice of post-metal and doom.,true,moved,40.7608,-111.891,Salt Lake City,North America,42.3601,-71.0589,Boston,North America
+post_post_hardcore,Post-post-hardcore,placeless,inherits,post_hardcore_90s,"Washington DC, US",Listener-cluster slice of post-hardcore; DC is post-hardcore's documented origin.,true,moved,48.208,16.374,Vienna,Europe,38.9,-77.02,Washington DC,North America
+post_punk_latinoamericano,Post-punk latinoamericano,multi_origin,own_origins,,"Buenos Aires, Argentina; Mexico City, Mexico; Santiago, Chile; Lima, Peru",Documented 1980s post-punk/new-wave scenes in these capitals form the regional tradition.,true,kept: already at an origin,-34.604,-58.382,Buenos Aires,Latin America & Caribbean,,,,
+post_screamo,Post-screamo,placeless,inherits,screamo,"San Diego, USA",Extension of screamo; San Diego origin well documented.,true,moved,41.082,-74.1746,Mahwah,North America,32.7157,-117.1611,San Diego,North America
+pov_indie,Pov: Indie,placeless,no_origin,,,TikTok listening-context label.,,no fixed origin,41.8781,-87.6298,Chicago,North America,,,,
+power_blues_rock,Power blues-rock,placeless,inherits,british_blues; Blues rock,"London, UK; Chicago, US",Heavy blues-rock slice; blues rock documented from London and Chicago scenes.,true,moved,26.144,91.736,Guwahati,South Asia,51.51,-0.13,London,Europe
+power_pop_punk,Power-pop punk,placeless,inherits,pop_punk; power_pop,"New York, US; Manchester, UK",Direct fusion of two catalog parents with documented late-70s origins.,true,moved,58.706,15.768,Finspång,Europe,40.7128,-74.006,New York,North America
+power_thrash,Power Thrash,placeless,inherits,thrash_metal; power_metal_european,"San Francisco Bay Area, United States; Hamburg, Germany",Real thrash/power crossover; Bay Area and Hamburg documented parent origins.,true,moved,-31.4201,-64.1888,Córdoba,Latin America & Caribbean,37.8,-122.27,San Francisco Bay Area,North America
+prank,Prank,placeless,no_origin,,,Comedy/prank-call format.,,no fixed origin,34.1808,-118.309,Burbank,North America,,,,
+pre_war_blues,Pre-war blues,multi_origin,own_origins,blues,"Mississippi Delta, United States; East Texas, United States; Piedmont, United States; Memphis, United States",Era corpus whose documented regional blues centres are exactly these.,true,moved,29.4241,-98.4936,San Antonio,North America,33.4,-90.9,Mississippi Delta,North America
+preschool_childrens_music,Preschool Children's Music,placeless,no_origin,,,Audience category.,,no fixed origin,34.05,-118.24,Los Angeles,North America,,,,
+progressive_alternative,Progressive Alternative,placeless,no_origin,,,Market label over a placeless alternative umbrella.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+progressive_black_metal,Progressive black metal,multi_origin,own_origins,,"Bergen, Norway; Oslo, Norway","Mid-90s Norwegian field (Enslaved, Borknagar Bergen; Arcturus, Ved Buens Ende Oslo); Notodden is one band's hometown.",false,kept: already at an origin,60.3913,5.3221,Bergen,Europe,,,,
+progressive_death_metal,Progressive death metal,multi_origin,own_origins,,"Tampa, Florida, USA; Miami, Florida, USA; Stockholm, Sweden","Florida scene (Death, Cynic, Atheist) and Opeth credited as formative.",true,kept: already at an origin,59.3293,18.0686,Stockholm,Europe,,,,
+progressive_deathcore,Progressive deathcore,placeless,inherits,deathcore,"Southern California, United States; Phoenix, United States",Progressive slice of deathcore; no documented separate origin found.,true,moved,52.3,-1.3,England — one node of an international collaboration,Europe,33.68,-117.8,Southern California,North America
+progressive_doom,Progressive Doom,placeless,inherits,doom,"Birmingham, United Kingdom",Structural slice of doom metal; no distinct place of its own.,true,moved,39.6001,-75.9413,North East,North America,52.4862,-1.8904,Birmingham,Europe
+progressive_electro_house,Progressive electro house,placeless,own_origins,,"Stockholm, Sweden; Netherlands",2010s Swedish house wave and Dutch scene documented as formative.,true,kept: already at an origin,52.3676,4.9041,Amsterdam,Europe,,,,
+progressive_groove_metal,Progressive groove metal,placeless,inherits,groove_metal,"Arlington, Texas, USA; New Orleans, USA",Progressive slice of groove metal; no distinct scene suggesting another place.,true,moved,50.4501,30.5234,Kyiv,Europe,32.74,-97.11,Arlington,North America
+progressive_jazz_fusion,Progressive jazz fusion,placeless,inherits,fusion,"New York, USA",Slice of jazz fusion; New York origin documented.,true,moved,36.1627,-86.7816,Nashville,North America,40.7128,-74.006,New York,North America
+progressive_metalcore,Progressive metalcore,placeless,inherits,metalcore,"Cleveland, USA; Syracuse, USA; Boston, USA",Technical slice of metalcore; no distinct centre; metalcore's 1990s US hardcore cities are documented.,true,moved,33.5186,-86.8104,Birmingham,North America,41.4993,-81.6944,Cleveland,North America
+progressive_post_hardcore,Progressive post-hardcore,placeless,inherits,post_hardcore_90s,"Washington, D.C., USA",Progressive slice of post-hardcore; DC documented origin.,true,moved,41.008,28.978,Istanbul,Europe,38.907,-77.037,Washington,North America
+progressive_power_metal,Progressive power metal,placeless,inherits,power_metal_european; progressive_metal_classic,"Hamburg, Germany; Long Island, New York, USA","Intersection slice is right, but origins omitted progressive metal parent's US centre.",false,moved,40.4,-74.2,New Jersey,North America,53.55,9.99,Hamburg,Europe
+progressive_sludge,Progressive Sludge,multi_origin,inherits,sludge_metal,"New Orleans, US; Aberdeen, Washington, US",Descriptor slice of sludge; Mastodon/Neurosis/Isis hometowns are not a documented genre origin.,false,moved,41.8781,-87.6298,Chicago,North America,29.95,-90.07,New Orleans,North America
+progressive_thrash,Progressive Thrash,multi_origin,inherits,thrash_metal,"San Francisco Bay Area, US; Los Angeles, US","Pioneer hometowns scattered across three countries, no scene; descriptor slice of thrash.",false,moved,39.8283,-98.5795,United States,North America,37.8,-122.27,San Francisco Bay Area,North America
+progressive_trance_house,Progressive Trance House,placeless,inherits,progressive_house; trance,"London, UK; Frankfurt, Germany",Market label joining progressive house and trance; parents' origins documented.,true,moved,35.6762,139.6503,Tokyo,East Asia,51.51,-0.13,London,Europe
+progressive_uplifting_trance,Progressive uplifting trance,placeless,inherits,progressive_trance; uplifting_trance,"Frankfurt, Germany; Amsterdam, Netherlands; London, UK",Intersection of two trance subgenres with documented centres.,true,kept: already at an origin,51.5074,-0.1278,London,Europe,,,,
+proto_metal,Proto-metal,multi_origin,own_origins,,"San Francisco, US; Detroit, US; London, UK","Precursor strands documented; Birmingham (Sabbath) is metal's origin, not proto-metal's.",false,kept: already at an origin,37.7749,-122.4194,San Francisco,North America,,,,
+protovapor,Protovapor,multi_origin,own_origins,,"Brooklyn, New York, US; Los Angeles, US",Lopatin's Brooklyn Eccojams and LA hypnagogic milieu documented as vaporwave's precursor.,true,moved,45.52,-122.68,Portland (internet-native),North America,40.6782,-73.9442,Brooklyn,North America
+psalms,Psalms,placeless,no_origin,,,Sacred-text category with no shared style or place.,,no fixed origin,56.49,-4.2,Scotland,Europe,,,,
+psybass,Psybass,multi_origin,unsure,,,"Psytrance-bass fusion; origins described only as global festival circuit, undocumented.",,unchanged (unsure),35.0,105.0,China,East Asia,,,,
+psych_gaze,Psych gaze,placeless,inherits,shoegaze; psychedelic_rock,"Thames Valley, UK; London, UK; San Francisco, US",Crossover slice; parents in catalog with documented origins.,true,moved,43.6532,-79.3832,Toronto,North America,51.46,-0.97,Thames Valley,Europe
+psychedelic_doom,Psychedelic doom,placeless,inherits,doom,"Birmingham, UK; Los Angeles, USA",Psychedelic slice of doom metal; Sabbath and Saint Vitus centres are documented.,true,moved,42.5,12.5,Italy,Europe,52.4862,-1.8904,Birmingham,Europe
+psychedelic_folk_rock,Psychedelic folk rock,multi_origin,own_origins,,"San Francisco, USA; Los Angeles, USA; London, UK","Mid-1960s LA, SF and London folk-rock/psych scenes are documented formative centres.",true,moved,33.749,-84.388,Atlanta,North America,37.77,-122.42,San Francisco,North America
+psychedelic_hip_hop,Psychedelic hip hop,multi_origin,own_origins,,"New York, US; Los Angeles, US",De La Soul/Digable Planets New York and Pharcyde LA are standard origin strands.,true,moved,47.6062,-122.3321,Seattle,North America,40.7128,-74.006,New York,North America
+psychedelic_jazz_fusion,Psychedelic jazz fusion,multi_origin,inherits,fusion,"New York City, US",Texture slice of jazz fusion.,true,moved,41.5317,-8.6189,Barcelos,Europe,40.7128,-74.006,New York City,North America
+psychedelic_punk,Psychedelic punk,placeless,no_origin,,,Transnational fusion label; no documented shared scene.,,no fixed origin,43.653,-79.383,Toronto,North America,,,,
+psychill,Psychill (psychedelic chillout),multi_origin,own_origins,,"London, United Kingdom; Lyon, France","Shpongle/Twisted (London), Ultimae (Lyon); Gothenburg is one band's home.",false,moved,15.57,73.74,Goa,South Asia,51.51,-0.13,London,Europe
+psytech,Psytech,placeless,inherits,psytrance; techno,"Goa, India; Detroit, USA","Documented psytrance-techno fusion, no own centre; added techno parent.",true,moved,25.033,121.5654,Taipei,East Asia,15.57,73.74,Goa,South Asia
+punk_cover,Punk cover,placeless,no_origin,,,Covers format; not a place-bound style.,,no fixed origin,32.716,-117.161,San Diego performance,North America,,,,
+punk_n_roll,Punk 'n' roll,multi_origin,own_origins,,"Oslo, Norway; Stockholm, Sweden","Late-1990s Scandinavian wave: Turbonegro/Gluecifer Oslo, Hellacopters Stockholm.",true,moved,35.913,-79.056,Chapel Hill,North America,59.9139,10.7522,Oslo,Europe
+qanun,Qanun,placeless,no_origin,,,"Instrument category spanning Arab, Turkish and other traditions.",,no fixed origin,40.995,-73.879,Hastings-on-Hudson,North America,,,,
+queer_country,Queer country,placeless,no_origin,,,Identity category; Seattle is one precedent band's home.,,no fixed origin,47.6062,-122.3321,Seattle (documented ensemble lineage),North America,,,,
+rabm,RABM,placeless,no_origin,,,"Political-identity category within black metal; transnational, no centre.",,no fixed origin,30.4515,-91.1871,Baton Rouge,North America,,,,
+radio_symphony,Radio symphony,placeless,no_origin,,,Broadcaster-orchestra institution type.,,no fixed origin,48.7795,9.1696,Stuttgart,Europe,,,,
+rain,Rain,placeless,no_origin,,,Field recording of rain.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+ramonescore,Ramonescore,multi_origin,own_origins,,"Chicago, United States; Berkeley, United States; Portsmouth, New Hampshire, United States","Style defined by Screeching Weasel, Lookout! East Bay and The Queers; documented centres.",true,moved,-24.5,-51.5,Paraná,Latin America & Caribbean,41.85,-87.65,Chicago,North America
+rap_anime,Rap Anime,placeless,no_origin,,,Topic-defined online fan-rap community.,,no fixed origin,8.0,-66.0,Venezuela,Latin America & Caribbean,,,,
+rap_cristiano,Rap Cristiano,multi_origin,own_origins,,Puerto Rico; Dominican Republic,"PR/DR scenes (Funky, Manny Montes, Redimi2) formative; 'United States', Mexico are markets, too broad.",false,moved,19.43,-99.13,Mexico City,Latin America & Caribbean,18.22,-66.59,Puerto Rico,Latin America & Caribbean
+rap_latina,Rap latina,placeless,no_origin,,,Transnational identity-based women's rap umbrella; no shared place.,,no fixed origin,14.6349,-90.5069,Guatemala City (selected exemplar center),Latin America & Caribbean,,,,
+rap_metalcore,Rap metalcore,placeless,inherits,rap_metal; metalcore,"Los Angeles, United States; Boston, United States",Fusion of rap metal and metalcore; LA and Boston documented parent centres.,true,moved,51.4816,-3.1791,Cardiff,Europe,34.05,-118.24,Los Angeles,North America
+rap_romantico,Rap romántico,multi_origin,no_origin,,,Lyrical-theme label across Spanish-language rap; no documented place.,,no fixed origin,37.3891,-5.9845,Seville,Europe,,,,
+raw_black_metal,Raw black metal,multi_origin,inherits,black_metal,"Oslo, Norway; Bergen, Norway","Production-texture variant of black metal; should take Norwegian second-wave origins, not own.",false,moved,-37.814,144.963,Naarm (Melbourne),Oceania & Pacific,59.9139,10.7522,Oslo,Europe
+raw_techno,Raw Techno,placeless,inherits,techno,"Detroit, US",Production-texture variant of techno with no distinct place; Detroit fits.,true,moved,50.8225,-0.1372,Brighton,Europe,42.33,-83.05,Detroit,North America
+re_techno,Re:techno,placeless,inherits,techno,"Detroit, US","Listener cluster that is plainly techno; no own scene, Detroit parent origin.",true,moved,37.1773,-3.5986,Granada,Europe,42.33,-83.05,Detroit,North America
+reading,Reading,placeless,no_origin,,,Listening-function playlist.,,no fixed origin,60,8,Norway,Europe,,,,
+rebel_blues,Rebel Blues,placeless,no_origin,,,Sync/trailer discovery field.,,no fixed origin,36.1627,-86.7816,Nashville,North America,,,,
+recorder,Recorder,placeless,no_origin,,,Instrument category.,,no fixed origin,51.1657,10.4515,Germany,Europe,,,,
+reggae_cover,Reggae cover,placeless,inherits,reggae,"Kingston, Jamaica",Reggae applied to covers; Jamaican versioning tradition; inherits Kingston.,true,moved,25.7617,-80.1918,Miami,North America,17.97,-76.79,Kingston,Latin America & Caribbean
+reggae_en_espanol,Reggae en español,multi_origin,own_origins,,"Panama City, Panama; Buenos Aires, Argentina; San Juan, Puerto Rico","Panama reggae en espanol, Argentine and Puerto Rican scenes are documented formative centres.",true,moved,9.9281,-84.0907,San José,Latin America & Caribbean,8.98,-79.52,Panama City,Latin America & Caribbean
+reiki,Reiki,placeless,no_origin,,,Wellness function category.,,no fixed origin,48.2082,16.3738,Vienna,Europe,,,,
+relaxative,Relaxative,placeless,no_origin,,,Relaxation listening category.,,no fixed origin,54.5,-2.5,United Kingdom,Europe,,,,
+remix_product,Remix Product,placeless,no_origin,,,Commercial remix discovery label.,,no fixed origin,-25.2744,133.7751,Australia,Oceania & Pacific,,,,
+requiem_mass,Requiem Mass,placeless,no_origin,,,Liturgical textual form across centuries and countries.,,no fixed origin,48.21,16.37,Vienna,Europe,,,,
+retro_metal,Retro metal,placeless,inherits,nwobhm,"Birmingham, United Kingdom; London, United Kingdom",Classic heavy metal revival; Birmingham/London heavy metal and NWOBHM origins fit.,true,moved,53.219,6.567,Groningen,Europe,52.4862,-1.8904,Birmingham,Europe
+retro_soul,Retro soul,multi_origin,own_origins,,"Brooklyn, USA; London, UK",Revival centred on Desco/Daptone in New York and the late-2000s London retro-soul wave.,true,moved,41.8781,-87.6298,Chicago,North America,40.6782,-73.9442,Brooklyn,North America
+rhythm_and_boogie,Rhythm and Boogie,placeless,inherits,rockabilly_50s,"Memphis, USA",Rockabilly/early rock-and-roll reissue repertoire; Memphis is rockabilly's documented origin.,true,moved,36.154,-95.9928,Tulsa,North America,35.15,-90.05,Memphis,North America
+rhythm_game,Rhythm Game,placeless,no_origin,,,Video-game function category spanning many styles.,,no fixed origin,36.0,138.0,Japan,East Asia,,,,
+rhythm_rock,Rhythm rock,placeless,inherits,rockabilly_50s,"Memphis, US",Raw rock-and-roll/rockabilly slice; rockabilly's Memphis origin is documented.,true,moved,38.063,-81.819,Madison,North America,35.15,-90.05,Memphis,North America
+ringtone,Ringtone,placeless,no_origin,,,Function category.,,no fixed origin,27.665,-81.516,Florida,North America,,,,
+ritual_ambient,Ritual ambient,placeless,inherits,dark_ambient_industrial,"London, UK; Linköping, Sweden",Recognized dark-ambient subgenre; Lustmord and Cold Meat Industry formative.,true,moved,34.0522,-118.2437,Los Angeles,North America,51.51,-0.13,London,Europe
+rock_cristiano,Rock Cristiano,multi_origin,own_origins,,"Buenos Aires, Argentina; Mexico City, Mexico","Record documents Argentina (Rescate, Buenos Aires) and Mexico formation.",true,kept: already at an origin,19.43,-99.13,Mexico City,Latin America & Caribbean,,,,
+rock_drums,Rock Drums (drum-feature instrumental),placeless,no_origin,,,Instrument-feature category.,,no fixed origin,34.05,-118.24,Los Angeles,North America,,,,
+rock_gotico,Rock gotico,multi_origin,own_origins,,"Madrid, Spain; Mexico City, Mexico",Madrid rock siniestro and Mexico City goth scene define Spanish-language goth rock.,true,kept: already at an origin,19.401,-98.986,Nezahualcóyotl,Latin America & Caribbean,,,,
+rock_keyboard,Rock keyboard,placeless,no_origin,,,Instrument category.,,no fixed origin,34.281,-119.293,Ventura,North America,,,,
+rock_noise,Rock Noise,placeless,no_origin,,,Every Noise transnational noise cluster; no documented scene.,,no fixed origin,39.9526,-75.1652,Philadelphia,North America,,,,
+rockabilly_en_espanol,Rockabilly en espanol,multi_origin,own_origins,,"Mexico City, Mexico; Barcelona, Spain",Documented Mexican 1950s-60s rock-and-roll and Barcelona 1980s rockabilly scenes.,true,kept: already at an origin,19.433,-99.133,Mexico City,Latin America & Caribbean,,,,
+romantico,Romántico,placeless,no_origin,,,Mood/listening category of instrumental romantic standards.,,no fixed origin,23.1136,-82.3666,Havana,Latin America & Caribbean,,,,
+rune_folk,Rune folk,multi_origin,own_origins,,Norway; Denmark,"Nordic ritual folk scene (Wardruna, Heilung, Danheim) centred Norway/Denmark; Sweden weakly attested, dropped.",true,moved,59.914,10.752,Oslo,Europe,60.472,8.4689,Norway,Europe
+sad_lo_fi,Sad lo-fi,placeless,no_origin,,,Mood/production tag; lo-fi parent has no single documented origin.,,no fixed origin,42.7325,-84.5555,Lansing,North America,,,,
+salsa_international,Salsa International,placeless,inherits,salsa_nuyorican,"New York City, USA",Circuit/market slice of salsa; salsa's NYC origin documented.,true,moved,52.52,13.405,Berlin,Europe,40.7128,-74.006,New York City,North America
+samurai_trap,Samurai trap,placeless,no_origin,,,"Mix/playlist tag spanning glitch, future bass, hip-hop; record denies tradition; Atlanta pin would mislead.",false,no fixed origin,48.2082,16.3738,Vienna,Europe,,,,
+sarangi,Sarangi,placeless,no_origin,,,Instrument category spanning classical and folk practice.,,no fixed origin,31.5204,74.3587,Lahore,South Asia,,,,
+sasscore,Sasscore,multi_origin,own_origins,,"San Diego, US; Seattle, US","Wikipedia: sass origins late-1990s US, particularly San Diego and Seattle.",true,moved,36.1699,-115.1398,Las Vegas,North America,32.7157,-117.1611,San Diego,North America
+saxophone_house,Saxophone House,placeless,no_origin,,,Instrument-format category within house.,,no fixed origin,38.9067,1.4206,Ibiza,Europe,,,,
+saxophone_trio,Saxophone Trio,placeless,no_origin,,,Ensemble format.,,no fixed origin,41.8781,-87.6298,Chicago,North America,,,,
+scenecore,Scenecore,multi_origin,no_origin,,,Internet-native MySpace scene; places are band hometowns.,,no fixed origin,28.54,-81.38,Orlando (internet-native),North America,,,,
+school_choir,School choir,placeless,no_origin,,,Ensemble/function type.,,no fixed origin,51.752,-1.2577,Oxford,Europe,,,,
+school_ensemble,School Ensemble,placeless,no_origin,,,Institutional/function category.,,no fixed origin,38.9559,-76.9455,Hyattsville,North America,,,,
+sci_fi_metal,Sci-fi metal,placeless,no_origin,,,Lyrical-theme category across metal styles.,,no fixed origin,47.606,-122.332,Seattle,North America,,,,
+scream_rap,Scream rap,multi_origin,own_origins,,"South Florida, US",Wolverhampton is one artist's hometown; keep South Florida SoundCloud scene only.,false,moved,52.5862,-2.128,Wolverhampton (Scarlxrd origin),Europe,25.7617,-80.1918,Miami,North America
+sda_choir,SDA choir,placeless,no_origin,,,"Denominational choral function category, global.",,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+shib,Shib,placeless,no_origin,,,Internet discovery grouping; no scene.,,no fixed origin,39.0997,-94.5786,Kansas City,North America,,,,
+shimmer_psych,Shimmer Psych,placeless,no_origin,,,"Playlist tag, no documented scene; 1960s SF/London psych origins would mislead.",false,no fixed origin,40.9793,-74.1165,Ridgewood,North America,,,,
+shiver_pop,Shiver pop,multi_origin,no_origin,,,"Algorithmic listener label; cities are artist homes, no documented scene.",,no fixed origin,59.91,10.75,Oslo,Europe,,,,
+shred,Shred,placeless,no_origin,,,Guitar technique as such.,,no fixed origin,4.711,-74.0721,Bogotá,Latin America & Caribbean,,,,
+shush,Shush,placeless,no_origin,,,Ambient/field-recording listening function.,,no fixed origin,51.5,-1.0,Southern England,Europe,,,,
+siberian_folk,"Siberian folk music (Sakha, Tuva, Altai)",multi_origin,own_origins,,"Tuva, Russia; Sakha (Yakutia), Russia; Altai Republic, Russia; Khakassia, Russia","Indigenous traditions of named homelands; places are genuine origins, not just venues.",true,kept: already at an origin,62.03,129.73,Yakutsk,Mongolia & Siberia,,,,
+sigilkore,Sigilkore,placeless,no_origin,,,Online-only SoundCloud/Discord microgenre; no documented place.,,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+sing_along,Sing-Along,placeless,no_origin,,,Communal-singing function.,,no fixed origin,40.75,-73.98,New York,North America,,,,
+singer_songwriter_pop,Singer-songwriter pop,placeless,no_origin,,,"Performance-format market umbrella, not a slice of Greenwich Village folk movement.",false,no fixed origin,52.0907,5.1214,Utrecht,Europe,,,,
+singing_bowl,Singing Bowl,placeless,no_origin,,,Instrument category.,,no fixed origin,41.4993,-81.6944,Cleveland,North America,,,,
+slacker_rock,Slacker rock (early-1990s American lo-fi indie),multi_origin,no_origin,,,"Attitude label over scattered US bands; places are band hometowns, not a scene.",false,no fixed origin,37.96,-121.29,Stockton,North America,,,,
+slamming_deathcore,Slamming deathcore,placeless,inherits,deathcore; slam_death_metal,"Riverside, California, US; Phoenix, Arizona, US; Dallas, US",Hybrid of two placed parents; added slam's Dallas origin.,true,moved,54.092,12.099,Rostock,Europe,33.9806,-117.3755,Riverside,North America
+slash_punk,Slash punk,placeless,inherits,hardcore_punk,"Los Angeles, United States; Washington, D.C., United States",Record itself defines it as hardcore grouping; LA/DC hardcore origins documented.,true,moved,55.676,12.568,Copenhagen,Europe,34.05,-118.24,Los Angeles,North America
+slavic_folk_metal,Slavic folk metal,multi_origin,own_origins,,"Moscow, Russia; Kharkiv, Ukraine; Gomel, Belarus","Early Slavic pagan/folk metal bands define Russian, Ukrainian, Belarusian centres.",true,moved,55.743,52.395,Naberezhnye Chelny,Europe,55.7558,37.6173,Moscow,Europe
+slayer,Slayer,placeless,no_origin,,,Artist-name similarity playlist cluster.,,no fixed origin,41.8781,-87.6298,Chicago,North America,,,,
+sleaze_rock,Sleaze rock,multi_origin,own_origins,,"Los Angeles, California, US; Stockholm, Sweden",Sunset Strip origin; Swedish 2000s sleaze revival centred on Stockholm bands.,true,kept: already at an origin,59.329,18.069,Stockholm,Europe,,,,
+sleep,Sleep,placeless,no_origin,,,Functional playlist category.,,no fixed origin,37.2296,-80.4139,Blacksburg,North America,,,,
+slow_game,Slow Game,placeless,no_origin,,,Opaque discovery label with no scene.,,no fixed origin,33.7455,-117.8677,Santa Ana,North America,,,,
+slowcore,Slowcore (early-1990s American indie-rock minimalism),multi_origin,own_origins,,"New York, US; Boston, US; Duluth, US; Dallas, US",Diffuse US genre; canonical founding bands' cities are credited formative centres; no better parent.,true,kept: already at an origin,46.79,-92.1,Duluth,North America,,,,
+slowed_and_reverb,Slowed and reverb,placeless,no_origin,,,Internet audio-effect practice.,,no fixed origin,54.6872,25.2797,Vilnius,Europe,,,,
+sludgecore,Sludgecore,multi_origin,inherits,sludge_metal,"New Orleans, USA; Aberdeen, Washington, USA","Hardcore-leaning sludge slice; places are sludge metal's, so inherits not own.",false,moved,32.7157,-117.1611,San Diego,North America,29.95,-90.07,New Orleans,North America
+slushwave,Slushwave,placeless,no_origin,,,Internet-native vaporwave micro-genre; parent vaporwave has no place.,,no fixed origin,45.52,-122.68,Portland (internet-native),North America,,,,
+small_room,Small room,placeless,no_origin,,,Opaque discovery-community playlist label.,,no fixed origin,40.6782,-73.9442,Brooklyn,North America,,,,
+smooth_saxophone,Smooth saxophone,placeless,no_origin,,,Instrument-centred listening field across styles.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+smooth_soul,Smooth soul,multi_origin,own_origins,,"Philadelphia, US; Memphis, US; Detroit, US",Philly soul documented regional scene; Hi/Memphis and Motown/Detroit early-70s centres defensible.,true,kept: already at an origin,35.1495,-90.049,Memphis,North America,,,,
+social_media_pop,Social Media Pop,placeless,no_origin,,,"Distribution/platform-native category, no place.",,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+solfeggio_product,Solfeggio Product,placeless,no_origin,,,Frequency/wellness product category.,,no fixed origin,40.015,-105.2705,Boulder,North America,,,,
+solipsynthm,Solipsynthm,placeless,no_origin,,,Playlist category for solo synth acts; no scene.,,no fixed origin,50.8552,0.5729,St Leonards-on-Sea,Europe,,,,
+solo_wave,Solo wave,placeless,no_origin,,,Playlist of new-wave frontmen solo careers.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+soul_flow,Soul Flow,placeless,no_origin,,,Hip-hop discovery field; no scene.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+sound,Sound,placeless,no_origin,,,Environmental/sleep sound recordings.,,no fixed origin,38.5816,-121.4944,Sacramento,North America,,,,
+sound_effects,Sound effects,placeless,no_origin,,,"Sound-effect recordings, not a tradition.",,no fixed origin,40.6782,-73.9442,Brooklyn,North America,,,,
+southeast_asian_post_rock,Southeast asian post-rock,multi_origin,own_origins,,"Singapore; Kuala Lumpur, Malaysia; Jakarta, Indonesia; Bangkok, Thailand","Region-named scene umbrella; national scenes exist in these cities, region is its definition.",true,kept: already at an origin,1.352,103.82,Singapore,Southeast Asia,,,,
+spa,Spa,placeless,no_origin,,,Function category.,,no fixed origin,35.6762,139.6503,Tokyo,East Asia,,,,
+space_ambient,Space ambient,placeless,inherits,berlin_school; ambient,"Berlin, Germany; London, UK",Space-music slice of Berlin School/ambient; parent corrected from kosmische to berlin_school; Tucson is artist home.,true,moved,32.22,-110.97,Tucson,North America,52.52,13.4,Berlin,Europe
+spacegrunge,Spacegrunge,placeless,no_origin,,,Algorithmic micro-tag; no documented scene.,,no fixed origin,41.8781,-87.6298,Chicago,North America,,,,
+spacesynth,Spacesynth,multi_origin,own_origins,,"Milan, Italy; Netherlands",Italo-disco offshoot (Koto) then Dutch Laserdance/Hithouse; both documented.,true,moved,60.2055,24.6559,Espoo,Europe,45.4642,9.19,Milan,Europe
+spectra,Spectra,placeless,no_origin,,,Listening cluster of experimental composition; no shared place.,,no fixed origin,59.3293,18.0686,Stockholm,Europe,,,,
+spiritual_hip_hop,Spiritual hip hop,placeless,no_origin,,,Devotional/yoga function framing of rap; no scene or place.,,no fixed origin,38.0691,-122.8069,Point Reyes Station (MC Yogi practice),North America,,,,
+stomp_and_flutter,Stomp and flutter,placeless,no_origin,,,Algorithmic indie-folk timbre tag; no documented scene.,,no fixed origin,45.52,-122.68,Portland,North America,,,,
+stomp_and_holler,Stomp and Holler,multi_origin,own_origins,,"London, UK; Denver, USA",West London nu-folk and Denver folk scene both credited as formative.,true,kept: already at an origin,39.74,-104.99,Denver,North America,,,,
+stomp_and_whittle,Stomp and Whittle,placeless,no_origin,,,Every Noise listening-community label; no documented scene.,,no fixed origin,39.0997,-94.5786,Kansas City,North America,,,,
+stomp_pop,Stomp Pop,placeless,no_origin,,,Playlist tag for 2010s alt-pop; loose link to 1980s US alt rock; Athens/Minneapolis would mislead.,false,no fixed origin,38.5816,-121.4944,Sacramento,North America,,,,
+street_band,Street band,placeless,no_origin,,,Ensemble format with no geographic identity.,,no fixed origin,42.6334,-71.3162,Lowell,North America,,,,
+string_duo,String Duo,placeless,no_origin,,,Ensemble format.,,no fixed origin,39.9832,-75.8238,Coatesville,North America,,,,
+string_folk,String folk,placeless,no_origin,,,Instrument-based listening tag.,,no fixed origin,51.507,-0.128,London,Europe,,,,
+string_orchestra,String orchestra,placeless,no_origin,,,Ensemble format.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+strut,Strut,placeless,no_origin,,,"Drag/runway mood label, no style place.",,no fixed origin,42.0584,-70.1786,Provincetown,North America,,,,
+study_beats,Study Beats,placeless,no_origin,,,Functional study playlist category.,,no fixed origin,51.9244,4.4777,Rotterdam,Europe,,,,
+subliminal_product,Subliminal Product,placeless,no_origin,,,Wellness audio product category; no style or place.,,no fixed origin,37.0902,-95.7129,United States,North America,,,,
+supergroup,Supergroup,placeless,no_origin,,,Band-formation type.,,no fixed origin,51.6214,-3.9436,Swansea,Europe,,,,
+symphonic_death_metal,Symphonic death metal,placeless,unsure,,,"Developed by European bands (Therion, Septicflesh); Tampa pin misleads; no documented own centre.",false,unchanged (unsure),43.111,12.389,Perugia,Europe,,,,
+symphonic_deathcore,Symphonic deathcore,placeless,inherits,deathcore,"Riverside, California, US; Phoenix, Arizona, US",Orchestral variant of deathcore; deathcore's SoCal/Arizona origins hold.,true,moved,37.688,-97.336,Wichita,North America,33.9806,-117.3755,Riverside,North America
+symphonic_power_metal,Symphonic power metal,multi_origin,own_origins,,"Trieste, Italy; Helsinki, Finland","Rhapsody (Trieste) and Stratovarius (Helsinki) credited as defining; Nightwish is Kitee, not Helsinki.",true,moved,60.6065,15.6355,Falun,Europe,45.6495,13.7768,Trieste,Europe
+synth_prog,Synth prog,placeless,inherits,progressive_rock,"London, UK",Synth-led slice of prog rock; UK/London origin.,true,moved,40.4406,-79.9959,Pittsburgh,North America,51.51,-0.13,London,Europe
+synthcore,Synthcore,multi_origin,no_origin,,,Origins only continents; St Albans/Columbus are just pioneer bands' hometowns.,false,no fixed origin,51.75,-0.34,St Albans,Europe,,,,
+synthesizer,Synthesizer,placeless,no_origin,,,Instrument category.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+synthetic_classical,Synthetic classical,placeless,no_origin,,,Technique: classical repertoire on synthesizers.,,no fixed origin,40.7128,-74.006,New York,North America,,,,
+talent_show,Talent Show,placeless,no_origin,,,TV-format function.,,no fixed origin,39.8,-98.6,United States,North America,,,,
+tape_club,Tape Club,placeless,no_origin,,,International playlist tag only overlapping twee/C86; US/Australian exemplars; Glasgow pin would mislead.,false,no fixed origin,45.5152,-122.6784,Portland,North America,,,,
+tearout,Tearout,multi_origin,inherits,dubstep,"London, UK",Aggressive dubstep substyle; term from UK dubstep.,true,moved,46.6,2.2,France,Europe,51.51,-0.13,London,Europe
+technical_black_metal,Technical black metal,placeless,inherits,black_metal,"Oslo, Norway; Bergen, Norway",Technique-defined slice of black metal; parent's Norwegian origins documented.,true,moved,43.6591,-70.2568,Portland,North America,59.9139,10.7522,Oslo,Europe
+technical_brutal_death_metal,Technical brutal death metal,placeless,inherits,brutal_death_metal,"Long Island, New York, USA",Technical slice of Long Island brutal death metal; no own centre.,true,moved,52.52,13.405,Berlin,Europe,40.79,-73.13,Long Island,North America
+technical_deathcore,Technical deathcore,placeless,inherits,deathcore,"Southern California, USA; Phoenix, Arizona, USA",Technicality slice of deathcore; deathcore's SoCal/Arizona origins documented.,true,moved,37.7749,-122.4194,Bay Area,North America,33.68,-117.8,Southern California,North America
+technical_grindcore,Technical grindcore,placeless,inherits,grindcore,"Birmingham, United Kingdom; Flint, United States",Technique slice of grindcore; Napalm Death/Repulsion origins; added Flint.,true,moved,40.743,-74.0324,Hoboken,North America,52.4862,-1.8904,Birmingham,Europe
+technical_melodic_death_metal,Technical melodic death metal,placeless,inherits,melodic_death_metal; technical_death_metal,"Gothenburg, Sweden; Tampa, USA",Intersection of two parents with documented origin centres.,true,moved,40.5853,-105.0844,Fort Collins,North America,57.7089,11.9746,Gothenburg,Europe
+technical_thrash,Technical thrash,placeless,inherits,thrash_metal,"San Francisco Bay Area, US","Thrash subgenre; scattered pioneers, so parent origin is the honest fallback.",true,moved,45.0526,9.693,Piacenza,Europe,37.8,-122.27,San Francisco Bay Area,North America
+techno_rave,Techno Rave,placeless,inherits,techno,"Detroit, USA",Warehouse/festival techno slice; no distinct documented place.,true,moved,44.7866,20.4489,Belgrade,Europe,42.33,-83.05,Detroit,North America
+teen_pop,Teen pop,placeless,no_origin,,,Audience/marketing category spanning eras and countries.,,no fixed origin,39.7392,-104.9903,Denver,North America,,,,
+theme,Theme,placeless,no_origin,,,Function category (TV/film themes).,,no fixed origin,52.3555,-1.1743,England,Europe,,,,
+therapy,Therapy,placeless,no_origin,,,Wellness function category.,,no fixed origin,43.0718,-70.7626,Portsmouth,North America,,,,
+theremin,Theremin,placeless,no_origin,,,Instrument category.,,no fixed origin,51.1657,10.4515,Germany,Europe,,,,
+thrash_core,Thrash Core,multi_origin,inherits,hardcore_punk,"Los Angeles, US; Washington, D.C., US",Sources give no thrashcore scene; listed cities are scattered band hometowns. Speed slice of hardcore.,false,moved,47.4979,19.0402,Budapest,Europe,34.05,-118.24,Los Angeles,North America
+tiktok_era_streaming_pop,TikTok-era streaming pop,placeless,no_origin,,,Platform-native distribution category.,,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+tolkien_metal,Tolkien metal,placeless,no_origin,,,"Lyrical theme spanning black, power and folk metal; no shared style.",,no fixed origin,48.2082,16.3738,Vienna,Europe,,,,
+tone,Tone,placeless,no_origin,,,Wellness/tone listening category.,,no fixed origin,40.015,-105.2705,Boulder,North America,,,,
+traditional_folk,Traditional folk,placeless,no_origin,,,Global umbrella; parent has no single origin.,,no fixed origin,37.1593,-83.1252,Viper,North America,,,,
+traditional_soul,Traditional soul,placeless,inherits,soul,"Memphis, USA; Detroit, USA",Classic-style soul variant drawing on Southern soul; parent origins fit.,true,moved,32.7767,-96.797,Dallas,North America,35.15,-90.05,Memphis,North America
+transpop,Transpop,placeless,no_origin,,,Identity-based field spanning styles.,,no fixed origin,42.3732,-72.5199,Amherst,North America,,,,
+trap_cristiano,Trap cristiano,multi_origin,inherits,latin_trap; christian_trap,"San Juan, Puerto Rico",Christian-lyric slice of Latin trap; same production style.,true,moved,18.486,-69.931,Santo Domingo,Latin America & Caribbean,18.44,-66.06,San Juan,Latin America & Caribbean
+traprun,Traprun,placeless,no_origin,,,"Opaque playlist label, no documented scene.",,no fixed origin,39.8283,-98.5795,United States,North America,,,,
+trash_rock,Trash rock,placeless,no_origin,,,"Loose aesthetic tag, no documented scene.",,no fixed origin,40.713,-74.006,New York,North America,,,,
+tribute,Tribute,placeless,no_origin,,,Homage function.,,no fixed origin,39.8283,-98.5795,United States,North America,,,,
+trombone_ensemble,Trombone Ensemble,placeless,no_origin,,,Ensemble type.,,no fixed origin,59.9139,10.7522,Oslo,Europe,,,,
+tropical,Tropical,placeless,no_origin,,,Radio-format umbrella over many distinct Latin genres.,,no fixed origin,34.1083,-117.2898,San Bernardino,North America,,,,
+tropical_alternativo,Tropical Alternativo,placeless,inherits,latin_alternative; cumbia,"Mexico City, Mexico; Buenos Aires, Argentina; Bogotá, Colombia","Slice of Latin alternative/nueva cumbia; Mexico City, Buenos Aires, Bogotá centres.",true,moved,40.6782,-73.9442,Brooklyn,North America,19.43,-99.13,Mexico City,Latin America & Caribbean
+tropical_bass,Global bass,multi_origin,own_origins,,"Buenos Aires, Argentina; Philadelphia, USA",Histories credit ZZK Buenos Aires and Mad Decent Philadelphia as central hubs; borderline umbrella.,true,kept: already at an origin,39.95,-75.17,Philadelphia,North America,,,,
+ukulele_cover,Ukulele Cover,placeless,no_origin,,,Instrument/cover format.,,no fixed origin,37.7749,-122.4194,San Francisco,North America,,,,
+unblack_metal,Unblack metal,multi_origin,own_origins,,"Australia; Jessheim, Norway",Horde (coined 'unblack') and Antestor are the documented founding centres.,true,moved,36.1627,-86.7816,Nashville,North America,-30,135,Australia,Oceania & Pacific
+underground_power_pop,Underground Power Pop,placeless,inherits,power_pop,"London, UK; Cleveland, USA; Memphis, USA",Independent-network slice of power pop; parent origins documented.,true,kept: already at an origin,51.5074,-0.1278,London,Europe,,,,
+university_choir,University choir,placeless,no_origin,,,Institutional ensemble category.,,no fixed origin,37.3059,-89.5181,Cape Girardeau,North America,,,,
+utopian_virtual,Utopian virtual,placeless,no_origin,,,Internet-native vaporwave branch; parent itself placeless.,,no fixed origin,45.52,-122.68,Portland (internet-native),North America,,,,
+vapor_house,Vapor House,placeless,no_origin,,,Internet-native vaporwave/club fusion; no documented scene.,,no fixed origin,30.2672,-97.7431,Austin,North America,,,,
+vapor_pop,Vapor pop,placeless,no_origin,,,Internet-aesthetic pop label; parent vaporwave placeless.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+vapor_soul,Vapor Soul,placeless,no_origin,,,"Blog/playlist taxonomy R&B, internet-native, no scene place.",,no fixed origin,43.65,-79.38,Toronto,North America,,,,
+vapor_twitch,Vapor twitch,placeless,no_origin,,,Internet-native microgenre; parent vaporwave also placeless.,,no fixed origin,41.88,-87.63,Chicago (internet-native),North America,,,,
+vaporhop,Vaporhop,placeless,no_origin,,,Internet-native Bandcamp/Tumblr fusion; no place.,,no fixed origin,45.52,-122.68,Portland (internet-native),North America,,,,
+vaportrap,Vaportrap,placeless,no_origin,,,Bandcamp/SoundCloud internet-native hybrid; parent vaporwave also placeless.,,no fixed origin,45.52,-122.68,Portland (internet-native),North America,,,,
+vaporwave,Vaporwave,placeless,no_origin,,,Internet-native microgenre with no physical scene.,,no fixed origin,45.52,-122.68,Portland (internet-native),North America,,,,
+vbs,VBS (Vacation Bible School music),placeless,no_origin,,,Children's church-programme function music.,,no fixed origin,41.4925,-99.9018,Nebraska,North America,,,,
+veena,Veena,placeless,no_origin,,,Instrument category spanning Carnatic and Hindustani practice.,,no fixed origin,12.9716,77.5946,Bengaluru,South Asia,,,,
+vegan_straight_edge,Vegan straight edge,multi_origin,own_origins,,"Orange County (Laguna Beach), USA; Syracuse, USA; Umeå, Sweden","Documented centres: Vegan Reich/Hardline Orange County, Earth Crisis Syracuse, Umeå scene; Memphis was secondary.",false,moved,51.1657,10.4515,Germany,Europe,33.54,-117.78,Laguna Beach,North America
+vgm_instrumental,VGM instrumental,placeless,no_origin,,,Video-game cover repertoire category.,,no fixed origin,39.9526,-75.1652,Philadelphia,North America,,,,
+vgm_remix,VGM remix,placeless,no_origin,,,Online remix practice of game music; no place.,,no fixed origin,52.1326,5.2913,Netherlands,Europe,,,,
+vintage_classical_singing,Vintage classical singing,placeless,no_origin,,,Historical-recording listening category.,,no fixed origin,48.2082,16.3738,Vienna,Europe,,,,
+vintage_gospel,Vintage gospel,placeless,inherits,gospel,"Chicago, US","Archival era slice of gospel; parent origin documented, though early material predates Chicago.",true,moved,29.9511,-90.0715,New Orleans,North America,41.85,-87.65,Chicago,North America
+vintage_jazz,Vintage jazz,placeless,inherits,jazz,"New Orleans, USA; Chicago, USA",Era slice of early recorded jazz; parent origins well documented.,true,moved,34.0522,-118.2437,Los Angeles,North America,29.95,-90.07,New Orleans,North America
+vintage_radio_show,Vintage Radio Show,placeless,no_origin,,,"Archival spoken broadcast entertainment, not a music style.",,no fixed origin,47.5615,-52.7126,St. John's,North America,,,,
+viola,Viola,placeless,no_origin,,,Instrument category.,,no fixed origin,52.486,-1.89,Birmingham,Europe,,,,
+viola_da_gamba,Viola da Gamba,placeless,no_origin,,,Instrument category; instrument birthplace is not origin of its music.,,no fixed origin,53.55,10.0,Hamburg,Europe,,,,
+violin,Violin,placeless,no_origin,,,Instrument category.,,no fixed origin,40.713,-74.006,New York,North America,,,,
+viral_pop,Viral pop,placeless,no_origin,,,Platform-circulation category.,,no fixed origin,38.9058,-77.0086,Washington,North America,,,,
+viral_rap,Viral rap,placeless,no_origin,,,Distribution/virality category.,,no fixed origin,35.2271,-80.8431,Charlotte,North America,,,,
+viral_trap,Viral trap,placeless,no_origin,,,"Defined by internet circulation, not sound or scene: a distribution-model category.",false,no fixed origin,33.8958,-118.2201,Compton,North America,,,,
+vocal_ensemble,Vocal ensemble,placeless,no_origin,,,"Ensemble/performance format, not a tradition.",,no fixed origin,42.3601,-71.0589,Boston,North America,,,,
+vocal_jazz,Vocal jazz,placeless,no_origin,,,Voice-type/performance-format umbrella of jazz.,,no fixed origin,37.8715,-122.273,Berkeley,North America,,,,
+voidgaze,Voidgaze,placeless,unsure,,,Internet tag across several extreme-metal parents; unclear parent.,,unchanged (unsure),43.615,-116.2023,Boise,North America,,,,
+voidgrind,Voidgrind,placeless,no_origin,,,Algorithmic extreme-metal listening cohort; no scene.,,no fixed origin,33.749,-84.388,Atlanta,North America,,,,
+warm_drone,Warm drone,placeless,inherits,drone,"New York, US",Texture slice of drone; drone's New York origin documented.,true,moved,42.3223,-83.1763,Dearborn,North America,40.7128,-74.006,New York,North America
+washboard,Washboard,placeless,no_origin,,,Instrument used across several traditions.,,no fixed origin,29.9511,-90.0715,New Orleans,North America,,,,
+water,Water,placeless,no_origin,,,Environmental sound recordings.,,no fixed origin,32.7157,-117.1611,San Diego,North America,,,,
+weirdcore,Weirdcore,placeless,no_origin,,,Internet-native aesthetic tag.,,no fixed origin,34.05,-118.24,Los Angeles (internet-native),North America,,,,
+white_noise,White noise,placeless,no_origin,,,Sound/function category.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+wind_quintet,Wind quintet,placeless,no_origin,,,Chamber ensemble format.,,no fixed origin,51.5074,-0.1278,London,Europe,,,,
+world_chill,World chill,placeless,no_origin,,,Mood/listening category.,,no fixed origin,52.3555,-1.1743,England,Europe,,,,
+world_devotional,World devotional,placeless,no_origin,,,Global devotional umbrella with no shared style or place.,,no fixed origin,32.7157,-117.1611,San Diego,North America,,,,
+world_fusion,World fusion,placeless,no_origin,,,Global marketing umbrella.,,no fixed origin,49.2827,-123.1207,Vancouver,North America,,,,
+world_meditation,World meditation,placeless,no_origin,,,Meditation function category.,,no fixed origin,40.015,-105.2705,Boulder,North America,,,,
+wrestling,Wrestling,placeless,no_origin,,,Entrance-music function category.,,no fixed origin,40.8859,-74.0435,Hackensack,North America,,,,
+writing,Writing,placeless,no_origin,,,Functional listening category.,,no fixed origin,45.4642,9.19,Milan,Europe,,,,
+yoga,Yoga,placeless,no_origin,,,Functional listening category.,,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+youth_orchestra,Youth orchestra,placeless,no_origin,,,Institutional ensemble type.,,no fixed origin,32.7555,-97.3308,Fort Worth,North America,,,,
+zen,Zen,placeless,no_origin,,,Mood/relaxation category.,,no fixed origin,35.6762,139.6503,Tokyo,East Asia,,,,
+zolo,Zolo,placeless,no_origin,,,"Radio DJ's retroactive tag spanning art rock, cabaret, new wave; no scene or place.",false,no fixed origin,34.0522,-118.2437,Los Angeles,North America,,,,
+zxc,ZXC,placeless,no_origin,,,Internet-native gaming/meme micro-genre with no documented scene place.,,no fixed origin,55.7558,37.6173,Moscow,Europe,,,,

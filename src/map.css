@@ -1383,3 +1383,40 @@ svg:not(.mark) {
 .key-tools:empty {
   display: none;
 }
+.key-noorigin {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  margin-top: 4px;
+  padding: 6px 6px 2px;
+  border-top: 1px solid var(--cm-border-subtle);
+  font-size: var(--cm-text-xs);
+  text-align: left;
+}
+.noorigin-pop {
+  left: 12px;
+  right: auto;
+  top: auto;
+  bottom: 12px;
+}
+.noorigin-list {
+  columns: 2 160px;
+  column-gap: 16px;
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+  font-size: var(--cm-text-xs);
+}
+.noorigin-list li {
+  break-inside: avoid;
+  padding: 1px 0;
+}
+@media (max-width: 899px) {
+  .noorigin-pop {
+    left: 8px;
+    right: 8px;
+    top: 8px;
+    bottom: auto;
+  }
+}
