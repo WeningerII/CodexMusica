@@ -213,7 +213,19 @@ class BatchEvidenceTests(unittest.TestCase):
 
     def test_production_admission_and_derived_censuses_include_the_import(self):
         approved = read_json(ROOT / 'library/catalog_sources.json')
-        self.assertEqual(approved['tree'], read_json(BATCH / 'source_manifest.json'))
+        # Later admitted batches may extend production without displacing any
+        # byte-pinned member of this batch's historical comparison population.
+        approved_by_path = {row['path']: row for row in approved['tree']}
+        for row in read_json(BATCH / 'source_manifest.json'):
+            self.assertEqual(approved_by_path.get(row['path']), row, row['path'])
+        current = []
+        for path in sorted((ROOT / 'corpus').rglob('*')):
+            if path.is_file():
+                raw = path.read_bytes()
+                current.append({'path': 'lyric-harness/' + path.relative_to(ROOT).as_posix(),
+                                'sha': hashlib.sha1(b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest(),
+                                'size': len(raw)})
+        self.assertEqual(approved['tree'], current)
         docker = (ROOT.parent / 'mcp/Dockerfile').read_text()
         self.assertEqual(re.search(r'--repo-sha\s+([a-f0-9]{40})', docker)[1],
                          approved['repository_commit'])

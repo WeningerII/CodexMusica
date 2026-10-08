@@ -539,6 +539,44 @@ neighbours, so removing 649 records changes how many survivors compile.
 Every changed recipe text is in
 [`geographic-attribution-audit/merge-recipe-changes.csv`](geographic-attribution-audit/merge-recipe-changes.csv).
 
+## Applied: no fixed origin (2026-10-08)
+
+The arbitrary-pin review left 937 genres with no single right place (the 1,058 of the
+review, less those the merge retired). They were sorted again, each by a classifier, and
+a skeptic re-checked every place a classifier claimed (it changed 68 verdicts):
+
+| Verdict | Genres | Done |
+| --- | ---: | --- |
+| Own origins: one to four documented places of its own | 99 | pinned at its first origin |
+| Inherits its parent genre's origins | 229 | pinned at the parent's first origin |
+| No origin at any number of places | 597 | no pin; listed in the map key |
+| Unsure | 12 | left as they were |
+
+**Placed genres.** The owner chose one pin each rather than several. A pin already
+within 60 km of a listed origin stayed (53); the rest moved to the first origin that
+resolves to a place (275). Seven first origins named a band rather than a town, and were
+pinned at the band's hometown, for example `melodic_black_metal` at Strömstad and
+`post_black_metal` at Bagnols-sur-Cèze. Every origin is kept in the ledger, not only the
+one pinned.
+
+**Placeless genres.** 597 genres name a mood, a function, an instrument or format as
+such, a technique, or a playlist tag with no documented scene, for example 432Hz,
+Acoustic cover and Jazz trombone. They are listed in
+[`data/no-fixed-origin.json`](../data/no-fixed-origin.json).
+`scripts/build_atlas_geo.js` leaves them out of the drawn pins and writes the list into
+`data/atlas-geo.json`. The atlas shows a "No fixed origin" row in its map key, and an
+entry in Map information, and both open the list; each genre links into Codex Musica.
+Their `data/geo.json` coordinates are kept, unused, so the list can be undone by
+deleting an id.
+
+**Effect on the map.** 7,158 traditions are drawn, on 3,512 coordinates. No recipe <!-- check_docs:ignore -->
+changed: pins and the list feed only the atlas.
+
+The ledger is
+[`geographic-attribution-audit/no-fixed-origin.csv`](geographic-attribution-audit/no-fixed-origin.csv):
+one row per genre with its verdict, parents, origins, the reason, whether the skeptic
+upheld it, what was done, and the old and new pin.
+
 ## Limits
 
 - **The labels are model judgements**, not a person checking a map. See the calibration
@@ -592,3 +630,6 @@ Every changed recipe text is in
 - [`geographic-attribution-audit/merge-recipe-changes.csv`](geographic-attribution-audit/merge-recipe-changes.csv):
   every surviving tradition whose static recipe text changed with the merge, before and
   after.
+- [`geographic-attribution-audit/no-fixed-origin.csv`](geographic-attribution-audit/no-fixed-origin.csv):
+  the 2026-10-08 no-fixed-origin pass, one row per genre with its origins, decision and
+  pin.

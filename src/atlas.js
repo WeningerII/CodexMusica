@@ -106,6 +106,7 @@
     pts: [],
     byId: {},
     aliasOf: {},
+    noOrigin: [],
     nodes: {},
     sigs: {},
     tokenIdx: {},
@@ -288,6 +289,7 @@
     el.stack = $('stack');
     el.tip = $('tip');
     el.provenance = $('provenance');
+    el.noOrigin = $('noorigin');
     el.legendPanel = $('legend-panel');
     el.threadsPanel = $('threads-panel');
     el.routesPanel = $('routes-panel');
@@ -328,7 +330,7 @@
 
     sources
       .then(function (r) {
-        ingest(r[0], r[1].coords, r[2], r[3], r[4], r[5], r[6], r[7], r[8]);
+        ingest(r[0], r[1].coords, r[2], r[3], r[4], r[5], r[6], r[7], r[8], r[1].no_fixed_origin);
         setupCanvas();
         wireControls();
         $('loading').textContent = S.pts.length + ' traditions loaded.';
@@ -369,7 +371,23 @@
       });
   }
 
-  function ingest(idx, geo, sigs, world, treeMap, nodes, routes, threads, meta) {
+  function ingest(idx, geo, sigs, world, treeMap, nodes, routes, threads, meta, noOrigin) {
+    // Traditions with no honest place on the map (data/no-fixed-origin.json):
+    // no pin, no region; listed from the map key instead.
+    var names = {};
+    idx.items.forEach(function (t) {
+      names[t.id] = t.name;
+    });
+    S.noOrigin = (noOrigin || [])
+      .filter(function (id) {
+        return names[id];
+      })
+      .map(function (id) {
+        return { id: id, name: names[id] };
+      })
+      .sort(function (a, b) {
+        return a.name.localeCompare(b.name, 'en');
+      });
     // Retired (merged) ids, so an old ?trad= link lands on the tradition it became.
     S.aliasOf = {};
     (idx.aliases || []).forEach(function (a) {
@@ -563,6 +581,13 @@
       '<div><dt>Human-verified coordinates</dt><dd>' +
       verified.toLocaleString('en') +
       '</dd></div></dl>' +
+      (S.noOrigin.length
+        ? '<p class="info-note">' +
+          plural(S.noOrigin.length, 'genre') +
+          ' have no fixed origin (moods, functions, instruments, formats, playlist tags), so they ' +
+          'get no pin and count in no region. ' +
+          '<button class="link-btn" type="button" data-act="open-noorigin">See the list</button></p>'
+        : '') +
       '<p class="info-note">Model-reviewed means a model re-derived the place' +
       (S.meta.reviewed_on ? ' (' + esc(S.meta.reviewed_on) + ')' : '') +
       ' without seeing the file; no person has checked it. Human-verified is a separate list and ' +
@@ -579,6 +604,42 @@
       'without borders. Equal Earth projection; detail tiles load as you zoom.</p>' +
       '<button class="cm-btn cm-btn-outline" type="button" data-act="reset-layout">Reset layout</button>';
     el.provenance.innerHTML = h;
+  }
+
+  function renderNoOrigin() {
+    el.noOrigin.innerHTML =
+      '<div class="info-head"><h2 id="noorigin-title">No fixed origin</h2>' +
+      '<button class="icon-btn" type="button" data-act="close-noorigin" aria-label="Close the no-fixed-origin list">' +
+      ICON.close +
+      '</button></div>' +
+      '<p class="info-lead">' +
+      plural(S.noOrigin.length, 'genre') +
+      ' with no honest place on the map: moods, functions, instruments and formats as such, ' +
+      'techniques, and playlist tags with no documented scene. They get no pin and count in no ' +
+      'region. Each opens in Codex Musica.</p>' +
+      '<ul class="noorigin-list">' +
+      S.noOrigin
+        .map(function (t) {
+          return (
+            '<li><a href="' +
+            esc(CODEX_URL + '?trad=' + encodeURIComponent(t.id)) +
+            '">' +
+            esc(t.name) +
+            '</a></li>'
+          );
+        })
+        .join('') +
+      '</ul>';
+  }
+
+  function setNoOrigin(open) {
+    if (open && !el.noOrigin.innerHTML) renderNoOrigin();
+    el.noOrigin.hidden = !open;
+    if (open) {
+      setInfo(false);
+      var close = el.noOrigin.querySelector('[data-act="close-noorigin"]');
+      if (close) close.focus();
+    }
   }
 
   function setInfo(open) {
@@ -2146,6 +2207,14 @@
     h +=
       '<div class="key-bubble"><span class="key-bubble-disc" aria-hidden="true">12</span>' +
       '<span>Traditions documented there; the ring shows their groups. Not how much music there is.</span></div>';
+    if (S.noOrigin.length)
+      h +=
+        '<button class="link-btn key-noorigin" type="button" data-act="open-noorigin" aria-haspopup="dialog">' +
+        'No fixed origin · ' +
+        plural(S.noOrigin.length, 'genre') +
+        ' not on the map ' +
+        ICON.chevron +
+        '</button>';
     h +=
       '<button class="link-btn" type="button" data-act="all-groups">All ' +
       S.roots.length +
@@ -2683,7 +2752,14 @@
     $('t-info').addEventListener('click', function () {
       setInfo(el.provenance.hidden);
     });
+    el.noOrigin.addEventListener('click', function (e) {
+      if (e.target.closest('[data-act="close-noorigin"]')) setNoOrigin(false);
+    });
     el.provenance.addEventListener('click', function (e) {
+      if (e.target.closest('[data-act="open-noorigin"]')) {
+        setNoOrigin(true);
+        return;
+      }
       if (e.target.closest('[data-act="close-info"]')) {
         setInfo(false);
         $('t-info').focus();
@@ -2774,6 +2850,10 @@
         S.prefs.keyHidden.set(S.keyHidden);
         renderKey(inViewPts());
         el.key.querySelector('[data-act="toggle-key"]').focus();
+        return;
+      }
+      if (e.target.closest('[data-act="open-noorigin"]')) {
+        setNoOrigin(true);
         return;
       }
       if (e.target.closest('[data-act="all-groups"]')) {
@@ -2949,6 +3029,12 @@
       if (overlay() && !e.target.closest('#side')) setPanel(null);
       if (!el.provenance.hidden && !e.target.closest('#provenance') && !e.target.closest('#t-info'))
         setInfo(false);
+      if (
+        !el.noOrigin.hidden &&
+        !e.target.closest('#noorigin') &&
+        !e.target.closest('[data-act="open-noorigin"]')
+      )
+        setNoOrigin(false);
     });
 
     document.addEventListener('click', function (e) {
@@ -2957,6 +3043,10 @@
 
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
+      if (!el.noOrigin.hidden) {
+        setNoOrigin(false);
+        return;
+      }
       if (!el.provenance.hidden) {
         setInfo(false);
         $('t-info').focus();

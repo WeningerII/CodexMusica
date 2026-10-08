@@ -1,0 +1,115 @@
+{
+  "works": 1299,
+  "total_sung_token_occurrences": 192587,
+  "unique_folded_spellings": 17792,
+  "occurrence_counts": {
+    "supported_default": 179707,
+    "missing_high": 10680,
+    "missing_with_prepared_declaration": 7381,
+    "missing_without_prepared_declaration": 3299,
+    "supported_high": 2200
+  },
+  "unique_spelling_counts": {
+    "supported_default": 13921,
+    "missing_high": 2984,
+    "supported_high": 887
+  },
+  "missing_unique_with_any_prepared_declaration": 1729,
+  "missing_unique_with_no_prepared_declaration": 1255,
+  "supported_occurrences_declared": 0,
+  "by_collection": {
+    "13646": {
+      "supported_default": 3393,
+      "missing_high": 53,
+      "supported_high": 11,
+      "works_with_choices": 24,
+      "declarations": 41,
+      "missing_occurrences_covered": 41,
+      "missing_occurrences_remaining": 12
+    },
+    "1568": {
+      "supported_default": 15181,
+      "missing_high": 206,
+      "supported_high": 205,
+      "works_with_choices": 64,
+      "declarations": 127,
+      "missing_occurrences_covered": 130,
+      "missing_occurrences_remaining": 76
+    },
+    "27195": {
+      "missing_high": 2438,
+      "supported_default": 20445,
+      "supported_high": 271,
+      "works_with_choices": 298,
+      "declarations": 1570,
+      "missing_occurrences_covered": 1624,
+      "missing_occurrences_remaining": 814
+    },
+    "3138": {
+      "supported_default": 11115,
+      "missing_high": 256,
+      "supported_high": 113,
+      "works_with_choices": 34,
+      "declarations": 49,
+      "missing_occurrences_covered": 56,
+      "missing_occurrences_remaining": 200
+    },
+    "40048": {
+      "supported_default": 62993,
+      "missing_high": 5738,
+      "supported_high": 1039,
+      "works_with_choices": 197,
+      "declarations": 4082,
+      "missing_occurrences_covered": 4218,
+      "missing_occurrences_remaining": 1520
+    },
+    "50878": {
+      "supported_default": 11901,
+      "missing_high": 237,
+      "supported_high": 101,
+      "works_with_choices": 18,
+      "declarations": 24,
+      "missing_occurrences_covered": 24,
+      "missing_occurrences_remaining": 213
+    },
+    "51226": {
+      "supported_default": 9791,
+      "missing_high": 73,
+      "supported_high": 60,
+      "works_with_choices": 19,
+      "declarations": 32,
+      "missing_occurrences_covered": 33,
+      "missing_occurrences_remaining": 40
+    },
+    "58414": {
+      "supported_default": 9689,
+      "missing_high": 117,
+      "supported_high": 72,
+      "works_with_choices": 16,
+      "declarations": 30,
+      "missing_occurrences_covered": 32,
+      "missing_occurrences_remaining": 85
+    },
+    "69378": {
+      "supported_default": 27330,
+      "missing_high": 1421,
+      "supported_high": 276,
+      "works_with_choices": 199,
+      "declarations": 960,
+      "missing_occurrences_covered": 1154,
+      "missing_occurrences_remaining": 267
+    },
+    "934": {
+      "supported_default": 7869,
+      "missing_high": 141,
+      "supported_high": 52,
+      "works_with_choices": 23,
+      "declarations": 58,
+      "missing_occurrences_covered": 69,
+      "missing_occurrences_remaining": 72
+    }
+  },
+  "scope": "Actual final imported corpus catalog marked_units lyric rows, production line_tokens(strip_parens=False), compound pieces through default/high transcribe_word. Unknown is missing coverage, not invalid language. Repeated lines counted separately; declarations apply to verbatim repeats.",
+  "prepared_declarations": 6973,
+  "works_with_prepared_declarations": 892
+}

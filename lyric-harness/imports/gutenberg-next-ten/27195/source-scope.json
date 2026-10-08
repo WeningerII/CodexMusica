@@ -1,0 +1,48 @@
+{
+  "unit_population": "All349 div.poem elements between PARTI and PARTII headings in the exact pinned HTML. Full candidate text retained for eligible and excluded units.",
+  "section_counts": {
+    "Dance Rhyme Section": 20,
+    "Dance Rhyme Song Section": 72,
+    "Play Rhyme Section": 28,
+    "Pastime Rhyme Section": 66,
+    "Love Rhyme Section": 8,
+    "Love Song Rhyme Section": 5,
+    "Courtship Rhyme Section": 11,
+    "Courtship Song Rhyme Section": 2,
+    "Marriage Rhyme Section": 1,
+    "Married Life Rhyme Section": 6,
+    "Nursery Rhyme Section": 100,
+    "Wise Saying Section": 17,
+    "Foreign Section": 13
+  },
+  "outside_candidate_population": [
+    {
+      "scope": "Title/contents/introduction before PARTI",
+      "reason": "Front matter and quoted examples; not independently headed main collection works."
+    },
+    {
+      "scope": "PARTII Study in Negro Folk Rhymes",
+      "reason": "Explanatory prose, analytical quoted examples and score illustrations; excluded wholesale, not extracted into fragmentary lyrics."
+    },
+    {
+      "scope": "General and comparative indexes after Study",
+      "reason": "Navigational/editorial material."
+    },
+    {
+      "scope": "Score-only heading ONE NEGRO THEME SUNG WITH FROG WENT A-COURTING at Page 190",
+      "reason": "Musical illustration accompanying the single 75-line printed FROG WENT A-COURTING unit; not a second lyric."
+    }
+  ],
+  "specific_exclusion_evidence": [
+    {
+      "candidate_ids": ["poem-250", "poem-252"],
+      "source_locator": "https://www.gutenberg.org/files/27195/27195-h/27195-h.htm#Page_243",
+      "reason": "Study explicitly characterizes these as mixed African/English (and possibly other) language."
+    },
+    {
+      "candidate_ids": ["poem-328"],
+      "source_locator": "https://www.gutenberg.org/files/27195/27195-h/27195-h.htm#Page_243",
+      "reason": "Compiler explicitly cannot recall another stanza of this rhyme; incomplete witness excluded."
+    }
+  ]
+}

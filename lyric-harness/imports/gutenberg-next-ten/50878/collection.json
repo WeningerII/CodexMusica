@@ -1,0 +1,48 @@
+{
+  "gutenberg_id": "50878",
+  "title": "Beadle's Dime Song Book No. 5",
+  "publication_year": 1860,
+  "edition": "New York: Irwin P. Beadle & Co., No.137 William Street; copyright entry1860. Supplied cover also says Beadle and Company; no later publication year inferred.",
+  "language": "English",
+  "source_url": "https://www.gutenberg.org/ebooks/50878",
+  "html_url": "https://www.gutenberg.org/cache/epub/50878/pg50878-images.html",
+  "retrieval": {
+    "mirror_url": "https://raw.githubusercontent.com/GITenberg/Beadle-s-Dime-Song-Book-No-5-A-Collection-of-New-and-Popular-Comic-and-Sentimental-Songs_50878/master/50878-h/50878-h.htm",
+    "file": "source.html.gz",
+    "sha256": "753431bca41cb2a60b234bba2e2e139a0335f736140b87d33006d20df88e84c9",
+    "encoding": "UTF-8",
+    "fetched_on": "2026-10-08",
+    "edition_verification": "GITenberg HTML imprint independently checked against Gutenberg HTML through browser; raw mirror bytes preserved for adapter replay. Hash is decompressed HTML."
+  },
+  "rights": {
+    "status": "public_domain",
+    "jurisdiction": "USA",
+    "basis": "Project Gutenberg catalogue explicitly affirms public domain in USA; supplied historical imprint retained.",
+    "evidence_url": "https://www.gutenberg.org/ebooks/50878",
+    "evidence_excerpt": "Public domain in the USA.",
+    "edition_evidence_excerpt": "New York: Irwin P. Beadle & Co., No.137 William Street; copyright entry1860. Supplied cover also says Beadle and Company; no later publication year inferred.",
+    "scope": "Printed words only; no illustrations, music, modern versions or Gutenberg boilerplate imported."
+  },
+  "counts": {
+    "source_entries": 73,
+    "eligible_before_corpus_deduplication": 71,
+    "other_excluded_entries": 2,
+    "duplicates": "Determined by batch integration against existing corpus and other collections."
+  },
+  "excluded_non_entry_material": [
+    "title/imprint",
+    "contents/index",
+    "tune labels and credits",
+    "editorial prose and footnotes",
+    "advertisements",
+    "illustrations",
+    "Gutenberg boilerplate"
+  ],
+  "extraction": {
+    "adapter": "adapter.py",
+    "faithfulness": "Complete songs; HTML verse-line and stanza boundaries preserved; typography indentation removed; page numbers, credit paragraphs, tune and chorus labels excluded from sung words. Printed abbreviated refrains retained without expansion. No dialect spelling modernization.",
+    "replay": "python adapter.py (requires beautifulsoup4)"
+  },
+  "translation_review": "Printed credits and source notes screened; targeted suspicious operatic/German-song identities reviewed. Anonymous entries are not represented as exhaustively independently attributed.",
+  "count_reconciliation": "73 song headings match73 contents entries; following contents lists refer to other Beadle publications and are excluded."
+}

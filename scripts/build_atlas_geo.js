@@ -89,6 +89,11 @@ const GEO_FILE = path.join(ROOT, 'data', 'geo.json');
 const WORLD_FILE = path.join(ROOT, 'data', 'countries.geo.json');
 const OUT_FILE = path.join(ROOT, 'data', 'atlas-geo.json');
 const META_FILE = path.join(ROOT, 'data', 'geo-meta.json');
+// Traditions with no honest place at any number of origins (moods, functions,
+// instruments as such, playlist tags…). They keep their data/geo.json entry,
+// but get no display coordinate, so the atlas draws no pin for them and counts
+// them in no region; they are listed under no_fixed_origin instead.
+const NO_ORIGIN_FILE = path.join(ROOT, 'data', 'no-fixed-origin.json');
 
 // Spread parameters. RADIUS_K * sqrt(n), clamped — so a pair sits ~7km apart
 // while a 25-deep stack fills a 25km disc, roughly the reach of the metro areas
@@ -390,7 +395,7 @@ function computeDisplayCoords(geo, onLand) {
   return { coords, stats };
 }
 
-function render(coords, stats) {
+function render(coords, stats, noOrigin) {
   const ids = Object.keys(coords).sort();
   const lines = ids.map((id) => '    ' + JSON.stringify(id) + ': ' + JSON.stringify(coords[id]));
   return (
@@ -416,6 +421,9 @@ function render(coords, stats) {
       stacksSpread: stats.stacksSpread,
       largestStack: stats.largestStack,
     }) +
+    ',\n' +
+    '  "no_fixed_origin": ' +
+    JSON.stringify(noOrigin) +
     ',\n' +
     '  "coords": {\n' +
     lines.join(',\n') +
@@ -509,8 +517,29 @@ function main() {
     process.exit(1);
   }
 
-  const { coords, stats } = computeDisplayCoords(geo, onLand);
-  const body = render(coords, stats);
+  // No-fixed-origin traditions: every listed id must be a tradition with a geo
+  // entry (the list cannot name what the catalog does not hold), and none of
+  // them is spread or drawn.
+  const noOrigin = fs.existsSync(NO_ORIGIN_FILE)
+    ? JSON.parse(fs.readFileSync(NO_ORIGIN_FILE, 'utf8')).ids
+    : [];
+  const noOriginErrs = [];
+  const seenNoOrigin = new Set();
+  for (const id of noOrigin) {
+    if (!geo[id]) noOriginErrs.push(['NO_ORIGIN_UNKNOWN_ID', String(id)]);
+    if (seenNoOrigin.has(id)) noOriginErrs.push(['NO_ORIGIN_DUPLICATE_ID', String(id)]);
+    seenNoOrigin.add(id);
+  }
+  if (noOriginErrs.length) {
+    console.error(
+      'build_atlas_geo: FAIL — ' + noOriginErrs.length + ' data/no-fixed-origin.json error(s)'
+    );
+    noOriginErrs.slice(0, 25).forEach((e) => console.error('  ' + e.join(' ')));
+    process.exit(1);
+  }
+  const placed = Object.fromEntries(Object.entries(geo).filter(([id]) => !seenNoOrigin.has(id)));
+  const { coords, stats } = computeDisplayCoords(placed, onLand);
+  const body = render(coords, stats, [...seenNoOrigin].sort());
 
   if (check) {
     const current = fs.existsSync(OUT_FILE) ? fs.readFileSync(OUT_FILE, 'utf8') : '';

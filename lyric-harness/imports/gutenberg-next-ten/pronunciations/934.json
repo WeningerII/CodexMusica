@@ -1,0 +1,558 @@
+{
+  "pg934-030": {
+    "pronunciations": [
+      {
+        "line": "It’s the song of a merrymaid, peerly proud,",
+        "token": 6,
+        "word": "merrymaid",
+        "phones": ["M", "EH1", "R", "IY0", "M", "EY2", "D"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "It’s a song of a popinjay, bravely born,",
+        "token": 6,
+        "word": "popinjay",
+        "phones": ["P", "AA1", "P", "IH0", "N", "JH", "EY2"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "At the humble merrymaid, peerly proud,",
+        "token": 4,
+        "word": "merrymaid",
+        "phones": ["M", "EH1", "R", "IY0", "M", "EY2", "D"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "It’s a song of a merrymaid, once so gay,",
+        "token": 6,
+        "word": "merrymaid",
+        "phones": ["M", "EH1", "R", "IY0", "M", "EY2", "D"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "From the peacock popinjay, bravely born,",
+        "token": 4,
+        "word": "popinjay",
+        "phones": ["P", "AA1", "P", "IH0", "N", "JH", "EY2"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Heighdy! heighdy!",
+        "token": 1,
+        "word": "Heighdy",
+        "phones": ["HH", "EY1", "D", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Heighdy! heighdy!",
+        "token": 2,
+        "word": "heighdy",
+        "phones": ["HH", "EY1", "D", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Misery me—lackadaydee!",
+        "token": 3,
+        "word": "lackadaydee",
+        "phones": ["L", "AE2", "K", "AH0", "D", "EY1", "D", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-034": {
+    "pronunciations": [
+      {
+        "line": "Whatever its plumage and clime.",
+        "token": 5,
+        "word": "clime",
+        "phones": ["K", "L", "AY1", "M"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-057": {
+    "pronunciations": [
+      {
+        "line": "For cockcrow limits our holiday—the dead of the night’s high noon!",
+        "token": 2,
+        "word": "cockcrow",
+        "phones": ["K", "AA1", "K", "K", "R", "OW2"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-064": {
+    "pronunciations": [
+      {
+        "line": "Should foreign-born rapscallions",
+        "token": 3,
+        "word": "rapscallions",
+        "phones": ["R", "AE0", "P", "S", "K", "AE1", "L", "Y", "AH0", "N", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Pollute our favoured clime",
+        "token": 4,
+        "word": "clime",
+        "phones": ["K", "L", "AY1", "M"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-066": {
+    "pronunciations": [
+      {
+        "line": "The amorous colocynth",
+        "token": 3,
+        "word": "colocynth",
+        "phones": ["K", "AA1", "L", "AH0", "S", "IH2", "N", "TH"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Quivering on amaranthine asphodel,",
+        "token": 3,
+        "word": "amaranthine",
+        "phones": ["AE2", "M", "AH0", "R", "AE1", "N", "TH", "IH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Quivering on amaranthine asphodel,",
+        "token": 4,
+        "word": "asphodel",
+        "phones": ["AE1", "S", "F", "AH0", "D", "EH2", "L"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "That all can be set right with calomel?",
+        "token": 8,
+        "word": "calomel",
+        "phones": ["K", "AE1", "L", "AH0", "M", "EH2", "L"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Even in colocynth and calomel?",
+        "token": 5,
+        "word": "calomel",
+        "phones": ["K", "AE1", "L", "AH0", "M", "EH2", "L"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Even in colocynth and calomel?",
+        "token": 3,
+        "word": "colocynth",
+        "phones": ["K", "AA1", "L", "AH0", "S", "IH2", "N", "TH"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-067": {
+    "pronunciations": [
+      {
+        "line": "If in the eventide of life",
+        "token": 4,
+        "word": "eventide",
+        "phones": ["IY1", "V", "AH0", "N", "T", "AY2", "D"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-072": {
+    "pronunciations": [
+      {
+        "line": "Usurer, for money lent,",
+        "token": 1,
+        "word": "Usurer",
+        "phones": ["Y", "UW1", "ZH", "ER0", "ER0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-074": {
+    "pronunciations": [
+      {
+        "line": "“Hallo,” cries the new-born baby,",
+        "token": 1,
+        "word": "Hallo",
+        "phones": ["HH", "AH0", "L", "OW1"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Time’s teetotum,",
+        "token": 2,
+        "word": "teetotum",
+        "phones": ["T", "IY0", "T", "OW1", "T", "AH0", "M"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Ill you’ve thriven—",
+        "token": 3,
+        "word": "thriven",
+        "phones": ["TH", "R", "IH1", "V", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Threescore and ten",
+        "token": 1,
+        "word": "Threescore",
+        "phones": ["TH", "R", "IY1", "S", "K", "AO2", "R"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-075": {
+    "pronunciations": [
+      {
+        "line": "Do you suppose that signifies perdition?",
+        "token": 6,
+        "word": "perdition",
+        "phones": ["P", "ER0", "D", "IH1", "SH", "AH0", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "From eighteen million down to eighteenpence.",
+        "token": 6,
+        "word": "eighteenpence",
+        "phones": ["EY0", "T", "IY1", "N", "P", "EH1", "N", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And if you fail, pop goes your eighteenpence.",
+        "token": 8,
+        "word": "eighteenpence",
+        "phones": ["EY0", "T", "IY1", "N", "P", "EH1", "N", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "If so you’re but a monetary dunce—",
+        "token": 7,
+        "word": "dunce",
+        "phones": ["D", "AH1", "N", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-076": {
+    "pronunciations": [
+      {
+        "line": "No Peeress at our Drawing-Room before the Presence passes",
+        "token": 2,
+        "word": "Peeress",
+        "phones": ["P", "IH1", "R", "AH0", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-079": {
+    "pronunciations": [
+      {
+        "line": "When your lips are all smeary—like tallow,",
+        "token": 6,
+        "word": "smeary",
+        "phones": ["S", "M", "IH1", "R", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And you’re highly gamboge in the gill—",
+        "token": 4,
+        "word": "gamboge",
+        "phones": ["G", "AE0", "M", "B", "OW1", "ZH"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-081": {
+    "pronunciations": [
+      {
+        "line": "And our clever chorus-master, all but captious criticaster,",
+        "token": 7,
+        "word": "captious",
+        "phones": ["K", "AE1", "P", "SH", "AH0", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And our clever chorus-master, all but captious criticaster,",
+        "token": 8,
+        "word": "criticaster",
+        "phones": ["K", "R", "IH1", "T", "IH0", "K", "AE2", "S", "T", "ER0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "For they hadn’t macintoshes or umbrellas or goloshes—",
+        "token": 8,
+        "word": "goloshes",
+        "phones": ["G", "AH0", "L", "AA1", "SH", "AH0", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Periphrastic methods spurning,",
+        "token": 1,
+        "word": "Periphrastic",
+        "phones": ["P", "EH2", "R", "IH0", "F", "R", "AE1", "S", "T", "IH0", "K"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Corybantian maniac kick—Dionysiac or Bacchic—",
+        "token": 6,
+        "word": "Bacchic",
+        "phones": ["B", "AE1", "K", "IH0", "K"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And the Dithyrambic revels of those indecorous days.",
+        "token": 3,
+        "word": "Dithyrambic",
+        "phones": ["D", "IH2", "TH", "IH0", "R", "AE1", "M", "B", "IH0", "K"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-082": {
+    "pronunciations": [
+      {
+        "line": "OH what a fund of joy jocund lies hid in harmless hoaxes!",
+        "token": 7,
+        "word": "jocund",
+        "phones": ["JH", "AA1", "K", "AH0", "N", "D"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Gunpowder placed inside its waist improves a mild Havanah,",
+        "token": 9,
+        "word": "Havanah",
+        "phones": ["HH", "AH0", "V", "AE1", "N", "AH0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "When people dine no kind of wine beats ipecacuanha,",
+        "token": 9,
+        "word": "ipecacuanha",
+        "phones": ["IH2", "P", "IH0", "K", "AE2", "K", "Y", "UW0", "AE1", "N", "AH0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "If you commence with eighteenpence (it’s all you’ll have to pay),",
+        "token": 5,
+        "word": "eighteenpence",
+        "phones": ["EY0", "T", "IY1", "N", "P", "EH1", "N", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And treacle on a chair",
+        "token": 2,
+        "word": "treacle",
+        "phones": ["T", "R", "IY1", "K", "AH0", "L"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-085": {
+    "pronunciations": [
+      {
+        "line": "(A strict teetotaller) teetotum—",
+        "token": 4,
+        "word": "teetotum",
+        "phones": ["T", "IY0", "T", "OW1", "T", "AH0", "M"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Both plausible rogue and noisome knave,",
+        "token": 5,
+        "word": "noisome",
+        "phones": ["N", "OY1", "S", "AH0", "M"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-087": {
+    "pronunciations": [
+      {
+        "line": "In search of quip and quiddity, I’ve sat all day, alone, apart—",
+        "token": 6,
+        "word": "quiddity",
+        "phones": ["K", "W", "IH1", "D", "IH0", "T", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Analogy between a scrag of mutton and a Bony-part,",
+        "token": 4,
+        "word": "scrag",
+        "phones": ["S", "K", "R", "AE1", "G"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And I’ve come to the conclusion that my mine of jocularity",
+        "token": 11,
+        "word": "jocularity",
+        "phones": ["JH", "AA2", "K", "Y", "AH0", "L", "AE1", "R", "IH0", "T", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Who seeks for jocularities that haven’t yet been said.",
+        "token": 4,
+        "word": "jocularities",
+        "phones": ["JH", "AA2", "K", "Y", "AH0", "L", "AE1", "R", "IH0", "T", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "That my mine of jocularity is utterly worked out.",
+        "token": 5,
+        "word": "jocularity",
+        "phones": ["JH", "AA2", "K", "Y", "AH0", "L", "AE1", "R", "IH0", "T", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-077": {
+    "pronunciations": [
+      {
+        "line": "She’ll waltz away like a teetotum,",
+        "token": 6,
+        "word": "teetotum",
+        "phones": ["T", "IY0", "T", "OW1", "T", "AH0", "M"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-015": {
+    "pronunciations": [
+      {
+        "line": "At junket fêting,",
+        "token": 3,
+        "word": "fêting",
+        "phones": ["F", "EY1", "T", "IH0", "NG"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And sometimes attend an interment.",
+        "token": 5,
+        "word": "interment",
+        "phones": ["IH0", "N", "T", "ER1", "M", "AH0", "N", "T"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-062": {
+    "pronunciations": [
+      {
+        "line": "Lackaday!",
+        "token": 1,
+        "word": "Lackaday",
+        "phones": ["L", "AE1", "K", "AH0", "D", "EY2"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-070": {
+    "pronunciations": [
+      {
+        "line": "O’er rivulet and river;",
+        "token": 2,
+        "word": "rivulet",
+        "phones": ["R", "IH1", "V", "Y", "AH0", "L", "AH0", "T"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-078": {
+    "pronunciations": [
+      {
+        "line": "F claims all hoydens as her rights",
+        "token": 4,
+        "word": "hoydens",
+        "phones": ["HH", "OY1", "D", "AH0", "N", "Z"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-083": {
+    "pronunciations": [
+      {
+        "line": "Though, no doubt, he can often trepan them;",
+        "token": 7,
+        "word": "trepan",
+        "phones": ["T", "R", "IH0", "P", "AE1", "N"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-084": {
+    "pronunciations": [
+      {
+        "line": "In Januaree",
+        "token": 2,
+        "word": "Januaree",
+        "phones": ["JH", "AE1", "N", "Y", "UW0", "EH2", "R", "IY0"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "pg934-086": {
+    "pronunciations": [
+      {
+        "line": "You can’t do chromatics",
+        "token": 4,
+        "word": "chromatics",
+        "phones": ["K", "R", "OW0", "M", "AE1", "T", "IH0", "K", "S"],
+        "basis": "declared",
+        "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  }
+}

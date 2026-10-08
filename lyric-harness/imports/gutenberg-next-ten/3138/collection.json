@@ -1,0 +1,46 @@
+{
+  "gutenberg_id": "3138",
+  "title": "Ballades & Rhymes",
+  "author": "Andrew Lang",
+  "publication_year": 1911,
+  "edition": "1911 Longmans, Green and Co.; includes both Ballades in Blue China and Rhymes à la Mode.",
+  "source_url": "https://www.gutenberg.org/cache/epub/3138/pg3138.txt",
+  "ebook_url": "https://www.gutenberg.org/ebooks/3138",
+  "source_sha256": "e35eafdc1d056aad480df6733948b9f6f2a537459ad2830f34c50bb63b819f9a",
+  "source_bytes": 163609,
+  "retrieved_on": "2026-10-08",
+  "rights_evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/3138",
+      "excerpt": "Copyright: Public domain in the USA.",
+      "checked": "2026-10-08",
+      "jurisdiction": "United States"
+    }
+  ],
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/cache/epub/3138/pg3138.txt",
+    "detail": "1911 Longmans, Green and Co.; includes both Ballades in Blue China and Rhymes à la Mode."
+  },
+  "deduplication": "Common batch integration compares all eligible whole units against existing corpus and this batch; counts here are pre-deduplication.",
+  "scope": "Complete original English short poems, retaining dialect, spelling, punctuation and stanza boundaries; no numeric line cap. Extended works and translations remain in exclusion ledger, never split.",
+  "retrieval": "Official browser-derived complete plaintext, LF-reconstructed; checksum identifies reconstruction not HTTP response bytes.",
+  "extraction": "Pinned source plus explicit reviewed boundary/verse-line ledger; italics underscores and footnote callouts removed as apparatus. No text modernization.",
+  "source_entries": 100,
+  "counts": {
+    "candidate_units": 100,
+    "eligible_before_deduplication": 66,
+    "excluded_before_deduplication": 34
+  },
+  "validation": {
+    "adapter_rerun_byte_identical": true,
+    "source_sha256_checked": true,
+    "boundary_regressions": "test_adapter.py"
+  },
+  "notes": [
+    "Complete current1911 transcription, not older GITenberg partial collection.",
+    "Bird-Gods plaintext physical lines joined in28 explicit pairs verified against official HTML; no inferred general unwrapping rule.",
+    "After Romney means after a portrait and is not a translation. Natural Theology is original English poem quoting reported speech; author introduction identifies his own composition.",
+    "F. P. and A. D. signatures preserved as authors; Double Ballade of Primitive Man explicitly co-credited E. B. Tylor.",
+    "Translations and classical adaptations excluded per specific source headings and notes; Scots verse remains eligible."
+  ]
+}

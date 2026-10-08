@@ -6,6 +6,20 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — atlas: one pin per placeable genre, and a list for the placeless
+
+The 937 genres the arbitrary-pin review left without a single right place were sorted
+again (`docs/geographic-attribution-audit.md`, "Applied: no fixed origin").
+
+- **328 have documented places**, their own or a parent genre's. 275 moved to the first
+  of those places, 53 were already within 60 km of one, and every listed origin is kept in
+  `docs/geographic-attribution-audit/no-fixed-origin.csv`.
+- **597 have none**: moods, functions, instruments, formats, techniques and playlist
+  tags. `data/no-fixed-origin.json` lists them. `scripts/build_atlas_geo.js` leaves them
+  off the map and writes the list into `data/atlas-geo.json`, and the atlas opens it from
+  a "No fixed origin" row in the map key and from Map information.
+- 12 unsure genres are unchanged. No recipe changed.
+
 ### Changed — tradition signatures leave the lazy page's first view
 
 `TRADITION_SIGNATURES` used to be a generated block inside `src/app.js`, about 450 KB

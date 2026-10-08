@@ -1,0 +1,40 @@
+{
+  "gutenberg_id": "1568",
+  "title": "Poems",
+  "author": "William Ernest Henley",
+  "publication_year": 1907,
+  "edition": "1907 David Nutt, tenth impression; prior1898 first edition is separate.",
+  "source_url": "https://www.gutenberg.org/cache/epub/1568/pg1568.txt",
+  "ebook_url": "https://www.gutenberg.org/ebooks/1568",
+  "source_sha256": "e792c0cf864e6897f7365224a31a2d79190b2d5227bd153a465d94df7e34ebf0",
+  "source_bytes": 187098,
+  "retrieved_on": "2026-10-08",
+  "rights_evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/1568",
+      "excerpt": "Copyright: Public domain in the USA.",
+      "checked": "2026-10-08",
+      "jurisdiction": "United States"
+    }
+  ],
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/cache/epub/1568/pg1568.txt",
+    "detail": "1907 David Nutt, tenth impression; prior1898 first edition is separate."
+  },
+  "deduplication": "Common batch integration compares all eligible whole units against existing corpus and this batch; counts here are pre-deduplication.",
+  "scope": "Complete original English short poems, retaining dialect, spelling, punctuation and stanza boundaries; no numeric line cap. Extended works and translations remain in exclusion ledger, never split.",
+  "retrieval": "GITenberg mirror of the same PG transcription; edition and rights cross-checked with live official Gutenberg metadata.",
+  "extraction": "Pinned source plus explicit reviewed boundary/verse-line ledger; italics underscores and footnote callouts removed as apparatus. No text modernization.",
+  "retrieval_url": "https://raw.githubusercontent.com/GITenberg/Poems_1568/master/1568-0.txt",
+  "source_entries": 130,
+  "counts": {
+    "candidate_units": 130,
+    "eligible_before_deduplication": 127,
+    "excluded_before_deduplication": 3
+  },
+  "validation": {
+    "adapter_rerun_byte_identical": true,
+    "source_sha256_checked": true,
+    "boundary_regressions": "test_adapter.py"
+  }
+}

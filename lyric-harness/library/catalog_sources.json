@@ -1,5 +1,5 @@
 {
-  "repository_commit": "b4ca30857412b554f1c5708579d52719bf0ae933",
+  "repository_commit": "ad45ed79347466bee7c9161b03cdf5edcd95b999",
   "tree": [
     {
       "path": "lyric-harness/corpus/cym_alun_strict.txt",
@@ -30,6 +30,386 @@
       "path": "lyric-harness/corpus/generated/sonnets_generated.txt",
       "sha": "f98a8103258eb6d31ff1fc1243606da1c4e272ad",
       "size": 23468
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/13646/eng_edward_lear_ff81aba9.txt",
+      "sha": "8d32f65e2e6c339d4cf3a650107565c0e5195a81",
+      "size": 40492
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/1568/eng_william_ernest_henley_c26fc2ef.txt",
+      "sha": "873174cc02b97018148f760bed5a335bbaf09176",
+      "size": 115134
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/27195/eng_anonymous_traditional_8bae9ed6.txt",
+      "sha": "051cb4f7ec269c62e81064721e989d009cd4f464",
+      "size": 189029
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/3138/eng_a_d_as_signed_105b5bed.txt",
+      "sha": "d191a6c81b9e2d5cbcbcbed88fb4c44b6a437d65",
+      "size": 1080
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/3138/eng_andrew_lang_2c0c64f2.txt",
+      "sha": "f84a44df9d5f9005c551960b395bc794b7367c92",
+      "size": 72691
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/3138/eng_andrew_lang_and_e_b_tylor_source_credits_fc9d5e87.txt",
+      "sha": "1dc0d29b4c5b6c37a730da2698b68fcb4b15adf8",
+      "size": 2709
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/3138/eng_f_p_as_signed_6f186e82.txt",
+      "sha": "ed9b97d1cfdc263a25ea8fe3a6025ed9f21bd9d3",
+      "size": 1766
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_anonymous_traditional_8bae9ed6.txt",
+      "sha": "432227e3eb08b7c9a07b67c77a6409415edc15b5",
+      "size": 170280
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_armstrong_a7764896.txt",
+      "sha": "ffac7ba9ff5f2726362af661821c4de943af4239",
+      "size": 11450
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_bailey_ceb32b93.txt",
+      "sha": "d693daa5c075d0bb8d566019b365562278993bb7",
+      "size": 2231
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_cecil_pitt_ed45acd6.txt",
+      "sha": "779fb9205efa4261cb2e4e35c62113c8b0c04236",
+      "size": 3055
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_george_pickering_body_byline_contents_r_pickering_6f3036ed.txt",
+      "sha": "e2b57b72b5f1bff893935ca5c9d51021f7572849",
+      "size": 1934
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_gibson_2c4ffb14.txt",
+      "sha": "d9b36a9c2769993f2ab79e196ed6128398cc473c",
+      "size": 1781
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_h_r_600e55e6.txt",
+      "sha": "7d1ae814af6ef6b3be8b1f7c25ab032b13640b10",
+      "size": 2333
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_h_robson_6f64a2bc.txt",
+      "sha": "f9aa818a8e34380db59d75f00e63f60b434462c6",
+      "size": 19157
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_j_b_88f4650d.txt",
+      "sha": "309ded4c6d8caf044d10a8c067ec5382119d7a23",
+      "size": 2725
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_j_shield_e1c50984.txt",
+      "sha": "240fced17146426b88591383cfe1705576d1f152",
+      "size": 8535
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_j_wilson_0be8dc6a.txt",
+      "sha": "ce616c177ba1da3a49d4179666b49c0172ae800a",
+      "size": 1353
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_james_morrison_eeec16e8.txt",
+      "sha": "f5de93c9625f9bed539833e704c3c9bd4bc4df8e",
+      "size": 2873
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_jas_morrison_7ae142ff.txt",
+      "sha": "55055713c7aa84c33919b1aabdce73d672da8837",
+      "size": 1532
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_john_gibson_81232de2.txt",
+      "sha": "9b22f7f0cb2ab3fba8f786c02ccdda9e65229243",
+      "size": 1999
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_john_lennard_c5849ae5.txt",
+      "sha": "56b9dda669b2019a36fac5176a24809ea0e09700",
+      "size": 3151
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_john_m_lellan_4e244eaa.txt",
+      "sha": "f3bb4d4bc7669587d4d25491ee230d629b9260dc",
+      "size": 2740
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_john_morris_body_byline_contents_john_morrison_a2f247f0.txt",
+      "sha": "a12e46bdf74e0d1e143495aba5252f2436361f87",
+      "size": 3622
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_john_morrison_582f4f03.txt",
+      "sha": "573b49a30b4ceebad93f5d1c87340b64f13e20fd",
+      "size": 2114
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_john_selkirk_e038173c.txt",
+      "sha": "844de879af07edf6810dea0cbcbb72c8f52d0688",
+      "size": 3775
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_john_shield_3201b24b.txt",
+      "sha": "ec58265b590047393234748b577719ddb22ddd4f",
+      "size": 9763
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_m_ross_afe7d561.txt",
+      "sha": "afdc2b339b440758a5b7f7b2a9fac2e93ef41717",
+      "size": 1829
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_midford_e2b80e7a.txt",
+      "sha": "80a56a555cbdff4e1da25ec5f8194fbbc6a95bf1",
+      "size": 3162
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_nunn_c9ee3ec3.txt",
+      "sha": "2aafb2830d6c2e9d3c359cad6053f43250a6f0a4",
+      "size": 6948
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_oliver_7efa869d.txt",
+      "sha": "9198fd96f969ff9edd7888a235d71ca2dbfb7ef1",
+      "size": 17894
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_phil_hodgson_d30ec475.txt",
+      "sha": "9f633836f0e7ade5fd7ce073f2f7d6bbb9f5965e",
+      "size": 1760
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_r_charlton_be87be5b.txt",
+      "sha": "08fcf58a222cde5639b3d29b06b2306a8b49e3ab",
+      "size": 2627
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_r_emery_95e10f19.txt",
+      "sha": "d90dc5f9bfea1f2bbc273569ba65bb433522c1ad",
+      "size": 37765
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_r_gilchrist_67bc9302.txt",
+      "sha": "d4e3fee01ba9f3a2d4e981d57f72f7c4c5296f5b",
+      "size": 32458
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_selkirk_a59708ca.txt",
+      "sha": "1156509da6c6519d59bd31415e45520041b6d201",
+      "size": 3582
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_shield_480d4be7.txt",
+      "sha": "b594ea90ccae3eca921256e71566a002b07b3711",
+      "size": 2795
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_t_houston_5333c9c4.txt",
+      "sha": "9b18c1d00f97eb2ce65869016bff5889c5379b5c",
+      "size": 2468
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_t_moor_76fbee94.txt",
+      "sha": "948bca9a946c7a5a6face6b8f5638ec07edee74d",
+      "size": 2411
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_t_thompson_67e58dfd.txt",
+      "sha": "0a584942a3f901fdb9181e16b334a01778f74626",
+      "size": 10364
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_thomas_marshall_0a086c97.txt",
+      "sha": "60808a06f1f88143fce457361fea8c9a3548b05b",
+      "size": 3848
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_thomas_whittell_30bb5e54.txt",
+      "sha": "dbbe96f8edff9f0ee08309f80a1537e265217ac0",
+      "size": 1845
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_w_midford_c3eff1b6.txt",
+      "sha": "ad1abd6d8363384719ab101577d7fbcdd03523f1",
+      "size": 10150
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_w_stephenson_6c7afe6e.txt",
+      "sha": "4c8f1dd8a69347faca6da7407997831006dc15d1",
+      "size": 3554
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_w_watson_88cf0962.txt",
+      "sha": "cd5b1d028f535224e3dbc321b43946c7cf0323a6",
+      "size": 13067
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_wm_armstrong_5e2e72bb.txt",
+      "sha": "79367f6786f92e66a26e5d1e25d73a37f799b072",
+      "size": 3295
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_wm_greig_6e545c39.txt",
+      "sha": "6f0c8640c0652aab43cea4a4ef923edab740cde0",
+      "size": 1711
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_wm_midford_e1794fb9.txt",
+      "sha": "50110c8cb8ca693007caa215e9264b2030ed6cc6",
+      "size": 31435
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/40048/eng_wm_stephenson_1fcdf8f2.txt",
+      "sha": "d6a439f0f0873d6076de430953fdd57833806659",
+      "size": 3394
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/50878/eng_anonymous_unattributed_in_supplied_edition_ffaef747.txt",
+      "sha": "0c529147160d132ee1959851baca85b62560637b",
+      "size": 80984
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_anonymous_unattributed_in_supplied_edition_ffaef747.txt",
+      "sha": "7ebf4e28ece418b32f0a207b5f81cffd41a03339",
+      "size": 42213
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_c_l_russell_c1e12554.txt",
+      "sha": "93445b7272614a6b389bdaa6e6cdec984c90bb9a",
+      "size": 2402
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_edward_e_rogers_3da5884c.txt",
+      "sha": "8bab95e34bb788824b62ca6f290585ad518d729f",
+      "size": 1769
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_f_a_b_simkins_952e7b88.txt",
+      "sha": "bc8df9079abe6c7a97fcedb4eb824c02b7539c73",
+      "size": 1629
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_geo_s_burleigh_f7fb7aba.txt",
+      "sha": "dee4d01079a560b735ad202cb5bd7c827c458578",
+      "size": 2023
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_george_w_putnam_58e1ae31.txt",
+      "sha": "f7a2e6f36903ad9e6914961d558026e68079e81f",
+      "size": 2150
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_hon_horace_greeley_29e8d29c.txt",
+      "sha": "1049755d365e0a5d9577960737bf9a03de3241f0",
+      "size": 2267
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_j_h_746e33ce.txt",
+      "sha": "0092adaaac673002b4fdadec5635233f60808134",
+      "size": 2091
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_j_j_h_d5244c75.txt",
+      "sha": "ae27124d4bf84fa17d0f86e52c19c41d1b3aa749",
+      "size": 1476
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_jesse_36278ec8.txt",
+      "sha": "1bf9468a4adeef0e27d89d60209abebad355fe33",
+      "size": 3426
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_k_a_m_908cc1bf.txt",
+      "sha": "579654ec4f6196ad2ef1e41bb0d0768e56cee0d6",
+      "size": 1547
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_karl_kriton_1b0d3a69.txt",
+      "sha": "de671e2071dcabdcc21b9c6bf278e3982c11ff25",
+      "size": 2576
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_r_m_n_c4b59e42.txt",
+      "sha": "e63109e690ab4ea71b9a32980df8fc8a2411b828",
+      "size": 1743
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_r_m_n_ff8fd0b6.txt",
+      "sha": "a743dc1e5cc727be0aed344b0fe6bdea55cbf119",
+      "size": 1868
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_rev_james_cruikshanks_842dd2e1.txt",
+      "sha": "566beb68407a5d6bf2b81742bbfd7d6a4db9645e",
+      "size": 1760
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_s_c_m_0343f75e.txt",
+      "sha": "0e9b30b3a3f4dcc600a6cee2ed730f88f46f4c44",
+      "size": 1999
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_s_c_miller_b71afbdc.txt",
+      "sha": "0840cc3383dafc0cc322ac0f148d79ab457c6034",
+      "size": 1634
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_samuel_copp_febb621f.txt",
+      "sha": "4f360fd3d5669ee7013b681d83ecc70419b26075",
+      "size": 1848
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_w_b_h_76fc798e.txt",
+      "sha": "92bcc200bf4ecedeba6926cec12a1e7c950f6f21",
+      "size": 1999
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_w_s_sanford_4e9609ee.txt",
+      "sha": "9a44528c0923e04b5ecc7b87913316624f6ef325",
+      "size": 1778
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/51226/eng_w_scott_44e3cf61.txt",
+      "sha": "1de2331ce8d30c825318a8ab10d6dbf1faeed8b2",
+      "size": 1288
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/58414/eng_anonymous_unattributed_in_supplied_edition_ffaef747.txt",
+      "sha": "2919f84160960e090256737331c03d3f0314e5b9",
+      "size": 65236
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/58414/eng_elias_smith_5c5e1f05.txt",
+      "sha": "bc9f018fe9eab07e49b35af71961f082ba747fe5",
+      "size": 1746
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/69378/eng_anonymous_traditional_8bae9ed6.txt",
+      "sha": "0733b29161d446af95a8637d77d77764f0f4f12e",
+      "size": 217195
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/69378/eng_sanctified_mary_harris_claimed_composition_8cb3f8f5.txt",
+      "sha": "2afa619a2d939f23d773be4bbf4003fa7a5884fd",
+      "size": 2429
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-next-ten/934/eng_w_s_gilbert_099904f2.txt",
+      "sha": "5323f0683fa9f7394331ddce81d7ed36fe86b3a6",
+      "size": 61375
     },
     {
       "path": "lyric-harness/corpus/library/gutenberg-ten/20476/eng_a_balfour_6d7c851d.txt",

@@ -129,8 +129,16 @@ class Duplicates:
 def existing_index():
     result = Duplicates()
     files = []
+    # A completed batch records its comparison population. Later imports must
+    # not retroactively displace its retained witnesses during replay. Existing
+    # members are still reread and hashed, so changed bytes remain detectable.
+    audit_path = HERE / 'audit.json'
+    baseline = ({row['path'] for row in json.loads(audit_path.read_text())['existing_sources']}
+                if audit_path.exists() else None)
     for path in sorted((ROOT / 'corpus').rglob('*.txt')):
         if path.is_relative_to(DEST) or '.LICENSE.' in path.name:
+            continue
+        if baseline is not None and path.relative_to(ROOT).as_posix() not in baseline:
             continue
         if not path.name.startswith('eng_') and path.name not in {'sonnets.txt', 'whitman.txt'}:
             continue
