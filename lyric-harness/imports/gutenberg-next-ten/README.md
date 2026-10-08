@@ -87,7 +87,8 @@ python3 -m library.catalog build --output /tmp/gutenberg-next-library \
   --source-manifest imports/gutenberg-next-ten/source_manifest.json
 ```
 
-The batch source manifest pins current file bytes. It does not claim that the
-working-tree additions have already been committed or published. The approved
-production catalog and Docker commit pin remain at the prior release until an
-explicit promotion of the completed import.
+The batch source manifest pins the complete corpus bytes for reproducible local
+builds. The production catalog manifest and Docker build name the committed
+source tree containing this import. The previously approved Library Site snapshot
+is retained by the existing release assembler; advancing the new catalog does
+not remove that immutable reader source.
