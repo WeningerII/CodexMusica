@@ -5,7 +5,7 @@
   "lineage": "Tel Aviv commercial song from the 1970s onward, formed when the Ashkenazi-European Shirei Eretz Yisrael tradition was overtaken by Mizrahi cassette culture from the Yemenite and Iraqi neighbourhoods — bouzouki and oud tremolo lines, darbuka doubling a rock kit, Hebrew lyric sung with Arabic-derived melisma, and 100-130 BPM verse-chorus forms.",
   "recipe": "classic mid-1970s israeli pop, functional Song, mid east n African pop branch, Jewish ritual devotional, europop functional song balkan pop belarusian pop. thick, breath veiled tone, slow rate, interlocked note trading. dance rhythm strummed bouzouki, walnut ribs canonical mid tier oud, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, mahogany rosewood lower tension down tuning clean strummed single coil electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth. treated studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 688,
-  "score": 283.06,
+  "score": 282.565,
   "config": {
     "traditions": [
       "israeli_pop",
@@ -47,9 +47,9 @@
           "voice_speech_song": 22.489999999999995,
           "voice_ensemble_config": 16.444999999999997,
           "voice_ornament_system": 4.7,
-          "voice_pitch_organization": 4.010000000000001,
+          "voice_pitch_organization": 3.9650000000000003,
           "voice_processing_chain": 5.840000000000001,
-          "voice_multitrack_stack": 3.695000000000001
+          "voice_multitrack_stack": 3.545000000000001
         }
       },
       {
@@ -62,7 +62,7 @@
           "bouzouki_strings": "bouzouki_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 4.735,
+          "plucked_traditional_technique": 4.69,
           "bouzouki_courses": 0.195,
           "bouzouki_pick": 1.3900000000000001,
           "bouzouki_body_wood": 0.39,
@@ -114,7 +114,7 @@
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
-          "string_material": "nickel_plated",
+          "string_material": "pure_nickel",
           "string_gauge": "g_12",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
@@ -129,7 +129,7 @@
           "neck_wood": 1.695,
           "fretboard": 1.645,
           "pickup_magnet": 0.195,
-          "string_material": 0.15,
+          "string_material": 0,
           "string_gauge": 1.95,
           "bridge": 0.24,
           "scale_length": 1.8900000000000001,
@@ -179,13 +179,13 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
           "electronic_technique": 18.719999999999995,
           "poly_archetypes": 1.3900000000000001,
-          "poly_voices": 0.15,
+          "poly_voices": 0.045,
           "poly_maker_lineage": 0.95
         }
       }

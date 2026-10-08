@@ -5,7 +5,7 @@
   "lineage": "Nordnorsk ponk identifies a northern Norwegian punk discovery field.",
   "recipe": "classic nordnorsk ponk, distorted Rock, punk branch. basswood humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited electronics unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 311,
-  "score": 18.688,
+  "score": 18.415,
   "config": {
     "traditions": [
       "nordnorsk_ponk"
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "neck_wood": 0.063,
           "fretboard": 0.273,
           "pickup_magnet": 0,

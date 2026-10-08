@@ -3,14 +3,14 @@
   "name": "Nepali lok (folk-popular song)",
   "family": "global",
   "lineage": "Nepali lok geet (\"folk songs\") encompass the broad popular-and-traditional song repertoire of Nepal, including regional variants from the Newari, Tharu, Gurung, Magar, Tamang, Rai, Limbu, and other ethnic communities, plus the urban Kathmandu Valley pan-Nepali pop synthesis. The genre developed through the twentieth-century Radio Nepal (founded 1951) commercial-recording era. Standard instrumentation centers on madal two-headed barrel-drum, tabla, sarangi (Nepali, four-string short-neck bowed lute distinct from Hindustani sarangi), and bansuri flute. Repertoire spans selo (Tamang call-and-response), tappa (regional ballad), and roila (Karnali region).",
-  "recipe": "classic South Asian early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, straight note core, interlocked note trading. dance driving slung madal, dholak, dark folk clay tabla, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 584,
-  "score": 228.907,
+  "recipe": "classic South Asian early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan milo jazz. thick, breath veiled tone, straight onset, interlocked note trading. dance driving slung madal, dholak, dark folk clay tabla, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 561,
+  "score": 215.815,
   "config": {
     "traditions": [
       "nepali_lok",
       "indonesian_jaipongan",
-      "fuji"
+      "milo_jazz_freetown"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 15.204999999999997,
-          "voice_quality": 15.989999999999991,
+          "voice_register": 16.005,
+          "voice_quality": 15.924999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.185,
-          "voice_articulation": 14.624999999999993,
-          "voice_microtone": 14.42999999999999,
-          "voice_tradition": 30.322499999999998,
+          "voice_vibrato": 2.4050000000000002,
+          "voice_articulation": 14.429999999999994,
+          "voice_microtone": 14.234999999999992,
+          "voice_tradition": 20.994999999999997,
           "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 19.56499999999999,
-          "voice_ensemble_config": 17.93999999999999,
-          "voice_ornament_system": 6.970000000000001,
+          "voice_estill_quality": 1.69,
+          "voice_speech_song": 19.369999999999994,
+          "voice_ensemble_config": 18.394999999999992,
+          "voice_ornament_system": 6.470000000000001,
           "voice_pitch_organization": 7.664999999999998,
-          "voice_processing_chain": 6.455,
-          "voice_multitrack_stack": 5.1850000000000005
+          "voice_processing_chain": 7.155000000000001,
+          "voice_multitrack_stack": 4.66
         }
       },
       {
@@ -58,13 +58,13 @@
           "madal_role": "madal_role_jhyaure",
           "madal_posture": "madal_posture_patuka",
           "madal_paste": "madal_paste_khari",
-          "madal_shell": "madal_shell_hardwood"
+          "madal_shell": "madal_shell_composite"
         },
         "scores": {
           "madal_role": 12.014999999999999,
           "madal_posture": 3.394999999999999,
           "madal_paste": 5.265,
-          "madal_shell": -0.07
+          "madal_shell": 0.06499999999999999
         }
       },
       {
@@ -77,7 +77,7 @@
         },
         "scores": {
           "dholak_use": 0.51,
-          "dholak_construction": 4.03,
+          "dholak_construction": 3.38,
           "dholak_head": 0.39,
           "dholak_tensioning": 0.435
         }
@@ -92,7 +92,7 @@
         "scores": {
           "tabla_dayan": 0.24,
           "tabla_bayan": 3.1449999999999996,
-          "tabla_syahi": 1.8849999999999996
+          "tabla_syahi": 2.34
         }
       },
       {
@@ -106,9 +106,9 @@
         },
         "scores": {
           "wind_articulation": 7.835,
-          "bansuri_length": 8.7,
-          "bansuri_ornament": 2.2099999999999995,
-          "bansuri_body_material": 2.54,
+          "bansuri_length": 8.2,
+          "bansuri_ornament": 1.6249999999999998,
+          "bansuri_body_material": 2.3899999999999997,
           "bansuri_lineage": 1.69
         }
       },
@@ -124,11 +124,11 @@
         },
         "scores": {
           "bowed_technique": 3.1500000000000004,
-          "sarangi_belly": 5.46,
+          "sarangi_belly": 5.07,
           "sarangi_taraf": 0,
           "sarangi_bow": 0.845,
-          "sarangi_main_strings": 2.0149999999999997,
-          "sarangi_body_wood": 1.04
+          "sarangi_main_strings": 1.6249999999999998,
+          "sarangi_body_wood": 0.845
         }
       }
     ],

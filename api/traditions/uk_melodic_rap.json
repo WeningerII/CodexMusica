@@ -5,7 +5,7 @@
   "lineage": "British melodic rap foregrounds sung and pitch-shaped phrases within rap and contemporary trap-derived production.",
   "recipe": "classic modern uk melodic rap, mc Rhythm, intl hip hop branch. rap, one note per syllable, retune speed 0ms hard correction robot effect. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 295,
-  "score": 29.771,
+  "score": 30.027,
   "config": {
     "traditions": [
       "uk_melodic_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 14.8955,
+          "voice_quality": 15.015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.539,
-          "sample_bitdepth": 0,
+          "sample_bitdepth": 0.1365,
           "sample_swing": -0.05,
           "sample_processing": 0.78
         }

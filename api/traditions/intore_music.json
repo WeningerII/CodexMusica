@@ -5,7 +5,7 @@
   "lineage": "Rwandan Intore performance music; drums support sung praise and poetry with coordinated dance. Drum construction and ensemble count are unspecified.",
   "recipe": "classic modern intore, praise Song, sub saharan African branch. group vocals, live take. membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 221,
-  "score": 6.746,
+  "score": 6.61,
   "config": {
     "traditions": [
       "intore_music"
@@ -45,7 +45,7 @@
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.1365,
+          "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 1.69
         }

@@ -5,7 +5,7 @@
   "lineage": "Formed 1984-1987 where American hardcore punk scenes met Bay Area and New York thrash metal — D.R.I., Suicidal Tendencies, Corrosion of Conformity and S.O.D. fused hardcore's 200-250 BPM d-beat and blast-adjacent skank beats with palm-muted metal downpicking, chromatic riffing and short shredded solos, topped by barked gang-chorus shouts, in songs typically under two minutes tracked loud and dry at metal studios.",
   "recipe": "classic North American 1984-1987 crossover thrash, distorted Rock, thrash branch, punk distorted rock, death metal queercore crack rock steady. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 685,
-  "score": 374.974,
+  "score": 374.509,
   "config": {
     "traditions": [
       "crossover_thrash",
@@ -32,7 +32,7 @@
         },
         "scores": {
           "electric_technique": 35.6,
-          "amp_make": 42.663,
+          "amp_make": 42.273,
           "body_wood": 10.464999999999998,
           "neck_wood": 1.2349999999999999,
           "fretboard": 1.17,
@@ -40,7 +40,7 @@
           "pickup_winding": 0.21,
           "string_material": 0.09,
           "bridge": 1.2349999999999999,
-          "scale_length": 9.23,
+          "scale_length": 8.959999999999999,
           "string_gauge": 1.2349999999999999,
           "finish": 0.195,
           "string_tuning": 16.965
@@ -103,7 +103,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 17.170624999999994,
+          "voice_register": 17.365624999999994,
           "voice_quality": 4.940000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -111,10 +111,10 @@
           "voice_articulation": 18.069999999999997,
           "voice_microtone": 18.069999999999993,
           "voice_tradition": 4.2250000000000005,
-          "voice_mechanism_compound": 38.7385,
+          "voice_mechanism_compound": 38.9335,
           "voice_estill_quality": 3.640000000000001,
           "voice_speech_song": 19.109999999999992,
-          "voice_ensemble_config": 29.4745,
+          "voice_ensemble_config": 29.2795,
           "voice_ornament_system": 0.45499999999999996,
           "voice_pitch_organization": 1.3506249999999997,
           "voice_processing_chain": 4.484999999999999,

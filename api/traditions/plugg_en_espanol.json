@@ -5,7 +5,7 @@
   "lineage": "Plugg en español connects Spanish-language rappers and producers through the spacious, melodic beat tradition of plugg. Online collaborations link scenes in Argentina, Chile and other Spanish-speaking communities, adapting the style to local speech and relationships while retaining its connection to Atlanta production.",
   "recipe": "classic plugg en español, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, analog poly synth. treated studio.",
   "recipe_chars": 169,
-  "score": 10.993,
+  "score": 11.288,
   "config": {
     "traditions": [
       "plugg_en_espanol"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 6.4350000000000005,
-          "voice_ensemble_config": 0.6134999999999999,
+          "voice_ensemble_config": 0.8864999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.1109999999999998,
+          "tr808_voice": 2.9955,
           "drum_machine_808_context": 0.39,
-          "tr808_production_origin": 0.105
+          "tr808_production_origin": 0.1785
         }
       },
       {
@@ -75,8 +75,8 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 0,
-          "poly_voices": 0.084,
+          "poly_archetypes": 0.0315,
+          "poly_voices": 0.1155,
           "poly_maker_lineage": -0.035
         }
       }

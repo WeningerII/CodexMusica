@@ -3,9 +3,9 @@
   "name": "Pop rap",
   "family": "hip_hop",
   "lineage": "Pop rap combines accessible rap hooks with danceable production; the selected early-1990s branch follows MC Hammer’s sample-based crossover practice. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
-  "recipe": "classic 1990-1993 pop rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 291,
-  "score": 49.119,
+  "recipe": "classic 1990-1993 pop rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 329,
+  "score": 49.308,
   "config": {
     "traditions": [
       "pop_rap"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 15.8935,
+          "voice_speech_song": 15.924999999999997,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5355000000000001
         }
       },
       {
@@ -55,16 +55,16 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": 2.2,
+          "electronic_technique": 2.2315,
           "sampler_archetypes": 3.9,
-          "sampler_bit_depth": 0.1365,
+          "sampler_bit_depth": 0.063,
           "sampler_workflow": 2.25,
-          "sampler_classic_context": 5.75
+          "sampler_classic_context": 5.7815
         }
       }
     ],

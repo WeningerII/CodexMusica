@@ -5,7 +5,7 @@
   "lineage": "Southern Brazilian car-sound-system style developed in Santa Catarina and Rio Grande do Sul from the early 2010s by DJ Cleber Mix, DJ Bilb and DJ Cassula — 130-135 BPM tracks that lay a four-on-the-floor electro-house kick and sidechained bass under funk carioca vocal samples and Eurodance or pop melodic hooks, arranged as long continuous mixes with build-and-drop structure tuned for loud automotive subwoofers.",
   "recipe": "classic 2010-2013 mega funk, electronic Dance, Latin electric branch, eurodance electronic dance eurobeat bubblegum dance. extended whistle, chest mix belt, straight note core, interlocked note trading. TR-909, singing lead analog poly synth, melodic pitched sampler, monosynth acid ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. boombox portable speaker. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 552,
-  "score": 203.442,
+  "score": 203.626,
   "config": {
     "traditions": [
       "mega_funk",
@@ -46,9 +46,9 @@
           "voice_estill_quality": 2.9575,
           "voice_speech_song": 16.054999999999996,
           "voice_ensemble_config": 19.304999999999993,
-          "voice_ornament_system": 2.11125,
+          "voice_ornament_system": 2.145,
           "voice_pitch_organization": 2.990000000000001,
-          "voice_processing_chain": 18.11,
+          "voice_processing_chain": 18.155,
           "voice_multitrack_stack": 8.97
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr909_voice": 3.295,
-          "drum_machine_909_context": 1.14,
+          "drum_machine_909_context": 1.095,
           "tr909_production_origin": 0.24
         }
       },
@@ -74,7 +74,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 6.30875,
+          "electronic_technique": 6.45875,
           "poly_archetypes": 0.65,
           "poly_voices": 0.045,
           "poly_maker_lineage": -1.7199999999999998
@@ -102,7 +102,7 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
-          "filter_acid": "open_acid",
+          "filter_acid": "opening_acid",
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
@@ -119,7 +119,7 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "slap_pop",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"

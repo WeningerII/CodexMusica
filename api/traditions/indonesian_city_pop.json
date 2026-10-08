@@ -5,7 +5,7 @@
   "lineage": "Indonesian city pop draws on city-pop songwriting and polished pop-band arrangements within Indonesia’s independent music scenes.",
   "recipe": "classic indonesian city pop, functional Song. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 238,
-  "score": 27.197,
+  "score": 26.693,
   "config": {
     "traditions": [
       "indonesian_city_pop"
@@ -24,22 +24,22 @@
           "string_material": "pure_nickel_h",
           "bridge": "vibrato_arm",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_9_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 12.504,
+          "electric_technique": 12.45,
           "amp_make": 0,
-          "body_wood": 0.4635,
+          "body_wood": 0.40950000000000003,
           "neck_wood": 0,
           "fretboard": 0,
           "pickup_magnet": 0,
-          "pickup_winding": 0.18,
+          "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.1365,
-          "string_gauge": 0.054,
+          "string_gauge": 0,
           "finish": 0,
           "string_tuning": 0
         }
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.304,
+          "amp_make": 0.25,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 0.254,
+          "string_type": 0.2,
           "scale_length_b": 0.3,
-          "fretted_or_not": 0.4635,
+          "fretted_or_not": 0.40950000000000003,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

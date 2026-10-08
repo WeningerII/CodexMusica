@@ -5,7 +5,7 @@
   "lineage": "Spanish-language alternative R&B took form between Mexico City, Bogotá, Santiago and Los Angeles from around 2015 with Girl Ultra, Kali Uchis, Sabino, Paloma Mami and Elsa y Elmar — 70-95 BPM swung or half-time programmed drums, extended seventh and ninth voicings on Rhodes and nylon guitar, bolero-derived melodic contour, breathy close-miked Spanish vocals and stacked harmony over short loop-based forms.",
   "recipe": "classic mid-2010s r&b en español, functional Song, soul R&B branch, tropical song functional song, reggaeton MC rhythm bolero cubano trap triste. thick, breath veiled tone, fast rate, interlocked note trading. 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, cedar nylon classical nylon-string guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, sampler drum machine, sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 781,
-  "score": 194.96,
+  "score": 195.5,
   "config": {
     "traditions": [
       "rnb_en_espanol",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.895000000000001,
+          "voice_register": 8.090000000000002,
           "voice_quality": 9.749999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -47,7 +47,7 @@
           "voice_speech_song": 28.859999999999992,
           "voice_ensemble_config": 19.889999999999993,
           "voice_ornament_system": 2.1449999999999996,
-          "voice_pitch_organization": 1.8500000000000003,
+          "voice_pitch_organization": 2.0450000000000004,
           "voice_processing_chain": 3.6725000000000008,
           "voice_multitrack_stack": 4.452500000000001
         }
@@ -77,10 +77,10 @@
         },
         "scores": {
           "keyboard_technique": 4.45,
-          "rhodes_model": 0.885,
+          "rhodes_model": 0.93,
           "rhodes_use": 0.585,
           "rhodes_tine_material": 0.45499999999999996,
-          "rhodes_hammer_tip": -0.07000000000000003,
+          "rhodes_hammer_tip": -0.10000000000000005,
           "rhodes_pickup_position": 1.69
         }
       },
@@ -100,7 +100,7 @@
           "top_wood_classical": 5.9799999999999995,
           "bracing_classical": 0.65,
           "string_classical": 1.625,
-          "attack_technique_cl": 0.69
+          "attack_technique_cl": 0.735
         }
       },
       {
@@ -117,10 +117,10 @@
         },
         "scores": {
           "amp_make": 6.240000000000001,
-          "body_wood": 1.3800000000000001,
+          "body_wood": 1.47,
           "pickup_config": 1.3,
           "string_type": 6.630000000000001,
-          "scale_length_b": 0.735,
+          "scale_length_b": 0.78,
           "fretted_or_not": 0.65,
           "bass_technique": 4.4,
           "electric_bass_string_configuration": 0
@@ -150,7 +150,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 6.469999999999999,
+          "electronic_technique": 6.424999999999999,
           "poly_archetypes": 0.195,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035

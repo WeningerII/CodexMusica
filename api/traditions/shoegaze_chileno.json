@@ -5,7 +5,7 @@
   "lineage": "Chilean shoegaze connects independent guitar-band scenes with grunge, dream-pop and atmospheric rock approaches.",
   "recipe": "classic shoegaze chileno, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, sustained pad analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 379,
-  "score": 49.386,
+  "score": 49.228,
   "config": {
     "traditions": [
       "shoegaze_chileno"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 4.42,
-          "body_wood": 1.1969999999999998,
-          "neck_wood": 0.3045,
+          "body_wood": 1.302,
+          "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.5775,
           "string_material": 0.105,
-          "bridge": 1.443,
-          "scale_length": 0.651,
-          "string_gauge": 1.443,
+          "bridge": 1.338,
+          "scale_length": 0.7875000000000001,
+          "string_gauge": 1.338,
           "finish": 0,
           "string_tuning": 0.27
         }
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 4.875,
-          "body_wood": 0.609,
+          "body_wood": 0.546,
           "pickup_config": 0.1365,
           "string_type": 11.375,
-          "scale_length_b": 0.3045,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.489,
+          "voice_ensemble_config": 0.4575,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0
         }
       },

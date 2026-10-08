@@ -5,7 +5,7 @@
   "lineage": "Greek downtempo connects producers working with relaxed electronic grooves and sample-based instrumental music. Record fragments and programmed rhythm provide one approach within this wider production scene.",
   "recipe": "classic greek downtempo, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 151,
-  "score": 3.809,
+  "score": 3.832,
   "config": {
     "traditions": [
       "greek_downtempo"
@@ -23,8 +23,8 @@
         "scores": {
           "electronic_technique": 0.2315,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": 0.313,
+          "sampler_bit_depth": 0.054,
+          "sampler_workflow": 0.2815,
           "sampler_classic_context": 3.3149999999999995
         }
       }

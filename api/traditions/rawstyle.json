@@ -3,14 +3,14 @@
   "name": "Rawstyle",
   "family": "electronic",
   "lineage": "Dutch hardstyle offshoot codified around 2010-2013 by Radical Redemption, Warface and E-Force out of the Rotterdam-Eindhoven hard-dance circuit — 150-160 BPM with a distorted, heavily overdriven reverse-bass kick whose tail carries the bassline, screech and hoover leads, pitched-down horror or spoken-word vocal samples, and long tension-release breakdowns built for arena hard-dance events.",
-  "recipe": "classic 2010-2013 rawstyle, electronic Dance, hardstyle branch, techno electronic dance, industrial noise experimental electric aggrotech industrial hardcore. vocal fry, breath veiled tone, straight note core, interlocked note trading. digital subtractive, glitched textural wavetable analog poly synth, sampler drum machine. bedroom. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 469,
-  "score": 178.835,
+  "recipe": "classic 2010-2013 rawstyle, electronic Dance, hardstyle branch, techno electronic dance, industrial noise experimental electric industrial hardcore birmingham techno. vocal fry, breath veiled tone, straight note core, interlocked note trading. digital subtractive, glitched textural wavetable analog poly synth, sampler drum machine. bedroom. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 477,
+  "score": 169.45,
   "config": {
     "traditions": [
       "rawstyle",
-      "aggrotech",
-      "industrial_hardcore"
+      "industrial_hardcore",
+      "birmingham_techno"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 2.34,
-          "va_archetypes": 0.15,
-          "digital_subtractive_context": 16.445000000000004
+          "electronic_technique": 1.4949999999999999,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 15.795000000000002
         }
       },
       {
@@ -35,10 +35,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 5.6000000000000005,
-          "wt_position": 7.930000000000001,
-          "wt_family": 0.345,
-          "wt_polyphony": 0.24
+          "electronic_technique": 4.6,
+          "wt_position": 8.45,
+          "wt_family": 0.65,
+          "wt_polyphony": 0.285
         }
       },
       {
@@ -47,13 +47,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "chopped_break"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 1.2449999999999999,
-          "sample_bitdepth": 1.3399999999999999,
-          "sample_swing": 14.48,
-          "sample_processing": 0.585
+          "electronic_technique": 1.2,
+          "sample_bitdepth": 0.44999999999999996,
+          "sample_swing": 15.48,
+          "sample_processing": 0.195
         }
       },
       {
@@ -65,9 +65,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 2.34,
-          "poly_archetypes": 0.405,
-          "poly_voices": 0.39,
+          "electronic_technique": 1.4949999999999999,
+          "poly_archetypes": 0.6900000000000001,
+          "poly_voices": 0.24,
           "poly_maker_lineage": -1.435
         }
       },
@@ -93,21 +93,21 @@
         },
         "scores": {
           "voice_register": 1.3,
-          "voice_quality": 11.569999999999993,
+          "voice_quality": 9.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.990000000000001,
-          "voice_articulation": 17.29,
-          "voice_microtone": 16.249999999999996,
-          "voice_tradition": 6.13,
-          "voice_mechanism_compound": 9.84,
-          "voice_estill_quality": 2.990000000000001,
-          "voice_speech_song": 16.9,
-          "voice_ensemble_config": 17.03,
-          "voice_ornament_system": 0.99,
+          "voice_vibrato": 3.1525000000000003,
+          "voice_articulation": 16.64,
+          "voice_microtone": 16.054999999999996,
+          "voice_tradition": 5.13,
+          "voice_mechanism_compound": 8.745,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 16.25,
+          "voice_ensemble_config": 15.73,
+          "voice_ornament_system": 0.845,
           "voice_pitch_organization": 1.5,
-          "voice_processing_chain": 15.440000000000001,
-          "voice_multitrack_stack": 3.965
+          "voice_processing_chain": 15.445,
+          "voice_multitrack_stack": 4.42
         }
       }
     ],

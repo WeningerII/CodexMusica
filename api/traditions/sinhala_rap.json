@@ -5,7 +5,7 @@
   "lineage": "Sinhala rap represented by Costa’s Sinhala/English rap, beatmaking and sung-rap crossover.",
   "recipe": "classic modern sinhala rap, mc Rhythm, intl hip hop branch. rap. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 222,
-  "score": 24.439,
+  "score": 24.733,
   "config": {
     "traditions": [
       "sinhala_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 17.3485,
+          "voice_quality": 17.5375,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -56,13 +56,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.1785,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0.1365
         }
       }
     ],

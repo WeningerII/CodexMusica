@@ -5,7 +5,7 @@
   "lineage": "Seychelles pop connects Seychellois singers and bands with Creole-language and international popular-music influences. Regional recordings and collaborations draw on varied dance rhythms, song traditions and contemporary production.",
   "recipe": "classic seychelles pop, bass System, reggae diaspora branch. clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified, saxophone. shoebox concert hall.",
   "recipe_chars": 275,
-  "score": 29.259,
+  "score": 29.433,
   "config": {
     "traditions": [
       "seychelles_pop"
@@ -75,10 +75,10 @@
           "body_wood": 0.9099999999999999,
           "neck_wood": 0,
           "fretboard": -0.035,
-          "pickup_magnet": 0,
+          "pickup_magnet": 0.0315,
           "string_material": 0.1995,
           "string_gauge": 1.5365,
-          "bridge": 0.0315,
+          "bridge": 0.063,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,
@@ -102,7 +102,7 @@
           "body_wood": 0.9099999999999999,
           "pickup_config": 0,
           "string_type": 0.7,
-          "scale_length_b": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -124,10 +124,10 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 0,
+          "drum_technique": -0.05,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.7,
+          "shell_wood": 0.7314999999999999,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0.7,
@@ -145,7 +145,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.294
+          "keyboard_technique": 0.26249999999999996
         }
       },
       {
@@ -164,7 +164,7 @@
           "sax_size": -0.10500000000000001,
           "sax_reed": 0.7,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0,
+          "sax_mouthpiece": 0.0315,
           "sax_technique": -0.15000000000000002,
           "sax_maker_school": -0.07
         }

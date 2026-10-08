@@ -3,14 +3,14 @@
   "name": "Hardanger fiddle",
   "family": "global",
   "lineage": "Western Norwegian Hardangerfjord regional fiddle tradition — the hardingfele with four playing strings and four-or-five sympathetic resonance strings tuned in scordatura bondetraditional (peasant-traditional) tunings, performed solo for traditional dance forms (springar, gangar, halling, pols) at weddings and seasonal celebrations",
-  "recipe": "classic Northern European early-1940s hardanger fiddle, drone Modal, string branch, Celtic balladic ballad poetry hardingfele slått swedish polska. mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian hardanger fiddle inst. norwegian hardanger outdoor alpine. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 372,
-  "score": 18.315,
+  "recipe": "classic Northern European early-1940s hardanger fiddle, drone Modal, string branch, Celtic balladic ballad poetry swedish polska australian convict and colonial ballads. mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian hardanger fiddle inst. norwegian hardanger outdoor alpine. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 394,
+  "score": 19.87,
   "config": {
     "traditions": [
       "hardanger_fiddle",
-      "hardingfele_slatt",
-      "swedish_polska_traditional"
+      "swedish_polska_traditional",
+      "australian_convict_colonial_ballads"
     ],
     "instruments": [
       {
@@ -24,12 +24,12 @@
           "hardingfele_body_wood": "hardingfele_spruce_maple"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "hardingfele_strings": 7.540000000000001,
-          "hardingfele_tuning": 3.1149999999999998,
+          "bowed_technique": -0.035,
+          "hardingfele_strings": 8.385,
+          "hardingfele_tuning": 4.46,
           "hardingfele_strings_material": 0.24,
-          "hardingfele_inlay": 8.274999999999999,
-          "hardingfele_body_wood": 4.195
+          "hardingfele_inlay": 8.515,
+          "hardingfele_body_wood": 3.705
         }
       }
     ],

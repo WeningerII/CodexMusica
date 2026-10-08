@@ -5,7 +5,7 @@
   "lineage": "Latin American math rock emphasizes intricate guitar interplay and irregular rhythmic patterns.",
   "recipe": "classic math rock latinoamericano, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital digital delay.",
   "recipe_chars": 318,
-  "score": 29.838,
+  "score": 29.462,
   "config": {
     "traditions": [
       "math_rock_latinoamericano"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.11850000000000002,
           "amp_make": 6.5,
-          "body_wood": 0.7979999999999999,
-          "neck_wood": 0.551625,
+          "body_wood": 0.693,
+          "neck_wood": 0.41512499999999997,
           "fretboard": 0.063,
           "pickup_magnet": 0.105,
-          "pickup_winding": 0.357,
-          "string_material": 0.551625,
-          "bridge": 0.063,
+          "pickup_winding": 0.252,
+          "string_material": 0.41512499999999997,
+          "bridge": 0.21899999999999997,
           "scale_length": 0,
-          "string_gauge": 0,
+          "string_gauge": 0.15599999999999997,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.03599999999999999
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 6.954999999999999,
-          "body_wood": 0.7979999999999999,
+          "body_wood": 0.693,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.063,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 12.75,
-          "drumhead": 0.551625,
+          "drumhead": 0.41512499999999997,
           "drum_kit_kick_pedal": 0
         }
       }

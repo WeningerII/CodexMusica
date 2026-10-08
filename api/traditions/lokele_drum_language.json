@@ -1,0 +1,61 @@
+{
+  "id": "lokele_drum_language",
+  "name": "Lokele slit-drum language (Upper Congo)",
+  "family": "global",
+  "lineage": "Drum language of the Lokele of the Congo River around Yakusu and Kisangani, in which the lokole, a wooden slit drum with two lips of different pitch, reproduces the tones of spoken Lokele to send announcements, names and messages between riverside villages. The missionary John F. Carrington described it in The Talking Drums of Africa (1949), and Hugh Tracey recorded it; the lenga slit-drum card stands in for the lokole.",
+  "recipe": "classic late-1940s lokele slit-drum language, groove Percussion, central east south African branch. wooden solo lenga. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 210,
+  "score": 0.937,
+  "config": {
+    "traditions": [
+      "lokele_drum_language"
+    ],
+    "instruments": [
+      {
+        "id": "lenga",
+        "slots": {
+          "lenga_setup": "lenga_setup_solo",
+          "lenga_stroke": "lenga_stroke_open"
+        },
+        "scores": {
+          "lenga_setup": 1.105,
+          "lenga_stroke": 0.1575
+        }
+      }
+    ],
+    "pinned": {
+      "lenga": [
+        "lenga_setup",
+        "lenga_stroke"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "lenga_setup": "lenga_setup_solo",
+      "lenga_stroke": "lenga_stroke_open"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

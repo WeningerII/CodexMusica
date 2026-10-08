@@ -1,0 +1,88 @@
+{
+  "id": "altai_kai_epic",
+  "name": "Kai (Altai throat-sung epic)",
+  "family": "global",
+  "lineage": "Epic singing of the Altai people of the Altai Republic, in which a kaichi performs heroic epics such as Maadai-Kara in kai, a low, guttural throat-singing voice, accompanying himself on the two-string topshur plucked lute, represented here by the two-string dombyra card. Epic performances could last through the night, and the tradition was recorded from leading kaichi in the twentieth century and continues among younger performers.",
+  "recipe": "classic modern kai, ballad Poetry. throat singing voice, dombyra. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 145,
+  "score": 1.13,
+  "config": {
+    "traditions": [
+      "altai_kai_epic"
+    ],
+    "instruments": [
+      {
+        "id": "throat_singing_voice",
+        "slots": {
+          "throat_mechanism_root": "throat_mechanism_ventricular_subharmonic_70_100Hz",
+          "throat_overtone_target_region": "throat_overtone_target_none",
+          "throat_singing_voice_region": "throat_singing_voice_central_asian_steppe"
+        },
+        "scores": {
+          "throat_mechanism_root": 0.39,
+          "throat_overtone_target_region": 0,
+          "throat_singing_voice_region": 0
+        }
+      },
+      {
+        "id": "dombyra",
+        "slots": {
+          "dombyra_form": "dombyra_western",
+          "dombyra_style": "dombyra_terme",
+          "dombyra_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "dombyra_form": 0.19500000000000003,
+          "dombyra_style": 0.19500000000000003,
+          "dombyra_strings": 0
+        }
+      }
+    ],
+    "pinned": {
+      "throat_singing_voice": [
+        "throat_mechanism_root",
+        "throat_overtone_target_region",
+        "throat_singing_voice_region"
+      ],
+      "dombyra": [
+        "dombyra_form",
+        "dombyra_style",
+        "dombyra_strings"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "throat_mechanism_root": "throat_mechanism_ventricular_subharmonic_70_100Hz",
+      "throat_overtone_target_region": "throat_overtone_target_none",
+      "throat_singing_voice_region": "throat_singing_voice_central_asian_steppe",
+      "dombyra_form": "dombyra_western",
+      "dombyra_style": "dombyra_terme",
+      "dombyra_strings": "dutar_strings_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

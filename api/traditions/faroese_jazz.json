@@ -5,7 +5,7 @@
   "lineage": "Faroe Islands jazz scenes; selected Yggdrasil drummerless mixed ensemble",
   "recipe": "classic modern faroese jazz, improv On Frame, avant branch. meaningless syllables carrying melody. a 440 modern pitch us standard grand piano, saxophone, flute, single coil electric guitar, upright bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 348,
-  "score": 18.044,
+  "score": 18.473,
   "config": {
     "traditions": [
       "faroese_jazz"
@@ -25,7 +25,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.325,
+          "keyboard_technique": 0.2815,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.3,
           "piano_hammer": -0.07,
@@ -54,7 +54,7 @@
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0,
           "sax_technique": -0.035,
-          "sax_maker_school": 0
+          "sax_maker_school": 0.0735
         }
       },
       {
@@ -69,9 +69,9 @@
         "scores": {
           "wind_articulation": -0.035,
           "flute_size": 0,
-          "flute_material": 0.1995,
+          "flute_material": 0.378,
           "flute_technique": 0.105,
-          "flute_maker_school": 0.44099999999999995
+          "flute_maker_school": 0.45149999999999996
         }
       },
       {
@@ -95,11 +95,11 @@
           "electric_technique": -0.15000000000000002,
           "amp_make": 0,
           "body_wood": 0,
-          "neck_wood": 0.1995,
+          "neck_wood": 0.3045,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "string_material": 0.1995,
-          "string_gauge": 0.21,
+          "string_material": 0.3045,
+          "string_gauge": 0.105,
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
@@ -114,7 +114,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.1995,
+          "upright_strings": 0.3045,
           "upright_play": 11.25
         }
       },

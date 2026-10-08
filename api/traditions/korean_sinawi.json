@@ -3,14 +3,14 @@
   "name": "Korean sinawi (shaman ensemble improvisation)",
   "family": "classical",
   "lineage": "Korean sinawi shamanic-ensemble improvisational tradition of southwestern Korea (Jeolla provinces and adjacent Chungcheong region), serving as the ritual-music accompaniment for the gut Korean shaman ceremony. Performance integrates a mudang shaman-priestess with an instrumental ensemble of daegeum bamboo flute, piri double-reed pipe, haegeum two-string fiddle, ajaeng bowed zither, and janggu hourglass-drum percussion in collective improvisational heterophony over the canonical sinawi modal-and-rhythmic framework. Distinguished from sanjo by sinawi's collective-ensemble (vs solo virtuoso) configuration; distinguished from pansori by sinawi's instrumental-ensemble (vs solo vocal narrative) framework. Direct historical ancestor of sanjo solo art-music.",
-  "recipe": "classic East Asian mid-1930s korean sinawi, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, pure, interlocked note trading. paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu, cheonsa clear modal non rough toeseong descending off glide jungmori medium 12 4 narrative no interjected chuimsae solo cross tradition fusion concert context pansori voice, silk canonical Korean court paulownia canonical Korean haegeum, traditional membrane buzz bamboo daegeum, forsythia canonical Korean paulownia canonical Korean silk canonical Korean court ajaeng. korean gugak hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 790,
-  "score": 275.365,
+  "recipe": "classic East Asian mid-1930s korean sinawi, art Music, east Asian branch, indigenous ritual devotional mapuche tayil genealogical chant chầu văn. extended whistle, breath veiled tone, pure, interlocked note trading. paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu, cheonsa clear modal non rough yoseong pitch oscillation ornament jungjungmori medium fast 12 8 heightened narrative no interjected chuimsae solo canonical five madang narrative repertoire pansori voice, silk canonical Korean court paulownia canonical Korean haegeum, traditional membrane buzz bamboo daegeum, forsythia canonical Korean paulownia canonical Korean silk canonical Korean court ajaeng. korean gugak hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 792,
+  "score": 235.46,
   "config": {
     "traditions": [
       "korean_sinawi",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "chau_van"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 3.0550000000000006,
-          "voice_quality": 33.54,
+          "voice_register": 2.4050000000000002,
+          "voice_quality": 20.994999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.095,
-          "voice_articulation": 18.004999999999995,
-          "voice_microtone": 19.304999999999993,
-          "voice_tradition": 24.7,
-          "voice_mechanism_compound": 10.770000000000001,
-          "voice_estill_quality": 9.1,
-          "voice_speech_song": 19.499999999999996,
-          "voice_ensemble_config": 18.589999999999996,
+          "voice_articulation": 15.6,
+          "voice_microtone": 16.705,
+          "voice_tradition": 22.165,
+          "voice_mechanism_compound": 8.515,
+          "voice_estill_quality": 6.954999999999999,
+          "voice_speech_song": 16.9,
+          "voice_ensemble_config": 16.314999999999998,
           "voice_ornament_system": 12.549999999999999,
           "voice_pitch_organization": 4.13,
-          "voice_processing_chain": 12.674999999999997,
-          "voice_multitrack_stack": 4.68
+          "voice_processing_chain": 8.255,
+          "voice_multitrack_stack": 4.03
         }
       },
       {
@@ -64,26 +64,26 @@
         "scores": {
           "janggu_use": 7.799999999999999,
           "janggu_construction": 0.9299999999999999,
-          "janggu_shell_wood": 6.284999999999999,
-          "janggu_head": 7.13,
-          "janggu_lineage": 3.9850000000000003
+          "janggu_shell_wood": 5.784999999999999,
+          "janggu_head": 6.63,
+          "janggu_lineage": 3.38
         }
       },
       {
         "id": "pansori_voice",
         "slots": {
           "pansori_phonation_mechanism": "pansori_cheonsa_clear_modal",
-          "pansori_sigimsae_ornament": "pansori_sigimsae_toeseong",
-          "pansori_jangdan_cycle": "pansori_jangdan_jungmori",
+          "pansori_sigimsae_ornament": "pansori_sigimsae_yoseong",
+          "pansori_jangdan_cycle": "pansori_jangdan_jungjungmori",
           "pansori_chuimsae_response": "pansori_chuimsae_none",
-          "pansori_voice_repertoire": "pansori_voice_fusion_concert"
+          "pansori_voice_repertoire": "pansori_voice_canonical_five"
         },
         "scores": {
           "pansori_phonation_mechanism": 2.34,
-          "pansori_sigimsae_ornament": 1.3,
-          "pansori_jangdan_cycle": 1.69,
+          "pansori_sigimsae_ornament": 1.17,
+          "pansori_jangdan_cycle": 2.73,
           "pansori_chuimsae_response": 4.739999999999999,
-          "pansori_voice_repertoire": 5.9799999999999995
+          "pansori_voice_repertoire": 4.03
         }
       },
       {
@@ -97,8 +97,8 @@
         "scores": {
           "bowed_technique": 2.695,
           "haegeum_use": 1.195,
-          "haegeum_strings": 6.284999999999999,
-          "haegeum_body_wood": 6.284999999999999
+          "haegeum_strings": 5.784999999999999,
+          "haegeum_body_wood": 5.784999999999999
         }
       },
       {
@@ -108,8 +108,8 @@
           "daegeum_context": "daegeum_jeongak"
         },
         "scores": {
-          "daegeum_body": 2.34,
-          "daegeum_context": 2.34
+          "daegeum_body": 1.69,
+          "daegeum_context": 2.535
         }
       },
       {
@@ -123,10 +123,10 @@
         },
         "scores": {
           "bowed_technique": 2.695,
-          "ajaeng_strings": 0.65,
-          "ajaeng_bow": 7.159999999999999,
-          "ajaeng_body_wood": 6.284999999999999,
-          "ajaeng_string_material": 6.284999999999999
+          "ajaeng_strings": 0.375,
+          "ajaeng_bow": 6.159999999999999,
+          "ajaeng_body_wood": 5.784999999999999,
+          "ajaeng_string_material": 5.784999999999999
         }
       }
     ],

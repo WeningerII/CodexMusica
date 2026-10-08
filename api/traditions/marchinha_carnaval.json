@@ -1,0 +1,305 @@
+{
+  "id": "marchinha_carnaval",
+  "name": "Marchinha (Rio carnival march-song)",
+  "family": "global",
+  "lineage": "Brisk carnival march-song of Rio de Janeiro, conventionally traced to Chiquinha Gonzaga's Ó Abre Alas (1899), that dominated the carnival hits issued on 78 rpm records through the 1930s, 1940s and 1950s, the decades when composers such as Lamartine Babo and Braguinha wrote new marchinhas for each season. Records paired a singer and chorus with a studio orchestra of trumpets, trombones and reeds over samba percussion, and the songs remain the repertoire of street carnival bands.",
+  "recipe": "classic mid-1930s marchinha, carnival Processional, Brazilian branch. trumpet, trombone, clarinet, samba foundation cavaquinho, surdo, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 402,
+  "score": 17.378,
+  "config": {
+    "traditions": [
+      "marchinha_carnaval"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.0465,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_gold_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "brass_size": 0,
+          "trumpet_mouthpiece": -0.1,
+          "brass_mute": 0.0045,
+          "trumpet_technique": -0.10500000000000001,
+          "trumpet_bell_metal": 0.09012500000000001,
+          "trumpet_maker_school": 0.2955
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "trombone_type": -0.035,
+          "trombone_mouthpiece": -0.0955,
+          "trombone_mute": 0.0045,
+          "trombone_technique": 0.037125,
+          "trombone_bell_metal": 0.105125,
+          "trombone_maker_school": -1.3385
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "clarinet_body": -0.15000000000000002,
+          "clarinet_size": 0,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.013125
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_brazilian",
+          "cavaquinho_context": "cavaquinho_samba",
+          "cavaquinho_body_wood": "cavaquinho_jacaranda",
+          "cavaquinho_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "cavaquinho_origin": 1.3,
+          "cavaquinho_context": 6.624625,
+          "cavaquinho_body_wood": -0.035,
+          "cavaquinho_strings": 0
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_primeira",
+          "surdo_skin": "surdo_hide",
+          "surdo_shell": "surdo_wood_staved"
+        },
+        "scores": {
+          "surdo_size": 0,
+          "surdo_skin": -1.3635,
+          "surdo_shell": -1.3635
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_samba",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "pandeiro_size": 1.3,
+          "pandeiro_context": 6.593125000000001,
+          "pandeiro_head": 1.95,
+          "pandeiro_shell_wood": 1.95,
+          "pandeiro_jingles": 1.95
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "cavaquinho": [
+        "plucked_traditional_technique",
+        "cavaquinho_origin",
+        "cavaquinho_context",
+        "cavaquinho_body_wood",
+        "cavaquinho_strings"
+      ],
+      "surdo": [
+        "surdo_size",
+        "surdo_skin",
+        "surdo_shell"
+      ],
+      "pandeiro": [
+        "percussion_technique",
+        "pandeiro_size",
+        "pandeiro_context",
+        "pandeiro_head",
+        "pandeiro_shell_wood",
+        "pandeiro_jingles"
+      ]
+    },
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_electrical_era_office",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "wind_articulation": "wind_continuous_legato",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "trumpet_bell_metal": "trumpet_gold_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "big_band_punch",
+      "trombone_bell_metal": "trombone_red_brass",
+      "trombone_maker_school": "trombone_yamaha_xeno",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "cavaquinho_origin": "cavaquinho_brazilian",
+      "cavaquinho_context": "cavaquinho_samba",
+      "cavaquinho_body_wood": "cavaquinho_jacaranda",
+      "cavaquinho_strings": "dutar_strings_unspecified",
+      "surdo_size": "surdo_primeira",
+      "surdo_skin": "surdo_hide",
+      "surdo_shell": "surdo_wood_staved",
+      "percussion_technique": "percussion_hands_layered",
+      "pandeiro_size": "pandeiro_medio",
+      "pandeiro_context": "pandeiro_samba",
+      "pandeiro_head": "pandeiro_goatskin_canonical",
+      "pandeiro_shell_wood": "pandeiro_eucalyptus",
+      "pandeiro_jingles": "pandeiro_brass_platinelas"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

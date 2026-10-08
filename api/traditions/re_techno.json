@@ -5,7 +5,7 @@
   "lineage": "Re:techno connects club-oriented producers and DJs working across techno, hardgroove and loop-led dance music. Repeated rhythmic figures and percussion-driven tracks support extended sets and shifting combinations on the dance floor.",
   "recipe": "classic re:techno, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 83,
-  "score": 0.332,
+  "score": 0.385,
   "config": {
     "traditions": [
       "re_techno"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.3315
+          "dj_playback_mixing_identity": 0.38549999999999995
         }
       }
     ],

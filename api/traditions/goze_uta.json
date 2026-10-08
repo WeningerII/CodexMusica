@@ -1,0 +1,158 @@
+{
+  "id": "goze_uta",
+  "name": "Goze-uta (Echigo blind women's shamisen song)",
+  "family": "global",
+  "lineage": "Goze were blind women who travelled in small groups through the villages of Echigo, in present-day Niigata, singing to the shamisen at farmhouses in return for lodging and rice, with their main guilds based in Takada and Nagaoka. Their repertoire included the long narrative saimon matsuzaka, kudoki ballads and folk songs, and Kobayashi Haru, the last Nagaoka goze, and the Takada goze were recorded from the 1970s.",
+  "recipe": "classic mid-1970s goze-uta, ballad Poetry. narrative, solo with instrumental accompaniment. min yo folk song accompaniment shamisen. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 224,
+  "score": 5.005,
+  "config": {
+    "traditions": [
+      "goze_uta"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.9299999999999998,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "shamisen",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "shamisen_size": "chuzao",
+          "shamisen_skin": "shamisen_dog",
+          "shamisen_pick": "bachi_ivory",
+          "shamisen_neck_wood": "shamisen_red_sandalwood",
+          "shamisen_strings": "dutar_strings_unspecified",
+          "shamisen_tradition": "shamisen_min_yo"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.05,
+          "shamisen_size": 0,
+          "shamisen_skin": 0,
+          "shamisen_pick": -0.05,
+          "shamisen_neck_wood": -0.05,
+          "shamisen_strings": 0,
+          "shamisen_tradition": 2.6
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "shamisen": [
+        "plucked_traditional_technique",
+        "shamisen_size",
+        "shamisen_skin",
+        "shamisen_pick",
+        "shamisen_neck_wood",
+        "shamisen_strings",
+        "shamisen_tradition"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "narrative_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "shamisen_size": "chuzao",
+      "shamisen_skin": "shamisen_dog",
+      "shamisen_pick": "bachi_ivory",
+      "shamisen_neck_wood": "shamisen_red_sandalwood",
+      "shamisen_strings": "dutar_strings_unspecified",
+      "shamisen_tradition": "shamisen_min_yo"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

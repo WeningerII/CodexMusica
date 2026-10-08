@@ -5,7 +5,7 @@
   "lineage": "The industrial ABC region of São Paulo has an MC and beatmaker scene represented here by Santo André’s Arnaldo Tifu and DJ B8. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
   "recipe": "classic modern rap abc paulista, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. melodic pitched sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 348,
-  "score": 47.989,
+  "score": 48.425,
   "config": {
     "traditions": [
       "rap_abc_paulista"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 10.01,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 2.6500000000000004,
           "sampler_archetypes": 4.68,
-          "sampler_bit_depth": 0.318,
+          "sampler_bit_depth": 0.426,
           "sampler_workflow": 2.7,
           "sampler_classic_context": 8.45
         }

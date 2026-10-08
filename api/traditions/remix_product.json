@@ -5,7 +5,7 @@
   "lineage": "Remix product is a discovery label gathering commercial dance remixes, cover versions and edited club tracks. Its documented repertoire connects familiar vocal hooks with hands-up, hard-dance and other electronic club treatments, circulating through releases and mixed compilations.",
   "recipe": "classic remix product, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 87,
-  "score": 0.032,
+  "score": 0.063,
   "config": {
     "traditions": [
       "remix_product"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.0315
+          "dj_playback_mixing_identity": 0.063
         }
       }
     ],

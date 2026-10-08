@@ -5,7 +5,7 @@
   "lineage": "Atlanta indie includes locally based independent rock bands exploring melodic, ambient and experimental approaches. Groups such as Sleep Dance combine original songwriting with collaborative recording in the city.",
   "recipe": "classic atlanta indie, distorted Rock, alternative branch. no specific ornament system. basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 279,
-  "score": 26.152,
+  "score": 25.751,
   "config": {
     "traditions": [
       "atlanta_indie"
@@ -46,7 +46,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.6045,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0
         }
       },
@@ -69,16 +69,16 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 1.17,
-          "body_wood": 1.1969999999999998,
-          "neck_wood": 0.3045,
+          "amp_make": 1.0852499999999998,
+          "body_wood": 1.302,
+          "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.8115000000000001,
           "string_material": 0.105,
-          "bridge": 0.9179999999999999,
-          "scale_length": 0.651,
-          "string_gauge": 0.9179999999999999,
+          "bridge": 0.813,
+          "scale_length": 0.7875000000000001,
+          "string_gauge": 0.813,
           "finish": 0,
           "string_tuning": 0.3
         }
@@ -96,11 +96,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.17,
-          "body_wood": 0.609,
+          "amp_make": 1.0852499999999998,
+          "body_wood": 0.546,
           "pickup_config": 0.1365,
           "string_type": 9.099999999999998,
-          "scale_length_b": 0.3045,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 6.999999999999999,
-          "drumhead": 0.378,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       }

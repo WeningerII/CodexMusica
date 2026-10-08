@@ -32,6 +32,7 @@ const M = require('./_matcher.js');
 // reflect actual catalog state — tokens reachable via tradition-customized
 // variants count, not just tokens reachable via the strip-down baseline.
 function traditionCard(traditionId, instrumentId) {
+  traditionId = C.resolveTraditionId(traditionId);
   const card = M.defaultCard(traditionId, instrumentId);
   if (!card) return null;
   const t = C.TRADITIONS.find((x) => x.id === traditionId);

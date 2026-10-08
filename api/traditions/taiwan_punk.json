@@ -3,9 +3,9 @@
   "name": "Taiwan punk",
   "family": "rock_punk",
   "lineage": "Taiwan punk develops through local guitar-band scenes and independent music networks.",
-  "recipe": "classic taiwan punk, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 384,
-  "score": 42.226,
+  "recipe": "classic taiwan punk, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 366,
+  "score": 41.464,
   "config": {
     "traditions": [
       "taiwan_punk"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 14.494999999999997,
-          "body_wood": 1.029,
+          "body_wood": 0.756,
           "neck_wood": 0.063,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.6650000000000005,
-          "body_wood": 1.029,
+          "body_wood": 0.756,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 4.5,
-          "drumhead": 0.273,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.9510000000000001,
+          "voice_ensemble_config": 0.9075000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.354,
           "voice_tessitura": 0
         }
       }

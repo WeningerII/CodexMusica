@@ -5,7 +5,7 @@
   "lineage": "Magyar musicalek encompasses Hungarian musical theatre, where dramatic songs connect character, dialogue and staged storytelling.",
   "recipe": "classic magyar musicalek, functional Song. solo with instrumental accompaniment. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 192,
-  "score": 1.254,
+  "score": 1.829,
   "config": {
     "traditions": [
       "magyar_musicalek"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.1365,
-          "voice_ensemble_config": 0.78,
+          "voice_speech_song": 0.4785,
+          "voice_ensemble_config": 0.8340000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -68,7 +68,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.1365,
+          "grand_piano_brand": 0.3165,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,

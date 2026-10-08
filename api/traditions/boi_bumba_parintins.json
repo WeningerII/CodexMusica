@@ -1,0 +1,229 @@
+{
+  "id": "boi_bumba_parintins",
+  "name": "Boi-bumbá de Parintins (Amazonas toada de boi)",
+  "family": "global",
+  "lineage": "Amazonian ox-drama festival of Parintins, Amazonas, held each June in the Bumbódromo as a contest between the boi Garantido (red) and the boi Caprichoso (blue), grown from a local folguedo into a large staged spectacle with an annual album industry. Its song form, the toada de boi, is sung by a lead singer (levantador de toadas) over a massed percussion section of drums, snares and rattles, called the batucada for Garantido and the marujada for Caprichoso, with keyboards and bass added in recording; a source-unspecified shaker card stands in for the rattles.",
+  "recipe": "classic modern boi-bumbá de parintins, groove Percussion, Brazilian branch. single lead single track no stacking. surdo, snare drum, shaker source electronic keyboard unspecified, electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 339,
+  "score": 7.755,
+  "config": {
+    "traditions": [
+      "boi_bumba_parintins"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 1.2415,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_primeira",
+          "surdo_skin": "surdo_composite",
+          "surdo_shell": "surdo_steel"
+        },
+        "scores": {
+          "surdo_size": 0,
+          "surdo_skin": 0,
+          "surdo_shell": 0
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0.105
+        }
+      },
+      {
+        "id": "shaker_source_unspecified",
+        "slots": {
+          "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+        },
+        "scores": {
+          "shaker_source_unspecified_identity": 0.5145000000000001
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0.105,
+          "keyboard_technique": 0.105
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "dutar_strings_unspecified",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.45149999999999996,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.105,
+          "fretted_or_not": 0.105,
+          "bass_technique": -0.07,
+          "electric_bass_string_configuration": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "surdo": [
+        "surdo_size",
+        "surdo_skin",
+        "surdo_shell"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ],
+      "shaker_source_unspecified": [
+        "shaker_source_unspecified_identity"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "surdo_size": "surdo_primeira",
+      "surdo_skin": "surdo_composite",
+      "surdo_shell": "surdo_steel",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455",
+      "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "dutar_strings_unspecified",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_amp": "amp_american_blackface"
+  }
+}

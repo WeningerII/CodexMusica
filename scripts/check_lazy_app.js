@@ -248,8 +248,9 @@ const SCENARIOS = {
 
 // The ten engine tables, spelled out here rather than read from
 // scripts/_page_tables.js, so dropping a name there cannot drop it here too.
-// The last two are the render tables; src/app.js mirrors them for the embedded
-// build, and the lazy build cuts the mirrors.
+// The last two are the render tables: the signatures are a references file
+// the lazy build omits, and src/app.js mirrors the frequencies for the
+// embedded build, which the lazy build cuts.
 const ENGINE_TABLES = [
   'INSTRUMENT_FAMILY_PARTS',
   'INSTRUMENTS',
@@ -321,10 +322,11 @@ const ENGINE_READERS = {
       centroidDistance: 1,
       buildSongFingerprint: 3,
     },
-    // Each "(top level)" read is the generated mirror's own declaration, which
-    // the lazy build cuts (the embedded build and Node evaluate it).
+    // TRADITION_SIGNATURES is declared in references/10_tradition_signatures.js,
+    // which the lazy build omits. DESCRIPTOR_DF's "(top level)" read is the
+    // generated mirror's own declaration in src/app.js, which the lazy build
+    // cuts (the embedded build and Node evaluate it).
     TRADITION_SIGNATURES: {
-      '(top level)': 1,
       _traditionSignatureFor: 1,
     },
     DESCRIPTOR_DF: {

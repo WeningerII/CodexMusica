@@ -3,9 +3,9 @@
   "name": "Mariachi Cristiano",
   "family": "vernacular",
   "lineage": "Mariachi cristiano brings Christian praise and devotional texts into mariachi performance, joining vocal worship with the regional string-and-brass ensemble.",
-  "recipe": "classic mariachi cristiano, ritual Devotional, christian gospel branch. duet, live take. violin orchestral, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 481,
-  "score": 28.532,
+  "recipe": "classic mariachi cristiano, ritual Devotional, christian gospel branch. duet, live take. violin orchestral, cedar caoba paracho mixed string set guitarron mexicano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 457,
+  "score": 27.989,
   "config": {
     "traditions": [
       "mariachi_cristiano"
@@ -75,7 +75,7 @@
           "orch_setup_period": -0.07,
           "orch_bow": 0.39,
           "orch_bow_stick": -0.10500000000000001,
-          "orch_articulation": 0.9974999999999999,
+          "orch_articulation": 1.1444999999999999,
           "orch_rosin": -0.07
         }
       },
@@ -90,9 +90,9 @@
         },
         "scores": {
           "guitarron_body": 0.1365,
-          "guitarron_body_wood": 3.819,
+          "guitarron_body_wood": 3.6825,
           "guitarron_strings": 1.1365,
-          "guitarron_string_material": 1.2285,
+          "guitarron_string_material": 0.9555,
           "guitarron_technique": 3.9
         }
       },
@@ -111,10 +111,10 @@
           "wind_articulation": -0.07,
           "brass_size": 0,
           "trumpet_mouthpiece": -0.07,
-          "brass_mute": 0.4305,
+          "brass_mute": 0.504,
           "trumpet_technique": -0.05,
           "trumpet_bell_metal": 1.3,
-          "trumpet_maker_school": 1.4385000000000001
+          "trumpet_maker_school": 1.302
         }
       },
       {
@@ -130,8 +130,8 @@
           "plucked_traditional_technique": 0.325,
           "vihuela_mexicana_back": 3,
           "vihuela_mexicana_context": 0.3,
-          "vihuela_mexicana_body_wood": 3.819,
-          "vihuela_mexicana_strings": 3.9
+          "vihuela_mexicana_body_wood": 3.6825,
+          "vihuela_mexicana_strings": 3.819
         }
       }
     ],

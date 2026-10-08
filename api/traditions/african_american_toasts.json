@@ -1,0 +1,121 @@
+{
+  "id": "african_american_toasts",
+  "name": "Toasts (African American narrative recitation)",
+  "family": "global",
+  "lineage": "Long rhymed narrative poems of African American men's oral tradition, recited on street corners, in bars and barbershops and above all in prisons from at least the early 20th century, with stock heroes and tricksters such as the Signifying Monkey, Stagolee, Shine of the Titanic and Dolemite. Roger D. Abrahams collected them in South Philadelphia for Deep Down in the Jungle (1964) and Bruce Jackson recorded them in prisons and cities between 1964 and 1976; Rudy Ray Moore's party records brought the form to LP, and its boasting, rhymed delivery is often cited among the roots of rap.",
+  "recipe": "classic mid-1960s toasts, spoken Word. narrative, rhythmic spoken flow no pitch. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 172,
+  "score": 11.314,
+  "config": {
+    "traditions": [
+      "african_american_toasts"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "speech_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0.315,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 1.9679999999999997,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 8.84,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.09449999999999999,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "speech_voice",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "narrative_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "id": "prince_edward_island_fiddle",
+  "name": "Prince Edward Island fiddling (Island Scottish and Acadian fiddle)",
+  "family": "global",
+  "lineage": "Community fiddle tradition of Prince Edward Island, played for house parties, square dances, ceilidhs and church picnics, with a Scottish-derived style strongest in the east of the Island, especially Kings County, and an Acadian French style in the Evangeline region of Prince County. Ken Perlman's fieldwork documented both strands and how they differ from neighbouring Cape Breton fiddling, and the Prince Edward Island Fiddlers Society keeps its repertoire of Scottish, Irish and local reels, jigs, strathspeys and marches in community play. Fiddlers commonly keep time with their feet and are accompanied by piano or guitar; the foot-tap card stands for that foot percussion.",
+  "recipe": "classic modern prince edward island fiddling, improv On Frame, Celtic traditional branch. fiddle, upright piano, dreadnought acoustic guitar, foot tap. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 231,
+  "score": 5.591,
+  "config": {
+    "traditions": [
+      "prince_edward_island_fiddle"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 4.0315,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.105,
+          "fiddle_articulation": 0.21,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "upright_use": 0.3045,
+          "upright_piano_size": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "rosewood_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "string_tuning": 0,
+          "top_wood": 0.063,
+          "back_sides": -0.05,
+          "string_acoustic": 0
+        }
+      },
+      {
+        "id": "foot_tap",
+        "slots": {
+          "tap_striker": "tap_hard_shoe_leather",
+          "tap_surface": "tap_sprung_wood_floor"
+        },
+        "scores": {
+          "tap_striker": 0.9099999999999999,
+          "tap_surface": 0.337125
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ],
+      "foot_tap": [
+        "tap_striker",
+        "tap_surface"
+      ]
+    },
+    "room": "hardwood_living",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "hardwood_living",
+    "parts": {
+      "bowed_technique": "bowed_celtic_session",
+      "fiddle_strings": "steel_core",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood": "engelmann",
+      "back_sides": "rosewood_bs",
+      "string_acoustic": "eighty_twenty",
+      "tap_striker": "tap_hard_shoe_leather",
+      "tap_surface": "tap_sprung_wood_floor"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

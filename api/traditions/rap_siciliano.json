@@ -5,7 +5,7 @@
   "lineage": "Sicilian rap includes Shakalab’s reggae/hip-hop network and DJ Delta’s Alcamo turntablism practice.",
   "recipe": "classic modern rap siciliano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 336,
-  "score": 38.774,
+  "score": 39.289,
   "config": {
     "traditions": [
       "rap_siciliano"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.719,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_speech_song": 13.905,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,

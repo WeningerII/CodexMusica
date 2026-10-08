@@ -3,24 +3,24 @@
   "name": "Songo (Cuban 1970s fusion)",
   "family": "global",
   "lineage": "Cuban dance-music developed in 1970s-1980s Havana by Los Van Van under Juan Formell, synthesizing son montuno, changüí, North American funk, and Cuban folkloric rumba. Introduced drum-kit alongside canonical timbales and congas, electric-bass with funk-derived ostinato, extended sectional structures. Directly informed subsequent 1990s timba emergence.",
-  "recipe": "classic Caribbean songo, groove Percussion, son salsa branch, Brazilian song functional song lambada and carimbó forró pé-de-serra. extended whistle, breath veiled tone, fast rate, interlocked note trading. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, pre muffled edge muffled brushes-and-sticks drum kit, montuno driving handheld cencerro. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 788,
-  "score": 156.577,
+  "recipe": "classic Caribbean songo, groove Percussion, son salsa branch, Brazilian song functional song forró pé-de-serra brazilian samba de roda do recôncavo. thick, breath veiled tone, pure, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, brass open slap hand drum timbales, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, brushes-and-sticks drum kit, montuno driving handheld cencerro. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 773,
+  "score": 236.72,
   "config": {
     "traditions": [
       "songo_cubano",
-      "lambada_carimbo",
-      "forro_pe_de_serra"
+      "forro_pe_de_serra",
+      "brazilian_samba_de_roda"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -28,53 +28,53 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 3.7375000000000007,
-          "voice_quality": 5.1675,
+          "voice_register": 1.6249999999999993,
+          "voice_quality": 34.8725,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.585,
-          "voice_articulation": 8.254999999999999,
-          "voice_microtone": 7.215,
-          "voice_tradition": 4.16,
-          "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 13.129999999999997,
-          "voice_ensemble_config": 9.879999999999999,
-          "voice_ornament_system": 1.24,
-          "voice_pitch_organization": 3.185,
-          "voice_processing_chain": 18.619999999999997,
-          "voice_multitrack_stack": 4.180000000000001
+          "voice_vibrato": 2.34,
+          "voice_articulation": 11.114999999999997,
+          "voice_microtone": 10.919999999999993,
+          "voice_tradition": 11.407499999999999,
+          "voice_mechanism_compound": 4.485,
+          "voice_estill_quality": 4.290000000000001,
+          "voice_speech_song": 16.834999999999997,
+          "voice_ensemble_config": 13.584999999999997,
+          "voice_ornament_system": 2.1449999999999996,
+          "voice_pitch_organization": 3.835,
+          "voice_processing_chain": 16.994999999999997,
+          "voice_multitrack_stack": 4.2250000000000005
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "yamaha_cfx",
           "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "asian_laminated_rim_birch_maple",
-          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 1.77,
+          "keyboard_technique": 0.78,
           "grand_piano_size": 0.845,
           "grand_piano_brand": 1.3900000000000001,
           "piano_hammer": 2.185,
-          "piano_rim": 2.0475000000000003,
-          "piano_soundboard": 1.5750000000000002,
+          "piano_rim": 3.7700000000000005,
+          "piano_soundboard": 2.0799999999999996,
           "piano_pinblock": -0.05,
           "piano_plate": 0.7149999999999999,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 1.4299999999999997
         }
       },
       {
@@ -90,12 +90,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.440000000000001,
+          "amp_make": 3.4850000000000008,
           "body_wood": 1.38,
           "pickup_config": 0.845,
           "string_type": 3.2500000000000004,
           "scale_length_b": 0.6900000000000001,
-          "fretted_or_not": 0.3,
+          "fretted_or_not": 0.65,
           "bass_technique": 6.499999999999999,
           "electric_bass_string_configuration": 0
         }
@@ -105,12 +105,12 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "timbales_shell": "timbales_brass",
-          "timbales_context": "timbales_salsa"
+          "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 4.41,
-          "timbales_shell": 1.935,
-          "timbales_context": 0.15
+          "percussion_technique": 9.579999999999998,
+          "timbales_shell": 2.435,
+          "timbales_context": 0.24
         }
       },
       {
@@ -122,22 +122,22 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 4.41,
-          "conga_set": 0.845,
-          "conga_skin": 8.434999999999999,
-          "conga_shell_wood": 8.434999999999999
+          "percussion_technique": 9.579999999999998,
+          "conga_set": 1.4949999999999999,
+          "conga_skin": 8.934999999999999,
+          "conga_shell_wood": 8.934999999999999
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.79,
-          "drumhead": 1.7700000000000002,
+          "drum_technique": 14.494999999999997,
+          "drumhead": 1.3900000000000001,
           "drum_kit_kick_pedal": 0
         }
       },

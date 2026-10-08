@@ -5,7 +5,7 @@
   "lineage": "Malmin with Åshild Vetrhus — Med Åshild Vetrhus (2025). Present-day authored complete album-palette arrangement, not simultaneous performance on every track. Existing fiddle, Hardanger and Norwegian langeleik construction presets are representative realizations; they do not identify the performers’ actual makes, string materials, sympathetic-string count or instrument regional manufacture. Microtonal guitar/mandolin, octave fiddle and munnharpe retain only their positive nominal identities with unspecified construction. No equal temperament or measured interval system is asserted; global tuning omitted. Bowed local-song melody is an authored technique choice. Studio and recording chain are authored, not reconstruction of Tou lyd.",
   "recipe": "classic mid-2020s rogaland musikk, drone Modal, string branch. solo with instrumental accompaniment, single lead single track no stacking. melodic bowed song accompaniment fiddle, mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian bowed song accompaniment hardanger fiddle inst, microtonal mandolin microtonal guitar munnharpe melodic bowed song accompaniment octave fiddle unspecified, dance driving langeleik. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 550,
-  "score": 43.884,
+  "score": 43.727,
   "config": {
     "traditions": [
       "rogaland_musikk"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 3.3799999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.189,
-          "voice_multitrack_stack": 3.74,
+          "voice_processing_chain": 0.2205,
+          "voice_multitrack_stack": 3.4565,
           "voice_tessitura": 0
         }
       },
@@ -63,8 +63,8 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 3.23,
-          "fiddle_strings": 0.3045,
+          "bowed_technique": 3.3035,
+          "fiddle_strings": 0.273,
           "fiddle_bow": 0,
           "fiddle_mute": 1.9629999999999999,
           "fiddle_articulation": 0.78,
@@ -82,10 +82,10 @@
           "hardingfele_body_wood": "hardingfele_spruce_maple"
         },
         "scores": {
-          "bowed_technique": 3.23,
+          "bowed_technique": 3.3035,
           "hardingfele_strings": 4.29,
           "hardingfele_tuning": 1.17,
-          "hardingfele_strings_material": 0.3045,
+          "hardingfele_strings_material": 0.273,
           "hardingfele_inlay": 3.7700000000000005,
           "hardingfele_body_wood": 2.08
         }
@@ -125,8 +125,8 @@
           "langeleik_strings": "langeleik_steel_brass"
         },
         "scores": {
-          "langeleik_form": 6.273000000000001,
-          "langeleik_repertoire": 6.020500000000001,
+          "langeleik_form": 6.168000000000001,
+          "langeleik_repertoire": 6.062500000000001,
           "langeleik_strings": -0.07
         }
       },
@@ -137,7 +137,7 @@
           "octave_fiddle_unspecified_identity": "octave_fiddle_unspecified_credited"
         },
         "scores": {
-          "bowed_technique": 3.23,
+          "bowed_technique": 3.3035,
           "octave_fiddle_unspecified_identity": 0
         }
       }

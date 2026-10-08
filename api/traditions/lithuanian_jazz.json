@@ -5,7 +5,7 @@
   "lineage": "Lithuanian jazz includes musicians exploring composition and improvisation across acoustic, amplified and experimental settings. Local ensembles connect regional scenes with international jazz practice.",
   "recipe": "classic lithuanian jazz, improv On Frame, American jazz branch. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, humbucker electric guitar, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 349,
-  "score": 81.625,
+  "score": 81.531,
   "config": {
     "traditions": [
       "lithuanian_jazz"
@@ -41,28 +41,28 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
-          "string_tuning": "eb_standard"
+          "string_tuning": "drop_c"
         },
         "scores": {
           "electric_technique": -0.05,
           "amp_make": 1.6899999999999997,
-          "body_wood": 0.9135,
-          "neck_wood": 0.21,
+          "body_wood": 0.9764999999999999,
+          "neck_wood": 0.2415,
           "fretboard": 0.34650000000000003,
-          "pickup_magnet": 0.5985,
-          "pickup_winding": 0.5017499999999999,
+          "pickup_magnet": 0.63,
+          "pickup_winding": 0.49349999999999994,
           "string_material": 0.34650000000000003,
-          "bridge": 0.33375,
-          "scale_length": 0.7979999999999999,
-          "string_gauge": 0.693,
+          "bridge": 0.2415,
+          "scale_length": 0.8924999999999998,
+          "string_gauge": 0.6194999999999999,
           "finish": 0,
-          "string_tuning": 0.8643749999999999
+          "string_tuning": 0.7244999999999999
         }
       },
       {

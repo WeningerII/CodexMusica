@@ -5,7 +5,7 @@
   "lineage": "Persian-language music of Tajikistan spanning the Bukharan classical falak and shashmaqam repertory and the Pamiri highland maddoh devotional song, transmitted through hereditary ustod lineages and documented from the 1930s by Soviet folklorists — sato bowed long-necked lute and rubab plucked lute with ghijak, doira and daf, over a plaintive high-register solo voice whose falak laments use free-rhythm melisma before settling into a fast doira usul.",
   "recipe": "classic Central Asian mid-1930s tajik traditional music, art Music, middle eastern classical branch, Sufi ritual devotional, middle eastern funeral lament sindhi latmiya. sygyt, declaimed, slow rate, interlocked note trading. mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, devotional ornamented lead melodic rubab, sustained legato ghijak pamiri, doira frame drum, walnut bent frame canonical Persian daf, nay tajik. bukhara shashmaqam courtyard chamber. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 574,
-  "score": 241.731,
+  "score": 238.431,
   "config": {
     "traditions": [
       "tajik_traditional",
@@ -21,9 +21,9 @@
           "sato_tradition": "sato_shashmaqam_canonical"
         },
         "scores": {
-          "bowed_technique": 7.299999999999999,
-          "sato_body": 3.7089999999999996,
-          "sato_tradition": 4.9399999999999995
+          "bowed_technique": 7.344999999999999,
+          "sato_body": 4.0089999999999995,
+          "sato_tradition": 4.895
         }
       },
       {
@@ -35,7 +35,7 @@
         },
         "scores": {
           "rubab_form": 4.485,
-          "rubab_style": 3.33,
+          "rubab_style": 3.135,
           "rubab_strings": -0.035
         }
       },
@@ -47,21 +47,21 @@
           "ghijak_pamiri_style": "ghijak_pamiri_ensemble"
         },
         "scores": {
-          "bowed_technique": 7.299999999999999,
+          "bowed_technique": 7.344999999999999,
           "ghijak_pamiri_body": 0.3,
-          "ghijak_pamiri_style": 1.09
+          "ghijak_pamiri_style": 1.045
         }
       },
       {
         "id": "doira_frame_drum",
         "slots": {
           "doira_jingles": "doira_ringless",
-          "doira_technique": "doira_roll",
+          "doira_technique": "doira_usul",
           "doira_head": "doira_goatskin"
         },
         "scores": {
           "doira_jingles": 0.045,
-          "doira_technique": 0.6299999999999999,
+          "doira_technique": 0.045,
           "doira_head": 0
         }
       },
@@ -76,10 +76,10 @@
         },
         "scores": {
           "daf_rings": 1.885,
-          "daf_context": 10.179499999999999,
+          "daf_context": 9.7745,
           "daf_shell_wood": 1.69,
-          "daf_head_material": 0.65,
-          "daf_jingle_metal": 0.43499999999999994
+          "daf_head_material": 0.5,
+          "daf_jingle_metal": 0.38999999999999996
         }
       },
       {
@@ -103,20 +103,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.0944999999999998,
-          "voice_quality": 15.189499999999997,
+          "voice_register": 1.1394999999999997,
+          "voice_quality": 14.949499999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.4545,
+          "voice_vibrato": 9.2145,
           "voice_articulation": 17.419999999999995,
           "voice_microtone": 25.479999999999997,
-          "voice_tradition": 17.060000000000002,
-          "voice_mechanism_compound": 14.915000000000001,
-          "voice_estill_quality": 10.459499999999997,
+          "voice_tradition": 16.19,
+          "voice_mechanism_compound": 14.675,
+          "voice_estill_quality": 10.714499999999996,
           "voice_speech_song": 20.279999999999998,
           "voice_ensemble_config": 19.694999999999997,
-          "voice_ornament_system": 15.395000000000001,
-          "voice_pitch_organization": 15.770000000000001,
+          "voice_ornament_system": 14.975000000000001,
+          "voice_pitch_organization": 15.17,
           "voice_processing_chain": 5.329999999999999,
           "voice_multitrack_stack": 5.265000000000001
         }
@@ -128,8 +128,8 @@
           "nay_tajik_style": "nay_tajik_shashmaqom"
         },
         "scores": {
-          "nay_tajik_form": 1.09,
-          "nay_tajik_style": 0.3
+          "nay_tajik_form": 1.135,
+          "nay_tajik_style": 0.345
         }
       }
     ],

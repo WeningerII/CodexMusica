@@ -5,7 +5,7 @@
   "lineage": "Botswana hip hop connects local rappers, producers and DJs through national recording, radio and club networks, with close exchanges across southern Africa.",
   "recipe": "classic botswana hip hop, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 142,
-  "score": 2.022,
+  "score": 2.053,
   "config": {
     "traditions": [
       "botswana_hip_hop"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3315,
+          "voice_articulation": 0.363,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,

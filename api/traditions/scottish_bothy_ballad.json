@@ -3,14 +3,14 @@
   "name": "Scottish bothy ballad (Northeast farm-laborer drinking-song)",
   "family": "global",
   "lineage": "Scottish bothy-ballad tradition continuous from 19th-century Northeast-Scotland Aberdeenshire-and-Moray farm-laborer (bothy = \"farm-laborer's outbuilding\") drinking-and-grievance-song tradition through 20th-century revival into modern Scottish-folk-revival continuous practice; the bothy-ballads document farm-laborer drinking-and-courting-and-employer-grievance life in agricultural-Scotland 1840s-1900s",
-  "recipe": "classic mid-1840s scottish bothy ballad, drinking Song, European branch, Slavic balkan field work, Celtic balladic ballad poetry, European protest song sean-nós singing sean-nós solo singing. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning coated nanoweb fingerpicked acoustic guitar, magic rosin modern acrylic base fiddle. irish pub. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 449,
-  "score": 211.545,
+  "recipe": "classic mid-1840s scottish bothy ballad, drinking Song, European branch, Slavic balkan field work, Celtic balladic ballad poetry, European protest song sean-nós solo singing newfoundland traditional song and dance music. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning coated nanoweb fingerpicked acoustic guitar, magic rosin modern acrylic base fiddle. irish pub. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 478,
+  "score": 211.718,
   "config": {
     "traditions": [
       "scottish_bothy_ballad",
-      "sean_nos_singing",
-      "sean_nos_solo"
+      "sean_nos_solo",
+      "newfoundland_folk"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.57,
-          "voice_quality": 8.71,
+          "voice_register": 6.695,
+          "voice_quality": 7.41,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3975,
-          "voice_articulation": 15.859999999999994,
-          "voice_microtone": 17.354999999999993,
-          "voice_tradition": 33.87625,
-          "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 24.374999999999996,
-          "voice_ensemble_config": 15.794999999999993,
-          "voice_ornament_system": 31.133125,
+          "voice_vibrato": 3.2137500000000006,
+          "voice_articulation": 18.134999999999998,
+          "voice_microtone": 18.979999999999997,
+          "voice_tradition": 30.901249999999997,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 3.8675000000000006,
+          "voice_speech_song": 25.35,
+          "voice_ensemble_config": 18.46,
+          "voice_ornament_system": 27.208125,
           "voice_pitch_organization": 3.769999999999999,
-          "voice_processing_chain": 1.8199999999999998,
-          "voice_multitrack_stack": 2.145
+          "voice_processing_chain": 2.8599999999999994,
+          "voice_multitrack_stack": 2.0799999999999996
         }
       },
       {
@@ -62,29 +62,29 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 20.224999999999994,
+          "string_tuning": 19.224999999999994,
           "top_wood": 0.9099999999999999,
           "back_sides": 0.9099999999999999,
-          "string_acoustic": 2.19,
-          "acoustic_om_technique": 13.675
+          "string_acoustic": 1.8399999999999999,
+          "acoustic_om_technique": 12.625
         }
       },
       {
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_celtic_session",
-          "fiddle_strings": "gut_wound",
+          "fiddle_strings": "silver_wound_lamb_gut_fiddle",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "practice_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 8.92,
-          "fiddle_strings": 0.050624999999999996,
+          "bowed_technique": 6.819999999999999,
+          "fiddle_strings": 0.12999999999999998,
           "fiddle_bow": 2.2750000000000004,
           "fiddle_mute": 0.8225,
-          "fiddle_articulation": 0.585,
+          "fiddle_articulation": 0.78,
           "fiddle_string_configuration": 0
         }
       }

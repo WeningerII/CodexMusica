@@ -5,7 +5,7 @@
   "lineage": "Singaporean singer-songwriters work across languages and acoustic, pop and theatrical forms. Dick Lee’s piano-based songcraft exemplifies a strand connecting personal authorship with the country’s wider stage and recording culture.",
   "recipe": "classic modern singaporean singer-songwriter, ballad Poetry. thick, incomplete closure resting, straight note core, neutral third half flat. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 376,
-  "score": 43.622,
+  "score": 43.39,
   "config": {
     "traditions": [
       "singaporean_singer_songwriter"
@@ -36,16 +36,16 @@
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1350000000000002,
+          "voice_vibrato": 3.1635,
           "voice_articulation": 0.13000000000000003,
           "voice_microtone": 4.680000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 4.015000000000001,
+          "voice_estill_quality": 3.853,
           "voice_speech_song": 4.875,
           "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 2.0839999999999996,
-          "voice_pitch_organization": 0.19500000000000003,
+          "voice_ornament_system": 2.03,
+          "voice_pitch_organization": 0.15000000000000002,
           "voice_processing_chain": 1.234,
           "voice_multitrack_stack": 0.78
         }

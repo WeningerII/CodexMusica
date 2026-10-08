@@ -1,0 +1,280 @@
+{
+  "id": "lehakot_tzvaiyot",
+  "name": "Lehakot tzva'iyot (Israeli army entertainment troupes)",
+  "family": "pop",
+  "lineage": "Entertainment troupes of the Israel Defense Forces, beginning with the Nahal troupe founded in 1950 and followed by the Central Command, Northern Command, Navy and other unit troupes, in which conscript singers performed songs, sketches and choreographed numbers for soldiers and civilian audiences. Songwriters including Naomi Shemer and Yair Rosenblum wrote for them, their LPs on Hed Arzi and CBS Israel carried the songs to radio from the 1950s to the 1970s, and many Israeli popular singers began their careers in them.",
+  "recipe": "classic mid-1950s lehakot tzva'iyot, functional Song, pop rock branch. accordion, acoustic guitar, upright piano, upright bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 347,
+  "score": 24.806,
+  "config": {
+    "traditions": [
+      "lehakot_tzvaiyot"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_homophonic_block",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.13000000000000003,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1575,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "accordion_reed_material": 0.2625,
+          "musette_offset": 0.189,
+          "reed_config": 0,
+          "bellows": 0,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "silk_steel_om",
+          "acoustic_om_technique": "om_strummed_open"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": -0.035,
+          "string_acoustic": 0,
+          "acoustic_om_technique": -0.035
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0.16799999999999998,
+          "upright_piano_size": 0
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0.0315,
+          "upright_play": -0.05
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered"
+        },
+        "scores": {
+          "drum_technique": 3.7815,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0,
+          "shell_thickness": 0,
+          "bearing_edges": -1.332,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 10.5125,
+          "cymbal_lathing": 10.439,
+          "cymbal_finish": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ],
+      "acoustic_guitar_om": [
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_churubusco_ranchera_bolero",
+    "inline_chain": {
+      "mic": "mic_u67_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_homophonic_block",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "free_reed_technique": "free_reed_chordal_chugging",
+      "accordion_reed_material": "tipo_a_mano",
+      "musette_offset": "dry_tuning",
+      "reed_config": "lmm",
+      "bellows": "cardboard_leather",
+      "voicing_chamber": "cassotto",
+      "accordion_maker_school": "accordion_maker_unspecified",
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top_om",
+      "back_sides": "rosewood_bs_om",
+      "string_acoustic": "silk_steel_om",
+      "acoustic_om_technique": "om_strummed_open",
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "upright_strings": "steel_upright",
+      "upright_play": "pizz_upright",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "hand_hammered"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_u67_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

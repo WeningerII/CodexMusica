@@ -5,7 +5,7 @@
   "lineage": "Swiss punk develops through independent local bands and collective performance networks.",
   "recipe": "classic swiss punk, distorted Rock, punk branch. group vocals. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 336,
-  "score": 37.889,
+  "score": 38.309,
   "config": {
     "traditions": [
       "swiss_punk"
@@ -31,13 +31,13 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 13.129999999999999,
-          "body_wood": 1.2194999999999998,
+          "body_wood": 1.2930000000000001,
           "neck_wood": 0.063,
-          "fretboard": 0.1425,
+          "fretboard": 0.279,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.1425,
+          "bridge": 0.279,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.2194999999999998,
+          "body_wood": 1.2930000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

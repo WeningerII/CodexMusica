@@ -5,7 +5,7 @@
   "lineage": "Tamil-language hip-hop connects MCs and beat producers across South India and diaspora networks.",
   "recipe": "classic modern tamil hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 309,
-  "score": 26.703,
+  "score": 26.706,
   "config": {
     "traditions": [
       "tamil_hip_hop"
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": -0.05,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

@@ -8,7 +8,8 @@
 // when a saved session needs it to draw). Step 10 moved the two render tables
 // (each tradition's signature, and how common each descriptor is) into that
 // file too, and the genre tree's node descriptions into api/browse_prose.json:
-// the page went to 354,872. Nothing else holds the page to that size.
+// the page went to 354,872 (355,196 once the catalog's gap fill and merge
+// landed beside it). Nothing else holds the page to that size.
 // build_html --check caps each <script> block at the renderer's 1 MiB parse
 // ceiling and proves the engine slots are empty, and check_lazy_app proves the
 // first view makes no engine accessor read; all of it passes on a page that
@@ -22,7 +23,7 @@
 // not a transfer size.
 //
 //   page         codex.html                                  <=   389,120 (380 KiB)
-//   critical     codex.html + api/browse_boot.json            <=   655,360 (640 KiB)
+//   critical     codex.html + api/browse_boot.json            <=   710,656 (694 KiB)
 //                — the two transfers the first view waits for, each gzipped
 //                on its own, as each is served
 //   inline-data  every labelled data <script> block of the    <=    86,016 (84 KiB)
@@ -35,7 +36,7 @@
 //                — not on the first view's path, but a restored session's
 //                first draw and every action that creates a card wait for it
 //                (Engine in src/app.js)
-//   add-path     codex.html + api/browse_boot.json            <= 1,318,912 (1,288 KiB)
+//   add-path     codex.html + api/browse_boot.json            <= 1,399,808 (1,367 KiB)
 //                + api/engine.json, each gzipped on its own
 //                — everything an early Add, or a restored session's first
 //                draw, has to download before it can finish. Step 10 was held
@@ -43,23 +44,31 @@
 //                that bar in bytes. A page that only moves its
 //                bytes into api/engine.json passes the page budget and fails
 //                this one: the two render tables written there plain, not
-//                through scripts/_engine_codec.js, measure 1,354,560.
+//                through scripts/_engine_codec.js, measure 1,440,962.
 //
-// WHERE THE NUMBERS CAME FROM. Step 10 as built (2026-10-08) measures page
+// WHERE THE NUMBERS CAME FROM. Step 10 as built (2026-10-08) measured page
 // 354,962, critical 592,076, inline-data 74,529, engine 690,355 and add-path
-// 1,282,431. Step 10 lowered the page, critical and inline-data limits to a
-// whole number of KiB above those figures (9.6%, 10.7% and 15.4% headroom)
-// and add-path to the KiB nearest the middle between the build and the
-// two tables written plain (2.8% headroom), each low enough that what step 10
-// took out cannot come back unseen: the page's 34,158 B of headroom is less
-// than either render table's src/app.js mirror would add back (about 43 KB
-// and 74 KB gzipped), inline-data's 11,487 less than the tree's node
-// descriptions (about 32 KB), and add-path's 36,481 about half of what the two
-// tables written plain would cost (72,222): a drift of a few KB either way
-// neither fails step 10 nor lets that plain write through (faults.js 10q).
-// Main before step 10 (44527a805) measures page 505,627, critical 742,741,
-// inline-data 106,870, engine 654,769 and add-path 1,397,510: it fails all
-// four of those budgets, and must. The engine limit is step 9's, unchanged:
+// 1,282,431. Merged with main's catalog gap fill and duplicate merge (7,755
+// traditions; their signatures now come from references/10_tradition_signatures.js),
+// it measures page 355,196, critical 645,681, inline-data 74,525, engine
+// 712,192 and add-path 1,357,873, and the limits were re-derived from those
+// by step 10's rule: the page, critical and inline-data limits a whole number
+// of KiB above the figures (9.6%, 10.1% and 15.4% headroom), and add-path the
+// KiB nearest the middle between the build and the two tables written plain
+// (3.1% headroom), each low enough that what step 10 took out cannot come
+// back unseen: the page's 33,924 B of headroom is less than either render
+// table would add back (the signatures' references file 74,373 B gzipped, the
+// frequencies' src/app.js mirror 75,454), inline-data's 11,491 less than the
+// tree's node descriptions (33,502), and add-path's 41,935 about half of what
+// the two tables written plain would cost (83,089): a drift of a few KB
+// either way neither fails step 10 nor lets that plain write through
+// (faults.js 10q). Main before step 10 (97c52d26f) measures page 462,992,
+// critical 753,477, inline-data 106,896, engine 729,821 and add-path
+// 1,483,298: it fails all four of those budgets, and must. Critical and
+// add-path sit above step 10's pre-merge limits (655,360 and 1,318,912), set
+// before the catalog grew the boot index by 53 KB gzipped and the signatures
+// by 22 KB; against main's own (critical 778,240, no add-path) every limit
+// here is lower or new. The engine limit is step 9's, unchanged:
 // the step-9 prototype's 713,289 plus headroom, rounded up to a multiple of
 // 20 KiB. The step-8 page, with the engine inline, measures 1,155,985 /
 // 1,391,523 / 769,171 and has no engine file; it fails here too.
@@ -117,10 +126,10 @@ const ROOT = path.join(__dirname, '..');
 // Raising one of these needs a cited Lighthouse run: see the header.
 const BUDGETS = {
   page: 389120,
-  critical: 655360,
+  critical: 710656,
   'inline-data': 86016,
   engine: 778240,
-  'add-path': 1318912,
+  'add-path': 1399808,
 };
 const TOP = 5;
 

@@ -3,20 +3,20 @@
   "name": "Theravada Pali chant",
   "family": "global",
   "lineage": "Sri Lankan / Burmese / Thai / Cambodian / Lao Theravada Buddhist scriptural-recitation tradition — the liturgical practice of reciting the Tipitaka (the Pali-language scripture-corpus codified at the First Buddhist Council c. 480 BCE) in slow modal melismatic chant; performed by monks in temple wat / vihara contexts at morning and evening services, festival celebrations (Vesak, Kathina), and ceremonial-meditational practice",
-  "recipe": "classic Southeast Asian modern theravada pali chant, ritual Devotional, buddhist branch, southeast Asian art music thai classical vietnamese quan họ bắc ninh. vocal fry, breath veiled tone, slow rate, interlocked note trading. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 384,
-  "score": 182.433,
+  "recipe": "classic Southeast Asian modern theravada pali chant, ritual Devotional, buddhist branch, southeast Asian art music vietnamese quan họ bắc ninh sepha. kargyraa, breath veiled tone, slow rate, interlocked note trading. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 374,
+  "score": 132.46,
   "config": {
     "traditions": [
       "theravada_pali_chant",
-      "thai_classical",
-      "vietnamese_quan_ho"
+      "vietnamese_quan_ho",
+      "sepha_thai"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "kargyraa_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.885,
-          "voice_quality": 21.514999999999997,
+          "voice_register": 1.9499999999999997,
+          "voice_quality": 17.419999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.822499999999996,
-          "voice_articulation": 16.12,
-          "voice_microtone": 17.874999999999996,
-          "voice_tradition": 20.214999999999996,
-          "voice_mechanism_compound": 6.774999999999997,
-          "voice_estill_quality": 9.457499999999996,
-          "voice_speech_song": 19.825,
-          "voice_ensemble_config": 17.355,
-          "voice_ornament_system": 6.774999999999998,
-          "voice_pitch_organization": 23.709999999999997,
-          "voice_processing_chain": 7.605,
-          "voice_multitrack_stack": 5.785000000000001
+          "voice_vibrato": 7.3774999999999995,
+          "voice_articulation": 10.854999999999997,
+          "voice_microtone": 12.609999999999994,
+          "voice_tradition": 14.592499999999998,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 7.052500000000001,
+          "voice_speech_song": 13.584999999999999,
+          "voice_ensemble_config": 11.829999999999997,
+          "voice_ornament_system": 4.525,
+          "voice_pitch_organization": 18.21,
+          "voice_processing_chain": 8.32,
+          "voice_multitrack_stack": 3.5100000000000002
         }
       }
     ],

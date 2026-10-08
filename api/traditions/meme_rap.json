@@ -5,7 +5,7 @@
   "lineage": "Meme rap is an internet-circulation and comic-performance discovery category. Yung Gravy’s retro-sample/trap branch is a documented example, while the artist notes that the label does not describe every creative intention.",
   "recipe": "classic modern meme rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, echo word punctuation. sampler, TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 304,
-  "score": 43.818,
+  "score": 43.612,
   "config": {
     "traditions": [
       "meme_rap"
@@ -46,8 +46,8 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 6.710000000000001
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 6.741500000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.2,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.1365,
+          "electronic_technique": 2.2315,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.0315,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 5.785
         }
@@ -76,8 +76,8 @@
         },
         "scores": {
           "tr808_voice": 2.3235,
-          "drum_machine_808_context": 0.588,
-          "tr808_production_origin": 0
+          "drum_machine_808_context": 0.3464999999999999,
+          "tr808_production_origin": 0.0315
         }
       }
     ],

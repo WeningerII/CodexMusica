@@ -5,7 +5,7 @@
   "lineage": "British scene-origin power metal represented by London-founded DragonForce. The authored historical keyboard-and-guitar branch combines rapid lead exchange, melodic choruses and a full rhythm section.",
   "recipe": "classic modern british power metal, distorted Rock, power branch. equal tempered, single lead single track no stacking. humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 421,
-  "score": 30.587,
+  "score": 31.382,
   "config": {
     "traditions": [
       "british_power_metal"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0,
-          "neck_wood": 0.063,
+          "body_wood": 0.0315,
+          "neck_wood": 0.16799999999999998,
           "fretboard": 0.168,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0.063,
+          "string_material": 0.16799999999999998,
           "bridge": 0,
           "scale_length": 0,
           "string_gauge": 1.3,
           "finish": 0.0315,
-          "string_tuning": 0.2205
+          "string_tuning": 0.189
         }
       },
       {
@@ -58,9 +58,9 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.0315,
           "pickup_config": 0,
-          "string_type": 0.063,
+          "string_type": 0.16799999999999998,
           "scale_length_b": 0,
           "fretted_or_not": 0,
           "bass_technique": 4.3045,
@@ -84,13 +84,13 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.0735,
+          "drumhead": 0.147,
           "drum_kit_kick_pedal": 1.69,
-          "shell_wood": 0.063,
+          "shell_wood": 0.16799999999999998,
           "shell_thickness": 0,
-          "bearing_edges": 0.063,
+          "bearing_edges": 0.16799999999999998,
           "snare_wires": 0,
-          "cymbal_alloy": -0.1685,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.6815,
           "cymbal_lathing": 4.7445,
           "cymbal_finish": 0
@@ -127,12 +127,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3675,
+          "voice_speech_song": 0.4725,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.363,
-          "voice_multitrack_stack": 1.9255
+          "voice_processing_chain": 0.3315,
+          "voice_multitrack_stack": 1.957
         }
       },
       {
@@ -144,7 +144,7 @@
           "rompler_lineage": "rompler_korg_triton_extreme"
         },
         "scores": {
-          "electronic_technique": 1.8255,
+          "electronic_technique": 1.857,
           "rompler_preset_bank": 0,
           "rompler_context": 0,
           "rompler_lineage": 0.663

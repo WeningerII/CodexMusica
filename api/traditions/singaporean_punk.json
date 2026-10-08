@@ -5,7 +5,7 @@
   "lineage": "Singaporean punk includes melodic bands linking emo and math-pop within local independent scenes.",
   "recipe": "classic singaporean punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 353,
-  "score": 39.018,
+  "score": 38.472,
   "config": {
     "traditions": [
       "singaporean_punk"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": -0.15000000000000002,
           "amp_make": 13.129999999999999,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "neck_wood": 0.063,
           "fretboard": 0.273,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

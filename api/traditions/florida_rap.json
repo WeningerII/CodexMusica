@@ -5,7 +5,7 @@
   "lineage": "Florida rap encompasses several local scenes and production approaches. Carol City’s Denzel Curry exemplifies a forceful, flexible vocal strand, including sample-collage collaborations with Kenny Beats.",
   "recipe": "classic modern florida rap, mc Rhythm, southern branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 284,
-  "score": 34.877,
+  "score": 34.584,
   "config": {
     "traditions": [
       "florida_rap"
@@ -34,16 +34,16 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 12.2045,
+          "voice_quality": 12.004999999999999,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.3315,
+          "voice_effort": 0.3,
           "voice_vibrato": 0,
           "voice_articulation": 0.3,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.713499999999998,
+          "voice_speech_song": 11.681999999999999,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,7 +62,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.7775,
+          "electronic_technique": 2.7460000000000004,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.9555,
           "sampler_workflow": -0.1,

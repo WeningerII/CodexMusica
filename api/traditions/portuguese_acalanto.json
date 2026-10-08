@@ -3,14 +3,14 @@
   "name": "Portuguese acalanto (cradle song)",
   "family": "global",
   "lineage": "Portuguese cradle-song tradition continuous from medieval-and-early-modern Iberian cradle-song practice through 19th-century Romantic folksong collection and into modern Lusophone domestic practice in Portugal and Lusophone Africa",
-  "recipe": "classic modern portuguese acalanto, lullaby, European branch, Mediterranean ballad ballad poetry, iberian functional song, chanson fado ballad poetry portuguese folk. thick, lament wail, straight onset, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 309,
-  "score": 137.577,
+  "recipe": "classic modern portuguese acalanto, lullaby, European branch, Mediterranean ballad ballad poetry, iberian functional song, chanson fado ballad poetry portuguese folk nouvelle chanson française. thick, lament wail, straight onset, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 336,
+  "score": 127.095,
   "config": {
     "traditions": [
       "portuguese_acalanto",
-      "chanson",
-      "portuguese_folk"
+      "portuguese_folk",
+      "nouvelle_chanson_francaise"
     ],
     "instruments": [
       {
@@ -23,9 +23,9 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "flamenco_jondo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.3949999999999996,
-          "voice_quality": 8.935,
+          "voice_register": 1.9699999999999998,
+          "voice_quality": 6.81,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2350000000000003,
-          "voice_articulation": 20.215,
-          "voice_microtone": 20.994999999999997,
-          "voice_tradition": 9.33,
-          "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 28.275,
-          "voice_ensemble_config": 21.19,
+          "voice_articulation": 18.98,
+          "voice_microtone": 20.41,
+          "voice_tradition": 7.72,
+          "voice_mechanism_compound": 3.3149999999999995,
+          "voice_estill_quality": 2.6000000000000005,
+          "voice_speech_song": 28.404999999999998,
+          "voice_ensemble_config": 19.5,
           "voice_ornament_system": 7.574999999999999,
-          "voice_pitch_organization": 5.325,
-          "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 5.3950000000000005
+          "voice_pitch_organization": 4.000000000000001,
+          "voice_processing_chain": 3.77,
+          "voice_multitrack_stack": 4.355
         }
       }
     ],

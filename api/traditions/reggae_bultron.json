@@ -3,53 +3,53 @@
   "name": "Reggae Bultrón",
   "family": "global",
   "lineage": "Puerto Rican underground style of the mid-to-late 1990s San Juan marquesina and caserío scene, codified by DJ Nelson (Reggae Bultrón, 1997), DJ Playero and DJ Negro out of the earlier Playero mixtape series — Jamaican dancehall riddims (Dem Bow, Bam Bam) re-sequenced on hardware samplers at 90-100 BPM under Spanish-language duo toasting, with heavily gated kick-and-tresillo snare, sirens, gunshot stabs and cassette-generation hiss.",
-  "recipe": "classic 1997-1999 reggae bultrón, mc Rhythm, reggaeton branch, Jamaican bass system, Afro-diasporic MC rhythm dancehall queen ragga. extended whistle, breath veiled tone, slow rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampler, turntable, low sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
-  "recipe_chars": 585,
-  "score": 176.797,
+  "recipe": "classic 1997-1999 reggae bultrón, mc Rhythm, reggaeton branch, Jamaican bass system, Afro-diasporic MC rhythm funk consciente ragga. thick, breath veiled tone, slow rate, interlocked note trading. TR-808, sampler, turntable, low sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 530,
+  "score": 178.877,
   "config": {
     "traditions": [
       "reggae_bultron",
-      "dancehall_queen_style",
+      "funk_consciente",
       "ragga"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.3975,
-          "voice_quality": 9.165000000000001,
+          "voice_register": 1.4099999999999995,
+          "voice_quality": 8.775,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.015,
-          "voice_articulation": 16.89999999999999,
-          "voice_microtone": 16.50999999999999,
-          "voice_tradition": 4.210000000000001,
-          "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 17.09499999999999,
-          "voice_ensemble_config": 16.054999999999993,
-          "voice_ornament_system": 4.42,
-          "voice_pitch_organization": 1.7249999999999996,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 4.030000000000001
+          "voice_vibrato": 2.21,
+          "voice_articulation": 16.704999999999995,
+          "voice_microtone": 16.11999999999999,
+          "voice_tradition": 4.655,
+          "voice_mechanism_compound": 5.005000000000001,
+          "voice_estill_quality": 3.575000000000001,
+          "voice_speech_song": 16.899999999999995,
+          "voice_ensemble_config": 15.664999999999994,
+          "voice_ornament_system": 4.215000000000001,
+          "voice_pitch_organization": 1.875,
+          "voice_processing_chain": 4.875,
+          "voice_multitrack_stack": 4.550000000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.55,
-          "drum_machine_808_context": 4.81,
-          "tr808_production_origin": 2.34
+          "tr808_voice": 5.1675,
+          "drum_machine_808_context": 4.68,
+          "tr808_production_origin": 0.845
         }
       },
       {
@@ -75,22 +75,22 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.3499999999999999,
+          "electronic_technique": 1.4249999999999998,
           "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 1.56,
-          "sampler_workflow": 0.26,
-          "sampler_classic_context": 20.279999999999994
+          "sampler_bit_depth": 1.7249999999999999,
+          "sampler_workflow": 0.8125,
+          "sampler_classic_context": 21.059999999999995
         }
       },
       {
         "id": "turntable",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_chirp_baby"
+          "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 1.3499999999999999,
-          "turntable_technique": 0.195
+          "electronic_technique": 1.4249999999999998,
+          "turntable_technique": 0.6149999999999999
         }
       },
       {
@@ -102,7 +102,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 4.8100000000000005,
+          "electronic_technique": 5.427500000000001,
           "poly_archetypes": 0.28500000000000003,
           "poly_voices": 0.135,
           "poly_maker_lineage": -0.5549999999999999
@@ -121,13 +121,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.135,
-          "body_wood": 2.08,
+          "amp_make": 5.005000000000001,
+          "body_wood": 2.23,
           "pickup_config": 0.495,
-          "string_type": 6.175,
-          "scale_length_b": 1.885,
+          "string_type": 6.240000000000001,
+          "scale_length_b": 2.035,
           "fretted_or_not": 0.195,
-          "bass_technique": 8.67,
+          "bass_technique": 8.295,
           "electric_bass_string_configuration": 0
         }
       }

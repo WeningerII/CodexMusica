@@ -1,0 +1,84 @@
+{
+  "id": "gender_wayang",
+  "name": "Gender wayang (Balinese shadow-play metallophone quartet)",
+  "family": "classical",
+  "lineage": "Quartet of ten-keyed bronze gender metallophones in slendro, two larger pemade and two smaller kantilan an octave higher (here the gender card and the kantilan card for the smaller pair), each player striking with a mallet in each hand and damping with the same hands. It accompanies wayang kulit shadow-puppet plays and also plays for tooth-filing and cremation rites; Sukawati and Kayumas are noted centres.",
+  "recipe": "classic modern gender wayang, art Music, southeast Asian branch. quartet wayang puppet gender, kantilan. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 184,
+  "score": 10.076,
+  "config": {
+    "traditions": [
+      "gender_wayang"
+    ],
+    "instruments": [
+      {
+        "id": "gender",
+        "slots": {
+          "gender_use": "gender_balinese",
+          "gender_tuning": "gender_slendro"
+        },
+        "scores": {
+          "gender_use": 5.4095,
+          "gender_tuning": 2.6
+        }
+      },
+      {
+        "id": "kantilan",
+        "slots": {
+          "kantilan_build": "kantilan_bronze_octave_above",
+          "kantilan_technique": "kantilan_kotekan",
+          "kantilan_pairing": "kantilan_paired_ombak"
+        },
+        "scores": {
+          "kantilan_build": 0.273,
+          "kantilan_technique": 0.105,
+          "kantilan_pairing": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "gender": [
+        "gender_use",
+        "gender_tuning"
+      ],
+      "kantilan": [
+        "kantilan_build",
+        "kantilan_technique",
+        "kantilan_pairing"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "gamelan_slendro",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "gamelan_slendro",
+    "room": "field_recording",
+    "parts": {
+      "gender_use": "gender_balinese",
+      "gender_tuning": "gender_slendro",
+      "kantilan_build": "kantilan_bronze_octave_above",
+      "kantilan_technique": "kantilan_kotekan",
+      "kantilan_pairing": "kantilan_paired_ombak"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Dream Box — Stories To Tell (2016), complete album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic mid-2010s rome indie, distorted Rock, alternative branch. humbucker electric guitar, electronic keyboard unspecified, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 360,
-  "score": 27.285,
+  "score": 27.915,
   "config": {
     "traditions": [
       "rome_indie"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 0.273,
+          "voice_speech_song": 0.483,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.441,
-          "neck_wood": 0.5775,
+          "body_wood": 0.546,
+          "neck_wood": 0.6825000000000001,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 1.8730000000000002,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 1.768,
           "finish": 0,
           "string_tuning": 0
         }
@@ -110,7 +110,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.441,
+          "body_wood": 0.546,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -140,7 +140,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 6.9315,

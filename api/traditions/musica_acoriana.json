@@ -5,7 +5,7 @@
   "lineage": "Azorean music, connecting island song and plucked-string traditions with contemporary ensemble writing.",
   "recipe": "classic música açoriana, functional Song. solo with instrumental accompaniment. acoustic guitar, upright bass, a 440 modern pitch us standard grand piano, violin orchestral, plucked chordal viola da terra, credited auxiliary percussion, twelve string paired courses high pitched ringing fado lisboa tradition guitarra portuguesa. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 428,
-  "score": 6.581,
+  "score": 6.719,
   "config": {
     "traditions": [
       "musica_acoriana"
@@ -96,9 +96,9 @@
         "scores": {
           "keyboard_technique": -0.05,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.40950000000000003,
+          "grand_piano_brand": 0.4635,
           "piano_hammer": -0.1,
-          "piano_rim": -0.1,
+          "piano_rim": -0.07,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
@@ -126,7 +126,7 @@
           "orch_back_wood": -0.1,
           "orch_varnish": -0.1,
           "orch_setup_period": 0.2,
-          "orch_bow": 0.1365,
+          "orch_bow": 0.1905,
           "orch_bow_stick": -0.15000000000000002,
           "orch_articulation": 0,
           "orch_rosin": -0.1

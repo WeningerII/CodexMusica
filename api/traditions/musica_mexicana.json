@@ -5,7 +5,7 @@
   "lineage": "Streaming-era umbrella term adopted around 2020-2023 for the whole modern regional-Mexican field — banda sinaloense, norteño-sax, sierreño, mariachi-pop and corridos tumbados marketed together out of Culiacán, Guadalajara and Los Angeles by labels such as Rancho Humilde, Street Mob and Fonovisa — unified by 2/4 polka and 3/4 vals frames, tuba or tololoche bass on the downbeat with bajo sexto offbeats, twin-trumpet or requinto lead lines, and plain-toned chest-voice duet singing in close thirds",
   "recipe": "classic 2020-2023 música mexicana, functional Song, Mexican branch, tejano border corrido, tejano border ranchera corridos tumbados. thick, full chest belt, straight onset, interlocked note trading. compact tuba brass yellow brass canonical orchestral rotary valves canonical German orchestral yamaha ybb 841 modern Japanese tuba, nickel wound modern tejano bajo sexto, castagnari Italian premium folk music chordal accordion, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese unison standard rim orchestral balance trumpet, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana, cedar caoba paracho nylon treble steel bass guitarron mexicano, cedar concert modern carbon fiber strummed open chord ringing overtones classical nylon-string guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 996,
-  "score": 312.127,
+  "score": 312.131,
   "config": {
     "traditions": [
       "musica_mexicana",
@@ -41,7 +41,7 @@
           "voice_vibrato": 4.1765,
           "voice_articulation": 19.044999999999995,
           "voice_microtone": 18.849999999999994,
-          "voice_tradition": 11.44,
+          "voice_tradition": 11.544999999999998,
           "voice_mechanism_compound": 4.68,
           "voice_estill_quality": 12.389999999999997,
           "voice_speech_song": 29.6725,
@@ -82,9 +82,9 @@
         },
         "scores": {
           "plucked_traditional_technique": 2.925,
-          "bajo_courses": 11,
+          "bajo_courses": 11.1365,
           "bajo_top": 0.39,
-          "bajo_strings": 9.36,
+          "bajo_strings": 9.168,
           "bajo_back_wood": 0
         }
       },
@@ -157,7 +157,7 @@
           "guitarron_technique": "guitarron_octave_pair_plucking"
         },
         "scores": {
-          "guitarron_body": 2.5485,
+          "guitarron_body": 2.5035000000000003,
           "guitarron_body_wood": 4.419999999999999,
           "guitarron_strings": 0.195,
           "guitarron_string_material": 6.825,

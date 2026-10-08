@@ -5,7 +5,7 @@
   "lineage": "Vinahouse is a Vietnamese club-music practice shaped through local DJs, remixes and electronic production. Vietnamese popular and folk-derived vocal material is often reworked into energetic dance arrangements.",
   "recipe": "classic vinahouse, electronic Dance. analog synth, sampler. live tracking.",
   "recipe_chars": 74,
-  "score": 7.196,
+  "score": 7.365,
   "config": {
     "traditions": [
       "vinahouse"
@@ -22,8 +22,8 @@
         },
         "scores": {
           "electronic_technique": 0.6557499999999999,
-          "oscillator": 0.25,
-          "filter_topology": 0.0315,
+          "oscillator": 0.325,
+          "filter_topology": 0.063,
           "envelope": 0,
           "modulation": 0
         }
@@ -40,7 +40,7 @@
         "scores": {
           "electronic_technique": 0.6557499999999999,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.063,
+          "sampler_bit_depth": 0.126,
           "sampler_workflow": 0.26,
           "sampler_classic_context": 5.329999999999999
         }

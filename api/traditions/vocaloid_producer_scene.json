@@ -1,74 +1,62 @@
 {
-  "id": "vocaloid_producer_scene",
-  "name": "Vocaloid producer scene (Niconico bokaro-P music)",
-  "family": "electronic",
-  "lineage": "Japanese bedroom-producer culture formed after the August 2007 release of Crypton's Hatsune Miku voicebank for Yamaha's Vocaloid 2 engine, codified on Niconico Douga by ryo (supercell), wowaka, Hachi, kz and Jin — songs entirely built in a DAW at 130-180 BPM around a machine-sung lead whose pitch, note-length and phoneme timing are hand-drawn, with fast syllabic wordy verses that exceed human breath capacity, four-on-floor or driving eighth-note rock backing, piano-and-synth arrangements, and a release cycle of free uploads answered by fan illustration and dance covers.",
-  "recipe": "classic late-2000s vocaloid producer scene, functional Song, east Asian pop branch, pop rock synthpop, pop experimental experimental electric, eurodance electronic dance etherpop wonky pop. lead plus third fifth 3 part stack 2000s elastic pitch edited stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, singing lead analog poly synth, singing lead digital subtractive, field textural sampler, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 738,
-  "score": 282.202,
+  "id": "vocaloid_synth_voice",
+  "merged_from": "vocaloid_producer_scene",
+  "name": "Vocaloid synth-voice pop",
+  "family": "global",
+  "lineage": "Japanese synth-vocal subculture codified through Yamaha’s Vocaloid voice-synthesis software (2004) and the Hatsune Miku (2007) avatar that became the canonical virtual idol — characterized by user-generated music with synthetic-vocal lead, anime-inflected visual identity, and the Nico Nico Douga upload-and-remix ecosystem that fed the genre",
+  "recipe": "classic mid-2000s vocaloid synth-voice pop, functional Song, east Asian pop branch, pop experimental experimental electric bubblegum bass glitch pop. singing lead analog poly synth, singing lead digital subtractive, glitched textural sampler, pyramid pure nickel bass British mid 60s era electric bass, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 551,
+  "score": 111.043,
   "config": {
     "traditions": [
-      "vocaloid_producer_scene",
-      "etherpop",
-      "wonky_pop"
+      "vocaloid_synth_voice",
+      "bubblegum_bass",
+      "glitch_pop"
     ],
     "instruments": [
-      {
-        "id": "multitrack_vocal_stack",
-        "slots": {
-          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
-          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
-        },
-        "scores": {
-          "multitrack_stack_density": 2.535,
-          "multitrack_stack_era_aesthetic": 2.1049999999999995,
-          "multitrack_stack_processing": 1.685
-        }
-      },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 21.785,
-          "poly_archetypes": 5.98,
-          "poly_voices": 0.21,
-          "poly_maker_lineage": -0.8700000000000001
+          "electronic_technique": 17.24,
+          "poly_archetypes": 0.45499999999999996,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -0.05
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "access_virus",
+          "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 21.785,
-          "va_archetypes": 0.845,
-          "digital_subtractive_context": 21.319999999999997
+          "electronic_technique": 17.24,
+          "va_archetypes": 0.39,
+          "digital_subtractive_context": 14.04
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "roland_s750",
-          "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 8.950000000000001,
-          "sampler_archetypes": 0.78,
-          "sampler_bit_depth": 0.43499999999999994,
-          "sampler_workflow": 9.475,
-          "sampler_classic_context": 22.067499999999995
+          "electronic_technique": 13.17,
+          "sampler_archetypes": 0.645,
+          "sampler_bit_depth": 0.6499999999999999,
+          "sampler_workflow": 13.97,
+          "sampler_classic_context": 20.6375
         }
       },
       {
@@ -77,72 +65,47 @@
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "ernie_ball_slinky_bass",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.565000000000001,
-          "body_wood": 1.39,
-          "pickup_config": 1.15,
-          "string_type": 12.35,
+          "amp_make": 2.2749999999999995,
+          "body_wood": 0.585,
+          "pickup_config": 0.39,
+          "string_type": 1.9499999999999993,
           "scale_length_b": 0.195,
-          "fretted_or_not": 0.15,
-          "bass_technique": 10.295,
+          "fretted_or_not": 0.39,
+          "bass_technique": 1.065,
           "electric_bass_string_configuration": 0
         }
       },
       {
-        "id": "drum_kit",
+        "id": "drum_machine_808",
         "slots": {
-          "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
-          "drum_kit_kick_pedal": "dk_kick_single_felt"
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "drum_technique": 18.654999999999998,
-          "drumhead": 20.699999999999996,
-          "drum_kit_kick_pedal": 0
-        }
-      },
-      {
-        "id": "grand_piano",
-        "slots": {
-          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "japanese_1980s_hammer",
-          "piano_rim": "asian_laminated_rim_birch_maple",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_440_modern"
-        },
-        "scores": {
-          "keyboard_technique": 19.34,
-          "grand_piano_size": 0.195,
-          "grand_piano_brand": 0.54,
-          "piano_hammer": 20.474999999999998,
-          "piano_rim": 20.234999999999996,
-          "piano_soundboard": 20.659999999999997,
-          "piano_pinblock": 0.52,
-          "piano_plate": 0.45499999999999996,
-          "piano_pitch_standard": 8.319999999999999
+          "tr808_voice": 1.8199999999999996,
+          "drum_machine_808_context": 1.8849999999999996,
+          "tr808_production_origin": 1.2349999999999999
         }
       }
     ],
-    "room": "untreated_bedroom",
-    "archetype": "arch_minimal_daw_bedroom",
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "condenser_fet",
-      "pre": "transformerless",
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
       "console": "console_in_the_box",
-      "comp": null,
+      "comp": "comp_distressor_modern",
       "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": "digital_high"
+      "medium": "digital_std"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -151,11 +114,27 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "untreated_bedroom",
-    "chain_mic": "condenser_fet",
-    "chain_pre": "transformerless",
+    "room": "treated_studio",
+    "parts": {
+      "body_wood": "alder_b",
+      "pickup_config": "soapbar",
+      "string_type": "coated_nano_bass",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "sub_bass_synth_blend",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_rb",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "electronic_technique": "electronic_pad_drone",
+      "sampler_archetypes": "akai_s900",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
     "chain_eq": "eq_massenburg_mastering",
-    "chain_medium": "digital_high",
+    "chain_medium": "digital_std",
     "chain_console": "console_in_the_box"
   }
 }

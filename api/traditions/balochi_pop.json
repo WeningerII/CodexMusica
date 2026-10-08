@@ -3,9 +3,9 @@
   "name": "Balochi pop",
   "family": "pop",
   "lineage": "Balochi pop connects Baloch singing and cultural expression with contemporary popular arrangements and cross-cultural collaboration. Musicians work both within the region and in diaspora communities.",
-  "recipe": "classic balochi pop, functional Song, south Asian pop branch. basswood humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 198,
-  "score": 4.788,
+  "recipe": "classic balochi pop, functional Song, south Asian pop branch. low-mid-thick articulate mahogany maple humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 229,
+  "score": 4.245,
   "config": {
     "traditions": [
       "balochi_pop"
@@ -16,7 +16,7 @@
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_unspecified",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": -0.15000000000000002,
           "amp_make": 0,
-          "body_wood": 1.3755,
+          "body_wood": 1.2415,
           "neck_wood": 0.21000000000000002,
           "fretboard": 0.0315,
           "pickup_magnet": 0.2415,
           "pickup_winding": 0.273,
           "string_material": 0.1365,
           "bridge": 0.21000000000000002,
-          "scale_length": 1.197,
+          "scale_length": 0.9240000000000002,
           "string_gauge": 0.21000000000000002,
           "finish": 0,
           "string_tuning": 0.1365
@@ -77,7 +77,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.1365,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.39

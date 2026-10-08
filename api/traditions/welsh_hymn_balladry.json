@@ -3,24 +3,22 @@
   "name": "Welsh hymn-balladry",
   "family": "global",
   "lineage": "Welsh-language sacred-and-secular balladry tradition rooted in the Welsh Nonconformist chapel (capel) singing-school (cymanfa ganu) movement of the 18th-19th centuries — characterized by Welsh male voice choir (côr meibion) four-part harmony, hymn-tunes by William Williams Pantycelyn, Cwm Rhondda (1907), Calon Lân, and the broader Welsh-language hymnody-secular-balladry continuation",
-  "recipe": "classic British late-1900s welsh hymn-balladry, ballad Poetry, Welsh hymn ballad branch, christian gospel anglican choral anglican choral evensong anglican liturgy. thick, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part antiphonal double choir alternating kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, concert chapel hymn overwound bass welsh triple harp, choir welsh male. country church. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 593,
-  "score": 201.37,
+  "recipe": "classic British late-1900s welsh hymn-balladry, ballad Poetry, Welsh hymn ballad branch, christian gospel anglican choral. thick, breath veiled tone, interlocked note trading, neutral third half flat. a cappella small 3 to 8 one per part four voice polyphonic regional aka four part motangole ngue osese diyei sacred liturgical global choir ensemble, concert chapel hymn gut strung welsh triple harp, choir welsh male. country church. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 558,
+  "score": 145.496,
   "config": {
     "traditions": [
-      "welsh_hymn_balladry",
-      "anglican_choral_evensong",
-      "anglican_liturgy"
+      "welsh_hymn_balladry"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -28,43 +26,43 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 7.4,
-          "voice_quality": 10.668750000000001,
+          "voice_register": 2.8,
+          "voice_quality": 4.477125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.45775,
-          "voice_articulation": 12.107374999999994,
-          "voice_microtone": 11.999374999999992,
-          "voice_tradition": 10.73425,
-          "voice_mechanism_compound": 2.08,
-          "voice_estill_quality": 5.304500000000002,
-          "voice_speech_song": 13.747499999999995,
-          "voice_ensemble_config": 19.337874999999993,
-          "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 4.3466249999999995,
-          "voice_processing_chain": 4.815999999999999,
-          "voice_multitrack_stack": 3.448750000000001
+          "voice_vibrato": 0.3315,
+          "voice_articulation": 5.867374999999999,
+          "voice_microtone": 5.7593749999999995,
+          "voice_tradition": 9.69425,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 1.5544999999999995,
+          "voice_speech_song": 6.304999999999998,
+          "voice_ensemble_config": 10.842874999999994,
+          "voice_ornament_system": 4.391000000000001,
+          "voice_pitch_organization": 3.696625,
+          "voice_processing_chain": 3.3859999999999992,
+          "voice_multitrack_stack": 2.573
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
-          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_aka_four_part",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 3.0549999999999997,
-          "choir_polyphonic_configuration": 2.82,
-          "choir_regional_canonical_configuration": 5.77,
-          "choir_ensemble_repertoire": 3.8775
+          "choir_size": 2.4699999999999998,
+          "choir_polyphonic_configuration": 2.48,
+          "choir_regional_canonical_configuration": 2.7915,
+          "choir_ensemble_repertoire": 2.1875
         }
       },
       {
@@ -74,8 +72,8 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 1.04,
-          "harp_pedals": 0.65
+          "harp_strings": 0,
+          "harp_pedals": 0
         }
       },
       {
@@ -94,12 +92,12 @@
         "slots": {
           "welsh_triple_harp_form": "welsh_triple_harp_bardic",
           "welsh_triple_harp_repertoire": "welsh_triple_harp_hymn",
-          "welsh_triple_harp_stringing": "welsh_triple_harp_overwound_bass"
+          "welsh_triple_harp_stringing": "welsh_triple_harp_gut"
         },
         "scores": {
           "welsh_triple_harp_form": 28.250000000000014,
-          "welsh_triple_harp_repertoire": 43.77900000000001,
-          "welsh_triple_harp_stringing": 2.7350000000000003
+          "welsh_triple_harp_repertoire": 41.43900000000001,
+          "welsh_triple_harp_stringing": 1.5
         }
       }
     ],

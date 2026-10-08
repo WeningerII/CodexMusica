@@ -3,14 +3,14 @@
   "name": "Neofolk",
   "family": "vernacular",
   "lineage": "European post-industrial acoustic style formed in England in the mid-1980s as members of Crisis and Death in June turned from industrial electronics to acoustic guitar — codified by Death in June, Current 93 and Sol Invictus and extended in Germany and Scandinavia through the 1990s — with strummed nylon and steel guitar in Aeolian and Phrygian modes, martial snare and bass-drum patterns at slow marching tempo, drones from hurdy-gurdy and string machine, and declaimed baritone vocals over sparse, reverberant arrangements.",
-  "recipe": "classic North American 1984-1986 neofolk, ballad Poetry, anglo singer song branch, gothic rock distorted rock, industrial noise experimental electric coldwave. thick, breath veiled tone, slow rate, interlocked note trading. cedar maple phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, double bass rapid double strokes bass five drum arc kevlar aramid extreme tension nylon tenor drum, string machine. denver gothic basement studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 660,
-  "score": 221.88,
+  "recipe": "classic North American 1984-1986 neofolk, ballad Poetry, anglo singer song branch, gothic rock distorted rock, industrial noise experimental electric coldwave deathrock. thick, breath veiled tone, slow rate, interlocked note trading. cedar maple phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, double bass rapid double strokes bass five drum arc kevlar aramid extreme tension nylon tenor drum, string machine. denver gothic basement studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 670,
+  "score": 209.65,
   "config": {
     "traditions": [
       "neofolk",
-      "goth",
-      "coldwave"
+      "coldwave",
+      "deathrock"
     ],
     "instruments": [
       {
@@ -34,39 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 22.669999999999995,
-          "voice_quality": 8.125000000000002,
+          "voice_register": 22.589999999999993,
+          "voice_quality": 7.930000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.42,
-          "voice_articulation": 24.700000000000003,
-          "voice_microtone": 26.975,
-          "voice_tradition": 5.005000000000001,
+          "voice_vibrato": 4.875,
+          "voice_articulation": 23.595,
+          "voice_microtone": 24.569999999999997,
+          "voice_tradition": 3.77,
           "voice_mechanism_compound": 4.485000000000001,
-          "voice_estill_quality": 3.8100000000000005,
-          "voice_speech_song": 27.560000000000002,
-          "voice_ensemble_config": 25.09,
+          "voice_estill_quality": 3.6150000000000007,
+          "voice_speech_song": 25.805,
+          "voice_ensemble_config": 23.725,
           "voice_ornament_system": 1.3949999999999998,
           "voice_pitch_organization": 0.9749999999999996,
-          "voice_processing_chain": 4.615000000000001,
-          "voice_multitrack_stack": 5.3950000000000005
+          "voice_processing_chain": 3.7700000000000005,
+          "voice_multitrack_stack": 3.7050000000000005
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "standard_tuning",
+          "string_tuning": "open_d",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": 4.1,
-          "string_tuning": 0,
-          "top_wood": 2.795,
+          "string_tuning": 0.06499999999999999,
+          "top_wood": 3.2199999999999998,
           "back_sides": 1.8,
-          "string_acoustic": 2.795
+          "string_acoustic": 3.22
         }
       },
       {
@@ -80,22 +80,22 @@
           "hurdy_tradition": "hurdy_french_bal_folk"
         },
         "scores": {
-          "bowed_technique": 0.12999999999999998,
+          "bowed_technique": -0.035,
           "hurdy_strings": 1.645,
           "hurdy_buzz": 1.4949999999999999,
           "hurdy_wheel_rosin": 1.4949999999999999,
-          "hurdy_string_material": 1.6,
+          "hurdy_string_material": 1.645,
           "hurdy_tradition": 2.0949999999999998
         }
       },
       {
         "id": "bass_drum",
         "slots": {
-          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_size": "bass_drum_22_standard",
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.845,
+          "bass_drum_size": 0.65,
           "bass_drum_beater": 3.185
         }
       },
@@ -108,7 +108,7 @@
           "tenor_drum_shell": "tenor_drum_corps_shell"
         },
         "scores": {
-          "tenor_drum_form": 6.82,
+          "tenor_drum_form": 6.4750000000000005,
           "tenor_drum_head": 3.2,
           "tenor_drum_beater": 4.44,
           "tenor_drum_shell": 3.2
@@ -123,10 +123,10 @@
           "sm_voicing": "sm_violins"
         },
         "scores": {
-          "electronic_technique": 0.06499999999999999,
+          "electronic_technique": -0.07,
           "sm_voice_count": 0.195,
-          "sm_chorus": 4.17,
-          "sm_voicing": 1.6899999999999997
+          "sm_chorus": 3.825,
+          "sm_voicing": 1.3
         }
       }
     ],

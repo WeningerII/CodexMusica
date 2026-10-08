@@ -3,14 +3,14 @@
   "name": "UK drill",
   "family": "hip_hop",
   "lineage": "British drill subgenre codified through London scenes (mostly Brixton and Tottenham) circa 2014-2016 — characterized by the doubled-hi-hat-and-skipping-snare drill signature carried from Chicago but slower (140 BPM with the half-time feel), JME and Skepta’s grime influence absorbed, regional-London-Patois vocal delivery",
-  "recipe": "classic 2014-2016 uk drill, mc Rhythm, drill branch, intl hip hop MC rhythm afrikaans hip hop australian underground hip hop. vocal fry, rap, breath pulsed, interlocked note trading. TR-808, sub bass monosynth acid bass, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 403,
-  "score": 114.105,
+  "recipe": "classic 2014-2016 uk drill, mc Rhythm, drill branch, intl hip hop MC rhythm afrikaans hip hop brazilian hip hop. vocal fry, rap, breath pulsed, interlocked note trading. TR-808, sub bass monosynth acid bass, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 390,
+  "score": 117.08,
   "config": {
     "traditions": [
       "uk_drill",
       "afrikaans_hip_hop",
-      "australian_underground_hip_hop"
+      "brazilian_hip_hop"
     ],
     "instruments": [
       {
@@ -26,7 +26,7 @@
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 13.325000000000003,
+          "voice_register": 1.885,
+          "voice_quality": 13.942500000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.3,
-          "voice_articulation": 10.204999999999998,
-          "voice_microtone": 11.114999999999991,
-          "voice_tradition": 6.025,
-          "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 2.665000000000001,
-          "voice_speech_song": 12.479999999999995,
-          "voice_ensemble_config": 11.764999999999997,
+          "voice_articulation": 9.165,
+          "voice_microtone": 10.074999999999998,
+          "voice_tradition": 6.925000000000001,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 13.0325,
+          "voice_ensemble_config": 9.489999999999998,
           "voice_ornament_system": 4.420000000000002,
           "voice_pitch_organization": 0.32500000000000007,
-          "voice_processing_chain": 4.945000000000001,
-          "voice_multitrack_stack": 3.380000000000001
+          "voice_processing_chain": 6.070000000000001,
+          "voice_multitrack_stack": 3.5750000000000006
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 5.205000000000001,
-          "drum_machine_808_context": 2.34,
-          "tr808_production_origin": 0.195
+          "tr808_voice": 6.240000000000001,
+          "drum_machine_808_context": 2.5349999999999997,
+          "tr808_production_origin": 0.36
         }
       },
       {
@@ -74,7 +74,7 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 5.105000000000001,
+          "electronic_technique": 6.1400000000000015,
           "wave_acid": 0.39,
           "filter_acid": 0.39,
           "accent_acid": 0
@@ -86,13 +86,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "twenty_four_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 4.000000000000001,
+          "electronic_technique": 5.050000000000001,
           "sample_bitdepth": 1.69,
-          "sample_swing": 7.0200000000000005,
-          "sample_processing": 0.345
+          "sample_swing": 8.32,
+          "sample_processing": 0.54
         }
       }
     ],

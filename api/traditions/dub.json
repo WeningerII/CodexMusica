@@ -5,7 +5,7 @@
   "lineage": "Jamaican instrumental remix-and-effects genre invented by King Tubby (Osbourne Ruddock) in the late 1960s through the early 1970s in his Waterhouse-district Kingston home workshop — created by taking the rhythm tracks (riddims) of existing reggae recordings and live-re-mixing them through tape delay (Roland Space Echo), spring reverb, and dropout-mute manipulation; codified through King Tubby, Lee Scratch Perry (his Black Ark studio canon), Augustus Pablo (King Tubby Meets Rockers Uptown 1976), Scientist (Hopeton Brown, Tubbys protégé)",
   "recipe": "classic Caribbean 1967-1969 dub, bass System, Jamaican branch, ambient experimental electric. la bella flats Detroit soul bass canon thumb muted electric bass, vintage ambassador asymmetric rim clicks drum kit, Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. kingston king tubby dub workshop. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb roland RE-201 space echo plate reverb.",
   "recipe_chars": 685,
-  "score": 63.5,
+  "score": 64.13,
   "config": {
     "traditions": [
       "dub"
@@ -14,7 +14,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "la_bella_flats_motown",
@@ -24,7 +24,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.0799999999999996,
+          "amp_make": 2.005,
           "body_wood": 0.8700000000000001,
           "pickup_config": 0,
           "string_type": 3.69,
@@ -72,11 +72,11 @@
           "fretboard": 0.39,
           "pickup_magnet": 0.39,
           "string_material": 1.11,
-          "string_gauge": 0.675,
+          "string_gauge": 0.8250000000000001,
           "bridge": 0.09,
           "scale_length": 0.8700000000000001,
           "finish": 0,
-          "string_tuning": 2.055,
+          "string_tuning": 1.8600000000000003,
           "single_coil_pickup_construction": 0
         }
       },
@@ -93,10 +93,10 @@
         "scores": {
           "keyboard_technique": -0.07,
           "drawbar_setting": -0.035,
-          "rotary_speed": 0.045,
+          "rotary_speed": 0.195,
           "percussion_setting": 0.21,
-          "tonewheel_model": 4.12,
-          "leslie_cabinet_model": 1.195
+          "tonewheel_model": 4.615,
+          "leslie_cabinet_model": 1.3
         }
       },
       {

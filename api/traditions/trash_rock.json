@@ -3,9 +3,9 @@
   "name": "Trash rock",
   "family": "rock",
   "lineage": "Trash rock embraces raw guitar sound and an irreverent approach that connects garage, punk and experimental noise.",
-  "recipe": "classic trash rock, distorted Rock, noise rock branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 333,
-  "score": 31.565,
+  "recipe": "classic trash rock, distorted Rock, noise rock branch. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 371,
+  "score": 31.692,
   "config": {
     "traditions": [
       "trash_rock"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07750000000000001,
+          "electric_technique": -0.09250000000000001,
           "amp_make": 10.855,
           "body_wood": 0.637,
           "neck_wood": 0.3045,
@@ -39,7 +39,7 @@
           "string_material": 0.16799999999999998,
           "bridge": 0.378,
           "scale_length": 0.609,
-          "string_gauge": 0.336,
+          "string_gauge": 0.36750000000000005,
           "finish": 1.0315,
           "string_tuning": 0.231
         }
@@ -89,11 +89,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5619999999999999,
+          "voice_ensemble_config": 0.5684999999999999,
           "voice_ornament_system": 0.1995,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.417
+          "voice_multitrack_stack": 0.5219999999999999
         }
       }
     ],

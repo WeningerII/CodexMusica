@@ -5,7 +5,7 @@
   "lineage": "Gospel antigas gathers older Brazilian evangelical songs and hymns that remain in church, family and recorded repertories. Singers and congregations revisit these songs across changing production styles, with acoustic teaching and devotional performance continuing alongside larger arrangements.",
   "recipe": "classic gospel antigas, ritual Devotional, christian gospel branch. upright piano. parlor.",
   "recipe_chars": 90,
-  "score": 0.444,
+  "score": 0.459,
   "config": {
     "traditions": [
       "gospel_antigas"
@@ -19,7 +19,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "upright_use": 0,
           "upright_piano_size": 0.49350000000000005
         }

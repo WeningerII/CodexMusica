@@ -1,0 +1,194 @@
+{
+  "id": "main_puteri",
+  "name": "Main puteri (Malay healing séance music)",
+  "family": "global",
+  "lineage": "Malay shamanic healing performance of Kelantan and Terengganu in which a bomoh or tok puteri enters trance to identify and placate the spirits troubling a patient. The tok minduk, playing the rebab, sings and converses with the shaman and the spirits, accompanied by a pair of gendang drums and a pair of tetawak hanging gongs.",
+  "recipe": "classic modern main puteri, ritual Devotional, indigenous branch. heightened speech stylized intonation, single lead single track no stacking. carved hardwood canonical javanese rebab, gendang melayu, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 293,
+  "score": 6.994,
+  "config": {
+    "traditions": [
+      "main_puteri"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_heightened_speech",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.512,
+          "voice_ensemble_config": 0.21,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.105,
+          "voice_multitrack_stack": 1.0185,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "rebab",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "rebab_region": "rebab_malay",
+          "rebab_context": "rebab_wayang",
+          "rebab_body": "rebab_wood_carved",
+          "rebab_skin": "calfskin",
+          "rebab_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 0.39,
+          "rebab_region": 0.37799999999999995,
+          "rebab_context": 0.6405000000000001,
+          "rebab_body": 1.071,
+          "rebab_skin": 0,
+          "rebab_strings": 0
+        }
+      },
+      {
+        "id": "gendang_melayu",
+        "slots": {
+          "gendang_melayu_role": "gendang_melayu_ibu",
+          "gendang_melayu_stroke": "gendang_melayu_hands",
+          "gendang_melayu_head": "gendang_melayu_goat"
+        },
+        "scores": {
+          "gendang_melayu_role": 0.1365,
+          "gendang_melayu_stroke": 0,
+          "gendang_melayu_head": 0.1365
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.4095,
+          "gong_striker": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "rebab": [
+        "bowed_technique",
+        "rebab_region",
+        "rebab_context",
+        "rebab_body",
+        "rebab_skin",
+        "rebab_strings"
+      ],
+      "gendang_melayu": [
+        "gendang_melayu_role",
+        "gendang_melayu_stroke",
+        "gendang_melayu_head"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bowed_technique": "bowed_local_song_melody",
+      "rebab_region": "rebab_malay",
+      "rebab_context": "rebab_wayang",
+      "rebab_body": "rebab_wood_carved",
+      "rebab_skin": "calfskin",
+      "rebab_strings": "dutar_strings_unspecified",
+      "gendang_melayu_role": "gendang_melayu_ibu",
+      "gendang_melayu_stroke": "gendang_melayu_hands",
+      "gendang_melayu_head": "gendang_melayu_goat",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,9 +3,9 @@
   "name": "Inuit pop",
   "family": "pop",
   "lineage": "Inuit pop connects Inuit artists, languages and audiences with contemporary songwriting and reinterpretations of popular repertoire.",
-  "recipe": "classic inuit pop, functional Song. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 247,
-  "score": 18.367,
+  "recipe": "classic inuit pop, functional Song. group vocals. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 261,
+  "score": 17.79,
   "config": {
     "traditions": [
       "inuit_pop"
@@ -24,22 +24,22 @@
           "string_material": "pure_nickel_h",
           "bridge": "vibrato_arm",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_9_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.5040000000000004,
+          "electric_technique": 7.45,
           "amp_make": 0,
-          "body_wood": 0.4635,
+          "body_wood": 0.40950000000000003,
           "neck_wood": 0,
           "fretboard": 0,
           "pickup_magnet": 0,
-          "pickup_winding": 0.18,
+          "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.1365,
-          "string_gauge": 0.054,
+          "string_gauge": 0,
           "finish": 0,
           "string_tuning": 0
         }
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.304,
+          "amp_make": 0.25,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 0.254,
+          "string_type": 0.2,
           "scale_length_b": 0,
-          "fretted_or_not": 0.4635,
+          "fretted_or_not": 0.40950000000000003,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.40950000000000003,
+          "voice_ensemble_config": 0.546,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -123,13 +123,13 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "juno_60",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "poly_archetypes": 0.18,
+          "electronic_technique": -0.1,
+          "poly_archetypes": 0,
           "poly_voices": 1.1365,
           "poly_maker_lineage": -0.05
         }

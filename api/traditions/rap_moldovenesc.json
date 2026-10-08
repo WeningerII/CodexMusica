@@ -5,7 +5,7 @@
   "lineage": "Moldovan rap includes Kapushon’s collaborations with Guz and Puya. Eșuat supplies a credited guitar-and-bass branch.",
   "recipe": "classic modern rap moldovenesc, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. single coil electric guitar, pyramid pure nickel bass British mid 60s era electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 362,
-  "score": 30.452,
+  "score": 31.229,
   "config": {
     "traditions": [
       "rap_moldovenesc"
@@ -56,11 +56,11 @@
           "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_champ",
           "body_wood": "basswood",
-          "neck_wood": "maple",
+          "neck_wood": "mahogany_neck",
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
+          "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -70,23 +70,23 @@
         "scores": {
           "electric_technique": -0.15000000000000002,
           "amp_make": 0.19500000000000003,
-          "body_wood": 0.1905,
-          "neck_wood": 0.1365,
+          "body_wood": 0.2445,
+          "neck_wood": 0.162,
           "fretboard": 0.1365,
           "pickup_magnet": 0.1365,
           "string_material": 0.2445,
-          "string_gauge": 0.0735,
-          "bridge": 0.159,
-          "scale_length": 0.108,
+          "string_gauge": 0.108,
+          "bridge": 0.213,
+          "scale_length": 0.216,
           "finish": 0,
-          "string_tuning": 0.5715,
+          "string_tuning": 0.8160000000000001,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
@@ -96,11 +96,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.8335,
-          "body_wood": 0.162,
+          "amp_make": 1.8199999999999998,
+          "body_wood": 0.27,
           "pickup_config": 0.105,
           "string_type": 1.95,
-          "scale_length_b": 0.267,
+          "scale_length_b": 0.429,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0

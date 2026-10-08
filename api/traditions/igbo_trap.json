@@ -5,7 +5,7 @@
   "lineage": "Igbo trap connects Igbo-language rap to trap production within southeastern Nigerian music networks. Jeriq’s Onitsha background and highlife influences exemplify how local melodic sensibilities enter this production-focused branch.",
   "recipe": "classic modern igbo trap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, single lead single track no stacking. TR-808, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 303,
-  "score": 13.166,
+  "score": 13.496,
   "config": {
     "traditions": [
       "igbo_trap"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.6969999999999996,
+          "tr808_voice": 2.73,
           "drum_machine_808_context": 0.39,
           "tr808_production_origin": 0.159
         }
@@ -75,7 +75,7 @@
         },
         "scores": {
           "electronic_technique": 0.254,
-          "rompler_preset_bank": 0.063,
+          "rompler_preset_bank": 0.0315,
           "rompler_context": 0,
           "rompler_lineage": 0
         }

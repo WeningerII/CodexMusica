@@ -5,7 +5,7 @@
   "lineage": "Georgian hip-hop connects rappers, producers and independent music networks in Georgia. Local-language expression and cross-genre collaboration link the scene with wider hip-hop and electronic practice.",
   "recipe": "classic georgian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. live tracking.",
   "recipe_chars": 155,
-  "score": 44.889,
+  "score": 45.278,
   "config": {
     "traditions": [
       "georgian_hip_hop"
@@ -38,12 +38,12 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3315,
+          "voice_articulation": 0.363,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.017999999999999,
+          "voice_speech_song": 11.374999999999998,
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

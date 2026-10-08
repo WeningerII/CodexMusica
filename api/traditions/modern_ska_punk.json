@@ -3,9 +3,9 @@
   "name": "Modern ska punk",
   "family": "rock_punk",
   "lineage": "Modern ska punk combines offbeat guitar rhythm with contemporary punk-band energy.",
-  "recipe": "classic modern ska punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, modern metal basswood electric bass, kevlar aramid extreme tension sticks backbeat drum kit, yellow brass modern standard saxophone, bach 42 canonical American orchestral tenor tenor standard standard backbore trombone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 497,
-  "score": 47.759,
+  "recipe": "classic modern ska punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, modern metal basswood electric bass, kevlar aramid extreme tension sticks backbeat drum kit, yellow brass modern standard saxophone, tenor standard standard backbore trombone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 453,
+  "score": 47.238,
   "config": {
     "traditions": [
       "modern_ska_punk"
@@ -30,14 +30,14 @@
         },
         "scores": {
           "electric_technique": -0.11850000000000002,
-          "amp_make": 16.38,
+          "amp_make": 16.269,
           "body_wood": 2.6,
           "neck_wood": 0.063,
-          "fretboard": 0.3165,
+          "fretboard": 0.453,
           "pickup_magnet": 0,
           "pickup_winding": 2.1365,
           "string_material": 0.063,
-          "bridge": 0.3165,
+          "bridge": 0.453,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 5.231,
+          "drumhead": 5.3675,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -157,10 +157,10 @@
           "wind_articulation": -0.1,
           "trombone_type": -0.035,
           "trombone_mouthpiece": 4.95,
-          "trombone_mute": 0.273,
+          "trombone_mute": 0.1365,
           "trombone_technique": 0,
-          "trombone_bell_metal": 0.6825000000000001,
-          "trombone_maker_school": 1.365
+          "trombone_bell_metal": 0.40950000000000003,
+          "trombone_maker_school": 0.9555
         }
       }
     ],

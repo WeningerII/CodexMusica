@@ -1,0 +1,231 @@
+{
+  "id": "hakka_caichaxi",
+  "name": "Hakka caichaxi (Taiwanese Hakka tea-picking opera)",
+  "family": "global",
+  "lineage": "Hakka-language opera of the Taoyuan, Hsinchu and Miaoli hill country of Taiwan, which grew from the 'three-role tea-picking' play (sanjiao caicha) of one clown and two female roles brought by Hakka settlers from the mainland, and in the early twentieth century expanded into full-length stage drama borrowing from beiguan and Beijing-opera practice; tea-picking plays were issued on 78 rpm discs in the 1930s. Its arias draw on Hakka mountain-song and tea-picking tunes such as laoshange, shangezi and pingban. In the three-role plays the civil section is two fiddles, the panghu (the kezaixian card stands in) and the erxian (the erhu card stands in), and a single percussionist plays drum, small cymbals and gongs.",
+  "recipe": "classic mid-1930s hakka caichaxi, art Music, east Asian branch. single lead single track no stacking. kezaixian, bamboo stick horsehair threaded between strings erhu, membrane drum pulse resonant acoustic membrane drum, chazi, opera bending gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 333,
+  "score": 11.762,
+  "config": {
+    "traditions": [
+      "hakka_caichaxi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 1.3,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "kezaixian",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kezaixian_shell": "kezaixian_shell_thin",
+          "kezaixian_strings": "dutar_strings_unspecified",
+          "kezaixian_context": "kezaixian_context_duo"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "kezaixian_shell": -0.07,
+          "kezaixian_strings": 0,
+          "kezaixian_context": -0.07
+        }
+      },
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_classical",
+          "erhu_body_wood": "erhu_red_sandalwood",
+          "erhu_strings": "dutar_strings_unspecified",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "erhu_skin": 0.6509999999999999,
+          "erhu_use": 0.18674999999999997,
+          "erhu_body_wood": -0.035,
+          "erhu_strings": 0,
+          "erhu_bow": 1.0855000000000001
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 1.69,
+          "acoustic_membrane_drum_gesture": 1.69
+        }
+      },
+      {
+        "id": "chazi",
+        "slots": {
+          "chazi_stroke": "chazi_crash",
+          "chazi_size": "chazi_xiaocha"
+        },
+        "scores": {
+          "chazi_stroke": 0.21825,
+          "chazi_size": 0.0315
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_opera_bending",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 3.733,
+          "gong_striker": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "kezaixian": [
+        "bowed_technique",
+        "kezaixian_shell",
+        "kezaixian_strings",
+        "kezaixian_context"
+      ],
+      "erhu": [
+        "bowed_technique",
+        "erhu_skin",
+        "erhu_use",
+        "erhu_body_wood",
+        "erhu_strings",
+        "erhu_bow"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "chazi": [
+        "chazi_stroke",
+        "chazi_size"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bowed_technique": "bowed_legato_classical",
+      "kezaixian_shell": "kezaixian_shell_thin",
+      "kezaixian_strings": "dutar_strings_unspecified",
+      "kezaixian_context": "kezaixian_context_duo",
+      "erhu_skin": "erhu_python",
+      "erhu_use": "erhu_classical",
+      "erhu_body_wood": "erhu_red_sandalwood",
+      "erhu_strings": "dutar_strings_unspecified",
+      "erhu_bow": "erhu_bamboo_horsehair",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "chazi_stroke": "chazi_crash",
+      "chazi_size": "chazi_xiaocha",
+      "gong_type": "gong_opera_bending",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

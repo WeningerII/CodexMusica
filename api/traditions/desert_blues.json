@@ -3,14 +3,14 @@
   "name": "Tuareg desert blues (Ishumar / Tishoumaren / Assouf)",
   "family": "global",
   "lineage": "Saharan Tamasheq ishumar / tishoumaren electric-guitar tradition codified through Tinariwen (formed 1979 in Algerian refugee camps among Tuareg exiles) — characterized by hypnotic modal pentatonic guitar figures, call-and-response Tamasheq vocals, and dry desert-room production aesthetic; Bombino, Mdou Moctar, and Etran Finatawa extending the lineage post-2000s",
-  "recipe": "classic North African mid-2000s tuareg desert blues, drone Modal, modal electric branch, west African groove percussion palm-wine guitar jùjú. thick, breath veiled tone, wide pitch sway, interlocked note trading. dry roasted maple maple single coil electric guitar, rock canon ernie ball slinky electric bass, foundational low fundamental tuning deep calabash inverted calabash, horsehair bow canonical tuareg tuareg women canonical solo imzad, call-and-response xalam. cement block broadcast booth. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 629,
-  "score": 254.347,
+  "recipe": "classic North African mid-2000s tuareg desert blues, drone Modal, modal electric branch, west African groove percussion palm-wine guitar tina. thick, breath veiled tone, wide pitch sway, interlocked note trading. dry roasted maple maple single coil electric guitar, stainless steel roundwound electric bass, foundational low fundamental tuning deep calabash inverted calabash, horsehair bow canonical tuareg tuareg women canonical solo imzad, call-and-response xalam. cement block broadcast booth. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 627,
+  "score": 241.517,
   "config": {
     "traditions": [
       "desert_blues",
       "palm_wine",
-      "juju"
+      "tina_guinea_bissau"
     ],
     "instruments": [
       {
@@ -29,38 +29,38 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.129999999999994,
-          "voice_quality": 8.06,
+          "voice_register": 8.604999999999999,
+          "voice_quality": 10.075,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.745000000000001,
-          "voice_articulation": 16.57499999999999,
-          "voice_microtone": 22.55499999999999,
-          "voice_tradition": 48.1,
-          "voice_mechanism_compound": 8.754999999999999,
+          "voice_articulation": 18.004999999999992,
+          "voice_microtone": 23.98499999999999,
+          "voice_tradition": 35.36,
+          "voice_mechanism_compound": 8.605,
           "voice_estill_quality": 5.289999999999999,
-          "voice_speech_song": 20.409999999999993,
-          "voice_ensemble_config": 16.769999999999992,
-          "voice_ornament_system": 7.312499999999999,
-          "voice_pitch_organization": 7.964999999999999,
-          "voice_processing_chain": 7.2749999999999995,
-          "voice_multitrack_stack": 6.825000000000001
+          "voice_speech_song": 21.644999999999992,
+          "voice_ensemble_config": 18.199999999999992,
+          "voice_ornament_system": 4.3875,
+          "voice_pitch_organization": 1.895,
+          "voice_processing_chain": 4.875,
+          "voice_multitrack_stack": 5.3950000000000005
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_soldano_slo100",
+          "electric_technique": "electric_overdriven_lead",
+          "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany",
           "neck_wood": "roasted_maple",
-          "fretboard": "ebony_fb",
-          "pickup_magnet": "alnico_2",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
           "bridge": "vintage_trem",
@@ -70,13 +70,13 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 1.6999999999999997,
-          "amp_make": 1.0399999999999998,
+          "electric_technique": 1.2899999999999998,
+          "amp_make": 1.0199999999999998,
           "body_wood": 0.8449999999999999,
           "neck_wood": 1,
-          "fretboard": 0.39,
-          "pickup_magnet": 0.39,
-          "string_material": 0.39,
+          "fretboard": 0.8250000000000001,
+          "pickup_magnet": 0.8250000000000001,
+          "string_material": 0.9150000000000001,
           "string_gauge": 0.39,
           "bridge": 0.45499999999999996,
           "scale_length": 0.39,
@@ -91,17 +91,17 @@
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
+          "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.885,
+          "amp_make": 2.0799999999999996,
           "body_wood": 0.39,
           "pickup_config": 0.195,
-          "string_type": 1.0499999999999998,
+          "string_type": 1.065,
           "scale_length_b": 0.78,
           "fretted_or_not": 0.845,
           "bass_technique": 0.7,
@@ -115,7 +115,7 @@
           "inverted_calabash_technique": "inverted_calabash_hands"
         },
         "scores": {
-          "inverted_calabash_size": 1.17,
+          "inverted_calabash_size": 2.4850000000000003,
           "inverted_calabash_technique": 0.39
         }
       },
@@ -133,7 +133,7 @@
           "imzad_body": 0.78,
           "imzad_string": 0,
           "imzad_bow": 4.489999999999998,
-          "imzad_tradition": 4.789999999999998
+          "imzad_tradition": 5.439999999999999
         }
       },
       {
@@ -146,7 +146,7 @@
           "xalam_string_material": "xalam_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 28.534999999999993,
+          "plucked_traditional_technique": 30.289999999999996,
           "xalam_strings": 0.975,
           "xalam_context": 0.39,
           "xalam_body": 0.39,

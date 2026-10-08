@@ -5,7 +5,7 @@
   "lineage": "Commercial Western music codified in Hollywood and on network radio from the early 1930s through the late 1940s by Gene Autry, Roy Rogers and the Sons of the Pioneers (Bob Nolan, Tim Spencer, the Farr brothers), taking frontier ballad texts and setting them in slow 3/4 waltzes and easy 4/4 canters at 80-110 BPM over close three- and four-part male harmony, smooth crooned lead, nylon and steel-string guitar, hot jazz-inflected fiddle and, from the 1940s, accordion and light bass, all cut for 78 release and radio transcription.",
   "recipe": "classic tropical 1930-1933 cowboy western, functional Song, pre commercial branch, western swing country, crooners functional song classic oklahoma country. thick, breath veiled tone, straight note core, interlocked note trading. cedar steel silk travis picked dreadnought acoustic cedar nylon travis picked classical nylon-string guitar, steel double stops fiddle, venice catlin high twist renaissance bass cremonese pre 1750 four layer system double bass, steel castagnari Italian premium folk music straight accordion, steel c6 lap steel. am radio booth. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 667,
-  "score": 404.365,
+  "score": 403.795,
   "config": {
     "traditions": [
       "cowboy_western",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 26.494999999999994,
+          "voice_register": 26.644999999999992,
           "voice_quality": 17.484999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,7 +43,7 @@
           "voice_microtone": 25.09,
           "voice_tradition": 6.5,
           "voice_mechanism_compound": 1.04,
-          "voice_estill_quality": 23.18,
+          "voice_estill_quality": 23.03,
           "voice_speech_song": 32.760000000000005,
           "voice_ensemble_config": 28.6,
           "voice_ornament_system": 1.3649999999999998,
@@ -65,7 +65,7 @@
           "acoustic_technique": 21.2,
           "string_tuning": 0.52,
           "top_wood": 1.04,
-          "back_sides": 0.09,
+          "back_sides": 0.045,
           "string_acoustic": 4.68
         }
       },
@@ -74,7 +74,7 @@
         "slots": {
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "steel_core",
-          "fiddle_bow": "dark_rosin",
+          "fiddle_bow": "light_rosin",
           "fiddle_mute": "rubber_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
@@ -82,9 +82,9 @@
         "scores": {
           "bowed_technique": 33.775,
           "fiddle_strings": 4.185,
-          "fiddle_bow": 0.045,
+          "fiddle_bow": 0,
           "fiddle_mute": 0.65,
-          "fiddle_articulation": 0.045,
+          "fiddle_articulation": 0,
           "fiddle_string_configuration": 0
         }
       },
@@ -105,12 +105,12 @@
         "scores": {
           "bowed_technique": 0.25,
           "bass_size": 0.9099999999999999,
-          "bass_strings": 1.8199999999999998,
+          "bass_strings": 1.73,
           "bass_top_wood": -0.05,
           "bass_back_wood": -0.05,
           "bass_varnish": 2.2099999999999995,
-          "bass_setup_period": 3.7700000000000005,
-          "bass_play": 5.09,
+          "bass_setup_period": 3.62,
+          "bass_play": 5.045,
           "bass_rosin": 8.385,
           "bass_bow_stick": -0.05
         }
@@ -122,7 +122,7 @@
           "accordion_reed_material": "steel_reeds",
           "musette_offset": "dry_tuning",
           "reed_config": "lm_only",
-          "bellows": "all_leather",
+          "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
@@ -131,7 +131,7 @@
           "accordion_reed_material": 4.185,
           "musette_offset": 0.345,
           "reed_config": 2.6,
-          "bellows": 0.15,
+          "bellows": 0,
           "voicing_chamber": 0,
           "accordion_maker_school": 2.9899999999999998
         }

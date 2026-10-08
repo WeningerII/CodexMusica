@@ -5,7 +5,7 @@
   "lineage": "Death doom combines death-metal weight with doom’s slower, extended phrasing. Musicians balance dense amplified riffs with spacious passages and changes in intensity.",
   "recipe": "classic death doom, distorted Rock, doom branch. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 328,
-  "score": 27.087,
+  "score": 26.373,
   "config": {
     "traditions": [
       "death_doom"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.783,
+          "voice_ensemble_config": 2.888,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -70,19 +70,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.556,
+          "electric_technique": 7.2829999999999995,
           "amp_make": 0,
           "body_wood": 0.39,
           "neck_wood": 0.39,
           "fretboard": 0.325,
-          "pickup_magnet": 0.1365,
+          "pickup_magnet": 0,
           "pickup_winding": 0.105,
-          "string_material": 0.1365,
-          "bridge": 0.1365,
+          "string_material": 0,
+          "bridge": 0,
           "scale_length": 0.39,
-          "string_gauge": 0.1785,
+          "string_gauge": 0.2835,
           "finish": 0,
-          "string_tuning": 0.26249999999999996
+          "string_tuning": 0.29399999999999993
         }
       },
       {
@@ -129,12 +129,12 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.39,
           "shell_thickness": 0,
-          "bearing_edges": 1.2625,
+          "bearing_edges": 1.126,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.6500000000000004,
           "cymbal_lathing": 3.7760000000000002,
-          "cymbal_finish": 0.1365
+          "cymbal_finish": 0
         }
       }
     ],

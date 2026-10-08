@@ -3,9 +3,9 @@
   "name": "Video game music",
   "family": "electronic",
   "lineage": "Interactive score composed for game hardware, from the 1980 arcade and 1983-1994 console chip era — Koichi Sugiyama, Nobuo Uematsu, Koji Kondo and Yuzo Koshiro writing three-to-eight-voice PSG and FM parts under strict polyphony and memory limits — through the CD and streamed-audio era after 1995; the persistent markers are short seamlessly loopable cues, fast arpeggiated pseudo-chords standing in for missing voices, wide leaps and rapid modal modulation to stay memorable at 120-160 BPM, and layered or branching arrangements that respond to player state.",
-  "recipe": "classic Asian mid-1980s video game music, experimental Elec, retro aesthetic branch, pop rock synthpop, western modern art music metropopolis post-minimalism. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead wavetable oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, singing lead digital subtractive, field textural sampler, plain gut lamb gut whole lamb method sitka spruce hard rock maple violin orchestral, yamaha xeno modern Japanese heavy one piece matched to monette horn legato trumpet, synthetic timpani, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 897,
-  "score": 224.065,
+  "recipe": "classic Asian mid-1980s video game music, experimental Elec, retro aesthetic branch, pop rock synthpop, western modern art music metropopolis post-minimalism. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead wavetable oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, singing lead digital subtractive, field textural sampler, plain gut lamb gut whole lamb method sitka spruce hard rock maple violin orchestral, yamaha xeno modern Japanese standard rim orchestral balance legato trumpet, synthetic timpani, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 889,
+  "score": 222.83,
   "config": {
     "traditions": [
       "video_game_music",
@@ -86,7 +86,7 @@
           "electronic_technique": 4.575,
           "sampler_archetypes": 4.09,
           "sampler_bit_depth": 3.185,
-          "sampler_workflow": 5.25,
+          "sampler_workflow": 5.205,
           "sampler_classic_context": 25.024999999999995
         }
       },
@@ -97,20 +97,20 @@
           "orch_strings": "plain_lamb_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_varnish": "french_polish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
-          "orch_articulation": "sul_pont_orch",
+          "orch_articulation": "arco_orch",
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
           "bowed_technique": 2.375,
           "orch_strings": 1.2799999999999998,
-          "orch_top_wood": 8.379999999999999,
+          "orch_top_wood": 8.035,
           "orch_back_wood": 10.27,
-          "orch_varnish": 5.25,
-          "orch_setup_period": 6.95,
+          "orch_varnish": 5.430000000000001,
+          "orch_setup_period": 6.800000000000001,
           "orch_bow": 0.65,
           "orch_bow_stick": 5.2,
           "orch_articulation": 0.65,
@@ -122,7 +122,7 @@
         "slots": {
           "wind_articulation": "wind_classical_legato",
           "brass_size": "flugelhorn",
-          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
           "brass_mute": "straight_mute",
           "trumpet_technique": "trumpet_classical_legato",
           "trumpet_bell_metal": "trumpet_yellow_brass",
@@ -131,7 +131,7 @@
         "scores": {
           "wind_articulation": 1.25,
           "brass_size": 0.65,
-          "trumpet_mouthpiece": 6.215,
+          "trumpet_mouthpiece": 5.7,
           "brass_mute": 1.25,
           "trumpet_technique": 1.25,
           "trumpet_bell_metal": 0.195,
@@ -161,9 +161,9 @@
         },
         "scores": {
           "choir_size": 8.58,
-          "choir_polyphonic_configuration": 2.675,
+          "choir_polyphonic_configuration": 2.525,
           "choir_regional_canonical_configuration": 3.6399999999999997,
-          "choir_ensemble_repertoire": 2.66
+          "choir_ensemble_repertoire": 2.4499999999999997
         }
       }
     ],

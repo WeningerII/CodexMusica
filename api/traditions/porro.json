@@ -5,7 +5,7 @@
   "lineage": "Colombian Caribbean savanna dance form from Sucre and Córdoba, carried both by rural banda pelayera brass and by 1940s-60s Barranquilla and Medellín orquestas on Discos Fuentes, marked by a 2/4 cut-time bombo-and-redoblante pulse, clarinet-led melody over trumpets and bombardino, and the bozá section where brass riffs answer the drums.",
   "recipe": "classic South American mid-1940s porro, carnival Processional, Caribbean branch, tropical song functional song, Latin am groove percussion cumbia chilena kaseko. clarinet, yellow brass canonical 70 30 bach stradivarius shallow cup lead trumpet ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bass trombone trombone, brass yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, brass yellow brass canonical orchestral besson sovereign British brass band tuba, double bass rapid double strokes bass drum, low mouthed timbale mounted mambo section montuno lift coro section cencerro, rose brass darker warmer saxophone. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
   "recipe_chars": 859,
-  "score": 75.045,
+  "score": 75.075,
   "config": {
     "traditions": [
       "porro",
@@ -23,7 +23,7 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 0.635,
+          "wind_articulation": 0.6499999999999999,
           "clarinet_body": 0.26,
           "clarinet_size": 0.435,
           "clarinet_reed": 0.435,
@@ -127,8 +127,8 @@
           "cencerro_build": "cencerro_cattle_bell"
         },
         "scores": {
-          "cencerro_bell_type": 1.6900000000000002,
-          "cencerro_context": 1.4949999999999999,
+          "cencerro_bell_type": 1.6,
+          "cencerro_context": 1.45,
           "cencerro_build": 0.5
         }
       },
@@ -147,7 +147,7 @@
           "wind_articulation": 2.085,
           "sax_size": 0.195,
           "sax_reed": 0.435,
-          "sax_body_alloy": 4.3500000000000005,
+          "sax_body_alloy": 4.5,
           "sax_mouthpiece": 0.435,
           "sax_technique": -1.3877787807814457e-17,
           "sax_maker_school": 0.195

@@ -5,7 +5,7 @@
   "lineage": "Cinematic post-rock emphasizes evocative instrumental development within the wider post-rock field. Guitar ensembles, piano and electronic textures connect intimate melodic passages with expansive changes in scale and intensity.",
   "recipe": "classic cinematic post-rock, distorted Rock, experimental branch. soft felt lacquer voiced 17 ply hard rock maple grand piano, marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. treated studio. large-diaphragm condenser, console-strip pre, American blackface tube, parametric EQ. 24-bit digital digital delay hall reverb.",
   "recipe_chars": 436,
-  "score": 59.797,
+  "score": 59.541,
   "config": {
     "traditions": [
       "cinematic_post_rock"
@@ -54,7 +54,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": -0.11850000000000002,
+          "electric_technique": -0.10500000000000001,
           "amp_make": 5.720000000000001,
           "body_wood": 0.063,
           "neck_wood": 0.39,
@@ -62,7 +62,7 @@
           "pickup_magnet": 0.39,
           "string_material": 0.39,
           "string_gauge": 0.20799999999999996,
-          "bridge": 0.42,
+          "bridge": 0.315,
           "scale_length": 0.126,
           "finish": 0.1365,
           "string_tuning": 6.24,
@@ -86,7 +86,7 @@
           "body_wood": 0.063,
           "pickup_config": 0,
           "string_type": 14.625,
-          "scale_length_b": 0.483,
+          "scale_length_b": 0.378,
           "fretted_or_not": 0.03899999999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -119,9 +119,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 0.26,
+          "electronic_technique": 0.2315,
           "oscillator": 0.273,
-          "filter_topology": 0.1575,
+          "filter_topology": 0.126,
           "envelope": 0.588,
           "modulation": 0.105
         }

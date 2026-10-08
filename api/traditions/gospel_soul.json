@@ -5,7 +5,7 @@
   "lineage": "Gospel soul combines Christian testimony and gospel vocal response with the rhythmic language of soul, sometimes extending into funk or disco. The selected Annie and the Caldwells branch is a West Point family performance practice: a lead singer with answering family voices, guitar, bass, drums and Hammond organ. Can’t Lose My (Soul) personnel ground these roles; the authored studio model does not recreate the original church mobile rig.",
   "recipe": "classic modern gospel soul, functional Song, soul R&B branch. one note per syllable, single leader group response. midrange-forward clean chicken-scratch single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched full spectrum fast tremolo tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 609,
-  "score": 99.543,
+  "score": 99.585,
   "config": {
     "traditions": [
       "gospel_soul"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.81525,
-          "voice_ensemble_config": 10.430999999999997,
+          "voice_speech_song": 0.7522500000000001,
+          "voice_ensemble_config": 10.399499999999998,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0,
@@ -68,10 +68,10 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 19.2315,
+          "electric_technique": 19.2,
           "amp_make": 0,
-          "body_wood": 0.33599999999999997,
-          "neck_wood": 0.2415,
+          "body_wood": 0.231,
+          "neck_wood": 0.378,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0,
@@ -97,7 +97,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.33599999999999997,
+          "body_wood": 0.231,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -134,7 +134,7 @@
           "drawbar_setting": 9,
           "rotary_speed": 8.95,
           "percussion_setting": 0,
-          "tonewheel_model": 9.754,
+          "tonewheel_model": 9.9955,
           "leslie_cabinet_model": 1.625
         }
       }

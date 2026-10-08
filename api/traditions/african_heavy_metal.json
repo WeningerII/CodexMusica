@@ -5,7 +5,7 @@
   "lineage": "Continental African metal scenes formed from the late 1980s onward in Botswana, Angola, Kenya, Madagascar and South Africa, codified by Wrust, Skinflint, Overthrust and the Gaborone leather-cowboy subculture — NWOBHM and thrash templates at 120-190 BPM with downtuned humbucker guitars and double-kick drumming, but with Setswana, Swahili or Portuguese lyrics, local praise-song melodic contours and occasional talking drum or call-and-response chant layered over the riff.",
   "recipe": "classic Southern African 1987-1989 african heavy metal, distorted Rock, metal branch, thrash metal, regional distorted rock canadian rock chinese indie rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 716,
-  "score": 306.17,
+  "score": 306.116,
   "config": {
     "traditions": [
       "african_heavy_metal",
@@ -31,17 +31,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.32,
-          "amp_make": 14.18,
+          "electric_technique": 22.3425,
+          "amp_make": 14.299999999999997,
           "body_wood": 7.409999999999999,
           "neck_wood": 0.7800000000000001,
-          "fretboard": 0.675,
-          "pickup_magnet": 1.2149999999999999,
+          "fretboard": 0.63,
+          "pickup_magnet": 1.1249999999999998,
           "pickup_winding": 0.3,
           "string_material": 0.195,
           "bridge": 0.7800000000000001,
           "scale_length": 7.409999999999999,
-          "string_gauge": 1.26,
+          "string_gauge": 1.215,
           "finish": 0,
           "string_tuning": 17.419999999999998
         }
@@ -60,9 +60,9 @@
         },
         "scores": {
           "amp_make": 10.335,
-          "body_wood": 1.74,
-          "pickup_config": 1.11,
-          "string_type": 22.28,
+          "body_wood": 1.65,
+          "pickup_config": 1.02,
+          "string_type": 22.6325,
           "scale_length_b": 0.7800000000000001,
           "fretted_or_not": 0.3,
           "bass_technique": 19.29,
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 19.25,
-          "drumhead": 0.9300000000000002,
+          "drumhead": 0.8250000000000002,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -110,14 +110,14 @@
           "voice_vibrato": 2.1449999999999996,
           "voice_articulation": 17.16,
           "voice_microtone": 19.449999999999996,
-          "voice_tradition": 14.759999999999998,
-          "voice_mechanism_compound": 21.775,
-          "voice_estill_quality": 3.6400000000000006,
+          "voice_tradition": 14.789999999999997,
+          "voice_mechanism_compound": 21.7975,
+          "voice_estill_quality": 3.6295,
           "voice_speech_song": 18.46,
           "voice_ensemble_config": 18.525,
-          "voice_ornament_system": 0.135,
+          "voice_ornament_system": 0.09,
           "voice_pitch_organization": 0.39499999999999996,
-          "voice_processing_chain": 3.9350000000000005,
+          "voice_processing_chain": 3.8945000000000003,
           "voice_multitrack_stack": 3.3799999999999994
         }
       },
@@ -131,7 +131,7 @@
         },
         "scores": {
           "talking_drum_origin": 0.195,
-          "talking_drum_context": 0.785,
+          "talking_drum_context": 0.7445,
           "talking_drum_shell_wood": 3.3999999999999995,
           "talking_drum_head": 1.69
         }

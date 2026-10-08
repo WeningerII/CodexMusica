@@ -5,7 +5,7 @@
   "lineage": "Rodrigo José e Banda — complete ninety-minute SESI Música Série Popular program, documented performing ensemble. Nine people: Rodrigo Alves Emke lead voice; Mauricio Gaspar drums; Rafael Francischangelis bass; Rodrigo Fortunato de Barros guitar; Giovanni José Bonfim keyboards; Felipe Martim Coelho trombone; Bruno Rodrigo Gibertoni Brito trumpet; Claudia Noemi de Oliveira and Nayara Alves Carvalho backing voices. Seven family cards retain the entire roster and all three singers. A presenter-listed program and ensemble is the scope; it is not falsely reported as a witnessed completed concert or a reconstructed album session. Parent functionalSong.brazilianSong represents the documented Brazilian popular-song repertory and new original songs, with a candid authored recurring melody/refrain and chordal support. Authored clean strummed low-wind humbucker guitar, muted flatwound soapbar bass, rock-stick drumkit, source-neutral electronic keyboard and paired punchy open trumpet/tenor trombone form one coherent present-day band realization. Guitar body/neck and other physical choices are editorial, not source equipment claims. Three credited singers use a source-count-preserving live group with small groups of sung notes per syllable as a newly authored rendition, not a measured vocal transcript or physiological claim. A controlled live room is editorial; source capture apparatus and global tuning are not specified and omitted.",
   "recipe": "classic brega, functional Song, Brazilian song branch. small note groups per syllable, group vocals, live take. alder mahogany ebony low output no compression conventional tuning humbucker electric guitar, alder flatwound thumb muted electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, melodic chordal electronic keyboard unspecified, bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, ensemble trumpet. live tracking.",
   "recipe_chars": 495,
-  "score": 73.676,
+  "score": 74.159,
   "config": {
     "traditions": [
       "brega"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 5.62,
-          "voice_ensemble_config": 6.982999999999999,
+          "voice_ensemble_config": 7.119499999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.273,
-          "voice_multitrack_stack": 5.472999999999999,
+          "voice_multitrack_stack": 5.504499999999999,
           "voice_tessitura": 0
         }
       },
@@ -81,7 +81,7 @@
           "bridge": 0,
           "scale_length": 1.69,
           "string_gauge": 2.273,
-          "finish": 0,
+          "finish": 0.0315,
           "string_tuning": 1.3
         }
       },
@@ -132,8 +132,8 @@
           "bearing_edges": 0.1995,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 4.131,
-          "cymbal_lathing": 4.309500000000001,
+          "cymbal_hammering": 4.341,
+          "cymbal_lathing": 4.4145,
           "cymbal_finish": 0
         }
       },
@@ -162,9 +162,9 @@
         "scores": {
           "wind_articulation": 2.7545,
           "trombone_type": -0.035,
-          "trombone_mouthpiece": 1.2,
+          "trombone_mouthpiece": 1.305,
           "trombone_mute": 0.5145,
-          "trombone_technique": 0.3045,
+          "trombone_technique": 0.168,
           "trombone_bell_metal": 0.39,
           "trombone_maker_school": 1.69
         }

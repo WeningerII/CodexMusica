@@ -1,53 +1,56 @@
 {
-  "id": "kentucky_mountain_folk",
-  "name": "Kentucky mountain folk",
+  "id": "appalachian_folk",
+  "merged_from": "kentucky_mountain_folk",
+  "name": "Appalachian folk song",
   "family": "vernacular",
-  "lineage": "Kentucky mountain folk includes family ballads, social songs, fiddle and banjo music, and local dulcimer traditions. The Ritchie family’s eastern Kentucky repertoire helped bring inherited mountain songs to wider audiences through performance and recording.",
-  "recipe": "classic modern kentucky mountain folk, ballad Poetry. thick, neutral third half flat, opera quality low larynx anchored, notated speech melody. mountain dulcimer. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 300,
-  "score": 19.919,
+  "lineage": "Unaccompanied and lightly accompanied song repertoire of the southern Appalachian highlands, descended from British and Scots-Irish balladry and documented by Cecil Sharp and Olive Dame Campbell's 1916-18 collecting and by the Library of Congress field campaigns — free-rhythm or loosely metered delivery, modal Dorian-Mixolydian-Aeolian melodies in a narrow tessitura, hard nasal unornamented-to-lightly-slid solo voice, long strophic narrative texts, and drone accompaniment from mountain dulcimer, banjo or autoharp when instruments appear at all.",
+  "recipe": "classic Southern American mid-1910s appalachian folk song, drone Modal, appalachian branch, Celtic balladic Scottish ballad, pre commercial country cowboy old west frontier music. thick, breath veiled tone, wide pitch sway, interlocked note trading. walnut canonical appalachian drone like modal mountain dulcimer, plain gut minstrel pre 1860s fretless canon scruggs stelling bluegrass setup banjo 5 string, folk drone like modal autoharp, dadgad tuning plain gut sheep gut pre 1900 parlor travis picked parlor acoustic guitar. bristol sessions appalachian pre commercial. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 647,
+  "score": 316.651,
   "config": {
     "traditions": [
-      "kentucky_mountain_folk"
+      "appalachian_folk",
+      "cowboy_song",
+      "old_west"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "speech_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.5,
-          "voice_quality": 0,
+          "voice_register": 15.219999999999997,
+          "voice_quality": 7.865,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.414,
-          "voice_articulation": 0.13000000000000003,
-          "voice_microtone": 4.680000000000001,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 1.438,
-          "voice_speech_song": 5.265,
-          "voice_ensemble_config": 0.78,
-          "voice_ornament_system": 0.354,
-          "voice_pitch_organization": 0.06500000000000002,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39
+          "voice_vibrato": 12.170000000000002,
+          "voice_articulation": 20.279999999999998,
+          "voice_microtone": 23.984999999999992,
+          "voice_tradition": 19.7925,
+          "voice_mechanism_compound": 6.175,
+          "voice_estill_quality": 16.283,
+          "voice_speech_song": 29.835,
+          "voice_ensemble_config": 22.359999999999992,
+          "voice_ornament_system": 12.411499999999997,
+          "voice_pitch_organization": 2.9575000000000005,
+          "voice_processing_chain": 6.899999999999999,
+          "voice_multitrack_stack": 3.575
         }
       },
       {
@@ -55,66 +58,102 @@
         "slots": {
           "acoustic_technique": "acoustic_drone_modal",
           "dulcimer_strings": "dulcimer_3",
-          "dulcimer_tuning": "ionian_tuning",
+          "dulcimer_tuning": "mixolydian_tuning",
           "dulcimer_body_wood": "dulcimer_walnut_canonical",
-          "dulcimer_string_material": "dulcimer_steel_modern"
+          "dulcimer_string_material": "dulcimer_phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": -0.07,
-          "dulcimer_strings": 0.108,
-          "dulcimer_tuning": 0,
-          "dulcimer_body_wood": 0.36,
+          "acoustic_technique": 10.311499999999999,
+          "dulcimer_strings": 6.9864999999999995,
+          "dulcimer_tuning": 3.939,
+          "dulcimer_body_wood": 3.989,
           "dulcimer_string_material": 0
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_neck_wood": "banjo_mahogany_neck",
+          "banjo_strings": "banjo_gut_minstrel",
+          "banjo_bridge": "banjo_minstrel_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.2835,
+          "tone_ring": 0.975,
+          "banjo_head": 20.085,
+          "banjo_pot": 0.105,
+          "banjo_play": 0.975,
+          "banjo_rim_wood": 0.78,
+          "banjo_neck_wood": 0.845,
+          "banjo_strings": 1.2349999999999999,
+          "banjo_bridge": 0.4550000000000001,
+          "banjo_setup_period": 20.019999999999996
+        }
+      },
+      {
+        "id": "autoharp",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "autoharp_chord_bars": "autoharp_15_chord",
+          "autoharp_context": "autoharp_folk_revival",
+          "autoharp_strings": "autoharp_phosphor_bronze",
+          "autoharp_body_wood": "autoharp_solid_birch"
+        },
+        "scores": {
+          "acoustic_technique": 10.311499999999999,
+          "autoharp_chord_bars": 2.21,
+          "autoharp_context": 9.815,
+          "autoharp_strings": 0,
+          "autoharp_body_wood": -1.295
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_travis_picking",
+          "string_tuning": "dadgad",
+          "top_wood_parlor": "mahogany_top_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "gut_pre_1900_p"
+        },
+        "scores": {
+          "acoustic_technique": 15.670000000000003,
+          "string_tuning": 5.675000000000001,
+          "top_wood_parlor": 0.9099999999999999,
+          "back_sides_parlor": 0.9099999999999999,
+          "string_acoustic_parlor": 2.925
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_quality",
-        "voice_articulation",
-        "voice_tradition",
-        "voice_ensemble_config"
-      ],
-      "mountain_dulcimer": [
-        "acoustic_technique",
-        "dulcimer_strings",
-        "dulcimer_tuning"
-      ]
-    },
-    "room": "parlor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "room": "bristol_sessions_appalachian_pre_commercial",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "pre_500_series_modern",
+      "mic": "ribbon_passive",
+      "pre": "pre_field_recorder_portable",
       "console": "clean",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
-    "tuning": "twelve_tet",
+    "tuning": "american_primitive_open_drone",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "parlor",
-    "parts": {
-      "voice_articulation": "narrative_voice",
-      "voice_quality": "speech_voice",
-      "acoustic_technique": "acoustic_drone_modal",
-      "dulcimer_strings": "dulcimer_3",
-      "dulcimer_tuning": "ionian_tuning",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied"
-    },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "pre_500_series_modern",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
+    "tuning": "american_primitive_open_drone",
+    "room": "bristol_sessions_appalachian_pre_commercial",
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
     "chain_console": "clean"
   }
 }

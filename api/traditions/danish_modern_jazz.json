@@ -1,47 +1,40 @@
 {
-  "id": "danish_modern_jazz",
-  "name": "Danish modern jazz",
+  "id": "danish_jazz",
+  "merged_from": "danish_modern_jazz",
+  "name": "Danish jazz",
   "family": "jazz",
-  "lineage": "Contemporary Denmark-connected improvised music, represented by Jakob Bro’s open-form electric-guitar trio on Gefion. Guitar, acoustic bass and drums develop parallel, responsive lines with spacious dynamics.",
-  "recipe": "classic modern danish modern jazz, improv On Frame, bop branch. single coil electric guitar, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 320,
-  "score": 40.814,
+  "lineage": "Danish jazz grew through clubs, recordings and exchanges between local musicians and international performers, with Copenhagen an important meeting point. Swing, bebop and lyrical small-group improvisation coexist with more exploratory approaches.",
+  "recipe": "classic modern danish jazz, improv On Frame, American jazz branch. grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 307,
+  "score": 46.18,
   "config": {
     "traditions": [
-      "danish_modern_jazz"
+      "danish_jazz"
     ],
     "instruments": [
       {
-        "id": "electric_guitar_single_coil",
+        "id": "grand_piano",
         "slots": {
-          "electric_technique": "electric_arpeggiated_clean",
-          "amp_make": "amp_unspecified",
-          "body_wood": "alder",
-          "neck_wood": "maple",
-          "fretboard": "rosewood_fb",
-          "pickup_magnet": "alnico_5",
-          "string_material": "nickel_plated",
-          "string_gauge": "g_11",
-          "bridge": "hardtail",
-          "scale_length": "scale_fender",
-          "finish": "poly",
-          "string_tuning": "standard_tuning",
-          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "electric_technique": 0.19500000000000003,
-          "amp_make": 0,
-          "body_wood": 0.03471428571428571,
-          "neck_wood": 0.1365,
-          "fretboard": -0.035,
-          "pickup_magnet": 0,
-          "string_material": 0.1995,
-          "string_gauge": 0.09771428571428571,
-          "bridge": 0.39,
-          "scale_length": 0.03471428571428571,
-          "finish": 0,
-          "string_tuning": 0,
-          "single_coil_pickup_construction": 0
+          "keyboard_technique": -0.07,
+          "grand_piano_size": 0.147,
+          "grand_piano_brand": 0.173625,
+          "piano_hammer": -0.07,
+          "piano_rim": 0.26,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": -0.035
         }
       },
       {
@@ -51,8 +44,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.168,
-          "upright_play": 8.75
+          "upright_strings": 0.19949999999999998,
+          "upright_play": 11.25
         }
       },
       {
@@ -71,34 +64,31 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.890000000000001,
-          "drumhead": 0.06621428571428571,
+          "drum_technique": 10.399999999999999,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.03471428571428571,
+          "shell_wood": 0.2835,
           "shell_thickness": 0,
-          "bearing_edges": 0.17442857142857143,
-          "snare_wires": 0.03471428571428571,
-          "cymbal_alloy": 8.599999999999998,
-          "cymbal_hammering": 9.405,
-          "cymbal_lathing": 2.4314999999999998,
-          "cymbal_finish": 0.0315
+          "bearing_edges": 0.1995,
+          "snare_wires": 0.147,
+          "cymbal_alloy": 11.351999999999999,
+          "cymbal_hammering": 11.641,
+          "cymbal_lathing": -0.10500000000000001,
+          "cymbal_finish": 0
         }
       }
     ],
     "pinned": {
-      "electric_guitar_single_coil": [
-        "electric_technique",
-        "amp_make",
-        "body_wood",
-        "neck_wood",
-        "fretboard",
-        "pickup_magnet",
-        "string_material",
-        "string_gauge",
-        "bridge",
-        "scale_length",
-        "finish",
-        "string_tuning"
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ],
       "upright_bass": [
         "upright_strings",
@@ -132,26 +122,21 @@
     "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": [
-      "digital_delay"
-    ]
+    "fx_extras": []
   },
   "source": {
     "tuning": "twelve_tet",
     "room": "live_room",
     "parts": {
-      "electric_technique": "electric_arpeggiated_clean",
-      "amp_make": "amp_unspecified",
-      "body_wood": "alder",
-      "neck_wood": "maple",
-      "fretboard": "rosewood_fb",
-      "pickup_magnet": "alnico_5",
-      "string_material": "nickel_plated",
-      "string_gauge": "g_11",
-      "bridge": "hardtail",
-      "scale_length": "scale_fender",
-      "finish": "poly",
-      "string_tuning": "standard_tuning",
+      "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
       "upright_strings": "steel_upright",
       "upright_play": "pizz_upright",
       "drum_technique": "brushes_and_sticks",
@@ -173,8 +158,6 @@
     "chain_eq": "eq_active_parametric",
     "chain_medium": "digital_high",
     "chain_console": "clean",
-    "chain_fx": [
-      "digital_delay"
-    ]
+    "chain_fx": []
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Samba moderno follows the contemporary Rio singer-composer network nurtured by Lapa venues, Clube Renascença, Cacique de Ramos and projects such as Samba Social Clube and Festa da Raça. Artists including João Martins, Inácio Rios and Nego Álvaro carry older samba traditions into new compositions, collaborations and independent careers.",
   "recipe": "classic samba moderno, groove Percussion, pagode branch, Brazilian song functional song brega and tecnobrega funk melody. one note per syllable, group vocals. samba foundation mahogany samba canon cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, bass driven tan tan drum. live tracking.",
   "recipe_chars": 379,
-  "score": 44.29,
+  "score": 44.53,
   "config": {
     "traditions": [
       "samba_moderno",
@@ -46,11 +46,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.585,
-          "voice_ensemble_config": 0.6900000000000001,
+          "voice_ensemble_config": 0.8850000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.435,
           "voice_tessitura": 0
         }
       },

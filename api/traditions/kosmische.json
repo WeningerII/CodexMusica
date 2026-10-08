@@ -3,9 +3,9 @@
   "name": "Kosmische Musik",
   "family": "rock",
   "lineage": "West German electronic-psychedelic practice of roughly 1969-1978, centred on Berlin and Cologne around Tangerine Dream, Klaus Schulze, Ash Ra Tempel, Popol Vuh and producer Conny Plank — long-form sequencer and modular-synthesiser pieces over static or slowly shifting drones, minimal or absent vocals, tape-delay guitar washes, and either free-floating pulseless expanses or steady motorik eighth-note drumming.",
-  "recipe": "classic Central European mid-1970s kosmische musik, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal french indietronica berlin school. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular sequential lineage canonical prophet 5 1978 san jose ca pad analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, pre muffled edge muffled brushes-and-sticks drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, block chord tape replay keyboard. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 979,
-  "score": 151.863,
+  "recipe": "classic Central European mid-1970s kosmische musik, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal french indietronica berlin school. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular sequential lineage canonical prophet 5 1978 san jose ca pad analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, pre muffled edge muffled brushes-and-sticks drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, block chord tape replay keyboard. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 987,
+  "score": 152.454,
   "config": {
     "traditions": [
       "kosmische",
@@ -92,7 +92,7 @@
         },
         "scores": {
           "electric_technique": 3.75,
-          "amp_make": 5.8645,
+          "amp_make": 6.254499999999999,
           "body_wood": 1.3,
           "neck_wood": 0.87,
           "fretboard": 0.45499999999999996,
@@ -109,7 +109,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
@@ -119,7 +119,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.5044999999999997,
+          "amp_make": 3.705,
           "body_wood": 1.7400000000000002,
           "pickup_config": 2.145,
           "string_type": 8.8395,

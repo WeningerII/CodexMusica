@@ -3,21 +3,21 @@
   "name": "Were music (Yoruba Ramadan procession)",
   "family": "global",
   "lineage": "Yoruba were music: pre-dawn Ramadan-procession devotional song-and-drumming tradition of southwestern Nigerian Muslim-Yoruba communities, performed by ajiwere groups moving through Muslim neighborhoods before the suhoor pre-dawn meal during Ramadan. Performance combines unison or call-and-response chorus singing in Yoruba and Arabic (Quranic phrases interpolated into Yoruba praise-poetry) with sákárà frame-drums and small bells. Direct ancestor of fuji music — Alhaji Ayinde Barrister brought the were aesthetic into post-Ramadan secular commercial performance contexts.",
-  "recipe": "classic North African modern were music, ritual Devotional, islamic branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, breath veiled tone, straight note core, interlocked note trading. walnut bent frame canonical Iranian tar frame drum. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 378,
-  "score": 196.602,
+  "recipe": "classic North African modern were music, ritual Devotional, islamic branch, west African groove percussion indonesian jaipongan bondja. vocal fry, declaimed, straight note core, interlocked note trading. walnut bent frame canonical Iranian tar frame drum. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 349,
+  "score": 171.852,
   "config": {
     "traditions": [
       "were_music_yoruba",
       "indonesian_jaipongan",
-      "yoruba_dundun_surrogate_speech"
+      "bondja_haratin"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.1525,
-          "voice_quality": 19.89,
+          "voice_register": 1.6899999999999997,
+          "voice_quality": 11.665,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.9825,
-          "voice_articulation": 13.129999999999995,
-          "voice_microtone": 17.224999999999994,
-          "voice_tradition": 52.61749999999999,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 4.03,
-          "voice_speech_song": 17.354999999999997,
-          "voice_ensemble_config": 13.064999999999994,
+          "voice_articulation": 13.844999999999995,
+          "voice_microtone": 17.939999999999998,
+          "voice_tradition": 44.59,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 16.184999999999995,
+          "voice_ensemble_config": 13.129999999999995,
           "voice_ornament_system": 12.375,
-          "voice_pitch_organization": 22.914999999999996,
-          "voice_processing_chain": 9.75,
-          "voice_multitrack_stack": 3.1200000000000006
+          "voice_pitch_organization": 17.389999999999997,
+          "voice_processing_chain": 6.955,
+          "voice_multitrack_stack": 4.615
         }
       },
       {
@@ -59,13 +59,13 @@
           "tar_size": "tar_small",
           "tar_frame_drum_context": "tar_frame_drum_sufi",
           "tar_frame_shell_wood": "tar_frame_walnut",
-          "tar_frame_head": "tar_frame_goat_skin"
+          "tar_frame_head": "tar_frame_calfskin"
         },
         "scores": {
           "percussion_technique": -0.07,
           "tar_size": 0.845,
           "tar_frame_drum_context": 2.06,
-          "tar_frame_shell_wood": 2.3850000000000002,
+          "tar_frame_shell_wood": 1.69,
           "tar_frame_head": 0.845
         }
       }

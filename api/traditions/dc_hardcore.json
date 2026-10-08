@@ -3,9 +3,9 @@
   "name": "Dc hardcore",
   "family": "rock_punk",
   "lineage": "DC hardcore developed through Washington’s independent punk community, with Minor Threat among its formative bands.",
-  "recipe": "classic dc hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 352,
-  "score": 39.6,
+  "recipe": "classic dc hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 334,
+  "score": 38.215,
   "config": {
     "traditions": [
       "dc_hardcore"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 13.845,
-          "body_wood": 1.263,
+          "body_wood": 0.756,
           "neck_wood": 0.063,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.263,
+          "body_wood": 0.756,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -76,8 +76,8 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.453,
-          "drum_kit_kick_pedal": 0.28500000000000003
+          "drumhead": 0.1365,
+          "drum_kit_kick_pedal": 0.231
         }
       },
       {

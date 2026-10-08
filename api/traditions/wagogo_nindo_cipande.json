@@ -3,20 +3,20 @@
   "name": "Wagogo nindo and cipande polyphony (Tanzania)",
   "family": "global",
   "lineage": "Wagogo polyphonic singing tradition of central Tanzania (Dodoma region), one of sub-Saharan Africa's most structurally distinctive choral traditions. Multi-part harmony built on overlapping ostinato pattern-cycles with characteristic diaphonic-and-triadic intervals — nindo work-songs and msunyunho ritual songs sit alongside the cipande circumcision-initiation repertoire. Polo Vallejo's 1995-2002 fieldwork in Nzali village (published as Mbudi Mbudi na Mhanga, Madrid 2004) and David Fanshawe's 1969-1975 East African field recordings (Saydisc CMIL 98 Fabulous Gogo Music) constitute the canonical documentation. Performance involves women's choral antiphonal patterns over zeze board-zither and kebero drum accompaniment, with characteristic call-and-response between soloist and group across staggered melodic entries. Modal vocabulary draws on pentatonic-and-hexatonic frameworks with characteristic equiheptatonic-leaning inflections distinct from neighboring Bantu traditions. Distinguished from Burundi inanga-chuchotée by Wagogo's open-voiced choral-with-instruments configuration; distinguished from Aka and Baka pygmy polyphony by Wagogo's ostinato-cycle (vs hocketed yodel) architecture; distinguished from Maasai and Sukuma neighbors by Wagogo-Dodoma dialect-specific cadential conventions.",
-  "recipe": "classic East African mid-1990s wagogo nindo and cipande polyphony, drone Modal, heterophonic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. board zither multiple strings canonical wagogo tanzanian wagogo non ritual canonical central tanzania zeze, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero. tanzanian outdoor village clearing. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 615,
-  "score": 296.667,
+  "recipe": "classic East African mid-1990s wagogo nindo and cipande polyphony, drone Modal, heterophonic branch, indigenous ritual devotional mapuche tayil genealogical chant fijian meke. vocal fry, breath veiled tone, straight note core, interlocked note trading. board zither multiple strings canonical wagogo tanzanian wagogo non ritual canonical central tanzania zeze, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero. tanzanian outdoor village clearing. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 584,
+  "score": 273.763,
   "config": {
     "traditions": [
       "wagogo_nindo_cipande",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "fijian_meke"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 1.3649999999999998,
-          "voice_quality": 31.85,
+          "voice_register": 1.105,
+          "voice_quality": 18.784999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.640000000000001,
-          "voice_articulation": 32.370000000000005,
-          "voice_microtone": 33.605000000000004,
-          "voice_tradition": 21.58,
-          "voice_mechanism_compound": 16.185,
-          "voice_estill_quality": 12.999999999999995,
-          "voice_speech_song": 33.54,
-          "voice_ensemble_config": 39.975,
-          "voice_ornament_system": 8.248750000000001,
+          "voice_vibrato": 2.990000000000001,
+          "voice_articulation": 32.24000000000001,
+          "voice_microtone": 33.93000000000001,
+          "voice_tradition": 18.85,
+          "voice_mechanism_compound": 15.989999999999998,
+          "voice_estill_quality": 12.349999999999994,
+          "voice_speech_song": 33.41000000000001,
+          "voice_ensemble_config": 39.19500000000001,
+          "voice_ornament_system": 8.89875,
           "voice_pitch_organization": 4.680000000000001,
-          "voice_processing_chain": 12.675,
-          "voice_multitrack_stack": 5.070000000000002
+          "voice_processing_chain": 6.890000000000001,
+          "voice_multitrack_stack": 4.03
         }
       },
       {
@@ -59,8 +59,8 @@
           "zeze_tradition": "zeze_wagogo_non_ritual_canonical"
         },
         "scores": {
-          "zeze_body": 11.32875,
-          "zeze_tradition": 22.71
+          "zeze_body": 11.478750000000002,
+          "zeze_tradition": 22.159999999999997
         }
       },
       {
@@ -71,9 +71,9 @@
           "kebero_tradition": "kebero_orthodox_tewahedo"
         },
         "scores": {
-          "kebero_skin": 2.34,
-          "kebero_shell_wood": 2.34,
-          "kebero_tradition": 2.34
+          "kebero_skin": 2.535,
+          "kebero_shell_wood": 2.535,
+          "kebero_tradition": 2.535
         }
       }
     ],

@@ -1,177 +1,107 @@
 {
-  "id": "country_pop_crossover",
-  "name": "Country-pop crossover",
-  "family": "global",
-  "lineage": "2000s and 2010s country-pop crossover tradition codified through Shania Twain (Come On Over 1997), Faith Hill, Tim McGraw, Taylor Swift’s first three records (2006-2010 before her full pop pivot), Carrie Underwood — characterized by country-vocal lead over pop-radio production with reduced fiddle/steel and increased programmed-percussion presence",
-  "recipe": "classic 2006-2010 country-pop crossover, functional Song, contemp main branch, pop rock functional song yacht rock folk rock. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 714,
-  "score": 551.425,
+  "id": "country_pop",
+  "merged_from": "country_pop_crossover",
+  "name": "Country pop",
+  "family": "pop",
+  "lineage": "Country pop blends country songwriting and vocal phrasing with the melodic hooks and production approaches of popular music.",
+  "recipe": "classic country pop, functional Song, pop rock branch. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 222,
+  "score": 14.061,
   "config": {
     "traditions": [
-      "country_pop_crossover",
-      "yacht_rock",
-      "folk_rock"
+      "country_pop"
     ],
     "instruments": [
       {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 12.5305,
+          "string_tuning": 0,
+          "top_wood": 0.2415,
+          "back_sides": 0.105,
+          "string_acoustic": 0.33599999999999997
+        }
+      },
+      {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
         },
         "scores": {
-          "voice_register": 69.27500000000002,
-          "voice_quality": 5.849999999999999,
+          "voice_register": 0,
+          "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.224999999999998,
-          "voice_articulation": 11.764999999999993,
-          "voice_microtone": 44.35000000000001,
-          "voice_tradition": 26.78,
-          "voice_mechanism_compound": 2.6649999999999996,
-          "voice_estill_quality": 18.799999999999997,
-          "voice_speech_song": 16.834999999999994,
-          "voice_ensemble_config": 13.389999999999992,
-          "voice_ornament_system": 0.19500000000000003,
-          "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 8.665,
-          "voice_multitrack_stack": 9.36
-        }
-      },
-      {
-        "id": "electric_guitar_single_coil",
-        "slots": {
-          "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
-          "string_material": "nickel_plated",
-          "string_gauge": "g_11",
-          "bridge": "two_point_trem",
-          "scale_length": "scale_gibson",
-          "finish": "nitro",
-          "string_tuning": "drop_d",
-          "single_coil_pickup_construction": "single_coil_construction_unspecified"
-        },
-        "scores": {
-          "electric_technique": 20.305,
-          "amp_make": 17.319999999999997,
-          "body_wood": 2.275,
-          "neck_wood": 2.275,
-          "fretboard": 2.21,
-          "pickup_magnet": 0.39,
-          "string_material": 2.02,
-          "string_gauge": 2.275,
-          "bridge": 1.24,
-          "scale_length": 2.275,
-          "finish": 0.09,
-          "string_tuning": 12.415,
-          "single_coil_pickup_construction": 0
-        }
-      },
-      {
-        "id": "electric_bass",
-        "slots": {
-          "amp_make": "amp_american_fender_tweed",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
-        },
-        "scores": {
-          "amp_make": 16.314999999999998,
-          "body_wood": 2.275,
-          "pickup_config": 1.675,
-          "string_type": 28.6,
-          "scale_length_b": 2.275,
-          "fretted_or_not": 0.195,
-          "bass_technique": 22.189999999999998,
-          "electric_bass_string_configuration": 0
-        }
-      },
-      {
-        "id": "drum_kit",
-        "slots": {
-          "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
-          "drum_kit_kick_pedal": "dk_kick_single_felt"
-        },
-        "scores": {
-          "drum_technique": 22.045,
-          "drumhead": 19.790000000000003,
-          "drum_kit_kick_pedal": 0
-        }
-      },
-      {
-        "id": "grand_piano",
-        "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "japanese_1980s_hammer",
-          "piano_rim": "asian_laminated_rim_birch_maple",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "standard_multi_laminate_pinblock",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_440_modern"
-        },
-        "scores": {
-          "keyboard_technique": 21.220000000000002,
-          "grand_piano_size": 2.275,
-          "grand_piano_brand": 2.8600000000000003,
-          "piano_hammer": 20.03,
-          "piano_rim": 22.185000000000002,
-          "piano_soundboard": 19.745000000000005,
-          "piano_pinblock": 1.3,
-          "piano_plate": 2.5349999999999997,
-          "piano_pitch_standard": 0.5199999999999999
-        }
-      },
-      {
-        "id": "analog_poly_synth",
-        "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_yamaha_cs"
-        },
-        "scores": {
-          "electronic_technique": 21.660000000000004,
-          "poly_archetypes": 11.439999999999998,
-          "poly_voices": 0.78,
-          "poly_maker_lineage": -0.5950000000000001
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.363,
+          "voice_ornament_system": 0.0315,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.063
         }
       }
     ],
+    "pinned": {
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
     "room": "treated_studio",
-    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "condenser_ldc",
-      "pre": "transformer_solid_state",
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
       "console": "console_in_the_box",
-      "comp": "comp_distressor_modern",
-      "eq": "eq_massenburg_mastering",
-      "amp": "amp_american_blackface",
-      "medium": "digital_std"
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -182,44 +112,31 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "body_wood": "swamp_ash",
-      "pickup_magnet": "alnico_5",
-      "string_material": "nickel_plated",
-      "bridge": "hardtail",
-      "scale_length": "scale_fender",
-      "pickup_config": "dual_single",
-      "string_type": "half_round",
-      "scale_length_b": "long_scale_b",
-      "fretted_or_not": "fretted",
-      "bass_technique": "fingerpicked_country_b",
-      "drumhead": "single_coated",
-      "drum_technique": "brushes_and_sticks",
-      "voice_register": "chest_voice",
-      "voice_quality": "twang_voice",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_tradition": "modern_pop_vocal_training",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
-      "voice_microtone": "tempered_voice",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
       "voice_ornament_system": "voice_ornament_none",
-      "voice_estill_quality": "voice_estill_oral_twang",
-      "voice_vibrato": "slow_vibrato",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "keyboard_technique": "keyboard_block_chord_pop",
-      "piano_pitch_standard": "a_440_modern",
-      "electronic_technique": "electronic_pad_drone",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "acoustic_technique": "acoustic_strummed_ringing",
       "string_tuning": "standard_tuning"
     },
-    "chain_mic": "condenser_ldc",
-    "chain_pre": "transformer_solid_state",
-    "chain_comp": "comp_distressor_modern",
-    "chain_eq": "eq_massenburg_mastering",
-    "chain_medium": "digital_std",
-    "chain_console": "console_in_the_box",
-    "chain_amp": "amp_american_blackface",
-    "chain_amp_guitar": "amp_american_fender_blackface",
-    "chain_amp_bass": "amp_american_ampeg_b15"
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

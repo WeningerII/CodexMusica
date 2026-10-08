@@ -1,0 +1,168 @@
+{
+  "id": "langarm_cape",
+  "name": "Langarm (Cape ballroom dance-band music)",
+  "family": "global",
+  "lineage": "Ballroom dance music of the Coloured communities of the Western Cape, named after the extended long-arm hold of its couple dances, played by dance bands at community dances through much of the twentieth century. Saxophone-led bands play waltzes and other ballroom rhythms for couples, and Denis-Constant Martin discusses the music in his study Sounding the Cape. The acoustic-bass card stands in for the band's bass.",
+  "recipe": "classic Southern African early-1950s langarm, functional Song. saxophone, upright piano, natural acoustic bass credited acoustic bass, drum kit. live tracking. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 260,
+  "score": 2.526,
+  "config": {
+    "traditions": [
+      "langarm_cape"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_balanced_action"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "sax_size": 0.95,
+          "sax_reed": 0,
+          "sax_body_alloy": -1.6,
+          "sax_mouthpiece": 0.1365,
+          "sax_technique": -0.05,
+          "sax_maker_school": -0.05
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      },
+      {
+        "id": "credited_acoustic_bass",
+        "slots": {
+          "credited_acoustic_bass_identity": "credited_acoustic_bass_source_unspecified"
+        },
+        "scores": {
+          "credited_acoustic_bass_identity": 3.3
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0,
+          "shell_thickness": 0,
+          "bearing_edges": -0.5,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": -0.15000000000000002,
+          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_finish": 0
+        }
+      }
+    ],
+    "pinned": {
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "credited_acoustic_bass": [
+        "credited_acoustic_bass_identity"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_gallo_township_jive",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_british_transformer_70s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_balanced_action",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "credited_acoustic_bass_identity": "credited_acoustic_bass_source_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "hand_hammered"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s"
+  }
+}

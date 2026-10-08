@@ -5,7 +5,7 @@
   "lineage": "Mid-2010s intersection of trap-influenced programmed production and R&B song delivery. Bryson Tiller’s Louisville-linked T R A P S O U L (2015) anchors this selected model, alternating melodic singing and speech-derived rhythmic phrasing over spare bass-heavy accompaniment. The genre is a musical intersection rather than every rapper’s use of a melodic hook.",
   "recipe": "classic 2014-2016 trap soul, functional Song, soul R&B branch, us hip hop modern, us hip hop southern dark trap christian trap. balanced, breath admixed, minimal subglottal pressure, single source phonation. roland tr 8s modern aira digital recreation TR-808, analog synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 419,
-  "score": 49.867,
+  "score": 49.942,
   "config": {
     "traditions": [
       "trap_soul",
@@ -44,7 +44,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.65,
           "voice_estill_quality": 1.935,
-          "voice_speech_song": 1.09,
+          "voice_speech_song": 1.135,
           "voice_ensemble_config": 3.5100000000000002,
           "voice_ornament_system": 0.845,
           "voice_pitch_organization": 0.045,
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 11.535,
-          "drum_machine_808_context": 3.1039999999999996,
+          "tr808_voice": 11.625,
+          "drum_machine_808_context": 3.0589999999999997,
           "tr808_production_origin": 2.5349999999999997
         }
       },
@@ -76,8 +76,8 @@
         },
         "scores": {
           "electronic_technique": 2.5024999999999995,
-          "oscillator": 3.435,
-          "filter_topology": 5.37,
+          "oscillator": 3.375,
+          "filter_topology": 5.415,
           "envelope": 0.65,
           "modulation": 0
         }

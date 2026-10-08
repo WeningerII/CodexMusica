@@ -5,7 +5,7 @@
   "lineage": "British Midlands hybrid of 1986-91 centred on Stourbridge and Leicester — Pop Will Eat Itself, Gaye Bykers on Acid, Crazyhead, Ned's Atomic Dustbin — pairing punk and biker-rock distorted guitar with hip-hop breakbeats and Akai sampler collage over programmed 909 and live kit at 110-130 BPM, two-bass or twin-guitar lineups, chanted shouted vocals, and late-1980s British commercial-studio productions loaded with sampled film and record quotes.",
   "recipe": "classic British 1987-1989 grebo, distorted Rock, alternative branch, punk distorted rock, industrial noise experimental electric synthpunk crack rock steady. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, sound design field sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, turntable. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 822,
-  "score": 331.537,
+  "score": 331.432,
   "config": {
     "traditions": [
       "grebo",
@@ -43,7 +43,7 @@
           "voice_microtone": 19.629999999999992,
           "voice_tradition": 6.657500000000001,
           "voice_mechanism_compound": 13.129999999999997,
-          "voice_estill_quality": 5.331250000000001,
+          "voice_estill_quality": 5.526250000000001,
           "voice_speech_song": 20.669999999999998,
           "voice_ensemble_config": 19.759999999999998,
           "voice_ornament_system": 1.21125,
@@ -66,12 +66,12 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_11_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": 14.375,
-          "amp_make": 28.072499999999998,
+          "amp_make": 27.772499999999997,
           "body_wood": 2.34,
           "neck_wood": 1.04,
           "fretboard": 0.975,

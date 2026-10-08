@@ -3,14 +3,14 @@
   "name": "Hip House",
   "family": "electronic",
   "lineage": "Chicago and New York style of 1988-1991 in which rapped verses were set over house tracks, codified by Fast Eddie, Tyree Cooper, the Jungle Brothers with Todd Terry, and Doug Lazy, running 118-125 BPM with a TR-909 or TR-707 four-on-the-floor, chopped James Brown breakbeat overlays, acid or sampled sub bass, minimal chordal material, and a straight-eighth party-rap delivery locked to the kick rather than to a swung boom-bap grid.",
-  "recipe": "classic Asian 1988-1991 hip house, electronic Dance, chicago house branch, garage house u s house ghettotech. thick, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, cheap paired with 303 chicago foundational TR-707, chopped sampler, monosynth acid bass, sampled chopped turntable. carpeted bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 502,
-  "score": 309.456,
+  "recipe": "classic Asian 1988-1991 hip house, electronic Dance, chicago house branch, garage house u s house freestyle house. thick, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, cheap paired with 303 chicago foundational TR-707, chopped sampler, classic acid sub bass monosynth acid bass, sampled chopped turntable. carpeted bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 529,
+  "score": 305.771,
   "config": {
     "traditions": [
       "hip_house",
-      "ghettotech",
-      "chicago_house"
+      "chicago_house",
+      "freestyle_house"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_just_intonation",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.73,
-          "voice_quality": 10.464999999999995,
+          "voice_register": 5.125000000000001,
+          "voice_quality": 10.399999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.73,
-          "voice_articulation": 18.199999999999996,
-          "voice_microtone": 18.004999999999995,
-          "voice_tradition": 7.3450000000000015,
-          "voice_mechanism_compound": 4.29,
-          "voice_estill_quality": 3.9750000000000005,
-          "voice_speech_song": 19.174999999999997,
-          "voice_ensemble_config": 22.489999999999995,
-          "voice_ornament_system": 1.4999999999999998,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 18.46,
+          "voice_microtone": 18.459999999999997,
+          "voice_tradition": 6.89,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 4.9715,
+          "voice_speech_song": 19.63,
+          "voice_ensemble_config": 21.904999999999998,
+          "voice_ornament_system": 1.15,
           "voice_pitch_organization": 2.74,
-          "voice_processing_chain": 20.6445,
-          "voice_multitrack_stack": 4.03
+          "voice_processing_chain": 20.725,
+          "voice_multitrack_stack": 5.07
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 31.750000000000004,
-          "drum_machine_909_context": 10.595,
-          "tr909_production_origin": 3.38
+          "tr909_voice": 34.25,
+          "drum_machine_909_context": 8.124999999999998,
+          "tr909_production_origin": 3.7375
         }
       },
       {
@@ -72,40 +72,40 @@
           "drum_machine_707_context": "drum_machine_707_chicago_house"
         },
         "scores": {
-          "tr707_voice": 3.3149999999999995,
-          "drum_machine_707_context": 16.6725
+          "tr707_voice": 3.12,
+          "drum_machine_707_context": 14.202499999999999
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_mpc",
+          "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_twelve_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 5.395,
-          "sampler_archetypes": 2.5900000000000003,
+          "electronic_technique": 4.475,
+          "sampler_archetypes": 2.65,
           "sampler_bit_depth": 1.5,
-          "sampler_workflow": 7.180000000000001,
-          "sampler_classic_context": 60.775
+          "sampler_workflow": 6.2,
+          "sampler_classic_context": 64.48000000000002
         }
       },
       {
         "id": "monosynth_acid_bass",
         "slots": {
-          "electronic_technique": "electronic_acid_squelch",
+          "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
-          "filter_acid": "closed_acid",
+          "filter_acid": "opening_acid",
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 6.7115,
+          "electronic_technique": 4.819500000000001,
           "wave_acid": 0.195,
-          "filter_acid": 2.19,
-          "accent_acid": 4.63
+          "filter_acid": 1.6899999999999997,
+          "accent_acid": 4.13
         }
       },
       {
@@ -115,8 +115,8 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 5.395,
-          "turntable_technique": 0.8999999999999999
+          "electronic_technique": 4.475,
+          "turntable_technique": 1.0499999999999998
         }
       }
     ],

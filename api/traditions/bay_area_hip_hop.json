@@ -5,7 +5,7 @@
   "lineage": "Developed in Oakland, Vallejo and Richmond from the mid-1980s through the 1990s by Too $hort, E-40, Spice 1, Mac Dre, Digital Underground and producers Khayree and Ant Banks, built on 85-100 BPM funk-derived grooves with live-feel slap electric bass, P-funk synth leads and talkbox, sparse gated drums, and pimp-narrative or rapid-fire regional-slang vocal delivery cut for independent trunk-oriented mixes.",
   "recipe": "classic North American 1984-1986 bay area hip-hop, mc Rhythm, west coast branch, us hip hop gangsta, funk percussive groove percussion new orleans funk. thick, rap, straight note core, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, talkbox, sampled chopped sampler drum machine, roland tr 8s modern aira digital recreation TR-808, sampled chopped turntable. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 685,
-  "score": 306.875,
+  "score": 308.48,
   "config": {
     "traditions": [
       "bay_area_hip_hop",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 3.815000000000001,
-          "voice_quality": 17.090000000000003,
+          "voice_register": 3.9650000000000007,
+          "voice_quality": 16.790000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.9325000000000006,
           "voice_articulation": 20.929999999999993,
           "voice_microtone": 19.82499999999999,
-          "voice_tradition": 15.66,
+          "voice_tradition": 16.245,
           "voice_mechanism_compound": 4.81,
           "voice_estill_quality": 4.615,
           "voice_speech_song": 20.084999999999994,
           "voice_ensemble_config": 21.77499999999999,
-          "voice_ornament_system": 5.850000000000002,
-          "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 22.315,
-          "voice_multitrack_stack": 9.110000000000001
+          "voice_ornament_system": 5.715000000000002,
+          "voice_pitch_organization": 1.07,
+          "voice_processing_chain": 22.705000000000002,
+          "voice_multitrack_stack": 9.425
         }
       },
       {
@@ -67,11 +67,11 @@
         "scores": {
           "amp_make": 7.865000000000001,
           "body_wood": 3.185,
-          "pickup_config": 0.195,
+          "pickup_config": 0.345,
           "string_type": 7.0200000000000005,
-          "scale_length_b": 4.485,
+          "scale_length_b": 4.470000000000001,
           "fretted_or_not": 1.885,
-          "bass_technique": 17.82,
+          "bass_technique": 17.52,
           "electric_bass_string_configuration": 0
         }
       },
@@ -79,15 +79,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "juno_60",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 14.79,
-          "poly_archetypes": 0.195,
+          "electronic_technique": 15.42,
+          "poly_archetypes": 0.345,
           "poly_voices": 0.195,
-          "poly_maker_lineage": 2.4050000000000002
+          "poly_maker_lineage": 2.09
         }
       },
       {
@@ -112,7 +112,7 @@
         "scores": {
           "electronic_technique": 9.52,
           "sample_bitdepth": 0.2925,
-          "sample_swing": 14.350000000000001,
+          "sample_swing": 14.14,
           "sample_processing": 3.185
         }
       },
@@ -124,8 +124,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 13.295,
-          "drum_machine_808_context": 6.210000000000001,
+          "tr808_voice": 13.925,
+          "drum_machine_808_context": 6.0600000000000005,
           "tr808_production_origin": 1
         }
       },

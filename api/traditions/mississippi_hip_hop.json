@@ -3,9 +3,9 @@
   "name": "Mississippi hip hop",
   "family": "hip_hop",
   "lineage": "Mississippi hip hop includes Meridian rapper-producer Big K.R.I.T.’s soul-sampling southern branch, drawing on regional stories and bass-heavy programmed production.",
-  "recipe": "classic modern mississippi hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. chopped sampler, sampled chopped sampler drum machine, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 351,
-  "score": 55.925,
+  "recipe": "classic modern mississippi hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. chopped sampler, sampled chopped sampler drum machine, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 389,
+  "score": 56.133,
   "config": {
     "traditions": [
       "mississippi_hip_hop"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.035,
-          "voice_ensemble_config": 1.1655,
+          "voice_ensemble_config": 1.197,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5355000000000001
         }
       },
       {
@@ -60,10 +60,10 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.5,
-          "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": 5.45,
+          "electronic_technique": 5.5315,
+          "sampler_archetypes": 0.7815,
+          "sampler_bit_depth": 0.3315,
+          "sampler_workflow": 5.4815000000000005,
           "sampler_classic_context": 9.295
         }
       },
@@ -76,8 +76,8 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 5.5,
-          "sample_bitdepth": 0.39,
+          "electronic_technique": 5.5315,
+          "sample_bitdepth": 0.3315,
           "sample_swing": 9.1,
           "sample_processing": 0
         }

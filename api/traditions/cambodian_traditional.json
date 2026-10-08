@@ -3,14 +3,14 @@
   "name": "Cambodian Traditional (Village and Wedding)",
   "family": "global",
   "lineage": "Rural Khmer repertoires outside the court — the phleng kar wedding cycle, arak spirit-possession music, ayai sung repartee and the solo chapei dang veng bardic tradition — carried orally through village ceremony and codified in the late twentieth century largely through Kong Nay and post-genocide revival projects, built on chapei long-necked lute, tro fiddles, khim dulcimer, skor daey hand drum and chhing cymbals under speech-rhythm vocal narration.",
-  "recipe": "classic modern cambodian traditional, wedding, east Asian branch, indian bard ballad poetry, east Asian field work thai folk min'yō. thick, breath veiled tone, slow rate, interlocked note trading. two string long neck fretted canonical khmer narrative dang veng narrative singing canonical cambodian chapei lute, silk historical coconut shell three string wedding context tro khmer, tro sau, khim, krapeu, skor daey, khmer ching chap open and damped bronze ching. tin roofed shack. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 544,
-  "score": 211.579,
+  "recipe": "classic modern cambodian traditional, wedding, east Asian branch, indian bard ballad poetry, east Asian field work thai folk chinese chayang-diao. thick, breath veiled tone, slow rate, interlocked note trading. two string long neck fretted canonical khmer narrative dang veng narrative singing canonical cambodian chapei lute, coconut shell three string wedding context tro khmer, tro sau, khim, krapeu, skor daey, khmer ching chap open and damped bronze ching. tin roofed shack. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 542,
+  "score": 199.877,
   "config": {
     "traditions": [
       "cambodian_traditional",
       "thai_folk",
-      "minyo"
+      "chinese_chayang_diao"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 3.475000000000001,
-          "voice_quality": 10.269999999999996,
+          "voice_register": 3.9499999999999997,
+          "voice_quality": 7.995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4699999999999998,
-          "voice_articulation": 19.824999999999996,
-          "voice_microtone": 20.34499999999999,
-          "voice_tradition": 16.7025,
-          "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 2.6650000000000005,
-          "voice_speech_song": 25.609999999999992,
-          "voice_ensemble_config": 18.979999999999997,
-          "voice_ornament_system": 7.115000000000001,
-          "voice_pitch_organization": 5.265,
-          "voice_processing_chain": 2.925000000000001,
-          "voice_multitrack_stack": 2.4699999999999998
+          "voice_vibrato": 2.275,
+          "voice_articulation": 16.899999999999995,
+          "voice_microtone": 17.549999999999994,
+          "voice_tradition": 22.41625,
+          "voice_mechanism_compound": 1.8199999999999998,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 24.114999999999995,
+          "voice_ensemble_config": 16.639999999999993,
+          "voice_ornament_system": 7.640000000000001,
+          "voice_pitch_organization": 5.07,
+          "voice_processing_chain": 1.6899999999999997,
+          "voice_multitrack_stack": 1.8512499999999998
         }
       },
       {
@@ -59,25 +59,25 @@
           "chapei_lute_tradition": "chapei_lute_dang_veng_canonical"
         },
         "scores": {
-          "chapei_lute_body": 4.225,
-          "chapei_lute_tradition": 4.68
+          "chapei_lute_body": 3.965,
+          "chapei_lute_tradition": 4.875
         }
       },
       {
         "id": "tro_khmer",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "tro_khmer_strings": "tro_khmer_silk",
+          "tro_khmer_strings": "tro_khmer_metal",
           "tro_khmer_body": "tro_khmer_tight_snakeskin",
           "tro_khmer_tuning": "tro_khmer_fourth_fourth",
           "tro_khmer_context": "tro_khmer_wedding"
         },
         "scores": {
-          "bowed_technique": 1.4,
-          "tro_khmer_strings": 4.296250000000001,
-          "tro_khmer_body": 4.4350000000000005,
-          "tro_khmer_tuning": 6.5649999999999995,
-          "tro_khmer_context": 14.694999999999999
+          "bowed_technique": 1.445,
+          "tro_khmer_strings": 4.135000000000001,
+          "tro_khmer_body": 3.68,
+          "tro_khmer_tuning": 5.85,
+          "tro_khmer_context": 15.524999999999999
         }
       },
       {
@@ -88,8 +88,8 @@
           "tro_sau_context": "tro_sau_mohori"
         },
         "scores": {
-          "bowed_technique": 1.4,
-          "tro_sau_form": 0.24,
+          "bowed_technique": 1.445,
+          "tro_sau_form": 0.39,
           "tro_sau_context": 0.39
         }
       },
@@ -97,13 +97,13 @@
         "id": "khim",
         "slots": {
           "khim_form": "khim_thai",
-          "khim_mallets": "khim_bare_bamboo",
+          "khim_mallets": "khim_bamboo_padded",
           "khim_strings": "khim_brass"
         },
         "scores": {
           "khim_form": 0.285,
-          "khim_mallets": 0.285,
-          "khim_strings": 0.045
+          "khim_mallets": 0.195,
+          "khim_strings": 0.09
         }
       },
       {
@@ -114,7 +114,7 @@
         },
         "scores": {
           "krapeu_strings": 0.285,
-          "krapeu_technique": 0.045
+          "krapeu_technique": 0
         }
       },
       {
@@ -125,7 +125,7 @@
           "skor_daey_context": "skor_daey_mohori"
         },
         "scores": {
-          "skor_daey_body": 0.195,
+          "skor_daey_body": 0.105,
           "skor_daey_stroke": 0.135,
           "skor_daey_context": 0.845
         }
@@ -139,8 +139,8 @@
         },
         "scores": {
           "ching_form": 4.885,
-          "ching_stroke": 19.629999999999995,
-          "ching_alloy": 1.75
+          "ching_stroke": 17.289999999999996,
+          "ching_alloy": 1.9
         }
       }
     ],

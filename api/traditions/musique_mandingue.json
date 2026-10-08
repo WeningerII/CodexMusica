@@ -5,7 +5,7 @@
   "lineage": "The pan-Mande national-orchestra idiom formalised in Guinea and Mali after independence, above all through Sékou Touré's state Syliphone label and its Bembeya Jazz National, Balla et ses Balladins and Rail Band de Bamako from 1960 to the mid-1970s — jeli kumbengo cycles rescored for horn section, twin electric guitars and Latin-derived rhythm section at 110-140 BPM, with epic praise texts on Sunjata and Almamy Samory sung over long modal guitar solos.",
   "recipe": "classic West African 1974-1976 musique mandingue, functional Song, African pop branch, African pop congolese rumba, west African griot ballad poetry ngoni music sudanese aghani al-banat. griot voice, mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, ensemble shallow cup lead trumpet trumpet, pre muffled edge muffled brushes-and-sticks drum kit, lead cowhide mid tier open slap hand drum congas, buzzy natural material resonance calabash gourd balafon, gut cowhide mande traditional mande hardwood local traditional kora. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
   "recipe_chars": 850,
-  "score": 170.1,
+  "score": 165.525,
   "config": {
     "traditions": [
       "musique_mandingue",
@@ -21,7 +21,7 @@
         },
         "scores": {
           "griot_origin": 2.535,
-          "griot_voice_context": 0.81
+          "griot_voice_context": 1.0050000000000001
         }
       },
       {
@@ -42,18 +42,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 9.935,
-          "amp_make": 2.73,
-          "body_wood": 2.145,
-          "neck_wood": 2.145,
-          "fretboard": 2.0799999999999996,
-          "pickup_magnet": 0.39,
-          "string_material": 0.39,
-          "string_gauge": 2.795,
-          "bridge": 0.8,
+          "electric_technique": 9.59,
+          "amp_make": 2.685,
+          "body_wood": 1.935,
+          "neck_wood": 1.935,
+          "fretboard": 1.8849999999999998,
+          "pickup_magnet": 0.345,
+          "string_material": 0.345,
+          "string_gauge": 2.435,
+          "bridge": 0.65,
           "scale_length": 2.145,
           "finish": 0.5,
-          "string_tuning": 2.4450000000000003,
+          "string_tuning": 2.73,
           "single_coil_pickup_construction": 0
         }
       },
@@ -70,13 +70,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.2749999999999995,
-          "body_wood": 2.795,
-          "pickup_config": 0.59,
-          "string_type": 3.25,
-          "scale_length_b": 2.145,
+          "amp_make": 2.0349999999999997,
+          "body_wood": 2.435,
+          "pickup_config": 0.5,
+          "string_type": 2.935,
+          "scale_length_b": 2.085,
           "fretted_or_not": 0.8,
-          "bass_technique": 2.65,
+          "bass_technique": 2.5,
           "electric_bass_string_configuration": 0
         }
       },
@@ -92,11 +92,11 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4.745,
-          "sax_size": 2.145,
-          "sax_reed": 0.39,
-          "sax_body_alloy": 3.795,
-          "sax_mouthpiece": 0.545,
+          "wind_articulation": 4.175000000000001,
+          "sax_size": 1.935,
+          "sax_reed": 0.345,
+          "sax_body_alloy": 3.75,
+          "sax_mouthpiece": 0.5,
           "sax_technique": 2.545,
           "sax_maker_school": 3.185
         }
@@ -113,11 +113,11 @@
           "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 4.745,
-          "brass_size": 0.39,
+          "wind_articulation": 4.175000000000001,
+          "brass_size": 0.345,
           "trumpet_mouthpiece": 4.485,
           "brass_mute": 0.5,
-          "trumpet_technique": 4.745,
+          "trumpet_technique": 4.175000000000001,
           "trumpet_bell_metal": 0.8450000000000001,
           "trumpet_maker_school": 0.845
         }
@@ -144,9 +144,9 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 5.125,
+          "percussion_technique": 5.2,
           "conga_set": 1.2349999999999999,
-          "conga_skin": 2.145,
+          "conga_skin": 1.935,
           "conga_shell_wood": 0.8449999999999999
         }
       },
@@ -157,7 +157,7 @@
           "balafon_resonator": "balafon_gourd"
         },
         "scores": {
-          "balafon_tuning": 7.4,
+          "balafon_tuning": 7.595000000000001,
           "balafon_resonator": 1.285
         }
       },
@@ -176,7 +176,7 @@
           "plucked_traditional_technique": 31.72,
           "kora_strings": 3.25,
           "kora_resonator": 0.74,
-          "kora_strings_mat": 2.0799999999999996,
+          "kora_strings_mat": 1.8849999999999998,
           "kora_top_skin": 2.925,
           "kora_neck_wood": 2.73,
           "kora_lineage": 2.6

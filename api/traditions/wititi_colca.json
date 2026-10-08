@@ -1,0 +1,102 @@
+{
+  "id": "wititi_colca",
+  "name": "Wititi (Colca Valley courtship dance music)",
+  "family": "global",
+  "lineage": "Wititi is the courtship dance of the young people of the Colca Valley in Arequipa, performed during the religious feasts of the rainy season and inscribed by UNESCO in 2015, in which troupes of couples dance in rows to the beat of a band, the men wearing layered women's skirts. Villages compete to field the best troupes, renewing the dance while keeping its traditional character. The horns, bass-drum, snare and cymbal cards stand in for the accompanying band.",
+  "recipe": "classic mid-2010s wititi, carnival Processional, andean branch. credited horns unspecified, bass snare drum, credited cymbals. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 206,
+  "score": 0.549,
+  "config": {
+    "traditions": [
+      "wititi_colca"
+    ],
+    "instruments": [
+      {
+        "id": "credited_horns_unspecified",
+        "slots": {
+          "credited_horns_identity": "credited_horns_source_unspecified"
+        },
+        "scores": {
+          "credited_horns_identity": 0.063
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.1365,
+          "bass_drum_beater": 0
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "credited_horns_unspecified": [
+        "credited_horns_identity"
+      ],
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ]
+    },
+    "room": "mountain_valley",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "mountain_valley",
+    "parts": {
+      "credited_horns_identity": "credited_horns_source_unspecified",
+      "bass_drum_size": "bass_drum_concert",
+      "bass_drum_beater": "bass_drum_felt_pedal",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Black-American male-quartet gospel tradition that emerged from late-19th-century Fisk Jubilee Singers university choirs and the parallel post-WWI Black Church male-quartet tradition — codified through the Golden Gate Quartet (the pre-WWII quartet, founded 1934), the Soul Stirrers (where Sam Cooke fronted before his secular pop crossover), the Dixie Hummingbirds, the Mighty Clouds of Joy, the Swan Silvertones, the Five Blind Boys of Alabama, the Pilgrim Travelers — most active 1930s-60s, with the modern continuation through the Williams Brothers and the broader gospel-quartet circuit",
   "recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. multi note runs per syllable, equal tempered, gospel pentecostal, belt quality high larynx thick fold. sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sticks pocket drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 822,
-  "score": 463.952,
+  "score": 468.348,
   "config": {
     "traditions": [
       "gospel_quartet_male",
@@ -39,14 +39,14 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0.045,
           "voice_vibrato": 0.03712499999999999,
-          "voice_articulation": 37.185,
+          "voice_articulation": 37.353,
           "voice_microtone": 2.460000000000001,
-          "voice_tradition": 46.211625,
+          "voice_tradition": 47.398125,
           "voice_mechanism_compound": 0.105,
           "voice_estill_quality": 39.515,
           "voice_speech_song": 1.04,
           "voice_ensemble_config": 37.102125,
-          "voice_ornament_system": 39.24925,
+          "voice_ornament_system": 39.35425000000001,
           "voice_pitch_organization": 0.24712499999999998,
           "voice_processing_chain": 0.845,
           "voice_multitrack_stack": 1.69
@@ -61,7 +61,7 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 0.08099999999999999,
+          "choir_size": 0.03712499999999999,
           "choir_polyphonic_configuration": 0.03712499999999999,
           "choir_regional_canonical_configuration": 0,
           "choir_ensemble_repertoire": 4.29
@@ -81,7 +81,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 45.569250000000004,
+          "keyboard_technique": 46.65075,
           "grand_piano_size": 0.195,
           "grand_piano_brand": 0.845,
           "piano_hammer": 5.137375,
@@ -103,12 +103,12 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 45.569250000000004,
+          "keyboard_technique": 46.65075,
           "drawbar_setting": 36.357124999999996,
           "rotary_speed": 36.074999999999996,
-          "percussion_setting": 0.20024999999999998,
-          "tonewheel_model": 41.167249999999996,
-          "leslie_cabinet_model": 0.06862499999999999
+          "percussion_setting": 0.08212499999999999,
+          "tonewheel_model": 42.011374999999994,
+          "leslie_cabinet_model": 0.045
         }
       },
       {
@@ -124,8 +124,8 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.004125,
-          "body_wood": 0.043875,
+          "amp_make": 6.16275,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 3.3799999999999994,
           "scale_length_b": 0,

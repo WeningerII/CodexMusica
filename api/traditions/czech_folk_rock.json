@@ -5,7 +5,7 @@
   "lineage": "A Czech folk-rock scene with a selected Čechomor branch: Czech, Moravian and Slovak song material arranged for an active band. Violin and accordion retain the melodic center while guitar and a rhythm section provide support.",
   "recipe": "classic czech folk rock, functional Song, folk rock branch. five string low c extension bowed song accompaniment fiddle, accordion, strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 424,
-  "score": 69.843,
+  "score": 70.063,
   "config": {
     "traditions": [
       "czech_folk_rock"
@@ -25,9 +25,9 @@
           "bowed_technique": 4.55,
           "fiddle_strings": 0.3045,
           "fiddle_bow": 0,
-          "fiddle_mute": 0.8925000000000001,
-          "fiddle_articulation": 1.0315,
-          "fiddle_string_configuration": 1.6995
+          "fiddle_mute": 0.9240000000000002,
+          "fiddle_articulation": 1,
+          "fiddle_string_configuration": 1.668
         }
       },
       {
@@ -46,7 +46,7 @@
           "accordion_reed_material": 0.3315,
           "musette_offset": 0.0315,
           "reed_config": 0,
-          "bellows": 0.0945,
+          "bellows": 0.063,
           "voicing_chamber": 0,
           "accordion_maker_school": 0
         }
@@ -82,10 +82,10 @@
         },
         "scores": {
           "amp_make": 7.215,
-          "body_wood": 0.3315,
+          "body_wood": 0.3,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.363,
+          "scale_length_b": 0.3315,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -154,9 +154,9 @@
           "voice_speech_song": 0.39,
           "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.063,
+          "voice_pitch_organization": 0.273,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.063
+          "voice_multitrack_stack": 0.1995
         }
       }
     ],

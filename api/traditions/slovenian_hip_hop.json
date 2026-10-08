@@ -3,9 +3,9 @@
   "name": "Slovenian hip hop",
   "family": "hip_hop",
   "lineage": "Slovenian hip hop represented by Murat & Jose’s crossover with Rok Golob’s Soul Activation and Big Band RTV Slovenia.",
-  "recipe": "classic modern slovenian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, drum kit, clean strummed single coil electric guitar, grand piano, ensemble trumpet. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 438,
-  "score": 38.843,
+  "recipe": "classic modern slovenian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. la bella flats Detroit soul bass canon fingerstyle locked electric bass, drum kit, clean strummed single coil electric guitar, grand piano, ensemble trumpet. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 402,
+  "score": 39.346,
   "config": {
     "traditions": [
       "slovenian_hip_hop"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.5385,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -63,11 +63,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.1285000000000003,
+          "amp_make": 2.95,
           "body_wood": 0,
-          "pickup_config": 0.285,
-          "string_type": 3.134,
-          "scale_length_b": 0.105,
+          "pickup_config": 0.6315000000000001,
+          "string_type": 2.987,
+          "scale_length_b": 0.1785,
           "fretted_or_not": 0,
           "bass_technique": 2.4,
           "electric_bass_string_configuration": 0
@@ -99,23 +99,23 @@
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_fender",
-          "finish": "nitro",
+          "finish": "oil_satin",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 4.45,
-          "amp_make": 2.4995000000000003,
+          "amp_make": 2.4680000000000004,
           "body_wood": 0.18,
-          "neck_wood": 0.1365,
+          "neck_wood": 0.2415,
           "fretboard": 0.1365,
           "pickup_magnet": 0.1365,
           "string_material": 0.1365,
           "string_gauge": 0.2535,
-          "bridge": 0.105,
+          "bridge": 0.1785,
           "scale_length": 0,
-          "finish": 0,
-          "string_tuning": 0.6825,
+          "finish": 0.1365,
+          "string_tuning": 0.546,
           "single_coil_pickup_construction": 0
         }
       },
@@ -135,10 +135,10 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.18,
-          "grand_piano_brand": 0.3045,
+          "grand_piano_brand": 0.5774999999999999,
           "piano_hammer": -0.035,
           "piano_rim": -0.035,
-          "piano_soundboard": 0.26,
+          "piano_soundboard": 0.254,
           "piano_pinblock": -0.05,
           "piano_plate": -0.05,
           "piano_pitch_standard": 0.7149999999999999
@@ -153,7 +153,7 @@
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
+          "trumpet_maker_school": "trumpet_yamaha_xeno"
         },
         "scores": {
           "wind_articulation": 3.184,
@@ -162,7 +162,7 @@
           "brass_mute": 0.18,
           "trumpet_technique": 3.184,
           "trumpet_bell_metal": 0.78,
-          "trumpet_maker_school": 0.7455
+          "trumpet_maker_school": 0.588
         }
       }
     ],

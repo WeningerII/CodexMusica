@@ -5,7 +5,7 @@
   "lineage": "Anglo-American indie style formed 1985-1992 (The Jesus and Mary Chain's Psychocandy, My Bloody Valentine, Yo La Tengo, Black Tambourine), setting 60s girl-group and Velvets-derived three-chord pop melodies at moderate 110-150 BPM under continuous fuzz, feedback and tremolo-arm detuning, with dry deadpan or breathy vocals mixed level with or beneath the guitar noise floor.",
   "recipe": "classic Northern European mid-1980s noise pop, distorted Rock, alternative branch, noise rock distorted rock, experimental distorted rock, pop rock functional song yacht rock rock nacional brasileiro. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, tambourine orch. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 845,
-  "score": 512.861,
+  "score": 513.389,
   "config": {
     "traditions": [
       "noise_pop",
@@ -98,7 +98,7 @@
           "string_type": 41.780499999999996,
           "scale_length_b": 1.8199999999999998,
           "fretted_or_not": 0.24,
-          "bass_technique": 35.295,
+          "bass_technique": 35.34,
           "electric_bass_string_configuration": 0
         }
       },
@@ -136,22 +136,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 54.62000000000002,
+          "voice_register": 54.57500000000002,
           "voice_quality": 9.782499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.7995,
+          "voice_vibrato": 5.9495,
           "voice_articulation": 17.549999999999997,
           "voice_microtone": 53.10000000000001,
           "voice_tradition": 18.727999999999998,
           "voice_mechanism_compound": 8.775000000000002,
-          "voice_estill_quality": 4.1245,
+          "voice_estill_quality": 4.2250000000000005,
           "voice_speech_song": 21.514999999999997,
           "voice_ensemble_config": 15.209999999999994,
           "voice_ornament_system": 0.285,
-          "voice_pitch_organization": 1.0599999999999998,
+          "voice_pitch_organization": 1.015,
           "voice_processing_chain": 6.3395,
-          "voice_multitrack_stack": 6.434
+          "voice_multitrack_stack": 6.779
         }
       },
       {
@@ -162,7 +162,7 @@
         },
         "scores": {
           "tambourine_orch_jingle": 0.39,
-          "tambourine_orch_context": 0.4875
+          "tambourine_orch_context": 0.46499999999999997
         }
       }
     ],

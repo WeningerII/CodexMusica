@@ -3,9 +3,9 @@
   "name": "Alaska hip hop",
   "family": "hip_hop",
   "lineage": "Alaska hip-hop connects MCs, DJs, producers and local performance networks across the state. Events and collaborations bring regional voices into conversation with wider hip-hop practice.",
-  "recipe": "classic alaska hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. live tracking.",
-  "recipe_chars": 151,
-  "score": 46.924,
+  "recipe": "classic alaska hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler. live tracking.",
+  "recipe_chars": 189,
+  "score": 47.092,
   "config": {
     "traditions": [
       "alaska_hip_hop"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5355000000000001,
           "voice_tessitura": 0
         }
       },

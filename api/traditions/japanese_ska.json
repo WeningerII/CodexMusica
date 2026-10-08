@@ -1,174 +1,220 @@
 {
-  "id": "japanese_ska",
-  "name": "Japanese ska",
-  "family": "global",
-  "lineage": "Japanese ska reworks Jamaican ska through a lively band culture open to jazz, rock and pop. Tokyo Ska Paradise Orchestra helped bring its brass-led instrumental sound to international stages from the late 1980s, while collaborations with singers expanded the scene’s song repertoire.",
-  "recipe": "classic 1987-1989 japanese ska, bass System, reggae diaspora branch. humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled rim clicks drum kit, electronic keyboard unspecified, saxophone section tenor baritone, red brass 90 10 darkest yamaha xeno modern Japanese heavy one piece matched to monette horn trumpet, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 500,
-  "score": 46.585,
+  "id": "j_ska",
+  "merged_from": "japanese_ska",
+  "name": "J-Ska",
+  "family": "pop_rock",
+  "lineage": "Japanese ska scene founded in Tokyo in 1985 by Tokyo Ska Paradise Orchestra and extended through the 1990s by Kemuri and Ska Flames, combining a full horn section of trumpets, trombones and saxophones with offbeat upstroke guitar and walking bass at 160-200 BPM, Jamaican first-wave and 2 Tone rhythmic phrasing, instrumental-forward arrangements drawing on jazz and Showa-era kayokyoku melody, and bright close-miked studio tracking.",
+  "recipe": "classic East Asian mid-1990s j-ska, functional Song, pop rock branch, pop punk distorted rock, Jamaican bass system boston punk canadian pop punk. thick, breath veiled tone, straight onset, interlocked note trading. schilke chicago lead bright shallow cup lead trumpet trumpet, yamaha xeno modern Japanese student commercial trombone, nickel silver bright projecting yamaha custom 875ex modern Japanese premium continuous-airflow legato saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ.",
+  "recipe_chars": 942,
+  "score": 402.045,
   "config": {
     "traditions": [
-      "japanese_ska"
+      "j_ska",
+      "boston_punk",
+      "canadian_pop_punk"
     ],
     "instruments": [
       {
-        "id": "electric_guitar_humbucker",
+        "id": "trumpet",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "alder_h",
-          "neck_wood": "maple_neck_h",
-          "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
-          "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "wind_articulation": "wind_ska_skank_stab",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_ska_skank",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "electric_technique": 2.45,
-          "amp_make": 1.17,
-          "body_wood": 0.0315,
-          "neck_wood": 0,
-          "fretboard": 0.1365,
-          "pickup_magnet": 0.273,
-          "pickup_winding": 0.1365,
-          "string_material": 0.1995,
-          "bridge": 0.3465,
-          "scale_length": 0.693,
-          "string_gauge": 0.3465,
-          "finish": 0,
-          "string_tuning": 1.3
+          "wind_articulation": 14.449999999999998,
+          "brass_size": 1,
+          "trumpet_mouthpiece": 5.66,
+          "brass_mute": 1,
+          "trumpet_technique": 14.449999999999998,
+          "trumpet_bell_metal": 0.195,
+          "trumpet_maker_school": 2.0799999999999996
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 14.449999999999998,
+          "trombone_type": 3.5949999999999998,
+          "trombone_mouthpiece": 14.950000000000001,
+          "trombone_mute": 1,
+          "trombone_technique": 2.3449999999999998,
+          "trombone_bell_metal": 0.24,
+          "trombone_maker_school": 1.7950000000000002
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_ska_skank_stab",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "nickel_silver_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 14.449999999999998,
+          "sax_size": 0.95,
+          "sax_reed": 1,
+          "sax_body_alloy": 4.9350000000000005,
+          "sax_mouthpiece": 1,
+          "sax_technique": 3.25,
+          "sax_maker_school": 1.7950000000000002
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "maple_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 11.35,
+          "amp_make": 18.334999999999997,
+          "body_wood": 1.045,
+          "neck_wood": 1,
+          "fretboard": 1.3,
+          "pickup_magnet": 1,
+          "string_material": 1,
+          "string_gauge": 1.65,
+          "bridge": 0.26999999999999996,
+          "scale_length": 0.66,
+          "finish": 0.045,
+          "string_tuning": 6.305,
+          "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_h",
-          "pickup_config": "dual_single",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.575,
-          "body_wood": 0.0315,
-          "pickup_config": 0,
-          "string_type": 3.067,
-          "scale_length_b": 0.3465,
-          "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002,
+          "amp_make": 7.735,
+          "body_wood": 0.9,
+          "pickup_config": 1,
+          "string_type": 12.025,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.345,
+          "bass_technique": 20.195,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "rim_clicks_dub",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.7,
-          "drumhead": 2.45,
+          "drum_technique": 15.600000000000001,
+          "drumhead": 11.2,
           "drum_kit_kick_pedal": 0
         }
       },
       {
-        "id": "electronic_keyboard_unspecified",
+        "id": "voice",
         "slots": {
-          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.294
+          "voice_register": 23.544999999999995,
+          "voice_quality": 8.450000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.52,
+          "voice_articulation": 15.730000000000002,
+          "voice_microtone": 23.645,
+          "voice_tradition": 17.875,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 17.485,
+          "voice_ensemble_config": 15.665,
+          "voice_ornament_system": 0.8499999999999999,
+          "voice_pitch_organization": 2.785000000000001,
+          "voice_processing_chain": 6.87,
+          "voice_multitrack_stack": 3.3149999999999995
         }
       },
       {
-        "id": "saxophone_section_tenor_baritone",
+        "id": "tonewheel_organ",
         "slots": {
-          "tenor_baritone_section_articulation": "tenor_baritone_section_articulation_short"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "tenor_baritone_section_articulation": 0
-        }
-      },
-      {
-        "id": "trumpet",
-        "slots": {
-          "wind_articulation": "wind_ska_skank_stab",
-          "brass_size": "cornet",
-          "trumpet_mouthpiece": "monette_unity_b1_mp",
-          "brass_mute": "no_mute_brass",
-          "trumpet_technique": "trumpet_ska_skank",
-          "trumpet_bell_metal": "trumpet_red_brass",
-          "trumpet_maker_school": "trumpet_yamaha_xeno"
-        },
-        "scores": {
-          "wind_articulation": 9.95,
-          "brass_size": 0,
-          "trumpet_mouthpiece": 2.925,
-          "brass_mute": 0.0315,
-          "trumpet_technique": 9.95,
-          "trumpet_bell_metal": 1.3,
-          "trumpet_maker_school": 2.0315
-        }
-      },
-      {
-        "id": "credited_auxiliary_percussion",
-        "slots": {
-          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
-        },
-        "scores": {
-          "credited_auxiliary_percussion_identity": 0
+          "keyboard_technique": 11.62,
+          "drawbar_setting": 9.445,
+          "rotary_speed": 9.424999999999999,
+          "percussion_setting": 4.8100000000000005,
+          "tonewheel_model": 6.305000000000001,
+          "leslie_cabinet_model": -0.035
         }
       }
     ],
-    "pinned": {
-      "electric_guitar_humbucker": [
-        "electric_technique",
-        "body_wood",
-        "neck_wood"
-      ],
-      "electric_bass": [
-        "body_wood",
-        "pickup_config",
-        "bass_technique"
-      ],
-      "drum_kit": [
-        "drum_technique"
-      ],
-      "electronic_keyboard_unspecified": [
-        "electronic_keyboard_identity",
-        "keyboard_technique"
-      ],
-      "saxophone_section_tenor_baritone": [
-        "tenor_baritone_section_articulation"
-      ],
-      "trumpet": [
-        "brass_mute",
-        "trumpet_technique"
-      ],
-      "credited_auxiliary_percussion": [
-        "credited_auxiliary_percussion_identity"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_tokyo_jpop_hit_factory",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_console_inline_strip",
+      "console": "console_sony_mxp3000",
+      "comp": "comp_smart_c1_bus",
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "digital_std"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -177,29 +223,11 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
-    "parts": {
-      "electric_technique": "electric_clean_strummed",
-      "bass_technique": "fingerstyle_locked",
-      "drum_technique": "rim_clicks_dub",
-      "tenor_baritone_section_articulation": "tenor_baritone_section_articulation_short",
-      "body_wood": "alder_h",
-      "neck_wood": "maple_neck_h",
-      "pickup_config": "dual_single",
-      "brass_mute": "no_mute_brass",
-      "trumpet_technique": "trumpet_ska_skank",
-      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
-      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-      "keyboard_technique": "electronic_keyboard_melodic_chordal"
-    },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box",
-    "chain_amp_guitar": "amp_roland_jc120",
-    "chain_amp_bass": "amp_american_ampeg_b15"
+    "room": "tokyo_studio_1970s_80s",
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_medium": "digital_std",
+    "chain_console": "console_sony_mxp3000"
   }
 }

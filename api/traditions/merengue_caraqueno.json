@@ -1,0 +1,191 @@
+{
+  "id": "merengue_caraqueno",
+  "name": "Merengue caraqueño (Venezuelan 5/8 merengue)",
+  "family": "global",
+  "lineage": "Merengue caraqueño, also called merengue venezolano, is the urban dance music of Caracas that took shape in the late 19th and early 20th centuries, notated in a lopsided 5/8 and danced as the merengue rucaneao. Small dance groups and later the city's dance orchestras played it for parties and on record, and from the 1980s the Ensamble Gurrufío recast it as chamber music for flute, mandolin, cuatro and double bass. The mandolin card stands in for the Venezuelan bandolín, and a generic flute card is used for the concert flute.",
+  "recipe": "classic mid-1980s merengue caraqueño, functional Song, tropical song branch. flute like credited flute unspecified, mandolin, cedar canonical Venezuelan cuatro venezolano, modern setup heavier bass bar kolstein bass specific double bass, maracas. treated studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 325,
+  "score": 11.214,
+  "config": {
+    "traditions": [
+      "merengue_caraqueno"
+    ],
+    "instruments": [
+      {
+        "id": "credited_flute_unspecified",
+        "slots": {
+          "credited_flute_identity": "credited_flute_source_unspecified"
+        },
+        "scores": {
+          "credited_flute_identity": 3.3
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "a_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "dutar_strings_unspecified",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_no_pickup"
+        },
+        "scores": {
+          "acoustic_technique": 0.26,
+          "mandolin_shape": 0.651,
+          "mandolin_top": -0.05,
+          "mandolin_back": -0.035,
+          "mandolin_bracing": -0.05,
+          "mandolin_strings": 0,
+          "mandolin_fingerboard": 0.0315,
+          "mandolin_pickup": 0.105
+        }
+      },
+      {
+        "id": "cuatro_venezolano",
+        "slots": {
+          "cuatro_venezolano_tuning": "cuatro_venezolano_reentrant",
+          "cuatro_venezolano_technique": "cuatro_venezolano_rasgueo",
+          "cuatro_venezolano_body_wood": "cuatro_venezolano_cedar",
+          "cuatro_venezolano_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "cuatro_venezolano_tuning": 0,
+          "cuatro_venezolano_technique": 0,
+          "cuatro_venezolano_body_wood": 2.4095,
+          "cuatro_venezolano_strings": 0
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "dutar_strings_unspecified",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "bass_size": 0.3,
+          "bass_strings": 0,
+          "bass_top_wood": -0.07,
+          "bass_back_wood": -0.07,
+          "bass_varnish": -0.1,
+          "bass_setup_period": 1.56,
+          "bass_play": 0.325,
+          "bass_rosin": 1.56,
+          "bass_bow_stick": -0.10500000000000001
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_gourd",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 0.546,
+          "maracas_filling": 0.546
+        }
+      }
+    ],
+    "pinned": {
+      "credited_flute_unspecified": [
+        "credited_flute_identity"
+      ],
+      "mandolin": [
+        "acoustic_technique",
+        "mandolin_shape",
+        "mandolin_top",
+        "mandolin_back",
+        "mandolin_bracing",
+        "mandolin_strings",
+        "mandolin_fingerboard",
+        "mandolin_pickup"
+      ],
+      "cuatro_venezolano": [
+        "cuatro_venezolano_tuning",
+        "cuatro_venezolano_technique",
+        "cuatro_venezolano_body_wood",
+        "cuatro_venezolano_strings"
+      ],
+      "double_bass": [
+        "bowed_technique",
+        "bass_size",
+        "bass_strings",
+        "bass_top_wood",
+        "bass_back_wood",
+        "bass_varnish",
+        "bass_setup_period",
+        "bass_play",
+        "bass_rosin",
+        "bass_bow_stick"
+      ],
+      "maracas": [
+        "maracas_construction",
+        "maracas_filling"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "credited_flute_identity": "credited_flute_source_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "mandolin_shape": "a_style",
+      "mandolin_top": "adirondack_m",
+      "mandolin_back": "european_maple_loar",
+      "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+      "mandolin_strings": "dutar_strings_unspecified",
+      "mandolin_fingerboard": "mandolin_ebony_fb",
+      "mandolin_pickup": "mandolin_no_pickup",
+      "cuatro_venezolano_tuning": "cuatro_venezolano_reentrant",
+      "cuatro_venezolano_technique": "cuatro_venezolano_rasgueo",
+      "cuatro_venezolano_body_wood": "cuatro_venezolano_cedar",
+      "cuatro_venezolano_strings": "dutar_strings_unspecified",
+      "bowed_technique": "bowed_legato_classical",
+      "bass_size": "bass_three_quarter",
+      "bass_strings": "dutar_strings_unspecified",
+      "bass_top_wood": "norway_spruce_alpine_bass",
+      "bass_back_wood": "bosnian_flamed_maple_bass",
+      "bass_varnish": "oil_amber_varnish_bass",
+      "bass_setup_period": "modern_setup_bass",
+      "bass_play": "bass_pizz",
+      "bass_rosin": "pop_kolstein_rosin",
+      "bass_bow_stick": "pernambuco_stick_bass",
+      "maracas_construction": "maracas_gourd",
+      "maracas_filling": "maracas_seeds"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

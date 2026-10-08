@@ -3,14 +3,14 @@
   "name": "City pop",
   "family": "global",
   "lineage": "Japanese 1976-1986 sophisticated urban-adult-pop genre fusing late-1970s American AOR (adult-oriented rock), funk, fusion-jazz, and disco-soul into a distinct Tokyo-bubble-era mature-pop aesthetic. The instrumentation features electric-piano (Rhodes-and-Wurlitzer), fretless-bass, clean-electric-guitar (often with chorus pedal), brass section (often Roland JX-3P synth-brass), and breathy-intimate close-miked vocal-style. Lyrically focused on urban-leisure: nighttime-driving, summer-resort-and-beach, romantic-rendezvous-in-cafes-and-bars, and Tokyo-Yokohama-Shōnan coastal lifestyle. Originally a quiet commercial-niche aimed at the Japanese middle-class consumer-boom audience, city-pop gained massive 2010s-onward Western internet-re-discovery via vaporwave and YouTube-algorithmic-suggestion.",
-  "recipe": "classic East Asian mid-1980s city pop, functional Song, east Asian pop branch, soul R&B functional song doo-wop alt-r&b. thick, breath veiled tone, straight onset, interlocked note trading. harder neoprene late 1970s bark grit centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, pre muffled edge muffled brushes-and-sticks drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre.",
-  "recipe_chars": 992,
-  "score": 555.185,
+  "recipe": "classic East Asian mid-1980s city pop, functional Song, east Asian pop branch, soul R&B functional song doo-wop souldies. thick, breath veiled tone, straight onset, interlocked note trading. harder neoprene late 1970s bark grit centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright roasted maple maple single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, pre muffled edge muffled brushes-and-sticks drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre.",
+  "recipe_chars": 982,
+  "score": 564.065,
   "config": {
     "traditions": [
       "city_pop",
       "doo_wop",
-      "alt_rnb"
+      "souldies"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 44.725,
+          "voice_register": 45.05500000000001,
           "voice_quality": 6.37,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.965000000000002,
-          "voice_articulation": 23.399999999999995,
-          "voice_microtone": 34.475,
-          "voice_tradition": 28.339999999999996,
+          "voice_articulation": 25.740000000000002,
+          "voice_microtone": 31.599999999999994,
+          "voice_tradition": 26.199999999999996,
           "voice_mechanism_compound": 3.6400000000000006,
-          "voice_estill_quality": 11.245,
-          "voice_speech_song": 28.86,
-          "voice_ensemble_config": 22.944999999999997,
+          "voice_estill_quality": 15.339999999999996,
+          "voice_speech_song": 32.11000000000001,
+          "voice_ensemble_config": 25.285000000000004,
           "voice_ornament_system": 2.345,
-          "voice_pitch_organization": 2.925000000000001,
-          "voice_processing_chain": 8.854999999999999,
-          "voice_multitrack_stack": 9.3925
+          "voice_pitch_organization": 1.5925,
+          "voice_processing_chain": 10.299999999999999,
+          "voice_multitrack_stack": 10.27
         }
       },
       {
@@ -58,17 +58,17 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "rhodes_model": "rhodes_mark1_stage",
           "rhodes_use": "rhodes_soul",
-          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_tine_material": "rhodes_raymac_tine",
           "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 25.089999999999993,
-          "rhodes_model": 5.425000000000001,
-          "rhodes_use": 6.175,
-          "rhodes_tine_material": -0.03499999999999988,
-          "rhodes_hammer_tip": 2.0150000000000006,
-          "rhodes_pickup_position": 2.73
+          "keyboard_technique": 23.839999999999993,
+          "rhodes_model": 5.275,
+          "rhodes_use": 5.329999999999998,
+          "rhodes_tine_material": -0.28,
+          "rhodes_hammer_tip": 2.665000000000001,
+          "rhodes_pickup_position": 1.885
         }
       },
       {
@@ -77,11 +77,11 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
-          "neck_wood": "maple",
+          "neck_wood": "roasted_maple",
           "fretboard": "pau_ferro_fb",
-          "pickup_magnet": "ceramic",
+          "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -89,18 +89,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 25.624999999999996,
-          "amp_make": 18.455,
+          "electric_technique": 24.374999999999996,
+          "amp_make": 22.615,
           "body_wood": 0.195,
-          "neck_wood": 1.2349999999999999,
-          "fretboard": 1.2349999999999999,
-          "pickup_magnet": 1.2349999999999999,
-          "string_material": 1.2349999999999999,
-          "string_gauge": 0.195,
+          "neck_wood": 1,
+          "fretboard": 0.39,
+          "pickup_magnet": 1,
+          "string_material": 0.39,
+          "string_gauge": 1.8249999999999997,
           "bridge": 1,
           "scale_length": 0.195,
           "finish": 0,
-          "string_tuning": 6.305,
+          "string_tuning": 3.7700000000000005,
           "single_coil_pickup_construction": 0
         }
       },
@@ -115,12 +115,12 @@
           "fretless_bass_strings": "fretless_flatwound"
         },
         "scores": {
-          "electric_technique": 12.7,
-          "amp_make": 18.49,
-          "fretless_use": 5.395,
-          "fretless_bass_construction": 1.845,
-          "fretless_fingerboard_wood": 7.95,
-          "fretless_bass_strings": 5.35
+          "electric_technique": 15.95,
+          "amp_make": 20.669999999999998,
+          "fretless_use": 4.549999999999999,
+          "fretless_bass_construction": 1.195,
+          "fretless_fingerboard_wood": 8.4,
+          "fretless_bass_strings": 5.65
         }
       },
       {
@@ -131,8 +131,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 31.59,
-          "drumhead": 23.839999999999996,
+          "drum_technique": 33.93000000000001,
+          "drumhead": 22.544999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -141,20 +141,20 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
-          "sax_reed": "soft_reed",
+          "sax_reed": "hard_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_honking_attack",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 12.844999999999999,
-          "sax_size": 9.399999999999999,
-          "sax_reed": 1.2349999999999999,
+          "wind_articulation": 15.854999999999999,
+          "sax_size": 13.149999999999999,
+          "sax_reed": 1.15,
           "sax_body_alloy": 4.75,
-          "sax_mouthpiece": 1.2349999999999999,
-          "sax_technique": 9.399999999999999,
-          "sax_maker_school": 5.85
+          "sax_mouthpiece": 0.39,
+          "sax_technique": 12.649999999999999,
+          "sax_maker_school": 5.2
         }
       },
       {
@@ -163,13 +163,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_yamaha_cs"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 23.974999999999998,
-          "poly_archetypes": 2.51,
-          "poly_voices": 0.89,
-          "poly_maker_lineage": 3.835
+          "electronic_technique": 23.329999999999995,
+          "poly_archetypes": 1.755,
+          "poly_voices": 1.04,
+          "poly_maker_lineage": 4.095
         }
       },
       {
@@ -182,10 +182,10 @@
           "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
         },
         "scores": {
-          "keyboard_technique": 25.089999999999993,
+          "keyboard_technique": 23.839999999999993,
           "wurlitzer_use": 0,
-          "wurlitzer_ep_voice": 2.51,
-          "wurlitzer_model": 5.145,
+          "wurlitzer_ep_voice": 1.755,
+          "wurlitzer_model": 3.77,
           "wurlitzer_reed_material": 2.925
         }
       }

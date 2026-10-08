@@ -5,7 +5,7 @@
   "lineage": "Indie triste gathers Spanish-language independent songs of longing, loss and intimate reflection. Home-grown singer-songwriter practices and online circulation connect acoustic folk-rooted performers with a wider range of restrained pop and alternative productions.",
   "recipe": "classic indie triste, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. dreadnought acoustic guitar. parlor.",
   "recipe_chars": 143,
-  "score": 2.89,
+  "score": 3.046,
   "config": {
     "traditions": [
       "indie_triste"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3,
+          "voice_processing_chain": 1.456,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

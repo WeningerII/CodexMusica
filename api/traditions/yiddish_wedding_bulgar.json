@@ -5,7 +5,7 @@
   "lineage": "Ashkenazi-Jewish wedding-dance-music tradition continuous from 19th-century Eastern-European-shtetl klezmer practice through New-York Yiddish-American post-1880s immigration era through the 1970s klezmer-revival; the bulgar (Bulgarian-origin double-line dance) and freylekhs (joyful-dance) are the canonical Ashkenazi wedding-dance forms",
   "recipe": "classic Eastern European mid-1880s yiddish wedding bulgar and freylekhs, wedding, European branch, middle eastern wedding, string improv improv on frame, chanson fado ballad poetry cape verdean batuko of santiago island lebanese-arab wedding takht. vocal fry, breath veiled tone, slow rate, interlocked note trading. klezmer ensemble, ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, ornamented fiddle, castagnari Italian premium folk music bellows articulated accordion, upright bass. klezmer simcha celebration hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 616,
-  "score": 258.074,
+  "score": 256.311,
   "config": {
     "traditions": [
       "yiddish_wedding_bulgar",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 3.2794999999999996,
-          "voice_quality": 27.043,
+          "voice_register": 3.0844999999999994,
+          "voice_quality": 28.287999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.433999999999999,
+          "voice_vibrato": 6.2989999999999995,
           "voice_articulation": 19.435,
           "voice_microtone": 27.949999999999996,
-          "voice_tradition": 13.932999999999996,
+          "voice_tradition": 13.714999999999996,
           "voice_mechanism_compound": 8.075,
-          "voice_estill_quality": 8.16,
+          "voice_estill_quality": 8.325,
           "voice_speech_song": 21.384999999999998,
           "voice_ensemble_config": 18.525,
           "voice_ornament_system": 12.524,
-          "voice_pitch_organization": 12.708499999999999,
-          "voice_processing_chain": 4.290000000000001,
-          "voice_multitrack_stack": 4.5195
+          "voice_pitch_organization": 12.663499999999999,
+          "voice_processing_chain": 4.1295,
+          "voice_multitrack_stack": 4.1895
         }
       },
       {
@@ -59,8 +59,8 @@
           "rhythm_section": "klez_drums"
         },
         "scores": {
-          "sections": 9.339499999999997,
-          "rhythm_section": 0.345
+          "sections": 9.619999999999997,
+          "rhythm_section": 0.5850000000000001
         }
       },
       {
@@ -69,14 +69,14 @@
           "wind_articulation": "wind_continuous_legato",
           "clarinet_body": "ebonite_clarinet",
           "clarinet_size": "a_clarinet",
-          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "glissando_clarinet"
         },
         "scores": {
-          "wind_articulation": 7.2895,
-          "clarinet_body": 12.774000000000001,
+          "wind_articulation": 6.854500000000001,
+          "clarinet_body": 11.934000000000001,
           "clarinet_size": 2.34,
-          "clarinet_reed": 0.195,
+          "clarinet_reed": 0,
           "clarinet_articulation": 7.249999999999999
         }
       },
@@ -86,16 +86,16 @@
           "bowed_technique": "bowed_klezmer_ornamented",
           "fiddle_strings": "plain_sheep_gut_fiddle",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "no_mute",
+          "fiddle_mute": "practice_mute",
           "fiddle_articulation": "pizz",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 12.4895,
           "fiddle_strings": 0.325,
-          "fiddle_bow": 0.195,
-          "fiddle_mute": 0.195,
-          "fiddle_articulation": 1.3299999999999998,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.045,
+          "fiddle_articulation": 1.15,
           "fiddle_string_configuration": 0
         }
       },
@@ -105,29 +105,29 @@
           "free_reed_technique": "free_reed_bellows_articulated",
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "italian_tuning",
-          "reed_config": "lm_only",
+          "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
           "free_reed_technique": 7.199999999999999,
-          "accordion_reed_material": 0.3,
+          "accordion_reed_material": 0.255,
           "musette_offset": 0.545,
-          "reed_config": 0.7499999999999999,
+          "reed_config": 0.15,
           "bellows": 0,
-          "voicing_chamber": 0.3,
+          "voicing_chamber": 0.525,
           "accordion_maker_school": 7.215
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "steel_upright",
+          "upright_strings": "gut_upright",
           "upright_play": "arco_upright"
         },
         "scores": {
-          "upright_strings": 0.195,
+          "upright_strings": 0,
           "upright_play": 2.34
         }
       }

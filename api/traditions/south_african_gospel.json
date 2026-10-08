@@ -5,7 +5,7 @@
   "lineage": "South African gospel developed through church communities and the encounter between Christian hymnody and local singing traditions. Its multilingual choral traditions coexist with contemporary worship bands, soloists and Afrikaans devotional songwriting.",
   "recipe": "classic south african gospel, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. dreadnought acoustic guitar, gospel runs grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 264,
-  "score": 14.452,
+  "score": 14.588,
   "config": {
     "traditions": [
       "south_african_gospel"
@@ -59,7 +59,7 @@
           "string_tuning": "standard_tuning",
           "top_wood": "sitka",
           "back_sides": "koa_bs",
-          "string_acoustic": "nickel_bronze"
+          "string_acoustic": "martin_lifespan"
         },
         "scores": {
           "acoustic_technique": -0.1,
@@ -83,7 +83,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 10.567499999999999,
+          "keyboard_technique": 10.703999999999999,
           "grand_piano_size": 0.294,
           "grand_piano_brand": 1.573,
           "piano_hammer": -0.035,

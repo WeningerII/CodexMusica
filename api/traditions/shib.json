@@ -5,7 +5,7 @@
   "lineage": "Shib is an internet discovery grouping that brings together independent rap, pop-facing songs and instrumental beat music. Its creator selection includes Steven Cooper, whose direct lyrical delivery and pop–hip-hop production sit alongside gentler instrumental recordings elsewhere in the field.",
   "recipe": "classic shib, mc Rhythm, us hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
   "recipe_chars": 155,
-  "score": 14.56,
+  "score": 14.591,
   "config": {
     "traditions": [
       "shib"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 3.3799999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

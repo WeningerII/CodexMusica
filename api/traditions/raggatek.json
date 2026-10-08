@@ -3,26 +3,26 @@
   "name": "Raggatek",
   "family": "electronic",
   "lineage": "Formed in the French and Spanish free-party teknival circuit in the early 2000s around Sirius, Da Mongoloids and the Rotule and Jah Gunz collectives — 170-200 BPM tribe-and-hardtek kick patterns overlaid with pitched-up Jamaican ragga and dancehall vocal samples, siren melodica lines, chopped Amen fills and dub-style delay throws, played from mobile sound systems at outdoor teknivals.",
-  "recipe": "classic 2000-2003 raggatek, bass System, bass descendants branch, uk soundsystem bass system, hardstyle electronic dance uk funky oldschool jungle. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-909, chopped sampler, low sub bass analog mono synth, low sub bass monosynth acid bass, turntable. isolated rural 2005-present isolation diy isolation cabin diy. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 488,
-  "score": 183.688,
+  "recipe": "classic 2000-2003 raggatek, bass System, bass descendants branch, uk soundsystem bass system, hardstyle electronic dance frenchcore uk funky. vocal fry, breath veiled tone, slow rate, interlocked note trading. TR-909, sound design field sampler, sub bass analog mono synth, sub bass monosynth acid bass, turntable. isolated rural 2005-present isolation diy isolation cabin diy. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 476,
+  "score": 183.118,
   "config": {
     "traditions": [
       "raggatek",
-      "uk_funky",
-      "oldschool_jungle"
+      "frenchcore",
+      "uk_funky"
     ],
     "instruments": [
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "drum_machine_909_context": "drum_machine_909_techno",
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
           "tr909_voice": 2.3000000000000003,
-          "drum_machine_909_context": 1.625,
+          "drum_machine_909_context": 0.78,
           "tr909_production_origin": 0
         }
       },
@@ -32,15 +32,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "fairlight_cmi",
           "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.21,
+          "electronic_technique": 1.56,
           "sampler_archetypes": 0,
           "sampler_bit_depth": 0.195,
-          "sampler_workflow": 3.3049999999999997,
-          "sampler_classic_context": 24.83
+          "sampler_workflow": 2.56,
+          "sampler_classic_context": 24.374999999999996
         }
       },
       {
@@ -49,15 +49,15 @@
           "electronic_technique": "electronic_bass_sub",
           "mono_oscillator": "mono_digitally_controlled",
           "mono_filter": "moog_ladder",
-          "mono_archetypes": "sh_101",
-          "mono_maker_lineage": "mono_arp_pearlman"
+          "mono_archetypes": "tb_303",
+          "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 9.4575,
+          "electronic_technique": 6.727500000000001,
           "mono_oscillator": 0,
-          "mono_filter": -0.245,
-          "mono_archetypes": 0.3,
-          "mono_maker_lineage": -1.435
+          "mono_filter": 0.19500000000000003,
+          "mono_archetypes": 0.9750000000000001,
+          "mono_maker_lineage": -1.085
         }
       },
       {
@@ -67,10 +67,10 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -78,25 +78,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.3149999999999995,
-          "voice_quality": 9.165000000000001,
+          "voice_register": 2.925,
+          "voice_quality": 12.609999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.7474999999999999,
-          "voice_articulation": 18.459999999999997,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 18.264999999999997,
           "voice_microtone": 17.679999999999993,
-          "voice_tradition": 5.654999999999999,
-          "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 3.380000000000001,
-          "voice_speech_song": 18.264999999999997,
-          "voice_ensemble_config": 20.539999999999992,
-          "voice_ornament_system": 5.654999999999999,
-          "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 10.370625,
-          "voice_multitrack_stack": 6.045
+          "voice_tradition": 5.590000000000001,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 19.109999999999992,
+          "voice_ensemble_config": 20.994999999999994,
+          "voice_ornament_system": 4.225,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 12.195624999999998,
+          "voice_multitrack_stack": 6.142500000000001
         }
       },
       {
@@ -104,14 +104,14 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
-          "filter_acid": "closed_acid",
-          "accent_acid": "subtle_accent_acid"
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 9.4575,
-          "wave_acid": 0.345,
+          "electronic_technique": 6.727500000000001,
+          "wave_acid": 0.24,
           "filter_acid": 0.65,
-          "accent_acid": 0.345
+          "accent_acid": 1.925
         }
       },
       {
@@ -121,7 +121,7 @@
           "turntable_technique": "turntable_chirp_baby"
         },
         "scores": {
-          "electronic_technique": 2.21,
+          "electronic_technique": 1.56,
           "turntable_technique": 0
         }
       }

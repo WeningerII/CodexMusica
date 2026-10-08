@@ -1,18 +1,58 @@
 {
-  "id": "musica_llanera",
-  "name": "Música llanera",
+  "id": "joropo",
+  "merged_from": "musica_llanera",
+  "name": "Joropo",
   "family": "global",
-  "lineage": "Plains music of the Orinoco llanos straddling Venezuela and Colombia's Arauca-Casanare, professionalized from the 1940s onward through radio and the Festival Internacional del Joropo, built on arpa llanera or bandola llanera lead, strummed cuatro golpes, driving capachos maracas and a 3/4-6/8 hemiola at breakneck tempo under a high, declamatory copla voice.",
-  "recipe": "classic South American mid-1940s música llanera, functional Song, tropical song branch, Latin am troubadour ballad poetry, string improv improv on frame música jíbara folklore chileno. sygyt, breath veiled tone, slow rate, interlocked note trading. diatonic only joropo tradition cedar canonical llanos fast runs arpa doubled courses orinoco pin pon driving lead bandola llanera, cuatro venezolano, maracas, upright bass. adobe room. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
-  "recipe_chars": 553,
-  "score": 138.722,
+  "lineage": "Venezuelan-and-Colombian-Llanos plains cattle-ranch song-and-dance tradition with characteristic 3/4-against-6/8 hemiola-and-sesquialteral rhythmic-foundation. The canonical ensemble: arpa-llanera 32-string diatonic-harp (Venezuelan) or cuatro-y-bandola small-four-string-and-mandolin variant (Colombian), maracas, and either capacho large-shaker or bass. The vocal-style features high-projected open-throat cattle-driving register with improvised contrapunteo dueling-poet improvised-verse-exchange. The corrido-joropo storytelling-narrative-form, the pasaje-joropo slower-romantic-lyrical-form, and the joropo-recio fast-virtuosic-improvisational-form comprise the canonical variants. Embedded in cattle-ranch llanero rural-pastoral culture spanning the Orinoco-river-basin grasslands of Venezuela and eastern Colombia.",
+  "recipe": "classic South American mid-1950s joropo, groove Percussion, Latin am branch, Latin am troubadour ballad poetry milonga folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. diatonic only joropo tradition cedar canonical llanos gut pre modern joropo fast runs arpa pear shaped single strung four string bandola llanera, cedar canonical Venezuelan nylon cuatro venezolano, maracas. colombian canon 1934-present mid tier discos fuentes medellin. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 579,
+  "score": 220.655,
   "config": {
     "traditions": [
-      "musica_llanera",
-      "musica_jibara",
-      "folklore_chileno"
+      "joropo",
+      "milonga",
+      "folklore_surero"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 3.7150000000000003,
+          "voice_quality": 18.784999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.3724999999999996,
+          "voice_articulation": 24.634999999999998,
+          "voice_microtone": 24.894999999999992,
+          "voice_tradition": 10.2375,
+          "voice_mechanism_compound": 7.084999999999999,
+          "voice_estill_quality": 8.19,
+          "voice_speech_song": 29.769999999999996,
+          "voice_ensemble_config": 25.414999999999996,
+          "voice_ornament_system": 2.8600000000000003,
+          "voice_pitch_organization": 2.6000000000000005,
+          "voice_processing_chain": 5.265000000000001,
+          "voice_multitrack_stack": 3.575
+        }
+      },
       {
         "id": "arpa_llanera",
         "slots": {
@@ -22,25 +62,25 @@
           "arpa_llanera_role": "arpa_llanera_bass_and_treble"
         },
         "scores": {
-          "arpa_llanera_strings": 3.575,
-          "arpa_llanera_body_wood": 1.3,
-          "arpa_llanera_string_material": -0.17499999999999996,
-          "arpa_llanera_role": 2.275
+          "arpa_llanera_strings": 15.094999999999999,
+          "arpa_llanera_body_wood": 4.38,
+          "arpa_llanera_string_material": 3.6350000000000002,
+          "arpa_llanera_role": 11.774999999999999
         }
       },
       {
         "id": "cuatro_venezolano",
         "slots": {
           "cuatro_venezolano_tuning": "cuatro_venezolano_reentrant",
-          "cuatro_venezolano_technique": "cuatro_venezolano_rasgueo",
+          "cuatro_venezolano_technique": "cuatro_venezolano_hybrid",
           "cuatro_venezolano_body_wood": "cuatro_venezolano_cedar",
           "cuatro_venezolano_strings": "cuatro_venezolano_nylon"
         },
         "scores": {
           "cuatro_venezolano_tuning": 0.39,
-          "cuatro_venezolano_technique": 0.39,
-          "cuatro_venezolano_body_wood": 0.9749999999999999,
-          "cuatro_venezolano_strings": 0.9749999999999999
+          "cuatro_venezolano_technique": 0.975,
+          "cuatro_venezolano_body_wood": 6.279999999999999,
+          "cuatro_venezolano_strings": 2.6
         }
       },
       {
@@ -51,81 +91,31 @@
         },
         "scores": {
           "maracas_construction": 0.435,
-          "maracas_filling": 0.195
+          "maracas_filling": 0
         }
       },
       {
         "id": "bandola_llanera",
         "slots": {
-          "bandola_llanera_form": "bandola_llanera_form_guayanesa",
-          "bandola_llanera_role": "bandola_llanera_role_pinpon",
+          "bandola_llanera_form": "bandola_llanera_form_four_string",
+          "bandola_llanera_role": "bandola_llanera_role_contrapunteo",
           "bandola_llanera_build": "bandola_llanera_build_nylon_cedar"
         },
         "scores": {
-          "bandola_llanera_form": 2.8600000000000003,
-          "bandola_llanera_role": 4.040625,
-          "bandola_llanera_build": 0.4
-        }
-      },
-      {
-        "id": "upright_bass",
-        "slots": {
-          "upright_strings": "gut_upright",
-          "upright_play": "arco_upright"
-        },
-        "scores": {
-          "upright_strings": 0,
-          "upright_play": 0.65
-        }
-      },
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "sygyt_register",
-          "voice_quality": "aspirated_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_oral_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
-        },
-        "scores": {
-          "voice_register": 2.10375,
-          "voice_quality": 12.739999999999991,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 1.755,
-          "voice_articulation": 18.265,
-          "voice_microtone": 17.874999999999996,
-          "voice_tradition": 5.915,
-          "voice_mechanism_compound": 2.6,
-          "voice_estill_quality": 4.79375,
-          "voice_speech_song": 25.479999999999997,
-          "voice_ensemble_config": 19.109999999999996,
-          "voice_ornament_system": 3.3475,
-          "voice_pitch_organization": 1.1456249999999997,
-          "voice_processing_chain": 4.55,
-          "voice_multitrack_stack": 3.180625
+          "bandola_llanera_form": 5.574999999999999,
+          "bandola_llanera_role": 5.39,
+          "bandola_llanera_build": -0.1
         }
       }
     ],
-    "room": "adobe_room",
-    "archetype": "arch_discos_fuentes_tropical",
+    "room": "discos_fuentes_medellin",
+    "archetype": "arch_early_tape_havana",
     "inline_chain": {
-      "mic": "mic_rca_77dx_ribbon",
-      "pre": "tube_pre",
-      "console": "colored",
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
       "amp": null,
       "medium": "tape_15ips"
     },
@@ -136,10 +126,33 @@
   },
   "source": {
     "tuning": "joropo_3_4_corrido_hemiola",
-    "room": "adobe_room",
-    "chain_mic": "mic_rca_77dx_ribbon",
-    "chain_pre": "tube_pre",
+    "room": "discos_fuentes_medellin",
+    "parts": {
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "maracas_construction": "maracas_gourd",
+      "maracas_filling": "maracas_seeds",
+      "arpa_llanera_strings": "arpa_llanera_32",
+      "arpa_llanera_body_wood": "arpa_llanera_cedar",
+      "arpa_llanera_string_material": "arpa_llanera_nylon_modern",
+      "arpa_llanera_role": "arpa_llanera_bass_and_treble"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
     "chain_medium": "tape_15ips",
-    "chain_console": "colored"
+    "chain_console": "console_british_transformer_70s"
   }
 }

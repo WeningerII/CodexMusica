@@ -5,7 +5,7 @@
   "lineage": "Marathi devotional music carries Bhakti poetry and saint-song traditions through sung prayer and reflection, including abhang repertoire associated with figures such as Janabai.",
   "recipe": "classic marathi devotional, ritual Devotional, hindu branch. solo with instrumental accompaniment. sustaining copper tabla, dotara. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 230,
-  "score": 3.974,
+  "score": 3.942,
   "config": {
     "traditions": [
       "marathi_devotional"
@@ -75,7 +75,7 @@
         "scores": {
           "plucked_traditional_technique": -0.035,
           "dotara_strings": 0,
-          "dotara_context": 0.5775
+          "dotara_context": 0.546
         }
       }
     ],

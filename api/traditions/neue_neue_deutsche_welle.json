@@ -5,7 +5,7 @@
   "lineage": "A contemporary renewal of German new-wave pop.",
   "recipe": "classic neue neue deutsche welle, functional Song, europop branch. group vocals, live take. analog poly synth, humbucker electric guitar, electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electric bass. live tracking.",
   "recipe_chars": 290,
-  "score": 15.268,
+  "score": 15.478,
   "config": {
     "traditions": [
       "neue_neue_deutsche_welle"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.9869999999999999,
+          "voice_ensemble_config": 1.0919999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.9869999999999999,
+          "voice_multitrack_stack": 1.0919999999999999,
           "voice_tessitura": 0
         }
       },

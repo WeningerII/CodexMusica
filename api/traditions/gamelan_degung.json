@@ -1,0 +1,151 @@
+{
+  "id": "gamelan_degung",
+  "name": "Gamelan degung (Sundanese bronze chamber ensemble)",
+  "family": "classical",
+  "lineage": "Sundanese bronze ensemble associated with the courts of the Priangan regents and tuned to the pentatonic degung scale, a pelog-type tuning. A bonang degung kettle-gong row leads, with saron and peking metallophones, jengglong hanging gongs (here the kempul card), goong, kendang and the four-holed suling degung; degung kawih adds a female singer to the instrumental degung klasik.",
+  "recipe": "classic modern gamelan degung, art Music, southeast Asian branch. bonang, bamboo rattan band fipple canonical javanese balinese suling, gamelan sundanese kendang indonesian, pelog tuned kempul, tuned nipple pitched gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 307,
+  "score": 19.118,
+  "config": {
+    "traditions": [
+      "gamelan_degung"
+    ],
+    "instruments": [
+      {
+        "id": "bonang",
+        "slots": {
+          "bonang_tuning": "bonang_pelog",
+          "bonang_register": "bonang_barung"
+        },
+        "scores": {
+          "bonang_tuning": 1.3,
+          "bonang_register": 0
+        }
+      },
+      {
+        "id": "suling",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "suling_use": "suling_sundanese",
+          "suling_tuning": "suling_pelog",
+          "suling_body_material": "suling_bamboo_canonical"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "suling_use": 0.39,
+          "suling_tuning": 1.3,
+          "suling_body_material": 2.5952499999999996
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_sundanese",
+          "kendang_shell_wood": "chitravina_jackwood",
+          "kendang_head": "ho_dumang_double_headed_drum_membranes_documented"
+        },
+        "scores": {
+          "kendang_size": 1.3,
+          "kendang_context": 3.9,
+          "kendang_shell_wood": 0,
+          "kendang_head": 0
+        }
+      },
+      {
+        "id": "kempul",
+        "slots": {
+          "kempul_build": "kempul_forged_bronze",
+          "kempul_tuning": "kempul_pelog_set",
+          "kempul_role": "kempul_midcycle"
+        },
+        "scores": {
+          "kempul_build": 0.39,
+          "kempul_tuning": 2.6,
+          "kempul_role": 0.168
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 1.3,
+          "gong_striker": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "bonang": [
+        "bonang_tuning",
+        "bonang_register"
+      ],
+      "suling": [
+        "wind_articulation",
+        "suling_use",
+        "suling_tuning",
+        "suling_body_material"
+      ],
+      "kendang_indonesian": [
+        "kendang_size",
+        "kendang_context",
+        "kendang_shell_wood",
+        "kendang_head"
+      ],
+      "kempul": [
+        "kempul_build",
+        "kempul_tuning",
+        "kempul_role"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "bonang_tuning": "bonang_pelog",
+      "bonang_register": "bonang_barung",
+      "wind_articulation": "wind_continuous_legato",
+      "suling_use": "suling_sundanese",
+      "suling_tuning": "suling_pelog",
+      "suling_body_material": "suling_bamboo_canonical",
+      "kendang_size": "kendang_gendhing",
+      "kendang_context": "kendang_sundanese",
+      "kendang_shell_wood": "chitravina_jackwood",
+      "kendang_head": "ho_dumang_double_headed_drum_membranes_documented",
+      "kempul_build": "kempul_forged_bronze",
+      "kempul_tuning": "kempul_pelog_set",
+      "kempul_role": "kempul_midcycle",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

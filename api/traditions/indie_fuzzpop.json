@@ -3,9 +3,9 @@
   "name": "Indie Fuzzpop",
   "family": "pop",
   "lineage": "Indie fuzzpop brings together small-label guitar-pop and home-recording communities, with melodic songwriting that can range from rough-edged bands to soft electronic textures. Its listening cohort overlaps twee pop, indie pop and noise pop, linking acts such as The Just Joans and Tiny Fireflies.",
-  "recipe": "classic indie fuzzpop, functional Song, pop rock branch. group vocals. clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, melodic chordal electronic keyboard unspecified. live tracking.",
-  "recipe_chars": 283,
-  "score": 64.777,
+  "recipe": "classic indie fuzzpop, functional Song, pop rock branch. clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, melodic chordal electronic keyboard unspecified. live tracking.",
+  "recipe_chars": 269,
+  "score": 63.951,
   "config": {
     "traditions": [
       "indie_fuzzpop"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.0394999999999999,
+          "voice_ensemble_config": 0.441,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.30825,
-          "voice_multitrack_stack": 0.24825,
+          "voice_processing_chain": 0.26549999999999996,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },

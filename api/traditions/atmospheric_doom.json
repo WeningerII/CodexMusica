@@ -5,7 +5,7 @@
   "lineage": "Atmospheric doom brings doom metal into contact with immersive textures and introspective songwriting. Its overlap with dark folk is heard in artists such as Iran’s Alizam, formed in 2019, whose music combines electric and classical guitar sonorities.",
   "recipe": "classic late-2010s atmospheric doom, distorted Rock, doom branch. solo with instrumental accompaniment. cedar carbon fiber classical nylon-string basswood riff driven humbucker electric guitar, rock canon ernie ball slinky electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 323,
-  "score": 43.568,
+  "score": 42.886,
   "config": {
     "traditions": [
       "atmospheric_doom"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.783,
+          "voice_ensemble_config": 2.888,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
@@ -64,7 +64,7 @@
           "acoustic_technique": 2.3000000000000007,
           "string_tuning": 0,
           "top_wood_classical": 2.6,
-          "bracing_classical": 1.1365,
+          "bracing_classical": 1.168,
           "string_classical": 1,
           "attack_technique_cl": 2.5
         }
@@ -76,8 +76,8 @@
           "amp_make": "amp_modern_modeling",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -90,16 +90,16 @@
           "electric_technique": 11.389,
           "amp_make": -0.07,
           "body_wood": 3.25,
-          "neck_wood": 0.36750000000000005,
-          "fretboard": 0.2625,
+          "neck_wood": 0.231,
+          "fretboard": 0.231,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 0.36750000000000005,
-          "string_material": 0.2625,
-          "bridge": 0.44100000000000006,
+          "pickup_winding": 0.231,
+          "string_material": 0.126,
+          "bridge": 0.546,
           "scale_length": 3.25,
-          "string_gauge": 1.029,
+          "string_gauge": 0.7875,
           "finish": 0,
-          "string_tuning": 0.26249999999999996
+          "string_tuning": 0.29399999999999993
         }
       },
       {
@@ -116,7 +116,7 @@
         },
         "scores": {
           "amp_make": -0.07,
-          "body_wood": 0.7665,
+          "body_wood": 0.49350000000000005,
           "pickup_config": 0,
           "string_type": 8.125,
           "scale_length_b": 0.5565,

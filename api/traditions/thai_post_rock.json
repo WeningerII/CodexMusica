@@ -5,7 +5,7 @@
   "lineage": "Thai post-rock develops instrumental guitar music through atmospheric textures and influences from jazz and psychedelic rock.",
   "recipe": "classic thai post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 360,
-  "score": 60.792,
+  "score": 60.371,
   "config": {
     "traditions": [
       "thai_post_rock"
@@ -32,13 +32,13 @@
           "electric_technique": -0.10500000000000001,
           "amp_make": 7.0200000000000005,
           "body_wood": 0.5565,
-          "neck_wood": 0.50175,
-          "fretboard": 0.50175,
+          "neck_wood": 0.41512499999999997,
+          "fretboard": 0.41512499999999997,
           "pickup_magnet": 0.147,
           "pickup_winding": 0.42825,
-          "string_material": 0.50175,
-          "bridge": 0.10012499999999999,
-          "scale_length": 1.1212499999999999,
+          "string_material": 0.41512499999999997,
+          "bridge": 0.063,
+          "scale_length": 1.0346250000000001,
           "string_gauge": 0.063,
           "finish": 0.1365,
           "string_tuning": 0
@@ -91,7 +91,7 @@
         "scores": {
           "electronic_technique": 0.237125,
           "poly_archetypes": 7.15,
-          "poly_voices": 0.37424999999999997,
+          "poly_voices": 0.337125,
           "poly_maker_lineage": -0.035
         }
       }

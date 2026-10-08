@@ -5,7 +5,7 @@
   "lineage": "Japanese soul includes singers and recording networks interpreting soul repertoire across Japan and international scenes. Nao Yoshioka’s Flow (Acoustic) presents a documented intimate branch: expressive soul singing in dialogue with Kazuki Isogai’s nylon and electric guitar textures.",
   "recipe": "classic modern japanese soul, functional Song, soul R&B branch. many notes per syllable, solo with instrumental accompaniment, pentatonic run cascades, unprocessed natural acoustic. low mid rich spectrum cedar classical nylon-string guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 444,
-  "score": 25.003,
+  "score": 24.908,
   "config": {
     "traditions": [
       "japanese_soul"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 16.310499999999998,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 0.252
+          "voice_multitrack_stack": 0.1575
         }
       },
       {

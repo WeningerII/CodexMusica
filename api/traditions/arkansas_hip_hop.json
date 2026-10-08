@@ -3,9 +3,9 @@
   "name": "Arkansas hip hop",
   "family": "hip_hop",
   "lineage": "Arkansas hip-hop connects regional MCs, producers and live performers with wider Southern rap traditions. Little Rock artists such as Big Piph illustrate the scene’s links between rhythmic verse, community storytelling and band performance.",
-  "recipe": "classic arkansas hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. live tracking.",
-  "recipe_chars": 182,
-  "score": 45.061,
+  "recipe": "classic arkansas hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine. live tracking.",
+  "recipe_chars": 220,
+  "score": 45.155,
   "config": {
     "traditions": [
       "arkansas_hip_hop"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5355000000000001,
           "voice_tessitura": 0
         }
       },
@@ -61,8 +61,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.2,
-          "sample_bitdepth": 0.1365,
+          "electronic_technique": 5.2315000000000005,
+          "sample_bitdepth": 0.0315,
           "sample_swing": 9.1,
           "sample_processing": 0
         }

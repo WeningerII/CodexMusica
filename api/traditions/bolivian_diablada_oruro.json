@@ -43,7 +43,7 @@
           "voice_microtone": 12.414999999999996,
           "voice_tradition": 35.90624999999999,
           "voice_mechanism_compound": 4.809999999999999,
-          "voice_estill_quality": 20.799999999999994,
+          "voice_estill_quality": 20.694999999999997,
           "voice_speech_song": 14.299999999999997,
           "voice_ensemble_config": 22.669999999999998,
           "voice_ornament_system": 27.450999999999993,
@@ -90,7 +90,7 @@
         "scores": {
           "wind_articulation": 4.664375,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 5.264500000000001,
+          "trumpet_mouthpiece": 5.219500000000001,
           "brass_mute": 0.045,
           "trumpet_technique": 1.0399999999999998,
           "trumpet_bell_metal": 1.8200000000000003,
@@ -120,7 +120,7 @@
         },
         "scores": {
           "tarka_form": 12.790124999999996,
-          "tarka_context": 22.775624999999994,
+          "tarka_context": 22.925624999999993,
           "tarka_consort_voice": 0.745125,
           "tarka_body_wood": 1.4300000000000002
         }

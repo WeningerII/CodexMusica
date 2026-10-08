@@ -3,9 +3,9 @@
   "name": "Swancore",
   "family": "rock_punk",
   "lineage": "AnimalJam — complete2018 debut EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic swancore, distorted Rock, punk branch. one note per syllable. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 300,
-  "score": 18.645,
+  "recipe": "classic swancore, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 277,
+  "score": 17.826,
   "config": {
     "traditions": [
       "swancore"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.609,
+          "voice_speech_song": 0.47250000000000003,
           "voice_ensemble_config": 0.105,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
-          "neck_wood": 0.40950000000000003,
+          "body_wood": 0.546,
+          "neck_wood": 0.273,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 1.6,
           "finish": 0,
           "string_tuning": 0
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
+          "body_wood": 0.546,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

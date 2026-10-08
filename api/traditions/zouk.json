@@ -3,14 +3,14 @@
   "name": "Zouk",
   "family": "global",
   "lineage": "Guadeloupean-Martinican dance music codified in Paris in 1984 by Kassav' (Pierre-Édouard Décimus, Jacob Desvarieux, Jocelyne Béroard), fusing gwo ka and biguine rhythmic cells with Haitian kompa's guitar and Dominican cadence-lypso into a 120-130 BPM machine-driven groove featuring DX7 electric-piano pads, slap or synth bass, staccato horn hits, and multi-tracked Kréyòl lead-and-chorus vocals.",
-  "recipe": "classic Western European mid-1980s zouk, functional Song, tropical song branch, Caribbean groove percussion, African pop functional song south african pop rumba congolaise. thick, breath veiled tone, straight onset, interlocked note trading. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, mahogany clean strummed single coil electric guitar, schilke chicago lead bright ensemble shallow cup lead trumpet trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, lead plus third fifth 3 part stack late 1980s reverb saturated bus stack chorus detuned thickener across stack multitrack vocal stack. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier.",
-  "recipe_chars": 993,
-  "score": 248.117,
+  "recipe": "classic Western European mid-1980s zouk, functional Song, tropical song branch, Caribbean groove percussion, African pop functional song south african pop sungura. thick, breath veiled tone, straight note core, interlocked note trading. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass, clean strummed single coil electric guitar, schilke chicago lead bright shallow cup lead trumpet ensemble trumpet, saxophone, lead plus third fifth 3 part stack late 1980s reverb saturated bus stack chorus detuned thickener across stack multitrack vocal stack. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
+  "recipe_chars": 979,
+  "score": 217.002,
   "config": {
     "traditions": [
       "zouk",
       "south_african_pop",
-      "rumba_congolaise"
+      "sungura"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
@@ -34,74 +34,74 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 17.784999999999993,
-          "voice_quality": 7.344999999999999,
+          "voice_register": 14.644999999999994,
+          "voice_quality": 6.305000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.73,
-          "voice_articulation": 17.03,
-          "voice_microtone": 16.834999999999997,
-          "voice_tradition": 14.425,
-          "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 26.65,
-          "voice_ensemble_config": 18.849999999999998,
-          "voice_ornament_system": 0.8299999999999996,
-          "voice_pitch_organization": 0.8499999999999999,
-          "voice_processing_chain": 4.669999999999999,
-          "voice_multitrack_stack": 4.9
+          "voice_vibrato": 2.4650000000000003,
+          "voice_articulation": 14.884999999999996,
+          "voice_microtone": 14.689999999999994,
+          "voice_tradition": 14.379999999999999,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 22.554999999999996,
+          "voice_ensemble_config": 16.509999999999994,
+          "voice_ornament_system": 1.1299999999999997,
+          "voice_pitch_organization": 1.6,
+          "voice_processing_chain": 6.8999999999999995,
+          "voice_multitrack_stack": 6.325000000000001
         }
       },
       {
         "id": "fm_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "fm_algorithm": "fm_simple",
+          "fm_algorithm": "fm_classic",
           "fm_modulator_ratio": "fm_harmonic",
           "fm_polyphony": "fm_mono",
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 14.43,
-          "fm_algorithm": 0.65,
-          "fm_modulator_ratio": 0.3,
-          "fm_polyphony": 1.74,
+          "electronic_technique": 15.08,
+          "fm_algorithm": 0.5199999999999999,
+          "fm_modulator_ratio": 0.195,
+          "fm_polyphony": 2.3899999999999997,
           "fm_model_lineage": 8.48
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
-          "tr909_voice": "tr909_kick",
+          "tr909_voice": "tr909_hat",
           "drum_machine_909_context": "drum_machine_909_hardcore",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 0.09999999999999999,
-          "drum_machine_909_context": 0.39,
-          "tr909_production_origin": 0.38999999999999996
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.585,
+          "tr909_production_origin": 0.345
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_walking",
+          "bass_technique": "slap_pop",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.8150000000000004,
-          "body_wood": 1.4949999999999999,
-          "pickup_config": 0.65,
-          "string_type": 4.61,
-          "scale_length_b": 1.39,
+          "amp_make": 3.8299999999999996,
+          "body_wood": 0.65,
+          "pickup_config": 0.845,
+          "string_type": 3.9,
+          "scale_length_b": 1.24,
           "fretted_or_not": 0.39,
-          "bass_technique": 3,
+          "bass_technique": 0.325,
           "electric_bass_string_configuration": 0
         }
       },
@@ -111,30 +111,30 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_11",
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "eb_standard",
+          "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 15.524999999999999,
-          "amp_make": 1.9499999999999997,
-          "body_wood": 1.345,
-          "neck_wood": 0.845,
-          "fretboard": 0.78,
-          "pickup_magnet": 0.15,
-          "string_material": 0.15,
-          "string_gauge": 1.6449999999999998,
+          "electric_technique": 15.4,
+          "amp_make": 1.1049999999999998,
+          "body_wood": 0.65,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.195,
+          "string_material": 0.195,
+          "string_gauge": 0.65,
           "bridge": 0.39,
-          "scale_length": 1.4949999999999999,
+          "scale_length": 0.65,
           "finish": 0,
-          "string_tuning": 0.8,
+          "string_tuning": 0.75,
           "single_coil_pickup_construction": 0
         }
       },
@@ -150,13 +150,13 @@
           "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 3.6650000000000005,
+          "wind_articulation": 2.0799999999999996,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 5.839999999999999,
+          "trumpet_mouthpiece": 3.09,
           "brass_mute": 0,
-          "trumpet_technique": 3.6650000000000005,
-          "trumpet_bell_metal": 0.42,
-          "trumpet_maker_school": 2.04
+          "trumpet_technique": 2.0799999999999996,
+          "trumpet_bell_metal": 0.22499999999999998,
+          "trumpet_maker_school": 2.6899999999999995
         }
       },
       {
@@ -165,19 +165,19 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "nickel_silver_sax",
+          "sax_body_alloy": "yellow_brass_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
-          "sax_maker_school": "sax_selmer_mark_vi"
+          "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 3.6650000000000005,
-          "sax_size": 1.345,
-          "sax_reed": 0.15,
-          "sax_body_alloy": 2.75,
-          "sax_mouthpiece": 0.15,
-          "sax_technique": 2.695,
-          "sax_maker_school": 2.05
+          "wind_articulation": 2.0799999999999996,
+          "sax_size": 0.65,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 0.26,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 0.295,
+          "sax_maker_school": 0.345
         }
       },
       {
@@ -188,9 +188,9 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 2.54,
-          "multitrack_stack_era_aesthetic": 3.46,
-          "multitrack_stack_processing": 1.045
+          "multitrack_stack_density": 2.885,
+          "multitrack_stack_era_aesthetic": 4.585,
+          "multitrack_stack_processing": 1.345
         }
       }
     ],

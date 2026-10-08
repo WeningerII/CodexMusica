@@ -3,9 +3,9 @@
   "name": "Haryanvi hip hop",
   "family": "hip_hop",
   "lineage": "Haryanvi rap appeared around 2017-2019 in Rohtak, Hisar and the Gurugram-Delhi belt as Haryanvi pop producers absorbed trap — Gulzaar Chhaniwala, KD Desi Rock and Khasa Aala Chahar built 70-150 BPM half-time 808 beats with triplet hats over dholak or nagara samples and desi harmonium or shehnai loops, rapped in a low blunt Haryanvi chest register with rustic-pride, caste-village and gym-and-tractor imagery, released almost entirely as YouTube singles.",
-  "recipe": "classic 2017-2019 haryanvi hip hop, mc Rhythm, intl hip hop branch, south Asian pop functional song haryanvi pop bhojpuri pop. thick, rap, slow rate, interlocked note trading. TR-808, goat skin syahi rope laced steel ring dholak, vocal male straight harmonium nagara indian, sampled chopped sampler drum machine, singing lead wavetable synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 450,
-  "score": 238.633,
+  "recipe": "classic 2017-2019 haryanvi hip hop, mc Rhythm, intl hip hop branch, south Asian pop functional song haryanvi pop bhojpuri pop. thick, rap, slow rate, interlocked note trading. TR-808, dholak, vocal male straight harmonium nagara indian, sampled chopped sampler drum machine, singing lead wavetable synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 412,
+  "score": 237.733,
   "config": {
     "traditions": [
       "haryanvi_hip_hop",
@@ -28,14 +28,14 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 17.889999999999993,
-          "voice_quality": 10.135,
+          "voice_register": 17.994999999999994,
+          "voice_quality": 9.94,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.16,
@@ -46,8 +46,8 @@
           "voice_estill_quality": 4.030000000000001,
           "voice_speech_song": 29.445000000000004,
           "voice_ensemble_config": 24.05,
-          "voice_ornament_system": 5.210000000000001,
-          "voice_pitch_organization": 4.925000000000001,
+          "voice_ornament_system": 5.375000000000001,
+          "voice_pitch_organization": 5.2700000000000005,
           "voice_processing_chain": 7.699999999999999,
           "voice_multitrack_stack": 2.827500000000001
         }
@@ -76,8 +76,8 @@
         "scores": {
           "dholak_use": 0.585,
           "dholak_construction": 2.0799999999999996,
-          "dholak_head": 1.3199999999999998,
-          "dholak_tensioning": 1.3199999999999998
+          "dholak_head": 0.9299999999999999,
+          "dholak_tensioning": 0.9299999999999999
         }
       },
       {
@@ -89,9 +89,9 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 5.330000000000001,
-          "harmonium_action": 1.4300000000000002,
-          "harmonium_voicing": 3.5100000000000002,
+          "free_reed_technique": 5.210000000000001,
+          "harmonium_action": 1.3850000000000002,
+          "harmonium_voicing": 3.33,
           "harmonium_use": 1.4300000000000002
         }
       },
@@ -120,7 +120,7 @@
         },
         "scores": {
           "electronic_technique": 12.384999999999998,
-          "wt_position": 1.365,
+          "wt_position": 1.17,
           "wt_family": 0.65,
           "wt_polyphony": 0.24
         }

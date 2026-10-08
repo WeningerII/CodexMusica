@@ -3,14 +3,14 @@
   "name": "Mor lam",
   "family": "global",
   "lineage": "Isan (Northeast Thailand) and Lao traditional and popular vocal-and-khaen tradition — mor lam literally means expert singer in Lao; the Isan/Lao genre built on the khaen (bamboo mouth-organ with 16 pipes in two rows) and the lead-vocal improvising long-form Lao-language sung-poetry over the khaen drone-and-melody foundation; figures Banyen Rakkaen, Pornsak Songsang, Chaweewan Damnern, and the modern Jintara Poonlarp",
-  "recipe": "classic Southeast Asian modern mor lam, drone Modal, vocal branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, breath veiled tone, slow rate, interlocked note trading. khaen, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung, festive dance driving phin. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 584,
-  "score": 308.272,
+  "recipe": "classic Southeast Asian modern mor lam, drone Modal, vocal branch, med east poetic ballad poetry pontic greek music zajal. vocal fry, breath veiled tone, slow rate, interlocked note trading. khaen, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung, phin. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 537,
+  "score": 239.452,
   "config": {
     "traditions": [
       "mor_lam",
       "pontic_greek",
-      "azmari_ethiopian"
+      "zajal_lebanese"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 4.55,
-          "voice_quality": 19.89,
+          "voice_quality": 13.389999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6649999999999996,
-          "voice_articulation": 27.495000000000008,
-          "voice_microtone": 30.582500000000003,
-          "voice_tradition": 26.034999999999993,
-          "voice_mechanism_compound": 7.865,
-          "voice_estill_quality": 4.875,
-          "voice_speech_song": 30.160000000000004,
-          "voice_ensemble_config": 25.350000000000005,
-          "voice_ornament_system": 2.09,
-          "voice_pitch_organization": 27.709999999999994,
-          "voice_processing_chain": 5.05,
-          "voice_multitrack_stack": 6.565000000000001
+          "voice_vibrato": 2.015,
+          "voice_articulation": 22.035,
+          "voice_microtone": 26.1625,
+          "voice_tradition": 24.084999999999997,
+          "voice_mechanism_compound": 6.175,
+          "voice_estill_quality": 4.030000000000001,
+          "voice_speech_song": 23.855,
+          "voice_ensemble_config": 19.695,
+          "voice_ornament_system": 2.145,
+          "voice_pitch_organization": 6.825,
+          "voice_processing_chain": 4.42,
+          "voice_multitrack_stack": 5.720000000000001
         }
       },
       {
@@ -62,7 +62,7 @@
         "scores": {
           "free_reed_technique": 0.8449999999999999,
           "khaen_size": 9.189999999999998,
-          "khaen_context": 2.925
+          "khaen_context": 2.08
         }
       },
       {
@@ -72,21 +72,21 @@
           "roneat_thung_role": "roneat_thung_pinpeat_counter"
         },
         "scores": {
-          "roneat_thung_bars": 2.535,
-          "roneat_thung_role": 3.8349999999999995
+          "roneat_thung_bars": 1.69,
+          "roneat_thung_role": 2.795
         }
       },
       {
         "id": "phin",
         "slots": {
           "phin_form": "phin_song_sai",
-          "phin_repertoire": "phin_prayuk",
+          "phin_repertoire": "phin_lam_accompaniment",
           "phin_construction": "phin_jackfruit_carved"
         },
         "scores": {
-          "phin_form": 40.36500000000001,
-          "phin_repertoire": 9.285,
-          "phin_construction": 7.7349999999999985
+          "phin_form": 34.71,
+          "phin_repertoire": 8.305,
+          "phin_construction": 7.084999999999999
         }
       }
     ],

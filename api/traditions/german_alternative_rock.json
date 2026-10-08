@@ -3,9 +3,9 @@
   "name": "German alternative rock",
   "family": "rock_punk",
   "lineage": "German alternative rock represented by Guano Apes’ guitar-led crossover band. This model selects the reunion-era voice, electric guitar, bass and live drum core, retaining the drummer’s documented change from maple to birch shells rather than backdating it to the1997 debut.",
-  "recipe": "classic german alternative rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp electric bass, birch sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 352,
-  "score": 31.596,
+  "recipe": "classic german alternative rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp mahogany electric bass, birch sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 361,
+  "score": 31.869,
   "config": {
     "traditions": [
       "german_alternative_rock"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.38925,
-          "voice_ensemble_config": 1.49175,
+          "voice_ensemble_config": 1.06125,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3105,
+          "voice_processing_chain": 0.279,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -76,9 +76,9 @@
           "pickup_magnet": 0,
           "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 0.441,
-          "scale_length": 0.8820000000000001,
-          "string_gauge": 0.441,
+          "bridge": 0.546,
+          "scale_length": 1.0920000000000003,
+          "string_gauge": 0.546,
           "finish": 0,
           "string_tuning": 0
         }
@@ -97,10 +97,10 @@
         },
         "scores": {
           "amp_make": 6.5649999999999995,
-          "body_wood": 0.8820000000000001,
+          "body_wood": 1.0920000000000003,
           "pickup_config": 0.3,
           "string_type": 0,
-          "scale_length_b": 0.441,
+          "scale_length_b": 0.546,
           "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0

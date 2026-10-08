@@ -5,7 +5,7 @@
   "lineage": "Soul arranged without a lead singer, allowing horn melody and rhythm-section phrasing to carry the song. The selected Brooklyn Menahan Street Band practice also feeds hip-hop sampling.",
   "recipe": "classic modern instrumental soul, functional Song, soul R&B branch. clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, bach stradivarius 180 canonical American orchestral trumpet, saxophone, tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 469,
-  "score": 23.231,
+  "score": 23.263,
   "config": {
     "traditions": [
       "instrumental_soul"
@@ -31,8 +31,8 @@
         "scores": {
           "electric_technique": 3.2,
           "amp_make": 0,
-          "body_wood": 0.33599999999999997,
-          "neck_wood": 0.378,
+          "body_wood": 0.231,
+          "neck_wood": 0.5145,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.33599999999999997,
+          "body_wood": 0.231,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -97,7 +97,7 @@
           "trumpet_mouthpiece": -0.1,
           "brass_mute": 0,
           "trumpet_technique": -0.035,
-          "trumpet_bell_metal": 0.6405000000000001,
+          "trumpet_bell_metal": 0.7455,
           "trumpet_maker_school": 1.302
         }
       },

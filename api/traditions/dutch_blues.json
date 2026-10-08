@@ -5,7 +5,7 @@
   "lineage": "Dutch blues grew through the Netherlands’ blues and rhythm-and-blues bands of the 1960s, including Cuby + Blizzards, and continues through clubs, festivals and national musician networks. Acoustic duos and amplified bands sustain different sides of the repertoire.",
   "recipe": "classic mid-1960s dutch blues, functional Song, blues acoustic branch. unprocessed natural acoustic. short sustain plain gut lamb gut pre 1900 parlor dreadnought acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, dry zero sustain kevlar aramid extreme tension drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 445,
-  "score": 77.991,
+  "score": 78.138,
   "config": {
     "traditions": [
       "dutch_blues"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.168,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 0.168,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -57,16 +57,16 @@
         "slots": {
           "acoustic_technique": "acoustic_bottleneck_slide",
           "string_tuning": "standard_tuning",
-          "top_wood": "cedar",
+          "top_wood": "sitka",
           "back_sides": "maple_bs",
           "string_acoustic": "gut_pre_1900_steel"
         },
         "scores": {
           "acoustic_technique": -0.10500000000000001,
           "string_tuning": 0,
-          "top_wood": 0.3045,
+          "top_wood": 0.273,
           "back_sides": 0.273,
-          "string_acoustic": 1.1284999999999998
+          "string_acoustic": 1.16
         }
       },
       {
@@ -81,8 +81,8 @@
         },
         "scores": {
           "harmonica_type": 0.3885,
-          "harmonica_comb": 14.9855,
-          "harmonica_reed": 14.859499999999999,
+          "harmonica_comb": 14.953999999999999,
+          "harmonica_reed": 14.828,
           "harmonica_technique": 14.835499999999998,
           "harmonica_maker_school": 18.785,
           "harmonica_tuning": 7.54

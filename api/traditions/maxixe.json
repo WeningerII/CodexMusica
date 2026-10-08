@@ -1,0 +1,173 @@
+{
+  "id": "maxixe",
+  "name": "Maxixe (tango brasileiro)",
+  "family": "global",
+  "lineage": "Urban dance of Rio de Janeiro that took shape in the late nineteenth century from the polka, habanera and lundu, notorious for its close, swaying couple steps, and published by composers such as Ernesto Nazareth and Chiquinha Gonzaga under the respectable label tango brasileiro. From 1902 Casa Edison recorded maxixes by military and fire-brigade bands and by flute-led groups of cavaquinho and guitars, and the dance became an international ballroom craze in Paris and New York in the 1910s.",
+  "recipe": "classic mid-1910s maxixe, functional Song, Brazilian song branch. flute like credited flute unspecified, clarinet, ophicleide, cavaquinho, classical nylon-string guitar. live tracking. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 214,
+  "score": 17.996,
+  "config": {
+    "traditions": [
+      "maxixe"
+    ],
+    "instruments": [
+      {
+        "id": "credited_flute_unspecified",
+        "slots": {
+          "credited_flute_identity": "credited_flute_source_unspecified"
+        },
+        "scores": {
+          "credited_flute_identity": 1.6
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "clarinet_body": -0.10500000000000001,
+          "clarinet_size": 0.3,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.7
+        }
+      },
+      {
+        "id": "ophicleide",
+        "slots": {
+          "ophicleide_size": "ophicleide_bass_c",
+          "ophicleide_context": "ophicleide_orchestral_low_brass",
+          "ophicleide_keywork": "ophicleide_eleven_key",
+          "ophicleide_build": "ophicleide_brass_light"
+        },
+        "scores": {
+          "ophicleide_size": -0.1,
+          "ophicleide_context": -0.07,
+          "ophicleide_keywork": 0.273,
+          "ophicleide_build": -0.035
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_portuguese",
+          "cavaquinho_context": "cavaquinho_choro",
+          "cavaquinho_body_wood": "cavaquinho_jacaranda",
+          "cavaquinho_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.925,
+          "cavaquinho_origin": 0.546,
+          "cavaquinho_context": 13.130000000000003,
+          "cavaquinho_body_wood": -0.035,
+          "cavaquinho_strings": 0
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "gut_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "string_tuning": 0,
+          "top_wood_classical": 0.126,
+          "bracing_classical": 0.4095,
+          "string_classical": -1.5635,
+          "attack_technique_cl": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "credited_flute_unspecified": [
+        "credited_flute_identity"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "ophicleide": [
+        "ophicleide_size",
+        "ophicleide_context",
+        "ophicleide_keywork",
+        "ophicleide_build"
+      ],
+      "cavaquinho": [
+        "plucked_traditional_technique",
+        "cavaquinho_origin",
+        "cavaquinho_context",
+        "cavaquinho_body_wood",
+        "cavaquinho_strings"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_acoustic_horn_pre1925",
+    "inline_chain": {
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "credited_flute_identity": "credited_flute_source_unspecified",
+      "wind_articulation": "wind_continuous_legato",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "ophicleide_size": "ophicleide_bass_c",
+      "ophicleide_context": "ophicleide_orchestral_low_brass",
+      "ophicleide_keywork": "ophicleide_eleven_key",
+      "ophicleide_build": "ophicleide_brass_light",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "cavaquinho_origin": "cavaquinho_portuguese",
+      "cavaquinho_context": "cavaquinho_choro",
+      "cavaquinho_body_wood": "cavaquinho_jacaranda",
+      "cavaquinho_strings": "dutar_strings_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "gut_cl",
+      "attack_technique_cl": "apoyando_cl"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_acoustic_horn_pre1925",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

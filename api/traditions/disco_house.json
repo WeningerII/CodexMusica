@@ -5,7 +5,7 @@
   "lineage": "Mid-1990s house subgenre built in Chicago, New York and Paris from looped and filtered 1970s disco records, codified by Daft Punk, DJ Sneak, Armand Van Helden and Basement Jaxx circa 1995-2000 — 118-128 BPM four-on-the-floor with 909 kick and open hat on the upbeat, a chopped string or guitar loop swept through a resonant low-pass filter, sidechained pumping on every bar, and clipped diva vocal snippets used as rhythmic hooks rather than sung verses",
   "recipe": "classic mid-1990s disco house, electronic Dance, house branch, deep house house, chicago house house, garage house u s house ballroom. thick, breath veiled tone, slow rate, interlocked note trading. turntable, looped layered sampler, TR-909, ampeg b15 amp American 60s bass amp flip top character mahogany electric bass, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
   "recipe_chars": 543,
-  "score": 306.425,
+  "score": 306.665,
   "config": {
     "traditions": [
       "disco_house",
@@ -20,8 +20,8 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 2.29,
-          "turntable_technique": 0.995
+          "electronic_technique": 2.3350000000000004,
+          "turntable_technique": 1.04
         }
       },
       {
@@ -34,10 +34,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.29,
+          "electronic_technique": 2.3350000000000004,
           "sampler_archetypes": 0.78,
           "sampler_bit_depth": 2.74,
-          "sampler_workflow": 1.535,
+          "sampler_workflow": 1.49,
           "sampler_classic_context": 60.99
         }
       },
@@ -50,7 +50,7 @@
         },
         "scores": {
           "tr909_voice": 34.44500000000001,
-          "drum_machine_909_context": 6.835000000000001,
+          "drum_machine_909_context": 6.985,
           "tr909_production_origin": 0.6
         }
       },

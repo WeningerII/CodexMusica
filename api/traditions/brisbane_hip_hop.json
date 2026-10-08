@@ -5,7 +5,7 @@
   "lineage": "Brisbane hip-hop forms a city-based community within Australian rap, with artists such as Nerve linking local performance networks to national production and broadcasting.",
   "recipe": "classic brisbane hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. live tracking.",
   "recipe_chars": 184,
-  "score": 42.678,
+  "score": 42.898,
   "config": {
     "traditions": [
       "brisbane_hip_hop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.98,
+          "voice_speech_song": 13.232000000000001,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 5.308,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.1785,
           "sample_swing": 9.1,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

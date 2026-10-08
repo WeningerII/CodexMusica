@@ -1,115 +1,192 @@
 {
-  "id": "blasmusik",
-  "name": "Blasmusik",
-  "family": "vernacular",
-  "lineage": "Da Blechhaufn — Austrian brass core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic blasmusik, functional Song. yellow brass canonical 70 30 bach stradivarius trumpet, yellow brass canonical 70 30 bach 42 standard trombone, yellow brass canonical orchestral tuba. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 286,
-  "score": 3.841,
+  "id": "blaskapelle",
+  "merged_from": "blasmusik",
+  "name": "Blaskapelle",
+  "family": "global",
+  "lineage": "Bavarian and Austrian village wind band tradition that took its modern form in the 19th century out of military and church wind ensembles and was standardized by Ernst Mosch's Egerländer model after 1956 — flugelhorn and clarinet leads in parallel thirds, trombone and tenor horn counterlines, tuba with off-beat tenor horns on oom-pah, playing polkas at 110-130 BPM, waltzes and processional marches in civic halls, church festivals and beer tents.",
+  "recipe": "classic North American mid-1950s blaskapelle, drinking Song, European branch, European carnival processional, europop functional song pasodoble airs de gilles. thick, breath veiled tone, straight note core, interlocked note trading. brass yellow brass flugelhorn, yellow brass canonical 70 30 bach stradivarius student friendly ensemble trumpet, dense hardwood grenadilla African blackwood traditional clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, silver plated British brass band ceremonial besson sovereign canonical British brass band euphonium, bass drum. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 917,
+  "score": 184.514,
   "config": {
     "traditions": [
-      "blasmusik"
+      "blaskapelle",
+      "pasodoble",
+      "binche_gilles_carnival"
     ],
     "instruments": [
       {
+        "id": "flugelhorn",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "flugel_use": "flugel_brass_band",
+          "flugelhorn_pitch": "flugelhorn_bb",
+          "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+          "flugelhorn_maker_school": "flugelhorn_kanstul"
+        },
+        "scores": {
+          "wind_articulation": 0.06499999999999999,
+          "flugel_use": 2.08,
+          "flugelhorn_pitch": 0,
+          "flugelhorn_bell_metal": 1.8850000000000002,
+          "flugelhorn_maker_school": 0.315
+        }
+      },
+      {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "brass_size": "cornet",
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "bach_trumpet_mp_7c",
           "brass_mute": "cup_mute",
-          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": -0.1,
-          "brass_size": 0,
-          "trumpet_mouthpiece": -0.07,
-          "brass_mute": 0,
-          "trumpet_technique": -0.05,
-          "trumpet_bell_metal": 1.3,
-          "trumpet_maker_school": 0
+          "wind_articulation": 1.4949999999999999,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 2.645,
+          "brass_mute": 0.3,
+          "trumpet_technique": 1.4949999999999999,
+          "trumpet_bell_metal": 1.8850000000000002,
+          "trumpet_maker_school": 0.6
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.06499999999999999,
+          "clarinet_body": 2.6999999999999997,
+          "clarinet_size": 0.195,
+          "clarinet_reed": 0.105,
+          "clarinet_articulation": 0.255
         }
       },
       {
         "id": "trombone",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "trombone_type": "tenor_trombone",
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "bass_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_6half_al",
-          "trombone_mute": "no_mute_trb",
-          "trombone_technique": "tailgate_slide",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": -0.1,
-          "trombone_type": 0.325,
-          "trombone_mouthpiece": -0.1,
-          "trombone_mute": 0,
-          "trombone_technique": 0.1365,
-          "trombone_bell_metal": 1.3,
-          "trombone_maker_school": 0
+          "wind_articulation": 1.4949999999999999,
+          "trombone_type": 0,
+          "trombone_mouthpiece": 5.25,
+          "trombone_mute": 0.3,
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 1.8850000000000002,
+          "trombone_maker_school": 3.4
         }
       },
       {
         "id": "tuba",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "tuba_pitch": "tuba_bbb",
-          "tuba_context": "tuba_orch",
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_brass_band",
           "tuba_bell_metal": "tuba_yellow_brass",
           "tuba_valve_system": "tuba_rotary_german",
-          "tuba_maker_school": "tuba_miraphone_german"
+          "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": -0.1,
-          "tuba_pitch": 0,
-          "tuba_context": 0,
-          "tuba_bell_metal": 1.3,
-          "tuba_valve_system": 0,
-          "tuba_maker_school": 0
+          "wind_articulation": -0.035,
+          "tuba_pitch": 3.5390000000000006,
+          "tuba_context": 4.42,
+          "tuba_bell_metal": 1.8850000000000002,
+          "tuba_valve_system": 0.39,
+          "tuba_maker_school": 3.9650000000000003
+        }
+      },
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "euph_use": "euph_orchestral",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_silver_plated",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "euph_use": 5.233499999999999,
+          "euphonium_pitch": 3.9650000000000003,
+          "euphonium_bell_metal": 4.16,
+          "euphonium_maker_school": 3.9650000000000003
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.195,
+          "bass_drum_beater": 0.845
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 1,
+          "voice_quality": 14.039999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.8449999999999999,
+          "voice_articulation": 20.475,
+          "voice_microtone": 21.58,
+          "voice_tradition": 6.11,
+          "voice_mechanism_compound": 3.445,
+          "voice_estill_quality": 3.6075000000000004,
+          "voice_speech_song": 24.83,
+          "voice_ensemble_config": 19.759999999999998,
+          "voice_ornament_system": 1.2995,
+          "voice_pitch_organization": 4.030000000000001,
+          "voice_processing_chain": 3.38,
+          "voice_multitrack_stack": 0.9749999999999996
         }
       }
     ],
-    "pinned": {
-      "trumpet": [
-        "wind_articulation",
-        "brass_size",
-        "trumpet_mouthpiece",
-        "brass_mute",
-        "trumpet_technique",
-        "trumpet_bell_metal",
-        "trumpet_maker_school"
-      ],
-      "trombone": [
-        "wind_articulation",
-        "trombone_type",
-        "trombone_mouthpiece",
-        "trombone_mute",
-        "trombone_technique",
-        "trombone_bell_metal",
-        "trombone_maker_school"
-      ],
-      "tuba": [
-        "wind_articulation",
-        "tuba_pitch",
-        "tuba_context",
-        "tuba_bell_metal",
-        "tuba_valve_system",
-        "tuba_maker_school"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "us_uk_civic_amateur_band_hall",
+    "archetype": "arch_network_radio_broadcast",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -118,33 +195,11 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
-    "parts": {
-      "wind_articulation": "wind_continuous_legato",
-      "brass_size": "cornet",
-      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
-      "brass_mute": "cup_mute",
-      "trumpet_technique": "trumpet_classical_legato",
-      "trumpet_bell_metal": "trumpet_yellow_brass",
-      "trumpet_maker_school": "trumpet_bach_stradivarius",
-      "trombone_type": "tenor_trombone",
-      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
-      "trombone_mute": "no_mute_trb",
-      "trombone_technique": "tailgate_slide",
-      "trombone_bell_metal": "trombone_yellow_brass",
-      "trombone_maker_school": "trombone_bach_42",
-      "tuba_pitch": "tuba_bbb",
-      "tuba_context": "tuba_orch",
-      "tuba_bell_metal": "tuba_yellow_brass",
-      "tuba_valve_system": "tuba_rotary_german",
-      "tuba_maker_school": "tuba_miraphone_german"
-    },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "room": "us_uk_civic_amateur_band_hall",
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
   }
 }

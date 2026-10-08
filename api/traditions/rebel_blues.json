@@ -5,7 +5,7 @@
   "lineage": "Rebel blues is a discovery field connecting forceful rock songs, blues-inflected voices and cinematic pop. Its repertoire includes artists whose work circulates through film, television and promotional soundtracks, alongside quieter arrangements of the same songwriters.",
   "recipe": "classic rebel blues, functional Song. block chord upright piano. live tracking.",
   "recipe_chars": 79,
-  "score": 4.95,
+  "score": 5.028,
   "config": {
     "traditions": [
       "rebel_blues"
@@ -19,8 +19,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 4.95,
-          "upright_use": 0,
+          "keyboard_technique": 4.989,
+          "upright_use": 0.03899999999999999,
           "upright_piano_size": 0
         }
       }

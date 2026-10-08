@@ -5,7 +5,7 @@
   "lineage": "Weightless connects electronic producers and the Different Circles label around spacious developments from grime and related club music. Logos and Mumdance helped articulate a field in which rhythm can be suggested through fragments, texture and carefully placed events.",
   "recipe": "classic weightless, bass System, uk soundsystem branch. sampler. live tracking.",
   "recipe_chars": 79,
-  "score": 1.032,
+  "score": 0.927,
   "config": {
     "traditions": [
       "weightless"
@@ -25,7 +25,7 @@
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": -0.05,
           "sampler_workflow": 0.2,
-          "sampler_classic_context": 0.36750000000000005
+          "sampler_classic_context": 0.2625
         }
       }
     ],

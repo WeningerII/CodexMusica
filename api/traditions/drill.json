@@ -3,9 +3,9 @@
   "name": "Drill",
   "family": "hip_hop",
   "lineage": "Chicago modern drill subgenre codified through Chief Keef (\"I Don’t Like\" 2012, Finally Rich 2012), Lil Durk, King Louie, and the Glory Boyz Entertainment (GBE) scene — characterized by 140-160 BPM doubled trap-hi-hat patterns, ominous-minor-key piano sample beds, and aggressive south-side-Chicago narrative content",
-  "recipe": "classic early-2010s drill, mc Rhythm, drill branch, uk soundsystem bass system uk dancehall uk funky. extended whistle, breath veiled tone, straight onset, interlocked note trading. drum machine analog, low sub bass analog synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 375,
-  "score": 135.717,
+  "recipe": "classic early-2010s drill, mc Rhythm, drill branch, uk soundsystem bass system uk dancehall uk funky. extended whistle, breath veiled tone, straight onset, interlocked note trading. drum machine analog, pad like sub bass analog synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 380,
+  "score": 135.627,
   "config": {
     "traditions": [
       "drill",
@@ -73,14 +73,14 @@
           "electronic_technique": "electronic_bass_sub",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
-          "envelope": "sustain_env",
+          "envelope": "pad_env",
           "modulation": "no_mod"
         },
         "scores": {
           "electronic_technique": 12.74,
           "oscillator": 5.98,
           "filter_topology": 4.94,
-          "envelope": 1.39,
+          "envelope": 1.2999999999999998,
           "modulation": 0.6
         }
       }

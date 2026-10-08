@@ -5,7 +5,7 @@
   "lineage": "Fake is a catalogue discovery label encompassing tribute recordings, karaoke versions and instrumental remakes of familiar popular songs. Its repertoire ranges from dance remixes and sound-alike performances to acoustic and piano adaptations, with song recognition linking otherwise different arrangements.",
   "recipe": "classic fake, functional Song. upright piano. live tracking.",
   "recipe_chars": 60,
-  "score": 2.45,
+  "score": 2.528,
   "config": {
     "traditions": [
       "fake"
@@ -19,8 +19,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 2.45,
-          "upright_use": 0,
+          "keyboard_technique": 2.4890000000000003,
+          "upright_use": 0.03899999999999999,
           "upright_piano_size": 0
         }
       }

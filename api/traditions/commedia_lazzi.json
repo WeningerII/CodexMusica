@@ -3,14 +3,14 @@
   "name": "Commedia dell'arte lazzi delivery",
   "family": "classical",
   "lineage": "Commedia dell'arte was the professional improvised masked comedy of Italy from the mid-16th to the 18th century, performed by touring troupes such as the Gelosi and Confidenti on temporary trestle stages in piazzas and courts. Lazzi are the codified comic bits, verbal set-pieces, puns, and rhetorical riffs delivered by the stock masks (Arlecchino, Pantalone, il Dottore, Brighella), declaimed with broad, projected, dialect-inflected exaggeration and improvised around a scenario (canovaccio) rather than a fixed script. The tradition is documented in surviving scenario collections such as Flaminio Scala's 'Il teatro delle favole rappresentative' (1611) and in the modern revival led by Giorgio Strehler's Piccolo Teatro di Milano.",
-  "recipe": "classic early-1610s commedia dell'arte lazzi delivery, art Music, western early branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. urban courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 338,
-  "score": 273.402,
+  "recipe": "classic early-1610s commedia dell'arte lazzi delivery, art Music, western early branch tibetan ache lhamo opera hat boi (tuong) declamation. thick, breath veiled tone, slow rate, interlocked note trading. urban courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 351,
+  "score": 244.925,
   "config": {
     "traditions": [
       "commedia_lazzi",
-      "thai_classical",
-      "tibetan_ache_lhamo"
+      "tibetan_ache_lhamo",
+      "hat_boi_tuong"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.9159999999999995,
-          "voice_quality": 32.89000000000001,
+          "voice_register": 6.891,
+          "voice_quality": 32.955000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.652499999999996,
-          "voice_articulation": 24.245000000000005,
-          "voice_microtone": 23.854999999999997,
-          "voice_tradition": 25.999999999999996,
-          "voice_mechanism_compound": 12.799999999999997,
-          "voice_estill_quality": 21.8945,
-          "voice_speech_song": 27.625,
-          "voice_ensemble_config": 25.479999999999997,
-          "voice_ornament_system": 13.824999999999996,
-          "voice_pitch_organization": 15.389499999999996,
-          "voice_processing_chain": 7.994999999999998,
-          "voice_multitrack_stack": 9.36
+          "voice_vibrato": 12.415,
+          "voice_articulation": 23.399999999999995,
+          "voice_microtone": 22.359999999999992,
+          "voice_tradition": 18.492499999999996,
+          "voice_mechanism_compound": 8.799999999999999,
+          "voice_estill_quality": 19.11,
+          "voice_speech_song": 26.845,
+          "voice_ensemble_config": 23.984999999999992,
+          "voice_ornament_system": 11.45,
+          "voice_pitch_organization": 10.0365,
+          "voice_processing_chain": 8.059999999999999,
+          "voice_multitrack_stack": 7.8
         }
       }
     ],

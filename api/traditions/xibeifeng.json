@@ -1,0 +1,290 @@
+{
+  "id": "xibeifeng",
+  "name": "Xibeifeng (Northwest Wind pop)",
+  "family": "pop",
+  "lineage": "Mainland Chinese popular-song wave of roughly 1987-1989 that set melodies modelled on folk songs of the northwestern loess plateau, especially Shaanbei xintianyou, to loud rock and disco backing, sung in a forceful, rough, open-throated voice; the song from the film Red Sorghum (1987) was among its emblems.",
+  "recipe": "classic Asian 1987-1989 xibeifeng, functional Song, east Asian pop branch. machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electric bass, clean strummed single coil electric guitar, credited synthesizer unspecified. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 407,
+  "score": 39.914,
+  "config": {
+    "traditions": [
+      "xibeifeng"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": -0.06999999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": -0.035,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.16799999999999998,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered"
+        },
+        "scores": {
+          "drum_technique": 2.8,
+          "drumhead": 0.105,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.0315,
+          "shell_thickness": 0,
+          "bearing_edges": 0.0945,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.1685,
+          "cymbal_hammering": 11.4415,
+          "cymbal_lathing": 11.6365,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.2625,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.105,
+          "fretted_or_not": 0,
+          "bass_technique": 2.5130000000000003,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 8.805,
+          "amp_make": 0,
+          "body_wood": 0.2625,
+          "neck_wood": 0.0945,
+          "fretboard": -0.035,
+          "pickup_magnet": 0,
+          "string_material": 0,
+          "string_gauge": 0.3,
+          "bridge": 0,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0.0315,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "credited_synthesizer_unspecified",
+        "slots": {
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+        },
+        "scores": {
+          "credited_synthesizer_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning",
+        "single_coil_pickup_construction"
+      ],
+      "credited_synthesizer_unspecified": [
+        "credited_synthesizer_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_hk_cantopop_ballad_factory",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "transformer_solid_state",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "full_chest_belt_voice",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "shouted_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "hand_hammered",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "electric_technique": "electric_clean_strummed",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "pickup_magnet": "alnico_2",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "bridge": "two_point_trem",
+      "scale_length": "scale_fender",
+      "finish": "nitro",
+      "string_tuning": "standard_tuning",
+      "single_coil_pickup_construction": "single_coil_construction_unspecified",
+      "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_inline_80s",
+    "chain_amp": "amp_american_blackface"
+  }
+}

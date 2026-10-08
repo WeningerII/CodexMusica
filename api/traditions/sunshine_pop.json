@@ -3,14 +3,14 @@
   "name": "Sunshine Pop",
   "family": "pop_rock",
   "lineage": "Los Angeles studio-pop of roughly 1965-1970 made by session-band productions around Curt Boettcher, Gary Usher and Roger Nichols and by vocal groups such as The Association and The Mamas & the Papas — bright major-key songs at 90-130 BPM with jazz-derived major-seventh and added-sixth harmony, four- and five-part close vocal blocks stacked on multitrack, orchestral colour from harpsichord, flutes, French horn and vibraphone, brushed or lightly played drums, and lyrics of pastoral optimism cut with wistfulness.",
-  "recipe": "classic Los Angeles mid-1960s sunshine pop, functional Song, pop rock branch, pop rock folk rock, surf rock distorted rock, pop rock girl group 1960s girl group. thick, breath veiled tone, straight onset, interlocked note trading. lead plus dense cluster 5 part stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, acoustic guitar 12 string, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque block chord harpsichord, powell boston canonical American orchestral flute, french horn, mallets vibraphone, traditional mellow brass tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ.",
-  "recipe_chars": 968,
-  "score": 423.08,
+  "recipe": "classic Los Angeles mid-1960s sunshine pop, functional Song, pop rock branch, pop rock folk rock, surf rock distorted rock, pop rock girl group 1960s girl group. thick, breath veiled tone, straight onset, interlocked note trading. polychordal major seven nine eleven stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, acoustic guitar 12 string, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament block chord harpsichord, powell boston canonical American orchestral flute, french horn, mallets vibraphone, traditional mellow brass tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ.",
+  "recipe_chars": 980,
+  "score": 449.335,
   "config": {
     "traditions": [
       "sunshine_pop",
-      "girl_group_60s",
-      "surf_pop"
+      "folk_rock",
+      "girl_group_60s"
     ],
     "instruments": [
       {
@@ -28,53 +28,53 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 52.795000000000016,
-          "voice_quality": 17.015,
+          "voice_register": 65.34500000000001,
+          "voice_quality": 17.564999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.945,
-          "voice_articulation": 21.619999999999994,
-          "voice_microtone": 46.39500000000001,
-          "voice_tradition": 25.68,
-          "voice_mechanism_compound": 5.915000000000001,
-          "voice_estill_quality": 5.525000000000001,
-          "voice_speech_song": 28.794999999999998,
-          "voice_ensemble_config": 23.914999999999996,
-          "voice_ornament_system": 0,
+          "voice_vibrato": 3.615,
+          "voice_articulation": 21.754999999999992,
+          "voice_microtone": 49.14500000000001,
+          "voice_tradition": 26.485,
+          "voice_mechanism_compound": 4.355,
+          "voice_estill_quality": 7.1850000000000005,
+          "voice_speech_song": 29.31499999999999,
+          "voice_ensemble_config": 23.154999999999994,
+          "voice_ornament_system": 0.39,
           "voice_pitch_organization": 4.795,
-          "voice_processing_chain": 11.435,
-          "voice_multitrack_stack": 6.955000000000002
+          "voice_processing_chain": 10.389999999999999,
+          "voice_multitrack_stack": 6.425000000000002
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_5_part_cluster",
+          "multitrack_stack_density": "multitrack_density_polychordal_7_9_11",
           "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 3.43,
-          "multitrack_stack_era_aesthetic": 6.140000000000001,
-          "multitrack_stack_processing": 0.195
+          "multitrack_stack_density": 2.3,
+          "multitrack_stack_era_aesthetic": 6.915000000000001,
+          "multitrack_stack_processing": 0.39
         }
       },
       {
         "id": "acoustic_guitar_12_string",
         "slots": {
-          "twelve_string_body": "twelve_string_jumbo_steel",
-          "twelve_string_tuning": "twelve_string_standard_pairs",
+          "twelve_string_body": "twelve_string_dreadnought_steel",
+          "twelve_string_tuning": "twelve_string_open_tunings",
           "twelve_string_strings": "coated_nano_12"
         },
         "scores": {
-          "twelve_string_body": 0.3,
-          "twelve_string_tuning": 0.3,
+          "twelve_string_body": 0.39,
+          "twelve_string_tuning": 0.975,
           "twelve_string_strings": 0.195
         }
       },
@@ -91,13 +91,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.440000000000001,
-          "body_wood": 0.65,
+          "amp_make": 13.129999999999999,
+          "body_wood": 1.04,
           "pickup_config": 0,
-          "string_type": 28.275,
-          "scale_length_b": 0.65,
+          "string_type": 31.525,
+          "scale_length_b": 1.04,
           "fretted_or_not": 0.195,
-          "bass_technique": 21.895000000000003,
+          "bass_technique": 24.544999999999998,
           "electric_bass_string_configuration": 0
         }
       },
@@ -109,8 +109,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.819999999999993,
-          "drumhead": 21.074999999999996,
+          "drum_technique": 24.509999999999998,
+          "drumhead": 21.699999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -122,32 +122,32 @@
           "harpsichord_context": "harpsichord_continuo",
           "harpsichord_maker_school": "harpsichord_french_blanchet_taskin",
           "harpsichord_plectrum": "harpsichord_leather_french",
-          "harpsichord_temperament": "harpsichord_meantone_quarter"
+          "harpsichord_temperament": "harpsichord_vallotti"
         },
         "scores": {
-          "keyboard_technique": 22,
-          "harpsichord_register": 0.195,
-          "harpsichord_context": 0.195,
-          "harpsichord_maker_school": 1.75,
+          "keyboard_technique": 22.425,
+          "harpsichord_register": 0.345,
+          "harpsichord_context": 0.585,
+          "harpsichord_maker_school": 2.25,
           "harpsichord_plectrum": 1,
-          "harpsichord_temperament": 1.145
+          "harpsichord_temperament": 1.5950000000000002
         }
       },
       {
         "id": "flute",
         "slots": {
-          "wind_articulation": "wind_classical_legato",
+          "wind_articulation": "wind_bebop_runs",
           "flute_size": "alto_flute",
           "flute_material": "wooden_flute",
           "flute_technique": "classical_flute",
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": -0.035,
+          "wind_articulation": -0.05,
           "flute_size": 0.195,
           "flute_material": 0.325,
-          "flute_technique": 0.105,
-          "flute_maker_school": 1.99
+          "flute_technique": 0,
+          "flute_maker_school": 2.1399999999999997
         }
       },
       {
@@ -155,12 +155,12 @@
         "slots": {
           "wind_articulation": "wind_classical_legato",
           "french_horn_bore": "french_horn_full",
-          "french_horn_metal": "horn_nickel_silver"
+          "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": -0.035,
-          "french_horn_bore": 1.795,
-          "french_horn_metal": 0.09
+          "wind_articulation": -0.05,
+          "french_horn_bore": 1.9449999999999998,
+          "french_horn_metal": 0.195
         }
       },
       {
@@ -173,8 +173,8 @@
         },
         "scores": {
           "percussion_technique": 4.375,
-          "vibe_motor": 3.625,
-          "vibe_mallets": 3.625,
+          "vibe_motor": 3.25,
+          "vibe_mallets": 3.25,
           "vibe_bar_material": 0
         }
       },
@@ -185,7 +185,7 @@
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 4.42,
+          "tambourine_orch_jingle": 4.465,
           "tambourine_orch_context": 0.09999999999999999
         }
       }

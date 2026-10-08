@@ -5,7 +5,7 @@
   "lineage": "African-American Baptist and Pentecostal folk-preaching tradition whose sermonic climax shifts from spoken prose into a metered, pitched chant known as whooping (also zooning or tuning-up), delivered in call-and-response with the congregation and frequently doubled by the Hammond organ. Documented from the earliest race-record sermons of Rev. J. M. Gates and Rev. J. C. Burnett in the 1920s through the mid-century recorded sermons of Rev. C. L. Franklin on Chess and Jewel. The chanted-preaching form and its formulaic building-blocks were analyzed by Bruce Rosenberg in The Art of the American Folk Preacher (1970). The preacher improvises within stock cadential formulas, accelerating and rising in pitch until the congregation's shouts and the organ carry the room.",
   "recipe": "classic Southern American mid-1920s black gospel whooping sermon, ritual Devotional, christian gospel branch shipibo-conibo icaros healing songs sacred steel. thick, breath veiled tone, wide pitch sway, interlocked note trading. southern black church gospel choir. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 337,
-  "score": 237.563,
+  "score": 237.763,
   "config": {
     "traditions": [
       "black_gospel_whooping_sermon",
@@ -29,7 +29,7 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
@@ -41,13 +41,13 @@
           "voice_vibrato": 2.125,
           "voice_articulation": 24.96,
           "voice_microtone": 24.764999999999997,
-          "voice_tradition": 24.006499999999996,
+          "voice_tradition": 24.337999999999997,
           "voice_mechanism_compound": 5.700000000000001,
           "voice_estill_quality": 13.299999999999997,
           "voice_speech_song": 27.105,
           "voice_ensemble_config": 25.935,
           "voice_ornament_system": 11.775,
-          "voice_pitch_organization": 2.9315000000000007,
+          "voice_pitch_organization": 2.8000000000000007,
           "voice_processing_chain": 12.154999999999998,
           "voice_multitrack_stack": 4.225
         }

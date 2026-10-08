@@ -5,7 +5,7 @@
   "lineage": "Late-2010s hip-hop subgenre integrating emo-rock melancholic-emotional register with trap production. Characterized by Auto-Tune sung-rapping, depression-and-relationship-loss lyrical content, electric-guitar samples integrated with 808 drums, and high-emotional-intensity vocal performance. Lil Peep (1996-2017) and Juice WRLD (1998-2019) — both deceased of overdoses — constitute the canonical type-specimens; XXXTentacion (1998-2018), Trippie Redd, and Iann Dior anchor the broader roster.",
   "recipe": "classic mid-2000s sad rap / emo trap, mc Rhythm, southern branch, emo distorted rock post-hardcore emo revival. thick, breath veiled tone, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 623,
-  "score": 189.465,
+  "score": 189,
   "config": {
     "traditions": [
       "sad_rap_emo_trap",
@@ -38,10 +38,10 @@
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.8950000000000005,
+          "voice_vibrato": 4.745000000000001,
           "voice_articulation": 13.324999999999996,
           "voice_microtone": 13.129999999999992,
-          "voice_tradition": 7.519999999999999,
+          "voice_tradition": 7.669999999999999,
           "voice_mechanism_compound": 9.977500000000001,
           "voice_estill_quality": 3.185,
           "voice_speech_song": 13.324999999999996,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "electronic_technique": 10.094999999999999,
-          "oscillator": 0.8100000000000002,
+          "oscillator": 0.81,
           "filter_topology": 1.3,
           "envelope": 0.845,
           "modulation": 0.045
@@ -103,14 +103,14 @@
           "electric_technique": 8.775000000000002,
           "amp_make": 10.530000000000001,
           "body_wood": 3.38,
-          "neck_wood": 0.78,
-          "fretboard": 0.6,
+          "neck_wood": 0.8250000000000001,
+          "fretboard": 0.3,
           "pickup_magnet": 1.3,
           "pickup_winding": 0.845,
           "string_material": 0.24,
-          "bridge": 0.78,
+          "bridge": 0.8250000000000001,
           "scale_length": 3.38,
-          "string_gauge": 1.38,
+          "string_gauge": 1.125,
           "finish": 0.09,
           "string_tuning": 8.84
         }

@@ -3,14 +3,14 @@
   "name": "Muziek voor Kinderen (Dutch children's song)",
   "family": "pop",
   "lineage": "Dutch-language children's popular song professionalized by VARA television from 1980 through the Kinderen voor Kinderen project and by cabaret songwriters such as Herman van Veen and Annie M.G. Schmidt's earlier lyric tradition — bright major-key verse-chorus pop at 100-130 BPM sung by unschooled child choirs in unison or thirds over a session band of piano, acoustic guitar, electric bass, drum kit, and glockenspiel, with witty spoken-Dutch phrasing and topical, non-moralizing lyrics.",
-  "recipe": "classic early-1980s muziek voor kinderen, nursery Rhyme, European branch, europop functional song, European lullaby danseband dansband. thick, breath veiled tone, straight onset, interlocked note trading. a cappella small 3 to 8 one per part andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, glockenspiel, recorder. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 805,
-  "score": 285.519,
+  "recipe": "classic early-1980s muziek voor kinderen, nursery Rhyme, European branch, europop functional song, European lullaby dansband iskelmä. thick, breath veiled tone, wide pitch sway, interlocked note trading. a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, cutting projecting brass glockenspiel, recorder. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 827,
+  "score": 284.038,
   "config": {
     "traditions": [
       "muziek_voor_kinderen",
-      "danseband",
-      "dansband"
+      "dansband",
+      "iskelma"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
@@ -28,68 +28,68 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 16.069999999999993,
-          "voice_quality": 5.7200000000000015,
+          "voice_register": 15.519999999999992,
+          "voice_quality": 5.460000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.95,
-          "voice_articulation": 16.379999999999995,
-          "voice_microtone": 18.979999999999993,
-          "voice_tradition": 16.314999999999998,
-          "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 5.720000000000001,
-          "voice_speech_song": 23.659999999999993,
-          "voice_ensemble_config": 16.249999999999996,
-          "voice_ornament_system": 0.245625,
-          "voice_pitch_organization": 7.54,
-          "voice_processing_chain": 6.759999999999999,
-          "voice_multitrack_stack": 9.620000000000001
+          "voice_vibrato": 2.33875,
+          "voice_articulation": 15.729999999999995,
+          "voice_microtone": 17.679999999999993,
+          "voice_tradition": 15.414999999999997,
+          "voice_mechanism_compound": 5.07,
+          "voice_estill_quality": 5.915000000000001,
+          "voice_speech_song": 24.309999999999995,
+          "voice_ensemble_config": 16.509999999999994,
+          "voice_ornament_system": 0.52,
+          "voice_pitch_organization": 5.59,
+          "voice_processing_chain": 6.954999999999999,
+          "voice_multitrack_stack": 10.01
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_andean_three_voice_parallel_thirds",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 3.3149999999999995,
+          "choir_size": 4.419999999999999,
           "choir_polyphonic_configuration": 0.845,
-          "choir_regional_canonical_configuration": 2.9899999999999998,
-          "choir_ensemble_repertoire": 1.2
+          "choir_regional_canonical_configuration": 3.22875,
+          "choir_ensemble_repertoire": 1.3499999999999999
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_7_foot",
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 12.125,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.845,
-          "piano_hammer": 13.595,
-          "piano_rim": 14.659999999999998,
-          "piano_soundboard": 12.25,
-          "piano_pinblock": 0.75,
-          "piano_plate": 1.1049999999999998,
-          "piano_pitch_standard": 7.150000000000001
+          "keyboard_technique": 11.275624999999998,
+          "grand_piano_size": 1.3,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 13.219999999999999,
+          "piano_rim": 14.914999999999997,
+          "piano_soundboard": 11.874999999999998,
+          "piano_pinblock": 0.895,
+          "piano_plate": 1.36875,
+          "piano_pitch_standard": 7.405625000000001
         }
       },
       {
@@ -102,33 +102,33 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 12.125,
+          "acoustic_technique": 11.075,
           "string_tuning": 1.15,
-          "top_wood": 0.585,
-          "back_sides": 0.195,
-          "string_acoustic": 1.17
+          "top_wood": 0.39,
+          "back_sides": 0.65,
+          "string_acoustic": 1.4300000000000002
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.835,
+          "amp_make": 3.185,
           "body_wood": 0.585,
-          "pickup_config": 0.585,
-          "string_type": 4.387500000000001,
-          "scale_length_b": 0.78,
-          "fretted_or_not": 0.845,
-          "bass_technique": 3.3250000000000006,
+          "pickup_config": 1.04,
+          "string_type": 3.25,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0.65,
+          "bass_technique": 2.45,
           "electric_bass_string_configuration": 0
         }
       },
@@ -140,8 +140,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.794999999999995,
-          "drumhead": 12.450625,
+          "drum_technique": 15.599999999999994,
+          "drumhead": 12.225624999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -150,12 +150,12 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "glockenspiel_size": "glockenspiel_orch_3",
-          "glockenspiel_mallet": "glockenspiel_plastic"
+          "glockenspiel_mallet": "glockenspiel_brass"
         },
         "scores": {
-          "percussion_technique": -0.05,
+          "percussion_technique": 1.25,
           "glockenspiel_size": 0.39,
-          "glockenspiel_mallet": 0.39
+          "glockenspiel_mallet": 1.625
         }
       },
       {
@@ -164,13 +164,13 @@
           "wind_articulation": "wind_continuous_legato",
           "recorder_size": "alto_recorder",
           "recorder_context": "recorder_baroque_solo",
-          "recorder_body_wood": "recorder_maple"
+          "recorder_body_wood": "recorder_boxwood_canonical"
         },
         "scores": {
           "wind_articulation": -0.07,
           "recorder_size": 0.195,
-          "recorder_context": 2.08,
-          "recorder_body_wood": 0.39
+          "recorder_context": 2.4699999999999998,
+          "recorder_body_wood": 0.585
         }
       }
     ],

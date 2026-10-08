@@ -5,7 +5,7 @@
   "lineage": "British breakbeat dance style codified 1993-1999 around Brighton's Big Beat Boutique and Skint/Wall of Sound by The Chemical Brothers, Fatboy Slim and The Prodigy, running 110-140 BPM over chopped funk and hip-hop breaks layered with acid-303 bass, heavily distorted and filter-swept synths, loud crash-cymbal fills, and rock-scale drum compression with vocal hooks reduced to single sampled shouts.",
   "recipe": "classic mid-1990s big beat, electronic Dance, continental branch, uk soundsystem bass system, idm glitch experimental electric breakcore. thick, breath veiled tone, straight onset, interlocked note trading. glitched textural sampler, sampled chopped turntable, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, classic acid sub bass monosynth acid ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, Fender blackface amp American 60s amp spring reverb bright basswood low output no compression humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
   "recipe_chars": 748,
-  "score": 267.477,
+  "score": 267.912,
   "config": {
     "traditions": [
       "big_beat",
@@ -37,7 +37,7 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 6.5,
+          "electronic_technique": 6.5600000000000005,
           "turntable_technique": 4.855
         }
       },
@@ -65,7 +65,7 @@
         "scores": {
           "electronic_technique": 7.6375,
           "wave_acid": 0.39,
-          "filter_acid": 1.045,
+          "filter_acid": 1,
           "accent_acid": 3.15
         }
       },
@@ -87,19 +87,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 5.615,
-          "amp_make": 4.855,
+          "electric_technique": 5.57,
+          "amp_make": 4.8100000000000005,
           "body_wood": 2.925,
           "neck_wood": 0.78,
           "fretboard": 0.7149999999999999,
           "pickup_magnet": 0.65,
-          "pickup_winding": 1.3,
+          "pickup_winding": 1.345,
           "string_material": 0.195,
           "bridge": 0.78,
           "scale_length": 2.34,
           "string_gauge": 1.17,
           "finish": 0,
-          "string_tuning": 4.575
+          "string_tuning": 4.62
         }
       },
       {
@@ -121,7 +121,7 @@
           "string_type": 5.915,
           "scale_length_b": 0.975,
           "fretted_or_not": 0,
-          "bass_technique": 5.275000000000001,
+          "bass_technique": 5.170000000000001,
           "electric_bass_string_configuration": 0
         }
       },
@@ -146,21 +146,21 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.645000000000001,
+          "voice_register": 4.750000000000002,
           "voice_quality": 8.45,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.755,
           "voice_articulation": 17.159999999999993,
           "voice_microtone": 17.80999999999999,
-          "voice_tradition": 7.550000000000001,
-          "voice_mechanism_compound": 4.420000000000001,
+          "voice_tradition": 7.655000000000001,
+          "voice_mechanism_compound": 4.48,
           "voice_estill_quality": 3.6400000000000006,
           "voice_speech_song": 17.159999999999993,
           "voice_ensemble_config": 17.679999999999993,
           "voice_ornament_system": 1.3649999999999998,
           "voice_pitch_organization": 1.4949999999999997,
-          "voice_processing_chain": 18.84,
+          "voice_processing_chain": 19.095,
           "voice_multitrack_stack": 5.9799999999999995
         }
       }

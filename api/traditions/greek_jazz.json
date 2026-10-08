@@ -5,7 +5,7 @@
   "lineage": "Greek jazz connects local musicians with international jazz performance and composition. Piano-led groups are one strand of a varied scene in which modern jazz language meets individual melodic and rhythmic approaches.",
   "recipe": "classic modern greek jazz, improv On Frame, American jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 367,
-  "score": 87.256,
+  "score": 87.286,
   "config": {
     "traditions": [
       "greek_jazz"
@@ -29,8 +29,8 @@
           "grand_piano_size": 0.16449999999999998,
           "grand_piano_brand": 0.39,
           "piano_hammer": 2.9825,
-          "piano_rim": 3.949125,
-          "piano_soundboard": 2.45,
+          "piano_rim": 4.072875,
+          "piano_soundboard": 2.4871250000000003,
           "piano_pinblock": 2.45,
           "piano_plate": 2.45,
           "piano_pitch_standard": 4.55
@@ -67,7 +67,7 @@
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.16449999999999998,
-          "shell_thickness": 0.25999999999999995,
+          "shell_thickness": 0.12999999999999998,
           "bearing_edges": 0.1365,
           "snare_wires": 0.16449999999999998,
           "cymbal_alloy": 16.264499999999998,

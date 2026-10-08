@@ -1,0 +1,93 @@
+{
+  "id": "gong_waning_sikka",
+  "name": "Gong waning (Sikka gong-and-drum ensemble)",
+  "family": "global",
+  "lineage": "Struck percussion ensemble of the Sikka region around Maumere in eastern Flores, made up of waning drums (the generic membrane-drum card stands in), a set of gongs (the gong card stands in) and the peli anak, also called saur (the auxiliary-percussion card stands in). It accompanies dance in customary sacred rites and at festive entertainment.",
+  "recipe": "classic modern gong waning, groove Percussion, east Asian branch. membrane drum pulse resonant acoustic membrane drum, gong tamtam, credited auxiliary percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 242,
+  "score": 8.63,
+  "config": {
+    "traditions": [
+      "gong_waning_sikka"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 4.68,
+          "acoustic_membrane_drum_gesture": 3.3799999999999994
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.5774999999999999,
+          "gong_striker": 0.1425
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

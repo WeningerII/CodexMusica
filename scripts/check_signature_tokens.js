@@ -28,7 +28,7 @@
 //   references/_tradition_signatures.json   the signature table (canonical)
 //   references/_soundword_vocab.json        every token classed cultural | style | sonic
 //   references/_signature_rulings.json      a verdict per (tradition, cultural token)
-//   src/app.js                              the TRADITION_SIGNATURES mirror
+//   references/10_tradition_signatures.js   the TRADITION_SIGNATURES mirror (generated)
 //   api/engine.json                         the lazy page's copy of it, decoded as the
 //                                           page decodes it (scripts/_page_tables.js)
 //   codex.html                              the shipped page's (minified) copy of it, when
@@ -41,7 +41,7 @@
 //   UNCLASSED       a token on a real tradition id that the vocabulary does not class,
 //                   so a new token cannot slip in without someone deciding what it is
 //   UNRULED         a (tradition, cultural token) pair with no ruling
-//   FALSE_SURVIVES  a pair ruled false still present in the table, in the src/app.js
+//   FALSE_SURVIVES  a pair ruled false still present in the table, in the generated
 //                   mirror, in api/engine.json, or in codex.html — every copy of the
 //                   table the product publishes (the atlas and the connector read the
 //                   JSON itself)
@@ -74,7 +74,7 @@ const ROOT = path.join(__dirname, '..');
 const SIGS_FILE = 'references/_tradition_signatures.json';
 const VOCAB_FILE = 'references/_soundword_vocab.json';
 const RULINGS_FILE = 'references/_signature_rulings.json';
-const APP_FILE = 'src/app.js';
+const APP_FILE = 'references/10_tradition_signatures.js';
 const ENGINE_FILE = 'api/engine.json';
 const HTML_FILE = 'codex.html';
 
@@ -91,8 +91,8 @@ const pairKey = (trad, tok) => trad + '\u0000' + tok;
 
 // ───────────────────────── the published mirrors ─────────────────────────
 // Both copies are object literals assigned to `const TRADITION_SIGNATURES`:
-// single-quoted and one tradition per line in src/app.js, double-quoted and
-// minified in codex.html. Read each to its matching brace, string-aware, and
+// single-quoted and one tradition per line in references/10_tradition_signatures.js,
+// double-quoted and minified in an embedded codex.html. Read each to its matching brace, string-aware, and
 // evaluate it the way build_signatures.js does — never by a regex that
 // assumes one of the two layouts.
 function extractSignatureBlock(text) {

@@ -1,0 +1,178 @@
+{
+  "id": "conga_santiaguera",
+  "name": "Conga santiaguera (Santiago de Cuba carnival conga)",
+  "family": "global",
+  "lineage": "Street carnival music of Santiago de Cuba, played by neighbourhood congas such as Los Hoyos, Paso Franco and San Agustín as they parade through the city in July, with the crowd singing short refrains, alongside the more choreographed comparsas of the carnival. Its sound centres on the corneta china, a Chinese-derived shawm adopted in the early 20th century, over bocúes (long drums slung from the shoulder and played by hand), larger stick-beaten drums, bells and car brake drums struck with metal beaters. A generic membrane-drum card stands in for the drums and the agogo card for the bells and brake drums.",
+  "recipe": "classic modern conga santiaguera, carnival Processional, Caribbean branch. copper belled plant reed call trompeta china, membrane drum pulse resonant acoustic membrane drum, agogo source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 279,
+  "score": 38.706,
+  "config": {
+    "traditions": [
+      "conga_santiaguera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.47250000000000003,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1995,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "trompeta_china",
+        "slots": {
+          "trompeta_china_body": "trompeta_china_acana",
+          "trompeta_china_bell": "trompeta_china_copper_bell",
+          "trompeta_china_reed": "trompeta_china_yarey",
+          "trompeta_china_role": "trompeta_china_arrollar"
+        },
+        "scores": {
+          "trompeta_china_body": 5.6045,
+          "trompeta_china_bell": 6,
+          "trompeta_china_reed": 5.2625,
+          "trompeta_china_role": 16.418
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 2.504,
+          "acoustic_membrane_drum_gesture": 1.3
+        }
+      },
+      {
+        "id": "agogo_source_unspecified",
+        "slots": {
+          "agogo_source_unspecified_identity": "agogo_source_unspecified_named_role"
+        },
+        "scores": {
+          "agogo_source_unspecified_identity": 1.063
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "trompeta_china": [
+        "trompeta_china_body",
+        "trompeta_china_bell",
+        "trompeta_china_reed",
+        "trompeta_china_role"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "agogo_source_unspecified": [
+        "agogo_source_unspecified_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "trompeta_china_body": "trompeta_china_acana",
+      "trompeta_china_bell": "trompeta_china_copper_bell",
+      "trompeta_china_reed": "trompeta_china_yarey",
+      "trompeta_china_role": "trompeta_china_arrollar",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "agogo_source_unspecified_identity": "agogo_source_unspecified_named_role"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

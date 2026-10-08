@@ -1,0 +1,71 @@
+{
+  "id": "jouhikko_bowed_lyre",
+  "name": "Jouhikko (Finnish-Karelian bowed lyre music)",
+  "family": "global",
+  "lineage": "Playing tradition of the jouhikko, a bowed lyre with two or three horsehair strings whose melody string is stopped from the side by the backs of the fingers while the others sound as drones, used in Finland and Karelia mainly for dance tunes. A. O. Väisänen documented the instrument and its players in the field; the revival led by Rauno Nieminen and later players such as Pekko Käppi returned it to performance, and the tradition is listed in the Finnish National Inventory of Living Heritage.",
+  "recipe": "classic modern jouhikko, drone Modal, string branch. finnish three string dance driving horsehair strung jouhikko. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 194,
+  "score": 17.714,
+  "config": {
+    "traditions": [
+      "jouhikko_bowed_lyre"
+    ],
+    "instruments": [
+      {
+        "id": "jouhikko",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "jouhikko_form": "jouhikko_suomi",
+          "jouhikko_context": "jouhikko_folk_dance",
+          "jouhikko_strings": "jouhikko_horsehair"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "jouhikko_form": 11.05925,
+          "jouhikko_context": 4.55,
+          "jouhikko_strings": 1.655
+        }
+      }
+    ],
+    "pinned": {
+      "jouhikko": [
+        "bowed_technique",
+        "jouhikko_form",
+        "jouhikko_context",
+        "jouhikko_strings"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "jouhikko_form": "jouhikko_suomi",
+      "jouhikko_context": "jouhikko_folk_dance",
+      "jouhikko_strings": "jouhikko_horsehair"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

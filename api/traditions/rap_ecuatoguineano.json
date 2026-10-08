@@ -5,7 +5,7 @@
   "lineage": "Rap ecuatoguineano encompasses Equatorial Guinea’s multilingual MC and DJ networks. Malabo’s hip-hop festival documents local groups such as Verso Roto alongside performers from Bata and Fang-language rap practices.",
   "recipe": "classic modern rap ecuatoguineano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler drum machine, sampled chopped turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 313,
-  "score": 52.827,
+  "score": 53.173,
   "config": {
     "traditions": [
       "rap_ecuatoguineano"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 17.977,
+          "voice_quality": 18.166,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 15.769,
-          "voice_ensemble_config": 0.2115,
+          "voice_speech_song": 15.955,
+          "voice_ensemble_config": 0.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 6.5,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       },
       {

@@ -86,6 +86,7 @@ const SOURCE_FILES = [
   '07_preface_lexicon.js',
   '08_asset_manifest.js',
   '09_nav_glyphs.js',
+  '10_tradition_signatures.js',
 ];
 
 // ──────────────────────────── argv ────────────────────────────
@@ -192,25 +193,27 @@ if (!fs.existsSync(TEMPLATE) || !fs.existsSync(APP)) {
 
 const template = fs.readFileSync(TEMPLATE, 'utf8');
 const appSource = fs.readFileSync(APP, 'utf8');
-// ─────────────────────── the render tables' mirrors ───────────────────────
-// src/app.js declares TRADITION_SIGNATURES and DESCRIPTOR_DF as generated
-// literals (scripts/build_signatures.js, scripts/build_descriptor_df.js), the
-// copies the embedded build and Node evaluate. The lazy page reads both from
-// api/engine.json instead, into the engine's `let` slots, so the lazy build
-// cuts each declaration from the app code: about 117 KB of the page, gzipped.
-// The cut is not optional: a `const` left beside its `let` slot is a
-// redeclaration, a SyntaxError that would stop the whole app block. Each is
-// matched by the generators' own pattern (APP_TABLES, scripts/_page_tables.js),
-// and must occur exactly once. APP_TABLE_VALUES keeps each literal, evaluated,
-// for --check, which holds it to its references JSON in both builds.
+// ─────────────────────── the render table's mirror ───────────────────────
+// src/app.js declares DESCRIPTOR_DF as a generated literal
+// (scripts/build_descriptor_df.js), the copy the embedded build and Node
+// evaluate. The lazy page reads it from api/engine.json instead, into the
+// engine's `let` slot, so the lazy build cuts the declaration from the app
+// code: about 74 KB of the page, gzipped. (TRADITION_SIGNATURES, the other
+// render table, is a references file, references/10_tradition_signatures.js,
+// that the lazy build omits whole, ENGINE_FILES.) The cut is not optional: a
+// `const` left beside its `let` slot is a redeclaration, a SyntaxError that
+// would stop the whole app block. Each is matched by its generator's own
+// pattern (APP_TABLES, scripts/_page_tables.js), and must occur exactly once.
+// APP_TABLE_VALUES keeps each literal, evaluated, for --check, which holds it
+// to its references JSON in both builds.
+const APP_TABLE_GEN = { DESCRIPTOR_DF: 'build_descriptor_df' };
 const APP_TABLE_VALUES = {};
 let appJs = appSource;
 for (const [name, re] of Object.entries(P.APP_TABLES)) {
   const all = appSource.match(new RegExp(re.source, 'g')) || [];
   if (all.length !== 1) {
-    const gen = name === 'DESCRIPTOR_DF' ? 'build_descriptor_df' : 'build_signatures';
     console.error(
-      `build_html: src/app.js must declare ${name} exactly once (run node scripts/${gen}.js); it declares it ${all.length} times`
+      `build_html: src/app.js must declare ${name} exactly once (run node scripts/${APP_TABLE_GEN[name]}.js); it declares it ${all.length} times`
     );
     process.exit(5);
   }
@@ -466,6 +469,21 @@ if (!LAZY) {
   dataParts.push(
     `const CODEX_IMAGE_MANIFEST = ${JSON.stringify(imageManifest).replace(/</g, '\\u003c')};`
   );
+}
+// Retired tradition ids (references/_tradition_aliases.json). The embedded page
+// carries the tradition tables, so it carries their aliases beside them; the lazy
+// shell reads the same map from api/browse.json (Catalog.bootFromIndex).
+if (!LAZY) {
+  const reg = JSON.parse(
+    fs.readFileSync(path.join(REFS, '_tradition_aliases.json'), 'utf8')
+  ).aliases;
+  const compact = Object.fromEntries(
+    Object.keys(reg)
+      .sort()
+      .map((id) => [id, { of: reg[id].of, name: reg[id].name }])
+  );
+  openScript('tradition aliases (references/_tradition_aliases.json)');
+  dataParts.push(`const TRADITION_ALIASES = ${JSON.stringify(compact).replace(/</g, '\\u003c')};`);
 }
 
 const dataBlock = dataParts.join('\n');
@@ -876,11 +894,14 @@ if (flags.check) {
   // (the app fills them from api/engine.json) and carries no table; an
   // embedded page carries every table, each with rows, and none of the lazy
   // machinery (the index, the commit, the two digests, the codec). The two
-  // render tables (RENDER) are declared in src/app.js, not in a references
-  // file: the embedded page carries them in its app code, which needs a DOM
-  // to run, so they are read from the source and found in the block's text.
+  // render tables (RENDER_TABLES) are the ones api/engine.json writes through
+  // the codec. One of them (APP_CODE) is declared in src/app.js, not in a
+  // references file: the embedded page carries it in its app code, which
+  // needs a DOM to run, so it is read from the source and found in the
+  // block's text.
   {
-    const RENDER = ['TRADITION_SIGNATURES', 'DESCRIPTOR_DF'];
+    const RENDER_TABLES = ['TRADITION_SIGNATURES', 'DESCRIPTOR_DF'];
+    const APP_CODE = ['DESCRIPTOR_DF'];
     const ENGINE = [
       'INSTRUMENT_FAMILY_PARTS',
       'INSTRUMENTS',
@@ -890,16 +911,16 @@ if (flags.check) {
       'TUNINGS',
       'INSTRUMENT_AXIS_DEFINITIONS',
       'PREFACE_LEXICON',
-      ...RENDER,
+      ...RENDER_TABLES,
     ];
     const fail = (msg) => {
       console.error('check: FAIL — ' + msg);
       process.exit(4);
     };
-    // Each mirror in src/app.js is its references JSON (the lazy build cut
-    // it, and the embedded build ships it): the signatures in full (the mirror
-    // keeps its empty lists; only api/engine.json drops them), the frequencies
-    // as sorted entries.
+    // Each mirror is its references JSON: the signatures' generated
+    // references file in full (it keeps its empty lists; only api/engine.json
+    // drops them), and the frequencies' src/app.js literal (the lazy build cut
+    // it, and the embedded build ships it) as sorted entries.
     {
       const refsJson = (f) => JSON.parse(fs.readFileSync(path.join(REFS, f), 'utf8'));
       const entries = (o) =>
@@ -909,18 +930,24 @@ if (flags.check) {
             .map((k) => [k, o[k]])
         );
       const verb = LAZY ? 'cut' : 'shipped';
+      const sigCtx = vm.createContext({});
+      vm.runInContext(
+        fs.readFileSync(path.join(REFS, '10_tradition_signatures.js'), 'utf8'),
+        sigCtx,
+        { filename: '10_tradition_signatures.js' }
+      );
       if (
-        JSON.stringify(APP_TABLE_VALUES.TRADITION_SIGNATURES) !==
+        vm.runInContext('JSON.stringify(TRADITION_SIGNATURES)', sigCtx) !==
         JSON.stringify(refsJson('_tradition_signatures.json'))
       )
         fail(
-          `${verb} TRADITION_SIGNATURES ≠ references/_tradition_signatures.json; run node scripts/build_signatures.js`
+          'references/10_tradition_signatures.js ≠ references/_tradition_signatures.json; run node scripts/build_signatures.js'
         );
       if (entries(APP_TABLE_VALUES.DESCRIPTOR_DF) !== entries(refsJson('_descriptor_df.json').df))
         fail(
           `${verb} DESCRIPTOR_DF ≠ references/_descriptor_df.json; run node scripts/build_descriptor_df.js`
         );
-      for (const name of RENDER)
+      for (const name of APP_CODE)
         if (!Object.keys(APP_TABLE_VALUES[name]).length)
           fail(`src/app.js declares ${name} as an empty table`);
     }
@@ -930,10 +957,10 @@ if (flags.check) {
     const renderDeclared = (name) =>
       (html.match(new RegExp(`\\b(?:const|let|var)\\s+${name}\\s*=`, 'g')) || []).length;
     if (LAZY) {
-      for (const name of RENDER)
+      for (const name of RENDER_TABLES)
         if (renderDeclared(name))
           fail(
-            `a block of the lazy page declares ${name} with a value; the lazy build cuts the src/app.js mirror and the page reads it from api/engine.json`
+            `a block of the lazy page declares ${name} with a value; the lazy build ${APP_CODE.includes(name) ? 'cuts the src/app.js mirror' : 'omits its references file'} and the page reads it from api/engine.json`
           );
       for (const name of ENGINE) {
         const slot = probe(
@@ -1008,18 +1035,19 @@ if (flags.check) {
           );
       }
     } else {
-      // The render tables ride in the app code (src/app.js), declared once
-      // each, with the values held to references/ above.
-      for (const name of RENDER)
+      // Each render table is declared once: the signatures in their data
+      // block, the frequencies in the app code (src/app.js), with the values
+      // held to references/ above.
+      for (const name of RENDER_TABLES)
         if (renderDeclared(name) !== 1)
           fail(
-            `the embedded page declares ${name} ${renderDeclared(name)} times; want once, in the src/app.js runtime block`
+            `the embedded page declares ${name} ${renderDeclared(name)} times; want once, ${APP_CODE.includes(name) ? 'in the src/app.js runtime block' : 'in its data block'}`
           );
       if (declared('codexDecodeSteps') || /\bfunction codexDecodeSteps\b/.test(html))
         fail('the embedded page carries the engine codec, a lazy-shell name');
       // Every table, read back with rows: INSTRUMENT_FAMILY_PARTS is the one
       // object (family -> parts), the rest arrays.
-      for (const name of ENGINE.filter((n) => !RENDER.includes(n))) {
+      for (const name of ENGINE.filter((n) => !APP_CODE.includes(n))) {
         const rows = probe(
           `typeof ${name} === 'undefined' || ${name} === null ? -1 : Array.isArray(${name}) ? ${name}.length : typeof ${name} === 'object' ? Object.keys(${name}).length : -1`
         );

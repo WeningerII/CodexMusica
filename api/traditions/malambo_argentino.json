@@ -1,0 +1,117 @@
+{
+  "id": "malambo_argentino",
+  "name": "Malambo (Argentine gaucho zapateo)",
+  "family": "global",
+  "lineage": "Solo men's competitive foot-tapping dance of the Argentine pampas and north-west, descended from contests of skill between gauchos, in which dancers take turns improvising and answering figures (mudanzas) of zapateo, heel, toe and sole strikes, over an unchanging accompaniment. Malambo norteño is danced in hard boots with fast, showy footwork, malambo sureño in soft boots with more restrained figures; a guitar strums a repeated chord cycle in fast 6/8 and the bombo legüero drives the pulse. The Festival Nacional de Malambo in Laborde, Córdoba, is its main competition.",
+  "recipe": "classic modern malambo, groove Percussion, Latin am branch. classical nylon-string guitar, showpiece bombo leguero, hard stomp boot foot stomp. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 223,
+  "score": 17.734,
+  "config": {
+    "traditions": [
+      "malambo_argentino"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_high_cl",
+          "attack_technique_cl": "rasgueado_cl"
+        },
+        "scores": {
+          "acoustic_technique": 1.305,
+          "string_tuning": 0,
+          "top_wood_classical": 0.126,
+          "bracing_classical": 0.1365,
+          "string_classical": 0,
+          "attack_technique_cl": -0.05
+        }
+      },
+      {
+        "id": "bombo_leguero",
+        "slots": {
+          "bombo_leguero_form": "bombo_leguero_santiagueno",
+          "bombo_leguero_style": "bombo_leguero_bombeo",
+          "bombo_leguero_head": "bombo_leguero_cabra"
+        },
+        "scores": {
+          "bombo_leguero_form": 5.0865,
+          "bombo_leguero_style": 10.21,
+          "bombo_leguero_head": -0.05
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_boot",
+          "stomp_surface": "stomp_wood_stage"
+        },
+        "scores": {
+          "stomp_footwear": 1,
+          "stomp_surface": 0.11999999999999998
+        }
+      }
+    ],
+    "pinned": {
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ],
+      "bombo_leguero": [
+        "bombo_leguero_form",
+        "bombo_leguero_style",
+        "bombo_leguero_head"
+      ],
+      "foot_stomp": [
+        "stomp_footwear",
+        "stomp_surface"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "parts": {
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "nylon_high_cl",
+      "attack_technique_cl": "rasgueado_cl",
+      "bombo_leguero_form": "bombo_leguero_santiagueno",
+      "bombo_leguero_style": "bombo_leguero_bombeo",
+      "bombo_leguero_head": "bombo_leguero_cabra",
+      "stomp_footwear": "stomp_boot",
+      "stomp_surface": "stomp_wood_stage"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

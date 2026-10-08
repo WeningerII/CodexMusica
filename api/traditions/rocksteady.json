@@ -5,7 +5,7 @@
   "lineage": "Jamaican style of roughly 1966-1968, formed at Studio One and Treasure Isle when ska's fast shuffle slowed to about 80 BPM in the hot summer of 1966 — codified by Alton Ellis (Get Ready Rock Steady), Hopeton Lewis, the Techniques and Duke Reid's productions, with the horn section receding, Jackie Jackson and Leroy Sibbles' melodic walking basslines moving to the front, guitar and piano on the offbeat skank, and close soul-harmony vocal trios.",
   "recipe": "classic Caribbean 1966-1968 rocksteady, bass System, Jamaican branch, soul R&B functional song, dub descendants bass system doo-wop souldies. thick, breath veiled tone, slow rate, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright ebony chicken-scratch single coil electric guitar, Hammond a 100 built in Leslie home spinet gospel runs slow chorale tonewheel organ, gospel runs upright piano, bach 42 canonical American orchestral tenor ensemble bass trombone trombone, tenor ensemble honking attack saxophone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 885,
-  "score": 454.695,
+  "score": 455.235,
   "config": {
     "traditions": [
       "rocksteady",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 22.05,
+          "voice_register": 22.005,
           "voice_quality": 24.700000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.2099999999999995,
           "voice_articulation": 21.18999999999999,
           "voice_microtone": 20.409999999999993,
-          "voice_tradition": 16.669999999999998,
+          "voice_tradition": 16.625,
           "voice_mechanism_compound": 2.4699999999999998,
-          "voice_estill_quality": 15.594999999999999,
+          "voice_estill_quality": 15.79,
           "voice_speech_song": 25.21999999999999,
           "voice_ensemble_config": 20.34499999999999,
           "voice_ornament_system": 2.395,
@@ -65,10 +65,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 21.214999999999996,
-          "body_wood": 1.885,
+          "amp_make": 21.319999999999997,
+          "body_wood": 1.825,
           "pickup_config": 1,
-          "string_type": 23.4,
+          "string_type": 23.37,
           "scale_length_b": 0.585,
           "fretted_or_not": 0.105,
           "bass_technique": 13.399999999999999,
@@ -84,7 +84,7 @@
         },
         "scores": {
           "drum_technique": 20.279999999999994,
-          "drumhead": 3.289999999999999,
+          "drumhead": 3.244999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -106,14 +106,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 13.639999999999999,
-          "amp_make": 17.255,
+          "electric_technique": 13.594999999999999,
+          "amp_make": 17.165,
           "body_wood": 0.585,
           "neck_wood": 0.585,
           "fretboard": 1.105,
-          "pickup_magnet": 0.345,
-          "string_material": 0.345,
-          "string_gauge": 2.2749999999999995,
+          "pickup_magnet": 0.54,
+          "string_material": 0.54,
+          "string_gauge": 2.125,
           "bridge": 1,
           "scale_length": 0.585,
           "finish": 0,
@@ -132,10 +132,10 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 15.635,
+          "keyboard_technique": 15.59,
           "drawbar_setting": 4.4,
           "rotary_speed": 14.945,
-          "percussion_setting": 1.8599999999999999,
+          "percussion_setting": 1.755,
           "tonewheel_model": 7.085,
           "leslie_cabinet_model": 0.845
         }
@@ -148,7 +148,7 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 15.635,
+          "keyboard_technique": 15.59,
           "upright_use": 0.585,
           "upright_piano_size": 1.885
         }
@@ -165,12 +165,12 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 19.145,
-          "trombone_type": 0.6,
-          "trombone_mouthpiece": 3.755,
+          "wind_articulation": 18.905,
+          "trombone_type": 0.8999999999999999,
+          "trombone_mouthpiece": 3.9499999999999997,
           "trombone_mute": 0.195,
           "trombone_technique": 2.0799999999999996,
-          "trombone_bell_metal": 0.72,
+          "trombone_bell_metal": 0.8700000000000001,
           "trombone_maker_school": 3.5749999999999993
         }
       },
@@ -186,11 +186,11 @@
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 19.145,
+          "wind_articulation": 18.905,
           "sax_size": 13.899999999999999,
-          "sax_reed": 0.345,
+          "sax_reed": 0.54,
           "sax_body_alloy": -0.035,
-          "sax_mouthpiece": 0.345,
+          "sax_mouthpiece": 0.54,
           "sax_technique": 13.399999999999999,
           "sax_maker_school": 0
         }

@@ -1,0 +1,76 @@
+{
+  "id": "voladores_papantla_music",
+  "name": "Danza de los Voladores (Totonac flyers' pipe and drum)",
+  "family": "global",
+  "lineage": "Music of the ritual of the flyers of the Totonac of Papantla, Veracruz, inscribed by UNESCO on its Representative List of the Intangible Cultural Heritage. The caporal, standing on the small platform at the top of a tall pole, plays a small cane flute and a small double-headed drum at the same time, saluting the four directions, while four flyers tied by ropes descend head-down in widening circles. Generic flute and drum cards stand in for the flute and drum.",
+  "recipe": "classic modern danza de los voladores, ritual Devotional, indigenous branch. flute like credited flute unspecified, membrane drum pulse acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 239,
+  "score": 9.677,
+  "config": {
+    "traditions": [
+      "voladores_papantla_music"
+    ],
+    "instruments": [
+      {
+        "id": "credited_flute_unspecified",
+        "slots": {
+          "credited_flute_identity": "credited_flute_source_unspecified"
+        },
+        "scores": {
+          "credited_flute_identity": 3.7409999999999997
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_short"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 5.39625,
+          "acoustic_membrane_drum_gesture": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "credited_flute_unspecified": [
+        "credited_flute_identity"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "credited_flute_identity": "credited_flute_source_unspecified",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_short"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

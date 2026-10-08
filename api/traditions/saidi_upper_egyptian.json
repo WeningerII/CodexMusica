@@ -3,14 +3,14 @@
   "name": "Saidi music (Upper Egyptian)",
   "family": "global",
   "lineage": "Saidi music of Upper Egypt (south of Cairo extending to Aswan), the canonical pre-modern rural musical tradition of the Egyptian Nile Valley peasant Saidi communities. Performance centers on the mizmar pair (loud double-reed conical-bore aerophone played in heterophonic-melodic-elaboration) over tabla baladi or tabla dohola two-headed barrel-drum. Repertoire spans wedding-celebration cycles, mawwal vocal-lament solo declamations (free-rhythm extended-melismatic-ornament register), and tahtib stick-dance accompaniment cycles for which Saidi music is particularly known.",
-  "recipe": "classic North African mid-1980s saidi music, functional Song, mid east n African pop branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, straight note core, interlocked note trading. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, tabla, apricot canonical Egyptian arundo donax canonical nile delta mizmar, arghul. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 567,
-  "score": 196.199,
+  "recipe": "classic North African mid-1980s saidi music, functional Song, mid east n African pop branch, west African groove percussion indonesian jaipongan milo jazz. thick, breath veiled tone, straight onset, interlocked note trading. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, tabla, apricot canonical Egyptian arundo donax canonical nile delta mizmar, arghul. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 568,
+  "score": 185.686,
   "config": {
     "traditions": [
       "saidi_upper_egyptian",
       "indonesian_jaipongan",
-      "fuji"
+      "milo_jazz_freetown"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.205000000000002,
-          "voice_quality": 12.609999999999992,
+          "voice_register": 9.005,
+          "voice_quality": 12.544999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.875,
-          "voice_articulation": 7.865,
-          "voice_microtone": 15.209999999999994,
-          "voice_tradition": 36.464999999999996,
+          "voice_vibrato": 4.095000000000001,
+          "voice_articulation": 7.669999999999999,
+          "voice_microtone": 15.014999999999997,
+          "voice_tradition": 27.1375,
           "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 4.225000000000001,
-          "voice_speech_song": 9.815,
-          "voice_ensemble_config": 7.8,
-          "voice_ornament_system": 4.16,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 9.62,
+          "voice_ensemble_config": 8.254999999999999,
+          "voice_ornament_system": 4.125000000000002,
           "voice_pitch_organization": 7.859999999999998,
           "voice_processing_chain": 8.71,
-          "voice_multitrack_stack": 5.459999999999999
+          "voice_multitrack_stack": 5.069999999999999
         }
       },
       {
@@ -65,7 +65,7 @@
           "percussion_technique": -0.07,
           "tar_size": 0.845,
           "tar_frame_drum_context": 1.495,
-          "tar_frame_shell_wood": 1.885,
+          "tar_frame_shell_wood": 1.69,
           "tar_frame_head": 1.69
         }
       },
@@ -79,7 +79,7 @@
         "scores": {
           "tabla_dayan": 0.24,
           "tabla_bayan": 0.845,
-          "tabla_syahi": 3.5749999999999993
+          "tabla_syahi": 4.029999999999999
         }
       },
       {
@@ -94,7 +94,7 @@
         "scores": {
           "wind_articulation": -0.10500000000000002,
           "mizmar_pitch": 0.195,
-          "mizmar_context": 3.625,
+          "mizmar_context": 3.25,
           "mizmar_body_wood": 3.9899999999999998,
           "mizmar_reed": 2.99
         }
@@ -107,7 +107,7 @@
           "arghul_reed": "arghul_reed_idioglot"
         },
         "scores": {
-          "arghul_form": 20.433749999999996,
+          "arghul_form": 20.583750000000002,
           "arghul_context": 18.195,
           "arghul_reed": -0.05
         }

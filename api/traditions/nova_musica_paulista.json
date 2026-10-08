@@ -5,7 +5,7 @@
   "lineage": "Nova música paulista connects contemporary São Paulo songwriting with independent musical networks and a wide range of Brazilian and international influences. Artists move between intimate song, samba-related rhythms, pop, jazz, experimental textures and electronic production, sustaining a varied metropolitan scene.",
   "recipe": "classic nova música paulista, functional Song. solo with instrumental accompaniment. strummed open chord ringing overtones classical nylon-string guitar. live tracking.",
   "recipe_chars": 168,
-  "score": 8.229,
+  "score": 8.06,
   "config": {
     "traditions": [
       "nova_musica_paulista"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.16899999999999998,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },

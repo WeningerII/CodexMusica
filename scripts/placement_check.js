@@ -50,6 +50,10 @@ const ok = [];
 // 1. ID conflict?
 const tradIds = new Set(C.TRADITIONS.map((t) => t.id));
 if (tradIds.has(flags.id)) issues.push(`ID_CONFLICT: tradition "${flags.id}" already exists`);
+else if (C.TRADITION_ALIASES[flags.id])
+  issues.push(
+    `ID_CONFLICT: "${flags.id}" is a retired id, kept as an alias of "${C.TRADITION_ALIASES[flags.id].of}"; it cannot be reused`
+  );
 else ok.push(`id "${flags.id}" is available`);
 
 // 2. Parent path exists?

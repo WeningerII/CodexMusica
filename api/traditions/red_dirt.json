@@ -3,14 +3,14 @@
   "name": "Red Dirt",
   "family": "country",
   "lineage": "Oklahoma-Texas roots-country movement that emerged in 1970s-80s Stillwater Oklahoma as a regional alternative to the Nashville Music Row commercial-country machine — codified through the figures Bob Childers (the Red Dirt poet who became the genres elder statesman), the Red Dirt Rangers, Cross Canadian Ragweed, Stoney LaRue, Jason Boland and the Stragglers, Turnpike Troubadours, and the broader 21st-century Texas Country / Red Dirt circuit (Robert Earl Keen, Ray Wylie Hubbard, Hayes Carll) that maintains a parallel infrastructure to Nashville commercial country",
-  "recipe": "classic Southern American mid-1970s red dirt, functional Song, neo trad branch, anglo singer song ballad poetry texas country-folk storyteller neofolk. thick, breath veiled tone, straight note core, interlocked note trading. parlor classic steel silk travis picked parlor acoustic Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 618,
-  "score": 292.965,
+  "recipe": "classic Southern American mid-1970s red dirt, functional Song, neo trad branch, anglo singer song ballad poetry texas country-folk storyteller progressive folk. thick, breath veiled tone, straight note core, interlocked note trading. travis picked parlor acoustic Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 590,
+  "score": 304.905,
   "config": {
     "traditions": [
       "red_dirt",
       "texas_country_folk_storyteller",
-      "neofolk"
+      "progressive_folk"
     ],
     "instruments": [
       {
@@ -34,39 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 32.099999999999994,
-          "voice_quality": 13.779999999999992,
+          "voice_register": 38.975,
+          "voice_quality": 13.324999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 24.06,
-          "voice_articulation": 16.9,
-          "voice_microtone": 17.094999999999995,
-          "voice_tradition": 11.18,
-          "voice_mechanism_compound": 2.2099999999999995,
-          "voice_estill_quality": 27.14,
-          "voice_speech_song": 22.75,
-          "voice_ensemble_config": 17.224999999999998,
+          "voice_vibrato": 24.380000000000003,
+          "voice_articulation": 14.949999999999996,
+          "voice_microtone": 15.404999999999992,
+          "voice_tradition": 14.799999999999999,
+          "voice_mechanism_compound": 2.0149999999999997,
+          "voice_estill_quality": 27.08,
+          "voice_speech_song": 21.449999999999996,
+          "voice_ensemble_config": 15.274999999999995,
           "voice_ornament_system": 2.665000000000001,
-          "voice_pitch_organization": 1.8199999999999996,
-          "voice_processing_chain": 9.084999999999999,
-          "voice_multitrack_stack": 3.7050000000000005
+          "voice_pitch_organization": 3.022500000000001,
+          "voice_processing_chain": 9.405,
+          "voice_multitrack_stack": 4.452500000000001
         }
       },
       {
         "id": "acoustic_guitar_parlor",
         "slots": {
           "acoustic_technique": "acoustic_travis_picking",
-          "string_tuning": "standard_tuning",
+          "string_tuning": "dadgad",
           "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "mahogany_bs_p",
-          "string_acoustic_parlor": "silk_steel_p"
+          "string_acoustic_parlor": "eighty_twenty_p"
         },
         "scores": {
-          "acoustic_technique": 28.560000000000002,
-          "string_tuning": 0,
-          "top_wood_parlor": 0.65,
+          "acoustic_technique": 31.060000000000002,
+          "string_tuning": 2.2649999999999997,
+          "top_wood_parlor": 0.48,
           "back_sides_parlor": 0.045,
-          "string_acoustic_parlor": 1.04
+          "string_acoustic_parlor": 1.39
         }
       },
       {
@@ -79,26 +79,26 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
+          "finish": "oil_satin",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 24.78,
-          "amp_make": 24.125,
-          "body_wood": 0.65,
-          "neck_wood": 0.65,
-          "fretboard": 0.65,
-          "pickup_magnet": 0.65,
-          "string_material": 1.69,
-          "string_gauge": 1.4349999999999998,
-          "bridge": 0.09,
-          "scale_length": 0.65,
-          "finish": 0,
-          "string_tuning": 2.535,
+          "electric_technique": 24.735000000000003,
+          "amp_make": 24.564999999999998,
+          "body_wood": 0.43499999999999994,
+          "neck_wood": 1.39,
+          "fretboard": 1.39,
+          "pickup_magnet": 1.39,
+          "string_material": 1.885,
+          "string_gauge": 0.43499999999999994,
+          "bridge": 0.195,
+          "scale_length": 0.8700000000000001,
+          "finish": 0.5,
+          "string_tuning": 3.9,
           "single_coil_pickup_construction": 0
         }
       }

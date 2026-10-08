@@ -5,7 +5,7 @@
   "lineage": "Swiss indie folk includes independent song projects that cross acoustic, jazz-pop and electronic settings. Sophie Hunger’s documented guitar-and-keyboard writing supplies one branch without erasing the later electronic forms of her work.",
   "recipe": "classic modern swiss indie folk, ballad Poetry, indie folk branch. thick, breath veiled tone, straight onset, equal tempered. flatwound thomastik fingerpicked acoustic guitar, block chord rhodes electric. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 342,
-  "score": 61.643,
+  "score": 61.816,
   "config": {
     "traditions": [
       "swiss_indie_folk"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 1.2105,
           "voice_estill_quality": 1.755,
           "voice_speech_song": 7.215,
-          "voice_ensemble_config": 1.074,
+          "voice_ensemble_config": 1.149,
           "voice_ornament_system": 1.755,
           "voice_pitch_organization": 0.105,
-          "voice_processing_chain": 5.399,
+          "voice_processing_chain": 5.474,
           "voice_multitrack_stack": 0.78
         }
       },
@@ -64,7 +64,7 @@
           "top_wood": 0.45149999999999996,
           "back_sides": 0.325,
           "string_acoustic": 1.21,
-          "acoustic_om_technique": 11.395999999999997
+          "acoustic_om_technique": 11.418499999999998
         }
       },
       {

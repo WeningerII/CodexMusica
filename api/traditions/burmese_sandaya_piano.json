@@ -1,0 +1,67 @@
+{
+  "id": "burmese_sandaya_piano",
+  "name": "Sandaya (Burmese piano)",
+  "family": "classical",
+  "lineage": "Burmese style of piano playing, the instrument known as sandaya, through which the classical mahagita song repertoire was adapted to the keyboard. Pianists carry the idioms of the saung harp, the pattala xylophone and the hsaing waing ensemble over to the piano, playing the melody in both hands in octaves and interlocking figures rather than with Western chords, decorated with quick ornamental notes.",
+  "recipe": "classic modern sandaya, art Music, southeast Asian branch. legato upright piano. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 160,
+  "score": 8.742,
+  "config": {
+    "traditions": [
+      "burmese_sandaya_piano"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 5.75,
+          "upright_use": 0.2415,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

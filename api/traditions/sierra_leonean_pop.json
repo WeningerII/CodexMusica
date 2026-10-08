@@ -5,7 +5,7 @@
   "lineage": "Sierra Leonean pop connects artists, producers and listeners through local and diasporic networks. Contemporary performers combine popular songwriting with hip-hop, dancehall, Afrobeat and regional rhythmic references.",
   "recipe": "classic sierra leonean pop, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment. pocket fingerstyle locked electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified, tenor honking attack saxophone. shoebox concert hall.",
   "recipe_chars": 315,
-  "score": 25.365,
+  "score": 25.785,
   "config": {
     "traditions": [
       "sierra_leonean_pop"
@@ -66,7 +66,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.7,
+          "body_wood": 0.9099999999999999,
           "pickup_config": 0,
           "string_type": 0.7,
           "scale_length_b": 0,
@@ -96,11 +96,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.7,
           "shell_thickness": 0,
-          "bearing_edges": 0.315,
+          "bearing_edges": 0.3885,
           "snare_wires": 0.7,
           "cymbal_alloy": 0.6499999999999998,
           "cymbal_hammering": 4.9,
-          "cymbal_lathing": 4.9,
+          "cymbal_lathing": 4.931500000000001,
           "cymbal_finish": 0
         }
       },
@@ -127,7 +127,7 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 2.4000000000000004,
+          "wind_articulation": 2.5050000000000003,
           "sax_size": 2.4000000000000004,
           "sax_reed": 0.7,
           "sax_body_alloy": -0.07,

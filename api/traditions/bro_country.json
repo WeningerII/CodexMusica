@@ -5,7 +5,7 @@
   "lineage": "2010s mainstream country-pop-rap hybrid codified through Florida Georgia Line \"Cruise\" (2012), Luke Bryan, Jason Aldean, and the Nashville radio-format that adopted hip-hop-derived production cues — characterized by 808-bass-and-drum-machine programming, party-celebrating lyrical subject matter, and pop-rock guitar work over country-vocal lead",
   "recipe": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 672,
-  "score": 316.416,
+  "score": 316.255,
   "config": {
     "traditions": [
       "bro_country",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 25.774999999999995,
+          "voice_register": 25.969999999999995,
           "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.173749999999998,
+          "voice_vibrato": 15.038749999999999,
           "voice_articulation": 10.399999999999997,
           "voice_microtone": 10.204999999999997,
-          "voice_tradition": 11.2825,
+          "voice_tradition": 11.627500000000001,
           "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 16.647499999999997,
-          "voice_speech_song": 13.73625,
+          "voice_estill_quality": 16.947499999999998,
+          "voice_speech_song": 13.69125,
           "voice_ensemble_config": 10.334999999999997,
           "voice_ornament_system": 2.470000000000001,
           "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 8.72,
+          "voice_processing_chain": 8.675,
           "voice_multitrack_stack": 9.977500000000003
         }
       },
@@ -70,12 +70,12 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 13.095,
+          "electric_technique": 12.945,
           "amp_make": 16.819999999999997,
           "body_wood": 2.535,
           "neck_wood": 0.845,
           "fretboard": 0.845,
-          "pickup_magnet": 0.43499999999999994,
+          "pickup_magnet": 0.38999999999999996,
           "pickup_winding": 0.38999999999999996,
           "string_material": 0.845,
           "bridge": 0.845,
@@ -100,11 +100,11 @@
         "scores": {
           "amp_make": 12.794999999999998,
           "body_wood": 0.845,
-          "pickup_config": 1.02,
-          "string_type": 5.622500000000001,
+          "pickup_config": 0.78,
+          "string_type": 5.4612500000000015,
           "scale_length_b": 0.845,
-          "fretted_or_not": 0.24,
-          "bass_technique": 13.095,
+          "fretted_or_not": 0.195,
+          "bass_technique": 12.945,
           "electric_bass_string_configuration": 0
         }
       },
@@ -137,7 +137,7 @@
         },
         "scores": {
           "banjo_back": 0.845,
-          "tone_ring": 0.24,
+          "tone_ring": 0.195,
           "banjo_head": 10.594999999999999,
           "banjo_pot": 0.845,
           "banjo_play": 0.39,
@@ -158,10 +158,10 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.805000000000001,
+          "electronic_technique": 6.955000000000001,
           "sampler_archetypes": 10.790000000000001,
           "sampler_bit_depth": 1.365,
-          "sampler_workflow": 9.09375,
+          "sampler_workflow": 9.00375,
           "sampler_classic_context": 18.6875
         }
       }

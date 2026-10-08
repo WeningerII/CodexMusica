@@ -3,20 +3,20 @@
   "name": "Brazilian Reggae",
   "family": "global",
   "lineage": "Reggae maranhense, formed in São Luís do Maranhão from the mid-1970s around radiola sound systems playing imported Jamaican 45s, later joined by Rio and Brasília bands in the 1990s — one-drop and steppers kits at 70-90 BPM, bubbling organ, deep melodic bass, skanking off-beat guitar, and Portuguese lyrics sung in a smooth, unhurried mid-register.",
-  "recipe": "classic Southern American 1974-1976 brazilian reggae, bass System, reggae diaspora branch, Jamaican bass system, Brazilian song functional song early reggae piseiro. thick, breath veiled tone, slow rate, interlocked note trading. mahogany rosewood nickel single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, rim clicks drum kit, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative tonewheel organ, cowhide mid tier congas, sub bass analog poly synth. estudio rozenblit recife. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 675,
-  "score": 215.387,
+  "recipe": "classic Southern American 1974-1976 brazilian reggae, bass System, reggae diaspora branch, Jamaican bass system, Brazilian song functional song early reggae old school dancehall. extended whistle, breath veiled tone, slow rate, interlocked note trading. mahogany rosewood nickel single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, rim clicks drum kit, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative tonewheel organ, cowhide mid tier congas, sub bass analog poly synth. estudio rozenblit recife. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 699,
+  "score": 232.79,
   "config": {
     "traditions": [
       "brazilian_reggae",
       "early_reggae",
-      "piseiro"
+      "old_school_dancehall"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 2.5600000000000005,
-          "voice_quality": 13.454999999999993,
+          "voice_register": 1.56,
+          "voice_quality": 14.94999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.925,
-          "voice_articulation": 14.819999999999997,
-          "voice_microtone": 14.429999999999993,
-          "voice_tradition": 7.735,
+          "voice_vibrato": 3.0749999999999997,
+          "voice_articulation": 14.559999999999997,
+          "voice_microtone": 13.974999999999993,
+          "voice_tradition": 8.385,
           "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0.7799999999999998,
-          "voice_speech_song": 19.954999999999995,
-          "voice_ensemble_config": 15.794999999999995,
-          "voice_ornament_system": 4.485,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 16.834999999999994,
+          "voice_ensemble_config": 15.339999999999996,
+          "voice_ornament_system": 5.915000000000001,
           "voice_pitch_organization": 1.54,
-          "voice_processing_chain": 3.6900000000000004,
-          "voice_multitrack_stack": 3.845000000000001
+          "voice_processing_chain": 4.265000000000001,
+          "voice_multitrack_stack": 5.4275
         }
       },
       {
@@ -70,17 +70,17 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 1.95,
+          "electric_technique": 1.625,
           "amp_make": 2.3850000000000007,
           "body_wood": 2.54,
           "neck_wood": 2.54,
           "fretboard": 2.49,
           "pickup_magnet": 0.195,
           "string_material": 1.345,
-          "string_gauge": 2.735,
+          "string_gauge": 2.885,
           "bridge": 0.195,
           "scale_length": 2.78,
-          "finish": 0.15,
+          "finish": 0,
           "string_tuning": 0.78,
           "single_coil_pickup_construction": 0
         }
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.962500000000001,
+          "amp_make": 10.2375,
           "body_wood": 3.1399999999999997,
           "pickup_config": 0.195,
-          "string_type": 10.075000000000001,
+          "string_type": 12.349999999999998,
           "scale_length_b": 2.585,
           "fretted_or_not": 0.135,
-          "bass_technique": 13.045,
+          "bass_technique": 17.545,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.045,
+          "drum_technique": 17.545,
           "drumhead": 2.54,
           "drum_kit_kick_pedal": 0
         }
@@ -124,7 +124,7 @@
       {
         "id": "tonewheel_organ",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_gospel_chord_runs",
           "drawbar_setting": "jazz_drawbars",
           "rotary_speed": "stopped_rotor",
           "percussion_setting": "percussion_on_long",
@@ -132,11 +132,11 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 1.95,
+          "keyboard_technique": 0.87,
           "drawbar_setting": 2.58,
           "rotary_speed": 2.2800000000000002,
           "percussion_setting": 0.28500000000000003,
-          "tonewheel_model": 16.509999999999998,
+          "tonewheel_model": 16.119999999999997,
           "leslie_cabinet_model": 1.69
         }
       },
@@ -149,7 +149,7 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 0.06499999999999999,
+          "percussion_technique": 1.0199999999999998,
           "conga_set": 1.39,
           "conga_skin": 2.4949999999999997,
           "conga_shell_wood": 0.9949999999999999
@@ -164,7 +164,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 6.825000000000001,
+          "electronic_technique": 9.100000000000001,
           "poly_archetypes": 0.3,
           "poly_voices": 0.135,
           "poly_maker_lineage": -0.035

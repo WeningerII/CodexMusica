@@ -5,7 +5,7 @@
   "lineage": "Traditional music of Galicia in north-west Spain, collected from the 1920s by the Seminario de Estudos Galegos and revived from the mid-1970s by Milladoiro and the pandereteira singing groups — the two-drone gaita galega leading muiñeiras in fast 6/8 and alalás in free rhythm, driven by rows of women singing in nasal parallel harmony over hand-struck pandeiretas and bombo, with hurdy-gurdy and later bouzouki filling harmony.",
   "recipe": "classic Northern European 1974-1976 galician folk, functional Song, iberian branch, wind pipe drone modal, iberian Latin protest song raíces zampogna. thick, breath veiled tone, slow rate, interlocked note trading. gaita galega three drone alborada boxwood canonical galician gaita galega, hands layered pandeiro, rhythmic drone buzzing timbre zanfona, double bass rapid double strokes bass drum, hand clap. scottish galician piping outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 504,
-  "score": 190.997,
+  "score": 189.737,
   "config": {
     "traditions": [
       "galician_folk",
@@ -26,10 +26,10 @@
         "scores": {
           "wind_articulation": 4.195,
           "gaita_galega_drones": 16.0875,
-          "gaita_galega_use": 6.81,
-          "gaita_galega_chanter_wood": 1.885,
-          "gaita_galega_reed": 1.885,
-          "gaita_galega_bag": 1.885
+          "gaita_galega_use": 6.24,
+          "gaita_galega_chanter_wood": 1.4949999999999999,
+          "gaita_galega_reed": 1.54,
+          "gaita_galega_bag": 1.4949999999999999
         }
       },
       {
@@ -44,11 +44,11 @@
         },
         "scores": {
           "percussion_technique": 6.075000000000001,
-          "pandeiro_size": 0.135,
-          "pandeiro_context": 2.06,
-          "pandeiro_head": 0.09,
-          "pandeiro_shell_wood": 0.09,
-          "pandeiro_jingles": 0
+          "pandeiro_size": 0.39,
+          "pandeiro_context": 2.21,
+          "pandeiro_head": 0.045,
+          "pandeiro_shell_wood": 0.045,
+          "pandeiro_jingles": 0.045
         }
       },
       {
@@ -61,7 +61,7 @@
         "scores": {
           "bowed_technique": -0.035,
           "zanfona_drone_set": 3.38,
-          "zanfona_tuning": 0.7649999999999999
+          "zanfona_tuning": 0.585
         }
       },
       {
@@ -110,7 +110,7 @@
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.15,
+          "bass_drum_size": 0.44999999999999996,
           "bass_drum_beater": 1.04
         }
       },
@@ -118,11 +118,11 @@
         "id": "hand_clap",
         "slots": {
           "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_close_dry"
+          "clap_capture": "clap_room_natural"
         },
         "scores": {
           "clap_technique": 0.845,
-          "clap_capture": 0.24
+          "clap_capture": 0.195
         }
       }
     ],

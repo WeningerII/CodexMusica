@@ -5,7 +5,7 @@
   "lineage": "Hillbilly-boogie idiom that ran from about 1945 to 1955 across Nashville, Cincinnati and the Los Angeles Western scene, codified by the Delmore Brothers, Arthur 'Guitar Boogie' Smith, Merle Travis, Tennessee Ernie Ford and the Maddox Brothers & Rose — eight-to-the-bar boogie-woogie bass lines transferred from piano to slapped doghouse bass and low-string electric guitar, twelve-bar blues form at 150-190 BPM, hot lead breaks traded between electric guitar, harmonica and steel, and brash, half-shouted vocals.",
   "recipe": "classic North American mid-1940s country boogie, functional Song, honky tonk era branch, western swing country, American jazz boogie woogie classic oklahoma country. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric cedar steel silk travis picked dreadnought acoustic guitar, growly gut upright bass, steel c6 lap steel, steel double stops fiddle, upright piano, vintage ambassador asymmetric brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 696,
-  "score": 457.895,
+  "score": 457.513,
   "config": {
     "traditions": [
       "country_boogie",
@@ -42,8 +42,8 @@
           "voice_articulation": 20.149999999999995,
           "voice_microtone": 21.709999999999994,
           "voice_tradition": 6.5,
-          "voice_mechanism_compound": 1.5349999999999997,
-          "voice_estill_quality": 26.8815,
+          "voice_mechanism_compound": 1.6249999999999998,
+          "voice_estill_quality": 26.4855,
           "voice_speech_song": 26.779999999999998,
           "voice_ensemble_config": 22.229999999999993,
           "voice_ornament_system": 0.45499999999999996,
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 24.815,
-          "amp_make": 28.891,
+          "amp_make": 28.8145,
           "body_wood": 1.95,
           "neck_wood": 1.95,
           "fretboard": 1.885,

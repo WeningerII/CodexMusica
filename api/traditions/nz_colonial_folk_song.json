@@ -1,0 +1,171 @@
+{
+  "id": "nz_colonial_folk_song",
+  "name": "New Zealand colonial folk song (goldfields, whaling and shearing songs)",
+  "family": "global",
+  "lineage": "Songs of European settler life in nineteenth- and early twentieth-century New Zealand, from Otago and West Coast goldfields songs to whaling, shearing, swagging and station songs, often new local words set to British and Irish tunes. Rona Bailey and Herbert Roth's songbook Shanties by the Way (1967) and Neil Colquhoun's Song of a Young Country, a 1971 Kiwi Records double LP followed by a 1972 songbook, gathered the repertoire, and revival singers such as Phil Garland recorded it with acoustic folk accompaniment.",
+  "recipe": "classic late-1960s new zealand colonial folk song, ballad Poetry, Celtic balladic branch. solo with instrumental accompaniment, unprocessed natural acoustic. parlor acoustic guitar, chromatic straight concertina. hardwood living. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 304,
+  "score": 15.586,
+  "config": {
+    "traditions": [
+      "nz_colonial_folk_song"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.13000000000000003,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1,
+          "voice_multitrack_stack": 0.1365,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "sitka_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "eighty_twenty_p"
+        },
+        "scores": {
+          "acoustic_technique": 1.7815,
+          "string_tuning": 0,
+          "top_wood_parlor": 0,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0.1365
+        }
+      },
+      {
+        "id": "concertina",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "concertina_type": "english_concertina",
+          "concertina_reed_grade": "concertina_traditional"
+        },
+        "scores": {
+          "free_reed_technique": 7.45,
+          "concertina_type": 1.3965000000000003,
+          "concertina_reed_grade": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "acoustic_guitar_parlor": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_parlor",
+        "back_sides_parlor",
+        "string_acoustic_parlor"
+      ],
+      "concertina": [
+        "free_reed_technique",
+        "concertina_type",
+        "concertina_reed_grade"
+      ]
+    },
+    "room": "hardwood_living",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "hardwood_living",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "narrative_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "eighty_twenty_p",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "concertina_type": "english_concertina",
+      "concertina_reed_grade": "concertina_traditional"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

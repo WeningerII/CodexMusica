@@ -5,7 +5,7 @@
   "lineage": "Middle Eastern traditional music encompasses interconnected Arab, Turkish, Persian, Armenian and neighboring regional repertoires, from modal instrumental improvisation to vocal art music and communal songs.",
   "recipe": "classic middle eastern traditional, improv On Frame, Persian arab improv branch. pyramid nylon arab school ornamented oud. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 221,
-  "score": 8.329,
+  "score": 8.613,
   "config": {
     "traditions": [
       "middle_eastern_traditional"
@@ -23,10 +23,10 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 3.2315,
+          "plucked_traditional_technique": 3.3365,
           "oud_school": 0,
-          "oud_strings": 1.3334999999999997,
-          "oud_pick": 0,
+          "oud_strings": 1.4069999999999996,
+          "oud_pick": 0.105,
           "oud_body_wood": 0.4095,
           "oud_soundboard_wood": 0.105,
           "oud_string_material": 3.25

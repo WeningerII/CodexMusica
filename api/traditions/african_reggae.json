@@ -5,7 +5,7 @@
   "lineage": "African reggae comprises locally rooted reggae practices across the continent. The selected Ivorian Tiken Jah Fakoly branch emphasizes politically engaged singing and reggae song architecture, with ties to Côte d’Ivoire, Bamako and Jamaican recording.",
   "recipe": "classic modern african reggae, bass System, reggae diaspora branch. one note per syllable, solo with instrumental accompaniment, no specific ornament system. single coil electric guitar, electric bass, rim clicks drum kit, tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 443,
-  "score": 21.569,
+  "score": 21.605,
   "config": {
     "traditions": [
       "african_reggae"
@@ -70,13 +70,13 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.48299999999999993,
+          "body_wood": 0.483,
           "neck_wood": 0,
           "fretboard": -0.035,
-          "pickup_magnet": 0,
+          "pickup_magnet": 0.0315,
           "string_material": 0.1995,
           "string_gauge": 0.1365,
-          "bridge": 0.0315,
+          "bridge": 0.063,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,
@@ -97,10 +97,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.48299999999999993,
+          "body_wood": 0.483,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 15.95,
-          "drumhead": 0,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,11 +130,11 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": -0.07,
           "drawbar_setting": -0.035,
           "rotary_speed": -0.07,
           "percussion_setting": 0,
-          "tonewheel_model": -1.5049999999999997,
+          "tonewheel_model": -1.6564999999999994,
           "leslie_cabinet_model": -0.05
         }
       }

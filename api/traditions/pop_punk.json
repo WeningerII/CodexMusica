@@ -5,7 +5,7 @@
   "lineage": "Mid-1970s onward pop-melody punk hybrid genre fusing punk's tempo, distortion, and DIY ethos with pop's harmonic and melodic vocabulary — codified through the Ramones (Ramones 1976), Buzzcocks (Singles Going Steady 1979), and the 1990s commercial breakthrough with Green Day (Dookie 1994), The Offspring (Smash 1994), Blink-182 (Enema of the State 1999), continuing through 2000s emo-adjacent revivals",
   "recipe": "classic North American 1974-1976 pop-punk, distorted Rock, pop punk branch, alternative distorted rock grunge afro-punk. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 599,
-  "score": 512.283,
+  "score": 511.037,
   "config": {
     "traditions": [
       "pop_punk",
@@ -45,11 +45,11 @@
           "voice_mechanism_compound": 20.235,
           "voice_estill_quality": 5.0649999999999995,
           "voice_speech_song": 23.074999999999996,
-          "voice_ensemble_config": 40.63,
+          "voice_ensemble_config": 40.435,
           "voice_ornament_system": 1.95,
-          "voice_pitch_organization": 2.480000000000001,
+          "voice_pitch_organization": 2.285000000000001,
           "voice_processing_chain": 7.325,
-          "voice_multitrack_stack": 6.670000000000001
+          "voice_multitrack_stack": 6.4750000000000005
         }
       },
       {
@@ -66,12 +66,12 @@
           "bridge": "string_thru",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": 31.75,
-          "amp_make": 48.235,
+          "amp_make": 48.04,
           "body_wood": 3.12,
           "neck_wood": 1.69,
           "fretboard": 1.79,
@@ -81,7 +81,7 @@
           "bridge": 1.79,
           "scale_length": 1.69,
           "string_gauge": 1.885,
-          "finish": 0.195,
+          "finish": 0,
           "string_tuning": 13.715
         }
       },
@@ -99,9 +99,9 @@
         },
         "scores": {
           "amp_make": 10.627499999999998,
-          "body_wood": 3.7049999999999996,
+          "body_wood": 3.63,
           "pickup_config": 1.94,
-          "string_type": 23.574999999999996,
+          "string_type": 23.379999999999995,
           "scale_length_b": 1.69,
           "fretted_or_not": 0.3,
           "bass_technique": 48.045,

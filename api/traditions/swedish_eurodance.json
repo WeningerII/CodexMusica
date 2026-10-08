@@ -5,7 +5,7 @@
   "lineage": "Ace of Base — All That She Wants, Jennifer Eklund intermediate piano-solo edition MN0266649. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic swedish eurodance, electronic Dance, eurodance branch. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 174,
-  "score": -0.377,
+  "score": -0.512,
   "config": {
     "traditions": [
       "swedish_eurodance"
@@ -25,9 +25,9 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.07,
+          "keyboard_technique": -0.1,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.16799999999999998,
+          "grand_piano_brand": 0.063,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,

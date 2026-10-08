@@ -1,0 +1,156 @@
+{
+  "id": "english_pastoral_school",
+  "name": "English pastoral school (folk-song-based concert music)",
+  "family": "classical",
+  "lineage": "A strand of early twentieth-century English concert music led by Ralph Vaughan Williams, who began collecting folk songs in 1903, and George Butterworth, and continued by Ivor Gurney, Gerald Finzi and E. J. Moeran, which drew melody and modal harmony from English folk song and Tudor church music. Characteristic works include The Lark Ascending, Butterworth's A Shropshire Lad rhapsody and The Banks of Green Willow, and song cycles on Housman and Hardy; the composer Elisabeth Lutyens's jibe 'cowpat music' became its nickname.",
+  "recipe": "classic British early-1900s english pastoral school, art Music, western modern branch. solo and ensemble string orchestra obbligato violin, oboe, grenadilla African blackwood traditional clarinet, french horn, concert harp. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 303,
+  "score": 33.652,
+  "config": {
+    "traditions": [
+      "english_pastoral_school"
+    ],
+    "instruments": [
+      {
+        "id": "string_orchestra_obbligato_violin",
+        "slots": {
+          "string_orchestra_obbligato_layout": "strings_obbligato_violin_layout",
+          "string_orchestra_obbligato_technique": "strings_obbligato_song_melody"
+        },
+        "scores": {
+          "string_orchestra_obbligato_layout": 11.960000000000004,
+          "string_orchestra_obbligato_technique": 0.1365
+        }
+      },
+      {
+        "id": "oboe",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "oboe_reed": "oboe_american_scrape",
+          "oboe_class": "oboe_modern",
+          "oboe_body_wood": "oboe_grenadilla_canonical",
+          "oboe_maker_school": "oboe_howarth_london"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "oboe_reed": 0.39,
+          "oboe_class": 0.39,
+          "oboe_body_wood": -0.035,
+          "oboe_maker_school": 0
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "clarinet_body": 6.2,
+          "clarinet_size": 1.3,
+          "clarinet_reed": 0.9099999999999999,
+          "clarinet_articulation": 0.1365
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "french_horn_bore": 0.39,
+          "french_horn_metal": 0.2837142857142857
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 1.69,
+          "harp_pedals": 1.3
+        }
+      }
+    ],
+    "pinned": {
+      "string_orchestra_obbligato_violin": [
+        "string_orchestra_obbligato_layout",
+        "string_orchestra_obbligato_technique"
+      ],
+      "oboe": [
+        "wind_articulation",
+        "oboe_reed",
+        "oboe_class",
+        "oboe_body_wood",
+        "oboe_maker_school"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "french_horn": [
+        "wind_articulation",
+        "french_horn_bore",
+        "french_horn_metal"
+      ],
+      "concert_harp": [
+        "harp_strings",
+        "harp_pedals"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_decca_sound_orchestral",
+    "inline_chain": {
+      "mic": "mic_coles_4038_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "clean",
+      "comp": null,
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "string_orchestra_obbligato_layout": "strings_obbligato_violin_layout",
+      "string_orchestra_obbligato_technique": "strings_obbligato_song_melody",
+      "wind_articulation": "wind_continuous_legato",
+      "oboe_reed": "oboe_american_scrape",
+      "oboe_class": "oboe_modern",
+      "oboe_body_wood": "oboe_grenadilla_canonical",
+      "oboe_maker_school": "oboe_howarth_london",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "a_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "french_horn_bore": "french_horn_full",
+      "french_horn_metal": "horn_yellow_brass",
+      "harp_strings": "harp_47_string",
+      "harp_pedals": "harp_double_pedal"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_coles_4038_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_30ips",
+    "chain_console": "clean"
+  }
+}

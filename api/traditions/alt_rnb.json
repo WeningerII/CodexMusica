@@ -3,14 +3,14 @@
   "name": "Alt-R&B (2010s atmospheric experimental R&B)",
   "family": "pop",
   "lineage": "2010s alternative R&B subgenre emphasizing emotional-vulnerability, experimental-electronic production, atmospheric-vocal layering, and explicit indie-rock-aesthetic-influence over the broader commercial R&B mainstream. FKA twigs' EP1 (2012) and LP1 (2014) inaugurated the canonical British alt-R&B sound; Jhené Aiko, Banks, Kelela, Tinashe (early career), and the broader Top Dawg Entertainment and Atlantic Records alt-R&B rosters extended the genre.",
-  "recipe": "classic alt-r&b, functional Song, soul R&B branch, ambient experimental electric witch house vaporwave aesthetic. thick, breath veiled tone, straight onset, interlocked note trading. pad like pad analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 520,
-  "score": 172.185,
+  "recipe": "classic alt-r&b, functional Song, soul R&B branch, ambient experimental electric witch house hauntology. thick, breath veiled tone, straight note core, interlocked note trading. pad like pad analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 515,
+  "score": 178.885,
   "config": {
     "traditions": [
       "alt_rnb",
       "witch_house_2010s",
-      "vapor_aesthetic"
+      "hauntology_uk_2010s"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 12.534999999999997,
-          "voice_quality": 10.594999999999994,
+          "voice_register": 9.234999999999998,
+          "voice_quality": 11.43999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0250000000000004,
-          "voice_articulation": 13.324999999999996,
-          "voice_microtone": 13.129999999999992,
+          "voice_vibrato": 1.9399999999999997,
+          "voice_articulation": 15.859999999999994,
+          "voice_microtone": 15.664999999999992,
           "voice_tradition": 17.509999999999998,
-          "voice_mechanism_compound": 1.6899999999999997,
+          "voice_mechanism_compound": 1.32,
           "voice_estill_quality": 3.745,
-          "voice_speech_song": 15.274999999999995,
-          "voice_ensemble_config": 14.104999999999995,
+          "voice_speech_song": 17.809999999999995,
+          "voice_ensemble_config": 15.794999999999993,
           "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 6.565000000000001,
-          "voice_processing_chain": 11.47,
-          "voice_multitrack_stack": 12.349999999999994
+          "voice_pitch_organization": 5.7200000000000015,
+          "voice_processing_chain": 13.095,
+          "voice_multitrack_stack": 13.194999999999997
         }
       },
       {
@@ -78,7 +78,7 @@
         },
         "scores": {
           "tr808_voice": 1.0650000000000002,
-          "drum_machine_808_context": 5.0249999999999995,
+          "drum_machine_808_context": 5.069999999999999,
           "tr808_production_origin": 0.7150000000000001
         }
       },
@@ -89,17 +89,17 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.0550000000000015,
+          "amp_make": 5.1850000000000005,
           "body_wood": 0.8700000000000001,
-          "pickup_config": 0.255,
+          "pickup_config": 0.36,
           "string_type": 5.039999999999999,
-          "scale_length_b": 0.435,
+          "scale_length_b": 0.49499999999999994,
           "fretted_or_not": 0,
           "bass_technique": 3.65,
           "electric_bass_string_configuration": 0

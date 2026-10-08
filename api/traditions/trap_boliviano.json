@@ -5,7 +5,7 @@
   "lineage": "Bolivian trap developed through local rap and producer communities, including Santa Cruz’s independent electronic scene.",
   "recipe": "classic modern trap boliviano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 286,
-  "score": 28.999,
+  "score": 29.001,
   "config": {
     "traditions": [
       "trap_boliviano"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 8.84,
-          "voice_ensemble_config": 0.2115,
+          "voice_ensemble_config": 0.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -58,7 +58,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.6969999999999996,
+          "tr808_voice": 2.73,
           "drum_machine_808_context": 0.39,
           "tr808_production_origin": 0.159
         }

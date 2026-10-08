@@ -1,0 +1,114 @@
+{
+  "id": "iban_taboh",
+  "name": "Taboh (Iban gong-and-drum music)",
+  "family": "global",
+  "lineage": "Taboh, the gong-and-drum music of the Iban of Sarawak, also referred to as gendang (as in gendang rayah), played for the ngajat dance and at Gawai Dayak and other festivals and rites. The ensemble combines the engkerumong, a rack of small bossed gongs (the canang kettle-gong card stands in), the large tawak and the smaller bebendai hanging gongs (the gong card stands in for bebendai) and the ketebung or dumba drum (the generic membrane-drum card stands in).",
+  "recipe": "classic modern taboh, groove Percussion, east Asian branch. canang kettle tawak gong, gong tamtam, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 231,
+  "score": 13.512,
+  "config": {
+    "traditions": [
+      "iban_taboh"
+    ],
+    "instruments": [
+      {
+        "id": "canang_kettle_gong",
+        "slots": {
+          "canang_form": "canang_malay_pair",
+          "canang_beater": "canang_padded"
+        },
+        "scores": {
+          "canang_form": 0.3315,
+          "canang_beater": 0
+        }
+      },
+      {
+        "id": "tawak_gong",
+        "slots": {
+          "tawak_size": "tawak_large",
+          "tawak_beater": "tawak_padded"
+        },
+        "scores": {
+          "tawak_size": 0.168,
+          "tawak_beater": 0
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.5774999999999999,
+          "gong_striker": 0.105
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 6.89,
+          "acoustic_membrane_drum_gesture": 5.59
+        }
+      }
+    ],
+    "pinned": {
+      "canang_kettle_gong": [
+        "canang_form",
+        "canang_beater"
+      ],
+      "tawak_gong": [
+        "tawak_size",
+        "tawak_beater"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "canang_form": "canang_malay_pair",
+      "canang_beater": "canang_padded",
+      "tawak_size": "tawak_large",
+      "tawak_beater": "tawak_padded",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

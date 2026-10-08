@@ -5,7 +5,7 @@
   "lineage": "Austria’s techno field includes electronic production and live approaches that translate repetitive dance structures into instrumental performance. Vienna trio Elektro Guzzi exemplifies the latter with interlocking guitar, bass and drums.",
   "recipe": "classic austrian techno, electronic Dance. drum machine analog, modular synth.",
   "recipe_chars": 78,
-  "score": 0.513,
+  "score": 0.54,
   "config": {
     "traditions": [
       "austrian_techno"
@@ -37,7 +37,7 @@
         "scores": {
           "electronic_technique": 0.2,
           "mod_voltage_source": 0,
-          "mod_patch_density": 0.363,
+          "mod_patch_density": 0.39,
           "mod_lineage": 0
         }
       }

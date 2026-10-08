@@ -1,14 +1,15 @@
 {
-  "id": "dansei_seiyu",
-  "name": "Dansei Seiyu",
+  "id": "seiyu",
+  "merged_from": "dansei_seiyu",
+  "name": "Seiyū",
   "family": "pop",
-  "lineage": "Dansei seiyu connects the musical work of male Japanese voice actors with recordings, concerts and character-related entertainment. The field includes varied popular-song styles rather than one uniform vocal technique.",
-  "recipe": "classic dansei seiyu, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. upright piano. shoebox concert hall.",
-  "recipe_chars": 174,
-  "score": 5.022,
+  "lineage": "Maaya Sakamoto — Platinum, published KMP guitar-and-voice arrangement JPDPKM04241. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic seiyū, functional Song, east Asian pop branch. one note per syllable, solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 281,
+  "score": 10.732,
   "config": {
     "traditions": [
-      "dansei_seiyu"
+      "seiyu"
     ],
     "instruments": [
       {
@@ -19,7 +20,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "legato_voice",
+          "voice_articulation": "voice_articulation_source_unspecified",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
@@ -43,26 +44,30 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 1.6905000000000001,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 1.224,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.16799999999999998,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "upright_piano",
+        "id": "acoustic_guitar_dread",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_standard"
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "rosewood_bs",
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "upright_use": 0,
-          "upright_piano_size": 0
+          "acoustic_technique": 7.612999999999999,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": -0.035,
+          "string_acoustic": 0.0945
         }
       }
     ],
@@ -86,38 +91,39 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "upright_piano": [
-        "keyboard_technique",
-        "upright_use",
-        "upright_piano_size"
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
       ]
     },
-    "room": "concert_hall_shoebox",
+    "room": "treated_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "concert_hall_shoebox",
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
     "parts": {
-      "keyboard_technique": "keyboard_classical_legato",
-      "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "legato_voice",
+      "voice_articulation": "voice_articulation_source_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
@@ -128,8 +134,19 @@
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified"
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood": "engelmann",
+      "back_sides": "rosewood_bs",
+      "string_acoustic": "eighty_twenty"
     },
-    "pin_parts": true
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

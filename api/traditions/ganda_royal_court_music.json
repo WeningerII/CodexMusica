@@ -1,0 +1,82 @@
+{
+  "id": "ganda_royal_court_music",
+  "name": "Kiganda royal court music (Buganda palace xylophone and drum-chime ensembles)",
+  "family": "classical",
+  "lineage": "Instrumental music of the court of the Kabaka of Buganda at Mengo in Kampala, played by hereditary court musicians until the kingdoms were abolished in 1967. Palace ensembles included the twelve-key amadinda and larger akadinda log xylophones played by several interlocking players, the entenga tuned drum chime, ennanga bow-harp songs and flute and trumpet bands; Hugh Tracey recorded them for the International Library of African Music in the early 1950s. The membrane-drum card stands in for the entenga drums.",
+  "recipe": "classic 1950-1953 kiganda royal court music, groove Percussion, central east south African branch. twelve log bars two player court lead starting line amadinda, membrane drum pulse resonant acoustic membrane drum. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 305,
+  "score": 32.457,
+  "config": {
+    "traditions": [
+      "ganda_royal_court_music"
+    ],
+    "instruments": [
+      {
+        "id": "amadinda",
+        "slots": {
+          "amadinda_form": "amadinda_form_amadinda_twelve",
+          "amadinda_interlock": "amadinda_interlock_okunaga",
+          "amadinda_construction": "amadinda_construction_lusambya_banana"
+        },
+        "scores": {
+          "amadinda_form": 9.630999999999998,
+          "amadinda_interlock": 12.805000000000001,
+          "amadinda_construction": -0.035
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 5.374,
+          "acoustic_membrane_drum_gesture": 4.2315
+        }
+      }
+    ],
+    "pinned": {
+      "amadinda": [
+        "amadinda_form",
+        "amadinda_interlock",
+        "amadinda_construction"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "amadinda_form": "amadinda_form_amadinda_twelve",
+      "amadinda_interlock": "amadinda_interlock_okunaga",
+      "amadinda_construction": "amadinda_construction_lusambya_banana",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -1,6 +1,6 @@
 ---
 name: codex-music-tool
-description: Query, compose, validate, and mutate the Codex Musica dataset — 7121 recorded-music traditions (in a 317-node genre tree, 13-axis space), 1671 instruments across 11 families with shared parts/variants, 256 rooms, 84 chain archetypes, 21 production aesthetics, 122 tunings, and a 740-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
+description: Query, compose, validate, and mutate the Codex Musica dataset — 7755 recorded-music traditions (in a 317-node genre tree, 13-axis space), 1671 instruments across 11 families with shared parts/variants, 256 rooms, 84 chain archetypes, 21 production aesthetics, 122 tunings, and a 740-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
 license: UNLICENSED
 ---
 
@@ -57,8 +57,8 @@ Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you 
 | arrangement templates | 5 | bare slug | `ARRANGEMENTS` (array) |
 | tunings | 122 | bare slug, e.g. `twelve_tet` | `TUNINGS` (array) |
 | tree nodes | 317 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |
-| traditions | 7121 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
-| tradition extras | 7121 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
+| traditions | 7755 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
+| tradition extras | 7755 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
 | voice/preface lexicon | 740 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
 | axis definitions | 13 (trad) / 9 (inst) | bare slug, e.g. `harm` | `AXIS_DEFINITIONS`, `INSTRUMENT_AXIS_DEFINITIONS` |
 
@@ -130,7 +130,7 @@ Facts that bite if you miss them:
 - **`instrument.family`** ∈ the 11-value `INSTRUMENT_FAMILIES` table (always resolves).
   **`tradition.family`** is a *different* 12-value vocabulary (`global, classical,
   rock_punk, electronic, hip_hop, vernacular, jazz, pop, blues_gospel, rock, country,
-  pop_rock`; `global` dominates at 1523/7121) — a top-level genre bucket, NOT an
+  pop_rock`; `global` dominates at 2492/7755) — a top-level genre bucket, NOT an
   instrument family.
 - **Tree-node ids are full dotted paths.** 292 of 317 ids contain dots
   (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and
@@ -179,7 +179,7 @@ module.exports = T;
 ```bash
 CODEX_REF="$PWD/references" node -e 'const T=require("./load.js");
 console.log("loaded:",T.INSTRUMENTS.length,"insts,",T.TRADITIONS.length,"trads")'
-# → loaded: 1671 insts, 7121 trads
+# → loaded: 1671 insts, 7755 trads
 ```
 
 ### B. `require` for the preface lexicon only (it has `module.exports`)
@@ -647,12 +647,22 @@ checker must still print `{"totalIssues":0,…}`.
 `src/app.js` (the browser/`codex.html`) and as `scripts/` primitives (the CLI/agent
 path). Don't hand-edit the duplicated pieces independently:
 - **Tradition signatures** live canonically in `references/_tradition_signatures.json`;
-  `node scripts/build_signatures.js` regenerates the `app.js` inline copy from it. Never
-  edit the `app.js` `TRADITION_SIGNATURES` block by hand. Adding a token means classing it
+  `node scripts/build_signatures.js` generates `references/10_tradition_signatures.js`
+  from it, the copy the page reads as an engine table (inline in the embedded page,
+  from `api/engine.json` in the lazy one) and the loader reads for Node. Never edit that
+  file by hand. Adding a token means classing it
   in `references/_soundword_vocab.json` and, if it is cultural, ruling the pair (I8). The
-  lazy `codex.html` does not carry that block, or `DESCRIPTOR_DF`: it ships both inside
+  lazy `codex.html` carries neither this table nor `DESCRIPTOR_DF`: it ships both inside
   `api/engine.json`, so after regenerating either one, also run `npm run build:api` and
   `node scripts/build_html.js`.
+- **Retired tradition ids** live in `references/_tradition_aliases.json` (retired id →
+  `{of, name, verdict}`). A merge deletes the duplicate record from `05`/`06` and every
+  per-tradition table and adds its id there; `scripts/_loader.js` exposes
+  `resolveTraditionId`, which every lookup that takes a tradition id calls first. The
+  app gets the same map from `api/browse.json` (lazy) or an injected `TRADITION_ALIASES`
+  (embedded), and `api/traditions/<alias>.json` serves the survivor's record with
+  `merged_from`. An alias is never reused as a new id (`placement_check.js` refuses it);
+  `scripts/check_aliases.js` and `scripts/check_api.js` hold all of this.
 - `scripts/equivalence.js` (in `npm test` and `build.js`) executes both the browser
   functions (in jsdom) and the node primitives on shared fixtures and fails if their
   descriptor sets or preface picks diverge — behavioral parity, not just textual. <!-- @promise: browser-node-parity --> If you
@@ -857,7 +867,7 @@ name: Bill Monroe`, and the made-up archetype in `soft` (verified).
 - Load once with `q.js`; reuse `db.by*` and `db.partsFor`. Never re-parse the 1–2 MB
   bundles per query.
 - Project to `{id,name}` and `slice`/`head` before printing — never dump a full table
-  (1671 instruments / 7121 traditions — a lot of tokens).
+  (1671 instruments / 7755 traditions — a lot of tokens).
 - Prefer counts/samples while exploring; pull full records only for the few ids that
   land in the output.
 - For a single name lookup, `grep -oE "name: '…'"` beats spinning up node.

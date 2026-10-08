@@ -3,14 +3,14 @@
   "name": "Raggamuffin",
   "family": "global",
   "lineage": "Late-1980s to early-1990s transatlantic development of digital dancehall between Kingston and Black British studios in Brent, Hackney and Birmingham, carried by Rebel MC, Asher D & Daddy Freddy, Tippa Irie, Papa San and Super Cat — 90-105 BPM computer riddims thickened with sampled breakbeats, sound-system sub-bass, and a fast, syllable-dense ragga chat cut to dubplate for clash use.",
-  "recipe": "classic Western European 1987-1989 raggamuffin, bass System, reggae diaspora branch, uk soundsystem bass system, Jamaican bass system uk dancehall bassline. vocal fry, breath veiled tone, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, sound design field sampler, low sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, turntable. brent black community studio london. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, SSL surgical EQ. DAT pro mixdown spring reverb digital delay.",
-  "recipe_chars": 603,
-  "score": 210.269,
+  "recipe": "classic Western European 1987-1989 raggamuffin, bass System, reggae diaspora branch, uk soundsystem bass system, Jamaican bass system uk dancehall ragga. vocal fry, breath veiled tone, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, sound design field sampler, low sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, turntable. brent black community studio london. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, SSL surgical EQ. DAT pro mixdown spring reverb digital delay.",
+  "recipe_chars": 600,
+  "score": 202.441,
   "config": {
     "traditions": [
       "raggamuffin",
       "uk_dancehall",
-      "bassline"
+      "ragga"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 0.585,
-          "voice_quality": 6.695,
+          "voice_register": 0.78,
+          "voice_quality": 5.785000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.4050000000000002,
-          "voice_articulation": 19.434999999999995,
-          "voice_microtone": 19.629999999999995,
-          "voice_tradition": 4.225,
-          "voice_mechanism_compound": 1.885,
-          "voice_estill_quality": 3.5750000000000006,
-          "voice_speech_song": 20.929999999999996,
-          "voice_ensemble_config": 18.264999999999997,
-          "voice_ornament_system": 9.165000000000001,
+          "voice_articulation": 19.564999999999998,
+          "voice_microtone": 19.174999999999997,
+          "voice_tradition": 4.8100000000000005,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 3.38,
+          "voice_speech_song": 21.06,
+          "voice_ensemble_config": 17.809999999999995,
+          "voice_ornament_system": 10.27,
           "voice_pitch_organization": 2.535,
-          "voice_processing_chain": 6.353125,
-          "voice_multitrack_stack": 7.475000000000001
+          "voice_processing_chain": 6.452500000000001,
+          "voice_multitrack_stack": 7.748750000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 2.75,
-          "drum_machine_909_context": 2.375625,
-          "tr909_production_origin": 1.69
+          "tr909_voice": 0.95,
+          "drum_machine_909_context": 1.885,
+          "tr909_production_origin": 2.1775
         }
       },
       {
@@ -70,29 +70,29 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.585,
-          "sampler_archetypes": 1.8199999999999998,
-          "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 2.4050000000000002,
-          "sampler_classic_context": 21.384999999999998
+          "electronic_technique": 2.3075,
+          "sampler_archetypes": 0.9099999999999999,
+          "sampler_bit_depth": 0.195,
+          "sampler_workflow": 2.354375,
+          "sampler_classic_context": 18.915
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "juno_60",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 14.235,
-          "poly_archetypes": 0.15,
+          "electronic_technique": 12.7075,
+          "poly_archetypes": 0,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
@@ -104,19 +104,19 @@
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "thumb_muted",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 10.399999999999999,
-          "body_wood": 2.04,
+          "amp_make": 9.555000000000003,
+          "body_wood": 1.3,
           "pickup_config": 1,
-          "string_type": 13.52,
-          "scale_length_b": 1.04,
-          "fretted_or_not": 0.103125,
-          "bass_technique": 3.7,
+          "string_type": 11.83,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.195,
+          "bass_technique": 6.25,
           "electric_bass_string_configuration": 0
         }
       },
@@ -127,8 +127,8 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 2.585,
-          "turntable_technique": 1.5599999999999996
+          "electronic_technique": 2.3075,
+          "turntable_technique": 0.8775
         }
       }
     ],

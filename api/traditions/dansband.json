@@ -5,7 +5,7 @@
   "lineage": "Swedish social-dance popular style formalized in the late 1960s and 1970s out of the folkpark circuit — foxtrot, bugg and waltz tempos around 100-130 BPM played by five- or six-piece bands with electric guitar, bass, drums, saxophone and heavy use of Hammond or synth pads, singing Swedish-language sentimental lyrics in smooth major-key harmony.",
   "recipe": "classic North American 1967-1969 dansband, functional Song, europop branch, contemp main country, pop rock functional song skiffle yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, singing lead analog poly synth, melodic straight piano accordion. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 892,
-  "score": 490.444,
+  "score": 488.659,
   "config": {
     "traditions": [
       "dansband",
@@ -41,9 +41,9 @@
           "voice_vibrato": 10.782499999999999,
           "voice_articulation": 16.054999999999996,
           "voice_microtone": 39.470000000000006,
-          "voice_tradition": 16.224999999999994,
+          "voice_tradition": 15.834999999999996,
           "voice_mechanism_compound": 3.51,
-          "voice_estill_quality": 5.945625,
+          "voice_estill_quality": 5.795625,
           "voice_speech_song": 22.034999999999993,
           "voice_ensemble_config": 16.379999999999992,
           "voice_ornament_system": 0.15000000000000002,
@@ -63,7 +63,7 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "two_point_trem",
+          "bridge": "vintage_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
@@ -78,10 +78,10 @@
           "pickup_magnet": 0.3,
           "string_material": 0.39,
           "string_gauge": 1.60625,
-          "bridge": 0.345,
+          "bridge": 0.3,
           "scale_length": 2.015,
           "finish": 0.3,
-          "string_tuning": 10.008125,
+          "string_tuning": 9.858125,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,10 +98,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.338125,
+          "amp_make": 11.188125,
           "body_wood": 2.05625,
-          "pickup_config": 0.7181250000000001,
-          "string_type": 21.033125,
+          "pickup_config": 0.523125,
+          "string_type": 20.883125,
           "scale_length_b": 1.90625,
           "fretted_or_not": 1.045,
           "bass_technique": 19.575,
@@ -156,8 +156,8 @@
           "keyboard_technique": 12.399999999999999,
           "drawbar_setting": 19.625,
           "rotary_speed": 19.724999999999998,
-          "percussion_setting": 9.258125,
-          "tonewheel_model": 16.183124999999997,
+          "percussion_setting": 9.108125,
+          "tonewheel_model": 16.033125,
           "leslie_cabinet_model": 0.95
         }
       },
@@ -170,8 +170,8 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 14.329999999999998,
-          "poly_archetypes": 9.258125,
+          "electronic_technique": 14.224999999999998,
+          "poly_archetypes": 9.108125,
           "poly_voices": 0.44999999999999996,
           "poly_maker_lineage": 0.5499999999999999
         }

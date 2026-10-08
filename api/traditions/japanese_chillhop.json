@@ -1,31 +1,32 @@
 {
-  "id": "japanese_chillhop",
-  "name": "Japanese Chillhop",
+  "id": "japanese_beats",
+  "merged_from": "japanese_chillhop",
+  "name": "Japanese beats",
   "family": "electronic",
-  "lineage": "Japanese chillhop connects Japan’s instrumental hip-hop and sampling communities with international online listening culture. Nujabes’ legacy, independent beatmakers and exchanges through labels and streaming compilations helped shape its mellow, melody-conscious production.",
-  "recipe": "classic japanese chillhop, experimental Elec. sampler. treated studio.",
-  "recipe_chars": 70,
-  "score": 8.99,
+  "lineage": "Japanese beats connects beatmakers, DJs and independent labels through sample-based production and record culture. Networks such as Jazzy Sport bring hip-hop into contact with jazz, soul, house and experimental electronic approaches.",
+  "recipe": "classic japanese beats, experimental Elec. sampler. treated studio.",
+  "recipe_chars": 67,
+  "score": 8.53,
   "config": {
     "traditions": [
-      "japanese_chillhop"
+      "japanese_beats"
     ],
     "instruments": [
       {
         "id": "sampler_classic",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "mpc_modern",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
           "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 1.5205,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.3,
+          "electronic_technique": 0.25,
+          "sampler_archetypes": 1.5,
+          "sampler_bit_depth": -0.05,
           "sampler_workflow": 0.2,
-          "sampler_classic_context": 7.02
+          "sampler_classic_context": 6.629999999999999
         }
       }
     ],
@@ -55,9 +56,9 @@
   "source": {
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sample_chopped",
-      "sampler_archetypes": "mpc_modern",
-      "sampler_bit_depth": "sampler_sixteen_bit",
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
       "sampler_workflow": "sampler_loop_layered",
       "sampler_classic_context": "sampler_classic_hiphop"
     },

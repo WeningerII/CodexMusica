@@ -5,7 +5,7 @@
   "lineage": "Indie folk argentino is a discovery network including Mía Maestro and other Argentine-connected performers. Maestro’s Si Agua combines bilingual songwriting with acoustic, keyboard and arranged string parts in an international recording context.",
   "recipe": "classic modern indie folk argentino, ballad Poetry, indie folk branch. thick, continuous-phonation, neutral third half flat, m1 with m0 pulse borrowing. fingerpicked acoustic guitar, song accompaniment wurlitzer ep, cello. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 360,
-  "score": 46.639,
+  "score": 46.804,
   "config": {
     "traditions": [
       "indie_folk_argentino"
@@ -29,7 +29,7 @@
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 8.417999999999997,
@@ -47,7 +47,7 @@
           "voice_ornament_system": 1.755,
           "voice_pitch_organization": 0.105,
           "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 0.46199999999999997
+          "voice_multitrack_stack": 0.48449999999999993
         }
       },
       {
@@ -63,8 +63,8 @@
           "string_tuning": 0,
           "top_wood": 0.45149999999999996,
           "back_sides": 0.2415,
-          "string_acoustic": 0.537,
-          "acoustic_om_technique": 11.395999999999997
+          "string_acoustic": 0.5595,
+          "acoustic_om_technique": 11.418499999999998
         }
       },
       {
@@ -99,12 +99,12 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "cello_strings": 0.273,
+          "cello_strings": 0.348,
           "cello_top_wood": -0.035,
           "cello_back_wood": -0.035,
           "cello_varnish": -0.035,
           "cello_setup_period": -0.07,
-          "cello_bow_grip": 0.2535,
+          "cello_bow_grip": 0.276,
           "cello_rosin": 0.6499999999999999,
           "cello_bow_stick": -0.05
         }

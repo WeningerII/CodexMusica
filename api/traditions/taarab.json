@@ -3,21 +3,21 @@
   "name": "Taarab",
   "family": "global",
   "lineage": "East African Swahili-coast genre (Zanzibar, coastal Tanzania, coastal Kenya, Comoros) fusing Arab maqam-system melody, Indian classical raga vocabulary, and Bantu-Swahili language poetry into large-ensemble wedding-and-celebration music; codified through Siti binti Saad (1928 HMV-Bombay first commercial recordings, the mother of taarab), Bi Kidude (1910-2013, Zanzibars longest-living taarab matriarch), the Culture Musical Club (founded 1958), and Black Star Musical Club",
-  "recipe": "classic East African early-1910s taarab, groove Percussion, central east south African branch, Persian arab improv improv on frame, mid east n African pop functional song khaliji algerian chaabi. thick, declaimed, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk ensemble accordion, metal finger picks rosewood body arab premium qanun, walnut ribs canonical mid tier pyramid nylon arab school oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, Egyptian sombaty canonical mid east darbuka. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 686,
-  "score": 397.43,
+  "recipe": "classic East African early-1910s taarab, groove Percussion, central east south African branch, Persian arab improv improv on frame, mid east n African pop functional song francarabe al-ughniya al-ʿadaniyya. thick, breath veiled tone, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk ensemble accordion, metal finger picks rosewood body arab premium drone like modal qanun, walnut ribs canonical mid tier pyramid nylon arab school oud, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, Egyptian sombaty canonical mid east darbuka. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 722,
+  "score": 314.335,
   "config": {
     "traditions": [
       "taarab",
-      "khaliji_gulf",
-      "algerian_chaabi"
+      "francarabe_judeo_arabic_song",
+      "adeni_song"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 10.424999999999997,
-          "voice_quality": 9.784999999999998,
+          "voice_register": 6.750000000000003,
+          "voice_quality": 11.439999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.825000000000001,
-          "voice_articulation": 18.524999999999995,
-          "voice_microtone": 32.565,
-          "voice_tradition": 23.489999999999995,
-          "voice_mechanism_compound": 14.370000000000001,
-          "voice_estill_quality": 11.254999999999999,
-          "voice_speech_song": 21.384999999999994,
-          "voice_ensemble_config": 15.924999999999994,
-          "voice_ornament_system": 25.445,
-          "voice_pitch_organization": 25.64,
-          "voice_processing_chain": 4.419999999999999,
-          "voice_multitrack_stack": 1.689999999999999
+          "voice_vibrato": 9.035000000000002,
+          "voice_articulation": 21.839999999999996,
+          "voice_microtone": 27.04,
+          "voice_tradition": 22.789999999999996,
+          "voice_mechanism_compound": 6.645,
+          "voice_estill_quality": 7.755000000000001,
+          "voice_speech_song": 28.989999999999995,
+          "voice_ensemble_config": 20.279999999999998,
+          "voice_ornament_system": 14.462499999999999,
+          "voice_pitch_organization": 14.462499999999999,
+          "voice_processing_chain": 3.545,
+          "voice_multitrack_stack": 3.5100000000000007
         }
       },
       {
@@ -57,26 +57,26 @@
         "slots": {
           "free_reed_technique": "free_reed_orchestral_ensemble",
           "accordion_reed_material": "tipo_a_mano",
-          "musette_offset": "german_tuning",
-          "reed_config": "lm_only",
+          "musette_offset": "french_musette",
+          "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 12.07,
-          "accordion_reed_material": 3.4349999999999996,
-          "musette_offset": 0.39,
-          "reed_config": 0.65,
+          "free_reed_technique": 7.07,
+          "accordion_reed_material": 2.785,
+          "musette_offset": 1.25,
+          "reed_config": 0.755,
           "bellows": 0.39,
           "voicing_chamber": 0.045,
-          "accordion_maker_school": 9.049999999999999
+          "accordion_maker_school": 8.4
         }
       },
       {
         "id": "qanun",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
+          "plucked_traditional_technique": "plucked_drone_modal",
           "qanun_strings": "qanun_arab_72",
           "qanun_levers": "mandal_brass",
           "qanun_pick": "qanun_finger_picks",
@@ -85,10 +85,10 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 9.84,
-          "qanun_strings": 5.07,
-          "qanun_levers": -1.26,
-          "qanun_pick": 5.07,
+          "plucked_traditional_technique": 6.800000000000001,
+          "qanun_strings": 2.47,
+          "qanun_levers": -0.76,
+          "qanun_pick": 2.47,
           "qanun_body_wood": 4.484999999999999,
           "qanun_bridge_skin": 0.15,
           "qanun_string_material": 0
@@ -97,7 +97,7 @@
       {
         "id": "oud",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
+          "plucked_traditional_technique": "plucked_drone_modal",
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
@@ -106,12 +106,12 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 9.84,
-          "oud_school": 4.484999999999999,
-          "oud_strings": 5.07,
-          "oud_pick": 3.9749999999999996,
-          "oud_body_wood": 3.4349999999999996,
-          "oud_soundboard_wood": 0.9099999999999999,
+          "plucked_traditional_technique": 6.800000000000001,
+          "oud_school": 3.6400000000000006,
+          "oud_strings": 2.47,
+          "oud_pick": 3.25,
+          "oud_body_wood": 2.785,
+          "oud_soundboard_wood": 0.84,
           "oud_string_material": 4.549999999999999
         }
       },
@@ -121,25 +121,25 @@
           "bowed_technique": "bowed_pizzicato",
           "orch_strings": "synthetic_orch",
           "orch_top_wood": "carpathian_spruce_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "bernardel_rosin_orch"
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 9.94,
+          "bowed_technique": 4.94,
           "orch_strings": 0.15,
-          "orch_top_wood": 11.290000000000001,
-          "orch_back_wood": 10.350000000000001,
-          "orch_varnish": 10.350000000000001,
-          "orch_setup_period": 8.665,
+          "orch_top_wood": 5.59,
+          "orch_back_wood": 6.045,
+          "orch_varnish": 6,
+          "orch_setup_period": 4.965,
           "orch_bow": 0.345,
-          "orch_bow_stick": 11.614999999999998,
+          "orch_bow_stick": 7.735,
           "orch_articulation": 0.39,
-          "orch_rosin": 10.245000000000001
+          "orch_rosin": 6.09
         }
       },
       {
@@ -151,10 +151,10 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 1.045,
-          "darbuka_material": 0.84,
-          "darbuka_skin": 0.845,
-          "darbuka_regional_style": 9.889999999999999
+          "percussion_technique": 2.495,
+          "darbuka_material": 0.65,
+          "darbuka_skin": 0.96,
+          "darbuka_regional_style": 9.74
         }
       }
     ],

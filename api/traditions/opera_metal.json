@@ -1,55 +1,56 @@
 {
-  "id": "opera_metal",
-  "name": "Opera metal",
-  "family": "rock_punk",
-  "lineage": "Opera metal is represented by Therion’s explicitly opera-oriented metal practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
-  "recipe": "classic modern opera metal, distorted Rock, symphonic branch. operatic. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation, choir ensemble. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 449,
-  "score": 65.116,
+  "id": "symphonic_metal_classic",
+  "merged_from": "opera_metal",
+  "name": "Symphonic metal",
+  "family": "global",
+  "lineage": "Metal-orchestral-choral hybrid subgenre codified through Nightwish (Oceanborn 1998), Within Temptation (Mother Earth 2000), Epica (The Phantom Agony 2003), Therion, and Edenbridge; characterized by operatic-soprano-led-vocal performances, full-orchestral arrangements (often with film-score session ensembles), choral-backing-vocal stacks, and fantasy-and-mythology lyrical subject-matter tradition",
+  "recipe": "classic late-1990s symphonic metal, distorted Rock, symphonic branch, western common practice art music grand opera the mighty handful. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, string quartet inst, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, mallets timpani. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 817,
+  "score": 330.067,
   "config": {
     "traditions": [
-      "opera_metal"
+      "symphonic_metal_classic",
+      "grand_opera_french",
+      "russian_five"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "opera_voice",
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "operatic_tradition",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
+          "voice_register": 7.0500000000000025,
+          "voice_quality": 6.240000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 1.0399999999999998,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39,
-          "voice_tessitura": 0
+          "voice_vibrato": 3.25,
+          "voice_articulation": 12.869999999999994,
+          "voice_microtone": 13.51999999999999,
+          "voice_tradition": 9.5225,
+          "voice_mechanism_compound": 18.39999999999999,
+          "voice_estill_quality": 8.729999999999999,
+          "voice_speech_song": 14.007499999999997,
+          "voice_ensemble_config": 14.884999999999993,
+          "voice_ornament_system": 7.375,
+          "voice_pitch_organization": 2.4000000000000004,
+          "voice_processing_chain": 4.55,
+          "voice_multitrack_stack": 5.07
         }
       },
       {
@@ -58,7 +59,7 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_4_h",
           "pickup_winding": "mid_wind",
@@ -67,140 +68,139 @@
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 17.880249999999997,
-          "amp_make": 7.6049999999999995,
-          "body_wood": 7.799999999999999,
-          "neck_wood": 0,
-          "fretboard": 0.0735,
-          "pickup_magnet": 0.0735,
-          "pickup_winding": 0.0735,
-          "string_material": 0.0735,
-          "bridge": 0.48300000000000004,
-          "scale_length": 7.799999999999999,
-          "string_gauge": 0.39,
+          "electric_technique": 20.944999999999993,
+          "amp_make": 9.165,
+          "body_wood": 9.799999999999997,
+          "neck_wood": 0.195,
+          "fretboard": 1.3649999999999998,
+          "pickup_magnet": 1.3649999999999998,
+          "pickup_winding": 1.3649999999999998,
+          "string_material": 1.3649999999999998,
+          "bridge": 0.18,
+          "scale_length": 9.754999999999997,
+          "string_gauge": 4.419999999999999,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 10.724999999999998
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretless",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.6650000000000005,
-          "body_wood": 0.0735,
-          "pickup_config": 0.39,
-          "string_type": 5.85,
-          "scale_length_b": 0.0315,
-          "fretted_or_not": 0.3,
-          "bass_technique": 4.45,
+          "amp_make": 1.8199999999999998,
+          "body_wood": 1.3649999999999998,
+          "pickup_config": 3.51,
+          "string_type": 6.06,
+          "scale_length_b": 0.45499999999999996,
+          "fretted_or_not": 0.345,
+          "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 4.5,
-          "drumhead": 0.39,
+          "drum_technique": 12.934999999999995,
+          "drumhead": 2.2399999999999998,
           "drum_kit_kick_pedal": 0
-        }
-      },
-      {
-        "id": "rompler_workstation",
-        "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "rompler_preset_bank": "rompler_preset_oriental_arranger",
-          "rompler_context": "rompler_context_arranger_party",
-          "rompler_lineage": "rompler_korg_m1_canonical"
-        },
-        "scores": {
-          "electronic_technique": -0.1,
-          "rompler_preset_bank": 0.39,
-          "rompler_context": 0.39,
-          "rompler_lineage": 0.7149999999999999
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "chamber_choir",
-          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
-          "choir_regional_canonical_configuration": "choir_regional_none",
-          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+          "choir_size": "symphonic_chorus",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 0.2415,
-          "choir_polyphonic_configuration": 0.1365,
-          "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 0.231
+          "choir_size": 6.38,
+          "choir_polyphonic_configuration": 3.4849999999999994,
+          "choir_regional_canonical_configuration": 3.6849999999999996,
+          "choir_ensemble_repertoire": 10.399999999999999
+        }
+      },
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_modern",
+          "string_quartet_inst_era": "string_quartet_inst_romantic"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "quartet_school": 0.845,
+          "string_quartet_inst_era": 3.77
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 13.624999999999998,
+          "orch_strings": 1.3649999999999998,
+          "orch_top_wood": 3.385,
+          "orch_back_wood": 4.605,
+          "orch_varnish": 3.375,
+          "orch_setup_period": 4.395,
+          "orch_bow": 1.17,
+          "orch_bow_stick": 4.3225,
+          "orch_articulation": 3.8999999999999995,
+          "orch_rosin": 10.174999999999997
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_synthetic"
+        },
+        "scores": {
+          "percussion_technique": 11.124999999999998,
+          "timpani_size": 7.084999999999999,
+          "timpani_head": 0.45499999999999996
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "electric_guitar_humbucker": [
-        "electric_technique",
-        "string_tuning"
-      ],
-      "electric_bass": [
-        "bass_technique"
-      ],
-      "drum_kit": [
-        "drum_technique"
-      ],
-      "rompler_workstation": [
-        "electronic_technique"
-      ],
-      "choir_ensemble": [
-        "choir_size",
-        "choir_polyphonic_configuration",
-        "choir_regional_canonical_configuration",
-        "choir_ensemble_repertoire"
-      ]
-    },
-    "room": "studio_auteur_home_pro",
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "dynamic_mic",
-      "pre": "pre_500_series_modern",
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
       "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
-      "amp": null,
-      "medium": "digital_high"
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_marshall_jcm800",
+      "medium": "digital_std"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -209,43 +209,49 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_auteur_home_pro",
+    "room": "concert_hall_shoebox",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "opera_voice",
-      "voice_tradition": "operatic_tradition",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electric_technique": "electric_power_chord",
-      "string_tuning": "standard_tuning",
-      "drum_technique": "sticks_rock",
+      "pickup_magnet": "ceramic_h",
+      "string_material": "stainless_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_fender_h",
+      "pickup_config": "humbucker_mm",
+      "string_type": "roundwound_s",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "electronic_technique": "electronic_pad_drone",
-      "choir_size": "chamber_choir",
-      "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
-      "choir_regional_canonical_configuration": "choir_regional_none",
-      "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+      "drumhead": "double_coated",
+      "drum_technique": "sticks_rock",
+      "voice_register": "head_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "operatic_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_bel_canto",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "choir_size": "symphonic_chorus",
+      "choir_ensemble_repertoire": "choir_ensemble_romantic",
+      "bowed_technique": "bowed_legato_classical",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "quartet_school": "quartet_modern",
+      "string_quartet_inst_era": "string_quartet_inst_romantic",
+      "string_tuning": "eb_standard"
     },
-    "pin_parts": true,
-    "chain_mic": "dynamic_mic",
-    "chain_pre": "pre_500_series_modern",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
     "chain_console": "console_in_the_box",
-    "chain_amp_guitar": "amp_mesa_dual_rectifier",
+    "chain_amp": "amp_marshall_jcm800",
+    "chain_amp_guitar": "amp_british_marshall_jcm800",
     "chain_amp_bass": "amp_american_ampeg_svt"
   }
 }

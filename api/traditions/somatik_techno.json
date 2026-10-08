@@ -5,7 +5,7 @@
   "lineage": "Somatik techno is associated with the experimental electronic community around Somatik Sound System. Its practice connects recorded-source construction, electroacoustic textures and techno-related repetition.",
   "recipe": "classic somatik techno, experimental Elec, musique concrete branch. glitched textural sampler.",
   "recipe_chars": 94,
-  "score": 14.432,
+  "score": 14.285,
   "config": {
     "traditions": [
       "somatik_techno"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 6.2315000000000005,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.735,
+          "sampler_bit_depth": 0.588,
           "sampler_workflow": 6.2,
           "sampler_classic_context": 1.3
         }

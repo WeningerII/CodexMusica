@@ -5,7 +5,7 @@
   "lineage": "The mid-1990s Midwest and Pacific Northwest development of DC emotional hardcore, carried by Cap'n Jazz, Braid, Sunny Day Real Estate, Jawbreaker and Texas Is the Reason circa 1992-1998 — twin-guitar interlocking arpeggios in odd or shifting meters, loud-quiet dynamic architecture, busy tom-heavy drumming, and strained tenor vocals that break into shouts, tracked to analog tape at mid-budget indie studios.",
   "recipe": "classic Pacific Northwest mid-1990s emocore, distorted Rock, emo branch, alternative distorted rock, pop punk distorted rock indie rock college rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 760,
-  "score": 414.824,
+  "score": 416.319,
   "config": {
     "traditions": [
       "emocore",
@@ -33,12 +33,12 @@
         "scores": {
           "electric_technique": 6.5,
           "amp_make": 20.214999999999996,
-          "body_wood": 5.067678571428571,
-          "neck_wood": 5.067678571428571,
-          "fretboard": 5.017678571428571,
+          "body_wood": 5.217678571428571,
+          "neck_wood": 5.217678571428571,
+          "fretboard": 5.167678571428572,
           "pickup_magnet": 1.1937499999999999,
           "string_material": 0.8,
-          "string_gauge": 5.067678571428571,
+          "string_gauge": 5.217678571428571,
           "bridge": 1.85625,
           "scale_length": 5.329999999999999,
           "finish": 0,
@@ -67,14 +67,14 @@
           "electric_technique": 6.5,
           "amp_make": 20.214999999999996,
           "body_wood": 5.329999999999999,
-          "neck_wood": 5.067678571428571,
-          "fretboard": 5.017678571428571,
+          "neck_wood": 5.217678571428571,
+          "fretboard": 5.167678571428572,
           "pickup_magnet": 0.65,
           "pickup_winding": 3.3799999999999994,
           "string_material": 0.8,
-          "bridge": 5.067678571428571,
+          "bridge": 5.217678571428571,
           "scale_length": 5.329999999999999,
-          "string_gauge": 5.067678571428571,
+          "string_gauge": 5.217678571428571,
           "finish": 0,
           "string_tuning": 12.48
         }
@@ -96,8 +96,8 @@
           "body_wood": 5.329999999999999,
           "pickup_config": 0.65,
           "string_type": 27.1375,
-          "scale_length_b": 5.067678571428571,
-          "fretted_or_not": 0,
+          "scale_length_b": 5.217678571428571,
+          "fretted_or_not": 0.105,
           "bass_technique": 24.625,
           "electric_bass_string_configuration": 0
         }
@@ -111,7 +111,7 @@
         },
         "scores": {
           "drum_technique": 20.923214285714284,
-          "drumhead": 5.1726785714285715,
+          "drumhead": 5.217678571428571,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -143,7 +143,7 @@
           "voice_vibrato": 5.265,
           "voice_articulation": 15.859999999999994,
           "voice_microtone": 26.599999999999998,
-          "voice_tradition": 6.8032142857142865,
+          "voice_tradition": 6.758214285714287,
           "voice_mechanism_compound": 12.8375,
           "voice_estill_quality": 3.185,
           "voice_speech_song": 18.849999999999994,
@@ -151,7 +151,7 @@
           "voice_ornament_system": 2.45,
           "voice_pitch_organization": 1.885,
           "voice_processing_chain": 6.76,
-          "voice_multitrack_stack": 5.030178571428571
+          "voice_multitrack_stack": 5.07
         }
       }
     ],

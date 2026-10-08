@@ -5,7 +5,7 @@
   "lineage": "Swedish blues includes Swedish-language songwriting and local interpretations of blues repertoire. Stockholm singer-guitarist Rolf Wikström and his Hjärtslag band exemplify a combination of narrative singing and electric ensemble performance.",
   "recipe": "classic modern swedish blues, functional Song, blues electric branch. narrative, blues inflected, one note per syllable, solo with instrumental accompaniment. single coil electric guitar, electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 416,
-  "score": 13.681,
+  "score": 13.976,
   "config": {
     "traditions": [
       "swedish_blues"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,
-          "voice_multitrack_stack": 1.0290000000000001
+          "voice_multitrack_stack": 1.239
         }
       },
       {
@@ -70,13 +70,13 @@
         "scores": {
           "electric_technique": 1.41,
           "amp_make": 0,
-          "body_wood": 0.16799999999999998,
+          "body_wood": 0.27299999999999996,
           "neck_wood": 0.0315,
           "fretboard": -0.035,
-          "pickup_magnet": 0.0315,
+          "pickup_magnet": 0,
           "string_material": 0,
           "string_gauge": 0.0315,
-          "bridge": 0.0315,
+          "bridge": 0,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0.063,
@@ -97,10 +97,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.16799999999999998,
+          "body_wood": 0.27299999999999996,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.0945,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0.063,
           "bass_technique": 0.325,
           "electric_bass_string_configuration": 0
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.0315,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0
         }
       }

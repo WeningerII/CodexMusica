@@ -5,7 +5,7 @@
   "lineage": "Bosnian electronic music grows through local producers, club nights, labels and international DJ networks. Mladen Tomic and Sinisa Tamamovic connect Banja Luka’s scene with house and techno production and performance.",
   "recipe": "classic bosnian electronic, electronic Dance. drum machine analog, analog mono synth.",
   "recipe_chars": 85,
-  "score": 2.74,
+  "score": 2.834,
   "config": {
     "traditions": [
       "bosnian_electronic"
@@ -38,8 +38,8 @@
         "scores": {
           "electronic_technique": 0.19500000000000003,
           "mono_oscillator": 0,
-          "mono_filter": 0.0315,
-          "mono_archetypes": 0.063,
+          "mono_filter": 0.063,
+          "mono_archetypes": 0.126,
           "mono_maker_lineage": -0.05
         }
       }

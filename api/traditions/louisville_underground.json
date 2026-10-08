@@ -5,7 +5,7 @@
   "lineage": "Louisville underground developed through connected punk, hardcore and experimental-rock communities, with shared musicians, labels, venues and independent publications. Groups such as Slint, Rodan and Shipping News helped sustain a network that crosses stylistic boundaries.",
   "recipe": "classic louisville underground, distorted Rock, punk branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 245,
-  "score": 24.9,
+  "score": 24.627,
   "config": {
     "traditions": [
       "louisville_underground"
@@ -79,7 +79,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0.3

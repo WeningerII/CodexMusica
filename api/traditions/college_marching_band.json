@@ -1,41 +1,170 @@
 {
-  "id": "college_marching_band",
-  "name": "College Marching Band",
+  "id": "marching_band",
+  "merged_from": "college_marching_band",
+  "name": "Marching Band",
   "family": "vernacular",
-  "lineage": "Ohio State University Marching Band — full published instrumental roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic college marching band, groove Percussion, American marching branch. collegiate brass percussion ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 212,
-  "score": 7.67,
+  "lineage": "The American outdoor wind-and-percussion ensemble that fused European military band instrumentation with post-Civil-War town-band culture, professionalised by Patrick Gilmore and John Philip Sousa in the 1880s-90s and reinvented in the twentieth century by university and HBCU programs - Florida A&M's Marching 100 under William P. Foster from 1946 - which added dance-derived body movement, R&B and funk arrangements and a heavily amplified sousaphone bass line; standard scoring is trumpets and mellophones over trombones, baritones and sousaphones with a battery of snares, tenors and bass drums plus a front pit, playing at 120-180 beats per minute in strict cut time.",
+  "recipe": "classic mid-1880s marching band, groove Percussion, American marching branch, American south carnival processional, western common practice art music new orleans brass band second-line new orleans mardi gras indians. outdoor brass marching band full, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line standard rim orchestral balance trumpet, projecting marching band mellophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line tenor standard standard backbore trombone, eb bass brass band sousaphone, yellow brass modern standard yamaha custom 875ex modern Japanese premium continuous-airflow legato saxophone, nola derived drumline hbcu, drumline school marching, mounted vertical brass glockenspiel, double bass rapid double strokes bass drum. festival stage. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+  "recipe_chars": 976,
+  "score": 178.438,
   "config": {
     "traditions": [
-      "college_marching_band"
+      "marching_band",
+      "new_orleans_brass_parade",
+      "mardi_gras_indians"
     ],
     "instruments": [
       {
-        "id": "collegiate_brass_percussion_ensemble",
+        "id": "marching_band_full",
         "slots": {
-          "collegiate_brass_percussion_roster": "collegiate_ohio_full_roster",
-          "collegiate_brass_percussion_context": "collegiate_full_roster_realization"
+          "sections": "mb_brass",
+          "school_style": "hbcu_show"
         },
         "scores": {
-          "collegiate_brass_percussion_roster": 2.73,
-          "collegiate_brass_percussion_context": 4.9399999999999995
+          "sections": 8.71,
+          "school_style": 2.3
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 9.235000000000001,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 4.785,
+          "brass_mute": 0.39,
+          "trumpet_technique": 9.235000000000001,
+          "trumpet_bell_metal": 7.215000000000001,
+          "trumpet_maker_school": 10.395
+        }
+      },
+      {
+        "id": "mellophone",
+        "slots": {
+          "mellophone_use": "mellophone_marching_band",
+          "mellophone_mouthpiece": "mellophone_trumpet_style"
+        },
+        "scores": {
+          "mellophone_use": 14.78,
+          "mellophone_mouthpiece": 0.49499999999999994
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 9.235000000000001,
+          "trombone_type": 2.375,
+          "trombone_mouthpiece": 5.085,
+          "trombone_mute": 2.1749999999999994,
+          "trombone_technique": 0.24,
+          "trombone_bell_metal": 8.515,
+          "trombone_maker_school": 9.59
+        }
+      },
+      {
+        "id": "sousaphone",
+        "slots": {
+          "sousaphone_bore": "sousaphone_eb_bass",
+          "sousaphone_context": "sousaphone_nola_brass_band"
+        },
+        "scores": {
+          "sousaphone_bore": 2.5399999999999996,
+          "sousaphone_context": 17.55
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "baritone_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 4.4525,
+          "sax_size": 0.845,
+          "sax_reed": 1.3,
+          "sax_body_alloy": 12.48,
+          "sax_mouthpiece": 0.195,
+          "sax_technique": 6.839999999999999,
+          "sax_maker_school": 1.69
+        }
+      },
+      {
+        "id": "drumline_hbcu",
+        "slots": {
+          "section": "bass_line",
+          "school_style": "second_line_derived"
+        },
+        "scores": {
+          "section": 0.3,
+          "school_style": 3.8
+        }
+      },
+      {
+        "id": "drumline_school_marching",
+        "slots": {
+          "section": "school_snare",
+          "drumline_school_marching_context": "drumline_school_marching_halftime"
+        },
+        "scores": {
+          "section": 0,
+          "drumline_school_marching_context": 8.719999999999999
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_marching",
+          "glockenspiel_mallet": "glockenspiel_brass"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 3.29,
+          "glockenspiel_mallet": 6.955000000000001
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.24,
+          "bass_drum_beater": 2.5399999999999996
         }
       }
     ],
-    "pinned": {
-      "collegiate_brass_percussion_ensemble": [
-        "collegiate_brass_percussion_roster",
-        "collegiate_brass_percussion_context"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "festival_stage",
+    "archetype": "arch_mobile_remote_truck",
     "inline_chain": {
       "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
       "amp": null,
       "medium": "digital_high"
     },
@@ -46,17 +175,10 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
-    "parts": {
-      "collegiate_brass_percussion_roster": "collegiate_ohio_full_roster",
-      "collegiate_brass_percussion_context": "collegiate_full_roster_realization"
-    },
-    "pin_parts": true,
+    "room": "festival_stage",
     "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
+    "chain_pre": "pre_500_series_modern",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_console": "clean"
   }
 }

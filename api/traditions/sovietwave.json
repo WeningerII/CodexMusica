@@ -5,7 +5,7 @@
   "lineage": "Russian- and Ukrainian-language internet synth genre that coalesced on VKontakte and Bandcamp circa 2013-2016 around Хмурый (Khmury), Маяк, and СOSMORTUS, built from slow 90-110 BPM analog-poly-synth arpeggios, string-machine pads, LinnDrum-style gated snares, and sampled Soviet television, cosmonaut-broadcast and newsreel speech, with sparse Russian vocals or none at all, expressing nostalgia for a Soviet space-age future that never arrived.",
   "recipe": "classic 2013-2016 sovietwave, experimental Elec, retro aesthetic branch, ambient experimental electric, pop rock synthpop ambient techno ambient house. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly analog mono synth, sustained pad string machine, classic source linndrum, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 512,
-  "score": 187.925,
+  "score": 188.39,
   "config": {
     "traditions": [
       "sovietwave",
@@ -39,7 +39,7 @@
         "scores": {
           "electronic_technique": 7.610000000000001,
           "sm_voice_count": 2.8600000000000003,
-          "sm_chorus": 2.8449999999999998,
+          "sm_chorus": 3.04,
           "sm_voicing": 0.8450000000000001
         }
       },
@@ -47,14 +47,14 @@
         "id": "analog_mono_synth",
         "slots": {
           "electronic_technique": "electronic_acid_squelch",
-          "mono_oscillator": "mono_voltage_controlled",
+          "mono_oscillator": "mono_digitally_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
           "mono_maker_lineage": "mono_arp_pearlman"
         },
         "scores": {
           "electronic_technique": 5.25,
-          "mono_oscillator": 0.30000000000000004,
+          "mono_oscillator": 0.36,
           "mono_filter": 2.035,
           "mono_archetypes": 1.04,
           "mono_maker_lineage": -1.435
@@ -69,7 +69,7 @@
         },
         "scores": {
           "linndrum_voice": 1.25,
-          "linndrum_context": 2.125,
+          "linndrum_context": 2.275,
           "linndrum_production_origin": -0.1750000000000001
         }
       },
@@ -77,14 +77,14 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "emu_emax",
+          "sampler_archetypes": "maschine_modern",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 11.240000000000002,
-          "sampler_archetypes": 0.30000000000000004,
+          "sampler_archetypes": 0.36,
           "sampler_bit_depth": 1.04,
           "sampler_workflow": 11.940000000000003,
           "sampler_classic_context": 24.082499999999996

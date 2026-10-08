@@ -1,0 +1,139 @@
+{
+  "id": "pong_lang_kalasin",
+  "name": "Pong lang (Kalasin log-xylophone band)",
+  "family": "global",
+  "lineage": "Ensemble music of Kalasin province in Isan, northeastern Thailand, built around the pong lang, a xylophone of hardwood logs strung together and hung at an angle from a post, played by two players. It was developed into a stage band in the later twentieth century, notably by Plueang Chairatsami, and became the emblem of Kalasin and a staple of school ensembles. The band adds khaen, phin, the wot circular panpipe, drums and cymbals. The ranat ek card stands in for the pong lang.",
+  "recipe": "classic modern pong lang, groove Percussion, east Asian branch. ranat ek, khaen, festive dance driving phin, acoustic membrane drum, ching chap open and damped ching. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 246,
+  "score": 17.673,
+  "config": {
+    "traditions": [
+      "pong_lang_kalasin"
+    ],
+    "instruments": [
+      {
+        "id": "ranat_ek",
+        "slots": {
+          "ranat_ek_technique": "ranat_ek_kep"
+        },
+        "scores": {
+          "ranat_ek_technique": -0.07
+        }
+      },
+      {
+        "id": "khaen",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "khaen_size": "khaen_paet",
+          "khaen_context": "khaen_isan"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "khaen_size": 0.1365,
+          "khaen_context": 0.105
+        }
+      },
+      {
+        "id": "phin",
+        "slots": {
+          "phin_form": "phin_acoustic_isan",
+          "phin_repertoire": "phin_prayuk",
+          "phin_construction": "phin_jackfruit_carved"
+        },
+        "scores": {
+          "phin_form": 5.49,
+          "phin_repertoire": 3.2540000000000004,
+          "phin_construction": 2.7775
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 0.39,
+          "acoustic_membrane_drum_gesture": 0.39
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_lao",
+          "ching_stroke": "ching_open_closed",
+          "ching_alloy": "ching_bronze"
+        },
+        "scores": {
+          "ching_form": -0.035,
+          "ching_stroke": 5.525,
+          "ching_alloy": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "ranat_ek": [
+        "ranat_ek_technique"
+      ],
+      "khaen": [
+        "free_reed_technique",
+        "khaen_size",
+        "khaen_context"
+      ],
+      "phin": [
+        "phin_form",
+        "phin_repertoire",
+        "phin_construction"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "ching": [
+        "ching_form",
+        "ching_stroke",
+        "ching_alloy"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "ranat_ek_technique": "ranat_ek_kep",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "khaen_size": "khaen_paet",
+      "khaen_context": "khaen_isan",
+      "phin_form": "phin_acoustic_isan",
+      "phin_repertoire": "phin_prayuk",
+      "phin_construction": "phin_jackfruit_carved",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "ching_form": "ching_lao",
+      "ching_stroke": "ching_open_closed",
+      "ching_alloy": "ching_bronze"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

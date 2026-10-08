@@ -5,7 +5,7 @@
   "lineage": "French and Belgian house variant of the mid-to-late 1990s associated with Alan Braxe, Stardust, I:Cube and the Roule and Versatile labels, characterized by 118-126 BPM disco-derived kicks, cosmic analogue synth arpeggios and phaser-swept pads over filtered loops, sustained vocoder or heavily processed vocal fragments, and slow-evolving one-chord builds owing more to 70s space disco than to Chicago tracks.",
   "recipe": "classic Western European 1997-1999 space house, electronic Dance, house branch, deep house house, continental electronic dance, retro aesthetic experimental electric canadian house deep disco house. analog poly synth, monosynth acid ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, TR-909, field sampler, vocoder, turntable. intimate paris small studio. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
   "recipe_chars": 525,
-  "score": 125.663,
+  "score": 125.272,
   "config": {
     "traditions": [
       "space_house",
@@ -38,7 +38,7 @@
         },
         "scores": {
           "electronic_technique": 1.0399999999999998,
-          "wave_acid": 0.28500000000000003,
+          "wave_acid": 0.135,
           "filter_acid": 0.15,
           "accent_acid": 0.045
         }
@@ -77,13 +77,13 @@
         "id": "vocoder",
         "slots": {
           "voc_band_count": "voc_few_bands",
-          "voc_carrier": "voc_saw_carrier",
+          "voc_carrier": "voc_noise_carrier",
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
           "voc_band_count": 0,
-          "voc_carrier": 0.28500000000000003,
-          "voc_modulator": 0.045
+          "voc_carrier": 0.195,
+          "voc_modulator": 0.09
         }
       },
       {
@@ -99,7 +99,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.135,
+          "amp_make": 4.94,
           "body_wood": 1.8900000000000001,
           "pickup_config": 0.195,
           "string_type": 5.07,

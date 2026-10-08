@@ -5,7 +5,7 @@
   "lineage": "2010s and 2020s R&B subgenre characterized by virtuoso-instrumental playing (especially electric bass), jazz-and-fusion harmonic complexity, lo-fi-and-experimental production aesthetic, and explicit Los-Angeles-Brainfeeder-scene cultural affiliation. Thundercat (Stephen Bruner, born 1984) anchored the canonical sound through Drunk (2017); Steve Lacy (The Internet), Hiatus Kaiyote (Australian, parallel scene), and the broader Brainfeeder, Stones Throw, and Anticon label rosters extended the genre.",
   "recipe": "classic progressive r&b, functional Song, soul R&B branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 632,
-  "score": 432.632,
+  "score": 431.05,
   "config": {
     "traditions": [
       "prog_rb",
@@ -38,17 +38,17 @@
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 27.975,
+          "voice_vibrato": 27.495000000000005,
           "voice_articulation": 17.549999999999997,
           "voice_microtone": 29.305,
           "voice_tradition": 34.775,
           "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 9.339999999999998,
+          "voice_estill_quality": 9.189999999999998,
           "voice_speech_song": 19.954999999999995,
           "voice_ensemble_config": 18.329999999999995,
           "voice_ornament_system": 2.34,
-          "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 6.539999999999999,
+          "voice_pitch_organization": 3.0350000000000006,
+          "voice_processing_chain": 6.494999999999999,
           "voice_multitrack_stack": 10.659999999999997
         }
       },
@@ -56,7 +56,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "extra_long_b",
@@ -65,13 +65,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 18.869999999999997,
+          "amp_make": 18.419999999999998,
           "body_wood": 0.39,
           "pickup_config": 1.69,
           "string_type": 34.775,
           "scale_length_b": 0.44999999999999996,
-          "fretted_or_not": 0.21,
-          "bass_technique": 26.795,
+          "fretted_or_not": 0.105,
+          "bass_technique": 26.75,
           "electric_bass_string_configuration": 0
         }
       },
@@ -123,11 +123,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 2.827500000000001,
+          "electronic_technique": 2.745000000000001,
           "oscillator": 2.535,
           "filter_topology": 1.69,
           "envelope": 1.69,
-          "modulation": 0.585
+          "modulation": 0.51
         }
       }
     ],

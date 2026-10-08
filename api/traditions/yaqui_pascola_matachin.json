@@ -5,7 +5,7 @@
   "lineage": "Yaqui (Yoeme) pascola-and-matachín Easter Week ceremonial dance-cycle of the Yaqui communities of Sonora (Mexico) and southern Arizona, integrating pre-contact Yaqui ceremonial structure with sixteenth-century Spanish-Jesuit liturgical introductions into a syncretic Yaqui-Catholic Easter cycle. The pascola \"old men of the fiesta\" dancers wear carved-wood masks and dance to harp-and-violin music in the village dance-ramada throughout the multi-day ceremonial cycle; the matachín soldiers-of-the-Virgin dance-society performs in colorful crown-and-staff regalia. Performance: continuous days-long ceremonial-cycle with multiple specialized music-and-dance functions including the canónigos solemn liturgical procession, the venado-deer-dance hunting ceremony, and the matachín-soldier-of-the-Virgin processional.",
   "recipe": "classic Mexican modern yaqui pascola and matachín, ritual Devotional, indigenous branch, Latin am troubadour ballad poetry milonga folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar coated nanoweb fingerpicked parlor acoustic guitar, concert harp, yamaha modern Japanese mid to premium flute. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 475,
-  "score": 178.632,
+  "score": 178.438,
   "config": {
     "traditions": [
       "yaqui_pascola_matachin",
@@ -66,7 +66,7 @@
           "string_tuning": 0,
           "top_wood_parlor": 1.04,
           "back_sides_parlor": 0.35,
-          "string_acoustic_parlor": 1.8399999999999999
+          "string_acoustic_parlor": 1.6449999999999998
         }
       },
       {

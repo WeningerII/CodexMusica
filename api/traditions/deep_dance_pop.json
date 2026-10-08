@@ -1,135 +1,177 @@
 {
-  "id": "deep_dance_pop",
-  "name": "Deep Dance Pop",
+  "id": "dance_pop_2010s",
+  "merged_from": "deep_dance_pop",
+  "name": "Dance pop (2010s American-European EDM-influenced commercial pop)",
   "family": "pop",
-  "lineage": "Dance-pop discovery brings independent electronic-pop singers and club-oriented releases into conversation with familiar hook-led songwriting. Remixes, acoustic versions and piano interpretations extend this repertoire beyond its fully produced dance arrangements.",
-  "recipe": "classic deep dance pop, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. upright piano. treated studio.",
-  "recipe_chars": 139,
-  "score": 2.854,
+  "lineage": "2010s American-and-international pop subgenre integrating European-dance-music production-aesthetic with American pop-vocal-feature mainstream commercial framework. Lady Gaga's The Fame (2008-2009 launch), Ke$ha's Animal (2010), Katy Perry's Teenage Dream (2010), and the broader Max Martin, RedOne, Dr. Luke, and Ryan Tedder producer-network consolidated the canonical 2010s dance-pop production aesthetic. Distinguished by EDM-festival-aesthetic absorption into pop chart-mainstream.",
+  "recipe": "classic dance pop, functional Song, pop rock branch, house electronic dance deep house chicago house. thick, breath veiled tone, straight onset, interlocked note trading. plucked short envelope analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 611,
+  "score": 290.8,
   "config": {
     "traditions": [
-      "deep_dance_pop"
+      "dance_pop_2010s",
+      "deep_house_soulful",
+      "chicago_house"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
+          "voice_register": 40.98500000000002,
+          "voice_quality": 9.295,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": -0.035,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.2985,
-          "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 1,
-          "voice_multitrack_stack": 0.160875,
-          "voice_tessitura": 0
+          "voice_vibrato": 3.8149999999999995,
+          "voice_articulation": 15.079999999999997,
+          "voice_microtone": 31.475000000000005,
+          "voice_tradition": 27.070000000000007,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 8.849999999999998,
+          "voice_speech_song": 18.264999999999997,
+          "voice_ensemble_config": 16.249999999999996,
+          "voice_ornament_system": 0.7749999999999999,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 9.77,
+          "voice_multitrack_stack": 15.979999999999997
         }
       },
       {
-        "id": "upright_piano",
+        "id": "analog_synth",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_standard"
+          "electronic_technique": "electronic_pluck_short",
+          "oscillator": "triangle_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "sample_hold"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "upright_use": 0.18,
-          "upright_piano_size": 0
+          "electronic_technique": 30.375000000000007,
+          "oscillator": 1.4300000000000002,
+          "filter_topology": 1.6899999999999997,
+          "envelope": 0.3,
+          "modulation": 0.15
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 0.78,
+          "drum_machine_808_context": 7.699999999999999,
+          "tr808_production_origin": 0.78
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 11.659999999999998,
+          "body_wood": 0.845,
+          "pickup_config": 0.195,
+          "string_type": 7.209999999999998,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 0.135,
+          "bass_technique": 5.1949999999999985,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "multitrack_vocal_stack",
+        "slots": {
+          "multitrack_stack_density": "multitrack_density_octuple_plus",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
+        },
+        "scores": {
+          "multitrack_stack_density": 0.78,
+          "multitrack_stack_era_aesthetic": 9.145,
+          "multitrack_stack_processing": 8.735
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "upright_piano": [
-        "keyboard_technique",
-        "upright_use",
-        "upright_piano_size"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
-    "aesthetic": null,
+    "tuning": "twelve_tet",
+    "aesthetic": "maximalist_streaming_pop",
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "slow_vibrato",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "soapbar",
+      "string_type": "coated_nano_bass",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "sub_bass_synth_blend",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "keyboard_technique": "keyboard_classical_legato",
-      "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard"
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "electronic_technique": "electronic_arpeggiated",
+      "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+      "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+      "multitrack_stack_processing": "multitrack_processing_compressed_glued"
     },
-    "pin_parts": true
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_british_inline_80s"
   }
 }

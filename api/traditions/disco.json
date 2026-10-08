@@ -3,14 +3,14 @@
   "name": "Disco",
   "family": "blues_gospel",
   "lineage": "Mid-1970s through 1980 dance-floor evolution of Philly Soul orchestral pop, NYC club culture, and 4/4 thump rhythm — codified through Donna Summer / Giorgio Moroder collaborations (I Feel Love 1977, Munich Musicland), Chic (Nile Rodgers and Bernard Edwards at Atlantic / Power Station NYC), Bee Gees Saturday Night Fever (RSO 1977), KC and the Sunshine Band, Sister Sledge, the entire Studio 54 NYC era catalog",
-  "recipe": "classic North American 1974-1976 disco, electronic Dance, continental branch, soul R&B functional song, eurodance electronic dance northern soul and motown doo-wop. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled sticks pocket drum kit, string machine, tremolo raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s gospel runs rhodes electric, singing lead analog synth. philadelphia 1968-2003 mid tier sigma sound studios philadelphia. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
-  "recipe_chars": 885,
-  "score": 438.903,
+  "recipe": "classic North American 1974-1976 disco, electronic Dance, continental branch, soul R&B functional song, eurodance electronic dance doo-wop souldies. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, string machine, tremolo raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s gospel runs rhodes electric, singing lead analog synth. philadelphia 1968-2003 mid tier sigma sound studios philadelphia. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 874,
+  "score": 373.046,
   "config": {
     "traditions": [
       "disco",
-      "northern_soul_motown",
-      "doo_wop"
+      "doo_wop",
+      "souldies"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_12",
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -31,18 +31,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 20.769499999999997,
-          "amp_make": 23.5995,
-          "body_wood": 2.145,
-          "neck_wood": 2.145,
-          "fretboard": 2.0799999999999996,
+          "electric_technique": 15.444999999999999,
+          "amp_make": 18.715,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4299999999999997,
           "pickup_magnet": 1.17,
           "string_material": 1.17,
-          "string_gauge": 2.145,
+          "string_gauge": 2.8249999999999997,
           "bridge": 0.105,
-          "scale_length": 2.145,
+          "scale_length": 1.4949999999999999,
           "finish": 0,
-          "string_tuning": 4.615,
+          "string_tuning": 4.16,
           "single_coil_pickup_construction": 0
         }
       },
@@ -59,26 +59,26 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 26.264,
-          "body_wood": 2.145,
+          "amp_make": 19.574499999999997,
+          "body_wood": 1.4949999999999999,
           "pickup_config": 0,
-          "string_type": 30.488,
-          "scale_length_b": 3.19,
+          "string_type": 21.125,
+          "scale_length_b": 2.525,
           "fretted_or_not": 0.105,
-          "bass_technique": 20.074999999999996,
+          "bass_technique": 14.95,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_motown",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.624999999999996,
-          "drumhead": 9.949,
+          "drum_technique": 18.459999999999997,
+          "drumhead": 6.499499999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -88,13 +88,13 @@
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
           "sm_chorus": "sm_chorus_lush",
-          "sm_voicing": "sm_brass"
+          "sm_voicing": "sm_violins"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.06499999999999999,
           "sm_voice_count": 2.3155,
-          "sm_chorus": 1.95,
-          "sm_voicing": 0.78
+          "sm_chorus": 1.56,
+          "sm_voicing": 0.8
         }
       },
       {
@@ -113,27 +113,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 31.704499999999992,
-          "voice_quality": 20.995000000000008,
+          "voice_register": 23.504999999999992,
+          "voice_quality": 18.330000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0799999999999996,
-          "voice_articulation": 17.809999999999995,
-          "voice_microtone": 17.02999999999999,
-          "voice_tradition": 21.599499999999995,
-          "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 19.569999999999993,
-          "voice_speech_song": 22.749999999999996,
-          "voice_ensemble_config": 20.14999999999999,
-          "voice_ornament_system": 3.1200000000000014,
-          "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 11.553999999999998,
-          "voice_multitrack_stack": 10.879000000000001
+          "voice_vibrato": 3.12,
+          "voice_articulation": 18.979999999999997,
+          "voice_microtone": 18.199999999999992,
+          "voice_tradition": 17.674999999999997,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 16.539999999999996,
+          "voice_speech_song": 23.789999999999996,
+          "voice_ensemble_config": 20.474999999999994,
+          "voice_ornament_system": 2.2749999999999995,
+          "voice_pitch_organization": 1.05,
+          "voice_processing_chain": 13.7545,
+          "voice_multitrack_stack": 11.554499999999999
         }
       },
       {
@@ -144,15 +144,15 @@
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_raymac_tine",
           "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
-          "rhodes_pickup_position": "rhodes_pickup_far_bell"
+          "rhodes_pickup_position": "rhodes_pickup_close_bark"
         },
         "scores": {
-          "keyboard_technique": 20.264499999999998,
-          "rhodes_model": 2.49,
-          "rhodes_use": 7.344999999999999,
-          "rhodes_tine_material": 1.4299999999999997,
+          "keyboard_technique": 16.34,
+          "rhodes_model": 2.475,
+          "rhodes_use": 6.109999999999999,
+          "rhodes_tine_material": 2.0799999999999996,
           "rhodes_hammer_tip": 3.6399999999999997,
-          "rhodes_pickup_position": 0.2895
+          "rhodes_pickup_position": 0.65
         }
       },
       {
@@ -165,9 +165,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 10.679499999999999,
-          "oscillator": 2.145,
-          "filter_topology": 3.12,
+          "electronic_technique": 7.879999999999999,
+          "oscillator": 2.795,
+          "filter_topology": 2.4699999999999998,
           "envelope": 0.195,
           "modulation": 0.105
         }

@@ -1,16 +1,15 @@
 {
-  "id": "ambient_fusion",
-  "name": "Ambient fusion",
-  "family": "jazz",
-  "lineage": "Ambient-oriented electric improvisation and studio montage, represented by Jon Hassell and Maarifa Street’s Last Night the Moon Came Dropping Its Clothes in the Street (2009). Trumpet, bass, violin and live sampling dissolve the boundary between ensemble performance and electronic soundscape. Hassell’s Fourth World practice is a formative branch of this wider jazz/electronic intersection, not a synonym for every ambient-fusion recording.",
-  "recipe": "classic late-2000s ambient fusion, experimental Elec, ambient branch, American jazz fusion, musique concrete experimental electric dutch prog italian library music. bach stradivarius 180 canonical American orchestral jazz balance trumpet, ampeg b15 amp American 60s bass amp flip top character flatwound electric bass, modern setup longer neck longer fingerboard heavier bass bar violin orchestral, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 641,
-  "score": 51.58,
+  "id": "fourth_world",
+  "merged_from": "ambient_fusion",
+  "name": "Fourth world",
+  "family": "electronic",
+  "lineage": "Fourth World developed around Jon Hassell’s meeting of trumpet practice, electronic sound and musical influences crossing inherited stylistic boundaries. Its atmospheric textures link instrumental phrasing with studio and synthesis processes.",
+  "recipe": "classic fourth world, experimental Elec, ambient branch. trumpet, sustained pad modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 193,
+  "score": 8.349,
   "config": {
     "traditions": [
-      "ambient_fusion",
-      "dutch_prog",
-      "italian_library_music"
+      "fourth_world"
     ],
     "instruments": [
       {
@@ -18,7 +17,7 @@
         "slots": {
           "wind_articulation": "wind_continuous_legato",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_classical_legato",
           "trumpet_bell_metal": "trumpet_yellow_brass",
@@ -26,79 +25,27 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "brass_size": 0.65,
-          "trumpet_mouthpiece": 18.85,
+          "brass_size": 0.273,
+          "trumpet_mouthpiece": -0.1,
           "brass_mute": 0,
           "trumpet_technique": -0.05,
-          "trumpet_bell_metal": 0.8250000000000001,
-          "trumpet_maker_school": 2.8600000000000003
+          "trumpet_bell_metal": 0.9240000000000002,
+          "trumpet_maker_school": 0.9555
         }
       },
       {
-        "id": "electric_bass",
+        "id": "modular_synth",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
-          "pickup_config": "soapbar",
-          "string_type": "flatwound",
-          "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
-          "bass_technique": "thumb_muted",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          "electronic_technique": "electronic_pad_drone",
+          "mod_voltage_source": "mod_random",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_serge_tcherepnin"
         },
         "scores": {
-          "amp_make": 4.485000000000001,
-          "body_wood": 0.39,
-          "pickup_config": 0.44999999999999996,
-          "string_type": 14.45,
-          "scale_length_b": 0.44999999999999996,
-          "fretted_or_not": 0,
-          "bass_technique": -0.1,
-          "electric_bass_string_configuration": 0
-        }
-      },
-      {
-        "id": "violin_orchestral",
-        "slots": {
-          "bowed_technique": "bowed_sul_tasto",
-          "orch_strings": "synthetic_orch",
-          "orch_top_wood": "norway_spruce_alpine_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
-          "orch_varnish": "modern_synthetic_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
-          "orch_bow_stick": "carbon_fiber_stick_orch",
-          "orch_articulation": "arco_orch",
-          "orch_rosin": "magic_rosin_orch"
-        },
-        "scores": {
-          "bowed_technique": -0.035,
-          "orch_strings": 0,
-          "orch_top_wood": -0.07,
-          "orch_back_wood": 0.9099999999999999,
-          "orch_varnish": 0.325,
-          "orch_setup_period": 2.145,
-          "orch_bow": 0,
-          "orch_bow_stick": -0.035,
-          "orch_articulation": 0.585,
-          "orch_rosin": -0.035
-        }
-      },
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "mpc_modern",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_post"
-        },
-        "scores": {
-          "electronic_technique": 6.25,
-          "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.9450000000000001,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 1.2149999999999999
+          "electronic_technique": 4.1995000000000005,
+          "mod_voltage_source": 0.3315,
+          "mod_patch_density": 1.95,
+          "mod_lineage": -0.035
         }
       }
     ],
@@ -106,84 +53,54 @@
       "trumpet": [
         "wind_articulation",
         "brass_size",
+        "trumpet_mouthpiece",
         "brass_mute",
-        "trumpet_technique"
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
       ],
-      "electric_bass": [
-        "string_type",
-        "fretted_or_not",
-        "bass_technique"
-      ],
-      "violin_orchestral": [
-        "bowed_technique",
-        "orch_strings",
-        "orch_top_wood",
-        "orch_back_wood",
-        "orch_setup_period",
-        "orch_bow",
-        "orch_articulation"
-      ],
-      "sampler_classic": [
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
       ]
     },
-    "room": "studio_auteur_home_pro",
-    "archetype": "arch_modern_pro_daw_studio",
+    "room": "treated_studio",
     "inline_chain": {
-      "mic": "ribbon_active",
-      "pre": "transformer_solid_state",
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
       "console": "console_in_the_box",
-      "comp": "comp_optical",
-      "eq": "eq_mastering_clean_digital",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": [
-      "pitch_shifter",
-      "digital_delay",
-      "hall_reverb"
-    ]
+    "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "studio_auteur_home_pro",
+    "room": "treated_studio",
     "parts": {
       "wind_articulation": "wind_continuous_legato",
       "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
       "brass_mute": "no_mute_brass",
       "trumpet_technique": "trumpet_classical_legato",
-      "bass_technique": "thumb_muted",
-      "string_type": "flatwound",
-      "fretted_or_not": "fretless",
-      "bowed_technique": "bowed_sul_tasto",
-      "orch_articulation": "arco_orch",
-      "orch_strings": "synthetic_orch",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_archetypes": "mpc_modern",
-      "sampler_classic_context": "sampler_classic_post",
-      "orch_setup_period": "modern_setup_violin",
-      "orch_bow": "modern_bow",
-      "orch_top_wood": "norway_spruce_alpine_violin",
-      "orch_back_wood": "bosnian_flamed_maple_violin"
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "electronic_technique": "electronic_pad_drone",
+      "mod_voltage_source": "mod_random",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_serge_tcherepnin"
     },
     "pin_parts": true,
-    "chain_mic": "ribbon_active",
-    "chain_pre": "transformer_solid_state",
-    "chain_comp": "comp_optical",
-    "chain_eq": "eq_mastering_clean_digital",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box",
-    "chain_fx": [
-      "pitch_shifter",
-      "digital_delay",
-      "hall_reverb"
-    ]
+    "chain_console": "console_in_the_box"
   }
 }

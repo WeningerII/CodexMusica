@@ -3,14 +3,14 @@
   "name": "Dabke (Levantine line-dance music)",
   "family": "global",
   "lineage": "Line-dance music of Lebanon, Syria, Palestine and Jordan, played at village weddings for centuries and turned into an amplified cassette genre from the 1980s by Syrian and Palestinian wedding singers such as Omar Souleyman, Ali El Deek and Samir Shukri — mijwiz or arghul double-clarinet riffs, later Korg keyboards imitating them, over tabl and derbouka driving a stamping 4/4 or 6/8 at 100-160 BPM, with maqam-based sung couplets and shouted ataba and mijana vocal preludes.",
-  "recipe": "classic mid-1980s dabke, wedding, middle eastern branch, mid east n African pop functional song, wind pipe drone modal mezwed shaabi. extended whistle, breath veiled tone, slow rate, interlocked note trading. driving circular breathed mijwiz, reedy drone under melody folk arghul, tabl baladi, Egyptian sombaty canonical mid east darbuka, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, fast roll beech mid tier modern riq, lyrical ornamented song supporting buzuq. urban courtyard. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 604,
-  "score": 256.095,
+  "recipe": "classic mid-1980s dabke, wedding, middle eastern branch, mid east n African pop functional song, wind pipe drone modal mezwed maghreb. extended whistle, breath veiled tone, slow rate, interlocked note trading. driving circular breathed mijwiz, folk continuous drone arghul, tabl baladi, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, fast roll beech mid tier modern riq, lyrical ornamented song supporting buzuq. urban courtyard. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 632,
+  "score": 270.78,
   "config": {
     "traditions": [
       "dabke",
       "mezwed",
-      "shaabi"
+      "maghreb"
     ],
     "instruments": [
       {
@@ -30,12 +30,12 @@
         "id": "arghul",
         "slots": {
           "arghul_form": "arghul_soghir",
-          "arghul_context": "arghul_taqsim",
+          "arghul_context": "arghul_sufi_zikr",
           "arghul_reed": "arghul_reed_idioglot"
         },
         "scores": {
-          "arghul_form": 5.05875,
-          "arghul_context": 6.0625,
+          "arghul_form": 5.25375,
+          "arghul_context": 3.965,
           "arghul_reed": -0.05
         }
       },
@@ -47,7 +47,7 @@
         },
         "scores": {
           "tabl_baladi_size": 0,
-          "tabl_baladi_sticks": 21.254999999999995
+          "tabl_baladi_sticks": 23.4
         }
       },
       {
@@ -59,10 +59,10 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 0.26,
+          "percussion_technique": 0.9099999999999999,
           "darbuka_material": 0.39,
-          "darbuka_skin": 0.845,
-          "darbuka_regional_style": 6.11
+          "darbuka_skin": 1.04,
+          "darbuka_regional_style": 6.5649999999999995
         }
       },
       {
@@ -75,7 +75,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "arabic_maqam_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -87,20 +87,20 @@
         },
         "scores": {
           "voice_register": 7.085,
-          "voice_quality": 10.464999999999991,
+          "voice_quality": 9.815,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7950000000000004,
-          "voice_articulation": 21.449999999999996,
-          "voice_microtone": 29.672499999999992,
-          "voice_tradition": 9.360000000000001,
-          "voice_mechanism_compound": 5.135,
-          "voice_estill_quality": 3.380000000000001,
-          "voice_speech_song": 23.269999999999992,
-          "voice_ensemble_config": 22.164999999999992,
-          "voice_ornament_system": 6.90625,
-          "voice_pitch_organization": 6.90625,
-          "voice_processing_chain": 5.4325,
+          "voice_vibrato": 3.9975,
+          "voice_articulation": 22.944999999999997,
+          "voice_microtone": 33.285000000000004,
+          "voice_tradition": 10.855,
+          "voice_mechanism_compound": 5.590000000000001,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 26.91,
+          "voice_ensemble_config": 22.81499999999999,
+          "voice_ornament_system": 8.575,
+          "voice_pitch_organization": 7.925000000000001,
+          "voice_processing_chain": 4.6325,
           "voice_multitrack_stack": 4.56625
         }
       },
@@ -113,10 +113,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 5.656250000000001,
+          "electronic_technique": 5.45,
           "poly_archetypes": 0.3,
           "poly_voices": 0,
-          "poly_maker_lineage": 1.8325
+          "poly_maker_lineage": 2.3325
         }
       },
       {
@@ -129,8 +129,8 @@
           "riq_jingles": "riq_brass_jingles"
         },
         "scores": {
-          "riq_size": 2.08,
-          "riq_context": 0.8250000000000001,
+          "riq_size": 1.19375,
+          "riq_context": 0.845,
           "riq_shell_wood": 3.25,
           "riq_head_material": 0.39,
           "riq_jingles": 0.15
@@ -144,8 +144,8 @@
           "buzuq_frets": "buzuq_frets_metal"
         },
         "scores": {
-          "buzuq_form": 7.8875,
-          "buzuq_repertoire": 8.2875,
+          "buzuq_form": 7.2,
+          "buzuq_repertoire": 9.847499999999998,
           "buzuq_frets": 0.26
         }
       }

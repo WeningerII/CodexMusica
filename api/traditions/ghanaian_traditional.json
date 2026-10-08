@@ -5,7 +5,7 @@
   "lineage": "Ghanaian traditional music encompasses distinct community repertoires, ceremonies and instrumental practices. Dagomba pressure-drum ensembles form one important strand within this varied national field.",
   "recipe": "classic ghanaian traditional, ritual Devotional. donno talking drum. shoebox concert hall.",
   "recipe_chars": 90,
-  "score": 1.669,
+  "score": 1.764,
   "config": {
     "traditions": [
       "ghanaian_traditional"
@@ -58,7 +58,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

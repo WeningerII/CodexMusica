@@ -5,7 +5,7 @@
   "lineage": "Canadian metalcore connects heavy guitar writing with hardcore song and rhythmic traditions. Montreal’s Despised Icon illustrate its overlap with deathcore and grind through direct hardcore pulses, dense riffs and alternating vocal attacks.",
   "recipe": "classic modern canadian metalcore, distorted Rock, metal branch, punk distorted rock adelaide punk alabama hardcore. duet, live take. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, high-headroom ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 550,
-  "score": 99.855,
+  "score": 99.22,
   "config": {
     "traditions": [
       "canadian_metalcore",
@@ -32,14 +32,14 @@
         },
         "scores": {
           "electric_technique": 12.252500000000001,
-          "amp_make": 22.620000000000005,
-          "body_wood": 0.585,
+          "amp_make": 22.57,
+          "body_wood": 0.39,
           "neck_wood": 0.09,
           "fretboard": 0.65,
           "pickup_magnet": 0,
           "pickup_winding": 0.195,
           "string_material": 0.09,
-          "bridge": 0.585,
+          "bridge": 0.39,
           "scale_length": 0,
           "string_gauge": 0.7,
           "finish": 0,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "amp_make": 6.175000000000001,
-          "body_wood": 0.585,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0.28500000000000003,
           "scale_length_b": 0,

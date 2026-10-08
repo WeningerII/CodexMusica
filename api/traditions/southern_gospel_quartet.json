@@ -5,7 +5,7 @@
   "lineage": "White-Southern shape-note male-quartet gospel tradition codified through the Stamps-Baxter (founded 1924 Dallas) and James D. Vaughan (founded 1912 Lawrenceburg TN) shape-note songbook publishing infrastructure — performed by quartets including the Stamps Quartet (founded 1924), the Blackwood Brothers, the Statesmen Quartet, the Jordanaires (who backed Elvis Presley on his RCA gospel albums), Cathedral Quartet, the Gaither Vocal Band; characterized by male vocal quartet (first tenor, second tenor, baritone, bass) with piano or tonewheel organ accompaniment",
   "recipe": "classic Southern American mid-1920s southern gospel quartet, ritual Devotional, southern gospel branch, christian gospel black gospel gospel quartet contemporary urban gospel. thick, declaimed, straight note core, multi note runs per syllable. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, hocket interlocked single note distribution andean three voice parallel thirds quechua aymara choir ensemble. southern white church gospel quartet. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 609,
-  "score": 376.92,
+  "score": 381.192,
   "config": {
     "traditions": [
       "southern_gospel_quartet",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 40.96400000000002,
-          "voice_quality": 46.77500000000002,
+          "voice_quality": 46.81550000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.22,
-          "voice_articulation": 41.273,
+          "voice_vibrato": 4.210999999999999,
+          "voice_articulation": 41.508500000000005,
           "voice_microtone": 7.345000000000001,
-          "voice_tradition": 46.05200000000001,
-          "voice_mechanism_compound": 3.8885,
+          "voice_tradition": 47.74700000000001,
+          "voice_mechanism_compound": 3.9650000000000003,
           "voice_estill_quality": 39.06300000000001,
           "voice_speech_song": 7.994999999999999,
           "voice_ensemble_config": 36.96800000000001,
           "voice_ornament_system": 10.025000000000002,
-          "voice_pitch_organization": 0.5784999999999998,
-          "voice_processing_chain": 7.589499999999999,
+          "voice_pitch_organization": 0.5499999999999998,
+          "voice_processing_chain": 8.3035,
           "voice_multitrack_stack": 6.174999999999999
         }
       },
@@ -66,11 +66,11 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 45.34250000000001,
-          "grand_piano_size": 0.3045,
+          "keyboard_technique": 46.8875,
+          "grand_piano_size": 0.3,
           "grand_piano_brand": 1.2349999999999999,
           "piano_hammer": 3.25,
-          "piano_rim": 8.334,
+          "piano_rim": 8.3055,
           "piano_soundboard": 5.330000000000001,
           "piano_pinblock": 1.7500000000000002,
           "piano_plate": 1.625,
@@ -86,7 +86,7 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 0.654,
+          "choir_size": 0.69,
           "choir_polyphonic_configuration": 3.4804999999999993,
           "choir_regional_canonical_configuration": 1.625,
           "choir_ensemble_repertoire": 3.6399999999999997

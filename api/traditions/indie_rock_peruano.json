@@ -5,7 +5,7 @@
   "lineage": "Peruvian indie rock includes guitar bands joining classic and contemporary rock approaches.",
   "recipe": "classic indie rock peruano, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 314,
-  "score": 29.412,
+  "score": 29.276,
   "config": {
     "traditions": [
       "indie_rock_peruano"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 5.720000000000001,
-          "body_wood": 1.7429999999999999,
+          "body_wood": 1.848,
           "neck_wood": 0.105,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.45825,
+          "bridge": 0.35325,
           "scale_length": 0,
-          "string_gauge": 0.45825,
+          "string_gauge": 0.35325,
           "finish": 0,
           "string_tuning": 0.042749999999999996
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 6.175,
-          "body_wood": 1.7429999999999999,
+          "body_wood": 1.848,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 11.25,
-          "drumhead": 0.378,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.17925000000000002,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.222,
+          "voice_processing_chain": 0.1905,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

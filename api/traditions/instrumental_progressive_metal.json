@@ -1,98 +1,182 @@
 {
-  "id": "instrumental_progressive_metal",
-  "name": "Instrumental progressive metal",
+  "id": "djent",
+  "merged_from": "instrumental_progressive_metal",
+  "name": "Djent (mid-2000s polymetric-down-tuned progressive metal)",
   "family": "rock_punk",
-  "lineage": "Instrumental progressive metal represented by Animals as Leaders’ two-guitar-and-drums practice, with synthesizer color. Exact defaults are an authored contemporary realization.",
-  "recipe": "classic modern instrumental progressive metal, distorted Rock, prog branch. eight string electric, sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 279,
-  "score": 9.399,
+  "lineage": "Mid-2000s progressive-metal subgenre developed through Meshuggah-derived polymetric-rhythmic-and-down-tuned guitar production (the term \"djent\" is onomatopoeic for the distinctive percussive palm-muted heavily-distorted seven-or-eight-string guitar attack). Periphery (Misha Mansoor, founded 2005), Animals As Leaders (Tosin Abasi), TesseracT, Monuments, and the broader Sumerian Records and Basick Records label rosters anchor the canonical djent roster.",
+  "recipe": "classic djent, distorted Rock, thrash branch, western modern art music epicore indeterminacy and aleatoric. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 626,
+  "score": 291.01,
   "config": {
     "traditions": [
-      "instrumental_progressive_metal"
+      "djent",
+      "epicore",
+      "indeterminacy_aleatoric"
     ],
     "instruments": [
       {
-        "id": "eight_string_electric",
+        "id": "voice",
         "slots": {
-          "eight_string_tuning": "eight_string_low_f_sharp",
-          "eight_string_technique": "eight_string_djent_chug"
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "eight_string_tuning": 0.063,
-          "eight_string_technique": 0.39
+          "voice_register": 10.325000000000001,
+          "voice_quality": 9.945,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.734999999999999,
+          "voice_articulation": 9.75,
+          "voice_microtone": 14.989999999999998,
+          "voice_tradition": 7.085000000000001,
+          "voice_mechanism_compound": 14.449999999999998,
+          "voice_estill_quality": 5.87,
+          "voice_speech_song": 11.764999999999997,
+          "voice_ensemble_config": 10.919999999999996,
+          "voice_ornament_system": 3.0300000000000002,
+          "voice_pitch_organization": 2.7900000000000005,
+          "voice_processing_chain": 5.525000000000001,
+          "voice_multitrack_stack": 8.865
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "stainless_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_c"
+        },
+        "scores": {
+          "electric_technique": 16.675,
+          "amp_make": 25.745,
+          "body_wood": 16.315,
+          "neck_wood": 3.19,
+          "fretboard": 3.14,
+          "pickup_magnet": 4.55,
+          "pickup_winding": 2.8600000000000003,
+          "string_material": 0.6299999999999999,
+          "bridge": 3.19,
+          "scale_length": 11.634999999999998,
+          "string_gauge": 4.685,
+          "finish": 0,
+          "string_tuning": 11.634999999999998
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 16.795,
+          "body_wood": 5.135,
+          "pickup_config": 3.5100000000000002,
+          "string_type": 6.010000000000001,
+          "scale_length_b": 3.5100000000000002,
+          "fretted_or_not": 1.3,
+          "bass_technique": 6.65,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 4.605,
-          "drumhead": 0.563,
+          "drum_technique": 9.815,
+          "drumhead": 6.790000000000001,
           "drum_kit_kick_pedal": 0
-        }
-      },
-      {
-        "id": "analog_poly_synth",
-        "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
-        },
-        "scores": {
-          "electronic_technique": 0.2315,
-          "poly_archetypes": 2.34,
-          "poly_voices": 1.2415,
-          "poly_maker_lineage": -0.035
         }
       }
     ],
-    "pinned": {
-      "eight_string_electric": [
-        "eight_string_tuning",
-        "eight_string_technique"
-      ],
-      "drum_kit": [
-        "drum_technique"
-      ],
-      "analog_poly_synth": [
-        "electronic_technique"
-      ]
-    },
-    "room": "studio_auteur_home_pro",
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "dynamic_mic",
-      "pre": "pre_500_series_modern",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
-      "amp": null,
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_mesa_dual_rectifier",
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "studio_auteur_home_pro",
+    "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+    "room": "studio_distributed_production",
     "parts": {
+      "body_wood": "mahogany_h",
+      "pickup_magnet": "ceramic_h",
+      "string_material": "stainless_h",
+      "bridge": "stoptail",
+      "pickup_config": "humbucker_mm",
+      "string_type": "roundwound_s",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive",
+      "drumhead": "double_coated",
       "drum_technique": "sticks_rock",
-      "electronic_technique": "electronic_pad_drone",
-      "eight_string_tuning": "eight_string_low_f_sharp",
-      "eight_string_technique": "eight_string_djent_chug"
+      "voice_register": "chest_voice",
+      "voice_quality": "pressed_phonation_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "string_tuning": "standard_tuning"
     },
-    "pin_parts": true,
-    "chain_mic": "dynamic_mic",
-    "chain_pre": "pre_500_series_modern",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_console": "console_british_inline_80s",
+    "chain_amp": "amp_mesa_dual_rectifier",
+    "chain_amp_guitar": "amp_mesa_dual_rectifier",
+    "chain_amp_bass": "amp_american_ampeg_svt"
   }
 }

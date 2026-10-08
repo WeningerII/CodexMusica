@@ -3,9 +3,9 @@
   "name": "Classic russian pop",
   "family": "pop",
   "lineage": "Classic Russian pop connects established popular songs with singer-songwriter and band traditions that continue to perform them.",
-  "recipe": "classic classic russian pop, functional Song, europop branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 311,
-  "score": 26.64,
+  "recipe": "classic classic russian pop, functional Song, europop branch. solo with instrumental accompaniment. basswood clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 320,
+  "score": 26.881,
   "config": {
     "traditions": [
       "classic_russian_pop"
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": 7.45,
           "amp_make": 0,
-          "body_wood": 0.9240000000000002,
+          "body_wood": 1.0605000000000002,
           "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0.2415,
           "pickup_winding": 2.18,
           "string_material": 0,
           "bridge": 0.273,
-          "scale_length": 0.714,
+          "scale_length": 0.8190000000000002,
           "string_gauge": 0.3045,
           "finish": 0,
           "string_tuning": 0

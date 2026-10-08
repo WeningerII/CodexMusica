@@ -1,0 +1,130 @@
+{
+  "id": "chindon_ya",
+  "name": "Chindon-ya (Japanese street advertising band)",
+  "family": "global",
+  "lineage": "Chindon-ya are costumed street bands hired to advertise shop openings and sales, a trade that grew in Osaka and Tokyo from the Meiji era and drew on the jinta street brass bands of the Meiji and Taishō eras. The chindon player wears a rig of a small gong and two small drums, joined by a bass drum (gorosu) and a melody player on clarinet or saxophone; the kane card stands in for the gong and the shime-daiko card for the small drums.",
+  "recipe": "classic modern chindon-ya, carnival Processional, east Asian branch. clarinet, shime daiko, kane japanese, bass drum. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 197,
+  "score": 0.572,
+  "config": {
+    "traditions": [
+      "chindon_ya"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "clarinet_body": -0.15000000000000002,
+          "clarinet_size": 0.0315,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "shime_daiko",
+        "slots": {
+          "shime_daiko_tension": "shime_daiko_namitsuke",
+          "shime_daiko_hardware": "shime_daiko_rope"
+        },
+        "scores": {
+          "shime_daiko_tension": 0,
+          "shime_daiko_hardware": 0
+        }
+      },
+      {
+        "id": "kane_japanese",
+        "slots": {
+          "kane_japanese_stroke": "kane_japanese_rim",
+          "kane_japanese_beater": "kane_japanese_antler",
+          "kane_japanese_context": "kane_japanese_matsuri"
+        },
+        "scores": {
+          "kane_japanese_stroke": 0.3315,
+          "kane_japanese_beater": 0.39,
+          "kane_japanese_context": 0.1575
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.0315,
+          "bass_drum_beater": 0
+        }
+      }
+    ],
+    "pinned": {
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "shime_daiko": [
+        "shime_daiko_tension",
+        "shime_daiko_hardware"
+      ],
+      "kane_japanese": [
+        "kane_japanese_stroke",
+        "kane_japanese_beater",
+        "kane_japanese_context"
+      ],
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ]
+    },
+    "room": "urban_courtyard",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "urban_courtyard",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "shime_daiko_tension": "shime_daiko_namitsuke",
+      "shime_daiko_hardware": "shime_daiko_rope",
+      "kane_japanese_stroke": "kane_japanese_rim",
+      "kane_japanese_beater": "kane_japanese_antler",
+      "kane_japanese_context": "kane_japanese_matsuri",
+      "bass_drum_size": "bass_drum_22_standard",
+      "bass_drum_beater": "bass_drum_felt_pedal"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Aka / Baka forest forager polyphony",
   "family": "global",
   "lineage": "Central African Republic and southeastern Cameroon Aka / Baka / BaYaka rainforest hunter-gatherer four-and-more-part polyphonic vocal tradition — characterized by four canonical voice-parts in the Aka system (motangole the principal melodic voice, ngue-wa-lembo the equivalent of a bass anchor, osese the middle voice, and diyei the upper yodeled M1-M2-rapid-alternation voice with open vowels in M1 and closed/high vowels in M2), hocket interlocking single-note distribution across the ensemble, polyrhythmic-layered independent ostinato cycles per voice, and overlap-driven entrance-and-exit aesthetic; documented through the Simha Arom canonical ethnomusicological field-recording-and-analysis program (1970s-onward Centre National de la Recherche Scientifique France) and Susanne Fürniss yodel-mechanism phonetic analysis, with parallel Mbenga-Mbuti (Ituri Forest DRC pygmy-polyphonic tradition) related-but-distinct repertoire",
-  "recipe": "classic mid-1970s aka / baka forest forager polyphony, drone Modal, heterophonic branch, indigenous ritual devotional, west African griot ballad poetry tuareg tendé pestle-rhythm song shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional mbenga mbuti three voice ostinato hocket yodel global traditional polyphonic choir ensemble. forest clearing. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 550,
-  "score": 355.226,
+  "recipe": "classic mid-1970s aka / baka forest forager polyphony, drone Modal, heterophonic branch, indigenous ritual devotional, west African griot ballad poetry tuareg tendé pestle-rhythm song mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional mbenga mbuti three voice ostinato hocket yodel global traditional polyphonic choir ensemble. forest clearing. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 547,
+  "score": 350.91,
   "config": {
     "traditions": [
       "aka_baka_polyphony",
       "tuareg_tende_pestle",
-      "shipibo_icaros"
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 2.73,
-          "voice_quality": 47.84000000000003,
+          "voice_quality": 42.12000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.225000000000001,
-          "voice_articulation": 33.93000000000001,
-          "voice_microtone": 28.275000000000006,
+          "voice_vibrato": 5.070000000000002,
+          "voice_articulation": 33.28000000000001,
+          "voice_microtone": 27.43,
           "voice_tradition": 31.004999999999995,
-          "voice_mechanism_compound": 14.689999999999998,
-          "voice_estill_quality": 10.01,
-          "voice_speech_song": 28.210000000000008,
-          "voice_ensemble_config": 50.245000000000026,
-          "voice_ornament_system": 14.005,
-          "voice_pitch_organization": 5.80875,
-          "voice_processing_chain": 9.259999999999998,
+          "voice_mechanism_compound": 16.185,
+          "voice_estill_quality": 10.854999999999997,
+          "voice_speech_song": 27.365000000000006,
+          "voice_ensemble_config": 49.59500000000001,
+          "voice_ornament_system": 13.355,
+          "voice_pitch_organization": 4.9350000000000005,
+          "voice_processing_chain": 9.604999999999999,
           "voice_multitrack_stack": 6.500000000000002
         }
       },
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 13.325,
-          "choir_polyphonic_configuration": 23.759999999999998,
-          "choir_regional_canonical_configuration": 18.602499999999996,
-          "choir_ensemble_repertoire": 14.104999999999997
+          "choir_size": 16.770000000000003,
+          "choir_polyphonic_configuration": 23.019999999999996,
+          "choir_regional_canonical_configuration": 18.784999999999997,
+          "choir_ensemble_repertoire": 12.804999999999996
         }
       }
     ],

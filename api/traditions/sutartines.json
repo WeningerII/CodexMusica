@@ -1,16 +1,17 @@
 {
-  "id": "sutartines",
-  "name": "Sutartinės",
-  "family": "vernacular",
-  "lineage": "Northeast Lithuanian (Aukštaitija) multipart singing documented from the 17th century and recorded intensively from the 1900s by Jonas Basanavičius and later Zenonas Slaviūnas — two, three or four women singing canonically offset lines that collide in sustained major seconds, in syncopated duple meter over nonsense refrain syllables (sodauto, lylio, tititi), often doubled by skudučiai panpipe sets, birbynė reeds or wooden trumpets where each player sounds a single pitch in interlocking hocket.",
-  "recipe": "classic Northern European mid-1900s sutartinės, drone Modal, vocal branch, Slavic baltic domestic rhythm, Slavic balkan field work, wind pipe drone modal latvian folk music estonian folk music. vocal fry, breath veiled tone, straight note core, interlocked note trading. multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai, board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, birbyne. baltic outdoor village. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 596,
-  "score": 142.057,
+  "id": "lithuanian_sutartines",
+  "merged_from": "sutartines",
+  "name": "Lithuanian sutartinės multipart",
+  "family": "global",
+  "lineage": "Lithuanian sutartinės multipart-singing tradition of northeastern Lithuania (Aukštaitija region). Sutartinės are female-group (occasionally mixed-or-male) polyphonic songs in characteristic parallel-second intervals — two-or-three voices moving in tight major-second-and-minor-second clusters, with strict canonical-imitative entry-patterns at the second or fourth. The genre includes vocal-only (sutartinės-as-song) and instrumental variants performed on kanklės (board zither, finger-plucked) and skudučiai (multiple-tube pan-pipes played by multiple players in hocketed pattern, with each player blowing only one tube and the melodic line resulting from the rapid alternation across players). Sutartinė structure typically alternates between an opening-formula sung by one voice, an answering response from the second voice, and the eventual building-up of the canonical two-or-three-voice texture. Repertoire spans work-song accompaniment, calendar-rite celebrations, wedding-cycle songs, and the broader Baltic narrow-range narrative-poetic tradition. Modal vocabulary draws on the Lithuanian sutartinės parallel-seconds vocabulary, considered one of the most archaic tonal systems in Europe with possible deep Indo-European ritual-music continuity. Zenonas Slaviūnas's three-volume 1820-sutartinė edition (1958-1959) is the foundational corpus-documentation; Stasys Paliulis's instrumental-sutartinė collection complements the vocal corpus; Distinguished from Latvian dainas by Lithuanian sutartinės parallel-seconds polyphonic configuration (vs Latvian-dainas-as-mostly-monophonic-or-heterophonic); distinguished from Estonian Setu leelo by Lithuanian's strict-canonical-imitation (vs Setu's call-and-response-with-drone-bourdon) architecture.",
+  "recipe": "classic Northern European 1958-1959 lithuanian sutartinės multipart, drone Modal, vocal branch, indigenous ritual devotional mapuche tayil genealogical chant música mapuche. vocal fry, breath veiled tone, straight note core, interlocked note trading. board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 555,
+  "score": 289.282,
   "config": {
     "traditions": [
-      "sutartines",
-      "latvian_folk_music",
-      "estonian_folk_music"
+      "lithuanian_sutartines",
+      "mapuche_tayil_ritual",
+      "musica_mapuche"
     ],
     "instruments": [
       {
@@ -25,42 +26,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.4050000000000002,
-          "voice_quality": 15.079999999999993,
+          "voice_register": 5.59,
+          "voice_quality": 33.67,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6100000000000003,
-          "voice_articulation": 17.16,
-          "voice_microtone": 18.914999999999992,
-          "voice_tradition": 13.389999999999997,
-          "voice_mechanism_compound": 6.045,
-          "voice_estill_quality": 3.9631250000000002,
-          "voice_speech_song": 18.069999999999997,
-          "voice_ensemble_config": 18.784999999999997,
-          "voice_ornament_system": 3.5100000000000016,
-          "voice_pitch_organization": 5.03875,
-          "voice_processing_chain": 5.525,
-          "voice_multitrack_stack": 3.1200000000000006
-        }
-      },
-      {
-        "id": "skuduciai",
-        "slots": {
-          "skuduciai_body": "skuduciai_multiple_pipes_hocketed_canonical",
-          "skuduciai_tradition": "skuduciai_sutartines_canonical"
-        },
-        "scores": {
-          "skuduciai_body": 2.0799999999999996,
-          "skuduciai_tradition": 2.0799999999999996
+          "voice_vibrato": 6.142499999999999,
+          "voice_articulation": 24.764999999999997,
+          "voice_microtone": 29.705,
+          "voice_tradition": 24.83,
+          "voice_mechanism_compound": 14.95,
+          "voice_estill_quality": 9.815,
+          "voice_speech_song": 27.364999999999995,
+          "voice_ensemble_config": 25.609999999999992,
+          "voice_ornament_system": 7.345000000000001,
+          "voice_pitch_organization": 5.485,
+          "voice_processing_chain": 13.389999999999997,
+          "voice_multitrack_stack": 8.125
         }
       },
       {
@@ -70,24 +60,24 @@
           "kankles_tradition": "kankles_sutartines_canonical"
         },
         "scores": {
-          "kankles_body": 4.225,
-          "kankles_tradition": 2.0799999999999996
+          "kankles_body": 14.685,
+          "kankles_tradition": 11.979999999999999
         }
       },
       {
-        "id": "birbyne",
+        "id": "skuduciai",
         "slots": {
-          "birbyne_form": "birbyne_bark",
-          "birbyne_reed": "birbyne_heteroglot"
+          "skuduciai_body": "skuduciai_multiple_pipes_hocketed_canonical",
+          "skuduciai_tradition": "skuduciai_sutartines_canonical"
         },
         "scores": {
-          "birbyne_form": 0.15,
-          "birbyne_reed": 0.15
+          "skuduciai_body": 17.83,
+          "skuduciai_tradition": 13.475
         }
       }
     ],
     "room": "baltic_outdoor_village",
-    "archetype": "arch_nagra_ethnographic_field",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
@@ -95,7 +85,7 @@
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "tape_15ips"
+      "medium": "digital_high"
     },
     "tuning": "lithuanian_sutartines_seconds",
     "aesthetic": null,
@@ -105,9 +95,28 @@
   "source": {
     "tuning": "lithuanian_sutartines_seconds",
     "room": "baltic_outdoor_village",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "bend_inflected",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "kankles_body": "kankles_board_zither_finger_plucked_canonical",
+      "kankles_tradition": "kankles_sutartines_canonical",
+      "skuduciai_body": "skuduciai_multiple_pipes_hocketed_canonical",
+      "skuduciai_tradition": "skuduciai_sutartines_canonical"
+    },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "tape_15ips",
+    "chain_medium": "digital_high",
     "chain_console": "clean"
   }
 }

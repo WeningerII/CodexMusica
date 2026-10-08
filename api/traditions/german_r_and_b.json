@@ -5,7 +5,7 @@
   "lineage": "German R&B connects Germany-based songwriting and production with international soul traditions. Artists such as Joy Denalane work across German and English, combining expressive singing with both band arrangements and contemporary studio practice.",
   "recipe": "classic modern german r&b, functional Song, soul R&B branch. multi note runs per syllable, many notes per syllable, solo with instrumental accompaniment. wurlitzer ep, single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 465,
-  "score": 24.086,
+  "score": 24.285,
   "config": {
     "traditions": [
       "german_r_and_b"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 4.031750000000001,
+          "voice_articulation": 4.1682500000000005,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -65,7 +65,7 @@
           "keyboard_technique": -0.07,
           "wurlitzer_use": 0,
           "wurlitzer_ep_voice": 0.3,
-          "wurlitzer_model": -1.6614999999999998,
+          "wurlitzer_model": -1.5984999999999998,
           "wurlitzer_reed_material": 0.78
         }
       },

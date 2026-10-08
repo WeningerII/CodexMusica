@@ -5,7 +5,7 @@
   "lineage": "Dallas–Fort Worth rap develops through local mixtape, DJ and recording networks, encompassing dance-oriented records and other rap styles. Dorrough’s late-2000s breakthrough helped carry a sparse, hook-centered club sound beyond the metroplex.",
   "recipe": "classic 2007-2009 dfw rap, mc Rhythm, southern branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, echo word punctuation. TR-808, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 309,
-  "score": 36.797,
+  "score": 36.437,
   "config": {
     "traditions": [
       "dfw_rap"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 13.954500000000001,
+          "voice_quality": 13.755,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.4635,
-          "voice_ensemble_config": 1.155,
+          "voice_speech_song": 13.432,
+          "voice_ensemble_config": 1.365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.925,
-          "drum_machine_808_context": 1.1865,
-          "tr808_production_origin": 0.546
+          "tr808_voice": 2.8064999999999998,
+          "drum_machine_808_context": 0.8295000000000001,
+          "tr808_production_origin": 0.6825000000000001
         }
       },
       {

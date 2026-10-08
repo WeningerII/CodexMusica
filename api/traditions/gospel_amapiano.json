@@ -5,7 +5,7 @@
   "lineage": "Gospel amapiano connects South African amapiano production with Christian singing and worship-centered events. Producers and DJs draw on township dance music while foregrounding praise, testimony and communal participation.",
   "recipe": "classic gospel amapiano, ritual Devotional, christian gospel branch. small note groups per syllable. log drum, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, drum machine analog. live tracking.",
   "recipe_chars": 234,
-  "score": 22.265,
+  "score": 21.855,
   "config": {
     "traditions": [
       "gospel_amapiano"
@@ -74,11 +74,11 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 11.1615,
+          "keyboard_technique": 11.298,
           "rhodes_model": 0.25,
-          "rhodes_use": 0.7364999999999999,
-          "rhodes_tine_material": 0.9555,
-          "rhodes_hammer_tip": 0.8190000000000002,
+          "rhodes_use": 0.6,
+          "rhodes_tine_material": 0.8190000000000001,
+          "rhodes_hammer_tip": 0.6825000000000001,
           "rhodes_pickup_position": 1.3
         }
       },
@@ -92,7 +92,7 @@
         },
         "scores": {
           "kick_voice": 0,
-          "snare_voice": 0.40950000000000003,
+          "snare_voice": 0.273,
           "hat_voice": 0,
           "shuffle_quantize": -0.05
         }

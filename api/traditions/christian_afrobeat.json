@@ -5,7 +5,7 @@
   "lineage": "Christian Afrobeat brings contemporary Afrobeats songwriting and production into gospel communities. Artists such as Annatoria connect faith-centered lyrics with the melodic and rhythmic vocabulary of African popular music.",
   "recipe": "classic christian afrobeat, functional Song. solo with instrumental accompaniment. dreadnought acoustic guitar, pocket fingerstyle locked electric bass, drum machine analog. live tracking.",
   "recipe_chars": 188,
-  "score": 10.285,
+  "score": 10.007,
   "config": {
     "traditions": [
       "christian_afrobeat"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.1365,
+          "voice_speech_song": 0.273,
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -101,9 +101,9 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.23399999999999999,
+          "kick_voice": 0,
           "snare_voice": 0,
-          "hat_voice": 0.18,
+          "hat_voice": 0,
           "shuffle_quantize": -0.05
         }
       }

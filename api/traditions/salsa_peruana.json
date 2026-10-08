@@ -5,7 +5,7 @@
   "lineage": "Lima salsa scene that took shape from the mid-1970s in the coastal barrios and boomed commercially in the 1990s through Antonio Cartagena, Willie Rivera, Bembé and later Los Hermanos Yaipén, applying Cuban 2-3 son clave and a piano-bass tumbao to romantic 'salsa sensual' repertoire with softer horn voicings, string-pad sweetening and slower 85-95 BPM tempos than Caribbean models.",
   "recipe": "classic South American 1974-1976 salsa peruana, groove Percussion, son salsa branch, tropical song functional song, Latin am groove percussion cumbia chilena merengue dominicano. kargyraa, breath veiled tone, slow rate, interlocked note trading. cold pressed weikert felt 17 ply hard rock maple Asian spruce grand piano, alder pyramid pure nickel bass British mid 60s era electric bass, yellow brass canonical 70 30 bach stradivarius ensemble heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard ensemble bass trombone trombone, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, brass open slap hand drum timbales. live tracking. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
   "recipe_chars": 923,
-  "score": 232.69,
+  "score": 232.625,
   "config": {
     "traditions": [
       "salsa_peruana",
@@ -41,15 +41,15 @@
           "voice_vibrato": 2.275,
           "voice_articulation": 17.419999999999995,
           "voice_microtone": 16.769999999999992,
-          "voice_tradition": 6.045,
+          "voice_tradition": 5.865,
           "voice_mechanism_compound": 3.6399999999999997,
           "voice_estill_quality": 3.4450000000000003,
           "voice_speech_song": 19.499999999999996,
           "voice_ensemble_config": 17.094999999999995,
           "voice_ornament_system": 0.9099999999999997,
           "voice_pitch_organization": 1.2999999999999998,
-          "voice_processing_chain": 8.185,
-          "voice_multitrack_stack": 8.805
+          "voice_processing_chain": 7.99,
+          "voice_multitrack_stack": 8.700000000000001
         }
       },
       {
@@ -61,7 +61,7 @@
           "piano_hammer": "ronsen_weikert_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
@@ -70,11 +70,11 @@
           "grand_piano_size": 2.34,
           "grand_piano_brand": 4.03,
           "piano_hammer": 2.275,
-          "piano_rim": 1.94,
+          "piano_rim": 2.09,
           "piano_soundboard": 1.7,
-          "piano_pinblock": 1.25,
+          "piano_pinblock": 1.3499999999999999,
           "piano_plate": 1.25,
-          "piano_pitch_standard": 3.9749999999999996
+          "piano_pitch_standard": 3.78
         }
       },
       {
@@ -91,7 +91,7 @@
         },
         "scores": {
           "amp_make": 2.0799999999999996,
-          "body_wood": 3.335,
+          "body_wood": 3.38,
           "pickup_config": 0.8450000000000001,
           "string_type": 5.005000000000001,
           "scale_length_b": 2.34,
@@ -114,7 +114,7 @@
         "scores": {
           "wind_articulation": 3.535000000000001,
           "brass_size": 0.435,
-          "trumpet_mouthpiece": 2.885,
+          "trumpet_mouthpiece": 3.185,
           "brass_mute": 0.65,
           "trumpet_technique": 3.535000000000001,
           "trumpet_bell_metal": 3.185,
@@ -153,8 +153,8 @@
         "scores": {
           "percussion_technique": 6.730000000000001,
           "conga_set": 0.585,
-          "conga_skin": 4.72,
-          "conga_shell_wood": 4.72
+          "conga_skin": 4.675,
+          "conga_shell_wood": 4.675
         }
       },
       {
@@ -167,9 +167,9 @@
         },
         "scores": {
           "percussion_technique": 6.730000000000001,
-          "bongos_skin": 11.845,
+          "bongos_skin": 11.8,
           "bongos_context": 0.845,
-          "bongos_shell_wood": 4.72
+          "bongos_shell_wood": 4.675
         }
       },
       {
@@ -181,7 +181,7 @@
         },
         "scores": {
           "percussion_technique": 6.730000000000001,
-          "timbales_shell": 7.194999999999999,
+          "timbales_shell": 7.389999999999999,
           "timbales_context": 0.845
         }
       }

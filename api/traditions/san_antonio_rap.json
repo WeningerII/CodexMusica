@@ -3,9 +3,9 @@
   "name": "San antonio rap",
   "family": "hip_hop",
   "lineage": "San Antonio conscious rap represented by Third Root: Black and Chicano MC dialogue, turntablism and a funk-inflected rhythm section.",
-  "recipe": "classic modern san antonio rap, mc Rhythm, intl hip hop branch. rap. turntable, drum kit, bongos. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 233,
-  "score": 18.646,
+  "recipe": "classic modern san antonio rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. turntable, drum kit, bongos. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 271,
+  "score": 18.982,
   "config": {
     "traditions": [
       "san_antonio_rap"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.44099999999999995,
+          "voice_ensemble_config": 0.6405,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "turntable_technique": 2.2
+          "turntable_technique": 2.41
         }
       },
       {
@@ -70,7 +70,7 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0.147,
+          "drumhead": 0.21000000000000002,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -86,7 +86,7 @@
           "percussion_technique": -0.07,
           "bongos_skin": 0.1785,
           "bongos_context": 0,
-          "bongos_shell_wood": 0.546
+          "bongos_shell_wood": 0.4095
         }
       }
     ],

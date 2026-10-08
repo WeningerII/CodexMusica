@@ -5,7 +5,7 @@
   "lineage": "Bulgarian pop encompasses melodic popular songwriting and contemporary performance traditions in Bulgaria.",
   "recipe": "classic bulgarian pop, functional Song, europop branch. solo with instrumental accompaniment. basswood clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 314,
-  "score": 23.747,
+  "score": 24.062,
   "config": {
     "traditions": [
       "bulgarian_pop"
@@ -38,7 +38,7 @@
           "pickup_winding": 0.2415,
           "string_material": 0,
           "bridge": 0.273,
-          "scale_length": 0.8505,
+          "scale_length": 0.8190000000000002,
           "string_gauge": 0.3045,
           "finish": 0,
           "string_tuning": 0
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.008,
+          "voice_ensemble_config": 1.491,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
@@ -129,7 +129,7 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 0.9135000000000002,
+          "poly_archetypes": 0.7770000000000001,
           "poly_voices": 1.0945,
           "poly_maker_lineage": -0.035
         }

@@ -5,7 +5,7 @@
   "lineage": "Australian garage punk develops through local DIY guitar-band scenes, combining garage-rock roughness with punk’s direct songwriting and performance energy. Groups such as Queensland’s Chats favour brief songs, economical riffs and an unpolished attack.",
   "recipe": "classic modern australian garage punk, distorted Rock, punk branch. pure, equal tempered, one note per syllable, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation single coil electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 480,
-  "score": 59.085,
+  "score": 58.668,
   "config": {
     "traditions": [
       "australian_garage_punk"
@@ -36,13 +36,13 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.573,
+          "voice_vibrato": 1.4365,
           "voice_articulation": 0,
           "voice_microtone": 6.000000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.08,
+          "voice_speech_song": 2.0725000000000002,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -69,9 +69,9 @@
         },
         "scores": {
           "electric_technique": 0.5315,
-          "amp_make": 17.826999999999998,
+          "amp_make": 17.6905,
           "body_wood": 0,
-          "neck_wood": 0.40950000000000003,
+          "neck_wood": 0.273,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.0315,

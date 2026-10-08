@@ -5,7 +5,7 @@
   "lineage": "Black Pentecostal / COGIC (Church of God in Christ) liturgical music tradition characterized by Hammond B3 organ, piano, drums, electric bass, congregational call-and-response with melismatic lead vocal — codified through James Cleveland, Mahalia Jackson, the Caravans, Edwin Hawkins, Andrae Crouch, Aretha Franklins Amazing Grace (1972, New Temple Missionary Baptist Church LA)",
   "recipe": "classic North American early-1970s black pentecostal gospel, ritual Devotional, pentecostal branch, soul R&B functional song southern soul classic r&b. thick, declaimed, wide pitch sway, leader call answered. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum fast tremolo tonewheel organ, gospel runs upright piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, ecstatic call response choir pentecostal cogic, choir southern black gospel. pentecostal storefront church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 803,
-  "score": 398.949,
+  "score": 399.714,
   "config": {
     "traditions": [
       "pentecostal_gospel",
@@ -34,18 +34,18 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 29.311999999999994,
+          "voice_register": 29.266999999999996,
           "voice_quality": 22.241999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.16,
           "voice_articulation": 17.465,
           "voice_microtone": 8.839999999999998,
-          "voice_tradition": 37.48499999999999,
+          "voice_tradition": 37.44,
           "voice_mechanism_compound": 3.9,
-          "voice_estill_quality": 27.095,
+          "voice_estill_quality": 27.29,
           "voice_speech_song": 13.649999999999995,
-          "voice_ensemble_config": 17.696999999999996,
+          "voice_ensemble_config": 17.651999999999997,
           "voice_ornament_system": 5.590000000000001,
           "voice_pitch_organization": 0.585,
           "voice_processing_chain": 5.3625,
@@ -63,11 +63,11 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 27.652,
+          "keyboard_technique": 27.607,
           "drawbar_setting": 15.6,
           "rotary_speed": 14.95,
           "percussion_setting": 0.78,
-          "tonewheel_model": 18.724,
+          "tonewheel_model": 19.069000000000003,
           "leslie_cabinet_model": 2.405
         }
       },
@@ -79,7 +79,7 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 27.652,
+          "keyboard_technique": 27.607,
           "upright_use": 0.39,
           "upright_piano_size": 0.845
         }
@@ -97,7 +97,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 18.406499999999998,
+          "amp_make": 18.511499999999998,
           "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 21.807499999999997,
@@ -116,7 +116,7 @@
         },
         "scores": {
           "drum_technique": 13.374999999999996,
-          "drumhead": 1.59,
+          "drumhead": 1.545,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -127,7 +127,7 @@
           "context": "devotional_tempo"
         },
         "scores": {
-          "voices": 3.2900000000000005,
+          "voices": 3.4850000000000003,
           "context": 1.7919999999999998
         }
       },
@@ -139,7 +139,7 @@
           "era": "gospel_quartet_lineage"
         },
         "scores": {
-          "voices": 2.9869999999999997,
+          "voices": 3.1819999999999995,
           "accompaniment": 0.975,
           "era": 11.504999999999999
         }

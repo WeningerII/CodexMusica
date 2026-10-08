@@ -1,0 +1,203 @@
+{
+  "id": "ataba_mijana",
+  "name": "ʿAtāba and mījana (Levantine sung improvisation)",
+  "family": "global",
+  "lineage": "Free-rhythm vocal genre of the rural Levant, across Lebanon, Syria, Palestine and Jordan, in which a singer improvises quatrains of colloquial poetry whose first three lines end on the same punning word and the last on a rhyme in -ab, often followed by the measured refrain 'ya mijana'. It opens wedding songs and dabke sets, answered by oud, buzuq or mijwiz, and became a showpiece of Lebanese radio and festival singers such as Wadih El Safi, Nasri Shamseddine and Sabah.",
+  "recipe": "classic mid-1960s ʿatāba and mījana, ballad Poetry, med east poetic branch. neutral third half flat, solo with instrumental accompaniment. oud, buzuq, mijwiz. live tracking. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
+  "recipe_chars": 283,
+  "score": 30.172,
+  "config": {
+    "traditions": [
+      "ataba_mijana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": -0.07,
+          "voice_microtone": 8.71,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 3.265499999999999,
+          "voice_ornament_system": -0.10500000000000001,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.0315,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.11287500000000003,
+          "oud_school": 1.3,
+          "oud_strings": 0.39,
+          "oud_pick": 0.26025,
+          "oud_body_wood": 0.53325,
+          "oud_soundboard_wood": 0.546,
+          "oud_string_material": 0
+        }
+      },
+      {
+        "id": "buzuq",
+        "slots": {
+          "buzuq_form": "buzuq_lebanese",
+          "buzuq_repertoire": "buzuq_taqsim",
+          "buzuq_frets": "buzuq_frets_tied"
+        },
+        "scores": {
+          "buzuq_form": 5,
+          "buzuq_repertoire": -0.07,
+          "buzuq_frets": -0.035
+        }
+      },
+      {
+        "id": "mijwiz",
+        "slots": {
+          "mijwiz_form": "mijwiz_standard",
+          "mijwiz_setting": "mijwiz_ataba",
+          "mijwiz_material": "mijwiz_cane_body"
+        },
+        "scores": {
+          "mijwiz_form": 3.5,
+          "mijwiz_setting": 6.003125,
+          "mijwiz_material": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "oud": [
+        "plucked_traditional_technique",
+        "oud_school",
+        "oud_strings",
+        "oud_pick",
+        "oud_body_wood",
+        "oud_soundboard_wood",
+        "oud_string_material"
+      ],
+      "buzuq": [
+        "buzuq_form",
+        "buzuq_repertoire",
+        "buzuq_frets"
+      ],
+      "mijwiz": [
+        "mijwiz_form",
+        "mijwiz_setting",
+        "mijwiz_material"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_beirut_rahbani_pop",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "melisma_voice",
+      "voice_microtone": "maqam_inflected",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "oud_pick": "risha_eagle_feather",
+      "oud_body_wood": "oud_walnut_body",
+      "oud_soundboard_wood": "oud_spruce_face",
+      "oud_string_material": "dutar_strings_unspecified",
+      "buzuq_form": "buzuq_lebanese",
+      "buzuq_repertoire": "buzuq_taqsim",
+      "buzuq_frets": "buzuq_frets_tied",
+      "mijwiz_form": "mijwiz_standard",
+      "mijwiz_setting": "mijwiz_ataba",
+      "mijwiz_material": "mijwiz_cane_body"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s",
+    "chain_amp": "amp_american_blackface"
+  }
+}

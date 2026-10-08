@@ -1,0 +1,277 @@
+{
+  "id": "polish_american_polka",
+  "name": "Polish-American polka (Chicago honky and Eastern styles)",
+  "family": "global",
+  "lineage": "Dance music of Polish-American communities in Chicago, Buffalo, Detroit, Connecticut and the Northeast. The Chicago 'honky' or 'push' style, launched in the postwar years by Li'l Wally Jagiello's records on his own Jay Jay label, slowed the tempo and centred a Chemnitzer concertina, one or two trumpets, bass and drums behind singing in Polish and English, and was later shaped by Eddie Blazonczyk's Versatones; the brassier, faster Eastern style favoured clarinets and trumpet sections in tight harmony. The concertina card stands in for the Chemnitzer.",
+  "recipe": "classic North American mid-1950s polish-american polka, drinking Song, americas branch. concertina, schilke chicago lead bright trumpet, clarinet, upright bass, brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 346,
+  "score": 16.746,
+  "config": {
+    "traditions": [
+      "polish_american_polka"
+    ],
+    "instruments": [
+      {
+        "id": "concertina",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "concertina_type": "duet_concertina",
+          "concertina_reed_grade": "concertina_traditional"
+        },
+        "scores": {
+          "free_reed_technique": -0.15000000000000002,
+          "concertina_type": 3.5551250000000003,
+          "concertina_reed_grade": 0.35212499999999997
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "brass_size": 0,
+          "trumpet_mouthpiece": -0.1,
+          "brass_mute": 0.105,
+          "trumpet_technique": -0.11287500000000003,
+          "trumpet_bell_metal": 0.4304999999999999,
+          "trumpet_maker_school": 3.511125
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "clarinet_body": -0.10500000000000001,
+          "clarinet_size": 0,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.19949999999999996
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "dutar_strings_unspecified",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0,
+          "upright_play": -0.05
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered"
+        },
+        "scores": {
+          "drum_technique": 10.14,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0,
+          "shell_thickness": 0,
+          "bearing_edges": -1.2269999999999999,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 0.19500000000000003,
+          "cymbal_lathing": 0.19500000000000003,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_duet_chorus",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1905,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "concertina": [
+        "free_reed_technique",
+        "concertina_type",
+        "concertina_reed_grade"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_american_op_amp",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_early_tape_us_small",
+    "parts": {
+      "free_reed_technique": "free_reed_folk_first_position",
+      "concertina_type": "duet_concertina",
+      "concertina_reed_grade": "concertina_traditional",
+      "wind_articulation": "wind_continuous_legato",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_schilke",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "upright_strings": "dutar_strings_unspecified",
+      "upright_play": "pizz_upright",
+      "drum_technique": "brushes_and_sticks",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "hand_hammered",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_duet_chorus",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

@@ -1,197 +1,122 @@
 {
-  "id": "merengue_de_calle",
-  "name": "Merengue de Calle",
+  "id": "merengue_urbano",
+  "merged_from": "merengue_de_calle",
+  "name": "Merengue urbano",
   "family": "global",
-  "lineage": "Santo Domingo street style that emerged around 2003-2008 through Omega y su Mambo Violento, Silvio Mora, El Sujeto and Fulanito's orbit, accelerating merengue's tambora-and-güira 2/4 to 140-170 BPM, replacing the horn section with sampled synth stabs and 808 kick reinforcement, and swapping sung verses for shouted, chanted, call-and-response urban vocals.",
-  "recipe": "classic Caribbean mid-2000s merengue de calle, mc Rhythm, Afro-diasporic branch, reggaeton MC rhythm, tropical song functional song, Caribbean groove percussion punta rock soca. solo with instrumental accompaniment, single lead single track no stacking. wood merengue tradition tambora band fast scrape guira dominicana, behringer rd 8 modern clone analog circuit reproduction TR-808, sampler, analog poly synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
-  "recipe_chars": 699,
-  "score": 88.104,
+  "lineage": "Electronic-and-rap-influenced Dominican merengue variant emerging in 1990s-2000s. Synthesis of traditional merengue rhythmic pulse with hip-hop production and reggaeton harmonic-rhythmic vocabulary. Drum-machine-and-sampler production, faster 2/4 tempo than traditional merengue, simpler chord-progressions, explicit MC-rapped vocal sections alongside sung verse-and-chorus. Omega \"El Fuerte\" and El Cata anchored the 2000s commercial sound.",
+  "recipe": "classic Caribbean mid-1990s merengue urbano, functional Song, tropical song branch, reggaeton MC rhythm cubatón. extended whistle, rap, breath pulsed, interlocked note trading. TR-808, sub bass analog synth, la bella flats Detroit soul bass canon electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 439,
+  "score": 148.447,
   "config": {
     "traditions": [
-      "merengue_de_calle",
-      "punta_rock",
-      "soca"
+      "merengue_urbano",
+      "reggaeton",
+      "cubaton"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_heightened_speech",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
+          "voice_register": 2.0475,
+          "voice_quality": 15.699999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 3.575,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 0.65,
-          "voice_tessitura": 0
-        }
-      },
-      {
-        "id": "tambora_dominicana",
-        "slots": {
-          "tambora_shell": "tambora_carved_wood_two_heads",
-          "tambora_technique": "tambora_hand_and_stick",
-          "tambora_dominicana_shell_wood": "tambora_dominicana_avocado",
-          "tambora_dominicana_heads": "tambora_dominicana_cowhide_alt"
-        },
-        "scores": {
-          "tambora_shell": 6.584999999999999,
-          "tambora_technique": 3.8806249999999993,
-          "tambora_dominicana_shell_wood": 0.39,
-          "tambora_dominicana_heads": 0.605
-        }
-      },
-      {
-        "id": "guira_dominicana",
-        "slots": {
-          "guira_dominicana_form": "guira_dominicana_orquesta",
-          "guira_dominicana_pattern": "guira_dominicana_merengue_drive",
-          "guira_dominicana_sheet": "guira_dominicana_steel"
-        },
-        "scores": {
-          "guira_dominicana_form": 9.75,
-          "guira_dominicana_pattern": 14.818749999999998,
-          "guira_dominicana_sheet": 1.595
+          "voice_vibrato": 1.9049999999999998,
+          "voice_articulation": 16.314999999999994,
+          "voice_microtone": 15.92499999999999,
+          "voice_tradition": 4.815,
+          "voice_mechanism_compound": 6.044999999999999,
+          "voice_estill_quality": 4.16,
+          "voice_speech_song": 20.474999999999994,
+          "voice_ensemble_config": 15.144999999999992,
+          "voice_ornament_system": 3.7050000000000014,
+          "voice_pitch_organization": 1.39,
+          "voice_processing_chain": 5.69,
+          "voice_multitrack_stack": 8.934999999999999
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_miami",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.0799999999999996,
-          "drum_machine_808_context": 2.4050000000000002,
-          "tr808_production_origin": 1.105
+          "tr808_voice": 4.62,
+          "drum_machine_808_context": 4.8149999999999995,
+          "tr808_production_origin": 0.255
         }
       },
       {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_one_shot_pitched",
-          "sampler_classic_context": "sampler_classic_edm"
-        },
-        "scores": {
-          "electronic_technique": 1.7449999999999999,
-          "sampler_archetypes": 0.84,
-          "sampler_bit_depth": 0.605,
-          "sampler_workflow": 0.975,
-          "sampler_classic_context": 21.449999999999996
-        }
-      },
-      {
-        "id": "analog_poly_synth",
+        "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 1.9499999999999997,
-          "poly_archetypes": 0,
-          "poly_voices": 0,
-          "poly_maker_lineage": -1.225
+          "electronic_technique": 4.945,
+          "oscillator": 2.145,
+          "filter_topology": 1.4949999999999999,
+          "envelope": 2.8399999999999994,
+          "modulation": 0.45499999999999996
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.1050000000000004,
-          "body_wood": 0.95,
-          "pickup_config": 0.65,
-          "string_type": 3.5424999999999995,
-          "scale_length_b": 0.65,
+          "amp_make": 1.4299999999999995,
+          "body_wood": 0.09,
+          "pickup_config": 0.195,
+          "string_type": 1.3649999999999998,
+          "scale_length_b": 0.195,
           "fretted_or_not": 0.045,
-          "bass_technique": 1.625,
+          "bass_technique": 0.78,
           "electric_bass_string_configuration": 0
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "sampler_classic": [
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow"
-      ],
-      "analog_poly_synth": [
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
-      ]
-    },
     "room": "dominican_capital_studio_80s",
     "archetype": "arch_san_juan_reggaeton_mixtape",
     "inline_chain": {
-      "mic": "mic_sm58_dynamic_shure",
-      "pre": "pre_500_series_modern",
+      "mic": "condenser_fet",
+      "pre": "pre_avalon_v737",
       "console": "console_in_the_box",
       "comp": "comp_distressor_modern",
-      "eq": null,
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
     "tuning": "merengue_2_4_perico_ripiao",
     "aesthetic": null,
@@ -202,35 +127,35 @@
     "tuning": "merengue_2_4_perico_ripiao",
     "room": "dominican_capital_studio_80s",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_speech_song": "voice_heightened_speech",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "soapbar",
+      "string_type": "coated_nano_bass",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "sub_bass_synth_blend",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith",
-      "sampler_archetypes": "akai_mpc",
-      "sampler_bit_depth": "sampler_sixteen_bit",
-      "sampler_workflow": "sampler_one_shot_pitched"
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "electronic_technique": "electronic_pad_drone"
     },
-    "pin_parts": true,
-    "chain_mic": "mic_sm58_dynamic_shure",
-    "chain_pre": "pre_500_series_modern",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_avalon_v737",
     "chain_comp": "comp_distressor_modern",
-    "chain_medium": "digital_std",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
     "chain_console": "console_in_the_box"
   }
 }

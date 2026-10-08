@@ -5,7 +5,7 @@
   "lineage": "Popular music associated with Amazonas, including Manaus-based songwriting and independent rock.",
   "recipe": "classic música popular amazonense, distorted Rock, alternative branch. acoustic humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 33.236,
+  "score": 33.897,
   "config": {
     "traditions": [
       "musica_popular_amazonense"
@@ -65,7 +65,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
-          "string_acoustic": 0.714,
+          "string_acoustic": 0.8190000000000002,
           "acoustic_om_technique": -0.25
         }
       },
@@ -89,15 +89,15 @@
         "scores": {
           "electric_technique": -0.10500000000000001,
           "amp_make": 0,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
+          "neck_wood": 0.6825000000000001,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 0.273,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -116,7 +116,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -146,7 +146,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 9.431499999999998,

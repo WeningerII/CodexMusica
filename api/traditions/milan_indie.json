@@ -5,7 +5,7 @@
   "lineage": "Milan’s independent guitar-rock field, with shoegaze, psychedelic and British-pop influences.",
   "recipe": "classic milan indie, distorted Rock, alternative branch. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 218,
-  "score": 42.201,
+  "score": 42.579,
   "config": {
     "traditions": [
       "milan_indie"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -70,17 +70,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.6680000000000006,
+          "electric_technique": 3.6365000000000003,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.105,
+          "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 0.9099999999999999,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 0.868,
           "finish": 0,
           "string_tuning": 0
         }
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 12.731499999999999,

@@ -5,7 +5,7 @@
   "lineage": "Classic soundtrack repertoire keeps influential film songs and screen themes in circulation through listening, performance and arrangements. Familiar melodies connect their cinematic origins with later instrumental and vocal interpretations.",
   "recipe": "classic classic soundtrack, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 156,
-  "score": 3.066,
+  "score": 2.921,
   "config": {
     "traditions": [
       "classic_soundtrack"
@@ -26,8 +26,8 @@
         },
         "scores": {
           "keyboard_technique": 2.45,
-          "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.3705,
+          "grand_piano_size": 0.3,
+          "grand_piano_brand": 0.3165,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,

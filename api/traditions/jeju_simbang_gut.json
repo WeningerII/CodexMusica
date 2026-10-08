@@ -1,0 +1,203 @@
+{
+  "id": "jeju_simbang_gut",
+  "name": "Jeju simbang gut (Jeju Island shaman ritual)",
+  "family": "global",
+  "lineage": "Simbang are the shamans of Jeju Island off the southern Korean coast, whose gut rituals recite the island's own creation myths and deity narratives to the sound of drum, hourglass drum, gong and a struck brass bowl (seolsoe). Chilmeoridang yeongdeunggut, held each second lunar month at the Chilmeoridang shrine in Jeju City to welcome and send off the wind goddess Yeongdeung for divers and fishermen, is inscribed on UNESCO's Representative List of the Intangible Cultural Heritage; the kkwaenggwari card stands in for the seolsoe.",
+  "recipe": "classic modern jeju simbang gut, ritual Devotional, indigenous branch. solo with instrumental accompaniment, single lead single track no stacking. paulownia canonical Korean cowhide canonical Korean buk jing korean, paulownia canonical Korean horse dog asymmetric canonical Korean janggu, kkwaenggwari. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 382,
+  "score": 12.077,
+  "config": {
+    "traditions": [
+      "jeju_simbang_gut"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.19500000000000003,
+          "voice_ensemble_config": 2.681,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.105,
+          "voice_multitrack_stack": 1.1484999999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "buk_korean",
+        "slots": {
+          "buk_korean_context": "buk_korean_pansori",
+          "buk_korean_construction": "buk_korean_barrel",
+          "buk_korean_shell_wood": "buk_korean_paulownia",
+          "buk_korean_head": "buk_korean_cowhide_canonical"
+        },
+        "scores": {
+          "buk_korean_context": 2.2049999999999996,
+          "buk_korean_construction": 0.1575,
+          "buk_korean_shell_wood": 1.3,
+          "buk_korean_head": 1.3
+        }
+      },
+      {
+        "id": "janggu",
+        "slots": {
+          "janggu_use": "janggu_samul_nori",
+          "janggu_construction": "janggu_wood",
+          "janggu_shell_wood": "janggu_paulownia_canonical",
+          "janggu_head": "janggu_horse_dog_asymmetric",
+          "janggu_lineage": "janggu_pansori_godo"
+        },
+        "scores": {
+          "janggu_use": 0.21,
+          "janggu_construction": 0.1575,
+          "janggu_shell_wood": 1.3,
+          "janggu_head": 1.3,
+          "janggu_lineage": 0.378
+        }
+      },
+      {
+        "id": "jing_korean",
+        "slots": {
+          "jing_role": "jing_phrase_marker"
+        },
+        "scores": {
+          "jing_role": -0.10500000000000001
+        }
+      },
+      {
+        "id": "kkwaenggwari",
+        "slots": {
+          "kkwaenggwari_role": "kkwaenggwari_lead"
+        },
+        "scores": {
+          "kkwaenggwari_role": -0.10500000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "buk_korean": [
+        "buk_korean_context",
+        "buk_korean_construction",
+        "buk_korean_shell_wood",
+        "buk_korean_head"
+      ],
+      "janggu": [
+        "janggu_use",
+        "janggu_construction",
+        "janggu_shell_wood",
+        "janggu_head",
+        "janggu_lineage"
+      ],
+      "jing_korean": [
+        "jing_role"
+      ],
+      "kkwaenggwari": [
+        "kkwaenggwari_role"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_recitative_free_rhythm",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "buk_korean_context": "buk_korean_pansori",
+      "buk_korean_construction": "buk_korean_barrel",
+      "buk_korean_shell_wood": "buk_korean_paulownia",
+      "buk_korean_head": "buk_korean_cowhide_canonical",
+      "janggu_use": "janggu_samul_nori",
+      "janggu_construction": "janggu_wood",
+      "janggu_shell_wood": "janggu_paulownia_canonical",
+      "janggu_head": "janggu_horse_dog_asymmetric",
+      "janggu_lineage": "janggu_pansori_godo",
+      "jing_role": "jing_phrase_marker",
+      "kkwaenggwari_role": "kkwaenggwari_lead"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

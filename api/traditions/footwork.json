@@ -5,7 +5,7 @@
   "lineage": "Chicago footwork dance-music genre evolved from juke and ghetto-house through the late-2000s — characterized by 160 bpm syncopated triplet-based programming, chopped-and-pitched sampled vocals, sparse arrangement designed for the underground dance-battle-circuit footwork dance — codified through DJ Rashad (Double Cup 2013, the genre's breakthrough album), DJ Spinn, Traxman, RP Boo, and the Teklife crew",
   "recipe": "classic 2007-2009 footwork, electronic Dance, footwork branch, us hip hop modern dark trap dark plugg. behringer rd 8 modern clone analog circuit reproduction TR-808, pitched chopped sampler, low sub bass digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 370,
-  "score": 101.835,
+  "score": 102.28,
   "config": {
     "traditions": [
       "footwork",
@@ -21,7 +21,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 5.8999999999999995,
+          "tr808_voice": 5.986624999999999,
           "drum_machine_808_context": 4.68,
           "tr808_production_origin": 4.16
         }
@@ -36,10 +36,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 6.2250000000000005,
+          "electronic_technique": 6.460125000000001,
           "sampler_archetypes": 7.15,
           "sampler_bit_depth": 4.55,
-          "sampler_workflow": 5.605,
+          "sampler_workflow": 5.642125,
           "sampler_classic_context": 29.639999999999993
         }
       },
@@ -51,7 +51,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 9.959999999999999,
+          "electronic_technique": 10.046624999999999,
           "va_archetypes": 0.195,
           "digital_subtractive_context": 16.769999999999996
         }

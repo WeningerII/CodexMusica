@@ -1,0 +1,279 @@
+{
+  "id": "soviet_avant_garde_1920s",
+  "name": "Early Soviet avant-garde (1920s futurist and constructivist music)",
+  "family": "classical",
+  "lineage": "The modernist music of the first Soviet decade, from Nikolai Roslavets's system of synthetic chords and Arthur Lourie's futurist pieces to Alexander Mosolov's Zavod (Iron Foundry), an orchestral episode from the ballet Steel that imitates factory machinery, and Arseny Avraamov's Symphony of Factory Sirens, performed in Baku in 1922 with ship and factory sirens, steam whistles and artillery. The Association for Contemporary Music in Moscow promoted this repertoire until official policy turned against it around 1930.",
+  "recipe": "classic Eastern European early soviet avant-garde, art Music, western modern branch. steel norway spruce European alpine European maple sycamore maple violin orchestral, norway spruce European alpine European maple sycamore maple oil varnish cello, standard rim orchestral balance legato trumpet, french horn, mallets timpani, anvil, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 563,
+  "score": 149.094,
+  "config": {
+    "traditions": [
+      "soviet_avant_garde_1920s"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_spiccato_articulated",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "sul_pont_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "orch_strings": 1.3,
+          "orch_top_wood": 2.7230000000000003,
+          "orch_back_wood": 6.523,
+          "orch_varnish": 6.25,
+          "orch_setup_period": 7.825,
+          "orch_bow": 0.546,
+          "orch_bow_stick": 7.25,
+          "orch_articulation": 0.0315,
+          "orch_rosin": 7.9615
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_spiccato_articulated",
+          "cello_strings": "dutar_strings_unspecified",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "cello_strings": 0,
+          "cello_top_wood": 2.7230000000000003,
+          "cello_back_wood": 6.523,
+          "cello_varnish": 6.25,
+          "cello_setup_period": 7.825,
+          "cello_bow_grip": 1.3,
+          "cello_rosin": 6.3865,
+          "cello_bow_stick": 7.25
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_gold_brass",
+          "trumpet_maker_school": "trumpet_monette"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "brass_size": 0.44099999999999995,
+          "trumpet_mouthpiece": 7.55,
+          "brass_mute": 0.9099999999999999,
+          "trumpet_technique": 2.6365,
+          "trumpet_bell_metal": 0.3,
+          "trumpet_maker_school": 0
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "french_horn_bore": 1.3,
+          "french_horn_metal": 0.39
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_calfskin"
+        },
+        "scores": {
+          "percussion_technique": 3.25,
+          "timpani_size": 2.9899999999999998,
+          "timpani_head": 0.1365
+        }
+      },
+      {
+        "id": "anvil",
+        "slots": {
+          "anvil_type": "anvil_real",
+          "anvil_striker": "anvil_hammer"
+        },
+        "scores": {
+          "anvil_type": 0,
+          "anvil_striker": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 0.2,
+          "grand_piano_size": 2.588,
+          "grand_piano_brand": 0.4095,
+          "piano_hammer": 6.25,
+          "piano_rim": 6.25,
+          "piano_soundboard": 6.25,
+          "piano_pinblock": 6.25,
+          "piano_plate": 7.25,
+          "piano_pitch_standard": 4.875
+        }
+      }
+    ],
+    "pinned": {
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings",
+        "orch_top_wood",
+        "orch_back_wood",
+        "orch_varnish",
+        "orch_setup_period",
+        "orch_bow",
+        "orch_bow_stick",
+        "orch_articulation",
+        "orch_rosin"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "french_horn": [
+        "wind_articulation",
+        "french_horn_bore",
+        "french_horn_metal"
+      ],
+      "timpani": [
+        "percussion_technique",
+        "timpani_size",
+        "timpani_head"
+      ],
+      "anvil": [
+        "anvil_type",
+        "anvil_striker"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_melodiya_state",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "bowed_technique": "bowed_spiccato_articulated",
+      "orch_strings": "steel_orch",
+      "orch_top_wood": "norway_spruce_alpine_violin",
+      "orch_back_wood": "european_maple_general_violin",
+      "orch_varnish": "oil_amber_varnish_violin",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "orch_bow_stick": "pernambuco_stick_orch",
+      "orch_articulation": "sul_pont_orch",
+      "orch_rosin": "pirastro_gold_rosin_orch",
+      "cello_strings": "dutar_strings_unspecified",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "european_maple_cello_back",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello",
+      "wind_articulation": "wind_continuous_legato",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_classical_legato",
+      "trumpet_bell_metal": "trumpet_gold_brass",
+      "trumpet_maker_school": "trumpet_monette",
+      "french_horn_bore": "french_horn_full",
+      "french_horn_metal": "horn_yellow_brass",
+      "percussion_technique": "percussion_mallets_orchestral",
+      "timpani_size": "timpani_4_drum_set",
+      "timpani_head": "timpani_calfskin",
+      "anvil_type": "anvil_real",
+      "anvil_striker": "anvil_hammer",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

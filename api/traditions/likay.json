@@ -1,0 +1,221 @@
+{
+  "id": "likay",
+  "name": "Likay (Thai popular folk opera)",
+  "family": "global",
+  "lineage": "Popular musical theatre of central Thailand that took shape in Bangkok in the late nineteenth century, growing out of Muslim religious chanting (dikay) into a costumed commercial drama played at temple fairs and on travelling stages. Actors improvise sung and spoken dialogue around stock plots, much of the sung text is carried by the signature ranikloeng melody, and a piphat ensemble of ranat xylophone, gong circle, pi oboe, drums and ching accompanies the songs and stage action. Likay troupes reached a large audience through cassette, VCD and television recordings.",
+  "recipe": "classic modern likay, art Music, southeast Asian branch. duet, seven equal 171 cent steps, single lead single track no stacking. ranat ek, khong wong yai, pi nai, bright ring central Thai ching, jackwood barrel canonical Thai piphat taphon, klong that. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 332,
+  "score": 41.252,
+  "config": {
+    "traditions": [
+      "likay"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": -0.14,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 6.045,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.7785,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "ranat_ek",
+        "slots": {
+          "ranat_ek_technique": "ranat_ek_kep"
+        },
+        "scores": {
+          "ranat_ek_technique": 6.323
+        }
+      },
+      {
+        "id": "khong_wong_yai",
+        "slots": {
+          "khong_wong_yai_role": "khong_wong_yai_main_melody"
+        },
+        "scores": {
+          "khong_wong_yai_role": 5
+        }
+      },
+      {
+        "id": "pi_nai",
+        "slots": {
+          "pi_nai_style": "pi_nai_piphat"
+        },
+        "scores": {
+          "pi_nai_style": 6.323
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_thai",
+          "ching_stroke": "ching_ritual",
+          "ching_alloy": "ching_bronze"
+        },
+        "scores": {
+          "ching_form": 6.846,
+          "ching_stroke": -0.035,
+          "ching_alloy": -0.035
+        }
+      },
+      {
+        "id": "taphon",
+        "slots": {
+          "taphon_technique": "taphon_hand_struck",
+          "taphon_shell_wood": "taphon_jackwood_canonical",
+          "taphon_head": "taphon_calfskin_canonical"
+        },
+        "scores": {
+          "taphon_technique": 5,
+          "taphon_shell_wood": 2.6,
+          "taphon_head": 0.756
+        }
+      },
+      {
+        "id": "klong_that",
+        "slots": {
+          "klong_that_setup": "klong_that_pair",
+          "klong_that_tuning": "klong_that_rice_paste"
+        },
+        "scores": {
+          "klong_that_setup": 0.441,
+          "klong_that_tuning": 0.168
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "ranat_ek": [
+        "ranat_ek_technique"
+      ],
+      "khong_wong_yai": [
+        "khong_wong_yai_role"
+      ],
+      "pi_nai": [
+        "pi_nai_style"
+      ],
+      "ching": [
+        "ching_form",
+        "ching_stroke",
+        "ching_alloy"
+      ],
+      "taphon": [
+        "taphon_technique",
+        "taphon_shell_wood",
+        "taphon_head"
+      ],
+      "klong_that": [
+        "klong_that_setup",
+        "klong_that_tuning"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "thai_seven_equal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "thai_seven_equal",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "narrative_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "ranat_ek_technique": "ranat_ek_kep",
+      "khong_wong_yai_role": "khong_wong_yai_main_melody",
+      "pi_nai_style": "pi_nai_piphat",
+      "ching_form": "ching_thai",
+      "ching_stroke": "ching_ritual",
+      "ching_alloy": "ching_bronze",
+      "taphon_technique": "taphon_hand_struck",
+      "taphon_shell_wood": "taphon_jackwood_canonical",
+      "taphon_head": "taphon_calfskin_canonical",
+      "klong_that_setup": "klong_that_pair",
+      "klong_that_tuning": "klong_that_rice_paste"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

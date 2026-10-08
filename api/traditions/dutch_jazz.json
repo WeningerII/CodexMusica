@@ -5,7 +5,7 @@
   "lineage": "Dutch jazz brings composition-led modern jazz into dialogue with exploratory improvisation and international collaboration. Small ensembles use flexible roles and contrasting instrumental colours to connect melodic themes with less prescribed interaction.",
   "recipe": "classic modern dutch jazz, improv On Frame, American jazz branch. yellow brass modern standard yamaha custom 875ex modern Japanese premium saxophone, bach stradivarius 180 canonical American orchestral standard rim orchestral balance trumpet, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 544,
-  "score": 86.08,
+  "score": 85.932,
   "config": {
     "traditions": [
       "dutch_jazz"
@@ -26,7 +26,7 @@
           "wind_articulation": -0.035,
           "sax_size": -0.035,
           "sax_reed": 0.1785,
-          "sax_body_alloy": 3.185,
+          "sax_body_alloy": 3.18,
           "sax_mouthpiece": 0,
           "sax_technique": -0.035,
           "sax_maker_school": 1.3
@@ -71,8 +71,8 @@
           "grand_piano_size": 0.147,
           "grand_piano_brand": 0.105,
           "piano_hammer": 3.0485,
-          "piano_rim": 3.185,
-          "piano_soundboard": 2.45,
+          "piano_rim": 3.0420000000000003,
+          "piano_soundboard": 2.4890000000000003,
           "piano_pinblock": 2.45,
           "piano_plate": 2.45,
           "piano_pitch_standard": 3.25
@@ -109,7 +109,7 @@
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.252,
-          "shell_thickness": 0.03899999999999999,
+          "shell_thickness": 0,
           "bearing_edges": 0.1365,
           "snare_wires": 0.147,
           "cymbal_alloy": 13.876999999999997,

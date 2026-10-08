@@ -5,7 +5,7 @@
   "lineage": "Mid-1990s chaotic-hardcore offshoot of American and Japanese powerviolence, named for the band Spazz and carried by Charles Bronson, Melt-Banana, The Locust and Arab on Radar — songs of ten to sixty seconds built on abrupt blast-beat to stop-time cuts, atonal dissonant guitar stabs, treble-heavy bass and shrieked or yelped vocals, recorded fast and cheap on DIY budgets.",
   "recipe": "classic North American 1994-1996 spazzcore, distorted Rock, noise rock branch, punk distorted rock, experimental distorted rock mincecore afro-punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, fast decay focused low analog synth. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 598,
-  "score": 365.898,
+  "score": 365.31,
   "config": {
     "traditions": [
       "spazzcore",
@@ -41,15 +41,15 @@
           "voice_vibrato": 3.3150000000000004,
           "voice_articulation": 21.839999999999996,
           "voice_microtone": 20.374999999999996,
-          "voice_tradition": 8.674375,
-          "voice_mechanism_compound": 22.106562500000003,
+          "voice_tradition": 9.469375,
+          "voice_mechanism_compound": 22.001562500000002,
           "voice_estill_quality": 3.2500000000000004,
           "voice_speech_song": 21.449999999999996,
-          "voice_ensemble_config": 20.055,
+          "voice_ensemble_config": 19.86,
           "voice_ornament_system": 0.9099999999999997,
           "voice_pitch_organization": 1.0399999999999998,
           "voice_processing_chain": 4.355,
-          "voice_multitrack_stack": 2.685
+          "voice_multitrack_stack": 2.49
         }
       },
       {
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 13.375,
-          "amp_make": 29.76375,
+          "amp_make": 29.46375,
           "body_wood": 4.8100000000000005,
           "neck_wood": 3.38,
           "fretboard": 3.3150000000000004,
@@ -99,9 +99,9 @@
         },
         "scores": {
           "amp_make": 12.9675,
-          "body_wood": 4.68,
+          "body_wood": 4.587187500000001,
           "pickup_config": 2.04,
-          "string_type": 25.99875,
+          "string_type": 25.50375,
           "scale_length_b": 3.38,
           "fretted_or_not": 0.045,
           "bass_technique": 31.67,

@@ -5,7 +5,7 @@
   "lineage": "Northwest China indie connects independent musicians and audiences across the region, including Xi’an’s post-punk and psychedelic networks. Local scenes and labels link contrasting regional backgrounds with wider Chinese independent music.",
   "recipe": "classic northwest china indie, distorted Rock, punk branch. humbucker electric guitar, electric bass, credited synthesizer unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. live tracking.",
   "recipe_chars": 271,
-  "score": 13.1,
+  "score": 12.827,
   "config": {
     "traditions": [
       "northwest_china_indie"
@@ -79,7 +79,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0

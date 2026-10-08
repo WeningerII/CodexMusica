@@ -5,7 +5,7 @@
   "lineage": "Ecuadorian alternative rock includes independent bands connecting post-punk and garage textures.",
   "recipe": "classic ecuadorian alternative rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 412,
-  "score": 30.148,
+  "score": 29.308,
   "config": {
     "traditions": [
       "ecuadorian_alternative_rock"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 7.605,
-          "body_wood": 2.4255,
+          "body_wood": 2.394,
           "neck_wood": 0.105,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.105,
-          "bridge": 0.273,
+          "bridge": 0.168,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 4.875,
-          "body_wood": 2.4255,
+          "body_wood": 2.394,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 8.75,
-          "drumhead": 0.5145,
+          "drumhead": 0.40950000000000003,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,10 +113,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.629,
+          "voice_ensemble_config": 1.1985,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

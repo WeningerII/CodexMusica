@@ -5,7 +5,7 @@
   "lineage": "Norwegian pop rap connects rhythmic verses with melodic hooks and popular-song production. Artists such as Karpe, Madcon and Paperboys helped bring Norwegian rap into radio and mainstream pop, while multilingual and diasporic influences widened its lyrical and melodic vocabulary.",
   "recipe": "classic norwegian pop rap, mc Rhythm, intl hip hop branch. sampler. treated studio.",
   "recipe_chars": 83,
-  "score": 11.659,
+  "score": 11.774,
   "config": {
     "traditions": [
       "norwegian_pop_rap"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.222,
+          "voice_ensemble_config": 0.1905,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -64,9 +64,9 @@
         "scores": {
           "electronic_technique": 2.95,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.213,
+          "sampler_bit_depth": 0.2865,
           "sampler_workflow": -0.1,
-          "sampler_classic_context": 8.355
+          "sampler_classic_context": 8.4285
         }
       }
     ],

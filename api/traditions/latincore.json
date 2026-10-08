@@ -5,7 +5,7 @@
   "lineage": "Latincore connects Latin American punk, hardcore and melodic-core communities through touring, independent releases and shared audiences. Argentine, Chilean, Mexican and other scenes overlap within a transnational network of guitar-driven music.",
   "recipe": "classic latincore, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 194,
-  "score": 16.099,
+  "score": 15.827,
   "config": {
     "traditions": [
       "latincore"
@@ -79,7 +79,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0

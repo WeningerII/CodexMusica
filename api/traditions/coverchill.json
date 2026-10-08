@@ -5,7 +5,7 @@
   "lineage": "Karen Souza — complete San Javier Jazz2019 concert lineup. Authored concert-compatible vocal-jazz realization: nine-foot Steinway D with jazz comping, pizzicato three-quarter double bass, locked fingerstyle electric bass, clean-strummed humbucker guitar and brushed drum kit. Guitar construction and piano brand are editorial choices for documented families, not source equipment measurements. Combined piano/bass/guitar harmony supports melodic vocal interpretation; smoothVocal node is limited to this selected jazz-cover branch. No invented synthesizer from the artists prior electronic work; global tuning omitted and recording chain editorial.",
   "recipe": "classic coverchill, improv On Frame, smooth vocal branch. solo with instrumental accompaniment, single lead single track no stacking. sitka spruce diaphragmatic 7 ply quartersawn maple grand piano, European maple bosnian source flamed figure modern setup heavier bass bar double pocket fingerstyle locked electric bass, conventional tuning standard pitch clean strummed humbucker electric guitar, maple bronze bell bronze machine hammered symmetric pattern drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 565,
-  "score": 96.274,
+  "score": 96.421,
   "config": {
     "traditions": [
       "coverchill"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.129,
-          "voice_multitrack_stack": 2.029,
+          "voice_multitrack_stack": 2.1265,
           "voice_tessitura": 0
         }
       },
@@ -96,11 +96,11 @@
           "bass_size": 0,
           "bass_strings": 0.1365,
           "bass_top_wood": -0.07,
-          "bass_back_wood": 1.3199999999999998,
+          "bass_back_wood": 1.4849999999999999,
           "bass_varnish": -0.1,
-          "bass_setup_period": 5.350999999999999,
+          "bass_setup_period": 5.132,
           "bass_play": 19.844499999999996,
-          "bass_rosin": 5.272999999999999,
+          "bass_rosin": 5.190499999999999,
           "bass_bow_stick": -0.10500000000000001
         }
       },
@@ -155,7 +155,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.9134999999999999,
-          "string_gauge": 0.34950000000000003,
+          "string_gauge": 0.44700000000000006,
           "finish": 0,
           "string_tuning": 1.363
         }
@@ -179,12 +179,12 @@
           "drum_technique": 17.159999999999993,
           "drumhead": 1.5310000000000001,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.8625,
+          "shell_wood": 1.8310000000000002,
           "shell_thickness": 0,
           "bearing_edges": 0.1365,
           "snare_wires": 0,
-          "cymbal_alloy": 19.728999999999996,
-          "cymbal_hammering": 1.45,
+          "cymbal_alloy": 19.826499999999996,
+          "cymbal_hammering": 1.4725,
           "cymbal_lathing": 2.05,
           "cymbal_finish": 0
         }

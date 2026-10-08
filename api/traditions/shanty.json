@@ -5,7 +5,7 @@
   "lineage": "The functional labour song of Atlantic deep-water merchant sail, consolidated roughly 1815-1875 on packet and clipper crews out of Liverpool, London, Mobile and New York and first systematically transcribed by Richard Runciman Terry, Cecil Sharp, W.B. Whall and later Stan Hugill, whose Shanties from the Seven Seas remains the codifying text; a shantyman improvised solo lines against a fixed crew refrain, with the pull or push of the work fixing the metre - short-drag shanties with two hauls per verse, halyard shanties with a longer chorus, capstan shanties in continuous rolling 6/8 or 4/4 for windlass work - sung unaccompanied at moderate tempo in open chest voice.",
   "recipe": "classic early-1810s shanty, sea Shanty, atlantic branch, blues narrative work song, Celtic balladic English broadside jeju haenyeo songs industrial folk. thick, breath veiled tone, wide pitch sway, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, foot stomp, sharp chains shaken shackle chains, ships bell. field recording. acoustic horn. 78rpm shellac.",
   "recipe_chars": 474,
-  "score": 229.668,
+  "score": 229.758,
   "config": {
     "traditions": [
       "shanty",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.800000000000001,
+          "voice_register": 4.845000000000001,
           "voice_quality": 31.589999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -47,7 +47,7 @@
           "voice_speech_song": 35.49,
           "voice_ensemble_config": 24.7,
           "voice_ornament_system": 8.6125,
-          "voice_pitch_organization": 3.440000000000001,
+          "voice_pitch_organization": 3.4850000000000008,
           "voice_processing_chain": 5.654999999999999,
           "voice_multitrack_stack": 1.69
         }

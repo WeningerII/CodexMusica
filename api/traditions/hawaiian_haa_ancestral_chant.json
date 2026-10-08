@@ -1,16 +1,17 @@
 {
-  "id": "hawaiian_haa_ancestral_chant",
-  "name": "Hawaiian haʻa ancestral chant",
+  "id": "hawaiian_oli_mele",
+  "merged_from": "hawaiian_haa_ancestral_chant",
+  "name": "Hawaiian mele oli sacred-chant",
   "family": "global",
-  "lineage": "Sacred Hawaiian chant (oli) performed in the low, bent-knee haʻa posture reserved for akua and ancestors, encompassing genealogical (koʻihonua) and name (mele inoa) chants that transmit lineage and cosmology. The style is marked by sustained, measured vocal delivery and stylized ornaments such as the ʻiʻi trill, and was traditionally taught within the hula hālau under a kumu hula. The corpus and its performance practice were documented in Nathaniel B. Emerson's Unwritten Literature of Hawaii (1909) and in the later scholarship of Mary Kawena Pukui. Chant carried genealogy, prayer, and place-lore as authoritative oral record in pre-literate Hawaiʻi.",
-  "recipe": "classic Oceanian late-1900s hawaiian haʻa ancestral chant, praise Song, oceania pacific branch māori whaikōrero oratory hawaiian mele inoa. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 316,
-  "score": 175.927,
+  "lineage": "Hawaiian mele (chant/song/poetry, broad category) and oli (chant without dance or instrument, solo, prayer/genealogy/name function). Pre-contact sacred-chant tradition. Two register-styles: kepakepa rapid rhythmic recitation (used for prayer mele pule); ho'āeae soft drawn-out vowels (used for love mele ho'oipoipo and lamentation). Functional inventory: mele pule prayer, kō'ihonua cosmogeny, kū'auhau genealogy, hānau birth, inoa name-giving, ma'i procreation, kanikau lamentation, ho'oipoipo love. Performance with terminal pitch-drop closing each line, the characteristic 'i'i quavering vibrato sustained on long vowels, and characteristic vocal-strain register in genealogy and prayer mele. Hula kahiko (ancient hula) uses sacred instruments — pahu coconut-log sharkskin drum (originally heiau temple instrument), ipu and ipu heke single and double gourds, pū'ili bamboo split-rattle, 'ulī'ulī feathered gourd rattle, 'ili'ili water-worn lava stones, pū conch — while hula 'auana (post-1832 modern hula) uses Western-instrument accompaniment. Distinguished from Māori karanga + pōwhiri by Hawaiian 'i'i quavering-vibrato terminal-drop ornament; distinguished from Tahitian himene by absence of polyphonic congregational-hymn structure and presence of unaccompanied sacred-chant convention",
+  "recipe": "classic Oceanian early-1830s hawaiian mele oli sacred-chant, ritual Devotional, indigenous branch, vocal drone modal skolt sámi leuʹdd northern sámi luohti yoik. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. coconut log carved hollow sharkskin head hand struck canonical hawaiian sacred hula kahiko accompaniment pahu mele song drum pahu, single gourd no top piece mele hula accompaniment ground strike palm slap canonical hula kahiko rhythm ipu heke, call ritual conch shell horn, bamboo split rattle struck canonical hula kahiko hula kahiko sacred dance canonical hawaiian pulili. hawaiian heiau outdoor lava stone temple. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 797,
+  "score": 372.915,
   "config": {
     "traditions": [
-      "hawaiian_haa_ancestral_chant",
-      "maori_whaikorero_oratory",
-      "hawaiian_mele_inoa"
+      "hawaiian_oli_mele",
+      "sami_skolt_leudd",
+      "sami_northern_luohti"
     ],
     "instruments": [
       {
@@ -24,72 +25,128 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "polynesian_oli_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.575,
-          "voice_quality": 19.174999999999994,
+          "voice_register": 7.734999999999999,
+          "voice_quality": 29.705000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 21.125000000000004,
-          "voice_microtone": 20.93,
-          "voice_tradition": 33.63749999999999,
-          "voice_mechanism_compound": 1.8524999999999998,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 28.275000000000006,
-          "voice_ensemble_config": 21.450000000000003,
-          "voice_ornament_system": 9.597,
-          "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 8.84,
-          "voice_multitrack_stack": 4.550000000000001
+          "voice_vibrato": 2.34,
+          "voice_articulation": 24.505000000000003,
+          "voice_microtone": 24.634999999999998,
+          "voice_tradition": 38.50249999999999,
+          "voice_mechanism_compound": 7.15,
+          "voice_estill_quality": 6.630000000000001,
+          "voice_speech_song": 29.835000000000004,
+          "voice_ensemble_config": 21.905,
+          "voice_ornament_system": 16.674999999999997,
+          "voice_pitch_organization": 6.500000000000001,
+          "voice_processing_chain": 14.82,
+          "voice_multitrack_stack": 10.075
+        }
+      },
+      {
+        "id": "pahu",
+        "slots": {
+          "pahu_construction": "pahu_coconut_log_sharkskin_canonical",
+          "pahu_role": "pahu_hula_kahiko_accompaniment"
+        },
+        "scores": {
+          "pahu_construction": 14.549999999999999,
+          "pahu_role": 21.214999999999996
+        }
+      },
+      {
+        "id": "ipu_heke",
+        "slots": {
+          "ipu_heke_construction": "ipu_single_heke_ole",
+          "ipu_heke_technique": "ipu_heke_ground_strike_palm_slap"
+        },
+        "scores": {
+          "ipu_heke_construction": 17.08,
+          "ipu_heke_technique": 8.214999999999998
+        }
+      },
+      {
+        "id": "conch_shell_horn",
+        "slots": {
+          "wind_articulation": "wind_call_blowing",
+          "conch_use": "conch_andean",
+          "conch_shell_horn_region": "conch_shell_horn_polynesian"
+        },
+        "scores": {
+          "wind_articulation": 3.8225000000000002,
+          "conch_use": 0.825,
+          "conch_shell_horn_region": 21.515000000000004
+        }
+      },
+      {
+        "id": "pulili",
+        "slots": {
+          "pulili_body": "pulili_bamboo_split_rattle_canonical",
+          "pulili_tradition": "pulili_hula_kahiko_canonical"
+        },
+        "scores": {
+          "pulili_body": 13.61,
+          "pulili_tradition": 18.794999999999998
         }
       }
     ],
     "room": "hawaiian_heiau_outdoor_lava_stone_temple",
-    "archetype": "arch_ethnographic_field_digital",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "pre_field_recorder_portable",
-      "console": "clean",
-      "comp": null,
-      "eq": null,
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_30ips"
     },
-    "tuning": "twelve_tet",
+    "tuning": "just_intonation",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
+    "tuning": "just_intonation",
     "room": "hawaiian_heiau_outdoor_lava_stone_temple",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "speech_voice",
-      "voice_speech_song": "voice_ametrical_chant",
+      "voice_speech_song": "voice_non_lexical_vocable",
       "voice_tradition": "polynesian_oli_tradition",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
       "voice_microtone": "tempered_voice",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_estill_quality": "voice_estill_speech",
-      "voice_vibrato": "oscillating_vibrato",
-      "voice_mechanism_compound": "voice_mechanism_single_source"
+      "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+      "voice_estill_quality": "voice_estill_falsetto",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "conch_use": "conch_polynesian",
+      "conch_shell_horn_region": "conch_shell_horn_polynesian",
+      "pahu_construction": "pahu_coconut_log_sharkskin_canonical",
+      "pahu_role": "pahu_heiau_sacred_canonical",
+      "ipu_heke_construction": "ipu_heke_double_gourd_joined_neck_canonical",
+      "ipu_heke_technique": "ipu_heke_ground_strike_palm_slap",
+      "pulili_body": "pulili_bamboo_split_rattle_canonical",
+      "pulili_tradition": "pulili_hula_kahiko_canonical"
     },
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_high",
-    "chain_console": "clean"
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_30ips",
+    "chain_console": "colored"
   }
 }

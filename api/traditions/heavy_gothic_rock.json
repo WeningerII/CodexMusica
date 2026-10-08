@@ -5,7 +5,7 @@
   "lineage": "Heavy gothic rock combines dark-rock atmosphere with weighty amplified riffs.",
   "recipe": "classic heavy gothic rock, distorted Rock, gothic rock branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 371,
-  "score": 38.368,
+  "score": 37.836,
   "config": {
     "traditions": [
       "heavy_gothic_rock"
@@ -33,15 +33,15 @@
           "amp_make": 8.06,
           "body_wood": 0.39,
           "neck_wood": 0.1365,
-          "fretboard": 0.3254999999999999,
+          "fretboard": 0.26249999999999996,
           "pickup_magnet": 0,
-          "pickup_winding": 0.3,
+          "pickup_winding": 0.39,
           "string_material": 0.1365,
-          "bridge": 0.5459999999999999,
-          "scale_length": 0,
-          "string_gauge": 0.2835,
+          "bridge": 0.37799999999999995,
+          "scale_length": 0.0315,
+          "string_gauge": 0.1785,
           "finish": 0,
-          "string_tuning": 0.063
+          "string_tuning": 0.0315
         }
       },
       {
@@ -61,7 +61,7 @@
           "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.26249999999999996,
+          "scale_length_b": 0.19949999999999998,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 15.8445,
-          "drumhead": 0.7629999999999999,
+          "drumhead": 0.75,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -117,7 +117,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.8189999999999998,
+          "voice_multitrack_stack": 0.609,
           "voice_tessitura": 0
         }
       }

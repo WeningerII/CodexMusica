@@ -5,7 +5,7 @@
   "lineage": "Begun in 2002 by Norwegian students Thomas S. Nilsen and Steffen Ojala Soderholm as a school project, nightcore is a transformation rather than a composition: existing eurodance, trance and later pop tracks are sped up roughly 10-35 percent with pitch raised in tandem, producing 160-180 BPM four-on-the-floor tracks with distinctively childlike, formant-raised vocals, distributed as YouTube uploads over anime stills.",
   "recipe": "classic early-2000s nightcore, electronic Dance, eurodance branch, trance electronic dance, pop experimental experimental electric bubblegum bass indietronica. thick, chest mix belt, wide pitch sway, interlocked note trading. singing lead digital subtractive, TR-909, singing lead analog poly synth, glitched textural sampler. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 434,
-  "score": 222.952,
+  "score": 222.552,
   "config": {
     "traditions": [
       "nightcore",
@@ -60,22 +60,22 @@
           "voice_multitrack_stack": "voice_multitrack_formant_shifted_double_stereo"
         },
         "scores": {
-          "voice_register": 13.844999999999994,
+          "voice_register": 13.694999999999995,
           "voice_quality": 12.12,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.94,
+          "voice_vibrato": 1.895,
           "voice_articulation": 14.429999999999994,
           "voice_microtone": 13.389999999999992,
-          "voice_tradition": 12.83,
+          "voice_tradition": 12.875,
           "voice_mechanism_compound": 6.174999999999999,
           "voice_estill_quality": 4.94,
           "voice_speech_song": 17.419999999999995,
           "voice_ensemble_config": 15.404999999999994,
-          "voice_ornament_system": 1.5449999999999997,
-          "voice_pitch_organization": 2.93,
-          "voice_processing_chain": 18.374999999999996,
-          "voice_multitrack_stack": 4.1899999999999995
+          "voice_ornament_system": 1.4999999999999998,
+          "voice_pitch_organization": 2.8850000000000002,
+          "voice_processing_chain": 18.33,
+          "voice_multitrack_stack": 4.145
         }
       },
       {
@@ -98,14 +98,14 @@
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 13.275,
-          "sampler_archetypes": 0.495,
-          "sampler_bit_depth": 0.09,
+          "sampler_archetypes": 0.45,
+          "sampler_bit_depth": 0.06499999999999999,
           "sampler_workflow": 13.775,
           "sampler_classic_context": 15.177499999999997
         }

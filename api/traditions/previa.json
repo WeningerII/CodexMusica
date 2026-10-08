@@ -5,7 +5,7 @@
   "lineage": "Previa connects pre-party listening with a circulating repertoire of Latin dance edits, remixes and DJ sets. Familiar pop and urban hooks are recombined with cumbia, reggaeton and other club rhythms, moving between home gatherings, online releases and dancing.",
   "recipe": "classic previa, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 80,
-  "score": 0.063,
+  "score": 0.095,
   "config": {
     "traditions": [
       "previa"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0945
         }
       }
     ],

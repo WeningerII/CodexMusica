@@ -5,7 +5,7 @@
   "lineage": "Berlin techno's reductionist turn from 1993 onward, codified by Basic Channel/Chain Reaction (Moritz von Oswald and Mark Ernestus), Monolake, and later the Perlon and Berghain/Ostgut orbit — 125-132 BPM, muted 909 or sampled kicks, single evolving chord stabs washed in tape delay and reverb, deep sub bass, and arrangements built from slow parameter automation over eight-to-twelve-minute durations.",
   "recipe": "classic Central European early-1990s berlin minimal techno, electronic Dance, techno branch, microhouse house, ambient experimental electric ambient techno. TR-909, doepfer eurorack canonical 1995 present small format standardization modular sustained pad analog poly analog mono synth, glitched textural sampler, tape replay keyboard. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
   "recipe_chars": 595,
-  "score": 103.453,
+  "score": 103.858,
   "config": {
     "traditions": [
       "berlin_minimal_techno",
@@ -22,8 +22,8 @@
         },
         "scores": {
           "tr909_voice": 7.124999999999998,
-          "drum_machine_909_context": 6.140000000000001,
-          "tr909_production_origin": 0.15
+          "drum_machine_909_context": 6.29,
+          "tr909_production_origin": 0.255
         }
       },
       {
@@ -84,7 +84,7 @@
         },
         "scores": {
           "electronic_technique": 17.325,
-          "mono_oscillator": 0.15,
+          "mono_oscillator": 0.255,
           "mono_filter": 1.2349999999999999,
           "mono_archetypes": 1.2349999999999999,
           "mono_maker_lineage": -1.225
@@ -98,7 +98,7 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 1.7449999999999997,
+          "keyboard_technique": 1.7899999999999998,
           "tape_voice": 0.32999999999999996,
           "tape_state": 0.045
         }

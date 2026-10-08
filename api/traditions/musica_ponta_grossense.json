@@ -5,7 +5,7 @@
   "lineage": "Music of Ponta Grossa, including independent bands and contemporary instrumental rock.",
   "recipe": "classic música ponta-grossense, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 214,
-  "score": 31.96,
+  "score": 32.401,
   "config": {
     "traditions": [
       "musica_ponta_grossense"
@@ -32,14 +32,14 @@
           "electric_technique": 0.19500000000000003,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.105,
+          "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 0.9099999999999999,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 0.868,
           "finish": 0,
           "string_tuning": 0
         }
@@ -88,7 +88,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 9.431499999999998,

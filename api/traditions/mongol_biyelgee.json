@@ -1,0 +1,92 @@
+{
+  "id": "mongol_biyelgee",
+  "name": "Biyelgee (Western Mongolian ger dance)",
+  "family": "global",
+  "lineage": "Dance of the Oirat and other ethnic groups of Khovd and Uvs aimags in western Mongolia, performed in the confined space of the ger with movements mainly of the upper body, hands and shoulders, and inscribed on UNESCO's List of Intangible Cultural Heritage in Need of Urgent Safeguarding. It is accompanied by the tovshuur, the two-string plucked lute of the western Mongols, and the morin khuur horse-head fiddle.",
+  "recipe": "classic modern biyelgee, functional Song. traditional mongolian tuvan tradition tovshuur, morin khuur sycamore canonical mongolian morin khuur. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 223,
+  "score": 9.137,
+  "config": {
+    "traditions": [
+      "mongol_biyelgee"
+    ],
+    "instruments": [
+      {
+        "id": "tovshuur",
+        "slots": {
+          "tovshuur_strings": "tovshuur_two",
+          "tovshuur_body": "tovshuur_carved_wood_hide"
+        },
+        "scores": {
+          "tovshuur_strings": 1.1365,
+          "tovshuur_body": 0.1365
+        }
+      },
+      {
+        "id": "morin_khuur",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "morin_khuur_use": "morin_khuur_dance",
+          "morin_khuur_construction": "morin_khuur_traditional",
+          "morin_khuur_body_wood": "morin_khuur_sycamore",
+          "morin_khuur_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 2.34,
+          "morin_khuur_use": 4.537125,
+          "morin_khuur_construction": 0.1365,
+          "morin_khuur_body_wood": 1,
+          "morin_khuur_strings": 0
+        }
+      }
+    ],
+    "pinned": {
+      "tovshuur": [
+        "tovshuur_strings",
+        "tovshuur_body"
+      ],
+      "morin_khuur": [
+        "bowed_technique",
+        "morin_khuur_use",
+        "morin_khuur_construction",
+        "morin_khuur_body_wood",
+        "morin_khuur_strings"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "tovshuur_strings": "tovshuur_two",
+      "tovshuur_body": "tovshuur_carved_wood_hide",
+      "bowed_technique": "bowed_local_song_melody",
+      "morin_khuur_use": "morin_khuur_dance",
+      "morin_khuur_construction": "morin_khuur_traditional",
+      "morin_khuur_body_wood": "morin_khuur_sycamore",
+      "morin_khuur_strings": "dutar_strings_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

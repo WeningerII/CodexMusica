@@ -5,7 +5,7 @@
   "lineage": "Music of Mato Grosso, encompassing regional traditions and contemporary independent song.",
   "recipe": "classic música mato-grossense, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. acoustic guitar, electric bass, midi programmed sound unspecified, soft felt lacquer voiced 17 ply hard rock maple grand piano, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 388,
-  "score": 14.658,
+  "score": 14.742,
   "config": {
     "traditions": [
       "musica_mato_grossense"
@@ -65,7 +65,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
-          "string_acoustic": 0.714,
+          "string_acoustic": 0.8190000000000002,
           "acoustic_om_technique": -0.25
         }
       },
@@ -83,7 +83,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.441,
+          "body_wood": 0.546,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -122,8 +122,8 @@
           "grand_piano_brand": 0,
           "piano_hammer": 4.16,
           "piano_rim": 4.16,
-          "piano_soundboard": 0.7945,
-          "piano_pinblock": 0.7629999999999999,
+          "piano_soundboard": 0.7,
+          "piano_pinblock": 0.7314999999999999,
           "piano_plate": 0.8365,
           "piano_pitch_standard": 0.975
         }

@@ -5,7 +5,7 @@
   "lineage": "Punk ’n’ roll connects direct punk songwriting with rock-and-roll and older metal influences.",
   "recipe": "classic punk 'n' roll, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 414,
-  "score": 57.263,
+  "score": 56.99,
   "config": {
     "traditions": [
       "punk_n_roll"
@@ -30,7 +30,7 @@
         },
         "scores": {
           "electric_technique": 5.135,
-          "amp_make": 17.527,
+          "amp_make": 17.3905,
           "body_wood": 1.3,
           "neck_wood": 0.063,
           "fretboard": 0.273,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },

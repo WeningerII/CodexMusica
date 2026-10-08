@@ -1,50 +1,152 @@
 {
-  "id": "melbourne_bounce_international",
-  "name": "Melbourne Bounce International",
+  "id": "melbourne_bounce",
+  "merged_from": "melbourne_bounce_international",
+  "name": "Melbourne Bounce",
   "family": "electronic",
-  "lineage": "Melbourne Bounce International connects the Melbourne-origin club sound with a wider network of touring DJs, remixes and festival releases. Australian contributors remain central alongside overseas producers, and the listening field overlaps electro house, big-room dance and adjacent harder styles.",
-  "recipe": "classic melbourne bounce international, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 118,
-  "score": 0,
+  "lineage": "Melbourne bounce emerged in Melbourne's inner-north club and Melbourne-shuffle scene around 2012–2014 out of Dutch house and Melbourne's earlier 'Melbourne shuffle' hard-dance culture, codified by Joel Fletcher, Will Sparks, Timmy Trumpet and the Orkestrated crew — 128–132 BPM four-on-the-floor with a heavily sidechained detuned offbeat saw bass on the upbeat eighths, aggressive open-hat rides, long white-noise risers into silent-drop breakdowns, and chopped pitched-up vocal or trumpet hooks in place of sung toplines.",
+  "recipe": "classic 2012-2014 melbourne bounce, electronic Dance, house branch, tech house house, hardstyle electronic dance, continental electronic dance gym phonk electroclash. thick, breath veiled tone, breath pulsed, interlocked note trading. TR-909, monosynth acid bass, plucked short envelope analog poly synth, snappy to palm hand clap, sampler drum machine. bedroom. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 497,
+  "score": 178.528,
   "config": {
     "traditions": [
-      "melbourne_bounce_international"
+      "melbourne_bounce",
+      "gym_phonk",
+      "electroclash"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "voice",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "voice_register": 2.707500000000001,
+          "voice_quality": 9.425,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 14.559999999999995,
+          "voice_microtone": 15.209999999999992,
+          "voice_tradition": 4.773214285714286,
+          "voice_mechanism_compound": 4.42,
+          "voice_estill_quality": 5.915000000000001,
+          "voice_speech_song": 15.014999999999993,
+          "voice_ensemble_config": 17.224999999999994,
+          "voice_ornament_system": 1.5632142857142857,
+          "voice_pitch_organization": 1.815,
+          "voice_processing_chain": 21.160714285714285,
+          "voice_multitrack_stack": 6.402500000000001
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_behringer_rd_9"
+        },
+        "scores": {
+          "tr909_voice": 11.625,
+          "drum_machine_909_context": 2.08,
+          "tr909_production_origin": 0.45499999999999996
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "closed_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 2.2424999999999997,
+          "wave_acid": 0.18,
+          "filter_acid": 0.24,
+          "accent_acid": 0.5850000000000001
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": 3.26,
+          "poly_archetypes": 1.56,
+          "poly_voices": 0.39000000000000007,
+          "poly_maker_lineage": -1.9
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 1.8199999999999998,
+          "clap_capture": 0.345
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.565,
+          "sample_bitdepth": 0.45499999999999996,
+          "sample_swing": 19.698214285714286,
+          "sample_processing": 1.04
         }
       }
     ],
-    "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ]
-    },
-    "room": "live_room",
+    "room": "untreated_bedroom",
+    "archetype": "arch_festival_edm_itb",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
-    "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
-    },
-    "pin_parts": true
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

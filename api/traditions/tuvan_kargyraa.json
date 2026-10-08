@@ -3,14 +3,14 @@
   "name": "Tuvan kargyraa subharmonic throat-singing",
   "family": "global",
   "lineage": "Tuvan kargyraa subharmonic throat-singing tradition of the Republic of Tuva (southern Siberia, Russian Federation, bordering northwestern Mongolia). Kargyraa technique produces a fundamental pitched a full octave below the singer's normal speaking range through false-vocal-fold (ventricular) co-oscillation: the true vocal folds vibrate at one frequency while the ventricular folds vibrate at half that frequency, producing a rumbling subharmonic. Over this fundamental the singer shapes upper-partial overtone melodies. Two named regional variants: dag kargyraa (\"mountain kargyraa,\" more open and resonant, associated with the Yenisei river valley) and khovu kargyraa (\"steppe kargyraa,\" more compressed and growling, associated with the dry-steppe lowlands). Performance contexts span solo pastoral, hunters' contexts (the throat-singing reproducing animal-call and natural-sound mimesis), and contemporary international concert circuit. Often accompanied by igil (the two-string upright fiddle that is the Tuvan parallel to Mongolian morin khuur). Ted Levin's Where Rivers and Mountains Sing (Indiana UP 2006) is the principal English-language scholarly documentation; Zoya Kyrgys's The Mystery of Tuvan Khoomei (2002) the principal Tuvan-language reference; Smithsonian Folkways SFW40017 Tuva: Voices from the Center of Asia (1990, Levin/Hunt) the canonical Western-distributed recording. Distinguished from Mongolian kharkhiraa by Tuvan-Tyva dialect-specific technique nomenclature and characteristic dag-vs-khovu regional variants; distinguished from Tibetan yang chant by Tuvan kargyraa's solo-secular (vs ensemble-monastic-liturgical) framework; distinguished from sygyt by kargyraa's low-subharmonic (vs sygyt's high-overtone) register.",
-  "recipe": "classic Northeast Asian mid-2000s tuvan kargyraa subharmonic throat-singing, drone Modal, overtone branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. kargyraa, false fold engaged, breath pulsed, interlocked note trading. wood larch canonical tuvan pastoral solo igil. taiga natural reverb. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 375,
-  "score": 452.265,
+  "recipe": "classic Northeast Asian mid-2000s tuvan kargyraa subharmonic throat-singing, drone Modal, overtone branch, vocal drone modal toyuk northern sámi luohti yoik. kargyraa, false fold engaged, breath pulsed, interlocked note trading. wood larch canonical tuvan pastoral solo igil. taiga natural reverb. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 360,
+  "score": 416.035,
   "config": {
     "traditions": [
       "tuvan_kargyraa",
-      "sami_northern_luohti",
-      "sami_southern_vuelie"
+      "sakha_toyuk",
+      "sami_northern_luohti"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 52.160000000000004,
+          "voice_register": 50.585,
           "voice_quality": 60.960000000000036,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.25,
-          "voice_articulation": 29.575,
-          "voice_microtone": 34.385,
+          "voice_articulation": 23.399999999999995,
+          "voice_microtone": 28.209999999999994,
           "voice_tradition": 31.989999999999995,
-          "voice_mechanism_compound": 46.629999999999995,
-          "voice_estill_quality": 9.85,
-          "voice_speech_song": 30.615000000000002,
-          "voice_ensemble_config": 33.28,
-          "voice_ornament_system": 14.32,
-          "voice_pitch_organization": 39.375,
-          "voice_processing_chain": 17.289999999999996,
-          "voice_multitrack_stack": 12.155
+          "voice_mechanism_compound": 44.529999999999994,
+          "voice_estill_quality": 10.349999999999998,
+          "voice_speech_song": 25.089999999999996,
+          "voice_ensemble_config": 27.754999999999992,
+          "voice_ornament_system": 9.62,
+          "voice_pitch_organization": 37.8,
+          "voice_processing_chain": 15.859999999999996,
+          "voice_multitrack_stack": 11.959999999999999
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "igil_body": 14.125,
+          "igil_body": 12.870000000000001,
           "igil_string": 0,
           "igil_body_wood": 10.015,
-          "igil_tradition": 5.85
+          "igil_tradition": 6.5
         }
       }
     ],

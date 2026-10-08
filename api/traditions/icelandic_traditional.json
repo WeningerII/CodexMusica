@@ -3,27 +3,27 @@
   "name": "Icelandic traditional music (þjóðlagatónlist)",
   "family": "global",
   "lineage": "Icelandic oral tradition documented by Bjarni Þorsteinsson's 1906-09 collection and later Hallgrímur Helgason and Iceland State Radio field work — rímur epic chant in stemma melodies of narrow range sung in strict rhyme-and-alliteration stanzas, tvísöngur two-part singing in parallel fifths surviving from medieval organum, plus the bowed drone-boxes langspil and fiðla, with hard consonantal delivery and free declamatory rhythm.",
-  "recipe": "classic mid-1900s icelandic traditional music, ballad Poetry, Mediterranean ballad branch, Celtic balladic ballad poetry, vocal drone modal, north Southeast Asian baltic Southeast Asian shanty scottish gaelic folk song sean-nós singing. kargyraa, breath veiled tone, fast rate, interlocked note trading. two string bowed cousin bowed hymn accompaniment langspil, harpa, fiddle. parish church. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 467,
-  "score": 228.035,
+  "recipe": "classic mid-1900s icelandic traditional music, ballad Poetry, Mediterranean ballad branch, Celtic balladic ballad poetry, vocal drone modal, north Southeast Asian baltic Southeast Asian shanty scottish gaelic folk song traditional english folk. thick, breath veiled tone, straight note core, interlocked note trading. two string bowed cousin bowed hymn accompaniment langspil, harpa, drone like fiddle. parish church. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 492,
+  "score": 225.257,
   "config": {
     "traditions": [
       "icelandic_traditional",
       "scottish_gaelic_folk",
-      "sean_nos_singing"
+      "english_traditional_folk"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "kargyraa_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "sean_nos_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 1.75,
-          "voice_quality": 10.789999999999994,
+          "voice_register": 2.8000000000000003,
+          "voice_quality": 9.880000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.65,
-          "voice_articulation": 20.345,
-          "voice_microtone": 21.904999999999994,
-          "voice_tradition": 25.28,
-          "voice_mechanism_compound": 7.569999999999999,
-          "voice_estill_quality": 5.995,
-          "voice_speech_song": 22.685,
-          "voice_ensemble_config": 23.854999999999997,
-          "voice_ornament_system": 23.675,
-          "voice_pitch_organization": 10.350000000000001,
-          "voice_processing_chain": 4.8100000000000005,
-          "voice_multitrack_stack": 4.029999999999999
+          "voice_vibrato": 2.8800000000000003,
+          "voice_articulation": 21.84,
+          "voice_microtone": 22.75,
+          "voice_tradition": 22.197500000000005,
+          "voice_mechanism_compound": 5.9799999999999995,
+          "voice_estill_quality": 6.5649999999999995,
+          "voice_speech_song": 24.635000000000005,
+          "voice_ensemble_config": 26.65,
+          "voice_ornament_system": 16.445,
+          "voice_pitch_organization": 9.635000000000002,
+          "voice_processing_chain": 6.045,
+          "voice_multitrack_stack": 5.075
         }
       },
       {
@@ -60,9 +60,9 @@
           "langspil_strings": "langspil_brass_strings"
         },
         "scores": {
-          "langspil_form": 10.075,
-          "langspil_setting": 10.164999999999997,
-          "langspil_strings": 7.9
+          "langspil_form": 10.434999999999999,
+          "langspil_setting": 10.134999999999998,
+          "langspil_strings": 8.005
         }
       },
       {
@@ -72,26 +72,26 @@
           "harpa_strings": "harpa_brass_wire"
         },
         "scores": {
-          "harpa_size": 0.15,
-          "harpa_strings": 1.295
+          "harpa_size": 0.255,
+          "harpa_strings": 1.365
         }
       },
       {
         "id": "fiddle",
         "slots": {
-          "bowed_technique": "bowed_celtic_session",
-          "fiddle_strings": "plain_lamb_gut_fiddle",
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "gut_wound",
           "fiddle_bow": "dark_rosin",
           "fiddle_mute": "no_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 10.520000000000001,
-          "fiddle_strings": 0.09999999999999999,
+          "bowed_technique": 7.655,
+          "fiddle_strings": 0.43499999999999994,
           "fiddle_bow": 0.745,
           "fiddle_mute": 0.835,
-          "fiddle_articulation": 1.9849999999999999,
+          "fiddle_articulation": 1.79,
           "fiddle_string_configuration": 0
         }
       }

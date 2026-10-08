@@ -5,7 +5,7 @@
   "lineage": "New Zealand country developed through local touring, recordings and radio/television alongside Australian and American connections. Nelson-born Tex Morton supplies a documented early guitar-and-song branch, with later New Zealand broadcast country providing a broader ensemble lineage.",
   "recipe": "classic modern classic nz country, functional Song, country branch. thick, wide pitch sway, neutral third half flat, m1 with m0 pulse borrowing. dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 311,
-  "score": 62.191,
+  "score": 61.002,
   "config": {
     "traditions": [
       "classic_nz_country"
@@ -32,21 +32,21 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 11.531499999999992,
-          "voice_quality": 0.42000000000000004,
+          "voice_register": 11.562999999999994,
+          "voice_quality": 0.22049999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.109,
+          "voice_vibrato": 11.95,
           "voice_articulation": -0.14,
           "voice_microtone": 4.680000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 13.937999999999997,
+          "voice_estill_quality": 13.567499999999997,
           "voice_speech_song": 8.125,
           "voice_ensemble_config": 5.2,
-          "voice_ornament_system": 0.2315,
-          "voice_pitch_organization": 1.1049999999999998,
-          "voice_processing_chain": 2.0855,
+          "voice_ornament_system": 0.26,
+          "voice_pitch_organization": 0.9864999999999999,
+          "voice_processing_chain": 2.0315,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -55,15 +55,15 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "engelmann",
+          "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
           "acoustic_technique": -0.07,
           "string_tuning": 0,
-          "top_wood": 0.18,
-          "back_sides": 0.42000000000000004,
+          "top_wood": 0.0315,
+          "back_sides": 0.22049999999999997,
           "string_acoustic": 0.2205
         }
       }

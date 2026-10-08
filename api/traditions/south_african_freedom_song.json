@@ -5,7 +5,7 @@
   "lineage": "South African anti-apartheid freedom-song tradition continuous from late-1940s post-apartheid-codification group-vocal protest practice through the 1976 Soweto Uprising and 1980s-1990s liberation-and-transition era; defined by group-vocal harmony-singing, toyi-toyi marching-chant, and canonical anthems integrated into both the African National Congress and broader liberation movements",
   "recipe": "classic 1947-1949 south african freedom song, protest Song, sub saharan African branch, African pop isicathamiya, anglo American protest song, christian gospel ritual devotional african-american spirituals spirituals. thick, declaimed, wide pitch sway, interlocked note trading. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 357,
-  "score": 197.343,
+  "score": 198.107,
   "config": {
     "traditions": [
       "south_african_freedom_song",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 18.79,
-          "voice_quality": 21.86,
+          "voice_register": 18.939999999999998,
+          "voice_quality": 22.055,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.325,
           "voice_articulation": 18.394999999999996,
           "voice_microtone": 18.784999999999993,
-          "voice_tradition": 36.980000000000004,
+          "voice_tradition": 37.4,
           "voice_mechanism_compound": 3.4450000000000003,
           "voice_estill_quality": 12.865,
           "voice_speech_song": 27.104999999999997,

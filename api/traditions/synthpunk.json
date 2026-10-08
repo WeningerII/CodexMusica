@@ -3,14 +3,14 @@
   "name": "Synthpunk",
   "family": "rock_punk",
   "lineage": "Late-1970s American punk offshoot (Los Angeles, Akron, New York, 1977-1981) in which cheap monophonic synthesizers, combo organs and primitive drum machines replaced guitars entirely — codified by The Screamers, Suicide, Nervous Gender and The Units, running 140-170 BPM with buzzing sawtooth ostinati, no cymbals, hammering eighth-note machine pulses and shouted, hectoring, close-miked vocals delivered flat and unmelodic.",
-  "recipe": "classic European 1977-1981 synthpunk, distorted Rock, punk branch, pop rock synthpop, industrial noise experimental electric minimal synth new romanticism. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog mono oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, psychedelic foregrounded organ driven rock block chord combo organ, drum machine analog, ampeg svt amp rock bass amp ernie ball slinky electric bass. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 597,
-  "score": 252.405,
+  "recipe": "classic European 1977-1981 synthpunk, distorted Rock, punk branch, pop rock synthpop, industrial noise experimental electric new romanticism metropopolis. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog mono oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, psychedelic foregrounded organ driven rock block chord combo organ, drum machine analog, ampeg svt amp rock bass amp ernie ball slinky electric bass. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 596,
+  "score": 323.902,
   "config": {
     "traditions": [
       "synthpunk",
-      "minimal_synth",
-      "new_romantic"
+      "new_romantic",
+      "metropopolis"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 19.314999999999994,
-          "voice_quality": 9.555,
+          "voice_register": 25.56499999999999,
+          "voice_quality": 10.269999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6899999999999997,
-          "voice_articulation": 16.379999999999995,
-          "voice_microtone": 19.174999999999997,
-          "voice_tradition": 12.74,
-          "voice_mechanism_compound": 3.3350000000000004,
-          "voice_estill_quality": 2.990000000000001,
-          "voice_speech_song": 19.759999999999994,
-          "voice_ensemble_config": 17.224999999999994,
-          "voice_ornament_system": 2.1,
-          "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 8.31,
-          "voice_multitrack_stack": 6.597500000000001
+          "voice_vibrato": 2.34,
+          "voice_articulation": 21.124999999999996,
+          "voice_microtone": 25.424999999999997,
+          "voice_tradition": 19.1425,
+          "voice_mechanism_compound": 4.029999999999999,
+          "voice_estill_quality": 3.6400000000000006,
+          "voice_speech_song": 24.309999999999995,
+          "voice_ensemble_config": 20.409999999999993,
+          "voice_ornament_system": 2.1449999999999996,
+          "voice_pitch_organization": 0.9749999999999996,
+          "voice_processing_chain": 9.194999999999999,
+          "voice_multitrack_stack": 5.915000000000001
         }
       },
       {
@@ -59,14 +59,14 @@
           "mono_oscillator": "mono_voltage_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_arp_pearlman"
+          "mono_maker_lineage": "mono_korg_kato"
         },
         "scores": {
-          "electronic_technique": 10.735000000000001,
+          "electronic_technique": 16.235,
           "mono_oscillator": 0.24,
           "mono_filter": 0.435,
-          "mono_archetypes": 0.845,
-          "mono_maker_lineage": 0.325
+          "mono_archetypes": 1.4949999999999999,
+          "mono_maker_lineage": 0.975
         }
       },
       {
@@ -79,24 +79,24 @@
           "amp_make": "amp_british_60s_selmer"
         },
         "scores": {
-          "keyboard_technique": 9.2,
-          "combo_organ_model": 9.805,
-          "combo_organ_voicing": 9.445,
-          "combo_organ_context": 6.760000000000002,
+          "keyboard_technique": 13.7,
+          "combo_organ_model": 14.754999999999999,
+          "combo_organ_voicing": 13.945,
+          "combo_organ_context": 8.32,
           "amp_make": 0.8449999999999999
         }
       },
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "sine_burst_kick",
+          "kick_voice": "bridged_t_kick",
           "snare_voice": "two_oscillator_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.24,
-          "snare_voice": 0.09,
+          "kick_voice": 0.65,
+          "snare_voice": 0.195,
           "hat_voice": 0,
           "shuffle_quantize": 1.67
         }
@@ -114,13 +114,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.540000000000001,
-          "body_wood": 0.43499999999999994,
-          "pickup_config": 0.285,
-          "string_type": 13.162500000000001,
+          "amp_make": 8.645,
+          "body_wood": 0.195,
+          "pickup_config": 1.04,
+          "string_type": 14.965,
           "scale_length_b": 0.195,
-          "fretted_or_not": 0.15,
-          "bass_technique": 18.445,
+          "fretted_or_not": 0.65,
+          "bass_technique": 20.195,
           "electric_bass_string_configuration": 0
         }
       },
@@ -133,10 +133,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 10.735000000000001,
-          "poly_archetypes": 5.265000000000001,
+          "electronic_technique": 16.235,
+          "poly_archetypes": 6.175,
           "poly_voices": 0.24,
-          "poly_maker_lineage": 3.38
+          "poly_maker_lineage": 4.47
         }
       }
     ],

@@ -3,20 +3,20 @@
   "name": "Sardinian polyphony (cantu a tenore)",
   "family": "global",
   "lineage": "Sardinian a cappella four-voice polyphonic tradition — cantu a tenore (male four-voice with bassu, contra, mesa voche, and boche solo lead) and cantu a chiterra (vocal-with-guitar shepherd song), preserved through the village traditions of Bitti, Nuoro, and Logudoro, with the Tenores di Bitti Mialinu Pira ensemble as the canonical late-twentieth-century preservation lineage",
-  "recipe": "classic modern sardinian polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony stornelli. thick, false fold engaged, slow rate, interlocked note trading. a tenores quartet. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 375,
-  "score": 258.087,
+  "recipe": "classic modern sardinian polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry rizitika croatian klapa dalmatian close-harmony. vocal fry, false fold engaged, slow rate, interlocked note trading. a tenores quartet. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 378,
+  "score": 253.932,
   "config": {
     "traditions": [
       "sardinian_polyphony",
-      "croatian_klapa_dalmatian",
-      "stornelli"
+      "cretan_rizitika",
+      "croatian_klapa_dalmatian"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "false_fold_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -29,26 +29,26 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 6.795,
+          "voice_register": 5.704999999999999,
           "voice_quality": 25.949999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.5025,
-          "voice_articulation": 23.595,
-          "voice_microtone": 24.114999999999995,
-          "voice_tradition": 48.705,
-          "voice_mechanism_compound": 13.194999999999999,
-          "voice_estill_quality": 10.14,
-          "voice_speech_song": 21.514999999999997,
-          "voice_ensemble_config": 35.49,
-          "voice_ornament_system": 6.795,
-          "voice_pitch_organization": 6.1450000000000005,
-          "voice_processing_chain": 8.32,
+          "voice_vibrato": 3.3475,
+          "voice_articulation": 24.504999999999995,
+          "voice_microtone": 25.024999999999995,
+          "voice_tradition": 42.05499999999999,
+          "voice_mechanism_compound": 12.544999999999998,
+          "voice_estill_quality": 9.49,
+          "voice_speech_song": 20.735,
+          "voice_ensemble_config": 36.78999999999999,
+          "voice_ornament_system": 6.294999999999999,
+          "voice_pitch_organization": 4.915,
+          "voice_processing_chain": 11.764999999999999,
           "voice_multitrack_stack": 7.049999999999999
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "voices": 6.109999999999999,
-          "a_tenores_quartet_context": 6.8149999999999995
+          "a_tenores_quartet_context": 5.2
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Icelandic metal",
   "family": "rock_punk",
   "lineage": "Icelandic metal includes dark, psychedelic and rock-inflected approaches as well as extreme metal. Sólstafir’s development illustrates that breadth.",
-  "recipe": "classic modern icelandic metal, distorted Rock, metal branch, post metal metal atmospheric post-metal post-metal. group vocals. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 562,
-  "score": 129.622,
+  "recipe": "classic modern icelandic metal, distorted Rock, metal branch, post metal metal post-metal uk post-metal. group vocals. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 553,
+  "score": 123.691,
   "config": {
     "traditions": [
       "icelandic_metal",
-      "atmospheric_post_metal",
-      "post_metal"
+      "post_metal",
+      "uk_post_metal"
     ],
     "instruments": [
       {
@@ -32,18 +32,18 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 16.119999999999997,
-          "body_wood": 16.315,
+          "amp_make": 15.925,
+          "body_wood": 16.120000000000005,
           "neck_wood": 1.04,
           "fretboard": 0.168,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 1.04,
-          "bridge": 0.45499999999999996,
+          "bridge": 0.845,
           "scale_length": 0,
-          "string_gauge": 0.65,
+          "string_gauge": 1.04,
           "finish": 0,
-          "string_tuning": 0.108
+          "string_tuning": 0.195
         }
       },
       {
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.049999999999997,
-          "body_wood": 16.315,
+          "amp_make": 9.75,
+          "body_wood": 16.120000000000005,
           "pickup_config": 0.21,
-          "string_type": 23.682000000000002,
+          "string_type": 22.6345,
           "scale_length_b": 0.5775,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 19.145,
+          "fretted_or_not": 0.168,
+          "bass_technique": 18.1065,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,7 +77,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19,
+          "drum_technique": 18.125,
           "drumhead": 1.4300000000000002,
           "drum_kit_kick_pedal": 0
         }
@@ -114,11 +114,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
+          "voice_ensemble_config": 0.585,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.195
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0
         }
       }
     ],

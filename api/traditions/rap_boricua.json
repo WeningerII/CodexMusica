@@ -5,7 +5,7 @@
   "lineage": "Rap boricua connects Puerto Rican rap artists, producers, DJs and audiences on the island and beyond. Independent releases and shared performance networks maintain a field distinct from, but overlapping, other Puerto Rican popular music.",
   "recipe": "classic rap boricua, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. treated studio.",
   "recipe_chars": 151,
-  "score": 40.589,
+  "score": 41.375,
   "config": {
     "traditions": [
       "rap_boricua"
@@ -34,17 +34,17 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 15.4755,
+          "voice_quality": 15.6,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.0315,
+          "voice_articulation": 0.063,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 14.218,
-          "voice_ensemble_config": 0.504,
+          "voice_speech_song": 14.575,
+          "voice_ensemble_config": 0.7769999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

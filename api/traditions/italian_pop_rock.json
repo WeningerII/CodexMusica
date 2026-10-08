@@ -5,7 +5,7 @@
   "lineage": "Italian pop rock joins melodic popular songwriting with amplified guitar-band arrangements.",
   "recipe": "classic italian pop rock, functional Song, europop branch. solo with instrumental accompaniment. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 381,
-  "score": 33.575,
+  "score": 33.429,
   "config": {
     "traditions": [
       "italian_pop_rock"
@@ -29,8 +29,8 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
-          "amp_make": 3.2780000000000005,
+          "electric_technique": -0.1,
+          "amp_make": 3.2045000000000003,
           "body_wood": 1.0605000000000002,
           "neck_wood": 0.273,
           "fretboard": 0.1365,
@@ -38,7 +38,7 @@
           "pickup_winding": 0.2415,
           "string_material": 0,
           "bridge": 0.273,
-          "scale_length": 0.8505,
+          "scale_length": 0.8190000000000002,
           "string_gauge": 0.3045,
           "finish": 0,
           "string_tuning": 0
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.901,
+          "amp_make": 3.964,
           "body_wood": 0.546,
           "pickup_config": 0.2415,
-          "string_type": 7.878,
+          "string_type": 7.8045,
           "scale_length_b": 0.3045,
           "fretted_or_not": 0.1365,
           "bass_technique": -0.15000000000000002,

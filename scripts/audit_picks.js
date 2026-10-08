@@ -66,7 +66,7 @@ for (const a of process.argv.slice(2)) {
 }
 const TARGET_INSTRUMENT = flags.instrument;
 const TARGET_PART = flags.part;
-const SINGLE_TRAD = flags.tradition || null;
+const SINGLE_TRAD = flags.tradition ? C.resolveTraditionId(flags.tradition) : null;
 const OUT_PATH = flags.out || null;
 const JSON_ONLY = !!flags['json-only'];
 

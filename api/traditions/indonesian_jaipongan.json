@@ -3,14 +3,14 @@
   "name": "Indonesian jaipongan (Sundanese popular)",
   "family": "global",
   "lineage": "Indonesian jaipongan Sundanese popular-music genre developed in 1974 by Gugum Gumbira in Bandung (West Java) as a modernization of the older ketuk tilu Sundanese folk-dance-music. The form incorporates the traditional kendang Sundanese drum-set, gamelan degung metallophone framework, and Sundanese-language vocal repertoire, but with substantially energized faster-tempo rhythmic pulse and assertive female-singer-dancer presentation. The genre became culturally significant during the late-1970s Indonesian-cultural-nationalism period as an alternative to Western-influenced popular music. Distinguished from broader Sundanese gamelan by jaipongan's mid-1970s commercial-popular crystallization and the assertive vocal-and-dance performance register.",
-  "recipe": "classic Southeast Asian 1977-1979 indonesian jaipongan, groove Percussion, west African branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. gamelan sundanese mahogany mid tier modern cowhide modern alternative kendang indonesian, gamelan balinese full, interlocking kacapi. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 563,
-  "score": 277.875,
+  "recipe": "classic Southeast Asian 1977-1979 indonesian jaipongan, groove Percussion, west African branch, indigenous ritual devotional mapuche tayil genealogical chant samoan siva and fagufagu. vocal fry, breath veiled tone, straight note core, interlocked note trading. paired gamelan sundanese mahogany mid tier modern cowhide modern alternative kendang indonesian, gamelan balinese full, interlocking kacapi. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 559,
+  "score": 248.625,
   "config": {
     "traditions": [
       "indonesian_jaipongan",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "samoan_siva_fagufagu"
     ],
     "instruments": [
       {
@@ -24,44 +24,44 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.68,
-          "voice_quality": 38.61,
+          "voice_register": 5.329999999999999,
+          "voice_quality": 28.080000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.240000000000001,
-          "voice_articulation": 19.694999999999997,
-          "voice_microtone": 19.304999999999993,
-          "voice_tradition": 25.61,
-          "voice_mechanism_compound": 10.770000000000001,
-          "voice_estill_quality": 9.165,
-          "voice_speech_song": 21.189999999999998,
-          "voice_ensemble_config": 20.279999999999998,
-          "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 18.214999999999996,
-          "voice_processing_chain": 15.534999999999998,
-          "voice_multitrack_stack": 7.410000000000001
+          "voice_vibrato": 5.590000000000001,
+          "voice_articulation": 17.874999999999996,
+          "voice_microtone": 17.939999999999994,
+          "voice_tradition": 23.725,
+          "voice_mechanism_compound": 7.669999999999999,
+          "voice_estill_quality": 6.175,
+          "voice_speech_song": 18.979999999999997,
+          "voice_ensemble_config": 18.654999999999998,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 17.714999999999996,
+          "voice_processing_chain": 10.399999999999999,
+          "voice_multitrack_stack": 7.02
         }
       },
       {
         "id": "kendang_indonesian",
         "slots": {
-          "kendang_size": "kendang_gendhing",
+          "kendang_size": "kendang_ketipung",
           "kendang_context": "kendang_sundanese",
           "kendang_shell_wood": "kendang_mahogany",
           "kendang_head": "kendang_cowhide_alternative"
         },
         "scores": {
-          "kendang_size": 5.164999999999999,
+          "kendang_size": 5.5699999999999985,
           "kendang_context": 10.099999999999998,
           "kendang_shell_wood": 1.495,
           "kendang_head": 1.495
@@ -74,7 +74,7 @@
           "characteristic": "gb_kotekan"
         },
         "scores": {
-          "type": 1.4949999999999999,
+          "type": 1.6899999999999997,
           "characteristic": 0.65
         }
       },

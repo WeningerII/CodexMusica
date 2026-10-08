@@ -5,7 +5,7 @@
   "lineage": "UK post-punk revival includes bands placing spoken vocal delivery against recurring guitar and bass patterns.",
   "recipe": "classic uk post-punk revival, distorted Rock, punk branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, credited auxiliary percussion. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 460,
-  "score": 26.683,
+  "score": 26.397,
   "config": {
     "traditions": [
       "uk_post_punk_revival"
@@ -31,13 +31,13 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 13.129999999999999,
-          "body_wood": 1.6485,
+          "body_wood": 1.386,
           "neck_wood": 0.063,
-          "fretboard": 0.1365,
+          "fretboard": 0.273,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.1365,
+          "bridge": 0.273,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 1.6485,
+          "body_wood": 1.386,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.325,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.423,
-          "voice_ensemble_config": 0.7702500000000001,
+          "voice_ensemble_config": 0.8640000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.042749999999999996,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },

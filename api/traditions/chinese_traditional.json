@@ -5,7 +5,7 @@
   "lineage": "Han Chinese instrumental and vocal repertoire transmitted from the Tang-Song court and literati eras through regional sizhu, chuida and qin lineages and codified into conservatory practice after 1949 by the Central Conservatory and China Record Company, characterised by gong-mode pentatonic frameworks with expressive passing tones, heterophonic ensemble texture where each instrument ornaments a shared melody, free-tempo openings tightening into metered ban-yan cycles marked by paiban clapper, and timbral extremes from the whisper of guqin to the outdoor blare of suona.",
   "recipe": "classic East Asian late-1940s chinese traditional music, art Music, east Asian branch, east Asian beijing opera, string drone modal huqin ensemble. silk tongmu aged tang song canon modern lacquer no aged cracking guqin, low mid rich spectrum vocal imitating silk pipa, python skin snake skin bamboo silk bamboo stick erhu, no membrane buzz bangdi northern sharp opera percussive continuous-airflow legato dizi, low mid rich spectrum traditional shell guzheng, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, dense toned warm wood suona, traditional bamboo yangqin, paiban, purple bamboo phyllostachys canonical literati premium continuous-airflow legato xiao. chinese traditional teahouse. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 831,
-  "score": 178.096,
+  "score": 178.419,
   "config": {
     "traditions": [
       "chinese_traditional",
@@ -25,8 +25,8 @@
         "scores": {
           "plucked_traditional_technique": 3.6699999999999995,
           "guqin_strings": 1.17,
-          "guqin_context": 10.844999999999999,
-          "guqin_body_wood": 5.4475,
+          "guqin_context": 11.07,
+          "guqin_body_wood": 5.4025,
           "guqin_lacquer": 1.4300000000000002
         }
       },
@@ -80,7 +80,7 @@
           "dizi_membrane": 2.5349999999999997,
           "dizi_pitch": 9.034999999999998,
           "dizi_body_material": 0.78,
-          "dizi_regional_style": 7.4624999999999995
+          "dizi_regional_style": 7.6049999999999995
         }
       },
       {

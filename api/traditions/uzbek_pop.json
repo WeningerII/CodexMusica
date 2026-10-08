@@ -3,14 +3,14 @@
   "name": "Uzbek pop",
   "family": "pop",
   "lineage": "Selected 1990s Uzbek folk-and-commercial-pop crossover associated with Yulduz Usmanova's Blue Flame albums Jannona (1995) and Binafscha (1996). The label describes village-song material modernized through Western rock, pop and dance production with traditional instruments and electronics. This branch does not replace shashmaqam, regional oral repertoires or all contemporary Uzbek dance singles.",
-  "recipe": "classic mid-1990s uzbek pop, functional Song, pop rock branch, mid east n African pop functional song arabesk mizrahi. thick, straight onset, equal tempered, modern pop training. doira frame drum, singing lead rompler workstation, alder ernie ball slinky electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 450,
-  "score": 186.57,
+  "recipe": "classic mid-1990s uzbek pop, functional Song, pop rock branch, mid east n African pop functional song assyrian pop israeli pop. thick, straight onset, equal tempered, modern pop training. doira frame drum, singing lead rompler workstation, alder ernie ball slinky electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 459,
+  "score": 212.81,
   "config": {
     "traditions": [
       "uzbek_pop",
-      "arabesk",
-      "mizrahi"
+      "assyrian_pop",
+      "israeli_pop"
     ],
     "instruments": [
       {
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 34.089999999999996,
+          "voice_register": 38.86500000000003,
           "voice_quality": -0.7000000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.47,
+          "voice_vibrato": 3.3600000000000003,
           "voice_articulation": 0,
-          "voice_microtone": 31.645,
-          "voice_tradition": 29.375,
+          "voice_microtone": 35.320000000000014,
+          "voice_tradition": 34.7,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0.48000000000000004,
-          "voice_speech_song": 0.15,
-          "voice_ensemble_config": 6.369999999999999,
-          "voice_ornament_system": 0.585,
+          "voice_speech_song": 0.3,
+          "voice_ensemble_config": 4.874999999999999,
+          "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.45499999999999996,
+          "voice_processing_chain": 0.26,
           "voice_multitrack_stack": 0.3
         }
       },
@@ -74,9 +74,9 @@
           "rompler_lineage": "rompler_roland_jv_xp"
         },
         "scores": {
-          "electronic_technique": 22.275,
+          "electronic_technique": 25.650000000000002,
           "rompler_preset_bank": 0,
-          "rompler_context": 22.07,
+          "rompler_context": 25.445000000000007,
           "rompler_lineage": -1.7049999999999998
         }
       },
@@ -95,8 +95,8 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 3.25,
-          "pickup_config": 0.54,
-          "string_type": 7.525,
+          "pickup_config": 0.65,
+          "string_type": 8.775,
           "scale_length_b": 3.25,
           "fretted_or_not": 0.15,
           "bass_technique": -0.15000000000000002,
@@ -112,7 +112,7 @@
         },
         "scores": {
           "drum_technique": -0.1,
-          "drumhead": 22.02,
+          "drumhead": 26.695000000000004,
           "drum_kit_kick_pedal": 0
         }
       }

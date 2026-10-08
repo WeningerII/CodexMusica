@@ -3,27 +3,27 @@
   "name": "Turkish Trap",
   "family": "hip_hop",
   "lineage": "Istanbul and Berlin-diaspora Turkish-language trap that broke through around 2017 with Ezhel's Müptezhel and the Kabus Kerim / Uzi generation — 130-145 BPM half-time 808 productions, triplet hi-hats and rolled snares, minor-key loops frequently sampling or replaying bağlama, kanun, and arabesk string lines, and Turkish verses that alternate melodic Auto-Tuned hooks with fast rapped bars.",
-  "recipe": "classic late-2010s turkish trap, mc Rhythm, intl hip hop branch, drill MC rhythm, us hip hop southern, mid east n African pop functional song country rap afro drill. thick, rap, straight note core, interlocked note trading. TR-808, sampled chopped sampler drum machine, sub bass wavetable synth, rhythmic dance rhythm strummed saz baglama, kanun tortoiseshell traditional kanun, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 622,
-  "score": 268.04,
+  "recipe": "classic late-2010s turkish trap, mc Rhythm, intl hip hop branch, drill MC rhythm, us hip hop southern, mid east n African pop functional song dirty south rap afro drill. extended whistle, rap, straight note core, interlocked note trading. TR-808, sampled chopped sampler drum machine, sub bass wavetable synth, strummed saz baglama, kanun tortoiseshell traditional kanun, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 615,
+  "score": 282.56,
   "config": {
     "traditions": [
       "turkish_trap",
-      "country_rap",
+      "dirty_south_rap",
       "afro_drill"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "sean_nos_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 6.295000000000001,
-          "voice_quality": 17.81,
+          "voice_register": 3.835,
+          "voice_quality": 19.240000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.435,
-          "voice_articulation": 21.319999999999997,
-          "voice_microtone": 38.934999999999995,
-          "voice_tradition": 6.695,
-          "voice_mechanism_compound": 5.914999999999998,
-          "voice_estill_quality": 9.679999999999996,
-          "voice_speech_song": 21.58,
-          "voice_ensemble_config": 21.254999999999992,
-          "voice_ornament_system": 7.020000000000001,
+          "voice_vibrato": 3.9650000000000007,
+          "voice_articulation": 25.740000000000002,
+          "voice_microtone": 44.655,
+          "voice_tradition": 7.974999999999998,
+          "voice_mechanism_compound": 5.719999999999999,
+          "voice_estill_quality": 5.525,
+          "voice_speech_song": 26,
+          "voice_ensemble_config": 25.479999999999997,
+          "voice_ornament_system": 6.825000000000001,
           "voice_pitch_organization": 12.279999999999996,
-          "voice_processing_chain": 9.020000000000001,
+          "voice_processing_chain": 9.695,
           "voice_multitrack_stack": 3.575
         }
       },
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.61,
-          "drum_machine_808_context": 1.4949999999999999,
-          "tr808_production_origin": 0.45499999999999996
+          "tr808_voice": 9.41,
+          "drum_machine_808_context": 3.38,
+          "tr808_production_origin": 0.65
         }
       },
       {
@@ -75,9 +75,9 @@
         },
         "scores": {
           "electronic_technique": 6.04,
-          "sample_bitdepth": 1.6899999999999997,
-          "sample_swing": 10.27,
-          "sample_processing": 2.54
+          "sample_bitdepth": 2.34,
+          "sample_swing": 10.075000000000001,
+          "sample_processing": 2.69
         }
       },
       {
@@ -85,13 +85,13 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "wt_position": "wt_chaotic",
-          "wt_family": "wt_vocal",
+          "wt_family": "wt_industrial",
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 15.28,
-          "wt_position": 0.45499999999999996,
-          "wt_family": 0.65,
+          "electronic_technique": 15.83,
+          "wt_position": 0.6749999999999999,
+          "wt_family": 0.72,
           "wt_polyphony": 0
         }
       },
@@ -106,12 +106,12 @@
           "saz_tradition": "saz_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": 8.06,
+          "plucked_traditional_technique": 7.475,
           "saz_size": 0,
-          "saz_frets": 0.45499999999999996,
+          "saz_frets": 0.6749999999999999,
           "saz_body_wood": 0.3,
-          "saz_strings": 0.45499999999999996,
-          "saz_tradition": 0.45499999999999996
+          "saz_strings": 0.6749999999999999,
+          "saz_tradition": 0.6749999999999999
         }
       },
       {
@@ -124,7 +124,7 @@
         "scores": {
           "plucked_traditional_technique": 0.52,
           "kanun_school": 13.299999999999997,
-          "kanun_articulation": 2.535
+          "kanun_articulation": 2.7
         }
       },
       {
@@ -136,8 +136,8 @@
         },
         "scores": {
           "multitrack_stack_density": 0.65,
-          "multitrack_stack_era_aesthetic": 0.5199999999999999,
-          "multitrack_stack_processing": 1.915
+          "multitrack_stack_era_aesthetic": -0.07,
+          "multitrack_stack_processing": 1.34
         }
       }
     ],

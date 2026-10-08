@@ -5,7 +5,7 @@
   "lineage": "French hardcore includes punk and crust currents carried by independent local scenes.",
   "recipe": "classic french hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 365,
-  "score": 35.988,
+  "score": 36.408,
   "config": {
     "traditions": [
       "french_hardcore"
@@ -31,13 +31,13 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 13.845,
-          "body_wood": 1.1655,
+          "body_wood": 1.239,
           "neck_wood": 0.063,
-          "fretboard": 0,
+          "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0,
+          "bridge": 0.1365,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.6650000000000005,
-          "body_wood": 1.1655,
+          "body_wood": 1.239,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

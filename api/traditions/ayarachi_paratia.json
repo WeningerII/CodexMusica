@@ -1,0 +1,82 @@
+{
+  "id": "ayarachi_paratia",
+  "name": "Ayarachi (Paratía panpipe-and-drum music)",
+  "family": "global",
+  "lineage": "Ayarachi is a Quechua panpipe-and-drum music and dance of Puno, kept in its older form chiefly in Paratía in Lampa province and in Cuyocuyo in Sandia, played by large troupes of men who sound big panpipes in interlocking paired halves with drums. Its slow, solemn tunes are linked in local tradition to mourning and the dead. The siku card stands in for the ayarachi panpipes and the membrane-drum card for the drums.",
+  "recipe": "classic Andean modern ayarachi, carnival Processional, andean branch, funeral lament dinki mini and gerreh dagara gyil funeral music. andean tradition bamboo paired rows interlocking siku panpipes, membrane drum pulse resonant acoustic membrane drum. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 339,
+  "score": 16.38,
+  "config": {
+    "traditions": [
+      "ayarachi_paratia",
+      "jamaican_dinki_mini_gerreh",
+      "dagara_gyil_funeral"
+    ],
+    "instruments": [
+      {
+        "id": "siku_panpipes",
+        "slots": {
+          "siku_construction": "siku_ira_arca_paired",
+          "siku_size": "siku_zanca"
+        },
+        "scores": {
+          "siku_construction": 7.54,
+          "siku_size": 0.39
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 7.800000000000001,
+          "acoustic_membrane_drum_gesture": 5.800000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "siku_panpipes": [
+        "siku_construction",
+        "siku_size"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "andean_altiplano_outdoor",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "andean_altiplano_outdoor",
+    "parts": {
+      "siku_construction": "siku_ira_arca_paired",
+      "siku_size": "siku_zanca",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

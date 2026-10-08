@@ -5,7 +5,7 @@
   "lineage": "Brazilian stoner rock is represented here by Dead Level — Intoxicated. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic brazilian stoner rock, distorted Rock, alternative branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oil filled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 388,
-  "score": 48.238,
+  "score": 48.719,
   "config": {
     "traditions": [
       "brazilian_stoner_rock"
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.9099999999999999,
+          "electric_technique": 0.8875,
           "amp_make": 6.11,
-          "body_wood": 1.6325000000000003,
-          "neck_wood": 0.5125,
+          "body_wood": 2.0105,
+          "neck_wood": 0.481,
           "fretboard": 0.3055,
           "pickup_magnet": 0.12999999999999998,
           "pickup_winding": 0.7465000000000002,
           "string_material": 0.105,
           "bridge": 1.69,
-          "scale_length": 1.2555000000000003,
-          "string_gauge": 1.69,
+          "scale_length": 1.6650000000000003,
+          "string_gauge": 1.637,
           "finish": 0,
           "string_tuning": 0.33899999999999997
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 5.654999999999999,
-          "body_wood": 0.986,
+          "body_wood": 0.923,
           "pickup_config": 0.26649999999999996,
           "string_type": 13.325,
           "scale_length_b": 0.7410000000000001,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 10.25,
-          "drumhead": 1.355,
+          "drumhead": 1.25,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0
         }
       }

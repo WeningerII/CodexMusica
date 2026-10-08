@@ -5,7 +5,7 @@
   "lineage": "Andean-instrument repertoire of Chile's Norte Grande and its adoption by Santiago nueva canción groups from the mid-1960s — Violeta Parra's collecting, then Inti-Illimani, Quilapayún and Illapu — combining quena, zampoña, charango, bombo and guitar in arranged, harmonized settings of huaynos, trotes and cachimbos with political texts.",
   "recipe": "classic Andean 1964-1966 música andina chilena, protest Song, iberian Latin branch, andean field work, Latin am troubadour ballad poetry folklore ecuatoriano música andina. vocal fry, forward-resonance, slow rate, interlocked note trading. traditional natural material resonance bamboo quena, andean tradition paired rows interlocking siku panpipes, naranjillo andean premium wood cedar andean andean classical charango, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, cedar nylon classical nylon-string guitar, cedar canonical andean tiple. bogota colombian andean studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 729,
-  "score": 239.985,
+  "score": 236.733,
   "config": {
     "traditions": [
       "musica_andina_chilena",
@@ -64,7 +64,7 @@
         "scores": {
           "bombo_andino_construction": 1.2349999999999999,
           "bombo_andino_skin": 2.275,
-          "bombo_andino_shell_wood": 1.02
+          "bombo_andino_shell_wood": 1.0695000000000001
         }
       },
       {
@@ -114,12 +114,12 @@
           "voice_vibrato": 2.2749999999999995,
           "voice_articulation": 16.639999999999997,
           "voice_microtone": 17.159999999999993,
-          "voice_tradition": 24.765000000000004,
+          "voice_tradition": 23.244000000000003,
           "voice_mechanism_compound": 3.835,
-          "voice_estill_quality": 15.144999999999998,
+          "voice_estill_quality": 15.189999999999998,
           "voice_speech_song": 19.369999999999994,
-          "voice_ensemble_config": 17.339999999999996,
-          "voice_ornament_system": 19.455,
+          "voice_ensemble_config": 17.189999999999998,
+          "voice_ornament_system": 17.9745,
           "voice_pitch_organization": 0.9749999999999996,
           "voice_processing_chain": 4.225,
           "voice_multitrack_stack": 5.98
@@ -136,7 +136,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 0.975,
-          "tiple_region": 0.72,
+          "tiple_region": 0.5249999999999999,
           "tiple_context": 8.645,
           "tiple_body_wood": 7.409999999999999,
           "tiple_strings": 0.38999999999999996

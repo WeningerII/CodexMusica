@@ -5,7 +5,7 @@
   "lineage": "Breton gwerz long-narrative-lament tradition of Brittany (Lower Brittany, Breton-language region), comprising the canonical Breton-language sung-narrative corpus addressing historical-tragic events, supernatural-encounters, and personal-moral-cautionary tales. Performance configuration: solo unaccompanied female-or-male voice in characteristic free-rhythm extended-melismatic style with narrow-range modal vocabulary and the strict Breton-Celtic-meter four-line stanza form. The nineteenth-century Théodore Hersart de La Villemarqué Barzaz-Breiz collection (1839) consolidated the literary-historical canon. The post-1970 Breton-language-revival under Yann-Fañch Kemener and Nolwenn Korbell sustained institutional transmission. Distinguished from Breton kan ha diskan dance-singing by gwerz's sung-narrative-without-dance functional orientation.",
   "recipe": "classic Western European late-1830s gwerz breton, ballad Poetry, Celtic balladic branch, Celtic balladic Scottish ballad child ballad revival orkney and shetland folk. extended whistle, breath veiled tone, fast rate, interlocked note trading. intimate paris small studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 143.329,
+  "score": 144.179,
   "config": {
     "traditions": [
       "gwerz_breton",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.8315,
+          "voice_register": 2.9680000000000004,
           "voice_quality": 13.584999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7365,
+          "voice_vibrato": 2.873,
           "voice_articulation": 12.089999999999995,
           "voice_microtone": 14.234999999999989,
-          "voice_tradition": 31.895999999999997,
+          "voice_tradition": 32.5365,
           "voice_mechanism_compound": 5.265,
           "voice_estill_quality": 2.7300000000000004,
           "voice_speech_song": 13.129999999999992,
           "voice_ensemble_config": 15.794999999999991,
-          "voice_ornament_system": 20.519000000000002,
-          "voice_pitch_organization": 4.2860000000000005,
+          "voice_ornament_system": 20.5925,
+          "voice_pitch_organization": 4.149500000000001,
           "voice_processing_chain": 5.46,
           "voice_multitrack_stack": 6.045000000000002
         }

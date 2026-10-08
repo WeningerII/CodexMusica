@@ -1,0 +1,219 @@
+{
+  "id": "fandango_caicara",
+  "name": "Fandango caiçara (Paraná and São Paulo coast)",
+  "family": "global",
+  "lineage": "Dance-music of the caiçara fishing and farming communities of the coast of Paraná and southern São Paulo, from Paranaguá and Guaraqueçaba to Cananéia and Iguape, traditionally played at night-long bailes after collective work and registered by IPHAN as Brazilian intangible heritage. Its dances divide into batidos, stamped by men in wooden clogs, and bailados, danced in couples. Two singers in thirds are accompanied by locally built violas and a rabeca, with the adufo frame drum. The viola caipira card stands in for the viola fandangueira, the fiddle card for the rabeca and a frame-drum card for the adufo.",
+  "recipe": "classic modern fandango caiçara, functional Song, Brazilian song branch. parallel thirds two voice. viola caipira, melodic bowed song accompaniment fiddle, credited frame drums, clog wooden foot tap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 279,
+  "score": 21.733,
+  "config": {
+    "traditions": [
+      "fandango_caicara"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 3.359000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 0.273,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "viola_caipira",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "viola_caipira_courses": "viola_cebolão",
+          "viola_caipira_context": "viola_caipira_caipira",
+          "viola_caipira_top_wood": "viola_caipira_spruce",
+          "viola_caipira_back_wood": "viola_caipira_jacaranda",
+          "viola_caipira_strings": "viola_caipira_steel_doubled"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.015,
+          "viola_caipira_courses": 1.1235,
+          "viola_caipira_context": 7.15,
+          "viola_caipira_top_wood": 0.651,
+          "viola_caipira_back_wood": -0.035,
+          "viola_caipira_strings": 0.756
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 3.9,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.063,
+          "fiddle_mute": 0.5145,
+          "fiddle_articulation": 0.3045,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "credited_frame_drums",
+        "slots": {
+          "credited_frame_drums_identity": "credited_frame_drums_source_unspecified"
+        },
+        "scores": {
+          "credited_frame_drums_identity": 0
+        }
+      },
+      {
+        "id": "foot_tap",
+        "slots": {
+          "tap_striker": "tap_clog_wooden",
+          "tap_surface": "tap_sprung_wood_floor"
+        },
+        "scores": {
+          "tap_striker": 1.43,
+          "tap_surface": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "viola_caipira": [
+        "plucked_traditional_technique",
+        "viola_caipira_courses",
+        "viola_caipira_context",
+        "viola_caipira_top_wood",
+        "viola_caipira_back_wood",
+        "viola_caipira_strings"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "credited_frame_drums": [
+        "credited_frame_drums_identity"
+      ],
+      "foot_tap": [
+        "tap_striker",
+        "tap_surface"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "viola_caipira_courses": "viola_cebolão",
+      "viola_caipira_context": "viola_caipira_caipira",
+      "viola_caipira_top_wood": "viola_caipira_spruce",
+      "viola_caipira_back_wood": "viola_caipira_jacaranda",
+      "viola_caipira_strings": "viola_caipira_steel_doubled",
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "credited_frame_drums_identity": "credited_frame_drums_source_unspecified",
+      "tap_striker": "tap_clog_wooden",
+      "tap_surface": "tap_sprung_wood_floor"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

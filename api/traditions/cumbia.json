@@ -5,7 +5,7 @@
   "lineage": "Cumbia grew from Colombia’s Caribbean musical traditions into a transnational Latin American dance repertoire. Recordings, radio, touring orchestras and migrant audiences carried it across borders, where local communities reshaped its rhythms, instrumentation and social meanings.",
   "recipe": "classic cumbia, groove Percussion, Latin am branch. one note per syllable, single lead single track no stacking. upright piano, electric bass, bach stradivarius 180 canonical American orchestral trumpet, credited auxiliary percussion. live tracking.",
   "recipe_chars": 249,
-  "score": 4.973,
+  "score": 5.246,
   "config": {
     "traditions": [
       "cumbia"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.6405000000000001,
+          "voice_processing_chain": 0.3045,
+          "voice_multitrack_stack": 0.7770000000000001,
           "voice_tessitura": 0
         }
       },

@@ -1,0 +1,232 @@
+{
+  "id": "ca_hue",
+  "name": "Ca Huế (Huế chamber song)",
+  "family": "classical",
+  "lineage": "Chamber song of Huế that grew among the aristocratic and literati circles of the Nguyễn capital and is still performed by Huế singers and instrumentalists, including on boats on the Perfume River. Its repertoire divides into điệu Bắc pieces of bright character and điệu Nam pieces of sorrowful character such as Nam ai and Nam bình, sung by a solo singer with đàn tranh zither, đàn tỳ bà, đàn nguyệt, đàn bầu and bamboo flute.",
+  "recipe": "classic modern ca huế, art Music, southeast Asian branch. solo with instrumental accompaniment. dan tranh, dan ty ba, dan nguyet, dan bau, sao truc. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 228,
+  "score": 13.906,
+  "config": {
+    "traditions": [
+      "ca_hue"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": -0.175,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.49349999999999994,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "dan_tranh",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "dan_tranh_use": "dan_tranh_court",
+          "dan_tranh_strings": "dan_tranh_sixteen",
+          "dan_tranh_string_material": "dutar_strings_unspecified",
+          "dan_tranh_body_wood": "dan_tranh_paulownia"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.9364999999999997,
+          "dan_tranh_use": 1.3,
+          "dan_tranh_strings": 0.273,
+          "dan_tranh_string_material": 0,
+          "dan_tranh_body_wood": 0.8925000000000001
+        }
+      },
+      {
+        "id": "dan_ty_ba",
+        "slots": {
+          "dantyba_style": "dantyba_tremolo",
+          "dantyba_strings": "dutar_strings_unspecified",
+          "dantyba_frets": "dantyba_high"
+        },
+        "scores": {
+          "dantyba_style": 0.168,
+          "dantyba_strings": 0,
+          "dantyba_frets": 0.714
+        }
+      },
+      {
+        "id": "dan_nguyet",
+        "slots": {
+          "dan_nguyet_form": "dan_nguyet_northern",
+          "dan_nguyet_technique": "dan_nguyet_nhan",
+          "dan_nguyet_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "dan_nguyet_form": 1.95,
+          "dan_nguyet_technique": 0.325,
+          "dan_nguyet_strings": 0
+        }
+      },
+      {
+        "id": "dan_bau",
+        "slots": {
+          "dan_bau_amplification": "dan_bau_acoustic",
+          "dan_bau_technique": "dan_bau_canonical"
+        },
+        "scores": {
+          "dan_bau_amplification": 0.47250000000000003,
+          "dan_bau_technique": 0.4095
+        }
+      },
+      {
+        "id": "sao_truc",
+        "slots": {
+          "sao_truc_key": "sao_do",
+          "sao_truc_style": "sao_ru",
+          "sao_truc_membrane": "sao_plain"
+        },
+        "scores": {
+          "sao_truc_key": 0,
+          "sao_truc_style": 0,
+          "sao_truc_membrane": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "dan_tranh": [
+        "plucked_traditional_technique",
+        "dan_tranh_use",
+        "dan_tranh_strings",
+        "dan_tranh_string_material",
+        "dan_tranh_body_wood"
+      ],
+      "dan_ty_ba": [
+        "dantyba_style",
+        "dantyba_strings",
+        "dantyba_frets"
+      ],
+      "dan_nguyet": [
+        "dan_nguyet_form",
+        "dan_nguyet_technique",
+        "dan_nguyet_strings"
+      ],
+      "dan_bau": [
+        "dan_bau_amplification",
+        "dan_bau_technique"
+      ],
+      "sao_truc": [
+        "sao_truc_key",
+        "sao_truc_style",
+        "sao_truc_membrane"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "dan_tranh_use": "dan_tranh_court",
+      "dan_tranh_strings": "dan_tranh_sixteen",
+      "dan_tranh_string_material": "dutar_strings_unspecified",
+      "dan_tranh_body_wood": "dan_tranh_paulownia",
+      "dantyba_style": "dantyba_tremolo",
+      "dantyba_strings": "dutar_strings_unspecified",
+      "dantyba_frets": "dantyba_high",
+      "dan_nguyet_form": "dan_nguyet_northern",
+      "dan_nguyet_technique": "dan_nguyet_nhan",
+      "dan_nguyet_strings": "dutar_strings_unspecified",
+      "dan_bau_amplification": "dan_bau_acoustic",
+      "dan_bau_technique": "dan_bau_canonical",
+      "sao_truc_key": "sao_do",
+      "sao_truc_style": "sao_ru",
+      "sao_truc_membrane": "sao_plain"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

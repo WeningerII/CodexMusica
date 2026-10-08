@@ -5,7 +5,7 @@
   "lineage": "Palauan ruk; selected group vocal calls and hand percussion illustrating the documented layered vocal and bodily rhythms. The clapping card is a limited selection from the wider body-percussion practice.",
   "recipe": "classic modern palauan ruk performance repertoire, praise Song, oceania pacific branch. group vocals. group massed hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 205,
-  "score": 3.429,
+  "score": 3.566,
   "config": {
     "traditions": [
       "palauan_ruk"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.168
+          "voice_multitrack_stack": 0.3045
         }
       },
       {

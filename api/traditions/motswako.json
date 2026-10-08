@@ -5,7 +5,7 @@
   "lineage": "Setswana-language rap style formed in Mafikeng and Gaborone in the mid-1990s and carried nationally by HHP, Morafe, Tuks Senganga and later Khuli Chana, rapping code-switched Setswana and English over relaxed 85-95 BPM boom-bap and kwaito-tempo beats with Rhodes and marimba-toned keys, live-feel bass lines and sung call-and-response hooks.",
   "recipe": "classic Southern African 1994-1996 motswako, mc Rhythm, intl hip hop branch, African dance electronic dance, African pop functional song south african pop zimbabwean urban grooves. thick, rap, slow rate, interlocked note trading. chopped sampler, tremolo neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, singing lead analog poly synth, TR-808, warm rounded kalimba alto kalimba. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 736,
-  "score": 281.13,
+  "score": 281.33,
   "config": {
     "traditions": [
       "motswako",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 15.984999999999992,
-          "voice_quality": 11.219999999999999,
+          "voice_register": 15.789999999999992,
+          "voice_quality": 10.77,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1825,
+          "voice_vibrato": 3.2725,
           "voice_articulation": 22.685000000000002,
           "voice_microtone": 22.295,
           "voice_tradition": 19.2725,
@@ -47,8 +47,8 @@
           "voice_speech_song": 27.495000000000005,
           "voice_ensemble_config": 25.350000000000005,
           "voice_ornament_system": 2.2099999999999995,
-          "voice_pitch_organization": 1.44,
-          "voice_processing_chain": 8.254999999999999,
+          "voice_pitch_organization": 1.6349999999999998,
+          "voice_processing_chain": 8.315,
           "voice_multitrack_stack": 4.290000000000001
         }
       },
@@ -81,10 +81,10 @@
         },
         "scores": {
           "keyboard_technique": 13.402499999999998,
-          "rhodes_model": 1.6900000000000002,
+          "rhodes_model": 1.735,
           "rhodes_use": 2.47,
           "rhodes_tine_material": 0.65,
-          "rhodes_hammer_tip": 1.1700000000000004,
+          "rhodes_hammer_tip": 1.0800000000000003,
           "rhodes_pickup_position": 1.345
         }
       },
@@ -102,10 +102,10 @@
         },
         "scores": {
           "amp_make": 5.3950000000000005,
-          "body_wood": 2.6500000000000004,
+          "body_wood": 2.73,
           "pickup_config": 0.5399999999999999,
           "string_type": 6.175,
-          "scale_length_b": 3.455,
+          "scale_length_b": 3.5,
           "fretted_or_not": 0.195,
           "bass_technique": 0.06499999999999999,
           "electric_bass_string_configuration": 0
@@ -117,13 +117,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 14.317499999999997,
-          "poly_archetypes": 0.24,
-          "poly_voices": 0.24,
-          "poly_maker_lineage": -2.005
+          "electronic_technique": 14.272499999999997,
+          "poly_archetypes": 0.54,
+          "poly_voices": 0.54,
+          "poly_maker_lineage": -1.8549999999999998
         }
       },
       {
@@ -131,12 +131,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
           "tr808_voice": 8.222499999999998,
           "drum_machine_808_context": 4.029999999999999,
-          "tr808_production_origin": 0.24
+          "tr808_production_origin": 0.195
         }
       },
       {
@@ -147,7 +147,7 @@
         },
         "scores": {
           "kalimba_type": 1.0025,
-          "kalimba_tuning": 0.37499999999999994
+          "kalimba_tuning": 0.135
         }
       }
     ],

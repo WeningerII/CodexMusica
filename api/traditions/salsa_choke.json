@@ -5,7 +5,7 @@
   "lineage": "Afro-Colombian Pacific style from Buenaventura and Cali around 2010, codified by Cali Flow Latino, Míster Black and Kevin Flórez — salsa clave and montuno chopped down to a 95–100 BPM half-time groove with reggaeton dembow underpinning, programmed timbales and hi-hats, shouted hooks and a dance-step call structure.",
   "recipe": "classic early-2010s salsa choke, groove Percussion, son salsa branch, reggaeton MC rhythm, tropical song functional song perreo barbadian pop. solo with instrumental accompaniment. TR-808, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mahogany pyramid pure nickel bass British mid 60s era electric bass, plucked short envelope analog poly synth, guiro, heavy one piece matched to monette horn ensemble trumpet. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
   "recipe_chars": 655,
-  "score": 48.648,
+  "score": 48.693,
   "config": {
     "traditions": [
       "salsa_choke",
@@ -49,7 +49,7 @@
         },
         "scores": {
           "percussion_technique": 4.995625,
-          "conga_set": 0.195,
+          "conga_set": 0.24,
           "conga_skin": 1.89,
           "conga_shell_wood": 1.89
         }
@@ -86,7 +86,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 4.450624999999999,
+          "electronic_technique": 4.300624999999998,
           "poly_archetypes": 0,
           "poly_voices": -1,
           "poly_maker_lineage": -0.9800000000000001
@@ -140,7 +140,7 @@
           "guiro_striker": "guiro_metal"
         },
         "scores": {
-          "guiro_origin": 0.3,
+          "guiro_origin": 0.44999999999999996,
           "guiro_striker": 0.105
         }
       },

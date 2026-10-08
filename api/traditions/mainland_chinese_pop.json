@@ -5,7 +5,7 @@
   "lineage": "Mainland Chinese popular song revived after 1978 as gangtai imports met domestic tongsu singing, hardened into the 1994 Beijing 'new music' generation (Na Ying, Sun Nan, Gao Feng) and then into the post-2005 televised-talent and streaming era dominated by Hunan TV, Modern Sky and Tencent Music — the mainstream form is a 70-100 BPM 4/4 ballad with piano, string pad and programmed kit, declamatory wide-vibrato tongsu vocal projection over Western functional harmony, often with erhu, dizi or guzheng overdubs signalling 'guofeng' national style.",
   "recipe": "classic late-1970s mainland chinese pop, functional Song, east Asian pop branch, pop rock functional song yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, python skin snake skin mahogany mid tier steel modern erhu, melodic dizi, singing lead analog poly synth, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 755,
-  "score": 522.29,
+  "score": 521.79,
   "config": {
     "traditions": [
       "mainland_chinese_pop",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 54.65500000000001,
+          "voice_register": 54.50500000000001,
           "voice_quality": 12.34999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.274999999999999,
+          "voice_vibrato": 13.2625,
           "voice_articulation": 16.184999999999995,
           "voice_microtone": 46.575,
           "voice_tradition": 26.78,
@@ -47,7 +47,7 @@
           "voice_speech_song": 22.554999999999996,
           "voice_ensemble_config": 16.899999999999995,
           "voice_ornament_system": 2.585,
-          "voice_pitch_organization": 1.1049999999999995,
+          "voice_pitch_organization": 1.0749999999999997,
           "voice_processing_chain": 7.54,
           "voice_multitrack_stack": 8.97
         }
@@ -61,18 +61,18 @@
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 18.6775,
+          "keyboard_technique": 18.5275,
           "grand_piano_size": 1.625,
-          "grand_piano_brand": 1.675,
+          "grand_piano_brand": 1.63,
           "piano_hammer": 20.33,
-          "piano_rim": 20.735,
+          "piano_rim": 20.689999999999998,
           "piano_soundboard": 21.695,
-          "piano_pinblock": 3.88,
+          "piano_pinblock": 4.035,
           "piano_plate": 3.77,
           "piano_pitch_standard": 6.954999999999999
         }
@@ -106,11 +106,11 @@
           "dizi_regional_style": "dizi_qudi_southern"
         },
         "scores": {
-          "wind_articulation": 7.509999999999998,
+          "wind_articulation": 7.314999999999999,
           "dizi_membrane": 0,
           "dizi_pitch": 1.17,
           "dizi_body_material": 0,
-          "dizi_regional_style": 0
+          "dizi_regional_style": 0.22750000000000004
         }
       },
       {
@@ -143,7 +143,7 @@
         "scores": {
           "amp_make": 11.992499999999996,
           "body_wood": 1.4300000000000002,
-          "pickup_config": 1.675,
+          "pickup_config": 1.585,
           "string_type": 24.5375,
           "scale_length_b": 1.435,
           "fretted_or_not": 1.345,
@@ -160,7 +160,7 @@
         },
         "scores": {
           "drum_technique": 19.759999999999998,
-          "drumhead": 20.24,
+          "drumhead": 20.195,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -173,7 +173,7 @@
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "french_polish_violin",
           "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
+          "orch_bow": "baroque_bow",
           "orch_bow_stick": "carbon_fiber_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "magic_rosin_orch"
@@ -181,11 +181,11 @@
         "scores": {
           "bowed_technique": 0.25,
           "orch_strings": 0.5199999999999999,
-          "orch_top_wood": 3.37,
+          "orch_top_wood": 3.2800000000000002,
           "orch_back_wood": 13.064999999999998,
           "orch_varnish": 4.3500000000000005,
           "orch_setup_period": 4.3325,
-          "orch_bow": 0.32999999999999996,
+          "orch_bow": 0.3,
           "orch_bow_stick": 3.25,
           "orch_articulation": 0.39,
           "orch_rosin": 2.74

@@ -5,7 +5,7 @@
   "lineage": "Indonesian blues develops through local performers, touring bands and recordings that engage American blues and blues-rock. Jakarta-based Gugun Blues Shelter exemplifies a guitar-led power-trio approach, combining blues phrasing with the force and immediacy of rock performance.",
   "recipe": "classic indonesian blues, functional Song, blues electric branch. blues-shouter, blues inflected, small note groups per syllable, solo with instrumental accompaniment. overdriven singing bent note blues lead humbucker electric guitar, electric bass, bronze bell bronze full lathed both sides lathed sticks drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 414,
-  "score": 64.923,
+  "score": 65.063,
   "config": {
     "traditions": [
       "indonesian_blues"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.4310000000000003,
+          "voice_speech_song": 1.5675000000000003,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,
-          "voice_multitrack_stack": 1.239,
+          "voice_multitrack_stack": 1.5435,
           "voice_tessitura": 0
         }
       },
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": 10.14,
           "amp_make": 0,
-          "body_wood": 0.063,
+          "body_wood": 0.0315,
           "neck_wood": 0.0315,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "pickup_winding": 0.0315,
+          "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.609,
+          "scale_length": 0.5459999999999999,
           "string_gauge": 0.0315,
           "finish": 0,
           "string_tuning": 0.063
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.063,
+          "body_wood": 0.0315,
           "pickup_config": 0,
           "string_type": -0.1,
-          "scale_length_b": 0.0945,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0.063,
-          "bass_technique": -0.11850000000000002,
+          "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
         }
       },
@@ -125,11 +125,11 @@
         },
         "scores": {
           "drum_technique": 5.1365,
-          "drumhead": 0.0315,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.063,
+          "shell_wood": 0.0315,
           "shell_thickness": 0,
-          "bearing_edges": 0.33599999999999997,
+          "bearing_edges": 0.27299999999999996,
           "snare_wires": 0,
           "cymbal_alloy": 19.349999999999998,
           "cymbal_hammering": -0.07,

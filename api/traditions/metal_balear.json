@@ -5,7 +5,7 @@
   "lineage": "Metal balear is represented here by Helevorn. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic metal balear, distorted Rock, doom branch. solo with instrumental accompaniment. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 575,
-  "score": 65.34,
+  "score": 63.724,
   "config": {
     "traditions": [
       "metal_balear"
@@ -18,8 +18,8 @@
           "amp_make": "amp_british_orange",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -29,14 +29,14 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.687125,
-          "amp_make": 5.655000000000001,
+          "electric_technique": 13.477125000000001,
+          "amp_make": 5.3895,
           "body_wood": 4.9399999999999995,
-          "neck_wood": 0.336,
-          "fretboard": 0.299625,
+          "neck_wood": 0.1995,
+          "fretboard": 0.1995,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 0.336,
-          "string_material": 0.299625,
+          "pickup_winding": 0.1995,
+          "string_material": 0.16312499999999996,
           "bridge": 1.3,
           "scale_length": 4.9399999999999995,
           "string_gauge": 1.3,
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.655000000000001,
-          "body_wood": 0.7035,
+          "amp_make": 5.3895,
+          "body_wood": 0.43050000000000005,
           "pickup_config": 0,
           "string_type": 4.875,
           "scale_length_b": 0.49350000000000005,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.063,
           "bass_technique": 3.8365,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.441,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.378
+          "voice_multitrack_stack": 0.4095
         }
       },
       {
@@ -134,7 +134,7 @@
         },
         "scores": {
           "keyboard_technique": 0.325,
-          "grand_piano_size": 0.36750000000000005,
+          "grand_piano_size": 0.231,
           "grand_piano_brand": 0.39,
           "piano_hammer": 1.8199999999999998,
           "piano_rim": 3.5100000000000002,
@@ -154,7 +154,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.504,
+          "rompler_preset_bank": 0.5355,
           "rompler_context": 1.3,
           "rompler_lineage": 1.3
         }

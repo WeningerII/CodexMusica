@@ -5,7 +5,7 @@
   "lineage": "Hispanophone easy-listening orchestral idiom produced in Mexico City, Madrid and Buenos Aires from the mid-1950s to the late 1970s for radio, hotel and film-interlude use — bolero, vals and light-Latin themes at 60-100 BPM arranged for massed muted strings, wordless mixed choir, vibraphone, harp glissandi and brushed kit, with melody always doubled at the octave and dynamics compressed flat so the music sits under speech.",
   "recipe": "classic North American 1954-1956 música de fondo, functional Song, crooners branch, tropical song functional song, europop functional song, American jazz smooth vocal dinner jazz coverchill. sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, concert harp, mallets vibraphone, cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, powell boston canonical American orchestral flute, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ebonite continuous-airflow legato saxophone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles gallura five voice tripli octave doubled choir ensemble, block chord celesta. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
   "recipe_chars": 918,
-  "score": 271.69,
+  "score": 271.855,
   "config": {
     "traditions": [
       "musica_de_fondo",
@@ -30,7 +30,7 @@
         "scores": {
           "bowed_technique": 3.85,
           "orch_strings": 0.84,
-          "orch_top_wood": 1.9900000000000002,
+          "orch_top_wood": 2.095,
           "orch_back_wood": 1.365,
           "orch_varnish": -0.035,
           "orch_setup_period": 5.459999999999999,
@@ -86,9 +86,9 @@
           "piano_hammer": 3.93,
           "piano_rim": 4.069999999999999,
           "piano_soundboard": 4.225,
-          "piano_pinblock": 0.5499999999999999,
+          "piano_pinblock": 0.7,
           "piano_plate": 0.6,
-          "piano_pitch_standard": 2.21
+          "piano_pitch_standard": 2.1799999999999997
         }
       },
       {
@@ -121,7 +121,7 @@
         },
         "scores": {
           "wind_articulation": 1.7099999999999997,
-          "sax_size": 3.14,
+          "sax_size": 3.185,
           "sax_reed": 1.885,
           "sax_body_alloy": 18.875,
           "sax_mouthpiece": 1.15,
@@ -163,7 +163,7 @@
         },
         "scores": {
           "choir_size": 3.5100000000000002,
-          "choir_polyphonic_configuration": 4.369999999999999,
+          "choir_polyphonic_configuration": 4.265,
           "choir_regional_canonical_configuration": 3.2400000000000007,
           "choir_ensemble_repertoire": 1.885
         }

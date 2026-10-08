@@ -3,13 +3,13 @@
   "name": "Romanian doina (free-rhythm lament)",
   "family": "global",
   "lineage": "Romanian doina free-rhythm extended-melismatic lament-and-pastoral solo vocal-or-instrumental tradition of Romania and Moldova. Performance: solo unaccompanied voice (or solo violin, solo wooden-flute caval, or solo wooden-clarinet) in characteristic free-rhythm parlando-rubato style with extensive ornamental-melismatic figuration on long vowels. The doina has multiple regional sub-traditions: doină de jale (lament-doina), doină ciobănească (shepherd-doina), doină haiducească (outlaw-doina), and doină de dragoste (love-doina), each with characteristic regional intonation conventions. Distinguished from broader Romanian folk-song by doina's strict free-rhythm extended-melismatic structural requirement.",
-  "recipe": "classic Southern European early-1890s romanian doina, ballad Poetry, med east poetic branch, vocal drone modal armenian duduk-accompanied chant skolt sámi leuʹdd. vocal fry, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, softer tone ebonite hard rubber klezmer tradition clarinet, rubato free rhythm cobza, rubato glissando nai romanian. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. acoustic horn. wax cylinder.",
-  "recipe_chars": 557,
-  "score": 336.005,
+  "recipe": "classic Southern European early-1890s romanian doina, ballad Poetry, med east poetic branch, vocal drone modal toyuk skolt sámi leuʹdd. vocal fry, breath veiled tone, fast rate, interlocked note trading. steel sitka spruce hard rock maple acer saccharum violin orchestral, softer tone ebonite hard rubber klezmer tradition clarinet, rubato free rhythm cobza, ornamented rubato glissando nai romanian. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. acoustic horn. wax cylinder.",
+  "recipe_chars": 520,
+  "score": 247.95,
   "config": {
     "traditions": [
       "romanian_doina",
-      "armenian_duduk_chant",
+      "sakha_toyuk",
       "sami_skolt_leudd"
     ],
     "instruments": [
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
@@ -29,69 +29,69 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_solo_over_choral_drone",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_persian_dastgah",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.384999999999998,
-          "voice_quality": 33.93000000000001,
+          "voice_register": 6.695,
+          "voice_quality": 21.775,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.0625,
-          "voice_articulation": 16.249999999999996,
-          "voice_microtone": 26.422499999999992,
-          "voice_tradition": 27.722499999999993,
-          "voice_mechanism_compound": 13.325,
-          "voice_estill_quality": 9.165,
-          "voice_speech_song": 19.239999999999995,
-          "voice_ensemble_config": 20.409999999999997,
-          "voice_ornament_system": 16.664999999999996,
-          "voice_pitch_organization": 5.939999999999999,
-          "voice_processing_chain": 8.254999999999999,
-          "voice_multitrack_stack": 10.53
+          "voice_vibrato": 3.1449999999999996,
+          "voice_articulation": 9.62,
+          "voice_microtone": 13.324999999999996,
+          "voice_tradition": 21.124999999999996,
+          "voice_mechanism_compound": 8.19,
+          "voice_estill_quality": 5.98,
+          "voice_speech_song": 13.259999999999994,
+          "voice_ensemble_config": 18.524999999999995,
+          "voice_ornament_system": 17.114999999999995,
+          "voice_pitch_organization": 2.665000000000001,
+          "voice_processing_chain": 7.605000000000006,
+          "voice_multitrack_stack": 7.345000000000001
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "silver_wound_lamb_gut_violin",
+          "bowed_technique": "bowed_sul_tasto",
+          "orch_strings": "steel_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "oil_amber_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
-          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 3.15,
-          "orch_strings": 3.3649999999999998,
-          "orch_top_wood": 4.225,
+          "bowed_technique": 0.3,
+          "orch_strings": 2.5999999999999996,
+          "orch_top_wood": 2.73,
           "orch_back_wood": 2.475,
-          "orch_varnish": 2.575,
-          "orch_setup_period": 1.3975,
+          "orch_varnish": -0.035,
+          "orch_setup_period": -0.07,
           "orch_bow": 0.65,
-          "orch_bow_stick": 2.6100000000000003,
-          "orch_articulation": 1.4949999999999999,
-          "orch_rosin": 3.195
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.65,
+          "orch_rosin": -0.035
         }
       },
       {
         "id": "clarinet",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_split_tone_overblown",
           "clarinet_body": "ebonite_clarinet",
           "clarinet_size": "e_flat_clarinet",
           "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 2.4499999999999997,
-          "clarinet_body": 6.240000000000001,
-          "clarinet_size": 5.405,
+          "wind_articulation": 0.09999999999999999,
+          "clarinet_body": 2.6000000000000005,
+          "clarinet_size": 4.755,
           "clarinet_reed": 2.5999999999999996,
           "clarinet_articulation": 0.5
         }
@@ -105,7 +105,7 @@
         },
         "scores": {
           "cobza_form": 3.68,
-          "cobza_role": 11.094999999999999,
+          "cobza_role": 11.395,
           "cobza_strings": 9.045
         }
       },
@@ -117,9 +117,9 @@
           "nai_romanian_pipe_material": "nai_romanian_wood"
         },
         "scores": {
-          "nai_romanian_form": 11.805,
-          "nai_romanian_repertoire": 35.74500000000001,
-          "nai_romanian_pipe_material": 4.225
+          "nai_romanian_form": 11.155,
+          "nai_romanian_repertoire": 35.89500000000001,
+          "nai_romanian_pipe_material": 2.55
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Israeli techno connects regional producers and clubs with international electronic-music networks. Nadav Dagon’s drum-and-sampler performance illustrates one live approach within the scene.",
   "recipe": "classic israeli techno, electronic Dance, techno branch. drum kit, sampler. live tracking.",
   "recipe_chars": 90,
-  "score": 3.176,
+  "score": 3.171,
   "config": {
     "traditions": [
       "israeli_techno"
@@ -27,10 +27,10 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.05,
-          "drumhead": 0.0315,
+          "drum_technique": -0.035,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.0315,
+          "shell_wood": 0.1365,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
@@ -50,9 +50,9 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.063,
+          "sampler_bit_depth": 0,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 3.6399999999999997
         }

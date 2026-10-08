@@ -3,9 +3,9 @@
   "name": "Progressive black metal",
   "family": "rock_punk",
   "lineage": "Progressive black-metal field represented by Enslaved’s Bergen-based integration of black-metal roots, progressive-rock development and keyboard color.",
-  "recipe": "classic modern progressive black metal, distorted Rock, black branch, prog metal progressive deathcore progressive metalcore. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 557,
-  "score": 81.008,
+  "recipe": "classic modern progressive black metal, distorted Rock, black branch, prog metal progressive deathcore progressive metalcore. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 519,
+  "score": 80.198,
   "config": {
     "traditions": [
       "progressive_black_metal",
@@ -22,7 +22,7 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
@@ -34,11 +34,11 @@
           "electric_technique": 0.2,
           "amp_make": 10.010000000000002,
           "body_wood": 10.205,
-          "neck_wood": 0.4799999999999999,
+          "neck_wood": 0.285,
           "fretboard": 0.65,
           "pickup_magnet": 0.9750000000000001,
-          "pickup_winding": 0.31499999999999995,
-          "string_material": 0.4799999999999999,
+          "pickup_winding": 0.3,
+          "string_material": 0.285,
           "bridge": 1.8199999999999998,
           "scale_length": 9.555,
           "string_gauge": 1.8199999999999998,
@@ -115,10 +115,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.225,
+          "voice_ornament_system": 0.09,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.135,
-          "voice_multitrack_stack": 0.6599999999999999
+          "voice_multitrack_stack": 0.41999999999999993
         }
       },
       {
@@ -130,7 +130,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "rompler_preset_bank": 0.12999999999999998,
           "rompler_context": 2.275,
           "rompler_lineage": 0

@@ -1,0 +1,164 @@
+{
+  "id": "reog_ponorogo",
+  "name": "Reog Ponorogo (East Javanese masked-dance ensemble)",
+  "family": "global",
+  "lineage": "Masked dance-drama of Ponorogo in East Java, centred on the huge tiger-head and peacock-feather mask of Singa Barong. A gamelan reyog of kendang and ketipung drums, kenong, kethuk, kempul, angklung rattles and the slompret shawm (here the serunai card) accompanies it; it is on the UNESCO Urgent Safeguarding List.",
+  "recipe": "classic modern reog ponorogo, carnival Processional. paired gamelan javanese buffalo hide rattan lacing canonical javanese kendang indonesian, serunai shawm, kempul, kenong, kethuk, angklung. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 271,
+  "score": 6.349,
+  "config": {
+    "traditions": [
+      "reog_ponorogo"
+    ],
+    "instruments": [
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_ketipung",
+          "kendang_context": "kendang_javanese",
+          "kendang_shell_wood": "chitravina_jackwood",
+          "kendang_head": "kendang_buffalo_hide_canonical"
+        },
+        "scores": {
+          "kendang_size": 2.483,
+          "kendang_context": 2.3,
+          "kendang_shell_wood": 0,
+          "kendang_head": 1
+        }
+      },
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_silat",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 0.363,
+          "serunai_bell": 0
+        }
+      },
+      {
+        "id": "kempul",
+        "slots": {
+          "kempul_build": "kempul_forged_bronze",
+          "kempul_tuning": "kempul_slendro_set",
+          "kempul_role": "kempul_midcycle"
+        },
+        "scores": {
+          "kempul_build": 0.1365,
+          "kempul_tuning": 0,
+          "kempul_role": 0
+        }
+      },
+      {
+        "id": "kenong",
+        "slots": {
+          "kenong_tuning": "kenong_slendro"
+        },
+        "scores": {
+          "kenong_tuning": 0
+        }
+      },
+      {
+        "id": "kethuk",
+        "slots": {
+          "kethuk_build": "kethuk_bronze",
+          "kethuk_tuning": "kethuk_slendro",
+          "kethuk_role": "kethuk_kerep"
+        },
+        "scores": {
+          "kethuk_build": 0,
+          "kethuk_tuning": 0,
+          "kethuk_role": 0.0315
+        }
+      },
+      {
+        "id": "angklung",
+        "slots": {
+          "angklung_form": "angklung_buncis",
+          "angklung_playing": "angklung_goyang",
+          "angklung_bamboo": "angklung_awi_wulung"
+        },
+        "scores": {
+          "angklung_form": -0.10500000000000001,
+          "angklung_playing": -0.035,
+          "angklung_bamboo": 0.325
+        }
+      }
+    ],
+    "pinned": {
+      "kendang_indonesian": [
+        "kendang_size",
+        "kendang_context",
+        "kendang_shell_wood",
+        "kendang_head"
+      ],
+      "serunai_shawm": [
+        "serunai_form",
+        "serunai_bell"
+      ],
+      "kempul": [
+        "kempul_build",
+        "kempul_tuning",
+        "kempul_role"
+      ],
+      "kenong": [
+        "kenong_tuning"
+      ],
+      "kethuk": [
+        "kethuk_build",
+        "kethuk_tuning",
+        "kethuk_role"
+      ],
+      "angklung": [
+        "angklung_form",
+        "angklung_playing",
+        "angklung_bamboo"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "kendang_size": "kendang_ketipung",
+      "kendang_context": "kendang_javanese",
+      "kendang_shell_wood": "chitravina_jackwood",
+      "kendang_head": "kendang_buffalo_hide_canonical",
+      "serunai_form": "serunai_silat",
+      "serunai_bell": "serunai_bell_wood",
+      "kempul_build": "kempul_forged_bronze",
+      "kempul_tuning": "kempul_slendro_set",
+      "kempul_role": "kempul_midcycle",
+      "kenong_tuning": "kenong_slendro",
+      "kethuk_build": "kethuk_bronze",
+      "kethuk_tuning": "kethuk_slendro",
+      "kethuk_role": "kethuk_kerep",
+      "angklung_form": "angklung_buncis",
+      "angklung_playing": "angklung_goyang",
+      "angklung_bamboo": "angklung_awi_wulung"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "French and francophone teen-pop of roughly 1962-1968 named from the English 'yeah yeah', promoted by Salut les copains radio and centred on Françoise Hardy, France Gall, Sylvie Vartan and Jacques Dutronc with Serge Gainsbourg supplying material, combining Brill Building and beat-group templates — 120-160 BPM shuffle or straight backbeat, tambourine and hand claps, twangy reverbed guitar, walking or eighth-note bass — with light untrained girlish French vocals and small string or horn overdubs cut at Pathé-Marconi and Barclay.",
   "recipe": "classic Western European mid-1960s yé-yé, functional Song, girl group branch, europop functional song, pop rock functional song yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch, hard rock maple acer saccharum French Polish shellac pad Baroque setup violin orchestral, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 770,
-  "score": 501.955,
+  "score": 500.733,
   "config": {
     "traditions": [
       "ye_ye",
@@ -38,18 +38,18 @@
           "voice_quality": 10.659999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.592999999999998,
+          "voice_vibrato": 9.397999999999998,
           "voice_articulation": 23.725,
           "voice_microtone": 49.17000000000001,
-          "voice_tradition": 23.023999999999997,
+          "voice_tradition": 22.409,
           "voice_mechanism_compound": 4.81,
           "voice_estill_quality": 4.42,
           "voice_speech_song": 28.405,
           "voice_ensemble_config": 22.360000000000003,
-          "voice_ornament_system": 1.3704999999999996,
+          "voice_ornament_system": 1.4949999999999997,
           "voice_pitch_organization": 1.045,
-          "voice_processing_chain": 7.4055,
-          "voice_multitrack_stack": 4.551
+          "voice_processing_chain": 7.6005,
+          "voice_multitrack_stack": 4.461
         }
       },
       {
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 20.125,
-          "amp_make": 12.466499999999998,
+          "amp_make": 12.361499999999998,
           "body_wood": 1.625,
           "neck_wood": 1.625,
           "fretboard": 1.17,
@@ -81,7 +81,7 @@
           "bridge": 0.3,
           "scale_length": 1.235,
           "finish": 0.3,
-          "string_tuning": 11.7905,
+          "string_tuning": 11.7305,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,10 +98,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.7365,
+          "amp_make": 12.8265,
           "body_wood": 1.4300000000000002,
           "pickup_config": 0.15,
-          "string_type": 24.0755,
+          "string_type": 23.9705,
           "scale_length_b": 1.235,
           "fretted_or_not": 0.195,
           "bass_technique": 22.6515,
@@ -150,10 +150,10 @@
           "bowed_technique": 0.06500000000000002,
           "orch_strings": 0.44949999999999996,
           "orch_top_wood": 0.12999999999999998,
-          "orch_back_wood": 11.322,
+          "orch_back_wood": 10.736999999999998,
           "orch_varnish": 3.12,
-          "orch_setup_period": 2.9120000000000004,
-          "orch_bow": 1.6095,
+          "orch_setup_period": 2.99,
+          "orch_bow": 1.9994999999999998,
           "orch_bow_stick": -0.035,
           "orch_articulation": 0.3615,
           "orch_rosin": 2.925
@@ -170,10 +170,10 @@
         },
         "scores": {
           "keyboard_technique": 19.399999999999995,
-          "combo_organ_model": 19.4515,
-          "combo_organ_voicing": 20.579999999999995,
-          "combo_organ_context": 11.793499999999998,
-          "amp_make": 3.1109999999999998
+          "combo_organ_model": 19.3015,
+          "combo_organ_voicing": 20.534999999999997,
+          "combo_organ_context": 11.6885,
+          "amp_make": 3.066
         }
       }
     ],

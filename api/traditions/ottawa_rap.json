@@ -5,7 +5,7 @@
   "lineage": "Ottawa rap connects local MCs, producers, events and audiences in Canada’s capital. Recorded songs and competitive battles provide different settings for regional voices and shared musical relationships.",
   "recipe": "classic ottawa rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 195,
-  "score": 34.759,
+  "score": 35.148,
   "config": {
     "traditions": [
       "ottawa_rap"
@@ -38,12 +38,12 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3315,
+          "voice_articulation": 0.363,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.017999999999999,
+          "voice_speech_song": 12.374999999999998,
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

@@ -5,7 +5,7 @@
   "lineage": "Malang indie includes the East Javan city’s independent guitar bands, with emo and punk-informed songwriting among its varied local practices.",
   "recipe": "classic malang indie, distorted Rock, punk branch. humbucker electric dreadnought acoustic guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 302,
-  "score": 14.623,
+  "score": 13.94,
   "config": {
     "traditions": [
       "malang_indie"
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
-          "neck_wood": 0.40950000000000003,
+          "body_wood": 0.546,
+          "neck_wood": 0.273,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0,
           "finish": 0,
           "string_tuning": 0
@@ -116,7 +116,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
+          "body_wood": 0.546,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

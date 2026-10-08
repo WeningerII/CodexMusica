@@ -5,7 +5,7 @@
   "lineage": "Bad Balance’s early sample-based MC/DJ practice, separated from the broad contemporary Russian hip-hop overview.",
   "recipe": "classic modern russian old school hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 271,
-  "score": 35.396,
+  "score": 35.504,
   "config": {
     "traditions": [
       "russian_old_school_hip_hop"
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 5.8,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.213,
+          "sampler_bit_depth": 0.321,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 7.995
         }

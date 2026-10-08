@@ -5,7 +5,7 @@
   "lineage": "Spanish-language alternative-rock tradition codified through Mexican Café Tacuba, Argentine Soda Stereo and Café Tacvba, Chilean Los Prisioneros, and the broader Hispanic-American post-1990s indie-rock ecosystem; characterized by rock instrumentation with regional-Latin folk and electronic crossovers, and Spanish-language alternative-poetic lyrical register",
   "recipe": "classic mid-1990s latin alternative, distorted Rock, regional branch, alternative distorted rock baja indie bali indie. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall plexi amp British rock amp basswood low output no compression arpeggiated humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, water buffalo premium alternative oak staved canonical Cuban open slap hand drum congas. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 627,
-  "score": 234.73,
+  "score": 237.1,
   "config": {
     "traditions": [
       "latin_alternative",
@@ -47,7 +47,7 @@
           "voice_speech_song": 11.049999999999995,
           "voice_ensemble_config": 9.685,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 3.7850000000000006,
+          "voice_pitch_organization": 3.7400000000000007,
           "voice_processing_chain": 3.1449999999999996,
           "voice_multitrack_stack": 1.345
         }
@@ -59,7 +59,7 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
@@ -70,17 +70,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 5.89,
+          "electric_technique": 6.039999999999999,
           "amp_make": 10.14,
-          "body_wood": 3.854999999999999,
-          "neck_wood": 0.825,
-          "fretboard": 0.3,
+          "body_wood": 4.499999999999999,
+          "neck_wood": 0.9750000000000001,
+          "fretboard": 0.345,
           "pickup_magnet": 0.195,
           "pickup_winding": 1.02,
-          "string_material": 0.15,
-          "bridge": 2.09,
-          "scale_length": 2.6849999999999996,
-          "string_gauge": 2.09,
+          "string_material": 0.345,
+          "bridge": 1.94,
+          "scale_length": 3.3749999999999996,
+          "string_gauge": 1.94,
           "finish": 0,
           "string_tuning": 10.27
         }
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 10.595,
-          "body_wood": 1.6500000000000004,
+          "body_wood": 1.9500000000000004,
           "pickup_config": 0.585,
           "string_type": 25.675,
-          "scale_length_b": 0.825,
+          "scale_length_b": 0.9750000000000001,
           "fretted_or_not": 0.105,
           "bass_technique": 19.7,
           "electric_bass_string_configuration": 0
@@ -133,7 +133,7 @@
           "percussion_technique": 6.374999999999999,
           "conga_set": 0.195,
           "conga_skin": 7.15,
-          "conga_shell_wood": 1.755
+          "conga_shell_wood": 2.145
         }
       }
     ],

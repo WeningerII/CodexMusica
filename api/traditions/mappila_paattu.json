@@ -3,14 +3,14 @@
   "name": "Mappila paattu",
   "family": "global",
   "lineage": "Song tradition of the Mappila Muslims of Malabar in northern Kerala, written in Arabi-Malayalam script from at least the 17th century with Muhyiddin Mala (1607) as its founding text and Moyinkutty Vaidyar as its great 19th-century poet, revived commercially from the 1970s through V. M. Kutty and cassette-era singers, marked by isal melodic templates blending Arabic maqam contour with Malayalam prosody, duff frame-drum and kolkali stick rhythms, oppana wedding hand-clap accompaniment, and responsorial group singing.",
-  "recipe": "classic South Asian mid-1970s mappila paattu, praise Song, indian subcontinent branch, south Asian wedding, islamic ritual devotional sholawat anāshīd. vocal fry, declaimed, straight note core, interlocked note trading. walnut bent frame canonical Persian daf, elathalam, low overtone rich vocal male harmonium indian, ringing pitched indian rosewood rosewood tabla, communal group massed hand clap, slant mounted ritual jackwood shell layered cowhide canonical kerala chenda. chennai madras music academy sabha. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
-  "recipe_chars": 651,
-  "score": 186.69,
+  "recipe": "classic South Asian mid-1970s mappila paattu, praise Song, indian subcontinent branch, south Asian wedding, islamic ritual devotional sholawat indian sangeet. thick, declaimed, straight note core, interlocked note trading. walnut bent frame canonical Persian synthetic remo modern stable daf, elathalam, low overtone rich vocal male harmonium indian, ringing pitched indian rosewood rosewood tabla, communal group massed hand clap, ritual jackwood shell layered cowhide canonical kerala chenda. chennai madras music academy sabha. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 669,
+  "score": 189.015,
   "config": {
     "traditions": [
       "mappila_paattu",
       "sholawat",
-      "islamic_anasheed"
+      "indian_sangeet"
     ],
     "instruments": [
       {
@@ -19,15 +19,15 @@
           "daf_rings": "daf_with_rings",
           "daf_context": "daf_classical",
           "daf_shell_wood": "daf_walnut_canonical",
-          "daf_head_material": "daf_goat_skin_canonical",
-          "daf_jingle_metal": "daf_brass_rings"
+          "daf_head_material": "daf_synthetic_modern",
+          "daf_jingle_metal": "daf_steel_rings"
         },
         "scores": {
-          "daf_rings": 0.9099999999999999,
-          "daf_context": 1.9799999999999998,
-          "daf_shell_wood": 3.965,
-          "daf_head_material": 0.65,
-          "daf_jingle_metal": 0.65
+          "daf_rings": 0.45499999999999996,
+          "daf_context": 2.34,
+          "daf_shell_wood": 2.925,
+          "daf_head_material": 1.04,
+          "daf_jingle_metal": 0.845
         }
       },
       {
@@ -38,7 +38,7 @@
         },
         "scores": {
           "elathalam_stroke": 0,
-          "elathalam_ensemble": 0.65
+          "elathalam_ensemble": 0.6950000000000001
         }
       },
       {
@@ -50,23 +50,23 @@
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 1.6899999999999997,
-          "harmonium_action": 2.795,
-          "harmonium_voicing": 2.145,
-          "harmonium_use": 5.654999999999999
+          "free_reed_technique": 1.63,
+          "harmonium_action": 2.08,
+          "harmonium_voicing": 1.04,
+          "harmonium_use": 3.38
         }
       },
       {
         "id": "tabla",
         "slots": {
           "tabla_dayan": "shisham_dayan",
-          "tabla_bayan": "brass_bayan",
+          "tabla_bayan": "copper_bayan",
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 2.4699999999999998,
-          "tabla_bayan": 0.28500000000000003,
-          "tabla_syahi": 5.135
+          "tabla_dayan": 4.875,
+          "tabla_bayan": 0.45499999999999996,
+          "tabla_syahi": 5.329999999999999
         }
       },
       {
@@ -76,34 +76,34 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 2.085,
-          "clap_capture": 0.045
+          "clap_technique": 2.13,
+          "clap_capture": 0
         }
       },
       {
         "id": "chenda",
         "slots": {
-          "chenda_form": "chenda_chande",
+          "chenda_form": "chenda_uruttu",
           "chenda_repertoire": "chenda_ritual_theatre",
           "chenda_construction": "chenda_jackwood_cowhide"
         },
         "scores": {
-          "chenda_form": 1.1949999999999998,
-          "chenda_repertoire": 5.07,
-          "chenda_construction": 3.69
+          "chenda_form": 3.6750000000000003,
+          "chenda_repertoire": 6.3100000000000005,
+          "chenda_construction": 5.62
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "arabic_maqam_tradition",
+          "voice_tradition": "carnatic_classical_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -114,22 +114,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0.845,
-          "voice_quality": 15.434999999999999,
+          "voice_register": 1.8349999999999995,
+          "voice_quality": 11.014999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8849999999999996,
-          "voice_articulation": 12.869999999999996,
-          "voice_microtone": 27.592499999999998,
-          "voice_tradition": 10.344999999999997,
-          "voice_mechanism_compound": 3.1849999999999996,
-          "voice_estill_quality": 2.99,
-          "voice_speech_song": 17.354999999999997,
-          "voice_ensemble_config": 12.999999999999995,
-          "voice_ornament_system": 18.555,
-          "voice_pitch_organization": 10.064999999999998,
-          "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 2.925
+          "voice_vibrato": 1.6749999999999998,
+          "voice_articulation": 14.104999999999995,
+          "voice_microtone": 27.462499999999995,
+          "voice_tradition": 13.780000000000001,
+          "voice_mechanism_compound": 3.5749999999999993,
+          "voice_estill_quality": 3.38,
+          "voice_speech_song": 19.987499999999997,
+          "voice_ensemble_config": 14.039999999999994,
+          "voice_ornament_system": 12.695,
+          "voice_pitch_organization": 9.67,
+          "voice_processing_chain": 4.159999999999999,
+          "voice_multitrack_stack": 2.26
         }
       }
     ],

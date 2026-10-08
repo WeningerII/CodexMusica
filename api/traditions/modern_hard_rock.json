@@ -3,9 +3,9 @@
   "name": "Modern hard rock",
   "family": "rock",
   "lineage": "Modern hard rock builds on heavy guitar-band traditions with contemporary vocal hooks and forceful production.",
-  "recipe": "classic modern hard rock, distorted Rock, alternative branch. group vocals. alnico humbucker electric guitar, electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 281,
-  "score": 33.259,
+  "recipe": "classic modern hard rock, distorted Rock, alternative branch. alnico humbucker electric guitar, electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 267,
+  "score": 32.954,
   "config": {
     "traditions": [
       "modern_hard_rock"
@@ -30,16 +30,16 @@
         },
         "scores": {
           "electric_technique": 2.6000000000000005,
-          "amp_make": 2.005,
-          "body_wood": 0.168,
-          "neck_wood": 0.3045,
+          "amp_make": 2.0364999999999998,
+          "body_wood": 0.1365,
+          "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 2,
           "pickup_winding": 2,
           "string_material": 0.105,
-          "bridge": 0.6435,
+          "bridge": 0.5385,
           "scale_length": 2.6,
-          "string_gauge": 0.6435,
+          "string_gauge": 0.5385,
           "finish": 0,
           "string_tuning": 0.08549999999999999
         }
@@ -57,8 +57,8 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.005,
-          "body_wood": 0.168,
+          "amp_make": 2.0364999999999998,
+          "body_wood": 0.1365,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.501,
+          "voice_ensemble_config": 0.4695,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.042749999999999996
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Memphis Americana encompasses locally connected roots songwriters and bands. Amy LaVere’s singing, songwriting and upright-bass practice supply a documented branch within the city’s performance and recording community.",
   "recipe": "classic modern memphis americana, functional Song, americana branch. thick, breath veiled tone, straight note core, neutral third half flat. upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 292,
-  "score": 32.167,
+  "score": 32.128,
   "config": {
     "traditions": [
       "memphis_americana"
@@ -41,7 +41,7 @@
           "voice_microtone": 4.290000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 4.6685,
+          "voice_estill_quality": 4.6385000000000005,
           "voice_speech_song": 6.825,
           "voice_ensemble_config": 4.8100000000000005,
           "voice_ornament_system": 0.26,
@@ -57,7 +57,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.49349999999999994,
+          "upright_strings": 0.48449999999999993,
           "upright_play": -0.05
         }
       }

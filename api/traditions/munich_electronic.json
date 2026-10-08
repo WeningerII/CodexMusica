@@ -5,7 +5,7 @@
   "lineage": "Munich electronic music includes experimental producers and performers alongside the city’s wider dance-music culture. Modular synthesis offers one route into ambient and exploratory composition.",
   "recipe": "classic munich electronic, experimental Elec, ambient branch. modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 164,
-  "score": 13.693,
+  "score": 13.588,
   "config": {
     "traditions": [
       "munich_electronic"
@@ -23,7 +23,7 @@
           "electronic_technique": 7.6485,
           "mod_voltage_source": 1.4485000000000001,
           "mod_patch_density": 3.6399999999999997,
-          "mod_lineage": 0.9555000000000002
+          "mod_lineage": 0.8505000000000001
         }
       }
     ],

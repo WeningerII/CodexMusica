@@ -5,7 +5,7 @@
   "lineage": "1920s-30s vaudeville-blues humorous-narrative subgenre — codified through Tampa Red (Tampa Red and the Hokum Jug Band, his Its Tight Like That 1928 with Georgia Tom Dorsey the hokum recording), Memphis Minnie, the Hokum Boys (the studio collective recording for Paramount and Vocalion 1928-30), Blind Boy Fuller (whose Trucking My Blues Away 1937 extended the hokum tradition into the Piedmont blues style), the Mississippi Sheiks; lyrical content alternates explicit double-entendre sexual humor with topical social-commentary and broader vaudeville-derived theatrical-humor narrative",
   "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early swing italiano modern swing. thick, worn fold, wide pitch sway, interlocked note trading. flatwound thomastik slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 634,
-  "score": 348.043,
+  "score": 347.278,
   "config": {
     "traditions": [
       "hokum_blues_vaudeville",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 34.26500000000002,
+          "voice_register": 34.11500000000002,
           "voice_quality": 11.7,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 24.400000000000002,
           "voice_articulation": 8.774999999999999,
-          "voice_microtone": 22.85,
+          "voice_microtone": 22.895000000000003,
           "voice_tradition": 10.8875,
           "voice_mechanism_compound": 4.484999999999999,
-          "voice_estill_quality": 6.244999999999999,
+          "voice_estill_quality": 6.26,
           "voice_speech_song": 9.554999999999998,
           "voice_ensemble_config": 8.709999999999999,
           "voice_ornament_system": 1.1049999999999998,
           "voice_pitch_organization": 2.665000000000001,
           "voice_processing_chain": 5.234999999999999,
-          "voice_multitrack_stack": 2.1999999999999997
+          "voice_multitrack_stack": 2.245
         }
       },
       {
@@ -62,9 +62,9 @@
           "acoustic_om_technique": "om_bottleneck_slide"
         },
         "scores": {
-          "string_tuning": 2.5,
-          "top_wood": 0.57,
-          "back_sides": 0.48,
+          "string_tuning": 2.545,
+          "top_wood": 0.375,
+          "back_sides": 0.28500000000000003,
           "string_acoustic": 4.3549999999999995,
           "acoustic_om_technique": 24.400000000000002
         }
@@ -107,12 +107,12 @@
         },
         "scores": {
           "banjo_back": 1.3,
-          "tone_ring": 0.32999999999999996,
+          "tone_ring": 0.285,
           "banjo_head": 8.969999999999999,
           "banjo_pot": 1.3,
           "banjo_play": 1,
-          "banjo_rim_wood": 0.615,
-          "banjo_neck_wood": 0.51,
+          "banjo_rim_wood": 0.5700000000000001,
+          "banjo_neck_wood": 0.31499999999999995,
           "banjo_strings": 0.24,
           "banjo_bridge": 0,
           "banjo_setup_period": 8.514999999999999
@@ -130,11 +130,11 @@
         },
         "scores": {
           "harmonica_type": 4.3549999999999995,
-          "harmonica_comb": 29.435000000000002,
-          "harmonica_reed": 23.960000000000004,
+          "harmonica_comb": 29.780000000000005,
+          "harmonica_reed": 23.765000000000004,
           "harmonica_technique": 23.500000000000004,
-          "harmonica_maker_school": 25.785,
-          "harmonica_tuning": 10.030000000000001
+          "harmonica_maker_school": 25.740000000000002,
+          "harmonica_tuning": 9.835
         }
       },
       {

@@ -1,0 +1,129 @@
+{
+  "id": "qeqchi_son_harp",
+  "name": "Son q'eqchi' (Maya harp, violin and guitar)",
+  "family": "global",
+  "lineage": "String-band music of the Q'eqchi' Maya of Alta Verapaz, Guatemala, and of the Maya communities of Toledo District in southern Belize, where a diatonic harp, a violin and often a guitar play short repeated sones for saints' feasts, ceremonies and dances. The Belizean harpist Florencio Mess recorded the repertoire for Stonetree Records. The floor-harp card stands in for the Maya harp.",
+  "recipe": "classic modern son q'eqchi', ritual Devotional, indigenous branch. harpa, fiddle, classical nylon-string guitar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 192,
+  "score": 4.455,
+  "config": {
+    "traditions": [
+      "qeqchi_son_harp"
+    ],
+    "instruments": [
+      {
+        "id": "harpa",
+        "slots": {
+          "harpa_size": "harpa_floor",
+          "harpa_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "harpa_size": 0.1365,
+          "harpa_strings": 0
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 2.1839999999999997,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.0315,
+          "fiddle_articulation": 0.8189999999999998,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "dutar_strings_unspecified",
+          "attack_technique_cl": "rasgueado_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.26,
+          "string_tuning": 0,
+          "top_wood_classical": 0.5145,
+          "bracing_classical": 0.709125,
+          "string_classical": 0,
+          "attack_technique_cl": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "harpa": [
+        "harpa_size",
+        "harpa_strings"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "harpa_size": "harpa_floor",
+      "harpa_strings": "dutar_strings_unspecified",
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "dutar_strings_unspecified",
+      "attack_technique_cl": "rasgueado_cl"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

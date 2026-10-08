@@ -390,24 +390,26 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
 
 // Tradition-signature parity: signatures live canonically in
 // references/_tradition_signatures.json (read by the agent scripts) and are
-// inlined into src/app.js for the browser by scripts/build_signatures.js. They
+// generated into references/10_tradition_signatures.js for the browser by
+// scripts/build_signatures.js. They
 // previously forked (208 keys differed, a rename on one side, 13 orphan keys).
 // This check fails if the inlined block drifts from the JSON — regenerate with
 // `node scripts/build_signatures.js`.
-check('tradition-signature parity (app.js inline ↔ canonical JSON)', () => {
+check('tradition-signature parity (generated mirror ↔ canonical JSON)', () => {
   const json = JSON.parse(
     fs.readFileSync(path.join(ROOT, 'references/_tradition_signatures.json'), 'utf8')
   );
-  const appSrc = fs.readFileSync(path.join(ROOT, 'src/app.js'), 'utf8');
-  const m = appSrc.match(require('./_page_tables.js').APP_TABLES.TRADITION_SIGNATURES);
-  if (!m) throw new Error('TRADITION_SIGNATURES not found in src/app.js');
+  const appSrc = fs.readFileSync(path.join(ROOT, 'references/10_tradition_signatures.js'), 'utf8');
+  const m = appSrc.match(/const TRADITION_SIGNATURES = (\{[\s\S]*?\n\});/);
+  if (!m)
+    throw new Error('TRADITION_SIGNATURES not found in references/10_tradition_signatures.js');
   const inline = new Function('return ' + m[1])();
   if (JSON.stringify(inline) !== JSON.stringify(json)) {
     throw new Error(
-      'src/app.js TRADITION_SIGNATURES != references/_tradition_signatures.json — run `node scripts/build_signatures.js`'
+      'references/10_tradition_signatures.js != references/_tradition_signatures.json — run `node scripts/build_signatures.js`'
     );
   }
-  return `${Object.keys(json).length} tradition signatures parity-locked (app.js ↔ JSON)`;
+  return `${Object.keys(json).length} tradition signatures parity-locked (mirror ↔ JSON)`;
 });
 
 // Frozen descriptor-DF: the corpus document frequencies that order EVERY
@@ -772,8 +774,9 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
     'TUNINGS',
     'INSTRUMENT_AXIS_DEFINITIONS',
     'PREFACE_LEXICON',
-    // The two render tables: src/app.js mirrors them for the embedded build
-    // and Node, and the lazy build cuts the mirrors.
+    // The two render tables: the signatures are a references file the lazy
+    // build omits whole; src/app.js mirrors the frequencies for the embedded
+    // build and Node, and the lazy build cuts that mirror.
     'TRADITION_SIGNATURES',
     'DESCRIPTOR_DF',
   ];

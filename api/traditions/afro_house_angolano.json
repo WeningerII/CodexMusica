@@ -3,14 +3,14 @@
   "name": "Afro house angolano",
   "family": "electronic",
   "lineage": "Angolan house music developed through Luanda’s club and production networks, connecting electronic house rhythms with local semba and kuduro influences. Producers and independent labels helped circulate this regional dance sound internationally.",
-  "recipe": "classic modern afro house angolano, electronic Dance, house branch, African dance electronic dance, Afro-diasporic electric groove percussion coupé-décalé afrobeat fusion. sampler drum machine, analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 420,
-  "score": 30.675,
+  "recipe": "classic modern afro house angolano, electronic Dance, house branch, African dance electronic dance, Afro-diasporic electric groove percussion coupé-décalé lekompo. sampler drum machine, analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 412,
+  "score": 34.325,
   "config": {
     "traditions": [
       "afro_house_angolano",
       "coupe_decale_ivorian",
-      "afrobeat_fusion"
+      "lekompo"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "electronic_technique": 0.26,
           "sample_bitdepth": 0,
           "sample_swing": -0.05,
-          "sample_processing": 0.65
+          "sample_processing": 0.15
         }
       },
       {
@@ -38,9 +38,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 1.2349999999999997,
-          "oscillator": 1.4299999999999997,
-          "filter_topology": 0.65,
+          "electronic_technique": 1.0399999999999998,
+          "oscillator": 1.2349999999999999,
+          "filter_topology": 0.15,
           "envelope": 0.39,
           "modulation": 0.315
         }
@@ -59,7 +59,7 @@
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0,
           "sampler_workflow": 0.2,
-          "sampler_classic_context": 25.935
+          "sampler_classic_context": 30.225
         }
       }
     ],

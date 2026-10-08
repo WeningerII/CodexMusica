@@ -5,7 +5,7 @@
   "lineage": "Mongolian 'authored song' repertoire created from the 1930s through the 1980s by state-trained composers such as Bilegiin Damdinsuren, Sembiin Gonchigsumlaa and Dashdorjiin Luvsansharav under the Mongolian People's Republic, notated in Soviet-derived staff practice and recorded for state radio and Melodiya, setting patriotic and lyrical Mongolian texts to pentatonic long-song-derived melodies harmonised with functional Western chords and arranged for morin khuur, yatga, yoochin, accordion, piano and mixed choir at steady moderate tempos.",
   "recipe": "classic Eastern European mid-1930s zohioliin duu, functional Song, east Asian pop branch, central Asian hunting song central asian folk kyrgyz traditional music. sygyt, breath veiled tone, fast rate, interlocked note trading. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, yatga, yoochin, piano accordion, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, limbe. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 651,
-  "score": 261.46,
+  "score": 257.8,
   "config": {
     "traditions": [
       "zohioliin_duu",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 16.534499999999998,
+          "voice_register": 15.8295,
           "voice_quality": 11.634999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.6899999999999997,
           "voice_articulation": 18.849999999999998,
           "voice_microtone": 21.839999999999996,
-          "voice_tradition": 19.0065,
-          "voice_mechanism_compound": 19.845,
+          "voice_tradition": 18.4515,
+          "voice_mechanism_compound": 19.575,
           "voice_estill_quality": 3.185000000000001,
           "voice_speech_song": 31.33,
           "voice_ensemble_config": 20.474999999999994,
           "voice_ornament_system": 2.2,
-          "voice_pitch_organization": 18.426499999999997,
+          "voice_pitch_organization": 18.2015,
           "voice_processing_chain": 4.745,
           "voice_multitrack_stack": 3.5100000000000002
         }
@@ -63,9 +63,9 @@
         },
         "scores": {
           "bowed_technique": 2.925,
-          "morin_khuur_use": 30.549,
+          "morin_khuur_use": 30.0315,
           "morin_khuur_construction": 0.65,
-          "morin_khuur_body_wood": 5.8149999999999995,
+          "morin_khuur_body_wood": 5.289999999999999,
           "morin_khuur_strings": 3.25
         }
       },
@@ -84,11 +84,11 @@
         "id": "yoochin",
         "slots": {
           "yoochin_form": "yoochin_concert",
-          "yoochin_touch": "yoochin_tremolo"
+          "yoochin_touch": "yoochin_bamboo"
         },
         "scores": {
           "yoochin_form": 1.49,
-          "yoochin_touch": 0.5849999999999999
+          "yoochin_touch": 0.1365
         }
       },
       {
@@ -120,12 +120,12 @@
         "scores": {
           "keyboard_technique": 3.7630000000000003,
           "grand_piano_size": 0.65,
-          "grand_piano_brand": 1.068,
+          "grand_piano_brand": 0.8280000000000001,
           "piano_hammer": 4.8100000000000005,
           "piano_rim": 5.85,
-          "piano_soundboard": 9.815000000000001,
-          "piano_pinblock": -0.05,
-          "piano_plate": -0.035,
+          "piano_soundboard": 9.641,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.05,
           "piano_pitch_standard": 1.6899999999999997
         }
       },

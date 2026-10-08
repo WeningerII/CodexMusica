@@ -1,22 +1,40 @@
 {
-  "id": "finnish_kantele_folk",
-  "name": "Finnish kantele folk and Kalevala-recitation",
-  "family": "global",
-  "lineage": "Karelian-Finnish epic-recitation tradition documented by Elias Lönnrot in compiling the Kalevala national epic (1835 first edition, 1849 expanded), paired with the lap-zither kantele (Finlands national instrument) — performed in Karelian, Ingrian, Estonian, and other Baltic-Finnic language traditions in pre-Christian rune-singing and folk-tale-singing contexts",
-  "recipe": "classic Northern European mid-1830s finnish kantele folk and kalevala-recitation, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry icelandic kvæði / þula recitation serbian guslar epic recitation. thick, breath veiled tone, straight note core, interlocked note trading. birch alder karelian gut pre modern five string fingerpicked kantele. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 445,
-  "score": 126.162,
+  "id": "kantele_music",
+  "merged_from": "finnish_kantele_folk",
+  "name": "Kantele music",
+  "family": "vernacular",
+  "lineage": "Finnish and Karelian plucked box-zither tradition, originally a five-string instrument tuned to a pentachord and played resting on the lap to accompany Kalevala-meter rune-singing, expanded in the 19th century to ten and fifteen strings and in 1920s-1930s Finland to the large chromatic concert kantele with switchable levers built by Paul Salminen — repertoire ranges from short cyclic drone-and-tremolo improvisations to notated concert works and pelimanni dance tunes.",
+  "recipe": "classic mid-1920s kantele music, drone Modal, string branch, vocal drone modal, Slavic bard ballad poetry, Slavic baltic domestic rhythm estonian folk music lemko folk. extended whistle, breath veiled tone, straight note core, interlocked note trading. archaic spruce top modern concert gut pre modern five string kantele, finnish three string dance driving jouhikko. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 455,
+  "score": 173.195,
   "config": {
     "traditions": [
-      "finnish_kantele_folk",
-      "icelandic_kvaedi_thula",
-      "serbian_guslar_epic"
+      "kantele_music",
+      "estonian_folk_music",
+      "lemko_folk"
     ],
     "instruments": [
       {
+        "id": "kantele",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "kantele_strings": "kantele_5",
+          "kantele_context": "kantele_art",
+          "kantele_body_wood": "kantele_spruce_top",
+          "kantele_string_material": "kantele_gut_historical"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.05,
+          "kantele_strings": 1.24,
+          "kantele_context": 5.329999999999999,
+          "kantele_body_wood": 1.0399999999999998,
+          "kantele_string_material": 3.380000000000001
+        }
+      },
+      {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -25,53 +43,51 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 7.25,
-          "voice_quality": 19.5,
+          "voice_register": 1.3649999999999998,
+          "voice_quality": 15.014999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3725,
-          "voice_articulation": 9.945,
-          "voice_microtone": 11.829999999999993,
-          "voice_tradition": 20.54,
-          "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 9.945,
-          "voice_ensemble_config": 9.879999999999999,
-          "voice_ornament_system": 3.8450000000000006,
-          "voice_pitch_organization": 2.075,
-          "voice_processing_chain": 8.645,
-          "voice_multitrack_stack": 3.0550000000000015
+          "voice_vibrato": 1.2999999999999998,
+          "voice_articulation": 20.34499999999999,
+          "voice_microtone": 22.81499999999999,
+          "voice_tradition": 14.559999999999997,
+          "voice_mechanism_compound": 8.775,
+          "voice_estill_quality": 7.930000000000001,
+          "voice_speech_song": 22.81499999999999,
+          "voice_ensemble_config": 20.409999999999993,
+          "voice_ornament_system": 3.640000000000001,
+          "voice_pitch_organization": 4.8100000000000005,
+          "voice_processing_chain": 4.029999999999999,
+          "voice_multitrack_stack": 3.12
         }
       },
       {
-        "id": "kantele",
+        "id": "jouhikko",
         "slots": {
-          "plucked_traditional_technique": "plucked_fingerpicked",
-          "kantele_strings": "kantele_36",
-          "kantele_context": "kantele_art",
-          "kantele_body_wood": "kantele_birch_alder",
-          "kantele_string_material": "kantele_gut_historical"
+          "bowed_technique": "bowed_legato_classical",
+          "jouhikko_form": "jouhikko_suomi",
+          "jouhikko_context": "jouhikko_folk_dance",
+          "jouhikko_strings": "jouhikko_gut"
         },
         "scores": {
-          "plucked_traditional_technique": 7.249999999999999,
-          "kantele_strings": 0.39,
-          "kantele_context": 2.5349999999999997,
-          "kantele_body_wood": 2.5999999999999996,
-          "kantele_string_material": 2.8449999999999998
+          "bowed_technique": -0.035,
+          "jouhikko_form": 7.280000000000001,
+          "jouhikko_context": 5.2299999999999995,
+          "jouhikko_strings": 0
         }
       }
     ],
-    "room": "sapmi_outdoor_tundra_yoik",
-    "archetype": "arch_ethnographic_field_digital",
+    "room": "wooden_barn",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
@@ -79,7 +95,7 @@
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
     "tuning": "nordic_modal_drone_double_stops",
     "aesthetic": null,
@@ -88,30 +104,10 @@
   },
   "source": {
     "tuning": "nordic_modal_drone_double_stops",
-    "room": "sapmi_outdoor_tundra_yoik",
-    "parts": {
-      "voice_register": "chest_voice",
-      "voice_quality": "speech_voice",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_tradition": "modern_pop_vocal_training",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_microtone": "tempered_voice",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_estill_quality": "voice_estill_speech",
-      "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "plucked_traditional_technique": "plucked_fingerpicked",
-      "kantele_strings": "kantele_5",
-      "kantele_context": "kantele_kalevala",
-      "kantele_body_wood": "kantele_birch_alder",
-      "kantele_string_material": "kantele_steel_modern"
-    },
+    "room": "wooden_barn",
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_high",
+    "chain_medium": "tape_15ips",
     "chain_console": "clean"
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "UK, from the late 1990s onward around Paradox, Fanu and Macc, a drum-and-bass idiom in which the whole composition is the break — 165-175 BPM Amen, Apache and rare funk breaks chopped to single hits and re-sequenced into constantly varying non-looping patterns, over minimal warm sub-bass and sparse Rhodes or ambient pads with almost no riff content.",
   "recipe": "classic 1997-1999 drumfunk, bass System, bass descendants branch, uk soundsystem bass system, idm glitch experimental electric, American jazz fusion darkcore italian jazz fusion. glitched textural sampler, fiberskyn synthetic calf brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, turntable, sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 665,
-  "score": 129.184,
+  "score": 129.199,
   "config": {
     "traditions": [
       "drumfunk",
@@ -56,7 +56,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 14.421999999999997,
+          "amp_make": 14.436999999999998,
           "body_wood": 0.78,
           "pickup_config": 0.545,
           "string_type": 12.805,

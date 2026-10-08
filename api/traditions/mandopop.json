@@ -3,14 +3,14 @@
   "name": "Mandopop",
   "family": "global",
   "lineage": "Mandarin-language mainstream Chinese-language pop tradition codified through 1980s Taiwan (Teresa Teng, Liu Wen-cheng) — through Jay Chou’s 2000-2010 Hua Yu pop (Mandarin pop with hip-hop and R&B production), and the contemporary cross-strait Mandarin entertainment industry spanning Taiwan, mainland China, Singapore, and Malaysia",
-  "recipe": "classic Asian mid-2000s mandopop, functional Song, east Asian pop branch, pop rock functional song yacht rock skiffle. thick, chest mix belt, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string quartet inst. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 660,
-  "score": 481.718,
+  "recipe": "classic Asian mid-2000s mandopop, functional Song, east Asian pop branch, pop rock functional song yacht rock folk rock. thick, chest mix belt, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string quartet inst. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 654,
+  "score": 489.457,
   "config": {
     "traditions": [
       "mandopop",
       "yacht_rock",
-      "skiffle"
+      "folk_rock"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 56.40000000000001,
+          "voice_register": 56.27500000000001,
           "voice_quality": 2.2850000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.819999999999999,
-          "voice_articulation": 13.714999999999996,
-          "voice_microtone": 47.275000000000006,
-          "voice_tradition": 28.990000000000002,
-          "voice_mechanism_compound": 3.12,
-          "voice_estill_quality": 2.7300000000000004,
-          "voice_speech_song": 18.784999999999993,
-          "voice_ensemble_config": 13.649999999999995,
-          "voice_ornament_system": 2.285,
+          "voice_vibrato": 8.57,
+          "voice_articulation": 12.674999999999994,
+          "voice_microtone": 44.400000000000006,
+          "voice_tradition": 28.34,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 5.6225000000000005,
+          "voice_speech_song": 17.744999999999994,
+          "voice_ensemble_config": 12.609999999999992,
+          "voice_ornament_system": 2.585,
           "voice_pitch_organization": 10.619999999999996,
-          "voice_processing_chain": 9.13,
-          "voice_multitrack_stack": 7.41
+          "voice_processing_chain": 11.165,
+          "voice_multitrack_stack": 8.45
         }
       },
       {
@@ -57,7 +57,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "fazioli",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": 21.719999999999995,
-          "grand_piano_size": 1.625,
-          "grand_piano_brand": 1.69,
-          "piano_hammer": 21.029999999999994,
-          "piano_rim": 22.435,
-          "piano_soundboard": 22.395,
+          "grand_piano_size": 2.275,
+          "grand_piano_brand": 2.4699999999999998,
+          "piano_hammer": 20.529999999999994,
+          "piano_rim": 22.685,
+          "piano_soundboard": 21.744999999999997,
           "piano_pinblock": 2.3300000000000005,
           "piano_plate": 2.145,
-          "piano_pitch_standard": 1.56
+          "piano_pitch_standard": 0.5199999999999999
         }
       },
       {
@@ -88,32 +88,32 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "vintage_trem",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 21.305,
-          "amp_make": 11.992499999999996,
-          "body_wood": 2.015,
-          "neck_wood": 2.015,
-          "fretboard": 1.56,
+          "electric_technique": 20.805,
+          "amp_make": 10.919999999999996,
+          "body_wood": 2.6649999999999996,
+          "neck_wood": 2.6649999999999996,
+          "fretboard": 2.5999999999999996,
           "pickup_magnet": 0.39,
-          "string_material": 0.39,
-          "string_gauge": 1.235,
-          "bridge": 0.39,
-          "scale_length": 1.625,
-          "finish": 0.39,
-          "string_tuning": 10.79,
+          "string_material": 0.585,
+          "string_gauge": 2.275,
+          "bridge": 0.24,
+          "scale_length": 2.6649999999999996,
+          "finish": 0.09,
+          "string_tuning": 12.024999999999999,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
@@ -123,13 +123,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.992499999999996,
-          "body_wood": 1.8200000000000003,
+          "amp_make": 11.374999999999998,
+          "body_wood": 2.6649999999999996,
           "pickup_config": 0.375,
-          "string_type": 24.5375,
-          "scale_length_b": 1.235,
-          "fretted_or_not": 0.045,
-          "bass_technique": 18.915,
+          "string_type": 27.62499999999999,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0.195,
+          "bass_technique": 21.439999999999994,
           "electric_bass_string_configuration": 0
         }
       },
@@ -141,8 +141,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.92,
-          "drumhead": 20.939999999999998,
+          "drum_technique": 21.294999999999995,
+          "drumhead": 20.289999999999996,
           "drum_kit_kick_pedal": 0
         }
       },

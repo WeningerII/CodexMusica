@@ -5,7 +5,7 @@
   "lineage": "Experimental dubstep stretches dubstep’s bass-weighted rhythmic language through sound design and cross-style production. Acts such as Symbiz Sound connect it with dancehall, hip-hop and other bass-music approaches.",
   "recipe": "classic experimental dubstep, electronic Dance. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. drum machine analog, low sub bass analog mono synth.",
   "recipe_chars": 174,
-  "score": 21.305,
+  "score": 21.242,
   "config": {
     "traditions": [
       "experimental_dubstep"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 3.0545,
+          "voice_quality": 3.023,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 3.1140000000000003,
+          "voice_speech_song": 3.0825000000000005,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

@@ -5,7 +5,7 @@
   "lineage": "Irish post-punk includes guitar bands contrasting clean, modulated textures with heavier electric passages.",
   "recipe": "classic irish post-punk, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 372,
-  "score": 40.059,
+  "score": 41.13,
   "config": {
     "traditions": [
       "irish_post_punk"
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 4.868,
+          "electric_technique": 4.973,
           "amp_make": 8.645,
-          "body_wood": 2.6984999999999997,
-          "neck_wood": 0.105,
+          "body_wood": 3.1499999999999995,
+          "neck_wood": 0.2415,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
-          "string_material": 0.105,
-          "bridge": 0.273,
+          "string_material": 0.2415,
+          "bridge": 0.168,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.6650000000000005,
-          "body_wood": 2.6984999999999997,
+          "body_wood": 3.1499999999999995,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 4.5,
-          "drumhead": 0.651,
+          "drumhead": 0.6825000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

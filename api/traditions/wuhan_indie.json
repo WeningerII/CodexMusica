@@ -5,7 +5,7 @@
   "lineage": "Wuhan’s independent-music community includes alternative rock, indie pop and locally produced guitar music. Bands such as Flip Side connect the city’s scene with wider Chinese independent networks.",
   "recipe": "classic wuhan indie, distorted Rock, alternative branch. humbucker electric dreadnought acoustic guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 224,
-  "score": 32.862,
+  "score": 33.44,
   "config": {
     "traditions": [
       "wuhan_indie"
@@ -73,14 +73,14 @@
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.105,
+          "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 0.9099999999999999,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 0.868,
           "finish": 0,
           "string_tuning": 0
         }
@@ -99,7 +99,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0.27299999999999996,
-          "string_acoustic": 0.105
+          "string_acoustic": 0.2415
         }
       },
       {
@@ -146,7 +146,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 8.731499999999999,

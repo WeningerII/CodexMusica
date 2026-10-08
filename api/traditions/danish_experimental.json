@@ -5,7 +5,7 @@
   "lineage": "Danish experimental music connects composers and performers across avant-garde, improvising and rock scenes. Projects explore repetition, sound texture and collective interaction through varied instrumental settings.",
   "recipe": "classic danish experimental, experimental Elec. humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 173,
-  "score": 0.711,
+  "score": 0.972,
   "config": {
     "traditions": [
       "danish_experimental"
@@ -39,9 +39,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.21,
-          "string_gauge": 0.0315,
+          "string_gauge": 0.26549999999999996,
           "finish": 0,
-          "string_tuning": 0.363
+          "string_tuning": 0.39
         }
       }
     ],

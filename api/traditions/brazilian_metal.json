@@ -5,7 +5,7 @@
   "lineage": "Brazilian metal encompasses underground scenes and international touring networks across thrash, groove, power, progressive and other heavy styles. Sepultura are one influential example within this varied national field.",
   "recipe": "classic modern brazilian metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 466,
-  "score": 41.534,
+  "score": 41.606,
   "config": {
     "traditions": [
       "brazilian_metal"
@@ -29,13 +29,13 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 14.275,
+          "electric_technique": 14.351500000000001,
           "amp_make": 4.355,
           "body_wood": 4.55,
           "neck_wood": 0.5775,
           "fretboard": 0.39,
           "pickup_magnet": 0.03899999999999999,
-          "pickup_winding": 0.37799999999999995,
+          "pickup_winding": 0.4169999999999999,
           "string_material": 0.39,
           "bridge": 0.5775,
           "scale_length": 0,
@@ -63,7 +63,7 @@
           "string_type": 0.39,
           "scale_length_b": 0.168,
           "fretted_or_not": 0,
-          "bass_technique": 3.8335000000000004,
+          "bass_technique": 3.802,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.369,
+          "voice_ensemble_config": 1.3765,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
+          "voice_processing_chain": 0.3705,
           "voice_multitrack_stack": 0.39
         }
       }

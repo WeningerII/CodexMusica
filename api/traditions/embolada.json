@@ -5,7 +5,7 @@
   "lineage": "Brazilian Northeast (Pernambuco, Bahia, Paraíba, Ceará) rapid-fire repentista vocal-duel tradition — two emboladores improvise verses over a fast pandeiro rhythmic foundation, alternating in pairs and trying to outdo each other in tongue-twister vocal dexterity, rhymed wit, and topical social satire; closely related to the parallel cantoria de viola (the Northeast repentista poetic-duel tradition with viola caipira accompaniment) and the broader Sertão Brazilian-Northeast vernacular oral-poetic culture, recently recognized by Brazilian cultural heritage authorities and continued through 20th-century figures Caju e Castanha, Mestre Verdelinho, and modern festival circuits",
   "recipe": "classic South American mid-1930s embolada, groove Percussion, Brazilian branch, Afro-diasporic MC rhythm cameroonian hip hop hip hop galsen. vocal fry, rap, fast rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. recife brazilian northeast forro house. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 450,
-  "score": 92.07,
+  "score": 91.8,
   "config": {
     "traditions": [
       "embolada",
@@ -43,20 +43,20 @@
           "voice_microtone": 8.580000000000002,
           "voice_tradition": 8.45,
           "voice_mechanism_compound": 1.885,
-          "voice_estill_quality": 3.0550000000000006,
+          "voice_estill_quality": 2.8300000000000005,
           "voice_speech_song": 8.970000000000002,
           "voice_ensemble_config": 9.295000000000002,
           "voice_ornament_system": 2.470000000000001,
           "voice_pitch_organization": 1.0399999999999998,
           "voice_processing_chain": 3.92,
-          "voice_multitrack_stack": 4.095
+          "voice_multitrack_stack": 4.05
         }
       },
       {
         "id": "pandeiro",
         "slots": {
           "percussion_technique": "percussion_hands_layered",
-          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_size": "pandeiro_grande",
           "pandeiro_context": "pandeiro_samba",
           "pandeiro_head": "pandeiro_goatskin_canonical",
           "pandeiro_shell_wood": "pandeiro_eucalyptus",
@@ -64,11 +64,11 @@
         },
         "scores": {
           "percussion_technique": 5.6450000000000005,
-          "pandeiro_size": 0,
+          "pandeiro_size": 0.045,
           "pandeiro_context": 2.8600000000000003,
           "pandeiro_head": 5.205,
           "pandeiro_shell_wood": 5.205,
-          "pandeiro_jingles": 5.444999999999999
+          "pandeiro_jingles": 5.3999999999999995
         }
       }
     ],

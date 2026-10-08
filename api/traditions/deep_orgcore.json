@@ -1,14 +1,15 @@
 {
-  "id": "deep_orgcore",
-  "name": "Deep Orgcore",
+  "id": "orgcore",
+  "merged_from": "deep_orgcore",
+  "name": "Orgcore",
   "family": "rock_punk",
-  "lineage": "Deep orgcore gathers melodic punk-related bands and repertoire within independent listening communities. Direct songwriting and energetic ensemble playing connect catchy phrases with an amplified band sound.",
-  "recipe": "classic deep orgcore, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 342,
-  "score": 19.711,
+  "lineage": "A punk-rock community and style associated with melodic, roots-aware independent songwriting.",
+  "recipe": "classic orgcore, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion, melodic chordal electronic keyboard unspecified. live tracking.",
+  "recipe_chars": 272,
+  "score": 22.216,
   "config": {
     "traditions": [
-      "deep_orgcore"
+      "orgcore"
     ],
     "instruments": [
       {
@@ -25,11 +26,11 @@
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
@@ -43,22 +44,22 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.105,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.3,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_power_chord",
+          "electric_technique": "electric_overdriven_lead",
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "mid_wind",
@@ -70,17 +71,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.8199999999999998,
+          "electric_technique": 0.2315,
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
-          "neck_wood": 0.40950000000000003,
+          "body_wood": 0,
+          "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
-          "string_gauge": 0,
+          "scale_length": 0.546,
+          "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0
         }
@@ -89,8 +90,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_h",
+          "pickup_config": "dual_single",
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
@@ -99,7 +100,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -124,7 +125,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.75,
+          "drum_technique": 6.25,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.105,
@@ -132,9 +133,29 @@
           "bearing_edges": 0.1995,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 3.9230000000000005,
-          "cymbal_lathing": 3.6500000000000004,
+          "cymbal_hammering": 6.423,
+          "cymbal_lathing": 6.15,
           "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0,
+          "keyboard_technique": 1.063
         }
       }
     ],
@@ -195,17 +216,24 @@
         "cymbal_hammering",
         "cymbal_lathing",
         "cymbal_finish"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -214,7 +242,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -227,16 +255,16 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electric_technique": "electric_power_chord",
+      "electric_technique": "electric_overdriven_lead",
       "amp_make": "amp_unspecified",
-      "body_wood": "alder_b",
-      "neck_wood": "mahogany_neck_h",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
       "fretboard": "rosewood_fb_h",
       "pickup_magnet": "alnico_2_h",
       "pickup_winding": "mid_wind",
@@ -246,7 +274,7 @@
       "string_gauge": "g_10_hum",
       "finish": "nitro_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
+      "pickup_config": "dual_single",
       "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
@@ -262,14 +290,11 @@
       "cymbal_alloy": "b20",
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish"
+      "cymbal_finish": "traditional_finish",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

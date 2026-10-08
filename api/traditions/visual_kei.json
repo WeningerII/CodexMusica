@@ -5,7 +5,7 @@
   "lineage": "Japanese rock movement launched by X Japan's Blue Blood (1989) and consolidated in the mid-1990s by Luna Sea, Malice Mizer and Buck-Tick, pairing an androgynous costumed stage identity with speed-metal double-kick, harmonised lead guitar, symphonic keyboard and string-pad layers, abrupt tempo and metre shifts within single songs, and a theatrical Japanese-language vocal that swings between clean high tenor and scream.",
   "recipe": "classic East Asian 1994-1996 visual kei, distorted Rock, glam rock branch, gothic rock distorted rock, symphonic metal, east Asian pop functional song enka anison. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
   "recipe_chars": 831,
-  "score": 507.32,
+  "score": 507.29,
   "config": {
     "traditions": [
       "visual_kei",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 36.82000000000002,
+          "voice_register": 36.86500000000002,
           "voice_quality": 9.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 23.400000000000006,
           "voice_ornament_system": 3.2500000000000004,
           "voice_pitch_organization": 1.8524999999999998,
-          "voice_processing_chain": 6.239999999999998,
+          "voice_processing_chain": 6.209999999999999,
           "voice_multitrack_stack": 6.8199999999999985
         }
       },
@@ -75,7 +75,7 @@
           "body_wood": 5.045,
           "neck_wood": 2.145,
           "fretboard": 2.0799999999999996,
-          "pickup_magnet": 1.4949999999999999,
+          "pickup_magnet": 1.45,
           "pickup_winding": 0.35,
           "string_material": 0.195,
           "bridge": 2.145,
@@ -100,11 +100,11 @@
         "scores": {
           "amp_make": 13.195,
           "body_wood": 2.145,
-          "pickup_config": 0.15,
+          "pickup_config": 0.195,
           "string_type": 29.4125,
           "scale_length_b": 2.145,
-          "fretted_or_not": 0.195,
-          "bass_technique": 24.220000000000002,
+          "fretted_or_not": 0.345,
+          "bass_technique": 24.025000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 23.692500000000006,
-          "drumhead": 13.415,
+          "drumhead": 13.37,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,9 +130,9 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 15.799999999999997,
+          "electronic_technique": 15.949999999999996,
           "poly_archetypes": 11.765,
-          "poly_voices": 2.93,
+          "poly_voices": 2.84,
           "poly_maker_lineage": -0.31499999999999995
         }
       },
@@ -153,12 +153,12 @@
           "keyboard_technique": 13.414999999999997,
           "grand_piano_size": 2.145,
           "grand_piano_brand": 2.145,
-          "piano_hammer": 18.625,
+          "piano_hammer": 18.67,
           "piano_rim": 19.674999999999997,
           "piano_soundboard": 15.524999999999999,
           "piano_pinblock": 0.7149999999999999,
-          "piano_plate": 0.06499999999999999,
-          "piano_pitch_standard": 11.019999999999998
+          "piano_plate": 0.04999999999999999,
+          "piano_pitch_standard": 10.974999999999998
         }
       }
     ],

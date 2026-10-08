@@ -3,14 +3,14 @@
   "name": "Gothic black metal",
   "family": "rock_punk",
   "lineage": "Gothic black metal combines black-metal intensity with dark theatricality and symphonic color, exemplified by parts of Cradle of Filth’s repertoire.",
-  "recipe": "classic modern gothic black metal, distorted Rock, black branch, symphonic metal christian symphonic metal deep symphonic black metal. duet, live take. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 591,
-  "score": 71.635,
+  "recipe": "classic modern gothic black metal, distorted Rock, black branch, symphonic metal christian symphonic metal gothic symphonic metal. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, dry zero sustain kevlar aramid extreme tension drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 639,
+  "score": 73.301,
   "config": {
     "traditions": [
       "gothic_black_metal",
       "christian_symphonic_metal",
-      "deep_symphonic_black_metal"
+      "gothic_symphonic_metal"
     ],
     "instruments": [
       {
@@ -32,16 +32,16 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 11.439999999999996,
-          "body_wood": 11.634999999999998,
-          "neck_wood": 0,
-          "fretboard": 0,
+          "amp_make": 12.252499999999998,
+          "body_wood": 12.09,
+          "neck_wood": 0.2385,
+          "fretboard": 0.0315,
           "pickup_magnet": 0,
-          "pickup_winding": 0.045,
-          "string_material": 0.105,
-          "bridge": 0.69,
+          "pickup_winding": 0.195,
+          "string_material": 0.3435,
+          "bridge": 0.45499999999999996,
           "scale_length": 0,
-          "string_gauge": 1.1400000000000001,
+          "string_gauge": 0.45499999999999996,
           "finish": 0,
           "string_tuning": 5.2
         }
@@ -53,19 +53,19 @@
           "body_wood": "basswood_h",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 5.525,
-          "body_wood": 11.634999999999998,
-          "pickup_config": 0.38999999999999996,
-          "string_type": 12.025,
-          "scale_length_b": 0.045,
-          "fretted_or_not": 0.045,
-          "bass_technique": 9.2,
+          "body_wood": 12.09,
+          "pickup_config": 0.195,
+          "string_type": 11.97475,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.195,
+          "bass_technique": 9.367999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.5399999999999999,
-          "drumhead": 0.78,
+          "drum_technique": 0.39,
+          "drumhead": 1.5275,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,11 +114,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.78,
-          "voice_ornament_system": 0.09,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0.195,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.78
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -130,9 +130,9 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "rompler_preset_bank": -0.035,
-          "rompler_context": 0.975,
+          "electronic_technique": -0.07,
+          "rompler_preset_bank": -0.05,
+          "rompler_context": 1.17,
           "rompler_lineage": 0
         }
       }

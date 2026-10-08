@@ -5,7 +5,7 @@
   "lineage": "Ghoststep is an electronic discovery tag connecting club productions and bass music. Its repertoire includes dubstep, house and techno contributors, with DJ selection and microphone-led performance among the documented practices.",
   "recipe": "classic ghoststep, electronic Dance. rhythmic spoken flow no pitch, solo with instrumental accompaniment. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 152,
-  "score": 2.401,
+  "score": 2.433,
   "config": {
     "traditions": [
       "ghoststep"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0945
         }
       },
       {

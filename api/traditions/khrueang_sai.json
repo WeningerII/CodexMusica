@@ -1,0 +1,195 @@
+{
+  "id": "khrueang_sai",
+  "name": "Khrueang sai (Thai classical string ensemble)",
+  "family": "classical",
+  "lineage": "One of the three principal ensembles of Thai classical music, alongside piphat and mahori, played indoors for entertainment and refined listening. The standard ensemble combines the saw duang and saw u fiddles, the jakhe floor zither, the khlui duct flute, the thon-rammana drums and ching; the khrueang sai pi chawa variant adds the pi chawa oboe and replaces the thon-rammana with klong khaek drums. The krapeu card stands in for the jakhe and a hand-drum card for the thon-rammana.",
+  "recipe": "classic modern khrueang sai, art Music, Thai classical branch. sustained legato saw duang, cowhide warm threaded between strings legato saw u, krapeu, seven equal 171 cent steps bamboo khlui, central Thai string ensemble ching, hand drum source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 337,
+  "score": 129.433,
+  "config": {
+    "traditions": [
+      "khrueang_sai"
+    ],
+    "instruments": [
+      {
+        "id": "saw_duang",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "saw_duang_body_form": "saw_duang_rosewood_tube",
+          "saw_duang_repertoire": "saw_duang_khruang_sai_lead",
+          "saw_duang_strings": "dutar_strings_unspecified",
+          "saw_duang_face": "saw_duang_python_face"
+        },
+        "scores": {
+          "bowed_technique": 11.25375,
+          "saw_duang_body_form": 0.0037499999999999994,
+          "saw_duang_repertoire": 0.126,
+          "saw_duang_strings": 0,
+          "saw_duang_face": 0.03525
+        }
+      },
+      {
+        "id": "saw_u",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "saw_u_membrane": "saw_u_cowhide",
+          "saw_u_strings": "dutar_strings_unspecified",
+          "saw_u_ensemble": "saw_u_khrueang_sai",
+          "saw_u_ornament": "saw_u_heavy_elaboration"
+        },
+        "scores": {
+          "bowed_technique": 11.25375,
+          "saw_u_membrane": 5.305000000000001,
+          "saw_u_strings": 0,
+          "saw_u_ensemble": 11.23392857142857,
+          "saw_u_ornament": 5.25
+        }
+      },
+      {
+        "id": "krapeu",
+        "slots": {
+          "krapeu_strings": "dutar_strings_unspecified",
+          "krapeu_technique": "krapeu_horn_pick"
+        },
+        "scores": {
+          "krapeu_strings": 0,
+          "krapeu_technique": 0
+        }
+      },
+      {
+        "id": "khlui",
+        "slots": {
+          "khlui_size": "khlui_phiang_aw",
+          "khlui_context": "khlui_khrueang_sai",
+          "khlui_tuning": "khlui_equiheptatonic",
+          "khlui_build": "khlui_bamboo"
+        },
+        "scores": {
+          "khlui_size": 15.076714285714285,
+          "khlui_context": 20.037214285714285,
+          "khlui_tuning": 15.909392857142857,
+          "khlui_build": 9.051428571428572
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_thai",
+          "ching_stroke": "ching_mahori",
+          "ching_alloy": "ching_bronze"
+        },
+        "scores": {
+          "ching_form": 12.63975,
+          "ching_stroke": 6.491892857142857,
+          "ching_alloy": -0.035
+        }
+      },
+      {
+        "id": "hand_drum_source_unspecified",
+        "slots": {
+          "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+          "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+          "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+          "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+          "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+        },
+        "scores": {
+          "hand_drum_structure_neutral": 0,
+          "hand_drum_material_neutral": 0,
+          "hand_drum_excitation_neutral": 0,
+          "hand_drum_damping_neutral": 0,
+          "hand_drum_tension_neutral": 0
+        }
+      }
+    ],
+    "pinned": {
+      "saw_duang": [
+        "bowed_technique",
+        "saw_duang_body_form",
+        "saw_duang_repertoire",
+        "saw_duang_strings",
+        "saw_duang_face"
+      ],
+      "saw_u": [
+        "bowed_technique",
+        "saw_u_membrane",
+        "saw_u_strings",
+        "saw_u_ensemble",
+        "saw_u_ornament"
+      ],
+      "krapeu": [
+        "krapeu_strings",
+        "krapeu_technique"
+      ],
+      "khlui": [
+        "khlui_size",
+        "khlui_context",
+        "khlui_tuning",
+        "khlui_build"
+      ],
+      "ching": [
+        "ching_form",
+        "ching_stroke",
+        "ching_alloy"
+      ],
+      "hand_drum_source_unspecified": [
+        "hand_drum_structure_neutral",
+        "hand_drum_material_neutral",
+        "hand_drum_excitation_neutral",
+        "hand_drum_damping_neutral",
+        "hand_drum_tension_neutral"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "thai_seven_equal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "thai_seven_equal",
+    "room": "field_recording",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "saw_duang_body_form": "saw_duang_rosewood_tube",
+      "saw_duang_repertoire": "saw_duang_khruang_sai_lead",
+      "saw_duang_strings": "dutar_strings_unspecified",
+      "saw_duang_face": "saw_duang_python_face",
+      "saw_u_membrane": "saw_u_cowhide",
+      "saw_u_strings": "dutar_strings_unspecified",
+      "saw_u_ensemble": "saw_u_khrueang_sai",
+      "saw_u_ornament": "saw_u_heavy_elaboration",
+      "krapeu_strings": "dutar_strings_unspecified",
+      "krapeu_technique": "krapeu_horn_pick",
+      "khlui_size": "khlui_phiang_aw",
+      "khlui_context": "khlui_khrueang_sai",
+      "khlui_tuning": "khlui_equiheptatonic",
+      "khlui_build": "khlui_bamboo",
+      "ching_form": "ching_thai",
+      "ching_stroke": "ching_mahori",
+      "ching_alloy": "ching_bronze",
+      "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+      "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+      "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+      "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+      "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

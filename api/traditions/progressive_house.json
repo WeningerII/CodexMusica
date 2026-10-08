@@ -3,14 +3,14 @@
   "name": "Progressive House",
   "family": "electronic",
   "lineage": "British style crystallising around 1992 in the Guerilla and Junior Boy's Own catalogues with Leftfield, Sasha, John Digweed and Fluke, running 126-132 BPM with long evolving filter and reverb automation, rolling sixteenth-note bass, dub-inflected delay throws, tribal tom and shaker layers, and sparse wordless vocal pads, later re-formed in a 2008-2013 festival variant around Deadmau5 and Eric Prydz built on sustained sidechained supersaw chords.",
-  "recipe": "classic Central European mid-2010s progressive house, electronic Dance, house branch, techno electronic dance, trance electronic dance, deep house house progressive psytrance dream house. vocal fry, breath veiled tone, straight note core, interlocked note trading. analog poly modular synth, TR-909, digital subtractive, congas. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 554,
-  "score": 177.174,
+  "recipe": "classic Central European mid-2010s progressive house, electronic Dance, house branch, techno electronic dance, trance electronic dance, deep house house progressive psytrance canadian house. vocal fry, breath veiled tone, straight note core, interlocked note trading. analog poly modular synth, TR-909, digital subtractive, congas. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 557,
+  "score": 169.919,
   "config": {
     "traditions": [
       "progressive_house",
       "psyprog",
-      "dream_house"
+      "canadian_house"
     ],
     "instruments": [
       {
@@ -19,13 +19,13 @@
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 2.990000000000001,
-          "poly_archetypes": 1.43875,
-          "poly_voices": 1.43875,
-          "poly_maker_lineage": -1.435
+          "electronic_technique": 2.145,
+          "poly_archetypes": 1.93875,
+          "poly_voices": 1.93875,
+          "poly_maker_lineage": -1.33
         }
       },
       {
@@ -36,8 +36,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 16.115,
-          "drum_machine_909_context": 0.9150000000000001,
+          "tr909_voice": 20.99,
+          "drum_machine_909_context": 0.65,
           "tr909_production_origin": 0.65
         }
       },
@@ -49,9 +49,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 2.990000000000001,
-          "va_archetypes": 3.7912499999999993,
-          "digital_subtractive_context": 15.794999999999998
+          "electronic_technique": 2.145,
+          "va_archetypes": 2.09125,
+          "digital_subtractive_context": 14.104999999999997
         }
       },
       {
@@ -66,7 +66,7 @@
           "electronic_technique": 3.325,
           "mod_voltage_source": 0.845,
           "mod_patch_density": 1.15,
-          "mod_lineage": 0.65
+          "mod_lineage": 0.975
         }
       },
       {
@@ -90,21 +90,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.145,
-          "voice_quality": 9.165000000000001,
+          "voice_register": 1.3,
+          "voice_quality": 7.410000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.9250000000000007,
-          "voice_articulation": 16.704999999999995,
-          "voice_microtone": 15.209999999999992,
-          "voice_tradition": 7.605,
+          "voice_articulation": 15.859999999999994,
+          "voice_microtone": 14.364999999999991,
+          "voice_tradition": 8.06,
           "voice_mechanism_compound": 4.485,
           "voice_estill_quality": 4.290000000000001,
-          "voice_speech_song": 14.949999999999996,
-          "voice_ensemble_config": 16.899999999999995,
+          "voice_speech_song": 14.299999999999995,
+          "voice_ensemble_config": 15.014999999999993,
           "voice_ornament_system": 1.5599999999999996,
           "voice_pitch_organization": 0.52,
-          "voice_processing_chain": 22.195,
+          "voice_processing_chain": 19.900000000000002,
           "voice_multitrack_stack": 3.7700000000000005
         }
       },
@@ -118,7 +118,7 @@
         },
         "scores": {
           "percussion_technique": -0.07,
-          "conga_set": 2.025,
+          "conga_set": 3.2750000000000004,
           "conga_skin": 0.78,
           "conga_shell_wood": 0.78
         }

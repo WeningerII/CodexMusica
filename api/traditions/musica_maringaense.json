@@ -5,7 +5,7 @@
   "lineage": "Music of Maringá, including independent rock, songwriting and varied ensemble arrangements.",
   "recipe": "classic música maringaense, distorted Rock, alternative branch. duet, live take. humbucker electric acoustic guitar, electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electric bass, hohner gola canonical premium German concert accordion, bach stradivarius 180 canonical American orchestral trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 470,
-  "score": 40.673,
+  "score": 42.17,
   "config": {
     "traditions": [
       "musica_maringaense"
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
+          "neck_wood": 0.6825000000000001,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 0.273,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -117,7 +117,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": 0.10000000000000002,
           "cymbal_hammering": 9.431499999999998,
@@ -139,7 +139,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -161,12 +161,12 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "accordion_reed_material": 0.4095,
+          "accordion_reed_material": 0.546,
           "musette_offset": 0,
           "reed_config": 0,
           "bellows": 0,
           "voicing_chamber": 0,
-          "accordion_maker_school": 1.2285
+          "accordion_maker_school": 1.5014999999999998
         }
       },
       {
@@ -182,12 +182,12 @@
         },
         "scores": {
           "wind_articulation": 0.8499999999999999,
-          "brass_size": 0.105,
+          "brass_size": 0.2415,
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0.273,
-          "trumpet_technique": -0.035,
+          "trumpet_technique": -0.05,
           "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 2.1525
+          "trumpet_maker_school": 2.457
         }
       },
       {
@@ -203,7 +203,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
-          "string_acoustic": 0.714,
+          "string_acoustic": 0.8190000000000002,
           "acoustic_om_technique": -0.25
         }
       }

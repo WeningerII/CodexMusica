@@ -1,0 +1,80 @@
+{
+  "id": "diablos_danzantes_venezuela",
+  "name": "Diablos danzantes (Venezuelan Corpus Christi devil-dance music)",
+  "family": "global",
+  "lineage": "On Corpus Christi, cofradías of masked devils in San Francisco de Yare, Naiguatá, Chuao, Cuyagua, Ocumare de la Costa and other Venezuelan towns dance in procession to the church to submit before the Eucharist, a rite inscribed by UNESCO in 2012. In Yare the devils dance to a caja drum and the maracas they shake themselves, and the accompaniment varies from town to town. The membrane-drum card stands in for the caja.",
+  "recipe": "classic early-2010s diablos danzantes, ritual Devotional. membrane drum pulse acoustic membrane drum, maracas. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 190,
+  "score": 3.286,
+  "config": {
+    "traditions": [
+      "diablos_danzantes_venezuela"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_short"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 3.3,
+          "acoustic_membrane_drum_gesture": 0.0315
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_gourd",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 0.105,
+          "maracas_filling": 0
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "maracas": [
+        "maracas_construction",
+        "maracas_filling"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_short",
+      "maracas_construction": "maracas_gourd",
+      "maracas_filling": "maracas_seeds"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,239 +1,190 @@
 {
-  "id": "vintage_rockabilly",
-  "name": "Vintage rockabilly",
+  "id": "rockabilly_50s",
+  "merged_from": "vintage_rockabilly",
+  "name": "Rockabilly",
   "family": "rock",
-  "lineage": "Vintage rockabilly recalls the meeting of country singing, blues and early rock-and-roll in mid-twentieth-century recordings.",
-  "recipe": "classic vintage rockabilly, functional Song, pop rock branch. solo with instrumental accompaniment. Fender tweed amp American 50s amp tweed breakup mahogany maple humbucker electric guitar, vintage gut upright bass, vintage ambassador asymmetric sticks backbeat drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 433,
-  "score": 59.472,
+  "lineage": "Mid-1950s American Mid-South rockabilly genre codified at Sun Studios Memphis under Sam Phillips production — Elvis Presley Thats All Right Mama 1954 (the founding rockabilly recording), Carl Perkins Blue Suede Shoes 1955, Jerry Lee Lewis Whole Lotta Shakin Goin On 1957, Johnny Cash I Walk the Line 1956, Roy Orbison Ooby Dooby 1956; characterized by slap-bass upright bass, Gretsch hollowbody or Fender Telecaster electric guitar with travis-picking right-hand technique, the Sun Studios slapback short-tape-delay processing, and the country I-IV-V harmonic foundation fused with blues pentatonic vocabulary",
+  "recipe": "classic Southern American 1954-1956 rockabilly, functional Song, honky tonk era branch, pop rock functional song, blues narrative ballad poetry skiffle classic blues women. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup dual p90 flatwound semi hollow, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. sun studios memphis 1950-1968 indie-commercial sun studios memphis 706 union. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 674,
+  "score": 430.325,
   "config": {
     "traditions": [
-      "vintage_rockabilly"
+      "rockabilly_50s",
+      "skiffle",
+      "classic_blues_women"
     ],
     "instruments": [
       {
-        "id": "electric_guitar_humbucker",
+        "id": "voice",
         "slots": {
-          "electric_technique": "electric_bent_note_blues_lead",
-          "amp_make": "amp_american_fender_tweed",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "low_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "vibrato_arm",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
-          "finish": "nitro_hum",
-          "string_tuning": "standard_tuning"
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "electric_technique": 2.6945,
-          "amp_make": 9.2755,
-          "body_wood": 2.468,
-          "neck_wood": 1.2415,
-          "fretboard": 1.1915,
-          "pickup_magnet": 2,
-          "pickup_winding": 2.0315,
-          "string_material": 2,
-          "bridge": 2.0315,
-          "scale_length": 1.3,
-          "string_gauge": 1.1365,
-          "finish": 0,
-          "string_tuning": 0
+          "voice_register": 62.87500000000001,
+          "voice_quality": 14.59249999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 29.620000000000008,
+          "voice_articulation": 15.274999999999993,
+          "voice_microtone": 26.474999999999994,
+          "voice_tradition": 13.714999999999998,
+          "voice_mechanism_compound": 6.239999999999998,
+          "voice_estill_quality": 15.224999999999996,
+          "voice_speech_song": 19.174999999999994,
+          "voice_ensemble_config": 15.209999999999992,
+          "voice_ornament_system": 2.2,
+          "voice_pitch_organization": 1.435,
+          "voice_processing_chain": 5.719999999999999,
+          "voice_multitrack_stack": 10.497499999999999
+        }
+      },
+      {
+        "id": "semi_hollow",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_american_fender_tweed",
+          "semi_archetypes": "semi_casino",
+          "semi_hollow_pickup": "semi_dual_p90",
+          "semi_hollow_strings": "semi_flatwound_jazz",
+          "semi_hollow_context": "semi_hollow_rockabilly_gretsch"
+        },
+        "scores": {
+          "electric_technique": 5.055,
+          "amp_make": 22.464999999999996,
+          "semi_archetypes": 11.082499999999998,
+          "semi_hollow_pickup": 16.152499999999996,
+          "semi_hollow_strings": 10.899999999999999,
+          "semi_hollow_context": 4.45
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_country_chicken_pickin",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "vintage_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "d_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 12.04,
+          "amp_make": 22.464999999999996,
+          "body_wood": 3.964999999999999,
+          "neck_wood": 3.964999999999999,
+          "fretboard": 3.51,
+          "pickup_magnet": 0.39,
+          "string_material": 0.195,
+          "string_gauge": 3.5749999999999993,
+          "bridge": 0.39,
+          "scale_length": 3.5749999999999993,
+          "finish": 0.39,
+          "string_tuning": 16.835,
+          "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "gut_upright",
-          "upright_play": "slap_upright"
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 2,
-          "upright_play": 2.6
+          "upright_strings": 9.624999999999998,
+          "upright_play": 9.624999999999998
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 8.7815,
-          "drumhead": 5.727,
+          "drum_technique": 19.954999999999995,
+          "drumhead": 11.539999999999997,
           "drum_kit_kick_pedal": 0
-        }
-      },
-      {
-        "id": "grand_piano",
-        "slots": {
-          "keyboard_technique": "keyboard_stride_left_hand",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_440_modern"
-        },
-        "scores": {
-          "keyboard_technique": 0.7,
-          "grand_piano_size": 0.0945,
-          "grand_piano_brand": 1.5625,
-          "piano_hammer": 4.42,
-          "piano_rim": 4.42,
-          "piano_soundboard": -0.07,
-          "piano_pinblock": -0.07,
-          "piano_plate": -0.07,
-          "piano_pitch_standard": 0.325
-        }
-      },
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
-        },
-        "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2285000000000001,
-          "voice_ornament_system": 0.0315,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.39
         }
       }
     ],
-    "pinned": {
-      "electric_guitar_humbucker": [
-        "electric_technique",
-        "string_tuning"
-      ],
-      "upright_bass": [
-        "upright_strings",
-        "upright_play"
-      ],
-      "drum_kit": [
-        "drum_technique",
-        "drum_kit_kick_pedal"
-      ],
-      "grand_piano": [
-        "keyboard_technique",
-        "grand_piano_size",
-        "grand_piano_brand",
-        "piano_hammer",
-        "piano_rim",
-        "piano_soundboard",
-        "piano_pinblock",
-        "piano_plate",
-        "piano_pitch_standard"
-      ],
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "sun_studios_memphis_706_union",
+    "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
-      "mic": "dynamic_mic",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_active_parametric",
-      "amp": null,
-      "medium": "digital_high"
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_tweed",
+      "medium": "tape_15ips"
     },
-    "tuning": "twelve_tet",
+    "tuning": "rockabilly_50s_walking_bass_slap",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "tuning": "rockabilly_50s_walking_bass_slap",
+    "room": "sun_studios_memphis_706_union",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "electric_technique": "electric_bent_note_blues_lead",
-      "string_tuning": "standard_tuning",
+      "body_wood": "alder",
+      "pickup_magnet": "alnico_3",
+      "string_material": "pure_nickel",
+      "bridge": "vintage_trem",
+      "scale_length": "scale_fender",
+      "drumhead": "single_coated",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "keyboard_technique": "keyboard_stride_left_hand",
-      "grand_piano_size": "grand_9_foot",
-      "grand_piano_brand": "steinway_d",
-      "piano_hammer": "steinway_original_hammer",
-      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-      "piano_soundboard": "sitka_spruce_diaphragmatic",
-      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-      "piano_plate": "gray_iron_full_perimeter_plate",
-      "piano_pitch_standard": "a_440_modern",
-      "upright_strings": "gut_upright",
-      "upright_play": "slap_upright"
+      "voice_register": "chest_voice",
+      "voice_quality": "twang_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_oral_twang",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "upright_play": "slap_upright",
+      "upright_strings": "steel_upright",
+      "semi_archetypes": "semi_casino",
+      "semi_hollow_pickup": "semi_filtertron_gretsch",
+      "semi_hollow_strings": "semi_pure_nickel",
+      "semi_hollow_context": "semi_hollow_rockabilly_gretsch",
+      "string_tuning": "standard_tuning"
     },
-    "pin_parts": true,
-    "chain_mic": "dynamic_mic",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_active_parametric",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box",
-    "chain_amp_guitar": "amp_modern_modeling"
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored",
+    "chain_amp": "amp_american_tweed",
+    "chain_amp_guitar": "amp_american_fender_tweed"
   }
 }

@@ -1,0 +1,170 @@
+{
+  "id": "tumba_francesa",
+  "name": "Tumba francesa (eastern Cuban Franco-Haitian drum-dance)",
+  "family": "global",
+  "lineage": "Drum, song and dance societies founded in eastern Cuba in the 19th century by Haitian-born and Franco-Haitian people who arrived with French planters after the Haitian Revolution; the surviving societies are La Caridad de Oriente in Santiago de Cuba, Pompadour Santa Catalina de Riccis in Guantánamo and Bejuco in Sagua de Tánamo, and UNESCO proclaimed the tradition a Masterpiece of the Oral and Intangible Heritage of Humanity. A lead singer (composé) sings in Creole and Spanish, answered by a chorus, over large hand-played drums (tumbas), the catá, a hollow log beaten with sticks, and the chachá, a metal rattle; masón, yubá and frenté are its main dances. A generic membrane-drum card stands in for the tumbas, the palitos card for the sticks on the catá and a generic shaker card for the chachá.",
+  "recipe": "classic modern tumba francesa, groove Percussion, Caribbean branch. membrane drum pulse resonant acoustic membrane drum, hollow toned palitos, shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 249,
+  "score": 10.831,
+  "config": {
+    "traditions": [
+      "tumba_francesa"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.0945,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 5.1745,
+          "acoustic_membrane_drum_gesture": 4.032
+        }
+      },
+      {
+        "id": "palitos",
+        "slots": {
+          "palitos_surface": "palitos_bamboo",
+          "palitos_pattern": "palitos_cascara"
+        },
+        "scores": {
+          "palitos_surface": 1.3,
+          "palitos_pattern": 0
+        }
+      },
+      {
+        "id": "shaker_source_unspecified",
+        "slots": {
+          "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+        },
+        "scores": {
+          "shaker_source_unspecified_identity": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "palitos": [
+        "palitos_surface",
+        "palitos_pattern"
+      ],
+      "shaker_source_unspecified": [
+        "shaker_source_unspecified_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "palitos_surface": "palitos_bamboo",
+      "palitos_pattern": "palitos_cascara",
+      "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

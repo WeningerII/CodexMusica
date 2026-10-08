@@ -1,0 +1,173 @@
+{
+  "id": "desgarrada_minhota",
+  "name": "Desgarrada minhota (Minho sung challenge)",
+  "family": "global",
+  "lineage": "Cantares ao desafio, also called desgarrada, are the sung verse challenges of the Minho and neighbouring northern Portugal, in which two or more cantadores, very often a man and a woman, improvise alternating quatrains of teasing, argument and flirtation at fairs, romarias and village festivals. A concertina, in Portugal a diatonic button accordion, usually carries the repeated tune and interludes, sometimes with a triangle (ferrinhos), and northern cantadores have issued desgarradas on commercial cassettes and CDs since the late twentieth century; the accordion card stands for the concertina.",
+  "recipe": "classic modern desgarrada minhota, functional Song, iberian branch. accordion, concert triangle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 176,
+  "score": 1.05,
+  "config": {
+    "traditions": [
+      "desgarrada_minhota"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": -0.42399999999999993,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0.39,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.2415,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.1575,
+          "voice_multitrack_stack": 0.273,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "accordion_reed_material": "machine_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "accordion_reed_material": 0.0315,
+          "musette_offset": 0.1365,
+          "reed_config": 0,
+          "bellows": 0.1995,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 0
+        }
+      },
+      {
+        "id": "concert_triangle",
+        "slots": {
+          "concert_triangle_construction": "concert_triangle_grover_six_kanigen"
+        },
+        "scores": {
+          "concert_triangle_construction": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ],
+      "concert_triangle": [
+        "concert_triangle_construction"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "free_reed_technique": "free_reed_chordal_chugging",
+      "accordion_reed_material": "machine_reeds",
+      "musette_offset": "dry_tuning",
+      "reed_config": "lmm",
+      "bellows": "cardboard_leather",
+      "voicing_chamber": "cassotto",
+      "accordion_maker_school": "accordion_maker_unspecified",
+      "concert_triangle_construction": "concert_triangle_grover_six_kanigen"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

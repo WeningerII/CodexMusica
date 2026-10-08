@@ -5,7 +5,7 @@
   "lineage": "Music associated with Sergipe, including independent blues-rock and psychedelic bands.",
   "recipe": "classic música sergipana, functional Song, blues electric branch. solo with instrumental accompaniment. overdriven singing bent note blues lead humbucker electric guitar, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. live tracking.",
   "recipe_chars": 375,
-  "score": 63.718,
+  "score": 64.306,
   "config": {
     "traditions": [
       "musica_sergipana"
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": 4.81,
           "amp_make": 0,
-          "body_wood": 0.063,
+          "body_wood": 0.1365,
           "neck_wood": 0.0315,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.22049999999999997,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.609,
-          "string_gauge": 0.7314999999999999,
+          "scale_length": 0.6509999999999999,
+          "string_gauge": 0.8365,
           "finish": 0,
           "string_tuning": 0.063
         }
@@ -102,15 +102,15 @@
         },
         "scores": {
           "drum_technique": 3.3865,
-          "drumhead": 0.0315,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.063,
+          "shell_wood": 0.0315,
           "shell_thickness": 0,
           "bearing_edges": 0.363,
           "snare_wires": 0,
-          "cymbal_alloy": 6.85,
+          "cymbal_alloy": 6.955,
           "cymbal_hammering": 4.013,
-          "cymbal_lathing": 4.1495,
+          "cymbal_lathing": 4.2545,
           "cymbal_finish": 0
         }
       },
@@ -126,9 +126,9 @@
         },
         "scores": {
           "harmonica_type": 0.363,
-          "harmonica_comb": 7.5169999999999995,
-          "harmonica_reed": 7.286,
-          "harmonica_technique": 8.236999999999998,
+          "harmonica_comb": 7.664,
+          "harmonica_reed": 7.4959999999999996,
+          "harmonica_technique": 8.100499999999998,
           "harmonica_maker_school": 9.034999999999998,
           "harmonica_tuning": 3.6399999999999997
         }

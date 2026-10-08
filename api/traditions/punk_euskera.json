@@ -5,7 +5,7 @@
   "lineage": "Punk euskera connects Basque-language punk songwriting with local hardcore scenes.",
   "recipe": "classic punk euskera, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 324,
-  "score": 45.906,
+  "score": 46.499,
   "config": {
     "traditions": [
       "punk_euskera"
@@ -30,14 +30,14 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 19.4135,
-          "body_wood": 1.1655,
+          "amp_make": 19.019,
+          "body_wood": 1.386,
           "neck_wood": 0.063,
-          "fretboard": 0,
+          "fretboard": 0.273,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0,
+          "bridge": 0.273,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.1655,
+          "body_wood": 1.386,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

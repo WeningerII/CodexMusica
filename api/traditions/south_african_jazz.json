@@ -3,14 +3,14 @@
   "name": "South African Jazz",
   "family": "jazz",
   "lineage": "Formed in Sophiatown and Cape Town from the 1940s marabi and kwela lineage and codified by the Jazz Epistles, Abdullah Ibrahim, Chris McGregor's Blue Notes and the exile generation after 1964 — a rolling I-IV-V or three-chord marabi cycle at mid tempo, hymn-derived voicings, sung-tone alto and tenor saxophone, muted or open trumpet and trombone, and township-jive backbeat under long collective vamps.",
-  "recipe": "classic Southern African mid-1940s south african jazz, improv On Frame, American jazz branch, African pop functional song, sub saharan African protest song sungura rumba congolaise. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral shallow cup lead trumpet trumpet, bach 42 canonical American orchestral tenor student commercial trombone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, couesnon vintage canonical pre 1970 flugelhorn. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
-  "recipe_chars": 922,
-  "score": 467.982,
+  "recipe": "classic Southern African mid-1940s south african jazz, improv On Frame, American jazz branch, African pop functional song, sub saharan African protest song sungura congolese rumba. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral shallow cup lead trumpet trumpet, bach 42 canonical American orchestral tenor student commercial trombone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, couesnon vintage canonical pre 1970 flugelhorn. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 921,
+  "score": 483.577,
   "config": {
     "traditions": [
       "south_african_jazz",
       "sungura",
-      "rumba_congolaise"
+      "congolese_rumba"
     ],
     "instruments": [
       {
@@ -28,10 +28,10 @@
           "wind_articulation": 1.5,
           "sax_size": 2.9499999999999997,
           "sax_reed": 0.44999999999999996,
-          "sax_body_alloy": 16,
+          "sax_body_alloy": 17.125,
           "sax_mouthpiece": 0.44999999999999996,
-          "sax_technique": 16.15,
-          "sax_maker_school": 17.419999999999998
+          "sax_technique": 17.275,
+          "sax_maker_school": 18.544999999999998
         }
       },
       {
@@ -48,7 +48,7 @@
         "scores": {
           "wind_articulation": 1.5,
           "brass_size": 0.44999999999999996,
-          "trumpet_mouthpiece": 19.669999999999998,
+          "trumpet_mouthpiece": 20.094999999999995,
           "brass_mute": 0.5849999999999999,
           "trumpet_technique": 1.5,
           "trumpet_bell_metal": 0.5399999999999999,
@@ -68,10 +68,10 @@
         },
         "scores": {
           "wind_articulation": 1.5,
-          "trombone_type": 16.389999999999997,
-          "trombone_mouthpiece": 24.48,
+          "trombone_type": 17.514999999999997,
+          "trombone_mouthpiece": 25.48,
           "trombone_mute": 0.5849999999999999,
-          "trombone_technique": 0.65,
+          "trombone_technique": 0.78,
           "trombone_bell_metal": 0.5399999999999999,
           "trombone_maker_school": 3.985
         }
@@ -87,18 +87,18 @@
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 9.25,
-          "grand_piano_size": 2.07,
-          "grand_piano_brand": 2.145,
-          "piano_hammer": 6.975000000000001,
-          "piano_rim": 9.72,
-          "piano_soundboard": 8.040000000000001,
+          "keyboard_technique": 9.125,
+          "grand_piano_size": 1.8699999999999999,
+          "grand_piano_brand": 1.885,
+          "piano_hammer": 6.850000000000001,
+          "piano_rim": 10.195,
+          "piano_soundboard": 7.915000000000001,
           "piano_pinblock": -0.035,
           "piano_plate": 1.19,
-          "piano_pitch_standard": 5.869999999999999
+          "piano_pitch_standard": 4.744999999999999
         }
       },
       {
@@ -108,8 +108,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 16,
-          "upright_play": 16
+          "upright_strings": 17.125,
+          "upright_play": 17.125
         }
       },
       {
@@ -120,8 +120,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 32.045,
-          "drumhead": 16.88,
+          "drum_technique": 32.565000000000005,
+          "drumhead": 18.005,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -136,7 +136,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "southern_african_bantu_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -146,22 +146,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 25.09499999999999,
-          "voice_quality": 13.129999999999992,
+          "voice_register": 25.744999999999997,
+          "voice_quality": 14.559999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.464999999999996,
-          "voice_articulation": 23.789999999999996,
-          "voice_microtone": 24.384999999999998,
-          "voice_tradition": 21.480000000000004,
-          "voice_mechanism_compound": 1.645,
-          "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 30.419999999999998,
-          "voice_ensemble_config": 23.529999999999998,
-          "voice_ornament_system": 2.335,
-          "voice_pitch_organization": 3.6500000000000004,
-          "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 3.4775000000000005
+          "voice_vibrato": 17.439999999999998,
+          "voice_articulation": 24.18,
+          "voice_microtone": 25.384999999999998,
+          "voice_tradition": 22.630000000000003,
+          "voice_mechanism_compound": 1.4300000000000002,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 30.095000000000002,
+          "voice_ensemble_config": 24.570000000000004,
+          "voice_ornament_system": 3.36,
+          "voice_pitch_organization": 3.0000000000000004,
+          "voice_processing_chain": 3.575,
+          "voice_multitrack_stack": 4.192500000000001
         }
       },
       {
@@ -178,7 +178,7 @@
           "flugel_use": 0.48000000000000004,
           "flugelhorn_pitch": 0,
           "flugelhorn_bell_metal": 0.38999999999999996,
-          "flugelhorn_maker_school": 16.43
+          "flugelhorn_maker_school": 17.705
         }
       }
     ],

@@ -1,0 +1,114 @@
+{
+  "id": "changa_tuki",
+  "name": "Changa tuki (Caracas barrio electronic dance)",
+  "family": "electronic",
+  "lineage": "Changa tuki, also called raptor house, is the electronic dance music of the barrios of Caracas, which grew from the 1990s in the minitecas, the mobile sound systems that played neighbourhood parties, as DJs reworked imported techno and house into a faster, percussion-heavy style for its own competitive street dance; its young followers are known as tukis, and the scene peaked in the 2000s. DJ Baba (DJ Babatr) is usually credited among its founders, alongside DJs such as DJ Yirvin.",
+  "recipe": "classic mid-1990s changa tuki, electronic Dance, Latin electric branch. daw percussion source daw bass source daw melodic source unspecified, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 296,
+  "score": 15.043,
+  "config": {
+    "traditions": [
+      "changa_tuki"
+    ],
+    "instruments": [
+      {
+        "id": "daw_percussion_source_unspecified",
+        "slots": {
+          "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_percussion_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.168,
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 9.815
+        }
+      },
+      {
+        "id": "daw_bass_source_unspecified",
+        "slots": {
+          "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_bass_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "daw_melodic_source_unspecified",
+        "slots": {
+          "daw_melodic_source_unspecified_identity": "daw_melodic_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_melodic_source_unspecified_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "daw_percussion_source_unspecified": [
+        "daw_percussion_source_unspecified_identity"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "daw_bass_source_unspecified": [
+        "daw_bass_source_unspecified_identity"
+      ],
+      "daw_melodic_source_unspecified": [
+        "daw_melodic_source_unspecified_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified",
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified",
+      "daw_melodic_source_unspecified_identity": "daw_melodic_source_unspecified_architecture_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

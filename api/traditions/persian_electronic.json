@@ -5,7 +5,7 @@
   "lineage": "Persian electronic music includes Iranian and diaspora artists who work with synthesis, recorded sound and experimental production.",
   "recipe": "classic persian electronic, experimental Elec, musique concrete branch. field textural sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 175,
-  "score": 16.556,
+  "score": 16.378,
   "config": {
     "traditions": [
       "persian_electronic"
@@ -23,8 +23,8 @@
         "scores": {
           "electronic_technique": 6.5315,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.735,
-          "sampler_workflow": 8.025,
+          "sampler_bit_depth": 0.588,
+          "sampler_workflow": 7.9935,
           "sampler_classic_context": 1.3
         }
       }

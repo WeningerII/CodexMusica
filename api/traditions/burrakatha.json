@@ -1,0 +1,185 @@
+{
+  "id": "burrakatha",
+  "name": "Burrakatha (Telugu ballad narrative)",
+  "family": "global",
+  "lineage": "Burrakatha is a Telugu narrative performance in which a lead storyteller, wearing ankle bells and strumming a tambura, sings and acts out the story while two companions beside him beat small dakki drums, interject comic and topical commentary and take up the refrains. It grew out of the narratives of the Jangam devotees of Shiva, and in the 1940s Sheikh Nazar and the Praja Natya Mandali troupes used it for political mobilisation in Andhra. The hand-drum card stands in for the dakki.",
+  "recipe": "classic mid-1940s burrakatha, ballad Poetry, indian bard branch. narrative, single lead single track no stacking. tanpura, hand drum source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 232,
+  "score": 5.347,
+  "config": {
+    "traditions": [
+      "burrakatha"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0.0315,
+          "voice_vibrato": 0,
+          "voice_articulation": 2.34,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 1.69,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "tanpura",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "tanpura_size": "male_size",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "four_string_classical",
+          "tanpura_string_material": "dutar_strings_unspecified",
+          "tanpura_body_wood": "tanpura_gourd_body"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.26,
+          "tanpura_size": 0.042749999999999996,
+          "tanpura_jawari": -0.05,
+          "tanpura_strings": 0.29025,
+          "tanpura_string_material": 0,
+          "tanpura_body_wood": 0.7244999999999999
+        }
+      },
+      {
+        "id": "hand_drum_source_unspecified",
+        "slots": {
+          "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+          "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+          "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+          "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+          "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+        },
+        "scores": {
+          "hand_drum_structure_neutral": 0,
+          "hand_drum_material_neutral": 0,
+          "hand_drum_excitation_neutral": 0.1365,
+          "hand_drum_damping_neutral": 0,
+          "hand_drum_tension_neutral": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "tanpura": [
+        "plucked_traditional_technique",
+        "tanpura_size",
+        "tanpura_jawari",
+        "tanpura_strings",
+        "tanpura_string_material",
+        "tanpura_body_wood"
+      ],
+      "hand_drum_source_unspecified": [
+        "hand_drum_structure_neutral",
+        "hand_drum_material_neutral",
+        "hand_drum_excitation_neutral",
+        "hand_drum_damping_neutral",
+        "hand_drum_tension_neutral"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "narrative_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_drone_modal",
+      "tanpura_size": "male_size",
+      "tanpura_jawari": "curved_jawari",
+      "tanpura_strings": "four_string_classical",
+      "tanpura_string_material": "dutar_strings_unspecified",
+      "tanpura_body_wood": "tanpura_gourd_body",
+      "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+      "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+      "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+      "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+      "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

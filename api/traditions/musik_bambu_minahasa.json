@@ -1,0 +1,109 @@
+{
+  "id": "musik_bambu_minahasa",
+  "name": "Musik bambu (Minahasa bamboo band)",
+  "family": "global",
+  "lineage": "Village wind bands of the Minahasa of North Sulawesi, modelled on European brass and wind bands and built from local bamboo. Types include musik bambu melulu, played on bamboo flutes alone; musik bambu klarinet, led by bamboo clarinets (the clarinet card stands in); and musik bambu seng, whose horns are shaped from sheet zinc in imitation of brass (the generic horn card stands in). Large bamboo bass horns underpin the bands, which play marches, hymns and popular songs at festivals and community events.",
+  "recipe": "classic modern musik bambu, carnival Processional, east Asian branch. bamboo credited bamboo flute credited horns unspecified, clarinet. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 216,
+  "score": 8.718,
+  "config": {
+    "traditions": [
+      "musik_bambu_minahasa"
+    ],
+    "instruments": [
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 7.2509999999999994,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "tuiduk_cane",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "clarinet_body": 0.39,
+          "clarinet_size": 0.03712499999999999,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "credited_horns_unspecified",
+        "slots": {
+          "credited_horns_identity": "credited_horns_source_unspecified"
+        },
+        "scores": {
+          "credited_horns_identity": 1.26025
+        }
+      }
+    ],
+    "pinned": {
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "credited_horns_unspecified": [
+        "credited_horns_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+      "wind_articulation": "wind_continuous_legato",
+      "clarinet_body": "tuiduk_cane",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "credited_horns_identity": "credited_horns_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

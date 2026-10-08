@@ -3,9 +3,9 @@
   "name": "Música nicaragüense",
   "family": "global",
   "lineage": "Music of Nicaragua, encompassing regional traditions and contemporary song across varied ensembles.",
-  "recipe": "classic música nicaragüense, functional Song. group vocals. classical nylon-string guitar, cajon peruano, double bass, tres cubano, hand clap. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 241,
-  "score": 3.943,
+  "recipe": "classic música nicaragüense, functional Song. classical nylon-string guitar, cajon peruano, double bass, tres cubano, hand clap. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 227,
+  "score": 3.67,
   "config": {
     "traditions": [
       "musica_nicaraguense"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.546,
+          "voice_ensemble_config": 0.40950000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
@@ -133,7 +133,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0.546,
+          "clap_technique": 0.40950000000000003,
           "clap_capture": 0
         }
       }

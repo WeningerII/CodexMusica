@@ -5,7 +5,7 @@
   "lineage": "Banda peruana: Banda Sinfonía Junín de Jauja. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic banda peruana, carnival Processional. softer tone ebonite hard rubber klezmer tradition clarinet, gold brass warmer tone split tone overblown saxophone, big tone large cup large rim orchestral bottom heavy trumpet, euphonium, trombone, tuba, bass drum. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 359,
-  "score": 13.861,
+  "score": 13.612,
   "config": {
     "traditions": [
       "banda_peruana"
@@ -14,18 +14,18 @@
       {
         "id": "clarinet",
         "slots": {
-          "wind_articulation": "wind_split_tone_overblown",
+          "wind_articulation": "wind_breath_quiet",
           "clarinet_body": "ebonite_clarinet",
           "clarinet_size": "b_flat_clarinet",
           "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 1.2349999999999999,
+          "wind_articulation": 1.1429999999999998,
           "clarinet_body": 1.17,
           "clarinet_size": 0.063,
           "clarinet_reed": 0.105,
-          "clarinet_articulation": 0.16949999999999998
+          "clarinet_articulation": 0.147
         }
       },
       {
@@ -45,7 +45,7 @@
           "sax_reed": 0.0315,
           "sax_body_alloy": 1.56,
           "sax_mouthpiece": 0.063,
-          "sax_technique": 1.2349999999999999,
+          "sax_technique": 1.13,
           "sax_maker_school": 0
         }
       },
@@ -66,8 +66,8 @@
           "trumpet_mouthpiece": 1.2349999999999999,
           "brass_mute": 0.063,
           "trumpet_technique": -0.10500000000000001,
-          "trumpet_bell_metal": 0.38549999999999995,
-          "trumpet_maker_school": 0.11249999999999999
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.105
         }
       },
       {
@@ -92,8 +92,8 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "bass_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
-          "trombone_mute": "straight_mute_trb",
+          "trombone_mouthpiece": "bach_trombone_mp_3g",
+          "trombone_mute": "no_mute_trb",
           "trombone_technique": "classical_trb",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
@@ -102,10 +102,10 @@
           "wind_articulation": -0.10500000000000001,
           "trombone_type": 0,
           "trombone_mouthpiece": 0.325,
-          "trombone_mute": 0.075,
+          "trombone_mute": 0.0315,
           "trombone_technique": 0.147,
-          "trombone_bell_metal": 0.38549999999999995,
-          "trombone_maker_school": 0.13499999999999998
+          "trombone_bell_metal": 0.39,
+          "trombone_maker_school": 0.105
         }
       },
       {
@@ -122,8 +122,8 @@
           "wind_articulation": -0.10500000000000001,
           "tuba_pitch": 0.39,
           "tuba_context": 0.78,
-          "tuba_bell_metal": 0.38549999999999995,
-          "tuba_valve_system": 0.11249999999999999,
+          "tuba_bell_metal": 0.39,
+          "tuba_valve_system": 0.105,
           "tuba_maker_school": 0.78
         }
       },
@@ -135,7 +135,7 @@
         },
         "scores": {
           "bass_drum_size": 0.063,
-          "bass_drum_beater": 0.345
+          "bass_drum_beater": 0.39
         }
       }
     ],

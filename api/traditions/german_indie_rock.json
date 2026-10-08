@@ -5,7 +5,7 @@
   "lineage": "German indie rock represented by Hamburg-formed Tocotronic’s Nie wieder Krieg-era combination of live-band capture and overdubs. Singing, electric guitars, bass and drums remain central, with a separately documented synth layer and guitar effects that sometimes imitate synthesizers.",
   "recipe": "classic german indie rock, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp arpeggiated clean single coil electric guitar, ampeg svt amp rock bass amp mahogany electric bass, sticks backbeat drum kit, analog poly synth. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital pitch shifter digital delay.",
   "recipe_chars": 461,
-  "score": 34.964,
+  "score": 35.72,
   "config": {
     "traditions": [
       "german_indie_rock"
@@ -46,7 +46,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.3,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.78
         }
       },
@@ -57,7 +57,7 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "pine",
           "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
+          "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
@@ -68,16 +68,16 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 5.0680000000000005,
+          "electric_technique": 5.173,
           "amp_make": 4.42,
-          "body_wood": 0.7735,
-          "neck_wood": 0.5775,
-          "fretboard": 0.21000000000000002,
+          "body_wood": 0.7,
+          "neck_wood": 0.6825000000000001,
+          "fretboard": 0.2415,
           "pickup_magnet": 0,
-          "string_material": 0.105,
-          "string_gauge": 0.9099999999999999,
+          "string_material": 0.2415,
+          "string_gauge": 0.868,
           "bridge": 0.1365,
-          "scale_length": 1.1550000000000002,
+          "scale_length": 1.3650000000000004,
           "finish": 0,
           "string_tuning": 0.3,
           "single_coil_pickup_construction": 0
@@ -97,10 +97,10 @@
         },
         "scores": {
           "amp_make": 5.785,
-          "body_wood": 1.1550000000000002,
+          "body_wood": 1.3650000000000004,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.5775,
+          "scale_length_b": 0.6825000000000001,
           "fretted_or_not": 1,
           "bass_technique": -0.05,
           "electric_bass_string_configuration": 0

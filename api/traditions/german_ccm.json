@@ -5,7 +5,7 @@
   "lineage": "German CCM connects contemporary Christian songwriters, performers and audiences through recordings and shared repertoire. Choral arrangements provide one approach alongside solo and band-led performance.",
   "recipe": "classic german ccm, ritual Devotional, christian gospel branch. one note per syllable, group vocals. one piece 17 ply hard rock maple grand piano. shoebox concert hall.",
   "recipe_chars": 168,
-  "score": 4.694,
+  "score": 4.544,
   "config": {
     "traditions": [
       "german_ccm"
@@ -68,11 +68,11 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.9099999999999999,
-          "grand_piano_brand": 0.453,
+          "grand_piano_brand": 0.273,
           "piano_hammer": -0.1,
           "piano_rim": 1.17,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.325
         }

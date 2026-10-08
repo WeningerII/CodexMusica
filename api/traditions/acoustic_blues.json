@@ -1,35 +1,19 @@
 {
-  "id": "acoustic_blues",
-  "name": "Acoustic Blues",
+  "id": "country_blues",
+  "merged_from": "acoustic_blues",
+  "name": "Country Blues",
   "family": "blues_gospel",
-  "lineage": "The pre-amplification blues idiom documented commercially across the US South from 1926 to the early 1940s by Paramount, Okeh and Victor field units — solo singer-guitarists such as Blind Lemon Jefferson, Charley Patton, Blind Blake and Mississippi John Hurt playing self-accompanied twelve- and eight-bar forms with thumb-driven alternating bass, bottleneck slide, blue thirds and sevenths sung in a strained field-holler-derived voice, cut direct to wax in makeshift hotel-room and office studios.",
-  "recipe": "classic 1940-1943 acoustic blues, functional Song, blues acoustic branch, blues narrative delta narrative, blues narrative piedmont narrative ragtime blues piedmont fingerpicking blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning parlor classic steel silk fingerpicked parlor acoustic wood body spider bridge aluminum resonator national canon medium heavy resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, syncopated and hand spoons. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 770,
-  "score": 487.285,
+  "lineage": "Rural Southern US solo guitar-and-voice blues consolidated on race records between 1926 and 1935 through Blind Lemon Jefferson, Charley Patton, Blind Blake and Mississippi John Hurt — free-floating 8-to-13-bar stanzas at 70-110 BPM, thumb-driven alternating or monotonic bass under treble string answers, bottleneck slide and heavy string bending, and a declamatory field-holler vocal that the guitar answers phrase for phrase.",
+  "recipe": "classic mid-1920s country blues, functional Song, blues acoustic branch, blues narrative delta narrative, blues narrative piedmont narrative, pre commercial country ragtime blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning fingerpicked parlor acoustic open g tuning steel bronze fingerpicked steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, foot stomp. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 608,
+  "score": 426.599,
   "config": {
     "traditions": [
-      "acoustic_blues",
-      "ragtime_blues",
-      "piedmont_fingerpicking"
+      "country_blues",
+      "delta_blues",
+      "ragtime_blues"
     ],
     "instruments": [
-      {
-        "id": "acoustic_guitar_parlor",
-        "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "open_g",
-          "top_wood_parlor": "cedar_p",
-          "back_sides_parlor": "mahogany_bs_p",
-          "string_acoustic_parlor": "silk_steel_p"
-        },
-        "scores": {
-          "acoustic_technique": 16.5005,
-          "string_tuning": 13.305,
-          "top_wood_parlor": 0.39,
-          "back_sides_parlor": 0.105,
-          "string_acoustic_parlor": 1.4949999999999999
-        }
-      },
       {
         "id": "voice",
         "slots": {
@@ -42,31 +26,65 @@
           "voice_microtone": "bend_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 35.23300000000001,
-          "voice_quality": 25.9,
+          "voice_register": 36.58300000000001,
+          "voice_quality": 26.449999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 31.25,
-          "voice_articulation": 19.044999999999995,
-          "voice_microtone": 31.554874999999996,
-          "voice_tradition": 14.884999999999996,
-          "voice_mechanism_compound": 3.3149999999999995,
-          "voice_estill_quality": 5.6605,
-          "voice_speech_song": 19.109999999999992,
-          "voice_ensemble_config": 18.134999999999998,
-          "voice_ornament_system": 3.5417500000000004,
-          "voice_pitch_organization": 2.95,
-          "voice_processing_chain": 4.095,
-          "voice_multitrack_stack": 1.8199999999999998
+          "voice_vibrato": 35.32,
+          "voice_articulation": 18.979999999999997,
+          "voice_microtone": 33.691500000000005,
+          "voice_tradition": 14.373499999999996,
+          "voice_mechanism_compound": 1.8850000000000002,
+          "voice_estill_quality": 8.555,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 16.119999999999997,
+          "voice_ornament_system": 2.36,
+          "voice_pitch_organization": 2.4699999999999998,
+          "voice_processing_chain": 3.8115,
+          "voice_multitrack_stack": 4.029999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "mahogany_top_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "eighty_twenty_p"
+        },
+        "scores": {
+          "acoustic_technique": 13.8785,
+          "string_tuning": 12.87,
+          "top_wood_parlor": 0.42,
+          "back_sides_parlor": 0.21,
+          "string_acoustic_parlor": 1.8264999999999998
+        }
+      },
+      {
+        "id": "acoustic_resonator_steel",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "cone_type": "biscuit",
+          "body_resonator": "steel_body",
+          "res_strings": "eighty_twenty_res"
+        },
+        "scores": {
+          "acoustic_technique": 13.8785,
+          "string_tuning": 12.87,
+          "cone_type": 5.999999999999998,
+          "body_resonator": 1.9164999999999999,
+          "res_strings": 1.8265
         }
       },
       {
@@ -81,71 +99,31 @@
         },
         "scores": {
           "harmonica_type": 0.9099999999999999,
-          "harmonica_comb": 32.169624999999996,
-          "harmonica_reed": 29.508624999999995,
-          "harmonica_technique": 33.037125,
-          "harmonica_maker_school": 33.374125,
-          "harmonica_tuning": 15.014999999999999
+          "harmonica_comb": 31.236499999999996,
+          "harmonica_reed": 29.124999999999996,
+          "harmonica_technique": 35.324999999999996,
+          "harmonica_maker_school": 30.4255,
+          "harmonica_tuning": 14.005499999999998
         }
       },
       {
-        "id": "resonator_guitar",
+        "id": "foot_stomp",
         "slots": {
-          "resonator_body": "resonator_dobro_wood_single_cone",
-          "resonator_strings": "national_blues_set",
-          "resonator_technique": "resonator_bottleneck_slide_fingerpicked"
+          "stomp_footwear": "stomp_boot",
+          "stomp_surface": "stomp_hollow_platform"
         },
         "scores": {
-          "resonator_body": 1.8849999999999996,
-          "resonator_strings": 17.16,
-          "resonator_technique": 22.165
-        }
-      },
-      {
-        "id": "banjo_5_string",
-        "slots": {
-          "banjo_back": "resonator",
-          "tone_ring": "wood_ring",
-          "banjo_head": "fiberskyn",
-          "banjo_pot": "pot_11",
-          "banjo_play": "two_finger",
-          "banjo_rim_wood": "banjo_walnut_rim",
-          "banjo_neck_wood": "banjo_walnut_neck",
-          "banjo_strings": "banjo_light_clawhammer",
-          "banjo_bridge": "banjo_maple_ebony_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
-        },
-        "scores": {
-          "banjo_back": 0.39,
-          "tone_ring": 0.39,
-          "banjo_head": 16.055,
-          "banjo_pot": 0.39,
-          "banjo_play": 5.784999999999999,
-          "banjo_rim_wood": 0.585,
-          "banjo_neck_wood": 0.39,
-          "banjo_strings": 0.65,
-          "banjo_bridge": 0.325,
-          "banjo_setup_period": 15.599999999999998
-        }
-      },
-      {
-        "id": "spoons",
-        "slots": {
-          "spoons_material": "spoons_wooden",
-          "spoons_playing": "spoons_knee_and_hand"
-        },
-        "scores": {
-          "spoons_material": 0.045,
-          "spoons_playing": 17.615
+          "stomp_footwear": 0.15,
+          "stomp_surface": 0.195
         }
       }
     ],
     "room": "studio_electrical_era_office",
     "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
-      "mic": "mic_rca_44bx_ribbon",
-      "pre": "tube_pre",
-      "console": "clean",
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "transformer_solid_state",
+      "console": "colored",
       "comp": null,
       "eq": null,
       "amp": null,
@@ -159,9 +137,9 @@
   "source": {
     "tuning": "folk_fingerstyle_alternating_bass",
     "room": "studio_electrical_era_office",
-    "chain_mic": "mic_rca_44bx_ribbon",
-    "chain_pre": "tube_pre",
+    "chain_mic": "mic_acoustic_horn_pre1925",
+    "chain_pre": "transformer_solid_state",
     "chain_medium": "shellac_78",
-    "chain_console": "clean"
+    "chain_console": "colored"
   }
 }

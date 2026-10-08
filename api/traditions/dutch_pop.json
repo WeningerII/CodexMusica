@@ -1,16 +1,17 @@
 {
-  "id": "dutch_pop",
-  "name": "Nederpop (Dutch pop)",
+  "id": "nederpop",
+  "merged_from": "dutch_pop",
+  "name": "Nederpop",
   "family": "pop_rock",
-  "lineage": "Dutch pop and pop-rock built in Amsterdam, The Hague and Hilversum studios from the mid-1960s — Nederbeat groups like Shocking Blue and Golden Earring working English-language beat and hard rock, Focus adding progressive organ-and-flute instrumentals, and the late-1970s Doe Maar generation switching to Dutch lyrics over ska and reggae-inflected upstrokes at 100-140 BPM, with bright close-miked drum kits, chorused guitars and tight two- and three-part vocal harmony.",
-  "recipe": "classic British 1964-1966 nederpop, functional Song, europop branch, pop rock functional song, classic distorted rock, pop rock new wave yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, yamaha modern Japanese mid to premium flute. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 888,
-  "score": 650.823,
+  "lineage": "Dutch pop-rock that emerged in The Hague and Amsterdam from the mid-1960s beat scene — Shocking Blue, Golden Earring, Focus, later Doe Maar and De Dijk — combining British-beat and blues-rock guitar with unusually strong hook-writing, 4/4 tempos of 110-140 BPM, close two- and three-part harmony, Hammond and Farfisa organ, and a shift after 1980 to Dutch-language lyrics over ska- and reggae-inflected backbeats.",
+  "recipe": "classic British 1964-1966 nederpop, functional Song, pop rock branch, europop functional song, classic distorted rock deutschrock roots rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric cedar koa phosphor bronze modern martin strummed dreadnought acoustic guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 947,
+  "score": 501.265,
   "config": {
     "traditions": [
-      "dutch_pop",
-      "yacht_rock",
-      "skiffle"
+      "nederpop",
+      "deutschrock",
+      "roots_rock"
     ],
     "instruments": [
       {
@@ -20,7 +21,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -28,28 +29,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 65.40500000000002,
-          "voice_quality": 14.42999999999999,
+          "voice_register": 43.79500000000002,
+          "voice_quality": 8.645,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.204999999999998,
-          "voice_articulation": 23.854999999999997,
-          "voice_microtone": 56.11500000000001,
-          "voice_tradition": 24.114999999999995,
-          "voice_mechanism_compound": 3.51,
-          "voice_estill_quality": 3.1200000000000006,
-          "voice_speech_song": 29.835,
-          "voice_ensemble_config": 23.79,
+          "voice_vibrato": 10.669999999999998,
+          "voice_articulation": 21.709999999999994,
+          "voice_microtone": 30.724999999999998,
+          "voice_tradition": 6.305000000000001,
+          "voice_mechanism_compound": 3.3799999999999994,
+          "voice_estill_quality": 7.974999999999999,
+          "voice_speech_song": 26.714999999999996,
+          "voice_ensemble_config": 22.48999999999999,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.755,
-          "voice_processing_chain": 9.548750000000002,
-          "voice_multitrack_stack": 10.894374999999998
+          "voice_pitch_organization": 2.21,
+          "voice_processing_chain": 5.8825,
+          "voice_multitrack_stack": 11.407499999999999
         }
       },
       {
@@ -62,26 +63,26 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_12",
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "eb_standard",
+          "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 20.492499999999996,
-          "amp_make": 17.582499999999996,
-          "body_wood": 2.925,
-          "neck_wood": 2.925,
-          "fretboard": 2.47,
-          "pickup_magnet": 0.39,
-          "string_material": 0.39,
-          "string_gauge": 2.535,
-          "bridge": 0.3,
-          "scale_length": 2.535,
-          "finish": 0.39,
-          "string_tuning": 16.119999999999997,
+          "electric_technique": 7.75,
+          "amp_make": 14.935,
+          "body_wood": 2.9899999999999998,
+          "neck_wood": 2.9899999999999998,
+          "fretboard": 2.94,
+          "pickup_magnet": 0.5,
+          "string_material": 0.5,
+          "string_gauge": 3.0349999999999997,
+          "bridge": 0.195,
+          "scale_length": 3.3799999999999994,
+          "finish": 0,
+          "string_tuning": 13.565,
           "single_coil_pickup_construction": 0
         }
       },
@@ -89,8 +90,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -98,13 +99,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 17.582499999999996,
-          "body_wood": 2.73,
-          "pickup_config": 0.15,
-          "string_type": 37.166875,
-          "scale_length_b": 2.925,
-          "fretted_or_not": 0.3,
-          "bass_technique": 28.825,
+          "amp_make": 14.935,
+          "body_wood": 3.3799999999999994,
+          "pickup_config": 0,
+          "string_type": 24.81,
+          "scale_length_b": 3.0349999999999997,
+          "fretted_or_not": 0.345,
+          "bass_technique": 25.625,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +117,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 28.925625,
-          "drumhead": 19.99,
+          "drum_technique": 24.525,
+          "drumhead": 6.3500000000000005,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -129,54 +130,64 @@
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_760_solid_state"
+          "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 19.989999999999995,
-          "drawbar_setting": 28.875,
-          "rotary_speed": 28.974999999999998,
-          "percussion_setting": 15.014999999999999,
-          "tonewheel_model": 22.229999999999997,
-          "leslie_cabinet_model": 2.535
+          "keyboard_technique": 6.2,
+          "drawbar_setting": 24.375,
+          "rotary_speed": 26.375,
+          "percussion_setting": 10.86,
+          "tonewheel_model": 12.649999999999997,
+          "leslie_cabinet_model": 2.0799999999999996
         }
       },
       {
-        "id": "analog_poly_synth",
+        "id": "acoustic_guitar_dread",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "eb_standard",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "electronic_technique": 20.544999999999998,
-          "poly_archetypes": 15.014999999999999,
-          "poly_voices": 0.45499999999999996,
-          "poly_maker_lineage": 1.4949999999999999
+          "acoustic_technique": 6.2,
+          "string_tuning": 4.6499999999999995,
+          "top_wood": 2.9899999999999998,
+          "back_sides": 1.3900000000000001,
+          "string_acoustic": 1.4299999999999995
         }
       },
       {
-        "id": "flute",
+        "id": "grand_piano",
         "slots": {
-          "wind_articulation": "wind_classical_legato",
-          "flute_size": "piccolo_flute",
-          "flute_material": "wooden_flute",
-          "flute_technique": "classical_flute",
-          "flute_maker_school": "flute_yamaha"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "wind_articulation": 0.6499999999999999,
-          "flute_size": 0.39,
-          "flute_material": 0.25,
-          "flute_technique": 0.7899999999999999,
-          "flute_maker_school": 2.4700000000000006
+          "keyboard_technique": 6.2,
+          "grand_piano_size": 3.0349999999999997,
+          "grand_piano_brand": 3.1249999999999996,
+          "piano_hammer": 10.584999999999999,
+          "piano_rim": 11.605,
+          "piano_soundboard": 6.2,
+          "piano_pinblock": 0.52,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 2.145
         }
       }
     ],
-    "room": "live_room",
-    "archetype": "arch_70s_uk_class_a_rock",
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_uk_small_commercial",
     "inline_chain": {
-      "mic": "mic_u87_condenser_neumann",
+      "mic": "mic_u67_tube_neumann",
       "pre": "pre_console_inline_strip",
       "console": "console_british_transformer_70s",
       "comp": null,
@@ -191,8 +202,8 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "live_room",
-    "chain_mic": "mic_u87_condenser_neumann",
+    "room": "studio_uk_small_60s_commercial",
+    "chain_mic": "mic_u67_tube_neumann",
     "chain_pre": "pre_console_inline_strip",
     "chain_medium": "tape_15ips",
     "chain_console": "console_british_transformer_70s"

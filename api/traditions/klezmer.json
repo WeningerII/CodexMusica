@@ -3,14 +3,14 @@
   "name": "Klezmer",
   "family": "vernacular",
   "lineage": "Eastern European Ashkenazi Jewish wedding-band tradition that was the central popular-celebratory music of the Yiddish-speaking world from the 16th-early-20th centuries before the Holocaust decimated its practitioner community; revived from the 1970s onward through The Klezmer Conservatory Band, Andy Statman, the Klezmatics, Brave Old World, and the Margot Leverett-Klezmer-Mountain-Boys lineage",
-  "recipe": "classic Eastern European mid-1970s klezmer, improv On Frame, klezmer improv branch, string drone modal, European wedding maskandi csárdás. ebonite hard rubber klezmer tradition clarinet, ornamented fiddle, leather castagnari Italian premium folk music bellows articulated accordion, bellows articulated piano accordion, upright bass, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, klezmer ensemble, art music German spruce European maple drone like modal mandola, mellow traditional leather hammered dulcimer. klezmer simcha celebration hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 728,
-  "score": 108.646,
+  "recipe": "classic Eastern European mid-1970s klezmer, improv On Frame, klezmer improv branch, string drone modal, European wedding maskandi qırımtatar musiqisi. ebonite hard rubber klezmer tradition clarinet, ornamented fiddle, leather castagnari Italian premium folk music bellows articulated accordion, bellows articulated piano accordion, upright bass, heavy one piece matched to monette horn trumpet, klezmer ensemble, art music German spruce European maple drone like modal mandola, mellow traditional leather hammered dulcimer. klezmer simcha celebration hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 688,
+  "score": 112.623,
   "config": {
     "traditions": [
       "klezmer",
       "maskandi",
-      "csardas"
+      "crimean_tatar_music"
     ],
     "instruments": [
       {
@@ -18,16 +18,16 @@
         "slots": {
           "wind_articulation": "wind_continuous_legato",
           "clarinet_body": "ebonite_clarinet",
-          "clarinet_size": "bass_clarinet",
+          "clarinet_size": "a_clarinet",
           "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "glissando_clarinet"
         },
         "scores": {
           "wind_articulation": 0.06499999999999999,
-          "clarinet_body": 16.650000000000002,
-          "clarinet_size": 0.21,
+          "clarinet_body": 16.41,
+          "clarinet_size": 0.195,
           "clarinet_reed": 0.345,
-          "clarinet_articulation": 12
+          "clarinet_articulation": 12.045
         }
       },
       {
@@ -41,8 +41,8 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 14.144999999999998,
-          "fiddle_strings": 0.09,
+          "bowed_technique": 13.995,
+          "fiddle_strings": 0.59,
           "fiddle_bow": 0,
           "fiddle_mute": 0.65,
           "fiddle_articulation": 0.42,
@@ -57,7 +57,7 @@
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
@@ -66,8 +66,8 @@
           "musette_offset": 1.4300000000000002,
           "reed_config": 0.42,
           "bellows": 1.4300000000000002,
-          "voicing_chamber": 0.21,
-          "accordion_maker_school": 2.73
+          "voicing_chamber": 0.35,
+          "accordion_maker_school": 3.38
         }
       },
       {
@@ -90,26 +90,26 @@
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
+          "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 0.585,
+          "wind_articulation": 1.1124999999999998,
           "brass_size": 0.24,
           "trumpet_mouthpiece": 1.17,
           "brass_mute": 0.15,
-          "trumpet_technique": 0.39,
+          "trumpet_technique": 0.8449999999999999,
           "trumpet_bell_metal": 0.795,
-          "trumpet_maker_school": 1.04
+          "trumpet_maker_school": 0.585
         }
       },
       {
         "id": "klezmer_ensemble",
         "slots": {
-          "sections": "klez_violin_lead",
+          "sections": "klez_trumpet_lead",
           "rhythm_section": "klez_accordion"
         },
         "scores": {
-          "sections": 1.625,
+          "sections": 1.885,
           "rhythm_section": 0.65
         }
       },
@@ -124,11 +124,11 @@
           "mandola_strings": "mandola_eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 5.07,
-          "mandola_size": 1.85625,
-          "mandola_context": 6.695,
-          "mandola_top": 3.245,
-          "mandola_back": 3.25,
+          "acoustic_technique": 5.265,
+          "mandola_size": 1.2349999999999999,
+          "mandola_context": 7.15,
+          "mandola_top": 2.745,
+          "mandola_back": 2.75,
           "mandola_strings": 0.24
         }
       },
@@ -141,8 +141,8 @@
         },
         "scores": {
           "free_reed_technique": 11.95,
-          "pa_size": 0.195,
-          "pa_use": 0.845
+          "pa_size": 0.045,
+          "pa_use": 0.65
         }
       },
       {
@@ -154,7 +154,7 @@
           "hammered_dulcimer_strings": "hd_phosphor_bronze"
         },
         "scores": {
-          "hammer_dulcimer_courses": 0.15,
+          "hammer_dulcimer_courses": 0,
           "hammer_material": 1.4300000000000002,
           "hammered_dulcimer_body_wood": 0.6,
           "hammered_dulcimer_strings": 0

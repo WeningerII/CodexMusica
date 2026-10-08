@@ -1,0 +1,108 @@
+{
+  "id": "novelty_piano",
+  "name": "Novelty piano (1920s keyboard novelty)",
+  "family": "jazz",
+  "lineage": "Virtuoso solo piano genre of the early 1920s that succeeded ragtime, written largely for the piano-roll and sheet-music trade; Zez Confrey's 'Kitten on the Keys' (1921) launched it, followed by his 'Dizzy Fingers' and pieces by Roy Bargy and others. Showy pieces at strict, bright tempos use syncopated three-note figures running across the bar, parallel fourths, whole-tone and chromatic runs and harmonic colours borrowed from impressionism, played with crisp, mechanical precision.",
+  "recipe": "classic novelty piano, improv On Frame, pre jazz ragtime branch. grand piano, pianola. parlor. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 124,
+  "score": 1.978,
+  "config": {
+    "traditions": [
+      "novelty_piano"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.07792857142857142,
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": 0.26,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": -0.8298273809523811
+        }
+      },
+      {
+        "id": "pianola",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "pianola_type": "pianola_push_up",
+          "pianola_prep": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "pianola_type": 1,
+          "pianola_prep": 0
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "pianola": [
+        "pianola_type",
+        "pianola_prep"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_acoustic_horn_pre1925",
+    "inline_chain": {
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "keyboard_technique": "keyboard_stride_left_hand",
+      "grand_piano_size": "grand_7_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "pianola_type": "pianola_push_up",
+      "pianola_prep": "dutar_strings_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_acoustic_horn_pre1925",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Folk songs performed and transmitted for children include games, work-song adaptations, animals, stories and participatory refrains. Pete Seeger’s documented 1959 Folk Songs for Young People supplies this North American folk-revival example.",
   "recipe": "classic late-1950s children’s folk, nursery Rhyme. thick, incomplete closure resting, leader call answered, neutral third half flat. scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 388,
-  "score": 38.782,
+  "score": 38.654,
   "config": {
     "traditions": [
       "children_s_folk"
@@ -36,14 +36,14 @@
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.369,
-          "voice_articulation": 1.3724999999999998,
+          "voice_vibrato": 0.379,
+          "voice_articulation": 1.38,
           "voice_microtone": 3.380000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
           "voice_estill_quality": 0.585,
           "voice_speech_song": 5.265,
-          "voice_ensemble_config": 0.19500000000000003,
+          "voice_ensemble_config": 0.18150000000000002,
           "voice_ornament_system": 0.2225,
           "voice_pitch_organization": 0.06500000000000002,
           "voice_processing_chain": 0.6599999999999999,
@@ -68,11 +68,11 @@
           "banjo_back": 0,
           "tone_ring": 0.0315,
           "banjo_head": 3.769999999999999,
-          "banjo_pot": 0.26999999999999996,
+          "banjo_pot": 0.295,
           "banjo_play": 0,
           "banjo_rim_wood": 0.0375,
-          "banjo_neck_wood": 0.69,
-          "banjo_strings": 0.69,
+          "banjo_neck_wood": 0.645,
+          "banjo_strings": 0.645,
           "banjo_bridge": 0,
           "banjo_setup_period": 3.7049999999999996
         }
@@ -87,8 +87,8 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 2.9174999999999995,
-          "string_tuning": 0.245,
+          "acoustic_technique": 2.8724999999999996,
+          "string_tuning": 0.2225,
           "top_wood": 0.0225,
           "back_sides": 0.33149999999999996,
           "string_acoustic": 0.6255

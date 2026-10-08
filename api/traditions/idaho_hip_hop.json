@@ -5,7 +5,7 @@
   "lineage": "Idaho hip-hop connects local MCs, DJs and producers through independent releases, radio and live events. Boise duo Eleven & DJ Jason D exemplifies its links with golden-era and boom-bap approaches.",
   "recipe": "classic idaho hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. live tracking.",
   "recipe_chars": 179,
-  "score": 35.319,
+  "score": 35.214,
   "config": {
     "traditions": [
       "idaho_hip_hop"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.36750000000000005,
+          "voice_multitrack_stack": 0.399,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
         },
         "scores": {
           "electronic_technique": 5.5,
-          "sample_bitdepth": 0.1365,
+          "sample_bitdepth": 0,
           "sample_swing": 9.1,
           "sample_processing": 0
         }

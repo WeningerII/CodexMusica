@@ -5,7 +5,7 @@
   "lineage": "Czech praise music brings Christian prayer and devotional texts into contemporary song. Ensembles such as Nenadarmo combine Czech-language repertoire with influences from wider Christian songwriting.",
   "recipe": "classic české chvály, ritual Devotional, christian gospel branch. acoustic guitar, fiddle, grand piano, electric bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 227,
-  "score": 2.817,
+  "score": 3.078,
   "config": {
     "traditions": [
       "ceske_chvaly"
@@ -65,7 +65,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0.325,
-          "string_acoustic": 0.294,
+          "string_acoustic": 0.3675,
           "acoustic_om_technique": -0.175
         }
       },
@@ -81,10 +81,10 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "fiddle_strings": 0.40950000000000003,
+          "fiddle_strings": 0.273,
           "fiddle_bow": 0,
-          "fiddle_mute": 0.4305,
-          "fiddle_articulation": 0.9974999999999999,
+          "fiddle_mute": 0.504,
+          "fiddle_articulation": 1.1444999999999999,
           "fiddle_string_configuration": 0
         }
       },
@@ -103,12 +103,12 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.294,
+          "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.39,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.325
         }
@@ -156,8 +156,8 @@
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
-          "shell_thickness": 0,
-          "bearing_edges": 0.40950000000000003,
+          "shell_thickness": 0.1365,
+          "bearing_edges": 0.273,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": -0.15000000000000002,

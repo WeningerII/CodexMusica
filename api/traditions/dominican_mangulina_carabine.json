@@ -1,0 +1,198 @@
+{
+  "id": "dominican_mangulina_carabine",
+  "name": "Mangulina and carabiné (Dominican campesino dances)",
+  "family": "global",
+  "lineage": "Rural Dominican dances of the south and the Cibao that are distinct from merengue: the mangulina, the carabiné of the south and the zapateo, a stamping dance. They are played by accordion, tambora and güira groups, with sung verses in some pieces; Verna Gillis recorded examples for Folkways. The membrane-drum card stands in for the two-headed tambora.",
+  "recipe": "classic modern mangulina and carabiné, groove Percussion, Caribbean branch. single lead single track no stacking. accordion, membrane drum pulse resonant acoustic membrane drum, guira dominicana. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 275,
+  "score": 28.672,
+  "config": {
+    "traditions": [
+      "dominican_mangulina_carabine"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmm",
+          "bellows": "all_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": -0.1,
+          "accordion_reed_material": 0.105,
+          "musette_offset": 0.483,
+          "reed_config": 0,
+          "bellows": 0.0315,
+          "voicing_chamber": 0.8049999999999999,
+          "accordion_maker_school": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 2.6045,
+          "acoustic_membrane_drum_gesture": 1.6045
+        }
+      },
+      {
+        "id": "guira_dominicana",
+        "slots": {
+          "guira_dominicana_form": "guira_dominicana_tipico",
+          "guira_dominicana_pattern": "guira_dominicana_accent_breaks",
+          "guira_dominicana_sheet": "guira_dominicana_steel"
+        },
+        "scores": {
+          "guira_dominicana_form": 9.05,
+          "guira_dominicana_pattern": 7.5,
+          "guira_dominicana_sheet": 5.51
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 1.134,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "guira_dominicana": [
+        "guira_dominicana_form",
+        "guira_dominicana_pattern",
+        "guira_dominicana_sheet"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "accordion_reed_material": "steel_reeds",
+      "musette_offset": "dry_tuning",
+      "reed_config": "lmm",
+      "bellows": "all_leather",
+      "voicing_chamber": "no_cassotto",
+      "accordion_maker_school": "accordion_maker_unspecified",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "guira_dominicana_form": "guira_dominicana_tipico",
+      "guira_dominicana_pattern": "guira_dominicana_accent_breaks",
+      "guira_dominicana_sheet": "guira_dominicana_steel",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

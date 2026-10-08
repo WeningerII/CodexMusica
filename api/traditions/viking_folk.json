@@ -5,7 +5,7 @@
   "lineage": "Viking folk is a contemporary Nordic-inspired field that draws on historical imagery, mythology and folk-instrument timbres. Its modern recordings combine acoustic performance with studio construction; they are imaginative present-day music rather than surviving audio evidence of Viking-age performance.",
   "recipe": "classic viking folk, drone Modal, string branch. drone under melody steel modern alder spruce canonical nordic drone like tagelharpa, sound design field sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 260,
-  "score": 32.632,
+  "score": 32.401,
   "config": {
     "traditions": [
       "viking_folk"
@@ -21,10 +21,10 @@
           "tagelharpa_body_wood": "tagelharpa_alder_spruce"
         },
         "scores": {
-          "bowed_technique": 11.5795,
+          "bowed_technique": 11.516499999999999,
           "tagelharpa_form": 4.6385,
           "tagelharpa_context": 3.9,
-          "tagelharpa_string_material": 1.6045,
+          "tagelharpa_string_material": 1.573,
           "tagelharpa_body_wood": 1.69
         }
       },
@@ -39,9 +39,9 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sampler_archetypes": 3.523,
+          "sampler_archetypes": 3.4915,
           "sampler_bit_depth": 1.69,
-          "sampler_workflow": 1.6365,
+          "sampler_workflow": 1.5315,
           "sampler_classic_context": 2.4699999999999998
         }
       }

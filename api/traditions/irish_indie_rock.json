@@ -5,7 +5,7 @@
   "lineage": "Irish indie rock includes melodic guitar bands with layered ensemble singing.",
   "recipe": "classic irish indie rock, distorted Rock, alternative branch. group vocals, live take. marshall plexi amp British rock amp basswood humbucker electric dreadnought acoustic guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, credited auxiliary percussion, credited synthesizer unspecified, harmonica. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 434,
-  "score": 27.955,
+  "score": 27.954,
   "config": {
     "traditions": [
       "irish_indie_rock"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 4.42,
-          "body_wood": 1.7429999999999999,
+          "body_wood": 1.848,
           "neck_wood": 0.105,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.45825,
+          "bridge": 0.35325,
           "scale_length": 0,
-          "string_gauge": 0.45825,
+          "string_gauge": 0.35325,
           "finish": 0,
           "string_tuning": 0.042749999999999996
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 4.875,
-          "body_wood": 1.7429999999999999,
+          "body_wood": 1.848,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 8.75,
-          "drumhead": 0.378,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -172,7 +172,7 @@
           "harmonica_reed": -0.07,
           "harmonica_technique": 1.1049999999999998,
           "harmonica_maker_school": -0.07,
-          "harmonica_tuning": 0.8819999999999999
+          "harmonica_tuning": 0.9869999999999999
         }
       }
     ],

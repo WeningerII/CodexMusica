@@ -1,0 +1,117 @@
+{
+  "id": "son_de_los_diablos",
+  "name": "Son de los diablos (Afro-Peruvian carnival devils' dance)",
+  "family": "global",
+  "lineage": "The son de los diablos is the Afro-Peruvian carnival dance of Lima in which a troupe of masked devils led by a caporal parades through the streets with acrobatic zapateo footwork; a colonial-era festival custom painted by Pancho Fierro in the nineteenth century, it faded in the early twentieth and was revived on stage by Afro-Peruvian folklore companies from the mid-century. Its music is carried by guitar, cajón and the quijada, the rattled jawbone of a donkey.",
+  "recipe": "classic modern son de los diablos, groove Percussion, Latin am branch. classical nylon-string guitar, cajon peruano, donkey jawbone Afro peruvian tradition quijada. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 244,
+  "score": 12.141,
+  "config": {
+    "traditions": [
+      "son_de_los_diablos"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "sitka",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "dutar_strings_unspecified",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "string_tuning": 0,
+          "top_wood_classical": 0.063,
+          "bracing_classical": 0.1365,
+          "string_classical": 0,
+          "attack_technique_cl": -0.035
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
+          "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
+        },
+        "scores": {
+          "cajon_peruano_construction": 0.105,
+          "cajon_peruano_role": 0
+        }
+      },
+      {
+        "id": "quijada",
+        "slots": {
+          "quijada_form": "quijada_burro_peruano",
+          "quijada_context": "quijada_festejo_golpe",
+          "quijada_preparation": "quijada_boiled_sundried"
+        },
+        "scores": {
+          "quijada_form": 10.790000000000001,
+          "quijada_context": 0.325,
+          "quijada_preparation": 0.9764999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ],
+      "cajon_peruano": [
+        "cajon_peruano_construction",
+        "cajon_peruano_role"
+      ],
+      "quijada": [
+        "quijada_form",
+        "quijada_context",
+        "quijada_preparation"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "parts": {
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "sitka",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "dutar_strings_unspecified",
+      "attack_technique_cl": "apoyando_cl",
+      "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
+      "cajon_peruano_role": "cajon_peruano_role_source_unspecified",
+      "quijada_form": "quijada_burro_peruano",
+      "quijada_context": "quijada_festejo_golpe",
+      "quijada_preparation": "quijada_boiled_sundried"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

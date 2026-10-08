@@ -1,0 +1,256 @@
+{
+  "id": "teochew_opera_chaoju",
+  "name": "Chaoju (Teochew opera)",
+  "family": "global",
+  "lineage": "Opera in the Teochew dialect of the Chaozhou-Shantou region of eastern Guangdong, descended from Ming-dynasty southern drama and carried to Hong Kong, Thailand, Singapore and Malaysia by the Teochew diaspora; it is on China's national intangible heritage list (2006). Singers keep the southern-drama practice of an offstage chorus (bangsheng) taking up line endings, over an orchestra led by the high touxian fiddle with coconut fiddle, yangqin and pipa, and a large gong-and-drum section headed by the drummer.",
+  "recipe": "classic mid-2000s chaoju, art Music, east Asian branch. driving lead melodic touxian, yehu, traditional bamboo yangqin, pipa, daluo, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 265,
+  "score": 20.493,
+  "config": {
+    "traditions": [
+      "teochew_opera_chaoju"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.39,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "touxian",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "touxian_role": "touxian_role_opera",
+          "touxian_strings": "dutar_strings_unspecified",
+          "touxian_idiom": "touxian_idiom_driving"
+        },
+        "scores": {
+          "bowed_technique": 0.9984999999999999,
+          "touxian_role": 2.4890000000000003,
+          "touxian_strings": 0,
+          "touxian_idiom": 3.743
+        }
+      },
+      {
+        "id": "yehu",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "yehu_form": "yehu_form_boxian",
+          "yehu_setting": "yehu_setting_xianshi",
+          "yehu_strings": "dutar_strings_unspecified",
+          "yehu_tuning": "yehu_tuning_g_d"
+        },
+        "scores": {
+          "bowed_technique": 0.9984999999999999,
+          "yehu_form": 2.56325,
+          "yehu_setting": 3.0905,
+          "yehu_strings": 0,
+          "yehu_tuning": 0.25
+        }
+      },
+      {
+        "id": "yangqin",
+        "slots": {
+          "yangqin_courses": "yangqin_402_modern",
+          "yangqin_technique": "yangqin_bamboo_mallets"
+        },
+        "scores": {
+          "yangqin_courses": 0.399,
+          "yangqin_technique": 1.1195
+        }
+      },
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_modern_frets",
+          "pipa_strings": "dutar_strings_unspecified",
+          "pipa_pick": "pipa_fingerpicks",
+          "pipa_body_wood": "pipa_red_sandalwood"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "pipa_frets": 0.168,
+          "pipa_strings": 0,
+          "pipa_pick": 0,
+          "pipa_body_wood": -0.035
+        }
+      },
+      {
+        "id": "daluo",
+        "slots": {
+          "daluo_type": "daluo_chaozhou",
+          "daluo_beater": "daluo_padded"
+        },
+        "scores": {
+          "daluo_type": 0.3,
+          "daluo_beater": 0.279
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 1.69,
+          "acoustic_membrane_drum_gesture": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "touxian": [
+        "bowed_technique",
+        "touxian_role",
+        "touxian_strings",
+        "touxian_idiom"
+      ],
+      "yehu": [
+        "bowed_technique",
+        "yehu_form",
+        "yehu_setting",
+        "yehu_strings",
+        "yehu_tuning"
+      ],
+      "yangqin": [
+        "yangqin_courses",
+        "yangqin_technique"
+      ],
+      "pipa": [
+        "plucked_traditional_technique",
+        "pipa_frets",
+        "pipa_strings",
+        "pipa_pick",
+        "pipa_body_wood"
+      ],
+      "daluo": [
+        "daluo_type",
+        "daluo_beater"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bowed_technique": "bowed_local_song_melody",
+      "touxian_role": "touxian_role_opera",
+      "touxian_strings": "dutar_strings_unspecified",
+      "touxian_idiom": "touxian_idiom_driving",
+      "yehu_form": "yehu_form_boxian",
+      "yehu_setting": "yehu_setting_xianshi",
+      "yehu_strings": "dutar_strings_unspecified",
+      "yehu_tuning": "yehu_tuning_g_d",
+      "yangqin_courses": "yangqin_402_modern",
+      "yangqin_technique": "yangqin_bamboo_mallets",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "pipa_frets": "pipa_modern_frets",
+      "pipa_strings": "dutar_strings_unspecified",
+      "pipa_pick": "pipa_fingerpicks",
+      "pipa_body_wood": "pipa_red_sandalwood",
+      "daluo_type": "daluo_chaozhou",
+      "daluo_beater": "daluo_padded",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

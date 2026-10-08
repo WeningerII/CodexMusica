@@ -5,7 +5,7 @@
   "lineage": "Neo grime connects grime influence with wave-related electronic communities and production approaches. Producers and promoters develop this overlapping field through shared releases, mixes and events, without making it identical to all wave or instrumental grime.",
   "recipe": "classic neo grime, bass System, uk soundsystem branch. digital subtractive, drum machine analog. treated studio.",
   "recipe_chars": 112,
-  "score": 4.68,
+  "score": 4.606,
   "config": {
     "traditions": [
       "neo_grime"
@@ -20,7 +20,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "va_archetypes": 0.105,
+          "va_archetypes": 0.0315,
           "digital_subtractive_context": 4.68
         }
       },

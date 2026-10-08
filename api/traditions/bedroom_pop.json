@@ -5,7 +5,7 @@
   "lineage": "2010s onward indie-pop subgenre originating in solo bedroom-DAW production — characterized by lo-fi or hi-fi DIY production, intimate vocal delivery, and adolescent thematic content — codified through Clairo (Pretty Girl 2017, Immunity 2019), Cuco, Boy Pablo, Mac DeMarco (Salad Days 2014, the genre's lineage-bearing predecessor), Beabadoobee, with the form serving as the late-2010s indie-pop mainstream",
   "recipe": "classic 2017-2019 bedroom pop, experimental Elec, lofi branch, pop rock functional song yacht rock skiffle. breath veiled tone, slow rate, equal tempered, modern pop training. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, marshall plexi amp British rock amp electric bass, TR-808, analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 459,
-  "score": 168.434,
+  "score": 168.314,
   "config": {
     "traditions": [
       "bedroom_pop",
@@ -46,10 +46,10 @@
           "voice_estill_quality": 0.195,
           "voice_speech_song": 1.2349999999999999,
           "voice_ensemble_config": 5.654999999999999,
-          "voice_ornament_system": 0.345,
+          "voice_ornament_system": 0.3,
           "voice_pitch_organization": 0.39,
-          "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 2.3762499999999998
+          "voice_processing_chain": 0.09562499999999999,
+          "voice_multitrack_stack": 2.4699999999999998
         }
       },
       {
@@ -70,9 +70,9 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 18.310625,
+          "electric_technique": 18.220625,
           "amp_make": 11.342499999999998,
-          "body_wood": 0.39,
+          "body_wood": 0.345,
           "neck_wood": 2.015,
           "fretboard": 1.56,
           "pickup_magnet": 0,
@@ -99,8 +99,8 @@
         },
         "scores": {
           "amp_make": 11.342499999999998,
-          "body_wood": 0.39,
-          "pickup_config": 3.675,
+          "body_wood": 0.345,
+          "pickup_config": 3.6356249999999997,
           "string_type": 0.1875,
           "scale_length_b": 0.345,
           "fretted_or_not": 0.045,

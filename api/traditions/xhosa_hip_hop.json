@@ -3,9 +3,9 @@
   "name": "Xhosa hip hop",
   "family": "hip_hop",
   "lineage": "IsiXhosa-centered hip-hop includes Cape Town’s spaza networks and their multilingual exchanges.",
-  "recipe": "classic modern xhosa hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 294,
-  "score": 38.26,
+  "recipe": "classic modern xhosa hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, echo word punctuation. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 332,
+  "score": 38.638,
   "config": {
     "traditions": [
       "xhosa_hip_hop"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.035,
-          "voice_ensemble_config": 0.48449999999999993,
+          "voice_ensemble_config": 0.6944999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -60,9 +60,9 @@
         },
         "scores": {
           "electronic_technique": 5.2855,
-          "sample_bitdepth": 0,
+          "sample_bitdepth": 0.273,
           "sample_swing": 9.1,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

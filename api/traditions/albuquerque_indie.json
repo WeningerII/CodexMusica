@@ -5,7 +5,7 @@
   "lineage": "Albuquerque indie encompasses local independent bands and recording activity. The Ordinary Things represents a guitar-centred strand whose songwriting combines everyday observations with a wider instrumental palette.",
   "recipe": "classic albuquerque indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth, bach stradivarius 180 canonical American orchestral trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 373,
-  "score": 17.021,
+  "score": 17.626,
   "config": {
     "traditions": [
       "albuquerque_indie"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -73,14 +73,14 @@
           "electric_technique": -0.07,
           "amp_make": 0,
           "body_wood": 0.39,
-          "neck_wood": 0.5775,
+          "neck_wood": 0.6825000000000001,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 0.273,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 3.6815,
@@ -168,9 +168,9 @@
           "brass_size": 0,
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0,
-          "trumpet_technique": -0.035,
+          "trumpet_technique": -0.05,
           "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 2.1525
+          "trumpet_maker_school": 2.457
         }
       }
     ],

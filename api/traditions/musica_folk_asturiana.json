@@ -1,16 +1,32 @@
 {
-  "id": "musica_folk_asturiana",
-  "name": "Música folk asturiana",
-  "family": "vernacular",
-  "lineage": "Asturian folk includes contemporary ensembles reshaping local dance and song repertoires. Llan de Cubel’s credited IV album supplies a documented band branch built around gaita asturiana, flute, fiddle and string accompaniment.",
-  "recipe": "classic modern música folk asturiana, ballad Poetry, Celtic balladic branch. thick, breath veiled tone, breath pulsed, neutral third half flat. gaita asturiana, fiddle, powell boston canonical American orchestral flute, dadgad tuning acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 388,
-  "score": 40.156,
+  "id": "asturian_folk",
+  "merged_from": "musica_folk_asturiana",
+  "name": "Asturian folk",
+  "family": "global",
+  "lineage": "Traditional music of Asturias in northern Spain, documented by Eduardo Martínez Torner's 1920 Cancionero musical and revived from the 1980s by Llan de Cubel and the Xixón folk scene — the single-drone gaita asturiana in B-flat playing giraldillas and muñeiras against snare-and-bass-drum tamboriteru, and the tonada or asturianada, a solo unmetred song delivered at full chest voice with long melismatic ornaments and heavy portamento.",
+  "recipe": "classic Northern European mid-1980s asturian folk, functional Song, iberian branch, wind pipe drone modal, Mediterranean ballad ballad poetry greek clarinet kaba gaida. thick, breath veiled tone, slow rate, interlocked note trading. thick drone rubato gaita asturiana, double bass rapid double strokes bass drum, pandeiro, cedar walnut phosphor bronze bronze drone like acoustic guitar, drone like fiddle. scottish galician piping outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 502,
+  "score": 206.057,
   "config": {
     "traditions": [
-      "musica_folk_asturiana"
+      "asturian_folk",
+      "greek_clarinet",
+      "kaba_gaida"
     ],
     "instruments": [
+      {
+        "id": "gaita_asturiana",
+        "slots": {
+          "gaita_ast_tuning": "gaita_ast_sib",
+          "gaita_ast_drone": "gaita_ast_ronquillo",
+          "gaita_ast_style": "gaita_ast_asturianada"
+        },
+        "scores": {
+          "gaita_ast_tuning": 0.045,
+          "gaita_ast_drone": 7.15,
+          "gaita_ast_style": 2.1
+        }
+      },
       {
         "id": "voice",
         "slots": {
@@ -18,159 +34,126 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.605,
-          "voice_quality": 1.2999999999999998,
+          "voice_register": 5.75,
+          "voice_quality": 14.234999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.6824999999999999,
-          "voice_articulation": -0.14,
-          "voice_microtone": 3.7700000000000005,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 2.0685,
-          "voice_estill_quality": 0.7035,
-          "voice_speech_song": 5.654999999999999,
-          "voice_ensemble_config": 3.9,
-          "voice_ornament_system": 4.550000000000001,
-          "voice_pitch_organization": 0.273,
-          "voice_processing_chain": 1.4299999999999997,
-          "voice_multitrack_stack": 0.39
+          "voice_vibrato": 4.03,
+          "voice_articulation": 16.899999999999995,
+          "voice_microtone": 23.17249999999999,
+          "voice_tradition": 22.769999999999996,
+          "voice_mechanism_compound": 6.5,
+          "voice_estill_quality": 3.7700000000000005,
+          "voice_speech_song": 20.34499999999999,
+          "voice_ensemble_config": 19.434999999999995,
+          "voice_ornament_system": 4.030000000000002,
+          "voice_pitch_organization": 6.955000000000001,
+          "voice_processing_chain": 4.8100000000000005,
+          "voice_multitrack_stack": 4.030000000000001
         }
       },
       {
-        "id": "gaita_asturiana",
+        "id": "bass_drum",
         "slots": {
-          "gaita_ast_tuning": "gaita_ast_do",
-          "gaita_ast_drone": "gaita_ast_ronco",
-          "gaita_ast_style": "gaita_ast_muineira"
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "gaita_ast_tuning": 0,
-          "gaita_ast_drone": 0.1365,
-          "gaita_ast_style": 0
+          "bass_drum_size": 1.3,
+          "bass_drum_beater": 1.3
         }
       },
       {
-        "id": "fiddle",
+        "id": "pandeiro",
         "slots": {
-          "bowed_technique": "bowed_local_song_melody",
-          "fiddle_strings": "gut_wound",
-          "fiddle_bow": "light_rosin",
-          "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "sul_pont",
-          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_pequeno",
+          "pandeiro_context": "pandeiro_samba",
+          "pandeiro_head": "pandeiro_synthetic_modern",
+          "pandeiro_shell_wood": "pandeiro_maple",
+          "pandeiro_jingles": "pandeiro_steel_platinelas"
         },
         "scores": {
-          "bowed_technique": 2.6,
-          "fiddle_strings": 0.546,
-          "fiddle_bow": 0.1365,
-          "fiddle_mute": 0.3675,
-          "fiddle_articulation": 0.1365,
-          "fiddle_string_configuration": 0
-        }
-      },
-      {
-        "id": "flute",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "flute_size": "alto_flute",
-          "flute_material": "gold_flute",
-          "flute_technique": "beatboxed_flute",
-          "flute_maker_school": "flute_powell_boston"
-        },
-        "scores": {
-          "wind_articulation": -0.07,
-          "flute_size": 0.651,
-          "flute_material": 0.40950000000000003,
-          "flute_technique": 0.2625,
-          "flute_maker_school": 1.0919999999999999
+          "percussion_technique": -0.1,
+          "pandeiro_size": 0.39,
+          "pandeiro_context": 1.04,
+          "pandeiro_head": 0.045,
+          "pandeiro_shell_wood": 0.045,
+          "pandeiro_jingles": 0.3
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "string_tuning": "dadgad",
-          "top_wood": "sitka_om",
+          "string_tuning": "open_d",
+          "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
-          "string_acoustic": "silk_steel_om",
-          "acoustic_om_technique": "om_strummed_open"
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_drop_d_drone"
         },
         "scores": {
-          "string_tuning": 3.8730000000000007,
-          "top_wood": 0,
-          "back_sides": 0.1365,
-          "string_acoustic": 0.44099999999999995,
-          "acoustic_om_technique": 0.325
+          "string_tuning": 0.52,
+          "top_wood": 1.4949999999999999,
+          "back_sides": 1.4949999999999999,
+          "string_acoustic": 2.9899999999999998,
+          "acoustic_om_technique": 10.79
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 15.209999999999999,
+          "fiddle_strings": 0.15,
+          "fiddle_bow": 1.345,
+          "fiddle_mute": 1.345,
+          "fiddle_articulation": 1.4949999999999999,
+          "fiddle_string_configuration": 0
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_articulation",
-        "voice_tradition"
-      ],
-      "gaita_asturiana": [
-        "gaita_ast_tuning",
-        "gaita_ast_drone",
-        "gaita_ast_style"
-      ],
-      "fiddle": [
-        "bowed_technique"
-      ],
-      "flute": [
-        "wind_articulation"
-      ],
-      "acoustic_guitar_om": [
-        "acoustic_om_technique"
-      ]
-    },
-    "room": "parlor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "room": "scottish_galician_piping_outdoor",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
-      "mic": "condenser_sdc",
+      "mic": "condenser_ldc",
       "pre": "pre_500_series_modern",
       "console": "clean",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "comp": null,
+      "eq": null,
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "aural_relative",
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "aural_relative",
-    "room": "parlor",
-    "parts": {
-      "voice_articulation": "narrative_voice",
-      "gaita_ast_style": "gaita_ast_muineira",
-      "gaita_ast_tuning": "gaita_ast_do",
-      "gaita_ast_drone": "gaita_ast_ronco",
-      "bowed_technique": "bowed_local_song_melody",
-      "wind_articulation": "wind_continuous_legato",
-      "acoustic_om_technique": "om_strummed_open",
-      "voice_tradition": "voice_tradition_source_unspecified"
-    },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "scottish_galician_piping_outdoor",
+    "chain_mic": "condenser_ldc",
     "chain_pre": "pre_500_series_modern",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
     "chain_medium": "digital_high",
     "chain_console": "clean"
   }

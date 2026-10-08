@@ -1,0 +1,287 @@
+{
+  "id": "hunnu_rock",
+  "name": "Hunnu rock (Mongolian folk-metal)",
+  "family": "rock_punk",
+  "lineage": "Heavy rock from Ulaanbaatar that sets Mongolian throat singing, the morin khuur horse-head fiddle, the tovshuur lute and the jaw harp over electric guitar, bass and drums; the name is the one The HU, a band formed in 2016, gave its style, after the Hunnu (Xiongnu), the ancient steppe empire. The Mongolian tömör khuur jaw harp is represented by the khomus card in its Altai temir-komus form, and the earlier Ulaanbaatar band Altan Urag had already combined the morin khuur and throat singing with rock.",
+  "recipe": "classic mid-2010s hunnu rock, distorted Rock, folk metal branch. central Asian steppe canonical research site throat singing voice, morin khuur sycamore canonical mongolian morin khuur, traditional mongolian tuvan tradition tovshuur, khomus, low-mid-thick articulate mahogany maple humbucker electric guitar, low-mid-thick articulate mahogany maple electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 598,
+  "score": 95.001,
+  "config": {
+    "traditions": [
+      "hunnu_rock"
+    ],
+    "instruments": [
+      {
+        "id": "throat_singing_voice",
+        "slots": {
+          "throat_mechanism_root": "throat_mechanism_ventricular_subharmonic_70_100Hz",
+          "throat_overtone_target_region": "throat_overtone_target_none",
+          "throat_singing_voice_region": "throat_singing_voice_central_asian_steppe"
+        },
+        "scores": {
+          "throat_mechanism_root": 0.39,
+          "throat_overtone_target_region": 0,
+          "throat_singing_voice_region": 1.105
+        }
+      },
+      {
+        "id": "morin_khuur",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "morin_khuur_use": "morin_khuur_dance",
+          "morin_khuur_construction": "morin_khuur_traditional",
+          "morin_khuur_body_wood": "morin_khuur_sycamore",
+          "morin_khuur_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "morin_khuur_use": 12.5315,
+          "morin_khuur_construction": 0.105,
+          "morin_khuur_body_wood": 3,
+          "morin_khuur_strings": 0
+        }
+      },
+      {
+        "id": "tovshuur",
+        "slots": {
+          "tovshuur_strings": "tovshuur_two",
+          "tovshuur_body": "tovshuur_carved_wood_hide"
+        },
+        "scores": {
+          "tovshuur_strings": 3.105,
+          "tovshuur_body": 0.105
+        }
+      },
+      {
+        "id": "khomus",
+        "slots": {
+          "khomus_form": "khomus_altai_komus",
+          "khomus_technique": "khomus_rhythmic_flick",
+          "khomus_material": "khomus_forged_steel"
+        },
+        "scores": {
+          "khomus_form": 3.45,
+          "khomus_technique": -0.035,
+          "khomus_material": 10
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "dutar_strings_unspecified",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": -0.07,
+          "amp_make": 0,
+          "body_wood": 3.2648749999999995,
+          "neck_wood": 0.39,
+          "fretboard": 0.325,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0.39,
+          "string_gauge": 0.9099999999999999,
+          "finish": 0,
+          "string_tuning": 0.0945
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_maple_cap",
+          "pickup_config": "split_coil",
+          "string_type": "dutar_strings_unspecified",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 3.2648749999999995,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.063,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 11.323749999999999,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered"
+        },
+        "scores": {
+          "drum_technique": 11.287125,
+          "drumhead": 0.0945,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.126,
+          "shell_thickness": 0,
+          "bearing_edges": 0.063,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 11.149999999999999,
+          "cymbal_lathing": 11.349499999999999,
+          "cymbal_finish": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "throat_singing_voice": [
+        "throat_mechanism_root",
+        "throat_overtone_target_region",
+        "throat_singing_voice_region"
+      ],
+      "morin_khuur": [
+        "bowed_technique",
+        "morin_khuur_use",
+        "morin_khuur_construction",
+        "morin_khuur_body_wood",
+        "morin_khuur_strings"
+      ],
+      "tovshuur": [
+        "tovshuur_strings",
+        "tovshuur_body"
+      ],
+      "khomus": [
+        "khomus_form",
+        "khomus_technique",
+        "khomus_material"
+      ],
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_in_the_box",
+      "comp": "comp_1176_fet",
+      "eq": "eq_api_550",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "throat_mechanism_root": "throat_mechanism_ventricular_subharmonic_70_100Hz",
+      "throat_overtone_target_region": "throat_overtone_target_none",
+      "throat_singing_voice_region": "throat_singing_voice_central_asian_steppe",
+      "bowed_technique": "bowed_legato_classical",
+      "morin_khuur_use": "morin_khuur_dance",
+      "morin_khuur_construction": "morin_khuur_traditional",
+      "morin_khuur_body_wood": "morin_khuur_sycamore",
+      "morin_khuur_strings": "dutar_strings_unspecified",
+      "tovshuur_strings": "tovshuur_two",
+      "tovshuur_body": "tovshuur_carved_wood_hide",
+      "khomus_form": "khomus_altai_komus",
+      "khomus_technique": "khomus_rhythmic_flick",
+      "khomus_material": "khomus_forged_steel",
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "body_wood": "mahogany_maple_cap",
+      "neck_wood": "mahogany_neck_h",
+      "fretboard": "rosewood_fb_h",
+      "pickup_magnet": "alnico_2_h",
+      "pickup_winding": "mid_wind",
+      "string_material": "dutar_strings_unspecified",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum",
+      "string_tuning": "standard_tuning",
+      "pickup_config": "split_coil",
+      "string_type": "dutar_strings_unspecified",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "hand_hammered"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_1176_fet",
+    "chain_eq": "eq_api_550",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

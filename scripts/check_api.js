@@ -181,6 +181,39 @@ if (tindex) {
     checked++;
   }
   if (!VERBOSE) console.error(`  …validated ${checked} tradition files`);
+
+  // Retired ids (references/_tradition_aliases.json): each stays a working URL
+  // whose file is the surviving tradition's record plus `merged_from`, the index
+  // lists every alias, and nothing else sits in traditions/ — a file for an id
+  // that is neither live nor an alias is a stale artifact.
+  const want = Object.keys(C.TRADITION_ALIASES).sort();
+  const rows = Array.isArray(tindex.aliases) ? tindex.aliases : [];
+  diffIds(
+    'traditions/index.json aliases',
+    rows.map((r) => r.id),
+    want
+  );
+  for (const r of rows) {
+    const a = C.TRADITION_ALIASES[r.id];
+    if (!a) continue;
+    if (tradById.has(r.id)) fail(`alias ${r.id} is also a live tradition id`);
+    if (r.of !== a.of || r.name !== a.name || r.href !== `traditions/${r.id}.json`)
+      fail(`traditions/index.json aliases[${r.id}] != registry ({of, name, href})`);
+    const rec = readJson(`traditions/${r.id}.json`);
+    const target = readJson(`traditions/${a.of}.json`);
+    if (!rec || !target) continue;
+    const { merged_from, ...rest } = rec;
+    if (merged_from !== r.id) fail(`traditions/${r.id}.json: merged_from="${merged_from}"`);
+    if (stable(rest) !== stable(target))
+      fail(`traditions/${r.id}.json is not the record of ${a.of} (plus merged_from)`);
+  }
+  const allowed = new Set([...tradIds, ...want, 'index'].map((id) => `${id}.json`));
+  const stray = fs.readdirSync(path.join(API, 'traditions')).filter((f) => !allowed.has(f));
+  if (stray.length)
+    fail(
+      `traditions/: ${stray.length} stale file(s) for no live or alias id (e.g. ${stray.slice(0, 5).join(', ')})`
+    );
+  if (!VERBOSE) console.error(`  …validated ${rows.length} alias files`);
 }
 
 // ───────────────────────── all.json (the "one fetch" payload) ─────────────────────────
@@ -196,6 +229,12 @@ if (all) {
     items.map((x) => x.id),
     tradIds
   );
+  const wantAliases = Object.fromEntries(
+    Object.keys(C.TRADITION_ALIASES)
+      .sort()
+      .map((id) => [id, C.TRADITION_ALIASES[id].of])
+  );
+  if (stable(all.aliases) !== stable(wantAliases)) fail('all.json aliases != registry');
   for (const item of items) {
     // all.json items carry recipe + recipe_chars but no config (by design).
     for (const p of recordProblems(item, R, { requireConfig: false }))
@@ -231,6 +270,12 @@ if (browse) {
     items.map((x) => x.id),
     tradIds
   );
+  const wantBrowseAliases = Object.fromEntries(
+    Object.keys(C.TRADITION_ALIASES)
+      .sort()
+      .map((id) => [id, { of: C.TRADITION_ALIASES[id].of, name: C.TRADITION_ALIASES[id].name }])
+  );
+  if (stable(browse.aliases) !== stable(wantBrowseAliases)) fail('browse.json aliases != registry');
   if (!Array.isArray(browse.axisKeys) || browse.axisKeys.length !== 13) {
     fail(
       `browse.json: axisKeys must list 13 axes (got ${browse.axisKeys && browse.axisKeys.length})`
@@ -306,6 +351,12 @@ if (browse) {
         )
         .map((w) => w.id)
     );
+    const bootAliases = Object.fromEntries(
+      Object.keys(C.TRADITION_ALIASES)
+        .sort()
+        .map((id) => [id, { of: C.TRADITION_ALIASES[id].of, name: C.TRADITION_ALIASES[id].name }])
+    );
+    if (!same(boot.aliases, bootAliases)) fail('browse_boot.json aliases != registry');
     if (prosed.size < 1 || prosed.size > B.BOOT_PROSE_MAX)
       fail(
         `browse_boot.json carries the prose of ${prosed.size} genres; it carries only the Genre page's starters (1..${B.BOOT_PROSE_MAX}; check_lazy_app.js holds the exact set)`
@@ -531,6 +582,10 @@ if (index) {
     fail(`index.json counts.traditions=${c.traditions}, catalog has ${C.TRADITIONS.length}`);
   if (c.instruments !== C.INSTRUMENTS.length)
     fail(`index.json counts.instruments=${c.instruments}, catalog has ${C.INSTRUMENTS.length}`);
+  if (c.aliases !== Object.keys(C.TRADITION_ALIASES).length)
+    fail(
+      `index.json counts.aliases=${c.aliases}, registry has ${Object.keys(C.TRADITION_ALIASES).length}`
+    );
 }
 
 // ───────────────────────── report ─────────────────────────

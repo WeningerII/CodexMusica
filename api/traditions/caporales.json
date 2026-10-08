@@ -1,0 +1,193 @@
+{
+  "id": "caporales",
+  "name": "Caporales (Bolivian saya-caporal dance)",
+  "family": "global",
+  "lineage": "Caporales is a Bolivian fraternity dance created in La Paz in 1969 by the Estrada Pacheco brothers, who drew its central figure, the whip-carrying overseer, from the Afro-Bolivian saya, and it now fills the Gran Poder and Oruro carnival parades. Its bright, fast duple music is played by bandas de bronce while bells on the male dancers' boots ring with each leap, and sung caporales became a staple of Bolivian folk-pop groups such as Los Kjarkas. The sousaphone card stands in for the bands' tubas.",
+  "recipe": "classic Andean late-1960s caporales, carnival Processional, andean branch, Latin am groove percussion malambo. fast-attack-transient ensemble trumpet, trombone, baritone horn bb, sousaphone, bass snare drum, credited cymbals. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 314,
+  "score": 9.175,
+  "config": {
+    "traditions": [
+      "caporales",
+      "malambo_argentino"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_5c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_gold_brass",
+          "trumpet_maker_school": "trumpet_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 2.6000000000000005,
+          "brass_size": 0.09,
+          "trumpet_mouthpiece": -0.035,
+          "brass_mute": 0.195,
+          "trumpet_technique": 2.6000000000000005,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.3
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 2.6000000000000005,
+          "trombone_type": -0.05,
+          "trombone_mouthpiece": -0.07,
+          "trombone_mute": 0.195,
+          "trombone_technique": 0.8400000000000001,
+          "trombone_bell_metal": 0.39,
+          "trombone_maker_school": 0.3
+        }
+      },
+      {
+        "id": "baritone_horn_bb",
+        "slots": {
+          "baritone_horn_bb_identity": "baritone_horn_bb_scored"
+        },
+        "scores": {
+          "baritone_horn_bb_identity": 0
+        }
+      },
+      {
+        "id": "sousaphone",
+        "slots": {
+          "sousaphone_bore": "sousaphone_bb_contrabass",
+          "sousaphone_context": "sousaphone_oompah_march"
+        },
+        "scores": {
+          "sousaphone_bore": 0.045,
+          "sousaphone_context": 0.39
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.195,
+          "bass_drum_beater": 0
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "baritone_horn_bb": [
+        "baritone_horn_bb_identity"
+      ],
+      "sousaphone": [
+        "sousaphone_bore",
+        "sousaphone_context"
+      ],
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ]
+    },
+    "room": "andean_altiplano_outdoor",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "andean_altiplano_outdoor",
+    "parts": {
+      "wind_articulation": "wind_punchy_ensemble",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_5c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "trumpet_bell_metal": "trumpet_gold_brass",
+      "trumpet_maker_school": "trumpet_yamaha_xeno",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "big_band_punch",
+      "trombone_bell_metal": "trombone_red_brass",
+      "trombone_maker_school": "trombone_yamaha_xeno",
+      "baritone_horn_bb_identity": "baritone_horn_bb_scored",
+      "sousaphone_bore": "sousaphone_bb_contrabass",
+      "sousaphone_context": "sousaphone_oompah_march",
+      "bass_drum_size": "bass_drum_concert",
+      "bass_drum_beater": "bass_drum_felt_pedal",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

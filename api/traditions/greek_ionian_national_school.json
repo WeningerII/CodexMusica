@@ -1,0 +1,229 @@
+{
+  "id": "greek_ionian_national_school",
+  "name": "Eptanisiaki and Ethniki Scholi (Greek Ionian and National School art music)",
+  "family": "classical",
+  "lineage": "Greek concert and operatic music of two successive movements. The Ionian (Heptanese) School grew on Corfu and the other Ionian Islands in the nineteenth century under Italian influence, with Nikolaos Mantzaros, composer of the Greek national anthem, and later Spyridon Samaras and Pavlos Carrer writing operas, choral works and songs in an Italianate idiom. The National School, led from the early twentieth century by Manolis Kalomiris, set out to build a Greek concert music on folk-song melody, modal colour and dance rhythm within late-Romantic orchestral, piano and vocal writing; Nikos Skalkottas's 36 Greek Dances share the same concern with folk material.",
+  "recipe": "classic eptanisiaki and ethniki scholi, art Music, western common practice branch. solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, solo and ensemble string orchestra obbligato violin, norway spruce European alpine European maple sycamore maple oil varnish cello. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 431,
+  "score": 58.494,
+  "config": {
+    "traditions": [
+      "greek_ionian_national_school"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 2.6973392857142855,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1918125,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 2.9899999999999998,
+          "grand_piano_brand": 1.69,
+          "piano_hammer": 2.5865,
+          "piano_rim": 2.6208125,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.818625,
+          "piano_pitch_standard": 1.2349999999999999
+        }
+      },
+      {
+        "id": "string_orchestra_obbligato_violin",
+        "slots": {
+          "string_orchestra_obbligato_layout": "strings_obbligato_violin_layout",
+          "string_orchestra_obbligato_technique": "strings_obbligato_song_melody"
+        },
+        "scores": {
+          "string_orchestra_obbligato_layout": 13.260000000000003,
+          "string_orchestra_obbligato_technique": 0
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "dutar_strings_unspecified",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "cello_strings": 0,
+          "cello_top_wood": 2.8595,
+          "cello_back_wood": 3.101,
+          "cello_varnish": 2.45,
+          "cello_setup_period": 2.8870625000000003,
+          "cello_bow_grip": 1.3,
+          "cello_rosin": 2.7545,
+          "cello_bow_stick": 3.1200000000000006
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "string_orchestra_obbligato_violin": [
+        "string_orchestra_obbligato_layout",
+        "string_orchestra_obbligato_technique"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "string_orchestra_obbligato_layout": "strings_obbligato_violin_layout",
+      "string_orchestra_obbligato_technique": "strings_obbligato_song_melody",
+      "bowed_technique": "bowed_legato_classical",
+      "cello_strings": "dutar_strings_unspecified",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "european_maple_cello_back",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

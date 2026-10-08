@@ -5,7 +5,7 @@
   "lineage": "Independent music from Nice, including the city’s post-punk and gothic-rock bands.",
   "recipe": "classic nice indie, distorted Rock, gothic rock branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano, trombone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 357,
-  "score": 47.689,
+  "score": 47.134,
   "config": {
     "traditions": [
       "nice_indie"
@@ -73,16 +73,16 @@
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
           "body_wood": 0.39,
-          "neck_wood": 0.504,
+          "neck_wood": 0.4724999999999999,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
           "bridge": 0,
-          "scale_length": 1.0079999999999998,
-          "string_gauge": 0.2835,
+          "scale_length": 0.9449999999999998,
+          "string_gauge": 0.1785,
           "finish": 0.1365,
-          "string_tuning": 0.063
+          "string_tuning": 0.0315
         }
       },
       {
@@ -102,7 +102,7 @@
           "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.26249999999999996,
+          "scale_length_b": 0.19949999999999998,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -125,14 +125,14 @@
         },
         "scores": {
           "drum_technique": 10.0945,
-          "drumhead": 0.26249999999999996,
+          "drumhead": 0.1995,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.26249999999999996,
+          "shell_wood": 0.1995,
           "shell_thickness": 0.0315,
-          "bearing_edges": 0.1365,
+          "bearing_edges": 0.168,
           "snare_wires": 0,
           "cymbal_alloy": 0.13000000000000003,
-          "cymbal_hammering": 10.372499999999999,
+          "cymbal_hammering": 10.235999999999999,
           "cymbal_lathing": 9.899999999999999,
           "cymbal_finish": 0
         }
@@ -158,7 +158,7 @@
           "piano_rim": 5.07,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.07,
-          "piano_plate": -0.07,
+          "piano_plate": -0.1,
           "piano_pitch_standard": -0.035
         }
       },

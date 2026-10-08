@@ -1,143 +1,179 @@
 {
-  "id": "vintage_old_time",
-  "name": "Vintage Old-Time",
+  "id": "old_time",
+  "merged_from": "vintage_old_time",
+  "name": "Old-time Appalachian",
   "family": "vernacular",
-  "lineage": "Vintage old-time gathers early rural American song and instrumental recordings, connecting mountain ballads, string-band dance tunes, sacred songs and country blues. Radio, commercial records and later reissues carried local performers to wider audiences and helped transmit repertoire to subsequent generations.",
-  "recipe": "classic vintage old-time, ballad Poetry. solo with instrumental accompaniment. dreadnought acoustic guitar. parlor.",
-  "recipe_chars": 115,
-  "score": 5.603,
+  "lineage": "Pre-WWII Appalachian and southern American string-band tradition — fiddle, banjo, guitar (sometimes mandolin and bass) playing dance tunes and ballads in regional repertoires including Round Peak (Galax-Mt-Airy NC), Hammons Family (West Virginia), Skillet Lickers (Georgia), and the broader tradition documented through 1920s commercial Bristol sessions and the Library of Congress field-recording campaign",
+  "recipe": "classic North American mid-1920s old-time appalachian, drone Modal, appalachian branch, blues narrative ballad poetry jug band classic blues women. wood 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, double stops fiddle, mahogany parlor classic steel silk fingerpicked parlor acoustic guitar, walnut canonical appalachian clawhammer mountain dulcimer, steel modern canonical 36 37 string set drone like modal autoharp, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. wooden barn. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 701,
+  "score": 293.298,
   "config": {
     "traditions": [
-      "vintage_old_time"
+      "old_time",
+      "jug_band",
+      "classic_blues_women"
     ],
     "instruments": [
       {
-        "id": "voice",
+        "id": "banjo_5_string",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "banjo_back": "open_back",
+          "tone_ring": "wood_ring",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "clawhammer",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_neck_wood": "banjo_maple_neck",
+          "banjo_strings": "banjo_medium_bluegrass",
+          "banjo_bridge": "banjo_compensated_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0,
-          "voice_tessitura": 0
+          "banjo_back": 1.9499999999999997,
+          "tone_ring": 4.9399999999999995,
+          "banjo_head": 19.955000000000002,
+          "banjo_pot": 0.195,
+          "banjo_play": 2.84,
+          "banjo_rim_wood": 2.925,
+          "banjo_neck_wood": 2.25,
+          "banjo_strings": 2.295,
+          "banjo_bridge": 3.2499999999999987,
+          "banjo_setup_period": 22.295
         }
       },
       {
-        "id": "acoustic_guitar_dread",
+        "id": "fiddle",
         "slots": {
-          "acoustic_technique": "acoustic_flatpicked",
-          "string_tuning": "standard_tuning",
-          "top_wood": "mahogany_top",
-          "back_sides": "mahogany_bs",
-          "string_acoustic": "eighty_twenty"
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_tasto",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "acoustic_technique": 2.95,
-          "string_tuning": 0,
-          "top_wood": 0,
-          "back_sides": 0,
-          "string_acoustic": 0.273
+          "bowed_technique": 11.805,
+          "fiddle_strings": 0.585,
+          "fiddle_bow": 0.39,
+          "fiddle_mute": 0.585,
+          "fiddle_articulation": 1.3499999999999996,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "mahogany_top_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
+        },
+        "scores": {
+          "acoustic_technique": 11.8625,
+          "string_tuning": 2.675,
+          "top_wood_parlor": 1.3649999999999998,
+          "back_sides_parlor": 0.21,
+          "string_acoustic_parlor": 1.365
+        }
+      },
+      {
+        "id": "mountain_dulcimer",
+        "slots": {
+          "acoustic_technique": "acoustic_clawhammer",
+          "dulcimer_strings": "dulcimer_3",
+          "dulcimer_tuning": "mixolydian_tuning",
+          "dulcimer_body_wood": "dulcimer_walnut_canonical",
+          "dulcimer_string_material": "dulcimer_phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 12.049999999999999,
+          "dulcimer_strings": 4.29,
+          "dulcimer_tuning": 2.34,
+          "dulcimer_body_wood": 3.8,
+          "dulcimer_string_material": 0
+        }
+      },
+      {
+        "id": "autoharp",
+        "slots": {
+          "acoustic_technique": "acoustic_drone_modal",
+          "autoharp_chord_bars": "autoharp_15_chord",
+          "autoharp_context": "autoharp_appalachian",
+          "autoharp_strings": "autoharp_steel_modern",
+          "autoharp_body_wood": "autoharp_solid_birch"
+        },
+        "scores": {
+          "acoustic_technique": 4.16,
+          "autoharp_chord_bars": 0.195,
+          "autoharp_context": 4.225,
+          "autoharp_strings": 1.3649999999999998,
+          "autoharp_body_wood": 0.1949999999999999
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 2.7299999999999995,
+          "harmonica_comb": 41.61000000000001,
+          "harmonica_reed": 27.800000000000004,
+          "harmonica_technique": 29.370000000000005,
+          "harmonica_maker_school": 40.5925,
+          "harmonica_tuning": 13.975000000000001
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "acoustic_guitar_dread": [
-        "acoustic_technique",
-        "string_tuning",
-        "top_wood",
-        "back_sides",
-        "string_acoustic"
-      ]
-    },
-    "room": "parlor",
+    "room": "wooden_barn",
+    "archetype": "arch_late60s_us_multitrack",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "ribbon_passive",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": null
+      "medium": "tape_15ips"
     },
+    "tuning": "cross_tuning_fiddle",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "parlor",
+    "tuning": "cross_tuning_fiddle",
+    "room": "wooden_barn",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "acoustic_technique": "acoustic_flatpicked",
-      "string_tuning": "standard_tuning",
-      "top_wood": "mahogany_top",
-      "back_sides": "mahogany_bs",
-      "string_acoustic": "eighty_twenty"
+      "bowed_technique": "bowed_chopped_old_time",
+      "fiddle_articulation": "arco",
+      "harmonica_technique": "harm_folk_first_position",
+      "harmonica_type": "diatonic_blues",
+      "banjo_back": "open_back",
+      "tone_ring": "no_ring",
+      "banjo_play": "clawhammer",
+      "banjo_setup_period": "banjo_old_time_open_back_setup",
+      "banjo_strings": "banjo_light_clawhammer",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "phosphor_p",
+      "autoharp_chord_bars": "autoharp_21_chord",
+      "autoharp_context": "autoharp_appalachian",
+      "autoharp_strings": "autoharp_steel_modern",
+      "autoharp_body_wood": "autoharp_spruce_maple"
     },
-    "pin_parts": true
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

@@ -1,0 +1,182 @@
+{
+  "id": "assiko",
+  "name": "Assiko (Bassa guitar-and-bottle dance music)",
+  "family": "global",
+  "lineage": "Dance music of the Bassa of the Littoral and Centre regions of Cameroon, in which a singer is accompanied by a guitar and by a percussionist striking an empty bottle with metal knives and forks. Jean Bikoko 'Aladin', whose singles of the 1960s and 1970s made the style widely known, is regarded as its leading exponent. The bottle-percussion card stands in for the struck bottle.",
+  "recipe": "classic mid-1960s assiko, groove Percussion, central east south African branch. solo with instrumental accompaniment. parlor acoustic guitar, struck wooden credited bottle. treated studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 299,
+  "score": 3.229,
+  "config": {
+    "traditions": [
+      "assiko"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.333,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "sitka_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "acoustic_technique": -0.1,
+          "string_tuning": 0,
+          "top_wood_parlor": 0,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0
+        }
+      },
+      {
+        "id": "credited_bottle",
+        "slots": {
+          "credited_bottle_material": "credited_bottle_glass",
+          "credited_bottle_geometry": "credited_bottle_geometry_unspecified",
+          "credited_bottle_fill": "credited_bottle_empty",
+          "credited_bottle_excitation": "credited_bottle_struck_wood",
+          "credited_bottle_support": "credited_bottle_handheld"
+        },
+        "scores": {
+          "credited_bottle_material": 0,
+          "credited_bottle_geometry": 0,
+          "credited_bottle_fill": 0,
+          "credited_bottle_excitation": 1,
+          "credited_bottle_support": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "acoustic_guitar_parlor": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_parlor",
+        "back_sides_parlor",
+        "string_acoustic_parlor"
+      ],
+      "credited_bottle": [
+        "credited_bottle_material",
+        "credited_bottle_geometry",
+        "credited_bottle_fill",
+        "credited_bottle_excitation",
+        "credited_bottle_support"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_arab_east_state_radio",
+    "inline_chain": {
+      "mic": "ribbon_passive",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "dutar_strings_unspecified",
+      "credited_bottle_material": "credited_bottle_glass",
+      "credited_bottle_geometry": "credited_bottle_geometry_unspecified",
+      "credited_bottle_fill": "credited_bottle_empty",
+      "credited_bottle_excitation": "credited_bottle_struck_wood",
+      "credited_bottle_support": "credited_bottle_handheld"
+    },
+    "pin_parts": true,
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s",
+    "chain_amp": "amp_american_blackface"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Santa Catarina rap is represented by Florianópolis group Arma-Zen, whose MC ensemble and changing DJ personnel are documented by local field research. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
   "recipe": "classic modern rap catarinense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. melodic pitched sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 271,
-  "score": 45.858,
+  "score": 46.122,
   "config": {
     "traditions": [
       "rap_catarinense"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.518999999999998,
+          "voice_speech_song": 12.674999999999997,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 2.2,
           "sampler_archetypes": 3.9,
-          "sampler_bit_depth": 0.318,
+          "sampler_bit_depth": 0.426,
           "sampler_workflow": 2.25,
           "sampler_classic_context": 5.005
         }

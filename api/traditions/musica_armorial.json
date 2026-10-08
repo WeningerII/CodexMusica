@@ -1,0 +1,167 @@
+{
+  "id": "musica_armorial",
+  "name": "Música armorial (Pernambuco Armorial Movement chamber music)",
+  "family": "classical",
+  "lineage": "Art-music current of the Armorial Movement launched by Ariano Suassuna in Recife in 1970, which sought an erudite Brazilian music built on the rabeca, viola, pífano and the modal melodies of Northeastern folk and cordel traditions. Its ensembles included the Orquestra Armorial de Câmara and the Quinteto Armorial; the quintet, formed in the early 1970s and recorded on Discos Marcus Pereira, joined rabeca or violin, viola sertaneja, violão and flute or pífano. The fiddle card stands in for the rabeca, the viola caipira for the viola sertaneja and the credited bamboo-flute card for the pífano.",
+  "recipe": "classic Southern American 1970-1973 música armorial, art Music, western modern branch. fiddle, spruce modern strummed viola caipira, fingerpicked classical nylon-string guitar, bamboo credited bamboo flute unspecified. estudio rozenblit recife. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 354,
+  "score": 17.942,
+  "config": {
+    "traditions": [
+      "musica_armorial"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 0.1365,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.44099999999999995,
+          "fiddle_mute": 0.588,
+          "fiddle_articulation": 0.7245,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "viola_caipira",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "viola_caipira_courses": "viola_rio_abaixo",
+          "viola_caipira_context": "viola_caipira_caipira",
+          "viola_caipira_top_wood": "viola_caipira_spruce",
+          "viola_caipira_back_wood": "viola_caipira_jacaranda",
+          "viola_caipira_strings": "viola_caipira_steel_doubled"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.9595000000000002,
+          "viola_caipira_courses": 0.1365,
+          "viola_caipira_context": 1.1365,
+          "viola_caipira_top_wood": 2.5305000000000004,
+          "viola_caipira_back_wood": -1.435,
+          "viola_caipira_strings": 0.78
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 3.0500000000000007,
+          "string_tuning": 0,
+          "top_wood_classical": 0.44099999999999995,
+          "bracing_classical": 0.7245,
+          "string_classical": -0.035,
+          "attack_technique_cl": 3.838
+        }
+      },
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 1,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "viola_caipira": [
+        "plucked_traditional_technique",
+        "viola_caipira_courses",
+        "viola_caipira_context",
+        "viola_caipira_top_wood",
+        "viola_caipira_back_wood",
+        "viola_caipira_strings"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ],
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ]
+    },
+    "room": "estudio_rozenblit_recife",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "estudio_rozenblit_recife",
+    "parts": {
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "viola_caipira_courses": "viola_rio_abaixo",
+      "viola_caipira_context": "viola_caipira_caipira",
+      "viola_caipira_top_wood": "viola_caipira_spruce",
+      "viola_caipira_back_wood": "viola_caipira_jacaranda",
+      "viola_caipira_strings": "viola_caipira_steel_doubled",
+      "acoustic_technique": "acoustic_fingerpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "nylon_normal_cl",
+      "attack_technique_cl": "apoyando_cl",
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s",
+    "chain_amp": "amp_ampeg_b15_bass"
+  }
+}

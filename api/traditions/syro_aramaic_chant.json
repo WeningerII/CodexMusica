@@ -1,75 +1,76 @@
 {
-  "id": "syro_aramaic_chant",
-  "name": "Syro-Aramaic chant (Beth Gazo modal cycle)",
-  "family": "global",
-  "lineage": "Liturgical chant of the Syriac churches of Tur Abdin, Mosul and Kerala, organized since the sixth-century hymnody of Jacob of Serugh and Ephrem into the eight-mode Beth Gazo treasury codified by Patriarch Yacoub III in 1913 — unaccompanied antiphonal singing in Syriac by two half-choirs, strictly syllabic strophic qole in fixed poetic meters of five, seven or twelve syllables, alternating with free unmetered melismatic sections, over an occasional held drone.",
-  "recipe": "classic Caucasian early-1910s syro-aramaic chant, ritual Devotional, christian gospel branch, christian gospel coptic, middle east n African praise song coptic hymnody ethiopian debtera liturgical incantation. thick, declaimed, fast rate, interlocked note trading. a cappella small 3 to 8 one per part antiphonal double choir alternating kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 524,
-  "score": 186.847,
+  "id": "syriac_orthodox_chant",
+  "merged_from": "syro_aramaic_chant",
+  "name": "Syriac Orthodox liturgical chant",
+  "family": "classical",
+  "lineage": "Syriac Orthodox liturgical chant, the canonical sacred-music tradition of the Syriac Orthodox Church (Oriental Orthodox alongside Coptic, Armenian, Ethiopian). Follows the Beth Gazo (\"Treasury\") eight-mode oktoechos system with hundreds of canonical melodies. Performance: male choir of cantor-and-chorus chanting in Syriac (the ancient Aramaic liturgical language preserved unchanged from early-Christian period), with Maronite, Syrian Catholic, Assyrian Church of the East, and Indian Malankara Syrian Orthodox sharing overlapping recensions. The post-1915 Sayfo and late-twentieth-century Middle East displacement dispersed tradition across diaspora.",
+  "recipe": "classic Caucasian mid-1910s syriac orthodox liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, breath veiled tone, straight note core, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 488,
+  "score": 230.88,
   "config": {
     "traditions": [
-      "syro_aramaic_chant",
-      "coptic_hymn",
-      "ethiopian_debtera_incantation"
+      "syriac_orthodox_chant",
+      "ars_antiqua_organum",
+      "renaissance_sacred_polyphony"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.669999999999998,
-          "voice_quality": 25.274999999999995,
+          "voice_register": 8.530000000000001,
+          "voice_quality": 17.354999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.65,
-          "voice_articulation": 15.859999999999996,
-          "voice_microtone": 20.7675,
-          "voice_tradition": 13.990000000000002,
-          "voice_mechanism_compound": 5.720000000000001,
-          "voice_estill_quality": 10.510000000000002,
-          "voice_speech_song": 15.274999999999995,
-          "voice_ensemble_config": 14.364999999999997,
-          "voice_ornament_system": 11.825000000000001,
-          "voice_pitch_organization": 10.984999999999996,
-          "voice_processing_chain": 15.599999999999998,
-          "voice_multitrack_stack": 3.1200000000000006
+          "voice_vibrato": 11.64,
+          "voice_articulation": 18.037499999999998,
+          "voice_microtone": 17.354999999999997,
+          "voice_tradition": 13.975,
+          "voice_mechanism_compound": 7.604999999999999,
+          "voice_estill_quality": 9.392500000000002,
+          "voice_speech_song": 15.859999999999996,
+          "voice_ensemble_config": 31.395000000000003,
+          "voice_ornament_system": 6.575,
+          "voice_pitch_organization": 17.225,
+          "voice_processing_chain": 13.324999999999998,
+          "voice_multitrack_stack": 4.8100000000000005
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
           "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 4.29,
-          "choir_polyphonic_configuration": 2.99,
-          "choir_regional_canonical_configuration": 5.9799999999999995,
-          "choir_ensemble_repertoire": 6.825
+          "choir_size": 7.93,
+          "choir_polyphonic_configuration": 10.985,
+          "choir_regional_canonical_configuration": 5.524999999999999,
+          "choir_ensemble_repertoire": 9.859999999999998
         }
       }
     ],
     "room": "stone_armenian_church",
-    "archetype": "arch_church_location_early_music",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
@@ -77,7 +78,7 @@
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
     "tuning": "maqam_24edo",
     "aesthetic": null,
@@ -87,9 +88,26 @@
   "source": {
     "tuning": "maqam_24edo",
     "room": "stone_armenian_church",
+    "parts": {
+      "voice_register": "head_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_ametrical_chant",
+      "voice_tradition": "baroque_ornamental_tradition",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_bel_canto",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "choir_size": "chamber_choir",
+      "choir_ensemble_repertoire": "choir_ensemble_renaissance"
+    },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_std",
+    "chain_medium": "digital_high",
     "chain_console": "clean"
   }
 }

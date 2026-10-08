@@ -3,14 +3,14 @@
   "name": "Irish filí / bardic recitation",
   "family": "global",
   "lineage": "Recitation practice of the Gaelic learned poet — the fili (plural filid) and later bard — of medieval and early-modern Ireland (and Gaelic Scotland), a hereditary professional trained for years in bardic schools to compose in the strict syllabic metres of dan direach. The fili's social power lay in praise-poetry for a chieftain patron and in the feared aer (satire) believed capable of raising blisters or destroying reputation; the tradition ran from the early medieval period to the collapse of the Gaelic order after 1600, documented in the Book of the Dean of Lismore and the bardic duanaireacht. Poems were declaimed, often to harp accompaniment by a separate reacaire (reciter), as measured heightened speech.",
-  "recipe": "classic Northern European early-1600s irish filí / bardic recitation, ballad Poetry, Celtic balladic branch jeju haenyeo songs indian dastangoi / qissa urdu storytelling. thick, breath veiled tone, straight note core, interlocked note trading. connemara kitchen sean nos. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 334,
-  "score": 243.177,
+  "recipe": "classic Northern European early-1600s irish filí / bardic recitation, ballad Poetry, Celtic balladic branch jeju haenyeo songs swedish kulning herding-call. thick, breath veiled tone, wide pitch sway, interlocked note trading. connemara kitchen sean nos. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 317,
+  "score": 303.735,
   "config": {
     "traditions": [
       "irish_fili_bardic",
       "jeju_haenyeo_songs",
-      "urdu_dastangoi"
+      "swedish_kulning"
     ],
     "instruments": [
       {
@@ -20,11 +20,11 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.6750000000000007,
-          "voice_quality": 45.63000000000004,
+          "voice_register": 10.475000000000001,
+          "voice_quality": 48.555000000000035,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6725000000000003,
-          "voice_articulation": 23.985,
-          "voice_microtone": 23.789999999999996,
-          "voice_tradition": 23.79,
-          "voice_mechanism_compound": 3.863,
-          "voice_estill_quality": 8.820375,
-          "voice_speech_song": 33.767500000000005,
-          "voice_ensemble_config": 23.919999999999998,
-          "voice_ornament_system": 21.051499999999997,
-          "voice_pitch_organization": 7.294499999999999,
-          "voice_processing_chain": 16.705,
-          "voice_multitrack_stack": 3.5750000000000006
+          "voice_vibrato": 5.875,
+          "voice_articulation": 30.679999999999996,
+          "voice_microtone": 30.939999999999998,
+          "voice_tradition": 32.824999999999996,
+          "voice_mechanism_compound": 3.445,
+          "voice_estill_quality": 10.108374999999999,
+          "voice_speech_song": 41.600000000000016,
+          "voice_ensemble_config": 29.769999999999996,
+          "voice_ornament_system": 22.9565,
+          "voice_pitch_organization": 12.110499999999998,
+          "voice_processing_chain": 18.655,
+          "voice_multitrack_stack": 6.565000000000001
         }
       }
     ],
