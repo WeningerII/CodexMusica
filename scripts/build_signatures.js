@@ -125,6 +125,9 @@ function main() {
     console.log(
       `reconciled: ${Object.keys(merged).length} tradition signatures (JSON now canonical), app.js block regenerated.`
     );
+    console.log(
+      'api/engine.json carries this table for the lazy page; run `npm run build:api` and `node scripts/build_html.js`.'
+    );
     return;
   }
 
@@ -154,6 +157,9 @@ function main() {
   }
   console.log(
     `regenerated references/10_tradition_signatures.js from JSON (${Object.keys(sigs).length} traditions).`
+  );
+  console.log(
+    'api/engine.json carries this table for the lazy page; run `npm run build:api` and `node scripts/build_html.js`.'
   );
 }
 

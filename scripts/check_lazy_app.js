@@ -73,6 +73,13 @@
 //   full search's order, and says so; a detail and the picker say "loading",
 //   never "none"; nothing reads the engine. After the release the list and the
 //   picker on screen equal the embedded build's.
+//   W-tree: the genre tree's node descriptions (api/browse_prose.json "tree").
+//   Held, the picker, every node expanded, draws every row and no description,
+//   and says none is missing; a root holding only branches, expanded alone,
+//   marks the picker for the redraw by its rows alone. Released, the picker
+//   redraws itself in place as the embedded build's, and every node's row is
+//   the embedded build's. Failed (404), the rows stay without descriptions,
+//   claim nothing, and one Retry (reopening the picker) asks exactly once more.
 //
 //   ENGINE (section `engine`; each check but E6, a census of the code, boots
 //   its own lazy page with api/engine.json held, against one embedded page
@@ -105,8 +112,8 @@
 //   • E5 — a search on the Instrument page while it loads stays pending with
 //     no count; once released the list is the embedded build's, with the
 //     search box still focused.
-//   • E6 — the direct reads of the eight engine tables in the page's code
-//     (src/, and the two regions the build inlines from scripts/; identifier
+//   • E6 — the direct reads of the ten engine tables in the page's code
+//     (src/, and the three regions the build inlines from scripts/; identifier
 //     references, from the AST) are counted per file, per table and per
 //     enclosing function, and must match ENGINE_READERS below: a new reader
 //     has to be reviewed (it must run only once the instrument data has
@@ -128,6 +135,12 @@
 //     both fingerprint as the embedded build's engine.
 //   • E10 — a copy of api/engine.json with CRLF line endings loads to the
 //     embedded build's engine.
+//   • E11 — the render tables (TRADITION_SIGNATURES, DESCRIPTOR_DF): while
+//     held, a tradition's signature and a descriptor sort each throw
+//     EngineNotReadyError and are counted (Engine.misses() rises by 2), an
+//     empty sort returns [] with no miss, and the frequencies' memo is still
+//     empty; once released, both tables and both calls are the embedded
+//     build's.
 //
 //   FAILURE PATHS (section `failure`; the lazy app fails honestly):
 //   • F1, the boot index unreachable → the boot-error state renders and is
@@ -166,6 +179,12 @@
 //   • F4e, another deploy's index (one instrument fewer than
 //     INSTRUMENT_INDEX, an index field not 0, other index_fields) → refused
 //     as stale; every slot empty.
+//   • F4g, the render tables' codec: a file written by another codec (its
+//     header's codec_sha1 another digest, its tables_sha1 recomputed with
+//     it), and a signature line that does not decode (one list fewer than
+//     ids) under the page's own header → refused as stale; every slot empty.
+//     F4d also serves the file without each of the two encoded lines: a load
+//     failure, not stale.
 //
 // USAGE
 //   node scripts/check_lazy_app.js                  # every section (npm run test:lazy, CI)
@@ -227,8 +246,11 @@ const SCENARIOS = {
   'instrument-route': { route: 'instrument' },
 };
 
-// The eight engine tables, spelled out here rather than read from
+// The ten engine tables, spelled out here rather than read from
 // scripts/_page_tables.js, so dropping a name there cannot drop it here too.
+// The last two are the render tables: the signatures are a references file
+// the lazy build omits, and src/app.js mirrors the frequencies for the
+// embedded build, which the lazy build cuts.
 const ENGINE_TABLES = [
   'INSTRUMENT_FAMILY_PARTS',
   'INSTRUMENTS',
@@ -238,6 +260,8 @@ const ENGINE_TABLES = [
   'TUNINGS',
   'INSTRUMENT_AXIS_DEFINITIONS',
   'PREFACE_LEXICON',
+  'TRADITION_SIGNATURES',
+  'DESCRIPTOR_DF',
 ];
 // E6: the direct reads of the engine tables in the page's code (src/, and the
 // regions inlined from scripts/), per file, per table, per enclosing function
@@ -298,6 +322,17 @@ const ENGINE_READERS = {
       centroidDistance: 1,
       buildSongFingerprint: 3,
     },
+    // TRADITION_SIGNATURES is declared in references/10_tradition_signatures.js,
+    // which the lazy build omits. DESCRIPTOR_DF's "(top level)" read is the
+    // generated mirror's own declaration in src/app.js, which the lazy build
+    // cuts (the embedded build and Node evaluate it).
+    TRADITION_SIGNATURES: {
+      _traditionSignatureFor: 1,
+    },
+    DESCRIPTOR_DF: {
+      '(top level)': 1,
+      _ensureDescriptorDF: 1,
+    },
   },
   'src/pages/instrument.js': {
     INSTRUMENTS: {
@@ -329,7 +364,7 @@ const ENGINE_READERS = {
 };
 
 // The engine section's checks, by id (--checks).
-const ENGINE_CHECKS = ['E0', 'E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8', 'E9', 'E10'];
+const ENGINE_CHECKS = ['E0', 'E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8', 'E9', 'E10', 'E11'];
 
 const ONLY = flagList('only') || SECTIONS;
 const PRINT_READERS = argv.includes('--print-readers');
@@ -781,8 +816,67 @@ const CAPTURE_PROBE = `
     parts: c.parts || null, chain: c.chain || null,
   }));
   out.recipe = compressRichRecipe(app.cards, 1000);
+  // Each of the first three genres' cards, in every format: the render reads
+  // both render tables (the signatures through the preface dedup, the
+  // frequencies through every descriptor sort).
+  out.formats = {};
+  for (const id of sample.slice(0, 3)) {
+    const cards = app.cards.filter((c) => c.traditionId === id);
+    for (const f of ['rich', 'tags', 'prose', 'compact']) out.formats[id + ' ' + f] = compileRecipeStack(cards, f);
+  }
   return out;
 `;
+
+// The fingerprint's descriptor sort: 42 tokens, in no order. Most are in
+// DESCRIPTOR_DF and in the engine's own words (the codec's count list); the two
+// addresses are in DESCRIPTOR_DF but outside those words (its remainder); the
+// rest are in neither.
+const SORT_TOKENS = [
+  '13-brentford-road-jamaica',
+  '2120-south-michigan-avenue',
+  'warm',
+  'bright',
+  'dark',
+  'airy',
+  'gritty',
+  'lush',
+  'dry',
+  'wet',
+  'punchy',
+  'mellow',
+  'brassy',
+  'reedy',
+  'breathy',
+  'nasal',
+  'metallic',
+  'woody',
+  'glassy',
+  'buzzy',
+  'hollow',
+  'thick',
+  'thin',
+  'round',
+  'crisp',
+  'muffled',
+  'resonant',
+  'percussive',
+  'sustained',
+  'plucked',
+  'bowed',
+  'struck',
+  'tape-saturated',
+  'spring-reverb',
+  'room-ambience',
+  'close-miked',
+  'hall',
+  'zz-not-a-descriptor',
+  'qq-absent-token',
+  'unheard-of-timbre',
+  'xx-missing',
+  'nonexistent-word',
+];
+// FNV-1a over a string, in the page: a fingerprint without shipping the text.
+const FNV = `const fnv = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619) >>> 0; return h; };`;
 
 // The engine fingerprint both builds compute after the imports (parity):
 // FNV-1a per component, so a drift names the part of the engine that moved.
@@ -792,7 +886,8 @@ const CAPTURE_PROBE = `
 // distinct variant's JSON in that order. Sorting before the merge reorders
 // what the merge collects; a file that differs from references/ changes JSON.
 const ENGINE_FINGERPRINT = `
-  const fnv = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619) >>> 0; return h; };
+  ${FNV}
+  const byKey = ([a], [b]) => (a < b ? -1 : a > b ? 1 : 0);
   const seen = new Map(), distinct = [];
   const vid = (v) => { if (!seen.has(v)) { seen.set(v, distinct.length); distinct.push(v); } return seen.get(v); };
   const instruments = INSTRUMENTS.map((inst) => {
@@ -807,6 +902,13 @@ const ENGINE_FINGERPRINT = `
     instruments,
     variants: distinct,
     INSTRUMENT_FAMILY_PARTS, ROOMS, ROOM_CLUSTERS, CHAIN_SECTIONS, TUNINGS, INSTRUMENT_AXIS_DEFINITIONS, PREFACE_LEXICON,
+    // The render tables, as sorted entries (the signatures without their empty
+    // lists, which the lazy page's copy drops and the one reader answers [] for
+    // anyway), and a sort through the frequencies, over tokens it holds and
+    // tokens it does not.
+    DESCRIPTOR_DF: Object.entries(DESCRIPTOR_DF).sort(byKey),
+    TRADITION_SIGNATURES: Object.entries(TRADITION_SIGNATURES).filter(([, v]) => v.length > 0).sort(byKey),
+    sorted: _sortDescriptorsByPriority(${JSON.stringify(SORT_TOKENS)}),
     counts: [INSTRUMENTS.length, distinct.length],
   };
   const hashes = {};
@@ -923,6 +1025,17 @@ async function parity(embedHtml, lazyHtml) {
       fail('compressRichRecipe drift — the pasteable recipe differs between builds');
     } else {
       note(`recipe: ${String(embed.recipe).length} chars, identical`);
+    }
+    {
+      const keys = Object.keys(embed.formats);
+      const off = keys.filter((k) => embed.formats[k] !== lazy.formats[k]);
+      if (keys.length !== 12 || keys.some((k) => !embed.formats[k]))
+        fail(
+          `compileRecipeStack: the embedded build rendered ${keys.length} of 12 genre/format recipes, or an empty one — vacuous`
+        );
+      else if (off.length)
+        fail(`compileRecipeStack drift — the recipe differs between builds for ${off.join(', ')}`);
+      else note('compileRecipeStack: 3 genres in rich, tags, prose and compact, identical');
     }
 
     // Fetch discipline — 1 boot index, then 1 prose file, never the published
@@ -1712,6 +1825,156 @@ async function windowSection(embedHtml, lazyHtml) {
   }
 }
 
+// W-tree. The genre tree's node descriptions, which the lazy page's TREE_NODES
+// leaves out and api/browse_prose.json carries under "tree". Every node's own
+// row is drawn as an expanded parent draws it (NODE_STATE: renderTreeNode at
+// depth 1, which every row below a root is, with nothing expanded under it),
+// and the picker is opened with only the roots that hold no genre (LEAF_FREE):
+// there no genre row asks for prose, so only the tree's own rows can mark the
+// picker for a redraw. Once the prose is in, every node's row is the embedded
+// build's (NODE_ROWS). Drawing the rows directly, not the picker with every
+// node expanded, keeps the 7,000-odd genre rows out of the DOM: expanding them
+// all, held and failed, took this section from about 0.6 GB to 7.8 GB.
+const TREE_OPEN = `
+  document.getElementById('btn-traditions').click();
+  const leafFree = getRoots().filter((r) => getChildren(r.id).every((k) => TREE_NODES.some((n) => n.id === k.id)) && !getCrossRefLeaves(r.id).length);
+  app.treeExpanded = new Set(leafFree.map((r) => r.id));
+  renderTradPicker();`;
+const TREE_STATE = `const p = document.getElementById('picker-trad');
+  return { html: p.innerHTML, text: p.textContent, descs: p.querySelectorAll('.tree-row-desc').length,
+    rows: p.querySelectorAll('.tree-row').length, nodes: TREE_NODES.length, pending: _pickerProsePending, leafFree: leafFree.length };`;
+const NODE_ROWS = `const keep = app.treeExpanded; app.treeExpanded = new Set();
+  try { return TREE_NODES.map((n) => renderTreeNode(n, 1)).join(''); } finally { app.treeExpanded = keep; }`;
+const NODE_STATE = `const keep = app.treeExpanded; app.treeExpanded = new Set();
+  try {
+    const d = document.createElement('div');
+    d.innerHTML = TREE_NODES.map((n) => renderTreeNode(n, 1)).join('');
+    return { text: d.textContent, descs: d.querySelectorAll('.tree-row-desc').length,
+      rows: d.querySelectorAll('.tree-row').length, nodes: TREE_NODES.length, pending: _pickerProsePending };
+  } finally { app.treeExpanded = keep; }`;
+// Words that would claim a description is absent rather than not here yet.
+const TREE_ABSENT =
+  /no description|description (?:is )?(?:missing|unavailable)|could not be loaded|Couldn.t load/i;
+async function windowTree(embedHtml, lazyHtml) {
+  const embedDom = bootDom(embedHtml, makeFetchShim({ deny: '*' }), { url: SITE });
+  const hold = { 'api/browse_prose.json': deferred() };
+  const lazyDom = bootDom(lazyHtml, makeFetchShim({ deny: ['api/tradition_images.json'], hold }), {
+    url: SITE,
+  });
+  const log = [];
+  const deadDom = bootDom(
+    lazyHtml,
+    makeFetchShim({ deny: ['api/browse_prose.json', 'api/tradition_images.json'], log }),
+    { url: SITE }
+  );
+  const opened = `${TREE_OPEN}\n${TREE_STATE}`;
+  const held = { prose: false };
+  try {
+    await Promise.all([
+      runProbe(embedDom, SETTLE),
+      runProbe(lazyDom, SETTLE, 15000, held),
+      runProbe(deadDom, SETTLE, 15000, held),
+    ]);
+    const eLeafFree = await runProbe(embedDom, opened);
+    const eRows = await runProbe(embedDom, NODE_ROWS);
+    const full = await runProbe(lazyDom, NODE_STATE, 15000, held);
+    const leafFree = await runProbe(lazyDom, opened, 15000, held);
+    const crashed = [eLeafFree, eRows, full, leafFree].find((r) => r && r.__err);
+    if (crashed) return fail(`window W-tree: probe crashed: ${crashed.__err}`);
+    if (!/tree-row-desc/.test(eRows))
+      fail('window W-tree: the embedded build draws no node description — the check is vacuous');
+    if (!eLeafFree.leafFree || !eLeafFree.descs)
+      fail(
+        'window W-tree: no root holds only branches, so no expansion leaves the genres out — the redraw check is vacuous'
+      );
+    // HELD. Every node is drawn, none with a description, and nothing says one
+    // is missing; the tree's rows alone mark the picker for the redraw.
+    if (full.rows !== full.nodes)
+      fail(
+        `window W-tree: every node's row drawn gives ${full.rows} tree rows before the prose; TREE_NODES has ${full.nodes}`
+      );
+    if (full.pending !== true)
+      fail(
+        'window W-tree: the tree rows drawn without their descriptions did not mark the picker pending'
+      );
+    if (leafFree.rows !== eLeafFree.rows)
+      fail(
+        `window W-tree: the branch-only roots expanded draw ${leafFree.rows} tree rows before the prose, the embedded build ${eLeafFree.rows}`
+      );
+    for (const [which, r] of [
+      ['every node', full],
+      ['branch-only roots', leafFree],
+    ]) {
+      if (r.descs)
+        fail(
+          `window W-tree: ${r.descs} node description(s) drawn before the prose landed (${which} expanded); the lazy page's TREE_NODES carries none`
+        );
+      if (TREE_ABSENT.test(r.text))
+        fail(
+          `window W-tree: the picker claims a description is absent while it loads: ${JSON.stringify(r.text.match(TREE_ABSENT)[0])}`
+        );
+    }
+    if (leafFree.pending !== true)
+      fail(
+        'window W-tree: a tree row left its description out and did not mark the picker pending, so the prose would never redraw it'
+      );
+    // RELEASE. The picker redraws itself in place (this probe renders nothing)
+    // as the embedded build's for the same expansion, and every node's row is
+    // the embedded build's.
+    hold['api/browse_prose.json'].release();
+    const after = await runProbe(lazyDom, `${FRAMES(3)}\nconst leafFree = [];\n${TREE_STATE}`);
+    const rows = await runProbe(lazyDom, NODE_ROWS);
+    if (after.__err || rows.__err)
+      fail('window W-tree AFTER: probe crashed: ' + (after.__err || rows.__err));
+    else {
+      if (after.html !== eLeafFree.html)
+        fail(
+          `window W-tree: the picker was not redrawn as the embedded build's once the tree's descriptions landed ${firstDiff(after.html, eLeafFree.html)}`
+        );
+      if (rows !== eRows)
+        fail(
+          `window W-tree: the tree's rows differ from the embedded build's once the prose landed ${firstDiff(rows, eRows)}`
+        );
+    }
+    // FAILED. The prose answers 404: the rows stay without descriptions and say
+    // nothing is missing; one Retry (reopening the picker) asks exactly once more.
+    const dw = deadDom.window;
+    await waitFor(() => dw.eval('Catalog.proseFailed()'), 15000, 'proseFailed never set').catch(
+      () => {}
+    );
+    if (!dw.eval('Catalog.proseFailed()'))
+      fail(
+        'window W-tree: a 404 on the prose never failed the load — the failure check is vacuous'
+      );
+    else {
+      const before = fetchesOf(log, 'api/browse_prose.json').length;
+      const dead = await runProbe(deadDom, `${TREE_OPEN}\n${NODE_STATE}`, 15000, held);
+      await sleep(300);
+      const asked = fetchesOf(log, 'api/browse_prose.json').length - before;
+      if (dead.__err) fail('window W-tree FAILED: probe crashed: ' + dead.__err);
+      else {
+        if (dead.descs)
+          fail(`window W-tree: ${dead.descs} node description(s) drawn with the prose failed`);
+        if (TREE_ABSENT.test(dead.text))
+          fail(
+            `window W-tree: with the prose failed the picker claims a description is absent: ${JSON.stringify(dead.text.match(TREE_ABSENT)[0])}`
+          );
+      }
+      if (asked !== 1)
+        fail(
+          `window W-tree: one Retry (reopening the picker) after the prose failed made ${asked} request(s); want exactly 1`
+        );
+    }
+    note(
+      'window W-tree: no node description before the prose, none claimed missing; redrawn in place as the embedded build; a failed load retried once'
+    );
+  } finally {
+    embedDom.window.close();
+    lazyDom.window.close();
+    deadDom.window.close();
+  }
+}
+
 // ── section: engine ─────────────────────────────────────────────────────────
 // Each check boots its own lazy page with api/engine.json held back; one
 // embedded page takes the same steps in turn, as the reference.
@@ -1842,20 +2105,35 @@ const E5_STEP = `
 const E5_STATE = `const s = document.getElementById('instrument-search');
   return { body: document.getElementById('instrument-body').innerHTML, total: document.getElementById('ip-total').textContent, focused: document.activeElement === s, value: s.value };`;
 
+// E11: the two tables the recipe's render reads (a tradition's signature, and
+// the descriptor frequencies a sort orders by), each fingerprinted as sorted
+// entries, and one call through each table's direct reader. A signature that
+// is an empty list is left out: the one reader answers [] for it and for an
+// absent id alike.
+const E11_TOKENS = ['warm', 'bright'];
+const RENDER_TABLES = `
+  ${FNV}
+  const byKey = ([a], [b]) => (a < b ? -1 : a > b ? 1 : 0);
+  const sig = Object.entries(TRADITION_SIGNATURES).filter(([, v]) => v.length > 0).sort(byKey);
+  const df = Object.entries(DESCRIPTOR_DF).sort(byKey);
+  return { sig: [sig.length, fnv(JSON.stringify(sig))], df: [df.length, fnv(JSON.stringify(df))],
+    signature: _traditionSignatureFor('bluegrass'), sorted: _sortDescriptorsByPriority(${JSON.stringify(E11_TOKENS)}) };`;
+
 // The embedded page, every reference the selected checks use, in turn: the
-// merged engine's fingerprint (E9, E10), E1's instruments, E4's picker, E5's
-// search (then cleared), the inspector, then each card step (E3; E7 uses the
-// featured genre's).
+// merged engine's fingerprint (E9, E10), E11's render tables, E1's
+// instruments, E4's picker, E5's search (then cleared), the inspector, then
+// each card step (E3; E7 uses the featured genre's).
 const E7_STEP = E3_STEPS.find(([label]) => label === 'add an instrument to the featured genre');
 async function engineReference(embedHtml) {
   const need = (...ids) => ids.some((id) => ONLY_CHECKS.includes(id));
-  if (!need('E1', 'E3', 'E4', 'E5', 'E7', 'E9', 'E10')) return { e3: {} };
+  if (!need('E1', 'E3', 'E4', 'E5', 'E7', 'E9', 'E10', 'E11')) return { e3: {} };
   const dom = bootDom(embedHtml, makeFetchShim({ deny: '*' }), { url: SITE });
   const probe = (body) => runProbe(dom, body, E_WAIT);
   try {
     const ref = { e3: {} };
     await probe(SETTLE);
     if (need('E9', 'E10')) ref.engine = await probe(ENGINE_FINGERPRINT);
+    if (need('E11')) ref.tables = await probe(RENDER_TABLES);
     if (need('E1'))
       ref.inst = await probe(
         'return Object.fromEntries(INSTRUMENTS.map((i) => { const x = Inst(i.id); return [i.id, [x.name, x.short == null ? null : x.short, x.family]]; }));'
@@ -2495,6 +2773,90 @@ async function engineCrlf(lazyHtml, refP) {
   }
 }
 
+// E11. The render tables: TRADITION_SIGNATURES and DESCRIPTOR_DF are read
+// only through _traditionSignatureFor and _ensureDescriptorDF, and only from a
+// card. Before the instrument data is in, each read misses — a counted
+// EngineNotReadyError, never an empty answer that would read as "none" — and
+// the frequencies' memo stays empty, so nothing wrong is cached for later. A
+// sort of nothing reads nothing. Once released, both tables and both readers
+// answer as the embedded build's.
+async function engineRenderTables(lazyHtml, refP) {
+  const tag = 'engine E11';
+  const L = heldLazy(lazyHtml);
+  try {
+    await runProbe(L.dom, SETTLE, E_WAIT, { prose: false });
+    const held = await runProbe(
+      L.dom,
+      `const threw = (f) => { try { f(); return null; } catch (e) { return { name: e.name, typed: e instanceof EngineNotReadyError }; } };
+      const before = Engine.misses();
+      const signature = threw(() => _traditionSignatureFor('bluegrass'));
+      const sorted = threw(() => _sortDescriptorsByPriority(${JSON.stringify(E11_TOKENS)}));
+      const mid = Engine.misses();
+      let empty;
+      try { empty = _sortDescriptorsByPriority([]); } catch (e) { empty = { threw: e.name }; }
+      return { before, mid, after: Engine.misses(), signature, sorted, empty, memo: _DESCRIPTOR_DF === null, ready: Engine.ready() };`,
+      E_WAIT,
+      { prose: false }
+    );
+    if (held.__err) return fail(`${tag}: probe crashed: ${held.__err}`);
+    if (held.ready) return fail(`${tag}: the engine was ready while held — vacuous`);
+    const want = (what, got) => {
+      if (!got || got.name !== 'EngineNotReadyError' || !got.typed)
+        fail(
+          `${tag}: ${what} before the instrument data landed ${got ? `threw ${got.name}` : 'answered'}; want EngineNotReadyError`
+        );
+    };
+    want(`_traditionSignatureFor('bluegrass')`, held.signature);
+    want(`_sortDescriptorsByPriority(${JSON.stringify(E11_TOKENS)})`, held.sorted);
+    if (held.mid - held.before !== 2)
+      fail(
+        `${tag}: Engine.misses() went ${held.before} → ${held.mid} over a signature and a sort before the instrument data landed; want a rise of 2`
+      );
+    if (!Array.isArray(held.empty) || held.empty.length)
+      fail(
+        `${tag}: _sortDescriptorsByPriority([]) before the instrument data landed gave ${JSON.stringify(held.empty)}; want [] with no read`
+      );
+    if (held.after !== held.mid)
+      fail(
+        `${tag}: _sortDescriptorsByPriority([]) was counted as a miss (${held.mid} → ${held.after}); a sort of nothing reads nothing`
+      );
+    if (!held.memo)
+      fail(
+        `${tag}: _DESCRIPTOR_DF was filled before the instrument data landed; the memo must stay empty until it can hold the real frequencies`
+      );
+    L.hold['api/engine.json'].release();
+    const r = await runProbe(
+      L.dom,
+      `const e = await Engine.ensure().then(() => null, (e) => e.message);
+      if (e) return { error: e, state: Engine.state() };
+      ${RENDER_TABLES}`,
+      E_WAIT,
+      { prose: false }
+    );
+    const ref = await refP;
+    if (r.__err || ref.__err) return fail(`${tag}: probe crashed: ${r.__err || ref.__err}`);
+    if (r.error) return fail(`${tag}: the engine did not load once released (${r.error})`);
+    const t = ref.tables;
+    if (!t.sig[0] || !t.df[0] || !t.signature.length || t.sorted.length !== E11_TOKENS.length)
+      return fail(
+        `${tag}: the embedded build's render tables are empty (${t.sig[0]} signatures, ${t.df[0]} frequencies, bluegrass's signature ${t.signature.length} long) — vacuous`
+      );
+    const off = ['sig', 'df', 'signature', 'sorted'].filter(
+      (k) => JSON.stringify(r[k]) !== JSON.stringify(t[k])
+    );
+    if (off.length)
+      fail(
+        `${tag}: once the instrument data landed the render tables differ from the embedded build's in: ${off.join(', ')}`
+      );
+    else if (held.mid - held.before === 2 && held.memo)
+      note(
+        `${tag}: each table's reader misses while held, counted; ${t.sig[0]} signatures and ${t.df[0]} frequencies equal the embedded build's after`
+      );
+  } finally {
+    L.dom.window.close();
+  }
+}
+
 // E2. A sweep: every distinct control on every route and in a genre's
 // detail, the header's add, saved, undo and redo, and the tree's expand,
 // find-similar, back and import, with the engine held throughout. The file import (a file picker) and the
@@ -2642,10 +3004,12 @@ async function engineSweep(lazyHtml) {
 // E6. The direct reads of the engine tables in the page's code, from the AST:
 // an identifier that is not a property name or an object key, counted by the
 // function it is read in: { file: { table: { function: reads } } }. The code
-// is src/*.js and src/pages/*.js, and the two regions build_html.js inlines
+// is src/*.js and src/pages/*.js, and the three regions build_html.js inlines
 // from scripts/ (between their @inline markers, cut as the build cuts them),
-// counted as "scripts/_merge.js@inline" and "scripts/_card_descriptors.js@inline".
-const INLINED = ['scripts/_merge.js', 'scripts/_card_descriptors.js'];
+// counted as "scripts/_merge.js@inline", "scripts/_card_descriptors.js@inline"
+// and "scripts/_engine_codec.js@inline" (which writes the two render tables'
+// slots by property, so reads none by name).
+const INLINED = ['scripts/_merge.js', 'scripts/_card_descriptors.js', 'scripts/_engine_codec.js'];
 const INLINE_REGION = /\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//;
 function engineReaders() {
   const espree = require(
@@ -2760,6 +3124,7 @@ async function engineSection(embedHtml, lazyHtml) {
     E8: [guard('E8', () => engineRecordBeside(lazyHtml))],
     E9: [true, false].map((planned) => guard('E9', () => engineMergePlan(lazyHtml, planned, refP))),
     E10: [guard('E10', () => engineCrlf(lazyHtml, refP))],
+    E11: [guard('E11', () => engineRenderTables(lazyHtml, refP))],
   };
   await Promise.all([
     refP,
@@ -2940,7 +3305,7 @@ async function failure(lazyHtml) {
   }
   dyingDom.window.close();
 
-  // F4a–F4f, each in its own boot, three at a time.
+  // F4a–F4g, each in its own boot, three at a time.
   await pool(
     [
       () => engineUnreachable(lazyHtml),
@@ -2960,6 +3325,7 @@ async function failure(lazyHtml) {
         }),
       () => engineRefused(lazyHtml, 'F4d'),
       () => engineRefused(lazyHtml, 'F4e'),
+      () => engineRefused(lazyHtml, 'F4g'),
       () =>
         engineBootError(lazyHtml, {
           tag: 'a saved session written after the boot looked (F4f)',
@@ -3389,20 +3755,21 @@ async function engineStale(lazyHtml) {
   }
 }
 
-// F4d and F4e: files the page must refuse whole, served to one page in turn
+// F4d, F4e and F4g: files the page must refuse whole, served to one page in turn
 // (the shim serves the variant in force at each request; the first is the
 // paint's own request). Each must leave the engine failed — stale or not, as
 // listed — with every slot empty. F4d's are load failures, so a retry can
-// succeed (not stale): three cut short — the tail from the last table the
+// succeed (not stale): five cut short — the tail from the last table the
 // header names, on a line boundary and with no newline after, which a parser
 // reading up to the closing line accepted with that table missing; the
-// closing line alone; a table's line alone — and two that are not the file at
-// all, answered 200: a captive portal's sign-in page (or a host's fallback
-// page for a missing file), and an empty body. On the first and the sign-in
-// page, an Add says the connection failed, with Retry. F4e's are another
-// deploy's index (stale): one instrument fewer than INSTRUMENT_INDEX, an index
-// field (written as 0, filled from INSTRUMENT_INDEX) carrying a value, and the
-// header's index_fields.
+// closing line; a table's line; each encoded render table's line — and two
+// that are not the file at all, answered 200: a captive portal's sign-in page
+// (or a host's fallback page for a missing file), and an empty body. On the
+// first and the sign-in page, an Add says the connection failed, with Retry.
+// F4e's are another deploy's index (stale): one instrument fewer than
+// INSTRUMENT_INDEX, an index field (written as 0, filled from
+// INSTRUMENT_INDEX) carrying a value, and the header's index_fields. F4g's are
+// the render tables' codec (stale; see there).
 const engineLines = (t) => t.split('\n');
 const lineOf = (lines, name) => lines.findIndex((l) => l.startsWith(`[${JSON.stringify(name)},`));
 const ENGINE_REFUSED = {
@@ -3434,6 +3801,17 @@ const ENGINE_REFUSED = {
       },
       false,
     ],
+    // Each encoded render table's line (scripts/_engine_codec.js) lost: the
+    // header names a table the file does not carry.
+    ...['DESCRIPTOR_DF', 'TRADITION_SIGNATURES'].map((name) => [
+      `its ${name} line lost`,
+      (t) => {
+        const lines = engineLines(t);
+        lines.splice(lineOf(lines, name), 1);
+        return lines.join('\n');
+      },
+      false,
+    ]),
     [
       'a sign-in page in its place',
       () =>
@@ -3473,6 +3851,40 @@ const ENGINE_REFUSED = {
           '"index_fields":["id","name","family","short"]',
           '"index_fields":["id","name","family"]'
         ),
+      true,
+    ],
+  ],
+  // The render tables' codec. The engine digest folds in the codec's, so a
+  // file another codec wrote names another tables_sha1, refused before a line
+  // is read; and lines that do not decode under the page's own header were
+  // not written by this page's codec either. Both stale, and nothing decoded
+  // or committed.
+  F4g: [
+    [
+      'written by another codec',
+      (t) => {
+        const other = '1'.repeat(40);
+        const P = require('./_page_tables.js');
+        const sha = require('crypto')
+          .createHash('sha1')
+          .update(JSON.stringify(P.engineTables(path.join(ROOT, 'references'))) + '\n' + other)
+          .digest('hex');
+        return t
+          .replace(/"codec_sha1":"[0-9a-f]{40}"/, `"codec_sha1":"${other}"`)
+          .replace(/"tables_sha1":"[0-9a-f]{40}"/, `"tables_sha1":"${sha}"`);
+      },
+      true,
+    ],
+    [
+      'a signature list lost',
+      (t) => {
+        const lines = engineLines(t);
+        const k = lineOf(lines, 'TRADITION_SIGNATURES');
+        const [name, value] = JSON.parse(lines[k].replace(/,$/, ''));
+        value.l = value.l.slice(0, value.l.lastIndexOf(' '));
+        lines[k] = JSON.stringify([name, value]) + ',';
+        return lines.join('\n');
+      },
       true,
     ],
   ],
@@ -3577,7 +3989,10 @@ async function engineRefused(lazyHtml, id) {
   }
   if (ONLY.includes('window')) {
     await windowSection(embedHtml, lazyHtml);
-    ran.push('the window before the prose and the instrument data');
+    await windowTree(embedHtml, lazyHtml);
+    ran.push(
+      "the window before the prose and the instrument data (W-tree: the genre tree's descriptions held, released, failed)"
+    );
   }
   if (ONLY.includes('engine')) {
     const e = await engineSection(embedHtml, lazyHtml);
@@ -3593,6 +4008,7 @@ async function engineRefused(lazyHtml, id) {
       E8: "E8 the genre's record beside the engine",
       E9: 'E9 the merge plan, used only by its own merge code',
       E10: 'E10 a CRLF copy',
+      E11: 'E11 the render tables miss while held, then match',
     };
     const checks = ENGINE_CHECKS.filter((id) => ONLY_CHECKS.includes(id));
     ran.push(
@@ -3602,7 +4018,7 @@ async function engineRefused(lazyHtml, id) {
   if (ONLY.includes('failure')) {
     await failure(lazyHtml);
     ran.push(
-      'honest failure states (F1 the boot error shown, an early failure handled; F4a–F4f: the instrument data unreachable, each failed wait with Retry and no retry on a timer; the saved-session boot error shown, in its own words for each of three causes; a stale file offering Reload; a file cut short, not the file at all or with another index refused whole)'
+      'honest failure states (F1 the boot error shown, an early failure handled; F4a–F4g: the instrument data unreachable, each failed wait with Retry and no retry on a timer; the saved-session boot error shown, in its own words for each of three causes; a stale file offering Reload; a file cut short, not the file at all, with another index or another codec, or whose render tables do not decode, refused whole)'
     );
   }
 

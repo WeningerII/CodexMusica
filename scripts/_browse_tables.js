@@ -10,7 +10,9 @@
 //                      except the genres the Genre page opens on
 //                      (STARTER_TRADITIONS in src/app.js), plus each genre's
 //                      catalog status.
-//   browse_prose.json  the prose of every genre, read after the first paint.
+//   browse_prose.json  the prose of every genre, read after the first paint,
+//                      and (under "tree") the genre tree's node descriptions,
+//                      which the lazy page leaves out of its TREE_NODES.
 //
 // WHY THE SPLIT. Prose is 85% of browse.json's transfer (1.88 of 2.13 MB
 // gzip), and the first view shows the prose of one genre. The app boots from
@@ -105,11 +107,23 @@ function bootIndex(items, extras, starters) {
   };
 }
 
-function proseIndex(items) {
+// The genre tree's node descriptions, by node id, in TREE_NODES order: what the
+// lazy page's TREE_NODES leaves out (scripts/build_html.js LAZY_DROP_FIELDS)
+// and merges back by id when the prose lands (Catalog.mergeProse). A node with
+// no description has no key, so the page's node keeps none.
+function treeProse(nodes) {
+  const out = {};
+  for (const n of nodes || [])
+    if (n && typeof n.description === 'string' && n.description) out[n.id] = n.description;
+  return out;
+}
+
+function proseIndex(items, nodes) {
   return {
     name: 'Codex Musica — genre prose (lineage, description, exemplars; read by the lazy app after its first paint; internal)',
     count: items.length,
     items: items.map(proseItem),
+    tree: treeProse(nodes),
   };
 }
 
@@ -123,4 +137,5 @@ module.exports = {
   starterIds,
   bootIndex,
   proseIndex,
+  treeProse,
 };

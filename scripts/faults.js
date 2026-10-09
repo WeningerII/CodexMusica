@@ -60,6 +60,23 @@
 //   engine preload stray key -> build_html.js --check (<head> reads a session key app.js does not)
 //   embedded engine table missing -> build_html.js --embedded --check (the reference page lacks a table)
 //   inlined engine reader -> check_lazy_app.js (an engine read in code inlined from scripts/ goes uncounted)
+//   sig unguarded       -> check_lazy_app.js (a tradition's signature reads as none before the instrument data)
+//   df unguarded        -> check_lazy_app.js (a descriptor sort caches frequencies before the instrument data)
+//   table read in first view -> check_lazy_app.js (the first view reads a render table)
+//   sigs left in page   -> build_html.js --check (the signatures' references file ships in the lazy page)
+//   df left in page     -> build_html.js --check (the frequencies' src mirror ships in the lazy page)
+//   codec unfolded      -> check_api.js       (the engine digest no longer names the codec)
+//   codec region skew   -> build_html.js --check (the page inlines a codec its digest does not name)
+//   engine df drift     -> check_api.js       (api/engine.json's frequencies drift under its header)
+//   false pair in engine only -> check_signature_tokens.js (a pair ruled false is back in api/engine.json)
+//   mirror skew at build -> build_html.js --check (the cut mirror is not its references JSON)
+//   commit skips table  -> build_html.js --check (CODEX_ENGINE_COMMIT leaves a render table's slot empty)
+//   decode drops tail   -> check_lazy_app.js  (the page decodes fewer signatures than the file carries)
+//   strip too wide      -> check_api.js       (the page copy drops signatures that are not empty)
+//   tree prose inline   -> build_html.js --check (the tree's descriptions are back in the lazy page)
+//   tree prose missing  -> check_api.js       (the prose file no longer carries the tree's descriptions)
+//   tree prose no redraw -> check_lazy_app.js (the picker is not redrawn when the tree's descriptions land)
+//   plain encoding      -> check_payload_budget.js (the render tables written plain; an early Add downloads 72 KB more)
 //   app<->connector     -> check_app_parity.js   (connector render drifts from the app)
 //   preface drift       -> regression_prefaces.js (matcher output drifts from fixtures)
 //   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
@@ -142,6 +159,8 @@ function mkenv(items) {
       fs.symlinkSync(path.join(ROOT, 'mcp', 'node_modules'), path.join(d, 'mcp', 'node_modules'));
       continue;
     }
+    // An item may be a nested path (api/engine.json): its parent is made first.
+    fs.mkdirSync(path.dirname(path.join(d, it)), { recursive: true });
     execSync(`cp -a ${q(path.join(ROOT, it))} ${q(path.join(d, it))}`);
   }
   fs.symlinkSync(path.join(ROOT, 'node_modules'), path.join(d, 'node_modules'));
@@ -517,7 +536,7 @@ if (want('9h', 'prose-preloaded')) {
 }
 
 // 9i–9zi. THE INSTRUMENT ENGINE OUTSIDE THE LAZY PAGE. The lazy codex.html
-//     carries an empty slot for each of the eight engine tables, an index of
+//     carries an empty slot for each of the ten engine tables, an index of
 //     instrument names (INSTRUMENT_INDEX) and the digest of api/engine.json,
 //     and fills the slots from that file (at its first paint, or from <head>
 //     when a saved session needs it). Each class
@@ -543,12 +562,23 @@ function plantIn(d, rel, find, replace) {
 }
 const lazyEnv = () => mkenv(['scripts', 'references', 'src', 'api']);
 const lazyGate = (d, ...args) => gate(d, ['scripts/check_lazy_app.js', ...args]);
-// 9i and 9s: one word more in the first descriptor list of api/engine.json.
-// The line layout and the header's tables_sha1 are left as they were. The page
-// checks that digest, the instrument count and the zeroed index fields, never
-// what the tables hold, so it accepts the file.
-const plantEngineFile = (d) =>
-  plantIn(d, 'api/engine.json', '"descriptors":["', '"descriptors":["__FAULT__ ');
+// 9i and 9s: the first descriptor list of api/engine.json gains a second copy
+// of its own first word. The line layout and the header's tables_sha1 are left
+// as they were. The page checks that digest, the instrument count and the
+// zeroed index fields, never what the tables hold, so it accepts the file. A
+// word the file already carries keeps the engine vocabulary the same set, so
+// the descriptor frequencies (scripts/_engine_codec.js) still decode; a new
+// word would make them fail to, and the page would refuse the file as stale.
+function plantEngineFile(d) {
+  const f = path.join(d, 'api/engine.json');
+  const text = fs.readFileSync(f, 'utf8');
+  const m = text.match(/"descriptors":\["((?:[^"\\]|\\.)*)"/);
+  if (!m) throw new Error('faults: no descriptor list in api/engine.json');
+  fs.writeFileSync(
+    f,
+    text.replace(m[0], () => `${m[0]},"${m[1]}"`)
+  );
+}
 
 // 9i. engine-desync: the file's tables drift under an unchanged digest -> check_lazy_app.js
 //     The embedded build merges references/; the lazy build merges the file.
@@ -729,7 +759,7 @@ if (want('9q', 'engine-skew-accepted')) {
 //     The lazy build strips the tables named in ENGINE_TABLES
 //     (scripts/_page_tables.js). Drop a name from that list and the table ships
 //     inline again: for INSTRUMENTS, about 550 KB more gzipped. --check spells
-//     the eight names out itself, so the edit that puts a table back cannot
+//     the ten names out itself, so the edit that puts a table back cannot
 //     also turn off the check.
 if (want('9r', 'engine-in-page')) {
   const d = mkenv(['scripts', 'references', 'src']);
@@ -763,21 +793,23 @@ if (want('9s', 'engine-file-drift')) {
 
 // 9t, 9ta–9tc. THE PAYLOAD BUDGETS -> check_payload_budget.js. No other gate
 //     holds the lazy page and its two first downloads to a size, so each of
-//     the four budgets gets its own plant, each in a copy of the page and of
-//     the two api/ files the budgets read. The plant is incompressible base64,
-//     sized from the gate's own baseline line so the budget lands about 32 KiB
-//     over its limit whatever its headroom is today (a fixed size would stop
-//     reaching the limit once the page shrank, or the engine file did; at step
-//     9 the headroom is 76 KB for the page, 45 KB for page + boot index, 37 KB
-//     for the inline data and 125 KB for the engine). The bytes come from a
+//     the first four budgets gets its own plant, each in a copy of the page
+//     and of the two api/ files the budgets read (the fifth, add-path, is
+//     10q's, below). The plant is incompressible base64, sized from the gate's
+//     own baseline line so the budget lands about 32 KiB over its limit
+//     whatever its headroom is today (a fixed size would stop reaching the
+//     limit once the page shrank, or the engine file did; at step 10 the
+//     headroom is 34 KB for the page, 65 KB for page + boot index, 11 KB for
+//     the inline data and 66 KB for the engine). The bytes come from a
 //     hash chain, not a random source, so every run plants the same files. The
 //     unplanted copy must pass first, or a class could not tell its plant from
 //     a page already over. When it does not, each budget class records a
 //     failure of its own (BASELINE-OVER; the gate's table is printed once) and
 //     the run goes on: in CI the freshness job's budget step has already
 //     failed on that page, and the classes after these still owe a verdict.
-function budgetEnv() {
-  const d = mkenv(['scripts']);
+// `items` are what mkenv copies beside the page and the two api/ files.
+function budgetEnv(items) {
+  const d = mkenv(items);
   const html = path.join(d, 'codex.html');
   const api = path.join(d, 'api');
   fs.copyFileSync(FRESH_HTML || path.join(ROOT, 'codex.html'), html);
@@ -799,8 +831,8 @@ function budgetEnv() {
 let baselineShown = false;
 // One budget class: plant(B) into budgetEnv's copy, then the gate. With the
 // unplanted copy already over, the class cannot plant: a failure row.
-function budgetClass(cls, plant, expect) {
-  const B = budgetEnv();
+function budgetClass(cls, plant, expect, items = ['scripts']) {
+  const B = budgetEnv(items);
   if (B.over) {
     if (!baselineShown)
       process.stderr.write(
@@ -1331,6 +1363,421 @@ if (want('9zo', 'inlined-engine-reader')) {
   );
 }
 
+// 10d–10f. THE RENDER TABLES. TRADITION_SIGNATURES and DESCRIPTOR_DF are
+//     read only through _traditionSignatureFor and _ensureDescriptorDF, and
+//     only from a card, so no first-view path reads either. Before the
+//     instrument data is in, each reader misses: a counted EngineNotReadyError,
+//     never an answer. (The lazy page reads both from api/engine.json; until
+//     it lands their slots are empty.)
+
+// 10d. sig-unguarded -> check_lazy_app.js  (E11)
+//     Without its _engineLive test the reader answers before the instrument
+//     data is in, and an empty signature reads as "this tradition has none".
+if (want('10d', 'sig-unguarded')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "  !_engineLive ? Engine.miss('TRADITION_SIGNATURES ' + tradId) : (tradId && TRADITION_SIGNATURES[tradId]) || [];",
+    '  (tradId && TRADITION_SIGNATURES[tradId]) || [];'
+  );
+  record(
+    'sig-unguarded -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E11'),
+    /engine E11: _traditionSignatureFor\('bluegrass'\) before the instrument data landed (?:answered|threw \w+); want EngineNotReadyError/
+  );
+}
+
+// 10e. df-unguarded -> check_lazy_app.js  (E11)
+//     Without its guard the reader reaches for the table before the instrument
+//     data is in. With the table inline it filled its memo then, and every
+//     later sort ordered by what it cached; with the table in api/engine.json
+//     the slot is still empty, and the read throws a TypeError, uncounted,
+//     where an EngineNotReadyError belongs.
+if (want('10e', 'df-unguarded')) {
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', "  if (!_engineLive) return Engine.miss('DESCRIPTOR_DF');\n", '');
+  record(
+    'df-unguarded -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E11'),
+    /engine E11: (?:_DESCRIPTOR_DF was filled before the instrument data landed|_sortDescriptorsByPriority\([^)]*\) before the instrument data landed threw TypeError; want EngineNotReadyError)/
+  );
+}
+
+// 10f. table-read-in-first-view -> check_lazy_app.js  (E2)
+//     The genre picker's tree is drawn the moment the picker opens, which can
+//     be long before the instrument data is in. A signature read there misses,
+//     and E2's sweep, which opens the picker and expands the tree with the
+//     data held, counts it.
+if (want('10f', 'table-read-in-first-view')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    '  const indent = depth * 16;\n\n  let html = `<div class="tree-node"',
+    '  const indent = depth * 16;\n  _traditionSignatureFor(node.id);\n\n  let html = `<div class="tree-node"'
+  );
+  record(
+    'table-read-in-first-view -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E2'),
+    /engine E2: [^\n]*\b\d+ engine read\(s\)/
+  );
+}
+
+// 10a, 10r, 10g–10n. THE RENDER TABLES IN api/engine.json. The lazy build
+//     omits the signatures' references file (references/10_tradition_signatures.js)
+//     and cuts the frequencies' src/app.js mirror, and the page reads the two
+//     tables from api/engine.json, each written as one compact line by the codec
+//     (scripts/_engine_codec.js), whose digest the engine digest folds in.
+//     (10r is the plan's 10b, renumbered: 10b is count-drift-behind-qualifier.)
+// api/engine.json rewritten in a copy by its own (planted) scripts, so the
+// file and the code agree and only the gate the class names can tell.
+const rebuildEngine = (d) =>
+  execFileSync(
+    'node',
+    [
+      '-e',
+      "require('fs').writeFileSync('api/engine.json', require('./scripts/_page_tables.js').engineText('references'))",
+    ],
+    { cwd: d, stdio: 'pipe' }
+  );
+// One encoded line of api/engine.json, edited in place: edit(value) mutates it.
+function editEngineLine(d, name, edit) {
+  const f = path.join(d, 'api/engine.json');
+  const lines = fs.readFileSync(f, 'utf8').split('\n');
+  const k = lines.findIndex((l) => l.startsWith(`[${JSON.stringify(name)},`));
+  if (k < 0) throw new Error(`faults: no ${name} line in api/engine.json`);
+  const [n, value] = JSON.parse(lines[k].replace(/,$/, ''));
+  edit(value);
+  lines[k] = JSON.stringify([n, value]) + ',';
+  fs.writeFileSync(f, lines.join('\n'));
+}
+// The page's slot for one render table taken out, and its src mirror left in
+// the page, so the page still parses (a `const` beside its `let` would not).
+function plantMirrorLeft(d, name) {
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    "  if (LAZY) appJs = appJs.replace(m[0], () => '');",
+    `  if (LAZY && name !== '${name}') appJs = appJs.replace(m[0], () => '');`
+  );
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    "        `let ${P.ENGINE_TABLES.join(', ')};`,",
+    `        \`let \${P.ENGINE_TABLES.filter((n) => n !== '${name}').join(', ')};\`,`
+  );
+}
+// The signatures put back on the lazy page: their references file shipped as
+// a data block, like any file that carries no engine table, and their slot
+// taken out, so the page still parses.
+function plantSigsInPage(d) {
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    '...(LAZY ? P.ENGINE_FILES : [])',
+    "...(LAZY ? P.ENGINE_FILES.filter((f) => f !== '10_tradition_signatures.js') : [])"
+  );
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    "new Set(['NAV_GLYPH_SVGS', ...P.ENGINE_TABLES])",
+    "new Set(['NAV_GLYPH_SVGS', ...P.ENGINE_TABLES.filter((n) => n !== 'TRADITION_SIGNATURES')])"
+  );
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    "        `let ${P.ENGINE_TABLES.join(', ')};`,",
+    "        `let ${P.ENGINE_TABLES.filter((n) => n !== 'TRADITION_SIGNATURES').join(', ')};`,"
+  );
+}
+const htmlCheck = (d) =>
+  gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]);
+
+// 10a. sigs-left-in-page -> build_html.js --check
+//     The signatures' references file shipped in the lazy page, as it is in
+//     the embedded one: tens of KB of the page, gzipped, that the page then
+//     also fetches.
+if (want('10a', 'sigs-left-in-page')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantSigsInPage(d);
+  record(
+    'sigs-left-in-page -> build_html.js --check',
+    htmlCheck(d),
+    /a block of the lazy page declares TRADITION_SIGNATURES with a value/
+  );
+}
+
+// 10r. df-left-in-page -> build_html.js --check
+//     The frequencies' mirror: about 74 KB of the lazy page, gzipped.
+if (want('10r', 'df-left-in-page')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantMirrorLeft(d, 'DESCRIPTOR_DF');
+  record(
+    'df-left-in-page -> build_html.js --check',
+    htmlCheck(d),
+    /a block of the lazy page declares DESCRIPTOR_DF with a value/
+  );
+}
+
+// 10g. codec-unfolded -> check_api.js
+//     engineSha without the codec's digest: a page and a file written by
+//     different codecs would then agree on a digest and the page would decode
+//     the file wrongly. The file is rewritten by the planted code, so it is
+//     what that code derives; check_api recomputes the digest itself.
+if (want('10g', 'codec-unfolded')) {
+  const d = mkenv(['scripts', 'references', 'api']);
+  plantIn(
+    d,
+    'scripts/_page_tables.js',
+    ".update(JSON.stringify(tables) + '\\n' + codec.codecSha())",
+    '.update(JSON.stringify(tables))'
+  );
+  rebuildEngine(d);
+  record(
+    'codec-unfolded -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /engine\.json: tables_sha1 is not the digest of the page copy of the engine tables with codec_sha1 folded in/
+  );
+}
+
+// 10h. codec-region-skew -> build_html.js --check
+//     The page's copy of the codec reads the counts in base 32: a page whose
+//     codec is not the one the digest names.
+if (want('10h', 'codec-region-skew')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    '  CODEC_INLINED = codec.codecRegion();',
+    "  CODEC_INLINED = codec.codecRegion().replace('parseInt(a[j], 36)', 'parseInt(a[j], 32)');"
+  );
+  record(
+    'codec-region-skew -> build_html.js --check',
+    htmlCheck(d),
+    /the inlined codec region digest ≠ codecSha\(\)/
+  );
+}
+
+// 10i. engine-df-drift -> check_api.js
+//     One frequency one higher in api/engine.json, under its unchanged header:
+//     the page would sort by it and nothing in the page could tell.
+if (want('10i', 'engine-df-drift')) {
+  const d = mkenv(['scripts', 'references', 'api']);
+  editEngineLine(d, 'DESCRIPTOR_DF', (value) => {
+    const a = value.a.split(',');
+    const j = a.findIndex((x) => x !== '');
+    a[j] = (parseInt(a[j], 36) + 1).toString(36);
+    value.a = a.join(',');
+  });
+  record(
+    'engine-df-drift -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /engine\.json differs from what scripts\/_page_tables\.js derives from references\/[\s\S]*its DESCRIPTOR_DF line does not decode to references\/_descriptor_df\.json/
+  );
+}
+
+// 10j. false-pair-in-engine-only -> check_signature_tokens.js
+//     A pair ruled false, back in api/engine.json's copy only: the table, the
+//     generated mirror and codex.html stay clean, so the catch has to come
+//     from the gate decoding the file the lazy page reads.
+if (want('10j', 'false-pair-in-engine-only')) {
+  const d = mkenv(['scripts', 'references', 'src', 'api/engine.json', 'codex.html']);
+  const rulings = JSON.parse(
+    fs.readFileSync(path.join(d, 'references/_signature_rulings.json'), 'utf8')
+  ).rulings;
+  let r = null;
+  editEngineLine(d, 'TRADITION_SIGNATURES', (value) => {
+    const ids = value.k.split(' '),
+      lists = value.l.split(' ');
+    const tokensOf = (i) => lists[i].split('.').map((n) => value.v[parseInt(n, 36)]);
+    r = rulings.find(
+      (x) =>
+        x.verdict === 'false' &&
+        ids.includes(x.tradition) &&
+        !tokensOf(ids.indexOf(x.tradition)).includes(x.token)
+    );
+    if (!r) throw new Error('faults: no false signature ruling to restore in api/engine.json');
+    let at = value.v.indexOf(r.token);
+    if (at < 0) at = value.v.push(r.token) - 1;
+    lists[ids.indexOf(r.tradition)] += '.' + at.toString(36);
+    value.l = lists.join(' ');
+  });
+  const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  record(
+    'false-pair-in-engine-only -> check_signature_tokens.js',
+    gate(d, ['scripts/check_signature_tokens.js']),
+    new RegExp(
+      `FALSE_SURVIVES[\\s\\S]*${esc(r.tradition)} / ${esc(r.token)} \\(ruled false[^)]*\\) is still in api/engine\\.json`
+    )
+  );
+}
+
+// 10k. mirror-skew-at-build -> build_html.js --check
+//     One count in the src/app.js frequencies, off by 777: the embedded build
+//     and Node would sort by it, the lazy page by the JSON. Fault 21 holds the
+//     same drift to build_descriptor_df.js --check; the build refuses it too.
+if (want('10k', 'mirror-skew-at-build')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  const f = path.join(d, 'src/app.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const m = src.match(/(const DESCRIPTOR_DF = \{\n {2}'[^']+': )(\d+),/);
+  if (!m) throw new Error('faults: DESCRIPTOR_DF block not found in src/app.js');
+  fs.writeFileSync(f, src.replace(m[0], m[1] + (Number(m[2]) + 777) + ','));
+  record(
+    'mirror-skew-at-build -> build_html.js --check',
+    htmlCheck(d),
+    /cut DESCRIPTOR_DF ≠ references\/_descriptor_df\.json; run node scripts\/build_descriptor_df\.js/
+  );
+}
+
+// 10l. commit-skips-table -> build_html.js --check
+//     CODEX_ENGINE_COMMIT written without the frequencies: the engine loads,
+//     says it is ready, and every sort misses for good.
+if (want('10l', 'commit-skips-table')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    '${P.ENGINE_TABLES.map((n) => `${n} = t.${n};`)',
+    "${P.ENGINE_TABLES.filter((n) => n !== 'DESCRIPTOR_DF').map((n) => `${n} = t.${n};`)"
+  );
+  record(
+    'commit-skips-table -> build_html.js --check',
+    htmlCheck(d),
+    /CODEX_ENGINE_COMMIT does not fill the engine slot DESCRIPTOR_DF/
+  );
+}
+
+// 10m. decode-drops-tail -> check_lazy_app.js  (parity)
+//     The signature decode stops a slice early, in a page only (Node's run of
+//     the same region, which proves the encoder's round trip, is spared), so
+//     the file is written and its digest agrees: only a gate that runs the
+//     page sees the last few hundred traditions lose their signatures.
+if (want('10m', 'decode-drops-tail')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'scripts/_engine_codec.js',
+    '  for (let i = 0; i < keys.length; i += 500) {',
+    "  for (let i = 0; i < keys.length - (typeof window !== 'undefined' ? 500 : 0); i += 500) {"
+  );
+  rebuildEngine(d);
+  record(
+    'decode-drops-tail -> check_lazy_app.js',
+    lazyGate(d, '--only=parity'),
+    /engine fingerprint drift[^\n]*differs in: [^\n]*TRADITION_SIGNATURES/
+  );
+}
+
+// 10n. strip-too-wide -> check_api.js
+//     The page strip drops each signature of one token too: those traditions'
+//     cards would read as having none. The file is rewritten by the planted
+//     code; check_api filters references/ for empty lists itself.
+if (want('10n', 'strip-too-wide')) {
+  const d = mkenv(['scripts', 'references', 'api']);
+  plantIn(
+    d,
+    'scripts/_page_tables.js',
+    'if (list.length) out[id] = list;',
+    'if (list.length > 1) out[id] = list;'
+  );
+  rebuildEngine(d);
+  record(
+    'strip-too-wide -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /engine\.json: its TRADITION_SIGNATURES line does not decode to references\/_tradition_signatures\.json less its empty lists/
+  );
+}
+
+// 10c, 10o, 10p. THE TREE'S DESCRIPTIONS. The lazy page's TREE_NODES carries
+//     each node's id, name and parent only (build_html.js LAZY_DROP_FIELDS);
+//     the descriptions ride in api/browse_prose.json under "tree" and merge
+//     back by id when the prose lands. Until then the picker leaves a row's
+//     description out, claims nothing, and redraws once the prose settles.
+
+// 10c. tree-prose-inline -> build_html.js --check
+//     The strip emptied: about 30 KB of descriptions, gzipped, back in the
+//     lazy page's first download, for rows only an expanded picker draws.
+if (want('10c', 'tree-prose-inline')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    "const LAZY_DROP_FIELDS = LAZY ? { TREE_NODES: [['', ['description']]] } : {};",
+    'const LAZY_DROP_FIELDS = {};'
+  );
+  record(
+    'tree-prose-inline -> build_html.js --check',
+    htmlCheck(d),
+    /TREE_NODES carries description in a lazy page/
+  );
+}
+
+// 10o. tree-prose-missing -> check_api.js
+//     browse_prose.json written without "tree": the lazy picker would never
+//     draw a node description. The file is rewritten by the planted code, so
+//     it is what that code derives; check_api holds it to references/.
+//     (check_lazy_app's W-tree fails it too: the picker never fills in.)
+if (want('10o', 'tree-prose-missing')) {
+  const d = mkenv(['scripts', 'references', 'api']);
+  plantIn(d, 'scripts/_browse_tables.js', '    tree: treeProse(nodes),\n', '');
+  execFileSync(
+    'node',
+    [
+      '-e',
+      "const C = require('./scripts/_loader.js'); const B = require('./scripts/_browse_tables.js'); " +
+        'const items = C.TRADITIONS.map((t) => B.browseItem(t, C.TRADITION_EXTRAS[t.id] || {})); ' +
+        "require('fs').writeFileSync('api/browse_prose.json', JSON.stringify(B.proseIndex(items, C.TREE_NODES)));",
+    ],
+    { cwd: d, stdio: 'pipe' }
+  );
+  record(
+    'tree-prose-missing -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /browse_prose\.json carries no "tree"/
+  );
+}
+
+// 10p. tree-prose-no-redraw -> check_lazy_app.js  (W-tree)
+//     A row that leaves its description out without marking the picker: when
+//     no genre row asks for prose, the picker is never redrawn and the
+//     descriptions that landed stay undrawn until it is reopened.
+if (want('10p', 'tree-prose-no-redraw')) {
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', '    else if (!Catalog.treeProse()) _pickerProsePending = true;\n', '');
+  record(
+    'tree-prose-no-redraw -> check_lazy_app.js',
+    lazyGate(d, '--only=window'),
+    /window W-tree: a tree row left its description out and did not mark the picker pending/
+  );
+}
+
+// 10q. plain-encoding -> check_payload_budget.js  (add-path)
+//     The two render tables written to api/engine.json as plain JSON, not
+//     through the codec: the header still names the codec and its digest
+//     still agrees, and the page and its first view are unchanged, so only
+//     the bytes differ. What an early Add or a restored session downloads
+//     before it can finish goes past add-path, step 9's bar in bytes (and,
+//     since the catalog grew, the engine file past its own budget too: about
+//     795 KB of 778 KB). The file is rewritten by the planted code in the
+//     budgets' copy.
+if (want('10q', 'plain-encoding'))
+  budgetClass(
+    'plain-encoding -> check_payload_budget.js',
+    (B) => {
+      plantIn(
+        B.d,
+        'scripts/_page_tables.js',
+        '    ...codec.encodeDescriptorTables(els.slice(1), tables.TRADITION_SIGNATURES, tables.DESCRIPTOR_DF)\n',
+        '    ...ENCODED.map((n) => [n, tables[n]])\n'
+      );
+      rebuildEngine(B.d);
+    },
+    /✗ add-path: [\d,]+ B gzip, over its [\d,]+ B/,
+    ['scripts', 'references']
+  );
+
 // 9b. minification changes behaviour -> check_minified_equivalence.js
 //     The gate builds the embedded app BOTH ways from one source and compares
 //     them, so the defect to plant is in the transformer itself: _minify.js is
@@ -1757,13 +2204,15 @@ if (want('24', 'duplicate-entity')) {
 //     The defect this gate exists for: a token the tradition's own prose rules
 //     out (a Yolŋu didgeridoo tagged `celtic`) returns to the signature table,
 //     where the atlas, the connector and the app all publish it. Planted in the
-//     JSON ONLY — src/app.js and codex.html keep the clean block — so the catch
+//     JSON ONLY — references/10_tradition_signatures.js, api/engine.json and
+//     codex.html keep the clean block (the gate reads each, so each is
+//     staged) — so the catch
 //     has to come from the gate reading the table itself, not from the mirror
 //     parity check, which is a different gate with its own failure message.
 //     The pair is read from the rulings file rather than typed here, so the
 //     class keeps planting a real false pair whatever the rulings become.
 if (want('25', 'signature-false-pair-restored')) {
-  const d = mkenv(['scripts', 'references', 'src', 'codex.html']);
+  const d = mkenv(['scripts', 'references', 'src', 'api/engine.json', 'codex.html']);
   const rulings = JSON.parse(
     fs.readFileSync(path.join(d, 'references/_signature_rulings.json'), 'utf8')
   ).rulings;
@@ -1792,7 +2241,7 @@ if (want('25', 'signature-false-pair-restored')) {
 //      that has no ruling for it — the shape of an honest edit that skipped the
 //      ruling, not a typo the vocabulary would catch as UNCLASSED.
 if (want('25b', 'signature-pair-unruled')) {
-  const d = mkenv(['scripts', 'references', 'src', 'codex.html']);
+  const d = mkenv(['scripts', 'references', 'src', 'api/engine.json', 'codex.html']);
   const vocab = JSON.parse(
     fs.readFileSync(path.join(d, 'references/_soundword_vocab.json'), 'utf8')
   ).tokens;
