@@ -20,6 +20,22 @@
         "phones": ["IH0", "L", "UW1", "M", "IH0", "NG"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Huzza, then, for Lincoln and Hamlin,",
+        "token": 1,
+        "word": "Huzza",
+        "phones": ["HH", "AH0", "Z", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar cheer huzza."
+      },
+      {
+        "line": "Huzza, then, etc.",
+        "token": 1,
+        "word": "Huzza",
+        "phones": ["HH", "AH0", "Z", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar cheer huzza."
       }
     ]
   },
@@ -84,6 +100,22 @@
         "phones": ["S", "L", "UW1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Their Continental “trowsers,”",
+        "token": 3,
+        "word": "trowsers",
+        "phones": ["T", "R", "AW1", "Z", "ER0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar archaic trousers spelling."
+      },
+      {
+        "line": "This monstrous Neb-rascality!",
+        "token": 3,
+        "word": "Neb-rascality",
+        "phones": ["N", "EH2", "B", "R", "AE0", "S", "K", "AE1", "L", "IH0", "T", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent Neb-rascality pun with rascality stress."
       }
     ]
   },
@@ -116,6 +148,22 @@
         "phones": ["B", "UH1", "SH", "W", "AE2", "K", "ER0", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And see! the awe-struck foemen yield—Hurrah!",
+        "token": 5,
+        "word": "foemen",
+        "phones": ["F", "OW1", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      },
+      {
+        "line": "Unconquerable as the waves—Hurrah!",
+        "token": 1,
+        "word": "Unconquerable",
+        "phones": ["AH0", "N", "K", "AA1", "NG", "K", "ER0", "AH0", "B", "AH0", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar adjective."
       }
     ]
   },
@@ -148,6 +196,22 @@
         "phones": ["T", "IH2", "P", "IH0", "K", "AH0", "N", "UW1"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "For the weight of a slave aint a feather",
+        "token": 7,
+        "word": "aint",
+        "phones": ["EY1", "N", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar apostrophe-free ain't."
+      },
+      {
+        "line": "And we’ll teach Loco-focos good manners,",
+        "token": 4,
+        "word": "Loco-focos",
+        "phones": ["L", "OW2", "K", "OW0", "F", "OW1", "K", "OW0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
       }
     ]
   },
@@ -248,6 +312,14 @@
         "phones": ["IH0", "L", "UW1", "M", "IH0", "NG"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Earth brightens where’er it hath been.",
+        "token": 3,
+        "word": "where'er",
+        "phones": ["W", "EH0", "R", "EH1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar two-syllable poetic wherever contraction."
       }
     ]
   },
@@ -292,6 +364,22 @@
         "phones": ["HH", "AY1", "ER0", "L", "IH0", "NG", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Foemen of your country’s weal,",
+        "token": 1,
+        "word": "Foemen",
+        "phones": ["F", "OW1", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      },
+      {
+        "line": "Foemen of your country’s weal,",
+        "token": 5,
+        "word": "weal",
+        "phones": ["W", "IY1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -328,6 +416,250 @@
         "phones": ["HH", "AE1", "D", "AH0", "N", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "5": {
+    "pronunciations": [
+      {
+        "line": "For the weight of a slave a’nt a feather",
+        "token": 7,
+        "word": "a'nt",
+        "phones": ["EY1", "N", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "24": {
+    "pronunciations": [
+      {
+        "line": "Lifted toward the threat’ning sky?",
+        "token": 4,
+        "word": "threat'ning",
+        "phones": ["TH", "R", "EH1", "T", "N", "IH0", "NG"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar threatening with medial vowel elided."
+      },
+      {
+        "line": "Let your lightning rive these chains;",
+        "token": 4,
+        "word": "rive",
+        "phones": ["R", "AY1", "V"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      }
+    ]
+  },
+  "31": {
+    "pronunciations": [
+      {
+        "line": "Huzza all for Lincoln and Hamlin!",
+        "token": 1,
+        "word": "Huzza",
+        "phones": ["HH", "AH0", "Z", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar cheer huzza."
+      },
+      {
+        "line": "Huzza for the men that we love!",
+        "token": 1,
+        "word": "Huzza",
+        "phones": ["HH", "AH0", "Z", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar cheer huzza."
+      }
+    ]
+  },
+  "34": {
+    "pronunciations": [
+      {
+        "line": "By the laws of this great countree, ree, ree,",
+        "token": 7,
+        "word": "countree",
+        "phones": ["K", "AH1", "N", "T", "R", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "By the laws of this great countree.”",
+        "token": 7,
+        "word": "countree",
+        "phones": ["K", "AH1", "N", "T", "R", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "And you shall be first, d’ye see? see? see?",
+        "token": 6,
+        "word": "d'ye",
+        "phones": ["D", "Y", "AH1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected compressed do-ye contraction; not an assertion of a unique historical realization."
+      },
+      {
+        "line": "And you shall be first, d’ye see?”",
+        "token": 6,
+        "word": "d'ye",
+        "phones": ["D", "Y", "AH1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected compressed do-ye contraction; not an assertion of a unique historical realization."
+      },
+      {
+        "line": "So a bargain was straightway struck between",
+        "token": 5,
+        "word": "straightway",
+        "phones": ["S", "T", "R", "EY1", "T", "W", "EY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar straightway."
+      },
+      {
+        "line": "“Go seize the vile caitiff, Isaiah and John,",
+        "token": 5,
+        "word": "caitiff",
+        "phones": ["K", "EY1", "T", "IH0", "F"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar literary word."
+      }
+    ]
+  },
+  "42": {
+    "pronunciations": [
+      {
+        "line": "Join in our pæan victorious,",
+        "token": 4,
+        "word": "pæan",
+        "phones": ["P", "IY1", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar paean spelling with ligature."
+      },
+      {
+        "line": "The pæan of Liberty!",
+        "token": 2,
+        "word": "pæan",
+        "phones": ["P", "IY1", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar paean spelling with ligature."
+      }
+    ]
+  },
+  "44": {
+    "pronunciations": [
+      {
+        "line": "The Loco-focos we’ll reject,",
+        "token": 2,
+        "word": "Loco-focos",
+        "phones": ["L", "OW2", "K", "OW0", "F", "OW1", "K", "OW0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      },
+      {
+        "line": "For they shan’t stay at home.",
+        "token": 3,
+        "word": "shan't",
+        "phones": ["SH", "AE1", "N", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar shan't performance variant; not a regional authenticity claim."
+      },
+      {
+        "line": "And when the vict’ry has been won,",
+        "token": 4,
+        "word": "vict'ry",
+        "phones": ["V", "IH1", "K", "T", "R", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "47": {
+    "pronunciations": [
+      {
+        "line": "Loco-focos can not alter,",
+        "token": 1,
+        "word": "Loco-focos",
+        "phones": ["L", "OW2", "K", "OW0", "F", "OW1", "K", "OW0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      }
+    ]
+  },
+  "50": {
+    "pronunciations": [
+      {
+        "line": "Oh, hear you not the wild huzzas",
+        "token": 7,
+        "word": "huzzas",
+        "phones": ["HH", "AH0", "Z", "AA1", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar huzza plural."
+      }
+    ]
+  },
+  "43": {
+    "pronunciations": [
+      {
+        "line": "“Wide Awake” to foeman’s snare,",
+        "token": 4,
+        "word": "foeman's",
+        "phones": ["F", "OW1", "M", "AH0", "N", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known foeman possessive."
+      }
+    ]
+  },
+  "26": {
+    "pronunciations": [
+      {
+        "line": "They’ve called us “sisslers” long enough—",
+        "token": 4,
+        "word": "sisslers",
+        "phones": ["S", "IH1", "S", "L", "ER0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent sisslers spelling, supported by subsequent boil imagery; selected performance not editorial correction."
+      }
+    ]
+  },
+  "6": {
+    "pronunciations": [
+      {
+        "line": "Chase, McLean, and Bates, I ween,",
+        "token": 6,
+        "word": "ween",
+        "phones": ["W", "IY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known poetic verb ween."
+      }
+    ]
+  },
+  "15": {
+    "pronunciations": [
+      {
+        "line": "Sound the loud tocsin that calls to the war;",
+        "token": 4,
+        "word": "tocsin",
+        "phones": ["T", "AA1", "K", "S", "IH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar alarm-bell noun."
+      },
+      {
+        "line": "When every land and clime",
+        "token": 5,
+        "word": "clime",
+        "phones": ["K", "L", "AY1", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "12": {
+    "pronunciations": [
+      {
+        "line": "A “Homestead Bill,” with domicil,",
+        "token": 5,
+        "word": "domicil",
+        "phones": ["D", "AA1", "M", "IH0", "S", "IH2", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected familiar domicile short-i final variant, supported by bill/till rhyme."
       }
     ]
   }

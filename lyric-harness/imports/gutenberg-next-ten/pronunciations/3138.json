@@ -28,6 +28,14 @@
         "phones": ["N", "OW1", "M", "AA0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Ye giant shades of RA and TUM,",
+        "token": 7,
+        "word": "TUM",
+        "phones": ["T", "UW1", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Egyptian Tum name; selected conventional long-u reading."
       }
     ]
   },
@@ -40,6 +48,46 @@
         "phones": ["K", "IH1", "N", "Z", "F", "OW2", "K"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "All slumb’rous sounds and low",
+        "token": 2,
+        "word": "slumb'rous",
+        "phones": ["S", "L", "AH1", "M", "B", "R", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Printed two-syllable elision."
+      },
+      {
+        "line": "And bring no drowsihed.",
+        "token": 4,
+        "word": "drowsihed",
+        "phones": ["D", "R", "AW1", "Z", "IY0", "HH", "EH2", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Archaic drowsihead spelling, supported by wed rhyme."
+      },
+      {
+        "line": "With shadowy hair dispread;",
+        "token": 4,
+        "word": "dispread",
+        "phones": ["D", "IH0", "S", "P", "R", "EH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known poetic dispread."
+      },
+      {
+        "line": "I most have labourèd",
+        "token": 4,
+        "word": "labourèd",
+        "phones": ["L", "EY1", "B", "ER0", "IH0", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Grave accent explicitly calls for syllabic ed."
+      },
+      {
+        "line": "And Lethe’s waters weep.",
+        "token": 2,
+        "word": "Lethe's",
+        "phones": ["L", "IY1", "TH", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -52,6 +100,22 @@
         "phones": ["F", "R", "IH0", "T", "IH1", "L", "ER0", "IY0", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "When Lent and Responsions are ended,",
+        "token": 4,
+        "word": "Responsions",
+        "phones": ["R", "IH0", "S", "P", "AA1", "N", "SH", "AH0", "N", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Responsions examination name."
+      },
+      {
+        "line": "At luncheons and mild tête-à-têtes,",
+        "token": 5,
+        "word": "tête-à-têtes",
+        "phones": ["T", "EH1", "T", "AH0", "T", "EH2", "T", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Conventional English plural tête-à-têtes."
       }
     ]
   },
@@ -64,6 +128,142 @@
         "phones": ["F", "AA1", "R", "DH", "ER0", "M", "OW1", "S", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "There are laddies will drive ye a ba’",
+        "token": 3,
+        "word": "laddies",
+        "phones": ["L", "AE1", "D", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar laddie plural."
+      },
+      {
+        "line": "To the burn frae the farthermost tee,",
+        "token": 4,
+        "word": "frae",
+        "phones": ["F", "R", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots and northern frae."
+      },
+      {
+        "line": "And ye’re dune, sir, ye’re no worth a preen,",
+        "token": 2,
+        "word": "ye're",
+        "phones": ["Y", "IH1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar ye are contraction, one syllable selected."
+      },
+      {
+        "line": "And ye’re dune, sir, ye’re no worth a preen,",
+        "token": 5,
+        "word": "ye're",
+        "phones": ["Y", "IH1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar ye are contraction, one syllable selected."
+      },
+      {
+        "line": "Tak’ the word that an auld man ’ll gie,",
+        "token": 7,
+        "word": "man'll",
+        "phones": ["M", "AE1", "N", "AH0", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Explicit man'll contraction."
+      },
+      {
+        "line": "Tak’ the word that an auld man ’ll gie,",
+        "token": 8,
+        "word": "gie",
+        "phones": ["G", "IY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "That their putting is pawky and slee;",
+        "token": 5,
+        "word": "pawky",
+        "phones": ["P", "AO1", "K", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar pawky."
+      },
+      {
+        "line": "In a bunker they’re nae gude ava’,",
+        "token": 5,
+        "word": "nae",
+        "phones": ["N", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots nae, preserving its vowel."
+      },
+      {
+        "line": "But to girn, and to gar the sand flee.",
+        "token": 3,
+        "word": "girn",
+        "phones": ["G", "ER1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "And a lassie can putt—ony she,—",
+        "token": 6,
+        "word": "ony",
+        "phones": ["AO1", "N", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots any form; selected rounded first vowel."
+      },
+      {
+        "line": "Be she Maggy, or Bessie, or Jean,",
+        "token": 3,
+        "word": "Maggy",
+        "phones": ["M", "AE1", "G", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Maggie spelling."
+      },
+      {
+        "line": "I hae play’d in the frost and the thaw,",
+        "token": 2,
+        "word": "hae",
+        "phones": ["HH", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots hae, preserving distinct vowel from have."
+      },
+      {
+        "line": "I hae play’d since the year thirty-three,",
+        "token": 2,
+        "word": "hae",
+        "phones": ["HH", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots hae, preserving distinct vowel from have."
+      },
+      {
+        "line": "I hae play’d in the rain and the snaw,",
+        "token": 2,
+        "word": "hae",
+        "phones": ["HH", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots hae, preserving distinct vowel from have."
+      },
+      {
+        "line": "I hae play’d in the rain and the snaw,",
+        "token": 9,
+        "word": "snaw",
+        "phones": ["S", "N", "AO1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "And I tell ye the truth and nae lee,",
+        "token": 8,
+        "word": "nae",
+        "phones": ["N", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots nae, preserving its vowel."
+      },
+      {
+        "line": "For I speak o’ the thing I hae seen—",
+        "token": 8,
+        "word": "hae",
+        "phones": ["HH", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots hae, preserving distinct vowel from have."
       }
     ]
   },
@@ -76,6 +276,22 @@
         "phones": ["L", "AY0", "B", "EY1", "SH", "AH0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And crave from the fire on his stithy a ray;",
+        "token": 8,
+        "word": "stithy",
+        "phones": ["S", "T", "IH1", "DH", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar stithy smithy/anvil word."
+      },
+      {
+        "line": "The maiden wild roses will wreathe for the Hours;",
+        "token": 6,
+        "word": "wreathe",
+        "phones": ["R", "IY1", "DH"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known wreathe verb."
       }
     ]
   },
@@ -88,6 +304,14 @@
         "phones": ["M", "AE1", "N", "S", "L", "EY1", "IH0", "NG"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "To this tune, I ween,",
+        "token": 5,
+        "word": "ween",
+        "phones": ["W", "IY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known poetic verb ween."
       }
     ]
   },
@@ -108,6 +332,14 @@
         "phones": ["SH", "R", "UW1"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Into bunches of gillyflowers grew),—",
+        "token": 4,
+        "word": "gillyflowers",
+        "phones": ["JH", "IH1", "L", "IY0", "F", "L", "AW2", "ER0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar gillyflowers."
       }
     ]
   },
@@ -132,6 +364,38 @@
         "phones": ["D", "AA1", "R", "K", "L", "IH0", "NG"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "With Aucassin and Nicolette.",
+        "token": 2,
+        "word": "Aucassin",
+        "phones": ["OW0", "K", "AE1", "S", "IH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected conventional Anglicized Aucassin reading, not a French attestation."
+      },
+      {
+        "line": "The spider’s traceries are spun",
+        "token": 3,
+        "word": "traceries",
+        "phones": ["T", "R", "EY1", "S", "ER0", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Regular tracery plural."
+      },
+      {
+        "line": "With Aucassin and Nicolette!",
+        "token": 2,
+        "word": "Aucassin",
+        "phones": ["OW0", "K", "AE1", "S", "IH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected conventional Anglicized Aucassin reading, not a French attestation."
+      },
+      {
+        "line": "’Scaped from the cell of marble dun",
+        "token": 1,
+        "word": "'Scaped",
+        "phones": ["S", "K", "EY1", "P", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Initial unstressed vowel omitted as printed."
       }
     ]
   },
@@ -144,6 +408,22 @@
         "phones": ["M", "OW1", "D", "IH0", "SH"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Vivat FROU-FROU!",
+        "token": 1,
+        "word": "Vivat",
+        "phones": ["V", "AY1", "V", "AE0", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Conventional English Latin vivat performance."
+      },
+      {
+        "line": "Vivat FROU-FROU!",
+        "token": 2,
+        "word": "FROU-FROU",
+        "phones": ["F", "R", "UW1", "F", "R", "UW2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known frou-frou loanword."
       }
     ]
   },
@@ -156,6 +436,62 @@
         "phones": ["M", "IH0", "TH", "IH1", "NG", "K", "S"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "You read a book about Le vrai",
+        "token": 7,
+        "word": "vrai",
+        "phones": ["V", "R", "EH1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. French vrai approximated with available ARPABET vowel."
+      },
+      {
+        "line": "Mérite de l’homme, alone in May.",
+        "token": 3,
+        "word": "l'homme",
+        "phones": ["L", "AO1", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar French phrase; ARPABET approximation of l’homme. Preparer selection, not historical attestation."
+      },
+      {
+        "line": "Le vrai mérite de l’homme?  Not gold,",
+        "token": 2,
+        "word": "vrai",
+        "phones": ["V", "R", "EH1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. French vrai approximated with available ARPABET vowel."
+      },
+      {
+        "line": "Le vrai mérite de l’homme?  Not gold,",
+        "token": 5,
+        "word": "l'homme",
+        "phones": ["L", "AO1", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar French phrase; ARPABET approximation of l’homme. Preparer selection, not historical attestation."
+      },
+      {
+        "line": "You bade the crowd of foplings go,",
+        "token": 6,
+        "word": "foplings",
+        "phones": ["F", "AA1", "P", "L", "IH0", "NG", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent fop diminutive plural."
+      },
+      {
+        "line": "So Rouget sang—while yet he played",
+        "token": 2,
+        "word": "Rouget",
+        "phones": ["R", "UW0", "ZH", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar French name, English phone approximation."
+      },
+      {
+        "line": "And hymned great Doisi’s red perruque,",
+        "token": 6,
+        "word": "perruque",
+        "phones": ["P", "AH0", "R", "UW1", "K"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known perruque loanword, selected English adaptation."
       }
     ]
   },
@@ -168,6 +504,46 @@
         "phones": ["P", "L", "EY1", "N", "T", "S"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "The wail of Moschus on the mountains crying",
+        "token": 4,
+        "word": "Moschus",
+        "phones": ["M", "AA1", "S", "K", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar classical poet name, English reading."
+      },
+      {
+        "line": "The plaints for Lycidas, and Thyrsis (sleeping",
+        "token": 4,
+        "word": "Lycidas",
+        "phones": ["L", "IH1", "S", "IH0", "D", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      },
+      {
+        "line": "The plaints for Lycidas, and Thyrsis (sleeping",
+        "token": 6,
+        "word": "Thyrsis",
+        "phones": ["TH", "ER1", "S", "IH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Thyrsis literary name."
+      },
+      {
+        "line": "Far from ‘the forest ground called Thessaly’),",
+        "token": 7,
+        "word": "Thessaly'",
+        "phones": ["TH", "EH1", "S", "AH0", "L", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known Thessaly; closing quote adds no sound."
+      },
+      {
+        "line": "These hold thy memory, Bion, in their keeping,",
+        "token": 5,
+        "word": "Bion",
+        "phones": ["B", "AY1", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar English classical Bion reading."
       }
     ]
   },
@@ -188,6 +564,22 @@
         "phones": ["TH", "IY0", "AA1", "K", "R", "IH0", "T", "AH0", "S"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Where Milon and where Battus reap,",
+        "token": 2,
+        "word": "Milon",
+        "phones": ["M", "AY1", "L", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Where Milon and where Battus reap,",
+        "token": 5,
+        "word": "Battus",
+        "phones": ["B", "AE1", "T", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar classical name, English reading."
       }
     ]
   },
@@ -212,6 +604,22 @@
         "phones": ["M", "AY1", "R", "IY0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "The Fays that to my christ’ning came",
+        "token": 6,
+        "word": "christ'ning",
+        "phones": ["K", "R", "IH1", "S", "N", "IH0", "NG"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Explicit contracted christ'ning."
+      },
+      {
+        "line": "Seems preternaturally pretty!",
+        "token": 2,
+        "word": "preternaturally",
+        "phones": ["P", "R", "IY2", "T", "ER0", "N", "AE1", "CH", "ER0", "AH0", "L", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar preternaturally, uncontracted six-syllable performance."
       }
     ]
   },
@@ -232,6 +640,30 @@
         "phones": ["D", "IH2", "L", "AH0", "T", "AA1", "N", "T", "IY0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Mysterious Benedetta! who",
+        "token": 2,
+        "word": "Benedetta",
+        "phones": ["B", "EH2", "N", "AH0", "D", "EH1", "T", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      },
+      {
+        "line": "I’ve heard of Devonshire and Thrale,",
+        "token": 6,
+        "word": "Thrale",
+        "phones": ["TH", "R", "EY1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Thrale surname."
+      },
+      {
+        "line": "‘Fair Benedetta,’ scrawled in vain",
+        "token": 2,
+        "word": "Benedetta",
+        "phones": ["B", "EH2", "N", "AH0", "D", "EH1", "T", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
       }
     ]
   },
@@ -308,6 +740,14 @@
         "phones": ["B", "AY1", "R"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Friend, sursum corda, soon or slow",
+        "token": 2,
+        "word": "sursum",
+        "phones": ["S", "ER1", "S", "AH0", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Conventional English Latin sursum reading."
       }
     ]
   },
@@ -320,6 +760,22 @@
         "phones": ["S", "P", "ER1", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "She has lectured on Scopas and Myrton,",
+        "token": 5,
+        "word": "Scopas",
+        "phones": ["S", "K", "OW1", "P", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Conventional English Scopas."
+      },
+      {
+        "line": "She has lectured on Scopas and Myrton,",
+        "token": 7,
+        "word": "Myrton",
+        "phones": ["M", "ER1", "T", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected English Myrton spelling-based name reading; does not repair the text to Myron."
       }
     ]
   },
@@ -340,6 +796,22 @@
         "phones": ["AY1", "L", "EH0", "K", "S"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Slipped down the long shores of the Spezian bay,",
+        "token": 8,
+        "word": "Spezian",
+        "phones": ["S", "P", "EH1", "Z", "IY0", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spezia adjective, selected English reading."
+      },
+      {
+        "line": "Rounded a point,—and San Terenzo lay",
+        "token": 6,
+        "word": "Terenzo",
+        "phones": ["T", "EH0", "R", "EH1", "N", "Z", "OW0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected English approximation of Italian place name."
       }
     ]
   },
@@ -360,6 +832,14 @@
         "phones": ["S", "AH1", "DH", "R", "AH0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Beneath the soft wet Morvern skies,",
+        "token": 5,
+        "word": "Morvern",
+        "phones": ["M", "AO1", "R", "V", "ER0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Morvern place name."
       }
     ]
   },
@@ -416,6 +896,14 @@
         "phones": ["P", "L", "EY1", "T", "AY1", "M"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "No more in the nymphs’ and dryads’ playtime",
+        "token": 7,
+        "word": "dryads'",
+        "phones": ["D", "R", "AY1", "AE0", "D", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar dryads plural possessive."
       }
     ]
   },
@@ -436,6 +924,30 @@
         "phones": ["S", "K", "AH0", "M", "AE1", "N", "D", "ER0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Through plains where Simois and Scamander went",
+        "token": 4,
+        "word": "Simois",
+        "phones": ["S", "IH1", "M", "OW0", "IH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "In rich Mycenæ, do the Fates relent:",
+        "token": 3,
+        "word": "Mycenæ",
+        "phones": ["M", "AY0", "S", "IY1", "N", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Mycenae ligature spelling."
+      },
+      {
+        "line": "And strives to rend thy songs; too blind to see",
+        "token": 4,
+        "word": "rend",
+        "phones": ["R", "EH1", "N", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar rend."
       }
     ]
   },
@@ -448,6 +960,22 @@
         "phones": ["S", "AW1", "DH", "IY0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Racine is common as Rotrou,",
+        "token": 5,
+        "word": "Rotrou",
+        "phones": ["R", "OW0", "T", "R", "UW1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Derome, Le Gascon, Padeloup!",
+        "token": 1,
+        "word": "Derome",
+        "phones": ["D", "AH0", "R", "OW1", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected English approximation of French binder's name."
       }
     ]
   },
@@ -460,6 +988,22 @@
         "phones": ["SH", "IH0", "B", "IY1", "N", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Through the land of the wild Gadarenes;",
+        "token": 7,
+        "word": "Gadarenes",
+        "phones": ["G", "AE1", "D", "ER0", "IY2", "N", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Biblical Gadarenes."
+      },
+      {
+        "line": "Like the Pisan, and mud is its lime;",
+        "token": 3,
+        "word": "Pisan",
+        "phones": ["P", "IY1", "Z", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -480,6 +1024,14 @@
         "phones": ["L", "AE1", "NG", "G", "ER0", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "They have passed to Oblivion and Nox,",
+        "token": 7,
+        "word": "Nox",
+        "phones": ["N", "AA1", "K", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Conventional English Nox."
       }
     ]
   },
@@ -492,6 +1044,30 @@
         "phones": ["R", "AE1", "B", "AH0", "L", "EY2"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And shelter of the cool Himâlayan hills.",
+        "token": 6,
+        "word": "Himâlayan",
+        "phones": ["HH", "IH2", "M", "AH0", "L", "EY1", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected familiar Himalayan variant; accent remains in source."
+      },
+      {
+        "line": "That I in some old abbey of Touraine",
+        "token": 8,
+        "word": "Touraine",
+        "phones": ["T", "UH0", "R", "EY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Drifted, as ashes of the Santhal dead",
+        "token": 6,
+        "word": "Santhal",
+        "phones": ["S", "AE1", "N", "T", "AA0", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar ethnonym, selected English reading."
       }
     ]
   },
@@ -512,6 +1088,14 @@
         "phones": ["S", "P", "IH1", "N", "IH0", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Howe’er the thoughtful critic fret.",
+        "token": 1,
+        "word": "Howe'er",
+        "phones": ["HH", "AW0", "EH1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar however contraction."
       }
     ]
   },
@@ -524,6 +1108,770 @@
         "phones": ["F", "AO0", "R", "S", "P", "EH1", "N", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "line-449": {
+    "pronunciations": [
+      {
+        "line": "In Dreamland; the scamp has his debt:",
+        "token": 4,
+        "word": "scamp",
+        "phones": ["S", "K", "AE1", "M", "P"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "And glory the jeton of France is;",
+        "token": 4,
+        "word": "jeton",
+        "phones": ["ZH", "AH0", "T", "AA1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar French gaming token; selected anglicized reading."
+      }
+    ]
+  },
+  "line-586": {
+    "pronunciations": [
+      {
+        "line": "The ferox rins in rough Loch Awe,",
+        "token": 2,
+        "word": "ferox",
+        "phones": ["F", "EH1", "R", "AA0", "K", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar trout epithet; selected English reading."
+      },
+      {
+        "line": "A weary cry frae ony toun;",
+        "token": 4,
+        "word": "frae",
+        "phones": ["F", "R", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots and northern frae."
+      },
+      {
+        "line": "A weary cry frae ony toun;",
+        "token": 5,
+        "word": "ony",
+        "phones": ["AO1", "N", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots any form; selected rounded first vowel."
+      },
+      {
+        "line": "A weary cry frae ony toun;",
+        "token": 6,
+        "word": "toun",
+        "phones": ["T", "UW1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots town vowel retained."
+      },
+      {
+        "line": "The Spey, that loups o’er linn and fa’,",
+        "token": 8,
+        "word": "fa'",
+        "phones": ["F", "AO1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Scots fall form and surname Faa; selected broad vowel without final l."
+      },
+      {
+        "line": "They praise a’ ither streams aboon;",
+        "token": 4,
+        "word": "ither",
+        "phones": ["IH1", "DH", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots ither."
+      },
+      {
+        "line": "They boast their braes o’ bonny Doon:",
+        "token": 7,
+        "word": "Doon",
+        "phones": ["D", "UW1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Doon/down regional form."
+      },
+      {
+        "line": "Gie me to hear the ringing reel,",
+        "token": 1,
+        "word": "Gie",
+        "phones": ["G", "IY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Where shilfas sing, and cushats croon",
+        "token": 2,
+        "word": "shilfas",
+        "phones": ["SH", "IH1", "L", "F", "AH0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known Scots shilfa plural."
+      },
+      {
+        "line": "Where shilfas sing, and cushats croon",
+        "token": 5,
+        "word": "cushats",
+        "phones": ["K", "UH1", "SH", "AH0", "T", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots cushats wood pigeons."
+      },
+      {
+        "line": "There’s Ettrick, Meggat, Ail, and a’,",
+        "token": 2,
+        "word": "Ettrick",
+        "phones": ["EH1", "T", "R", "IH0", "K"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Ettrick river name."
+      },
+      {
+        "line": "There’s Ettrick, Meggat, Ail, and a’,",
+        "token": 3,
+        "word": "Meggat",
+        "phones": ["M", "EH1", "G", "AH0", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Ye’ll see them take in showers o’ snaw",
+        "token": 1,
+        "word": "Ye'll",
+        "phones": ["Y", "IY1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Contraction of ye and will, with ye vowel retained."
+      },
+      {
+        "line": "Ye’ll see them take in showers o’ snaw",
+        "token": 8,
+        "word": "snaw",
+        "phones": ["S", "N", "AO1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Some blinking, cauldrife April noon:",
+        "token": 3,
+        "word": "cauldrife",
+        "phones": ["K", "AO1", "L", "D", "R", "AY0", "F"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots cold-rife compound selected."
+      },
+      {
+        "line": "And syne we’ll show a bonny creel,",
+        "token": 2,
+        "word": "syne",
+        "phones": ["S", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots syne."
+      },
+      {
+        "line": "There’s mony a water, great or sma’,",
+        "token": 7,
+        "word": "sma'",
+        "phones": ["S", "M", "AO1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots small form without l."
+      },
+      {
+        "line": "But set us in our fishing-shoon",
+        "token": 6,
+        "word": "fishing-shoon",
+        "phones": ["F", "IH1", "SH", "IH0", "NG", "SH", "UW2", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Fishing plus familiar Scots shoon."
+      },
+      {
+        "line": "Between the Caddon-burn and Peel,",
+        "token": 3,
+        "word": "Caddon-burn",
+        "phones": ["K", "AE1", "D", "AH0", "N", "B", "ER2", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent Caddon-burn place-name performance reading."
+      },
+      {
+        "line": "And syne we’ll cross the heather broun",
+        "token": 2,
+        "word": "syne",
+        "phones": ["S", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots syne."
+      },
+      {
+        "line": "Deil take the dirty, trading loon",
+        "token": 1,
+        "word": "Deil",
+        "phones": ["D", "IY1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scots deil."
+      },
+      {
+        "line": "And drift his dyes and poisons doun",
+        "token": 7,
+        "word": "doun",
+        "phones": ["D", "UW1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "line-627": {
+    "pronunciations": [
+      {
+        "line": "Aldines, Bodonis, Elzevirs.",
+        "token": 2,
+        "word": "Bodonis",
+        "phones": ["B", "AH0", "D", "OW1", "N", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Bodoni name plural, selected English reading."
+      },
+      {
+        "line": "Aldines, Bodonis, Elzevirs.",
+        "token": 3,
+        "word": "Elzevirs",
+        "phones": ["EH1", "L", "Z", "AH0", "V", "IH2", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected conventional Anglicized Elzevir plural."
+      },
+      {
+        "line": "There soiled romanticists may lie,",
+        "token": 3,
+        "word": "romanticists",
+        "phones": ["R", "OW0", "M", "AE1", "N", "T", "IH0", "S", "IH0", "S", "T", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Regular plural romanticist."
+      },
+      {
+        "line": "Whose motto evermore is Spes!",
+        "token": 5,
+        "word": "Spes",
+        "phones": ["S", "P", "EY1", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected familiar Latin motto pronunciation in an English performance."
+      },
+      {
+        "line": "Aldines, Bodonis, Elzevirs!",
+        "token": 2,
+        "word": "Bodonis",
+        "phones": ["B", "AH0", "D", "OW1", "N", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Bodoni name plural, selected English reading."
+      },
+      {
+        "line": "Aldines, Bodonis, Elzevirs!",
+        "token": 3,
+        "word": "Elzevirs",
+        "phones": ["EH1", "L", "Z", "AH0", "V", "IH2", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected conventional Anglicized Elzevir plural."
+      },
+      {
+        "line": "Aldines, Bodonis, Elzevirs?",
+        "token": 2,
+        "word": "Bodonis",
+        "phones": ["B", "AH0", "D", "OW1", "N", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Bodoni name plural, selected English reading."
+      },
+      {
+        "line": "Aldines, Bodonis, Elzevirs?",
+        "token": 3,
+        "word": "Elzevirs",
+        "phones": ["EH1", "L", "Z", "AH0", "V", "IH2", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected conventional Anglicized Elzevir plural."
+      }
+    ]
+  },
+  "line-838": {
+    "pronunciations": [
+      {
+        "line": "Orchomenos increased with gold;",
+        "token": 1,
+        "word": "Orchomenos",
+        "phones": ["AO0", "R", "K", "AA1", "M", "AH0", "N", "AA0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected conventional English classical Orchomenos reading."
+      },
+      {
+        "line": "As over Shinar’s brick and slime,",
+        "token": 3,
+        "word": "Shinar's",
+        "phones": ["SH", "AY1", "N", "AA0", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar biblical place possessive; selected English reading."
+      }
+    ]
+  },
+  "line-986": {
+    "pronunciations": [
+      {
+        "line": "The hare shall kindle on thy hearth-stane,",
+        "token": 7,
+        "word": "hearth-stane",
+        "phones": ["HH", "AA1", "R", "TH", "S", "T", "EY2", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Compound with Scots stane vowel retained."
+      }
+    ]
+  },
+  "line-1254": {
+    "pronunciations": [
+      {
+        "line": "The number of his years is IV,",
+        "token": 7,
+        "word": "IV",
+        "phones": ["F", "AO1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Roman numeral IV means four in this line."
+      }
+    ]
+  },
+  "line-1331": {
+    "pronunciations": [
+      {
+        "line": "The verses of Molière;",
+        "token": 4,
+        "word": "Molière",
+        "phones": ["M", "OW0", "L", "Y", "EH1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Old Corneille came to woo,",
+        "token": 2,
+        "word": "Corneille",
+        "phones": ["K", "AO0", "R", "N", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar French playwright name, English approximation."
+      },
+      {
+        "line": "At Brécourt, fuming there!",
+        "token": 2,
+        "word": "Brécourt",
+        "phones": ["B", "R", "EY0", "K", "UH1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected English approximation of French name; no claim of historical French delivery."
+      },
+      {
+        "line": "The Porter’s stabbed! a Mousquetaire",
+        "token": 5,
+        "word": "Mousquetaire",
+        "phones": ["M", "UW2", "S", "K", "AH0", "T", "EH1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected Anglicized mousquetaire, supported by there rhyme."
+      },
+      {
+        "line": "Ménage’s smirk, de Visé’s stare,",
+        "token": 1,
+        "word": "Ménage's",
+        "phones": ["M", "EY0", "N", "AA1", "ZH", "IH0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected English reading of French Ménage with possessive suffix."
+      },
+      {
+        "line": "The thefts of Jean Ribou,—",
+        "token": 5,
+        "word": "Ribou",
+        "phones": ["R", "IY0", "B", "UW1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "line-1379": {
+    "pronunciations": [
+      {
+        "line": "Here’s Villon, in morocco fine,",
+        "token": 2,
+        "word": "Villon",
+        "phones": ["V", "IY0", "Y", "AO1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar French poet name, English approximation."
+      },
+      {
+        "line": "Glatigny does not crave to dine,",
+        "token": 1,
+        "word": "Glatigny",
+        "phones": ["G", "L", "AE0", "T", "IY1", "N", "Y", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected English approximation of French name; no claim of historical French delivery."
+      },
+      {
+        "line": "And René’s tears forget to flow.",
+        "token": 2,
+        "word": "René's",
+        "phones": ["R", "AH0", "N", "EY1", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Rene name possessive; selected Anglicized reading."
+      },
+      {
+        "line": "The Princess D’Este’s hand of snow;",
+        "token": 3,
+        "word": "D'Este's",
+        "phones": ["D", "EH1", "S", "T", "EY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar d'Este name with possessive."
+      }
+    ]
+  },
+  "line-1418": {
+    "pronunciations": [
+      {
+        "line": "Where the lights on Latmos gleam,—",
+        "token": 5,
+        "word": "Latmos",
+        "phones": ["L", "AE1", "T", "M", "AA0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "line-1455": {
+    "pronunciations": [
+      {
+        "line": "Who ruled where’er the waves have rolled,",
+        "token": 3,
+        "word": "where'er",
+        "phones": ["W", "EH0", "R", "EH1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar two-syllable poetic wherever contraction."
+      }
+    ]
+  },
+  "line-1646": {
+    "pronunciations": [
+      {
+        "line": "Of the Windburg’s tufted over",
+        "token": 3,
+        "word": "Windburg's",
+        "phones": ["W", "IH1", "N", "D", "B", "ER0", "G", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected transparent English Windburg possessive reading."
+      },
+      {
+        "line": "Deep below the cushat best",
+        "token": 4,
+        "word": "cushat",
+        "phones": ["K", "UH1", "SH", "AH0", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "line-1811": {
+    "pronunciations": [
+      {
+        "line": "As Nilus Egypt, rolling down his vast",
+        "token": 2,
+        "word": "Nilus",
+        "phones": ["N", "AY1", "L", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "line-1997": {
+    "pronunciations": [
+      {
+        "line": "Or that great pupil taught of Verrocchio",
+        "token": 7,
+        "word": "Verrocchio",
+        "phones": ["V", "EH0", "R", "OW1", "K", "IY0", "OW0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Verrocchio name; selected Anglicized rendering."
+      }
+    ]
+  },
+  "line-2117": {
+    "pronunciations": [
+      {
+        "line": "A pleasant land is Scribie, where",
+        "token": 5,
+        "word": "Scribie",
+        "phones": ["S", "K", "R", "IH1", "B", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent coined literary place name Scribie; selected spelling reading."
+      },
+      {
+        "line": "And comic Irishmen in scores",
+        "token": 3,
+        "word": "Irishmen",
+        "phones": ["AY1", "R", "IH0", "SH", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Scribie, we’ve loved, and love thee still!",
+        "token": 1,
+        "word": "Scribie",
+        "phones": ["S", "K", "R", "IH1", "B", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent coined literary place name Scribie; selected spelling reading."
+      }
+    ]
+  },
+  "line-2280": {
+    "pronunciations": [
+      {
+        "line": "From their warm chantry’s fold,",
+        "token": 4,
+        "word": "chantry's",
+        "phones": ["CH", "AE1", "N", "T", "R", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      }
+    ]
+  },
+  "line-2661": {
+    "pronunciations": [
+      {
+        "line": "Where Ettrick and where Teviot flow.",
+        "token": 2,
+        "word": "Ettrick",
+        "phones": ["EH1", "T", "R", "IH0", "K"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Ettrick river name."
+      },
+      {
+        "line": "Where Ettrick and where Teviot flow.",
+        "token": 5,
+        "word": "Teviot",
+        "phones": ["T", "IY1", "V", "IY0", "AH0", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Teviot river name, selected conventional reading."
+      },
+      {
+        "line": "From Urigil to Lochinvar.",
+        "token": 4,
+        "word": "Lochinvar",
+        "phones": ["L", "AA2", "K", "IH0", "N", "V", "AA1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Conventional English Lochinvar reading; ARPABET lacks Scottish velar fricative."
+      },
+      {
+        "line": "And clear and fleet Eurotas still,",
+        "token": 5,
+        "word": "Eurotas",
+        "phones": ["Y", "UH0", "R", "OW1", "T", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar English classical name reading."
+      },
+      {
+        "line": "Where Dian drave the chase of yore.",
+        "token": 3,
+        "word": "drave",
+        "phones": ["D", "R", "EY1", "V"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar archaic past tense drave."
+      },
+      {
+        "line": "That feed beneath the elms of Yair.",
+        "token": 7,
+        "word": "Yair",
+        "phones": ["Y", "EH1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "And Summer by Loch Assynt’s deep,",
+        "token": 5,
+        "word": "Assynt's",
+        "phones": ["AH0", "S", "IH1", "N", "T", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Scottish place Assynt possessive."
+      },
+      {
+        "line": "Unseen, Eurotas, southward steal,",
+        "token": 2,
+        "word": "Eurotas",
+        "phones": ["Y", "UH0", "R", "OW1", "T", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar English classical name reading."
+      },
+      {
+        "line": "Unknown, Alpheus, westward glide,",
+        "token": 2,
+        "word": "Alpheus",
+        "phones": ["AE0", "L", "F", "IY1", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected traditional English classical-name reading."
+      }
+    ]
+  },
+  "line-3096": {
+    "pronunciations": [
+      {
+        "line": "Clings to thy shoon in sudden shower’s downpour,",
+        "token": 4,
+        "word": "shoon",
+        "phones": ["SH", "UW1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known Scots/poetic shoon plural."
+      }
+    ]
+  },
+  "line-3337": {
+    "pronunciations": [
+      {
+        "line": "Wand’ring unsatisfied in empty lands,",
+        "token": 1,
+        "word": "Wand'ring",
+        "phones": ["W", "AA1", "N", "D", "R", "IH0", "NG"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Printed two-syllable contraction."
+      },
+      {
+        "line": "Still the desirèd face",
+        "token": 3,
+        "word": "desirèd",
+        "phones": ["D", "IH0", "Z", "AY1", "ER0", "IH0", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Grave accent explicitly retains final ed syllable."
+      }
+    ]
+  },
+  "line-3495": {
+    "pronunciations": [
+      {
+        "line": "Miss Braddon and Gaboriau.",
+        "token": 2,
+        "word": "Braddon",
+        "phones": ["B", "R", "AE1", "D", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Miss Braddon and Gaboriau.",
+        "token": 4,
+        "word": "Gaboriau",
+        "phones": ["G", "AE2", "B", "AO0", "R", "IY0", "OW1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected anglicized reading of familiar French author name."
+      },
+      {
+        "line": "Give me Lecoq, Jottrat, and Co.,",
+        "token": 3,
+        "word": "Lecoq",
+        "phones": ["L", "AH0", "K", "AA1", "K"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar French detective name, selected English approximation."
+      },
+      {
+        "line": "Miss Braddon and Gaboriau!",
+        "token": 2,
+        "word": "Braddon",
+        "phones": ["B", "R", "AE1", "D", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Miss Braddon and Gaboriau!",
+        "token": 4,
+        "word": "Gaboriau",
+        "phones": ["G", "AE2", "B", "AO0", "R", "IY0", "OW1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected anglicized reading of familiar French author name."
+      }
+    ]
+  },
+  "line-3646": {
+    "pronunciations": [
+      {
+        "line": "For when all things were dark, not a glimmer nor spark, and the world like a barque without rudder or sail",
+        "token": 17,
+        "word": "barque",
+        "phones": ["B", "AA1", "R", "K"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      },
+      {
+        "line": "For the Hawk, so they tell, was then known as Pundjel, and a-musing he fell at the close of the day;",
+        "token": 11,
+        "word": "Pundjel",
+        "phones": ["P", "AH1", "N", "JH", "EH2", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected English performance of the printed mythic name, consistent with tell/fell rhyme; not an Indigenous pronunciation attestation."
+      },
+      {
+        "line": "And this was the baking of Man, and his making; but now he’s forsaking his Father, Pundjel!",
+        "token": 17,
+        "word": "Pundjel",
+        "phones": ["P", "AH1", "N", "JH", "EH2", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected English performance of the printed mythic name, consistent with tell/fell rhyme; not an Indigenous pronunciation attestation."
+      },
+      {
+        "line": "Why the Hawk ’twas again, and great Indra to men would appear, now and then, in the shape of a Quail,",
+        "token": 8,
+        "word": "Indra",
+        "phones": ["IH1", "N", "D", "R", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known English Indra reading."
+      },
+      {
+        "line": "While the Thlinkeet’s delight is the Bird of the Night, the beak and the bright ebon plumage of Yehl.",
+        "token": 16,
+        "word": "ebon",
+        "phones": ["EH1", "B", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "And who for man’s need brought the famed Suttung’s mead? why ’tis told in the creed of the Sagamen strong,",
+        "token": 9,
+        "word": "Suttung's",
+        "phones": ["S", "UH1", "T", "UH0", "NG", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected English performance of Norse name, not Old Norse attestation."
+      },
+      {
+        "line": "And who for man’s need brought the famed Suttung’s mead? why ’tis told in the creed of the Sagamen strong,",
+        "token": 19,
+        "word": "Sagamen",
+        "phones": ["S", "AA1", "G", "AH0", "M", "EH2", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent saga-men compound; selected English performance."
+      },
+      {
+        "line": "Next, who gave men their laws? and what reason or cause the young brave overawes when in need of a squaw,",
+        "token": 21,
+        "word": "squaw",
+        "phones": ["S", "K", "W", "AO1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known historical word reading, without endorsing its usage."
+      },
+      {
+        "line": "For you still hold it wrong if a lubra belong to the self-same kobong that is Father of you,",
+        "token": 9,
+        "word": "lubra",
+        "phones": ["L", "UW1", "B", "R", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar historical word lubra; pronunciation only, without endorsing the term."
+      },
+      {
+        "line": "There’s a price on their head, and the Dodo is dead, and the Moa has fled from the sight of the sun!",
+        "token": 14,
+        "word": "Moa",
+        "phones": ["M", "OW1", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar bird name."
+      }
+    ]
+  },
+  "line-918": {
+    "pronunciations": [
+      {
+        "line": "But deluded chronologists chose,",
+        "token": 3,
+        "word": "chronologists",
+        "phones": ["K", "R", "AH0", "N", "AA1", "L", "AH0", "JH", "IH0", "S", "T", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      },
+      {
+        "line": "Flints Palæolithic like these,",
+        "token": 2,
+        "word": "Palæolithic",
+        "phones": ["P", "EY2", "L", "IY0", "OW0", "L", "IH1", "TH", "IH0", "K"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar palaeolithic with ligature."
       }
     ]
   }

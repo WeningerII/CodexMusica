@@ -63,8 +63,8 @@ pronunciation declarations supply selected readings during analysis. The reader
 attaches this supplement only after verifying its exact source binding and before
 computing cache identity. Explicit caller sets take precedence, including an
 empty set to opt out; existing dictionary alternatives are unchanged.
-The [pronunciation supplement](pronunciations/README.md) packages 6,973 optional
-occurrence declarations for 892 works using that existing API. All are absent
+The [pronunciation supplement](pronunciations/README.md) packages 9,638 optional
+occurrence declarations for 1,030 works using that existing API. All are absent
 from default and high-confidence dictionary lookup. They are explicitly selected
 performance readings, not claims of authentic historical pronunciation; the
 supplement documents remaining coverage gaps and exact caller usage.

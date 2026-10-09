@@ -1,4 +1,10 @@
 {
+  "reading_001366d5-dd96-5577-94dd-378c39a925ca": {
+    "candidate_id": "poem-291",
+    "collection": "27195",
+    "reading_revision": "65cc0fb386165d35f8f1a4efc0b061657312769f212064cafb85906433f4e0df",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_00522317-3b8c-50e2-8a0b-5d159d34bbf8": {
     "candidate_id": "poem-212",
     "collection": "27195",
@@ -10,6 +16,18 @@
     "collection": "27195",
     "reading_revision": "dc5210229c2ba68618436f67d1de78ec9ef14d436619fc2f7eefb3490ef9da71",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_017af6e6-67b8-5838-90da-453fd73cc083": {
+    "candidate_id": "line01991",
+    "collection": "69378",
+    "reading_revision": "fdf47fc66f1c215322c1612055f1466cb53924e4cc1f002f7c4299a59f0463b9",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_0227e615-30d2-5ad8-90fc-416813d3b05f": {
+    "candidate_id": "15",
+    "collection": "51226",
+    "reading_revision": "b7fba1048334bfb4ff1fd7e9b9ae68a67fa039c0ec38876d4168ed93309dc7be",
+    "source_sha256": "eb24a6c4be9954053cbd85272fffab38b87c384d5206624701cb98f733a8a08e"
   },
   "reading_0274da6d-d1b2-5eaf-a2b9-006006c38c22": {
     "candidate_id": "line-2162",
@@ -287,6 +305,24 @@
     "reading_revision": "1582af1b14a99645683e780709f59a1016253b2dea4e5d53d4e0aecaa8bd6a4e",
     "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
   },
+  "reading_0d8bcad8-2aa1-5263-a671-c39253c50927": {
+    "candidate_id": "pg934-055",
+    "collection": "934",
+    "reading_revision": "01d9552f17f10155bf0652b1def16d67f173d33b29b21a0177cebbd3d4a7131b",
+    "source_sha256": "c6e47243aa3ebb9ac0b7e7ff12467e8358fe4d28ef8a439c578495e0086ec222"
+  },
+  "reading_0dc8b5ed-b8bc-52f2-b3f6-3437d25e5e55": {
+    "candidate_id": "27",
+    "collection": "50878",
+    "reading_revision": "5c20cce8a1191cc945d8cb5dcadf3398ebc724e08546fa69d5947d70c64889f8",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
+  "reading_0df793f2-2b0b-517f-a541-51221cec7472": {
+    "candidate_id": "6",
+    "collection": "51226",
+    "reading_revision": "c074b692df662a909c7126fd57d28ba2f5cb51bd62c3e03b1718d85498fcc12f",
+    "source_sha256": "080de5ec26dd7522c8a50ec738fbfd9e8474d53ba28ed628ce86de646e4f1ad4"
+  },
   "reading_0e7bfa1a-4a49-5e0e-b069-9151ad6cd399": {
     "candidate_id": "poem-225",
     "collection": "27195",
@@ -316,6 +352,12 @@
     "collection": "27195",
     "reading_revision": "f52e8485bf926ca115a403c73fbcead9ccb3013494f6ca520646710557a3334e",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_0f84cf82-c184-58f7-8136-d27c605555c0": {
+    "candidate_id": "line-2117",
+    "collection": "3138",
+    "reading_revision": "b7ba8553f691b5ab00d4cf32ea6ddd36628ba8062c7d6e6c67ad2dbe82e9f912",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
   "reading_0fa4ce34-903d-5df2-88f7-d67a685140b4": {
     "candidate_id": "THE_PITMANS_DREAM1",
@@ -364,6 +406,12 @@
     "collection": "40048",
     "reading_revision": "1b583abef3e2103e3929f8c1ddae1a25add8ff7c96bcddf540fc4f4e04e77a40",
     "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
+  },
+  "reading_10b7cd6c-90ca-573e-b700-f724ec60f476": {
+    "candidate_id": "line-1455",
+    "collection": "3138",
+    "reading_revision": "da755ea52d7c81897624e293dc674765d5494699508ac3c763aa6631a001bd6e",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
   "reading_10b83e2d-67e2-5ef4-a50f-fd4a45fa4dc4": {
     "candidate_id": "poem-089",
@@ -443,6 +491,24 @@
     "reading_revision": "517bbeccd6ec5bd237033970d4178c4161cfcb867591218db48d1fb97aae8655",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_155b4ae7-99f1-558c-92c4-f9c423c09246": {
+    "candidate_id": "line08362",
+    "collection": "69378",
+    "reading_revision": "9250f8330725f8e2cab9fd188eb1da8f3c3e8f8b730d1285799d462cd14974c2",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_155b69cc-6bcc-5bfb-aa95-bbc2604a999d": {
+    "candidate_id": "line05511",
+    "collection": "69378",
+    "reading_revision": "654d8eecb6173a22fc437b76b8883949cd5264797b8f3bad90532de10e158b74",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_15be23c9-3992-501e-916b-48ad117a298f": {
+    "candidate_id": "line07866",
+    "collection": "69378",
+    "reading_revision": "1c50e589a50936859942363d52e3829cd09627b90e0a8d9d238755b8c0351164",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
   "reading_160b69a0-026e-5aca-a0e2-993cc9d239be": {
     "candidate_id": "rhyme1_106",
     "collection": "13646",
@@ -521,6 +587,12 @@
     "reading_revision": "d9cc686cbb44a7e6af138b9de0b3d7270808243b4d61389de4af720d6e59c4fc",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_190885a1-ba0a-5b1b-9e7e-7a4d1b48ffb7": {
+    "candidate_id": "line-2661",
+    "collection": "3138",
+    "reading_revision": "a3ccd732a8d2837d7629d6593251f5744f939809e584edb5042a2c4048d6158b",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
+  },
   "reading_196b23a9-03f5-5164-8f67-d9f6bd29faba": {
     "candidate_id": "poem-176",
     "collection": "27195",
@@ -587,6 +659,12 @@
     "reading_revision": "b23e2aeac63a82b94a4b8eb220d0433a1b8cf7e71a4fadd7d08e688971b9725c",
     "source_sha256": "7ea0b486a275761e21b3c65a1475eb7515ead5dc4a89753483f68ed94a8f7804"
   },
+  "reading_1b0ba42a-1e6c-5d13-9a94-fbab9b6355c2": {
+    "candidate_id": "55",
+    "collection": "50878",
+    "reading_revision": "1d0781de25ae34553466b948a936b6ee99814f465d9d0f2366f7b63a9b314015",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
   "reading_1b4e5628-e0c8-5969-b0a9-1aa122e415ec": {
     "candidate_id": "THE_MECHANICS_PROCESSION",
     "collection": "40048",
@@ -611,6 +689,12 @@
     "reading_revision": "906b3f32862ceb71fe26e13f5a5c628295c771955c6f20744accc9aea671850a",
     "source_sha256": "94b995bb789e421261ecd4596f04f7fc2b58f44471853addffbce490832f9882"
   },
+  "reading_1b9a2622-cf07-5088-a681-157a183ad300": {
+    "candidate_id": "poem-178",
+    "collection": "27195",
+    "reading_revision": "d00243df3474ac0f938b8c2e4bad9ca2bca1657e408f9406f3be699e94c84c2e",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_1bcea34e-30cb-540e-a2f8-3a9cf782b921": {
     "candidate_id": "poem-244",
     "collection": "27195",
@@ -623,6 +707,12 @@
     "reading_revision": "61ce5c39c0699f0c33081f38a428ede5b86a85cd8e8913287fae583a50149311",
     "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
   },
+  "reading_1c4d8d1a-f76d-5416-ae99-e87bf0c4b41c": {
+    "candidate_id": "25",
+    "collection": "50878",
+    "reading_revision": "20ee58e004b1f01f1a4c81d42d5415c4d4b7cd2106e5074d3833667aee5a6c08",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
   "reading_1c582602-339b-5866-8f44-d39b98f28dbb": {
     "candidate_id": "poem-263",
     "collection": "27195",
@@ -633,6 +723,12 @@
     "candidate_id": "line04828",
     "collection": "69378",
     "reading_revision": "357940800eed11fb00391a0971151654dc3c18b517a67bae0915f64578d6bfb4",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_1c9bb246-db59-5965-8b83-3200c210c5ee": {
+    "candidate_id": "line03210",
+    "collection": "69378",
+    "reading_revision": "05bbf457b36b6b2c29951479a784589cb2a8872a5bfee9bfd2eec8bf4466e7a0",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
   "reading_1ca07023-fb3f-5237-a000-7d8b74e55565": {
@@ -689,6 +785,12 @@
     "reading_revision": "8e12ff10f8390d2886ad0e852b1184024a76af690a21e7dbda4c28bb11bafd87",
     "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
   },
+  "reading_1dfd458b-a022-5f26-b43a-b31364260349": {
+    "candidate_id": "poem-277",
+    "collection": "27195",
+    "reading_revision": "f3f4b3128af21fda7267e21ef21c11b004f64936b1781d38f84e46a90222339e",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_1e5c643d-26d8-560b-8895-459c2d9ddf30": {
     "candidate_id": "line07615",
     "collection": "69378",
@@ -719,6 +821,12 @@
     "reading_revision": "437daab79ec109d8618edea61c02731da48db8437da05b8ba03654521d6cb0c5",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_209f3584-03d0-5599-bd2d-a2d711bbdd14": {
+    "candidate_id": "34",
+    "collection": "50878",
+    "reading_revision": "2729ec3dc79ff028517346593e4ba77451f79a57d27b63c18d8b0df89efc3d09",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
   "reading_2125f7b0-7082-5962-b5c3-2f54afaaab61": {
     "candidate_id": "BOB_CRANKYS_SIZE_SUNDAY",
     "collection": "40048",
@@ -748,6 +856,12 @@
     "collection": "69378",
     "reading_revision": "9fde814a75d02185fc3bfa7d2bf2dcd11591b084fa0b6a3031db45687e40b9fe",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_220ca0c9-1155-5041-bcfa-cd92e76e62fc": {
+    "candidate_id": "poem-013",
+    "collection": "27195",
+    "reading_revision": "0722782989e52dc776b487da4277c031ae898bb137ba3ba721718d337d84110f",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
   "reading_221e404d-d6af-5266-91bb-301459961876": {
     "candidate_id": "line05993",
@@ -850,6 +964,12 @@
     "collection": "69378",
     "reading_revision": "bc1e7f03b8bb14e9bff695de20728b89180ca43c079d7a7206c33c878e5da6f4",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_25f412ad-40be-597b-b934-ab16fa2052e1": {
+    "candidate_id": "poem-234",
+    "collection": "27195",
+    "reading_revision": "6d7da70a83aa4069dc41fe69d93602906797dfd7657f46fba496dbe4bfbb9c34",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
   "reading_265ec9c4-7f6f-5e52-96b6-f43073cb6388": {
     "candidate_id": "line03773",
@@ -989,6 +1109,12 @@
     "reading_revision": "d37cdfc64d037d49881c8e1cd9a90b43908aaef7ce648b4f1184778bc68beda1",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_2df7d6ff-a5b9-5b52-baca-b4111128212a": {
+    "candidate_id": "line-1127",
+    "collection": "1568",
+    "reading_revision": "e6ffd54a9bae52cb352e2d9638bfa956659d5572153204604180dc5ece9ae428",
+    "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
+  },
   "reading_2e35cee8-7957-5887-a3b0-99342aea7bd8": {
     "candidate_id": "poem-108",
     "collection": "27195",
@@ -1007,6 +1133,12 @@
     "reading_revision": "8ff1f1c3160c622aeac9bb940c49b28263c82fa2c6de31dc42048fc91f1aaf64",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_2efe837a-aed6-592d-9204-5ed9e488eaca": {
+    "candidate_id": "poem-098",
+    "collection": "27195",
+    "reading_revision": "e1d99144c15212a29c344abe914743da2e1e339d50ac20654315de0c337ea1c4",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_2f4a01bb-f1a9-5c6a-b730-59f48fe3ec25": {
     "candidate_id": "line07577",
     "collection": "69378",
@@ -1018,6 +1150,12 @@
     "collection": "40048",
     "reading_revision": "8539775343504ca6d84e550e3c996b6662cbf4b01b1a2b46b40d487e1d1ce20c",
     "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
+  },
+  "reading_2fd80738-68bb-5b52-a201-0b98f8a2ca88": {
+    "candidate_id": "19",
+    "collection": "58414",
+    "reading_revision": "787b57d74540c9dad3061bdb874ba45652c9991ec19768701bbc94cdcea59698",
+    "source_sha256": "beabd12a47053a6c7e68ed70f4ed70538de65b78e10cd49ab9d852b7e4116adf"
   },
   "reading_30a607ea-1d61-53d4-b915-1026880ce198": {
     "candidate_id": "poem-007",
@@ -1073,17 +1211,35 @@
     "reading_revision": "812b0caab3875ea8d3b175aed655f0419150b2cb9abd220b6659a81acaa898c9",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_332f7e3a-df6d-5f37-8e49-9898478cfab6": {
+    "candidate_id": "poem-256",
+    "collection": "27195",
+    "reading_revision": "eac4fd7afef2edb3e9dd9cf01a4e11e8d2aa1787ee9d8d8e82aff2fad1b767ab",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_338292fe-7a96-5d0b-bd48-e252c13385af": {
     "candidate_id": "poem-087",
     "collection": "27195",
     "reading_revision": "39a12e9678adf2ce5ea306a66cbbcc94e8fb6040bf5b8946acd7f76e696ce040",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_34223fcb-be7b-5387-9f67-0bc5f93f7867": {
+    "candidate_id": "54",
+    "collection": "50878",
+    "reading_revision": "0e42a1a3cd2ba6f4b58482331825e509f8430e1e40ca1e8a63d0f6d618d8a82c",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
   "reading_344998ad-6b5c-50c4-aeec-38a1a8475387": {
     "candidate_id": "poem-208",
     "collection": "27195",
     "reading_revision": "458713c3edd036718ccdee1f6d5dc55faee7a1bd6a77714cfb708adda43d4876",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_3491d15e-2230-5a9f-be31-43ee8b262b73": {
+    "candidate_id": "pg934-042",
+    "collection": "934",
+    "reading_revision": "154f93b3db33d0ab0626f0b191a067e5b3fc1a120c698706806f07bbf31ed811",
+    "source_sha256": "c6e47243aa3ebb9ac0b7e7ff12467e8358fe4d28ef8a439c578495e0086ec222"
   },
   "reading_34d9dcf4-7592-5b74-929c-be7700e4c710": {
     "candidate_id": "poem-045",
@@ -1120,6 +1276,12 @@
     "collection": "1568",
     "reading_revision": "084a4da7987319bf6a5400be568eb31e0624416eb14048ac6c79e2799d8f6e43",
     "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
+  },
+  "reading_35876166-de5a-5756-8a52-3e3491f654b2": {
+    "candidate_id": "44",
+    "collection": "58414",
+    "reading_revision": "cfd6a7ae454e3466888ef0691b74f83f6f58d95ca2e7fb6581ee9e49bf785936",
+    "source_sha256": "beabd12a47053a6c7e68ed70f4ed70538de65b78e10cd49ab9d852b7e4116adf"
   },
   "reading_362b9ab9-e303-5832-a4cc-7055a89627fb": {
     "candidate_id": "rhyme1_29",
@@ -1163,6 +1325,12 @@
     "reading_revision": "c38ccd4d2d1bc5188d99704c9ea2df8a5b366632f3f43ca3f34e156d30480546",
     "source_sha256": "5973415964e0f116b478aba8be70121a04c45049cfa623875d525b5afe58aa32"
   },
+  "reading_381e7301-de3d-55c6-b908-cf54752138ad": {
+    "candidate_id": "pg934-006",
+    "collection": "934",
+    "reading_revision": "3e3a39ac9e6a7dce8dac1baddb3a99e432a67499e644f6260eb053ca5f0ef9b6",
+    "source_sha256": "c6e47243aa3ebb9ac0b7e7ff12467e8358fe4d28ef8a439c578495e0086ec222"
+  },
   "reading_3853fbe3-89ae-5d61-92fd-9635effe087f": {
     "candidate_id": "THE_SKIPPERS_FRIGHT",
     "collection": "40048",
@@ -1192,6 +1360,12 @@
     "collection": "27195",
     "reading_revision": "bda2c3b28a28245db6a608e39aeed32eb508e200dfa3b9b78c7f5e6459e60f07",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_38f977df-7456-5faa-86d9-0fc614b498ae": {
+    "candidate_id": "ACROSTIC",
+    "collection": "40048",
+    "reading_revision": "3eafdd0c407e9267900410aee4bef90319ec94ae72caa15c474e6f6147cb1c6a",
+    "source_sha256": "5972bc500cac0e4bc7dc89362169da45acac80b1ca391cf440c0a7324be935fe"
   },
   "reading_38fe4f70-1140-53f6-b984-18c88ad76011": {
     "candidate_id": "line02896",
@@ -1229,6 +1403,12 @@
     "reading_revision": "bdafe76f5599756edca427fbcb495269c8200a7d8476c4abb669f841950df92a",
     "source_sha256": "5972bc500cac0e4bc7dc89362169da45acac80b1ca391cf440c0a7324be935fe"
   },
+  "reading_3a2ecc25-a831-5866-9c94-08645c498ce8": {
+    "candidate_id": "16",
+    "collection": "58414",
+    "reading_revision": "a6e3bc0982b609dc2694855507da935346358f4b9b41fe6ce2a1945f6757228d",
+    "source_sha256": "beabd12a47053a6c7e68ed70f4ed70538de65b78e10cd49ab9d852b7e4116adf"
+  },
   "reading_3a356cfe-d5b9-503d-852a-88c4cf3a8cf2": {
     "candidate_id": "poem-245",
     "collection": "27195",
@@ -1240,6 +1420,12 @@
     "collection": "27195",
     "reading_revision": "77295835bfaa1e0d867490af9e868d1fb1dea152603a7d582dfe30accaf4f74d",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_3b985bd3-6eb5-5c56-bbe6-4a22e73f2a2d": {
+    "candidate_id": "line07257",
+    "collection": "69378",
+    "reading_revision": "12df8cb411f414ffe209fb6f4526d7d23c57a2488c445355db04acde0dc642e2",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
   "reading_3bc3e21a-214e-5fbf-b643-9beed5565d94": {
     "candidate_id": "poem-296",
@@ -1319,6 +1505,12 @@
     "reading_revision": "cefc19363b875a6d72ccd58d67d1b091b42840a198776dc415275bf275094194",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_3f62a389-52d7-59f2-aa1a-fcf787f62ca1": {
+    "candidate_id": "24",
+    "collection": "51226",
+    "reading_revision": "fe04bd88e3b1a497f61b916266e24e17b2b8ee3292365af3f5479efb1d68462e",
+    "source_sha256": "d82420489b5d61df37e23302e8d9d9d4db12f17a04d3c9571dc9ecb1d002d4aa"
+  },
   "reading_3f6afe46-f06d-544c-8421-e8d83e517322": {
     "candidate_id": "line04710",
     "collection": "69378",
@@ -1354,6 +1546,12 @@
     "collection": "40048",
     "reading_revision": "3f54dd47e3f42a38620949065aed364e15fafa8614142652336a441a8f6d5a52",
     "source_sha256": "f5492a157457fd70ebfc72decda39e242d00bcd56260fdfe868969aee21a6a1b"
+  },
+  "reading_403fa3a3-789f-582c-9f1f-eb47ac2c8d31": {
+    "candidate_id": "BOB_FUDGES_POSTSCRIPT",
+    "collection": "40048",
+    "reading_revision": "1dba49bb94b27e79aff2ea9575d9ca3d8a7522a6be7444d09c358b98e04b34ad",
+    "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
   },
   "reading_4074d579-f2a8-50f2-8077-e5629851e30c": {
     "candidate_id": "poem-163",
@@ -1409,6 +1607,12 @@
     "reading_revision": "1eeb5d7ab7a290111e9e3cc47e374416714421887c909c9288d7ca0364748053",
     "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
   },
+  "reading_42dd8a0d-b8a7-5e6b-9959-50789d39ad22": {
+    "candidate_id": "line-627",
+    "collection": "3138",
+    "reading_revision": "e86b458375db85883cba805c21554df21815c492d4357db05bb608b150d1f28b",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
+  },
   "reading_43115dc2-8fe2-5bda-bb34-4cf87cff5cba": {
     "candidate_id": "line09141",
     "collection": "69378",
@@ -1456,6 +1660,12 @@
     "collection": "58414",
     "reading_revision": "d8ec217f2b45acbaaeae9f2dfc7cc88bee3f645a5120d4d25087b83da5da581d",
     "source_sha256": "beabd12a47053a6c7e68ed70f4ed70538de65b78e10cd49ab9d852b7e4116adf"
+  },
+  "reading_44380eb6-cb38-53d4-8cd1-ebae9ccd2c52": {
+    "candidate_id": "poem-333",
+    "collection": "27195",
+    "reading_revision": "a1cb2e45455de5080cd5c89215f4ce76ed2a6edfb344e92fe6d5aa2e3d067e9e",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
   "reading_445448ae-5386-5a6f-9aef-1d29e00d18d4": {
     "candidate_id": "poem-062",
@@ -1505,6 +1715,12 @@
     "reading_revision": "7f4f58d3af71e9cd7c67245cd10980d69389c65927effadb295401ffb73b04d8",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_46ebc0dc-a794-5ead-be7b-25398540df3f": {
+    "candidate_id": "line-2823",
+    "collection": "1568",
+    "reading_revision": "5208d52c3066f291b5118e5fabadc2e80218adc26569fea893a7c5f7c3b939c1",
+    "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
+  },
   "reading_471ad417-2d58-5e9c-bed5-0014c7c835ec": {
     "candidate_id": "THE_CUSTOM_HOUSE_BRANCH",
     "collection": "40048",
@@ -1522,6 +1738,12 @@
     "collection": "3138",
     "reading_revision": "5740ed04d96f8e6da48140b23bdc9013fab73f8e59a0b11ae0b7838cc25db354",
     "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
+  },
+  "reading_4808fb65-5d26-59bb-9310-6fa82efd2648": {
+    "candidate_id": "42",
+    "collection": "50878",
+    "reading_revision": "a4100628a1134767064e27ddcd82d71b8ac2eb0ea2dfb4dedf2a234245f398b7",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
   },
   "reading_4838d7c3-7027-54a8-bd4d-87308fbd07d0": {
     "candidate_id": "line03687",
@@ -1583,6 +1805,12 @@
     "reading_revision": "a59fbecf788311eb589c052d71c55133911272d834c43379932928e90c45da5b",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_4bac1aa7-7292-5377-8910-e7d78a76497b": {
+    "candidate_id": "poem-287",
+    "collection": "27195",
+    "reading_revision": "9e911e447beaa33d9f935b3f3f87f4f8e4cf7095427293f0c0ef459d1a8dc870",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_4be9deb7-fdeb-5a20-b2d9-703319d8e78c": {
     "candidate_id": "poem-298",
     "collection": "27195",
@@ -1601,6 +1829,18 @@
     "reading_revision": "f8a48d2e5715a5eb1f0f77ea22776531b815d66cffa55b596f2129a355b673df",
     "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
   },
+  "reading_4c2bd782-1cb4-5759-ba45-4543e647d769": {
+    "candidate_id": "line05707",
+    "collection": "69378",
+    "reading_revision": "d7a7699cb0dae21db7a506f648f199a9ddd30ef85984b1e0338db40ec2a26d0b",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_4ce901ca-f355-51a1-a0e0-4632e05e2009": {
+    "candidate_id": "44",
+    "collection": "51226",
+    "reading_revision": "0ac8e303b0c57b895380d8b77eceb94c287139dafe4b91c4e261e48a748f7de9",
+    "source_sha256": "d82420489b5d61df37e23302e8d9d9d4db12f17a04d3c9571dc9ecb1d002d4aa"
+  },
   "reading_4cf7452d-c72a-5d08-a5f5-aa6e01cc124a": {
     "candidate_id": "poem-050",
     "collection": "27195",
@@ -1611,6 +1851,12 @@
     "candidate_id": "line08546",
     "collection": "69378",
     "reading_revision": "4e4985cb3e5a18e390732c4528e82d87d3b592c3deafff649e3e87dc5d1427c2",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_4d0dc29b-de3a-5240-a20b-8b12be5672f5": {
+    "candidate_id": "line09448",
+    "collection": "69378",
+    "reading_revision": "3fe39c342100981a94d0214f9bfc733f698b39c126f0f19526cf3cc85f54d127",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
   "reading_4d113fc2-5ac0-5c46-a95a-094e21029d9e": {
@@ -1636,6 +1882,12 @@
     "collection": "3138",
     "reading_revision": "d67235eecb3fb3059462d8301fb0605eb0ed2f1a2391364c2b062d33e716ec72",
     "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
+  },
+  "reading_4d525561-90c0-53bf-bed2-29dc8f754f48": {
+    "candidate_id": "61",
+    "collection": "50878",
+    "reading_revision": "aaf6880d55e81e27508b58074d3791f2c22ffac844b3c7f4f6d4d3a00bd40e84",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
   },
   "reading_4d8b491f-0376-5707-bb03-f0311923b599": {
     "candidate_id": "poem-288",
@@ -1666,6 +1918,12 @@
     "collection": "69378",
     "reading_revision": "edb38ad2cb6959b298937fadc950d0206df0ff3e64e7f88664159aee491348dc",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_4e5380ce-0f16-581d-80e7-ccdbc1cb0a23": {
+    "candidate_id": "26",
+    "collection": "50878",
+    "reading_revision": "1d3543ba24a7d8127125f774530c4d77cc8276d463002e79e7d0670418a6e9c5",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
   },
   "reading_4e59dddf-dc45-525f-9c10-89854351c27e": {
     "candidate_id": "A_NORTH_SHIELDS_SONG",
@@ -1708,6 +1966,12 @@
     "collection": "40048",
     "reading_revision": "bbaf7b9b49402f3d6f08fdeb82bcc7227825f570be10b36d4d4c77e5a5d24125",
     "source_sha256": "2ad45dadccce3b3f50e2331a5601339bf29564bb28889daa79803786fe2927ff"
+  },
+  "reading_513c8705-16df-5501-8a80-d84f9d9daa1f": {
+    "candidate_id": "57",
+    "collection": "50878",
+    "reading_revision": "638cac8d35953cf3ad8b471bd8219af1457664adf70b12084f4f6c99b6d7d3cd",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
   },
   "reading_515f378e-86bb-5ecd-9c59-1d897fd3dc7a": {
     "candidate_id": "line-1025",
@@ -1805,6 +2069,12 @@
     "reading_revision": "e9beb9170be7a7ee1292079262db05bddebc0be3e7aba87a11e0cba2c54dcdf8",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_54f298f4-8b83-5a4d-858a-e0552fbcd44a": {
+    "candidate_id": "poem-155",
+    "collection": "27195",
+    "reading_revision": "9bf88385c46325e9536a22fabbd952960e7b12f13b330f7e071b676055311756",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_5513bde8-a0c7-5fd3-a617-60a66fc19138": {
     "candidate_id": "rhyme1_83",
     "collection": "13646",
@@ -1816,6 +2086,12 @@
     "collection": "27195",
     "reading_revision": "651a82d52bbab0b3dc2be466b32304cc4e060ca8d2e4e4e7fdd5e1602d2a2c53",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_558ad33d-0e5b-5f16-b3cf-f8ae0a344afd": {
+    "candidate_id": "TILL_THE_TIDE_CAME_IN",
+    "collection": "40048",
+    "reading_revision": "0e08e9345c77e234953c9281df24361e93433edd029fb3745eb4bf6f45ff64cf",
+    "source_sha256": "1c4cdd896c69c9162e9c3f0fb6f95aae71d84b3d5e7e38c244df499d217bf685"
   },
   "reading_55c99903-f87a-5843-a2c2-a7f5e1f76b0c": {
     "candidate_id": "MAW_CANNY_HINNY",
@@ -1858,6 +2134,12 @@
     "collection": "69378",
     "reading_revision": "7591e6c90a2a31fc0cf8ff2633f6d77c5c1f440bed2216d010597d088d84807b",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_58d10249-348b-5ef0-a0d8-cafd55140a29": {
+    "candidate_id": "line-3337",
+    "collection": "3138",
+    "reading_revision": "e59765b174e652338edf819be7b4a23b646c7d850c1d61e21497fdf8cbbca3a1",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
   "reading_58e260e9-c924-588d-8aa0-0e755ddb1b3f": {
     "candidate_id": "line04794",
@@ -1924,6 +2206,12 @@
     "collection": "27195",
     "reading_revision": "ba51fd82518b1bb14c0b51f569111cf470b16fceb98b29606be21f7b2f0b7090",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_5b08966f-410c-5da1-bd6f-56dbe02953d3": {
+    "candidate_id": "50",
+    "collection": "51226",
+    "reading_revision": "25a17c12dbb47403f470beb784d13e80894f9844794171aaf063ddbc8679d4eb",
+    "source_sha256": "d82420489b5d61df37e23302e8d9d9d4db12f17a04d3c9571dc9ecb1d002d4aa"
   },
   "reading_5b43a54f-624c-572a-b46e-3ff84f68b083": {
     "candidate_id": "THE_NEWCASTLE_OLD_COUNTRY_GENTLEMAN",
@@ -2051,6 +2339,12 @@
     "reading_revision": "4bf71b4a135c5023afebe00941f7094c4fcfe0e9a5de2601449ae6a3c031ef02",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_5fb013d6-7cb4-5391-8114-1c32b9291a90": {
+    "candidate_id": "line-3646",
+    "collection": "3138",
+    "reading_revision": "dc57c1997bbe4c611a7cb713c586eee2f9f6d1d0af98b7ba2748a78d04d74017",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
+  },
   "reading_5fd12ee4-2bb7-570a-ad3c-82abe09796b5": {
     "candidate_id": "poem-024",
     "collection": "27195",
@@ -2116,6 +2410,18 @@
     "collection": "27195",
     "reading_revision": "58222818ba3ad4d0d72ebd914c946f278d499f0fe5276b1027575210d9a7a15d",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_6332b654-7e43-59a2-98ad-be9da82064bd": {
+    "candidate_id": "poem-203",
+    "collection": "27195",
+    "reading_revision": "95bc0f23e954f7b6ecaff555ced5fb6313e114289b95bc2bbc4ca8189ba82ef3",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_63495242-8f40-59e4-a6e2-8ee733d8928a": {
+    "candidate_id": "42",
+    "collection": "51226",
+    "reading_revision": "2787dd7ff45e7e69af8378d77331b45c98177d8bb174d57387a4f4dffccd474a",
+    "source_sha256": "d82420489b5d61df37e23302e8d9d9d4db12f17a04d3c9571dc9ecb1d002d4aa"
   },
   "reading_63acf83e-9b0d-5d10-b48b-14c6bf30ffa4": {
     "candidate_id": "40",
@@ -2189,6 +2495,12 @@
     "reading_revision": "7441b55654be147175fcd890cce379df83179d1b99bd356045249f8038455c3b",
     "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
+  "reading_68378a70-9af9-5c41-9c61-ba8e8cd0008a": {
+    "candidate_id": "11",
+    "collection": "50878",
+    "reading_revision": "ebb793d3a775f9d99e18a3c939524c53cffcff86779c1cc83ccc023adbea5ed6",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
   "reading_685d6e1d-44e2-5d3f-a06a-b094cdf8f31e": {
     "candidate_id": "poem-137",
     "collection": "27195",
@@ -2199,6 +2511,12 @@
     "candidate_id": "poem-319",
     "collection": "27195",
     "reading_revision": "95b952a0538efe6c0922e26c7dc78fe64bae92759a3ab941d7642cd5ded039b8",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_69aa72ce-83f9-5020-b98c-c15c88de77cc": {
+    "candidate_id": "poem-095",
+    "collection": "27195",
+    "reading_revision": "981dc84b51e383057241865dacc5596adb23df18093428901fb6e837a8b14619",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
   "reading_6a963efa-753a-59fa-9c11-982d737cc10e": {
@@ -2219,11 +2537,29 @@
     "reading_revision": "08250665660c7a621bd986201805217034662f073448411c794dde9790a0af26",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_6bcc73b1-ad0a-5755-bfd7-1ca4fde9221e": {
+    "candidate_id": "46",
+    "collection": "50878",
+    "reading_revision": "fc6b3dc9cc5fbed67c761f84c567e55ffe8a60dbcd0fc51e20df76a6c4b53be9",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
+  "reading_6c60349c-8b5e-57e0-8790-b6e78fefdff6": {
+    "candidate_id": "43",
+    "collection": "51226",
+    "reading_revision": "e098fb159225cce483ac5d7519dffbcc7f1bac319be78a704b75bcd010a73136",
+    "source_sha256": "5dddf497f591e773201e3d84a8a0a4e8a79042c1aaf46261f9c093823bd96d39"
+  },
   "reading_6cc4d7db-b79d-541e-a300-797cde6bdc65": {
     "candidate_id": "THE_FRIAR_AND_THE_NUN",
     "collection": "40048",
     "reading_revision": "1e692bc5f14e1b6c1658f6af6b19f90bb5517ac28a09afe971f5fc770b7e7920",
     "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
+  },
+  "reading_6cf7aa39-8072-5ad1-8068-d729d699bc00": {
+    "candidate_id": "poem-136",
+    "collection": "27195",
+    "reading_revision": "e11b13e685c5925891e9422c23c2e48aa2a35100176e9eb95366bafacfa655c6",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
   "reading_6d6844e3-0cfd-50a1-8b58-6f3523d1f5a2": {
     "candidate_id": "line09538",
@@ -2231,11 +2567,23 @@
     "reading_revision": "d0bb16fb9880ae0c6c1e6b0203b80754f0de8b2dd59f8c3e8f8fe594a17e3719",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_6d6e3f5e-b680-5c87-a1d1-6880db21f414": {
+    "candidate_id": "THE_BIRTH-DAY_OF_QUEEN_VICTORIA",
+    "collection": "40048",
+    "reading_revision": "34c2fc6ad2e17213ea16bee9a21dd2d17fc58f38983a44973c9df1f8a61efb05",
+    "source_sha256": "f5492a157457fd70ebfc72decda39e242d00bcd56260fdfe868969aee21a6a1b"
+  },
   "reading_6d78e98d-0b22-596d-94e5-dfd478405724": {
     "candidate_id": "line-3753",
     "collection": "1568",
     "reading_revision": "d149eb08ad3f1470a16d0a94e5907c109c5b1f0e32f047fbf88666df2791e068",
     "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
+  },
+  "reading_6dfac66c-2867-559a-bc19-dc5cab2e3e5e": {
+    "candidate_id": "pg934-050",
+    "collection": "934",
+    "reading_revision": "09bbaecf18b5cae66dcaeda6fb00644ef521fe917473cc3004107417e76125ce",
+    "source_sha256": "c6e47243aa3ebb9ac0b7e7ff12467e8358fe4d28ef8a439c578495e0086ec222"
   },
   "reading_6e06eefe-ff6a-53f0-bffa-d2ba55d7626c": {
     "candidate_id": "line04343",
@@ -2266,6 +2614,12 @@
     "collection": "40048",
     "reading_revision": "9332df2006224eef5748a257ffa09d0c263a003d208e10aa61304297318581c1",
     "source_sha256": "1c4cdd896c69c9162e9c3f0fb6f95aae71d84b3d5e7e38c244df499d217bf685"
+  },
+  "reading_6ee9c2a0-133c-58d8-afdd-23e8faf31b93": {
+    "candidate_id": "line-3096",
+    "collection": "3138",
+    "reading_revision": "66cd593401d443788b0fb77830f60274d4ce9472ab550b44042b3963bbdaf4ab",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
   "reading_6ef0b599-29d1-5379-b63b-a82f14105e1e": {
     "candidate_id": "line03422",
@@ -2363,11 +2717,23 @@
     "reading_revision": "e08a685b37cfb4a3e9a58a20949b93ddd1eb49982c0d99625e08fda19951aefe",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_71c769a2-a275-5f80-81d0-67367a55b9c7": {
+    "candidate_id": "rhyme1_70",
+    "collection": "13646",
+    "reading_revision": "2c607ee5f07edb7f464e93696089887ad9ac2e7da59d510c0aea4f2e8dd8795f",
+    "source_sha256": "396fc792ae1e3af2e759baca1bbe7c4bbbc8be001a5b9121afdf34c6b0661e54"
+  },
   "reading_71ece908-e219-534d-b61b-85e706559c6d": {
     "candidate_id": "line06500",
     "collection": "69378",
     "reading_revision": "4b0b2a0872ba0cb54b62663cf7b4b4bc62865c4f8348d269cac41f995f0732e0",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_723553b2-2fb8-5ad8-83dd-dd9e85886d94": {
+    "candidate_id": "line-2243",
+    "collection": "1568",
+    "reading_revision": "556668eb1636a88b77bc538a591a9ad522bfdb22c9205f5b8c1fc1fe6b6f4b73",
+    "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
   },
   "reading_72b48a34-4fd1-5c6c-b91e-b7e4e7050954": {
     "candidate_id": "THE_NEWCASTLE_WORTHIES",
@@ -2380,6 +2746,12 @@
     "collection": "934",
     "reading_revision": "9d76cfbffdb4c2bf6c1e93ae89815ba4631b33cf38722d2537fad88111d12d70",
     "source_sha256": "c6e47243aa3ebb9ac0b7e7ff12467e8358fe4d28ef8a439c578495e0086ec222"
+  },
+  "reading_72f30ef1-f4af-5c23-885e-498dc142032a": {
+    "candidate_id": "4",
+    "collection": "50878",
+    "reading_revision": "cb2662596d2d614fb92f773a74cc9b0aa20c34c9f4522dc69ecaec288df0ad10",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
   },
   "reading_732ef52b-7964-533a-a018-8ba3f00409bf": {
     "candidate_id": "TO_MR_PETER_WATSON",
@@ -2441,6 +2813,12 @@
     "reading_revision": "57a619483a43ecf76651b0b21030612b134114873b7eeac8e3267f63e4fad36c",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_74c9abfa-6f8f-5118-9af0-75b2db2b388e": {
+    "candidate_id": "line-586",
+    "collection": "3138",
+    "reading_revision": "bd8a3eef9f0d4d9009bb51b49146f6368de734c47fe0c61d67ccafcf5bd7faa5",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
+  },
   "reading_7502f8b1-ae36-5f95-9306-3c4abf1dddb0": {
     "candidate_id": "line-3725",
     "collection": "1568",
@@ -2501,11 +2879,23 @@
     "reading_revision": "976054c63f6fbad4024267dec693d5e47ab8d9a85c639f89168440bed1e5e333",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_7809efd6-2d74-5171-a2fa-4fdbdf53e6a8": {
+    "candidate_id": "line05473",
+    "collection": "69378",
+    "reading_revision": "0f0c3cc8f3d743e946737a8f925c97432f2d3a51b3d257d05f59f92710661e4c",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
   "reading_7823d2d7-0c90-57a9-be5c-79688fa7453d": {
     "candidate_id": "poem-149",
     "collection": "27195",
     "reading_revision": "8d8fe0a7b7ff7b017643dc52c0d8b39ca5da3e01bd7bc6c115d28aefe65937d1",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_78413e5b-5c2a-5851-be8c-901feb949a5a": {
+    "candidate_id": "line-2417",
+    "collection": "1568",
+    "reading_revision": "8a335e3fc37e26a80481ce7994dd5366e77f2b2471ebdc964be8fd4b89af1f93",
+    "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
   },
   "reading_78dd7975-6ba7-508f-b984-b1b5aeeb38e4": {
     "candidate_id": "line05833",
@@ -2524,6 +2914,12 @@
     "collection": "40048",
     "reading_revision": "d4f04b3b41fc6825de82dae79bf054394e7586e021288fcff8888d761d8e50a1",
     "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
+  },
+  "reading_79698381-cb7b-567e-8034-0234d3240270": {
+    "candidate_id": "line-2280",
+    "collection": "3138",
+    "reading_revision": "cc99cdda041ce2e0ef8e43b23e51a9d74e9d5734ccaffae1f9fea7abcb6c3fb6",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
   "reading_797b281c-6847-5174-81fc-48bc34ca0558": {
     "candidate_id": "poem-012",
@@ -2585,6 +2981,12 @@
     "reading_revision": "0999e02168676600a3dc6a9e35d14880601670c467a451ea25af0304647daded",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_7bab57fd-c79d-5679-b6f2-f2128304b2e1": {
+    "candidate_id": "line-1997",
+    "collection": "3138",
+    "reading_revision": "de2575f7b407cf42626ef3577407ce18232377289fb620afb85ab9c41315b67c",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
+  },
   "reading_7bed159d-8a9e-5812-9c5d-725ddd1ffbd8": {
     "candidate_id": "The_KITTY_PORT_ADMIRAL_at_the_BENCH",
     "collection": "40048",
@@ -2614,6 +3016,12 @@
     "collection": "69378",
     "reading_revision": "70004c35014e3088b0f4d56e983ef921fedda175b74d967e8af34451bdf05769",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_7c8c2673-bc22-57f7-94e8-c1758e846b43": {
+    "candidate_id": "line-4475",
+    "collection": "1568",
+    "reading_revision": "274db7a75a35cfa070bcf2e2f3ab52ca86478b40f55bd2c4a0e0f04dfa91ab82",
+    "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
   },
   "reading_7cb7a2a2-f9c8-56f6-ba5a-aeb057ea0a82": {
     "candidate_id": "51",
@@ -2657,11 +3065,29 @@
     "reading_revision": "7a2ba7c2de616399f0af110baa36098012d58f785af9ab0a645a665fbb126fee",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_7d890763-2cd2-5f81-b796-9ff36891660c": {
+    "candidate_id": "65",
+    "collection": "50878",
+    "reading_revision": "371d15168f7aed26f436fd2df922f02188464c44c2b2cbc315cd2d2932becc4d",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
+  "reading_7e17a8d4-8438-56b3-ae47-09ca77166aed": {
+    "candidate_id": "line06843",
+    "collection": "69378",
+    "reading_revision": "b3dac8ad3aa50d04eba2da1ba164997080ae12aed6c188dceb2c419dd1cf7b48",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
   "reading_7e34854c-a882-58c3-b8ed-c833aa9c20ec": {
     "candidate_id": "poem-053",
     "collection": "27195",
     "reading_revision": "207fecb4bb5f36d77142b8b931e4738a617f400bef8e2d737b66d0cf565ad0e1",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_7e4da8a0-cbe6-5c50-9cb5-63397de52d0c": {
+    "candidate_id": "line-449",
+    "collection": "3138",
+    "reading_revision": "ce3246da2cf1b2b8575d277b1e72520f03b63076344ae45a00676dc49c7aac75",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
   "reading_7e6468d9-1518-5bb9-b2d5-8ceba85c42c4": {
     "candidate_id": "poem-044",
@@ -2674,6 +3100,12 @@
     "collection": "27195",
     "reading_revision": "8dbc01e0882aacab064c958ddae8411d7a16b97f8bd237177f9f78c7343a38d6",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_7ee02d40-7722-5be4-b868-6d763918da6b": {
+    "candidate_id": "45",
+    "collection": "58414",
+    "reading_revision": "01a43b60d7b8fde8127c9363b806596ed5356af932686d03ae7c8c211bc34d94",
+    "source_sha256": "beabd12a47053a6c7e68ed70f4ed70538de65b78e10cd49ab9d852b7e4116adf"
   },
   "reading_7eeda7a4-3149-59af-91b2-8bcbf448c5c8": {
     "candidate_id": "line08295",
@@ -2723,6 +3155,12 @@
     "reading_revision": "7eb283107b41c5a50cb560877b020d59ddb38613bf322cfa375c30a3b1fa8709",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_7fe71bb2-ba81-520d-91c4-f4a5ec4c130e": {
+    "candidate_id": "pg934-060",
+    "collection": "934",
+    "reading_revision": "689e725206bcf65575fe6af8b5977b767c4b000d1c6d6082ca87944720c52857",
+    "source_sha256": "c6e47243aa3ebb9ac0b7e7ff12467e8358fe4d28ef8a439c578495e0086ec222"
+  },
   "reading_803e6373-608f-59df-a21a-0272dba10917": {
     "candidate_id": "THE_QUACK_DOCTORS",
     "collection": "40048",
@@ -2747,6 +3185,12 @@
     "reading_revision": "43d65f085f60e27cd84d6f4596779a47beff76bca5149d4598f7f7482d75cb10",
     "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
   },
+  "reading_82069add-ba73-5212-aedb-c0f46f87da9d": {
+    "candidate_id": "poem-247",
+    "collection": "27195",
+    "reading_revision": "36ac2d1ff65ffdbdd286897333d3260b9cdcbf04415844987049a6d3b6572ede",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_825b973c-006d-5f98-a02c-928e9195ec59": {
     "candidate_id": "BOB_CRANKYS_LEUMNATION_NEET",
     "collection": "40048",
@@ -2765,6 +3209,12 @@
     "reading_revision": "49929d449308561a9535aad79cb7c12d85aa998b47c7a07032413673f9e70ff8",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_8430ebb4-f3fd-5830-9578-83582f84b8e6": {
+    "candidate_id": "14",
+    "collection": "50878",
+    "reading_revision": "9494d037b902492f9f9fcf0f0df5d57497863e21bebc070d37bc6cfd66c4b513",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
   "reading_848022f6-2ad7-5d9b-8129-2a362534d217": {
     "candidate_id": "poem-273",
     "collection": "27195",
@@ -2782,6 +3232,12 @@
     "collection": "69378",
     "reading_revision": "0439dff296fd30e219bc1d5b3b1baefbf18f2c11d72039b5fe4e2d4516bf0764",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_85c2040c-d30a-5c22-81ce-6b1e62b1913e": {
+    "candidate_id": "5",
+    "collection": "51226",
+    "reading_revision": "74131cc78fc2090d0532b8f7bc3e6816b3707bee5f720f4223f049e86075cfdb",
+    "source_sha256": "d82420489b5d61df37e23302e8d9d9d4db12f17a04d3c9571dc9ecb1d002d4aa"
   },
   "reading_85d26882-db58-5111-a5eb-0a16de6c314d": {
     "candidate_id": "37",
@@ -2866,6 +3322,18 @@
     "collection": "27195",
     "reading_revision": "7375e1f0e635d92c896b079b24e1015e7d11a872889301df403930d386116eb4",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_8815d05b-b690-502b-9886-c02fb3139c3a": {
+    "candidate_id": "THE_WATER_OF_TYNE",
+    "collection": "40048",
+    "reading_revision": "8598cf5246eb7a70676d09f26dd20999bc58e595647c8e29b57d7a9be08677a6",
+    "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
+  },
+  "reading_886ed331-18ba-51ad-9db0-4f3fe400331f": {
+    "candidate_id": "line-838",
+    "collection": "3138",
+    "reading_revision": "facb2851c7cea276b5f5f5b5ee2e4168d8158204e39e63b131dd3d69c2584671",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
   "reading_88ab40e8-190b-50d7-8c06-050c595cf4e5": {
     "candidate_id": "poem-335",
@@ -2993,6 +3461,18 @@
     "reading_revision": "73c1c36d050b2d0d9e5fd1c0eaa921f0767f7a5b7ce05dd2644156f6ca8f5143",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_9160a286-e7e8-5e41-ae32-fc4640bd8f09": {
+    "candidate_id": "47",
+    "collection": "51226",
+    "reading_revision": "78585b0fdfe3107fce4c60056360c621fc4e0dea12f8b1ee58bfb0dc31e01206",
+    "source_sha256": "d82420489b5d61df37e23302e8d9d9d4db12f17a04d3c9571dc9ecb1d002d4aa"
+  },
+  "reading_91a4be3c-f5a0-533c-940d-11a7ab095399": {
+    "candidate_id": "line-3459",
+    "collection": "1568",
+    "reading_revision": "1683287016d53896d38c47ce633cef3515c26f68e660337bd232572a8fc36d3d",
+    "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
+  },
   "reading_91c26af9-1caf-5738-a635-aceb0442fa84": {
     "candidate_id": "line04874",
     "collection": "69378",
@@ -3004,6 +3484,12 @@
     "collection": "69378",
     "reading_revision": "c2716a3b08113092c2f61fb354d8ac942b1f12261167596d6fe81bf71416597c",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_926a9a30-1121-5d28-b5cc-0757d70089d5": {
+    "candidate_id": "line-1855",
+    "collection": "1568",
+    "reading_revision": "8631ade692d509edf69b3183648cdc4abb23dd14dddb75435eff5edc6847f35c",
+    "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
   },
   "reading_92da18ba-b52a-52a7-9637-daccbc005402": {
     "candidate_id": "poem-125",
@@ -3053,6 +3539,12 @@
     "reading_revision": "a67aad2e4c51af79d05e1b4b86934d2e884ef6e584fb8133e4ca59388b731ae3",
     "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
   },
+  "reading_946c0b23-8b6a-5ca6-baea-964f074c11c5": {
+    "candidate_id": "rhyme1_73",
+    "collection": "13646",
+    "reading_revision": "b451b365288d77ef245ff5ea00852f0de8ce9b5bd3dc36177c853d4f76a370c1",
+    "source_sha256": "396fc792ae1e3af2e759baca1bbe7c4bbbc8be001a5b9121afdf34c6b0661e54"
+  },
   "reading_9480d866-cf90-53cc-863a-f85991614062": {
     "candidate_id": "poem-196",
     "collection": "27195",
@@ -3076,6 +3568,12 @@
     "collection": "69378",
     "reading_revision": "54eddfd364c62530e5ec9782dbf272257a86ed22cf8487a6451c95162033593c",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_95ad729f-52dd-5957-8770-b47f532c78cf": {
+    "candidate_id": "line-3495",
+    "collection": "3138",
+    "reading_revision": "8d0643d1d08528ce023657054082391fb83525685c069b3b98afbc5b18ce2393",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
   "reading_95e75a21-547f-53d6-9877-0239235669cf": {
     "candidate_id": "line-362",
@@ -3107,6 +3605,12 @@
     "reading_revision": "fd4169d17ce896be66a8773b78183aa22de1bead6331c6c9d7066aaa6b11470d",
     "source_sha256": "396fc792ae1e3af2e759baca1bbe7c4bbbc8be001a5b9121afdf34c6b0661e54"
   },
+  "reading_972d82c3-1a85-5c04-b8f9-14d08a925804": {
+    "candidate_id": "line01954",
+    "collection": "69378",
+    "reading_revision": "e9b51ad456fe10547d08bca375856f15fc94ee5bdc85804963441e2a439d6092",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
   "reading_9777dbe6-d370-51df-8dfa-ef526fd28119": {
     "candidate_id": "pg934-070",
     "collection": "934",
@@ -3119,11 +3623,23 @@
     "reading_revision": "db34a8e02800d26214554c8600efea8df53a09b0f8fb53efdb991ccb9d9c8e87",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_97ae34e8-38e3-5d7b-94d3-ba66b6507837": {
+    "candidate_id": "line-1331",
+    "collection": "3138",
+    "reading_revision": "f9d0891bee66f21f055ac7d38e8b2917665e165724fa3984d5e18336bb20b03e",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
+  },
   "reading_98187ab6-72ae-57f6-8175-172ab03f0a3b": {
     "candidate_id": "poem-144",
     "collection": "27195",
     "reading_revision": "ba36cae50ac8e3b9aac22834b88befd5229b5c314fa8a825b1aaba0d2b6943f6",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_986a0393-b8b9-5a58-a05a-cb0a95c81dc4": {
+    "candidate_id": "line10301",
+    "collection": "69378",
+    "reading_revision": "76cee8d850f658e7009a76985eb4c2572f7ecaa1c6d5e572c151bca8dc984ef3",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
   "reading_989685f9-33a6-5228-a054-0fac667ff9dc": {
     "candidate_id": "poem-184",
@@ -3149,6 +3665,12 @@
     "reading_revision": "f9a3946850dc54d638838ed1b73c3f82cd6172aadf2d9eba3c9758a05568bcaa",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_9a42e438-b922-5700-827f-0d6905cf0bc9": {
+    "candidate_id": "poem-100",
+    "collection": "27195",
+    "reading_revision": "74c95b5b0c4fc09c8b78ab1bfbd081a96b45e64fd26c4a23e70dab1471969e84",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_9ab96f03-3abe-521a-94c9-4226218a8f4a": {
     "candidate_id": "poem-051",
     "collection": "27195",
@@ -3160,6 +3682,12 @@
     "collection": "27195",
     "reading_revision": "3fc85e1c279d80b2fa8f32a665559c5b5a97de733f3cc7df4ae513ee906a77ce",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_9acacf78-0c15-50ae-9045-442b7113a825": {
+    "candidate_id": "TLYS_BEST_BLOOD",
+    "collection": "40048",
+    "reading_revision": "da109915ebd75235db51c42db66f065c20fe74d4a2520e53541cf1c821737f1f",
+    "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
   },
   "reading_9b8456e7-6b85-542a-a527-88165ad706f1": {
     "candidate_id": "CAPPY_OR_THE_PITMANS_DOG",
@@ -3215,6 +3743,12 @@
     "reading_revision": "9f073befe51f2aadab6d7f37a78ce9118eda7ea15523aef884e8c967fe4b0264",
     "source_sha256": "beabd12a47053a6c7e68ed70f4ed70538de65b78e10cd49ab9d852b7e4116adf"
   },
+  "reading_9c86f936-cb30-5ab9-9bef-f50f7daeea10": {
+    "candidate_id": "line10342",
+    "collection": "69378",
+    "reading_revision": "86cca901fceee24bd5bf77e281a745c55a8d30ab97996e87de1d419594a5f986",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
   "reading_9c8bb8b9-b291-5a03-95ac-6c9a0f34eba4": {
     "candidate_id": "line02491",
     "collection": "69378",
@@ -3244,6 +3778,12 @@
     "collection": "27195",
     "reading_revision": "68fd098b2bccc588c3cabcf3d18f64441b736e73f9b40e7113bf6244e5eac7dc",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_9ce7af62-3e67-5900-a222-b994a79dae35": {
+    "candidate_id": "line-1811",
+    "collection": "3138",
+    "reading_revision": "743ef787ffa6be1ff92dfd955dcddbc5672907a2181f6e30ab95168a6e84a995",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
   "reading_9cf54ebb-6f20-5e01-84f9-34754d8a932c": {
     "candidate_id": "poem-322",
@@ -3317,6 +3857,18 @@
     "reading_revision": "9ffac3b998455a66f61e9b475664075493358741abbcef475b6cc731cdb5768f",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_a0c8e344-eae0-5674-a3fb-460eb322d360": {
+    "candidate_id": "poem-094",
+    "collection": "27195",
+    "reading_revision": "1d9cd445c94b84999ff7faf70fa0458be5f2335d09312e2806e86ecdad553ff2",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_a0ee6dd4-7493-5428-98a0-57051fa431ab": {
+    "candidate_id": "line-4754",
+    "collection": "1568",
+    "reading_revision": "872820dee9832c3d2ef6ab1af32831afdf4ed15118805ac8ceb38eff5520b178",
+    "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
+  },
   "reading_a13aabf9-0398-59f2-98b4-58fccc7451f0": {
     "candidate_id": "line05950",
     "collection": "69378",
@@ -3370,6 +3922,12 @@
     "collection": "40048",
     "reading_revision": "00e6ed7755743bba8ed7ffbab1d1724e0491a5031b36960696dd5d96c0116f12",
     "source_sha256": "f5492a157457fd70ebfc72decda39e242d00bcd56260fdfe868969aee21a6a1b"
+  },
+  "reading_a26c2f14-611a-5f82-a9ac-8a8c33ffae8d": {
+    "candidate_id": "15",
+    "collection": "50878",
+    "reading_revision": "1c282a21bc833f92efc12063ac2e31a092be4e7d0ddb1785dc06d5f3b4d626e3",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
   },
   "reading_a2829ef1-9c78-5681-93bb-124c9a96287a": {
     "candidate_id": "rhyme1_79",
@@ -3431,11 +3989,23 @@
     "reading_revision": "44bc94f24185981108e78849c8215d021d6bf18b2944a799f9c930f3e5ebf606",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_a49cee6a-c6de-5175-928a-e5efb3ee8579": {
+    "candidate_id": "NANNY_OF_THE_TYNE",
+    "collection": "40048",
+    "reading_revision": "06e40734d6b80121700ba053fa653b768367ed3cf9b7ea0206459857f19e1996",
+    "source_sha256": "23e92898e9b034a68ca113a19a4b9ef9122bd4400d197882d11124adcc4c66c3"
+  },
   "reading_a4b4c372-8c39-54a9-8cfb-a62b6732caa9": {
     "candidate_id": "line06060",
     "collection": "69378",
     "reading_revision": "994416be58addafeca537bdd2627390efa9b60aba4f8ffe13b6ad6d199c2a184",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_a53374ca-405d-5c58-803f-f17efde1e423": {
+    "candidate_id": "19",
+    "collection": "50878",
+    "reading_revision": "6f1382fd8e81b401337a95ea1795b6b6253adc5a0acb9a973f51555ae84b48b1",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
   },
   "reading_a550484b-5853-5d3a-8926-abf2ddfce091": {
     "candidate_id": "line-850",
@@ -3503,6 +4073,12 @@
     "reading_revision": "0a2ee27922959177173d3873e5cb6d3e381306c4346dfc9a2121c8d7db5e7aaf",
     "source_sha256": "b8575d14189c9dcae9abf08e7f9baf09395cf442fa7f3f1cee1f835e58d130c3"
   },
+  "reading_a75ddc89-7363-5fa8-bb0d-6e9d880b730c": {
+    "candidate_id": "poem-295",
+    "collection": "27195",
+    "reading_revision": "b9434616a572725b2dc2cc1c11cb60b788cac1ec8914a6c156f956c7a8422efa",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_a79a429a-7704-5429-b684-e9dbaf542f65": {
     "candidate_id": "line-3618",
     "collection": "3138",
@@ -3527,6 +4103,18 @@
     "reading_revision": "2c3dad198af399f824557706f522990aa97e0c7e97e5b323f4e13994b904c16d",
     "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
   },
+  "reading_a7f4437b-9afa-57ee-8ea5-717ede4cca2e": {
+    "candidate_id": "poem-224",
+    "collection": "27195",
+    "reading_revision": "d4abb29b410a68deb93853d4de73a2e8c250a8298cc5feefc896fc9659d3f194",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_a800e821-c3f8-541e-b241-fe792e56728b": {
+    "candidate_id": "29",
+    "collection": "58414",
+    "reading_revision": "9a4be965a7bbb5118e26040eba3711272de66346e941b0be1ae9e27853fbc70b",
+    "source_sha256": "beabd12a47053a6c7e68ed70f4ed70538de65b78e10cd49ab9d852b7e4116adf"
+  },
   "reading_a845caab-eb0e-595a-aef4-c198b17c8858": {
     "candidate_id": "line03163",
     "collection": "69378",
@@ -3550,6 +4138,12 @@
     "collection": "69378",
     "reading_revision": "47f83d741a20f7a810ef5fc898a032e47b15b8ab799e2026fd6f7a72385c0878",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_a9a41d3c-4a66-5e65-a7bd-f30349991284": {
+    "candidate_id": "line-1418",
+    "collection": "3138",
+    "reading_revision": "4ab9bef33de1cd7797be68d990736f19f0987ae2a92c82ba13648d7aca8c6a72",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
   "reading_a9a6369c-4897-5ecb-af10-40e8e586fdee": {
     "candidate_id": "line04774",
@@ -3623,6 +4217,12 @@
     "reading_revision": "5197d8b2c9594f11e787942b3f0d24959c59520214af6e2bec95e3b033d4f9ea",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_ada71ff4-f04e-5b68-bf56-9a1d2fa125dd": {
+    "candidate_id": "43",
+    "collection": "58414",
+    "reading_revision": "1d614c880516389f42e9222a1a4da699d211758fabb4c6be0e01ad4da267a7af",
+    "source_sha256": "beabd12a47053a6c7e68ed70f4ed70538de65b78e10cd49ab9d852b7e4116adf"
+  },
   "reading_adb71957-4c59-5971-a1b2-0efb3f031f70": {
     "candidate_id": "THE_BEAR_CLUB",
     "collection": "40048",
@@ -3695,6 +4295,12 @@
     "reading_revision": "00fa900e37b20a61daa310a504a071fdc502d560353c51645332a53a12dc08a2",
     "source_sha256": "f5492a157457fd70ebfc72decda39e242d00bcd56260fdfe868969aee21a6a1b"
   },
+  "reading_b14a3e6c-8c02-57f2-9325-3aae133bcfd5": {
+    "candidate_id": "line-4535",
+    "collection": "1568",
+    "reading_revision": "25ad953f1b0ff348bc3802291acfd85596b722571f48d5393bc2f4883b343119",
+    "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
+  },
   "reading_b1843f31-14a3-5103-84ae-9ba1fda1c7b1": {
     "candidate_id": "THE_SKIPPERS_ACCOUNT_OF_THE_MECHANICS_PROCESSION",
     "collection": "40048",
@@ -3718,6 +4324,12 @@
     "collection": "69378",
     "reading_revision": "7fc59844c371ceb479c9cf5cdee2baf1cdbac88eac7f32e422288a32a48eb985",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_b3743e7d-3e86-5454-a835-cdfde7398c3f": {
+    "candidate_id": "36",
+    "collection": "50878",
+    "reading_revision": "bbc83a75c44af6999e9dfb4e710c187309720199475f004e74a043c58fd532cc",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
   },
   "reading_b3c4920c-37ba-5225-ab10-8448ca3e74dc": {
     "candidate_id": "poem-161",
@@ -3754,6 +4366,12 @@
     "collection": "40048",
     "reading_revision": "cd2f526a765633321fcc04f72dcf457be1dbb837bbf8aabddd38f77630ad40c0",
     "source_sha256": "5404be2e78e9b011c5498c61a72ed6292a321e3390e0440c90cab796ad23ed85"
+  },
+  "reading_b60b34b8-0baa-572e-b5c2-97562cb99ae2": {
+    "candidate_id": "41",
+    "collection": "58414",
+    "reading_revision": "c20fae5886eb02f86ee126e16033f920173e332f636b79c094bb6d53ca3c781d",
+    "source_sha256": "beabd12a47053a6c7e68ed70f4ed70538de65b78e10cd49ab9d852b7e4116adf"
   },
   "reading_b663f298-f619-592b-bb4d-387ee537406b": {
     "candidate_id": "poem-307",
@@ -3845,11 +4463,23 @@
     "reading_revision": "0d87450f298bd8bde9803890d938463a7ed3b205d476eae97bcb721972452aac",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_b9424b3a-b40b-5f22-bb4a-5275ae810223": {
+    "candidate_id": "line-918",
+    "collection": "3138",
+    "reading_revision": "b252feeb8cd0392dca50cbffd791c91b32467adb92b904724f129fbc9c9b3b8d",
+    "source_sha256": "215bf48f8936405dbbd9e83a399db8454a125ae71cc6cd6a6b332d9224dbacf9"
+  },
   "reading_b9bba318-3c7f-534f-9975-95e2986e6a08": {
     "candidate_id": "line01751",
     "collection": "69378",
     "reading_revision": "ea6cee5eee61cd9ccf04afae5bc4a169b0077f3b7b08bb2fdd89f13fd2cc3378",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_ba1bba6c-c803-5bc8-b501-03cad285dbed": {
+    "candidate_id": "line-1646",
+    "collection": "3138",
+    "reading_revision": "4e8eb8e2613e222e10ece7e533aff2ce0d70f609f927ec08acf177f24adcbd19",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   },
   "reading_ba2a5fc6-3aad-5613-9579-136e4ab95c46": {
     "candidate_id": "TOM_CARR_AND_WALLER_WATSON",
@@ -3868,6 +4498,12 @@
     "collection": "13646",
     "reading_revision": "594f02c35453f8a6369cfd021ec4d89ff3cd358d19f5623f3d1964223d78864e",
     "source_sha256": "396fc792ae1e3af2e759baca1bbe7c4bbbc8be001a5b9121afdf34c6b0661e54"
+  },
+  "reading_badd3092-9d16-5190-9b40-71be5c9b35c8": {
+    "candidate_id": "poem-011",
+    "collection": "27195",
+    "reading_revision": "b85271e24953b290863526da140b3ac0b163f9aa04f0627ed7906a615b551544",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
   "reading_baee1908-4d11-5511-9180-b11ac83d33a1": {
     "candidate_id": "line05547",
@@ -3905,11 +4541,23 @@
     "reading_revision": "2ee5998e6b89483d069ecd8e135bf4157c7af4735a6ab287966d6274087074af",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_bc17f229-6caf-54cd-b1a4-2929438c1e49": {
+    "candidate_id": "line01701",
+    "collection": "69378",
+    "reading_revision": "5435b7534942e48d46f4806b436cc974bac15be316be63d2974a01b3a333ecf4",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
   "reading_bc219a92-8351-531f-b39e-6c8087b42175": {
     "candidate_id": "poem-131",
     "collection": "27195",
     "reading_revision": "6e3acd0f3abc56781d364d3b28e046dc10c147218b798426f861bcfed314eb73",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_bc70e055-2c5f-5a95-a167-ce10f8d7652e": {
+    "candidate_id": "line10261",
+    "collection": "69378",
+    "reading_revision": "9295ff5b42dd6bafd0dbaa0b24de0d28c725804ff2c74fad3b321df7c32a0b4a",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
   "reading_bc7a38c9-70c2-57b0-b7dc-7509e58b1ef6": {
     "candidate_id": "line06273",
@@ -3940,6 +4588,12 @@
     "collection": "13646",
     "reading_revision": "2ca731d7ef4f5ea8d411e1a4c54730d7ca68d74f5612a5bd2b15a1199693eb52",
     "source_sha256": "396fc792ae1e3af2e759baca1bbe7c4bbbc8be001a5b9121afdf34c6b0661e54"
+  },
+  "reading_bdf3e9f1-42a8-5c6d-a6a3-2ca3c17680e6": {
+    "candidate_id": "26",
+    "collection": "51226",
+    "reading_revision": "10e12f5f570b99701a50174b076b2850d490fd2da29c13a7c3d045e78d1ebcb3",
+    "source_sha256": "469c1358e7359f701ebede0f7c38110b507b19f989698fb62213887752a304cf"
   },
   "reading_be19050d-b323-5fe4-8acf-555848b8a494": {
     "candidate_id": "poem-055",
@@ -4127,6 +4781,12 @@
     "reading_revision": "d2333ab5f35f4b635ad153a94712672fc246f6dcfda7982df336c188c1cef0a9",
     "source_sha256": "beabd12a47053a6c7e68ed70f4ed70538de65b78e10cd49ab9d852b7e4116adf"
   },
+  "reading_c60724cf-9f87-5de0-8636-4bd994a9cca2": {
+    "candidate_id": "44",
+    "collection": "50878",
+    "reading_revision": "c78e95adb75796a782f7281eac12c2d2cb1f331b8cf7ca392a3595386f81077a",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
   "reading_c65c33be-5890-5975-9404-6bd5bea4c1c4": {
     "candidate_id": "pg934-084",
     "collection": "934",
@@ -4180,6 +4840,12 @@
     "collection": "27195",
     "reading_revision": "58a6db4f12840b8e4cefc352f8f85773c496b745bfb2e3ad5d49bf7d1f25109d",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_ca8ef34b-ba93-5cc9-bc8e-5297302e9a91": {
+    "candidate_id": "3",
+    "collection": "50878",
+    "reading_revision": "73b6a342490598f80db3deb0579c2cdb83ce8652ef2ed4dbc75a6ca6f4979535",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
   },
   "reading_cab95bad-2459-579c-aa49-57a485937094": {
     "candidate_id": "THE_HUMBLE_PETITION_OF_THE_OLD_HOUSE_IN_THE_SHIELD-FIELD",
@@ -4235,6 +4901,12 @@
     "reading_revision": "b10613179add7031811294df6c9df1c5af8edb9353fdd282d92c04cfdf9be88f",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_cbbe7f00-688b-5776-b7fe-eb84309bc149": {
+    "candidate_id": "THE_TYNE2",
+    "collection": "40048",
+    "reading_revision": "5f48c6b954cce81cb05d4c2ae5d2bcd5a178306506b7c71b55b47939041d1f72",
+    "source_sha256": "3f05c7db7972c69e72b569e73099ea3dbcab24e58d6d3cbe462881470fc04d96"
+  },
   "reading_cbdb1832-2124-559d-9f81-39fbfea98de1": {
     "candidate_id": "poem-199",
     "collection": "27195",
@@ -4270,6 +4942,12 @@
     "collection": "40048",
     "reading_revision": "04fff56e96eecd7a922ec100a8fde8331d17560ce84448a1ec997877ce5a4bc2",
     "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
+  },
+  "reading_cce530dd-e8c9-54df-b0f4-9a5adfe807e8": {
+    "candidate_id": "31",
+    "collection": "51226",
+    "reading_revision": "ebace5192ded5fb6906bd5b6ea8343068fa5268977f2b82d301edc21af5f25c3",
+    "source_sha256": "d82420489b5d61df37e23302e8d9d9d4db12f17a04d3c9571dc9ecb1d002d4aa"
   },
   "reading_cce7f333-db2b-5b26-b0ac-20fa72eb87cd": {
     "candidate_id": "poem-032",
@@ -4385,6 +5063,12 @@
     "reading_revision": "22a0e66f3d2b8cd3335d200006cb3e93df10a558300e18c6ea519692d5df85e1",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_d0667b62-045e-51ff-94ad-68eb0c1bd40f": {
+    "candidate_id": "poem-306",
+    "collection": "27195",
+    "reading_revision": "752b5bb4343c5753592676ec8cd6176119a86cacbdc16297bf6f3dacc0dff1ca",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_d0ac8f28-b802-549c-8684-eb1c10c4da9e": {
     "candidate_id": "line-2756",
     "collection": "3138",
@@ -4450,6 +5134,12 @@
     "collection": "40048",
     "reading_revision": "462807a48329f6a01a6db54d15149dc0d3cd020c29e565a3e1d0ac33006c2b17",
     "source_sha256": "5972bc500cac0e4bc7dc89362169da45acac80b1ca391cf440c0a7324be935fe"
+  },
+  "reading_d37cf4b4-31d9-5c44-baf1-13b7726284a7": {
+    "candidate_id": "17",
+    "collection": "58414",
+    "reading_revision": "f64a23d7ee43cdc8dd316b7ac4c4f96ea6aae022109a38ee37073fe3a961b440",
+    "source_sha256": "beabd12a47053a6c7e68ed70f4ed70538de65b78e10cd49ab9d852b7e4116adf"
   },
   "reading_d4255e0e-9403-5f06-a31c-3cca781d3760": {
     "candidate_id": "Page_138",
@@ -4535,6 +5225,12 @@
     "reading_revision": "068463cd5428c673999e27ca73f0a89e2134d763a90cfb26f2bef425a6d6e7a6",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_d62abaf6-61ac-59da-a41d-be7d6885988c": {
+    "candidate_id": "line-1254",
+    "collection": "3138",
+    "reading_revision": "5fafb1d1158b82063aaf0d3221e79641bd7eaf66b86aaab91a05c5bc5a867566",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
+  },
   "reading_d6a41565-6d2a-5ef7-8ebb-9f8c761a5c41": {
     "candidate_id": "THE_MISFORTUNES_OF_ROGER_HIS_WIFE",
     "collection": "40048",
@@ -4588,6 +5284,12 @@
     "collection": "40048",
     "reading_revision": "55050710667d7d8e2e399df8c352cea26a76bfe2b5e6d88706d2e86d97f9038e",
     "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
+  },
+  "reading_d904ec5e-4f86-50e0-bef9-84a02b968c6b": {
+    "candidate_id": "pg934-040",
+    "collection": "934",
+    "reading_revision": "732171136772fcff9574c586f77aec189b6023b6775ee16003d24eaaf3076c11",
+    "source_sha256": "c6e47243aa3ebb9ac0b7e7ff12467e8358fe4d28ef8a439c578495e0086ec222"
   },
   "reading_d91e7c48-2387-57b2-8e10-69e8e4bb9a52": {
     "candidate_id": "THE_EAGLE_STEAM_PACKET",
@@ -4715,6 +5417,12 @@
     "reading_revision": "8f83de33de6b75e155b8138c9aa36a0ba46a0196e62915bc7c45c5ba17da5362",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
   },
+  "reading_dd68f086-4441-5571-adaa-83ce0700c272": {
+    "candidate_id": "12",
+    "collection": "51226",
+    "reading_revision": "f814dbdbb124798fde2dacc41c74758603ba30fe799ac7b371ed37f6f8a96af3",
+    "source_sha256": "55ab5703c6107686b0180d7f37df48bc7c687c5e7cd4de7e0124be972911af80"
+  },
   "reading_dde8992c-a3dc-52b2-813b-61944230551d": {
     "candidate_id": "poem-042",
     "collection": "27195",
@@ -4745,6 +5453,12 @@
     "reading_revision": "239dd55d2babecb9d36ccff5a2b4170091644f719f965394c934ae1beeaebfcd",
     "source_sha256": "a0131fce5f7e4ca9474c602483aa75036b09aff006fa2b0507aefe88f7829db9"
   },
+  "reading_e010e0f9-ddfd-5f45-8993-913f2459e778": {
+    "candidate_id": "line05464",
+    "collection": "69378",
+    "reading_revision": "27365433f2b259330bece48075dfecf77faf5d62ce6593c1685a567635561059",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
   "reading_e043fcbe-4b12-5019-8285-128373dbec80": {
     "candidate_id": "THE_OYSTER-WIFES_PETITION",
     "collection": "40048",
@@ -4756,6 +5470,12 @@
     "collection": "3138",
     "reading_revision": "d27245820932170d36b9d62e74d3baee41b9c180494734029c536cd6c9125b03",
     "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
+  },
+  "reading_e09c6a97-6bcb-523b-859d-325ab5119039": {
+    "candidate_id": "line-2351",
+    "collection": "1568",
+    "reading_revision": "f977522224ab4f861273fee0411c0c4e281fcf1f467f59780fb812f42798d4a4",
+    "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
   },
   "reading_e0cb22af-d06b-5f19-a22b-abe2e917fdad": {
     "candidate_id": "poem-124",
@@ -4865,6 +5585,12 @@
     "reading_revision": "27e2a5f4e3da44a2cb10d0af8cdaacd47d881acf0976a0d08c07ddac102d6d1e",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_e4952ccd-18b4-577f-a7e1-bea184566d81": {
+    "candidate_id": "48",
+    "collection": "50878",
+    "reading_revision": "c8b89875dda9078dc67b226b542b60161cefa8d3574204cab0686aa6304fbe98",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
   "reading_e49e5b6c-f0b6-57a5-9585-d33421d81374": {
     "candidate_id": "line-751",
     "collection": "1568",
@@ -4876,6 +5602,12 @@
     "collection": "27195",
     "reading_revision": "52e54c0db487f698dbcdd15db95ce4ea294af31255887338a0691ab2f18776c2",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_e4fb33b7-c760-505e-8e1c-6fd412f33725": {
+    "candidate_id": "39",
+    "collection": "50878",
+    "reading_revision": "80d7113d000dd7a3d41323c7a0fb2b434aba171183b7b2e96f44599d4c3e8237",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
   },
   "reading_e529c8b1-e534-596c-b639-a3374cdebad1": {
     "candidate_id": "line02921",
@@ -4907,6 +5639,12 @@
     "reading_revision": "76e0a01b5b197ad7273544451fa644cec651b2e1399e9a73c9b1abee159c352b",
     "source_sha256": "5b3a0b9ba8bd39faf9f6090032e41e54765c265be8b0048863c44d5593479e0c"
   },
+  "reading_e63c0789-3bb9-58d6-8a2f-2dda6006b8bf": {
+    "candidate_id": "poem-260",
+    "collection": "27195",
+    "reading_revision": "c3d065001a100d13649c031f2e533106abdf82b265997a0664b8f4d4e924661f",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
   "reading_e777bb5f-9798-5310-8edd-375113769432": {
     "candidate_id": "THE_PITMANS_RAMBLE",
     "collection": "40048",
@@ -4937,6 +5675,12 @@
     "reading_revision": "7385bc1f8b21a82cb1e1b6153331893b816b5469bccbfb7a6c76764cec7fdec8",
     "source_sha256": "9d5ba20d71b6f8a9a9dd2520d95b2c3905141f6acc221ff60bf698463ed01302"
   },
+  "reading_e896751f-3cdc-5897-9b79-f46f464362d1": {
+    "candidate_id": "FAREWELL_TO_THE_TYNE",
+    "collection": "40048",
+    "reading_revision": "371e8f7c439b7b5e32b93f6ff92a2e65f59f0835a9e9007192a94af0f0d9200b",
+    "source_sha256": "f5492a157457fd70ebfc72decda39e242d00bcd56260fdfe868969aee21a6a1b"
+  },
   "reading_e9042c31-c84a-5fad-9056-bd30558aaad7": {
     "candidate_id": "line03543",
     "collection": "69378",
@@ -4948,6 +5692,18 @@
     "collection": "69378",
     "reading_revision": "33d3d9db3af12c1632a4905d85668ab0d09e82d4fd91a34be8793e4051de5e31",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_e94d06fa-9300-5868-8c2b-aebd9cd2989f": {
+    "candidate_id": "line-1898",
+    "collection": "1568",
+    "reading_revision": "2dad7e6836f26ede02b4a72370395c924e0c36b0a914f23daa4ff072020dc8f3",
+    "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
+  },
+  "reading_e96a5b42-a7a7-5dbc-a65d-ec1b9aa09d12": {
+    "candidate_id": "poem-142",
+    "collection": "27195",
+    "reading_revision": "2b36e3a92a6affbe9352ba58ce10cbaaedc003a8b565bfc0325ddc32b3a99526",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
   "reading_e96de991-33ab-58fb-9f0f-3a0eea63d9f0": {
     "candidate_id": "THE_SKIPPERS_MISTAKE",
@@ -5009,6 +5765,12 @@
     "reading_revision": "8db43e610341d8ec710f1281d203e9e9074315c66cda0583fd76763b3a6b3051",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
   },
+  "reading_ecc2bb1a-c1f1-580a-9c1f-c89ede6e9bbe": {
+    "candidate_id": "37",
+    "collection": "50878",
+    "reading_revision": "ee66a0e1231ae1c28b80984c798b08207fa157dc667fb56e4b5fe0af963e8b50",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
   "reading_ed07faf5-7298-5b66-99e6-25404f102018": {
     "candidate_id": "pg934-086",
     "collection": "934",
@@ -5038,6 +5800,12 @@
     "collection": "13646",
     "reading_revision": "78876709805297fb83cbfdbe852eb2d3ea20da85e733b554e65845b38398bd7c",
     "source_sha256": "396fc792ae1e3af2e759baca1bbe7c4bbbc8be001a5b9121afdf34c6b0661e54"
+  },
+  "reading_ee02f8de-9fa3-53bb-a617-3c515e545ca7": {
+    "candidate_id": "20",
+    "collection": "50878",
+    "reading_revision": "918f200f73b18ffc2ce8d4909297273736601f82de107aef0438619ce690baa5",
+    "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
   },
   "reading_ee86cdeb-d32a-59e4-b915-013e09128e78": {
     "candidate_id": "line05926",
@@ -5093,6 +5861,18 @@
     "reading_revision": "ee2fa6d6e448eb1eaef9d2049e7217a2097959d30d38d56c11f1c9a8c6101d17",
     "source_sha256": "52b3230f82fc511416a18c7e2dba746ffca1e26a6714e02b4c371bdd41030f75"
   },
+  "reading_f10ccc9e-78dd-5ecf-a5b6-8d46057fe6ad": {
+    "candidate_id": "line-986",
+    "collection": "3138",
+    "reading_revision": "8b092418b11b33ada0b4c563ea8d03cc696d35b3c7b6d3e9d989c7eacd16ae42",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
+  },
+  "reading_f12c8496-cc42-51ec-8d46-cc10a0159820": {
+    "candidate_id": "line06074",
+    "collection": "69378",
+    "reading_revision": "c9709f7927f22c0a9744b70b76d4decfa7af5272efa1f3f9902c49ba088cf419",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
   "reading_f13e1b60-5271-5b06-b1b8-29488f92ae8c": {
     "candidate_id": "line02619",
     "collection": "69378",
@@ -5117,6 +5897,18 @@
     "reading_revision": "0a67a88ef1187a29a8bf8770f2b25be8db6d4c7bd83ed6bd22e5ecb360855019",
     "source_sha256": "1c4cdd896c69c9162e9c3f0fb6f95aae71d84b3d5e7e38c244df499d217bf685"
   },
+  "reading_f39c7806-5c23-59c1-a3ea-4f2330b4467f": {
+    "candidate_id": "poem-068",
+    "collection": "27195",
+    "reading_revision": "b9949479e3860458e6803996e76583741e7a14c1a466c1fa64e2bef673aa9ee8",
+    "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_f3b562f9-f598-521a-9386-adcaf6486d6e": {
+    "candidate_id": "pg934-071",
+    "collection": "934",
+    "reading_revision": "8860fd5863db89ec99bc37fcda8bc084a8d38c49d51e0bf58e9f1ba26305a3ae",
+    "source_sha256": "c6e47243aa3ebb9ac0b7e7ff12467e8358fe4d28ef8a439c578495e0086ec222"
+  },
   "reading_f41643e4-680e-5169-b964-a29f01b3e939": {
     "candidate_id": "line05275",
     "collection": "69378",
@@ -5135,11 +5927,23 @@
     "reading_revision": "4c11da0f6c7e3ad522dec619f1acf16b312ffed4e0a0eba1fe059a214764f402",
     "source_sha256": "b65970e6a74b5408d9dcebe1afead3bc9642746cb4788f56caaf95e8154a90da"
   },
+  "reading_f4d9c464-9048-5041-bc75-1206fe858493": {
+    "candidate_id": "line05975",
+    "collection": "69378",
+    "reading_revision": "deea22255b6e2f0ed0533886b4b531214c993a7bfb421b8b3d6a09ac1b120e2e",
+    "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
   "reading_f50d50cd-a7ab-567b-9fc4-41b2f176535d": {
     "candidate_id": "EUPHYS_CORONATION",
     "collection": "40048",
     "reading_revision": "def3823a25182bfc6c6c05b98aafd6feb28d39a1a93f88d212d92935c0a1d451",
     "source_sha256": "36910432292f169a6eb7ef1645e5dbbca930d084547ab77214fd0b2d7565cb81"
+  },
+  "reading_f583b56a-fce7-5184-8303-c257180d332c": {
+    "candidate_id": "34",
+    "collection": "51226",
+    "reading_revision": "44871a423f9820b336e2d5c37c7e3978517e93a9c5e9227a2eb4dcc1a3d0d732",
+    "source_sha256": "d82420489b5d61df37e23302e8d9d9d4db12f17a04d3c9571dc9ecb1d002d4aa"
   },
   "reading_f590ed07-b103-5134-96fd-7113121aac34": {
     "candidate_id": "poem-292",
@@ -5213,6 +6017,12 @@
     "reading_revision": "11973911aae1cc8046a991d310a6e05f51f1ae02065b2738e8e89e51dfffa3ee",
     "source_sha256": "396fc792ae1e3af2e759baca1bbe7c4bbbc8be001a5b9121afdf34c6b0661e54"
   },
+  "reading_f99f1cfb-0f4a-5046-b819-289badc4b47e": {
+    "candidate_id": "A_PARODY",
+    "collection": "40048",
+    "reading_revision": "6dbced11a9a2010a6b1317820185f761868609c388af43f9c286c166f1fcca4c",
+    "source_sha256": "64ff402c81b9fd42b9af52d80923052b649141aef10898b6fedae6113932be3c"
+  },
   "reading_f9d08c56-92fd-5d5d-9f9a-0ad8468bf163": {
     "candidate_id": "poem-238",
     "collection": "27195",
@@ -5230,6 +6040,12 @@
     "collection": "27195",
     "reading_revision": "e29fc07ab0272307940c7568cfe24812abdc7b493be3a035059e7290a1cb3216",
     "source_sha256": "64e6a6e7160758346b864d8d49b8ad096f27bfba89b100eed3ee08e2409e438c"
+  },
+  "reading_fa4754b9-ffd2-547b-ab1e-513d6b8da3de": {
+    "candidate_id": "pg934-051",
+    "collection": "934",
+    "reading_revision": "ac49aae681d9655335147cf6ae76a3911645b51231243ecfabe82aa79f3adc0a",
+    "source_sha256": "c6e47243aa3ebb9ac0b7e7ff12467e8358fe4d28ef8a439c578495e0086ec222"
   },
   "reading_fb2fbf5a-0f05-544e-a6e5-b04852a59b6a": {
     "candidate_id": "line08672",
@@ -5278,6 +6094,12 @@
     "collection": "50878",
     "reading_revision": "792f154331960c3d9c323208e7e139f7e4ab8bf63c2c3e784d80fe47b05bb14d",
     "source_sha256": "f7f4c2113c3a81750cd4f7f5a6208a70479de4accb0fe49bc25e82aab860e594"
+  },
+  "reading_fd02f23c-36f6-5e40-bee6-6aeb63cd1c49": {
+    "candidate_id": "rhyme1_35",
+    "collection": "13646",
+    "reading_revision": "5f4bc04f65118e6c4cc45fd75d274ec3c78e4d159a28604a3b22752752215c92",
+    "source_sha256": "396fc792ae1e3af2e759baca1bbe7c4bbbc8be001a5b9121afdf34c6b0661e54"
   },
   "reading_fd38d156-ac53-5b86-b515-66089b78a597": {
     "candidate_id": "line08116",
@@ -5350,5 +6172,11 @@
     "collection": "69378",
     "reading_revision": "10f7740abbf2d1dcf8c7c016211941fed982b704418d545aca98f31bb6a78303",
     "source_sha256": "15db3a69c34b56eb11331cebbc4fa7f9442ee7e54f344e800ce86a7b05b61541"
+  },
+  "reading_fffb70c9-cafe-5bee-a3c1-4f88d9b35633": {
+    "candidate_id": "line-1379",
+    "collection": "3138",
+    "reading_revision": "569a932237e51e666150cc9b3c34a0bc6e8ae9309ea47f3b7f73a3e755155c13",
+    "source_sha256": "1a6149fb287c108593d78cd6474b8ba62e236b3537c0d725cfb1956db953a205"
   }
 }

@@ -16,6 +16,14 @@
         "phones": ["CH", "ER1", "T", "S", "IY0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Who made a remarkable curtsey;",
+        "token": 5,
+        "word": "curtsey",
+        "phones": ["K", "ER1", "T", "S", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -68,6 +76,14 @@
         "phones": ["B", "UW1", "D", "AH0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "By smashing that Person of Buda.",
+        "token": 6,
+        "word": "Buda",
+        "phones": ["B", "UW1", "D", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar place name Buda."
       }
     ]
   },
@@ -336,6 +352,22 @@
         "phones": ["T", "W", "AA0", "L", "EH1", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "She dressed in a sack spickle-speckled with black,",
+        "token": 6,
+        "word": "spickle-speckled",
+        "phones": ["S", "P", "IH1", "K", "AH0", "L", "S", "P", "EH2", "K", "AH0", "L", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent playful compound; selected spelling-based performance reading. Preparer selection, not historical attestation."
+      },
+      {
+        "line": "That ombliferous Person of Crete.",
+        "token": 2,
+        "word": "ombliferous",
+        "phones": ["AA0", "M", "B", "L", "IH1", "F", "ER0", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Lear coinage; selected transparent om-BLIF-er-ous performance reading."
       }
     ]
   },
@@ -420,6 +452,66 @@
         "phones": ["R", "AY1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "rhyme1_35": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Person of Philœ,",
+        "token": 7,
+        "word": "Philœ",
+        "phones": ["F", "AY1", "L", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Lear's rhyme wily supports this English reading of Philœ."
+      },
+      {
+        "line": "Whose conduct was scroobious and wily;",
+        "token": 4,
+        "word": "scroobious",
+        "phones": ["S", "K", "R", "UW1", "B", "IY0", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Clear spelling-based Lear coinage reading, three syllables."
+      },
+      {
+        "line": "And observed all the ruins of Philœ.",
+        "token": 7,
+        "word": "Philœ",
+        "phones": ["F", "AY1", "L", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Lear's rhyme wily supports this English reading of Philœ."
+      }
+    ]
+  },
+  "rhyme1_70": {
+    "pronunciations": [
+      {
+        "line": "That borascible Person of Bangor.",
+        "token": 2,
+        "word": "borascible",
+        "phones": ["B", "AH0", "R", "AE1", "S", "AH0", "B", "AH0", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected four-syllable spelling reading of Lear coinage; no claim of unique authorial pronunciation."
+      }
+    ]
+  },
+  "rhyme1_73": {
+    "pronunciations": [
+      {
+        "line": "There was an Old Man of Kamschatka,",
+        "token": 7,
+        "word": "Kamschatka",
+        "phones": ["K", "AE0", "M", "CH", "AE1", "T", "K", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Kamchatka name; historical spelling does not require an extra syllable."
+      },
+      {
+        "line": "To all the fat dogs in Kamschatka.",
+        "token": 7,
+        "word": "Kamschatka",
+        "phones": ["K", "AE0", "M", "CH", "AE1", "T", "K", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Kamchatka name; historical spelling does not require an extra syllable."
       }
     ]
   }
