@@ -1,0 +1,610 @@
+[
+  {
+    "id": "work-001",
+    "title": "OUT WHERE THE WEST BEGINS",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#OUT_WHERE_THE_WEST_BEGINS",
+    "source_ordinal": 1,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-002",
+    "title": "THE SHALLOWS OF THE FORD",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_SHALLOWS_OF_THE_FORD",
+    "source_ordinal": 2,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-003",
+    "title": "THE DANCE AT SILVER VALLEY",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_DANCE_AT_SILVER_VALLEY",
+    "source_ordinal": 3,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-004",
+    "title": "THE LEGEND OF BOASTFUL BILL",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_LEGEND_OF_BOASTFUL_BILL",
+    "source_ordinal": 4,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-005",
+    "title": "THE TEXAS COWBOY AND THE MEXICAN GREASER",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_TEXAS_COWBOY_AND_THE",
+    "source_ordinal": 5,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-006",
+    "title": "BRONCHO VERSUS BICYCLE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#BRONCHO_VERSUS_BICYCLE",
+    "source_ordinal": 6,
+    "disposition": "excluded",
+    "reason": "long_narrative_poem: extended comic cowboy story; excluded intact."
+  },
+  {
+    "id": "work-007",
+    "title": "RIDERS OF THE STARS",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#RIDERS_OF_THE_STARS",
+    "source_ordinal": 7,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-008",
+    "title": "LASCA",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#LASCA",
+    "source_ordinal": 8,
+    "disposition": "excluded",
+    "reason": "long_narrative_poem: extended tragic cowboy narrative; excluded intact."
+  },
+  {
+    "id": "work-009",
+    "title": "THE TRANSFORMATION OF A TEXAS GIRL",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_TRANSFORMATION_OF_A_TEXAS",
+    "source_ordinal": 9,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-010",
+    "title": "THE GLORY TRAIL",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_GLORY_TRAIL",
+    "source_ordinal": 10,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-011",
+    "title": "HIGH CHIN BOB",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#HIGH_CHIN_BOB",
+    "source_ordinal": 11,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-012",
+    "title": "TO HEAR HIM TELL IT",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#TO_HEAR_HIM_TELL_IT",
+    "source_ordinal": 12,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-013",
+    "title": "THE CLOWN'S BABY",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_CLOWNS_BABY",
+    "source_ordinal": 13,
+    "disposition": "excluded",
+    "reason": "long_narrative_poem: extended narrative yarn; excluded intact."
+  },
+  {
+    "id": "work-014",
+    "title": "THE DRUNKEN DESPERADO",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_DRUNKEN_DESPERADO",
+    "source_ordinal": 14,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-015",
+    "title": "MARTA OF MILRONE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#MARTA_OF_MILRONE",
+    "source_ordinal": 15,
+    "disposition": "excluded",
+    "reason": "long_narrative_poem: extended narrative of Marta; excluded intact."
+  },
+  {
+    "id": "work-016",
+    "title": "JACK DEMPSEY'S GRAVE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#JACK_DEMPSEYS_GRAVE",
+    "source_ordinal": 16,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-017",
+    "title": "THE CATTLE ROUND-UP",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_CATTLE_ROUND-UP",
+    "source_ordinal": 17,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-018",
+    "title": "THE COWBOY OFF GUARD",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#PART_II",
+    "source_ordinal": 18,
+    "disposition": "excluded",
+    "reason": "section_epigraph: unheaded prefatory verse, not a separately titled work."
+  },
+  {
+    "id": "work-019",
+    "title": "A COWBOY'S WORRYING LOVE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_COWBOYS_WORRYING_LOVE",
+    "source_ordinal": 19,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-020",
+    "title": "THE COWBOY AND THE MAID",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_COWBOY_AND_THE_MAID",
+    "source_ordinal": 20,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-021",
+    "title": "A COWBOY'S LOVE SONG",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_COWBOYS_LOVE_SONG",
+    "source_ordinal": 21,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-022",
+    "title": "A BORDER AFFAIR",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_BORDER_AFFAIR",
+    "source_ordinal": 22,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-023",
+    "title": "SNAGTOOTH SAL",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#SNAGTOOTH_SAL",
+    "source_ordinal": 23,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-024",
+    "title": "LOVE LYRICS OF A COWBOY",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#LOVE_LYRICS_OF_A_COWBOY",
+    "source_ordinal": 24,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-025",
+    "title": "THE BULL FIGHT",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_BULL_FIGHT",
+    "source_ordinal": 25,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-026",
+    "title": "THE COWBOY'S VALENTINE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_COWBOYS_VALENTINE",
+    "source_ordinal": 26,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-027",
+    "title": "A COWBOY'S HOPELESS LOVE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_COWBOYS_HOPELESS_LOVE",
+    "source_ordinal": 27,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-028",
+    "title": "THE CHASE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_CHASE",
+    "source_ordinal": 28,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-029",
+    "title": "RIDING SONG",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#RIDING_SONG",
+    "source_ordinal": 29,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-030",
+    "title": "OUR LITTLE COWGIRL",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#OUR_LITTLE_COWGIRL",
+    "source_ordinal": 30,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-031",
+    "title": "I WANT MY TIME",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#I_WANT_MY_TIME",
+    "source_ordinal": 31,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-032",
+    "title": "WHO'S THAT CALLING SO SWEET?",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#WHOS_THAT_CALLING_SO_SWEET",
+    "source_ordinal": 32,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-033",
+    "title": "SONG OF THE CATTLE TRAIL",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#SONG_OF_THE_CATTLE_TRAIL",
+    "source_ordinal": 33,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-034",
+    "title": "A COWBOY'S SON",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_COWBOYS_SON",
+    "source_ordinal": 34,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-035",
+    "title": "A COWBOY SONG",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_COWBOY_SONG",
+    "source_ordinal": 35,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-036",
+    "title": "A NEVADA COWPUNCHER TO HIS BELOVED",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_NEVADA_COWPUNCHER_TO_HIS",
+    "source_ordinal": 36,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-037",
+    "title": "THE COWBOY TO HIS FRIEND IN NEED",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_COWBOY_TO_HIS_FRIEND_IN_NEED",
+    "source_ordinal": 37,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-038",
+    "title": "WHEN BOB GOT THROWED",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#WHEN_BOB_GOT_THROWED",
+    "source_ordinal": 38,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-039",
+    "title": "COWBOY VERSUS BRONCHO",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#COWBOY_VERSUS_BRONCHO",
+    "source_ordinal": 39,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-040",
+    "title": "WHEN YOU'RE THROWED",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#WHEN_YOURE_THROWED",
+    "source_ordinal": 40,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-041",
+    "title": "PARDNERS",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#PARDNERS",
+    "source_ordinal": 41,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-042",
+    "title": "THE BRONC THAT WOULDN'T BUST",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_BRONC_THAT_WOULDNT_BUST",
+    "source_ordinal": 42,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-043",
+    "title": "THE OL' COW HAWSE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_OL_COW_HAWSE",
+    "source_ordinal": 43,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-044",
+    "title": "THE BUNK-HOUSE ORCHESTRA",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_BUNK-HOUSE_ORCHESTRA",
+    "source_ordinal": 44,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-045",
+    "title": "THE COWBOY'S DANCE SONG",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_COWBOYS_DANCE_SONG",
+    "source_ordinal": 45,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-046",
+    "title": "THE COWBOYS' CHRISTMAS BALL",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_COWBOYS_CHRISTMAS_BALL",
+    "source_ordinal": 46,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-047",
+    "title": "A DANCE AT THE RANCH",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_DANCE_AT_THE_RANCH",
+    "source_ordinal": 47,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-048",
+    "title": "AT A COWBOY DANCE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#AT_A_COWBOY_DANCE",
+    "source_ordinal": 48,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-049",
+    "title": "THE COWBOYS' BALL",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_COWBOYS_BALL",
+    "source_ordinal": 49,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-050",
+    "title": "COWBOY TYPES",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#PART_III",
+    "source_ordinal": 50,
+    "disposition": "excluded",
+    "reason": "section_epigraph: unheaded prefatory verse, not a separately titled work."
+  },
+  {
+    "id": "work-051",
+    "title": "THE COWBOY",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_COWBOY",
+    "source_ordinal": 51,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-052",
+    "title": "BAR-Z ON A SUNDAY NIGHT",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#BAR-Z_ON_A_SUNDAY_NIGHT",
+    "source_ordinal": 52,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-053",
+    "title": "A COWBOY RACE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_COWBOY_RACE",
+    "source_ordinal": 53,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-054",
+    "title": "THE HABIT",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_HABIT",
+    "source_ordinal": 54,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-055",
+    "title": "A RANGER",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_RANGER",
+    "source_ordinal": 55,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-056",
+    "title": "THE INSULT",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_INSULT",
+    "source_ordinal": 56,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-057",
+    "title": "\"THE ROAD TO RUIN\"",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_ROAD_TO_RUIN",
+    "source_ordinal": 57,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-058",
+    "title": "THE OUTLAW",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_OUTLAW",
+    "source_ordinal": 58,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-059",
+    "title": "THE DESERT",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_DESERT",
+    "source_ordinal": 59,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-060",
+    "title": "WHISKEY BILL,— A FRAGMENT",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#WHISKEY_BILL_A_FRAGMENT",
+    "source_ordinal": 60,
+    "disposition": "excluded",
+    "reason": "incomplete_source: title explicitly identifies a fragment."
+  },
+  {
+    "id": "work-061",
+    "title": "DENVER JIM",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#DENVER_JIM",
+    "source_ordinal": 61,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-062",
+    "title": "THE VIGILANTES",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_VIGILANTES",
+    "source_ordinal": 62,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-063",
+    "title": "THE BANDIT'S GRAVE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_BANDITS_GRAVE",
+    "source_ordinal": 63,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-064",
+    "title": "THE OLD MACKENZIE TRAIL",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_OLD_MACKENZIE_TRAIL",
+    "source_ordinal": 64,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-065",
+    "title": "THE SHEEP-HERDER",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_SHEEP",
+    "source_ordinal": 65,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-066",
+    "title": "A COWBOY AT THE CARNIVAL",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_COWBOY_AT_THE_CARNIVAL",
+    "source_ordinal": 66,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-067",
+    "title": "THE OLD COWMAN",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_OLD_COWMAN",
+    "source_ordinal": 67,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-068",
+    "title": "THE GILA MONSTER ROUTE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_GILA_MONSTER_ROUTE",
+    "source_ordinal": 68,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-069",
+    "title": "THE CALL OF THE PLAINS",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_CALL_OF_THE_PLAINS",
+    "source_ordinal": 69,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-070",
+    "title": "WHERE THE GRIZZLY DWELLS",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#WHERE_THE_GRIZZLY_DWELLS",
+    "source_ordinal": 70,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-071",
+    "title": "A COWBOY TOAST",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_COWBOY_TOAST",
+    "source_ordinal": 71,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-072",
+    "title": "RIDIN' UP THE ROCKY TRAIL FROM TOWN",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#RIDIN_UP_THE_ROCKY_TRAIL_FROM_TOWN",
+    "source_ordinal": 72,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-073",
+    "title": "THE DISAPPOINTED TENDERFOOT",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_DISAPPOINTED_TENDERFOOT",
+    "source_ordinal": 73,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-074",
+    "title": "A COWBOY ALONE WITH HIS CONSCIENCE",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#A_COWBOY_ALONE_WITH_HIS_CONSCIENCE",
+    "source_ordinal": 74,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-075",
+    "title": "JUST A-RIDIN'!",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#JUST_A-RIDIN",
+    "source_ordinal": 75,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  },
+  {
+    "id": "work-076",
+    "title": "THE END OF THE TRAIL",
+    "source_locator": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm#THE_END_OF_THE_TRAIL",
+    "source_ordinal": 76,
+    "disposition": "eligible",
+    "reason": "Complete independently headed English lyric/short verse unit, retaining source wording and stanza order."
+  }
+]

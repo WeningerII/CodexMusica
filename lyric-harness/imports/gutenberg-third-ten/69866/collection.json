@@ -1,0 +1,49 @@
+{
+  "gutenberg_id": "69866",
+  "title": "Dark of the Moon",
+  "author": "Sara Teasdale",
+  "publication_year": 1926,
+  "edition": "The Macmillan Company, New York, 1926; supplied title-page imprint.",
+  "source_url": "https://www.gutenberg.org/files/69866/69866-0.txt",
+  "ebook_url": "https://www.gutenberg.org/ebooks/69866",
+  "source_sha256": "83bc1e497e509e5459b8fd8735009ff2dfee46234635605609915782fa6d01b2",
+  "source_bytes": 59042,
+  "retrieved_on": "2026-10-09",
+  "rights_evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/69866",
+      "excerpt": "Copyright: Public domain in the USA.",
+      "checked": "2026-10-09",
+      "jurisdiction": "United States"
+    }
+  ],
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/files/69866/69866-h/69866-h.htm",
+    "detail": "The Macmillan Company, New York, 1926; supplied title-page imprint."
+  },
+  "retrieval": "Project Gutenberg supplied-edition witness mirrored by GITenberg, transcoded to UTF-8 without changing text or line endings; hash identifies retained UTF-8 witness.",
+  "mirror": {
+    "repository": "https://github.com/GITenberg/Dark-of-the-Moon_69866.git",
+    "commit": "bddd6cf4421b5721146234abfe9488d3fe8b0aaf",
+    "path": "69866-0.txt",
+    "original_sha256": "be8f9d09efc120a6d0d4b3de7dbbff52452ea1e4925b0dfa847347676ebabe55"
+  },
+  "scope": "Whole original-English lyrics and short standalone poems; translations, fragments and extended narrative or sequence units excluded individually; no artificial splitting.",
+  "deduplication": "Parent batch integration compares eligible units against the existing corpus and this batch.",
+  "source_entries": 59,
+  "counts": {
+    "candidate_units": 59,
+    "eligible_before_deduplication": 59,
+    "excluded_before_deduplication": 0
+  },
+  "validation": {
+    "adapter_rerun_byte_identical": true,
+    "source_sha256_checked": true,
+    "boundary_regressions": "test_adapter.py"
+  },
+  "extraction": "Explicit source-line boundary ledger; verse-only extraction removes title/subtitle/section headings, epigraphs, publishing and editorial apparatus. Long-line continuations joined only by listed source-line groups in Easter Eve, Te Deum, and The Bather; all original words and punctuation retained.",
+  "notes": [
+    "Front-matter prose, tables of contents, headings, ornaments and isolated prefatory epigraphs are apparatus, not candidate poems.",
+    "All supplied editions checked directly on canonical Project Gutenberg pages; mirror retrieval preserves accented original spelling."
+  ]
+}

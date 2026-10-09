@@ -1,0 +1,43 @@
+{
+  "gutenberg_id": "1030",
+  "title": "The Cavalier Songs and Ballads of England, from 1642 to 1684",
+  "editor": "Charles Mackay",
+  "publication_year": 1863,
+  "edition": "London: Griffin Bohn and Co., Stationers’ Hall Court, 1863. Transcriber explicitly identifies the 1863 edition.",
+  "ebook_url": "https://www.gutenberg.org/ebooks/1030",
+  "source_url": "https://www.gutenberg.org/files/1030/1030-h/1030-h.htm",
+  "mirror_url": "https://raw.githubusercontent.com/GITenberg/The-Cavalier-Songs-and-Ballads-of-England-from-1642-to-1684_1030/53b58abfc5487887465db0e973e3bf4462061c30/1030-h/1030-h.htm",
+  "mirror_commit": "53b58abfc5487887465db0e973e3bf4462061c30",
+  "source_sha256": "9671acb4486fa8f3fbbb6c744d3e39a31272362df22b80b673a31fa1471b2cec",
+  "source_bytes": 557558,
+  "retrieved_on": "2026-10-09",
+  "source_witness": "source.html.gz",
+  "source_witness_format": "Deterministic gzip (mtime=0) of exact pinned raw HTML mirror bytes.",
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/files/1030/1030-h/1030-h.htm",
+    "excerpt": "London: Griffin Bohn and Co., Stationers’ Hall Court, 1863. Transcriber explicitly identifies the 1863 edition."
+  },
+  "rights_evidence": {
+    "url": "https://www.gutenberg.org/ebooks/1030",
+    "excerpt": "Copyright: Public domain in the USA.",
+    "jurisdiction": "United States",
+    "scope": "Exact supplied 1863 edition; no worldwide rights claim.",
+    "publication_year_used": 1863
+  },
+  "counts": {
+    "candidate_units": 108,
+    "eligible_before_deduplication": 107,
+    "excluded_before_deduplication": 1
+  },
+  "deduplication": "Deferred to unchanged batch integration against existing corpus and other ten-source candidates.",
+  "notes": [
+    "108 source h3 work units; direct p.poetry stanzas only. Editorial blockquotes, prose, notes and footnotes excluded. The Tale of the Cobbler and the Vicar of Bray is an extended narrative excluded intact. Printed separate Second Part under Cavaleers Litany retained as a source-defined heading; other second parts remain with their work.",
+    "Work001 prints square brackets around the Did Walker stanza supplied by the editor. The two enclosing bracket glyphs are removed as editorial typography, preserving every verse word, so the existing bracket-section parser retains its opening lyric line.",
+    "Printed asterisk separator ornaments are retained as # APPARATUS comments, not sung words.",
+    "Protecting Brewer: the first two verse paragraphs belong to the contrasting original song quoted by the editor; excluded to notes. The complete parody begins A Brewer may be a burgess grave and contains eleven stanzas."
+  ],
+  "validation": {
+    "source_pin": "Exact commit URL refetched and matched retained raw bytes.",
+    "offline_replay": "test_data.py verifies candidates, hashes, source-specific boundaries and exclusions."
+  }
+}

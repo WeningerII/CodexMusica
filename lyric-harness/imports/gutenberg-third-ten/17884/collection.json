@@ -1,0 +1,50 @@
+{
+  "gutenberg_id": "17884",
+  "title": "Fifty Years & Other Poems",
+  "author": "James Weldon Johnson",
+  "publication_year": 1917,
+  "edition": "The Cornhill Company, Boston, 1917; supplied title-page imprint.",
+  "source_url": "https://www.gutenberg.org/files/17884/17884-8.txt",
+  "ebook_url": "https://www.gutenberg.org/ebooks/17884",
+  "source_sha256": "413c32eb4cea460fede41a8d1419153a1bf53747890adcdd84c05edb077cf640",
+  "source_bytes": 101242,
+  "retrieved_on": "2026-10-09",
+  "rights_evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/17884",
+      "excerpt": "Copyright: Public domain in the USA.",
+      "checked": "2026-10-09",
+      "jurisdiction": "United States"
+    }
+  ],
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/files/17884/17884-h/17884-h.htm",
+    "detail": "The Cornhill Company, Boston, 1917; supplied title-page imprint."
+  },
+  "retrieval": "Project Gutenberg supplied-edition witness mirrored by GITenberg, transcoded to UTF-8 without changing text or line endings; hash identifies retained UTF-8 witness.",
+  "mirror": {
+    "repository": "https://github.com/GITenberg/Fifty-Years--amp--Other-Poems_17884.git",
+    "commit": "4b9e9c19603398e6fe2185dbf9f4620f850aa2c6",
+    "path": "17884-8.txt",
+    "original_sha256": "9eadd50bbe00c94c555f031f83526c94d86fe11f3251882bb3a270c9bbedfa96"
+  },
+  "scope": "Whole original-English lyrics and short standalone poems; translations, fragments and extended narrative or sequence units excluded individually; no artificial splitting.",
+  "deduplication": "Parent batch integration compares eligible units against the existing corpus and this batch.",
+  "source_entries": 60,
+  "counts": {
+    "candidate_units": 60,
+    "eligible_before_deduplication": 55,
+    "excluded_before_deduplication": 5
+  },
+  "validation": {
+    "adapter_rerun_byte_identical": true,
+    "source_sha256_checked": true,
+    "boundary_regressions": "test_adapter.py"
+  },
+  "extraction": "Explicit source-line boundary ledger; verse-only extraction removes title/subtitle/section headings, epigraphs, publishing and editorial apparatus. Long-line continuations joined only by listed source-line groups in Easter Eve, Te Deum, and The Bather; all original words and punctuation retained.",
+  "notes": [
+    "Front-matter prose, tables of contents, headings, ornaments and isolated prefatory epigraphs are apparatus, not candidate poems.",
+    "All supplied editions checked directly on canonical Project Gutenberg pages; mirror retrieval preserves accented original spelling.",
+    "59 contents-level whole units plus one complete untitled concluding poem. Fragment is a complete 36-line published poem, retained despite its title. Down by the Carib Sea is kept as one whole excluded sequence."
+  ]
+}

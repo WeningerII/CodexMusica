@@ -1,0 +1,42 @@
+{
+  "gutenberg_id": "21723",
+  "title": "Songs of the Cattle Trail and Cow Camp",
+  "editor": "John A. Lomax",
+  "publication_year": 1919,
+  "edition": "The Macmillan Company, 1919; copyright 1919; set up and electrotyped, published November 1919.",
+  "ebook_url": "https://www.gutenberg.org/ebooks/21723",
+  "source_url": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm",
+  "mirror_url": "https://raw.githubusercontent.com/GITenberg/Songs-of-the-Cattle-Trail-and-Cow-Camp_21723/2754bdc8ed38cb498c69c46b081266428f363802/21723-h/21723-h.htm",
+  "mirror_commit": "2754bdc8ed38cb498c69c46b081266428f363802",
+  "source_sha256": "1bc24def9759cb384153ee07d02539f79e21a31d62206ab109dff5582004c560",
+  "source_bytes": 329689,
+  "retrieved_on": "2026-10-09",
+  "source_witness": "source.html.gz",
+  "source_witness_format": "Deterministic gzip (mtime=0) of exact pinned raw HTML mirror bytes.",
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/files/21723/21723-h/21723-h.htm",
+    "excerpt": "The Macmillan Company, 1919; copyright 1919; set up and electrotyped, published November 1919."
+  },
+  "rights_evidence": {
+    "url": "https://www.gutenberg.org/ebooks/21723",
+    "excerpt": "Copyright: Public domain in the USA.",
+    "jurisdiction": "United States",
+    "scope": "Exact supplied 1919 edition; no worldwide rights claim.",
+    "publication_year_used": 1919
+  },
+  "counts": {
+    "candidate_units": 76,
+    "eligible_before_deduplication": 69,
+    "excluded_before_deduplication": 7
+  },
+  "deduplication": "Deferred to unchanged batch integration against existing corpus and other ten-source candidates.",
+  "notes": [
+    "73 separately headed lyrics plus one additional opening headed poem and two section epigraphs audited. Foreword/introduction quotations excluded. Four extended narrative yarns and explicit Whiskey Bill fragment excluded intact; epigraphs audited but not admitted. Terminal credits excluded from sung text. Original spelling retained.",
+    "Printed centered asterisk and middle-dot separator ornaments are retained as # APPARATUS comments, not sung words.",
+    "Ridin’ Up the Rocky Trail: the quoted Billy Leamont epigraph is explicitly called a fragment outside Mr. Clark’s poem by source footnote5. It is retained in editorial notes, excluded from lyrics; the complete song begins WE’RE the children of the open. Texas Girl’s dot divider separates before-and-after narrative scenes, with no source omission claim."
+  ],
+  "validation": {
+    "source_pin": "Exact commit URL refetched and matched retained raw bytes.",
+    "offline_replay": "test_data.py verifies candidates, hashes, source-specific boundaries and exclusions."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "gutenberg_id": "18007",
+  "title": "More Songs From Vagabondia",
+  "author": "Bliss Carman and Richard Hovey",
+  "publication_year": 1896,
+  "edition": "Boston: Copeland and Day; London: Elkin Mathews; MDCCCXCVI on supplied title page.",
+  "source_url": "https://www.gutenberg.org/files/18007/18007-8.txt",
+  "ebook_url": "https://www.gutenberg.org/ebooks/18007",
+  "source_sha256": "8e786ad9535e9efd9ec5626a2950e0d208fbf097bca1ae31415d86fd1c956209",
+  "source_bytes": 92462,
+  "retrieved_on": "2026-10-09",
+  "rights_evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/18007",
+      "excerpt": "Copyright: Public domain in the USA.",
+      "checked": "2026-10-09",
+      "jurisdiction": "United States"
+    }
+  ],
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/files/18007/18007-h/18007-h.htm",
+    "detail": "Boston: Copeland and Day; London: Elkin Mathews; MDCCCXCVI on supplied title page."
+  },
+  "retrieval": "Project Gutenberg supplied-edition witness mirrored by GITenberg, transcoded to UTF-8 without changing text or line endings; hash identifies retained UTF-8 witness.",
+  "mirror": {
+    "repository": "https://github.com/GITenberg/More-Songs-From-Vagabondia_18007.git",
+    "commit": "9ff85b39a2aaa13dac1db95c0aae536d8585243d",
+    "path": "18007-8.txt",
+    "original_sha256": "3f560767048598549b132567d2846523b7840889e30366c82f0f44a26f2e9306"
+  },
+  "scope": "Whole original-English lyrics and short standalone poems; translations, fragments and extended narrative or sequence units excluded individually; no artificial splitting.",
+  "deduplication": "Parent batch integration compares eligible units against the existing corpus and this batch.",
+  "source_entries": 54,
+  "counts": {
+    "candidate_units": 54,
+    "eligible_before_deduplication": 51,
+    "excluded_before_deduplication": 3
+  },
+  "validation": {
+    "adapter_rerun_byte_identical": true,
+    "source_sha256_checked": true,
+    "boundary_regressions": "test_adapter.py"
+  },
+  "extraction": "Explicit source-line boundary ledger; verse-only extraction removes title/subtitle/section headings, epigraphs, publishing and editorial apparatus. Long-line continuations joined only by listed source-line groups in Easter Eve, Te Deum, and The Bather; all original words and punctuation retained.",
+  "notes": [
+    "Front-matter prose, tables of contents, headings, ornaments and isolated prefatory epigraphs are apparatus, not candidate poems.",
+    "All supplied editions checked directly on canonical Project Gutenberg pages; mirror retrieval preserves accented original spelling.",
+    "Joint book attribution retained because the supplied edition does not individually sign the poems. Hunting-Song is separately anthologized as a complete song, not extracted here from a play. Verlaine and Nocturne: In Anjou are English poems about poets, not translations."
+  ]
+}

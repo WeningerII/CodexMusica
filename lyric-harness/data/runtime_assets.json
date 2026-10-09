@@ -258,8 +258,8 @@
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1651780,
-          "sha256": "90de41f950537eaa27b117ffa29d01262dc69379a55b3db96bacc2c77172bd98"
+          "bytes": 1658896,
+          "sha256": "cb31183983da38332b9db7eb784028f27173dffc21a6fe6566fa14514956afe6"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",
@@ -306,8 +306,8 @@
         },
         {
           "path": "data/section_marks.tsv",
-          "bytes": 8490,
-          "sha256": "eb570b8e6b42f95ea990e76e7690eefd08586d8dd2077234b3d9185a11795f61"
+          "bytes": 8632,
+          "sha256": "52666ca2071034f162eed7d0d5838ef642381b2239b4c150f5c81bfd4d006d0b"
         },
         {
           "path": "data/song_functions_eng.tsv",

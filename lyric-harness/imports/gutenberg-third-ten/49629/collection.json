@@ -1,0 +1,48 @@
+{
+  "gutenberg_id": "49629",
+  "title": "Beadle's Dime Song Book No. 3",
+  "publication_year": 1860,
+  "edition": "New York: Irwin P. Beadle & Co., No.137 William Street; supplied copyright entry 1860; no separate title-page publication date inferred.",
+  "language": "English",
+  "source_url": "https://www.gutenberg.org/ebooks/49629",
+  "html_url": "https://www.gutenberg.org/cache/epub/49629/pg49629-images.html",
+  "retrieval": {
+    "mirror_url": "https://raw.githubusercontent.com/GITenberg/Beadle-s-Dime-Song-Book-No-3-A-Collection-of-New-and-Popular-Comic-and-Sentimental-Songs_49629/master/49629-h/49629-h.htm",
+    "file": "source.html.gz",
+    "sha256": "9e8e05fd7c9489441d53d289a391be5539f1c5f0fc04e9c00c21b5fb171471ff",
+    "encoding": "UTF-8",
+    "fetched_on": "2026-10-09",
+    "edition_verification": "Supplied mirror HTML title/copyright entry independently checked against Gutenberg browser HTML; Project Gutenberg catalogue confirms public domain in USA. Hash is decompressed mirror HTML."
+  },
+  "rights": {
+    "status": "public_domain",
+    "jurisdiction": "USA",
+    "basis": "Project Gutenberg catalogue explicitly affirms public domain in USA; supplied historical imprint retained.",
+    "evidence_url": "https://www.gutenberg.org/ebooks/49629",
+    "evidence_excerpt": "Public domain in the USA.",
+    "edition_evidence_excerpt": "New York: Irwin P. Beadle & Co., No.137 William Street; supplied copyright entry 1860; no separate title-page publication date inferred.",
+    "scope": "Printed words only; no illustrations, music, modern versions or Gutenberg boilerplate imported."
+  },
+  "counts": {
+    "source_entries": 70,
+    "eligible_before_corpus_deduplication": 70,
+    "other_excluded_entries": 0,
+    "duplicates": "Determined by batch integration against existing corpus and other collections."
+  },
+  "excluded_non_entry_material": [
+    "title/imprint",
+    "contents/index",
+    "tune labels and credits",
+    "editorial prose and footnotes",
+    "advertisements",
+    "illustrations",
+    "Gutenberg boilerplate"
+  ],
+  "extraction": {
+    "adapter": "adapter.py",
+    "faithfulness": "Complete songs; HTML verse-line and stanza boundaries preserved; typography indentation removed; page numbers, credit paragraphs, tune and chorus labels excluded from sung words. Printed abbreviated refrains retained without expansion. No dialect spelling modernization.",
+    "replay": "python adapter.py (requires beautifulsoup4)"
+  },
+  "translation_review": "Printed credits and source notes screened; the French Marseilles hymn excluded in No.1; three operatic selections with unresolved text-language provenance conservatively excluded in No.4. Anonymous entries are not represented as exhaustively independently attributed.",
+  "count_reconciliation": "70 complete song headings; printed contents retained with body-heading mapping. Later catalogues advertise other volumes and are excluded."
+}
