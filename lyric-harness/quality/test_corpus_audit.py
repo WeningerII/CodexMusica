@@ -470,8 +470,9 @@ def test_every_declared_source_reaches_a_row():
     # 2066/1477 -> 2790/2201. Existing file declarations are unchanged.
     # Next ten Library collections: 76 author files and source declarations.
     # Previous 2790 declarations / 2201 files retained above as history.
-    check("2866 id-shaped `# source:` declarations are checked, over 2277 "
-          "files", total == 2866 and len(files) == 2277, (total, len(files)))
+    # Third ten Library imports: 51 more files/declarations, 2866/2277 -> 2917/2328.
+    check("2917 id-shaped `# source:` declarations are checked, over 2328 "
+          "files", total == 2917 and len(files) == 2328, (total, len(files)))
     # REPINNED 2026-08-20 (Tier-1): 62 -> 70 — eight of the 18 topped-up
     # files gained their first second source citation.
     # 70 -> 73 same sitting: three twin merges gave their keepers a second
@@ -1313,8 +1314,9 @@ def test_check_H_on_the_real_corpus():
     # 2026-10-08: three Library files add real one-line stanzas; 8/38 -> 8/41.
     # Printed chorus/speaker labels and ornaments are explicit apparatus.
     # Next ten Library imports add five actual one-line stanza notes: 41 -> 46.
-    check("8 files carry raw apparatus-shaped blocks, 46 carry residue only",
-          (warn, note) == (8, 46), (warn, note))
+    # Third ten add eight residue-only files: 46 -> 54; warnings unchanged.
+    check("8 files carry raw apparatus-shaped blocks, 54 carry residue only",
+          (warn, note) == (8, 54), (warn, note))
 
 
 # ---------------------------------------------------------------------------

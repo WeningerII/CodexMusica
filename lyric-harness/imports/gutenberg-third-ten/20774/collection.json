@@ -1,0 +1,41 @@
+{
+  "gutenberg_id": "20774",
+  "title": "The Shanty Book, Part I, Sailor Shanties",
+  "editor": "Richard Runciman Terry",
+  "publication_year": 1921,
+  "edition": "London: J. Curwen & Sons Ltd., 24 Berners Street, W.1. Curwen Edition 6308; title-page copyright 1921, foreword dated 1921.",
+  "ebook_url": "https://www.gutenberg.org/ebooks/20774",
+  "source_url": "https://www.gutenberg.org/files/20774/20774-h/20774-h.htm",
+  "mirror_url": "https://raw.githubusercontent.com/GITenberg/The-Shanty-Book-Part-I-Sailor-Shanties_20774/a1faa6ec3c3a1b7756cf24bb7ad3e21d3db9abb4/20774-h/20774-h.htm",
+  "mirror_commit": "a1faa6ec3c3a1b7756cf24bb7ad3e21d3db9abb4",
+  "source_sha256": "1a533b028e5854cb5d113994b517a4a12d7e76a06094941369f6df660eb46720",
+  "source_bytes": 175460,
+  "retrieved_on": "2026-10-09",
+  "source_witness": "source.html.gz",
+  "source_witness_format": "Deterministic gzip (mtime=0) of exact pinned raw HTML mirror bytes.",
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/files/20774/20774-h/20774-h.htm",
+    "excerpt": "London: J. Curwen & Sons Ltd., 24 Berners Street, W.1. Curwen Edition 6308; title-page copyright 1921, foreword dated 1921."
+  },
+  "rights_evidence": {
+    "url": "https://www.gutenberg.org/ebooks/20774",
+    "excerpt": "Copyright: Public domain in the USA.",
+    "jurisdiction": "United States",
+    "scope": "Exact supplied 1921 edition; no worldwide rights claim.",
+    "publication_year_used": 1921
+  },
+  "counts": {
+    "candidate_units": 30,
+    "eligible_before_deduplication": 30,
+    "excluded_before_deduplication": 0
+  },
+  "deduplication": "Deferred to unchanged batch integration against existing corpus and other ten-source candidates.",
+  "notes": [
+    "30 numbered final lyric blocks after the introductory Notes on the Shanties. Score images, glossary, intro quotations and commentary excluded. Every supplied stanza retained, with printed abbreviated refrains unexpanded; no hypothetical oral continuation invented. Terry acknowledges editorial replacement of some coarse words: this is his supplied 1921 edited witness, not an unmodified oral field transcription. Umlauts (documented sung prolongation) and dialect spellings retained.",
+    "The INTRODUCTION heading and printed twice/thrice repetition instructions are preserved as # APPARATUS comments, not sung words. Repeats are not expanded. Footnote references are removed from titles."
+  ],
+  "validation": {
+    "source_pin": "Exact commit URL refetched and matched retained raw bytes.",
+    "offline_replay": "test_data.py verifies candidates, hashes, source-specific boundaries and exclusions."
+  }
+}

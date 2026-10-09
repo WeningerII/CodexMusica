@@ -1,0 +1,48 @@
+{
+  "gutenberg_id": "50041",
+  "title": "Beadle's Dime Song Book No. 4",
+  "publication_year": 1860,
+  "edition": "New York: Irwin P. Beadle & Co., No.137 William Street; supplied copyright entry 1860; no separate title-page publication date inferred.",
+  "language": "English",
+  "source_url": "https://www.gutenberg.org/ebooks/50041",
+  "html_url": "https://www.gutenberg.org/cache/epub/50041/pg50041-images.html",
+  "retrieval": {
+    "mirror_url": "https://raw.githubusercontent.com/GITenberg/Beadle-s-Dime-Song-Book-No-4-A-Collection-of-New-and-Popular-Comic-and-Sentimental-Songs_50041/master/50041-h/50041-h.htm",
+    "file": "source.html.gz",
+    "sha256": "fb30914b461193420b8a1c626b4de156c6c5bf1214aa90c6305b4a0ecba8c331",
+    "encoding": "UTF-8",
+    "fetched_on": "2026-10-09",
+    "edition_verification": "Supplied mirror HTML title/copyright entry independently checked against Gutenberg browser HTML; Project Gutenberg catalogue confirms public domain in USA. Hash is decompressed mirror HTML."
+  },
+  "rights": {
+    "status": "public_domain",
+    "jurisdiction": "USA",
+    "basis": "Project Gutenberg catalogue explicitly affirms public domain in USA; supplied historical imprint retained.",
+    "evidence_url": "https://www.gutenberg.org/ebooks/50041",
+    "evidence_excerpt": "Public domain in the USA.",
+    "edition_evidence_excerpt": "New York: Irwin P. Beadle & Co., No.137 William Street; supplied copyright entry 1860; no separate title-page publication date inferred.",
+    "scope": "Printed words only; no illustrations, music, modern versions or Gutenberg boilerplate imported."
+  },
+  "counts": {
+    "source_entries": 71,
+    "eligible_before_corpus_deduplication": 69,
+    "other_excluded_entries": 2,
+    "duplicates": "Determined by batch integration against existing corpus and other collections."
+  },
+  "excluded_non_entry_material": [
+    "title/imprint",
+    "contents/index",
+    "tune labels and credits",
+    "editorial prose and footnotes",
+    "advertisements",
+    "illustrations",
+    "Gutenberg boilerplate"
+  ],
+  "extraction": {
+    "adapter": "adapter.py",
+    "faithfulness": "Complete songs; HTML verse-line and stanza boundaries preserved; typography indentation removed; page numbers, credit paragraphs, tune and chorus labels excluded from sung words. Printed abbreviated refrains retained without expansion. No dialect spelling modernization.",
+    "replay": "python adapter.py (requires beautifulsoup4)"
+  },
+  "translation_review": "Norma adaptation excluded with NLA/JHU evidence; By the Sad Sea-Waves conservatively excluded pending text-language verification. Blanche Alpen and Daylight is on the Sea independently credited to English authors in Eastman Sibley Library catalogue. Anonymous entries are not exhaustively attributed.",
+  "count_reconciliation": "71 complete song headings; printed contents retained with body-heading mapping. Later catalogues advertise other volumes and are excluded."
+}

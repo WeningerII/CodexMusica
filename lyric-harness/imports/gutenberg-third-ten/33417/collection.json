@@ -1,0 +1,51 @@
+{
+  "gutenberg_id": "33417",
+  "title": "Later Poems",
+  "author": "Bliss Carman",
+  "publication_year": 1923,
+  "edition": "McClelland & Stewart, Toronto; supplied copyright leaf lists Fourth Printing 1923.",
+  "source_url": "https://www.gutenberg.org/files/33417/33417-8.txt",
+  "ebook_url": "https://www.gutenberg.org/ebooks/33417",
+  "source_sha256": "671399af878bb8319a6599afb4fefa2d9c03aec3e9530a2194e4c75427906603",
+  "source_bytes": 203716,
+  "retrieved_on": "2026-10-09",
+  "rights_evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/33417",
+      "excerpt": "Copyright: Public domain in the USA.",
+      "checked": "2026-10-09",
+      "jurisdiction": "United States"
+    }
+  ],
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/files/33417/33417-h/33417-h.htm",
+    "detail": "McClelland & Stewart, Toronto; supplied copyright leaf lists Fourth Printing 1923."
+  },
+  "retrieval": "Project Gutenberg supplied-edition witness mirrored by GITenberg, transcoded to UTF-8 without changing text or line endings; hash identifies retained UTF-8 witness.",
+  "mirror": {
+    "repository": "https://github.com/GITenberg/Later-Poems_33417.git",
+    "commit": "3066863707ea1335c004832e938564867d6ef42d",
+    "path": "33417-8.txt",
+    "original_sha256": "6c986955341c419801e2a46fdd225741ed94d6e3a126d0bf0c67a70bb97c2b6d"
+  },
+  "scope": "Whole original-English lyrics and short standalone poems; translations, fragments and extended narrative or sequence units excluded individually; no artificial splitting.",
+  "deduplication": "Parent batch integration compares eligible units against the existing corpus and this batch.",
+  "source_entries": 114,
+  "counts": {
+    "candidate_units": 114,
+    "eligible_before_deduplication": 111,
+    "excluded_before_deduplication": 3
+  },
+  "validation": {
+    "adapter_rerun_byte_identical": true,
+    "source_sha256_checked": true,
+    "boundary_regressions": "test_adapter.py"
+  },
+  "extraction": "Explicit source-line boundary ledger; verse-only extraction removes title/subtitle/section headings, epigraphs, publishing and editorial apparatus. Long-line continuations joined only by listed source-line groups in The Givers of Life, Easter Eve and Te Deum; all original words and punctuation retained.",
+  "notes": [
+    "Front-matter prose, tables of contents, headings, ornaments and isolated prefatory epigraphs are apparatus, not candidate poems.",
+    "All supplied editions checked directly on canonical Project Gutenberg pages; mirror retrieval preserves accented original spelling.",
+    "113 contents-listed poems plus one complete untitled concluding colophon poem. The front-endpaper verse repeats Under the April Moon; not a separate work.",
+    "Songs of the Grass remains one contents-level unit; its three numbered subsection captions are apparatus, not sung lines. Eight explicitly indented long-line continuations in The Givers of Life are joined in its reviewed source-line ledger."
+  ]
+}

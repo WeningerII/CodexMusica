@@ -124,3 +124,10 @@ lyric-harness/map/*.json
 /lyric-harness/imports/gutenberg-next-ten/source_manifest.json
 # Independent Sites package: preserve the reviewed source and its locked inputs.
 /sites/library/
+
+# Third batch preserves adapter-generated evidence bytes.
+/lyric-harness/imports/gutenberg-third-ten/*/candidates.json
+/lyric-harness/imports/gutenberg-third-ten/*/boundaries.json
+/lyric-harness/imports/gutenberg-third-ten/*/contents.json
+/lyric-harness/imports/gutenberg-third-ten/audit.json
+/lyric-harness/imports/gutenberg-third-ten/source_manifest.json

@@ -1,5 +1,5 @@
 {
-  "repository_commit": "ad45ed79347466bee7c9161b03cdf5edcd95b999",
+  "repository_commit": "97ec4b0c4f0be7ec605940dd05b663f6ffd3d182",
   "tree": [
     {
       "path": "lyric-harness/corpus/cym_alun_strict.txt",
@@ -4030,6 +4030,261 @@
       "path": "lyric-harness/corpus/library/gutenberg-ten/76941/eng_thomas_deloney_15d980a4.txt",
       "sha": "4403df5223458f0850b2f519cd19becaae832107",
       "size": 10160
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/1030/eng_alexander_brome_ac121eec.txt",
+      "sha": "f08a5e8e0899f210a3cb781229d03ea175976c6c",
+      "size": 18321
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/1030/eng_anonymous_traditional_8bae9ed6.txt",
+      "sha": "8f98f52a2c388c4258f2e7d627ac6c185721d9d3",
+      "size": 219614
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/1030/eng_francis_quarles_07438f8a.txt",
+      "sha": "6175d809d7ae7ee3af045bf20850694c0375e429",
+      "size": 3160
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/1030/eng_martin_parker_e4538580.txt",
+      "sha": "193c7cdebdf66d90bcf4f94f977f32d53883cbcd",
+      "size": 2597
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/1030/eng_ned_ward_23a41cc9.txt",
+      "sha": "5134dc561eae9d0a8d5d386b5d7eed08454afa35",
+      "size": 1517
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/1030/eng_samuel_butler_cda650cb.txt",
+      "sha": "e5478852b7e3d8fe8f9d94d05fa33d881e6950f2",
+      "size": 7549
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/1030/eng_sir_f_w_printed_initials_2aa99cf6.txt",
+      "sha": "be41bfe3cae49d139d8c0486524129852b27a041",
+      "size": 8682
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/1030/eng_t_j_printed_initials_ec7e18f1.txt",
+      "sha": "caf424f6dcdde1222fa7390fed8f1b6412499e7b",
+      "size": 2204
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/17884/eng_james_weldon_johnson_09545cad.txt",
+      "sha": "aff3c85fe3155591c96ec9c3801868e24c741b22",
+      "size": 63516
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/18007/eng_bliss_carman_and_richard_hovey_91532b68.txt",
+      "sha": "ad33bd4596d8634305eb4aaa118d3acd29789476",
+      "size": 64347
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/20774/eng_anonymous_traditional_terry_edited_witness_3a06dcfb.txt",
+      "sha": "080cc9232f466479fa96780086c19fb032e1216f",
+      "size": 26763
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_anonymous_e7a8aa2d.txt",
+      "sha": "d5532b93bb3597a215d94dbfb21cf22daa0fdc72",
+      "size": 20849
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_anonymous_traditional_8bae9ed6.txt",
+      "sha": "2e026fb60d2af8602f39c3bce2ad54690055c5d7",
+      "size": 12445
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_arthur_chapman_722ca263.txt",
+      "sha": "d7bdb219b7a012eca1bd364f1c0cbc56567057a3",
+      "size": 1627
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_baird_boyd_8efcabce.txt",
+      "sha": "23140555e744546295d1c28889a4b962d38a6139",
+      "size": 1941
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_berton_braley_fe5e6342.txt",
+      "sha": "5ae08ac69d2c21f03e45e05f7e450f055a23ba23",
+      "size": 3174
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_burke_jenkins_3569dded.txt",
+      "sha": "0f6656fe19d47c75d47148624e389b9dab80f3f9",
+      "size": 1298
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_c_f_lummis_230caedb.txt",
+      "sha": "e322b2f61cbb74f3ca30b08ab317b87bf55704ee",
+      "size": 1253
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_charles_b_clark_jr_be48560d.txt",
+      "sha": "642d478770c1c36c5518cd0e959a6ca908007a0c",
+      "size": 3717
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_charles_badger_clark_7e724b4e.txt",
+      "sha": "1ab3cc6d7e30661295abe4e5e70a3ecccd593fa9",
+      "size": 5037
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_charles_badger_clark_jr_9a4e47da.txt",
+      "sha": "ff2b527fd8e068b3410421a11e67c46a87f92ce4",
+      "size": 2185
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_charles_badger_clark_jr_d04aee5b.txt",
+      "sha": "5ce8019070d30b012854b8d482aae0137333cbf7",
+      "size": 8555
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_charles_badger_clark_jr_oral_version_f1fe2f89.txt",
+      "sha": "92c9eaed711b9dc481771ac4ce8560c6e733b789",
+      "size": 3175
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_charles_pitt_1a1c7fb8.txt",
+      "sha": "1c19b6fc63b659df4cffbb432198a6704010a294",
+      "size": 2329
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_deveen_f39ab4f7.txt",
+      "sha": "5007018cedbd8559dc8496357e159520670a87dc",
+      "size": 1318
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_e_a_brinninstool_fff8fede.txt",
+      "sha": "723472df4b7b5ceb2980c50864f370ba99e264c7",
+      "size": 4436
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_ethel_macdiarmid_0b9a7e8a.txt",
+      "sha": "30578b28679401304883111d306c70aabac81503",
+      "size": 1907
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_h_d_c_mclaclachlan_69b9ac9c.txt",
+      "sha": "8a12fad9d0d3829984ea9bda1ef36e4d5b738c69",
+      "size": 2011
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_henry_herbert_knibbs_a86b05bd.txt",
+      "sha": "1e59c72ab805127e1a869107878afa5af8eb033f",
+      "size": 9784
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_j_c_davis_bf32f7c0.txt",
+      "sha": "33e9a2d68083c162e174137d9943bc931b6c3ea1",
+      "size": 1215
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_james_barton_adams_b9796f01.txt",
+      "sha": "e5bbbabc820ee4a616da1579ba43fc93ba193936",
+      "size": 18157
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_james_fox_2ac9fda3.txt",
+      "sha": "e1d682f41c3c5616677bbef5200b474a026f56cd",
+      "size": 1697
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_john_a_lomax_303e5595.txt",
+      "sha": "78ff80d236418fafd4ad8406a24fdac33bce9936",
+      "size": 4968
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_l_f_post_and_glenn_norton_27406f6e.txt",
+      "sha": "f2d7d0cc4bf69f6c529a3f89ff97bd9fb11cfd65",
+      "size": 4025
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_l_worthington_green_5bd8c3ac.txt",
+      "sha": "e9f052a79bc619818cd317916dd5de0b8d35a183",
+      "size": 2114
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_larry_chittenden_2e89efda.txt",
+      "sha": "713d7e83dfc9605c1978011871743935c401dc12",
+      "size": 5056
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_macmahon_1236b986.txt",
+      "sha": "25985969f12348b4a1136e00762e573186ecdc59",
+      "size": 2248
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_margaret_ashmun_c4bfb0af.txt",
+      "sha": "baf922b97df6e2efd159b3cba5f63dc29c323853",
+      "size": 2132
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_percival_combes_43369652.txt",
+      "sha": "62e8287065f63ecba0e3074cb4f447a70587de3a",
+      "size": 2019
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_r_v_carr_dff368c2.txt",
+      "sha": "63b256ded91630f9a741928994c10cc196e6580c",
+      "size": 3264
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_ray_cc172a7c.txt",
+      "sha": "2935bb76fe8608748edc4f07a01018eb1942a1ca",
+      "size": 2012
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_roger_pocock_2bffa5cc.txt",
+      "sha": "39c29c21bd4448df5de5fc961d48e3a2b412269f",
+      "size": 3857
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_sherman_d_richardson_3601e038.txt",
+      "sha": "b344c31ba39fe3d81df07ed7fc04efb8048cb618",
+      "size": 4072
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/21723/eng_william_maxwell_76dccf26.txt",
+      "sha": "8d7c96de733a08f43f4af3245e2b70fb664745a2",
+      "size": 3269
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/33417/eng_bliss_carman_10c07bf6.txt",
+      "sha": "61f70ebeae6d2ba9402adc958cb9af25e69c1eef",
+      "size": 142316
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/48494/eng_anonymous_unattributed_in_supplied_edition_ffaef747.txt",
+      "sha": "4315ea867d1e35ab2d3a096a14ac831a8481b6f5",
+      "size": 83051
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/49629/eng_anonymous_unattributed_in_supplied_edition_ffaef747.txt",
+      "sha": "2e11df3a66d82354596efd3c5d8dd23574f5e99f",
+      "size": 93226
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/50041/eng_anonymous_unattributed_in_supplied_edition_ffaef747.txt",
+      "sha": "3ad86840e488f9a95e20bb976043e9d384b5fa39",
+      "size": 79862
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/50041/eng_charles_jefferys_ed68ac03.txt",
+      "sha": "592cd5b8210903318db025b7514c8c842a6d84d6",
+      "size": 1809
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/50041/eng_mrs_cornwell_baron_wilson_12730acb.txt",
+      "sha": "d86ca587db6214fc13755a124d9b5f34ad565996",
+      "size": 1518
+    },
+    {
+      "path": "lyric-harness/corpus/library/gutenberg-third-ten/69866/eng_sara_teasdale_ba73fb77.txt",
+      "sha": "0b0bf66040f542c486dda416172ef385a751b01f",
+      "size": 35661
     },
     {
       "path": "lyric-harness/corpus/san_dcs_verse.txt",
