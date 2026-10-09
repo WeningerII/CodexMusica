@@ -355,58 +355,58 @@
       "files": [
         {
           "path": "imports/gutenberg-next-ten/pronunciations/13646.json",
-          "bytes": 15206,
-          "sha256": "66ad246addc165ef27d33e8cade9f0dfdceb11052c635b21388db8667cadaba3"
+          "bytes": 19839,
+          "sha256": "ded17e633b83037b2060c8735152bd62836015aed629e6fe3f00320caf630fba"
         },
         {
           "path": "imports/gutenberg-next-ten/pronunciations/1568.json",
-          "bytes": 47584,
-          "sha256": "6e7edbbfb8fc99f5cf3c2e516621ab369d127e035bcd6fc339b8dfcd36120e9b"
+          "bytes": 77859,
+          "sha256": "5730f3016359cdb0a4bcdeefffab6db0bddb66287f56c441a75ad6e293af850e"
         },
         {
           "path": "imports/gutenberg-next-ten/pronunciations/27195.json",
-          "bytes": 533199,
-          "sha256": "eec25f925be450d9444f78bed686aa9ec546ad1c9716f8c53c9b95e95fc6cede"
+          "bytes": 855467,
+          "sha256": "9139d8584289c2c79672ca149a1c0e750744215732de7aef5a7a928f5fe2f0ac"
         },
         {
           "path": "imports/gutenberg-next-ten/pronunciations/3138.json",
-          "bytes": 18587,
-          "sha256": "fe14fe251d8b7daf432843b1760fcffa873359139b9fd78e04b09aa398a72666"
+          "bytes": 86345,
+          "sha256": "fa082723aaebc823612cbe801e004464e69f07cfc8776fb1c244fd320ffd3020"
         },
         {
           "path": "imports/gutenberg-next-ten/pronunciations/40048.json",
-          "bytes": 1365850,
-          "sha256": "875ae538c40274c88d1196a5bb3e71c786e06991f37d9a8a17aa66b86039c8ff"
+          "bytes": 1852827,
+          "sha256": "e19f307e01836b5362287eb121af2382caf6f52144d9c74aab30a33260ef881b"
         },
         {
           "path": "imports/gutenberg-next-ten/pronunciations/50878.json",
-          "bytes": 8961,
-          "sha256": "81ec45c3f3f62e28f5a16f5765b89ef3ac2c4eda03d49ea4f6d0ea461f70d0df"
+          "bytes": 92865,
+          "sha256": "05c58c07151f31a7213b2f914cda78ccb01af2ea3a0cee26cb743e05f8a3cf45"
         },
         {
           "path": "imports/gutenberg-next-ten/pronunciations/51226.json",
-          "bytes": 11807,
-          "sha256": "5fff701d8fa41dc618791f1dc12117fe38144e592af20963b0e9328edfaa941e"
+          "bytes": 27148,
+          "sha256": "6c103625d26fa9ca8407e983c83c09cf2cb15f87bcfd570655f7d86b0e3bda03"
         },
         {
           "path": "imports/gutenberg-next-ten/pronunciations/58414.json",
-          "bytes": 11345,
-          "sha256": "34a1f1f36edd99e669d647f55630ee5a3d05e920f2718b56453ccbe290697ce0"
+          "bytes": 26967,
+          "sha256": "8bca4003ed509782c1ded75e910e44289c08b79de570bee3559770e1a42560d4"
         },
         {
           "path": "imports/gutenberg-next-ten/pronunciations/69378.json",
-          "bytes": 318135,
-          "sha256": "f136426429a7f954067c5408878a67635d68cb5484a62c95d8b7bff31bf200e2"
+          "bytes": 412776,
+          "sha256": "0543a748921be8d179e45a733916e4ea1a25dadb2d61cb4c157395c0e2eab949"
         },
         {
           "path": "imports/gutenberg-next-ten/pronunciations/934.json",
-          "bytes": 21585,
-          "sha256": "481bc4f0e23fc30f26ef02894f1627b63e55e7cb7a8057b4ae97a3f8bd8385db"
+          "bytes": 47934,
+          "sha256": "59a0abe43c1d9022dd2e45a5f8d3d270a84796554fe206d2d7882d8aae01dd43"
         },
         {
           "path": "imports/gutenberg-next-ten/pronunciations/bindings.json",
-          "bytes": 266254,
-          "sha256": "581ef7cafbc7f6108f2d973ec7ce159b3b646ae713fc0711bfa811dc19b3c25a"
+          "bytes": 306928,
+          "sha256": "a51e59dff5ab1117cbfdc827ae2f075047ba4bd39aae7c301748696617188d2a"
         }
       ]
     }

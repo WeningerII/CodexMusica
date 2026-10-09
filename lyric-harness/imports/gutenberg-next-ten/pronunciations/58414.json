@@ -16,6 +16,14 @@
         "phones": ["AH0", "N", "M", "AE1", "N", "AH0", "K", "AH0", "L", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And chilled her heart’s verdure with pitiless woe;",
+        "token": 5,
+        "word": "verdure",
+        "phones": ["V", "ER1", "JH", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar verdure."
       }
     ]
   },
@@ -28,6 +36,14 @@
         "phones": ["M", "AE1", "M", "AH0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "She hears in her anguish his piteous moan,",
+        "token": 7,
+        "word": "piteous",
+        "phones": ["P", "IH1", "T", "IY0", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known piteous, selected three-syllable reading."
       }
     ]
   },
@@ -40,6 +56,22 @@
         "phones": ["T", "OY1", "L", "S", "AH0", "M"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "To mete and vend God’s light and air!",
+        "token": 4,
+        "word": "vend",
+        "phones": ["V", "EH1", "N", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Ordinary vend verb."
+      },
+      {
+        "line": "To mete and vend God’s light and air;",
+        "token": 4,
+        "word": "vend",
+        "phones": ["V", "EH1", "N", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Ordinary vend verb."
       }
     ]
   },
@@ -72,6 +104,94 @@
         "phones": ["B", "AA1", "N", "D", "Z", "M", "AH0", "N", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Hurra, Hurra, Hurra,",
+        "token": 1,
+        "word": "Hurra",
+        "phones": ["HH", "AH0", "R", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar hurrah exclamation."
+      },
+      {
+        "line": "Hurra, Hurra, Hurra,",
+        "token": 2,
+        "word": "Hurra",
+        "phones": ["HH", "AH0", "R", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar hurrah exclamation."
+      },
+      {
+        "line": "Hurra, Hurra, Hurra,",
+        "token": 3,
+        "word": "Hurra",
+        "phones": ["HH", "AH0", "R", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar hurrah exclamation."
+      },
+      {
+        "line": "Hurra, Hurra, Hurra, Hurra,",
+        "token": 1,
+        "word": "Hurra",
+        "phones": ["HH", "AH0", "R", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar hurrah exclamation."
+      },
+      {
+        "line": "Hurra, Hurra, Hurra, Hurra,",
+        "token": 2,
+        "word": "Hurra",
+        "phones": ["HH", "AH0", "R", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar hurrah exclamation."
+      },
+      {
+        "line": "Hurra, Hurra, Hurra, Hurra,",
+        "token": 3,
+        "word": "Hurra",
+        "phones": ["HH", "AH0", "R", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar hurrah exclamation."
+      },
+      {
+        "line": "Hurra, Hurra, Hurra, Hurra,",
+        "token": 4,
+        "word": "Hurra",
+        "phones": ["HH", "AH0", "R", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar hurrah exclamation."
+      },
+      {
+        "line": "Hurra, Hurra, Hurra.",
+        "token": 1,
+        "word": "Hurra",
+        "phones": ["HH", "AH0", "R", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar hurrah exclamation."
+      },
+      {
+        "line": "Hurra, Hurra, Hurra.",
+        "token": 2,
+        "word": "Hurra",
+        "phones": ["HH", "AH0", "R", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar hurrah exclamation."
+      },
+      {
+        "line": "Hurra, Hurra, Hurra.",
+        "token": 3,
+        "word": "Hurra",
+        "phones": ["HH", "AH0", "R", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar hurrah exclamation."
+      },
+      {
+        "line": "With shouts we’ll make the welkin ring,",
+        "token": 6,
+        "word": "welkin",
+        "phones": ["W", "EH1", "L", "K", "IH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar welkin."
       }
     ]
   },
@@ -136,6 +256,14 @@
         "phones": ["F", "ER1", "L", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Till it shall float o’er every clime,",
+        "token": 7,
+        "word": "clime",
+        "phones": ["K", "L", "AY1", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -156,6 +284,22 @@
         "phones": ["B", "L", "AE0", "S", "F", "IY1", "M", "ER0", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Prate not of the goddess who scarce deigns to hear;",
+        "token": 1,
+        "word": "Prate",
+        "phones": ["P", "R", "EY1", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar prate."
+      },
+      {
+        "line": "Are ye deaf to the plaints that each moment arise?",
+        "token": 6,
+        "word": "plaints",
+        "phones": ["P", "L", "EY1", "N", "T", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar complaint noun plural."
       }
     ]
   },
@@ -192,6 +336,46 @@
         "phones": ["EH2", "G", "Z", "AH0", "L", "T", "EY1", "SH", "AH0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Huzza! Huzza!! Emancipation",
+        "token": 1,
+        "word": "Huzza",
+        "phones": ["HH", "AH0", "Z", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar cheer huzza."
+      },
+      {
+        "line": "Huzza! Huzza!! Emancipation",
+        "token": 2,
+        "word": "Huzza",
+        "phones": ["HH", "AH0", "Z", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar cheer huzza."
+      },
+      {
+        "line": "Huzza! Huzza! Huzza!!!",
+        "token": 1,
+        "word": "Huzza",
+        "phones": ["HH", "AH0", "Z", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar cheer huzza."
+      },
+      {
+        "line": "Huzza! Huzza! Huzza!!!",
+        "token": 2,
+        "word": "Huzza",
+        "phones": ["HH", "AH0", "Z", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar cheer huzza."
+      },
+      {
+        "line": "Huzza! Huzza! Huzza!!!",
+        "token": 3,
+        "word": "Huzza",
+        "phones": ["HH", "AH0", "Z", "AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar cheer huzza."
       }
     ]
   },
@@ -260,6 +444,38 @@
         "phones": ["B", "AA1", "N", "D", "M", "AH0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "To save a threepence tax on tea.",
+        "token": 4,
+        "word": "threepence",
+        "phones": ["TH", "R", "EH1", "P", "AH0", "N", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar contracted threepence reading selected for performance."
+      },
+      {
+        "line": "And say that “niggers” shan’t be heard.",
+        "token": 5,
+        "word": "shan't",
+        "phones": ["SH", "AE1", "N", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar shan't performance variant; not a regional authenticity claim."
+      },
+      {
+        "line": "Now hasten all bondmen, let us go",
+        "token": 4,
+        "word": "bondmen",
+        "phones": ["B", "AA1", "N", "D", "M", "EH2", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Now haste all bondmen, let us go,",
+        "token": 4,
+        "word": "bondmen",
+        "phones": ["B", "AA1", "N", "D", "M", "EH2", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -280,6 +496,22 @@
         "phones": ["S", "IH1", "N", "Y", "UW0", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Rend not our blood-bought land apart,",
+        "token": 1,
+        "word": "Rend",
+        "phones": ["R", "EH1", "N", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar rend."
+      },
+      {
+        "line": "What! bend forsooth to southern rule?",
+        "token": 3,
+        "word": "forsooth",
+        "phones": ["F", "ER0", "S", "UW1", "TH"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar forsooth."
       }
     ]
   },
@@ -300,6 +532,118 @@
         "phones": ["P", "L", "EY1", "N", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "16": {
+    "pronunciations": [
+      {
+        "line": "Of nought on earth afraid.",
+        "token": 2,
+        "word": "nought",
+        "phones": ["N", "AO1", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar nought."
+      }
+    ]
+  },
+  "17": {
+    "pronunciations": [
+      {
+        "line": "The child was borne off to a far distant clime,",
+        "token": 10,
+        "word": "clime",
+        "phones": ["K", "L", "AY1", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "19": {
+    "pronunciations": [
+      {
+        "line": "“Go back, haughty Southron! thy treasures of gold",
+        "token": 4,
+        "word": "Southron",
+        "phones": ["S", "AH1", "DH", "R", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "29": {
+    "pronunciations": [
+      {
+        "line": "In the vast sepulchre of Slavery!",
+        "token": 4,
+        "word": "sepulchre",
+        "phones": ["S", "EH1", "P", "AH0", "L", "K", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      }
+    ]
+  },
+  "41": {
+    "pronunciations": [
+      {
+        "line": "Sons to breathe God’s bounteous air,",
+        "token": 5,
+        "word": "bounteous",
+        "phones": ["B", "AW1", "N", "T", "IY0", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar adjective, three-syllable selection."
+      },
+      {
+        "line": "And, with leathern hearts forget",
+        "token": 3,
+        "word": "leathern",
+        "phones": ["L", "EH1", "DH", "ER0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known leathern adjective."
+      }
+    ]
+  },
+  "43": {
+    "pronunciations": [
+      {
+        "line": "We’ve nought to do—they are not here—",
+        "token": 2,
+        "word": "nought",
+        "phones": ["N", "AO1", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar nought."
+      }
+    ]
+  },
+  "44": {
+    "pronunciations": [
+      {
+        "line": "O, furl your star-lit thing of light—",
+        "token": 2,
+        "word": "furl",
+        "phones": ["F", "ER1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar furl."
+      }
+    ]
+  },
+  "45": {
+    "pronunciations": [
+      {
+        "line": "What mean ye, that ye dare to rend",
+        "token": 8,
+        "word": "rend",
+        "phones": ["R", "EH1", "N", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar rend."
+      },
+      {
+        "line": "What mean ye, when God’s bounteous hand",
+        "token": 6,
+        "word": "bounteous",
+        "phones": ["B", "AW1", "N", "T", "IY0", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar adjective, three-syllable selection."
       }
     ]
   }
