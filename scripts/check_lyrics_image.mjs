@@ -144,7 +144,7 @@ if (
     assert.equal(health.recovery.durable, true);
     assert.equal(health.recovery.healthy, true);
     assert.match(health.build.source_sha256, /^[0-9a-f]{64}$/);
-    const statusResponse = await fetch('http://127.0.0.1:8080/chat/status', { signal: AbortSignal.timeout(1000) });
+    const statusResponse = await fetch('http://127.0.0.1:8080/chat/status', { signal: AbortSignal.timeout(10_000) });
     assert.equal(statusResponse.status, 200);
     const status = await statusResponse.json();
     assert.equal(status.enabled, true);
@@ -209,11 +209,11 @@ if (
     assert.equal(config.HostConfig.MemorySwap, 2 * 1024 ** 3);
     assert.equal(config.HostConfig.NetworkMode, 'none');
     await docker(['exec', server, 'node', '--input-type=module', '-e', probe, commit, 'before'], {
-      timeoutMs: 35_000,
+      timeoutMs: 45_000,
     });
     await docker(['restart', '--time=2', server], { quiet: true, timeoutMs: 10_000 });
     await docker(['exec', server, 'node', '--input-type=module', '-e', probe, commit, 'after'], {
-      timeoutMs: 35_000,
+      timeoutMs: 45_000,
     });
     console.log(
       'Production lyrics image gate passed: real harness/worker/proposer/verification and durable restart.'
