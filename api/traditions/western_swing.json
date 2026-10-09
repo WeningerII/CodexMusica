@@ -5,7 +5,7 @@
   "lineage": "1930s-1940s Texas-Oklahoma string-band swing-era jazz hybrid — codified through Bob Wills and His Texas Playboys (formed 1934, hits \"San Antonio Rose\" 1938, \"New San Antonio Rose\" 1940), Milton Brown and His Musical Brownies, Spade Cooley’s Orchestra; characterized by fiddle-and-steel-guitar lead, big-band swing-rhythm-section, and Texas-roadhouse repertoire blending country, jazz, blues, and polka idioms",
   "recipe": "classic North American mid-1930s western swing, functional Song, western swing branch, honky tonk era country, American jazz early new orleans jazz honky-tonk. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet, five string extended low swing lead tremolo shimmer electric mandolin.",
   "recipe_chars": 996,
-  "score": 702.125,
+  "score": 701.615,
   "config": {
     "traditions": [
       "western_swing",
@@ -41,9 +41,9 @@
           "voice_vibrato": 25.31,
           "voice_articulation": 18.655,
           "voice_microtone": 22.59999999999999,
-          "voice_tradition": 19.409999999999993,
+          "voice_tradition": 20.579999999999995,
           "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 23.264999999999993,
+          "voice_estill_quality": 22.634999999999994,
           "voice_speech_song": 22.944999999999997,
           "voice_ensemble_config": 18.589999999999996,
           "voice_ornament_system": 2.2750000000000004,
@@ -84,14 +84,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 23.14,
-          "amp_make": 27.044999999999995,
+          "electric_technique": 22.900000000000002,
+          "amp_make": 26.729999999999997,
           "pickup_steel": 0.195,
           "string_setup": 9.879999999999999,
           "bar_material": 2.535,
-          "pedal_steel_brand": 20.659999999999997,
-          "pedal_steel_neck_config": 24.61,
-          "pedal_steel_strings": 20.169999999999998
+          "pedal_steel_brand": 20.764999999999997,
+          "pedal_steel_neck_config": 23.979999999999997,
+          "pedal_steel_strings": 20.08
         }
       },
       {
@@ -104,7 +104,7 @@
           "fretboard": "maple_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_11",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
@@ -113,10 +113,10 @@
         },
         "scores": {
           "electric_technique": 20.674999999999997,
-          "amp_make": 27.044999999999995,
+          "amp_make": 26.729999999999997,
           "body_wood": 0.345,
           "neck_wood": 0.195,
-          "fretboard": 0.5399999999999999,
+          "fretboard": 0.49499999999999994,
           "pickup_magnet": 0.345,
           "string_material": 2.535,
           "string_gauge": 0.195,
@@ -147,7 +147,7 @@
         },
         "scores": {
           "drum_technique": 27.104999999999997,
-          "drumhead": 18.684999999999995,
+          "drumhead": 19.464999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -188,13 +188,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4.3950000000000005,
+          "wind_articulation": 4.3500000000000005,
           "sax_size": 0.585,
           "sax_reed": 0.45499999999999996,
           "sax_body_alloy": 17.249999999999996,
-          "sax_mouthpiece": 0.8400000000000001,
+          "sax_mouthpiece": 0.6449999999999999,
           "sax_technique": 17.249999999999996,
-          "sax_maker_school": 18.684999999999995
+          "sax_maker_school": 19.659999999999997
         }
       },
       {
@@ -216,8 +216,8 @@
           "tone_ring": 0.345,
           "banjo_head": 18.46,
           "banjo_pot": 0,
-          "banjo_play": 0.39,
-          "banjo_rim_wood": 0.46499999999999997,
+          "banjo_play": 0.24,
+          "banjo_rim_wood": 0.41999999999999993,
           "banjo_neck_wood": 0.195,
           "banjo_strings": 3.1200000000000006,
           "banjo_bridge": 0.15,
@@ -236,11 +236,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.3950000000000005,
+          "wind_articulation": 4.3500000000000005,
           "brass_size": 0.045,
-          "trumpet_mouthpiece": 20.514999999999997,
-          "brass_mute": 0.8400000000000001,
-          "trumpet_technique": 4.3950000000000005,
+          "trumpet_mouthpiece": 20.409999999999997,
+          "brass_mute": 0.6449999999999999,
+          "trumpet_technique": 4.3500000000000005,
           "trumpet_bell_metal": 0.845,
           "trumpet_maker_school": 3.185
         }
@@ -253,8 +253,8 @@
           "electric_mandolin_build": "electric_mandolin_build_piezo"
         },
         "scores": {
-          "electric_mandolin_form": 11.274999999999999,
-          "electric_mandolin_style": 14.199999999999998,
+          "electric_mandolin_form": 10.974999999999998,
+          "electric_mandolin_style": 14.049999999999997,
           "electric_mandolin_build": 0.06499999999999999
         }
       }

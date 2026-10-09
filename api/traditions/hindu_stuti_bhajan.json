@@ -1,16 +1,17 @@
 {
-  "id": "hindu_stuti_bhajan",
-  "name": "Hindu stuti and bhajan (praise of deities)",
+  "id": "bhajan",
+  "merged_from": "hindu_stuti_bhajan",
+  "name": "Bhajan",
   "family": "global",
-  "lineage": "Pan-Indian Hindu devotional praise-song tradition continuous from medieval Bhakti-movement era (12th-18th century North-and-South-Indian bhakti-saints including Kabir, Mirabai, Tulsidas, Surdas, Tyagaraja, Annamacharya) through 19th-20th century continuous performance into modern Hindu-and-Hindu-diaspora practice",
-  "recipe": "classic South Asian mid-1980s hindu stuti and bhajan, praise Song, indian subcontinent branch, middle east n African praise song, indian classical improv improv on frame, hindu ritual devotional sufi munajat and naat arabic madh and qasida. vocal fry, declaimed, slow rate, interlocked note trading. treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix wooden body miraj style tanpura, small steady tala keeping manjira. vrindavan braj mandir bhajan. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
-  "recipe_chars": 662,
-  "score": 278.169,
+  "lineage": "Pan-Indian Hindu devotional song tradition setting Sanskrit, Hindi, Braj Bhasha, Marathi, Bengali, Tamil and other Indian-language devotional poetry by Surdas, Mirabai, Tulsidas, Tukaram, Kabir, the Alvar saints — performed in temple-and-domestic-shrine contexts across regional Hindu sub-traditions; modern voices Anup Jalota, Jagjit Singh (the late ghazal-bhajan crossover canon), and the Pushti Marg haveli sangeet tradition",
+  "recipe": "classic South Asian mid-1980s bhajan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song mappila paattu flamenco. vocal fry, declaimed, straight onset, interlocked note trading. low overtone rich vocal male harmonium indian, indian rosewood rosewood clay tabla, synthetic remo modern stable bolt tuned modern concert stable dholak, small steady tala keeping ashtadhatu manjira, clear drone bright brass reed resonant teak shruti box. vrindavan braj mandir bhajan. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 635,
+  "score": 230.525,
   "config": {
     "traditions": [
-      "hindu_stuti_bhajan",
-      "sufi_munajat_naat",
-      "arabic_madh_qasida"
+      "bhajan",
+      "mappila_paattu",
+      "flamenco"
     ],
     "instruments": [
       {
@@ -20,36 +21,36 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.3649999999999998,
-          "voice_quality": 43.134000000000015,
+          "voice_register": 2.6649999999999996,
+          "voice_quality": 17.219999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.237499999999999,
-          "voice_articulation": 10.594999999999995,
-          "voice_microtone": 20.929999999999996,
-          "voice_tradition": 29.119999999999994,
-          "voice_mechanism_compound": 11.674999999999999,
-          "voice_estill_quality": 9.294499999999998,
-          "voice_speech_song": 25.22,
-          "voice_ensemble_config": 11.504999999999995,
-          "voice_ornament_system": 16.049999999999997,
-          "voice_pitch_organization": 15.829499999999998,
-          "voice_processing_chain": 2.7300000000000004,
-          "voice_multitrack_stack": 3.25
+          "voice_vibrato": 3.1200000000000006,
+          "voice_articulation": 17.484999999999992,
+          "voice_microtone": 22.522499999999994,
+          "voice_tradition": 11.115,
+          "voice_mechanism_compound": 5.004999999999999,
+          "voice_estill_quality": 6.662500000000001,
+          "voice_speech_song": 23.367499999999993,
+          "voice_ensemble_config": 15.339999999999991,
+          "voice_ornament_system": 14.2,
+          "voice_pitch_organization": 4.66,
+          "voice_processing_chain": 4.095000000000001,
+          "voice_multitrack_stack": 3.51
         }
       },
       {
@@ -57,46 +58,42 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "harmonium_action": "harmonium_hand_pump",
-          "harmonium_voicing": "harmonium_female",
-          "harmonium_use": "harmonium_classical"
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 0.19500000000000003,
-          "harmonium_action": 1.9499999999999997,
-          "harmonium_voicing": 2.2099999999999995,
-          "harmonium_use": 5.459999999999999
+          "free_reed_technique": 0.59,
+          "harmonium_action": 3.9,
+          "harmonium_voicing": 2.6649999999999996,
+          "harmonium_use": 5.109999999999999
         }
       },
       {
         "id": "tabla",
         "slots": {
           "tabla_dayan": "shisham_dayan",
-          "tabla_bayan": "copper_bayan",
+          "tabla_bayan": "clay_bayan",
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 11.179999999999996,
-          "tabla_bayan": 4.094999999999999,
-          "tabla_syahi": 0.78
+          "tabla_dayan": 4.24,
+          "tabla_bayan": 1.0950000000000002,
+          "tabla_syahi": 5.005
         }
       },
       {
-        "id": "tanpura",
+        "id": "dholak",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
-          "tanpura_size": "female_size",
-          "tanpura_jawari": "curved_jawari",
-          "tanpura_strings": "five_string_chitra",
-          "tanpura_string_material": "tanpura_bronze_steel",
-          "tanpura_body_wood": "tanpura_wooden_body"
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_synthetic_head",
+          "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "plucked_traditional_technique": 8.4195,
-          "tanpura_size": 2.795,
-          "tanpura_jawari": 7.874999999999999,
-          "tanpura_strings": 1.17,
-          "tanpura_string_material": 2.8545,
-          "tanpura_body_wood": 3.3395
+          "dholak_use": 0.785,
+          "dholak_construction": 3.185,
+          "dholak_head": 1.95,
+          "dholak_tensioning": 2.6
         }
       },
       {
@@ -104,25 +101,40 @@
         "slots": {
           "manjira_form": "manjira_taal_small",
           "manjira_stroke": "manjira_tala_ostinato",
-          "manjira_metal": "manjira_brass"
+          "manjira_metal": "manjira_ashtadhatu"
         },
         "scores": {
-          "manjira_form": 8.77,
-          "manjira_stroke": 4.175,
-          "manjira_metal": -0.035
+          "manjira_form": 12.92,
+          "manjira_stroke": 7.249999999999999,
+          "manjira_metal": 5.8100000000000005
+        }
+      },
+      {
+        "id": "shruti_box",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "shruti_box_form": "shruti_box_form_standard_surpeti",
+          "shruti_box_role": "shruti_box_role_bhajan_kirtan",
+          "shruti_box_build": "shruti_box_build_brass_reeds_teak"
+        },
+        "scores": {
+          "free_reed_technique": 0.59,
+          "shruti_box_form": 5.6225000000000005,
+          "shruti_box_role": 9.814999999999998,
+          "shruti_box_build": 2.275
         }
       }
     ],
     "room": "vrindavan_braj_mandir_bhajan",
     "archetype": "arch_tseries_cassette_devotional",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "pre_field_recorder_portable",
-      "console": "clean",
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
     "tuning": "hindustani_thaat_alap_jod_jhala",
     "aesthetic": null,
@@ -133,15 +145,14 @@
     "tuning": "hindustani_thaat_alap_jod_jhala",
     "room": "vrindavan_braj_mandir_bhajan",
     "parts": {
-      "voice_articulation": "melisma_voice",
-      "voice_speech_song": "voice_melismatic_singing",
       "voice_register": "chest_voice",
       "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_metrical_chant",
       "voice_tradition": "hindustani_dhrupad_tradition",
       "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
       "voice_microtone": "shruti_inflected",
       "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
       "voice_estill_quality": "voice_estill_opera",
@@ -154,16 +165,16 @@
       "harmonium_action": "harmonium_hand_pump",
       "harmonium_voicing": "harmonium_double",
       "harmonium_use": "harmonium_kirtan",
-      "plucked_traditional_technique": "plucked_drone_modal",
-      "tanpura_size": "female_size",
-      "tanpura_jawari": "curved_jawari",
-      "tanpura_strings": "four_string_classical",
-      "tanpura_string_material": "tanpura_bronze_steel",
-      "tanpura_body_wood": "tanpura_gourd_body"
+      "dholak_use": "dholak_classical",
+      "dholak_construction": "dholak_mango",
+      "dholak_head": "dholak_goat_skin_canonical",
+      "dholak_tensioning": "dholak_rope_tuning"
     },
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_high",
-    "chain_console": "clean"
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

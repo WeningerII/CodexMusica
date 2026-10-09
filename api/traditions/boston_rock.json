@@ -5,7 +5,7 @@
   "lineage": "Boston rock encompasses guitar bands shaped by the city’s venues, independent recordings and regional music networks. Its alternative-rock strand combines direct song forms with contrasting guitar colors and abrupt shifts in energy.",
   "recipe": "classic modern boston rock, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment. humbucker electric single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive analog bucket-brigade delay.",
   "recipe_chars": 470,
-  "score": 60.346,
+  "score": 61.049,
   "config": {
     "traditions": [
       "boston_rock"
@@ -32,14 +32,14 @@
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.441,
+          "neck_wood": 0.546,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.39,
           "string_material": 0.105,
-          "bridge": 0.441,
-          "scale_length": 0.8820000000000001,
-          "string_gauge": 0.273,
+          "bridge": 0.546,
+          "scale_length": 1.0920000000000003,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -65,13 +65,13 @@
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.441,
+          "neck_wood": 0.546,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0.1365,
           "string_material": 0.105,
-          "string_gauge": 0.441,
+          "string_gauge": 0.546,
           "bridge": 0.1365,
-          "scale_length": 0.8820000000000001,
+          "scale_length": 1.0920000000000003,
           "finish": 0,
           "string_tuning": 0,
           "single_coil_pickup_construction": 0
@@ -164,7 +164,7 @@
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.39
         }
       }

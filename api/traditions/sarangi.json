@@ -5,7 +5,7 @@
   "lineage": "Zohaib Hassan Khan — Raag Brindabani Sarang, Raag Bairagi (2014), complete album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s sarangi, art Music, south Asian branch. gut 3 main playing strings sarangi, indian rosewood rosewood brass tabla, swarmandal, tanpura. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 14.017,
+  "score": 13.617,
   "config": {
     "traditions": [
       "sarangi"
@@ -27,7 +27,7 @@
           "sarangi_taraf": 0.3315,
           "sarangi_bow": 0,
           "sarangi_main_strings": 1.625,
-          "sarangi_body_wood": 0.44099999999999995
+          "sarangi_body_wood": 0.3045
         }
       },
       {
@@ -39,7 +39,7 @@
         },
         "scores": {
           "tabla_dayan": 1.625,
-          "tabla_bayan": 1.69,
+          "tabla_bayan": 1.6675,
           "tabla_syahi": 0
         }
       },
@@ -68,11 +68,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 1.2999999999999998,
-          "tanpura_size": 0.7874999999999999,
+          "tanpura_size": 0.8189999999999998,
           "tanpura_jawari": 3.25,
           "tanpura_strings": 0.363,
-          "tanpura_string_material": 0.44099999999999995,
-          "tanpura_body_wood": 0.5355
+          "tanpura_string_material": 0.3045,
+          "tanpura_body_wood": 0.399
         }
       }
     ],

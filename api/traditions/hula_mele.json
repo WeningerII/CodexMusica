@@ -3,14 +3,14 @@
   "name": "Hula (mele hula dance-chant)",
   "family": "global",
   "lineage": "Hawaiian chant-and-dance tradition transmitted through the hālau system, suppressed after 1830 and restored publicly from Kalākaua's reign in the 1880s, then reasserted in the 1970s Hawaiian Renaissance and the Merrie Monarch Festival — hula kahiko sets oli and mele over the ipu heke gourd struck-and-thumped pattern, pahu sharkskin drum for temple repertoire, puʻili split-bamboo rattles and ʻiliʻili stones, with a chanter's sustained ʻiʻi vibrato, narrow melodic range, and text-governed unmetered phrase lengths.",
-  "recipe": "classic Oceanian mid-1880s hula, praise Song, oceania pacific branch, indigenous ritual devotional, oceania pacific funeral lament shipibo-conibo icaros healing songs música mapuche. extended whistle, breath veiled tone, fast rate, interlocked note trading. single gourd no top piece mele hula accompaniment ground strike palm slap canonical hula kahiko rhythm ipu heke, coconut log carved hollow sharkskin head hand struck canonical hawaiian sacred hula kahiko accompaniment pahu mele song drum pahu, bamboo split rattle struck canonical hula kahiko hula kahiko sacred dance canonical hawaiian pulili, snappy to palm hand clap, foot stomp. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 745,
-  "score": 284.24,
+  "recipe": "classic Oceanian mid-1880s hula, praise Song, oceania pacific branch, indigenous ritual devotional, oceania pacific funeral lament música mapuche mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. single gourd no top piece mele hula accompaniment ground strike palm slap canonical hula kahiko rhythm ipu heke, coconut log carved hollow sharkskin head hand struck canonical hawaiian sacred hula kahiko accompaniment pahu mele song drum pahu, bamboo split rattle struck canonical hula kahiko hula kahiko sacred dance canonical hawaiian pulili, group massed hand clap, foot stomp. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 749,
+  "score": 264.85,
   "config": {
     "traditions": [
       "hula_mele",
-      "shipibo_icaros",
-      "musica_mapuche"
+      "musica_mapuche",
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "polynesian_oli_tradition",
@@ -28,27 +28,27 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.6650000000000005,
-          "voice_quality": 32.239999999999995,
+          "voice_register": 2.8600000000000003,
+          "voice_quality": 26.519999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.185,
-          "voice_articulation": 24.894999999999996,
-          "voice_microtone": 23.009999999999994,
-          "voice_tradition": 30.127499999999998,
-          "voice_mechanism_compound": 10.915000000000001,
-          "voice_estill_quality": 4.68,
-          "voice_speech_song": 27.429999999999996,
-          "voice_ensemble_config": 24.179999999999996,
-          "voice_ornament_system": 8.025000000000002,
-          "voice_pitch_organization": 4.062500000000001,
-          "voice_processing_chain": 12.870000000000001,
+          "voice_vibrato": 3.5425000000000004,
+          "voice_articulation": 24.244999999999997,
+          "voice_microtone": 22.164999999999996,
+          "voice_tradition": 29.027499999999996,
+          "voice_mechanism_compound": 8.239999999999998,
+          "voice_estill_quality": 5.525000000000001,
+          "voice_speech_song": 26.585,
+          "voice_ensemble_config": 22.879999999999995,
+          "voice_ornament_system": 7.085,
+          "voice_pitch_organization": 3.7050000000000005,
+          "voice_processing_chain": 9.879999999999999,
           "voice_multitrack_stack": 3.7050000000000005
         }
       },
@@ -59,8 +59,8 @@
           "ipu_heke_technique": "ipu_heke_ground_strike_palm_slap"
         },
         "scores": {
-          "ipu_heke_construction": 12.870000000000001,
-          "ipu_heke_technique": 8.559999999999999
+          "ipu_heke_construction": 13.064999999999998,
+          "ipu_heke_technique": 6.759999999999999
         }
       },
       {
@@ -70,8 +70,8 @@
           "pahu_role": "pahu_hula_kahiko_accompaniment"
         },
         "scores": {
-          "pahu_construction": 7.279999999999999,
-          "pahu_role": 16.38
+          "pahu_construction": 8.969999999999999,
+          "pahu_role": 15.729999999999997
         }
       },
       {
@@ -81,19 +81,19 @@
           "pulili_tradition": "pulili_hula_kahiko_canonical"
         },
         "scores": {
-          "pulili_body": 12.219999999999999,
+          "pulili_body": 11.765,
           "pulili_tradition": 13.389999999999999
         }
       },
       {
         "id": "hand_clap",
         "slots": {
-          "clap_technique": "clap_fingers_to_palm",
+          "clap_technique": "clap_group_massed",
           "clap_capture": "clap_close_dry"
         },
         "scores": {
-          "clap_technique": 4.159999999999999,
-          "clap_capture": 0.8
+          "clap_technique": 2.34,
+          "clap_capture": 0.15
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Vlaamse rap",
   "family": "hip_hop",
   "lineage": "Dutch-language Belgian rap connects artists in Flanders and Brussels, including the STIKSTOF network.",
-  "recipe": "classic modern vlaamse rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 253,
-  "score": 31.572,
+  "recipe": "classic modern vlaamse rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 291,
+  "score": 32.202,
   "config": {
     "traditions": [
       "vlaamse_rap"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.056999999999999,
-          "voice_ensemble_config": 0.48449999999999993,
+          "voice_speech_song": 12.309,
+          "voice_ensemble_config": 0.6944999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -60,9 +60,9 @@
         },
         "scores": {
           "electronic_technique": 2.2855000000000003,
-          "sample_bitdepth": 0,
+          "sample_bitdepth": 0.273,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

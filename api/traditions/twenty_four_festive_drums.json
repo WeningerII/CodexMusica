@@ -1,0 +1,63 @@
+{
+  "id": "twenty_four_festive_drums",
+  "name": "24 Festive Drums (Malaysian Chinese drum troupe)",
+  "family": "global",
+  "lineage": "Malaysian Chinese drum genre (ershisi jieling gu) created in Johor Bahru in 1988 by Tan Hooi Song and Tan Chai Puan, in which troupes beat twenty-four large drums named for the twenty-four solar terms of the Chinese calendar with choreographed movement. It spread through Chinese schools and associations across Malaysia; the generic membrane-drum card stands in for the large barrel drums.",
+  "recipe": "classic late-1980s 24 festive drums, groove Percussion, east Asian branch. membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 207,
+  "score": 9.1,
+  "config": {
+    "traditions": [
+      "twenty_four_festive_drums"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 5.2,
+          "acoustic_membrane_drum_gesture": 3.9
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

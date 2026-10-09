@@ -3,14 +3,14 @@
   "name": "Gregorian Chant",
   "family": "classical",
   "lineage": "Latin liturgical monophony of the Western church, synthesized from Roman and Frankish practice in the Carolingian empire during the eighth and ninth centuries and notated in neumes from circa 900, restored by the Solesmes monks in the nineteenth century — unaccompanied male or female unison voices, free unmeasured prose rhythm following the Latin text, eight-mode system, syllabic psalm tones through melismatic graduals and alleluias, sung antiphonally in resonant stone spaces.",
-  "recipe": "classic European early-1950s gregorian chant, art Music, western early branch, western common practice art music, christian gospel Russian orthodox byzantine chant orthodox chant. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 476,
-  "score": 158.06,
+  "recipe": "classic European early-1950s gregorian chant, art Music, western early branch, western common practice art music, christian gospel Russian orthodox classical mezzo-soprano classical soprano. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western drone plus voices sustained pedal under melody choir ensemble. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 439,
+  "score": 146.19,
   "config": {
     "traditions": [
       "gregorian_chant",
-      "byzantine_chant",
-      "orthodox_chant"
+      "classical_mezzo_soprano",
+      "classical_soprano"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 8.925,
-          "voice_quality": 18.84999999999999,
+          "voice_register": 5.8,
+          "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.89,
-          "voice_articulation": 15.924999999999995,
-          "voice_microtone": 16.022499999999994,
-          "voice_tradition": 11.375,
-          "voice_mechanism_compound": 4.9,
-          "voice_estill_quality": 6.555000000000001,
-          "voice_speech_song": 17.354999999999997,
-          "voice_ensemble_config": 16.574999999999996,
-          "voice_ornament_system": 6.2749999999999995,
-          "voice_pitch_organization": 4.9,
-          "voice_processing_chain": 5.785,
-          "voice_multitrack_stack": 2.4049999999999994
+          "voice_vibrato": 10.790000000000001,
+          "voice_articulation": 14.884999999999994,
+          "voice_microtone": 13.584999999999992,
+          "voice_tradition": 12.805000000000001,
+          "voice_mechanism_compound": 7.4,
+          "voice_estill_quality": 10.655,
+          "voice_speech_song": 16.184999999999995,
+          "voice_ensemble_config": 14.104999999999995,
+          "voice_ornament_system": 9.95,
+          "voice_pitch_organization": 7.4,
+          "voice_processing_chain": 2.405,
+          "voice_multitrack_stack": 1.69
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 5.85,
-          "choir_polyphonic_configuration": 3.3999999999999995,
-          "choir_regional_canonical_configuration": 2.5349999999999997,
-          "choir_ensemble_repertoire": 6.824999999999999
+          "choir_size": 6.11,
+          "choir_polyphonic_configuration": 1.5999999999999999,
+          "choir_regional_canonical_configuration": 0.78,
+          "choir_ensemble_repertoire": 3.5749999999999993
         }
       }
     ],

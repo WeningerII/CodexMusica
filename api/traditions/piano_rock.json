@@ -5,7 +5,7 @@
   "lineage": "Anglo-American rock strain in which an acoustic or upright piano rather than electric guitar carries the riff and harmony, running from Little Richard and Jerry Lee Lewis through its 1970s codification by Elton John with Gus Dudgeon and Paul Buckmaster, Billy Joel and Randy Newman, and its 1990s-2000s revival by Ben Folds Five, Keane and The Fray — mid-tempo 90-130 BPM rock-band backing under octave-doubled left-hand bass patterns, gospel-derived suspended and inverted triads, hammered eighth-note chordal comping and an unguarded belted lead vocal.",
   "recipe": "classic Los Angeles mid-1970s piano rock, functional Song, pop rock branch, anglo singer song laurel canyon, American jazz boogie woogie boogie-woogie. thick, breath veiled tone, wide pitch sway, interlocked note trading. soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand stride upright piano, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, string quartet inst, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 891,
-  "score": 442.11,
+  "score": 443.528,
   "config": {
     "traditions": [
       "piano_rock",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
@@ -41,15 +41,15 @@
           "voice_vibrato": 11.514999999999997,
           "voice_articulation": 21.97,
           "voice_microtone": 25.849999999999998,
-          "voice_tradition": 8.754999999999999,
+          "voice_tradition": 8.904999999999998,
           "voice_mechanism_compound": 4.225,
           "voice_estill_quality": 5.9799999999999995,
           "voice_speech_song": 25.61,
           "voice_ensemble_config": 20.344999999999995,
-          "voice_ornament_system": 2.9385000000000003,
+          "voice_ornament_system": 2.946,
           "voice_pitch_organization": 3.315000000000001,
-          "voice_processing_chain": 6.24,
-          "voice_multitrack_stack": 6.7235
+          "voice_processing_chain": 6.276,
+          "voice_multitrack_stack": 6.701
         }
       },
       {
@@ -67,12 +67,12 @@
         },
         "scores": {
           "keyboard_technique": 8.079999999999998,
-          "grand_piano_size": 1.753,
-          "grand_piano_brand": 1.984,
+          "grand_piano_size": 1.8729999999999998,
+          "grand_piano_brand": 1.9674999999999998,
           "piano_hammer": 8.254999999999999,
           "piano_rim": 8.059999999999999,
           "piano_soundboard": 4.824999999999999,
-          "piano_pinblock": 0.9629999999999999,
+          "piano_pinblock": 0.9314999999999999,
           "piano_plate": 0.26,
           "piano_pitch_standard": 2.535
         }
@@ -91,10 +91,10 @@
         },
         "scores": {
           "amp_make": 12.219999999999999,
-          "body_wood": 1.948,
+          "body_wood": 2.0799999999999996,
           "pickup_config": 0.39,
-          "string_type": 18.738500000000002,
-          "scale_length_b": 1.7214999999999998,
+          "string_type": 18.566,
+          "scale_length_b": 1.9134999999999998,
           "fretted_or_not": 0.39,
           "bass_technique": 15.804999999999998,
           "electric_bass_string_configuration": 0
@@ -109,7 +109,7 @@
         },
         "scores": {
           "drum_technique": 22.685,
-          "drumhead": 7.380500000000001,
+          "drumhead": 7.572500000000002,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -122,7 +122,7 @@
         },
         "scores": {
           "keyboard_technique": 8.079999999999998,
-          "upright_use": 1.753,
+          "upright_use": 1.8729999999999998,
           "upright_piano_size": 1.04
         }
       },
@@ -144,16 +144,16 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 6.1575,
+          "electric_technique": 6.0945,
           "amp_make": 8.059999999999999,
-          "body_wood": 1.8264999999999998,
-          "neck_wood": 1.8264999999999998,
-          "fretboard": 1.7764999999999997,
+          "body_wood": 1.9465,
+          "neck_wood": 1.9465,
+          "fretboard": 1.8964999999999999,
           "pickup_magnet": 0.3,
           "string_material": 0.195,
-          "string_gauge": 2.1115,
+          "string_gauge": 2.2314999999999996,
           "bridge": 0.49499999999999994,
-          "scale_length": 1.948,
+          "scale_length": 2.0799999999999996,
           "finish": 0,
           "string_tuning": 13.129999999999997,
           "single_coil_pickup_construction": 0
@@ -183,11 +183,11 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 6.8295,
+          "keyboard_technique": 6.798,
           "drawbar_setting": 15.854999999999999,
           "rotary_speed": 19.389999999999997,
-          "percussion_setting": 8.189999999999998,
-          "tonewheel_model": 16.121000000000002,
+          "percussion_setting": 8.1825,
+          "tonewheel_model": 16.323500000000003,
           "leslie_cabinet_model": 2.145
         }
       }

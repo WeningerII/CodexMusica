@@ -5,7 +5,7 @@
   "lineage": "Irish country and country-and-Irish performance mix country-song repertoires with local entertainment circuits and instrumental traditions. Nathan Carter’s documented singing and accordion performance supplies the selected compact branch.",
   "recipe": "classic modern irish country, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. accordion. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 280,
-  "score": 84.064,
+  "score": 83.507,
   "config": {
     "traditions": [
       "irish_country"
@@ -36,17 +36,17 @@
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 15.336499999999997,
+          "voice_vibrato": 15.199999999999998,
           "voice_articulation": -0.14,
           "voice_microtone": 5.590000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 2.6,
-          "voice_estill_quality": 16.80175,
+          "voice_mechanism_compound": 2.37875,
+          "voice_estill_quality": 16.56025,
           "voice_speech_song": 10.205,
           "voice_ensemble_config": 6.11,
-          "voice_ornament_system": 8.062999999999999,
+          "voice_ornament_system": 8.0315,
           "voice_pitch_organization": 0.06500000000000002,
-          "voice_processing_chain": 0.7935,
+          "voice_processing_chain": 0.8985000000000001,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -58,16 +58,16 @@
           "musette_offset": "dry_tuning",
           "reed_config": "lmmh",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "no_cassotto",
+          "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_maker_unspecified"
         },
         "scores": {
           "free_reed_technique": 0.49999999999999994,
           "accordion_reed_material": 0.2205,
-          "musette_offset": 0.0315,
-          "reed_config": 0.21674999999999997,
+          "musette_offset": 0,
+          "reed_config": 0.24824999999999997,
           "bellows": 0.1425,
-          "voicing_chamber": 0.0315,
+          "voicing_chamber": 0,
           "accordion_maker_school": 0
         }
       }

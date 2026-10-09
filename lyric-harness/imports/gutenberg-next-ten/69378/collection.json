@@ -1,0 +1,53 @@
+{
+  "gutenberg_id": "69378",
+  "title": "Negro Workaday Songs",
+  "editor": "Howard W. Odum and Guy B. Johnson",
+  "publication_year": 1926,
+  "edition": "Chapel Hill: The University of North Carolina Press; London: Humphrey Milford, Oxford University Press, 1926. Copyright 1926.",
+  "ebook_url": "https://www.gutenberg.org/ebooks/69378",
+  "source_url": "https://www.gutenberg.org/ebooks/69378.txt.utf-8",
+  "mirror_url": "https://raw.githubusercontent.com/GITenberg/Negro-workaday-songs_69378/0daf98e6d85268fbd36f8b25f1a585eb7752e985/69378-0.txt",
+  "mirror_commit": "0daf98e6d85268fbd36f8b25f1a585eb7752e985",
+  "source_sha256": "8096bfdd2f84cc31253e99146fa4ae77bdbfc6ed1e4c8ef6254d13de4dcc54ae",
+  "source_bytes": 423820,
+  "retrieved_on": "2026-10-08",
+  "source_witness": "source.txt.gz",
+  "source_witness_format": "gzip of original raw HTTP mirror bytes, including original BOM and CRLF; gzip mtime=0; not a reconstructed browser transcription",
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/cache/epub/69378/pg69378-images.html",
+    "excerpt": "CHAPEL HILL / THE UNIVERSITY OF NORTH CAROLINA PRESS / LONDON: HUMPHREY MILFORD / OXFORD UNIVERSITY PRESS / 1926. COPYRIGHT, 1926, BY THE UNIVERSITY OF NORTH CAROLINA PRESS."
+  },
+  "rights_evidence": {
+    "url": "https://www.gutenberg.org/ebooks/69378",
+    "excerpt": "Copyright: Public domain in the USA.",
+    "jurisdiction": "United States",
+    "scope": "Original English lyrics in the exact supplied 1926 witness; catalogue affirmation checked 2026-10-08. No worldwide rights claim.",
+    "publication_year_used": 1926
+  },
+  "counts": {
+    "candidate_units": 329,
+    "eligible_before_deduplication": 271,
+    "excluded_before_deduplication": 58,
+    "printed_alphabetic_versions": 18,
+    "affirmatively_reviewed_untitled_units": 10
+  },
+  "deduplication": "Deferred to common integration across next-ten collections and existing corpus; supplied variants remain separate candidates.",
+  "notes": [
+    "The contents lists chapters rather than a song count. Candidate ledger covers contiguous four-space verse blocks in chapters I–XIV before bibliography, partitioning complete supplied songs from analytical excerpts, condensed or fragment witnesses. Score underlay and prose are not standalone candidates.",
+    "No numeric length cutoff or pronunciation/dictionary coverage decides eligibility. Four-line complete headed work songs remain eligible. Source spelling, repetitions, stanza order and abbreviated refrains remain unchanged.",
+    "Printed A/B and A–K versions remain separate exact source units, including eleven John Henry versions and three Raise a Rukus Tonight versions. No cross-version assembly.",
+    "Chapter XIV explicitly states Stagolee, Railroad Bill and She Asked Me in de Parlor are printed in full; their lyric blocks are eligible independently of score underlay.",
+    "Ten unheaded complete units are admitted using explicit prose framing or continuous self-contained performance evidence, with incipit titles where no title is supplied. Left Wing Gordon is credited as performer, not automatically as author.",
+    "Dupree’s Jail Song is a supplied continuous improvised performance. Its borrowing/composite character is not editorial assembly by this adapter; the complete source unit remains eligible.",
+    "Three songs following Pharaoh’s Army Got Drownded are credited to Sanctified Mary Harris with the printed qualification that she claimed composition. Compilers are not credited as song authors.",
+    "Two explicitly incomplete headed witnesses are excluded: condensed I Can’t Keep from Cryin’ (note25) and fragment Stewball Was a Racer (note67). Unheaded analytical excerpts remain in the candidate ledger with source contexts.",
+    "Gutenberg catalogue’s original-publication location says New Caledonia; the supplied title page instead explicitly says Chapel Hill. The imprint is taken from the title page, not that catalogue location field.",
+    "Plaintext typographic emphasis underscores and footnote reference numbers are removed from sung text; chorus labels become [CHORUS]. Two-space footnote blocks remain audit notes, not lyric lines. Historical speech is not normalized.",
+    "Exact reviewed containment priority: line03773 FREE LABOR GANG SONG (48 lines) precedes line01857 THAT OL’ LETTER (eight lines) in candidate processing so ordinary deduplication retains the complete longer supplied witness and its forty additional lines. Both source-defined units remain eligible in the full candidate ledger with original source coordinates. No duplicate exception or threshold change."
+  ],
+  "validation": {
+    "offline_replay": "Seven test_data.py tests passed, including exact witness replay, source partition, eleven John Henry variants, complete untitled work songs, explicit fragment exclusions, spellings and composer qualification, and the exact reviewed longer-witness containment priority.",
+    "provenance": "Pinned mirror refetched and SHA256 matched initially retrieved raw source bytes.",
+    "text_hashes": "Every candidate has SHA256 of exact extracted UTF-8 text."
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Welsh eisteddfod cerdd dafod recitation",
   "family": "global",
   "lineage": "Competitive spoken recitation (llefaru) of Welsh strict-metre poetry — cerdd dafod, 'the craft of tongue' — governed by cynghanedd, the exacting system of consonantal and stress correspondence within the line codified across the twenty-four traditional metres. Rooted in the medieval bardic order and revived and institutionalised through the National Eisteddfod of Wales, whose central rite is the chairing (cadeirio) of the bard for the best awdl in cynghanedd. Modern practice ranges from the crowning ceremony to competitive verse-speaking, with masters such as the twentieth-century pencerdd tradition; delivery is elevated, sound-patterned declamation foregrounding the aural architecture of the line.",
-  "recipe": "classic modern welsh eisteddfod cerdd dafod recitation, ballad Poetry, Celtic balladic branch jeju haenyeo songs irish filí / bardic recitation. thick, breath veiled tone, straight onset, interlocked note trading. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 292,
-  "score": 212.196,
+  "recipe": "classic modern welsh eisteddfod cerdd dafod recitation, ballad Poetry, Celtic balladic branch jeju haenyeo songs swedish kulning herding-call. thick, breath veiled tone, wide pitch sway, interlocked note trading. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 291,
+  "score": 258.274,
   "config": {
     "traditions": [
       "welsh_eisteddfod_cerdd_dafod",
       "jeju_haenyeo_songs",
-      "irish_fili_bardic"
+      "swedish_kulning"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.4487500000000013,
-          "voice_quality": 49.465000000000046,
+          "voice_register": 9.748750000000001,
+          "voice_quality": 49.85500000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.705,
-          "voice_articulation": 18.07,
-          "voice_microtone": 17.874999999999996,
-          "voice_tradition": 19.467499999999998,
-          "voice_mechanism_compound": 4.029999999999999,
-          "voice_estill_quality": 7.02,
-          "voice_speech_song": 26.715,
-          "voice_ensemble_config": 18.85,
-          "voice_ornament_system": 15.080000000000002,
-          "voice_pitch_organization": 7.294499999999999,
-          "voice_processing_chain": 17.549999999999997,
-          "voice_multitrack_stack": 3.5750000000000006
+          "voice_vibrato": 5.875,
+          "voice_articulation": 27.300000000000004,
+          "voice_microtone": 27.560000000000002,
+          "voice_tradition": 22.685,
+          "voice_mechanism_compound": 5.135,
+          "voice_estill_quality": 7.475,
+          "voice_speech_song": 38.61000000000001,
+          "voice_ensemble_config": 28.080000000000005,
+          "voice_ornament_system": 8.385,
+          "voice_pitch_organization": 7.150000000000001,
+          "voice_processing_chain": 15.274999999999999,
+          "voice_multitrack_stack": 6.565000000000001
         }
       }
     ],

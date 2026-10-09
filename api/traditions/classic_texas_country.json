@@ -3,14 +3,14 @@
   "name": "Classic Texas Country",
   "family": "country",
   "lineage": "Texas country took shape in the beer-hall circuit between Fort Worth and San Antonio from the late 1930s through the 1960s, codified by Ernest Tubb, Lefty Frizzell, Ray Price and Willie Nelson — 110–140 BPM shuffles and 2/4 dance beats with a walking upright or electric bass, twin-fiddle harmony, pedal steel and single-coil electric lead over acoustic rhythm guitar, brushed or lightly-swung snare, and a plainspoken slurred baritone vocal built to carry across a wooden dance floor.",
-  "recipe": "classic Southern American 1937-1939 classic texas country, functional Song, neo trad branch, honky tonk era country, western swing country, outlaw country classic oklahoma country. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric spruce steel silk travis picked dreadnought acoustic guitar, sustaining steel upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, upright piano. honky tonk dance hall. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 777,
-  "score": 661.4,
+  "recipe": "classic Southern American 1937-1939 classic texas country, functional Song, neo trad branch, honky tonk era country, western swing country, outlaw country franco-country classic oklahoma country. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany nickel plated steel single coil electric spruce steel silk travis picked dreadnought acoustic guitar, sustaining steel upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, upright piano. honky tonk dance hall. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 794,
+  "score": 664.636,
   "config": {
     "traditions": [
       "classic_texas_country",
-      "classic_oklahoma_country",
-      "western_music"
+      "franco_country",
+      "classic_oklahoma_country"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 33.39500000000001,
-          "voice_quality": 14.624999999999991,
+          "voice_register": 35.07000000000001,
+          "voice_quality": 12.089999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 30.734999999999996,
           "voice_articulation": 20.929999999999996,
-          "voice_microtone": 21.57999999999999,
-          "voice_tradition": 8.840000000000002,
-          "voice_mechanism_compound": 2.34,
-          "voice_estill_quality": 34.883125,
-          "voice_speech_song": 29.379999999999995,
-          "voice_ensemble_config": 22.09999999999999,
-          "voice_ornament_system": 1.7549999999999994,
-          "voice_pitch_organization": 0.16874999999999998,
-          "voice_processing_chain": 4.398125,
-          "voice_multitrack_stack": 6.5649999999999995
+          "voice_microtone": 21.12499999999999,
+          "voice_tradition": 11.0825,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 35.824375,
+          "voice_speech_song": 29.574999999999996,
+          "voice_ensemble_config": 20.799999999999997,
+          "voice_ornament_system": 1.5599999999999996,
+          "voice_pitch_organization": 0.5199999999999999,
+          "voice_processing_chain": 4.105625,
+          "voice_multitrack_stack": 6.4350000000000005
         }
       },
       {
@@ -63,8 +63,8 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 42.275,
-          "fiddle_strings": 5.9799999999999995,
+          "bowed_technique": 39.675,
+          "fiddle_strings": 5.59,
           "fiddle_bow": 0,
           "fiddle_mute": 0.65,
           "fiddle_articulation": 0.35062499999999996,
@@ -84,14 +84,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 37.588750000000005,
-          "amp_make": 33.364374999999995,
-          "pickup_steel": 0.65,
+          "electric_technique": 37.30375,
+          "amp_make": 33.43875,
+          "pickup_steel": 0.98625,
           "string_setup": 17.939999999999998,
-          "bar_material": 4.16,
-          "pedal_steel_brand": 35.185625,
-          "pedal_steel_neck_config": 38.85375,
-          "pedal_steel_strings": 32.245625
+          "bar_material": 3.77,
+          "pedal_steel_brand": 34.629375,
+          "pedal_steel_neck_config": 38.97,
+          "pedal_steel_strings": 32.189375
         }
       },
       {
@@ -101,10 +101,10 @@
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_11",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
@@ -113,15 +113,15 @@
         },
         "scores": {
           "electric_technique": 30.799999999999997,
-          "amp_make": 33.364374999999995,
-          "body_wood": 0.65,
-          "neck_wood": 0.65,
-          "fretboard": 0.585,
+          "amp_make": 33.43875,
+          "body_wood": 1.28625,
+          "neck_wood": 1.28625,
+          "fretboard": 0.35062499999999996,
           "pickup_magnet": 0.35062499999999996,
-          "string_material": 4.16,
-          "string_gauge": 0.65,
+          "string_material": 3.77,
+          "string_gauge": 0.98625,
           "bridge": 0.35062499999999996,
-          "scale_length": 0.65,
+          "scale_length": 2.2724999999999995,
           "finish": 0.045,
           "string_tuning": 1.69,
           "single_coil_pickup_construction": 0
@@ -137,11 +137,11 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 30.794999999999995,
-          "string_tuning": 0.9099999999999999,
-          "top_wood": 1.728125,
+          "acoustic_technique": 32.46999999999999,
+          "string_tuning": 0.26,
+          "top_wood": 1.8199999999999998,
           "back_sides": 0,
-          "string_acoustic": 4.55
+          "string_acoustic": 4.159999999999999
         }
       },
       {
@@ -151,7 +151,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 4.16,
+          "upright_strings": 3.77,
           "upright_play": 2.5
         }
       },
@@ -163,7 +163,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.799999999999997,
+          "drum_technique": 20.994999999999997,
           "drumhead": 3.835,
           "drum_kit_kick_pedal": 0
         }
@@ -173,12 +173,12 @@
         "slots": {
           "keyboard_technique": "keyboard_honky_tonk",
           "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_spinet"
+          "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 33.5,
-          "upright_use": 0.65,
-          "upright_piano_size": 0.5
+          "keyboard_technique": 35.074999999999996,
+          "upright_use": 0.98625,
+          "upright_piano_size": 0.195
         }
       }
     ],

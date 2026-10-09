@@ -5,7 +5,7 @@
   "lineage": "Italian stoner rock combines heavy guitar riffs with psychedelic and fuzz-rock textures.",
   "recipe": "classic italian stoner rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood riff driven humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 412,
-  "score": 61.301,
+  "score": 61.877,
   "config": {
     "traditions": [
       "italian_stoner_rock"
@@ -22,24 +22,24 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.8945000000000003,
+          "electric_technique": 3.8315,
           "amp_make": 7.0200000000000005,
-          "body_wood": 2.4255,
+          "body_wood": 2.667,
           "neck_wood": 0.39,
           "fretboard": 0.325,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 0.45825,
-          "scale_length": 1.743,
-          "string_gauge": 0.45825,
+          "bridge": 0.39,
+          "scale_length": 1.8795000000000002,
+          "string_gauge": 0.546,
           "finish": 0,
           "string_tuning": 0.042749999999999996
         }
@@ -59,9 +59,9 @@
         "scores": {
           "amp_make": 7.475,
           "body_wood": 0.39,
-          "pickup_config": 0.273,
+          "pickup_config": 0.40950000000000003,
           "string_type": 17.875,
-          "scale_length_b": 0.441,
+          "scale_length_b": 0.546,
           "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 13.75,
-          "drumhead": 0.5145,
+          "drumhead": 0.546,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.5887499999999999
         }
       }

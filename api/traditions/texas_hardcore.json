@@ -5,7 +5,7 @@
   "lineage": "Texas hardcore develops through local independent hardcore-band communities.",
   "recipe": "classic texas hardcore, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 326,
-  "score": 32.728,
+  "score": 31.919,
   "config": {
     "traditions": [
       "texas_hardcore"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": 3.7,
           "amp_make": 9.620000000000001,
-          "body_wood": 1.8285000000000002,
+          "body_wood": 1.4925,
           "neck_wood": 0.063,
           "fretboard": 0.3165,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.8285000000000002,
+          "body_wood": 1.4925,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.18,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5895,
+          "drumhead": 0.453,
           "drum_kit_kick_pedal": 0
         }
       },

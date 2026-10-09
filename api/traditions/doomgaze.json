@@ -5,7 +5,7 @@
   "lineage": "A Film In Color — To Scale a Mountain EP (2014). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s doomgaze, distorted Rock, doom branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 25.117,
+  "score": 23.889,
   "config": {
     "traditions": [
       "doomgaze"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.4305,
-          "neck_wood": 0.36750000000000005,
+          "body_wood": 0.29400000000000004,
+          "neck_wood": 0.231,
           "fretboard": -0.035,
-          "pickup_magnet": 0.1365,
+          "pickup_magnet": 0,
           "pickup_winding": 0.105,
-          "string_material": 0.1365,
-          "bridge": 0.1365,
-          "scale_length": 0.7665,
-          "string_gauge": 1.7785000000000002,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0.49350000000000005,
+          "string_gauge": 1.8835000000000002,
           "finish": 0,
-          "string_tuning": 1.5625
+          "string_tuning": 1.5939999999999999
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.4305,
+          "body_wood": 0.29400000000000004,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.357,
@@ -88,12 +88,12 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 1.69,
           "shell_thickness": 0,
-          "bearing_edges": 0.2625,
+          "bearing_edges": 0.126,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.6500000000000004,
           "cymbal_lathing": 4.0760000000000005,
-          "cymbal_finish": 0.1365
+          "cymbal_finish": 0
         }
       }
     ],

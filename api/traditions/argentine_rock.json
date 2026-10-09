@@ -5,7 +5,7 @@
   "lineage": "Rock nacional, born in Buenos Aires in 1967 with Los Gatos' 'La Balsa' and codified by Almendra, Sui Generis, Charly García and Luis Alberto Spinetta, then Soda Stereo in the 1980s — Spanish-language songwriting insisting on local idiom, mid-tempo 4/4 band arrangements with piano or 12-string acoustic foundations, extended harmonic progressions borrowed from tango and jazz, and intimate, unshouted vocals.",
   "recipe": "classic South American mid-1980s argentine rock, distorted Rock, regional branch, Latin am troubadour ballad poetry, iberian Latin protest song cantautora mexicana folklore surero. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, extended drone open tuning 12 string acoustic guitar 12 string. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 904,
-  "score": 320.684,
+  "score": 319.754,
   "config": {
     "traditions": [
       "argentine_rock",
@@ -38,7 +38,7 @@
           "voice_quality": 12.284999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.819375000000001,
+          "voice_vibrato": 4.6693750000000005,
           "voice_articulation": 17.744999999999997,
           "voice_microtone": 23.099999999999998,
           "voice_tradition": 7.930000000000001,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 19.044999999999995,
           "voice_ornament_system": 3.4499999999999993,
           "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 5.035,
+          "voice_processing_chain": 5.08,
           "voice_multitrack_stack": 5.854375
         }
       },
@@ -72,16 +72,16 @@
         "scores": {
           "electric_technique": 2.4000000000000004,
           "amp_make": 7.769375,
-          "body_wood": 1.95,
-          "neck_wood": 1.95,
+          "body_wood": 1.935,
+          "neck_wood": 1.935,
           "fretboard": 1.885,
           "pickup_magnet": 1,
           "string_material": 1,
-          "string_gauge": 2.6,
+          "string_gauge": 2.48,
           "bridge": 0.65,
           "scale_length": 1.95,
           "finish": 0.65,
-          "string_tuning": 11.039375,
+          "string_tuning": 10.649375000000001,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.754375,
+          "amp_make": 8.949375,
           "body_wood": 1.95,
           "pickup_config": 0.345,
           "string_type": 18.939375,
-          "scale_length_b": 1.95,
-          "fretted_or_not": 0.435,
-          "bass_technique": 18.325,
+          "scale_length_b": 1.7850000000000001,
+          "fretted_or_not": 0.39,
+          "bass_technique": 18.52,
           "electric_bass_string_configuration": 0
         }
       },
@@ -136,14 +136,14 @@
         },
         "scores": {
           "keyboard_technique": 3.1,
-          "grand_piano_size": 1.95,
+          "grand_piano_size": 1.7850000000000001,
           "grand_piano_brand": 1.95,
           "piano_hammer": 7.469375,
           "piano_rim": 8.414375,
           "piano_soundboard": 1.5750000000000002,
           "piano_pinblock": -0.05,
           "piano_plate": 0.45,
-          "piano_pitch_standard": 3.185625
+          "piano_pitch_standard": 3.035625
         }
       },
       {
@@ -170,7 +170,7 @@
         },
         "scores": {
           "twelve_string_body": 0.845,
-          "twelve_string_tuning": 4.739375,
+          "twelve_string_tuning": 4.5893749999999995,
           "twelve_string_strings": 1
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Ritual and social song tradition of the Garifuna of Belize, Honduras, Guatemala and Nicaragua, descended from the 1797 St Vincent exile and maintained in genres such as hunguhungu, paranda, wanaragua and the dügü ancestral ceremony, sung in Garifuna over primero and segunda skin drums, sisira shakers, turtle-shell strikes and, in paranda, an acoustic guitar, with a lead singer answered by a women's chorus.",
   "recipe": "classic late-1790s garifuna folk music, groove Percussion, Caribbean branch, Afro-diasporic ritual devotional, African diasporic funeral lament fann at-tanbura nyahbinghi. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, ka drum, boula, maracas, call ritual conch shell horn, travis picked parlor acoustic guitar, foot stomp. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 594,
-  "score": 204.605,
+  "score": 205.142,
   "config": {
     "traditions": [
       "garifuna_folk",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.9650000000000007,
+          "voice_register": 3.7400000000000007,
           "voice_quality": 10.919999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0000000000000004,
+          "voice_vibrato": 3.1200000000000006,
           "voice_articulation": 18.394999999999996,
           "voice_microtone": 19.597499999999993,
-          "voice_tradition": 16.624999999999996,
+          "voice_tradition": 16.801999999999992,
           "voice_mechanism_compound": 2.9899999999999998,
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 21.189999999999998,
           "voice_ensemble_config": 18.329999999999995,
           "voice_ornament_system": 7.225000000000001,
           "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 7.605,
+          "voice_processing_chain": 7.198500000000001,
           "voice_multitrack_stack": 5.005000000000001
         }
       },
@@ -61,9 +61,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 12.569999999999997,
+          "choir_size": 12.674999999999997,
           "choir_polyphonic_configuration": 2.275,
-          "choir_regional_canonical_configuration": 9.374999999999996,
+          "choir_regional_canonical_configuration": 9.746999999999996,
           "choir_ensemble_repertoire": 2.6
         }
       },
@@ -76,7 +76,7 @@
         },
         "scores": {
           "ka_voice": 0,
-          "ka_rhythm": 0.5,
+          "ka_rhythm": 0.65,
           "ka_build": 0
         }
       },
@@ -99,7 +99,7 @@
         },
         "scores": {
           "maracas_construction": 0.39,
-          "maracas_filling": 0.6950000000000001
+          "maracas_filling": 0.845
         }
       },
       {
@@ -126,9 +126,9 @@
         },
         "scores": {
           "acoustic_technique": 3.2,
-          "string_tuning": 1.1499999999999997,
+          "string_tuning": 1.1994999999999998,
           "top_wood_parlor": 0.65,
-          "back_sides_parlor": 0.15,
+          "back_sides_parlor": 0.195,
           "string_acoustic_parlor": 0.65
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Late-1980s and 1990s American heavy-rock subgenre integrating industrial-electronic-production with rock-band-instrumentation. Nine Inch Nails (Trent Reznor, Cleveland 1988-onward) is the canonical type-specimen with Pretty Hate Machine (1989) and The Downward Spiral (1994); Ministry (Chicago, parallel scene), Filter, Stabbing Westward, Marilyn Manson (industrial-rock-glam-hybrid), and the broader Nothing Records and TVT Records label rosters anchor the canonical industrial rock roster.",
   "recipe": "classic North American industrial rock, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 573,
-  "score": 320.69,
+  "score": 321.035,
   "config": {
     "traditions": [
       "industrial_rock",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 23.239999999999995,
+          "voice_register": 23.194999999999997,
           "voice_quality": 9.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8600000000000003,
+          "voice_vibrato": 2.74,
           "voice_articulation": 14.169999999999996,
           "voice_microtone": 23.25,
           "voice_tradition": 7.15,
@@ -46,10 +46,10 @@
           "voice_estill_quality": 3.185,
           "voice_speech_song": 14.169999999999996,
           "voice_ensemble_config": 14.949999999999996,
-          "voice_ornament_system": 0.5399999999999999,
-          "voice_pitch_organization": 4.71,
-          "voice_processing_chain": 18.715,
-          "voice_multitrack_stack": 12.009999999999998
+          "voice_ornament_system": 0.69,
+          "voice_pitch_organization": 4.665,
+          "voice_processing_chain": 18.67,
+          "voice_multitrack_stack": 11.859999999999998
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 15.959999999999999,
+          "electric_technique": 16.005,
           "amp_make": 11.844999999999997,
-          "body_wood": 6.529999999999999,
-          "neck_wood": 0.43499999999999994,
-          "fretboard": 0.33,
+          "body_wood": 6.574999999999999,
+          "neck_wood": 0.4799999999999999,
+          "fretboard": 0.43499999999999994,
           "pickup_magnet": 0.435,
-          "pickup_winding": 0.9749999999999999,
+          "pickup_winding": 1.1249999999999998,
           "string_material": 0,
-          "bridge": 0.43499999999999994,
+          "bridge": 0.4799999999999999,
           "scale_length": 6.754999999999999,
-          "string_gauge": 0.5850000000000001,
+          "string_gauge": 0.6300000000000001,
           "finish": 0.045,
-          "string_tuning": 17.445
+          "string_tuning": 17.490000000000002
         }
       },
       {
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
@@ -98,12 +98,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.870000000000001,
-          "body_wood": 0.8250000000000002,
-          "pickup_config": 0.045,
+          "amp_make": 12.675,
+          "body_wood": 0.9150000000000003,
+          "pickup_config": 0,
           "string_type": 24.7,
           "scale_length_b": 0.615,
-          "fretted_or_not": 0.045,
+          "fretted_or_not": 0.195,
           "bass_technique": 23.884999999999998,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 23.5,
-          "drumhead": 0.38999999999999996,
+          "drumhead": 0.43499999999999994,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -127,14 +127,14 @@
           "electronic_technique": "electronic_bass_sub",
           "oscillator": "sine_osc",
           "filter_topology": "svf",
-          "envelope": "pad_env",
+          "envelope": "pluck_env",
           "modulation": "no_mod"
         },
         "scores": {
           "electronic_technique": 1.4949999999999999,
           "oscillator": 1.69,
           "filter_topology": 2.54,
-          "envelope": 0.40499999999999997,
+          "envelope": 0.43499999999999994,
           "modulation": 0.28500000000000003
         }
       }

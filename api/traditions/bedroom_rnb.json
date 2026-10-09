@@ -5,7 +5,7 @@
   "lineage": "Bedroom R&B took shape on SoundCloud and Bandcamp from roughly 2013 through Steve Lacy, Sza's early tapes, Yellow Days, Mahalia demos and the Internet's side projects — slow 65-85 BPM swung drum programming, detuned Rhodes and nylon-guitar loops, close-miked untreated-room lead vocals with audible sibilance and noise floor, tape-saturated stacked harmony and short through-written forms tracked entirely on laptop interfaces.",
   "recipe": "classic early-2010s bedroom r&b, functional Song, soul R&B branch, lofi experimental electric, anglo singer song bedroom singer song hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. lead plus third fifth 3 part stack 2010s melodyne microtuned stack chorus detuned thickener across stack multitrack vocal stack, close pickup gap more bark dirt block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sampler drum machine. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 749,
-  "score": 200.782,
+  "score": 199.808,
   "config": {
     "traditions": [
       "bedroom_rnb",
@@ -41,12 +41,12 @@
           "voice_vibrato": 2.405,
           "voice_articulation": 13.519999999999992,
           "voice_microtone": 13.97499999999999,
-          "voice_tradition": 13.035,
+          "voice_tradition": 13.184999999999999,
           "voice_mechanism_compound": 3.1849999999999996,
           "voice_estill_quality": 3.5500000000000003,
           "voice_speech_song": 19.564999999999994,
           "voice_ensemble_config": 13.454999999999993,
-          "voice_ornament_system": 1.7449999999999997,
+          "voice_ornament_system": 1.9399999999999997,
           "voice_pitch_organization": 2.0799999999999996,
           "voice_processing_chain": 4.42,
           "voice_multitrack_stack": 11.504999999999999
@@ -61,7 +61,7 @@
         },
         "scores": {
           "multitrack_stack_density": 1.54,
-          "multitrack_stack_era_aesthetic": 4.3100000000000005,
+          "multitrack_stack_era_aesthetic": 4.265000000000001,
           "multitrack_stack_processing": 1.63
         }
       },
@@ -76,8 +76,8 @@
           "rhodes_pickup_position": "rhodes_pickup_close_bark"
         },
         "scores": {
-          "keyboard_technique": 11.465,
-          "rhodes_model": 1.4849999999999999,
+          "keyboard_technique": 11.27,
+          "rhodes_model": 1.44,
           "rhodes_use": 1.8199999999999998,
           "rhodes_tine_material": 0.195,
           "rhodes_hammer_tip": -0.035,
@@ -89,7 +89,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany",
+          "body_wood": "alder",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
@@ -130,13 +130,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.285,
+          "amp_make": 5.135,
           "body_wood": 0.585,
           "pickup_config": 2.9899999999999998,
-          "string_type": 4.390000000000001,
+          "string_type": 4.09,
           "scale_length_b": 0.975,
           "fretted_or_not": 0,
-          "bass_technique": 3.695,
+          "bass_technique": 3.7399999999999998,
           "electric_bass_string_configuration": 0
         }
       },
@@ -151,7 +151,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 2.9899999999999998,
-          "sample_swing": 1.905,
+          "sample_swing": 1.275,
           "sample_processing": 0.585
         }
       }

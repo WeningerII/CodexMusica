@@ -3,31 +3,31 @@
   "name": "Taiko (North American kumi-daiko)",
   "family": "global",
   "lineage": "Diasporic drum-ensemble tradition founded in California — San Francisco Taiko Dojo under Tanaka Seiichi in 1968, Kinnara Taiko at Senshin Buddhist Temple in Los Angeles in 1969, San Jose Taiko in 1973 — adapting Japanese kumi-daiko to Japanese-American identity work with wine-barrel-built nagado drums, choreographed full-body stances, shime-daiko keeping the ji base pulse under odaiko solos, unison kiai shouts and pieces built as sectional grooves at 100-160 BPM rather than festival-cycle accompaniment.",
-  "recipe": "classic late-1960s taiko, groove Percussion, east Asian branch, east Asian carnival processional, buddhist ritual devotional japanese matsuri festival drumming himalayan vajrayana liturgy. thick, declaimed, breath pulsed, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, odaiko, shime daiko, untempered pitch drift bright ritual synthetic resin shinobue, kane japanese. gymnasium. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 566,
-  "score": 173.037,
+  "recipe": "classic late-1960s taiko, groove Percussion, east Asian branch, east Asian carnival processional, buddhist ritual devotional chaozhou daluogu shan (tai yai) long-drum and gong music. extended whistle, breath veiled tone, slow rate, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, odaiko, shime daiko, untempered pitch drift bright ritual shinobue, kane japanese. gymnasium. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 560,
+  "score": 155.215,
   "config": {
     "traditions": [
       "taiko_north_american",
-      "japanese_matsuri_taiko",
-      "vajrayana_broader"
+      "chaozhou_daluogu",
+      "shan_long_drum_music"
     ],
     "instruments": [
       {
         "id": "taiko_drum",
         "slots": {
-          "taiko_size": "taiko_o_daiko",
+          "taiko_size": "taiko_chu_daiko",
           "taiko_skin": "taiko_cowhide",
           "taiko_shell_wood": "taiko_keyaki_canonical",
           "taiko_lineage": "taiko_oedo_sukeroku",
           "taiko_technique": "taiko_kumi_daiko"
         },
         "scores": {
-          "taiko_size": 0.9749999999999999,
-          "taiko_skin": 7.494999999999998,
-          "taiko_shell_wood": 7.734999999999999,
-          "taiko_lineage": 7.284999999999999,
-          "taiko_technique": 4.875
+          "taiko_size": 0.195,
+          "taiko_skin": 3.769999999999999,
+          "taiko_shell_wood": 3.769999999999999,
+          "taiko_lineage": 6.14,
+          "taiko_technique": 3.735
         }
       },
       {
@@ -38,20 +38,20 @@
           "odaiko_shell": "odaiko_keyaki"
         },
         "scores": {
-          "odaiko_mounting": 2.73,
-          "odaiko_bachi": 0.195,
-          "odaiko_shell": 0.39
+          "odaiko_mounting": 2.735,
+          "odaiko_bachi": 0.345,
+          "odaiko_shell": 0
         }
       },
       {
         "id": "shime_daiko",
         "slots": {
-          "shime_daiko_tension": "shime_daiko_gochou",
+          "shime_daiko_tension": "shime_daiko_noh",
           "shime_daiko_hardware": "shime_daiko_bolt"
         },
         "scores": {
-          "shime_daiko_tension": 0.345,
-          "shime_daiko_hardware": 0.845
+          "shime_daiko_tension": 0.135,
+          "shime_daiko_hardware": 0.195
         }
       },
       {
@@ -63,10 +63,10 @@
           "shinobue_bore": "shinobue_bore_resin"
         },
         "scores": {
-          "shinobue_family": 23.355,
-          "shinobue_choshi": 23.07,
-          "shinobue_context": 24.259999999999994,
-          "shinobue_bore": 1.97
+          "shinobue_family": 8.09,
+          "shinobue_choshi": 8.135,
+          "shinobue_context": 9.3,
+          "shinobue_bore": -0.035
         }
       },
       {
@@ -77,19 +77,19 @@
           "kane_japanese_context": "kane_japanese_matsuri"
         },
         "scores": {
-          "kane_japanese_stroke": 0,
-          "kane_japanese_beater": 0,
-          "kane_japanese_context": 0.045
+          "kane_japanese_stroke": 0.045,
+          "kane_japanese_beater": 0.195,
+          "kane_japanese_context": 0.195
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
@@ -98,27 +98,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 0.6175000000000002,
-          "voice_quality": 4.985,
+          "voice_register": 0.7149999999999999,
+          "voice_quality": 12.544999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
-          "voice_articulation": 6.5649999999999995,
-          "voice_microtone": 6.37,
-          "voice_tradition": 22.024999999999995,
-          "voice_mechanism_compound": 3.835,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 6.5649999999999995,
-          "voice_ensemble_config": 7.995,
-          "voice_ornament_system": 6.155000000000001,
-          "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 1.6899999999999997
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 15.08,
+          "voice_microtone": 14.039999999999996,
+          "voice_tradition": 14.879999999999999,
+          "voice_mechanism_compound": 4.865,
+          "voice_estill_quality": 3.640000000000001,
+          "voice_speech_song": 15.08,
+          "voice_ensemble_config": 15.469999999999999,
+          "voice_ornament_system": 6.475000000000001,
+          "voice_pitch_organization": 0.5999999999999999,
+          "voice_processing_chain": 6.695,
+          "voice_multitrack_stack": 1
         }
       }
     ],

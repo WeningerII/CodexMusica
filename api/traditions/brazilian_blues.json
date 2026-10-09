@@ -5,7 +5,7 @@
   "lineage": "Brazilian blues grew through local bands, clubs and festivals, with a strong blues-rock circuit developing in the 1980s. Blues Etílicos, Celso Blues Boy and André Christovam helped establish a repertoire in Portuguese and English, while acoustic collaborations connected the idiom with Brazilian roots music.",
   "recipe": "classic mid-1980s brazilian blues, functional Song, blues electric branch. group vocals, unprocessed natural acoustic. dreadnought acoustic blues slide open string slide resonance humbucker electric guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 486,
-  "score": 112.558,
+  "score": 113.535,
   "config": {
     "traditions": [
       "brazilian_blues"
@@ -59,14 +59,14 @@
           "string_tuning": "eb_standard",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
-          "string_acoustic": "thomastik_flat_top"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": -0.07,
-          "string_tuning": 1.9000000000000001,
-          "top_wood": 0.1995,
+          "string_tuning": 2.0050000000000003,
+          "top_wood": 0.3045,
           "back_sides": 0.0315,
-          "string_acoustic": 0.3255
+          "string_acoustic": 0.3045
         }
       },
       {
@@ -81,9 +81,9 @@
         },
         "scores": {
           "harmonica_type": 0.294,
-          "harmonica_comb": 17.665499999999998,
-          "harmonica_reed": 18.181,
-          "harmonica_technique": 18.236999999999995,
+          "harmonica_comb": 17.6025,
+          "harmonica_reed": 18.2545,
+          "harmonica_technique": 18.100499999999997,
           "harmonica_maker_school": 22.035,
           "harmonica_tuning": 8.84
         }
@@ -93,7 +93,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_5_h",
@@ -108,15 +108,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 1.56,
-          "body_wood": 0.1995,
-          "neck_wood": 0.1995,
+          "body_wood": 0.3045,
+          "neck_wood": 0.27299999999999996,
           "fretboard": 0.0315,
           "pickup_magnet": 0.16799999999999998,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
-          "bridge": 0.1995,
-          "scale_length": 0.39899999999999997,
-          "string_gauge": 0.4725,
+          "bridge": 0.27299999999999996,
+          "scale_length": 0.5459999999999999,
+          "string_gauge": 0.6194999999999999,
           "finish": 0.0315,
           "string_tuning": 8.84
         }
@@ -135,10 +135,10 @@
         },
         "scores": {
           "amp_make": 2.015,
-          "body_wood": 0.39899999999999997,
+          "body_wood": 0.5459999999999999,
           "pickup_config": 0.0315,
-          "string_type": 3.628,
-          "scale_length_b": 0.1995,
+          "string_type": 3.7015000000000002,
+          "scale_length_b": 0.27299999999999996,
           "fretted_or_not": 0.063,
           "bass_technique": -0.11850000000000002,
           "electric_bass_string_configuration": 0
@@ -153,7 +153,7 @@
         },
         "scores": {
           "drum_technique": 3.6865,
-          "drumhead": 0.1995,
+          "drumhead": 0.27299999999999996,
           "drum_kit_kick_pedal": 0
         }
       }

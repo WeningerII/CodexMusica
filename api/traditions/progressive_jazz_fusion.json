@@ -5,7 +5,7 @@
   "lineage": "Progressive jazz fusion combines jazz improvisation and extended harmony with amplified rock energy and compositionally intricate forms. Electric ensembles explore changing meters, contrasting sections and tightly coordinated instrumental figures.",
   "recipe": "classic modern progressive jazz fusion, improv On Frame, fusion branch. soft felt lacquer voiced 17 ply hard rock maple grand piano, maple nickel plated steel nickel nickel plated steel humbucker electric guitar, electric bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 441,
-  "score": 48.635,
+  "score": 48.688,
   "config": {
     "traditions": [
       "progressive_jazz_fusion"
@@ -27,7 +27,7 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.273,
+          "grand_piano_brand": 0.1365,
           "piano_hammer": 1.17,
           "piano_rim": 1.17,
           "piano_soundboard": -0.07,
@@ -85,9 +85,9 @@
           "amp_make": 0,
           "body_wood": 0.39,
           "pickup_config": 0.315,
-          "string_type": 0,
-          "scale_length_b": 0,
-          "fretted_or_not": 0.0735,
+          "string_type": 0.0315,
+          "scale_length_b": 0.0315,
+          "fretted_or_not": 0.1365,
           "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -114,10 +114,10 @@
           "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.33899999999999997,
-          "snare_wires": 0,
+          "snare_wires": 0.0315,
           "cymbal_alloy": 22.4,
           "cymbal_hammering": 13.7,
-          "cymbal_lathing": 2.4000000000000004,
+          "cymbal_lathing": 2.4315,
           "cymbal_finish": 0
         }
       }

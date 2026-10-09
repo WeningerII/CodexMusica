@@ -5,7 +5,7 @@
   "lineage": "Exosphere — Autonomy (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s progressive sludge, distorted Rock, sludge branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 322,
-  "score": 30.633,
+  "score": 30.358,
   "config": {
     "traditions": [
       "progressive_sludge"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.2265,
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": 0.26,
           "amp_make": 0,
-          "body_wood": 0.39,
-          "neck_wood": 0.063,
+          "body_wood": 0.38549999999999995,
+          "neck_wood": 0.0315,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0,
+          "string_material": 0.0225,
           "bridge": 0,
-          "scale_length": 0.1575,
+          "scale_length": 0.0945,
           "string_gauge": 1.69,
           "finish": 0,
           "string_tuning": 1.4260000000000002
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.39,
+          "body_wood": 0.38549999999999995,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.18899999999999997,
+          "scale_length_b": 0.126,
           "fretted_or_not": 0.0315,
           "bass_technique": 0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -125,11 +125,11 @@
         },
         "scores": {
           "drum_technique": 6.999999999999999,
-          "drumhead": 1.4575,
+          "drumhead": 1.4260000000000002,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.08,
+          "shell_wood": 2.0484999999999998,
           "shell_thickness": 0,
-          "bearing_edges": 0.063,
+          "bearing_edges": 0.08549999999999999,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 6.922499999999999,

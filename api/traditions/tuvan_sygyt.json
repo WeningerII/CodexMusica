@@ -3,14 +3,14 @@
   "name": "Tuvan sygyt high-whistle overtone",
   "family": "global",
   "lineage": "Tuvan sygyt high-whistle overtone-singing tradition of the Republic of Tuva. The sygyt technique produces a clear, piercing whistle-tone in the upper harmonic-series range (typically the eighth through twelfth partials above the fundamental) by tightly constricting the lips and tongue to filter a single overtone out of the harmonic spectrum of a sustained low-register fundamental. The result is a whistle-melody floating two-to-three octaves above the singer's chest-register fundamental drone. Sygyt is the most virtuosic and technically demanding of the Tuvan overtone techniques — masters can sustain a continuous fundamental while producing rapid melodic figures in the whistle-overtone, sometimes with secondary mid-register overtones flickering simultaneously. Performance contexts span solo pastoral, contest contexts at the annual Khoomei-in-the-Center-of-Asia festival in Kyzyl, and international touring. Igil (two-string upright fiddle) or doshpuluur (long-necked plucked lute) sometimes accompany. Anatoli Kuular is among the canonical twentieth-century sygyt masters. Ted Levin's Where Rivers and Mountains Sing (Indiana UP 2006) and Smithsonian Folkways SFW40017 are the principal documentary anchors. Distinguished from Mongolian iisgerekh by Tuvan-Tyva dialect-specific technique nomenclature; distinguished from kargyraa by sygyt's high-overtone (vs kargyraa's subharmonic) register; distinguished from Mongolian khoomei \"narrow\" technique by Tuvan sygyt's more piercing and precisely-pitched whistle-tone configuration.",
-  "recipe": "classic Northeast Asian mid-2000s tuvan sygyt high-whistle overtone, drone Modal, overtone branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. sygyt, breath veiled tone, breath pulsed, interlocked note trading. wood larch canonical tuvan khoomei accompaniment igil. taiga natural reverb. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 372,
-  "score": 438.295,
+  "recipe": "classic Northeast Asian mid-2000s tuvan sygyt high-whistle overtone, drone Modal, overtone branch, vocal drone modal toyuk northern sámi luohti yoik. sygyt, breath veiled tone, breath pulsed, interlocked note trading. wood larch canonical tuvan pastoral solo igil. taiga natural reverb. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 349,
+  "score": 394.8,
   "config": {
     "traditions": [
       "tuvan_sygyt",
-      "sami_northern_luohti",
-      "sami_southern_vuelie"
+      "sakha_toyuk",
+      "sami_northern_luohti"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 55.63,
-          "voice_quality": 51.585000000000036,
+          "voice_register": 53.905,
+          "voice_quality": 43.88500000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 10.750000000000002,
-          "voice_articulation": 28.275,
-          "voice_microtone": 31.004999999999995,
+          "voice_articulation": 22.1,
+          "voice_microtone": 24.83,
           "voice_tradition": 31.939999999999998,
-          "voice_mechanism_compound": 34.785000000000004,
-          "voice_estill_quality": 10.749999999999996,
-          "voice_speech_song": 30.615000000000002,
-          "voice_ensemble_config": 27.819999999999997,
-          "voice_ornament_system": 14.32,
-          "voice_pitch_organization": 45.675,
-          "voice_processing_chain": 20.879999999999995,
-          "voice_multitrack_stack": 10.075
+          "voice_mechanism_compound": 33.06,
+          "voice_estill_quality": 11.249999999999996,
+          "voice_speech_song": 25.09,
+          "voice_ensemble_config": 22.294999999999998,
+          "voice_ornament_system": 9.62,
+          "voice_pitch_organization": 43.949999999999996,
+          "voice_processing_chain": 19.629999999999995,
+          "voice_multitrack_stack": 9.879999999999999
         }
       },
       {
@@ -59,14 +59,14 @@
           "igil_body": "igil_carved_horsehead",
           "igil_string": "igil_horsehair_two",
           "igil_body_wood": "igil_larch_canonical",
-          "igil_tradition": "igil_khoomei_accompaniment"
+          "igil_tradition": "igil_pastoral_solo"
         },
         "scores": {
           "bowed_technique": 1.625,
-          "igil_body": 14.725,
+          "igil_body": 13.65,
           "igil_string": 0,
           "igil_body_wood": 8.315,
-          "igil_tradition": 4.55
+          "igil_tradition": 5.2
         }
       }
     ],

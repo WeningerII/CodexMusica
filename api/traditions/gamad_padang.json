@@ -1,0 +1,256 @@
+{
+  "id": "gamad_padang",
+  "name": "Gamad (Padang coastal song)",
+  "family": "global",
+  "lineage": "Song genre of the Minangkabau west coast, centred on Padang, that grew from the acculturation of Minang pantun singing with Western music, a history local writers trace to the Portuguese presence on the coast from the sixteenth century; the name is often derived from gamit, to touch someone to draw their attention. Pantun verses sung in Minang are accompanied by violin, accordion, guitar, bass, a gendang drum and a tambourine-like frame drum (the generic frame-drum card stands in).",
+  "recipe": "classic modern gamad, functional Song, east Asian pop branch. solo with instrumental accompaniment. melodic bowed song accompaniment fiddle, accordion, strummed open chord ringing overtones parlor acoustic guitar, credited frame drums, gendang melayu. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 331,
+  "score": 11.28,
+  "config": {
+    "traditions": [
+      "gamad_padang"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.16799999999999998,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 4.55,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.1995,
+          "fiddle_mute": 0.1365,
+          "fiddle_articulation": 0.399,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": -0.1,
+          "accordion_reed_material": 0.2415,
+          "musette_offset": 0.2415,
+          "reed_config": 0.063,
+          "bellows": 0.1365,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "sitka_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "acoustic_technique": 4.063,
+          "string_tuning": 0,
+          "top_wood_parlor": 0,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0
+        }
+      },
+      {
+        "id": "credited_frame_drums",
+        "slots": {
+          "credited_frame_drums_identity": "credited_frame_drums_source_unspecified"
+        },
+        "scores": {
+          "credited_frame_drums_identity": 0
+        }
+      },
+      {
+        "id": "gendang_melayu",
+        "slots": {
+          "gendang_melayu_role": "gendang_melayu_ibu",
+          "gendang_melayu_stroke": "gendang_melayu_hands",
+          "gendang_melayu_head": "gendang_melayu_goat"
+        },
+        "scores": {
+          "gendang_melayu_role": 0,
+          "gendang_melayu_stroke": 0,
+          "gendang_melayu_head": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ],
+      "acoustic_guitar_parlor": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_parlor",
+        "back_sides_parlor",
+        "string_acoustic_parlor"
+      ],
+      "credited_frame_drums": [
+        "credited_frame_drums_identity"
+      ],
+      "gendang_melayu": [
+        "gendang_melayu_role",
+        "gendang_melayu_stroke",
+        "gendang_melayu_head"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "accordion_reed_material": "brass_reeds",
+      "musette_offset": "dry_tuning",
+      "reed_config": "lmm",
+      "bellows": "cardboard_leather",
+      "voicing_chamber": "cassotto",
+      "accordion_maker_school": "accordion_maker_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "dutar_strings_unspecified",
+      "credited_frame_drums_identity": "credited_frame_drums_source_unspecified",
+      "gendang_melayu_role": "gendang_melayu_ibu",
+      "gendang_melayu_stroke": "gendang_melayu_hands",
+      "gendang_melayu_head": "gendang_melayu_goat"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

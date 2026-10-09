@@ -1,14 +1,15 @@
 {
-  "id": "deep_neo_synthpop",
-  "name": "Deep neo-synthpop",
+  "id": "neo_synthpop",
+  "merged_from": "deep_neo_synthpop",
+  "name": "Neo-synthpop",
   "family": "pop",
-  "lineage": "Deep neo-synthpop brings less mainstream synthesizer-led songwriting into dialogue with earlier electronic pop.",
-  "recipe": "classic deep neo-synthpop, functional Song. solo with instrumental accompaniment. analog poly synth, clean strummed humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 243,
-  "score": 7.352,
+  "lineage": "Neo-synthpop revisits synthesizer-led popular songwriting through newer independent bands and production approaches. Electronic patterns can coexist with the physical presence of a live rhythm section.",
+  "recipe": "classic neo-synthpop, functional Song, synthpop branch. solo with instrumental accompaniment. analog poly synth, ernie ball slinky electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 246,
+  "score": 10.028,
   "config": {
     "traditions": [
-      "deep_neo_synthpop"
+      "neo_synthpop"
     ],
     "instruments": [
       {
@@ -20,43 +21,33 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.05,
+          "electronic_technique": -0.035,
           "poly_archetypes": 0,
-          "poly_voices": 0,
-          "poly_maker_lineage": -0.05
+          "poly_voices": 0.168,
+          "poly_maker_lineage": -0.035
         }
       },
       {
-        "id": "electric_guitar_humbucker",
+        "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_hiwatt",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "vibrato_arm",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
-          "string_tuning": "standard_tuning"
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "electric_technique": 5.25,
-          "amp_make": 0.15000000000000002,
-          "body_wood": 0.273,
-          "neck_wood": 0,
-          "fretboard": 0,
-          "pickup_magnet": 0,
-          "pickup_winding": 0,
-          "string_material": 0,
-          "bridge": 0,
-          "scale_length": 0.1365,
-          "string_gauge": 0,
-          "finish": 0,
-          "string_tuning": 0
+          "amp_make": 2.275,
+          "body_wood": 0.3045,
+          "pickup_config": 0.1995,
+          "string_type": 4.875,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 0.105,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -91,11 +82,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0.105,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.34275
+          "voice_multitrack_stack": 0.39
         }
       }
     ],
@@ -106,9 +97,8 @@
         "poly_voices",
         "poly_maker_lineage"
       ],
-      "electric_guitar_humbucker": [
-        "electric_technique",
-        "string_tuning"
+      "electric_bass": [
+        "bass_technique"
       ],
       "voice": [
         "voice_register",
@@ -165,8 +155,7 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "electronic_technique": "electronic_arpeggiated",
-      "electric_technique": "electric_clean_strummed",
-      "string_tuning": "standard_tuning",
+      "bass_technique": "fingerstyle_locked",
       "poly_archetypes": "prophet_5",
       "poly_voices": "poly_5_voice",
       "poly_maker_lineage": "poly_sequential_smith"
@@ -178,6 +167,6 @@
     "chain_eq": "eq_active_parametric",
     "chain_medium": "digital_high",
     "chain_console": "console_in_the_box",
-    "chain_amp_guitar": "amp_modern_modeling"
+    "chain_amp_bass": "amp_american_ampeg_svt"
   }
 }

@@ -1,0 +1,170 @@
+{
+  "id": "upper_xingu_flutes",
+  "name": "Upper Xingu ritual and sacred-flute music (Kamayurá, Kuikuro, Wauja)",
+  "family": "global",
+  "lineage": "Ceremonial music shared by the many peoples of the Upper Xingu in the Parque Indígena do Xingu, among them the Kamayurá, Kuikuro, Kalapalo, Wauja and Yawalapiti, whose intertribal rites include the Kuarup mourning feast for dead chiefs. Sets of large sacred flutes, jakuí among the Kamayurá and kagutu among the Kuikuro, are played by men and kept from women's sight, pairs of long uruá flutes accompany dancing, and men sing in groups with maracá rattles. Rafael José de Menezes Bastos described Kamayurá musical thought in his book A musicológica Kamayurá. A generic flute card stands in for these flutes.",
+  "recipe": "classic modern upper xingu ritual and sacred-flute music, ritual Devotional, amazonian branch. flute like credited flute unspecified, maracas, foot stomp. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 234,
+  "score": 4.64,
+  "config": {
+    "traditions": [
+      "upper_xingu_flutes"
+    ],
+    "instruments": [
+      {
+        "id": "credited_flute_unspecified",
+        "slots": {
+          "credited_flute_identity": "credited_flute_source_unspecified"
+        },
+        "scores": {
+          "credited_flute_identity": 2.2725
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.37424999999999997,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.105,
+          "voice_multitrack_stack": 0.1425,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_gourd",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 0.39,
+          "maracas_filling": 0.693
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_bare_foot",
+          "stomp_surface": "stomp_earth_ground"
+        },
+        "scores": {
+          "stomp_footwear": 0.3,
+          "stomp_surface": 0.363
+        }
+      }
+    ],
+    "pinned": {
+      "credited_flute_unspecified": [
+        "credited_flute_identity"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "maracas": [
+        "maracas_construction",
+        "maracas_filling"
+      ],
+      "foot_stomp": [
+        "stomp_footwear",
+        "stomp_surface"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "credited_flute_identity": "credited_flute_source_unspecified",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "maracas_construction": "maracas_gourd",
+      "maracas_filling": "maracas_seeds",
+      "stomp_footwear": "stomp_bare_foot",
+      "stomp_surface": "stomp_earth_ground"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

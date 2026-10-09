@@ -5,7 +5,7 @@
   "lineage": "Afro-Puerto Rican drum-and-dance ritual tradition traced directly to West African Yoruba and Ashanti rhythmic-drum-and-call-response heritage brought through 17-18th-century enslaved African labor, with Loíza (the Black-majority town on the northeast coast), Mayagüez, Ponce, and Cataño as the bomba towns; played on the bomba barril (single-headed barrel drum carved from rum cask) with the soloist drummer (subidor or primo) tracing the dancers steps in real-time dialogue while a secondary drum (buleador) maintains rhythmic foundation, plus maracas and cuá (struck wood block) — preserved through the Cepeda and Ayala families and modern groups like Los Pleneros de la 21",
   "recipe": "classic Caribbean modern bomba, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, breath veiled tone, straight onset, interlocked note trading. log drum, plastic synthetic maracas, buleador and subidor paired set barril de bomba. san juan puerto rican bomba plena yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 378,
-  "score": 204.762,
+  "score": 205.182,
   "config": {
     "traditions": [
       "bomba_puertorican",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 2.61,
+          "voice_register": 2.5199999999999996,
           "voice_quality": 18.589999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.8199999999999998,
           "voice_articulation": 15.859999999999994,
           "voice_microtone": 15.664999999999992,
-          "voice_tradition": 18.945,
+          "voice_tradition": 19.005,
           "voice_mechanism_compound": 3.3799999999999994,
           "voice_estill_quality": 3.7375,
           "voice_speech_song": 17.354999999999997,
@@ -59,8 +59,8 @@
           "log_drum_context": "log_drum_sa_house"
         },
         "scores": {
-          "log_drum_voice": 3.25,
-          "log_drum_context": 4.16
+          "log_drum_voice": 3.13,
+          "log_drum_context": 4.31
         }
       },
       {
@@ -70,8 +70,8 @@
           "maracas_filling": "maracas_beads"
         },
         "scores": {
-          "maracas_construction": 1.845,
-          "maracas_filling": 4.52
+          "maracas_construction": 1.8,
+          "maracas_filling": 4.28
         }
       },
       {
@@ -82,9 +82,9 @@
           "barril_de_bomba_shell": "barril_de_bomba_fiberglass"
         },
         "scores": {
-          "barril_de_bomba_form": 29.139999999999997,
-          "barril_de_bomba_repertoire": 29.389999999999993,
-          "barril_de_bomba_shell": 4.095
+          "barril_de_bomba_form": 29.379999999999995,
+          "barril_de_bomba_repertoire": 29.899999999999995,
+          "barril_de_bomba_shell": 4.05
         }
       }
     ],

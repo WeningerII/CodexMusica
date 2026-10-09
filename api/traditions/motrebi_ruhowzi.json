@@ -1,0 +1,245 @@
+{
+  "id": "motrebi_ruhowzi",
+  "name": "Motrebi and ruhowzi (Tehran entertainers' song)",
+  "family": "global",
+  "lineage": "Light popular music of the motrebs, professional entertainers who played at weddings, feasts and private parties in Qajar and Pahlavi Tehran, and of ruhowzi, the improvised comic theatre staged on boards laid over a courtyard pool, in which songs, dances and comic routines alternated. Its witty, often bawdy songs in Tehrani dialect use the lighter modes of Persian music, with tombak and dayereh rhythms under voice, tar or violin.",
+  "recipe": "classic mid-1930s motrebi and ruhowzi, functional Song, mid east n African pop branch. solo with instrumental accompaniment. tar persian, melodic bowed song accompaniment violin orchestral, tombak, small frame brass dayereh. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 362,
+  "score": 13.439,
+  "config": {
+    "traditions": [
+      "motrebi_ruhowzi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "tar_persian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "tar_belly": "tar_lamb_skin",
+          "tar_pick": "tar_brass_mizrab",
+          "tar_body_wood": "tar_mulberry_body",
+          "tar_string_material": "dutar_strings_unspecified",
+          "tar_tradition": "tar_radif_canonical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.26,
+          "tar_belly": 1.95,
+          "tar_pick": -0.035,
+          "tar_body_wood": 0.378,
+          "tar_string_material": 0,
+          "tar_tradition": -0.035
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "orch_strings": "dutar_strings_unspecified",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "orch_strings": 0,
+          "orch_top_wood": -0.1,
+          "orch_back_wood": -0.1,
+          "orch_varnish": -0.1,
+          "orch_setup_period": -1.1905000000000001,
+          "orch_bow": 0.0315,
+          "orch_bow_stick": -0.10500000000000001,
+          "orch_articulation": 0.3045,
+          "orch_rosin": -1.222
+        }
+      },
+      {
+        "id": "tombak",
+        "slots": {
+          "tombak_wood": "tombak_mulberry",
+          "tombak_school": "tombak_tehran"
+        },
+        "scores": {
+          "tombak_wood": 0.0315,
+          "tombak_school": 0.861
+        }
+      },
+      {
+        "id": "dayereh",
+        "slots": {
+          "dayereh_form": "dayereh_form_iranian",
+          "dayereh_jingles": "dayereh_jingles_brass_rings",
+          "dayereh_head": "dayereh_head_fish_skin",
+          "dayereh_technique": "dayereh_technique_dance_pulse"
+        },
+        "scores": {
+          "dayereh_form": 3.464,
+          "dayereh_jingles": 2.4815,
+          "dayereh_head": -0.035,
+          "dayereh_technique": 0.9099999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "tar_persian": [
+        "plucked_traditional_technique",
+        "tar_belly",
+        "tar_pick",
+        "tar_body_wood",
+        "tar_string_material",
+        "tar_tradition"
+      ],
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings",
+        "orch_top_wood",
+        "orch_back_wood",
+        "orch_varnish",
+        "orch_setup_period",
+        "orch_bow",
+        "orch_bow_stick",
+        "orch_articulation",
+        "orch_rosin"
+      ],
+      "tombak": [
+        "tombak_wood",
+        "tombak_school"
+      ],
+      "dayereh": [
+        "dayereh_form",
+        "dayereh_jingles",
+        "dayereh_head",
+        "dayereh_technique"
+      ]
+    },
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "dastgah_persian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "dastgah_persian",
+    "room": "studio_electrical_era_office",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_drone_modal",
+      "tar_belly": "tar_lamb_skin",
+      "tar_pick": "tar_brass_mizrab",
+      "tar_body_wood": "tar_mulberry_body",
+      "tar_string_material": "dutar_strings_unspecified",
+      "tar_tradition": "tar_radif_canonical",
+      "bowed_technique": "bowed_local_song_melody",
+      "orch_strings": "dutar_strings_unspecified",
+      "orch_top_wood": "norway_spruce_alpine_violin",
+      "orch_back_wood": "european_maple_general_violin",
+      "orch_varnish": "oil_amber_varnish_violin",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "orch_bow_stick": "pernambuco_stick_orch",
+      "orch_articulation": "arco_orch",
+      "orch_rosin": "pirastro_gold_rosin_orch",
+      "tombak_wood": "tombak_mulberry",
+      "tombak_school": "tombak_tehran",
+      "dayereh_form": "dayereh_form_iranian",
+      "dayereh_jingles": "dayereh_jingles_brass_rings",
+      "dayereh_head": "dayereh_head_fish_skin",
+      "dayereh_technique": "dayereh_technique_dance_pulse"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

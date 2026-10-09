@@ -3,14 +3,14 @@
   "name": "Thai Psychedelic",
   "family": "global",
   "lineage": "Thai psychedelic rock of the late 1960s-70s, formed in Bangkok and the Isan northeast when luk thung and mor lam singers were backed by electric string bands — Plearn Promdan, Dao Bandon and later reissue-canonized groups — pairing khaen-derived modal riffs and free-reed drone with fuzz guitar, farfisa organ, driving 4/4 kit at 110-150 BPM and nasal Thai vocal delivery cut to raw mono singles.",
-  "recipe": "classic Southeast Asian 1967-1969 thai psychedelic, distorted Rock, regional branch, wind pipe drone modal, east Asian pop functional song enka molam. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation ebony single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, psychedelic foregrounded organ driven rock block chord combo organ, khaen, central Thai ching chap open and damped ching. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 775,
-  "score": 358.683,
+  "recipe": "classic Southeast Asian 1967-1969 thai psychedelic, distorted Rock, regional branch, wind pipe drone modal, east Asian pop functional song enka alt-idol. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, psychedelic foregrounded organ driven rock block chord combo organ, khaen, central Thai ching chap open and damped ching. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 772,
+  "score": 336.205,
   "config": {
     "traditions": [
       "thai_psychedelic",
       "enka",
-      "molam"
+      "alt_idol"
     ],
     "instruments": [
       {
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 20.77499999999999,
-          "voice_quality": 11.764999999999992,
+          "voice_register": 21.64999999999999,
+          "voice_quality": 8.384999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.5024999999999995,
-          "voice_articulation": 19.955000000000005,
-          "voice_microtone": 23.660000000000004,
-          "voice_tradition": 18.425,
-          "voice_mechanism_compound": 5.9799999999999995,
+          "voice_vibrato": 3.3100000000000005,
+          "voice_articulation": 17.160000000000004,
+          "voice_microtone": 20.514999999999993,
+          "voice_tradition": 19.915000000000003,
+          "voice_mechanism_compound": 5.329999999999999,
           "voice_estill_quality": 5.525000000000001,
-          "voice_speech_song": 25.740000000000002,
-          "voice_ensemble_config": 20.93,
-          "voice_ornament_system": 5.525000000000001,
-          "voice_pitch_organization": 10.87,
-          "voice_processing_chain": 4.7,
-          "voice_multitrack_stack": 8.865
+          "voice_speech_song": 22.945000000000004,
+          "voice_ensemble_config": 17.485000000000003,
+          "voice_ornament_system": 5.070000000000002,
+          "voice_pitch_organization": 10.219999999999999,
+          "voice_processing_chain": 5.805000000000001,
+          "voice_multitrack_stack": 7.42
         }
       },
       {
@@ -59,29 +59,29 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
-          "pickup_magnet": "ceramic",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_short",
           "finish": "oil_satin",
-          "string_tuning": "eb_standard",
+          "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 11.25,
-          "amp_make": 3.89,
+          "electric_technique": 12.124999999999998,
+          "amp_make": 3.6950000000000003,
           "body_wood": 0.845,
           "neck_wood": 0.845,
-          "fretboard": 1.39,
-          "pickup_magnet": 0.15,
+          "fretboard": 0.78,
+          "pickup_magnet": 0.3,
           "string_material": 0.15,
           "string_gauge": 0.845,
-          "bridge": 0.845,
-          "scale_length": 1.15,
+          "bridge": 0.54,
+          "scale_length": 1.45,
           "finish": 1.5,
-          "string_tuning": 3.9899999999999993,
+          "string_tuning": 4.045,
           "single_coil_pickup_construction": 0
         }
       },
@@ -89,8 +89,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -98,12 +98,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.045,
-          "body_wood": 1.69,
-          "pickup_config": 0.845,
+          "amp_make": 3.3949999999999996,
+          "body_wood": 0.845,
+          "pickup_config": 0.24,
           "string_type": 8.124999999999998,
           "scale_length_b": 0.845,
-          "fretted_or_not": 0.345,
+          "fretted_or_not": 0.39,
           "bass_technique": 8.224999999999998,
           "electric_bass_string_configuration": 0
         }
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.572500000000005,
-          "drumhead": 10.87,
+          "drum_technique": 17.777500000000003,
+          "drumhead": 11.85,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -131,10 +131,10 @@
           "amp_make": "amp_unspecified"
         },
         "scores": {
-          "keyboard_technique": 11.215,
-          "combo_organ_model": 11.999999999999998,
-          "combo_organ_voicing": 12.719999999999999,
-          "combo_organ_context": 8.19,
+          "keyboard_technique": 12.089999999999998,
+          "combo_organ_model": 12.815,
+          "combo_organ_voicing": 13.639999999999999,
+          "combo_organ_context": 7.585,
           "amp_make": 0
         }
       },
@@ -147,8 +147,8 @@
         },
         "scores": {
           "free_reed_technique": 1.27,
-          "khaen_size": 3.8399999999999994,
-          "khaen_context": 5.254999999999999
+          "khaen_size": 3.035,
+          "khaen_context": 5.194999999999999
         }
       },
       {
@@ -160,7 +160,7 @@
         },
         "scores": {
           "ching_form": 8.95,
-          "ching_stroke": 21.515000000000004,
+          "ching_stroke": 17.680000000000007,
           "ching_alloy": 0.9099999999999999
         }
       }

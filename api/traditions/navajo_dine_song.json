@@ -5,7 +5,7 @@
   "lineage": "Diné repertoire of the Four Corners Southwest documented from the 1890s by Washington Matthews and continuing in ceremony today — Yeibichai and Nightway chant sung in a tense high falsetto with sudden octave leaps and pulsating breaks, gourd or hoof rattle marking an even pulse, water-drum and gourd accompanying Native American Church peyote songs at fast even tempo with a distinctive closing formula, plus secular skip-dance and social songs in tighter mid-range unison.",
   "recipe": "classic mid-1890s navajo traditional song, ritual Devotional, indigenous branch, American sacred ritual devotional, indigenous hunting song apache hunting-medicine song aboriginal australian hunting songlines. sygyt, declaimed, slow rate, interlocked note trading. cast iron three legged daybreak morning water thin scraped peyote water drum, continuous mangour hoof rattle, two string drone under song rhythmic dense apache fiddle, courting mid register love song breath vibrato glissando native american flute. adobe room. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 599,
-  "score": 239.536,
+  "score": 232.501,
   "config": {
     "traditions": [
       "navajo_dine_song",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.4949999999999999,
-          "voice_quality": 9.481,
+          "voice_register": 1.468,
+          "voice_quality": 8.9485,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.0705,
+          "voice_vibrato": 4.7405,
           "voice_articulation": 14.559999999999995,
           "voice_microtone": 13.97499999999999,
-          "voice_tradition": 20.7595,
-          "voice_mechanism_compound": 16.4565,
-          "voice_estill_quality": 3.965,
+          "voice_tradition": 17.953,
+          "voice_mechanism_compound": 16.2,
+          "voice_estill_quality": 3.7355,
           "voice_speech_song": 22.81499999999999,
           "voice_ensemble_config": 17.484999999999992,
           "voice_ornament_system": 6.275,
@@ -60,9 +60,9 @@
           "peyote_water_drum_head": "peyote_water_drum_thin_scraped"
         },
         "scores": {
-          "peyote_water_drum_vessel": 2.9415,
-          "peyote_water_drum_way": 3.5815,
-          "peyote_water_drum_head": 1.595
+          "peyote_water_drum_vessel": 2.7,
+          "peyote_water_drum_way": 3.4450000000000003,
+          "peyote_water_drum_head": 1.4585
         }
       },
       {
@@ -72,7 +72,7 @@
           "mangour_motion": "mangour_hip"
         },
         "scores": {
-          "mangour_material": 1.573,
+          "mangour_material": 1.495,
           "mangour_motion": 5.914999999999998
         }
       },
@@ -86,11 +86,11 @@
           "apache_fiddle_decoration": "apache_fiddle_later_polychrome"
         },
         "scores": {
-          "bowed_technique": -0.035,
-          "apache_fiddle_stringing": 14.6365,
-          "apache_fiddle_stalk": 16.2315,
-          "apache_fiddle_function": 26.504999999999995,
-          "apache_fiddle_decoration": 15.5125
+          "bowed_technique": -0.05,
+          "apache_fiddle_stringing": 14.5,
+          "apache_fiddle_stalk": 15.9585,
+          "apache_fiddle_function": 25.022999999999996,
+          "apache_fiddle_decoration": 15.526
         }
       },
       {
@@ -101,9 +101,9 @@
           "native_american_flute_body": "native_american_flute_hardwood"
         },
         "scores": {
-          "native_american_flute_form": 3.1525,
+          "native_american_flute_form": 2.635,
           "native_american_flute_repertoire": 8.58,
-          "native_american_flute_body": 0.6499999999999999
+          "native_american_flute_body": 0.7999999999999999
         }
       }
     ],

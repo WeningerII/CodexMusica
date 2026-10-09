@@ -5,7 +5,7 @@
   "lineage": "Czech drill connects Czech-language rappers and local performance networks with the wider drill tradition. Producers, releases and events adapt a shared bass-and-rhythm vocabulary to regional voices and scenes.",
   "recipe": "classic czech drill, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sub bass analog mono synth, drum machine analog. treated studio.",
   "recipe_chars": 191,
-  "score": 19.458,
+  "score": 20.036,
   "config": {
     "traditions": [
       "czech_drill"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3315,
+          "voice_articulation": 0.363,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -62,10 +62,10 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 3.6285000000000003,
+          "electronic_technique": 3.6180000000000003,
           "mono_oscillator": 0,
-          "mono_filter": 0,
-          "mono_archetypes": 0,
+          "mono_filter": 0.2415,
+          "mono_archetypes": 0.2415,
           "mono_maker_lineage": -0.035
         }
       },
@@ -79,7 +79,7 @@
         },
         "scores": {
           "kick_voice": 0,
-          "snare_voice": 0.1785,
+          "snare_voice": 0.252,
           "hat_voice": 0,
           "shuffle_quantize": -0.05
         }

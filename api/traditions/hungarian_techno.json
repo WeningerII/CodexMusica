@@ -5,7 +5,7 @@
   "lineage": "Hungarian techno includes club-oriented production and experimental live electronic performance. Mári and Rozi Mákó connect improvised synthesis with noisy, industrial-leaning rhythms.",
   "recipe": "classic hungarian techno, electronic Dance, techno branch. modular synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital analog bucket-brigade delay high-gain distortion.",
   "recipe_chars": 242,
-  "score": 6.194,
+  "score": 6.425,
   "config": {
     "traditions": [
       "hungarian_techno"
@@ -20,9 +20,9 @@
           "mod_lineage": "mod_moog_east_coast"
         },
         "scores": {
-          "electronic_technique": 2.6300000000000003,
-          "mod_voltage_source": 0.4755,
-          "mod_patch_density": 0.108,
+          "electronic_technique": 2.799,
+          "mod_voltage_source": 0.5514999999999999,
+          "mod_patch_density": 0.093,
           "mod_lineage": -0.035
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Canadian musicians contribute to Americana’s interconnected folk, country and roots-rock practices. Great Lake Swimmers explicitly describe their live sound as intimate Americana; this default selects the country-colored part of their acoustic and electric palette.",
   "recipe": "classic modern canadian americana, functional Song, americana branch. thick, breath veiled tone, straight note core, neutral third half flat. dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 418,
-  "score": 116.002,
+  "score": 115.729,
   "config": {
     "traditions": [
       "canadian_americana"
@@ -41,13 +41,13 @@
           "voice_microtone": 3.380000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 10.418499999999998,
+          "voice_estill_quality": 10.281999999999998,
           "voice_speech_song": 5.915,
           "voice_ensemble_config": 3.5100000000000002,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 1.231,
-          "voice_multitrack_stack": 1.5625
+          "voice_multitrack_stack": 1.594
         }
       },
       {
@@ -56,7 +56,7 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "back_sides": "maple_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
@@ -80,14 +80,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 11.374999999999998,
-          "amp_make": 9.982499999999996,
-          "pickup_steel": 0.1365,
+          "electric_technique": 11.311999999999998,
+          "amp_make": 9.877499999999998,
+          "pickup_steel": 0.168,
           "string_setup": 4.9399999999999995,
           "bar_material": 0.78,
           "pedal_steel_brand": 9.859499999999999,
           "pedal_steel_neck_config": 12.35,
-          "pedal_steel_strings": 9.8675
+          "pedal_steel_strings": 9.836
         }
       },
       {

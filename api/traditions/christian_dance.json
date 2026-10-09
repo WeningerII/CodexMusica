@@ -5,7 +5,7 @@
   "lineage": "Christian dance music brings Christian and gospel themes into electronic dance styles, including Eurodance and uplifting pop-oriented production.",
   "recipe": "classic christian dance, electronic Dance, eurodance branch. solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 259,
-  "score": 12.832,
+  "score": 12.927,
   "config": {
     "traditions": [
       "christian_dance"
@@ -21,8 +21,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sample_bitdepth": 0.1575,
-          "sample_swing": 9.7415,
+          "sample_bitdepth": 0.2205,
+          "sample_swing": 9.71,
           "sample_processing": 0.063
         }
       },
@@ -58,11 +58,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.5435000000000003,
-          "voice_ornament_system": 0.31499999999999995,
+          "voice_ensemble_config": 1.4070000000000003,
+          "voice_ornament_system": 0.3464999999999999,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.0815000000000001
+          "voice_multitrack_stack": 1.2495
         }
       }
     ],

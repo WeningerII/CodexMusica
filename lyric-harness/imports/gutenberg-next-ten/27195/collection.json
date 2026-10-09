@@ -1,0 +1,50 @@
+{
+  "gutenberg_id": "27195",
+  "title": "Negro Folk Rhymes: Wise and Otherwise, With a Study",
+  "editor": "Thomas W. Talley",
+  "publication_year": 1922,
+  "edition": "New York: The Macmillan Company, 1922. Copyright 1922; Published January 1922.",
+  "ebook_url": "https://www.gutenberg.org/ebooks/27195",
+  "source_url": "https://www.gutenberg.org/files/27195/27195-h/27195-h.htm",
+  "mirror_url": "https://raw.githubusercontent.com/GITenberg/Negro-Folk-RhymesWise-and-Otherwise--With-a-Study_27195/c257aeed5c513bef44f31973217203f19161d1d9/27195-h/27195-h.htm",
+  "mirror_commit": "c257aeed5c513bef44f31973217203f19161d1d9",
+  "source_sha256": "c029704cd515a56697e551c7af1f6d03d54e6742057ddf020b7e2281dd075ead",
+  "source_bytes": 573770,
+  "source_witness": "source.html.gz",
+  "source_witness_sha256": "833cbb41f9d353d9a310dfd62bed550ee81269d645970f21583309819d54f5f2",
+  "retrieved_on": "2026-10-08",
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/files/27195/27195-h/27195-h.htm",
+    "excerpt": "New York / THE MACMILLAN COMPANY / 1922. Set up and printed. Published January, 1922."
+  },
+  "rights_evidence": {
+    "url": "https://www.gutenberg.org/ebooks/27195",
+    "excerpt": "Copyright: Public domain in the USA.",
+    "jurisdiction": "United States",
+    "scope": "Exact supplied 1922 witness; official catalogue and title-page checked by browser 2026-10-08. No worldwide rights claim.",
+    "publication_year_used": 1922
+  },
+  "counts": {
+    "candidate_units": 349,
+    "english_section_source_units": 336,
+    "foreign_section_source_units": 13,
+    "eligible_before_deduplication": 333,
+    "excluded_before_deduplication": 16
+  },
+  "deduplication": "Deferred to shared integration across this batch and existing corpus. Eligibility counts are not final import counts.",
+  "notes": [
+    "Every Part I poem div is an audit candidate, including all 13 Foreign Section units. One untitled Philippine unit is identified by its printed section, without inventing a lyric title.",
+    "Native HTML entities/characters preserve macrons and breves; no respelling or pronunciation is invented. The documented ASCII [=a]/[)a] glyph convention has a tested decoder but is not the input extraction format.",
+    "Anonymous/traditional author attribution distinguishes collected words from compiler Thomas W. Talley; historical racial wording retained as printed, without equating every representation to an authentic uniform dialect.",
+    "Two mixed-language units are held on the Study’s explicit original-language evidence; this is English-only source eligibility, not a rejection of a dialect.",
+    "Old Man Know-All excluded because the Study explicitly identifies an unrecalled additional stanza. All other printed standalone English rhymes retained regardless of length; Frog Went A-Courting remains75 verse lines.",
+    "Footnotes/editorial notes retained in candidate evidence but excluded from sung text. Explicit spoken prose and speaker labels use existing # APPARATUS comments. Parenthetical verse is retained as printed.",
+    "Introduction and Study quoted verse, index and score-only duplicate headings are outside standalone Part I unit population, recorded in source-scope.json."
+  ],
+  "validation": {
+    "source_pin": "Original raw GitHub HTTP bytes retained in deterministic gzip; source SHA256 enforced by adapter.",
+    "source_partition": "349 Part I poem divs, including336 main section and13 Foreign Section; asserted by adapter.",
+    "stanza_boundaries": "Each source div.stanza retained; each direct span.iN is a printed verse line. Inline styling removed without introducing intra-word spaces.",
+    "offline_tests": "test_data.py checks exact replay, diacritics, source partition, complete 75-line song, apparatus and explicit eligibility exclusions."
+  }
+}

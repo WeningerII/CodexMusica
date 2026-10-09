@@ -5,7 +5,7 @@
   "lineage": "Portuguese trap grew through close collaboration between rappers and beat producers within the country’s hip-hop scene.",
   "recipe": "classic modern trap tuga, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 281,
-  "score": 27.386,
+  "score": 27.387,
   "config": {
     "traditions": [
       "trap_tuga"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 6.695,
-          "voice_ensemble_config": 0.2115,
+          "voice_ensemble_config": 0.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -58,7 +58,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.197,
+          "tr808_voice": 4.2299999999999995,
           "drum_machine_808_context": 0.39,
           "tr808_production_origin": 0.159
         }

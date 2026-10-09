@@ -3,14 +3,14 @@
   "name": "Halftime Drum & Bass",
   "family": "electronic",
   "lineage": "Emerged circa 2012-2015 across London, Prague and Vienna out of the neurofunk and autonomic wings of drum & bass, codified by Ivy Lab, Alix Perez's 1985 Music, Sam Binga and Fracture — retaining the 170-175 BPM drum-and-bass grid and 32-bar arrangement while programming the kick-snare backbone at half that rate so the snare lands on beat three, leaving space for swung trap-derived hi-hat triplets, heavily resampled and time-stretched breaks, and a foregrounded distorted sub-bass or Reese line with no vocal lead beyond chopped fragments.",
-  "recipe": "classic 2012-2015 halftime drum & bass, bass System, bass descendants branch, uk soundsystem bass system, us hip hop southern aggressive phonk dirty south rap. vocal fry, rap, slow rate, interlocked note trading. chopped sampler, sampled chopped sampler drum machine, low sub bass analog mono low sub bass wavetable granular synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 535,
-  "score": 271.765,
+  "recipe": "classic 2012-2015 halftime drum & bass, bass System, bass descendants branch, uk soundsystem bass system, us hip hop southern dirty south rap atlanta bass. vocal fry, breath veiled tone, slow rate, interlocked note trading. chopped sampler, sampled chopped sampler drum machine, low sub bass analog mono low sub bass wavetable granular synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 546,
+  "score": 298.725,
   "config": {
     "traditions": [
       "halftime_dnb",
-      "aggressive_phonk",
-      "dirty_south_rap"
+      "dirty_south_rap",
+      "atlanta_bass"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.575,
-          "sampler_archetypes": 7.58,
-          "sampler_bit_depth": 0.995,
-          "sampler_workflow": 7.130000000000001,
-          "sampler_classic_context": 27.430000000000007
+          "electronic_technique": 6.485,
+          "sampler_archetypes": 7.43,
+          "sampler_bit_depth": 1.085,
+          "sampler_workflow": 7.04,
+          "sampler_classic_context": 31.65500000000001
         }
       },
       {
@@ -39,10 +39,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 6.575,
-          "sample_bitdepth": 1.995,
+          "electronic_technique": 6.485,
+          "sample_bitdepth": 2.945,
           "sample_swing": 6.63,
-          "sample_processing": 1.04
+          "sample_processing": 2.235
         }
       },
       {
@@ -55,10 +55,10 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 27.655000000000005,
-          "mono_oscillator": 0.5,
-          "mono_filter": 1.6899999999999997,
-          "mono_archetypes": 2.34,
+          "electronic_technique": 29.940000000000005,
+          "mono_oscillator": 0,
+          "mono_filter": 1.69,
+          "mono_archetypes": 2.78,
           "mono_maker_lineage": -1.435
         }
       },
@@ -67,13 +67,13 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "wt_position": "wt_morphing",
-          "wt_family": "wt_analog_emul",
+          "wt_family": "wt_industrial",
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 27.655000000000005,
-          "wt_position": 2.145,
-          "wt_family": 0.5,
+          "electronic_technique": 29.940000000000005,
+          "wt_position": 1.7550000000000001,
+          "wt_family": 0.045,
           "wt_polyphony": 1.045
         }
       },
@@ -86,15 +86,15 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "granular_use": 1.885,
-          "granular_synth_source": 2.145
+          "granular_use": 1.69,
+          "granular_synth_source": 1.7550000000000001
         }
       },
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -111,22 +111,22 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 2.34,
-          "voice_quality": 12.069999999999999,
+          "voice_register": 2.145,
+          "voice_quality": 12.34999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6649999999999996,
-          "voice_articulation": 20.735000000000003,
-          "voice_microtone": 23.075,
-          "voice_tradition": 7.8,
-          "voice_mechanism_compound": 3.575,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 20.735000000000003,
-          "voice_ensemble_config": 20.410000000000004,
-          "voice_ornament_system": 4.8100000000000005,
-          "voice_pitch_organization": 2.535,
-          "voice_processing_chain": 8.59,
-          "voice_multitrack_stack": 5.59
+          "voice_vibrato": 3.12,
+          "voice_articulation": 24.960000000000004,
+          "voice_microtone": 27.3,
+          "voice_tradition": 7.379999999999999,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 4.030000000000001,
+          "voice_speech_song": 25.155,
+          "voice_ensemble_config": 24.830000000000002,
+          "voice_ornament_system": 5.265000000000001,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 6.495,
+          "voice_multitrack_stack": 5.3950000000000005
         }
       }
     ],

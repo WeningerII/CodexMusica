@@ -5,7 +5,7 @@
   "lineage": "Congress — Angry with the Sun, full credited ensemble on artist2020 digital edition. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic h8000, distorted Rock, punk branch. one note per syllable, group vocals, live take. conventional tuning standard pitch palm muted humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, analog poly synth, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 384,
-  "score": 43.688,
+  "score": 43.142,
   "config": {
     "traditions": [
       "h8000"
@@ -73,13 +73,13 @@
           "electric_technique": 5.25,
           "amp_make": 0,
           "body_wood": 0.39,
-          "neck_wood": 0.40950000000000003,
+          "neck_wood": 0.273,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
-          "bridge": 0.40950000000000003,
-          "scale_length": 0.8190000000000002,
+          "bridge": 0.273,
+          "scale_length": 0.546,
           "string_gauge": 2.6,
           "finish": 0,
           "string_tuning": 1.3

@@ -1,0 +1,193 @@
+{
+  "id": "gamelan_angklung_bali",
+  "name": "Gamelan angklung (Balinese four-tone temple gamelan)",
+  "family": "global",
+  "lineage": "Small four-tone bronze gamelan played for temple festivals and above all for cremations and other death rites, named after the bamboo angklung rattles that older ensembles included. Light gangsa metallophones play interlocking figuration over jublag and jegogan, with a four-kettle reyong, small kendang, ceng-ceng and a ringing kajar, and the set is light enough to be carried in procession.",
+  "recipe": "classic modern gamelan angklung, art Music, southeast Asian branch. crisp interlocking pemade, jublag, jegogan, interlocking reyong, rapid interlocking gamelan balinese paired male female kendang indonesian, interlocking ceng ceng, bright light ringing kajar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 339,
+  "score": 27.221,
+  "config": {
+    "traditions": [
+      "gamelan_angklung_bali"
+    ],
+    "instruments": [
+      {
+        "id": "pemade",
+        "slots": {
+          "pemade_build": "pemade_bronze_gangsa",
+          "pemade_technique": "pemade_kotekan_interlock",
+          "pemade_pairing": "pemade_pengumbang_pengisep"
+        },
+        "scores": {
+          "pemade_build": 1.739125,
+          "pemade_technique": 1.5422500000000001,
+          "pemade_pairing": 0.063
+        }
+      },
+      {
+        "id": "jublag",
+        "slots": {
+          "jublag_build": "jublag_bronze_calung",
+          "jublag_mallet": "jublag_padded",
+          "jublag_role": "jublag_pokok"
+        },
+        "scores": {
+          "jublag_build": 0,
+          "jublag_mallet": 0.03712499999999999,
+          "jublag_role": 0.337125
+        }
+      },
+      {
+        "id": "jegogan",
+        "slots": {
+          "jegogan_build": "jegogan_bronze_bamboo_resonators",
+          "jegogan_mallet": "jegogan_padded_disc",
+          "jegogan_role": "jegogan_pokok_skeleton"
+        },
+        "scores": {
+          "jegogan_build": 0.142125,
+          "jegogan_mallet": 0.03712499999999999,
+          "jegogan_role": 0.1365
+        }
+      },
+      {
+        "id": "reyong",
+        "slots": {
+          "reyong_form": "reyong_angklung_four",
+          "reyong_technique": "reyong_norot",
+          "reyong_tuning": "reyong_slendro"
+        },
+        "scores": {
+          "reyong_form": 2.337125,
+          "reyong_technique": 1.5422500000000001,
+          "reyong_tuning": 0.7745
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_balinese",
+          "kendang_shell_wood": "chitravina_jackwood",
+          "kendang_head": "ho_dumang_double_headed_drum_membranes_documented"
+        },
+        "scores": {
+          "kendang_size": 3.9,
+          "kendang_context": 6.89,
+          "kendang_shell_wood": 0,
+          "kendang_head": 0
+        }
+      },
+      {
+        "id": "ceng_ceng",
+        "slots": {
+          "ceng_ceng_form": "ceng_ceng_angklung",
+          "ceng_ceng_technique": "ceng_ceng_kotekan",
+          "ceng_ceng_alloy": "ceng_ceng_perunggu"
+        },
+        "scores": {
+          "ceng_ceng_form": 2.337125,
+          "ceng_ceng_technique": 1.5422500000000001,
+          "ceng_ceng_alloy": 0
+        }
+      },
+      {
+        "id": "kajar",
+        "slots": {
+          "kajar_form": "kajar_angklung",
+          "kajar_technique": "kajar_damped"
+        },
+        "scores": {
+          "kajar_form": 4.01325,
+          "kajar_technique": 0
+        }
+      }
+    ],
+    "pinned": {
+      "pemade": [
+        "pemade_build",
+        "pemade_technique",
+        "pemade_pairing"
+      ],
+      "jublag": [
+        "jublag_build",
+        "jublag_mallet",
+        "jublag_role"
+      ],
+      "jegogan": [
+        "jegogan_build",
+        "jegogan_mallet",
+        "jegogan_role"
+      ],
+      "reyong": [
+        "reyong_form",
+        "reyong_technique",
+        "reyong_tuning"
+      ],
+      "kendang_indonesian": [
+        "kendang_size",
+        "kendang_context",
+        "kendang_shell_wood",
+        "kendang_head"
+      ],
+      "ceng_ceng": [
+        "ceng_ceng_form",
+        "ceng_ceng_technique",
+        "ceng_ceng_alloy"
+      ],
+      "kajar": [
+        "kajar_form",
+        "kajar_technique"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pelog_slendro_balinese",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pelog_slendro_balinese",
+    "room": "field_recording",
+    "parts": {
+      "pemade_build": "pemade_bronze_gangsa",
+      "pemade_technique": "pemade_kotekan_interlock",
+      "pemade_pairing": "pemade_pengumbang_pengisep",
+      "jublag_build": "jublag_bronze_calung",
+      "jublag_mallet": "jublag_padded",
+      "jublag_role": "jublag_pokok",
+      "jegogan_build": "jegogan_bronze_bamboo_resonators",
+      "jegogan_mallet": "jegogan_padded_disc",
+      "jegogan_role": "jegogan_pokok_skeleton",
+      "reyong_form": "reyong_angklung_four",
+      "reyong_technique": "reyong_norot",
+      "reyong_tuning": "reyong_slendro",
+      "kendang_size": "kendang_gendhing",
+      "kendang_context": "kendang_balinese",
+      "kendang_shell_wood": "chitravina_jackwood",
+      "kendang_head": "ho_dumang_double_headed_drum_membranes_documented",
+      "ceng_ceng_form": "ceng_ceng_angklung",
+      "ceng_ceng_technique": "ceng_ceng_kotekan",
+      "ceng_ceng_alloy": "ceng_ceng_perunggu",
+      "kajar_form": "kajar_angklung",
+      "kajar_technique": "kajar_damped"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

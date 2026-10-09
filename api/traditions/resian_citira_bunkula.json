@@ -1,0 +1,123 @@
+{
+  "id": "resian_citira_bunkula",
+  "name": "Citira and bunkula (Val Resia dance music)",
+  "family": "global",
+  "lineage": "The music of Val Resia in the Julian Prealps of Friuli, whose people speak a Slovene dialect: dance tunes played on the citira, a violin tuned higher than usual so that it carries over the dancers, and the bunkula, an adapted cello or small three-stringed bass, for the Resian dances of Carnival (Püst) and the feast of the Assumption, alongside a repertoire of songs. Slovene and Italian ethnomusicologists, among them Julijan Strajnar, documented it in the field. The fiddle card stands in for the citira and the cello card for the bunkula.",
+  "recipe": "classic modern citira and bunkula, functional Song. fiddle, modern setup pirastro cellisto cello specific cello. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 192,
+  "score": 8.239,
+  "config": {
+    "traditions": [
+      "resian_citira_bunkula"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 2.34,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0,
+          "fiddle_articulation": 0,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "cello_strings": "dutar_strings_unspecified",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 2.34,
+          "cello_strings": 0,
+          "cello_top_wood": -0.1,
+          "cello_back_wood": -0.1,
+          "cello_varnish": -0.1,
+          "cello_setup_period": 1.2,
+          "cello_bow_grip": 0.40950000000000003,
+          "cello_rosin": 1.9,
+          "cello_bow_stick": -0.15000000000000002
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "cello_strings": "dutar_strings_unspecified",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "european_maple_cello_back",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

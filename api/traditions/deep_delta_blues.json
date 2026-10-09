@@ -1,108 +1,105 @@
 {
-  "id": "deep_delta_blues",
-  "name": "Deep delta blues",
-  "family": "vernacular",
-  "lineage": "Deep Delta blues draws on the rural acoustic blues traditions of the Mississippi Delta and their later revival. Performers such as Charley Patton, Robert Johnson and David Honeyboy Edwards shaped a repertoire carried through recordings, community performance and successive generations of blues musicians.",
-  "recipe": "classic deep delta blues, functional Song, blues acoustic branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. open g tuning indian rosewood rosewood dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 338,
-  "score": 15.922,
+  "id": "delta_blues",
+  "merged_from": "deep_delta_blues",
+  "name": "Delta blues",
+  "family": "blues_gospel",
+  "lineage": "Country-blues tradition of the Mississippi Delta region — slide-guitar-and-vocal solo and small-ensemble repertoire developed in the early twentieth century through the lineage of Charley Patton (the 1929 Paramount recordings), Son House, Robert Johnson (the 1936-37 San Antonio and Dallas sessions), Skip James, Bukka White, and continuing through the post-WWII Chicago-blues electrification by Muddy Waters, Howlin' Wolf, and others",
+  "recipe": "classic late-1920s delta blues, ballad Poetry, delta narrative branch, vocal drone modal, blues acoustic functional song, American south field work piedmont blues belgian blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 484,
+  "score": 407.531,
   "config": {
     "traditions": [
-      "deep_delta_blues"
+      "delta_blues",
+      "piedmont_blues",
+      "belgian_blues"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_register": "chest_voice",
+          "voice_quality": "worn_fold_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
+          "voice_register": 43.61250000000001,
+          "voice_quality": 21.4,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 1.17,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 3.25,
-          "voice_multitrack_stack": 0.693,
-          "voice_tessitura": 0
+          "voice_vibrato": 36.875,
+          "voice_articulation": 11.309999999999997,
+          "voice_microtone": 33.098749999999995,
+          "voice_tradition": 14.286249999999999,
+          "voice_mechanism_compound": 3.3149999999999995,
+          "voice_estill_quality": 8.2875,
+          "voice_speech_song": 13.519999999999998,
+          "voice_ensemble_config": 10.399999999999997,
+          "voice_ornament_system": 1.6899999999999997,
+          "voice_pitch_organization": 1.56,
+          "voice_processing_chain": 4.2375,
+          "voice_multitrack_stack": 3.1849999999999996
         }
       },
       {
-        "id": "acoustic_guitar_dread",
+        "id": "acoustic_resonator_steel",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
+          "acoustic_technique": "acoustic_bottleneck_slide",
           "string_tuning": "open_g",
-          "top_wood": "cedar",
-          "back_sides": "rosewood_bs",
-          "string_acoustic": "martin_lifespan"
+          "cone_type": "biscuit",
+          "body_resonator": "brass_body",
+          "res_strings": "phosphor_res"
         },
         "scores": {
-          "acoustic_technique": -0.07,
-          "string_tuning": 8.005,
-          "top_wood": 0.3045,
-          "back_sides": 1.95,
-          "string_acoustic": 0.6194999999999999
+          "acoustic_technique": 16.349999999999998,
+          "string_tuning": 15.295,
+          "cone_type": 11.5,
+          "body_resonator": 0.57,
+          "res_strings": 0.615
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "tremolo_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 0.66,
+          "harmonica_comb": 36.776250000000005,
+          "harmonica_reed": 32.019999999999996,
+          "harmonica_technique": 43,
+          "harmonica_maker_school": 31.62875,
+          "harmonica_tuning": 14.688749999999999
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "acoustic_guitar_dread": [
-        "acoustic_technique"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "tin_roofed_shack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "shellac_78"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -111,33 +108,28 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "tin_roofed_shack",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "string_tuning": "open_g",
+      "voice_register": "chest_voice",
+      "voice_quality": "blues_shouter_voice",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "acoustic_technique": "acoustic_strummed_ringing"
+      "voice_microtone": "blue_notes",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_belt",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "harmonica_technique": "harm_blues_cross",
+      "harmonica_type": "diatonic_blues"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "French-language traditional music of the Acadian Maritimes — southeast New Brunswick, southwest Nova Scotia, Prince Edward Island and the Îles-de-la-Madeleine — carried orally since the eighteenth century and revived from the 1970s by Édith Butler, 1755 and later Barachois and Vishtèn: crooked-metre fiddle reels with irregular bar counts, seated podorythmie foot percussion, diatonic accordion and spoons, and unaccompanied complainte and chanson à répondre call-and-response singing in Acadian French.",
   "recipe": "classic North American mid-1970s musique acadienne, improv On Frame, Celtic traditional branch, Celtic balladic ballad poetry, pre commercial country scottish gaelic folk song newfoundland traditional song and dance music. thick, breath veiled tone, wide pitch sway, interlocked note trading. fiddle, Celtic drone like melodeon diatonic, foot tap, spoons wooden and hand spoons, dadgad tuning drone like modal dreadnought acoustic guitar, upright piano. newfoundland outport kitchen party. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 552,
-  "score": 313.349,
+  "score": 314.564,
   "config": {
     "traditions": [
       "musique_acadienne",
@@ -17,15 +17,15 @@
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_celtic_session",
-          "fiddle_strings": "synthetic_core",
-          "fiddle_bow": "dark_rosin",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "light_rosin",
           "fiddle_mute": "no_mute",
           "fiddle_articulation": "sul_pont",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 12.72625,
-          "fiddle_strings": 0.49499999999999994,
+          "fiddle_strings": 0.21000000000000002,
           "fiddle_bow": 0.195,
           "fiddle_mute": 0.195,
           "fiddle_articulation": 0.3,
@@ -72,14 +72,14 @@
         "slots": {
           "acoustic_technique": "acoustic_drone_modal",
           "string_tuning": "dadgad",
-          "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
           "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 12.41,
+          "acoustic_technique": 12.515,
           "string_tuning": 15.04,
-          "top_wood": 0.135,
+          "top_wood": 0.195,
           "back_sides": 0.195,
           "string_acoustic": 0.9099999999999999
         }
@@ -105,7 +105,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.520000000000001,
+          "voice_register": 4.475000000000001,
           "voice_quality": 14.559999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -114,10 +114,10 @@
           "voice_microtone": 27.690000000000012,
           "voice_tradition": 23.985000000000003,
           "voice_mechanism_compound": 6.240000000000001,
-          "voice_estill_quality": 10.101999999999999,
+          "voice_estill_quality": 10.251999999999999,
           "voice_speech_song": 30.940000000000015,
           "voice_ensemble_config": 29.900000000000013,
-          "voice_ornament_system": 22.462749999999996,
+          "voice_ornament_system": 23.73775,
           "voice_pitch_organization": 2.2099999999999995,
           "voice_processing_chain": 5.85,
           "voice_multitrack_stack": 5.330000000000001
@@ -132,7 +132,7 @@
         },
         "scores": {
           "keyboard_technique": 3.325,
-          "upright_use": 0.135,
+          "upright_use": 0.09,
           "upright_piano_size": 2.4050000000000002
         }
       }

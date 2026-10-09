@@ -1,16 +1,17 @@
 {
-  "id": "azontobeats",
-  "name": "Azontobeats",
-  "family": "global",
-  "lineage": "Ghanaian dance-driven pop that broke out of Accra between 2010 and 2013 around the azonto dance, codified by Sarkodie, EL, Guru and Fuse ODG in FL Studio bedroom sessions — a 120-130 BPM 4/4 built on a kpanlogo-derived clave-like handclap and rim pattern, syncopated 808 or gome bass on the offbeat, short bright synth marimba and pluck hooks, and interlocking Twi-and-pidgin rap-sung vocals with chanted crowd refrains naming the dance.",
-  "recipe": "classic early-2010s azontobeats, electronic Dance, African dance branch, African pop functional song, west African groove percussion, Afro-diasporic MC rhythm sungura rumba congolaise. extended whistle, breath veiled tone, straight onset, interlocked note trading. TR-808, sampler drum machine, syncopated improvising lead voice kpanlogo, gome drum, singing lead analog mono synth, bright flat sharp hand clap. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
-  "recipe_chars": 586,
-  "score": 238.915,
+  "id": "azonto",
+  "merged_from": "azontobeats",
+  "name": "Azonto",
+  "family": "electronic",
+  "lineage": "Ghanaian dance-driven hiplife offshoot that crystallised in Accra and Tema around 2011 when producers such as EL, Sarkodie and Killbeatz set kpanlogo-derived triplet hand-clap and shaker patterns over 125-130 BPM programmed 808 kits, sparse two-bar synth hooks and clipped Twi/pidgin call-and-response hooks pitched to the codified azonto dance gestures.",
+  "recipe": "classic early-2010s azonto, electronic Dance, African dance branch, African pop functional song, Afro-diasporic MC rhythm south african pop sungura. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, sampler drum machine, singing lead analog poly synth, snappy to palm hand clap, pyramid pure nickel bass British mid 60s era electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 556,
+  "score": 185.797,
   "config": {
     "traditions": [
-      "azontobeats",
-      "sungura",
-      "rumba_congolaise"
+      "azonto",
+      "south_african_pop",
+      "sungura"
     ],
     "instruments": [
       {
@@ -20,48 +21,48 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 14.104999999999997,
-          "voice_quality": 12.349999999999994,
+          "voice_register": 16.065,
+          "voice_quality": 8.125000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.42,
-          "voice_articulation": 23.4,
-          "voice_microtone": 23.205000000000002,
-          "voice_tradition": 21.254999999999995,
-          "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 28.73,
-          "voice_ensemble_config": 21.84,
-          "voice_ornament_system": 2.2099999999999995,
-          "voice_pitch_organization": 2.3,
-          "voice_processing_chain": 7.385000000000002,
-          "voice_multitrack_stack": 6.825000000000001
+          "voice_vibrato": 1.6249999999999998,
+          "voice_articulation": 17.354999999999997,
+          "voice_microtone": 17.54999999999999,
+          "voice_tradition": 19.077500000000004,
+          "voice_mechanism_compound": 2.08,
+          "voice_estill_quality": 2.2749999999999995,
+          "voice_speech_song": 21.514999999999993,
+          "voice_ensemble_config": 18.979999999999997,
+          "voice_ornament_system": 1.7549999999999994,
+          "voice_pitch_organization": 0.85,
+          "voice_processing_chain": 12.385000000000002,
+          "voice_multitrack_stack": 2.5349999999999997
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
+          "drum_machine_808_context": "drum_machine_808_miami",
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.615,
-          "drum_machine_808_context": 3.77,
+          "tr808_voice": 2.8599999999999994,
+          "drum_machine_808_context": 4.42,
           "tr808_production_origin": 0.675
         }
       },
@@ -74,64 +75,59 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sample_bitdepth": 1.15,
-          "sample_swing": 3.75,
-          "sample_processing": 0.845
+          "electronic_technique": 0.2,
+          "sample_bitdepth": 0.65,
+          "sample_swing": 7.125,
+          "sample_processing": 0.65
         }
       },
       {
-        "id": "kpanlogo",
-        "slots": {
-          "kpanlogo_seat": "kpanlogo_master",
-          "kpanlogo_set": "kpanlogo_three_set",
-          "kpanlogo_head": "kpanlogo_goat",
-          "kpanlogo_idiom": "kpanlogo_traditional_nono_fao"
-        },
-        "scores": {
-          "kpanlogo_seat": 4.484999999999999,
-          "kpanlogo_set": 3.2249999999999996,
-          "kpanlogo_head": 2.1399999999999997,
-          "kpanlogo_idiom": 21.095
-        }
-      },
-      {
-        "id": "gome_drum",
-        "slots": {
-          "gome_technique": "gome_heel_pitch",
-          "gome_size": "gome_small"
-        },
-        "scores": {
-          "gome_technique": 3.365,
-          "gome_size": 0.98
-        }
-      },
-      {
-        "id": "analog_mono_synth",
+        "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "mono_oscillator": "mono_digitally_controlled",
-          "mono_filter": "moog_ladder",
-          "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_arp_pearlman"
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 11.114999999999998,
-          "mono_oscillator": 0.525,
-          "mono_filter": 0.19500000000000003,
-          "mono_archetypes": 1.69,
-          "mono_maker_lineage": -1.435
+          "electronic_technique": 14.815,
+          "poly_archetypes": 0.33,
+          "poly_voices": 0.345,
+          "poly_maker_lineage": -1.435
         }
       },
       {
         "id": "hand_clap",
         "slots": {
-          "clap_technique": "clap_flat_sharp",
-          "clap_capture": "clap_close_dry"
+          "clap_technique": "clap_fingers_to_palm",
+          "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 1.3,
-          "clap_capture": 0.585
+          "clap_technique": 2.4699999999999998,
+          "clap_capture": 0.65
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 2.8599999999999994,
+          "body_wood": 0.65,
+          "pickup_config": 0.845,
+          "string_type": 2.5999999999999996,
+          "scale_length_b": 1.3,
+          "fretted_or_not": 0.5399999999999999,
+          "bass_technique": 0.25,
+          "electric_bass_string_configuration": 0
         }
       }
     ],
@@ -142,7 +138,7 @@
       "pre": "pre_500_series_modern",
       "console": "console_in_the_box",
       "comp": "comp_distressor_modern",
-      "eq": null,
+      "eq": "eq_active_parametric",
       "amp": null,
       "medium": "digital_high"
     },
@@ -157,6 +153,7 @@
     "chain_mic": "condenser_ldc",
     "chain_pre": "pre_500_series_modern",
     "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_active_parametric",
     "chain_medium": "digital_high",
     "chain_console": "console_in_the_box"
   }

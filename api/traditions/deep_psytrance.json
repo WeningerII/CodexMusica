@@ -5,7 +5,7 @@
   "lineage": "Deep psytrance emphasizes immersive, groove-led psychedelic trance rather than a single label roster. It overlaps dark progressive and Zenonesque practice, combining repetitive dance rhythms with spacious textures, detailed sound design and gradual developments across long DJ journeys.",
   "recipe": "classic deep psytrance, electronic Dance, trance branch. dj playback mixing unspecified, drum machine analog. live tracking.",
   "recipe_chars": 124,
-  "score": 2.888,
+  "score": 2.752,
   "config": {
     "traditions": [
       "deep_psytrance"
@@ -31,7 +31,7 @@
         "scores": {
           "kick_voice": 2.363,
           "snare_voice": 0.0945,
-          "hat_voice": 0.231,
+          "hat_voice": 0.0945,
           "shuffle_quantize": 0
         }
       }

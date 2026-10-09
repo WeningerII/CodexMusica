@@ -5,7 +5,7 @@
   "lineage": "Chill pop favors relaxed melodic songwriting and a gentle sense of space across acoustic, band-based and electronically produced approaches.",
   "recipe": "classic chill pop, functional Song, pop rock branch. unprocessed natural acoustic. clean strummed humbucker electric strummed open chord ringing overtones dreadnought acoustic guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 387,
-  "score": 55.182,
+  "score": 55.706,
   "config": {
     "traditions": [
       "chill_pop"
@@ -29,15 +29,15 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 11.40025,
+          "electric_technique": 11.3575,
           "amp_make": 1.8199999999999998,
-          "body_wood": 0.42075,
-          "neck_wood": 0.1365,
+          "body_wood": 0.483,
+          "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.1425,
           "string_material": 0.0315,
-          "bridge": 0.1365,
+          "bridge": 0.2415,
           "scale_length": 0.504,
           "string_gauge": 0.1995,
           "finish": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.168,
+          "body_wood": 0.378,
           "pickup_config": 0.3045,
           "string_type": 4.875,
           "scale_length_b": 0.168,
@@ -126,14 +126,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
-          "string_acoustic": "monel"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": 11.6725,
           "string_tuning": 0,
-          "top_wood": 0.28425,
+          "top_wood": 0.3465,
           "back_sides": 0.105,
-          "string_acoustic": 0.39
+          "string_acoustic": 0.44099999999999995
         }
       },
       {
@@ -145,7 +145,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.26,
+          "electronic_technique": 0.2315,
           "poly_archetypes": 1.95,
           "poly_voices": 0.39,
           "poly_maker_lineage": -0.035

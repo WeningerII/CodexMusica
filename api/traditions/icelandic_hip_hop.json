@@ -5,7 +5,7 @@
   "lineage": "Icelandic hip hop developed through an Iceland-based rap recording and live-performance community, with Reykjavík festivals connecting local artists and audiences.",
   "recipe": "classic icelandic hip hop, mc Rhythm, intl hip hop branch. group vocals, live take. clean strummed humbucker electric guitar, electric bass, drum kit, upright piano, dj playback mixing credited electronics unspecified. live tracking.",
   "recipe_chars": 233,
-  "score": 7.938,
+  "score": 8.919,
   "config": {
     "traditions": [
       "icelandic_hip_hop"
@@ -74,13 +74,13 @@
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0.2415,
-          "fretboard": -0.05,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
           "bridge": 0,
-          "scale_length": 0,
-          "string_gauge": 0.847,
+          "scale_length": 0.483,
+          "string_gauge": 0.7735,
           "finish": 0,
           "string_tuning": 0
         }
@@ -100,7 +100,7 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0,
-          "pickup_config": 0.4515,
+          "pickup_config": 0.63,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -129,11 +129,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.315,
+          "bearing_edges": 0.3885,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.15000000000000002,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_lathing": -0.11850000000000002,
           "cymbal_finish": 0
         }
       },
@@ -146,7 +146,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "upright_use": 0,
+          "upright_use": 0.273,
           "upright_piano_size": 0
         }
       },

@@ -394,20 +394,21 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
 // previously forked (208 keys differed, a rename on one side, 13 orphan keys).
 // This check fails if the inlined block drifts from the JSON — regenerate with
 // `node scripts/build_signatures.js`.
-check('tradition-signature parity (app.js inline ↔ canonical JSON)', () => {
+check('tradition-signature parity (generated mirror ↔ canonical JSON)', () => {
   const json = JSON.parse(
     fs.readFileSync(path.join(ROOT, 'references/_tradition_signatures.json'), 'utf8')
   );
-  const appSrc = fs.readFileSync(path.join(ROOT, 'src/app.js'), 'utf8');
+  const appSrc = fs.readFileSync(path.join(ROOT, 'references/10_tradition_signatures.js'), 'utf8');
   const m = appSrc.match(/const TRADITION_SIGNATURES = (\{[\s\S]*?\n\});/);
-  if (!m) throw new Error('TRADITION_SIGNATURES not found in src/app.js');
+  if (!m)
+    throw new Error('TRADITION_SIGNATURES not found in references/10_tradition_signatures.js');
   const inline = new Function('return ' + m[1])();
   if (JSON.stringify(inline) !== JSON.stringify(json)) {
     throw new Error(
-      'src/app.js TRADITION_SIGNATURES != references/_tradition_signatures.json — run `node scripts/build_signatures.js`'
+      'references/10_tradition_signatures.js != references/_tradition_signatures.json — run `node scripts/build_signatures.js`'
     );
   }
-  return `${Object.keys(json).length} tradition signatures parity-locked (app.js ↔ JSON)`;
+  return `${Object.keys(json).length} tradition signatures parity-locked (mirror ↔ JSON)`;
 });
 
 // Frozen descriptor-DF: the corpus document frequencies that order EVERY

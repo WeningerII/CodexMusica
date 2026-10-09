@@ -1,14 +1,15 @@
 {
-  "id": "deep_metalcore",
-  "name": "Deep Metalcore",
+  "id": "metalcore",
+  "merged_from": "deep_metalcore",
+  "name": "Metalcore",
   "family": "rock_punk",
-  "lineage": "Deep metalcore is a discovery label connecting contemporary heavy bands with metal riffing, hardcore rhythm and contrasting vocal approaches. Amplified guitars and bass lock into forceful drums, with changes between dense attacks and more open phrases.",
-  "recipe": "classic deep metalcore, distorted Rock, metal branch. small vocal ensemble. palm muted humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, credited electronics unspecified. live tracking.",
-  "recipe_chars": 270,
-  "score": 35.521,
+  "lineage": "Metalcore joins heavy-metal riffing with hardcore intensity and breakdown-oriented rhythm, encompassing harsh and melodic approaches.",
+  "recipe": "classic modern metalcore, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 432,
+  "score": 42.544,
   "config": {
     "traditions": [
-      "deep_metalcore"
+      "metalcore"
     ],
     "instruments": [
       {
@@ -25,11 +26,11 @@
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_duet_quartet",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
@@ -44,11 +45,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.417,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.08549999999999999,
-          "voice_multitrack_stack": 0.042749999999999996,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.21,
           "voice_tessitura": 0
         }
       },
@@ -56,8 +57,8 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_palm_muted_chug",
-          "amp_make": "amp_unspecified",
-          "body_wood": "alder",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "ceramic_h",
@@ -65,22 +66,22 @@
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_fender_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_10_hum",
           "finish": "poly_hum",
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 7.327999999999999,
-          "amp_make": 0,
-          "body_wood": 0.222,
+          "electric_technique": 7.22,
+          "amp_make": 3.0550000000000006,
+          "body_wood": 3.25,
           "neck_wood": 0.105,
-          "fretboard": 0.222,
+          "fretboard": 0.39,
           "pickup_magnet": 0,
-          "pickup_winding": 0,
+          "pickup_winding": 0.23399999999999999,
           "string_material": 0.105,
-          "bridge": 0.9099999999999999,
+          "bridge": 0.39,
           "scale_length": 0,
-          "string_gauge": 0.6315000000000001,
+          "string_gauge": 0,
           "finish": 0,
           "string_tuning": 5.85
         }
@@ -88,23 +89,23 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
-          "body_wood": "alder",
-          "pickup_config": "split_coil",
-          "string_type": "roundwound_n",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "basswood_h",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
-          "body_wood": 0.222,
-          "pickup_config": 0,
-          "string_type": 0,
-          "scale_length_b": 0.222,
-          "fretted_or_not": 0,
-          "bass_technique": 4.108,
+          "amp_make": 2.275,
+          "body_wood": 3.25,
+          "pickup_config": 0.39,
+          "string_type": 4.875,
+          "scale_length_b": 0.6779999999999999,
+          "fretted_or_not": 0.105,
+          "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
       },
@@ -113,37 +114,12 @@
         "slots": {
           "drum_technique": "sticks_rock",
           "drumhead": "double_coated",
-          "drum_kit_kick_pedal": "dk_kick_double",
-          "shell_wood": "maple_shell",
-          "shell_thickness": "thin_shell",
-          "bearing_edges": "edge_45",
-          "snare_wires": "wires_20",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "traditional_finish"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.9099999999999999,
-          "drum_kit_kick_pedal": 1.69,
-          "shell_wood": 0.222,
-          "shell_thickness": 0,
-          "bearing_edges": 0.105,
-          "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 3.7865,
-          "cymbal_finish": 0
-        }
-      },
-      {
-        "id": "credited_electronics_unspecified",
-        "slots": {
-          "credited_electronics_identity": "credited_electronics_generator_unspecified"
-        },
-        "scores": {
-          "credited_electronics_identity": 0
+          "drumhead": 0.6315000000000001,
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -169,7 +145,6 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -183,98 +158,72 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
-        "pickup_config",
-        "string_type",
-        "scale_length_b",
-        "fretted_or_not",
-        "bass_technique",
-        "electric_bass_string_configuration"
+        "bass_technique"
       ],
       "drum_kit": [
-        "drum_technique",
-        "shell_wood",
-        "shell_thickness",
-        "bearing_edges",
-        "drumhead",
-        "snare_wires",
-        "drum_kit_kick_pedal",
-        "cymbal_alloy",
-        "cymbal_hammering",
-        "cymbal_lathing",
-        "cymbal_finish"
-      ],
-      "credited_electronics_unspecified": [
-        "credited_electronics_identity"
+        "drum_technique"
       ]
     },
-    "room": "live_room",
+    "room": "studio_auteur_home_pro",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "dynamic_mic",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
       "voice_vibrato": "voice_vibrato_local_unspecified",
       "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_duet_quartet",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
       "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_palm_muted_chug",
-      "amp_make": "amp_unspecified",
-      "body_wood": "alder",
-      "neck_wood": "maple_neck_h",
-      "fretboard": "ebony_fb_h",
-      "pickup_magnet": "ceramic_h",
-      "string_material": "nickel_plated_h",
-      "string_gauge": "g_11_hum",
-      "bridge": "string_thru",
-      "scale_length": "scale_fender_h",
-      "finish": "poly_hum",
       "string_tuning": "drop_c",
       "drum_technique": "sticks_rock",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
-      "drumhead": "double_coated",
-      "snare_wires": "wires_20",
-      "drum_kit_kick_pedal": "dk_kick_double",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
-      "pickup_config": "split_coil",
-      "string_type": "roundwound_n",
-      "scale_length_b": "long_scale_b",
-      "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
       "pickup_winding": "high_wind",
-      "credited_electronics_identity": "credited_electronics_generator_unspecified"
+      "string_gauge": "g_10_hum"
     },
-    "pin_parts": true
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_amp_guitar": "amp_british_marshall_jcm800",
+    "chain_amp_bass": "amp_american_ampeg_svt"
   }
 }

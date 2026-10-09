@@ -5,7 +5,7 @@
   "lineage": "Vietnamese trap draws contemporary trap production into local rap networks, including the HUSTLANG collective.",
   "recipe": "classic modern vietnamese trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. pitched sub bass 808 style legato glide sampler drum machine, grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 310,
-  "score": 21.238,
+  "score": 21.511,
   "config": {
     "traditions": [
       "vietnamese_trap"
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.539,
-          "sample_bitdepth": 0,
+          "sample_bitdepth": 0.273,
           "sample_swing": 0.75,
           "sample_processing": 1.17
         }

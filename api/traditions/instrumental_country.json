@@ -5,7 +5,7 @@
   "lineage": "Nashville and Bakersfield studio-musician tradition formalized in the 1950s-60s by Chet Atkins, Merle Travis, Speedy West and Jimmy Bryant, and by the A-Team session players — melody-lead pedal steel, fingerstyle or Telecaster electric guitar and fiddle trading choruses over a 2/4 train-beat or shuffle at 100-160 BPM, with no vocal and 32-bar or 12-bar forms carrying the tune.",
   "recipe": "classic Southern American mid-1950s instrumental country, functional Song, nashville branch, western swing country, honky tonk era country, neo trad country classic texas country classic oklahoma country. Fender blackface amp American 60s amp spring reverb bright mahogany nickel plated steel single coil electric cedar steel silk travis picked dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, steel double stops fiddle, sustaining steel upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 787,
-  "score": 387.56,
+  "score": 387.575,
   "config": {
     "traditions": [
       "instrumental_country",
@@ -23,7 +23,7 @@
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_11",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
@@ -32,17 +32,17 @@
         },
         "scores": {
           "electric_technique": 32.695,
-          "amp_make": 33.17999999999999,
-          "body_wood": 1.32,
-          "neck_wood": 1.32,
-          "fretboard": 0.195,
-          "pickup_magnet": 0.195,
+          "amp_make": 32.63999999999999,
+          "body_wood": 1.275,
+          "neck_wood": 1.275,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.345,
           "string_material": 3.9650000000000003,
-          "string_gauge": 0.87,
-          "bridge": 0.195,
-          "scale_length": 2.1449999999999996,
+          "string_gauge": 0.975,
+          "bridge": 0.345,
+          "scale_length": 2.25,
           "finish": 0.045,
-          "string_tuning": 1.23,
+          "string_tuning": 1.425,
           "single_coil_pickup_construction": 0
         }
       },
@@ -59,14 +59,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 37.06999999999999,
-          "amp_make": 33.17999999999999,
-          "pickup_steel": 0.825,
+          "electric_technique": 36.97999999999999,
+          "amp_make": 32.63999999999999,
+          "pickup_steel": 0.975,
           "string_setup": 15.6,
           "bar_material": 3.9650000000000003,
-          "pedal_steel_brand": 35.794999999999995,
-          "pedal_steel_neck_config": 37.42999999999999,
-          "pedal_steel_strings": 33.355
+          "pedal_steel_brand": 35.855,
+          "pedal_steel_neck_config": 37.324999999999996,
+          "pedal_steel_strings": 33.415
         }
       },
       {
@@ -84,7 +84,7 @@
           "fiddle_strings": 4.875,
           "fiddle_bow": 0.3,
           "fiddle_mute": 0.65,
-          "fiddle_articulation": 0.195,
+          "fiddle_articulation": 0.345,
           "fiddle_string_configuration": 0
         }
       },
@@ -122,9 +122,9 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 30.349999999999994,
+          "acoustic_technique": 30.544999999999995,
           "string_tuning": 0.2,
-          "top_wood": 1.365,
+          "top_wood": 1.275,
           "back_sides": 0,
           "string_acoustic": 4.16
         }

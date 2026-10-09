@@ -5,7 +5,7 @@
   "lineage": "German death metal includes technical and progressive bands such as Obscura alongside other extreme-metal approaches.",
   "recipe": "classic german death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 429,
-  "score": 39.011,
+  "score": 38.673,
   "config": {
     "traditions": [
       "german_death_metal"
@@ -32,16 +32,16 @@
           "electric_technique": -0.07,
           "amp_make": 5.655000000000001,
           "body_wood": 5.85,
-          "neck_wood": 0.3045,
-          "fretboard": 0.33675,
+          "neck_wood": 0.1995,
+          "fretboard": 0.30524999999999997,
           "pickup_magnet": 0,
-          "pickup_winding": 0.273,
-          "string_material": 0.3045,
-          "bridge": 0.4102499999999999,
+          "pickup_winding": 0.2415,
+          "string_material": 0.1995,
+          "bridge": 0.3787499999999999,
           "scale_length": 0.337125,
           "string_gauge": 0.0735,
           "finish": 0,
-          "string_tuning": 0.131625
+          "string_tuning": 0.10012499999999999
         }
       },
       {
@@ -61,7 +61,7 @@
           "body_wood": 5.85,
           "pickup_config": 0.337125,
           "string_type": 4.875,
-          "scale_length_b": 0.9719999999999998,
+          "scale_length_b": 0.9089999999999998,
           "fretted_or_not": 0.368625,
           "bass_technique": 3.863125,
           "electric_bass_string_configuration": 0
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.06225,
+          "voice_ensemble_config": 1.123,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.03712499999999999,

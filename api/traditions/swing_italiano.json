@@ -5,7 +5,7 @@
   "lineage": "Swing italiano is represented here by Carlo Colombo Trio — MusicaViva/Artigiano Vivo, Cison di Valmarino, 11 August 2022. This is a documented branch with an authored present-day studio realization.",
   "recipe": "classic early-2020s swing italiano, improv On Frame, early branch. group vocals. cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 342,
-  "score": 33.663,
+  "score": 33.632,
   "config": {
     "traditions": [
       "swing_italiano"
@@ -65,7 +65,7 @@
         },
         "scores": {
           "keyboard_technique": 0.29275,
-          "grand_piano_size": 0.36749999999999994,
+          "grand_piano_size": 0.336,
           "grand_piano_brand": 0.39,
           "piano_hammer": 2.275,
           "piano_rim": 1.885,

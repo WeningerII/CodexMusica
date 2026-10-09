@@ -5,7 +5,7 @@
   "lineage": "Selk’nam shamanic and lament repertoires represented by Lola Kiepja’s recordings. The seed contains a single unaccompanied voice.",
   "recipe": "classic modern selk’nam shamanic songs and laments, funeral Lament. solo unaccompanied, single lead single track no stacking. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 205,
-  "score": 2.661,
+  "score": 3.03,
   "config": {
     "traditions": [
       "selknam_shamanic_laments"
@@ -39,15 +39,15 @@
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
-          "voice_tradition": 0.073125,
+          "voice_tradition": 0.105,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.438125,
+          "voice_ensemble_config": 1.5750000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.3
+          "voice_multitrack_stack": 1.4995
         }
       }
     ],

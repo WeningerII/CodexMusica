@@ -1,0 +1,275 @@
+{
+  "id": "british_trad_jazz",
+  "name": "Trad (British traditional jazz boom)",
+  "family": "jazz",
+  "lineage": "The British revival of New Orleans and Dixieland jazz that grew in London clubs after the Second World War with Humphrey Lyttelton, Ken Colyer and Chris Barber, whose band also launched the skiffle craze through Lonnie Donegan, and that became a mass pop fad around 1959 to 1962. Chris Barber's 'Petite Fleur', Acker Bilk's 'Stranger on the Shore' and Kenny Ball's 'Midnight in Moscow' were international hits before beat groups displaced the bands after 1963. The generic banjo card stands in for the four-string banjos most bands used.",
+  "recipe": "classic British late-1950s trad, improv On Frame, early branch. front line trumpet, front line clarinet, front line trombone, credited banjo unspecified, upright bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, block chord grand piano. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 463,
+  "score": 69.181,
+  "config": {
+    "traditions": [
+      "british_trad_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_bell_metal": "trumpet_gold_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": 5.164,
+          "brass_size": 0.24149999999999996,
+          "trumpet_mouthpiece": -0.1,
+          "brass_mute": 0.1365,
+          "trumpet_technique": 5.164,
+          "trumpet_bell_metal": 0.5497500000000001,
+          "trumpet_maker_school": 0.78
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 5.164,
+          "clarinet_body": 0.9864999999999999,
+          "clarinet_size": 0.063,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_dixieland_lead",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "tailgate_slide",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_edwards_griego"
+        },
+        "scores": {
+          "wind_articulation": 5.164,
+          "trombone_type": 11.25,
+          "trombone_mouthpiece": -0.07,
+          "trombone_mute": 0.1365,
+          "trombone_technique": 1,
+          "trombone_bell_metal": 0.71775,
+          "trombone_maker_school": 0
+        }
+      },
+      {
+        "id": "credited_banjo_unspecified",
+        "slots": {
+          "credited_banjo_unspecified_identity": "credited_banjo_unspecified_source_unspecified"
+        },
+        "scores": {
+          "credited_banjo_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0,
+          "upright_play": 11.25
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered"
+        },
+        "scores": {
+          "drum_technique": -0.05,
+          "drumhead": 0.0945,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.33975,
+          "shell_thickness": 0,
+          "bearing_edges": -1.05,
+          "snare_wires": 0,
+          "cymbal_alloy": 11.131499999999997,
+          "cymbal_hammering": 3.45,
+          "cymbal_lathing": 3.4815,
+          "cymbal_finish": 0.0315
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 3.2,
+          "grand_piano_size": 0.063,
+          "grand_piano_brand": 0.2415,
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.4550000000000002
+        }
+      }
+    ],
+    "pinned": {
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "credited_banjo_unspecified": [
+        "credited_banjo_unspecified_identity"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "studio_uk_small_60s_commercial",
+    "archetype": "arch_60s_uk_small_commercial",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_emi_redd",
+      "comp": "comp_fairchild_670_tube",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "jazz_swing_eighth_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "jazz_swing_eighth_4_4",
+    "room": "studio_uk_small_60s_commercial",
+    "parts": {
+      "wind_articulation": "wind_dixieland_lead",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "cup_mute",
+      "trumpet_technique": "trumpet_dixieland_lead",
+      "trumpet_bell_metal": "trumpet_gold_brass",
+      "trumpet_maker_school": "trumpet_schilke",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "cup_mute_trb",
+      "trombone_technique": "tailgate_slide",
+      "trombone_bell_metal": "trombone_red_brass",
+      "trombone_maker_school": "trombone_edwards_griego",
+      "credited_banjo_unspecified_identity": "credited_banjo_unspecified_source_unspecified",
+      "upright_strings": "gut_upright",
+      "upright_play": "pizz_upright",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "hand_hammered",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_fairchild_670_tube",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_emi_redd"
+  }
+}

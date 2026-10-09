@@ -3,14 +3,14 @@
   "name": "Vietnamese hò (work-coordination song)",
   "family": "global",
   "lineage": "Vietnamese hò (work-coordination call-and-response song) tradition continuous from premodern Vietnamese-agricultural-and-maritime labor practice through 19th-20th century continuous performance into modern Vietnamese-folk-revival practice across Northern, Central, and Southern Vietnam; the hò is the canonical Vietnamese work-coordination song-form integrating leader-and-group call-and-response across rice-paddy-planting, fishing, boat-rowing, and other labor-contexts",
-  "recipe": "classic modern vietnamese hò, field Work, east Asian branch, south Asian field work, atlantic Southeast Asian shanty, east Asian protest song bengali bhatiali bengali folk. thick, breath veiled tone, straight onset, interlocked note trading. marsh swamp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 317,
-  "score": 159.175,
+  "recipe": "classic modern vietnamese hò, field Work, east Asian branch, south Asian field work, atlantic Southeast Asian shanty, east Asian protest song korean minjung gayo vietnamese nhạc phản chiến. thick, breath veiled tone, straight onset, interlocked note trading. marsh swamp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 334,
+  "score": 150,
   "config": {
     "traditions": [
       "vietnamese_ho",
-      "bengali_bhatiali",
-      "bengali_folk_lokgeeti"
+      "korean_minjung_gayo",
+      "vietnamese_nhac_phan_chien"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "korean_minsogak_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.275,
-          "voice_quality": 12.284999999999993,
+          "voice_register": 7.375,
+          "voice_quality": 9.035,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4050000000000002,
-          "voice_articulation": 20.540000000000003,
-          "voice_microtone": 20.15,
-          "voice_tradition": 14.040000000000001,
+          "voice_vibrato": 2.24,
+          "voice_articulation": 15.534999999999998,
+          "voice_microtone": 14.754999999999997,
+          "voice_tradition": 16.755,
           "voice_mechanism_compound": 2.7,
-          "voice_estill_quality": 1.2999999999999998,
-          "voice_speech_song": 29.25,
-          "voice_ensemble_config": 20.67,
-          "voice_ornament_system": 5.370000000000001,
-          "voice_pitch_organization": 18.285,
-          "voice_processing_chain": 5.460000000000001,
-          "voice_multitrack_stack": 1.8199999999999998
+          "voice_estill_quality": 0.345,
+          "voice_speech_song": 28.665,
+          "voice_ensemble_config": 15.08,
+          "voice_ornament_system": 9.350000000000001,
+          "voice_pitch_organization": 23.289999999999992,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 2.5349999999999997
         }
       }
     ],

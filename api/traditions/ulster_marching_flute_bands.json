@@ -1,0 +1,102 @@
+{
+  "id": "ulster_marching_flute_bands",
+  "name": "Ulster flute bands (blood-and-thunder and melody marching bands)",
+  "family": "global",
+  "lineage": "Marching bands of flutes and drums that lead the parades of the Orange Order, the Royal Black Institution and the Apprentice Boys of Derry through the Northern Ireland marching season around the Twelfth of July. Blood-and-thunder bands play simple-system B-flat flutes in unison over loud side drums and a bass drum swung with exaggerated strokes, while melody and part-music flute bands play keyed flutes in arranged parts and compete in band contests. Gordon Ramsey's study of the bands documents their music and identity; the generic flute card stands in for the band flutes.",
+  "recipe": "classic modern ulster flute bands, carnival Processional, European branch. flute like credited flute unspecified, snare bass drum, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 228,
+  "score": 4.804,
+  "config": {
+    "traditions": [
+      "ulster_marching_flute_bands"
+    ],
+    "instruments": [
+      {
+        "id": "credited_flute_unspecified",
+        "slots": {
+          "credited_flute_identity": "credited_flute_source_unspecified"
+        },
+        "scores": {
+          "credited_flute_identity": 3.0315
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0.105
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.0315,
+          "bass_drum_beater": 0.0315
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "credited_flute_unspecified": [
+        "credited_flute_identity"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ],
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "credited_flute_identity": "credited_flute_source_unspecified",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455",
+      "bass_drum_size": "bass_drum_22_standard",
+      "bass_drum_beater": "bass_drum_felt_pedal",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Azerbaijani mugham",
   "family": "classical",
   "lineage": "Azerbaijani classical modal art-music tradition of the modal-improvisatory dastgah suite system. The seven-dastgah canonical sequence — Rast, Shur, Segah, Chargah, Bayati-Shiraz, Shushtar, Humayun — each suite built from a tonal-center microtonal modal vocabulary with characteristic shifted-third intervals, extended through gushe sub-section sequences. Khananda singer-led trio with tar long-necked plucked lute (eleven-or-twelve-string mulberry-wood double-bowl body, redesigned by Sadigjan in the 1870s into its modern form) and kamancha four-string spike fiddle, with the khananda holding a gaval frame-drum. The Shusha \"conservatory of the East\" lineage established the Garabagh school as the canonical performance dialect. Twentieth-century founding figures include Jabbar Garyaghdioglu (1861-1944), Khan Shushinski (1901-1979), Seyid Shushinski, with Uzeyir Hajibeyov (1885-1948) founding the symphonic mugham and the 1908 opera Leyli and Majnun. Distinguished from Iraqi maqam by Garabagh-Shusha dialect-specific gushe-sequence conventions; distinguished from Persian radif by Azerbaijani-Turkic vocal-ornamentation grammar; distinguished from Turkish makam by the dastgah modal-cycle structural framework",
-  "recipe": "classic Caucasian early-1860s azerbaijani mugham, art Music, middle eastern classical branch, south Asian art music, Persian arab improv improv on frame tarab telugu kirtana. vocal fry, breath veiled tone, slow rate, interlocked note trading. eleven string reformed tar azerbaijani, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio garabagh shusha mugham school canonical azerbaijani legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval, garmon. shusha garabagh mugham conservatory. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 808,
-  "score": 469.812,
+  "recipe": "classic Caucasian early-1860s azerbaijani mugham, art Music, middle eastern classical branch, south Asian art music, Persian arab improv improv on frame tarab kutiyattam sanskrit recitation. vocal fry, breath veiled tone, slow rate, interlocked note trading. eleven string reformed tar azerbaijani, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio garabagh shusha mugham school canonical azerbaijani legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval, garmon. shusha garabagh mugham conservatory. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 824,
+  "score": 473.06,
   "config": {
     "traditions": [
       "azerbaijani_mugham",
       "arab_tarab",
-      "telugu_kirtana"
+      "kutiyattam_recitation"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.745,
-          "voice_quality": 30.22500000000001,
+          "voice_register": 4.395,
+          "voice_quality": 28.340000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 20.735,
-          "voice_articulation": 9.23,
-          "voice_microtone": 37.2125,
-          "voice_tradition": 41.51999999999999,
-          "voice_mechanism_compound": 27.61,
-          "voice_estill_quality": 23.199999999999996,
+          "voice_vibrato": 20.81,
+          "voice_articulation": 12.219999999999995,
+          "voice_microtone": 41.0475,
+          "voice_tradition": 41.35499999999999,
+          "voice_mechanism_compound": 27.654999999999998,
+          "voice_estill_quality": 23.244999999999997,
           "voice_speech_song": 20.755,
-          "voice_ensemble_config": 11.049999999999995,
-          "voice_ornament_system": 28.83,
-          "voice_pitch_organization": 31.014999999999997,
-          "voice_processing_chain": 7.109999999999999,
-          "voice_multitrack_stack": 5.1025
+          "voice_ensemble_config": 14.039999999999994,
+          "voice_ornament_system": 27.025,
+          "voice_pitch_organization": 31.06,
+          "voice_processing_chain": 7.5649999999999995,
+          "voice_multitrack_stack": 5.9475
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tar_azerbaijani_form": 12.399999999999999,
-          "tar_azerbaijani_repertoire": 21.77,
+          "tar_azerbaijani_repertoire": 22.295,
           "tar_azerbaijani_membrane": 1.545
         }
       },
@@ -75,9 +75,9 @@
         },
         "scores": {
           "bowed_technique": 17.42,
-          "kamancha_body": 4.835,
-          "kamancha_string": 13.64,
-          "kamancha_tradition": 16.279999999999998
+          "kamancha_body": 4.034999999999999,
+          "kamancha_string": 12.975000000000001,
+          "kamancha_tradition": 15.479999999999999
         }
       },
       {
@@ -91,10 +91,10 @@
         },
         "scores": {
           "daf_rings": 0.09,
-          "daf_context": 22.294999999999998,
-          "daf_shell_wood": 9.8,
-          "daf_head_material": 3.8799999999999994,
-          "daf_jingle_metal": 3.8349999999999995
+          "daf_context": 23.205,
+          "daf_shell_wood": 9,
+          "daf_head_material": 3.0799999999999996,
+          "daf_jingle_metal": 3.0349999999999997
         }
       },
       {
@@ -104,8 +104,8 @@
           "gaval_tradition": "gaval_khananda_canonical"
         },
         "scores": {
-          "gaval_body": 10.65,
-          "gaval_tradition": 10.38
+          "gaval_body": 9.85,
+          "gaval_tradition": 9.58
         }
       },
       {
@@ -119,7 +119,7 @@
         "scores": {
           "free_reed_technique": 0,
           "garmon_regional_form": 11.294999999999998,
-          "garmon_performance_setting": 11.469999999999999,
+          "garmon_performance_setting": 11.514999999999999,
           "garmon_reed_voicing": -0.05
         }
       }

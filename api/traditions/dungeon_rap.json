@@ -3,14 +3,14 @@
   "name": "Dungeon Rap",
   "family": "hip_hop",
   "lineage": "Underground internet rap style of the 2010s-2020s associated with Ghost, Kill Bill: The Rapper, Vio the Villain and the Dungeon Family Records/SoundCloud circuit, using tape-degraded loops of horror soundtracks and medieval or dungeon-synth textures under muffled murky 808s at 60-80 BPM half-time, with a low, half-mumbled and heavily reverbed rap delivery.",
-  "recipe": "classic mid-2010s dungeon rap, mc Rhythm, experimental branch, us hip hop southern, us hip hop east coast atlanta bass phonk. vocal fry, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, pitched chopped sampler, fast decay focused low sub bass analog modular granular synth. concrete basement. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 448,
-  "score": 251.445,
+  "recipe": "classic mid-2010s dungeon rap, mc Rhythm, experimental branch, us hip hop southern, us hip hop east coast atlanta bass nashville hip-hop. vocal fry, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, pitched chopped sampler, fast decay focused low sub bass analog modular granular synth. concrete basement. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 460,
+  "score": 247.362,
   "config": {
     "traditions": [
       "dungeon_rap",
       "atlanta_bass",
-      "phonk"
+      "nashville_hip_hop"
     ],
     "instruments": [
       {
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.73,
-          "voice_quality": 23.785000000000004,
+          "voice_register": 2.535,
+          "voice_quality": 23.15,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.9,
-          "voice_articulation": 16.119999999999997,
-          "voice_microtone": 19.369999999999994,
-          "voice_tradition": 6.9225,
-          "voice_mechanism_compound": 5.719999999999999,
-          "voice_estill_quality": 5.135,
-          "voice_speech_song": 22.605,
-          "voice_ensemble_config": 16.639999999999993,
+          "voice_articulation": 14.689999999999996,
+          "voice_microtone": 18.134999999999994,
+          "voice_tradition": 7.41,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 5.8825,
+          "voice_speech_song": 22.21,
+          "voice_ensemble_config": 16.054999999999996,
           "voice_ornament_system": 7.280000000000002,
-          "voice_pitch_organization": 3.4000000000000004,
-          "voice_processing_chain": 14.745,
+          "voice_pitch_organization": 2.6000000000000005,
+          "voice_processing_chain": 14.349999999999998,
           "voice_multitrack_stack": 5.070000000000002
         }
       },
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 8.785,
-          "drum_machine_808_context": 3.9,
-          "tr808_production_origin": 1.105
+          "tr808_voice": 8.995,
+          "drum_machine_808_context": 4.289999999999999,
+          "tr808_production_origin": 1.74
         }
       },
       {
@@ -75,11 +75,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.300000000000001,
-          "sampler_archetypes": 9.36,
-          "sampler_bit_depth": 2.99,
-          "sampler_workflow": 6.35,
-          "sampler_classic_context": 24.1475
+          "electronic_technique": 6.130000000000001,
+          "sampler_archetypes": 9.295,
+          "sampler_bit_depth": 3.185,
+          "sampler_workflow": 6.330000000000001,
+          "sampler_classic_context": 23.789999999999996
         }
       },
       {
@@ -92,10 +92,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 12.379999999999999,
-          "oscillator": 3.8349999999999995,
+          "electronic_technique": 12.59,
+          "oscillator": 3.8949999999999996,
           "filter_topology": 4.875,
-          "envelope": 2.5949999999999998,
+          "envelope": 2.4,
           "modulation": 0.3
         }
       },
@@ -107,9 +107,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 4.575,
-          "granular_use": 0.845,
-          "granular_synth_source": 2.105
+          "electronic_technique": 3.7,
+          "granular_use": 0.78,
+          "granular_synth_source": 1.71
         }
       }
     ],

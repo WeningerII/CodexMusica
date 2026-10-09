@@ -5,7 +5,7 @@
   "lineage": "The refined accordion repertoire that grew out of bal-musette from the mid-1930s when Gus Viseur, Tony Murena and Jo Privat absorbed the harmony and swing feel of the Paris manouche jazz scene, giving the fast valse — typically 180-220 beats per minute in 3/4 with the accordion's shimmering wet-tuned tremolo — chromatic passing chords, sixth and ninth voicings, rhythm-guitar la pompe and virtuoso right-hand runs, cut for Odéon and Pathé and later maintained by Yvette Horner and Marcel Azzola.",
   "recipe": "classic Western European 1934-1936 valse musette, functional Song, europop branch, string improv improv on frame, chanson fado classic chanson flamenco guitar choro. weltmeister east German mid tier vintage volk chromatic lead accordion, dearmond vintage jazz carved top solid spruce Gibson canon archtop, norway spruce European alpine European maple sycamore maple oil varnish double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, cedar nylon classical nylon-string guitar, grenadilla African blackwood traditional clarinet. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 676,
-  "score": 128.631,
+  "score": 127.581,
   "config": {
     "traditions": [
       "musette",
@@ -25,7 +25,7 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 3.12,
+          "free_reed_technique": 3.03,
           "accordion_reed_material": 2.205,
           "musette_offset": 3.8,
           "reed_config": 4.5945,
@@ -49,9 +49,9 @@
           "amp_make": 0.6499999999999999,
           "archtop_body": 7.105000000000001,
           "archtop_pickup": 10.855,
-          "archtop_top_wood": 4.99,
+          "archtop_top_wood": 4.795,
           "archtop_strings": 5.75,
-          "archtop_technique": 6.315,
+          "archtop_technique": 5.985,
           "archtop_string_tuning": 0
         }
       },
@@ -74,11 +74,11 @@
           "bass_size": 0.195,
           "bass_strings": 0.78,
           "bass_top_wood": 2.5999999999999996,
-          "bass_back_wood": 3.355,
+          "bass_back_wood": 3.25,
           "bass_varnish": 2,
           "bass_setup_period": 1.6899999999999997,
-          "bass_play": 6.120000000000001,
-          "bass_rosin": 7.0200000000000005,
+          "bass_play": 6.075000000000001,
+          "bass_rosin": 6.78,
           "bass_bow_stick": 2.0444999999999998
         }
       },
@@ -106,7 +106,7 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 1.4199999999999997,
+          "acoustic_technique": 1.3749999999999998,
           "string_tuning": 0,
           "top_wood_classical": 8.580000000000002,
           "bracing_classical": 0.39,

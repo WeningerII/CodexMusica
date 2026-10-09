@@ -5,7 +5,7 @@
   "lineage": "Okinawan popular-music hybrid launched by Kina Shoukichi and Champloose's 1977 'Haisai Ojisan' and consolidated through the 1990s by Rinken Band, Nenes and BEGIN, setting the ryukyu scale and sanshin against electric guitar, bass, drum kit and synthesizers at mid-tempo rock and reggae pulses, retaining hayashi calls, kachashi double-time codas and Okinawan-language refrains inside verse-chorus pop structures.",
   "recipe": "classic East Asian mid-1990s uchina pop, functional Song, east Asian pop branch, pop rock functional song, east Asian field work yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. island song accompaniment sanshin, marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, paranku, sen castor aralia mid tier kodo sado island lineage taiko drum. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
   "recipe_chars": 801,
-  "score": 481.005,
+  "score": 481.098,
   "config": {
     "traditions": [
       "uchinaa_pop",
@@ -49,11 +49,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 60.40000000000001,
+          "voice_register": 60.40750000000001,
           "voice_quality": 11.439999999999989,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.62,
+          "voice_vibrato": 11.575,
           "voice_articulation": 21.644999999999996,
           "voice_microtone": 50.97500000000001,
           "voice_tradition": 29.054999999999996,
@@ -62,7 +62,7 @@
           "voice_speech_song": 27.495000000000005,
           "voice_ensemble_config": 21.580000000000002,
           "voice_ornament_system": 3.335000000000001,
-          "voice_pitch_organization": 1.6199999999999999,
+          "voice_pitch_organization": 1.6724999999999999,
           "voice_processing_chain": 8.38,
           "voice_multitrack_stack": 4.42
         }
@@ -145,9 +145,9 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 23.009999999999998,
+          "electronic_technique": 23.237499999999997,
           "poly_archetypes": 11.504999999999999,
-          "poly_voices": 1.235,
+          "poly_voices": 1.085,
           "poly_maker_lineage": -0.8050000000000002
         }
       },

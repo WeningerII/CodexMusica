@@ -1,0 +1,105 @@
+{
+  "id": "trinidad_tassa_drumming",
+  "name": "Tassa drumming (Indo-Trinidadian drum ensemble)",
+  "family": "global",
+  "lineage": "Indo-Trinidadian drum ensemble brought by indentured labourers from North India, played for Hindu weddings and the Muslim Hosay (Muharram) processions. A lead cutter tassa improvises over one or more fuller tassas, a large bass drum and brass hand cymbals, all following named rhythmic patterns called hands; the bass-drum and cymbal cards stand in for the tassa band's bass and cymbals.",
+  "recipe": "classic modern tassa drumming, carnival Processional, Caribbean branch. goat skin rope and fire canonical indo Trinidadian clay canonical hosay procession hosay procession canonical indo Trinidadian shia muharram tassa bass drum, heavy loud clash open ring brass manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 351,
+  "score": 30.588,
+  "config": {
+    "traditions": [
+      "trinidad_tassa_drumming"
+    ],
+    "instruments": [
+      {
+        "id": "tassa_drum",
+        "slots": {
+          "tassa_skin": "tassa_goatskin",
+          "tassa_shell": "tassa_clay",
+          "tassa_lineage": "tassa_hosay_canonical"
+        },
+        "scores": {
+          "tassa_skin": 10.790000000000001,
+          "tassa_shell": 1.1995,
+          "tassa_lineage": 6.693
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_24_26_big",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.3,
+          "bass_drum_beater": 0
+        }
+      },
+      {
+        "id": "manjira",
+        "slots": {
+          "manjira_form": "manjira_jhanj",
+          "manjira_stroke": "manjira_open_ringing",
+          "manjira_metal": "manjira_brass"
+        },
+        "scores": {
+          "manjira_form": 4.805000000000001,
+          "manjira_stroke": 3.7,
+          "manjira_metal": 3.25
+        }
+      }
+    ],
+    "pinned": {
+      "tassa_drum": [
+        "tassa_skin",
+        "tassa_shell",
+        "tassa_lineage"
+      ],
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ],
+      "manjira": [
+        "manjira_form",
+        "manjira_stroke",
+        "manjira_metal"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "tassa_skin": "tassa_goatskin",
+      "tassa_shell": "tassa_clay",
+      "tassa_lineage": "tassa_hosay_canonical",
+      "bass_drum_size": "bass_drum_24_26_big",
+      "bass_drum_beater": "bass_drum_felt_pedal",
+      "manjira_form": "manjira_jhanj",
+      "manjira_stroke": "manjira_open_ringing",
+      "manjira_metal": "manjira_brass"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

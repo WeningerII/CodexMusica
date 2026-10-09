@@ -5,7 +5,7 @@
   "lineage": "Igbo rap is a language-and-cultural field encompassing several production styles. Southeastern Nigerian networks connect locally rooted storytelling with contemporary rap; Jeriq exemplifies exchanges between trap and the melodic influence of Igbo highlife.",
   "recipe": "classic modern igbo rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, single lead single track no stacking. TR-808, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 302,
-  "score": 20.574,
+  "score": 20.576,
   "config": {
     "traditions": [
       "igbo_rap"
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.6969999999999996,
+          "tr808_voice": 2.73,
           "drum_machine_808_context": 0.39,
           "tr808_production_origin": 0.159
         }
@@ -75,7 +75,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.063,
+          "rompler_preset_bank": 0.0315,
           "rompler_context": 0,
           "rompler_lineage": 0
         }

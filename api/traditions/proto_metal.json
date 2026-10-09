@@ -3,14 +3,14 @@
   "name": "Proto-metal",
   "family": "rock_punk",
   "lineage": "Proto-metal names heavy blues-rock and psychedelic precursors to established heavy metal in the late 1960s and early 1970s.",
-  "recipe": "classic 1967-1969 proto-metal, distorted Rock, metal branch, classic distorted rock classic psychedelic rock french stoner rock. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp riff driven humbucker electric guitar, high-headroom ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 507,
-  "score": 68.743,
+  "recipe": "classic 1967-1969 proto-metal, distorted Rock, metal branch, classic distorted rock french stoner rock kiwi rock. single lead single track no stacking. marshall plexi amp British rock amp riff driven humbucker electric guitar, high-headroom ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 454,
+  "score": 65.873,
   "config": {
     "traditions": [
       "proto_metal",
-      "classic_psychedelic_rock",
-      "french_stoner_rock"
+      "french_stoner_rock",
+      "kiwi_rock"
     ],
     "instruments": [
       {
@@ -31,7 +31,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 4.665,
+          "electric_technique": 4.04,
           "amp_make": 8.125,
           "body_wood": 0.845,
           "neck_wood": 0.189,
@@ -39,11 +39,11 @@
           "pickup_magnet": 0.195,
           "pickup_winding": 0.845,
           "string_material": 0.189,
-          "bridge": 2.1999999999999997,
+          "bridge": 1.6999999999999997,
           "scale_length": 0,
-          "string_gauge": 1.5949999999999998,
+          "string_gauge": 1.0949999999999998,
           "finish": 0,
-          "string_tuning": 0.44999999999999996
+          "string_tuning": 0.3
         }
       },
       {
@@ -77,7 +77,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.964999999999998,
+          "drum_technique": 16.115,
           "drumhead": 2.2099999999999995,
           "drum_kit_kick_pedal": 0
         }
@@ -115,7 +115,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.04,
+          "voice_ensemble_config": 0.195,
           "voice_ornament_system": 0.195,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

@@ -5,7 +5,7 @@
   "lineage": "San Diego, 1991-94, codified by Gravity Records bands Heroin and Antioch Arrow and carried east by Moss Icon and Rites of Spring's example — hardcore punk restructured around dynamic quiet-loud shifts, arpeggiated clean interludes and sudden 180-220 BPM bursts, with the vocal moving from spoken murmur to full-throat scream and guitars using dissonant suspended voicings rather than power-chord blocks.",
   "recipe": "classic North American early-1990s screamo, distorted Rock, emo branch, punk distorted rock, experimental distorted rock crack rock steady afro-punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 720,
-  "score": 362.24,
+  "score": 361.115,
   "config": {
     "traditions": [
       "screamo",
@@ -41,11 +41,11 @@
           "voice_vibrato": 0.975,
           "voice_articulation": 18.784999999999997,
           "voice_microtone": 18.979999999999997,
-          "voice_tradition": 5.07,
+          "voice_tradition": 4.920000000000001,
           "voice_mechanism_compound": 20.834999999999997,
           "voice_estill_quality": 4.915000000000001,
           "voice_speech_song": 20.929999999999996,
-          "voice_ensemble_config": 23.304999999999996,
+          "voice_ensemble_config": 23.109999999999996,
           "voice_ornament_system": 0.7,
           "voice_pitch_organization": 0.19500000000000003,
           "voice_processing_chain": 4.484999999999999,
@@ -65,13 +65,13 @@
           "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
-          "finish": "oil_satin",
+          "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 14.375,
-          "amp_make": 30.009999999999998,
+          "amp_make": 29.814999999999998,
           "body_wood": 1.15,
           "neck_wood": 1.04,
           "fretboard": 0.975,
@@ -80,7 +80,7 @@
           "string_gauge": 1.235,
           "bridge": 0.65,
           "scale_length": 1.04,
-          "finish": 0.195,
+          "finish": 0,
           "string_tuning": 11.115,
           "single_coil_pickup_construction": 0
         }
@@ -99,12 +99,12 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": 14.375,
-          "amp_make": 30.009999999999998,
+          "amp_make": 29.814999999999998,
           "body_wood": 2.73,
           "neck_wood": 1.04,
           "fretboard": 0.975,
@@ -114,7 +114,7 @@
           "bridge": 1.04,
           "scale_length": 1.4949999999999999,
           "string_gauge": 1.235,
-          "finish": 0.195,
+          "finish": 0,
           "string_tuning": 12.610000000000001
         }
       },

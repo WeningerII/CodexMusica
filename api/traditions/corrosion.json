@@ -5,7 +5,7 @@
   "lineage": "Corrosion connects gothic-rock and darkwave bands carrying the melodic, atmospheric side of post-punk into later independent scenes. Expressive singing, interlocking electric guitars and bass combine with keyboards and programmed rhythms, supporting songs of melancholy, romantic tension and nocturnal imagery.",
   "recipe": "classic corrosion, distorted Rock, gothic rock branch. one note per syllable, group vocals. single coil electric guitar, electric bass, melodic chordal electronic keyboard credited programming unspecified. live tracking.",
   "recipe_chars": 220,
-  "score": 6.919,
+  "score": 6.667,
   "config": {
     "traditions": [
       "corrosion"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.3,
-          "voice_ensemble_config": 0.7140000000000002,
+          "voice_ensemble_config": 0.5775,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -72,16 +72,16 @@
         "scores": {
           "electric_technique": 1.4945,
           "amp_make": 0,
-          "body_wood": 0.19949999999999998,
+          "body_wood": 0.168,
           "neck_wood": 0.1365,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.1365,
-          "string_gauge": 0.9099999999999999,
-          "bridge": 0.26249999999999996,
-          "scale_length": 0,
+          "string_gauge": 0.8785,
+          "bridge": 0.19949999999999998,
+          "scale_length": 0.0315,
           "finish": 0,
-          "string_tuning": 0.063,
+          "string_tuning": 0.0315,
           "single_coil_pickup_construction": 0
         }
       },
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.19949999999999998,
+          "body_wood": 0.168,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.26249999999999996,
+          "scale_length_b": 0.19949999999999998,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -115,7 +115,7 @@
           "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_keyboard_identity": 0,
+          "electronic_keyboard_identity": 0.105,
           "keyboard_technique": 1.3
         }
       },

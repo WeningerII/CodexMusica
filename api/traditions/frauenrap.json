@@ -5,7 +5,7 @@
   "lineage": "German-language women's rap tradition running from Cora E. and Sabrina Setlur in the early 1990s Heidelberg/Frankfurt scenes through the 2010s Berlin queer-feminist wave of Sookee, Ebow and Nura, marked by dense multisyllabic German rhyme over 85–100 BPM boom-bap or, latterly, trap hi-hat triplets and 808 glides, dry close-miked delivery, and explicitly gendered lyrical address answering the male-dominated Straßenrap canon.",
   "recipe": "classic 1990-1993 frauenrap, mc Rhythm, intl hip hop branch, us hip hop conscious rap, European protest song jazz rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. chopped sampler, TR-808, sampled chopped turntable, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, low sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 587,
-  "score": 362.347,
+  "score": 361.672,
   "config": {
     "traditions": [
       "frauenrap",
@@ -38,7 +38,7 @@
           "voice_quality": 34.105,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.504999999999999,
+          "voice_vibrato": 7.549999999999999,
           "voice_articulation": 20.604999999999997,
           "voice_microtone": 19.759999999999994,
           "voice_tradition": 11.089999999999998,
@@ -47,7 +47,7 @@
           "voice_speech_song": 33.154999999999994,
           "voice_ensemble_config": 19.434999999999995,
           "voice_ornament_system": 5.955000000000001,
-          "voice_pitch_organization": 2.235,
+          "voice_pitch_organization": 1.6949999999999996,
           "voice_processing_chain": 27.674999999999994,
           "voice_multitrack_stack": 9.3275
         }
@@ -66,7 +66,7 @@
           "sampler_archetypes": 15.884999999999998,
           "sampler_bit_depth": 2.9250000000000003,
           "sampler_workflow": 13.2,
-          "sampler_classic_context": 32.565
+          "sampler_classic_context": 32.474999999999994
         }
       },
       {
@@ -128,7 +128,7 @@
           "electronic_technique": 15.054999999999998,
           "poly_archetypes": 0.195,
           "poly_voices": 0,
-          "poly_maker_lineage": -1.6749999999999998
+          "poly_maker_lineage": -1.7649999999999997
         }
       }
     ],

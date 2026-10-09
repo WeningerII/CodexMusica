@@ -1,0 +1,245 @@
+{
+  "id": "kanto_istanbul",
+  "name": "Kanto (late-Ottoman Istanbul stage song)",
+  "family": "global",
+  "lineage": "Popular stage song of late-Ottoman Istanbul, sung in the tuluat improvised theatres and music halls of Pera and Direklerarası from the late nineteenth century into the 1920s, often by Armenian and Greek women singers, between acts or as featured numbers. Its light, often comic or flirtatious songs blended makam melody with Western-influenced light-music rhythms and were accompanied by small theatre orchestras in which violin and clarinet were prominent; a large corpus of 78rpm records from the 1900s to the 1920s has been reissued by Kalan Müzik.",
+  "recipe": "classic mid-1920s kanto, functional Song, mid east n African pop branch. solo with instrumental accompaniment. melodic bowed song accompaniment violin orchestral, grenadilla African blackwood traditional clarinet, kanun tortoiseshell traditional kanun, goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka. blanket damped 1925-1945 commercial-major electrical era office. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 438,
+  "score": 13.858,
+  "config": {
+    "traditions": [
+      "kanto_istanbul"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.337125,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "orch_strings": "dutar_strings_unspecified",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 4.55,
+          "orch_strings": 0,
+          "orch_top_wood": -0.1,
+          "orch_back_wood": -0.07,
+          "orch_varnish": -0.1,
+          "orch_setup_period": -1.2032500000000002,
+          "orch_bow": 0.0315,
+          "orch_bow_stick": -0.10500000000000001,
+          "orch_articulation": 0.168,
+          "orch_rosin": -1.23475
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "clarinet_body": 1.755,
+          "clarinet_size": 0.861,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.39
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "kanun_school": "kanun_turkish",
+          "kanun_articulation": "kanun_tortoiseshell_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.11287500000000003,
+          "kanun_school": 2.45,
+          "kanun_articulation": 1.885
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_clay_traditional",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_turkish_split"
+        },
+        "scores": {
+          "percussion_technique": 0.26,
+          "darbuka_material": -1.10325,
+          "darbuka_skin": 1.147875,
+          "darbuka_regional_style": 1.011375
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings",
+        "orch_top_wood",
+        "orch_back_wood",
+        "orch_varnish",
+        "orch_setup_period",
+        "orch_bow",
+        "orch_bow_stick",
+        "orch_articulation",
+        "orch_rosin"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "kanun": [
+        "plucked_traditional_technique",
+        "kanun_school",
+        "kanun_articulation"
+      ],
+      "darbuka": [
+        "percussion_technique",
+        "darbuka_material",
+        "darbuka_skin",
+        "darbuka_regional_style"
+      ]
+    },
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_acoustic_horn_pre1925",
+    "inline_chain": {
+      "mic": "mic_acoustic_horn_pre1925",
+      "pre": "transformerless",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "studio_electrical_era_office",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bowed_technique": "bowed_local_song_melody",
+      "orch_strings": "dutar_strings_unspecified",
+      "orch_top_wood": "norway_spruce_alpine_violin",
+      "orch_back_wood": "bosnian_flamed_maple_violin",
+      "orch_varnish": "oil_amber_varnish_violin",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "orch_bow_stick": "pernambuco_stick_orch",
+      "orch_articulation": "arco_orch",
+      "orch_rosin": "pirastro_gold_rosin_orch",
+      "wind_articulation": "wind_continuous_legato",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "a_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "kanun_school": "kanun_turkish",
+      "kanun_articulation": "kanun_tortoiseshell_pick",
+      "percussion_technique": "percussion_open_slap",
+      "darbuka_material": "darbuka_clay_traditional",
+      "darbuka_skin": "darbuka_goat_skin",
+      "darbuka_regional_style": "darbuka_turkish_split"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_acoustic_horn_pre1925",
+    "chain_pre": "transformerless",
+    "chain_medium": "shellac_78",
+    "chain_console": "clean"
+  }
+}

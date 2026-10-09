@@ -5,7 +5,7 @@
   "lineage": "A broad Every Noise country discovery cluster whose roster runs from established country performers to contemporary country-rock and pop-country. Lady A, listed in that roster, supplies the selected Nashville studio-band branch.",
   "recipe": "classic modern country road, functional Song, contemp main branch. breath veiled tone, wide pitch sway, interlocked note trading, equal tempered. dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 535,
-  "score": 102.848,
+  "score": 102.356,
   "config": {
     "traditions": [
       "country_road"
@@ -41,12 +41,12 @@
           "voice_microtone": 5.415000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.8499999999999999,
-          "voice_estill_quality": 16.685499999999998,
+          "voice_estill_quality": 16.586125,
           "voice_speech_song": 5.395000000000001,
           "voice_ensemble_config": 2.990000000000001,
           "voice_ornament_system": 0.9099999999999997,
           "voice_pitch_organization": 0.01125,
-          "voice_processing_chain": 2.9960000000000004,
+          "voice_processing_chain": 2.891,
           "voice_multitrack_stack": 0.78
         }
       },
@@ -57,14 +57,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
-          "string_acoustic": "silk_steel"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 2.4815,
+          "acoustic_technique": 2.4871250000000003,
           "string_tuning": 0,
           "top_wood": 0.105,
           "back_sides": 0.39,
-          "string_acoustic": 0.48375
+          "string_acoustic": 0.39
         }
       },
       {
@@ -85,7 +85,7 @@
           "grand_piano_size": 0.39,
           "grand_piano_brand": 1.3,
           "piano_hammer": 2.6180000000000003,
-          "piano_rim": 2.555,
+          "piano_rim": 2.45,
           "piano_soundboard": 2.45,
           "piano_pinblock": -0.05,
           "piano_plate": 0.26,
@@ -108,8 +108,8 @@
           "amp_make": 16.341499999999996,
           "body_wood": 0.21,
           "pickup_config": 0.39,
-          "string_type": 3.0145,
-          "scale_length_b": 0.168,
+          "string_type": 2.9095,
+          "scale_length_b": 0.173625,
           "fretted_or_not": 0.042749999999999996,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -124,7 +124,7 @@
         },
         "scores": {
           "drum_technique": 2.5,
-          "drumhead": 2.45,
+          "drumhead": 2.4556250000000004,
           "drum_kit_kick_pedal": 0
         }
       }

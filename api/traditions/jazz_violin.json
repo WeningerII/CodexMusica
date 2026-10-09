@@ -5,7 +5,7 @@
   "lineage": "Violin-centered jazz improvisation; selected Carter/Barron duet",
   "recipe": "classic modern jazz violin, improv On Frame, American jazz branch. European maple sycamore maple synthetic varnish polyurethane modern setup violin orchestral, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 378,
-  "score": 31.305,
+  "score": 30.874,
   "config": {
     "traditions": [
       "jazz_violin"
@@ -28,14 +28,14 @@
         "scores": {
           "bowed_technique": 1.1737499999999998,
           "orch_strings": 0.39,
-          "orch_top_wood": 0.8049999999999999,
-          "orch_back_wood": 2.3865,
+          "orch_top_wood": 0.7,
+          "orch_back_wood": 2.2815,
           "orch_varnish": 2.1314999999999995,
           "orch_setup_period": 2.925,
           "orch_bow": 0.105,
-          "orch_bow_stick": 2.457,
+          "orch_bow_stick": 2.3834999999999997,
           "orch_articulation": 0.7007499999999999,
-          "orch_rosin": 0.855
+          "orch_rosin": 0.75
         }
       },
       {
@@ -55,9 +55,9 @@
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.39,
           "grand_piano_brand": 0.39,
-          "piano_hammer": 2.8485,
-          "piano_rim": 2.7119999999999997,
-          "piano_soundboard": 2.355,
+          "piano_hammer": 2.88,
+          "piano_rim": 2.7435,
+          "piano_soundboard": 2.25,
           "piano_pinblock": 2.25,
           "piano_plate": 2.25,
           "piano_pitch_standard": 2.34

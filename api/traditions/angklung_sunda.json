@@ -1,0 +1,84 @@
+{
+  "id": "angklung_sunda",
+  "name": "Angklung (Sundanese bamboo rattle ensemble)",
+  "family": "global",
+  "lineage": "Sundanese ensemble of tuned bamboo rattles, each frame sounding one pitch so that players interlock to build melodies. Older rice-ritual forms such as angklung buhun and angklung dogdog lojor, played with long dogdog drums (here the generic membrane-drum card), stand beside the diatonic angklung Padaeng devised by Daeng Soetigna and taught at Saung Angklung Udjo in Bandung; Indonesian angklung is on the UNESCO Representative List.",
+  "recipe": "classic modern angklung, art Music, southeast Asian branch. chromatic diatonic ensemble bright interlocking black bamboo angklung, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 263,
+  "score": 27.296,
+  "config": {
+    "traditions": [
+      "angklung_sunda"
+    ],
+    "instruments": [
+      {
+        "id": "angklung",
+        "slots": {
+          "angklung_form": "angklung_padaeng",
+          "angklung_playing": "angklung_interlock",
+          "angklung_bamboo": "angklung_awi_wulung"
+        },
+        "scores": {
+          "angklung_form": 12.766499999999999,
+          "angklung_playing": 6.609,
+          "angklung_bamboo": 2.925
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 3.0725,
+          "acoustic_membrane_drum_gesture": 2.0725000000000002
+        }
+      }
+    ],
+    "pinned": {
+      "angklung": [
+        "angklung_form",
+        "angklung_playing",
+        "angklung_bamboo"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "angklung_form": "angklung_padaeng",
+      "angklung_playing": "angklung_interlock",
+      "angklung_bamboo": "angklung_awi_wulung",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

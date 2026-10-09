@@ -5,7 +5,7 @@
   "lineage": "Japanese bedroom pop connects intimate independent songwriting with small-scale acoustic and home-produced approaches.",
   "recipe": "classic japanese bedroom pop, functional Song. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 244,
-  "score": 9.077,
+  "score": 9.023,
   "config": {
     "traditions": [
       "japanese_bedroom_pop"
@@ -18,14 +18,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "engelmann",
           "back_sides": "mahogany_bs",
-          "string_acoustic": "monel"
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
           "acoustic_technique": 7.45,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0,
-          "string_acoustic": 0.054
+          "string_acoustic": 0
         }
       },
       {

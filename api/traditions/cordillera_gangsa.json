@@ -1,0 +1,80 @@
+{
+  "id": "cordillera_gangsa",
+  "name": "Gangsa (Cordillera flat-gong ensemble)",
+  "family": "global",
+  "lineage": "Ensemble music of handheld flat bronze gongs (gangsa) played by men among the Kalinga, Bontoc, Ifugao, Kankanaey and Ibaloi of the Cordillera in northern Luzon, for weddings, peace pacts, harvest feasts and other community rites. Two playing styles are documented: topayya, in which seated players strike gongs resting on their laps with the palms, and pattong or palook, in which players strike gongs with sticks while dancing in a line. The gong_tamtam card stands in for the gangsa; the drum card stands in for the drums some Benguet ensembles add.",
+  "recipe": "classic modern gangsa, ritual Devotional, indigenous branch. gong tamtam, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 206,
+  "score": 6.773,
+  "config": {
+    "traditions": [
+      "cordillera_gangsa"
+    ],
+    "instruments": [
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_tam_tam",
+          "gong_striker": "gong_hard_beater"
+        },
+        "scores": {
+          "gong_type": 0,
+          "gong_striker": 0.87325
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 1.3,
+          "acoustic_membrane_drum_gesture": 1.3
+        }
+      }
+    ],
+    "pinned": {
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "gong_type": "gong_tam_tam",
+      "gong_striker": "gong_hard_beater",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

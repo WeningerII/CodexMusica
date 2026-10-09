@@ -1,0 +1,118 @@
+{
+  "id": "russian_garmon_naigrysh",
+  "name": "Garmon naigryshi (Russian accordion dance tunes)",
+  "family": "global",
+  "lineage": "Instrumental dance and song tunes (naigryshi) played on the garmon, the Russian diatonic button accordion that spread through the villages from the mid-19th century in regional models such as the Saratov garmonika with its small bells and the Livenka. Standard tunes such as the barynya and tsyganochka and local plyaska and stradaniya tunes accompany dancing and the singing of chastushki, and the tradition reached a national audience through Gennady Zavolokin's television programme Igray, garmon!",
+  "recipe": "classic modern garmon naigryshi, domestic Rhythm, Slavic baltic branch, Slavic bard ballad poetry chastushka. garmon, prima strummed balalaika, spoons. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 231,
+  "score": 19.225,
+  "config": {
+    "traditions": [
+      "russian_garmon_naigrysh",
+      "russian_chastushka"
+    ],
+    "instruments": [
+      {
+        "id": "garmon",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "garmon_regional_form": "garmon_regional_form_russian_garmoshka",
+          "garmon_performance_setting": "garmon_performance_setting_folk_song",
+          "garmon_reed_voicing": "garmon_reed_voicing_dry_steel"
+        },
+        "scores": {
+          "free_reed_technique": 1.4949999999999999,
+          "garmon_regional_form": 9.4,
+          "garmon_performance_setting": 0.7,
+          "garmon_reed_voicing": -0.1
+        }
+      },
+      {
+        "id": "balalaika",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "balalaika_size": "prima_balalaika",
+          "balalaika_strings": "dutar_strings_unspecified",
+          "balalaika_body_wood": "balalaika_spruce_maple",
+          "balalaika_tradition": "balalaika_folk_pre_andreyev"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.735,
+          "balalaika_size": 1.6649999999999998,
+          "balalaika_strings": 0,
+          "balalaika_body_wood": 0.735,
+          "balalaika_tradition": -1.4
+        }
+      },
+      {
+        "id": "spoons",
+        "slots": {
+          "spoons_material": "spoons_wooden",
+          "spoons_playing": "spoons_paired_hand"
+        },
+        "scores": {
+          "spoons_material": 0.6,
+          "spoons_playing": 0.195
+        }
+      }
+    ],
+    "pinned": {
+      "garmon": [
+        "free_reed_technique",
+        "garmon_regional_form",
+        "garmon_performance_setting",
+        "garmon_reed_voicing"
+      ],
+      "balalaika": [
+        "plucked_traditional_technique",
+        "balalaika_size",
+        "balalaika_strings",
+        "balalaika_body_wood",
+        "balalaika_tradition"
+      ],
+      "spoons": [
+        "spoons_material",
+        "spoons_playing"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "free_reed_technique": "free_reed_folk_first_position",
+      "garmon_regional_form": "garmon_regional_form_russian_garmoshka",
+      "garmon_performance_setting": "garmon_performance_setting_folk_song",
+      "garmon_reed_voicing": "garmon_reed_voicing_dry_steel",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "balalaika_size": "prima_balalaika",
+      "balalaika_strings": "dutar_strings_unspecified",
+      "balalaika_body_wood": "balalaika_spruce_maple",
+      "balalaika_tradition": "balalaika_folk_pre_andreyev",
+      "spoons_material": "spoons_wooden",
+      "spoons_playing": "spoons_paired_hand"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

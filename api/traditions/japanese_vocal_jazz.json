@@ -5,7 +5,7 @@
   "lineage": "Japanese vocal jazz: Kimiko Itoh — Blue Note Tokyo program, 21 November 2020. A documented branch is realized as an authored current studio arrangement.",
   "recipe": "classic early-2020s japanese vocal jazz, improv On Frame, smooth vocal branch. equal tempered, m1 with m0 pulse borrowing, nasal twang velar port open, small note groups per syllable. Japanese factory birch laminated maple laminated a 441 Japanese orchestral grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 453,
-  "score": 58.047,
+  "score": 58.113,
   "config": {
     "traditions": [
       "japanese_vocal_jazz"
@@ -42,10 +42,10 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.78,
           "voice_estill_quality": 0.585,
-          "voice_speech_song": 1.6360000000000001,
+          "voice_speech_song": 1.6735,
           "voice_ensemble_config": 0.78,
-          "voice_ornament_system": 1.126,
-          "voice_pitch_organization": 0.063,
+          "voice_ornament_system": 1.1372499999999999,
+          "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0.064,
           "voice_multitrack_stack": 0.231
         }
@@ -66,9 +66,9 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.6405,
-          "grand_piano_brand": 0.6405,
+          "grand_piano_brand": 0.664875,
           "piano_hammer": 2.005,
-          "piano_rim": 1.9629999999999999,
+          "piano_rim": 1.98175,
           "piano_soundboard": -0.035,
           "piano_pinblock": 0.26,
           "piano_plate": -0.035,
@@ -82,7 +82,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.0315,
+          "upright_strings": 0.037125,
           "upright_play": 11.25
         }
       },
@@ -106,7 +106,7 @@
           "cello_strings": "cello_synthetic",
           "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
-          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_varnish": "cremonese_post_1740_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "bernardel_rosin_cello",

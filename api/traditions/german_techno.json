@@ -5,7 +5,7 @@
   "lineage": "Techno as it was rebuilt in Frankfurt and post-Wall Berlin between 1989 and 1995 by Sven Väth, Hardfloor, Westbam, Marusha, Dr. Motte and the Tresor/Harthouse labels, taking Detroit's template toward 135-150 BPM, hard TR-909 kicks and open hats, TB-303 acid lines, sequenced hoover and stab riffs, and long linear arrangements engineered for warehouse and Love Parade sound systems.",
   "recipe": "classic Central European late-1980s german techno, electronic Dance, techno branch, trance electronic dance, continental electronic dance acid trance big beat. thick, breath veiled tone, slow rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, squelching classic acid monosynth acid bass, analog poly roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, sampler drum machine. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 612,
-  "score": 225.02,
+  "score": 224.48,
   "config": {
     "traditions": [
       "german_techno",
@@ -50,7 +50,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 2.34,
+          "electronic_technique": 2.295,
           "poly_archetypes": 1.3,
           "poly_voices": 1.3,
           "poly_maker_lineage": 0.12999999999999998
@@ -66,9 +66,9 @@
         },
         "scores": {
           "electronic_technique": 1.9999999999999998,
-          "sample_bitdepth": 0.39,
-          "sample_swing": 17.9,
-          "sample_processing": 1.74
+          "sample_bitdepth": 0.345,
+          "sample_swing": 17.75,
+          "sample_processing": 1.695
         }
       },
       {
@@ -109,7 +109,7 @@
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 2.495000000000002,
+          "voice_register": 2.3450000000000015,
           "voice_quality": 7.345000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -121,9 +121,9 @@
           "voice_estill_quality": 3.38,
           "voice_speech_song": 21.06,
           "voice_ensemble_config": 22.229999999999997,
-          "voice_ornament_system": 0.45499999999999996,
+          "voice_ornament_system": 0.39499999999999996,
           "voice_pitch_organization": 1.2349999999999999,
-          "voice_processing_chain": 21.05,
+          "voice_processing_chain": 21.005000000000003,
           "voice_multitrack_stack": 2.34
         }
       }

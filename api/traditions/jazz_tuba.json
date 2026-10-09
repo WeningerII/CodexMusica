@@ -5,7 +5,7 @@
   "lineage": "Jazz tuba brings a low brass voice into both bass-line and melodic roles. Contemporary players such as Theon Cross connect that history with London’s rhythmically forceful small-group jazz scene.",
   "recipe": "classic modern jazz tuba, improv On Frame, American jazz branch. bass line jazz-trained yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, yellow brass modern standard rubber saxophone, maple bronze bell bronze hand hammered random pattern drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 449,
-  "score": 54.963,
+  "score": 54.905,
   "config": {
     "traditions": [
       "jazz_tuba"
@@ -48,7 +48,7 @@
           "sax_body_alloy": 1.56,
           "sax_mouthpiece": 1.6,
           "sax_technique": -0.05,
-          "sax_maker_school": 0.477
+          "sax_maker_school": 0.40349999999999997
         }
       },
       {
@@ -67,7 +67,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.05,
+          "drum_technique": -0.035,
           "drumhead": 1.6,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 1.852,

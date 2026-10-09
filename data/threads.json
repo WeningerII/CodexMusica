@@ -3,6 +3,6 @@
 {"id": "clave", "title": "Afro-Atlantic traditions", "stops": ["yoruba_oriki", "candomble_ceremonial", "rumba_cubana", "son_cubano", "salsa_nuyorican", "reggaeton"]},
 {"id": "overtone", "title": "Overtone and throat singing", "stops": ["xhosa_umngqokolo_overtone", "tibetan_yang_chant", "tuvan_throat", "mongolian_khoomei", "inuit_katajjaq"]},
 {"id": "soundsystem", "title": "Jamaican and British bass music", "stops": ["traditional_ska", "dub", "lovers_rock", "jungle", "uk_garage_2step", "dubstep_140", "grime"]},
-{"id": "migration", "title": "Blues, gospel and soul", "stops": ["work_songs_hollers", "delta_blues", "memphis_blues", "chicago_blues", "black_gospel_choir", "northern_soul_motown"]},
-{"id": "drone", "title": "Drone and modal traditions", "stops": ["old_time", "hardanger_fiddle", "piobaireachd", "galician_pipe_solo", "gnawa", "dhrupad", "didgeridoo_yidaki_solo"]}
+{"id": "migration", "title": "Blues, gospel and soul", "stops": ["work_songs_hollers", "delta_blues", "memphis_blues", "chicago_blues", "black_gospel_choir", "northern_soul"]},
+{"id": "drone", "title": "Drone and modal traditions", "stops": ["old_time", "hardanger_fiddle", "piobaireachd", "galician_folk", "gnawa", "dhrupad", "didgeridoo_yidaki_solo"]}
 ]}

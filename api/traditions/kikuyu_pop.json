@@ -5,7 +5,7 @@
   "lineage": "Kikuyu pop centers Gikuyu-language popular song within Kenya’s commercial and live music cultures. Musicians such as Eric Wainaina bring regional expression into broader exchanges among benga, pop and other band traditions.",
   "recipe": "classic kikuyu pop, functional Song. small note groups per syllable, group vocals, unprocessed natural acoustic, live take. clean strummed humbucker electric guitar, electronic keyboard unspecified, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. live tracking.",
   "recipe_chars": 349,
-  "score": 35.502,
+  "score": 35.772,
   "config": {
     "traditions": [
       "kikuyu_pop"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6045,
-          "voice_ensemble_config": 1.627,
+          "voice_speech_song": 0.7124999999999999,
+          "voice_ensemble_config": 1.573,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.594,
-          "voice_multitrack_stack": 1.354,
+          "voice_multitrack_stack": 1.3,
           "voice_tessitura": 0
         }
       },
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 10.004,
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.054,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -92,7 +92,7 @@
           "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_keyboard_identity": 0.18,
+          "electronic_keyboard_identity": 0.23399999999999999,
           "keyboard_technique": 0.39
         }
       },
@@ -110,8 +110,8 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0,
-          "pickup_config": 0,
+          "body_wood": 0.054,
+          "pickup_config": 0.054,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -144,7 +144,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 9.899999999999999,
-          "cymbal_lathing": 10.259999999999998,
+          "cymbal_lathing": 10.313999999999998,
           "cymbal_finish": 0
         }
       },

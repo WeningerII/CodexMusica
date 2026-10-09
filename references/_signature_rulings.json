@@ -122,20 +122,6 @@
       "evidence": "Fields read: name, lineage, description (api/browse.json = references/05_traditions.js lineage + 06_extras.js description), plus source-record parent/crossRefs/exemplars/parts. A first-pass loose (thin prose support) was overturned on review: the first pass itself conceded the Latin link is 'outside knowledge, not prose', and the rule is that a pair the prose is silent on is not attested. The record is the English-vernacular rite of the Church of England: \"English Anglican cathedral choral foundation tradition\", \"the cathedral and collegiate-chapel foundations of the Church of England\", \"characterized by daily evensong service, Anglican-chant psalmody, anthem repertoire\"; the source record sets repertoire 'baroque_choral' and names nothing Latin, Roman Catholic or pre-Reformation. The exemplar \"Tallis Scholars — non-cathedral but tradition-derivative\" names a group derived FROM this tradition; that it sings Latin polyphony is outside knowledge. The Roman Catholic Latin rite is the neighbouring rite the Church of England separated from, not a lineage this record claims. Consistent with anglican_choral_evensong (false:contradicted there by an explicit sentence this record lacks)."
     },
     {
-      "tradition": "anglican_choral_evensong",
-      "token": "gospel-rooted",
-      "verdict": "false",
-      "tier": "core",
-      "evidence": "Fields read: name, lineage, description (api/browse.json = 05_traditions.js lineage + 06_extras.js description), plus published parent/crossRefs/exemplars. The record is English cathedral liturgy: \"English Anglican choral evensong service-music tradition codified in the Book of Common Prayer (1549, 1662)\", \"the daily-sung Evening Prayer service of the English cathedral and collegiate-chapel tradition\". Nothing African-American, Southern Protestant or gospel is named, and it predates gospel by four centuries. (Its parent ritualDevotional.christianGospel.anglicanChoral sits under the catalog's all-Christian node \"Christian gospel and liturgical\", not a gospel claim; same as byzantine_chant.)"
-    },
-    {
-      "tradition": "anglican_choral_evensong",
-      "token": "sacred-Latin",
-      "verdict": "false",
-      "tier": "contradicted",
-      "evidence": "Excluded verbatim: \"Distinguished from Roman Catholic vespers by English-vernacular text and post-Reformation choral repertoire\". (anglican_choral_cathedral, whose prose has no such sentence, is false:boundary rather than contradicted; the difference is in the records, not the reading.)"
-    },
-    {
       "tradition": "antifolk_nyc",
       "token": "sacred-Latin",
       "verdict": "false",
@@ -193,13 +179,6 @@
       "verdict": "false",
       "tier": "contradicted",
       "evidence": "The record's sacred lineage is Christian — \"Armenian Apostolic Christian liturgical tradition\", \"Armenian Apostolic liturgy uses sharakan (hymns) in 8-mode (oktoechos) system\" — and it sets itself apart from its Turkish neighbour \"by specifically-Armenian liturgical context\". No Sufi or Islamic source is named."
-    },
-    {
-      "tradition": "athan_call_prayer",
-      "token": "sufi-mystical",
-      "verdict": "false",
-      "tier": "contradicted",
-      "evidence": "Excluded verbatim: \"distinguished from Sufi sama by mosque-public-call vs zikr-circle context\". (Its crossRef ritualDevotional.sufi is a neighbour relation the prose itself draws the line against.)"
     },
     {
       "tradition": "awasa",
@@ -543,39 +522,6 @@
       "token": "samba-foundational",
       "verdict": "attested",
       "evidence": "Description: \"the Brazilian intimate-samba derivative that fused samba rhythmic foundation with cool-jazz harmonic vocabulary\"; lineage: \"chamber-samba intimate-vocal tradition\"."
-    },
-    {
-      "tradition": "bothy_ballad_doric",
-      "token": "Irish-traditional",
-      "verdict": "false",
-      "tier": "boundary",
-      "evidence": "Fields read: name, lineage, description, exemplars, parent nodes, crossRefs. The record is Scots only — \"Doric-Scots-language vocal delivery\", \"Distinguished from Lowland Scots ballad by Doric-language\"; no Irish source is named. Irish sean-nós is a sibling under the parent node (\"Irish sean-nós unaccompanied vocal\"), not this record's lineage. Config considered: the tuning celtic_irish_modal_dorian_mixolydian is Irish-named but described as the modal vocabulary of \"the broader Celtic music family (Irish, Scottish, Cape Breton, Welsh, Breton, Asturian, Galician)\", and the voice pins scottish_gaelic_taladh_tradition — shared Celtic-family and Scottish settings, not an Irish lineage."
-    },
-    {
-      "tradition": "bothy_ballad_doric",
-      "token": "Scottish-influenced",
-      "verdict": "attested",
-      "evidence": "Description: \"Bothy ballad in Doric Scots (mid-19th to early-20th century Northeast Scotland farming districts of Aberdeenshire, Banffshire, Moray, and Buchan)\"; lineage: \"Northeast Scottish farm-laborer balladry\"."
-    },
-    {
-      "tradition": "bothy_ballad_doric",
-      "token": "celtic",
-      "verdict": "attested",
-      "evidence": "Lineage: \"Aberdeenshire and Northeast Scottish farm-laborer balladry\"; the parent node's parent balladPoetry.celticBalladic (\"Celtic and British balladic\") lists \"Scottish balladry and bothy ballad\" among its \"Celtic-Atlantic balladic traditions\". Scotland is inside the token's gloss. (Doric is Scots, not Gaelic: the link is national / Celtic-Atlantic, not linguistic.)"
-    },
-    {
-      "tradition": "bothy_ballad_doric",
-      "token": "english-folk",
-      "verdict": "false",
-      "tier": "boundary",
-      "evidence": "Fields read: name, lineage, description, exemplars, parent nodes, crossRefs. No English source is named; the record sets itself apart from print balladry — \"distinguished from broadside ballad by oral-not-print transmission and occupational specificity\" — which its grandparent node lists as the separate sibling \"English broadside\". A neighbouring British lineage the record does not claim."
-    },
-    {
-      "tradition": "bothy_ballad_doric",
-      "token": "iberian-celtic",
-      "verdict": "false",
-      "tier": "boundary",
-      "evidence": "The Celtic-sphere half holds only via Scotland; the Iberian half does not: the record is \"Northeast Scotland farming districts of Aberdeenshire, Banffshire, Moray, and Buchan\" and names no Iberian source. Iberian-Celtic (Galicia / Asturias) is a different Celtic-Atlantic culture the record does not claim. Config considered: the tuning celtic_irish_modal_dorian_mixolydian is described as \"The defining modal vocabulary of Irish trad and the broader Celtic music family (Irish, Scottish, Cape Breton, Welsh, Breton, Asturian, Galician)\" — a shared pan-Celtic modal vocabulary, not an Iberian lineage."
     },
     {
       "tradition": "breton_folk",
@@ -1407,13 +1353,6 @@
       "evidence": "Continental African tradition: \"Addis-Ababa-centered commercial recording infrastructure\"."
     },
     {
-      "tradition": "eurovision_pop",
-      "token": "french-musette-ready",
-      "verdict": "false",
-      "tier": "boundary",
-      "evidence": "Fields read: name, lineage, description (api/browse.json = 05_traditions.js lineage + 06_extras.js description), plus published parent/crossRefs/exemplars. The record is \"Pan-European televised song-contest pop\" with \"English-language vocal performance\" and \"choreographed staging\"; exemplars ABBA, Loreen, Conchita Wurst; no accordion is configured. French bal-musette is one neighbouring national style inside the pan-European field that the record never names (same tier as schlager_german)."
-    },
-    {
       "tradition": "fado",
       "token": "celtic",
       "verdict": "false",
@@ -1483,41 +1422,6 @@
       "token": "fang",
       "verdict": "attested",
       "evidence": "Lineage \"Fang Bwiti ritual repertoire in Gabon\"."
-    },
-    {
-      "tradition": "finnish_kantele_folk",
-      "token": "Irish-traditional",
-      "verdict": "false",
-      "tier": "core",
-      "evidence": "Fields read: name, lineage, description, exemplars, parent node, crossRefs (balladPoetry.slavicBard). The record is Finnic — \"Karelian-Finnish epic-recitation tradition\", \"performed in Karelian, Ingrian, Estonian, and other Baltic-Finnic language traditions\", kantele as \"Finlands national instrument\" — and its only named neighbour is \"neighboring Nordic-Atlantic Swedish bowed-string folk\". No Irish source is named. The record's parent node balladPoetry.celticBalladic (\"Celtic and British balladic\") enumerates only \"Irish sean-nós unaccompanied vocal, Scottish balladry and bothy ballad, English broadside, Welsh hymn-balladry, Cape Breton Gaelic, Newfoundland outport\", so that placement is itself unsupported by the record (taxonomy follow-up for the owner) and is not evidence. No documented link."
-    },
-    {
-      "tradition": "finnish_kantele_folk",
-      "token": "Scottish-influenced",
-      "verdict": "false",
-      "tier": "core",
-      "evidence": "Fields read: name, lineage, description, exemplars, parent node, crossRefs (balladPoetry.slavicBard). The record is Finnic — \"Karelian-Finnish epic-recitation tradition\", \"performed in Karelian, Ingrian, Estonian, and other Baltic-Finnic language traditions\", kantele as \"Finlands national instrument\" — and its only named neighbour is \"neighboring Nordic-Atlantic Swedish bowed-string folk\". No Scottish source is named. The record's parent node balladPoetry.celticBalladic (\"Celtic and British balladic\") enumerates only \"Irish sean-nós unaccompanied vocal, Scottish balladry and bothy ballad, English broadside, Welsh hymn-balladry, Cape Breton Gaelic, Newfoundland outport\", so that placement is itself unsupported by the record (taxonomy follow-up for the owner) and is not evidence. No documented link."
-    },
-    {
-      "tradition": "finnish_kantele_folk",
-      "token": "celtic",
-      "verdict": "false",
-      "tier": "core",
-      "evidence": "Fields read: name, lineage, description, exemplars, parent node, crossRefs (balladPoetry.slavicBard). The record is Finnic — \"Karelian-Finnish epic-recitation tradition\", \"performed in Karelian, Ingrian, Estonian, and other Baltic-Finnic language traditions\", kantele as \"Finlands national instrument\" — and its only named neighbour is \"neighboring Nordic-Atlantic Swedish bowed-string folk\". No Celtic (Irish, Scottish, Welsh, Breton, Galician) source is named. The record's parent node balladPoetry.celticBalladic (\"Celtic and British balladic\") enumerates only \"Irish sean-nós unaccompanied vocal, Scottish balladry and bothy ballad, English broadside, Welsh hymn-balladry, Cape Breton Gaelic, Newfoundland outport\", so that placement is itself unsupported by the record (taxonomy follow-up for the owner) and is not evidence. No documented link."
-    },
-    {
-      "tradition": "finnish_kantele_folk",
-      "token": "english-folk",
-      "verdict": "false",
-      "tier": "core",
-      "evidence": "Fields read: name, lineage, description, exemplars, parent node, crossRefs (balladPoetry.slavicBard). The record is Finnic — \"Karelian-Finnish epic-recitation tradition\", \"performed in Karelian, Ingrian, Estonian, and other Baltic-Finnic language traditions\", kantele as \"Finlands national instrument\" — and its only named neighbour is \"neighboring Nordic-Atlantic Swedish bowed-string folk\". No English source is named. The record's parent node balladPoetry.celticBalladic (\"Celtic and British balladic\") enumerates only \"Irish sean-nós unaccompanied vocal, Scottish balladry and bothy ballad, English broadside, Welsh hymn-balladry, Cape Breton Gaelic, Newfoundland outport\", so that placement is itself unsupported by the record (taxonomy follow-up for the owner) and is not evidence. No documented link."
-    },
-    {
-      "tradition": "finnish_kantele_folk",
-      "token": "iberian-celtic",
-      "verdict": "false",
-      "tier": "core",
-      "evidence": "Fields read: name, lineage, description, exemplars, parent node, crossRefs (balladPoetry.slavicBard). The record is Finnic — \"Karelian-Finnish epic-recitation tradition\", \"performed in Karelian, Ingrian, Estonian, and other Baltic-Finnic language traditions\", kantele as \"Finlands national instrument\" — and its only named neighbour is \"neighboring Nordic-Atlantic Swedish bowed-string folk\". No Iberian or Celtic source is named. The record's parent node balladPoetry.celticBalladic (\"Celtic and British balladic\") enumerates only \"Irish sean-nós unaccompanied vocal, Scottish balladry and bothy ballad, English broadside, Welsh hymn-balladry, Cape Breton Gaelic, Newfoundland outport\", so that placement is itself unsupported by the record (taxonomy follow-up for the owner) and is not evidence. No documented link."
     },
     {
       "tradition": "flamenco",
@@ -1637,19 +1541,6 @@
       "token": "iberian-celtic",
       "verdict": "attested",
       "evidence": "Galician is the token's defining case: \"Galician-language singer-songwriter tradition\", \"gaida (Galician bagpipe) accompaniment\", \"Galician traditional muiñeira (mill-dance) and alborada (dawn-piece) repertoire\"."
-    },
-    {
-      "tradition": "galician_pipe_solo",
-      "token": "Scottish-influenced",
-      "verdict": "false",
-      "tier": "contradicted",
-      "evidence": "Excluded verbatim: \"distinct from the kindred Asturian gaita asturiana (single-drone) and the Scottish Highland bagpipe (three-drone but different chanter scale)\"; \"distinguished from Highland-Scottish piobaireachd by single-drone-not-three-drone configuration and Galician-not-Scottish repertoire\"."
-    },
-    {
-      "tradition": "galician_pipe_solo",
-      "token": "celtic",
-      "verdict": "attested",
-      "evidence": "Galician is inside the gloss's Celtic list, and the record sits in the Celtic pipe sphere: \"Galician solo bagpipe tradition\", compared with \"the kindred Asturian gaita asturiana\" and \"Breton biniou koz\", with Carlos Núñez's album \"with collaborations from The Chieftains\"."
     },
     {
       "tradition": "garifuna_paranda",
@@ -2242,13 +2133,6 @@
       "token": "raga-bound",
       "verdict": "attested",
       "evidence": "Lineage \"Carnatic light-classical romantic-love song genre ... setting Telugu and Tamil and Kannada erotic-and-romantic poetry to elaborated vocal performance\"; a Carnatic vocal genre is raga-organised by definition (source record crossRef \"improvOnFrame.indianClassicalImprov\")."
-    },
-    {
-      "tradition": "jibaro",
-      "token": "iberian-celtic",
-      "verdict": "false",
-      "tier": "boundary",
-      "evidence": "The Iberian half holds — \"rooted in the Spanish décima poetic form\", \"brought from 17th-century Iberian colonial settlement\" — but the regional derivation the record names is Andalusian (\"by Andalusian rather than West-African derivation\"), and no Galician, Asturian or Celtic source is named. The Celtic-Iberian northwest is a neighbouring Iberian lineage the record does not claim."
     },
     {
       "tradition": "jongo",
@@ -2939,37 +2823,6 @@
       "evidence": "Name \"Nenets yarabc (first-person narrative song)\"; lineage \"Tundra Nenets yarabc\"."
     },
     {
-      "tradition": "newfoundland_outport",
-      "token": "Irish-traditional",
-      "verdict": "attested",
-      "evidence": "Lineage: \"Irish ... settler-fishing-family origin\", \"the distinctive Newfoundland style combining Irish ornamentation\"; description \"Newfoundland-Irish-and-English-derived balladic tradition\"."
-    },
-    {
-      "tradition": "newfoundland_outport",
-      "token": "Scottish-influenced",
-      "verdict": "attested",
-      "evidence": "Lineage: \"Scottish settler-fishing-family origin\", \"combining Irish ornamentation with Cape Breton bowing\"."
-    },
-    {
-      "tradition": "newfoundland_outport",
-      "token": "celtic",
-      "verdict": "attested",
-      "evidence": "Lineage: \"of Irish, West Country English, and Scottish settler-fishing-family origin\", \"combining Irish ornamentation with Cape Breton bowing\"."
-    },
-    {
-      "tradition": "newfoundland_outport",
-      "token": "english-folk",
-      "verdict": "attested",
-      "evidence": "Lineage: \"West Country English ... settler-fishing-family origin\"; description \"Newfoundland-Irish-and-English-derived balladic tradition\"."
-    },
-    {
-      "tradition": "newfoundland_outport",
-      "token": "iberian-celtic",
-      "verdict": "false",
-      "tier": "boundary",
-      "evidence": "Reading: iberian-celtic is ruled as the compound its vocabulary gloss states ('claims an Iberian-Celtic lineage (compound: Iberian peninsula + Celtic, e.g. Galicia/Asturias)'), which is also the catalog's one concrete use of the word (02_instruments.js gaita_galega_three_drones, descriptors 'gaita', 'galega', 'three-drone', 'iberian-celtic') and the reading applied to every iberian-celtic pair. The preface lexicon listing it under saudade/duende/hiraeth/dor/meraki is an affect grouping, not a definition. A first-pass Iberian-OR-Celtic union reading (loose) was overturned on review. Fields read: name, lineage, description, exemplars (Great Big Sea, Figgy Duff, Anita Best), parent node balladPoetry.celticBalladic.newfoundlandRevival, crossRefs (balladPoetry.angloSingerSong.britfolk), config. The Celtic half holds (\"of Irish, West Country English, and Scottish settler-fishing-family origin\", \"combining Irish ornamentation with Cape Breton bowing\"), but nothing Iberian, Galician or Asturian is named. A neighbouring Celtic lineage the record does not claim (same tier as cape_breton_milling and celtic_irish_trad). The celtic, Irish-traditional, Scottish-influenced and english-folk tokens stay on this record."
-    },
-    {
       "tradition": "nganasan_keingeirsya",
       "token": "nganasan",
       "verdict": "attested",
@@ -2986,12 +2839,6 @@
       "token": "udmurt-krez",
       "verdict": "attested",
       "evidence": "Lineage and description: \"North Udmurt improvised singing with lament-like melodic models\"; \"Krez here names a vocal genre, not the zither\"."
-    },
-    {
-      "tradition": "northern_soul_motown",
-      "token": "gospel-rooted",
-      "verdict": "attested",
-      "evidence": "Lineage \"Detroit-based African-American pop-soul\"; description \"gospel-derived lead-vocal performances often supported by tightly-arranged backing-vocal harmony groups\"."
     },
     {
       "tradition": "old_time",
@@ -3640,13 +3487,6 @@
       "evidence": "Fields read: name, lineage, description, exemplars, parent node, crossRefs (droneModal.windPipe, ritualDevotional.buddhist). The record derives the instrument through Buddhist, not court, transmission and the repertoire from a monastic sect: \"Originated from Tang-dynasty Chinese chi imported via 8th-century Buddhist transmission, transformed through medieval Japanese ascetic-monastic practice\", \"codified by the Komuso mendicant-monk lineage\", \"Fuke-shu Zen Buddhist komuso\". Gagaku (Japanese court music) is never named. A neighbouring Japanese lineage (sibling in parent node artMusic.eastAsian) the record does not claim."
     },
     {
-      "tradition": "shape_note",
-      "token": "sacred-Latin",
-      "verdict": "false",
-      "tier": "core",
-      "evidence": "Fields read: name, lineage, description, exemplars (The Sacred Harp 1844, Southern Harmony 1835, Christian Harmony 1866), parent node, crossRefs (southernGospel, americanSacred). The record is an English-language American singing-school tradition: \"American singing-school practice begun with Little and Smith's The Easy Instructor (1801)\", \"so rural congregations could sight-read\", \"the syllables sung through once before the words\". No Latin, Catholic, Mass, chant or liturgical-rite source is named; the only church-music comparison is a difference (\"It differs from choral church music in having no audience ...\"). No documented link."
-    },
-    {
       "tradition": "shibuya_kei",
       "token": "Japanese-classical",
       "verdict": "false",
@@ -3683,27 +3523,6 @@
       "token": "shuar",
       "verdict": "attested",
       "evidence": "Lineage: \"Shuar nampet; selected vocal-only festive song recital\"."
-    },
-    {
-      "tradition": "sikh_gurmat_sangeet",
-      "token": "Hindu-ritual",
-      "verdict": "false",
-      "tier": "boundary",
-      "evidence": "Fields read: name, lineage, description (api/browse.json = 05_traditions.js lineage + 06_extras.js description), plus published parent/crossRefs/exemplars. The record is Sikh throughout: \"Sikh sacred-music tradition built on shabad kirtan (singing of the verses of the Guru Granth Sahib scripture)\", \"performed by trained ragis at gurdwaras worldwide\", \"Sikh devotional vocal tradition\", \"with Sikh-Punjabi linguistic register\". Hinduism is a neighbouring religion it never claims. Its published parent is ritualDevotional.hindu, but that node's own membership (\"kirtan, bhajan, abhang, dhrupad-bhakti, Tamil Saiva, ārtī, Vedic chant\") does not include Sikh music: a taxonomy misfile to list as an owner follow-up, not a claim the record makes."
-    },
-    {
-      "tradition": "sikh_gurmat_sangeet",
-      "token": "dhrupad-suited",
-      "verdict": "false",
-      "tier": "boundary",
-      "evidence": "Fields read: name, lineage, description (api/browse.json = references/05_traditions.js lineage + 06_extras.js description), plus source-record parent/crossRefs/exemplars/parts. A first-pass loose was overturned on review. The prose gives the Hindustani-classical umbrella only: \"Shares the musical-grammar of Hindustani classical (raga-bound improvisation, tāl-locked composition) but with Sikh-Punjabi linguistic register and shabad (verse) rather than purely abstract melodic exposition\"; lineage \"organized by raga across the 31 ragas mentioned in the Granth\". Dhrupad is never named in the name, lineage, description or exemplars (Bhai Harjinder Singh, Bhai Gurmeet Singh Shaant, Bhai Niranjan Singh Jawaddi Kalan); crossRef improvOnFrame.indianClassicalImprov names \"Hindustani gat-toda and alap-jor-jhala, Carnatic ragam-tanam-pallavi\", not dhrupad; parent ritualDevotional.hindu lists \"dhrupad-bhakti\" as a separate member. Dhrupad is one Hindustani genre among siblings, and the Hindustani umbrella alone has not carried dhrupad-suited anywhere in the catalog (thumri, tappa, dadra, tarana and kirtan are all false:boundary; only the hindustani record, which names \"dhrupad\" as one of its own branches, is loose). Config considered: voice_tradition pinned \"hindustani_dhrupad_tradition\", a pin the prose does not support (owner follow-up). Owner note: dhrupad-derived forms in gurbani kirtan are documented outside the catalog, so the alternative fix is to add that to the prose rather than delete the token.",
-      "flag": "prose-silent-world-plausible"
-    },
-    {
-      "tradition": "sikh_gurmat_sangeet",
-      "token": "raga-bound",
-      "verdict": "attested",
-      "evidence": "Lineage: \"organized by raga across the 31 ragas mentioned in the Granth\"; description \"raga-bound improvisation\"."
     },
     {
       "tradition": "soukous",

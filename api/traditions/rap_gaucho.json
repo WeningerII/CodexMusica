@@ -5,7 +5,7 @@
   "lineage": "Rap gaúcho connects Rio Grande do Sul’s MC, DJ and production communities. Porto Alegre group Da Guedes exemplifies a longstanding ensemble strand built on paired MC delivery and DJ collaboration.",
   "recipe": "classic modern rap gaúcho, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, duet, live take. sampler drum machine, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 290,
-  "score": 40.314,
+  "score": 40.317,
   "config": {
     "traditions": [
       "rap_gaucho"
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Dutch Americana",
   "family": "vernacular",
   "lineage": "Dutch roots musicians adapt American country, blues and rock-and-roll resources within local recording and touring networks. Danny Vera’s label explicitly identifies Americana and country/blues roots, supplying the selected band branch.",
-  "recipe": "classic modern dutch americana, functional Song, americana branch. thick, worn fold, wide pitch sway, neutral third half flat. open d tuning dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 523,
-  "score": 109.379,
+  "recipe": "classic modern dutch americana, functional Song, americana branch. thick, worn fold, wide pitch sway, neutral third half flat. dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 509,
+  "score": 108.95,
   "config": {
     "traditions": [
       "dutch_americana"
@@ -28,7 +28,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_vocoder_16_band",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
@@ -41,12 +41,12 @@
           "voice_microtone": 5.590000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 9.968499999999999,
+          "voice_estill_quality": 9.831999999999999,
           "voice_speech_song": 8.125,
           "voice_ensemble_config": 6.11,
-          "voice_ornament_system": 0.3315,
+          "voice_ornament_system": 0.3,
           "voice_pitch_organization": 0.1365,
-          "voice_processing_chain": 1.4495,
+          "voice_processing_chain": 1.4299999999999997,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -56,15 +56,15 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "open_d",
           "top_wood": "engelmann",
-          "back_sides": "koa_bs",
+          "back_sides": "maple_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
           "acoustic_technique": -0.07,
-          "string_tuning": 3.0130000000000003,
+          "string_tuning": 2.9815,
           "top_wood": 0.3,
           "back_sides": 0.0315,
-          "string_acoustic": 0.49349999999999994
+          "string_acoustic": 0.46199999999999997
         }
       },
       {
@@ -78,24 +78,24 @@
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
-          "bridge": "two_point_trem",
+          "bridge": "vintage_trem",
           "scale_length": "scale_gibson",
-          "finish": "oil_satin",
+          "finish": "nitro",
           "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 0.15000000000000002,
-          "amp_make": 11.482499999999998,
+          "amp_make": 11.3775,
           "body_wood": 0.1365,
           "neck_wood": 0.231,
           "fretboard": 0.0315,
           "pickup_magnet": 0.3,
-          "string_material": 0.9869999999999997,
-          "string_gauge": 0.168,
-          "bridge": 0,
+          "string_material": 0.8924999999999997,
+          "string_gauge": 0.1995,
+          "bridge": 0.105,
           "scale_length": 0.273,
-          "finish": 0.0315,
+          "finish": 0,
           "string_tuning": 3.9,
           "single_coil_pickup_construction": 0
         }
@@ -113,12 +113,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 10.251,
+          "amp_make": 10.145999999999999,
           "body_wood": 0.273,
           "pickup_config": 0.0315,
           "string_type": 3.25,
           "scale_length_b": 0.3315,
-          "fretted_or_not": 0.063,
+          "fretted_or_not": 0.105,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -127,12 +127,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "calfskin_drum",
+          "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 5.85,
-          "drumhead": 0.826,
+          "drumhead": 0.8049999999999999,
           "drum_kit_kick_pedal": 0
         }
       }

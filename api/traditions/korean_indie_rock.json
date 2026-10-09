@@ -5,7 +5,7 @@
   "lineage": "Korean indie rock includes melodic guitar bands with layered singing.",
   "recipe": "classic korean indie rock, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood arpeggiated clean humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, credited auxiliary percussion, saxophone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 373,
-  "score": 34.881,
+  "score": 34.214,
   "config": {
     "traditions": [
       "korean_indie_rock"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.0680000000000005,
+          "electric_technique": 5.0905000000000005,
           "amp_make": 5.720000000000001,
-          "body_wood": 1.7429999999999999,
+          "body_wood": 1.848,
           "neck_wood": 0.105,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.9749999999999999,
+          "bridge": 0.6359999999999999,
           "scale_length": 0,
-          "string_gauge": 0.9749999999999999,
+          "string_gauge": 0.6359999999999999,
           "finish": 0,
-          "string_tuning": 0.162
+          "string_tuning": 0.108
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 6.175,
-          "body_wood": 1.7429999999999999,
+          "body_wood": 1.848,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 11.25,
-          "drumhead": 0.378,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,10 +113,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

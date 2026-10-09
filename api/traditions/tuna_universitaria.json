@@ -5,7 +5,7 @@
   "lineage": "Iberian university student serenading tradition descended from the medieval sopistas of Salamanca and Coimbra and reorganized as faculty tunas from the late nineteenth century — plucked bandurria and laúd melody lines doubled in thirds above strummed guitars, pandereta and hand-clapping, sung in unison male chorus in cloaks and beribboned capes, repertoire of jotas, boleros, pasodobles and serenading coplas at brisk 3/4 or 2/4, performed outdoors in courtyards and beneath windows.",
   "recipe": "classic Iberian modern tuna universitaria, drinking Song, European branch, iberian functional song, chanson fado fado coimbra catalan folk sevillanas. thick, breath veiled tone, straight onset, interlocked note trading. strummed chordal bandurria, cedar concert modern classical nylon-string guitar, bowl back Italian German spruce classical leaning European maple k and k twin mandolin, tambourine orch, hand clap, castagnari Italian premium folk music accordion. coimbra university outdoor quad. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 560,
-  "score": 240.507,
+  "score": 240.642,
   "config": {
     "traditions": [
       "tuna_universitaria",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 2.6799999999999997,
+          "voice_register": 2.53,
           "voice_quality": 11.309999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.8199999999999998,
           "voice_articulation": 25.285000000000004,
           "voice_microtone": 24.83,
-          "voice_tradition": 11.724999999999998,
+          "voice_tradition": 12.159999999999998,
           "voice_mechanism_compound": 3.51,
           "voice_estill_quality": 3.7700000000000005,
           "voice_speech_song": 31.590000000000003,
           "voice_ensemble_config": 26.520000000000003,
-          "voice_ornament_system": 10.15,
-          "voice_pitch_organization": 6.569375000000001,
+          "voice_ornament_system": 10.39,
+          "voice_pitch_organization": 6.419375000000001,
           "voice_processing_chain": 5.915000000000001,
           "voice_multitrack_stack": 2.8925000000000005
         }
@@ -78,10 +78,10 @@
         "scores": {
           "acoustic_technique": 2.3687500000000004,
           "string_tuning": 0,
-          "top_wood_classical": 10.639374999999998,
+          "top_wood_classical": 10.654374999999998,
           "bracing_classical": 1.04,
           "string_classical": 0.65,
-          "attack_technique_cl": 0.75
+          "attack_technique_cl": 0.975
         }
       },
       {
@@ -102,8 +102,8 @@
           "mandolin_top": 3.25,
           "mandolin_back": 2.963125,
           "mandolin_bracing": 0.9,
-          "mandolin_strings": 0.8400000000000001,
-          "mandolin_fingerboard": 0,
+          "mandolin_strings": 0.6,
+          "mandolin_fingerboard": 0.15,
           "mandolin_pickup": 23.985000000000007
         }
       },
@@ -125,7 +125,7 @@
           "clap_capture": "clap_close_dry"
         },
         "scores": {
-          "clap_technique": 0.9500000000000001,
+          "clap_technique": 0.8,
           "clap_capture": 0.09
         }
       },
@@ -142,9 +142,9 @@
         },
         "scores": {
           "free_reed_technique": 1.4949999999999999,
-          "accordion_reed_material": 0.435,
+          "accordion_reed_material": 0.39,
           "musette_offset": 0.65,
-          "reed_config": 0.845,
+          "reed_config": 0.65,
           "bellows": 0.65,
           "voicing_chamber": 0.09,
           "accordion_maker_school": 2.0799999999999996

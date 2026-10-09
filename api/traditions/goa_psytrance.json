@@ -1,50 +1,122 @@
 {
-  "id": "goa_psytrance",
-  "name": "Goa Psytrance",
-  "family": "electronic",
-  "lineage": "Goa psytrance connects Goa-derived psychedelic dance music with continuing producer and DJ communities. Older melodic approaches and newer productions meet in rhythmically continuous sets, linking the early party tradition with contemporary labels and festivals.",
-  "recipe": "classic goa psytrance, electronic Dance, trance branch. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 102,
-  "score": 0.39,
+  "id": "goa_trance",
+  "merged_from": "goa_psytrance",
+  "name": "Goa trance",
+  "family": "global",
+  "lineage": "Mid-1990s Indian-beach electronic dance subgenre, codified through full-moon parties on Goa beaches (Anjuna, Vagator) — Goa Gil as the canonical DJ-organizer, with characteristic 130-140 BPM tempo, acid-bass-line foundation, Indian-modal melodic motifs, and analog-synth-and-303 production aesthetic",
+  "recipe": "classic Asian 1994-1996 goa trance, electronic Dance, trance branch, hindu ritual devotional marathi devotional odia bhajan. roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, melodic pitched sampler. festival stage. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay phaser flanger analog bucket-brigade delay.",
+  "recipe_chars": 523,
+  "score": 51.143,
   "config": {
     "traditions": [
-      "goa_psytrance"
+      "goa_trance",
+      "marathi_devotional",
+      "odia_bhajan"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "analog_mono_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_acid_squelch",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.39
+          "electronic_technique": 2.45,
+          "mono_oscillator": 1.3,
+          "mono_filter": 2.6,
+          "mono_archetypes": 1.435,
+          "mono_maker_lineage": 2.535
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 1.9200000000000002,
+          "va_archetypes": 3.8,
+          "digital_subtractive_context": 11.830000000000002
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 1.3,
+          "tr909_production_origin": 4.16
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 1.625,
+          "sampler_bit_depth": 2.5000000000000004,
+          "sampler_workflow": 1.79,
+          "sampler_classic_context": 12.934999999999999
         }
       }
     ],
-    "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ]
-    },
-    "room": "live_room",
+    "room": "festival_stage",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": null
+      "medium": "digital_std"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": []
+    "fx_extras": [
+      "phaser_pedal",
+      "flanger_pedal",
+      "analog_delay"
+    ]
   },
   "source": {
-    "room": "live_room",
+    "tuning": "twelve_tet",
+    "room": "festival_stage",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_bass_sub",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_house",
+      "tr909_production_origin": "tr909_roland_osaka_canonical"
     },
-    "pin_parts": true
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "phaser_pedal",
+      "flanger_pedal",
+      "analog_delay"
+    ]
   }
 }

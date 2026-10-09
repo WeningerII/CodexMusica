@@ -49,7 +49,11 @@ const all = readJson('api/all.json');
 // Only what src/atlas.js actually reads: id and name for the pins, lineage and
 // recipe for the detail card. Shipping api/all.json whole would carry per-item
 // fields the atlas never touches.
-const index = { items: all.items.map((t) => ({ id: t.id, name: t.name })) };
+const index = {
+  items: all.items.map((t) => ({ id: t.id, name: t.name })),
+  // Retired (merged) ids, so an old ?trad= link still lands (src/atlas.js ingest).
+  aliases: Object.entries(all.aliases || {}).map(([id, of]) => ({ id, of })),
+};
 const detail = {};
 for (const t of all.items) {
   let lineage = '';

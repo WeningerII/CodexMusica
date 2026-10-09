@@ -5,7 +5,7 @@
   "lineage": "Deep vocal house connects expressive dance singing with club remixes and DJ circulation. Its discovery repertoire crosses soulful house, dance-pop and extended vocal remixes, bringing distinctive singers into electronic dance settings.",
   "recipe": "classic deep vocal house, electronic Dance. small note groups per syllable, solo with instrumental accompaniment. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 160,
-  "score": 2.521,
+  "score": 2.552,
   "config": {
     "traditions": [
       "deep_vocal_house"
@@ -58,7 +58,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0945
         }
       }
     ],

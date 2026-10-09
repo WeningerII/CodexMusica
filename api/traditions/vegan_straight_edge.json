@@ -3,9 +3,9 @@
   "name": "Vegan straight edge",
   "family": "rock_punk",
   "lineage": "Vegan straight edge links hardcore music with vegan advocacy and abstinence-oriented scene ethics.",
-  "recipe": "classic vegan straight edge, distorted Rock, punk branch. one note per syllable. basswood humbucker electric guitar, basswood electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 329,
-  "score": 26.374,
+  "recipe": "classic vegan straight edge, distorted Rock, punk branch. basswood humbucker electric guitar, basswood electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 306,
+  "score": 25.692,
   "config": {
     "traditions": [
       "vegan_straight_edge"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.609,
+          "voice_speech_song": 0.47250000000000003,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "neck_wood": 0.063,
           "fretboard": 0.273,
           "pickup_magnet": 0,
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

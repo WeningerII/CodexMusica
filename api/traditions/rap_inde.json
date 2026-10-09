@@ -5,7 +5,7 @@
   "lineage": "Rap indé connects French independent and self-produced hip-hop practices. Diego and the Aix-en-Provence AWE network exemplify a boom-bap strand in which the performer also composes and produces the backing.",
   "recipe": "classic modern rap indé, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 352,
-  "score": 42.48,
+  "score": 42.997,
   "config": {
     "traditions": [
       "rap_inde"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.719,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_speech_song": 13.905,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 6.5,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

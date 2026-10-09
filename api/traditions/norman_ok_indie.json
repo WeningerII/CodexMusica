@@ -5,7 +5,7 @@
   "lineage": "Independent music from Norman, Oklahoma, including roots-oriented songwriting and regional band culture.",
   "recipe": "classic norman ok indie, functional Song, country branch. one note per syllable. dreadnought acoustic guitar, classic country sho bud classic nashville mid 60s 70s canon single neck pedal steel, fiddle, drum kit, grand piano, electric bass, tuba, mandolin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 355,
-  "score": 29.265,
+  "score": 29.104,
   "config": {
     "traditions": [
       "norman_ok_indie"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.8504999999999998,
+          "voice_speech_song": 1.071,
           "voice_ensemble_config": -0.07,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.3315,
           "voice_tessitura": 0
         }
       },
@@ -62,9 +62,9 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": -0.07,
           "string_tuning": 0,
-          "top_wood": 0.39,
+          "top_wood": 0.3,
           "back_sides": -0.05,
           "string_acoustic": 0
         }
@@ -105,9 +105,9 @@
         "scores": {
           "bowed_technique": 0.2,
           "fiddle_strings": 0.0315,
-          "fiddle_bow": 0.0315,
-          "fiddle_mute": 0.5355,
-          "fiddle_articulation": 0.1995,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.38849999999999996,
+          "fiddle_articulation": 0.168,
           "fiddle_string_configuration": 0
         }
       },
@@ -137,7 +137,7 @@
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.11850000000000002,
           "cymbal_lathing": -0.10500000000000001,
-          "cymbal_finish": 0.105
+          "cymbal_finish": 0
         }
       },
       {
@@ -155,11 +155,11 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.1365,
-          "grand_piano_brand": 0.3989999999999999,
+          "grand_piano_size": 0.168,
+          "grand_piano_brand": 0.441,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
-          "piano_soundboard": -0.07,
+          "piano_soundboard": -0.1,
           "piano_pinblock": -0.07,
           "piano_plate": -0.07,
           "piano_pitch_standard": -0.035
@@ -201,7 +201,7 @@
         "scores": {
           "wind_articulation": 0.19500000000000003,
           "tuba_pitch": 0,
-          "tuba_context": 0.78,
+          "tuba_context": 0.7575,
           "tuba_bell_metal": 0.3,
           "tuba_valve_system": 0,
           "tuba_maker_school": 0
@@ -220,7 +220,7 @@
           "mandolin_pickup": "mandolin_no_pickup"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": -0.07,
           "mandolin_shape": -0.05,
           "mandolin_top": -0.05,
           "mandolin_back": -0.05,

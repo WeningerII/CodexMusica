@@ -5,7 +5,7 @@
   "lineage": "Zambian hip-hop connects local MCs and producers with diasporic collaborations, including Sampa the Great’s work with Mag44 in Lusaka.",
   "recipe": "classic modern zambian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 280,
-  "score": 27.034,
+  "score": 26.904,
   "config": {
     "traditions": [
       "zambian_hip_hop"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.41125,
+          "voice_ensemble_config": 2.24975,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -60,9 +60,9 @@
         },
         "scores": {
           "electronic_technique": 5.239,
-          "sample_bitdepth": 0,
+          "sample_bitdepth": 0.1365,
           "sample_swing": 9.1,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

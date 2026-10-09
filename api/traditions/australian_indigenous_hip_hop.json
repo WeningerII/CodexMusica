@@ -5,7 +5,7 @@
   "lineage": "Australian Indigenous hip-hop; selected Baker Boy Yolŋu rap-production branch",
   "recipe": "classic modern australian indigenous hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler drum machine, low sub bass analog synth, didgeridoo. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 336,
-  "score": 41.8,
+  "score": 42.203,
   "config": {
     "traditions": [
       "australian_indigenous_hip_hop"
@@ -42,10 +42,10 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.1055,
+          "voice_speech_song": 12.3575,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
+          "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.03899999999999999
         }
@@ -60,9 +60,9 @@
         },
         "scores": {
           "electronic_technique": 5.62075,
-          "sample_bitdepth": 0,
+          "sample_bitdepth": 0.273,
           "sample_swing": -0.05,
-          "sample_processing": 0.3
+          "sample_processing": 0.39
         }
       },
       {
@@ -75,10 +75,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 6.275,
-          "oscillator": 0.78,
-          "filter_topology": 1.4249999999999998,
-          "envelope": 0.3735,
+          "electronic_technique": 6.128000000000001,
+          "oscillator": 0.6779999999999999,
+          "filter_topology": 1.278,
+          "envelope": 0.39,
           "modulation": 0.0735
         }
       },
@@ -91,7 +91,7 @@
           "didj_technique": "rhythmic_didj"
         },
         "scores": {
-          "wind_articulation": 0.25,
+          "wind_articulation": 0.2815,
           "didj_material": 0.2,
           "didj_mouthpiece": 0,
           "didj_technique": 0

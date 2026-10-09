@@ -5,7 +5,7 @@
   "lineage": "Border-state regional-Mexican idiom of Tijuana, Mexicali and Ensenada consolidated from the 1980s onward as norteño conjunto absorbed banda brass and Sinaloan corrido repertoire, codified commercially by Los Tucanes de Tijuana and later Grupo Firme — diatonic button accordion and bajo sexto over tololoche or tuba bass, 2/4 polka and 3/4 vals subforms at 110-150 BPM, doubled saxophone lines, and paired baritone-tenor vocals delivering narrative corrido verse.",
   "recipe": "classic mid-1980s música bajacaliforniana, functional Song, Mexican branch, tejano border corrido, tejano border ranchera corridos bélicos. vocal fry, full chest belt, slow rate, interlocked note trading. brass castagnari Italian premium folk music chordal accordion, nickel wound modern tejano bajo sexto, tololoche, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, tenor yellow brass modern standard saxophone, accordion and bajo duo corrido narrative texas tejano conjunto conjunto norteno, kevlar aramid extreme tension brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 802,
-  "score": 303.513,
+  "score": 302.401,
   "config": {
     "traditions": [
       "musica_bajacaliforniana",
@@ -65,7 +65,7 @@
         },
         "scores": {
           "free_reed_technique": 10.1935,
-          "accordion_reed_material": 1.66075,
+          "accordion_reed_material": 1.61575,
           "musette_offset": 0.195,
           "reed_config": 0.53775,
           "bellows": 0.195,
@@ -150,8 +150,8 @@
         },
         "scores": {
           "conjunto_norteno_lineup": 30.03,
-          "conjunto_norteno_repertoire": 22.815,
-          "conjunto_norteno_substyle": 22.0025
+          "conjunto_norteno_repertoire": 22.58925,
+          "conjunto_norteno_substyle": 21.161
         }
       },
       {

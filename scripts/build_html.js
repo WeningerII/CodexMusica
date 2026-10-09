@@ -80,6 +80,7 @@ const SOURCE_FILES = [
   '07_preface_lexicon.js',
   '08_asset_manifest.js',
   '09_nav_glyphs.js',
+  '10_tradition_signatures.js',
 ];
 
 // ──────────────────────────── argv ────────────────────────────
@@ -406,6 +407,21 @@ if (!LAZY) {
   dataParts.push(
     `const CODEX_IMAGE_MANIFEST = ${JSON.stringify(imageManifest).replace(/</g, '\\u003c')};`
   );
+}
+// Retired tradition ids (references/_tradition_aliases.json). The embedded page
+// carries the tradition tables, so it carries their aliases beside them; the lazy
+// shell reads the same map from api/browse.json (Catalog.bootFromIndex).
+if (!LAZY) {
+  const reg = JSON.parse(
+    fs.readFileSync(path.join(REFS, '_tradition_aliases.json'), 'utf8')
+  ).aliases;
+  const compact = Object.fromEntries(
+    Object.keys(reg)
+      .sort()
+      .map((id) => [id, { of: reg[id].of, name: reg[id].name }])
+  );
+  openScript('tradition aliases (references/_tradition_aliases.json)');
+  dataParts.push(`const TRADITION_ALIASES = ${JSON.stringify(compact).replace(/</g, '\\u003c')};`);
 }
 
 const dataBlock = dataParts.join('\n');

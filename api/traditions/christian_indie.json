@@ -5,7 +5,7 @@
   "lineage": "Christian indie connects independent songwriting and alternative music with Christian texts and devotional themes. Artists such as Thief to King work across acoustic song, worship and band-based recording.",
   "recipe": "classic christian indie, ritual Devotional, christian gospel branch. solo with instrumental accompaniment, unprocessed natural acoustic. dreadnought acoustic guitar, electric bass, grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard full spectrum fast tremolo tonewheel organ, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 403,
-  "score": 14.982,
+  "score": 15.085,
   "config": {
     "traditions": [
       "christian_indie"
@@ -107,12 +107,12 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.294,
+          "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.273,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.325
         }
@@ -156,8 +156,8 @@
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
-          "shell_thickness": 0,
-          "bearing_edges": 0.40950000000000003,
+          "shell_thickness": 0.1365,
+          "bearing_edges": 0.273,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": -0.15000000000000002,

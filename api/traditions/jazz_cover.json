@@ -5,7 +5,7 @@
   "lineage": "Jazz covers reinterpret existing songs through jazz harmony, rhythmic phrasing and improvisation. Familiar material becomes a starting point for a new arrangement rather than a fixed performance template.",
   "recipe": "classic jazz cover, improv On Frame, American jazz branch. a 440 modern pitch us standard grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 203,
-  "score": 4.372,
+  "score": 4.403,
   "config": {
     "traditions": [
       "jazz_cover"
@@ -27,7 +27,7 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.45699999999999996,
-          "grand_piano_brand": 0.105,
+          "grand_piano_brand": 0.1365,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,

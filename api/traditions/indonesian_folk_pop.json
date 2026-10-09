@@ -5,7 +5,7 @@
   "lineage": "Indonesian folk pop connects acoustic songwriting with accessible popular melodies and independent performance.",
   "recipe": "classic indonesian folk pop, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 296,
-  "score": 11.638,
+  "score": 11.53,
   "config": {
     "traditions": [
       "indonesian_folk_pop"
@@ -18,14 +18,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "engelmann",
           "back_sides": "mahogany_bs",
-          "string_acoustic": "monel"
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
           "acoustic_technique": 7.75,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0,
-          "string_acoustic": 0.054
+          "string_acoustic": 0
         }
       },
       {
@@ -41,7 +41,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.304,
+          "amp_make": 0.25,
           "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0.3,

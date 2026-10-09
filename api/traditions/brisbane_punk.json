@@ -5,7 +5,7 @@
   "lineage": "Brisbane punk includes bands linking direct punk energy with emo-derived melodic space.",
   "recipe": "classic brisbane punk, distorted Rock, punk branch. group vocals. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 339,
-  "score": 45.597,
+  "score": 44.914,
   "config": {
     "traditions": [
       "brisbane_punk"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": 2.21,
           "amp_make": 16.38,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "neck_wood": 0.063,
           "fretboard": 0.273,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },

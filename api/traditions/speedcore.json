@@ -5,7 +5,7 @@
   "lineage": "Split off from Rotterdam and Frankfurt gabber around 1993-1995 via Moby's 'Thousand', Delta 9 in Washington DC and Noizecreator in Germany — defined by tempos from 300 BPM upward, a distorted TR-909 kick clipped into a pitched tonal thud that carries the entire bassline, horror-film and pornographic vocal samples, no harmonic development, and short violent tracks built for endurance rather than dancefloor pacing.",
   "recipe": "classic European 1993-1995 speedcore, electronic Dance, hardstyle branch, industrial noise experimental electric, techno electronic dance power noise industrial hardcore. sygyt, breath veiled tone, slow rate, interlocked note trading. behringer rd 9 modern clone TR-909, field textural sampler, analog mono synth, digital subtractive. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 441,
-  "score": 199.525,
+  "score": 199.436,
   "config": {
     "traditions": [
       "speedcore",
@@ -37,7 +37,7 @@
         },
         "scores": {
           "electronic_technique": 7.3999999999999995,
-          "sampler_archetypes": 0.24,
+          "sampler_archetypes": 0.195,
           "sampler_bit_depth": 1.59825,
           "sampler_workflow": 7.361249999999999,
           "sampler_classic_context": 27.375
@@ -93,9 +93,9 @@
           "voice_estill_quality": 1.885,
           "voice_speech_song": 16.9,
           "voice_ensemble_config": 17.29,
-          "voice_ornament_system": 2.33875,
+          "voice_ornament_system": 2.34,
           "voice_pitch_organization": 1.6382499999999998,
-          "voice_processing_chain": 16.6175,
+          "voice_processing_chain": 16.4225,
           "voice_multitrack_stack": 3.3799999999999994
         }
       },
@@ -108,7 +108,7 @@
         },
         "scores": {
           "electronic_technique": 1.2,
-          "va_archetypes": 0.39,
+          "va_archetypes": 0.54,
           "digital_subtractive_context": 16.900000000000002
         }
       }

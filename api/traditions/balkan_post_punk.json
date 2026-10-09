@@ -5,7 +5,7 @@
   "lineage": "Balkan post-punk is represented here by Repetitor and its garage/noise-facing post-punk trio. This is one documented branch with an authored present-day studio realization.",
   "recipe": "classic balkan post-punk, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 400,
-  "score": 41.859,
+  "score": 40.586,
   "config": {
     "traditions": [
       "balkan_post_punk"
@@ -25,22 +25,22 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 0.26,
-          "amp_make": 17.354999999999997,
-          "body_wood": 1.6485,
-          "neck_wood": 0.40950000000000003,
+          "amp_make": 17.238,
+          "body_wood": 1.3125,
+          "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0.273,
           "pickup_winding": 0.147,
           "string_material": 0.063,
           "bridge": 1.3,
-          "scale_length": 1.2705,
+          "scale_length": 1.071,
           "string_gauge": 1.18,
-          "finish": 0.1365,
+          "finish": 0,
           "string_tuning": 0.354
         }
       },
@@ -51,17 +51,17 @@
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.6650000000000005,
-          "body_wood": 0.8190000000000002,
+          "body_wood": 0.546,
           "pickup_config": 0.1365,
           "string_type": 4.875,
-          "scale_length_b": 0.40950000000000003,
+          "scale_length_b": 0.39,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.354,
           "drum_kit_kick_pedal": 0
         }
       },

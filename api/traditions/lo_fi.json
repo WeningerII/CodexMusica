@@ -3,9 +3,9 @@
   "name": "Lo-fi",
   "family": "global",
   "lineage": "The lo-fi tradition — a deliberately low-fidelity production aesthetic foregrounding warmth, hiss, and imperfection, popularized through bedroom recording and the lo-fi-hip-hop streaming scene",
-  "recipe": "classic modern lo-fi, experimental Elec, lofi branch. glitched textural sampler, hammer low mid emphasis tremolo rhodes electric, mahogany thomastik infeld low tension jazz warm electric bass, TR-808, oversize maple tension resonator European spruce norway spruce European tradition grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 403,
-  "score": 60.02,
+  "recipe": "classic modern lo-fi, experimental Elec, lofi branch. field textural sampler, hammer low mid emphasis tremolo rhodes electric, mahogany thomastik infeld low tension jazz warm electric bass, TR-808, oversize maple tension resonator European spruce norway spruce European tradition grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 400,
+  "score": 58.845,
   "config": {
     "traditions": [
       "lo_fi"
@@ -17,14 +17,14 @@
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "emu_sp1200",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sampler_archetypes": 7.901999999999999,
-          "sampler_bit_depth": 4.73525,
-          "sampler_workflow": 3.91575,
+          "sampler_archetypes": 7.355999999999999,
+          "sampler_bit_depth": 4.745749999999999,
+          "sampler_workflow": 4.10275,
           "sampler_classic_context": 5.329999999999999
         }
       },
@@ -40,11 +40,11 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "rhodes_model": 1.54075,
+          "rhodes_model": 1.50925,
           "rhodes_use": 1.69,
           "rhodes_tine_material": 0.26775,
-          "rhodes_hammer_tip": -1.6404999999999998,
-          "rhodes_pickup_position": 0.45749999999999996
+          "rhodes_hammer_tip": -1.8504999999999998,
+          "rhodes_pickup_position": 0.2475
         }
       },
       {
@@ -60,11 +60,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.4299999999999997,
+          "amp_make": 1.4044999999999999,
           "body_wood": 1.69,
-          "pickup_config": 4.18725,
-          "string_type": 2.015,
-          "scale_length_b": 1.639,
+          "pickup_config": 4.28175,
+          "string_type": 1.907,
+          "scale_length_b": 1.6075,
           "fretted_or_not": 0,
           "bass_technique": 0.26,
           "electric_bass_string_configuration": 0
@@ -78,7 +78,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 1.71,
+          "tr808_voice": 1.5,
           "drum_machine_808_context": 1.69,
           "tr808_production_origin": 0.09974999999999999
         }
@@ -98,9 +98,9 @@
         },
         "scores": {
           "keyboard_technique": 3.7,
-          "grand_piano_size": 1.54075,
-          "grand_piano_brand": 1.54075,
-          "piano_hammer": 0.5814999999999999,
+          "grand_piano_size": 1.50925,
+          "grand_piano_brand": 1.50925,
+          "piano_hammer": 0.5499999999999999,
           "piano_rim": 1.5230000000000001,
           "piano_soundboard": 1.25,
           "piano_pinblock": -0.05,

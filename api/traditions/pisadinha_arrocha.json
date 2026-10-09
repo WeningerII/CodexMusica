@@ -5,7 +5,7 @@
   "lineage": "Brazilian arrocha and pisadinha contemporary northeastern-Brazilian romantic-popular music genres. Arrocha (Bahian, 1990s-2000s) is a slow-tempo romantic ballad with Brazilian-pop-influenced harmonic-vocabulary. Pisadinha (Pernambuco/Bahia, 2010s-2020s) is the faster-tempo dance-derivative incorporating electronic-production. Both share the working-class northeastern-Brazilian cultural orientation distinct from sertanejo universitário's middle-class-university-targeting.",
   "recipe": "classic Southern American mid-1990s pisadinha and arrocha, functional Song, Brazilian song branch, reggaeton MC rhythm moombahton urbano español. extended whistle, breath veiled tone, straight onset, interlocked note trading. strummed open chord ringing overtones dreadnought acoustic guitar, layered sub heavy electric bass, TR-808. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 489,
-  "score": 127.565,
+  "score": 127.875,
   "config": {
     "traditions": [
       "pisadinha_arrocha",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 6.63,
+          "voice_register": 6.675,
           "voice_quality": 8.905,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3,
           "voice_articulation": 11.504999999999999,
           "voice_microtone": 12.154999999999998,
-          "voice_tradition": 9.165,
+          "voice_tradition": 9.209999999999999,
           "voice_mechanism_compound": 4.68,
           "voice_estill_quality": 7.6375,
           "voice_speech_song": 15.86,
           "voice_ensemble_config": 11.439999999999998,
           "voice_ornament_system": 4.420000000000001,
           "voice_pitch_organization": 2.3399999999999994,
-          "voice_processing_chain": 7.279999999999999,
-          "voice_multitrack_stack": 6.11
+          "voice_processing_chain": 7.384999999999999,
+          "voice_multitrack_stack": 6.135000000000001
         }
       },
       {
@@ -57,36 +57,36 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "eb_standard",
-          "top_wood": "engelmann",
+          "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
-          "acoustic_technique": 5.85,
+          "acoustic_technique": 5.895,
           "string_tuning": 0.7149999999999999,
-          "top_wood": 0,
+          "top_wood": 0.045,
           "back_sides": 0.21,
-          "string_acoustic": 0.38999999999999996
+          "string_acoustic": 0.345
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0.585,
-          "body_wood": 0,
+          "body_wood": 0.09,
           "pickup_config": 0.65,
           "string_type": 0.52,
-          "scale_length_b": 0.15,
+          "scale_length_b": 0.105,
           "fretted_or_not": 0.045,
           "bass_technique": 1.2349999999999999,
           "electric_bass_string_configuration": 0

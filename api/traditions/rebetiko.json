@@ -3,14 +3,14 @@
   "name": "Rebetiko",
   "family": "global",
   "lineage": "Greek urban underclass blues-equivalent that emerged in the Piraeus port district and Athens working-class quarters after the 1922 Asia Minor Catastrophe brought Greek refugees from Smyrna and other Anatolian cities — codified through the recordings of Markos Vamvakaris, Vassilis Tsitsanis, Yiorgos Batis, Yiannis Papaioannou, Rita Abatzi, Roza Eskenazi, and the Piraeus Quartet across the 1930s-1940s",
-  "recipe": "classic Southern European mid-1930s rebetiko, ballad Poetry, Mediterranean ballad branch, vocal drone modal, European drinking song flamenco. thick, breath veiled tone, wide pitch sway, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko drone like modal bouzouki, walnut staves gut pre 1950s rebetiko drone like modal baglamas, cedar fingerpicked fan strum classical nylon-string guitar. athens piraeus rebetadika. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 546,
-  "score": 215.259,
+  "recipe": "classic Southern European mid-1930s rebetiko, ballad Poetry, Mediterranean ballad branch, vocal drone modal, European drinking song flamenco hungarian bordal. thick, breath veiled tone, wide pitch sway, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko drone like modal bouzouki, gut pre 1950s rebetiko drone like modal baglamas, cedar fingerpicked fan strum classical nylon-string guitar. athens piraeus rebetadika. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 549,
+  "score": 185.936,
   "config": {
     "traditions": [
       "rebetiko",
       "flamenco",
-      "mor_lam"
+      "hungarian_bordal"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.2445,
-          "voice_quality": 8.06,
+          "voice_register": 6.2195,
+          "voice_quality": 9.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6900000000000004,
-          "voice_articulation": 18.33,
-          "voice_microtone": 24.049999999999997,
-          "voice_tradition": 30.159999999999993,
-          "voice_mechanism_compound": 5.720000000000001,
-          "voice_estill_quality": 8.4825,
-          "voice_speech_song": 22.879999999999995,
-          "voice_ensemble_config": 17.224999999999994,
-          "voice_ornament_system": 3.4875000000000003,
-          "voice_pitch_organization": 4.92,
-          "voice_processing_chain": 4.8100000000000005,
-          "voice_multitrack_stack": 5.719999999999999
+          "voice_articulation": 14.169999999999993,
+          "voice_microtone": 19.75999999999999,
+          "voice_tradition": 30.484999999999992,
+          "voice_mechanism_compound": 3.9,
+          "voice_estill_quality": 7.637500000000001,
+          "voice_speech_song": 22.457499999999992,
+          "voice_ensemble_config": 14.299999999999994,
+          "voice_ornament_system": 4.4125,
+          "voice_pitch_organization": 2.5244999999999997,
+          "voice_processing_chain": 3.12,
+          "voice_multitrack_stack": 3.445
         }
       },
       {
@@ -62,10 +62,10 @@
           "bouzouki_strings": "bouzouki_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 7.9625,
-          "bouzouki_courses": 5.590000000000001,
-          "bouzouki_pick": 1.04,
-          "bouzouki_body_wood": 4.159999999999999,
+          "plucked_traditional_technique": 5.1674999999999995,
+          "bouzouki_courses": 3.77,
+          "bouzouki_pick": 0.195,
+          "bouzouki_body_wood": 4.9399999999999995,
           "bouzouki_strings": 1.685
         }
       },
@@ -79,10 +79,10 @@
           "baglamas_strings": "baglamas_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 7.9625,
-          "baglamas_config": 1.235,
+          "plucked_traditional_technique": 5.1674999999999995,
+          "baglamas_config": 0.195,
           "baglamas_context": 5.295,
-          "baglamas_body_wood": 1.2149999999999996,
+          "baglamas_body_wood": 0.78,
           "baglamas_strings": 1.685
         }
       },
@@ -97,10 +97,10 @@
           "attack_technique_cl": "rasgueado_cl"
         },
         "scores": {
-          "acoustic_technique": 6.99,
+          "acoustic_technique": 6.74,
           "string_tuning": 0,
-          "top_wood_classical": 5.655000000000001,
-          "bracing_classical": 1.625,
+          "top_wood_classical": 3.9650000000000003,
+          "bracing_classical": 0.585,
           "string_classical": 0.78,
           "attack_technique_cl": 3.3245
         }

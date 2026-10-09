@@ -5,7 +5,7 @@
   "lineage": "Spiritual hip hop represented by MC Yogi’s yoga-devotional rap crossover, joining sacred narratives and guest devotional vocals with hip-hop beats.",
   "recipe": "classic modern spiritual hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampled chopped turntable, tabla, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 316,
-  "score": 52.854,
+  "score": 54.041,
   "config": {
     "traditions": [
       "spiritual_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 15.812375,
+          "voice_quality": 16.211375,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "electronic_technique": 7.1499999999999995,
-          "turntable_technique": 7.449999999999999
+          "turntable_technique": 7.659999999999999
         }
       },
       {
@@ -71,7 +71,7 @@
         "scores": {
           "tabla_dayan": 0,
           "tabla_bayan": 0.1365,
-          "tabla_syahi": 1.0605
+          "tabla_syahi": 1.5015
         }
       },
       {
@@ -86,7 +86,7 @@
           "electronic_technique": 7.1499999999999995,
           "sample_bitdepth": 0.1785,
           "sample_swing": 12.48,
-          "sample_processing": 0.1365
+          "sample_processing": 0.273
         }
       }
     ],

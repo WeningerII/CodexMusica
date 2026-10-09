@@ -3,53 +3,53 @@
   "name": "Onmyōdō incantation",
   "family": "global",
   "lineage": "Onmyōdō ('the way of yin and yang') was the Japanese esoteric cosmological practice of the Heian-period court, institutionalized in the Onmyōryō bureau and epitomized by the tenth-century master Abe no Seimei, blending Chinese yin-yang and Five-Phase theory with Daoist, Shinto, and Buddhist elements. Its ritual voice includes spells (ju), the recitation of formulae, and protective incantations accompanying divination, exorcism, and star-worship (such as rites to the Northern Dipper). Delivery is a measured, metrically-bound intonation of classical Chinese and Japanese formulae, learned through hereditary specialist lineages (the Abe/Tsuchimikado and Kamo houses). The tradition is documented in Heian court records and ritual manuals and persists in attenuated folk and reconstructed forms.",
-  "recipe": "classic East Asian modern onmyōdō incantation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, straight note core, interlocked note trading. tatami parlor japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 313,
-  "score": 265.961,
+  "recipe": "classic East Asian modern onmyōdō incantation, ritual Devotional, indigenous branch ethiopian debtera liturgical incantation old norse seiðr ritual vocalization. vocal fry, breath veiled tone, slow rate, interlocked note trading. tatami parlor japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 316,
+  "score": 237.786,
   "config": {
     "traditions": [
       "onmyodo_incantation",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "ethiopian_debtera_incantation",
+      "norse_seidr"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.8000000000000003,
-          "voice_quality": 43.680000000000035,
+          "voice_register": 5.023499999999999,
+          "voice_quality": 30.875000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.240000000000001,
-          "voice_articulation": 30.355000000000008,
-          "voice_microtone": 31.65500000000001,
-          "voice_tradition": 22.944999999999997,
-          "voice_mechanism_compound": 13.335500000000001,
-          "voice_estill_quality": 11.764999999999997,
-          "voice_speech_song": 31.85000000000001,
-          "voice_ensemble_config": 32.63000000000001,
+          "voice_vibrato": 4.225,
+          "voice_articulation": 29.055000000000007,
+          "voice_microtone": 33.085,
+          "voice_tradition": 15.144999999999998,
+          "voice_mechanism_compound": 9.0855,
+          "voice_estill_quality": 9.165000000000001,
+          "voice_speech_song": 30.940000000000005,
+          "voice_ensemble_config": 31.525000000000006,
           "voice_ornament_system": 10.900000000000002,
-          "voice_pitch_organization": 4.095000000000001,
-          "voice_processing_chain": 18.915,
-          "voice_multitrack_stack": 5.720000000000001
+          "voice_pitch_organization": 6.803,
+          "voice_processing_chain": 15.014999999999999,
+          "voice_multitrack_stack": 7.343999999999999
         }
       }
     ],

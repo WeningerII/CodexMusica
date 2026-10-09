@@ -1,15 +1,14 @@
 {
-  "id": "australian_didgeridoo_yidaki_extended",
-  "name": "Aboriginal didgeridoo solo songlines (extended)",
+  "id": "didgeridoo_yidaki_solo",
+  "merged_from": "australian_didgeridoo_yidaki_extended",
+  "name": "Yidaki solo (Aboriginal Australian)",
   "family": "global",
-  "lineage": "Aboriginal Australian songlines tradition embedding the didgeridoo (Yolngu yiḏaki) as both instrument and oral-historical-mnemonic system mapping landscape across Arnhem Land (Northern Territory) and the broader Top End. The yiḏaki is a hollowed eucalyptus-trunk natural-trumpet played with constant-airflow circular-breathing technique. Performance contexts span the manikay public ceremonial-song tradition (which is sung-vocal with clapsticks plus yiḏaki accompaniment) and the more specialized initiation-ceremony repertoire restricted to initiated men. Each manikay cycle maps a specific songline-route across the country, encoding geographic and ancestral knowledge. Distinguished from the broader generic didgeridoo-solo by manikay's ceremonial-functional context and Yolngu-specific yiḏaki performance lineage.",
-  "recipe": "classic Southeast Asian modern aboriginal didgeridoo solo songlines, ritual Devotional, indigenous branch, wind pipe drone modal greek clarinet yidaki solo. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo, high register lead trumpet trumpet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 444,
-  "score": 55.46,
+  "lineage": "Northeast Arnhem Land Yolŋu ceremonial trumpet tradition — the yidaki (the Yolŋu Matha language name for the instrument that English speakers call didgeridoo) is the Aboriginal Australian ceremonial pipe, played through continuous circular breathing with vocalizations and tongue articulations producing complex polyrhythmic textures; deeply tied to Yolŋu manikay ceremonial song tradition and the broader Aboriginal Australian songline cosmology — 20th-century preservation through Djalu Gurruwiwi (the yidaki master and ceremonial-knowledge holder), Mark Atkins, the Yothu Yindi yidaki tradition extended into popular-music context",
+  "recipe": "classic Oceanian modern yidaki solo, drone Modal, wind pipe branch, indigenous ritual devotional. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo. arctic arnhem indigenous outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 288,
+  "score": 40.88,
   "config": {
     "traditions": [
-      "australian_didgeridoo_yidaki_extended",
-      "greek_clarinet",
       "didgeridoo_yidaki_solo"
     ],
     "instruments": [
@@ -22,35 +21,14 @@
           "didj_technique": "circular_breathing"
         },
         "scores": {
-          "wind_articulation": 22.529999999999998,
-          "didj_material": 14.635,
-          "didj_mouthpiece": 11.049999999999997,
-          "didj_technique": 6.4799999999999995
-        }
-      },
-      {
-        "id": "trumpet",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
-          "brass_mute": "harmon_in",
-          "trumpet_technique": "trumpet_classical_legato",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_monette"
-        },
-        "scores": {
-          "wind_articulation": 2.21,
-          "brass_size": 1.65,
-          "trumpet_mouthpiece": 2.5949999999999998,
-          "brass_mute": 0.195,
-          "trumpet_technique": -0.035,
-          "trumpet_bell_metal": 0,
-          "trumpet_maker_school": 0.3
+          "wind_articulation": 7.83,
+          "didj_material": 14.499999999999998,
+          "didj_mouthpiece": 12.47,
+          "didj_technique": 6.2299999999999995
         }
       }
     ],
-    "room": "jakarta_bangkok_southeast_asian_studio",
+    "room": "arctic_arnhem_indigenous_outdoor",
     "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -61,18 +39,19 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
+    "tuning": "just_intonation",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "jakarta_bangkok_southeast_asian_studio",
+    "tuning": "just_intonation",
+    "room": "arctic_arnhem_indigenous_outdoor",
     "parts": {
-      "wind_articulation": "wind_punchy_ensemble",
-      "brass_size": "trumpet_b_flat",
-      "trumpet_technique": "trumpet_punchy_ensemble"
+      "wind_articulation": "wind_circular_breathing_drone",
+      "didj_material": "eucalyptus_tetrodonta_yidaki",
+      "didj_mouthpiece": "sugarbag_beeswax_mouthpiece",
+      "didj_technique": "circular_breathing"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

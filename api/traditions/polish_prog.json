@@ -5,7 +5,7 @@
   "lineage": "Polish progressive rock, connecting extended rock forms with melodic and textural exploration.",
   "recipe": "classic polish prog, distorted Rock, progressive rock branch. solo with instrumental accompaniment. electric bass, acoustic humbucker electric guitar, melodic chordal electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 388,
-  "score": 51.29,
+  "score": 51.227,
   "config": {
     "traditions": [
       "polish_prog"
@@ -133,7 +133,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0.0315,
-          "keyboard_technique": 1.126
+          "keyboard_technique": 1.0945
         }
       },
       {
@@ -160,7 +160,7 @@
           "bearing_edges": 1.3,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 15.2045,
+          "cymbal_hammering": 15.172999999999998,
           "cymbal_lathing": 14.931499999999998,
           "cymbal_finish": 0
         }

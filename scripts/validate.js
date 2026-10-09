@@ -287,6 +287,15 @@ for (const t of C.TRADITIONS) {
     ]);
   }
 }
+// Retired ids (references/_tradition_aliases.json): an alias is never a live id,
+// and resolves in one hop to a live tradition — so a merge cannot shadow a real
+// record or leave an alias pointing at nothing.
+for (const [aid, a] of Object.entries(C.TRADITION_ALIASES || {})) {
+  if (tradIds.has(aid)) errors.push(['ALIAS_SHADOWS_LIVE_ID', 'tradition_alias', aid]);
+  if (!a || !tradIds.has(a.of)) errors.push(['BROKEN_REF', 'tradition_alias.of', aid, a && a.of]);
+  if (!a || typeof a.name !== 'string' || !a.name)
+    errors.push(['MISSING_NAME', 'tradition_alias', aid]);
+}
 for (const tid of Object.keys(C.TRADITION_EXTRAS)) {
   const e = C.TRADITION_EXTRAS[tid];
   if (!tradIds.has(tid))

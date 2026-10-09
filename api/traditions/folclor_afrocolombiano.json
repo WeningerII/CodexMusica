@@ -3,14 +3,14 @@
   "name": "Folclor afrocolombiano (Pacific and Atlantic Afro-Colombian folklore)",
   "family": "global",
   "lineage": "Afro-descendant ritual and festive repertoire of Colombia's Pacific littoral (Chocó, Cauca, Nariño) and Atlantic coast, documented from the 1960s by Delia Zapata Olivella and later by Petronio Álvarez festival ensembles, built on marimba de chonta ostinati, cununo and bombo cross-rhythms, guasá shakers and interlocked female chorus over currulao's 6/8 and bullerengue's hand-drum 2/4.",
-  "recipe": "classic South American mid-1960s folclor afrocolombiano, field Work, sub saharan African branch, Afro-diasporic ritual devotional, west African groove percussion, African diasporic funeral lament balafon music makossa. thick, breath veiled tone, fast rate, interlocked note trading. two player palm wood bamboo tubes marimba de chonta, uraba coast call-and-response bullerengue lead tambor alegre, llamador, deep barrel coastal cumbia head and shell steady pulse tambora colombiana, shekere, snappy to palm hand clap. terreiro outdoor yard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 615,
-  "score": 249.255,
+  "recipe": "classic South American mid-1960s folclor afrocolombiano, field Work, sub saharan African branch, Afro-diasporic ritual devotional, west African groove percussion, African diasporic funeral lament balafon music swange. kargyraa, breath veiled tone, fast rate, interlocked note trading. two player palm wood bamboo tubes marimba de chonta, uraba coast call-and-response bullerengue lead tambor alegre, llamador, two stick rim wood accent head and shell steady pulse tambora colombiana, shekere, snappy to palm hand clap. terreiro outdoor yard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 616,
+  "score": 242.61,
   "config": {
     "traditions": [
       "folclor_afrocolombiano",
       "balafon_mande",
-      "makossa"
+      "swange_tiv"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
         "scores": {
           "marimba_de_chonta_form": 5.4,
           "marimba_de_chonta_role": 7.15,
-          "marimba_de_chonta_material": 4.6000000000000005
+          "marimba_de_chonta_material": 5.1000000000000005
         }
       },
       {
@@ -34,8 +34,8 @@
           "tambor_alegre_build": "tambor_alegre_build_moderno"
         },
         "scores": {
-          "tambor_alegre_form": 32.695,
-          "tambor_alegre_role": 6.665,
+          "tambor_alegre_form": 33.085,
+          "tambor_alegre_role": 6.44,
           "tambor_alegre_build": 1.4999999999999998
         }
       },
@@ -46,21 +46,21 @@
           "llamador_head": "llamador_tight"
         },
         "scores": {
-          "llamador_pattern": 0.15,
+          "llamador_pattern": 0,
           "llamador_head": 0.15
         }
       },
       {
         "id": "tambora_colombiana",
         "slots": {
-          "tambora_colombiana_form": "tambora_colombiana_form_costena",
+          "tambora_colombiana_form": "tambora_colombiana_form_momposina",
           "tambora_colombiana_pattern": "tambora_colombiana_pattern_cumbia",
-          "tambora_colombiana_build": "tambora_colombiana_build_goatskin"
+          "tambora_colombiana_build": "tambora_colombiana_build_cowhide"
         },
         "scores": {
-          "tambora_colombiana_form": 2.275,
-          "tambora_colombiana_pattern": 23.66,
-          "tambora_colombiana_build": -0.10500000000000001
+          "tambora_colombiana_form": 1.45,
+          "tambora_colombiana_pattern": 24.439999999999998,
+          "tambora_colombiana_build": 0.45500000000000007
         }
       },
       {
@@ -70,14 +70,14 @@
           "shekere_beads": "shekere_seed"
         },
         "scores": {
-          "shekere_size": 2.925,
-          "shekere_beads": 6.44
+          "shekere_size": 2.535,
+          "shekere_beads": 6.590000000000001
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "kargyraa_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -95,21 +95,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 7.230000000000002,
-          "voice_quality": 9.035,
+          "voice_register": 0.6499999999999999,
+          "voice_quality": 10.464999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.74,
-          "voice_articulation": 23.529999999999998,
-          "voice_microtone": 21.189999999999998,
-          "voice_tradition": 27.9825,
-          "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 2.2749999999999995,
-          "voice_speech_song": 23.009999999999998,
-          "voice_ensemble_config": 21.904999999999998,
-          "voice_ornament_system": 6.9225,
+          "voice_vibrato": 0.59,
+          "voice_articulation": 24.114999999999995,
+          "voice_microtone": 21.774999999999995,
+          "voice_tradition": 26.455000000000002,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 22.554999999999996,
+          "voice_ensemble_config": 22.294999999999998,
+          "voice_ornament_system": 6.630000000000001,
           "voice_pitch_organization": 1.545,
-          "voice_processing_chain": 5.459999999999999,
+          "voice_processing_chain": 4.029999999999999,
           "voice_multitrack_stack": 3.7950000000000004
         }
       },
@@ -120,7 +120,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 2.08,
+          "clap_technique": 1.885,
           "clap_capture": 0
         }
       }

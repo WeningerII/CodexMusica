@@ -5,7 +5,7 @@
   "lineage": "Nu Age is a contemporary ambient discovery field connecting electroacoustic composition, processed instrumental sound and spacious electronic textures. Its artists overlap organic ambient, modern classical and drone networks.",
   "recipe": "classic nu age, experimental Elec, ambient branch. upright piano. live tracking.",
   "recipe_chars": 80,
-  "score": 0.204,
+  "score": 0.371,
   "config": {
     "traditions": [
       "nu_age"
@@ -19,8 +19,8 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.1,
-          "upright_use": 0.3045,
+          "keyboard_technique": -0.07,
+          "upright_use": 0.441,
           "upright_piano_size": 0
         }
       }

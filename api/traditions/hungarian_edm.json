@@ -5,7 +5,7 @@
   "lineage": "Hungarian EDM includes electronic producers and live acts that connect dance production with rock-band performance.",
   "recipe": "classic hungarian edm, electronic Dance. solo with instrumental accompaniment. humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 298,
-  "score": 20.96,
+  "score": 21.039,
   "config": {
     "traditions": [
       "hungarian_edm"
@@ -71,14 +71,14 @@
           "electric_technique": -0.1,
           "amp_make": 1.005,
           "body_wood": 0.39,
-          "neck_wood": 0.168,
-          "fretboard": 0.063,
+          "neck_wood": 0.173625,
+          "fretboard": 0.06862499999999999,
           "pickup_magnet": 0,
-          "pickup_winding": 0.063,
+          "pickup_winding": 0.06862499999999999,
           "string_material": 0,
-          "bridge": 0.168,
-          "scale_length": 0.231,
-          "string_gauge": 0.063,
+          "bridge": 0.173625,
+          "scale_length": 0.24225,
+          "string_gauge": 0.06862499999999999,
           "finish": 0,
           "string_tuning": 0
         }
@@ -97,10 +97,10 @@
         },
         "scores": {
           "amp_make": 2.015,
-          "body_wood": 0.231,
+          "body_wood": 0.24225,
           "pickup_config": 0,
           "string_type": 2.605,
-          "scale_length_b": 0.126,
+          "scale_length_b": 0.13724999999999998,
           "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": 2.5,
-          "drumhead": 0.063,
+          "drumhead": 0.06862499999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -129,7 +129,7 @@
         },
         "scores": {
           "electronic_technique": 0.2,
-          "sample_bitdepth": 0.126,
+          "sample_bitdepth": 0.13724999999999998,
           "sample_swing": 8.75,
           "sample_processing": 0
         }

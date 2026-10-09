@@ -5,7 +5,7 @@
   "lineage": "Bubble trance is a discovery label for buoyant melodic European rave and trance-adjacent repertoire. Repeating electronic hooks, simple low-note patterns and sampled drum sounds connect the field with dance records of the 1990s.",
   "recipe": "classic mid-1990s bubble trance, electronic Dance, trance branch. analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette digital delay.",
   "recipe_chars": 272,
-  "score": 20.762,
+  "score": 20.731,
   "config": {
     "traditions": [
       "bubble_trance"
@@ -40,7 +40,7 @@
         "scores": {
           "electronic_technique": 1.005,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 1.063,
+          "sampler_bit_depth": 1.0315,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 3.25
         }

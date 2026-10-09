@@ -5,7 +5,7 @@
   "lineage": "Johannesburg and Durban house variant that emerged in the mid-1990s as kwaito's faster sibling and was codified through Oskido, DJ Christos, Black Coffee and the Soulistic/Soul Candi label network — four-on-the-floor at 118-125 BPM, deep Rhodes-and-pad chords over rolling shaker and conga layers, gospel-inflected lead vocals in isiZulu, Sesotho and English, and extended 7-9 minute arrangements built for taxi-rank and club sound systems.",
   "recipe": "classic Southern African 1994-1996 south african house, electronic Dance, house branch, African dance electronic dance, deep house house, African pop functional song isicathamiya turkish deep house. thick, breath veiled tone, straight note core, interlocked note trading. behringer rd 9 modern clone TR-909, singing lead analog poly synth, melodic pitched sampler, cowhide mid tier siam oak mid tier modern congas, deep foundational bass rhythm calabash shekere, tremolo mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 764,
-  "score": 318.673,
+  "score": 319.12,
   "config": {
     "traditions": [
       "south_african_house",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 13.36,
+          "voice_register": 13.165,
           "voice_quality": 13.779999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.1999999999999997,
           "voice_articulation": 20.28,
           "voice_microtone": 21.580000000000002,
-          "voice_tradition": 23.36,
+          "voice_tradition": 23.66,
           "voice_mechanism_compound": 2.21,
           "voice_estill_quality": 7.765000000000001,
           "voice_speech_song": 22.36,
           "voice_ensemble_config": 23.822500000000005,
           "voice_ornament_system": 1.65,
           "voice_pitch_organization": 1.595,
-          "voice_processing_chain": 15.885000000000002,
+          "voice_processing_chain": 16.235,
           "voice_multitrack_stack": 4.484999999999999
         }
       },
@@ -60,7 +60,7 @@
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 24.54,
+          "tr909_voice": 24.5925,
           "drum_machine_909_context": 1.995,
           "tr909_production_origin": 1.15
         }
@@ -74,7 +74,7 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 6.590000000000001,
+          "electronic_technique": 6.545000000000001,
           "poly_archetypes": 2.08,
           "poly_voices": 2.08,
           "poly_maker_lineage": -1.705
@@ -92,9 +92,9 @@
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": 0.375,
-          "sampler_bit_depth": 1.38,
+          "sampler_bit_depth": 1.335,
           "sampler_workflow": 1.29,
-          "sampler_classic_context": 53.365
+          "sampler_classic_context": 53.290000000000006
         }
       },
       {
@@ -136,7 +136,7 @@
         "scores": {
           "keyboard_technique": 7.24,
           "rhodes_model": 1.585,
-          "rhodes_use": 4.445,
+          "rhodes_use": 4.55,
           "rhodes_tine_material": 1.48,
           "rhodes_hammer_tip": 0.3899999999999998,
           "rhodes_pickup_position": 1.045

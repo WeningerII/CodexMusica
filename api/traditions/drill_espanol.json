@@ -5,7 +5,7 @@
   "lineage": "Spanish-language drill scene developing from 2020 across Madrid, Barcelona and the Latin American diaspora (Morad, Beny Jr, Duki-adjacent Argentine trap producers), applying 140-146 BPM half-time drill drum programming and pitched 808 slides to Spanish and Catalan-inflected flows, with Andalusian and Maghrebi melodic material — flamenco-derived Phrygian guitar and Arabic string samples — replacing UK drill's minor-piano leads.",
   "recipe": "classic early-2020s drill en español, mc Rhythm, drill branch, intl hip hop MC rhythm, reggaeton MC rhythm, iberian functional song pinoy trap desi trap. thick, rap, straight note core, interlocked note trading. TR-808, pitched chopped sampler, cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, sub bass digital subtractive, sub bass monosynth acid bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 585,
-  "score": 254.498,
+  "score": 255.161,
   "config": {
     "traditions": [
       "drill_espanol",
@@ -38,18 +38,18 @@
           "voice_quality": 17.225,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9262499999999998,
+          "voice_vibrato": 2.0799999999999996,
           "voice_articulation": 18.784999999999993,
           "voice_microtone": 29.184999999999988,
           "voice_tradition": 6.695,
-          "voice_mechanism_compound": 5.000625,
-          "voice_estill_quality": 6.4175,
+          "voice_mechanism_compound": 5.195625000000001,
+          "voice_estill_quality": 7.0025,
           "voice_speech_song": 19.499999999999996,
           "voice_ensemble_config": 18.069999999999993,
           "voice_ornament_system": 7.735000000000001,
           "voice_pitch_organization": 3.1500000000000004,
           "voice_processing_chain": 7.995000000000002,
-          "voice_multitrack_stack": 5.145
+          "voice_multitrack_stack": 5.265
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 5.654375,
+          "tr808_voice": 5.489375000000001,
           "drum_machine_808_context": 1.69,
-          "tr808_production_origin": 0.15
+          "tr808_production_origin": 0.255
         }
       },
       {
@@ -70,15 +70,15 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
           "electronic_technique": 4.6000000000000005,
           "sampler_archetypes": 6.890000000000001,
-          "sampler_bit_depth": 0.44999999999999996,
-          "sampler_workflow": 8.613750000000001,
+          "sampler_bit_depth": 0.51,
+          "sampler_workflow": 8.898750000000001,
           "sampler_classic_context": 25.675
         }
       },
@@ -91,7 +91,7 @@
         },
         "scores": {
           "flamenco_body": 2.34,
-          "flamenco_features": 0.045,
+          "flamenco_features": 0.09,
           "flamenco_technique": 1.345
         }
       },
@@ -103,8 +103,8 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 12.854375000000001,
-          "va_archetypes": 0.195,
+          "electronic_technique": 12.689375000000002,
+          "va_archetypes": 0,
           "digital_subtractive_context": 18.33
         }
       },
@@ -117,8 +117,8 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 12.854375000000001,
-          "wave_acid": 0.39,
+          "electronic_technique": 12.689375000000002,
+          "wave_acid": 0.195,
           "filter_acid": 1.04,
           "accent_acid": 0
         }

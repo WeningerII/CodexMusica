@@ -5,7 +5,7 @@
   "lineage": "Comic music uses song, theatrical delivery and musical parody to create humor. Songwriters such as Tom Lehrer connect witty lyrics with recognizable musical forms and piano-led performance.",
   "recipe": "classic comic, functional Song. solo with instrumental accompaniment. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 181,
-  "score": 0.916,
+  "score": 1.095,
   "config": {
     "traditions": [
       "comic"
@@ -68,7 +68,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.1365,
+          "grand_piano_brand": 0.3165,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,

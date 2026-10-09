@@ -5,7 +5,7 @@
   "lineage": "Early-2010s revival of late-1990s midwest emo aesthetic through new bands continuing the Cap'n Jazz, American Football, and Promise Ring lineage. The World Is a Beautiful Place & I Am No Longer Afraid to Die (2009-onward), Algernon Cadwallader, Snowing, Joyce Manor, and the broader Topshelf Records and Run for Cover Records label rosters anchor the canonical roster. The 2014 American Football reunion and 1999-album re-release consolidated the revival's historical lineage.",
   "recipe": "classic modern emo revival, distorted Rock, emo branch, alternative distorted rock funk metal madchester / baggy. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood low output no compression humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 614,
-  "score": 287.285,
+  "score": 287.24,
   "config": {
     "traditions": [
       "emo_revival_2010s",
@@ -38,7 +38,7 @@
           "voice_quality": 18.199999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.17,
+          "voice_vibrato": 5.9750000000000005,
           "voice_articulation": 12.479999999999995,
           "voice_microtone": 20.425,
           "voice_tradition": 3.25,
@@ -70,14 +70,14 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 15.059999999999999,
+          "electric_technique": 15.014999999999999,
           "amp_make": 10.944999999999999,
           "body_wood": 7.604999999999999,
           "neck_wood": 0.845,
           "fretboard": 0.78,
           "pickup_magnet": 0.845,
           "pickup_winding": 2.535,
-          "string_material": 0.15,
+          "string_material": 0.345,
           "bridge": 0.845,
           "scale_length": 6.759999999999999,
           "string_gauge": 0.845,

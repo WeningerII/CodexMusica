@@ -5,7 +5,7 @@
   "lineage": "1980-present sample-collage composition tradition coined by John Oswald (Plunderphonics 1989) — characterized by appropriated-pop-recording manipulation as compositional material; the Negativland (Christianity Is Stupid 1987), the Tape-beatles, People Like Us / Vicki Bennett lineage, and the broader fair-use-and-copyright contested terrain",
   "recipe": "classic modern plunderphonics, experimental Elec, musique concrete branch, us hip hop MC rhythm gangsta rap cloud rap. pitched chopped sampler, sampled chopped sampler drum machine, modular granular synth. treated studio. large-diaphragm condenser, transformerless solid-state pre, empirical labs distressor, GML massenburg parametric. 24-bit digital.",
   "recipe_chars": 351,
-  "score": 81.775,
+  "score": 81.745,
   "config": {
     "traditions": [
       "plunderphonics",
@@ -23,10 +23,10 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 12.334999999999999,
+          "electronic_technique": 12.29,
           "sampler_archetypes": 12.479999999999997,
           "sampler_bit_depth": 0.975,
-          "sampler_workflow": 7.814999999999999,
+          "sampler_workflow": 7.724999999999999,
           "sampler_classic_context": 20.799999999999997
         }
       },
@@ -39,7 +39,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 12.334999999999999,
+          "electronic_technique": 12.29,
           "sample_bitdepth": 0.975,
           "sample_swing": 12.479999999999997,
           "sample_processing": 0.845
@@ -54,7 +54,7 @@
         },
         "scores": {
           "electronic_technique": 4.95,
-          "granular_use": 0.24,
+          "granular_use": 0.39,
           "granular_synth_source": 3.645
         }
       }

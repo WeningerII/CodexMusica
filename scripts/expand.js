@@ -45,6 +45,7 @@ function resolveChainItem(sectionId, itemId) {
 // (~64 KiB) — e.g. `expand.js --tradition <id> | jq` was losing everything past byte
 // 65524. Letting the event loop flush stdout first avoids that. Error paths keep
 // `process.exit(2)`: they write a tiny message to stderr and must halt immediately.
+if (flags.tradition) flags.tradition = C.resolveTraditionId(flags.tradition);
 if (flags.tradition) {
   const t = C.TRADITIONS.find((x) => x.id === flags.tradition);
   if (!t) {

@@ -5,7 +5,7 @@
   "lineage": "The UK garage revival reinterpreted earlier garage and 2-step styles through new electronic production. Disclosure’s early club records exemplify the exchange between swung garage rhythms, house-derived repetition and cut vocal recordings.",
   "recipe": "classic modern ukg revival, bass System, uk soundsystem branch. sampler, sampler drum machine, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 319,
-  "score": 12.059,
+  "score": 12.118,
   "config": {
     "traditions": [
       "ukg_revival"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 0.26,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.3315,
+          "sampler_bit_depth": 0.39,
           "sampler_workflow": 0.19500000000000003,
           "sampler_classic_context": 8.254999999999999
         }
@@ -38,7 +38,7 @@
         },
         "scores": {
           "electronic_technique": 0.26,
-          "sample_bitdepth": 0.0315,
+          "sample_bitdepth": 0.1365,
           "sample_swing": 1.2815,
           "sample_processing": 0
         }
@@ -52,7 +52,7 @@
         },
         "scores": {
           "electronic_technique": 0.2,
-          "va_archetypes": 0.105,
+          "va_archetypes": 0,
           "digital_subtractive_context": -0.035
         }
       }

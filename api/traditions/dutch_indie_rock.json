@@ -5,7 +5,7 @@
   "lineage": "Dutch independent guitar rock represented by Amsterdam band Bettie Serveert, selecting their Private Suit studio-expansion period rather than assuming every release has the debut’s stripped guitar-band arrangement. Lead/backing voices, electric guitar, bass and drums are joined by sampled/keyboard layers and the separately documented marimba part.",
   "recipe": "classic dutch indie rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, alternative padauk marimba orchestral, electric piano tine, sampler. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 422,
-  "score": 47.422,
+  "score": 48.241,
   "config": {
     "traditions": [
       "dutch_indie_rock"
@@ -42,11 +42,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
-          "voice_ensemble_config": 1.449,
+          "voice_speech_song": 0.483,
+          "voice_ensemble_config": 1.0185,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0
         }
       },
@@ -57,7 +57,7 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
+          "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
@@ -70,14 +70,14 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 4.42,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
-          "fretboard": 0.21000000000000002,
+          "body_wood": 0.6825000000000001,
+          "neck_wood": 0.6825000000000001,
+          "fretboard": 0.2415,
           "pickup_magnet": 0,
-          "string_material": 0.105,
-          "string_gauge": 0.5775,
+          "string_material": 0.2415,
+          "string_gauge": 0.6825000000000001,
           "bridge": 0.1365,
-          "scale_length": 1.1550000000000002,
+          "scale_length": 1.3650000000000004,
           "finish": 0,
           "string_tuning": 0,
           "single_coil_pickup_construction": 0
@@ -97,10 +97,10 @@
         },
         "scores": {
           "amp_make": 5.785,
-          "body_wood": 1.1550000000000002,
+          "body_wood": 1.3650000000000004,
           "pickup_config": 0.40950000000000003,
           "string_type": 11.375,
-          "scale_length_b": 0.5775,
+          "scale_length_b": 0.6825000000000001,
           "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -118,7 +118,7 @@
           "drum_technique": 8.75,
           "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.105
+          "shell_wood": 0.2415
         }
       },
       {

@@ -1,16 +1,17 @@
 {
-  "id": "negro_spiritual",
-  "name": "Negro Spiritual (concert arrangement)",
+  "id": "spirituals",
+  "merged_from": "negro_spiritual",
+  "name": "Spirituals (arranged concert tradition)",
   "family": "blues_gospel",
-  "lineage": "The arranged concert form of the African-American spiritual, created when the Fisk Jubilee Singers toured from 1871 and codified as a solo art song by Harry T. Burleigh from 1916 and later by Hall Johnson, William Dawson and Moses Hogan — setting plantation-era melodies in Western four-part harmony or voice-and-piano, in slow rubato-inflected strophes with dialect text, swelling dynamics and a trained legato delivery.",
-  "recipe": "classic British early-1870s negro spiritual, ritual Devotional, spirituals branch, christian gospel jubilee quartet, western common practice art music french renaissance. thick, declaimed, slow rate, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part four voice polyphonic regional aka four part motangole ngue osese diyei choir ensemble. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 517,
-  "score": 219.53,
+  "lineage": "Concert-arranged branch of the African-American spiritual formed when the Fisk Jubilee Singers took plantation songs on tour from 1871 and codified by Harry T. Burleigh's solo-voice-and-piano settings (1916), Hall Johnson's and William Dawson's choral arrangements, and Roland Hayes and Marian Anderson's recital performances — slow-to-moderate rubato tempos, SATB four-part homophony with dialect text, call-and-response refrains flattened into written verses, and trained legit vocal delivery replacing the ring-shout's foot-stamped polyrhythm.",
+  "recipe": "classic North American early-1870s spirituals, ritual Devotional, spirituals branch, christian gospel black gospel, christian gospel jubilee quartet, blues narrative work song. thick, declaimed, wide pitch sway, leader call answered. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, choir southern black gospel, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 635,
+  "score": 362.978,
   "config": {
     "traditions": [
-      "negro_spiritual",
+      "spirituals",
       "jubilee_quartet",
-      "french_renaissance"
+      "gospel_quartet_male"
     ],
     "instruments": [
       {
@@ -20,61 +21,36 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "call_response_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 16.145,
-          "voice_quality": 21.944999999999997,
+          "voice_register": 31.939999999999998,
+          "voice_quality": 39.910000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3149999999999995,
-          "voice_articulation": 15.209999999999997,
-          "voice_microtone": 13.974999999999993,
-          "voice_tradition": 16.89,
-          "voice_mechanism_compound": 2.4699999999999998,
-          "voice_estill_quality": 14.224999999999998,
-          "voice_speech_song": 17.354999999999997,
-          "voice_ensemble_config": 19.889999999999993,
-          "voice_ornament_system": 9.025,
-          "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 5.784999999999999,
-          "voice_multitrack_stack": 5.784999999999999
-        }
-      },
-      {
-        "id": "grand_piano",
-        "slots": {
-          "keyboard_technique": "keyboard_gospel_chord_runs",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "standard_multi_laminate_pinblock",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_442_european"
-        },
-        "scores": {
-          "keyboard_technique": 15.305,
-          "grand_piano_size": 0.9099999999999999,
-          "grand_piano_brand": 1.3350000000000002,
-          "piano_hammer": 5.745,
-          "piano_rim": 7.084999999999999,
-          "piano_soundboard": 4.744999999999999,
-          "piano_pinblock": 1.3499999999999999,
-          "piano_plate": 1.29,
-          "piano_pitch_standard": 5.614999999999999
+          "voice_vibrato": 2.51,
+          "voice_articulation": 29.185000000000002,
+          "voice_microtone": 16.705,
+          "voice_tradition": 40.3325,
+          "voice_mechanism_compound": 3.7049999999999996,
+          "voice_estill_quality": 28.700000000000003,
+          "voice_speech_song": 18.46,
+          "voice_ensemble_config": 27.595,
+          "voice_ornament_system": 13.525000000000002,
+          "voice_pitch_organization": 2.265,
+          "voice_processing_chain": 3.4450000000000003,
+          "voice_multitrack_stack": 3.7700000000000005
         }
       },
       {
@@ -82,25 +58,63 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_aka_four_part",
-          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 6.205,
-          "choir_polyphonic_configuration": 4.825,
-          "choir_regional_canonical_configuration": 3.56,
-          "choir_ensemble_repertoire": 3.0549999999999997
+          "choir_size": 3.25,
+          "choir_polyphonic_configuration": 4.444999999999999,
+          "choir_regional_canonical_configuration": 4.0249999999999995,
+          "choir_ensemble_repertoire": 2.08
+        }
+      },
+      {
+        "id": "choir_southern_black_gospel",
+        "slots": {
+          "voices": "lead_vocalist",
+          "accompaniment": "gospel_full_band",
+          "era": "gospel_quartet_lineage"
+        },
+        "scores": {
+          "voices": 1.4949999999999999,
+          "accompaniment": 0.9099999999999999,
+          "era": 19.955000000000005
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
+        },
+        "scores": {
+          "keyboard_technique": 34.01,
+          "grand_piano_size": 1.9299999999999997,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 6.5649999999999995,
+          "piano_rim": 9.425,
+          "piano_soundboard": 5.46,
+          "piano_pinblock": 1.25,
+          "piano_plate": 1.49,
+          "piano_pitch_standard": 1.625
         }
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_decca_sound_orchestral",
+    "archetype": "arch_late60s_us_multitrack",
     "inline_chain": {
-      "mic": "mic_u47_tube_neumann",
-      "pre": "pre_tube_german_v72",
-      "console": "console_german_tube_50s",
-      "comp": "comp_fairchild_670_tube",
-      "eq": "eq_passive_program_pultec",
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": null,
       "amp": null,
       "medium": "tape_15ips"
     },
@@ -112,11 +126,10 @@
   "source": {
     "tuning": "twelve_tet",
     "room": "concert_hall_shoebox",
-    "chain_mic": "mic_u47_tube_neumann",
-    "chain_pre": "pre_tube_german_v72",
-    "chain_comp": "comp_fairchild_670_tube",
-    "chain_eq": "eq_passive_program_pultec",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
     "chain_medium": "tape_15ips",
-    "chain_console": "console_german_tube_50s"
+    "chain_console": "colored"
   }
 }

@@ -3,14 +3,14 @@
   "name": "Bass house",
   "family": "electronic",
   "lineage": "Mid-2010s international house-and-bass-music convergence represented by Jauz, Habstrakt and Dustycloud: club kick patterns meet mobile, distorted bass sound design and short vocal cuts. This seed selects the bass-led club-single strand rather than the full catalog of any artist.",
-  "recipe": "classic 2014-2016 bass house, electronic Dance, house branch, bass system, tech house house jungle and drum-and-bass darkcore. sub bass wavetable synth, sampler drum machine, chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion mono maker / bass-mono.",
-  "recipe_chars": 381,
-  "score": 86.681,
+  "recipe": "classic 2014-2016 bass house, electronic Dance, house branch, bass system, tech house house electric powwow jungle and drum-and-bass. sub bass wavetable synth, sampler drum machine, chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion mono maker / bass-mono.",
+  "recipe_chars": 388,
+  "score": 87.074,
   "config": {
     "traditions": [
       "bass_house",
-      "jungle",
-      "darkcore"
+      "electric_powwow",
+      "jungle"
     ],
     "instruments": [
       {
@@ -22,9 +22,9 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 19.11,
+          "electronic_technique": 20.748124999999998,
           "wt_position": 0.3,
-          "wt_family": 0.195,
+          "wt_family": 0,
           "wt_polyphony": 0.09
         }
       },
@@ -37,9 +37,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 1.8468749999999998,
-          "sample_bitdepth": 0.635,
-          "sample_swing": 10.5,
+          "electronic_technique": 2.5518750000000003,
+          "sample_bitdepth": 0.135,
+          "sample_swing": 10.875,
           "sample_processing": 0
         }
       },
@@ -53,11 +53,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.8468749999999998,
+          "electronic_technique": 2.5518750000000003,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.135,
-          "sampler_workflow": 3.0468749999999996,
-          "sampler_classic_context": 44.85
+          "sampler_workflow": 2.501875,
+          "sampler_classic_context": 41.85999999999999
         }
       }
     ],

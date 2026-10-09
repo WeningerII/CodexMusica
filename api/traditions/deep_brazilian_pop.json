@@ -5,7 +5,7 @@
   "lineage": "Deep Brazilian pop connects less-mainstream Brazilian song repertoire with the melodic and harmonic traditions of MPB. Intimate vocal collaborations form one strand of this broad discovery field.",
   "recipe": "classic deep brazilian pop, functional Song, Brazilian song branch. basswood clean strummed humbucker electric guitar, yamaha modern Japanese mid to premium flute. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 264,
-  "score": 14.819,
+  "score": 14.977,
   "config": {
     "traditions": [
       "deep_brazilian_pop"
@@ -58,7 +58,7 @@
           "flute_size": 0,
           "flute_material": 0.1995,
           "flute_technique": 0,
-          "flute_maker_school": 1.1340000000000001
+          "flute_maker_school": 1.2285000000000001
         }
       },
       {
@@ -93,11 +93,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.40950000000000003,
+          "voice_ensemble_config": 0.44100000000000006,
           "voice_ornament_system": 0.3045,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.273,
-          "voice_multitrack_stack": 0.273
+          "voice_multitrack_stack": 0.3045
         }
       }
     ],

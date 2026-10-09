@@ -3,14 +3,14 @@
   "name": "Folklore Boliviano",
   "family": "global",
   "lineage": "The Aymara and Quechua highland music of Bolivia, staged and recorded as national folklore from the 1960s by Los Jairas, Ernesto Cavour and Gilbert Favre in La Paz peñas — huayño in a driving 2/4 around 120 BPM and slow yaraví laments, with siku panpipe consorts played in interlocking hocket pairs, quena, charango tremolo, bombo andino on the downbeat, and high, tight, nasal unison or parallel-fifth singing.",
-  "recipe": "classic Andean mid-1960s folklore boliviano, field Work, andean branch, andean carnival processional, Latin am troubadour ballad poetry folclore jujeño tinku. sygyt, breath veiled tone, straight note core, interlocked note trading. naranjillo andean premium wood cedar andean andean classical charango, andean tradition paired rows interlocking siku panpipes, quena, highland traditional guanaco hide hide bombo andino, low mid rich spectrum broken in fast cedar classical nylon-string guitar. andean altiplano outdoor. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 594,
-  "score": 236.105,
+  "recipe": "classic Andean mid-1960s folklore boliviano, field Work, andean branch, andean carnival processional, Latin am troubadour ballad poetry folclore jujeño milonga. thick, breath veiled tone, straight note core, interlocked note trading. naranjillo andean premium wood cedar andean andean classical charango, andean tradition paired rows interlocking siku panpipes, quena, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, cedar fingerpicked classical nylon-string guitar. andean altiplano outdoor. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 600,
+  "score": 234.817,
   "config": {
     "traditions": [
       "folklore_boliviano",
       "folclore_jujeno",
-      "tinku_bolivia"
+      "milonga"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 1.17,
-          "charango_back": 6.954999999999999,
-          "charango_top_wood": 6.954999999999999,
-          "charango_strings": 6.954999999999999,
-          "charango_string_material": 6.89
+          "plucked_traditional_technique": 5.7524999999999995,
+          "charango_back": 5.525,
+          "charango_top_wood": 5.525,
+          "charango_strings": 5.720000000000001,
+          "charango_string_material": 5.655000000000001
         }
       },
       {
@@ -37,21 +37,21 @@
           "siku_size": "siku_malta"
         },
         "scores": {
-          "siku_construction": 9.425,
-          "siku_size": 0.24
+          "siku_construction": 8.19,
+          "siku_size": 0.045
         }
       },
       {
         "id": "quena",
         "slots": {
           "wind_articulation": "wind_folk_melodic",
-          "quena_material": "quena_bone",
+          "quena_material": "quena_wood",
           "quena_pitch": "quena_g"
         },
         "scores": {
-          "wind_articulation": 0.26,
-          "quena_material": 0.63,
-          "quena_pitch": 1.32
+          "wind_articulation": 2.625,
+          "quena_material": 0.3,
+          "quena_pitch": 0.75
         }
       },
       {
@@ -62,15 +62,15 @@
           "bombo_andino_shell_wood": "bombo_andino_ceibo"
         },
         "scores": {
-          "bombo_andino_construction": 0.845,
-          "bombo_andino_skin": 1.3,
-          "bombo_andino_shell_wood": 0.845
+          "bombo_andino_construction": 4.039999999999999,
+          "bombo_andino_skin": 1.45,
+          "bombo_andino_shell_wood": 1.84
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -88,22 +88,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.2999999999999998,
-          "voice_quality": 15.729999999999995,
+          "voice_register": 3.0250000000000004,
+          "voice_quality": 16.379999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 22.359999999999992,
-          "voice_microtone": 19.23999999999999,
-          "voice_tradition": 29.709999999999997,
-          "voice_mechanism_compound": 3.965,
-          "voice_estill_quality": 14.859999999999998,
-          "voice_speech_song": 20.019999999999992,
-          "voice_ensemble_config": 18.914999999999992,
-          "voice_ornament_system": 20.989999999999995,
-          "voice_pitch_organization": 3.9300000000000006,
-          "voice_processing_chain": 4.9399999999999995,
-          "voice_multitrack_stack": 5.450000000000001
+          "voice_vibrato": 2.47,
+          "voice_articulation": 22.164999999999992,
+          "voice_microtone": 19.434999999999988,
+          "voice_tradition": 24.909999999999997,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 12.11,
+          "voice_speech_song": 21.319999999999993,
+          "voice_ensemble_config": 19.499999999999993,
+          "voice_ornament_system": 17.322499999999998,
+          "voice_pitch_organization": 3.595,
+          "voice_processing_chain": 3.965,
+          "voice_multitrack_stack": 5.24
         }
       },
       {
@@ -114,15 +114,15 @@
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
           "string_classical": "plain_sheep_gut_classical_guitar",
-          "attack_technique_cl": "tirando_cl"
+          "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 0.9399999999999998,
+          "acoustic_technique": 4.945,
           "string_tuning": 0,
-          "top_wood_classical": 8.32,
-          "bracing_classical": 1.15,
+          "top_wood_classical": 7.865,
+          "bracing_classical": 1.3,
           "string_classical": 0.325,
-          "attack_technique_cl": 0.345
+          "attack_technique_cl": 0.375
         }
       }
     ],

@@ -218,7 +218,14 @@ function validateRequest(input) {
   };
 }
 
-export function createReaderRouter({ store, scheduler, secret, site, resolveIdentity }) {
+export function createReaderRouter({
+  store,
+  scheduler,
+  secret,
+  site,
+  resolveIdentity,
+  prepareRequest = async (request) => request,
+}) {
   const router = express.Router();
   router.use('/internal/reader', createReaderAuthenticator({ secret, site }));
   const handler = (fn) => (req, res, next) =>
@@ -242,9 +249,10 @@ export function createReaderRouter({ store, scheduler, secret, site, resolveIden
     handler(async (req, res) => {
       if (req.readerAuth.job || req.readerAuth.capability)
         throw fail('BAD_SIGNATURE', 'Create must have an empty job binding.');
-      const request = validateRequest(req.body);
+      let request = validateRequest(req.body);
       if (request.idempotency_key && request.idempotency_key !== req.readerAuth.idempotency)
         throw fail('IDEMPOTENCY_CONFLICT', 'The body and signed idempotency keys disagree.', 409);
+      request = await prepareRequest(request);
       const identity = await resolveIdentity(request);
       const result = store.create({
         viewer: req.readerAuth.viewer,

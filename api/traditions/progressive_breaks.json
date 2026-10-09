@@ -3,14 +3,14 @@
   "name": "Progressive Breaks",
   "family": "electronic",
   "lineage": "UK and US crossover style of roughly 1996-2005 developed by Hybrid, BT, Way Out West and the Distinctive and Bedrock labels, characterized by 128-134 BPM chopped syncopated breakbeats replacing the four-on-the-floor kick, long filtered progressive-house pads, orchestral or cinematic string layers, sub-bass ostinati and eight-to-ten-minute arrangements built on extremely gradual DJ-friendly transitions.",
-  "recipe": "classic mid-2000s progressive breaks, electronic Dance, continental branch, trance electronic dance, idm glitch experimental electric dream house classic trance. vocal fry, breath veiled tone, straight note core, interlocked note trading. glitched textural sampler, sub bass analog poly synth, sub bass digital subtractive, sub bass monosynth acid bass, string machine, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 581,
-  "score": 196.043,
+  "recipe": "classic mid-2000s progressive breaks, electronic Dance, continental branch, trance electronic dance, idm glitch experimental electric classic trance full on. balanced, breath veiled tone, straight note core, interlocked note trading. glitched textural sampler, sub bass analog poly synth, sub bass digital subtractive, sub bass monosynth acid bass, string machine, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 576,
+  "score": 185.355,
   "config": {
     "traditions": [
       "progressive_breaks",
-      "dream_house",
-      "classic_trance"
+      "classic_trance",
+      "full_on"
     ],
     "instruments": [
       {
@@ -27,7 +27,7 @@
           "sampler_archetypes": 0.65,
           "sampler_bit_depth": 0.06499999999999999,
           "sampler_workflow": 3.4999999999999996,
-          "sampler_classic_context": 22.619999999999997
+          "sampler_classic_context": 18.33
         }
       },
       {
@@ -39,7 +39,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 4.309500000000001,
+          "electronic_technique": 4.095000000000001,
           "poly_archetypes": 1.4949999999999999,
           "poly_voices": 1.4949999999999999,
           "poly_maker_lineage": -1.765
@@ -49,13 +49,13 @@
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "va_archetypes": "access_virus",
+          "va_archetypes": "novation_supernova",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 4.309500000000001,
-          "va_archetypes": 4.484999999999999,
-          "digital_subtractive_context": 14.884999999999998
+          "electronic_technique": 4.095000000000001,
+          "va_archetypes": 3.6399999999999997,
+          "digital_subtractive_context": 13.844999999999999
         }
       },
       {
@@ -67,10 +67,10 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 4.309500000000001,
-          "wave_acid": 0.65,
-          "filter_acid": 1.4995,
-          "accent_acid": 1.4949999999999999
+          "electronic_technique": 4.095000000000001,
+          "wave_acid": 0.195,
+          "filter_acid": 1.3,
+          "accent_acid": 1.6899999999999997
         }
       },
       {
@@ -79,13 +79,13 @@
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
           "sm_chorus": "sm_chorus_lush",
-          "sm_voicing": "sm_choir"
+          "sm_voicing": "sm_violins"
         },
         "scores": {
           "electronic_technique": 1.3649999999999998,
           "sm_voice_count": 9.23,
           "sm_chorus": 1.345,
-          "sm_voicing": 0.845
+          "sm_voicing": 0.65
         }
       },
       {
@@ -96,7 +96,7 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 6.695,
+          "tr909_voice": 4.195,
           "drum_machine_909_context": 0.3,
           "tr909_production_origin": 0.195
         }
@@ -104,40 +104,40 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "mix_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.04,
-          "voice_quality": 9.620000000000001,
+          "voice_register": 0.65,
+          "voice_quality": 9.100000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4299999999999997,
+          "voice_vibrato": 1.2349999999999999,
           "voice_articulation": 12.999999999999995,
-          "voice_microtone": 12.804999999999993,
-          "voice_tradition": 4.745,
-          "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 3.1550000000000002,
+          "voice_microtone": 13.649999999999993,
+          "voice_tradition": 6.4350000000000005,
+          "voice_mechanism_compound": 3.5749999999999993,
+          "voice_estill_quality": 3.185,
           "voice_speech_song": 12.999999999999995,
-          "voice_ensemble_config": 16.89999999999999,
-          "voice_ornament_system": 1.5250000000000001,
-          "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 21.245,
-          "voice_multitrack_stack": 5.265000000000001
+          "voice_ensemble_config": 15.859999999999994,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 20.580000000000002,
+          "voice_multitrack_stack": 4.615
         }
       }
     ],

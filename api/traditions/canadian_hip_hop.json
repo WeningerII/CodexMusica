@@ -5,7 +5,7 @@
   "lineage": "Canadian hip hop is a cross-era, multilingual national scene, not a single production style. The selected Shad collaboration branch combines reflective rhythmic verses with producer-built beats and keyboard contributions.",
   "recipe": "classic modern canadian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler, 18 ply hard rock maple vintage production wet sand cast cast iron grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 422,
-  "score": 47.096,
+  "score": 47.135,
   "config": {
     "traditions": [
       "canadian_hip_hop"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.285,
+          "voice_speech_song": 11.375,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -71,7 +71,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_5_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "felt_piano_practice_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
@@ -82,7 +82,7 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "grand_piano_size": 0.213,
+          "grand_piano_size": 0.162,
           "grand_piano_brand": 0.39,
           "piano_hammer": 0.325,
           "piano_rim": 1.17,

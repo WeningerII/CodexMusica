@@ -5,7 +5,7 @@
   "lineage": "Pontianak indie connects independent bands, labels and physical-release communities in Pontianak, West Kalimantan. Local events and collaborations support varied pop, rock and experimental approaches within Indonesia’s broader independent field.",
   "recipe": "classic pontianak indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, credited synthesizer unspecified. live tracking.",
   "recipe_chars": 349,
-  "score": 39.992,
+  "score": 41.115,
   "config": {
     "traditions": [
       "pontianak_indie"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -73,14 +73,14 @@
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.105,
+          "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 0.9099999999999999,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 0.868,
           "finish": 0,
           "string_tuning": 0
         }
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 11.231499999999999,
@@ -150,12 +150,12 @@
         },
         "scores": {
           "wind_articulation": -0.15000000000000002,
-          "brass_size": 0.105,
+          "brass_size": 0.2415,
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0.273,
           "trumpet_technique": -0.15000000000000002,
-          "trumpet_bell_metal": 1.2285,
-          "trumpet_maker_school": 2.1525
+          "trumpet_bell_metal": 1.5014999999999998,
+          "trumpet_maker_school": 2.457
         }
       },
       {

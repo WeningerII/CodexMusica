@@ -5,7 +5,7 @@
   "lineage": "Swiss trap develops bass-heavy programmed rap within Switzerland’s multilingual music networks. Artists such as Pronto combine locally inflected delivery with international trap influences, while collaborations and pop, dancehall and Afro-oriented branches cross national and language borders.",
   "recipe": "classic swiss trap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, analog poly synth. treated studio.",
   "recipe_chars": 163,
-  "score": 18.108,
+  "score": 18.14,
   "config": {
     "traditions": [
       "swiss_trap"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 8.45,
-          "voice_ensemble_config": 1.6795,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.685,
+          "tr808_voice": 3.5695,
           "drum_machine_808_context": 1.3,
-          "tr808_production_origin": 0.105
+          "tr808_production_origin": 0.1785
         }
       },
       {
@@ -75,8 +75,8 @@
         },
         "scores": {
           "electronic_technique": 2.45,
-          "poly_archetypes": 0,
-          "poly_voices": 0.084,
+          "poly_archetypes": 0.0315,
+          "poly_voices": 0.1155,
           "poly_maker_lineage": -0.035
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "SDA choirs serve Seventh-day Adventist worship, community life and musical outreach. Their repertoire connects hymns, spirituals and other Christian choral music across different local traditions.",
   "recipe": "classic sda choir, ritual Devotional, christian gospel branch. no specific ornament system. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 190,
-  "score": 1.373,
+  "score": 1.236,
   "config": {
     "traditions": [
       "sda_choir"
@@ -44,7 +44,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.6825000000000001,
+          "voice_ornament_system": 0.546,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.3

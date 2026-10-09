@@ -1,61 +1,77 @@
 {
-  "id": "noise",
-  "name": "Noise",
+  "id": "noise_music",
+  "merged_from": "noise",
+  "name": "Noise music",
   "family": "electronic",
-  "lineage": "Experimental sound practice that places texture, distortion and sonic density at the center of musical form.",
-  "recipe": "classic noise, experimental Elec. credited harsh noise. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital silicon fuzz.",
-  "recipe_chars": 167,
-  "score": 0,
+  "lineage": "Late-1960s onward experimental-music genre foregrounding harsh-noise, feedback, and non-musical sound as primary material — codified through the Japanese noise canon (Merzbow — Pulse Demon 1996, Hijokaidan, Masonna, Boredoms), the European industrial-noise scene, and the American academic-experimental tradition extending from John Cage through the contemporary noise-festival circuit",
+  "recipe": "classic North American 1967-1969 noise music, experimental Elec, industrial noise branch, experimental distorted rock drone psych. analog modular modular synth. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 311,
+  "score": 28.253,
   "config": {
     "traditions": [
-      "noise"
+      "noise_music",
+      "drone_psych",
+      "experimental_rock"
     ],
     "instruments": [
       {
-        "id": "credited_harsh_noise",
+        "id": "analog_synth",
         "slots": {
-          "credited_harsh_noise_identity": "credited_harsh_noise_mechanism_unspecified"
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
         },
         "scores": {
-          "credited_harsh_noise_identity": 0
+          "electronic_technique": 1.4949999999999999,
+          "oscillator": 1.8199999999999998,
+          "filter_topology": 0.845,
+          "envelope": 0.78,
+          "modulation": 0.75
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_emu_modular"
+        },
+        "scores": {
+          "electronic_technique": 15.93,
+          "mod_voltage_source": 0.78,
+          "mod_patch_density": 2.1900000000000004,
+          "mod_lineage": 0.975
         }
       }
     ],
-    "pinned": {
-      "credited_harsh_noise": [
-        "credited_harsh_noise_identity"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "concrete_basement",
+    "archetype": "arch_late60s_us_multitrack",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": [
-      "fuzz_silicon"
-    ]
+    "fx_extras": []
   },
   "source": {
-    "room": "treated_studio",
+    "tuning": "twelve_tet",
+    "room": "concrete_basement",
     "parts": {
-      "credited_harsh_noise_identity": "credited_harsh_noise_mechanism_unspecified"
+      "electronic_technique": "electronic_pad_drone"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box",
-    "chain_fx": [
-      "fuzz_silicon"
-    ]
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "tape_15ips",
+    "chain_console": "broken"
   }
 }

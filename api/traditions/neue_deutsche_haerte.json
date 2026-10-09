@@ -5,7 +5,7 @@
   "lineage": "German fusion of industrial dance and metal codified by Rammstein's Herzeleid (1995) after Oomph!'s early-1990s template, built on mid-tempo 90-120 BPM four-on-the-floor kick patterns, downtuned palm-muted single-note guitar riffs doubled by synth stabs, orchestral or choir samples, and declaimed rolled-R German vocals in a low baritone, produced with heavy compression and grid-tight editing.",
   "recipe": "classic British 1990-1993 neue deutsche härte, distorted Rock, metal branch, thrash metal, industrial noise experimental electric, late analog major distorted rock arena rock hair metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth, sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 716,
-  "score": 367.184,
+  "score": 367.052,
   "config": {
     "traditions": [
       "neue_deutsche_haerte",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 23.670624999999994,
+          "voice_register": 23.619999999999994,
           "voice_quality": 7.280000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.9,
           "voice_articulation": 11.699999999999996,
           "voice_microtone": 23.824999999999996,
-          "voice_tradition": 3.760625,
-          "voice_mechanism_compound": 22.391874999999995,
+          "voice_tradition": 3.71,
+          "voice_mechanism_compound": 21.924999999999997,
           "voice_estill_quality": 2.8600000000000003,
           "voice_speech_song": 10.854999999999995,
           "voice_ensemble_config": 14.884999999999996,
-          "voice_ornament_system": 0.9099999999999997,
-          "voice_pitch_organization": 4.355,
+          "voice_ornament_system": 0.7899999999999997,
+          "voice_pitch_organization": 4.325,
           "voice_processing_chain": 6.110000000000001,
           "voice_multitrack_stack": 7.3450000000000015
         }
@@ -70,13 +70,13 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 20.764374999999998,
-          "amp_make": 13.43,
+          "electric_technique": 20.769999999999996,
+          "amp_make": 13.6175,
           "body_wood": 9.815,
           "neck_wood": 3.5300000000000002,
           "fretboard": 3.4800000000000004,
-          "pickup_magnet": 1.1756249999999997,
-          "pickup_winding": 2.3,
+          "pickup_magnet": 1.2149999999999999,
+          "pickup_winding": 2.3449999999999998,
           "string_material": 1,
           "bridge": 3.5300000000000002,
           "scale_length": 9.23,
@@ -100,8 +100,8 @@
         "scores": {
           "amp_make": 12.545,
           "body_wood": 3.575,
-          "pickup_config": 1.070625,
-          "string_type": 25.055,
+          "pickup_config": 1.11,
+          "string_type": 25.28,
           "scale_length_b": 3.5300000000000002,
           "fretted_or_not": 0.285,
           "bass_technique": 22.590000000000003,
@@ -130,7 +130,7 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 2.4650000000000007,
+          "electronic_technique": 2.5100000000000007,
           "poly_archetypes": 11.57,
           "poly_voices": 2.35,
           "poly_maker_lineage": -0.42000000000000004

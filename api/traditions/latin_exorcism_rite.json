@@ -3,14 +3,14 @@
   "name": "Latin Rituale Romanum exorcism recitation",
   "family": "global",
   "lineage": "The Latin exorcism recitation is the imprecatory liturgy of the Roman Catholic Rituale Romanum, whose exorcism section (De exorcizandis obsessis a daemonio) was codified in 1614 and revised in 1999. Performed by a priest with the bishop's mandate, it interleaves psalmody, Gospel readings, and the imperative deprecatory-and-imperative formulae addressed directly to the demon ('Exorcizo te, immundissime spiritus'). Delivery is forceful heightened Latin declamation in a resonant church interior, punctuated by the sign of the cross and sprinkling of holy water. The rite is documented in the Rituale itself and in the Church's liturgical-law tradition.",
-  "recipe": "classic mid-1610s latin rituale romanum exorcism recitation, ritual Devotional, christian gospel branch shipibo-conibo icaros healing songs jubilee quartet. thick, breath veiled tone, straight onset, interlocked note trading. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 303,
-  "score": 212.962,
+  "recipe": "classic mid-1610s latin rituale romanum exorcism recitation, ritual Devotional, christian gospel branch jubilee quartet ethiopian debtera liturgical incantation. thick, breath veiled tone, straight onset, interlocked note trading. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 308,
+  "score": 208.439,
   "config": {
     "traditions": [
       "latin_exorcism_rite",
-      "shipibo_icaros",
-      "jubilee_quartet"
+      "jubilee_quartet",
+      "ethiopian_debtera_incantation"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 16.049999999999997,
-          "voice_quality": 41.99000000000003,
+          "voice_register": 18.8,
+          "voice_quality": 33.99500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.7550000000000001,
-          "voice_articulation": 18.134999999999998,
-          "voice_microtone": 17.939999999999994,
-          "voice_tradition": 19.731499999999997,
-          "voice_mechanism_compound": 6.200000000000001,
-          "voice_estill_quality": 15.474999999999998,
-          "voice_speech_song": 21.319999999999997,
-          "voice_ensemble_config": 20.474999999999994,
-          "voice_ornament_system": 12.650000000000002,
-          "voice_pitch_organization": 1.1699999999999995,
-          "voice_processing_chain": 15.209999999999999,
-          "voice_multitrack_stack": 9.36
+          "voice_vibrato": 0.9099999999999999,
+          "voice_articulation": 17.159999999999997,
+          "voice_microtone": 19.499999999999996,
+          "voice_tradition": 23.476000000000003,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 17.725,
+          "voice_speech_song": 19.499999999999996,
+          "voice_ensemble_config": 19.694999999999997,
+          "voice_ornament_system": 11.775,
+          "voice_pitch_organization": 6.293,
+          "voice_processing_chain": 14.299999999999997,
+          "voice_multitrack_stack": 7.215
         }
       }
     ],

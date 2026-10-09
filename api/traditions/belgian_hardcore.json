@@ -5,7 +5,7 @@
   "lineage": "Belgian hardcore includes dark metallic approaches that connect raw hardcore force with death-metal weight.",
   "recipe": "classic belgian hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, modern metal basswood electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 370,
-  "score": 34.906,
+  "score": 34.769,
   "config": {
     "traditions": [
       "belgian_hardcore"
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.912,
-          "drumhead": 0.273,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },

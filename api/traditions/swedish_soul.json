@@ -5,7 +5,7 @@
   "lineage": "Swedish soul connects American soul traditions with Swedish songwriting and collaborative music scenes. Artists such as Tingsek have developed a personal approach through recordings and international collaborations since the early 2000s.",
   "recipe": "classic 2000-2003 swedish soul, functional Song, soul R&B branch. solo with instrumental accompaniment. dreadnought acoustic guitar, violin orchestral, cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 257,
-  "score": 5.274,
+  "score": 5.085,
   "config": {
     "traditions": [
       "swedish_soul"
@@ -57,23 +57,23 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "cedar",
+          "top_wood": "sitka",
           "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": -0.07,
           "string_tuning": 0,
-          "top_wood": 0.33599999999999997,
+          "top_wood": 0.2415,
           "back_sides": 0.315,
-          "string_acoustic": 0.6825000000000001
+          "string_acoustic": 0.5774999999999999
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "copper_wound_gut_violin",
+          "orch_strings": "silver_wound_lamb_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "cremonese_post_1740_varnish_violin",
@@ -100,7 +100,7 @@
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_synthetic",
+          "cello_strings": "silver_wound_lamb_gut_cello",
           "cello_top_wood": "engelmann_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
           "cello_varnish": "cremonese_post_1740_varnish_cello",
@@ -111,7 +111,7 @@
         },
         "scores": {
           "bowed_technique": 0.25,
-          "cello_strings": 0.315,
+          "cello_strings": 0.325,
           "cello_top_wood": -0.05,
           "cello_back_wood": -0.035,
           "cello_varnish": -0.035,

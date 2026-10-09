@@ -1,0 +1,87 @@
+{
+  "id": "kolintang_minahasa",
+  "name": "Kolintang (Minahasa wooden xylophone ensemble)",
+  "family": "global",
+  "lineage": "Ensemble of the Minahasa of North Sulawesi built from wooden-keyed xylophones over box resonators, each instrument covering its own register from melody down to bass. Developed in the twentieth century from an older wooden xylophone into a full diatonic band, it plays popular, church and regional songs and accompanies singing. The orchestral xylophone and marimba cards stand in for the higher and lower kolintang instruments.",
+  "recipe": "classic modern kolintang, functional Song. xylophone, marimba orchestral. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 153,
+  "score": 7.398,
+  "config": {
+    "traditions": [
+      "kolintang_minahasa"
+    ],
+    "instruments": [
+      {
+        "id": "xylophone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "xylophone_size": "xylophone_orch_35",
+          "xylophone_bar": "sintir_neck_hardwood"
+        },
+        "scores": {
+          "percussion_technique": 2.5,
+          "xylophone_size": 0,
+          "xylophone_bar": 0.1365
+        }
+      },
+      {
+        "id": "marimba_orchestral",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "marimba_size": "marimba_4_octave",
+          "marimba_orchestral_bar": "sintir_neck_hardwood"
+        },
+        "scores": {
+          "percussion_technique": 2.5,
+          "marimba_size": 0,
+          "marimba_orchestral_bar": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "xylophone": [
+        "percussion_technique",
+        "xylophone_size",
+        "xylophone_bar"
+      ],
+      "marimba_orchestral": [
+        "percussion_technique",
+        "marimba_size",
+        "marimba_orchestral_bar"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "parts": {
+      "percussion_technique": "percussion_mallets_orchestral",
+      "xylophone_size": "xylophone_orch_35",
+      "xylophone_bar": "sintir_neck_hardwood",
+      "marimba_size": "marimba_4_octave",
+      "marimba_orchestral_bar": "sintir_neck_hardwood"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

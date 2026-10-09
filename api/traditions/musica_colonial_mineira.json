@@ -1,0 +1,310 @@
+{
+  "id": "musica_colonial_mineira",
+  "name": "Música colonial mineira (Minas Gerais colonial sacred music)",
+  "family": "classical",
+  "lineage": "Sacred music written for the churches and lay brotherhoods of the eighteenth-century gold-mining towns of Minas Gerais, among them Vila Rica (Ouro Preto), Arraial do Tejuco (Diamantina) and São João del-Rei, largely by mulatto professional musicians such as José Joaquim Emerico Lobo de Mesquita, organist at Arraial do Tejuco in the 1780s, and Marcos Coelho Neto, in a style close to the early Classical, for choir with strings, horns and basso continuo. The musicologist Francisco Curt Lange rediscovered the manuscripts in the mid-twentieth century, and the orchestras Lira Sanjoanense and Ribeiro Bastos of São João del-Rei, which trace their origins to the eighteenth century, still perform this repertoire in the liturgy.",
+  "recipe": "classic mid-1780s música colonial mineira, art Music, western common practice branch. solo with instrumental accompaniment, live take. mixed satb canonical 4 part western choir ensemble, norway spruce European alpine European maple sycamore maple oil varnish violin orchestral, norway spruce European alpine European maple sycamore maple oil varnish cello, norway spruce European alpine European maple sycamore maple oil varnish double bass, continuous-airflow legato french horn. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 558,
+  "score": 141.045,
+  "config": {
+    "traditions": [
+      "musica_colonial_mineira"
+    ],
+    "instruments": [
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+          "choir_regional_canonical_configuration": "choir_regional_none",
+          "choir_ensemble_repertoire": "choir_ensemble_renaissance"
+        },
+        "scores": {
+          "choir_size": 2.34,
+          "choir_polyphonic_configuration": 0.39,
+          "choir_regional_canonical_configuration": 0,
+          "choir_ensemble_repertoire": 2
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 2.47,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.3315,
+          "voice_multitrack_stack": 0.5774999999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_spiccato_articulated",
+          "orch_strings": "dutar_strings_unspecified",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 5,
+          "orch_strings": 0,
+          "orch_top_wood": 5.0865,
+          "orch_back_wood": 5.328,
+          "orch_varnish": 4.95,
+          "orch_setup_period": 5.951,
+          "orch_bow": 0.6183749999999999,
+          "orch_bow_stick": 6.37,
+          "orch_articulation": 1.8199999999999998,
+          "orch_rosin": 5.456
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_spiccato_articulated",
+          "cello_strings": "dutar_strings_unspecified",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 5,
+          "cello_strings": 0,
+          "cello_top_wood": 5.0865,
+          "cello_back_wood": 5.328,
+          "cello_varnish": 4.95,
+          "cello_setup_period": 5.951,
+          "cello_bow_grip": 2.6,
+          "cello_rosin": 5.5545,
+          "cello_bow_stick": 6.37
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_spiccato_articulated",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "dutar_strings_unspecified",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "european_maple_bass_back",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 5,
+          "bass_size": 0.1575,
+          "bass_strings": 0,
+          "bass_top_wood": 5.0865,
+          "bass_back_wood": 5.328,
+          "bass_varnish": 4.95,
+          "bass_setup_period": 5.951,
+          "bass_play": 2.9899999999999998,
+          "bass_rosin": 5.5815,
+          "bass_bow_stick": 6.37
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 5.118,
+          "french_horn_bore": 0.40950000000000003,
+          "french_horn_metal": 0.9239999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "choir_ensemble": [
+        "choir_size",
+        "choir_polyphonic_configuration",
+        "choir_regional_canonical_configuration",
+        "choir_ensemble_repertoire"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings",
+        "orch_top_wood",
+        "orch_back_wood",
+        "orch_varnish",
+        "orch_setup_period",
+        "orch_bow",
+        "orch_bow_stick",
+        "orch_articulation",
+        "orch_rosin"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ],
+      "double_bass": [
+        "bowed_technique",
+        "bass_size",
+        "bass_strings",
+        "bass_top_wood",
+        "bass_back_wood",
+        "bass_varnish",
+        "bass_setup_period",
+        "bass_play",
+        "bass_rosin",
+        "bass_bow_stick"
+      ],
+      "french_horn": [
+        "wind_articulation",
+        "french_horn_bore",
+        "french_horn_metal"
+      ]
+    },
+    "room": "stone_parish_church",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "stone_parish_church",
+    "parts": {
+      "choir_size": "mixed_4_part_satb",
+      "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+      "choir_regional_canonical_configuration": "choir_regional_none",
+      "choir_ensemble_repertoire": "choir_ensemble_renaissance",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bowed_technique": "bowed_spiccato_articulated",
+      "orch_strings": "dutar_strings_unspecified",
+      "orch_top_wood": "norway_spruce_alpine_violin",
+      "orch_back_wood": "european_maple_general_violin",
+      "orch_varnish": "oil_amber_varnish_violin",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "baroque_bow",
+      "orch_bow_stick": "pernambuco_stick_orch",
+      "orch_articulation": "arco_orch",
+      "orch_rosin": "pirastro_gold_rosin_orch",
+      "cello_strings": "dutar_strings_unspecified",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "european_maple_cello_back",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello",
+      "bass_size": "bass_three_quarter",
+      "bass_strings": "dutar_strings_unspecified",
+      "bass_top_wood": "norway_spruce_alpine_bass",
+      "bass_back_wood": "european_maple_bass_back",
+      "bass_varnish": "oil_amber_varnish_bass",
+      "bass_setup_period": "modern_setup_bass",
+      "bass_play": "bass_arco",
+      "bass_rosin": "pop_kolstein_rosin",
+      "bass_bow_stick": "pernambuco_stick_bass",
+      "wind_articulation": "wind_continuous_legato",
+      "french_horn_bore": "french_horn_full",
+      "french_horn_metal": "horn_yellow_brass"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

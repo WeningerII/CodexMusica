@@ -3,14 +3,14 @@
   "name": "R&B français",
   "family": "pop",
   "lineage": "French-language contemporary R&B formed in Paris around 1996-2002 through Wallen, Matt Houston and the Secteur Ä and Alliance Ethnik orbits, revived after 2015 by Aya Nakamura and Dadju — mid-tempo 85-100 BPM programmed swing with Antillean zouk and coupé-décalé rhythmic inflection, layered close-harmony backing stacks, sung-rapped melisma over minor-seventh keyboard pads, and hooks alternating French, Nouchi and Lingala",
-  "recipe": "classic Western European mid-1990s r&b français, functional Song, soul R&B branch, intl hip hop MC rhythm, African pop functional song isicathamiya rumba lingala. thick, breath veiled tone, straight onset, interlocked note trading. mid 1960s double tracking era 2 to 4 track multitrack vocal stack, close pickup gap more bark dirt block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, behringer rd 8 modern clone analog circuit reproduction TR-808, singing lead analog poly synth, cedar nylon strummed open chord ringing overtones classical nylon-string guitar. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 842,
-  "score": 259.401,
+  "recipe": "classic Western European mid-1990s r&b français, functional Song, soul R&B branch, intl hip hop MC rhythm, African pop functional song isicathamiya sungura. thick, breath veiled tone, straight onset, interlocked note trading. lead plus dense cluster 5 part stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, tremolo close pickup gap more bark dirt block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, behringer rd 8 modern clone analog circuit reproduction TR-808, singing lead analog poly synth, cedar nylon strummed open chord ringing overtones classical nylon-string guitar. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 881,
+  "score": 248.047,
   "config": {
     "traditions": [
       "rnb_francais",
       "isicathamiya",
-      "rumba_lingala"
+      "sungura"
     ],
     "instruments": [
       {
@@ -29,39 +29,39 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 15.719999999999995,
-          "voice_quality": 16.9,
+          "voice_register": 14.169999999999995,
+          "voice_quality": 15.014999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.33,
-          "voice_articulation": 20.474999999999994,
-          "voice_microtone": 21.514999999999993,
-          "voice_tradition": 19.634999999999998,
-          "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 5.285,
-          "voice_speech_song": 26.324999999999996,
-          "voice_ensemble_config": 19.272499999999997,
+          "voice_vibrato": 3.2800000000000002,
+          "voice_articulation": 21.384999999999994,
+          "voice_microtone": 22.424999999999997,
+          "voice_tradition": 19.259999999999998,
+          "voice_mechanism_compound": 4.095,
+          "voice_estill_quality": 4.8500000000000005,
+          "voice_speech_song": 25.739999999999995,
+          "voice_ensemble_config": 20.182499999999997,
           "voice_ornament_system": 2.4499999999999997,
-          "voice_pitch_organization": 2.4700000000000006,
-          "voice_processing_chain": 7.694999999999999,
+          "voice_pitch_organization": 2.35,
+          "voice_processing_chain": 6.6,
           "voice_multitrack_stack": 8.6125
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_unison_double",
+          "multitrack_stack_density": "multitrack_density_5_part_cluster",
           "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 0.5,
-          "multitrack_stack_era_aesthetic": 5.050624999999999,
+          "multitrack_stack_density": 1.04,
+          "multitrack_stack_era_aesthetic": 1.3324999999999996,
           "multitrack_stack_processing": 0.585
         }
       },
@@ -69,19 +69,19 @@
         "id": "rhodes_electric",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_model": "rhodes_suitcase",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
           "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
           "rhodes_pickup_position": "rhodes_pickup_close_bark"
         },
         "scores": {
-          "keyboard_technique": 8.325,
-          "rhodes_model": 4.7006250000000005,
-          "rhodes_use": 4.020625,
+          "keyboard_technique": 9.2,
+          "rhodes_model": 1.4406249999999998,
+          "rhodes_use": 3.2156249999999997,
           "rhodes_tine_material": 0.195,
-          "rhodes_hammer_tip": 0.1949999999999999,
-          "rhodes_pickup_position": 1.395625
+          "rhodes_hammer_tip": -0.7,
+          "rhodes_pickup_position": 1.4406249999999998
         }
       },
       {
@@ -92,18 +92,18 @@
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.845000000000001,
-          "body_wood": 2.2512499999999998,
-          "pickup_config": 0.585,
-          "string_type": 4.36,
-          "scale_length_b": 2.200625,
-          "fretted_or_not": 0.15,
-          "bass_technique": 4.15,
+          "amp_make": 5.780000000000001,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 1.4299999999999997,
+          "string_type": 5.28,
+          "scale_length_b": 1.895625,
+          "fretted_or_not": 0,
+          "bass_technique": 3.65,
           "electric_bass_string_configuration": 0
         }
       },
@@ -111,12 +111,12 @@
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
+          "drum_machine_808_context": "drum_machine_808_miami",
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 1.5599999999999998,
-          "drum_machine_808_context": 0.975,
+          "tr808_voice": 2.2399999999999998,
+          "drum_machine_808_context": 2.8156250000000003,
           "tr808_production_origin": 1.04
         }
       },
@@ -129,9 +129,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 8.625,
+          "electronic_technique": 9.850000000000001,
           "poly_archetypes": 0.3,
-          "poly_voices": 2.185,
+          "poly_voices": 2.14,
           "poly_maker_lineage": -1.33
         }
       },
@@ -146,12 +146,12 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 8.520000000000001,
+          "acoustic_technique": 9.395000000000001,
           "string_tuning": 0,
-          "top_wood_classical": 7.15,
-          "bracing_classical": 2.185,
-          "string_classical": 2.1506250000000002,
-          "attack_technique_cl": 2.200625
+          "top_wood_classical": 7.345000000000001,
+          "bracing_classical": 2.14,
+          "string_classical": 1.3456249999999998,
+          "attack_technique_cl": 1.395625
         }
       }
     ],

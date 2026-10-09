@@ -5,7 +5,7 @@
   "lineage": "Jazz harp brings plucked resonance, flowing voicings and melodic improvisation into jazz ensemble and solo practice. Pedal-harp harmony supports interpretations of standards, contemporary compositions and connections with soul and other song traditions.",
   "recipe": "classic modern jazz harp, improv On Frame, American jazz branch. concert harp, upright bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 237,
-  "score": 15.382,
+  "score": 15.309,
   "config": {
     "traditions": [
       "jazz_harp"
@@ -18,7 +18,7 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 0.351,
+          "harp_strings": 0.246,
           "harp_pedals": 0.2385
         }
       },
@@ -29,7 +29,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.16799999999999998,
+          "upright_strings": 0.19949999999999998,
           "upright_play": 13.75
         }
       }

@@ -3,14 +3,14 @@
   "name": "Zouk Riddim",
   "family": "electronic",
   "lineage": "French Antillean and Cape Verdean-diaspora producer style of the 2010s, in which digital zouk instrumentals are built as reusable open riddims at 88-100 BPM around a half-time kick, a syncopated kompa-derived hi-hat shuffle, wide detuned pad chords and a heavy sub-bass, cut for multiple singers and deejays in the Paris-Pointe-à-Pitre studio circuit.",
-  "recipe": "classic mid-2010s zouk riddim, bass System, reggae diaspora branch, African dance electronic dance, tropical song functional song amapiano azontobeats. thick, breath veiled tone, straight onset, interlocked note trading. low sub bass wavetable low sub bass analog poly synth, roland tr 8s modern aira digital recreation TR-808, low sub bass monosynth acid bass, sampler drum machine. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
-  "recipe_chars": 644,
-  "score": 204.305,
+  "recipe": "classic mid-2010s zouk riddim, bass System, reggae diaspora branch, African dance electronic dance, tropical song functional song amapiano panamanian pop. thick, breath veiled tone, straight onset, interlocked note trading. low sub bass wavetable low sub bass analog poly synth, roland tr 8s modern aira digital recreation TR-808, low sub bass monosynth acid bass, sampler drum machine. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
+  "recipe_chars": 647,
+  "score": 187.175,
   "config": {
     "traditions": [
       "zouk_riddim",
       "amapiano",
-      "azontobeats"
+      "panamanian_pop"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.610000000000001,
-          "voice_quality": 10.010000000000002,
+          "voice_register": 5.865000000000002,
+          "voice_quality": 9.36,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
-          "voice_articulation": 15.404999999999994,
-          "voice_microtone": 16.89999999999999,
-          "voice_tradition": 14.624999999999998,
-          "voice_mechanism_compound": 1.1999999999999997,
-          "voice_estill_quality": 1.755,
-          "voice_speech_song": 17.679999999999993,
-          "voice_ensemble_config": 14.884999999999994,
-          "voice_ornament_system": 3.1200000000000006,
-          "voice_pitch_organization": 3.12,
-          "voice_processing_chain": 10.835,
-          "voice_multitrack_stack": 8.222500000000002
+          "voice_vibrato": 3.095,
+          "voice_articulation": 13.714999999999995,
+          "voice_microtone": 16.31499999999999,
+          "voice_tradition": 11.439999999999998,
+          "voice_mechanism_compound": 2.3500000000000005,
+          "voice_estill_quality": 1.6574999999999998,
+          "voice_speech_song": 18.979999999999993,
+          "voice_ensemble_config": 13.649999999999993,
+          "voice_ornament_system": 2.9250000000000007,
+          "voice_pitch_organization": 2.88,
+          "voice_processing_chain": 8.96,
+          "voice_multitrack_stack": 7.995
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "wt_position": "wt_morphing",
-          "wt_family": "wt_vocal",
+          "wt_family": "wt_industrial",
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 9.425,
-          "wt_position": 4.16,
-          "wt_family": 0.845,
-          "wt_polyphony": 0.045
+          "electronic_technique": 8.295,
+          "wt_position": 3.185,
+          "wt_family": 0.435,
+          "wt_polyphony": 0
         }
       },
       {
@@ -75,9 +75,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 9.165,
-          "drum_machine_808_context": 9.23,
-          "tr808_production_origin": 1.54
+          "tr808_voice": 8.095,
+          "drum_machine_808_context": 8.295,
+          "tr808_production_origin": 1.495
         }
       },
       {
@@ -89,10 +89,10 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 9.425,
+          "electronic_technique": 8.295,
           "wave_acid": 0.435,
-          "filter_acid": 3.77,
-          "accent_acid": 0.43499999999999994
+          "filter_acid": 2.925,
+          "accent_acid": 0.4799999999999999
         }
       },
       {
@@ -106,8 +106,8 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 1.15,
-          "sample_swing": 8.045,
-          "sample_processing": 1.035
+          "sample_swing": 6.17,
+          "sample_processing": 1.185
         }
       },
       {
@@ -119,7 +119,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 9.425,
+          "electronic_technique": 8.295,
           "poly_archetypes": 1.495,
           "poly_voices": 1.3,
           "poly_maker_lineage": -0.035

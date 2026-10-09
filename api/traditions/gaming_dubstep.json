@@ -5,7 +5,7 @@
   "lineage": "Gaming dubstep is an online discovery field connecting contemporary bass-music listeners with gaming and streaming culture. Its creator cohort includes UBUR, Barely Alive and Chime, spanning heavy dubstep, riddim and more melodic electronic approaches.",
   "recipe": "classic gaming dubstep, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 88,
-  "score": 0.032,
+  "score": 0.085,
   "config": {
     "traditions": [
       "gaming_dubstep"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.0315
+          "dj_playback_mixing_identity": 0.08549999999999999
         }
       }
     ],

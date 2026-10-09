@@ -3,14 +3,14 @@
   "name": "Candomblé ceremonial",
   "family": "global",
   "lineage": "Bahian Yoruba-Nagô / Bantu-Jeje liturgical drumming tradition of the orixá-honoring terreiro — codified through the early-19th-century Yoruba and Fon enslaved-people religious continuity in Salvador, formalized through the Casa Branca, Gantois, and Ilê Axé Opô Afonjá foundational terreiros; characterized by the rum-rumpi-lê three-drum ensemble, agogô bell, and chants in Yoruba-derived liturgical language",
-  "recipe": "classic Southern American modern candomblé ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode samba de roda. thick, breath veiled tone, straight onset, interlocked note trading. jacaranda canonical bahian candomble atabaque, agogo, a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble, afoxe. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 533,
-  "score": 167.075,
+  "recipe": "classic Southern American modern candomblé ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode batuque de umbigada. thick, breath veiled tone, straight onset, interlocked note trading. jacaranda canonical bahian candomble atabaque, agogo, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, afoxe. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 539,
+  "score": 166.243,
   "config": {
     "traditions": [
       "candomble_ceremonial",
       "pagode",
-      "samba_de_roda"
+      "batuque_de_umbigada"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.4000000000000012,
-          "voice_quality": 21.61249999999999,
+          "voice_quality": 26.45499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.78,
-          "voice_articulation": 16.769999999999996,
-          "voice_microtone": 16.184999999999995,
-          "voice_tradition": 17.419999999999998,
-          "voice_mechanism_compound": 3.7049999999999996,
-          "voice_estill_quality": 3.5100000000000002,
-          "voice_speech_song": 17.939999999999998,
-          "voice_ensemble_config": 16.705,
-          "voice_ornament_system": 4.525,
+          "voice_articulation": 15.339999999999996,
+          "voice_microtone": 14.754999999999992,
+          "voice_tradition": 15.729999999999997,
+          "voice_mechanism_compound": 2.21,
+          "voice_estill_quality": 2.0149999999999997,
+          "voice_speech_song": 15.859999999999994,
+          "voice_ensemble_config": 15.079999999999995,
+          "voice_ornament_system": 3.795,
           "voice_pitch_organization": 10.639999999999999,
-          "voice_processing_chain": 3.51,
-          "voice_multitrack_stack": 5.785
+          "voice_processing_chain": 5.785000000000001,
+          "voice_multitrack_stack": 7.084999999999999
         }
       },
       {
@@ -61,8 +61,8 @@
         },
         "scores": {
           "atabaque_role": 0.735,
-          "atabaque_skin": 0.195,
-          "atabaque_shell_wood": 2.0799999999999996
+          "atabaque_skin": 0.39,
+          "atabaque_shell_wood": 1.2349999999999999
         }
       },
       {
@@ -72,8 +72,8 @@
           "agogo_context": "agogo_candomble"
         },
         "scores": {
-          "agogo_bell": 5.6549999999999985,
-          "agogo_context": 5.82
+          "agogo_bell": 5.0699999999999985,
+          "agogo_context": 3.7699999999999996
         }
       },
       {
@@ -81,14 +81,14 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
-          "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 4.549999999999999,
-          "choir_polyphonic_configuration": 3.0549999999999997,
-          "choir_regional_canonical_configuration": 2.4699999999999998,
-          "choir_ensemble_repertoire": 5.329999999999999
+          "choir_size": 7.994999999999998,
+          "choir_polyphonic_configuration": 2.21,
+          "choir_regional_canonical_configuration": 4.13,
+          "choir_ensemble_repertoire": 5.9799999999999995
         }
       },
       {

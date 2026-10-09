@@ -42,6 +42,7 @@ assert.equal(new Set(rows.map((entry) => entry.id)).size, rows.length);
 assert.equal(new Set(rows.map((entry) => entry.source_label)).size, rows.length);
 const ledgers = new Map();
 let renders = 0;
+const merged = [];
 const recipes = new Set();
 for (const entry of rows) {
   const { id } = entry;
@@ -57,6 +58,19 @@ for (const entry of rows) {
   assert(evidence, `${id}: source ledger entry missing`);
   assert.equal(evidence.source_label, entry.source_label);
   if (evidence.comparison_status !== undefined) assert.equal(evidence.comparison_status, 'missing');
+  // Merged into a duplicate since it was added (references/_tradition_aliases.json):
+  // its evidence stays on file, and its id must keep resolving to the survivor.
+  const alias = C.TRADITION_ALIASES[id];
+  if (alias) {
+    assert(traditions.has(alias.of), `${id}: merged into ${alias.of}, which is not in the catalog`);
+    assert.deepEqual(
+      seedTraditionCards(id).map((c) => c.traditionId),
+      traditions.get(alias.of).instruments.map(() => alias.of),
+      `${id}: does not seed its surviving tradition ${alias.of}`
+    );
+    merged.push(id);
+    continue;
+  }
   if (entry.ledger.startsWith('docs/everynoise-batch-')) {
     assert.equal(evidence.comparison_status, 'missing');
     assert(evidence.sources.length > 0, `${id}: no supporting sources`);
@@ -143,5 +157,5 @@ for (const entry of rows) {
   }
 }
 console.log(
-  `EVERYNOISE BATCHES: PASS — ${manifests.length} batches, ${rows.length} genres, ${renders} browser/connector renders; CLI pins retained.`
+  `EVERYNOISE BATCHES: PASS — ${manifests.length} batches, ${rows.length} genres (${merged.length} since merged: ${merged.join(', ') || 'none'}), ${renders} browser/connector renders; CLI pins retained.`
 );

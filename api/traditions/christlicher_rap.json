@@ -5,7 +5,7 @@
   "lineage": "Christlicher Rap connects German-language hip-hop with Christian testimony and faith-centered lyric writing. Groups such as Munich duo O’Bros bring rap performance into church, youth and popular-music contexts.",
   "recipe": "classic modern christlicher rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 267,
-  "score": 35.15,
+  "score": 35.693,
   "config": {
     "traditions": [
       "christlicher_rap"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 17.427,
+          "voice_quality": 17.55,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 16.219,
+          "voice_speech_song": 16.404999999999998,
           "voice_ensemble_config": 0.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -75,7 +75,7 @@
         },
         "scores": {
           "electronic_technique": 0.254,
-          "rompler_preset_bank": 0.39599999999999996,
+          "rompler_preset_bank": 0.6299999999999999,
           "rompler_context": 0,
           "rompler_lineage": 0
         }

@@ -3,20 +3,20 @@
   "name": "Campursari (Javanese gamelan-keyboard crossover)",
   "family": "global",
   "lineage": "Central Javanese hybrid popularised from the early 1990s by Manthous and his Orkes Campursari Gunung Kidul, building on 1960s experiments by RM Samsi — literally 'mixed essence', it sets langgam Jawa and keroncong melodies over a pelog/slendro-tuned electronic keyboard doubling saron and gender parts, with kendang leading the tempo, siter and suling ornamenting, bass guitar walking under, at a relaxed 90–110 BPM behind a sinden-derived Javanese vocal using narrow ornamented cengkok phrasing.",
-  "recipe": "classic Southeast Asian 1990-1993 campursari, functional Song, east Asian pop branch, southeast Asian art music, tropical song functional song huayno popular gamelan. extended whistle, breath veiled tone, straight note core, interlocked note trading. gamelan javanese jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, pentatonic slendro tuning saron gamelan, slendro tuned damped siter, bamboo rattan band fipple canonical javanese balinese suling, tuned nipple pitched gong tamtam, pyramid pure nickel bass British mid 60s era electric bass, singing lead analog poly synth, ukulele. javanese pendopo pavilion. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 762,
-  "score": 225.365,
+  "recipe": "classic Southeast Asian 1990-1993 campursari, functional Song, east Asian pop branch, southeast Asian art music, tropical song functional song huayno popular kompa gouyad. thick, breath veiled tone, straight note core, interlocked note trading. gamelan javanese jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, pentatonic slendro tuning saron gamelan, slendro tuned damped siter, bamboo rattan band fipple canonical javanese balinese suling, tuned nipple pitched gong tamtam, pyramid pure nickel bass British mid 60s era walking fingerstyle electric bass, singing lead analog poly synth, ukulele. javanese pendopo pavilion. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 776,
+  "score": 223.29,
   "config": {
     "traditions": [
       "campursari",
       "huayno_popular",
-      "gamelan"
+      "kompa_gouyad"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -24,7 +24,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 4.545000000000001,
-          "voice_quality": 10.984999999999994,
+          "voice_register": 4.250000000000002,
+          "voice_quality": 9.23,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.21,
-          "voice_articulation": 21.319999999999997,
-          "voice_microtone": 20.084999999999997,
-          "voice_tradition": 8.125,
-          "voice_mechanism_compound": 4.37,
-          "voice_estill_quality": 2.9250000000000007,
-          "voice_speech_song": 27.429999999999996,
-          "voice_ensemble_config": 21.709999999999994,
-          "voice_ornament_system": 3.8900000000000006,
-          "voice_pitch_organization": 25.384999999999998,
-          "voice_processing_chain": 5.24,
-          "voice_multitrack_stack": 2.7300000000000004
+          "voice_vibrato": 2.0799999999999996,
+          "voice_articulation": 19.044999999999998,
+          "voice_microtone": 18.004999999999995,
+          "voice_tradition": 11.374999999999995,
+          "voice_mechanism_compound": 3.835,
+          "voice_estill_quality": 4.485000000000001,
+          "voice_speech_song": 27.104999999999997,
+          "voice_ensemble_config": 18.979999999999997,
+          "voice_ornament_system": 2.7950000000000004,
+          "voice_pitch_organization": 20.434999999999995,
+          "voice_processing_chain": 6.390000000000001,
+          "voice_multitrack_stack": 4.745
         }
       },
       {
@@ -61,10 +61,10 @@
           "kendang_head": "kendang_buffalo_hide_canonical"
         },
         "scores": {
-          "kendang_size": 2.6650000000000005,
-          "kendang_context": 8.58,
-          "kendang_shell_wood": 6.11,
-          "kendang_head": 5.915
+          "kendang_size": 2.275,
+          "kendang_context": 7.15,
+          "kendang_shell_wood": 5.069999999999999,
+          "kendang_head": 5.069999999999999
         }
       },
       {
@@ -74,8 +74,8 @@
           "saron_tuning_system": "saron_slendro"
         },
         "scores": {
-          "saron_size": 1.04,
-          "saron_tuning_system": 4.225
+          "saron_size": 0.845,
+          "saron_tuning_system": 2.925
         }
       },
       {
@@ -87,7 +87,7 @@
         },
         "scores": {
           "siter_form": 0.39,
-          "siter_tuning": 4.03,
+          "siter_tuning": 3.38,
           "siter_technique": 1
         }
       },
@@ -100,10 +100,10 @@
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 0.06499999999999999,
+          "wind_articulation": 0.7149999999999999,
           "suling_use": 2.8949999999999996,
-          "suling_tuning": 0.195,
-          "suling_body_material": 6.11
+          "suling_tuning": 6.45,
+          "suling_body_material": 5.719999999999999
         }
       },
       {
@@ -114,7 +114,7 @@
         },
         "scores": {
           "gong_type": 1.69,
-          "gong_striker": 0.15
+          "gong_striker": 0
         }
       },
       {
@@ -130,13 +130,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.2349999999999999,
+          "amp_make": 1.885,
           "body_wood": 0.585,
-          "pickup_config": 1.24,
-          "string_type": 1.95,
+          "pickup_config": 1.09,
+          "string_type": 2.99,
           "scale_length_b": 0.63,
           "fretted_or_not": 0.195,
-          "bass_technique": 0.95,
+          "bass_technique": 1.45,
           "electric_bass_string_configuration": 0
         }
       },
@@ -149,9 +149,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 4.875,
-          "poly_archetypes": 0.65,
-          "poly_voices": 0.65,
+          "electronic_technique": 5.375,
+          "poly_archetypes": 1.345,
+          "poly_voices": 1.345,
           "poly_maker_lineage": -0.035
         }
       },
@@ -159,13 +159,13 @@
         "id": "ukulele",
         "slots": {
           "ukulele_size": "ukulele_baritone",
-          "ukulele_style": "ukulele_campanella",
+          "ukulele_style": "ukulele_fingerstyle",
           "ukulele_wood": "ukulele_koa"
         },
         "scores": {
-          "ukulele_size": 1.9499999999999997,
-          "ukulele_style": 0.15,
-          "ukulele_wood": 0.12999999999999998
+          "ukulele_size": 2.5999999999999996,
+          "ukulele_style": 0.78,
+          "ukulele_wood": 0.325
         }
       }
     ],

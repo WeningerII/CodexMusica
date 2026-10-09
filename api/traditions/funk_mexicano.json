@@ -5,7 +5,7 @@
   "lineage": "Mexican funk connects groove-based band music with local and wider Afro-Latin musical currents. Ensembles such as Som Bit combine original songwriting, African and Latin American rhythms, jazz elements and dance-oriented performance.",
   "recipe": "classic funk mexicano, groove Percussion, funk percussive branch. solo with instrumental accompaniment, single lead single track no stacking. Fender blackface amp American 60s amp spring reverb bright ebony humbucker electric guitar, digital subtractive, mahogany thomastik infeld low tension jazz warm fingerstyle electric bass, 60s jazz canon vintage ambassador asymmetric drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 483,
-  "score": 46.435,
+  "score": 45.584,
   "config": {
     "traditions": [
       "funk_mexicano"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.8819999999999999,
+          "voice_multitrack_stack": 0.7665,
           "voice_tessitura": 0
         }
       },
@@ -61,28 +61,28 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 10.3165,
-          "body_wood": 0.84,
-          "neck_wood": 0.6405,
+          "amp_make": 10.2115,
+          "body_wood": 0.714,
+          "neck_wood": 0.5775,
           "fretboard": 1.95,
-          "pickup_magnet": 0.168,
-          "pickup_winding": 0.0315,
-          "string_material": 0.273,
-          "bridge": 0.6405,
-          "scale_length": 1.2810000000000006,
-          "string_gauge": 0.6405,
+          "pickup_magnet": 0.105,
+          "pickup_winding": 0.0735,
+          "string_material": 0.2415,
+          "bridge": 0.5775,
+          "scale_length": 1.155,
+          "string_gauge": 0.6825,
           "finish": 0.063,
-          "string_tuning": 1.1444999999999999
+          "string_tuning": 1.0185
         }
       },
       {
@@ -94,7 +94,7 @@
         },
         "scores": {
           "electronic_technique": 0.26,
-          "va_archetypes": 0.168,
+          "va_archetypes": 0.40950000000000003,
           "digital_subtractive_context": 5.069999999999999
         }
       },
@@ -112,12 +112,12 @@
         },
         "scores": {
           "amp_make": 1.4299999999999997,
-          "body_wood": 1.2810000000000006,
-          "pickup_config": 0.168,
+          "body_wood": 1.155,
+          "pickup_config": 0.2415,
           "string_type": 3.25,
-          "scale_length_b": 0.6405,
+          "scale_length_b": 0.5775,
           "fretted_or_not": 1.95,
-          "bass_technique": 8.891499999999999,
+          "bass_technique": 8.649999999999999,
           "electric_bass_string_configuration": 0
         }
       },

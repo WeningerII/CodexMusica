@@ -1,0 +1,48 @@
+{
+  "gutenberg_id": "51226",
+  "title": "Connecticut Wide-Awake Songster",
+  "publication_year": 1860,
+  "edition": "New York: O. Hutchinson, Publisher,272 Greenwich Street,1860; edited by John W. Hutchinson assisted by Benjamin Jepson.",
+  "language": "English",
+  "source_url": "https://www.gutenberg.org/ebooks/51226",
+  "html_url": "https://www.gutenberg.org/cache/epub/51226/pg51226-images.html",
+  "retrieval": {
+    "mirror_url": "https://raw.githubusercontent.com/GITenberg/Connecticut-Wide-Awake-Songster_51226/master/51226-h/51226-h.htm",
+    "file": "source.html.gz",
+    "sha256": "caa1855b4f931aed735bc99ed6c74e056f09ef5b9adfdca1dd49a20d3c2bd144",
+    "encoding": "UTF-8",
+    "fetched_on": "2026-10-08",
+    "edition_verification": "GITenberg HTML imprint independently checked against Gutenberg HTML through browser; raw mirror bytes preserved for adapter replay. Hash is decompressed HTML."
+  },
+  "rights": {
+    "status": "public_domain",
+    "jurisdiction": "USA",
+    "basis": "Project Gutenberg catalogue explicitly affirms public domain in USA; supplied historical imprint retained.",
+    "evidence_url": "https://www.gutenberg.org/ebooks/51226",
+    "evidence_excerpt": "Public domain in the USA.",
+    "edition_evidence_excerpt": "New York: O. Hutchinson, Publisher,272 Greenwich Street,1860; edited by John W. Hutchinson assisted by Benjamin Jepson.",
+    "scope": "Printed words only; no illustrations, music, modern versions or Gutenberg boilerplate imported."
+  },
+  "counts": {
+    "source_entries": 51,
+    "eligible_before_corpus_deduplication": 51,
+    "other_excluded_entries": 0,
+    "duplicates": "Determined by batch integration against existing corpus and other collections."
+  },
+  "excluded_non_entry_material": [
+    "title/imprint",
+    "contents/index",
+    "tune labels and credits",
+    "editorial prose and footnotes",
+    "advertisements",
+    "illustrations",
+    "Gutenberg boilerplate"
+  ],
+  "extraction": {
+    "adapter": "adapter.py",
+    "faithfulness": "Complete songs; HTML verse-line and stanza boundaries preserved; typography indentation removed; page numbers, credit paragraphs, tune and chorus labels excluded from sung words. Printed abbreviated refrains retained without expansion. No dialect spelling modernization.",
+    "replay": "python adapter.py (requires beautifulsoup4)"
+  },
+  "translation_review": "Printed credits and source notes screened; targeted suspicious operatic/German-song identities reviewed. Anonymous entries are not represented as exhaustively independently attributed.",
+  "count_reconciliation": "52 contents entries comprise51 songs and The Republican Platform (prose; excluded separately in contents ledger)."
+}

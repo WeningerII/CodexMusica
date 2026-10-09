@@ -5,7 +5,7 @@
   "lineage": "Scottish electronic music connects club traditions with independent ambient and experimental production.",
   "recipe": "classic scottish electronic, experimental Elec, ambient branch. evolving modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 175,
-  "score": 11.786,
+  "score": 11.681,
   "config": {
     "traditions": [
       "scottish_electronic"
@@ -23,7 +23,7 @@
           "electronic_technique": 7.0482499999999995,
           "mod_voltage_source": 0.1425,
           "mod_patch_density": 3.6399999999999997,
-          "mod_lineage": 0.9555000000000002
+          "mod_lineage": 0.8505000000000001
         }
       }
     ],

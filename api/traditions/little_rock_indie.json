@@ -5,7 +5,7 @@
   "lineage": "Little rock indie is represented here by American Princes. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic little rock indie, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 322,
-  "score": 54.481,
+  "score": 54.634,
   "config": {
     "traditions": [
       "little_rock_indie"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 6.5,
-          "body_wood": 1.7429999999999999,
-          "neck_wood": 0.3045,
+          "body_wood": 1.848,
+          "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.5775,
           "string_material": 0.105,
           "bridge": 1.69,
-          "scale_length": 1.197,
+          "scale_length": 1.3335000000000001,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.354
         }
       },
       {
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 6.954999999999999,
-          "body_wood": 0.609,
-          "pickup_config": 0.1365,
+          "body_wood": 0.546,
+          "pickup_config": 0.273,
           "string_type": 16.575,
-          "scale_length_b": 0.3045,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.18,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0
         }
       }

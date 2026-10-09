@@ -1,14 +1,15 @@
 {
-  "id": "nerdcore_brasileiro",
-  "name": "Nerdcore Brasileiro",
+  "id": "rap_geek",
+  "merged_from": "nerdcore_brasileiro",
+  "name": "Rap Geek",
   "family": "hip_hop",
-  "lineage": "Brazilian rap and pop production networks built around anime, games, comics and other fan cultures. Online song channels developed into collaborative labels, conventions and festival performance during the 2010s and 2020s.",
-  "recipe": "classic mid-2010s nerdcore brasileiro, mc Rhythm. rhythmic spoken flow no pitch. sampler drum machine. treated studio.",
-  "recipe_chars": 118,
-  "score": 6.785,
+  "lineage": "Brazilian internet rap communities developed character-driven songs across anime, comics, games and films, connecting independent channels, producers and specialist labels.",
+  "recipe": "classic rap geek, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch. credited beat unspecified. treated studio.",
+  "recipe_chars": 123,
+  "score": 14.343,
   "config": {
     "traditions": [
-      "nerdcore_brasileiro"
+      "rap_geek"
     ],
     "instruments": [
       {
@@ -19,17 +20,17 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_articulation": "spoken_voice",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
-          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
@@ -38,33 +39,27 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
+          "voice_articulation": 0.39,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 5.07,
-          "voice_ensemble_config": 0.0945,
+          "voice_speech_song": 13.454999999999998,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.063,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.108,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "credited_beat_unspecified",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
-          "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sample_bitdepth": 0.063,
-          "sample_swing": 1.533,
-          "sample_processing": 0
+          "credited_beat_identity": 0
         }
       }
     ],
@@ -88,11 +83,8 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "sampler_drum_machine": [
-        "electronic_technique",
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
+      "credited_beat_unspecified": [
+        "credited_beat_identity"
       ]
     },
     "room": "treated_studio",
@@ -117,22 +109,19 @@
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_articulation": "spoken_voice",
       "voice_microtone": "voice_microtone_local_unspecified",
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_speech_song": "voice_rhythmic_spoken_flow",
-      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "sample_bitdepth": "sixteen_bit",
-      "sample_swing": "mid_swing",
-      "sample_processing": "one_shots_layered",
-      "electronic_technique": "electronic_sample_chopped"
+      "credited_beat_identity": "credited_beat_mechanism_unspecified"
     },
     "pin_parts": true
   }

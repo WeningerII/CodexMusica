@@ -5,7 +5,7 @@
   "lineage": "A broad electronic-dance discovery label encompassing multiple trance scenes. The representative theme-led branch is documented by Armin van Buuren’s studio account: recurring synthesized musical phrases, programmed drums and bass, and extended tension-building arrangements.",
   "recipe": "classic modern trance, electronic Dance, trance branch. digital subtractive, sampler drum machine, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 311,
-  "score": 23.691,
+  "score": 23.705,
   "config": {
     "traditions": [
       "trance"
@@ -19,7 +19,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": -0.05,
+          "electronic_technique": -0.035,
           "va_archetypes": 4.9399999999999995,
           "digital_subtractive_context": 4.159999999999999
         }

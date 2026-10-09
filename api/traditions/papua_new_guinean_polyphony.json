@@ -3,14 +3,14 @@
   "name": "Papua New Guinean panpipe and polyphonic singing",
   "family": "global",
   "lineage": "Papua New Guinean polyphonic vocal-and-panpipe traditions across the New Guinea Highlands (Eastern Highlands, Western Highlands, Chimbu, Enga regions), with each linguistic-cultural group preserving distinct multi-part vocal-or-instrumental polyphonic conventions. The Huli yodel-and-cyclic-clap, the Hagen courtship-chants, the Enga sandalu and tee public-ceremony chants, and the Chimbu collective-flute ensembles each represent distinct contributions to the broader New Guinea polyphonic-music register. Performance contexts span bridewealth-negotiation ceremonies, mourning-rituals, harvest-festivals, and (post-1975 independence) the National Cultural Commission and University of Papua New Guinea ethnomusicology archive preservation work. Distinguished from neighboring Melanesian musical traditions by New Guinea Highlands-specific polyphonic-density and dialect-specific intonation vocabularies.",
-  "recipe": "classic Southeast Asian mid-1970s papua new guinean panpipe and polyphonic singing, drone Modal, heterophonic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. cutting melodic melanesian panpipes. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 488,
-  "score": 225.503,
+  "recipe": "classic Southeast Asian mid-1970s papua new guinean panpipe and polyphonic singing, drone Modal, heterophonic branch, indigenous ritual devotional mapuche tayil genealogical chant fijian meke. vocal fry, breath veiled tone, pure, interlocked note trading. melanesian panpipes. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 434,
+  "score": 198.72,
   "config": {
     "traditions": [
       "papua_new_guinean_polyphony",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "fijian_meke"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.68,
-          "voice_quality": 40.300000000000004,
+          "voice_register": 4.484999999999999,
+          "voice_quality": 27.235,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9499999999999997,
-          "voice_articulation": 26.065,
-          "voice_microtone": 29.315,
-          "voice_tradition": 21.58,
-          "voice_mechanism_compound": 10.770000000000001,
-          "voice_estill_quality": 7.02,
-          "voice_speech_song": 27.560000000000002,
-          "voice_ensemble_config": 28.34,
-          "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 2.517500000000001,
-          "voice_processing_chain": 13.844999999999999,
-          "voice_multitrack_stack": 6.175
+          "voice_vibrato": 1.69,
+          "voice_articulation": 25.93500000000001,
+          "voice_microtone": 29.64000000000001,
+          "voice_tradition": 18.85,
+          "voice_mechanism_compound": 9.620000000000001,
+          "voice_estill_quality": 6.37,
+          "voice_speech_song": 27.43000000000001,
+          "voice_ensemble_config": 27.56000000000001,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 2.21,
+          "voice_processing_chain": 7.0200000000000005,
+          "voice_multitrack_stack": 5.329999999999999
         }
       },
       {
@@ -60,8 +60,8 @@
           "melanesian_panpipes_technique": "melanesian_panpipes_struck"
         },
         "scores": {
-          "melanesian_panpipes_form": -0.07,
-          "melanesian_panpipes_role": 1.4299999999999997,
+          "melanesian_panpipes_form": 0.7149999999999999,
+          "melanesian_panpipes_role": 0.78,
           "melanesian_panpipes_technique": 0.65
         }
       }

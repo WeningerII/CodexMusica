@@ -5,7 +5,7 @@
   "lineage": "Queens hip hop includes the stripped-down Run-DMC MC/DJ branch: hard-edged, coordinated vocal lines, drum machine pulse and turntable scratches. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
   "recipe": "classic modern queens hip hop, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler drum machine, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 297,
-  "score": 50.122,
+  "score": 50.311,
   "config": {
     "traditions": [
       "queens_hip_hop"
@@ -56,13 +56,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 5.578,
+          "electronic_technique": 5.609500000000001,
           "sample_bitdepth": 0.378,
           "sample_swing": 9.1,
-          "sample_processing": 0.2415
+          "sample_processing": 0.36750000000000005
         }
       },
       {
@@ -72,7 +72,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 5.578,
+          "electronic_technique": 5.609500000000001,
           "turntable_technique": 7.6365
         }
       }

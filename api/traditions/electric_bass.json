@@ -5,7 +5,7 @@
   "lineage": "Electric-bass-led music spans solo performance and ensembles across jazz, funk and related styles. Players such as Victor Wooten expand the instrument’s rhythmic and melodic roles through slap, harmonics, tapping and thumb techniques.",
   "recipe": "classic modern electric bass, improv On Frame, fusion branch. electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 222,
-  "score": 5.987,
+  "score": 5.798,
   "config": {
     "traditions": [
       "electric_bass"
@@ -25,12 +25,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.273,
+          "body_wood": 0.1995,
           "pickup_config": 0.315,
-          "string_type": 0.8294999999999999,
+          "string_type": 0.8609999999999999,
           "scale_length_b": 0.3,
-          "fretted_or_not": 0.747,
-          "bass_technique": 2.9469999999999996,
+          "fretted_or_not": 0.6735,
+          "bass_technique": 2.8735,
           "electric_bass_string_configuration": 0
         }
       }

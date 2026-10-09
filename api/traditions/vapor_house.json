@@ -5,7 +5,7 @@
   "lineage": "Vapor house sits within online electronic and club-music culture, bringing house-related material into edited, cross-style arrangements. Artists such as Ben Aqua connect the field with experimental club mixing and digital production.",
   "recipe": "classic vapor house, experimental Elec. glitched textural sampler.",
   "recipe_chars": 66,
-  "score": 12.833,
+  "score": 13.01,
   "config": {
     "traditions": [
       "vapor_house"
@@ -22,10 +22,10 @@
         },
         "scores": {
           "electronic_technique": 6.2315000000000005,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.108,
           "sampler_workflow": 6.2,
-          "sampler_classic_context": 0.4515
+          "sampler_classic_context": 0.5055
         }
       }
     ],

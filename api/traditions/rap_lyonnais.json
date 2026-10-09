@@ -5,7 +5,7 @@
   "lineage": "Rap lyonnais connects Lyon’s MCs, producers and independent recording networks. Thom Skor exemplifies a self-produced strand in which rap and scratches interact with guest instrumental contributions.",
   "recipe": "classic modern rap lyonnais, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine, turntable, electronic keyboard unspecified. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 384,
-  "score": 46.07,
+  "score": 46.259,
   "config": {
     "traditions": [
       "rap_lyonnais"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 14.719,
+          "voice_speech_song": 14.905,
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Taiwanese campus folk song movement (xiaoyuan minge), Taipei 1975-1985, launched by Li Shuang-tse's 'sing our own songs' call and codified by Yang Hsien and Hou Te-chien on the Sing Your Own Songs and Golden Melody compilations — moderate-tempo acoustic guitar strumming with fingerpicked accompaniment, unaffected clear Mandarin vocals, literary lyrics, simple diatonic harmony and light string or flute overdubs.",
   "recipe": "classic North American mid-1980s taiwan campus folk, functional Song, east Asian pop branch, anglo singer song ballad poetry, east Asian protest song british folk revival freak folk. thick, breath veiled tone, slow rate, interlocked note trading. dadgad tuning cedar koa fingerpicked dreadnought acoustic dadgad tuning cedar walnut phosphor bronze bronze acoustic guitar, double bass, flute, block chord upright piano. treated studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 566,
-  "score": 252.56,
+  "score": 253.29,
   "config": {
     "traditions": [
       "taiwan_campus_folk",
@@ -62,7 +62,7 @@
           "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
-          "acoustic_technique": 25.755,
+          "acoustic_technique": 26.08375,
           "string_tuning": 3.4650000000000003,
           "top_wood": 1.4300000000000002,
           "back_sides": 1,
@@ -83,7 +83,7 @@
           "top_wood": 1.4300000000000002,
           "back_sides": 1.4300000000000002,
           "string_acoustic": 1.385,
-          "acoustic_om_technique": 25.755
+          "acoustic_om_technique": 26.08375
         }
       },
       {
@@ -103,7 +103,7 @@
         "scores": {
           "bowed_technique": 0.32499999999999996,
           "bass_size": 0,
-          "bass_strings": 0.75,
+          "bass_strings": 0.9125,
           "bass_top_wood": 0.36999999999999994,
           "bass_back_wood": 0.32499999999999996,
           "bass_varnish": -0.05,
@@ -124,7 +124,7 @@
         },
         "scores": {
           "wind_articulation": -0.035,
-          "flute_size": 0.285,
+          "flute_size": 0.24,
           "flute_material": 0.135,
           "flute_technique": 0.105,
           "flute_maker_school": 0.78
@@ -138,7 +138,7 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 8.745,
+          "keyboard_technique": 8.7,
           "upright_use": 1.4300000000000002,
           "upright_piano_size": 0.195
         }

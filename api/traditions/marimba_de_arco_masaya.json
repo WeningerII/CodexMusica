@@ -1,0 +1,129 @@
+{
+  "id": "marimba_de_arco_masaya",
+  "name": "Marimba de arco (Masaya marimba-and-guitar trio)",
+  "family": "global",
+  "lineage": "The marimba de arco is the small diatonic marimba of Nicaragua's Pacific region, named for the wooden arc fixed to its frame and centred on the Indigenous barrio of Monimbó in Masaya. It is played in a trio with a guitar and a guitarrilla, a small guitar, for festive dances such as the baile de la marimba, also called the baile de las inditas. The Central American marimba card stands in for the marimba de arco and the requinto card for the guitarrilla.",
+  "recipe": "classic modern marimba de arco, groove Percussion, Latin am branch. diatonic single keyboard marimba centroamericana, classical nylon-string guitar, credited requinto unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 259,
+  "score": 1.833,
+  "config": {
+    "traditions": [
+      "marimba_de_arco_masaya"
+    ],
+    "instruments": [
+      {
+        "id": "marimba_centroamericana",
+        "slots": {
+          "marimba_centroamericana_form": "marimba_centroamericana_sencilla",
+          "marimba_centroamericana_ensemble": "marimba_centroamericana_grande_tenor",
+          "marimba_centroamericana_material": "marimba_centroamericana_hormigo"
+        },
+        "scores": {
+          "marimba_centroamericana_form": 1.625,
+          "marimba_centroamericana_ensemble": -0.035,
+          "marimba_centroamericana_material": -0.05
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "dutar_strings_unspecified",
+          "attack_technique_cl": "rasgueado_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "string_tuning": 0,
+          "top_wood_classical": 0.126,
+          "bracing_classical": 0.1365,
+          "string_classical": 0,
+          "attack_technique_cl": 0.25
+        }
+      },
+      {
+        "id": "credited_requinto_unspecified",
+        "slots": {
+          "credited_requinto_identity": "credited_requinto_identity_source_unspecified",
+          "credited_requinto_construction": "credited_requinto_construction_source_unspecified",
+          "credited_requinto_stringing": "credited_requinto_stringing_source_unspecified",
+          "credited_requinto_tuning": "credited_requinto_tuning_source_unspecified",
+          "credited_requinto_technique": "credited_requinto_technique_source_unspecified"
+        },
+        "scores": {
+          "credited_requinto_identity": 0,
+          "credited_requinto_construction": 0,
+          "credited_requinto_stringing": 0,
+          "credited_requinto_tuning": 0,
+          "credited_requinto_technique": 0
+        }
+      }
+    ],
+    "pinned": {
+      "marimba_centroamericana": [
+        "marimba_centroamericana_form",
+        "marimba_centroamericana_ensemble",
+        "marimba_centroamericana_material"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ],
+      "credited_requinto_unspecified": [
+        "credited_requinto_identity",
+        "credited_requinto_construction",
+        "credited_requinto_stringing",
+        "credited_requinto_tuning",
+        "credited_requinto_technique"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "marimba_centroamericana_form": "marimba_centroamericana_sencilla",
+      "marimba_centroamericana_ensemble": "marimba_centroamericana_grande_tenor",
+      "marimba_centroamericana_material": "marimba_centroamericana_hormigo",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "dutar_strings_unspecified",
+      "attack_technique_cl": "rasgueado_cl",
+      "credited_requinto_identity": "credited_requinto_identity_source_unspecified",
+      "credited_requinto_construction": "credited_requinto_construction_source_unspecified",
+      "credited_requinto_stringing": "credited_requinto_stringing_source_unspecified",
+      "credited_requinto_tuning": "credited_requinto_tuning_source_unspecified",
+      "credited_requinto_technique": "credited_requinto_technique_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

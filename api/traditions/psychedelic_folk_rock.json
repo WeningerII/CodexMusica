@@ -5,7 +5,7 @@
   "lineage": "Psychedelic folk rock is represented here by Robert Lester Folsom — Abacus Atlanta Sessions. This documented branch is realized as an authored present-day recording arrangement.",
   "recipe": "classic psychedelic folk rock, functional Song, folk rock branch. solo with instrumental accompaniment. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 567,
-  "score": 126.174,
+  "score": 126.405,
   "config": {
     "traditions": [
       "psychedelic_folk_rock"
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": 3.7,
           "amp_make": 6.76,
-          "body_wood": 0.504,
-          "neck_wood": 0.231,
+          "body_wood": 0.47250000000000003,
+          "neck_wood": 0.1995,
           "fretboard": 0.0945,
           "pickup_magnet": 0.273,
           "pickup_winding": 0.273,
           "string_material": 0.126,
           "bridge": 1.69,
-          "scale_length": 0.46199999999999997,
+          "scale_length": 0.399,
           "string_gauge": 1.69,
           "finish": 0,
           "string_tuning": 0.39
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 7.215,
-          "body_wood": 0.46199999999999997,
+          "body_wood": 0.399,
           "pickup_config": 0.273,
           "string_type": 17.225,
-          "scale_length_b": 0.399,
+          "scale_length_b": 0.33599999999999997,
           "fretted_or_not": 0.0945,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 13.25,
-          "drumhead": 3.7,
+          "drumhead": 3.8365,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2915,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 1.155,
+          "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.2835,
-          "voice_multitrack_stack": 0.126
+          "voice_processing_chain": 0.31499999999999995,
+          "voice_multitrack_stack": 0.36750000000000005
         }
       },
       {
@@ -134,11 +134,11 @@
         },
         "scores": {
           "keyboard_technique": 3.7315,
-          "grand_piano_size": 0.231,
-          "grand_piano_brand": 0.504,
+          "grand_piano_size": 0.1995,
+          "grand_piano_brand": 0.36750000000000005,
           "piano_hammer": 6.76,
           "piano_rim": 6.76,
-          "piano_soundboard": 3.7,
+          "piano_soundboard": 3.805,
           "piano_pinblock": 0.26,
           "piano_plate": -0.035,
           "piano_pitch_standard": -0.035

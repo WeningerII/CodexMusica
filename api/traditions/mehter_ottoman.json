@@ -1,0 +1,237 @@
+{
+  "id": "mehter_ottoman",
+  "name": "Mehter (Ottoman Janissary military band)",
+  "family": "classical",
+  "lineage": "Military band of the Ottoman state attached to the Janissary corps, whose mehterhane of zurnas, boru trumpets, kös and nakkare kettledrums, davul and zil cymbals played on campaign, in battle and at state ceremonies, and whose sound inspired the alla turca style of eighteenth-century European composers. Abolished together with the Janissary corps under Mahmud II, it was revived in the twentieth century, and the Mehter Takımı of the Istanbul Military Museum performs and records the repertoire today, with the verses of many marches sung in unison by the band. The karna card (a long natural trumpet of the related Persian naqqareh-khaneh) stands in for the boru and the cymbal card for the zil.",
+  "recipe": "classic modern mehter, carnival Processional. choral, unprocessed natural acoustic. apricot canonical anatolian ottoman arundo donax metal staple canonical ottoman zurna, karna trumpet, kus kettledrum, naqareh, davul, credited cymbals. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 315,
+  "score": 20.281,
+  "config": {
+    "traditions": [
+      "mehter_ottoman"
+    ],
+    "instruments": [
+      {
+        "id": "zurna",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "zurna_size": "zurna_orta",
+          "zurna_context": "zurna_mehter",
+          "zurna_body_wood": "zurna_apricot_canonical",
+          "zurna_reed": "zurna_arundo_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.15000000000000002,
+          "zurna_size": 0,
+          "zurna_context": 5,
+          "zurna_body_wood": 2,
+          "zurna_reed": 2
+        }
+      },
+      {
+        "id": "karna_trumpet",
+        "slots": {
+          "karna_form": "karna_straight",
+          "karna_use": "karna_ensemble"
+        },
+        "scores": {
+          "karna_form": 0.3,
+          "karna_use": 0.0315
+        }
+      },
+      {
+        "id": "kus_kettledrum",
+        "slots": {
+          "kus_context": "kus_military",
+          "kus_mount": "kus_ground"
+        },
+        "scores": {
+          "kus_context": 0,
+          "kus_mount": 0
+        }
+      },
+      {
+        "id": "naqareh",
+        "slots": {
+          "naqareh_size": "naqareh_small",
+          "naqareh_shell": "naqareh_metal"
+        },
+        "scores": {
+          "naqareh_size": 0,
+          "naqareh_shell": 0.0315
+        }
+      },
+      {
+        "id": "davul",
+        "slots": {
+          "davul_form": "davul_anatolian",
+          "davul_context": "davul_mehter",
+          "davul_head_material": "davul_goatskin"
+        },
+        "scores": {
+          "davul_form": 0.26,
+          "davul_context": 4.95,
+          "davul_head_material": -0.035
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_unison_octaves",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.6315000000000002,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1,
+          "voice_multitrack_stack": 0.1365,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "zurna": [
+        "wind_articulation",
+        "zurna_size",
+        "zurna_context",
+        "zurna_body_wood",
+        "zurna_reed"
+      ],
+      "karna_trumpet": [
+        "karna_form",
+        "karna_use"
+      ],
+      "kus_kettledrum": [
+        "kus_context",
+        "kus_mount"
+      ],
+      "naqareh": [
+        "naqareh_size",
+        "naqareh_shell"
+      ],
+      "davul": [
+        "davul_form",
+        "davul_context",
+        "davul_head_material"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "urban_courtyard",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "makam_turkish",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "makam_turkish",
+    "room": "urban_courtyard",
+    "parts": {
+      "wind_articulation": "wind_ornament_heavy",
+      "zurna_size": "zurna_orta",
+      "zurna_context": "zurna_mehter",
+      "zurna_body_wood": "zurna_apricot_canonical",
+      "zurna_reed": "zurna_arundo_canonical",
+      "karna_form": "karna_straight",
+      "karna_use": "karna_ensemble",
+      "kus_context": "kus_military",
+      "kus_mount": "kus_ground",
+      "naqareh_size": "naqareh_small",
+      "naqareh_shell": "naqareh_metal",
+      "davul_form": "davul_anatolian",
+      "davul_context": "davul_mehter",
+      "davul_head_material": "davul_goatskin",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_unison_octaves",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

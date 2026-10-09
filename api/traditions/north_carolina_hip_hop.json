@@ -3,9 +3,9 @@
   "name": "North Carolina hip hop",
   "family": "hip_hop",
   "lineage": "North Carolina hip hop includes Fayetteville-rooted rapper-producer J. Cole. His restrained sample-led Born Sinner branch is selected rather than an assumption that all state rap uses identical southern electronic production.",
-  "recipe": "classic modern north carolina hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 303,
-  "score": 48.612,
+  "recipe": "classic modern north carolina hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampled chopped sampler, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 341,
+  "score": 48.648,
   "config": {
     "traditions": [
       "north_carolina_hip_hop"
@@ -46,8 +46,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.399
+          "voice_processing_chain": 0.3315,
+          "voice_multitrack_stack": 0.5355000000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.5,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.1365,
+          "electronic_technique": 5.5315,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.0315,
           "sampler_workflow": 0.26,
           "sampler_classic_context": 7.6049999999999995
         }
@@ -76,8 +76,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.5,
-          "sample_bitdepth": 0.1365,
+          "electronic_technique": 5.5315,
+          "sample_bitdepth": 0.0315,
           "sample_swing": 2.5,
           "sample_processing": 0
         }

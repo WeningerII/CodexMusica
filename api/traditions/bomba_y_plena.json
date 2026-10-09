@@ -3,14 +3,14 @@
   "name": "Bomba y Plena",
   "family": "global",
   "lineage": "The paired-repertoire ensemble practice that fused Puerto Rico's two Afro-descendant folk forms into a single performance and recording format from the 1950s onward, driven by Rafael Cortijo y su Combo with Ismael Rivera bringing barril and pandereta patterns into a horn-and-conga dance band — sets alternate sicá-based bomba numbers with duple plena refrains, joined by shared call-and-response chorus practice and the same barrio lyric register.",
-  "recipe": "classic Caribbean mid-1950s bomba y plena, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional merengue típico kaseko. thick, breath veiled tone, slow rate, interlocked note trading. interlocking buleador and subidor paired set barril de bomba, pandereta puertorriquena, guiro, mahogany puerto rican traditional strummed cuatro pr, cowhide mid tier open slap hand drum congas, rose brass darker warmer ensemble saxophone. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
-  "recipe_chars": 626,
-  "score": 218.862,
+  "recipe": "classic Caribbean mid-1950s bomba y plena, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional kaseko cuarteto cordobés. thick, breath veiled tone, straight note core, interlocked note trading. buleador and subidor paired set barril de bomba, pandereta puertorriquena, guiro, mahogany puerto rican traditional strummed cuatro pr, lead open slap hand drum congas, rose brass darker warmer ensemble saxophone. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+  "recipe_chars": 612,
+  "score": 219.032,
   "config": {
     "traditions": [
       "bomba_y_plena",
-      "tipico",
-      "kaseko"
+      "kaseko",
+      "cuarteto"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "barril_de_bomba_shell": "barril_de_bomba_stave_tunable"
         },
         "scores": {
-          "barril_de_bomba_form": 27.689999999999998,
-          "barril_de_bomba_repertoire": 30.029999999999998,
-          "barril_de_bomba_shell": 0.975
+          "barril_de_bomba_form": 28.27499999999999,
+          "barril_de_bomba_repertoire": 29.964999999999993,
+          "barril_de_bomba_shell": 0.12999999999999998
         }
       },
       {
@@ -33,7 +33,7 @@
           "pandereta_head": "pandereta_synthetic"
         },
         "scores": {
-          "pandereta_size": 1.04,
+          "pandereta_size": 0.39,
           "pandereta_head": 0.045
         }
       },
@@ -58,9 +58,9 @@
           "cuatro_pr_string_material": "cuatro_pr_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 5.59,
+          "plucked_traditional_technique": 6.629999999999999,
           "cuatro_pr_config": -0.905,
-          "cuatro_pr_context": 0.845,
+          "cuatro_pr_context": 1.69,
           "cuatro_pr_body_wood": 2.08,
           "cuatro_pr_string_material": -1.155
         }
@@ -72,7 +72,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -80,28 +80,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 3.2699999999999996,
-          "voice_quality": 13.714999999999996,
+          "voice_register": 3.965,
+          "voice_quality": 9.620000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.17,
-          "voice_articulation": 17.549999999999997,
-          "voice_microtone": 17.54999999999999,
-          "voice_tradition": 10.790000000000001,
-          "voice_mechanism_compound": 5.719999999999999,
-          "voice_estill_quality": 6.175,
-          "voice_speech_song": 23.919999999999995,
-          "voice_ensemble_config": 17.09499999999999,
-          "voice_ornament_system": 0.26,
+          "voice_vibrato": 0.7799999999999998,
+          "voice_articulation": 18.784999999999993,
+          "voice_microtone": 18.97999999999999,
+          "voice_tradition": 9.605,
+          "voice_mechanism_compound": 5.9799999999999995,
+          "voice_estill_quality": 5.785,
+          "voice_speech_song": 25.154999999999994,
+          "voice_ensemble_config": 18.914999999999992,
+          "voice_ornament_system": 1.15,
           "voice_pitch_organization": 0.8499999999999999,
-          "voice_processing_chain": 5.675,
-          "voice_multitrack_stack": 3.6725000000000003
+          "voice_processing_chain": 5.75,
+          "voice_multitrack_stack": 3.2825000000000006
         }
       },
       {
@@ -109,13 +109,13 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "conga_set": "quinto",
-          "conga_skin": "conga_cowhide",
+          "conga_skin": "conga_mule_hide",
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 6.199374999999999,
-          "conga_set": 0.845,
-          "conga_skin": 1.04,
+          "percussion_technique": 6.205,
+          "conga_set": 1.3,
+          "conga_skin": 0.8249999999999998,
           "conga_shell_wood": 0.8249999999999998
         }
       },
@@ -127,17 +127,17 @@
           "sax_reed": "soft_reed",
           "sax_body_alloy": "rose_brass_sax",
           "sax_mouthpiece": "metal_mp",
-          "sax_technique": "sax_continuous_legato",
+          "sax_technique": "sax_cool_lyrical",
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 4.1606250000000005,
-          "sax_size": 1.235,
+          "wind_articulation": 3.085000000000001,
+          "sax_size": 0.585,
           "sax_reed": 0.435,
-          "sax_body_alloy": 1.2,
+          "sax_body_alloy": 1.85,
           "sax_mouthpiece": 0.435,
-          "sax_technique": 0.585,
-          "sax_maker_school": 0.65
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.195
         }
       }
     ],

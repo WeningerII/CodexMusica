@@ -5,7 +5,7 @@
   "lineage": "Balkan drill adapts drill production to regional rap networks across southeastern Europe. Crni Cerak, Rasta and Banfica helped bring its hard beats and local-language street narratives to clubs, festivals and streaming releases. It overlaps Balkan trap while emphasizing drill-oriented rhythm and delivery.",
   "recipe": "classic balkan drill, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. software sample playback, produced 808 bass. treated studio.",
   "recipe_chars": 188,
-  "score": 19.609,
+  "score": 19.928,
   "config": {
     "traditions": [
       "balkan_drill"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.75,
-          "voice_ensemble_config": 0.5635,
+          "voice_ensemble_config": 0.8365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -71,8 +71,8 @@
           "produced_808_bass_processing": "produced_808_bass_unclipped"
         },
         "scores": {
-          "produced_808_bass_identity": 0.39,
-          "produced_808_bass_decay": 0,
+          "produced_808_bass_identity": 0.3315,
+          "produced_808_bass_decay": 0.105,
           "produced_808_bass_processing": 0
         }
       }

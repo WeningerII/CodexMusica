@@ -37,6 +37,13 @@ module.exports = [
     claim: 'every config id resolves against the catalog',
   },
   {
+    id: 'retired-ids-resolve',
+    doc: 'AGENTS.md',
+    gate: 'check_aliases.js',
+    claim:
+      'a merged (retired) tradition id stays an alias: every surface that takes a tradition id answers it with the tradition it was merged into',
+  },
+  {
     id: 'no-duplicate-entities',
     doc: 'SKILL.md',
     gate: 'check_duplicates.js',

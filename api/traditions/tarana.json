@@ -3,14 +3,14 @@
   "name": "Tarana (Hindustani vocalized-syllable composition)",
   "family": "global",
   "lineage": "Hindustani vocal genre using non-lexical vocalized syllables (tom, na, dir, dani, todani, yala, nadiri, drim) attributed by tradition to Amir Khusraus 13th-century court innovation — typically performed at the end of a khayal concert as a fast-tempo rhythmically dazzling concert-closer, with the syllables functioning as vocal-equivalent to tabla bols",
-  "recipe": "classic South Asian early-1950s tarana, improv On Frame, indian classical improv branch, Sufi ritual devotional sufi sama qawwali. vocal fry, declaimed, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, silvery suited to female vocal tanpura. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 416,
-  "score": 183.779,
+  "recipe": "classic South Asian early-1950s tarana, improv On Frame, indian classical improv branch, Sufi ritual devotional sufi sama maijbhandari gan. vocal fry, declaimed, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, vocal female harmonium indian, suited to female vocal wooden body miraj style tanpura. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 425,
+  "score": 145.328,
   "config": {
     "traditions": [
       "tarana",
       "sufi_sama",
-      "qawwali"
+      "maijbhandari_gan"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_non_lexical_vocable",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
-          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 3.445,
-          "voice_quality": 17.134,
+          "voice_register": 2.7049999999999996,
+          "voice_quality": 12.129999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.6375,
-          "voice_articulation": 4.289999999999999,
-          "voice_microtone": 6.044999999999999,
-          "voice_tradition": 30.095,
-          "voice_mechanism_compound": 7.2700000000000005,
-          "voice_estill_quality": 10.995,
-          "voice_speech_song": 10.616499999999998,
-          "voice_ensemble_config": 4.615,
-          "voice_ornament_system": 13.657,
-          "voice_pitch_organization": 8.146500000000001,
-          "voice_processing_chain": 4.2995,
-          "voice_multitrack_stack": 4.42
+          "voice_vibrato": 5.87,
+          "voice_articulation": 3.4450000000000003,
+          "voice_microtone": 4.940000000000001,
+          "voice_tradition": 19.9875,
+          "voice_mechanism_compound": 5.45,
+          "voice_estill_quality": 9.59,
+          "voice_speech_song": 10.405,
+          "voice_ensemble_config": 3.755,
+          "voice_ornament_system": 10.825,
+          "voice_pitch_organization": 6.865,
+          "voice_processing_chain": 4.34,
+          "voice_multitrack_stack": 3.44
         }
       },
       {
@@ -60,9 +60,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 7.54,
-          "tabla_bayan": 3.055,
-          "tabla_syahi": 3.6399999999999997
+          "tabla_dayan": 5.3950000000000005,
+          "tabla_bayan": 2.4050000000000002,
+          "tabla_syahi": 3.3799999999999994
         }
       },
       {
@@ -70,14 +70,14 @@
         "slots": {
           "free_reed_technique": "free_reed_overblow_modern",
           "harmonium_action": "harmonium_hand_pump",
-          "harmonium_voicing": "harmonium_male",
+          "harmonium_voicing": "harmonium_female",
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
           "free_reed_technique": 0,
-          "harmonium_action": 3.6399999999999997,
-          "harmonium_voicing": 3.445,
-          "harmonium_use": 6.695
+          "harmonium_action": 2.795,
+          "harmonium_voicing": 2.75,
+          "harmonium_use": 5.305
         }
       },
       {
@@ -91,12 +91,12 @@
           "tanpura_body_wood": "tanpura_wooden_body"
         },
         "scores": {
-          "plucked_traditional_technique": 6.005,
-          "tanpura_size": 8.514999999999999,
-          "tanpura_jawari": 5.875,
-          "tanpura_strings": 0.65,
+          "plucked_traditional_technique": 4.67,
+          "tanpura_size": 7.214999999999998,
+          "tanpura_jawari": 4.625,
+          "tanpura_strings": 0.6,
           "tanpura_string_material": 0.38999999999999996,
-          "tanpura_body_wood": 0.65
+          "tanpura_body_wood": 1.3
         }
       }
     ],

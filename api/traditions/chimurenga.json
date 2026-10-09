@@ -3,20 +3,20 @@
   "name": "Chimurenga",
   "family": "global",
   "lineage": "Zimbabwean liberation-struggle music genre codified by Thomas Mapfumo from 1973 onward (chimurenga is the Shona word for struggle, used to refer to the Second Chimurenga liberation war 1966-1979 against Rhodesian white minority rule); built on translating Shona mbira interlocking-cycle repertoire (kushaura and kutsinhira patterns from the religious mbira dzavadzimu tradition) into the electric-band context with electric guitars playing the mbira parts",
-  "recipe": "classic Southern African mid-1970s chimurenga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, string drone modal palo mayombe kongo mambo ritual chant huayno. thick, breath veiled tone, straight note core, interlocked note trading. traditional sustaining iron mbira, ebony open string slide resonance single coil electric guitar, picked narrow-q-precise electric bass, pre muffled edge muffled brushes-and-sticks drum kit, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
-  "recipe_chars": 664,
-  "score": 221.117,
+  "recipe": "classic Southern African mid-1970s chimurenga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, string drone modal huayno son jarocho. extended whistle, breath veiled tone, straight note core, interlocked note trading. traditional sustaining iron mbira, open string slide resonance single coil electric guitar, la bella flats Detroit soul bass canon narrow-q-precise electric bass, pre muffled edge muffled brushes-and-sticks drum kit, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 675,
+  "score": 216.714,
   "config": {
     "traditions": [
       "chimurenga",
-      "palo_mayombe_mambo",
-      "andean_huayno"
+      "andean_huayno",
+      "son_jarocho"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 2.7950000000000017,
-          "voice_quality": 18.525,
+          "voice_register": 1.5187499999999998,
+          "voice_quality": 14.559999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.0399999999999998,
-          "voice_articulation": 17.485000000000003,
-          "voice_microtone": 21.515,
-          "voice_tradition": 15.469999999999999,
-          "voice_mechanism_compound": 7.735,
-          "voice_estill_quality": 4.2250000000000005,
-          "voice_speech_song": 19.305000000000003,
-          "voice_ensemble_config": 18.005000000000003,
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 16.119999999999997,
+          "voice_microtone": 20.474999999999994,
+          "voice_tradition": 15.177499999999998,
+          "voice_mechanism_compound": 9.465,
+          "voice_estill_quality": 5.915,
+          "voice_speech_song": 18.979999999999997,
+          "voice_ensemble_config": 16.834999999999997,
           "voice_ornament_system": 5.604374999999999,
           "voice_pitch_organization": 2.9375000000000004,
-          "voice_processing_chain": 5.135,
-          "voice_multitrack_stack": 2.860000000000001
+          "voice_processing_chain": 6.150625,
+          "voice_multitrack_stack": 3.25
         }
       },
       {
@@ -61,10 +61,10 @@
           "mbira_buzz": "bottle_caps"
         },
         "scores": {
-          "tine_material": 1.495625,
+          "tine_material": 1.1456250000000001,
           "mbira_board": 0.195,
           "mbira_resonator": 0.39,
-          "mbira_buzz": 0.800625
+          "mbira_buzz": 1.100625
         }
       },
       {
@@ -73,7 +73,7 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_soldano_slo100",
           "body_wood": "mahogany",
-          "neck_wood": "wenge_neck",
+          "neck_wood": "mahogany_neck",
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "pure_nickel",
@@ -86,17 +86,17 @@
         },
         "scores": {
           "electric_technique": 2.375,
-          "amp_make": 2.2749999999999995,
+          "amp_make": 0.585,
           "body_wood": 0.3,
-          "neck_wood": 0.65,
-          "fretboard": 1.4949999999999999,
+          "neck_wood": 0.3,
+          "fretboard": 0.65,
           "pickup_magnet": 0.15,
           "string_material": 0,
           "string_gauge": 0.3,
           "bridge": 0.65,
           "scale_length": 0.6,
           "finish": 0,
-          "string_tuning": 3.185,
+          "string_tuning": 5.435625,
           "single_coil_pickup_construction": 0
         }
       },
@@ -108,17 +108,17 @@
           "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_motown",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.7149999999999999,
+          "amp_make": 0.9099999999999999,
           "body_wood": 0.65,
           "pickup_config": 0.65,
-          "string_type": 0.6499999999999999,
+          "string_type": 1.5999999999999999,
           "scale_length_b": 0.3,
-          "fretted_or_not": 0.65,
+          "fretted_or_not": 0.195,
           "bass_technique": 1.2349999999999999,
           "electric_bass_string_configuration": 0
         }
@@ -131,7 +131,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.240000000000006,
+          "drum_technique": 18.85,
           "drumhead": 2.3881249999999996,
           "drum_kit_kick_pedal": 0
         }
@@ -144,9 +144,9 @@
           "hosho_filler": "hosho_hota_seeds"
         },
         "scores": {
-          "hosho_form": 9.794999999999998,
-          "hosho_groove": 21.845,
-          "hosho_filler": 8.050624999999998
+          "hosho_form": 9.144999999999998,
+          "hosho_groove": 21.195,
+          "hosho_filler": 8.350624999999999
         }
       }
     ],

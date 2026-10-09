@@ -5,7 +5,7 @@
   "lineage": "German post-punk includes revival bands built around recurring guitar figures, keyboards and shared vocals.",
   "recipe": "classic german post-punk, distorted Rock, alternative branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit, rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 356,
-  "score": 33.047,
+  "score": 32.879,
   "config": {
     "traditions": [
       "german_post_punk"
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.0680000000000005,
+          "electric_technique": 3.0365,
           "amp_make": 8.255,
-          "body_wood": 1.7429999999999999,
+          "body_wood": 1.848,
           "neck_wood": 0.105,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.273,
+          "bridge": 0.168,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.7429999999999999,
+          "body_wood": 1.848,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.378,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ensemble_config": 0.18524999999999997,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.21075000000000002,
+          "voice_processing_chain": 0.17925000000000002,
           "voice_multitrack_stack": 0.18524999999999997,
           "voice_tessitura": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Zimbabwean adaptation of Jamaican dancehall that formed in Harare's Mbare ghetto studios around 2010-2012 through producers Levels, Oskid and the Chillspot Records crew, running riddim-based digital productions at 95-110 BPM with programmed kick-snare grids, deep synth bass, and rapid Shona-and-English chatting delivered in a patois-inflected accent over communal 'riddim albums' released for free download.",
   "recipe": "classic Southern African 2010-2012 zimdancehall, bass System, reggae diaspora branch, Afro-diasporic MC rhythm, African dance electronic dance azonto bolobedu house. thick, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampler drum machine, organ preset yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios sub bass rompler workstation, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon thumb muted electric bass, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 720,
-  "score": 166.358,
+  "score": 166.365,
   "config": {
     "traditions": [
       "zimdancehall",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.6350000000000016,
+          "voice_register": 2.7850000000000015,
           "voice_quality": 7.605000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999998,
+          "voice_vibrato": 1.775,
           "voice_articulation": 14.039999999999994,
           "voice_microtone": 14.234999999999992,
-          "voice_tradition": 13.33,
+          "voice_tradition": 13.195,
           "voice_mechanism_compound": 2.0799999999999996,
           "voice_estill_quality": 1.69,
           "voice_speech_song": 15.144999999999992,
           "voice_ensemble_config": 15.209999999999994,
           "voice_ornament_system": 2.2749999999999995,
           "voice_pitch_organization": 1.14,
-          "voice_processing_chain": 10.041249999999998,
+          "voice_processing_chain": 9.984999999999998,
           "voice_multitrack_stack": 2.6975000000000007
         }
       },
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.01,
-          "drum_machine_808_context": 4.105,
+          "tr808_voice": 4.1000000000000005,
+          "drum_machine_808_context": 4.195,
           "tr808_production_origin": 1.09
         }
       },
@@ -77,7 +77,7 @@
           "electronic_technique": 0.06499999999999999,
           "sample_bitdepth": 0.285,
           "sample_swing": 8.875,
-          "sample_processing": 0.23625
+          "sample_processing": 0.18
         }
       },
       {
@@ -89,10 +89,10 @@
           "rompler_lineage": "rompler_yamaha_psr_casio"
         },
         "scores": {
-          "electronic_technique": 3.9550000000000005,
+          "electronic_technique": 4.030000000000001,
           "rompler_preset_bank": 2.825,
           "rompler_context": 1.7499999999999998,
-          "rompler_lineage": 2.08
+          "rompler_lineage": 2.065
         }
       },
       {
@@ -108,11 +108,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.425,
-          "body_wood": 0.4724999999999999,
+          "amp_make": 3.4699999999999998,
+          "body_wood": 0.36,
           "pickup_config": 0.135,
-          "string_type": 3.7199999999999998,
-          "scale_length_b": 0.28125,
+          "string_type": 3.765,
+          "scale_length_b": 0.22499999999999998,
           "fretted_or_not": 0.195,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
@@ -128,7 +128,7 @@
         "scores": {
           "hosho_form": 4.75,
           "hosho_groove": 5.595000000000001,
-          "hosho_filler": 4.60125
+          "hosho_filler": 4.59
         }
       }
     ],

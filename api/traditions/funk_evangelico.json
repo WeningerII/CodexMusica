@@ -5,7 +5,7 @@
   "lineage": "Funk evangélico brings evangelical Christian texts and devotional purpose into Brazilian funk practices. Artists, producers and church-linked events connect local dance rhythms with testimony, praise and communal celebration.",
   "recipe": "classic funk evangélico, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. sampler drum machine, TR-808. live tracking.",
   "recipe_chars": 151,
-  "score": 3.627,
+  "score": 3.491,
   "config": {
     "traditions": [
       "funk_evangelico"
@@ -62,7 +62,7 @@
         },
         "scores": {
           "electronic_technique": 0.2,
-          "sample_bitdepth": 0.40950000000000003,
+          "sample_bitdepth": 0.273,
           "sample_swing": 0.693,
           "sample_processing": 0
         }

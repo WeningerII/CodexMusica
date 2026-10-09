@@ -1,16 +1,17 @@
 {
-  "id": "latvian_dainas",
-  "name": "Latvian dainas (folk-song quatrains)",
-  "family": "global",
-  "lineage": "Latvian dainas folk-quatrain song tradition: the canonical Latvian oral-poetic-and-song corpus comprising over 1.2 million collected four-line quatrains in trochaic-tetrameter or dactyl-tetrameter form, documenting the entire Latvian rural-life-cycle from birth-rituals through wedding-cycle through funeral-rites. Compiled by Krišjānis Barons (1835-1923) in the canonical six-volume Latvju Dainas (1894-1915), the largest single-author folklore-collection in any language. Performance configuration: unaccompanied solo or small-group female-voice in characteristic narrow-range pentatonic-or-modal melodic vocabulary with strict daina meter. The post-1991 Latvian-independence cultural-revival under the Song-and-Dance Celebration (Latvian: Dziesmu un deju svētki) has consolidated institutional transmission. Distinguished from broader Baltic vocal music by daina's strict quatrain-form and Krišjānis Barons canonical-corpus reference.",
-  "recipe": "classic early-1830s latvian dainas, ballad Poetry, work song branch, vocal drone modal estonian setu leelo polyphonic song lithuanian sutartinės multipart. thick, breath veiled tone, straight note core, interlocked note trading. chromatic concert twentieth century modern strummed damped song accompaniment kokle. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 393,
-  "score": 268.272,
+  "id": "latvian_folk_music",
+  "merged_from": "latvian_dainas",
+  "name": "Latvian folk music",
+  "family": "vernacular",
+  "lineage": "Latvian village tradition built on the daina — a terse four-line trochaic quatrain, over a million of which Krišjānis Barons catalogued between 1878 and 1915 — sung to short recitative-like tunes with a burdon drone in the eastern regions, alongside the plucked kokle box zither, fiddle-and-accordion dance sets, and, from the first Song Festival in 1873, a massed harmonized choral repertoire that became the national performance form.",
+  "recipe": "classic Northern European late-1870s latvian folk music, domestic Rhythm, Slavic baltic branch, vocal drone modal, European wedding, European protest song irish rebel song cante alentejano. thick, breath veiled tone, slow rate, interlocked note trading. chromatic concert twentieth century modern strummed damped song accompaniment kokle, magic rosin modern acrylic base drone like fiddle, leather castagnari Italian premium folk music drone like accordion, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. baltic outdoor village. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 704,
+  "score": 202.5,
   "config": {
     "traditions": [
-      "latvian_dainas",
-      "estonian_setu_leelo",
-      "lithuanian_sutartines"
+      "latvian_folk_music",
+      "irish_rebel_song",
+      "cante_alentejano"
     ],
     "instruments": [
       {
@@ -20,7 +21,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -28,28 +29,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 9.139999999999999,
-          "voice_quality": 31.589999999999996,
+          "voice_register": 5.264999999999999,
+          "voice_quality": 12.804999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.98,
-          "voice_articulation": 19.89,
-          "voice_microtone": 25.934999999999995,
-          "voice_tradition": 28.794999999999998,
-          "voice_mechanism_compound": 13.52,
-          "voice_estill_quality": 7.280000000000001,
-          "voice_speech_song": 30.16,
-          "voice_ensemble_config": 23.854999999999997,
-          "voice_ornament_system": 3.5100000000000002,
-          "voice_pitch_organization": 9.02125,
-          "voice_processing_chain": 9.814999999999998,
-          "voice_multitrack_stack": 10.725
+          "voice_vibrato": 2.0799999999999996,
+          "voice_articulation": 13.454999999999997,
+          "voice_microtone": 15.599999999999993,
+          "voice_tradition": 21.612499999999997,
+          "voice_mechanism_compound": 5.265000000000001,
+          "voice_estill_quality": 3.8675000000000006,
+          "voice_speech_song": 19.824999999999996,
+          "voice_ensemble_config": 14.364999999999997,
+          "voice_ornament_system": 13.614999999999998,
+          "voice_pitch_organization": 4.16,
+          "voice_processing_chain": 1.755,
+          "voice_multitrack_stack": 2.7950000000000004
         }
       },
       {
@@ -61,15 +62,70 @@
           "kokle_body_wood": "kokle_maple_lime"
         },
         "scores": {
-          "kokle_form": 2.2649999999999997,
-          "kokle_playing": 10.713750000000001,
-          "kokle_string_material": 8.42375,
-          "kokle_body_wood": 16.90375
+          "kokle_form": 1.8199999999999994,
+          "kokle_playing": 7.594999999999999,
+          "kokle_string_material": 1.625,
+          "kokle_body_wood": 2.9899999999999998
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 8.937499999999998,
+          "fiddle_strings": 0,
+          "fiddle_bow": 1.1374999999999997,
+          "fiddle_mute": 0.45499999999999996,
+          "fiddle_articulation": 1.105,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "accordion_reed_material": "brass_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 7.475,
+          "accordion_reed_material": 0.39,
+          "musette_offset": 1.3,
+          "reed_config": 0.45499999999999996,
+          "bellows": 1.3,
+          "voicing_chamber": 0.35,
+          "accordion_maker_school": 4.029999999999999
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+        },
+        "scores": {
+          "choir_size": 11.245000000000001,
+          "choir_polyphonic_configuration": 4.3549999999999995,
+          "choir_regional_canonical_configuration": 9.294999999999998,
+          "choir_ensemble_repertoire": 4.225
         }
       }
     ],
-    "room": "mountain_valley",
-    "archetype": "arch_ethnographic_field_digital",
+    "room": "baltic_outdoor_village",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
@@ -77,34 +133,19 @@
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
-    "tuning": "lithuanian_sutartines_seconds",
+    "tuning": "nordic_modal_drone_double_stops",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "lithuanian_sutartines_seconds",
-    "room": "mountain_valley",
-    "parts": {
-      "voice_register": "chest_voice",
-      "voice_quality": "speech_voice",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_tradition": "modern_pop_vocal_training",
-      "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_microtone": "bend_inflected",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_estill_quality": "voice_estill_speech",
-      "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_single_source"
-    },
+    "tuning": "nordic_modal_drone_double_stops",
+    "room": "baltic_outdoor_village",
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_high",
+    "chain_medium": "tape_15ips",
     "chain_console": "clean"
   }
 }

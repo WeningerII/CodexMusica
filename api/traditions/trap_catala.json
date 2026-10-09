@@ -5,7 +5,7 @@
   "lineage": "Catalan-language trap developed within Catalonia’s contemporary hip-hop and electronic-pop networks.",
   "recipe": "classic modern trap catala, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, plucked short envelope digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 306,
-  "score": 32.836,
+  "score": 32.839,
   "config": {
     "traditions": [
       "trap_catala"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 8.125,
-          "voice_ensemble_config": 0.2115,
+          "voice_ensemble_config": 0.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -58,8 +58,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.897,
-          "drum_machine_808_context": 0.34650000000000003,
+          "tr808_voice": 3.93,
+          "drum_machine_808_context": 0.348,
           "tr808_production_origin": 0.159
         }
       },

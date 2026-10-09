@@ -5,7 +5,7 @@
   "lineage": "Nova música maranhense connects contemporary songwriters, bands and producers from Maranhão through festivals, recordings and local performance networks. Their work draws on regional song and dance traditions while engaging with wider Brazilian popular music.",
   "recipe": "classic nova música maranhense, functional Song, Brazilian song branch. solo with instrumental accompaniment. low mid rich spectrum cedar classical nylon-string guitar. live tracking.",
   "recipe_chars": 183,
-  "score": 4.763,
+  "score": 5.067,
   "config": {
     "traditions": [
       "nova_musica_maranhense"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.2415,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -65,7 +65,7 @@
         "scores": {
           "acoustic_technique": -0.25,
           "string_tuning": 0,
-          "top_wood_classical": 1.7745000000000002,
+          "top_wood_classical": 2.0475000000000003,
           "bracing_classical": 0.39,
           "string_classical": 0.1365,
           "attack_technique_cl": 0

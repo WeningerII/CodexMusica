@@ -1,0 +1,118 @@
+{
+  "id": "chenda_melam",
+  "name": "Chenda melam (Kerala temple drum orchestra)",
+  "family": "global",
+  "lineage": "Chenda melam is the massed drumming of Kerala temple festivals, in which ranks of chenda players, divided between the uruttu chenda that carries the rhythmic elaboration and the deeper veekku chenda that keeps the beat, play with ilathalam cymbals, kuzhal shawms and kombu horns. Its main forms include panchari melam, in a six-beat cycle played in stages of increasing tempo, and pandi melam, the form played in the Ilanjithara melam at Thrissur Pooram.",
+  "recipe": "classic modern chenda melam, carnival Processional, south Asian branch. massed temple festival jackwood shell layered cowhide canonical kerala chenda, elathalam, kuzhal, kombu kerala. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 263,
+  "score": 17.39,
+  "config": {
+    "traditions": [
+      "chenda_melam"
+    ],
+    "instruments": [
+      {
+        "id": "chenda",
+        "slots": {
+          "chenda_form": "chenda_uruttu",
+          "chenda_repertoire": "chenda_melam_temple",
+          "chenda_construction": "chenda_jackwood_cowhide"
+        },
+        "scores": {
+          "chenda_form": 2.29275,
+          "chenda_repertoire": 8.775,
+          "chenda_construction": 4.4915
+        }
+      },
+      {
+        "id": "elathalam",
+        "slots": {
+          "elathalam_stroke": "elathalam_closed",
+          "elathalam_ensemble": "elathalam_melam"
+        },
+        "scores": {
+          "elathalam_stroke": 0.063,
+          "elathalam_ensemble": 1.07425
+        }
+      },
+      {
+        "id": "kuzhal",
+        "slots": {
+          "kuzhal_form": "kuzhal_short",
+          "kuzhal_style": "kuzhal_melam"
+        },
+        "scores": {
+          "kuzhal_form": 0.3,
+          "kuzhal_style": 0.0945
+        }
+      },
+      {
+        "id": "kombu_kerala",
+        "slots": {
+          "kombu_material": "kombu_brass",
+          "kombu_style": "kombu_pattu"
+        },
+        "scores": {
+          "kombu_material": 0.3315,
+          "kombu_style": 0.11699999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "chenda": [
+        "chenda_form",
+        "chenda_repertoire",
+        "chenda_construction"
+      ],
+      "elathalam": [
+        "elathalam_stroke",
+        "elathalam_ensemble"
+      ],
+      "kuzhal": [
+        "kuzhal_form",
+        "kuzhal_style"
+      ],
+      "kombu_kerala": [
+        "kombu_material",
+        "kombu_style"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "chenda_form": "chenda_uruttu",
+      "chenda_repertoire": "chenda_melam_temple",
+      "chenda_construction": "chenda_jackwood_cowhide",
+      "elathalam_stroke": "elathalam_closed",
+      "elathalam_ensemble": "elathalam_melam",
+      "kuzhal_form": "kuzhal_short",
+      "kuzhal_style": "kuzhal_melam",
+      "kombu_material": "kombu_brass",
+      "kombu_style": "kombu_pattu"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

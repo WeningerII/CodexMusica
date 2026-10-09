@@ -5,7 +5,7 @@
   "lineage": "Indonesian R&B connects local singers and producers with contemporary soul and rhythm-and-blues songwriting. Artists such as Bali-based Destardy develop intimate, relationship-centred songs through collaborations with instrumentalists and other vocalists.",
   "recipe": "classic indonesian r&b, functional Song, soul R&B branch. solo with instrumental accompaniment. basswood open string slide resonance humbucker electric guitar, digital subtractive, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 289,
-  "score": 20.323,
+  "score": 20.56,
   "config": {
     "traditions": [
       "indonesian_r_and_b"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.252,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -58,7 +58,7 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_modern_modeling",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": 2.45,
           "amp_make": 1.17,
-          "body_wood": 1.0605000000000002,
-          "neck_wood": 0.33599999999999997,
-          "fretboard": 0.2415,
+          "body_wood": 1.0920000000000003,
+          "neck_wood": 0.378,
+          "fretboard": 0.378,
           "pickup_magnet": 0.315,
           "pickup_winding": 0.315,
-          "string_material": 0.2415,
-          "bridge": 0.33599999999999997,
-          "scale_length": 1.092,
-          "string_gauge": 0.33599999999999997,
+          "string_material": 0.378,
+          "bridge": 0.231,
+          "scale_length": 1.3335000000000004,
+          "string_gauge": 0.231,
           "finish": 0,
           "string_tuning": 1.3
         }
@@ -102,12 +102,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 0.4095,
+          "drum_technique": -0.05,
+          "drumhead": 0.378,
           "drum_kit_kick_pedal": 0
         }
       }

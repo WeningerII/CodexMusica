@@ -3,14 +3,14 @@
   "name": "Gnawa",
   "family": "global",
   "lineage": "Moroccan Sufi-trance ceremonial tradition with West-African Bambara-Soussi-Hausa-Songhai lineage tracing to sub-Saharan enslaved peoples brought to Morocco — codified through the lila ceremony with master-musician maâlem leading sintir-bass-lute and qarqaba-iron-castanets ensemble; canonical lineage through Mahmoud Guinia (Marrakech), Mustapha Baqbou, and the Essaouira Gnaoua festival (founded 1998) as the genre’s international showcase",
-  "recipe": "classic North African late-1990s gnawa, drone Modal, string branch, Afro-diasporic ritual devotional, Sufi ritual devotional palo mayombe kongo mambo ritual chant lukumí ceremonial. thick, breath veiled tone, slow rate, interlocked note trading. sersara gut gut string call-and-response sintir, gnawa traditional iron metallic clang dominant ritual qarqaba, tbel, gut juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, castanets, apricot canonical Maghrebi arundo donax canonical Maghrebi ghaita. stone plaster medina room. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 692,
-  "score": 268.173,
+  "recipe": "classic North African late-1990s gnawa, drone Modal, string branch, Afro-diasporic ritual devotional, Sufi ritual devotional kromanti play palo mayombe kongo mambo ritual chant. thick, breath veiled tone, slow rate, interlocked note trading. sersara gut gut string call-and-response sintir, gnawa traditional iron metallic clang dominant ritual qarqaba, tbel, gut juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, castanets, apricot canonical Maghrebi arundo donax canonical Maghrebi ghaita. stone plaster medina room. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 688,
+  "score": 252.36,
   "config": {
     "traditions": [
       "gnawa",
-      "palo_mayombe_mambo",
-      "santeria_lucumi"
+      "jamaican_maroon_kromanti",
+      "palo_mayombe_mambo"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.819999999999999,
-          "voice_quality": 23.985,
+          "voice_register": 0.9749999999999991,
+          "voice_quality": 25.22,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.3649999999999998,
-          "voice_articulation": 18.330000000000002,
-          "voice_microtone": 21.124999999999996,
-          "voice_tradition": 29.2175,
-          "voice_mechanism_compound": 7.299999999999999,
+          "voice_articulation": 18.135,
+          "voice_microtone": 20.929999999999996,
+          "voice_tradition": 22.23,
+          "voice_mechanism_compound": 7.799999999999999,
           "voice_estill_quality": 7.54,
-          "voice_speech_song": 19.759999999999998,
-          "voice_ensemble_config": 17.485,
-          "voice_ornament_system": 9.615,
-          "voice_pitch_organization": 6.71,
-          "voice_processing_chain": 4.42,
-          "voice_multitrack_stack": 1.9499999999999988
+          "voice_speech_song": 18.915,
+          "voice_ensemble_config": 16.639999999999997,
+          "voice_ornament_system": 8.825,
+          "voice_pitch_organization": 2.1000000000000005,
+          "voice_processing_chain": 6.5649999999999995,
+          "voice_multitrack_stack": 2.144999999999999
         }
       },
       {
@@ -65,14 +65,14 @@
           "sintir_context": "sintir_lila"
         },
         "scores": {
-          "plucked_traditional_technique": 24.050000000000004,
+          "plucked_traditional_technique": 23.465,
           "sintir_skin": 0.195,
           "sintir_sersara": 2.49,
           "sintir_strings": 2.145,
           "sintir_body_wood": 0.15,
           "sintir_neck_wood": 0.15,
           "sintir_technique": 0.845,
-          "sintir_context": 12.22
+          "sintir_context": 10.92
         }
       },
       {
@@ -86,8 +86,8 @@
         "scores": {
           "qarqaba_construction": 4.69,
           "qarqaba_playing_style": 3.645,
-          "qarqaba_size": 7.8,
-          "qarqaba_context": 3.9
+          "qarqaba_size": 6.5,
+          "qarqaba_context": 4.46
         }
       },
       {
@@ -98,7 +98,7 @@
         },
         "scores": {
           "tbel_skin": 0,
-          "tbel_technique": 1.445
+          "tbel_technique": 1.5950000000000002
         }
       },
       {
@@ -110,10 +110,10 @@
           "bendir_head": "bendir_goat_skin_canonical"
         },
         "scores": {
-          "bendir_snares": 2.275,
-          "bendir_context": 1.885,
-          "bendir_shell_wood": 2.25,
-          "bendir_head": 5.3
+          "bendir_snares": 2.73,
+          "bendir_context": 2.34,
+          "bendir_shell_wood": 1.69,
+          "bendir_head": 4.8
         }
       },
       {
@@ -139,9 +139,9 @@
         "scores": {
           "wind_articulation": -0.15000000000000002,
           "ghaita_region": 2.8600000000000003,
-          "ghaita_context": 7.41,
-          "ghaita_body_wood": 2.1,
-          "ghaita_reed": 2.1
+          "ghaita_context": 6.11,
+          "ghaita_body_wood": 1.6,
+          "ghaita_reed": 1.6
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Swedish fiddle tradition (spelmanslag)",
   "family": "global",
   "lineage": "Swedish fiddle practice codified through 19th-century parish spelmän, the 1908 spelmansstämma revival movement and the Zorn medal system from 1933 — polska in uneven 3/4 with the second or third beat shortened, plus schottis, vals and polketta, played with heavy double-stops, drone-fifth accompaniment, second-fiddle stämma harmony a third below, and swung foot-driven pulse in unison spelmanslag ensembles.",
-  "recipe": "classic Northern European late-1900s swedish fiddle tradition, improv On Frame, string improv branch, string drone modal, Slavic baltic domestic rhythm estonian folk music polish folk. kargyraa, breath veiled tone, slow rate, interlocked note trading. double stops fiddle, traditional spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, castagnari Italian premium folk music drone like accordion, harpa. mountain valley fabod. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 516,
-  "score": 167.209,
+  "recipe": "classic Northern European late-1900s swedish fiddle tradition, improv On Frame, string improv branch, string drone modal, Slavic baltic domestic rhythm pskov gusli estonian folk music. kargyraa, breath veiled tone, slow rate, interlocked note trading. double stops fiddle, traditional spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, accordion, harpa. mountain valley fabod. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 467,
+  "score": 143.418,
   "config": {
     "traditions": [
       "swedish_fiddle",
-      "estonian_folk_music",
-      "polish_folk"
+      "pskov_gusli",
+      "estonian_folk_music"
     ],
     "instruments": [
       {
@@ -18,15 +18,15 @@
         "slots": {
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "silver_wound_lamb_gut_fiddle",
-          "fiddle_bow": "dark_rosin",
+          "fiddle_bow": "light_rosin",
           "fiddle_mute": "rubber_mute",
           "fiddle_articulation": "sul_pont",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 14.844999999999997,
-          "fiddle_strings": 0.295,
-          "fiddle_bow": 0.15,
+          "bowed_technique": 12.844999999999999,
+          "fiddle_strings": 0.49,
+          "fiddle_bow": 0,
           "fiddle_mute": 0.195,
           "fiddle_articulation": 1.15,
           "fiddle_string_configuration": 0
@@ -43,11 +43,11 @@
           "nyckel_mechanism": "nyckel_2_row_diatonic_silverbas"
         },
         "scores": {
-          "bowed_technique": -0.035,
+          "bowed_technique": -0.05,
           "nyckel_keys": 3.6399999999999997,
-          "nyckel_strings": -0.035,
-          "nyckel_body_wood": 2.9899999999999998,
-          "nyckel_string_material": 1.1699999999999995,
+          "nyckel_strings": 0.09999999999999999,
+          "nyckel_body_wood": 2.945,
+          "nyckel_string_material": 1.8199999999999996,
           "nyckel_mechanism": -1.295
         }
       },
@@ -59,17 +59,17 @@
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 3.7700000000000005,
+          "free_reed_technique": 2.9250000000000007,
           "accordion_reed_material": 0.195,
-          "musette_offset": 0.7649999999999999,
-          "reed_config": 0.195,
+          "musette_offset": 0.9149999999999999,
+          "reed_config": 0.42,
           "bellows": 0.7649999999999999,
-          "voicing_chamber": 0.21,
-          "accordion_maker_school": 1.69
+          "voicing_chamber": 0.35,
+          "accordion_maker_school": 0.65
         }
       },
       {
@@ -79,8 +79,8 @@
           "harpa_strings": "harpa_horsehair"
         },
         "scores": {
-          "harpa_size": 0.195,
-          "harpa_strings": 0.6950000000000001
+          "harpa_size": 0.09321428571428571,
+          "harpa_strings": 0.545
         }
       },
       {
@@ -105,21 +105,21 @@
         },
         "scores": {
           "voice_register": 1.2699999999999998,
-          "voice_quality": 16.444999999999993,
+          "voice_quality": 18.264999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 16.444999999999993,
-          "voice_microtone": 19.95499999999999,
-          "voice_tradition": 10.919999999999996,
-          "voice_mechanism_compound": 8.58,
-          "voice_estill_quality": 6.825000000000001,
-          "voice_speech_song": 17.029999999999994,
-          "voice_ensemble_config": 18.459999999999994,
-          "voice_ornament_system": 3.7196428571428584,
-          "voice_pitch_organization": 3.7050000000000005,
-          "voice_processing_chain": 5.199999999999999,
-          "voice_multitrack_stack": 10.23392857142857
+          "voice_articulation": 13.584999999999994,
+          "voice_microtone": 16.89999999999999,
+          "voice_tradition": 8.32,
+          "voice_mechanism_compound": 7.280000000000001,
+          "voice_estill_quality": 4.2250000000000005,
+          "voice_speech_song": 14.819999999999993,
+          "voice_ensemble_config": 15.404999999999994,
+          "voice_ornament_system": 3.1200000000000014,
+          "voice_pitch_organization": 2.8600000000000008,
+          "voice_processing_chain": 3.8999999999999995,
+          "voice_multitrack_stack": 8
         }
       }
     ],

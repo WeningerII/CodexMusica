@@ -5,7 +5,7 @@
   "lineage": "Northeast Indian hip hop connects multilingual rap communities across India’s northeastern states. Groups such as Khasi Bloodz bring regional identity, local languages and youth experience into a shared hip-hop network.",
   "recipe": "classic northeast indian hip hop, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch. clean strummed humbucker electric guitar, electric bass, drum kit, dj playback mixing unspecified. live tracking.",
   "recipe_chars": 210,
-  "score": 19.608,
+  "score": 20.673,
   "config": {
     "traditions": [
       "northeast_indian_hip_hop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.868,
+          "voice_speech_song": 14.225,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -74,13 +74,13 @@
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0.2415,
-          "fretboard": -0.05,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
           "bridge": 0,
-          "scale_length": 0,
-          "string_gauge": 0.847,
+          "scale_length": 0.483,
+          "string_gauge": 0.7735,
           "finish": 0,
           "string_tuning": 0
         }
@@ -100,7 +100,7 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0,
-          "pickup_config": 0.4515,
+          "pickup_config": 0.63,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -129,11 +129,11 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.315,
+          "bearing_edges": 0.3885,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.07,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_lathing": -0.11850000000000002,
           "cymbal_finish": 0
         }
       },

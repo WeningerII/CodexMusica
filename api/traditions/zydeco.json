@@ -38,7 +38,7 @@
           "voice_quality": 16.705,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.23,
+          "voice_vibrato": 17.93,
           "voice_articulation": 11.309999999999995,
           "voice_microtone": 18.02,
           "voice_tradition": 8.97,
@@ -47,7 +47,7 @@
           "voice_speech_song": 14.949999999999996,
           "voice_ensemble_config": 15.079999999999995,
           "voice_ornament_system": 1.785,
-          "voice_pitch_organization": 0.6900000000000001,
+          "voice_pitch_organization": 0.885,
           "voice_processing_chain": 5.395,
           "voice_multitrack_stack": 4.225
         }
@@ -65,9 +65,9 @@
         },
         "scores": {
           "free_reed_technique": 9.824999999999996,
-          "accordion_reed_material": 0.525,
+          "accordion_reed_material": 0.48,
           "musette_offset": 3.8349999999999995,
-          "reed_config": 3.6449999999999996,
+          "reed_config": 3.7949999999999995,
           "bellows": 0.09,
           "voicing_chamber": 0.045,
           "accordion_maker_school": 1.645

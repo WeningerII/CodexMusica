@@ -5,7 +5,7 @@
   "lineage": "Ukrainian alternative rock connects guitar-driven songwriting with post-hardcore, progressive and atmospheric approaches.",
   "recipe": "classic ukrainian alternative rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 338,
-  "score": 49.692,
+  "score": 49.617,
   "config": {
     "traditions": [
       "ukrainian_alternative_rock"
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.2415,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -128,7 +128,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "poly_archetypes": 6.24,
           "poly_voices": 0.042749999999999996,
           "poly_maker_lineage": -0.035

@@ -5,7 +5,7 @@
   "lineage": "Spatially dense death-metal production and composition aesthetic represented here by Finnish Krypts’ Cadaver Circulation (2019). Dark Descent describes reverberant atmosphere, unsettling chords and deep harsh vocals, and gives guitar, drums, bass/vocal and in-house recording credits. The selected down-tuned chordal model pairs heavy decay with slow weight while retaining the death-metal band frame.",
   "recipe": "classic late-2010s cavernous death metal, distorted Rock, death branch, doom metal brazilian doom metal. interlocked note trading, equal tempered, solo with instrumental accompaniment, hall reverb long decay cinematic. orange amp British heavy crunch mahogany ebony low output no compression humbucker electric guitar, orange amp British heavy crunch mahogany electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 541,
-  "score": 175.29,
+  "score": 174.15,
   "config": {
     "traditions": [
       "cavernous_death_metal",
@@ -31,8 +31,8 @@
           "string_tuning": "c_standard"
         },
         "scores": {
-          "electric_technique": 36.605000000000004,
-          "amp_make": 29.520000000000003,
+          "electric_technique": 36.395,
+          "amp_make": 29.130000000000003,
           "body_wood": 1.3649999999999998,
           "neck_wood": 1.3649999999999998,
           "fretboard": 2.6799999999999997,
@@ -41,7 +41,7 @@
           "string_material": 0.195,
           "bridge": 1.3649999999999998,
           "scale_length": 1.3649999999999998,
-          "string_gauge": 5.329999999999999,
+          "string_gauge": 5.225,
           "finish": 0,
           "string_tuning": 12.025
         }
@@ -59,7 +59,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 29.520000000000003,
+          "amp_make": 29.130000000000003,
           "body_wood": 1.3649999999999998,
           "pickup_config": 0,
           "string_type": 0.195,
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 0.375,
-          "drumhead": 2.7299999999999995,
+          "drumhead": 2.6849999999999996,
           "drum_kit_kick_pedal": 0
         }
       },

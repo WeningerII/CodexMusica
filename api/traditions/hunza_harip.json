@@ -1,0 +1,103 @@
+{
+  "id": "hunza_harip",
+  "name": "Harip (Hunza shawm and drum ensemble)",
+  "family": "global",
+  "lineage": "Loud celebratory instrumental music of Hunza in Gilgit-Baltistan, played by ensembles of the surnai shawm of apricot wood, the dadang double-headed juniper drum and the dhamal pair of small metal kettledrums, the drums struck with sticks. It was played mostly by the Bericho (Domaki-speaking) musician community of Mominabad for the court of the Mirs of Hunza, at polo matches, seasonal festivals and shamanic trance ceremonies, and declined after the princely state was abolished; revival efforts have since brought it back to festivals and stages. The surnai card stands in for the Hunza surnai, the drum card for the dadang and the naqareh card for the dhamal.",
+  "recipe": "classic modern harip, carnival Processional, south Asian branch, wind pipe drone modal gaita mirandesa and pauliteiros żaqq u tanbur. surnai afghan, membrane drum pulse resonant acoustic membrane drum, naqareh. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 290,
+  "score": 15.275,
+  "config": {
+    "traditions": [
+      "hunza_harip",
+      "gaita_mirandesa_pauliteiros",
+      "zaqq_u_tanbur"
+    ],
+    "instruments": [
+      {
+        "id": "surnai_afghan",
+        "slots": {
+          "surnai_afghan_size": "surnai_afghan_standard",
+          "surnai_afghan_technique": "surnai_afghan_circular",
+          "surnai_afghan_body": "surnai_afghan_mulberry"
+        },
+        "scores": {
+          "surnai_afghan_size": 1.9449999999999998,
+          "surnai_afghan_technique": 0.9299999999999999,
+          "surnai_afghan_body": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 7.050000000000001,
+          "acoustic_membrane_drum_gesture": 6.550000000000001
+        }
+      },
+      {
+        "id": "naqareh",
+        "slots": {
+          "naqareh_size": "naqareh_small",
+          "naqareh_shell": "naqareh_metal"
+        },
+        "scores": {
+          "naqareh_size": 0,
+          "naqareh_shell": 0
+        }
+      }
+    ],
+    "pinned": {
+      "surnai_afghan": [
+        "surnai_afghan_size",
+        "surnai_afghan_technique",
+        "surnai_afghan_body"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "naqareh": [
+        "naqareh_size",
+        "naqareh_shell"
+      ]
+    },
+    "room": "mountain_valley",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "mountain_valley",
+    "parts": {
+      "surnai_afghan_size": "surnai_afghan_standard",
+      "surnai_afghan_technique": "surnai_afghan_circular",
+      "surnai_afghan_body": "surnai_afghan_mulberry",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "naqareh_size": "naqareh_small",
+      "naqareh_shell": "naqareh_metal"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

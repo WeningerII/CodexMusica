@@ -5,7 +5,7 @@
   "lineage": "Rap ivoire connects Côte d’Ivoire’s rap communities with neighboring popular styles. Abidjan group Kiff No Beat exemplifies a collaborative strand shaped by group MC delivery, local competitions and produced recordings.",
   "recipe": "classic modern rap ivoire, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, group vocals. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 276,
-  "score": 40.727,
+  "score": 40.884,
   "config": {
     "traditions": [
       "rap_ivoire"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 15.269,
-          "voice_ensemble_config": 2.2115,
+          "voice_speech_song": 15.455,
+          "voice_ensemble_config": 2.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

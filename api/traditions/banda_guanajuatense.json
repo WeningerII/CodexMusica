@@ -5,7 +5,7 @@
   "lineage": "Wind-band tradition of the Bajío state of Guanajuato consolidated after the 1870s municipal-band expansion, using a compact roster of clarinets, two trumpets, alto horn or trombone and tuba with tambora and platillos, playing sones abajeños, valses, marchas fúnebres and polkas at village fiestas in 2/4 and 3/4 with a lighter, more song-derived phrasing than the Sinaloan bandas.",
   "recipe": "classic mid-1870s banda guanajuatense, functional Song, Mexican branch, American marching groove percussion, andean carnival processional fife and drum corps banda militar. softer tone ebonite hard rubber klezmer tradition clarinet, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, bach 42 canonical American orchestral tenor bass trombone trombone, compact tuba brass piston valves American school besson sovereign British brass band tuba, double bass rapid double strokes bass drum, saxophone. adobe room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 631,
-  "score": 49.63,
+  "score": 49.78,
   "config": {
     "traditions": [
       "banda_guanajuatense",
@@ -57,7 +57,7 @@
           "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "bass_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_1half_g",
-          "trombone_mute": "no_mute_trb",
+          "trombone_mute": "straight_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
@@ -66,7 +66,7 @@
           "wind_articulation": 2.405,
           "trombone_type": 0,
           "trombone_mouthpiece": 2.275,
-          "trombone_mute": 0.24,
+          "trombone_mute": 0.195,
           "trombone_technique": 0.845,
           "trombone_bell_metal": 0.39,
           "trombone_maker_school": 3.965
@@ -120,7 +120,7 @@
           "sax_body_alloy": 0.9099999999999999,
           "sax_mouthpiece": 0.195,
           "sax_technique": 0.585,
-          "sax_maker_school": 0.15
+          "sax_maker_school": 0.345
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Funeral doom",
   "family": "global",
   "lineage": "Extreme-slow doom-metal sub-style codified through Thergothon (Finnish, Stream from the Heavens 1994), Skepticism, Mournful Congregation, and Esoteric — characterized by sub-30 BPM tempo, sustained heavy-distortion guitar drones, glacial drumming, and bell-like cathedral-organ accents; ritual-funereal lyrical and visual identity",
-  "recipe": "classic North American mid-1990s funeral doom, distorted Rock, doom branch, ambient experimental electric witch house vaporwave aesthetic. thick, larynx lowered, straight onset, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky sub heavy electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka pad analog poly synth. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 652,
-  "score": 224.847,
+  "recipe": "classic North American mid-1990s funeral doom, distorted Rock, doom branch, ambient experimental electric witch house hauntology. thick, larynx lowered, breath pulsed, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky sub heavy electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka pad analog poly synth. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 642,
+  "score": 234.98,
   "config": {
     "traditions": [
       "funeral_doom",
       "witch_house_2010s",
-      "vapor_aesthetic"
+      "hauntology_uk_2010s"
     ],
     "instruments": [
       {
@@ -20,12 +20,12 @@
           "voice_quality": "lowered_larynx_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.735000000000001,
-          "voice_quality": 15.209999999999994,
+          "voice_register": 3.3850000000000016,
+          "voice_quality": 14.234999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.325,
-          "voice_articulation": 12.414999999999994,
-          "voice_microtone": 12.219999999999992,
+          "voice_vibrato": 2.08,
+          "voice_articulation": 14.949999999999996,
+          "voice_microtone": 14.754999999999992,
           "voice_tradition": 9.425,
-          "voice_mechanism_compound": 11.159999999999997,
-          "voice_estill_quality": 1.8849999999999996,
-          "voice_speech_song": 13.584999999999994,
-          "voice_ensemble_config": 13.194999999999993,
+          "voice_mechanism_compound": 11.204999999999997,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 16.119999999999997,
+          "voice_ensemble_config": 14.884999999999994,
           "voice_ornament_system": 2.495,
           "voice_pitch_organization": 4.095,
-          "voice_processing_chain": 8.82,
-          "voice_multitrack_stack": 5.525000000000001
+          "voice_processing_chain": 10.444999999999999,
+          "voice_multitrack_stack": 6.37
         }
       },
       {
@@ -71,12 +71,12 @@
         },
         "scores": {
           "electric_technique": 13.555,
-          "amp_make": 13.53,
+          "amp_make": 14.179999999999998,
           "body_wood": 6.499999999999999,
           "neck_wood": 0.435,
           "fretboard": 0.39,
-          "pickup_magnet": 0.255,
-          "pickup_winding": 0.255,
+          "pickup_magnet": 0.36,
+          "pickup_winding": 0.36,
           "string_material": 0.39,
           "bridge": 0.39,
           "scale_length": 6.499999999999999,
@@ -92,17 +92,17 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.53,
+          "amp_make": 14.179999999999998,
           "body_wood": 0.8700000000000001,
-          "pickup_config": 0.255,
+          "pickup_config": 0.36,
           "string_type": 4.26,
-          "scale_length_b": 0.435,
+          "scale_length_b": 0.49499999999999994,
           "fretted_or_not": 0,
           "bass_technique": 3.9399999999999995,
           "electric_bass_string_configuration": 0
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.324999999999996,
-          "drumhead": 2.0475000000000003,
+          "drum_technique": 15.014999999999997,
+          "drumhead": 1.55,
           "drum_kit_kick_pedal": 0
         }
       },

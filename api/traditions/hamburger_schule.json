@@ -3,14 +3,14 @@
   "name": "Hamburger Schule",
   "family": "rock_punk",
   "lineage": "Hamburg indie-rock circle of roughly 1989-1997 around the L'Age d'Or and What's So Funny About labels, with Blumfeld, Tocotronic, Die Sterne and Kolossale Jugend applying American post-punk and Sonic Youth guitar textures to dense, theory-inflected German lyrics, at mid-tempo 100-140 BPM with jangling or scraped single-coil guitars, plain unadorned four-piece rhythm sections, and speech-rhythm vocal delivery that subordinates melody to text.",
-  "recipe": "classic North American mid-1990s hamburger schule, distorted Rock, alternative branch, punk distorted rock, anglo singer song indie folk chinese minyao acoustic punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, tambourine orch. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe": "classic North American mid-1990s hamburger schule, distorted Rock, alternative branch, punk distorted rock, anglo singer song indie folk crank wave chinese minyao. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit, tambourine orch. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 754,
-  "score": 282.21,
+  "score": 293.515,
   "config": {
     "traditions": [
       "hamburger_schule",
-      "chinese_minyao",
-      "acoustic_punk"
+      "crank_wave",
+      "chinese_minyao"
     ],
     "instruments": [
       {
@@ -22,9 +22,9 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 21.08999999999999,
-          "voice_quality": 7.605000000000002,
+          "voice_register": 20.714999999999993,
+          "voice_quality": 7.8000000000000025,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.015,
-          "voice_articulation": 12.154999999999994,
-          "voice_microtone": 12.424999999999995,
-          "voice_tradition": 12.854999999999999,
-          "voice_mechanism_compound": 3.640000000000001,
-          "voice_estill_quality": 4.925000000000001,
-          "voice_speech_song": 18.134999999999994,
-          "voice_ensemble_config": 12.869999999999994,
+          "voice_articulation": 14.299999999999994,
+          "voice_microtone": 13.194999999999991,
+          "voice_tradition": 12.784999999999998,
+          "voice_mechanism_compound": 4.41,
+          "voice_estill_quality": 5.315000000000001,
+          "voice_speech_song": 19.824999999999992,
+          "voice_ensemble_config": 14.819999999999993,
           "voice_ornament_system": 2.1300000000000003,
-          "voice_pitch_organization": 2.5300000000000007,
-          "voice_processing_chain": 2.795,
-          "voice_multitrack_stack": 1.885
+          "voice_pitch_organization": 2.335000000000001,
+          "voice_processing_chain": 3.0999999999999996,
+          "voice_multitrack_stack": 2.34
         }
       },
       {
@@ -62,26 +62,26 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
-          "finish": "oil_satin",
+          "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 11.075,
-          "amp_make": 18.589999999999996,
-          "body_wood": 2.08,
-          "neck_wood": 2.08,
-          "fretboard": 2.015,
+          "electric_technique": 11.825,
+          "amp_make": 18.7525,
+          "body_wood": 1.9900000000000002,
+          "neck_wood": 1.9900000000000002,
+          "fretboard": 1.94,
           "pickup_magnet": 0.09,
           "string_material": 0.59,
           "string_gauge": 2.08,
           "bridge": 0.39,
           "scale_length": 2.08,
-          "finish": 0.195,
-          "string_tuning": 6.109999999999999,
+          "finish": 0,
+          "string_tuning": 6.11,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,24 +98,24 @@
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
-          "finish": "oil_satin_hum",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 11.075,
-          "amp_make": 18.589999999999996,
-          "body_wood": 2.08,
-          "neck_wood": 2.08,
-          "fretboard": 2.015,
+          "electric_technique": 11.825,
+          "amp_make": 18.7525,
+          "body_wood": 2.185,
+          "neck_wood": 1.9900000000000002,
+          "fretboard": 1.94,
           "pickup_magnet": 0.585,
           "pickup_winding": 0.21,
           "string_material": 0.59,
-          "bridge": 2.08,
+          "bridge": 1.9900000000000002,
           "scale_length": 2.08,
           "string_gauge": 2.08,
-          "finish": 0.195,
-          "string_tuning": 6.109999999999999
+          "finish": 0,
+          "string_tuning": 6.11
         }
       },
       {
@@ -131,26 +131,26 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.279999999999999,
+          "amp_make": 7.280000000000001,
           "body_wood": 2.08,
           "pickup_config": 0.39,
-          "string_type": 15.274999999999999,
-          "scale_length_b": 2.08,
-          "fretted_or_not": 0.045,
-          "bass_technique": 21.545,
+          "string_type": 15.275,
+          "scale_length_b": 1.9900000000000002,
+          "fretted_or_not": 0.195,
+          "bass_technique": 21.17,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.899999999999999,
-          "drumhead": 2.47,
+          "drum_technique": 13.064999999999994,
+          "drumhead": 2.29,
           "drum_kit_kick_pedal": 0
         }
       },

@@ -3,14 +3,12 @@
   "name": "Forró pé-de-serra (traditional forró)",
   "family": "global",
   "lineage": "Traditional Brazilian forró sub-form preserving the canonical Luiz Gonzaga-era 1940s-1960s northeastern Brazilian dance-music form. Trio configuration: sanfona button-accordion lead, zabumba double-headed bass-drum, triangle, plus voice. Distinguished from later forró eletrônico and forró universitário by pé-de-serra's acoustic-trio (vs full-band-electronic) instrumental signature. Repertoire centers on Luiz Gonzaga's canonical compositional corpus and parallel northeastern forró composers.",
-  "recipe": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion bloco baião. pure, speech quality modal neutral larynx, one note per syllable, solo with instrumental accompaniment. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 467,
-  "score": 43.103,
+  "recipe": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion. pure, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 463,
+  "score": 30.735,
   "config": {
     "traditions": [
-      "forro_pe_de_serra",
-      "bloco",
-      "baiao"
+      "forro_pe_de_serra"
     ],
     "instruments": [
       {
@@ -35,7 +33,7 @@
         },
         "scores": {
           "voice_register": -0.5499999999999999,
-          "voice_quality": 0.45499999999999996,
+          "voice_quality": 0.21,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
@@ -43,20 +41,20 @@
           "voice_microtone": -0.21,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
-          "voice_estill_quality": 1.2999999999999998,
-          "voice_speech_song": 3.5349999999999997,
-          "voice_ensemble_config": 4.03,
-          "voice_ornament_system": 2.7499999999999996,
-          "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 2.3400000000000003,
-          "voice_multitrack_stack": 5.784999999999999
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.435,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 1.69
         }
       },
       {
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "steel_reeds",
+          "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "dry_tuning",
           "reed_config": "lmm",
           "bellows": "cardboard_leather",
@@ -65,8 +63,8 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "accordion_reed_material": 0.8,
-          "musette_offset": 2.0999999999999996,
+          "accordion_reed_material": 0.345,
+          "musette_offset": 0.3,
           "reed_config": 0,
           "bellows": 2.3899999999999997,
           "voicing_chamber": 0.24,
@@ -80,8 +78,8 @@
           "zabumba_technique": "zabumba_baiao_pattern"
         },
         "scores": {
-          "zabumba_shell": 4.984999999999999,
-          "zabumba_technique": 2.535
+          "zabumba_shell": 2.885,
+          "zabumba_technique": 7.139999999999998
         }
       },
       {

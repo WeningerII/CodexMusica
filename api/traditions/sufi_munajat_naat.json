@@ -3,14 +3,14 @@
   "name": "Sufi munajat and naat (praise of God and Prophet)",
   "family": "global",
   "lineage": "Sufi devotional praise-song tradition continuous from medieval Sufi-poetic era (13th-15th century Rumi, Hafez, Saadi era) through Indo-Persian-Mughal-era continuous performance into modern Sufi-and-Muslim-diaspora practice; munajat (intimate-supplication praise of God) and naat (praise of the Prophet Muhammad) are the canonical Sufi praise-forms",
-  "recipe": "classic South Asian early-1940s sufi munajat and naat, praise Song, middle east n African branch, indian subcontinent praise song, Sufi ritual devotional, middle eastern classical art music andalusī nūba persian traditional music. thick, declaimed, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
-  "recipe_chars": 528,
-  "score": 254.987,
+  "recipe": "classic South Asian early-1940s sufi munajat and naat, praise Song, middle east n African branch, indian subcontinent praise song, Sufi ritual devotional, middle eastern classical art music andalusī nūba tajik traditional music. thick, declaimed, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 526,
+  "score": 264.96,
   "config": {
     "traditions": [
       "sufi_munajat_naat",
       "andalusi_nuba",
-      "persian_traditional"
+      "tajik_traditional"
     ],
     "instruments": [
       {
@@ -34,37 +34,37 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.7845000000000002,
-          "voice_quality": 30.329,
+          "voice_register": 1.6900000000000002,
+          "voice_quality": 34.36000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.080499999999999,
-          "voice_articulation": 12.674999999999995,
-          "voice_microtone": 23.854999999999993,
-          "voice_tradition": 30.354000000000003,
-          "voice_mechanism_compound": 20.95,
-          "voice_estill_quality": 12.804499999999997,
-          "voice_speech_song": 20.214999999999996,
-          "voice_ensemble_config": 13.649999999999995,
-          "voice_ornament_system": 21.294999999999998,
-          "voice_pitch_organization": 22.14,
-          "voice_processing_chain": 4.745,
-          "voice_multitrack_stack": 4.9945
+          "voice_vibrato": 12.264999999999999,
+          "voice_articulation": 13.064999999999996,
+          "voice_microtone": 23.595,
+          "voice_tradition": 34.004999999999995,
+          "voice_mechanism_compound": 22.074999999999996,
+          "voice_estill_quality": 13.444999999999997,
+          "voice_speech_song": 21.06,
+          "voice_ensemble_config": 14.234999999999994,
+          "voice_ornament_system": 22.419999999999995,
+          "voice_pitch_organization": 22.72,
+          "voice_processing_chain": 4.355,
+          "voice_multitrack_stack": 4.630000000000001
         }
       },
       {
         "id": "harmonium_indian",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
+          "free_reed_technique": "free_reed_overblow_modern",
           "harmonium_action": "harmonium_hand_pump",
           "harmonium_voicing": "harmonium_male",
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 0.8449999999999999,
-          "harmonium_action": 1.8200000000000003,
+          "free_reed_technique": 0,
+          "harmonium_action": 2.015,
           "harmonium_voicing": 1.4300000000000002,
-          "harmonium_use": 6.499499999999999
+          "harmonium_use": 6.929999999999999
         }
       },
       {
@@ -76,8 +76,8 @@
         },
         "scores": {
           "tabla_dayan": 6.629999999999999,
-          "tabla_bayan": 5.015499999999999,
-          "tabla_syahi": 4.225
+          "tabla_bayan": 5.305,
+          "tabla_syahi": 2.0799999999999996
         }
       }
     ],

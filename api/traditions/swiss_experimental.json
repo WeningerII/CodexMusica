@@ -3,9 +3,9 @@
   "name": "Swiss Experimental",
   "family": "jazz",
   "lineage": "Síd — Völuspá, complete2017album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic swiss experimental, improv On Frame, avant branch. solo with instrumental accompaniment. humbucker electric guitar, grand piano, rhodes electric, analog synth, dark bronze bell bronze drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 300,
-  "score": 25.696,
+  "recipe": "classic swiss experimental, improv On Frame, avant branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, grand piano, rhodes electric, analog synth, dark bronze bell bronze drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 338,
+  "score": 24.927,
   "config": {
     "traditions": [
       "swiss_experimental"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3045,
-          "voice_ensemble_config": 1.2495,
+          "voice_speech_song": 0.3675,
+          "voice_ensemble_config": 1.323,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.47250000000000003,
+          "voice_multitrack_stack": 0.504,
           "voice_tessitura": 0
         }
       },
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.21,
-          "neck_wood": 0.21,
+          "body_wood": 0.1365,
+          "neck_wood": 0.105,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.42,
-          "string_gauge": 1.405,
+          "scale_length": 0.21,
+          "string_gauge": 1.552,
           "finish": 0,
           "string_tuning": 0.16799999999999998
         }
@@ -99,9 +99,9 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.325,
+          "keyboard_technique": 0.313,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0,
+          "grand_piano_brand": 0.0315,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
@@ -121,11 +121,11 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 0.325,
-          "rhodes_model": 8.71,
-          "rhodes_use": 0.21,
+          "keyboard_technique": 0.313,
+          "rhodes_model": 8.605,
+          "rhodes_use": 0.1365,
           "rhodes_tine_material": 0.7875,
-          "rhodes_hammer_tip": 0.8609999999999999,
+          "rhodes_hammer_tip": 0.7559999999999999,
           "rhodes_pickup_position": 0.546
         }
       },
@@ -141,9 +141,9 @@
         "scores": {
           "electronic_technique": -0.07,
           "oscillator": 0,
-          "filter_topology": 0.8505,
+          "filter_topology": 0.567,
           "envelope": 0.105,
-          "modulation": 0.1365
+          "modulation": 0
         }
       },
       {

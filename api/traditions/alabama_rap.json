@@ -3,9 +3,9 @@
   "name": "Alabama rap",
   "family": "hip_hop",
   "lineage": "Alabama rap belongs to the wider Southern US hip-hop field, with local voices spanning rhythmic MC delivery, melodic hooks and varied production approaches. CHIKA is one prominent example.",
-  "recipe": "classic alabama rap, mc Rhythm, us hip hop branch. solo with instrumental accompaniment. sampled chopped sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 212,
-  "score": 18.845,
+  "recipe": "classic alabama rap, mc Rhythm, us hip hop branch. solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 250,
+  "score": 18.939,
   "config": {
     "traditions": [
       "alabama_rap"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5355000000000001,
           "voice_tessitura": 0
         }
       },
@@ -62,9 +62,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 4.1499999999999995,
+          "electronic_technique": 4.1815,
           "sampler_archetypes": 4.6095,
-          "sampler_bit_depth": 0.1365,
+          "sampler_bit_depth": 0.0315,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 7.539999999999998
         }

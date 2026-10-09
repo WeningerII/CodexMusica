@@ -5,7 +5,7 @@
   "lineage": "Japanese blues is sustained through bands, clubs, festivals and recordings that engage American blues traditions. Performers such as West Road Blues Band and Maeken Beaver span established ensemble traditions and contemporary blues-rock songwriting.",
   "recipe": "classic japanese blues, functional Song, blues electric branch. solo with instrumental accompaniment, single lead single track no stacking. blues slide open string slide resonance humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 305,
-  "score": 14.295,
+  "score": 14.515,
   "config": {
     "traditions": [
       "japanese_blues"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,
-          "voice_multitrack_stack": 1.239,
+          "voice_multitrack_stack": 1.5435,
           "voice_tessitura": 0
         }
       },
@@ -73,14 +73,14 @@
           "electric_technique": -0.07,
           "amp_make": 0.26,
           "body_wood": 0.33599999999999997,
-          "neck_wood": 0.3045,
+          "neck_wood": 0.27299999999999996,
           "fretboard": 0.0315,
-          "pickup_magnet": 0.16799999999999998,
-          "pickup_winding": 0.147,
+          "pickup_magnet": 0.19949999999999998,
+          "pickup_winding": 0.22049999999999997,
           "string_material": 0.0315,
-          "bridge": 0.3045,
-          "scale_length": 0.609,
-          "string_gauge": 0.6825,
+          "bridge": 0.27299999999999996,
+          "scale_length": 0.5459999999999999,
+          "string_gauge": 0.6194999999999999,
           "finish": 0.0315,
           "string_tuning": 8.84
         }

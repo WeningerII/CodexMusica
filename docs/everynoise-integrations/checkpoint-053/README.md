@@ -1,6 +1,6 @@
 # Checkpoint 053
 
-This frozen checkpoint adds 43 reviewed genre profiles and applies 40 scoped data repairs: 30 source-based corrections and ten neutral completions for an existing editing control. Four supported instrument identities and two explicit instrument-part extensions are included. Catalog totals are 7121 traditions and 1671 instruments. The shared engine, schema, UI and test harness remain unchanged; unrelated PRs #481 and #494 are preserved.
+This frozen checkpoint adds 43 reviewed genre profiles and applies 40 scoped data repairs: 30 source-based corrections and ten neutral completions for an existing editing control. Four supported instrument identities and two explicit instrument-part extensions are included. Catalog totals are 7755 traditions and 1671 instruments. The shared engine, schema, UI and test harness remain unchanged; unrelated PRs #481 and #494 are preserved.
 
 The immutable source candidate is `1106213155c3ef8f886d7947009acd9c5d34e36e14fa6f5dd9441fc032fb55b4`, based on merged checkpoint052 and PR494 at `bf1ba4f348a3bce03434a1a492a6b8a7cfc2d2e0`. A separately recorded atlas-label correction changes only the hypnosis locality display from Hollywood, Florida to Hollywood; its coordinates and source rationale are unchanged.
 

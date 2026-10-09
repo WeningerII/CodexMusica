@@ -3,14 +3,14 @@
   "name": "Detroit trap",
   "family": "hip_hop",
   "lineage": "Emerged on Detroit's east and west sides circa 2015-2019 through Sada Baby, Tee Grizzley, 42 Dugg, Babyface Ray and producers Helluva and Antt Beatz, using 95-110 BPM double-time-feel beats with a swung shuffled hi-hat, dry punchy kick and clap rather than long 808 slides, chopped soul or eerie synth loops, and a conversational, off-kilter, punchline-dense flow that lands deliberately behind and around the grid.",
-  "recipe": "classic 2015-2019 detroit trap, mc Rhythm, modern branch, us hip hop southern, drill MC rhythm türkçe drill atl trap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, low sub bass analog poly synth, close dry hand clap, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 568,
-  "score": 295.562,
+  "recipe": "classic 2015-2019 detroit trap, mc Rhythm, modern branch, us hip hop southern, drill MC rhythm dirty south rap houston rap. thick, rap, slow rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, low sub bass analog poly synth, live room natural hand clap, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 569,
+  "score": 313.99,
   "config": {
     "traditions": [
       "detroit_trap",
-      "turkce_drill",
-      "atl_trap"
+      "dirty_south_rap",
+      "houston_rap"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 4.245000000000001,
-          "voice_quality": 17.71,
+          "voice_register": 6.295000000000001,
+          "voice_quality": 21.375,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1200000000000006,
-          "voice_articulation": 20.735,
-          "voice_microtone": 30.322499999999994,
-          "voice_tradition": 9.510000000000002,
-          "voice_mechanism_compound": 4.16,
-          "voice_estill_quality": 3.380000000000001,
-          "voice_speech_song": 21.189999999999998,
-          "voice_ensemble_config": 20.864999999999995,
-          "voice_ornament_system": 8.190000000000003,
-          "voice_pitch_organization": 4.825,
-          "voice_processing_chain": 7.620000000000001,
-          "voice_multitrack_stack": 6.630000000000001
+          "voice_vibrato": 2.6650000000000005,
+          "voice_articulation": 23.335,
+          "voice_microtone": 23.984999999999992,
+          "voice_tradition": 10.58,
+          "voice_mechanism_compound": 3.3149999999999995,
+          "voice_estill_quality": 5.750000000000001,
+          "voice_speech_song": 23.335,
+          "voice_ensemble_config": 22.554999999999996,
+          "voice_ornament_system": 6.890000000000002,
+          "voice_pitch_organization": 1.495,
+          "voice_processing_chain": 11.225,
+          "voice_multitrack_stack": 4.225000000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 8.510000000000002,
-          "drum_machine_808_context": 4.55,
-          "tr808_production_origin": 2.8600000000000003
+          "tr808_voice": 10.969999999999999,
+          "drum_machine_808_context": 5.584999999999999,
+          "tr808_production_origin": 3.25
         }
       },
       {
@@ -71,15 +71,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 8.725000000000001,
-          "sampler_archetypes": 10.530000000000001,
-          "sampler_bit_depth": 3.705,
-          "sampler_workflow": 8.575000000000001,
-          "sampler_classic_context": 30.419999999999998
+          "electronic_technique": 9.154999999999998,
+          "sampler_archetypes": 11.959999999999999,
+          "sampler_bit_depth": 2.6,
+          "sampler_workflow": 9.104999999999999,
+          "sampler_classic_context": 32.59
         }
       },
       {
@@ -88,24 +88,24 @@
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 13.905,
+          "electronic_technique": 16.365,
           "poly_archetypes": 0.195,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -1.435
+          "poly_maker_lineage": -1.085
         }
       },
       {
         "id": "hand_clap",
         "slots": {
-          "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_close_dry"
+          "clap_technique": "clap_cupped_muffled",
+          "clap_capture": "clap_room_natural"
         },
         "scores": {
           "clap_technique": 0.65,
-          "clap_capture": 1.3
+          "clap_capture": 1.69
         }
       },
       {
@@ -115,19 +115,19 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
-          "bass_technique": "sub_bass_synth_blend",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.110000000000001,
-          "body_wood": 1.105,
-          "pickup_config": 5.67,
-          "string_type": 7.83,
-          "scale_length_b": 3.9800000000000004,
-          "fretted_or_not": 1.19,
-          "bass_technique": 6.24,
+          "amp_make": 8.705,
+          "body_wood": 2.145,
+          "pickup_config": 4.23,
+          "string_type": 10.334999999999999,
+          "scale_length_b": 4.095,
+          "fretted_or_not": 0.45499999999999996,
+          "bass_technique": 7.475000000000001,
           "electric_bass_string_configuration": 0
         }
       }

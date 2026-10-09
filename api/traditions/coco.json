@@ -1,16 +1,17 @@
 {
-  "id": "coco",
-  "name": "Coco de Roda (Northeastern Brazilian circle coco)",
-  "family": "vernacular",
-  "lineage": "Afro-indigenous circle dance-song of the Northeastern Brazilian littoral and agreste, especially Alagoas, Pernambuco and Paraíba, documented from the 19th century in coconut-husking and sand-tamping labour, sung in call-and-response by a coqueiro with embolada verse improvisation over ganzá, pandeiro or zabumba, stamped feet and palmas in fast duple time with almost no melodic instrument.",
-  "recipe": "classic East African modern coco de roda, field Work, American south branch, Brazilian groove percussion, Brazilian song functional song forró tradicional capoeira roda music. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. ganza, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, wood baião tradition low stick with high bacalhau buzz zabumba, snappy to palm hand clap, atabaque, a cappella small 3 to 8 one per part call response single leader group response choir ensemble, forró tradition open closed alternation triangulo forro. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 777,
-  "score": 66.05,
+  "id": "coco_brasileiro",
+  "merged_from": "coco",
+  "name": "Coco brasileiro (NE Brazilian work-song)",
+  "family": "global",
+  "lineage": "Brazilian coco northeastern-Brazilian song-and-dance tradition of Pernambuco, Paraíba, and Alagoas, descended from the African-Brazilian colonial-period rural-work-song tradition (coco was originally a coconut-husking work-song with stamping-rhythm accompaniment). Performance: lead singer with chorus response, hand-clapping or ganzá-shaker rhythm, occasional pandeiro frame-drum. Repertoire spans rural-worker thematic content, coastal-fishing themes, and romantic-couplet improvisation. Genre revival under Nação Zumbi and Chico Science in 1990s integrated coco with rock-and-electronic-production.",
+  "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion tambor de crioula bumba-meu-boi do maranhão. group vocals, live take. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 419,
+  "score": 38.695,
   "config": {
     "traditions": [
-      "coco",
-      "forro_tradicional",
-      "capoeira"
+      "coco_brasileiro",
+      "tambor_de_crioula",
+      "bumba_meu_boi_maranhao"
     ],
     "instruments": [
       {
@@ -27,11 +28,11 @@
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
@@ -45,22 +46,24 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.845,
-          "voice_ensemble_config": 6.825,
+          "voice_speech_song": 0.435,
+          "voice_ensemble_config": 0.845,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 2.185,
+          "voice_multitrack_stack": 0.525,
           "voice_tessitura": 0
         }
       },
       {
-        "id": "ganza",
+        "id": "tambourine_orch",
         "slots": {
-          "ganza_source": "ganza_metal_cylinder"
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_orch"
         },
         "scores": {
-          "ganza_source": 0.195
+          "tambourine_orch_jingle": -0.035,
+          "tambourine_orch_context": 0.045
         }
       },
       {
@@ -68,79 +71,18 @@
         "slots": {
           "percussion_technique": "percussion_hands_layered",
           "pandeiro_size": "pandeiro_medio",
-          "pandeiro_context": "pandeiro_capoeira",
+          "pandeiro_context": "pandeiro_samba",
           "pandeiro_head": "pandeiro_goatskin_canonical",
           "pandeiro_shell_wood": "pandeiro_eucalyptus",
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 4.575,
-          "pandeiro_size": 0.195,
-          "pandeiro_context": 2.73,
-          "pandeiro_head": 8.060000000000002,
-          "pandeiro_shell_wood": 8.060000000000002,
-          "pandeiro_jingles": 8.060000000000002
-        }
-      },
-      {
-        "id": "zabumba",
-        "slots": {
-          "zabumba_shell": "zabumba_wood_shallow",
-          "zabumba_technique": "zabumba_baiao_pattern"
-        },
-        "scores": {
-          "zabumba_shell": 1.885,
-          "zabumba_technique": 7.410000000000001
-        }
-      },
-      {
-        "id": "hand_clap",
-        "slots": {
-          "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_close_dry"
-        },
-        "scores": {
-          "clap_technique": 1.17,
-          "clap_capture": 0.045
-        }
-      },
-      {
-        "id": "atabaque",
-        "slots": {
-          "atabaque_role": "atabaque_rum",
-          "atabaque_skin": "atabaque_cowhide",
-          "atabaque_shell_wood": "atabaque_oak_staved"
-        },
-        "scores": {
-          "atabaque_role": 0.39,
-          "atabaque_skin": 0.6900000000000001,
-          "atabaque_shell_wood": 0.195
-        }
-      },
-      {
-        "id": "choir_ensemble",
-        "slots": {
-          "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
-          "choir_regional_canonical_configuration": "choir_regional_none",
-          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
-        },
-        "scores": {
-          "choir_size": 5.915000000000001,
-          "choir_polyphonic_configuration": 3.9,
-          "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 1.69
-        }
-      },
-      {
-        "id": "triangulo_forro",
-        "slots": {
-          "triangulo_size": "triangulo_large_forro",
-          "triangulo_pattern": "triangulo_forro_pattern"
-        },
-        "scores": {
-          "triangulo_size": 2.19,
-          "triangulo_pattern": 2.3249999999999997
+          "percussion_technique": 1.2,
+          "pandeiro_size": 2.669999999999999,
+          "pandeiro_context": 3.3799999999999994,
+          "pandeiro_head": 10.53,
+          "pandeiro_shell_wood": 10.53,
+          "pandeiro_jingles": 10.53
         }
       }
     ],
@@ -164,12 +106,20 @@
         "voice_multitrack_stack",
         "voice_tessitura"
       ],
-      "choir_ensemble": [
-        "choir_polyphonic_configuration",
-        "choir_regional_canonical_configuration"
+      "tambourine_orch": [
+        "tambourine_orch_jingle",
+        "tambourine_orch_context"
+      ],
+      "pandeiro": [
+        "percussion_technique",
+        "pandeiro_size",
+        "pandeiro_context",
+        "pandeiro_head",
+        "pandeiro_shell_wood",
+        "pandeiro_jingles"
       ]
     },
-    "room": "tanzanian_outdoor_village_clearing",
+    "room": "estudio_rozenblit_recife",
     "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -178,7 +128,7 @@
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
     "tuning": "baiao_2_4_beat_one_bass",
     "aesthetic": null,
@@ -187,8 +137,16 @@
   },
   "source": {
     "tuning": "baiao_2_4_beat_one_bass",
-    "room": "tanzanian_outdoor_village_clearing",
+    "room": "estudio_rozenblit_recife",
     "parts": {
+      "tambourine_orch_jingle": "tambourine_orch_brass",
+      "tambourine_orch_context": "tambourine_orch_orch",
+      "percussion_technique": "percussion_hands_layered",
+      "pandeiro_size": "pandeiro_medio",
+      "pandeiro_context": "pandeiro_samba",
+      "pandeiro_head": "pandeiro_goatskin_canonical",
+      "pandeiro_shell_wood": "pandeiro_eucalyptus",
+      "pandeiro_jingles": "pandeiro_brass_platinelas",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
       "voice_vocal_tract": "tract_neutral",
@@ -200,19 +158,17 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "choir_regional_canonical_configuration": "choir_regional_none",
-      "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group"
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_std",
+    "chain_medium": "digital_high",
     "chain_console": "clean"
   }
 }

@@ -3,14 +3,14 @@
   "name": "Piano house",
   "family": "electronic",
   "lineage": "Transatlantic piano-led house vocabulary carried from 1990s club records into contemporary productions by Mark Knight, ATFC and Gene Farris: a recurring piano riff supplies the principal harmonic hook above kick, clap, offbeat hats and bass. This is an arrangement practice rather than the historical Italian Italo-house scene.",
-  "recipe": "classic mid-1990s piano house, electronic Dance, house branch, garage house u s house, italo house house new york garage house. cold pressed light felt practice grade 17 ply hard rock maple grand piano, sampler drum machine, analog mono synth, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 398,
-  "score": 101.838,
+  "recipe": "classic mid-1990s piano house, electronic Dance, house branch, garage house u s house, italo house house diva house vocal house. cold pressed light felt practice grade gray iron cast plate grand piano, sampler drum machine, analog mono synth, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 397,
+  "score": 96.361,
   "config": {
     "traditions": [
       "piano_house",
-      "new_york_garage_house",
-      "us_garage"
+      "diva_house",
+      "vocal_house"
     ],
     "instruments": [
       {
@@ -27,15 +27,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.06499999999999999,
+          "keyboard_technique": -0.1,
           "grand_piano_size": 1.3,
-          "grand_piano_brand": 0.39,
+          "grand_piano_brand": 0.195,
           "piano_hammer": 1.295,
-          "piano_rim": 1.5599999999999996,
-          "piano_soundboard": 1.3649999999999998,
+          "piano_rim": 0.7149999999999999,
+          "piano_soundboard": 0.7149999999999999,
           "piano_pinblock": -0.05,
           "piano_plate": 1.17,
-          "piano_pitch_standard": 3.77
+          "piano_pitch_standard": 6.463750000000001
         }
       },
       {
@@ -47,10 +47,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 1.2349999999999997,
+          "electronic_technique": 1.2349999999999999,
           "sample_bitdepth": 0.65,
-          "sample_swing": 19.5,
-          "sample_processing": 0.045
+          "sample_swing": 18.625,
+          "sample_processing": 0
         }
       },
       {
@@ -63,11 +63,11 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 2.9221250000000007,
+          "electronic_technique": 2.25075,
           "mono_oscillator": 0,
-          "mono_filter": 0.65,
-          "mono_archetypes": 2.145,
-          "mono_maker_lineage": -1.465
+          "mono_filter": 0.3315,
+          "mono_archetypes": 0.65,
+          "mono_maker_lineage": -1.225
         }
       },
       {
@@ -80,11 +80,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.2349999999999997,
+          "electronic_technique": 1.2349999999999999,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0,
-          "sampler_workflow": 0.39,
-          "sampler_classic_context": 61.666375
+          "sampler_workflow": 0.19500000000000003,
+          "sampler_classic_context": 59.559749999999994
         }
       }
     ],

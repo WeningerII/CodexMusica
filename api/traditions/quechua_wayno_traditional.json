@@ -1,85 +1,97 @@
 {
-  "id": "quechua_wayno_traditional",
-  "name": "Quechua wayno (traditional Andean)",
+  "id": "andean_huayno",
+  "merged_from": "quechua_wayno_traditional",
+  "name": "Huayno",
   "family": "global",
-  "lineage": "Traditional Quechua wayno (also huayno, huayño) Andean folk-music form of the Quechua-and-Aymara-speaking populations of highland Peru, Bolivia, and Ecuador. The wayno is the canonical Andean dance-and-song form, in 2/4 meter with characteristic syncopation pattern, slow-to-medium tempo, and pentatonic-to-modal melodic vocabulary. Performance: small ensemble of quena end-blown notched flute, charango armadillo-shell ten-string-paired lute, bombo bass-drum, and voice — with the lyric content addressing rural-Andean life, love, mourning, and Quechua-cultural-identity. The mid-twentieth-century Cusco-and-Ayacucho-and-Huancayo regional canonical traditions are the most institutionally preserved; the Bolivian Cochabamba-and-Potosí lineages constitute the parallel highland-Bolivian tradition.",
-  "recipe": "classic Andean modern quechua wayno, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. bamboo melodic quena, naranjillo andean premium wood cedar andean andean classical charango, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, call ritual conch shell horn, ceramic melodic ocarina, altiplano lead carrying mara canonical single block tarka, basswood mahogany rosewood alnico humbucker electric guitar. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 706,
-  "score": 447.353,
+  "lineage": "Quechua-and-Aymara Andean dance-song tradition with anhemitonic-pentatonic five-tone (no half-step) melodic-vocabulary and characteristic short-short-long iambic-dance pattern (Q-Q-half rhythm) over moderate-fast 2/4 metric pulse. Pre-Columbian-origin (likely Inca-Imperial 1438-1533 onward, though oral-tradition extends earlier) with post-colonial mestizaje fusion (Spanish-criollo) integration of guitar, harp, charango ten-string-small-armadillo-back-guitar, and bandurria. Regional variants span Cuzco huayno-cusqueño (slower-court-elevated), Ayacucho huayno-ayacuchano (faster-rural), Junín huayno-orquestino (brass-band-and-saxophone modernized), and Aymara huayño-altiplánico (Bolivian-highland variant). The canonical instrumental ensemble includes quena vertical-notch-flute and zampoña panpipes.",
+  "recipe": "classic Andean early-1430s huayno, drone Modal, string branch, Latin am troubadour ballad poetry milonga folklore surero. thick, forward-resonance, slow rate, interlocked note trading. armadillo shell shell pre 1973 historical pine traditional rural andean classical charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, naranjillo bolivian peruvian gut pre modern andean strummed ronroco, melodic ocarina, altiplano mara canonical single block tarka. andean altiplano outdoor. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 737,
+  "score": 273.798,
   "config": {
     "traditions": [
-      "quechua_wayno_traditional",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "andean_huayno",
+      "milonga",
+      "folklore_surero"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "chest_voice",
+          "voice_quality": "twang_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "andean_quechua_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_oral_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.0550000000000006,
-          "voice_quality": 41.990000000000045,
+          "voice_register": 3.7150000000000003,
+          "voice_quality": 15.494999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.330000000000001,
-          "voice_articulation": 28.145000000000003,
-          "voice_microtone": 29.445000000000004,
-          "voice_tradition": 41.17,
-          "voice_mechanism_compound": 12.07,
-          "voice_estill_quality": 13.034999999999998,
-          "voice_speech_song": 31.330000000000005,
-          "voice_ensemble_config": 30.42,
-          "voice_ornament_system": 23.555,
-          "voice_pitch_organization": 3.835,
-          "voice_processing_chain": 18.915,
-          "voice_multitrack_stack": 4.485
-        }
-      },
-      {
-        "id": "quena",
-        "slots": {
-          "wind_articulation": "wind_folk_melodic",
-          "quena_material": "quena_bamboo",
-          "quena_pitch": "quena_g"
-        },
-        "scores": {
-          "wind_articulation": 7.1975,
-          "quena_material": 3.5199999999999996,
-          "quena_pitch": 3.25
+          "voice_vibrato": 3.6724999999999994,
+          "voice_articulation": 22.164999999999996,
+          "voice_microtone": 28.014999999999993,
+          "voice_tradition": 23.384999999999998,
+          "voice_mechanism_compound": 8.775,
+          "voice_estill_quality": 5.845000000000001,
+          "voice_speech_song": 27.299999999999997,
+          "voice_ensemble_config": 22.424999999999997,
+          "voice_ornament_system": 10.31,
+          "voice_pitch_organization": 1.6349999999999998,
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 2.21
         }
       },
       {
         "id": "charango",
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
-          "charango_back": "charango_naranjillo",
-          "charango_top_wood": "charango_cedar_top",
+          "charango_back": "charango_armadillo",
+          "charango_top_wood": "charango_pine_top",
           "charango_strings": "charango_5_double",
-          "charango_string_material": "charango_nylon_canonical"
+          "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 6.565000000000001,
-          "charango_back": 4.8999999999999995,
-          "charango_top_wood": 8.885,
-          "charango_strings": 4.8999999999999995,
-          "charango_string_material": 3.985
+          "plucked_traditional_technique": 9.555,
+          "charango_back": 4.175,
+          "charango_top_wood": 4.414999999999999,
+          "charango_strings": 2.5300000000000002,
+          "charango_string_material": 1.69
+        }
+      },
+      {
+        "id": "quena",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "quena_material": "quena_bone",
+          "quena_pitch": "quena_g"
+        },
+        "scores": {
+          "wind_articulation": 3.805,
+          "quena_material": 1.885,
+          "quena_pitch": 11.14
+        }
+      },
+      {
+        "id": "siku_panpipes",
+        "slots": {
+          "siku_construction": "siku_ira_arca_paired",
+          "siku_size": "siku_malta"
+        },
+        "scores": {
+          "siku_construction": 6.695,
+          "siku_size": 0.78
         }
       },
       {
@@ -90,35 +102,39 @@
           "bombo_andino_shell_wood": "bombo_andino_ceibo"
         },
         "scores": {
-          "bombo_andino_construction": 4.475,
-          "bombo_andino_skin": 5.7749999999999995,
-          "bombo_andino_shell_wood": 4.029999999999999
+          "bombo_andino_construction": 5.994999999999999,
+          "bombo_andino_skin": 1.3,
+          "bombo_andino_shell_wood": 2.535
         }
       },
       {
-        "id": "conch_shell_horn",
+        "id": "ronroco",
         "slots": {
-          "wind_articulation": "wind_call_blowing",
-          "conch_use": "conch_polynesian",
-          "conch_shell_horn_region": "conch_shell_horn_polynesian"
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "ronroco_config": "ronroco_five_double",
+          "ronroco_context": "ronroco_nueva_cancion",
+          "ronroco_body_wood": "ronroco_naranjillo",
+          "ronroco_strings": "ronroco_gut_historical"
         },
         "scores": {
-          "wind_articulation": 10.627499999999998,
-          "conch_use": 1.4949999999999999,
-          "conch_shell_horn_region": 29.18500000000001
+          "plucked_traditional_technique": 9.555,
+          "ronroco_config": 0.39,
+          "ronroco_context": 4.355,
+          "ronroco_body_wood": 2.6,
+          "ronroco_strings": 2.34
         }
       },
       {
         "id": "ocarina",
         "slots": {
           "wind_articulation": "wind_folk_melodic",
-          "ocarina_chamber": "ocarina_triple",
+          "ocarina_chamber": "ocarina_single",
           "ocarina_material": "ocarina_ceramic"
         },
         "scores": {
-          "wind_articulation": 7.1975,
-          "ocarina_chamber": 3.185,
-          "ocarina_material": 3.3699999999999997
+          "wind_articulation": 3.805,
+          "ocarina_chamber": 1.235,
+          "ocarina_material": 0.39
         }
       },
       {
@@ -130,56 +146,23 @@
           "tarka_body_wood": "tarka_mara_wood"
         },
         "scores": {
-          "tarka_form": 13.834999999999997,
-          "tarka_context": 3.295,
-          "tarka_consort_voice": 1.69,
-          "tarka_body_wood": 4.874999999999999
-        }
-      },
-      {
-        "id": "electric_guitar_humbucker",
-        "slots": {
-          "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_mesa_dual_rectifier",
-          "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "low_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
-          "string_tuning": "dadgad"
-        },
-        "scores": {
-          "electric_technique": 1.2,
-          "amp_make": 1.4949999999999999,
-          "body_wood": 5.674999999999999,
-          "neck_wood": 1.3,
-          "fretboard": 1.25,
-          "pickup_magnet": 1.4949999999999999,
-          "pickup_winding": 0.345,
-          "string_material": 0,
-          "bridge": 1.3,
-          "scale_length": 6.129999999999999,
-          "string_gauge": 2.75,
-          "finish": 0,
-          "string_tuning": 6.369999999999999
+          "tarka_form": 10.729999999999999,
+          "tarka_context": 6.35,
+          "tarka_consort_voice": 0.585,
+          "tarka_body_wood": 1.95
         }
       }
     ],
-    "room": "bogota_colombian_andean_studio",
-    "archetype": "arch_ethnographic_field_digital",
+    "room": "andean_altiplano_outdoor",
+    "archetype": "arch_lima_chicha",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "pre_field_recorder_portable",
-      "console": "clean",
-      "comp": null,
-      "eq": null,
+      "mic": "mic_u47_tube_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
     "tuning": "huayno_2_4_andean",
     "aesthetic": null,
@@ -188,7 +171,7 @@
   },
   "source": {
     "tuning": "huayno_2_4_andean",
-    "room": "bogota_colombian_andean_studio",
+    "room": "andean_altiplano_outdoor",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "speech_voice",
@@ -201,23 +184,27 @@
       "voice_microtone": "tempered_voice",
       "voice_ornament_system": "voice_ornament_none",
       "voice_estill_quality": "voice_estill_speech",
-      "voice_vibrato": "straight_tone",
+      "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "wind_articulation": "wind_folk_melodic",
-      "quena_material": "quena_bamboo",
-      "quena_pitch": "quena_g",
       "plucked_traditional_technique": "plucked_folk_strummed",
       "charango_back": "charango_wood",
       "charango_top_wood": "charango_cedar_top",
       "charango_strings": "charango_5_double",
       "charango_string_material": "charango_nylon_canonical",
+      "wind_articulation": "wind_folk_melodic",
+      "quena_material": "quena_bamboo",
+      "quena_pitch": "quena_g",
+      "siku_construction": "siku_ira_arca_paired",
+      "siku_size": "siku_malta",
       "bombo_andino_construction": "bombo_andino_leguero",
       "bombo_andino_skin": "bombo_andino_llama",
       "bombo_andino_shell_wood": "bombo_andino_ceibo"
     },
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_high",
-    "chain_console": "clean"
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

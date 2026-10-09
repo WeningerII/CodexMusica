@@ -1,0 +1,118 @@
+{
+  "id": "gondang_hasapi_toba",
+  "name": "Gondang hasapi (Toba Batak lute ensemble)",
+  "family": "global",
+  "lineage": "Indoor chamber ensemble of the Toba Batak, also called uning-uningan, the softer counterpart of the outdoor gondang sabangunan. It is built around the hasapi, a two-string boat lute played in pairs (the sundatang two-string boat-lute card stands in), with the sulim transverse bamboo flute (the generic bamboo-flute card stands in), the garantung wooden xylophone (the xylophone card stands in) and the hesek metal timekeeper (the auxiliary-percussion card stands in).",
+  "recipe": "classic modern gondang hasapi, art Music, southeast Asian branch. sundatang, bamboo credited bamboo flute unspecified, xylophone, credited auxiliary percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 240,
+  "score": 5.225,
+  "config": {
+    "traditions": [
+      "gondang_hasapi_toba"
+    ],
+    "instruments": [
+      {
+        "id": "sundatang",
+        "slots": {
+          "sundatang_form": "sundatang_rungus",
+          "sundatang_strings": "sundatang_wire"
+        },
+        "scores": {
+          "sundatang_form": 2.8600000000000003,
+          "sundatang_strings": 0
+        }
+      },
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 2.6,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      },
+      {
+        "id": "xylophone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "xylophone_size": "xylophone_orch_35",
+          "xylophone_bar": "xylophone_rosewood"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "xylophone_size": 0,
+          "xylophone_bar": -0.035
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "sundatang": [
+        "sundatang_form",
+        "sundatang_strings"
+      ],
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ],
+      "xylophone": [
+        "percussion_technique",
+        "xylophone_size",
+        "xylophone_bar"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "sundatang_form": "sundatang_rungus",
+      "sundatang_strings": "sundatang_wire",
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+      "percussion_technique": "percussion_mallets_orchestral",
+      "xylophone_size": "xylophone_orch_35",
+      "xylophone_bar": "xylophone_rosewood",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

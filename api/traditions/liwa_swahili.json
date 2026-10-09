@@ -3,31 +3,31 @@
   "name": "Liwa (Swahili-Omani coastal dance)",
   "family": "global",
   "lineage": "Coastal Swahili dance-music of Zanzibar, Mombasa and the Omani-Gulf diaspora, carried by Hadhrami and Baluchi communities from the 19th century and maintained by neighbourhood liwa associations — a loud outdoor style built on a paired double-headed drum battery and shaker ostinato at brisk 4/4 processional tempo under the piercing continuous circular-breathed zumari (conical shawm), with call-and-response Swahili and Arabic chorus shouting over the drums.",
-  "recipe": "classic East African modern liwa, groove Percussion, central east south African branch, Caribbean carnival processional, west African groove percussion, med east poetic ballad poetry balafon music sabar drumming. piercing, breath veiled tone, slow rate, interlocked note trading. mizmar, tabl baladi, brass warmer alternative synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east open slap hand drum darbuka, hand clap, traditional organic tone gourd calabash maracas. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 596,
-  "score": 193.015,
+  "recipe": "classic East African modern liwa, groove Percussion, central east south African branch, Caribbean carnival processional, west African groove percussion, med east poetic ballad poetry balafon music karadeniz türküleri. thick, breath veiled tone, fast rate, interlocked note trading. mizmar, tabl baladi, brass warmer alternative Egyptian sombaty canonical mid east darbuka, hand clap, traditional organic tone gourd calabash maracas. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 531,
+  "score": 185.649,
   "config": {
     "traditions": [
       "liwa_swahili",
       "balafon_mande",
-      "sabar_drumming_wolof"
+      "karadeniz_turkuleri"
     ],
     "instruments": [
       {
         "id": "mizmar",
         "slots": {
           "wind_articulation": "wind_ornament_heavy",
-          "mizmar_pitch": "mizmar_high",
-          "mizmar_context": "mizmar_sufi",
+          "mizmar_pitch": "mizmar_low",
+          "mizmar_context": "mizmar_shaabi",
           "mizmar_body_wood": "mizmar_apricot_canonical",
           "mizmar_reed": "mizmar_arundo_canonical"
         },
         "scores": {
           "wind_articulation": -0.15000000000000002,
-          "mizmar_pitch": 2.145,
-          "mizmar_context": 0.11812499999999998,
-          "mizmar_body_wood": 0.845,
-          "mizmar_reed": 0.845
+          "mizmar_pitch": 2.195,
+          "mizmar_context": 0.8749999999999999,
+          "mizmar_body_wood": 0.290625,
+          "mizmar_reed": 0.290625
         }
       },
       {
@@ -38,7 +38,7 @@
         },
         "scores": {
           "tabl_baladi_size": 1.3,
-          "tabl_baladi_sticks": 19.435
+          "tabl_baladi_sticks": 20.28
         }
       },
       {
@@ -50,31 +50,31 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 7.612499999999999,
+          "percussion_technique": 1.95,
           "darbuka_material": 1.08,
-          "darbuka_skin": 1.4949999999999999,
-          "darbuka_regional_style": 3.925625
+          "darbuka_skin": 0.65,
+          "darbuka_regional_style": 3.3756250000000003
         }
       },
       {
         "id": "hand_clap",
         "slots": {
           "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_room_natural"
+          "clap_capture": "clap_close_dry"
         },
         "scores": {
           "clap_technique": 0.845,
-          "clap_capture": 0.195
+          "clap_capture": 0.545
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "whistle_voice",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -84,26 +84,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.15,
-          "voice_quality": 16.314999999999994,
+          "voice_register": 1.97,
+          "voice_quality": 13.584999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 20.084999999999997,
-          "voice_microtone": 22.359999999999992,
-          "voice_tradition": 25.22,
-          "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 5.915,
-          "voice_speech_song": 20.539999999999996,
-          "voice_ensemble_config": 19.174999999999997,
-          "voice_ornament_system": 2.7,
-          "voice_pitch_organization": 3.7512500000000006,
-          "voice_processing_chain": 6.565000000000001,
-          "voice_multitrack_stack": 4.16
+          "voice_vibrato": 1.6637499999999998,
+          "voice_articulation": 20.735,
+          "voice_microtone": 24.764999999999993,
+          "voice_tradition": 19.52,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 5.07,
+          "voice_speech_song": 21.839999999999996,
+          "voice_ensemble_config": 19.824999999999996,
+          "voice_ornament_system": 3.275,
+          "voice_pitch_organization": 4.8762500000000015,
+          "voice_processing_chain": 5.719999999999999,
+          "voice_multitrack_stack": 5.655000000000001
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "New York and London style running from the 1979-1982 post-punk disco crossover of ESG, Liquid Liquid and Gang of Four into the 2001-2006 revival of The Rapture, LCD Soundsystem and !!!, built on a dry syncopated sixteenth-note hi-hat groove, popped or picked funk bass carrying the hook, scratchy trebly guitar and shouted or yelped vocals at 120-135 BPM.",
   "recipe": "classic North American 1979-1982 dance-punk, distorted Rock, punk branch, garage house u s house, funk percussive groove percussion rare groove new orleans funk. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany wenge single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cowhide mid tier congas, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, TR-808. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
   "recipe_chars": 819,
-  "score": 293.612,
+  "score": 297.792,
   "config": {
     "traditions": [
       "dance_punk",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 11.309999999999999,
+          "voice_register": 11.655,
           "voice_quality": 14.429999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8750000000000004,
+          "voice_vibrato": 3.0550000000000006,
           "voice_articulation": 21.774999999999995,
           "voice_microtone": 18.979999999999993,
           "voice_tradition": 7.8,
@@ -47,9 +47,9 @@
           "voice_speech_song": 19.824999999999996,
           "voice_ensemble_config": 20.604999999999993,
           "voice_ornament_system": 3.0550000000000015,
-          "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 15.364999999999998,
-          "voice_multitrack_stack": 6.34
+          "voice_pitch_organization": 0.7999999999999999,
+          "voice_processing_chain": 15.214999999999998,
+          "voice_multitrack_stack": 6.43
         }
       },
       {
@@ -70,15 +70,15 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 18.275,
-          "amp_make": 18.904999999999998,
+          "electric_technique": 18.56,
+          "amp_make": 19.31,
           "body_wood": 1.6899999999999997,
-          "neck_wood": 2.995,
-          "fretboard": 3.645,
+          "neck_wood": 3.25,
+          "fretboard": 4.095,
           "pickup_magnet": 0.585,
           "string_material": 0.585,
           "string_gauge": 1.6899999999999997,
-          "bridge": 3.34,
+          "bridge": 3.6399999999999997,
           "scale_length": 1.6899999999999997,
           "finish": 0.195,
           "string_tuning": 3.77,
@@ -94,17 +94,17 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked",
+          "bass_technique": "slap_pop",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.915000000000001,
-          "body_wood": 2.085,
-          "pickup_config": 0.5,
-          "string_type": 8.36,
+          "amp_make": 9.215,
+          "body_wood": 2.145,
+          "pickup_config": 0.65,
+          "string_type": 8.645,
           "scale_length_b": 2.0799999999999996,
-          "fretted_or_not": 2.995,
-          "bass_technique": 17.669999999999998,
+          "fretted_or_not": 3.25,
+          "bass_technique": 18.295,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 19.889999999999997,
-          "drumhead": 2.725,
+          "drumhead": 3.1300000000000003,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -131,9 +131,9 @@
         },
         "scores": {
           "percussion_technique": 2.5349999999999997,
-          "conga_set": 0.615,
+          "conga_set": 0.405,
           "conga_skin": 1.4949999999999999,
-          "conga_shell_wood": 0
+          "conga_shell_wood": 0.195
         }
       },
       {
@@ -145,9 +145,9 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 4.680000000000001,
+          "electronic_technique": 4.7250000000000005,
           "poly_archetypes": 1.545,
-          "poly_voices": 0.43499999999999994,
+          "poly_voices": 0.38999999999999996,
           "poly_maker_lineage": 1.625
         }
       },

@@ -1,83 +1,69 @@
 {
-  "id": "sean_nos_singing",
-  "name": "Sean-nós singing (Conamara tradition)",
+  "id": "sean_nos_solo",
+  "merged_from": "sean_nos_singing",
+  "name": "Sean-nós solo singing",
   "family": "global",
-  "lineage": "Unaccompanied solo Irish-language song tradition of Conamara, west Munster and Donegal, documented from the early twentieth century and carried into the recording era by Joe Heaney and the Oireachtas na Gaeilge competitions — long strophic ballads and love songs delivered with no fixed pulse, the line breathing to the text, heavily ornamented with melismatic runs, glottal stops and nasalisation, with intonation that departs from equal temperament, sung inward at conversational volume and without vibrato.",
-  "recipe": "classic Northern European early-1940s sean-nós singing, ballad Poetry, sean nos branch, Celtic balladic ballad poetry, Celtic balladic cape breton Gaelic, Celtic hebridean domestic rhythm newfoundland traditional song and dance music sean-nós solo singing. thick, breath veiled tone, straight note core, interlocked note trading. khoisan click articulated song syllables vocal percussion solo lead humming melody simultaneous percussion dissociated airflow vocal percussion voice. connemara kitchen sean nos. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 583,
-  "score": 217.043,
+  "lineage": "Irish-Gaelic unaccompanied old-style solo-vocal tradition performed in Connemara (most melismatic regional school), Donegal (most straight-toned), and West Kerry / Munster (intermediate) Gaeltacht regions — repertoire includes laments (caointe), lullabies, working songs, love songs, and narrative ballads in the Irish language",
+  "recipe": "classic Northern European early-1940s sean-nós solo singing, ballad Poetry, sean nos branch, vocal drone modal toyuk silbo gomero whistled language. vocal fry, keening, straight note core, interlocked note trading. connemara kitchen sean nos. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 317,
+  "score": 182.092,
   "config": {
     "traditions": [
-      "sean_nos_singing",
-      "newfoundland_folk",
-      "sean_nos_solo"
+      "sean_nos_solo",
+      "sakha_toyuk",
+      "silbo_gomero"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "vocal_fry",
+          "voice_quality": "keening_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "sean_nos_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.9699999999999998,
-          "voice_quality": 11.439999999999994,
+          "voice_register": 8.32,
+          "voice_quality": 2.445,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6665,
-          "voice_articulation": 20.345,
-          "voice_microtone": 22.099999999999994,
-          "voice_tradition": 38.9675,
-          "voice_mechanism_compound": 7.475,
-          "voice_estill_quality": 7.767499999999999,
-          "voice_speech_song": 23.919999999999998,
-          "voice_ensemble_config": 20.669999999999998,
-          "voice_ornament_system": 47.495000000000005,
-          "voice_pitch_organization": 3.2199999999999998,
-          "voice_processing_chain": 3.77,
-          "voice_multitrack_stack": 2.1464999999999996
-        }
-      },
-      {
-        "id": "vocal_percussion_voice",
-        "slots": {
-          "vocal_percussion_airstream_mechanism": "vocal_percussion_pulmonic_egressive",
-          "vocal_percussion_beatbox_articulation": "beatbox_humming_melody_dissociated",
-          "vocal_percussion_syllabic_drum_system": "syllabic_khoisan_click_song",
-          "vocal_percussion_context": "vocal_percussion_context_solo"
-        },
-        "scores": {
-          "vocal_percussion_airstream_mechanism": 0.39,
-          "vocal_percussion_beatbox_articulation": 1.04,
-          "vocal_percussion_syllabic_drum_system": 2.0149999999999997,
-          "vocal_percussion_context": 5.07
+          "voice_vibrato": 2.145,
+          "voice_articulation": 16.184999999999995,
+          "voice_microtone": 21.222499999999993,
+          "voice_tradition": 29.119999999999997,
+          "voice_mechanism_compound": 5.135,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 18.459999999999997,
+          "voice_ensemble_config": 18.459999999999997,
+          "voice_ornament_system": 36.1725,
+          "voice_pitch_organization": 4.932500000000001,
+          "voice_processing_chain": 7.345000000000001,
+          "voice_multitrack_stack": 7.865
         }
       }
     ],
     "room": "connemara_kitchen_sean_nos",
     "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
-      "mic": "condenser_ldc",
+      "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
       "console": "clean",
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "tape_15ips"
+      "medium": "digital_high"
     },
     "tuning": "celtic_irish_modal_dorian_mixolydian",
     "aesthetic": null,
@@ -87,9 +73,24 @@
   "source": {
     "tuning": "celtic_irish_modal_dorian_mixolydian",
     "room": "connemara_kitchen_sean_nos",
-    "chain_mic": "condenser_ldc",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "twang_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "sean_nos_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+      "voice_estill_quality": "voice_estill_oral_twang",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "tape_15ips",
+    "chain_medium": "digital_high",
     "chain_console": "clean"
   }
 }

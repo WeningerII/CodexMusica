@@ -36,7 +36,11 @@ const { suggest } = require('./_preface_match.js');
 class WorkspaceError extends Error {}
 
 const instById = (id) => (C.INSTRUMENTS || []).find((i) => i.id === id);
-const tradById = (id) => (C.TRADITIONS || []).find((t) => t.id === id);
+// Retired (merged) tradition ids resolve to the tradition they were merged into.
+const tradById = (id) => {
+  const live = C.resolveTraditionId(id);
+  return (C.TRADITIONS || []).find((t) => t.id === live);
+};
 const prefaceById = (id) => (C.PREFACE_LEXICON || []).find((p) => p.id === id);
 
 function emptyWorkspace() {
@@ -102,6 +106,7 @@ function addTradition(ws, traditionId) {
 
 function removeTradition(ws, traditionId) {
   if (!tradById(traditionId)) throw new WorkspaceError(`Unknown tradition: "${traditionId}"`);
+  traditionId = C.resolveTraditionId(traditionId);
   const next = clone(ws);
   next.cards = next.cards.filter((c) => c.traditionId !== traditionId);
   return next;
@@ -120,6 +125,7 @@ function addInstrument(ws, instrumentId, opts = {}) {
   const next = clone(ws);
   const id = nextCardIds(next.cards, 1)[0];
   let card = null;
+  if (opts.tradition) opts = { ...opts, tradition: C.resolveTraditionId(opts.tradition) };
   if (opts.tradition) {
     const trad = tradById(opts.tradition);
     if (!trad) throw new WorkspaceError(`Unknown tradition context: "${opts.tradition}"`);

@@ -5,7 +5,7 @@
   "lineage": "Shentov, Simitchiev, Lukanov — Pain and Power (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s bulgarian experimental, experimental Elec. conventional tuning standard pitch humbucker electric guitar, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 230,
-  "score": 8.536,
+  "score": 9.073,
   "config": {
     "traditions": [
       "bulgarian_experimental"
@@ -39,9 +39,9 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.21,
-          "string_gauge": 1.6315000000000002,
+          "string_gauge": 1.8655,
           "finish": 0,
-          "string_tuning": 1.363
+          "string_tuning": 1.597
         }
       },
       {
@@ -56,8 +56,8 @@
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": -0.05,
+          "sampler_bit_depth": 0.054,
+          "sampler_workflow": -0.035,
           "sampler_classic_context": 5.395
         }
       }

@@ -1,0 +1,219 @@
+{
+  "id": "topeng_betawi",
+  "name": "Topeng Betawi (Betawi masked-theatre music)",
+  "family": "global",
+  "lineage": "Music for the topeng masked dance-theatre of the Betawi villages around Jakarta, an evening of dances, comic sketches and songs by female singer-dancers. A small ensemble of rebab, kendang (here the generic hand-drum card), a small set of kettle gongs (here the kenong card), kempul, gong and kecrek cymbals accompanies it.",
+  "recipe": "classic modern topeng betawi, art Music, southeast Asian branch. solo with instrumental accompaniment, single lead single track no stacking. gamelan foundational carved hardwood canonical javanese rebab, hand drum source unspecified, kenong, kempul. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 329,
+  "score": 9.182,
+  "config": {
+    "traditions": [
+      "topeng_betawi"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 3.11475,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5362499999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "rebab",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "rebab_region": "rebab_javanese",
+          "rebab_context": "rebab_wayang",
+          "rebab_body": "rebab_wood_carved",
+          "rebab_skin": "ho_dama_kettle_drum_membranes_documented",
+          "rebab_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "rebab_region": 2.016,
+          "rebab_context": 0.483,
+          "rebab_body": 1.1549999999999998,
+          "rebab_skin": 0,
+          "rebab_strings": 0
+        }
+      },
+      {
+        "id": "hand_drum_source_unspecified",
+        "slots": {
+          "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+          "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+          "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+          "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+          "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+        },
+        "scores": {
+          "hand_drum_structure_neutral": 0,
+          "hand_drum_material_neutral": 0,
+          "hand_drum_excitation_neutral": 0.34650000000000003,
+          "hand_drum_damping_neutral": 0,
+          "hand_drum_tension_neutral": 0
+        }
+      },
+      {
+        "id": "kenong",
+        "slots": {
+          "kenong_tuning": "kenong_slendro"
+        },
+        "scores": {
+          "kenong_tuning": 0.5985
+        }
+      },
+      {
+        "id": "kempul",
+        "slots": {
+          "kempul_build": "kempul_forged_bronze",
+          "kempul_tuning": "kempul_slendro_set",
+          "kempul_role": "kempul_midcycle"
+        },
+        "scores": {
+          "kempul_build": 0.25275,
+          "kempul_tuning": 0.5145,
+          "kempul_role": 0.168
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "rebab": [
+        "bowed_technique",
+        "rebab_region",
+        "rebab_context",
+        "rebab_body",
+        "rebab_skin",
+        "rebab_strings"
+      ],
+      "hand_drum_source_unspecified": [
+        "hand_drum_structure_neutral",
+        "hand_drum_material_neutral",
+        "hand_drum_excitation_neutral",
+        "hand_drum_damping_neutral",
+        "hand_drum_tension_neutral"
+      ],
+      "kenong": [
+        "kenong_tuning"
+      ],
+      "kempul": [
+        "kempul_build",
+        "kempul_tuning",
+        "kempul_role"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bowed_technique": "bowed_legato_classical",
+      "rebab_region": "rebab_javanese",
+      "rebab_context": "rebab_wayang",
+      "rebab_body": "rebab_wood_carved",
+      "rebab_skin": "ho_dama_kettle_drum_membranes_documented",
+      "rebab_strings": "dutar_strings_unspecified",
+      "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+      "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+      "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+      "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+      "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified",
+      "kenong_tuning": "kenong_slendro",
+      "kempul_build": "kempul_forged_bronze",
+      "kempul_tuning": "kempul_slendro_set",
+      "kempul_role": "kempul_midcycle"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Anglo-American acoustic songwriting recorded with classical chamber forces, traceable to Robert Kirby's string arrangements for Nick Drake (1969-70) and revived from the late 1990s by Sufjan Stevens, Andrew Bird and Ólöf Arnalds — slow-to-moderate tempo, aeolian and phrygian modal harmony, fingerpicked or nylon guitar doubled by cello, violin, clarinet and harmonium, brushed or absent drums, and close, breathy, low-vibrato vocal delivery.",
   "recipe": "classic North American 1997-1999 chamber folk, ballad Poetry, indie folk branch, anglo singer song britfolk, western common practice art music, anglo singer song confessional60s britfolk revival progressive folk. thick, incomplete closure resting, slow rate, interlocked note trading. dadgad tuning cedar walnut flatwound thomastik acoustic guitar, steel norway spruce European alpine European maple sycamore maple cello, steel norway spruce European alpine hard rock maple acer saccharum violin orchestral, gut gut string strummed open chord ringing overtones celtic harp, legato pump organ harmonium, grenadilla African blackwood traditional continuous-airflow legato clarinet. hexham head studio pa chamber folk. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 845,
-  "score": 338.238,
+  "score": 337.308,
   "config": {
     "traditions": [
       "chamber_folk",
@@ -43,10 +43,10 @@
           "voice_microtone": 18.199999999999996,
           "voice_tradition": 22.615,
           "voice_mechanism_compound": 4.42,
-          "voice_estill_quality": 14.184999999999999,
+          "voice_estill_quality": 13.719999999999999,
           "voice_speech_song": 23.3675,
           "voice_ensemble_config": 15.989999999999997,
-          "voice_ornament_system": 8.045,
+          "voice_ornament_system": 7.82,
           "voice_pitch_organization": 3.3450000000000006,
           "voice_processing_chain": 3.575,
           "voice_multitrack_stack": 6.6625
@@ -63,9 +63,9 @@
         },
         "scores": {
           "string_tuning": 8.76,
-          "top_wood": 1.3,
-          "back_sides": 1.3,
-          "string_acoustic": 1.89,
+          "top_wood": 1.09,
+          "back_sides": 1.225,
+          "string_acoustic": 1.9949999999999999,
           "acoustic_om_technique": 27.36
         }
       },
@@ -85,10 +85,10 @@
         "scores": {
           "bowed_technique": 3.25,
           "cello_strings": 1.4949999999999999,
-          "cello_top_wood": 4.245,
+          "cello_top_wood": 4.2,
           "cello_back_wood": 3.775,
           "cello_varnish": 3.625,
-          "cello_setup_period": 4.815,
+          "cello_setup_period": 4.92,
           "cello_bow_grip": 1.69,
           "cello_rosin": 4.865,
           "cello_bow_stick": 5.2975
@@ -111,14 +111,14 @@
         "scores": {
           "bowed_technique": 3.25,
           "orch_strings": 1.4949999999999999,
-          "orch_top_wood": 4.245,
+          "orch_top_wood": 4.2,
           "orch_back_wood": 4.2575,
           "orch_varnish": 3.625,
-          "orch_setup_period": 4.815,
+          "orch_setup_period": 4.92,
           "orch_bow": 0.42,
           "orch_bow_stick": 5.2975,
           "orch_articulation": 0.39,
-          "orch_rosin": 3.9700000000000006
+          "orch_rosin": 4.075
         }
       },
       {
@@ -129,7 +129,7 @@
           "celtic_harp_strings": "celtic_gut"
         },
         "scores": {
-          "acoustic_technique": 4.989999999999999,
+          "acoustic_technique": 4.795,
           "celtic_harp_levers": 7.54,
           "celtic_harp_strings": 5.525
         }
@@ -144,7 +144,7 @@
         "scores": {
           "keyboard_technique": 3.25,
           "pump_organ_construction": 16.25,
-          "pump_organ_stops": 0.22499999999999998
+          "pump_organ_stops": 0.18
         }
       },
       {
@@ -158,7 +158,7 @@
         },
         "scores": {
           "wind_articulation": 3.4400000000000004,
-          "clarinet_body": 4.25,
+          "clarinet_body": 4.205,
           "clarinet_size": 8.839999999999998,
           "clarinet_reed": 1.4949999999999999,
           "clarinet_articulation": 0

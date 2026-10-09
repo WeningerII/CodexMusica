@@ -1,0 +1,169 @@
+{
+  "id": "kun_borrk",
+  "name": "Kun-borrk (western Arnhem Land public song-dance)",
+  "family": "global",
+  "lineage": "Public song-dance genre of western Arnhem Land, sung in Kunwinjku and neighbouring languages around Gunbalanya (Oenpelli), in which a songman keeping time on clapsticks is joined by a didjeridu player to accompany dancing at funerals, ceremonies and festivals, each songman holding his own song sets. Kun-borrk was recorded at Oenpelli by the 1948 American-Australian Scientific Expedition to Arnhem Land and is the subject of continuing community recording projects.",
+  "recipe": "classic late-1940s kun-borrk, ritual Devotional, indigenous branch. north australia, single lead single track no stacking. didgeridoo, songman tempo keeping voice paired clapsticks bilma. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 267,
+  "score": 9.37,
+  "config": {
+    "traditions": [
+      "kun_borrk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_north_australia",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 1.6124999999999998,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.105,
+          "voice_multitrack_stack": 1.0185,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "didgeridoo",
+        "slots": {
+          "wind_articulation": "wind_circular_breathing_drone",
+          "didj_material": "eucalyptus_didj",
+          "didj_mouthpiece": "bare_wood_mouthpiece",
+          "didj_technique": "rhythmic_didj"
+        },
+        "scores": {
+          "wind_articulation": 0.325,
+          "didj_material": 0.44099999999999995,
+          "didj_mouthpiece": 0.3675,
+          "didj_technique": 0
+        }
+      },
+      {
+        "id": "clapsticks_bilma",
+        "slots": {
+          "clapsticks_bilma_form": "clapsticks_bilma_regional_pair",
+          "clapsticks_bilma_context": "clapsticks_bilma_songman",
+          "clapsticks_bilma_wood": "clapsticks_bilma_wood_unspecified"
+        },
+        "scores": {
+          "clapsticks_bilma_form": 0.4095,
+          "clapsticks_bilma_context": 4.3505,
+          "clapsticks_bilma_wood": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "didgeridoo": [
+        "wind_articulation",
+        "didj_material",
+        "didj_mouthpiece",
+        "didj_technique"
+      ],
+      "clapsticks_bilma": [
+        "clapsticks_bilma_form",
+        "clapsticks_bilma_context",
+        "clapsticks_bilma_wood"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_north_australia",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "wind_articulation": "wind_circular_breathing_drone",
+      "didj_material": "eucalyptus_didj",
+      "didj_mouthpiece": "bare_wood_mouthpiece",
+      "didj_technique": "rhythmic_didj",
+      "clapsticks_bilma_form": "clapsticks_bilma_regional_pair",
+      "clapsticks_bilma_context": "clapsticks_bilma_songman",
+      "clapsticks_bilma_wood": "clapsticks_bilma_wood_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

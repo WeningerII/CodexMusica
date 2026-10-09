@@ -3,9 +3,9 @@
   "name": "Punjabi pop",
   "family": "pop",
   "lineage": "Punjabi-language pop crystallised in the early 1990s across Jalandhar, Delhi and the UK diaspora as folk boliyan and tappe were set to programmed beats — Malkit Singh, Gurdas Maan and Daler Mehndi's cassette-era hits established the form of a driving 100-140 BPM dhol chaal with tumbi or algoza riff, harmonium or synth chord stabs, and an open-throated declamatory tenor with sharp gamak-like grace notes — remade after 2010 by Diljit Dosanjh and the Punjabi-Canadian axis into a slick DAW production still anchored to the dhol pattern.",
-  "recipe": "classic 1990-1993 punjabi pop, functional Song, south Asian pop branch, Afro-diasporic electric groove percussion funk viral afrofuturismo brasileiro. thick, breath veiled tone, fast rate, interlocked note trading. dhol, steel single string canonical Punjabi tumbi, algoza, melodic straight harmonium indian, dholak, singing lead analog poly synth, pyramid pure nickel bass British mid 60s era electric bass, chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 629,
-  "score": 231.692,
+  "recipe": "classic 1990-1993 punjabi pop, functional Song, south Asian pop branch, Afro-diasporic electric groove percussion funk viral afrofuturismo brasileiro. thick, breath veiled tone, fast rate, interlocked note trading. dhol, steel single string canonical Punjabi tumbi, algoza, harmonium indian, dholak, singing lead analog poly synth, pyramid pure nickel bass British mid 60s era electric bass, chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 612,
+  "score": 230.702,
   "config": {
     "traditions": [
       "punjabi_pop",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.429999999999994,
+          "voice_register": 14.384999999999994,
           "voice_quality": 12.804999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8849999999999999,
+          "voice_vibrato": 0.7349999999999999,
           "voice_articulation": 17.549999999999994,
           "voice_microtone": 17.35499999999999,
-          "voice_tradition": 11.575,
+          "voice_tradition": 11.53,
           "voice_mechanism_compound": 3.8349999999999995,
           "voice_estill_quality": 4.94,
           "voice_speech_song": 20.79999999999999,
           "voice_ensemble_config": 17.289999999999992,
           "voice_ornament_system": 3.45,
-          "voice_pitch_organization": 2.6050000000000004,
-          "voice_processing_chain": 5.015000000000001,
+          "voice_pitch_organization": 2.9050000000000002,
+          "voice_processing_chain": 5.2250000000000005,
           "voice_multitrack_stack": 4.842500000000001
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "dhol_form": 23.984999999999992,
-          "dhol_repertoire": 7.885000000000001,
+          "dhol_repertoire": 7.4350000000000005,
           "dhol_shell": -0.05
         }
       },
@@ -76,7 +76,7 @@
         "scores": {
           "plucked_traditional_technique": 2.5,
           "tumbi_construction": 0.65,
-          "tumbi_context": 1.2749999999999997,
+          "tumbi_context": 1.2299999999999998,
           "tumbi_string": 3.7949999999999995
         }
       },
@@ -95,13 +95,13 @@
         "id": "harmonium_indian",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "harmonium_action": "harmonium_foot_pump",
+          "harmonium_action": "harmonium_hand_pump",
           "harmonium_voicing": "harmonium_male",
           "harmonium_use": "harmonium_qawwali"
         },
         "scores": {
-          "free_reed_technique": 3.21,
-          "harmonium_action": 0.43500000000000005,
+          "free_reed_technique": 2.97,
+          "harmonium_action": 0.39,
           "harmonium_voicing": 0.585,
           "harmonium_use": 1.09
         }
@@ -115,7 +115,7 @@
           "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 0.42,
+          "dholak_use": 0.33,
           "dholak_construction": 0.345,
           "dholak_head": 0.15,
           "dholak_tensioning": 0.195
@@ -125,7 +125,7 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "jupiter_8",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
@@ -150,10 +150,10 @@
         },
         "scores": {
           "amp_make": 1.4299999999999997,
-          "body_wood": 0.8250000000000001,
-          "pickup_config": 0.54,
+          "body_wood": 0.63,
+          "pickup_config": 0.39,
           "string_type": 2.6650000000000005,
-          "scale_length_b": 0.435,
+          "scale_length_b": 0.39,
           "fretted_or_not": 0.24,
           "bass_technique": 3.365,
           "electric_bass_string_configuration": 0

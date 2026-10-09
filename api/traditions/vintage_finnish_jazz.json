@@ -5,7 +5,7 @@
   "lineage": "Vintage Finnish jazz draws on the country’s early jazz-oriented dance bands and their recordings. Local musicians adapted international jazz repertoire through small ensembles and varied instrumental combinations.",
   "recipe": "classic vintage finnish jazz, improv On Frame, early branch. ebonite hard rubber klezmer tradition clarinet, vintage steinway pre-war compression wired 18 ply hard rock maple grand piano, vibraphone, Fender tweed amp American 50s amp tweed breakup alnico low output no compression humbucker electric guitar, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 481,
-  "score": 145.059,
+  "score": 145.311,
   "config": {
     "traditions": [
       "vintage_finnish_jazz"
@@ -43,10 +43,10 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.36749999999999994,
-          "grand_piano_brand": 0.36749999999999994,
+          "grand_piano_size": 0.336,
+          "grand_piano_brand": 0.336,
           "piano_hammer": 5.1705000000000005,
-          "piano_rim": 5.328,
+          "piano_rim": 5.359500000000001,
           "piano_soundboard": -0.035,
           "piano_pinblock": -0.035,
           "piano_plate": -0.035,
@@ -82,22 +82,22 @@
           "bridge": "vibrato_arm",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_11_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "open_g"
         },
         "scores": {
           "electric_technique": 2.5735,
           "amp_make": 5.005,
-          "body_wood": 0.47250000000000003,
+          "body_wood": 0.5774999999999999,
           "neck_wood": 0.24149999999999996,
           "fretboard": 0.24149999999999996,
           "pickup_magnet": 2,
           "pickup_winding": 2.063,
           "string_material": 2,
           "bridge": 2,
-          "scale_length": 0.7454999999999998,
-          "string_gauge": 0.231,
-          "finish": 0,
+          "scale_length": 0.8819999999999999,
+          "string_gauge": 0.1995,
+          "finish": 0.105,
           "string_tuning": 0.819
         }
       },
@@ -121,7 +121,7 @@
         },
         "scores": {
           "drum_technique": 16.25,
-          "drumhead": 26.2165,
+          "drumhead": 26.185,
           "drum_kit_kick_pedal": 0
         }
       }

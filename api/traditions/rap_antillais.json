@@ -5,7 +5,7 @@
   "lineage": "Rap antillais connects French Antillean rappers, producers and diasporic networks. Local references and collaborations circulate through releases, live events and DJ programmes within a broader Caribbean and international hip-hop field.",
   "recipe": "classic rap antillais, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler. treated studio.",
   "recipe_chars": 115,
-  "score": 41.925,
+  "score": 42.313,
   "config": {
     "traditions": [
       "rap_antillais"
@@ -38,12 +38,12 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3315,
+          "voice_articulation": 0.363,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.068,
+          "voice_speech_song": 13.424999999999999,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

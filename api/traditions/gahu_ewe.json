@@ -1,0 +1,261 @@
+{
+  "id": "gahu_ewe",
+  "name": "Gahu (Ewe recreational dance-drumming)",
+  "family": "global",
+  "lineage": "Recreational dance music that reached the Anlo-Ewe of Ghana from the Gun (Egun) people of the Benin–Nigeria coast in the mid-20th century, danced by clubs and cultural groups. The gankogui bell and axatse lay a four-beat timeline under the large boba (gboba) lead drum with sogo, kidi and kagan, and call-and-response songs. David Locke's 'Drum Gahu' documents it with recordings.",
+  "recipe": "classic modern gahu, groove Percussion, west African branch. single leader group response. deep bass lead call-and-response boba, lead call-and-response sogo, kidi, kagan, interlocking timeline keeping gankogui, axatse. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 299,
+  "score": 80.899,
+  "config": {
+    "traditions": [
+      "gahu_ewe"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.4949999999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.44099999999999995,
+          "voice_multitrack_stack": 0.39899999999999997,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "boba",
+        "slots": {
+          "boba_drum_form": "boba_drum_form_gahu_large",
+          "boba_ensemble_role": "boba_ensemble_role_gahu_lead",
+          "boba_stroke_technique": "boba_stroke_technique_sticks",
+          "boba_hide_material": "boba_hide_material_antelope_carved"
+        },
+        "scores": {
+          "boba_drum_form": 8.8755,
+          "boba_ensemble_role": 21.775,
+          "boba_stroke_technique": 2.25,
+          "boba_hide_material": 0.39
+        }
+      },
+      {
+        "id": "sogo",
+        "slots": {
+          "sogo_ensemble_role": "sogo_ensemble_role_agbadza_lead",
+          "sogo_stroke_technique": "sogo_stroke_technique_bare_hands",
+          "sogo_tuning_pair": "sogo_tuning_pair_wide",
+          "sogo_hide_material": "sogo_hide_material_goat_stave"
+        },
+        "scores": {
+          "sogo_ensemble_role": 21.775,
+          "sogo_stroke_technique": 2.523,
+          "sogo_tuning_pair": 0.7149999999999999,
+          "sogo_hide_material": -0.05
+        }
+      },
+      {
+        "id": "kidi",
+        "slots": {
+          "kidi_stroke_technique": "kidi_stroke_technique_damped",
+          "kidi_ensemble_role": "kidi_ensemble_role_dialogue",
+          "kidi_stick_weight": "kidi_stick_weight_hardwood_heavy",
+          "kidi_hide_material": "kidi_hide_material_goat_tight"
+        },
+        "scores": {
+          "kidi_stroke_technique": -0.07,
+          "kidi_ensemble_role": 13.975,
+          "kidi_stick_weight": 0,
+          "kidi_hide_material": -0.05
+        }
+      },
+      {
+        "id": "kagan",
+        "slots": {
+          "kagan_ensemble_role": "kagan_ensemble_role_agbadza_offbeat",
+          "kagan_stroke_technique": "kagan_stroke_technique_all_open",
+          "kagan_hide_material": "kagan_hide_material_tight_goat",
+          "kagan_stick_spec": "kagan_stick_spec_long_thin"
+        },
+        "scores": {
+          "kagan_ensemble_role": 3.0035,
+          "kagan_stroke_technique": -0.035,
+          "kagan_hide_material": -0.05,
+          "kagan_stick_spec": 0
+        }
+      },
+      {
+        "id": "gankogui",
+        "slots": {
+          "gankogui_bell_form": "gankogui_bell_form_double_standard",
+          "gankogui_timeline_role": "gankogui_timeline_role_agbadza_open",
+          "gankogui_forge_material": "gankogui_forge_material_wrought_iron"
+        },
+        "scores": {
+          "gankogui_bell_form": -0.07,
+          "gankogui_timeline_role": 3.4055,
+          "gankogui_forge_material": -0.07
+        }
+      },
+      {
+        "id": "axatse",
+        "slots": {
+          "axatse_size": "axatse_medium",
+          "axatse_technique": "axatse_thigh_hand"
+        },
+        "scores": {
+          "axatse_size": 0.0315,
+          "axatse_technique": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "boba": [
+        "boba_drum_form",
+        "boba_ensemble_role",
+        "boba_stroke_technique",
+        "boba_hide_material"
+      ],
+      "sogo": [
+        "sogo_ensemble_role",
+        "sogo_stroke_technique",
+        "sogo_tuning_pair",
+        "sogo_hide_material"
+      ],
+      "kidi": [
+        "kidi_stroke_technique",
+        "kidi_ensemble_role",
+        "kidi_stick_weight",
+        "kidi_hide_material"
+      ],
+      "kagan": [
+        "kagan_ensemble_role",
+        "kagan_stroke_technique",
+        "kagan_hide_material",
+        "kagan_stick_spec"
+      ],
+      "gankogui": [
+        "gankogui_bell_form",
+        "gankogui_timeline_role",
+        "gankogui_forge_material"
+      ],
+      "axatse": [
+        "axatse_size",
+        "axatse_technique"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "boba_drum_form": "boba_drum_form_gahu_large",
+      "boba_ensemble_role": "boba_ensemble_role_gahu_lead",
+      "boba_stroke_technique": "boba_stroke_technique_sticks",
+      "boba_hide_material": "boba_hide_material_antelope_carved",
+      "sogo_ensemble_role": "sogo_ensemble_role_agbadza_lead",
+      "sogo_stroke_technique": "sogo_stroke_technique_bare_hands",
+      "sogo_tuning_pair": "sogo_tuning_pair_wide",
+      "sogo_hide_material": "sogo_hide_material_goat_stave",
+      "kidi_stroke_technique": "kidi_stroke_technique_damped",
+      "kidi_ensemble_role": "kidi_ensemble_role_dialogue",
+      "kidi_stick_weight": "kidi_stick_weight_hardwood_heavy",
+      "kidi_hide_material": "kidi_hide_material_goat_tight",
+      "kagan_ensemble_role": "kagan_ensemble_role_agbadza_offbeat",
+      "kagan_stroke_technique": "kagan_stroke_technique_all_open",
+      "kagan_hide_material": "kagan_hide_material_tight_goat",
+      "kagan_stick_spec": "kagan_stick_spec_long_thin",
+      "gankogui_bell_form": "gankogui_bell_form_double_standard",
+      "gankogui_timeline_role": "gankogui_timeline_role_agbadza_open",
+      "gankogui_forge_material": "gankogui_forge_material_wrought_iron",
+      "axatse_size": "axatse_medium",
+      "axatse_technique": "axatse_thigh_hand"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

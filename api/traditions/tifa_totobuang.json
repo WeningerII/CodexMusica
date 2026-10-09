@@ -1,0 +1,97 @@
+{
+  "id": "tifa_totobuang",
+  "name": "Tifa totobuang (Ambon gong-chime and drum ensemble)",
+  "family": "global",
+  "lineage": "Ensemble of Ambon and the central Moluccas that pairs the totobuang, a set of small kettle gongs laid in a wooden frame (the bonang card stands in), with tifa drums of several sizes (the generic membrane-drum card stands in) and a large hanging gong. It accompanies dances, welcomes and other customary and festive occasions.",
+  "recipe": "classic modern tifa totobuang, groove Percussion, east Asian branch. bonang, membrane drum pulse resonant acoustic membrane drum, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 222,
+  "score": 7.762,
+  "config": {
+    "traditions": [
+      "tifa_totobuang"
+    ],
+    "instruments": [
+      {
+        "id": "bonang",
+        "slots": {
+          "bonang_tuning": "bonang_full_set",
+          "bonang_register": "bonang_barung"
+        },
+        "scores": {
+          "bonang_tuning": -0.05,
+          "bonang_register": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 4.29,
+          "acoustic_membrane_drum_gesture": 2.9899999999999998
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.5774999999999999,
+          "gong_striker": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "bonang": [
+        "bonang_tuning",
+        "bonang_register"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "bonang_tuning": "bonang_full_set",
+      "bonang_register": "bonang_barung",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

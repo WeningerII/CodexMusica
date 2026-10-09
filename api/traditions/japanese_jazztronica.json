@@ -5,7 +5,7 @@
   "lineage": "Japanese jazztronica connects jazz-oriented musicians and electronic production through releases and collaborative networks. Acoustic playing and programmed rhythm meet in varied instrumental arrangements.",
   "recipe": "classic japanese jazztronica, improv On Frame, fusion branch. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, electronic keyboard credited beat unspecified, upright bass. live tracking.",
   "recipe_chars": 220,
-  "score": 29.016,
+  "score": 29.226,
   "config": {
     "traditions": [
       "japanese_jazztronica"
@@ -39,7 +39,7 @@
           "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_keyboard_identity": 0.1365,
+          "electronic_keyboard_identity": 0.3465,
           "keyboard_technique": 0.39
         }
       },

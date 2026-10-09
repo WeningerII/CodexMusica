@@ -3,9 +3,9 @@
   "name": "Flamenco Fusion",
   "family": "global",
   "lineage": "Flamenco fusion extends flamenco singing, guitar and dance through contemporary composition and cross-cultural collaboration. Acoustic companies and larger amplified ensembles coexist, connecting Andalusian musical vocabulary with new theatrical and popular-music settings.",
-  "recipe": "classic flamenco fusion, functional Song, iberian branch. many notes per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, credited auxiliary percussion, flamenco zapateado shoes. shoebox concert hall.",
-  "recipe_chars": 375,
-  "score": 14.632,
+  "recipe": "classic flamenco fusion, functional Song, iberian branch. many notes per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, credited auxiliary percussion, flamenco zapateado shoes. shoebox concert hall.",
+  "recipe_chars": 337,
+  "score": 14.434,
   "config": {
     "traditions": [
       "flamenco_fusion"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
+          "voice_speech_song": 1.489,
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.1575,
-          "voice_multitrack_stack": 0.613,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
         "scores": {
           "flamenco_body": 3.9,
           "flamenco_features": 0.39,
-          "flamenco_technique": 4.80175
+          "flamenco_technique": 5.0395
         }
       },
       {
@@ -85,7 +85,7 @@
         "scores": {
           "zapateado_upper": 0,
           "zapateado_striking_construction": 0,
-          "zapateado_action": 0,
+          "zapateado_action": 0.105,
           "zapateado_surface": 0
         }
       }

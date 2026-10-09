@@ -5,7 +5,7 @@
   "lineage": "Israeli Eastern-Jewish popular tradition descended from Yemenite, Iraqi, Moroccan, and Persian Jewish communities — codified through Zohar Argov, Ofra Haza (whose 1988 Im Nin’Alu became an international crossover), Eyal Golan, and the broader Mizrahi recording scene; characterized by Hebrew vocals over Arabic-maqam-derived melodic vocabulary",
   "recipe": "classic late-1980s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, Persian arab improv improv on frame iraqi maqam malhun. thick, declaimed, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, alder electric bass. live tracking. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 522,
-  "score": 186.8,
+  "score": 186.282,
   "config": {
     "traditions": [
       "mizrahi_israeli",
@@ -35,10 +35,10 @@
         },
         "scores": {
           "voice_register": 6.985000000000002,
-          "voice_quality": 10.235,
+          "voice_quality": 9.889999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.29,
+          "voice_vibrato": 7.3125,
           "voice_articulation": 6.24,
           "voice_microtone": 20.3125,
           "voice_tradition": 15.48,
@@ -47,7 +47,7 @@
           "voice_speech_song": 8.19,
           "voice_ensemble_config": 6.175,
           "voice_ornament_system": 14.015,
-          "voice_pitch_organization": 14.360000000000001,
+          "voice_pitch_organization": 14.315000000000001,
           "voice_processing_chain": 2.9899999999999998,
           "voice_multitrack_stack": 4.485
         }
@@ -97,7 +97,7 @@
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
-          "string_material": "nickel_plated",
+          "string_material": "pure_nickel",
           "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
@@ -112,7 +112,7 @@
           "neck_wood": 1.695,
           "fretboard": 1.645,
           "pickup_magnet": 0.195,
-          "string_material": 0.15,
+          "string_material": 0,
           "string_gauge": 1.95,
           "bridge": 0.495,
           "scale_length": 1.8900000000000001,

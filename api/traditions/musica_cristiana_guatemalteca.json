@@ -3,9 +3,9 @@
   "name": "Música Cristiana Guatemalteca",
   "family": "global",
   "lineage": "Mariachi Cristiano Guatemala Sinaí — published six-member ministry lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic música cristiana guatemalteca, ritual Devotional, christian gospel branch. European maple bosnian source flamed figure violin orchestral, cedar caoba paracho nylon treble steel bass guitarron mexicano, bach stradivarius 180 canonical American orchestral trumpet, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 455,
-  "score": 20.934,
+  "recipe": "classic música cristiana guatemalteca, ritual Devotional, christian gospel branch. European maple bosnian source flamed figure violin orchestral, cedar caoba paracho guitarron mexicano, bach stradivarius 180 canonical American orchestral trumpet, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 431,
+  "score": 20.681,
   "config": {
     "traditions": [
       "musica_cristiana_guatemalteca"
@@ -73,9 +73,9 @@
           "orch_back_wood": 1.2,
           "orch_varnish": -0.1,
           "orch_setup_period": -0.07,
-          "orch_bow": 0.294,
+          "orch_bow": 0.3675,
           "orch_bow_stick": -0.10500000000000001,
-          "orch_articulation": 0.9974999999999999,
+          "orch_articulation": 1.1444999999999999,
           "orch_rosin": -0.07
         }
       },
@@ -92,7 +92,7 @@
           "guitarron_body": 0.1365,
           "guitarron_body_wood": 2.8600000000000003,
           "guitarron_strings": 0.1365,
-          "guitarron_string_material": 1.2285,
+          "guitarron_string_material": 0.9555,
           "guitarron_technique": 2.8600000000000003
         }
       },
@@ -111,10 +111,10 @@
           "wind_articulation": -0.07,
           "brass_size": 0,
           "trumpet_mouthpiece": -0.07,
-          "brass_mute": 0.4305,
+          "brass_mute": 0.504,
           "trumpet_technique": -0.05,
-          "trumpet_bell_metal": 0.9555,
-          "trumpet_maker_school": 1.4385000000000001
+          "trumpet_bell_metal": 0.819,
+          "trumpet_maker_school": 1.302
         }
       },
       {

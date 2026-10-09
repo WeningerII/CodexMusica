@@ -5,7 +5,7 @@
   "lineage": "Mid-1960s British R&B and blues-rock interpretation of American sources — codified through The Rolling Stones (The Rolling Stones 1964, their early Chess-blues covers), The Animals (\"The House of the Rising Sun\" 1964, \"I’m Crying\" 1964), The Yardbirds (Five Live Yardbirds 1964), and Them (Van Morrison’s early band) — characterized by white English musicians performing African-American blues and R&B repertoire with electric-rock-band instrumentation through Marshall amplifiers and the British studio sound",
   "recipe": "classic British british r&b and british invasion, distorted Rock, classic branch, blues electric functional song blues band blues mexicano. thick, blues-shouter, wide pitch sway, interlocked note trading. slow-build minor-key ballad in 6 8, descending bass walk, slow build dynamic envelope, mid song instrumental break. marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, selmer amp British 60s amp acoustic leaning laminated maple es 175 canon archtop, marshall plexi amp British rock amp Rickenbacker dual p90 flatwound semi hollow, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ, marshall plexi amp British rock amp alder ernie ball slinky electric marshall plexi amp British rock amp hofner blade dual blade la bella flat short scale marshall plexi amp British rock amp Gibson eb2 epiphone rivoli semi hollow archtop semi hollow bass, vintage ambassador asymmetric brushes-and-sticks drum kit.",
   "recipe_chars": 990,
-  "score": 677.725,
+  "score": 678.7,
   "config": {
     "traditions": [
       "british_invasion_rb",
@@ -38,7 +38,7 @@
           "voice_quality": 14.657499999999986,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 27.229999999999997,
+          "voice_vibrato": 26.929999999999996,
           "voice_articulation": 15.339999999999996,
           "voice_microtone": 27.019999999999996,
           "voice_tradition": 13.649999999999995,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 15.729999999999995,
           "voice_ornament_system": 1.4849999999999999,
           "voice_pitch_organization": 2.15,
-          "voice_processing_chain": 7.295,
+          "voice_processing_chain": 7.595000000000001,
           "voice_multitrack_stack": 5.165
         }
       },
@@ -60,17 +60,17 @@
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "alnico_2",
+          "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "hardtail",
+          "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 8.274999999999999,
+          "electric_technique": 8.424999999999999,
           "amp_make": 21.849999999999994,
           "body_wood": 1.69,
           "neck_wood": 1.69,
@@ -98,11 +98,11 @@
         },
         "scores": {
           "amp_make": 10.024999999999999,
-          "archtop_body": 3.3600000000000003,
+          "archtop_body": 3.3150000000000004,
           "archtop_pickup": 2.535,
           "archtop_top_wood": 1.865,
           "archtop_strings": 2.9575000000000005,
-          "archtop_technique": 3.085,
+          "archtop_technique": 3.1300000000000003,
           "archtop_string_tuning": 0
         }
       },
@@ -136,8 +136,8 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "combo_organ_model": 6.309999999999999,
-          "combo_organ_voicing": 4.955,
+          "combo_organ_model": 6.459999999999999,
+          "combo_organ_voicing": 5.015,
           "combo_organ_context": 7.344999999999999,
           "amp_make": 10.024999999999999
         }
@@ -150,7 +150,7 @@
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -160,7 +160,7 @@
           "pickup_config": 0,
           "string_type": 14.169999999999998,
           "scale_length_b": 1.69,
-          "fretted_or_not": 0.09,
+          "fretted_or_not": 0.15,
           "bass_technique": 13.609999999999998,
           "electric_bass_string_configuration": 0
         }
@@ -179,7 +179,7 @@
           "electric_technique": -0.035,
           "amp_make": 21.849999999999994,
           "short_scale_bass_model": 6.8149999999999995,
-          "short_scale_bass_context": 0.345,
+          "short_scale_bass_context": 0.3,
           "short_scale_bass_pickup": 3.19,
           "short_scale_bass_strings": 3.575
         }
@@ -191,15 +191,15 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "semi_hollow_bass_model": "semi_hollow_bass_eb2_rivoli",
           "semi_hollow_bass_pickup": "semi_hollow_bass_mini_humbucker",
-          "semi_hollow_bass_strings": "semi_hollow_bass_pyramid_pure_nickel",
+          "semi_hollow_bass_strings": "semi_hollow_bass_flatwound",
           "semi_hollow_bass_context": "semi_hollow_bass_british_invasion"
         },
         "scores": {
           "electric_technique": -0.035,
           "amp_make": 21.849999999999994,
           "semi_hollow_bass_model": 6.76,
-          "semi_hollow_bass_pickup": 3.385,
-          "semi_hollow_bass_strings": 1.795,
+          "semi_hollow_bass_pickup": 3.5349999999999997,
+          "semi_hollow_bass_strings": 1.645,
           "semi_hollow_bass_context": 9.674999999999999
         }
       },
@@ -228,10 +228,10 @@
         },
         "scores": {
           "harmonica_type": 0.845,
-          "harmonica_comb": 31.809999999999995,
-          "harmonica_reed": 28.229999999999997,
-          "harmonica_technique": 27.859999999999992,
-          "harmonica_maker_school": 35.02999999999999,
+          "harmonica_comb": 32.019999999999996,
+          "harmonica_reed": 28.529999999999998,
+          "harmonica_technique": 27.664999999999992,
+          "harmonica_maker_school": 35.31499999999999,
           "harmonica_tuning": 13.779999999999998
         }
       },

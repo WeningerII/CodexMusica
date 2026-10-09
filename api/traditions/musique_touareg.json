@@ -5,7 +5,7 @@
   "lineage": "Pre-electric music of the Kel Tamasheq across Mali, Niger, Algeria and Libya, documented ethnographically from the 1950s onward — the noble imzad one-string fiddle accompanying men's sung poetry in free rubato, the women's tinde mortar-drum ensembles driving fast handclapped 6/8 possession and camel-race songs, and the tehardent lute repertoire of the inhaden artisan caste, all in narrow pentatonic modes with heavy portamento and ululation.",
   "recipe": "classic North African mid-1950s musique touareg, drone Modal, string branch, central Asian hunting song, middle eastern wedding tuvan folk music central asian folk. sygyt, breath veiled tone, fast rate, interlocked note trading. gourd goatskin horsehair bow canonical tuareg tuareg women canonical solo imzad, driving call-and-response tinde, tehardent, snappy thin to palm hand clap, inverted calabash, mortar pestle. saharan desert encampment. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 520,
-  "score": 180.21,
+  "score": 179.295,
   "config": {
     "traditions": [
       "musique_touareg",
@@ -26,8 +26,8 @@
           "bowed_technique": -0.035,
           "imzad_body": 1.54,
           "imzad_string": 0.65,
-          "imzad_bow": 2.67,
-          "imzad_tradition": 3.865
+          "imzad_bow": 2.625,
+          "imzad_tradition": 3.9250000000000003
         }
       },
       {
@@ -48,7 +48,7 @@
           "tehardent_style": "tehardent_takamba"
         },
         "scores": {
-          "tehardent_body": 0.045,
+          "tehardent_body": 0,
           "tehardent_style": 1.95
         }
       },
@@ -77,11 +77,11 @@
           "voice_quality": 15.989999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.535,
+          "voice_vibrato": 3.58,
           "voice_articulation": 18.005,
           "voice_microtone": 24.569999999999997,
-          "voice_tradition": 10.36,
-          "voice_mechanism_compound": 8.97,
+          "voice_tradition": 9.655000000000001,
+          "voice_mechanism_compound": 8.7,
           "voice_estill_quality": 3.9650000000000003,
           "voice_speech_song": 23.595,
           "voice_ensemble_config": 18.134999999999998,
@@ -99,7 +99,7 @@
         },
         "scores": {
           "clap_technique": 2.015,
-          "clap_capture": 0.045
+          "clap_capture": 0
         }
       },
       {
@@ -116,11 +116,11 @@
       {
         "id": "mortar_pestle",
         "slots": {
-          "mortar_pestle_vessel": "mortar_pestle_wood",
+          "mortar_pestle_vessel": "mortar_pestle_stone",
           "mortar_pestle_content": "mortar_pestle_grain"
         },
         "scores": {
-          "mortar_pestle_vessel": 0,
+          "mortar_pestle_vessel": 0.09,
           "mortar_pestle_content": 0
         }
       }

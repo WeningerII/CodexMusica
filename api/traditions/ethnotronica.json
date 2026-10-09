@@ -5,7 +5,7 @@
   "lineage": "Ethnotronica brings electronic production into dialogue with regional acoustic traditions. The term circulates through international performance and DJ networks, including Indian-classical electronic collaborations and cross-cultural dance production.",
   "recipe": "classic ethnotronica, electronic Dance. bansuri, indian rosewood rosewood copper tabla, sampler. live tracking.",
   "recipe_chars": 111,
-  "score": 6.482,
+  "score": 6.377,
   "config": {
     "traditions": [
       "ethnotronica"
@@ -37,7 +37,7 @@
         },
         "scores": {
           "tabla_dayan": 2.46,
-          "tabla_bayan": 1.105,
+          "tabla_bayan": 1,
           "tabla_syahi": 0
         }
       },

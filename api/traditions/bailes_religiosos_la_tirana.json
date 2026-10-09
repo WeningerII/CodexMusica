@@ -1,0 +1,264 @@
+{
+  "id": "bailes_religiosos_la_tirana",
+  "name": "Bailes religiosos de La Tirana (Norte Grande devotional dance bands)",
+  "family": "global",
+  "lineage": "Devotional dance music of the Fiesta de La Tirana in the Tarapacá pampa, held each July for the Virgen del Carmen and attended by hundreds of dance societies (bailes religiosos) from Iquique and the towns of the Chilean north. Each baile has its own band: brass bands of trumpets, trombones and tubas with bass drum, snare and cymbals (the sousaphone card stands in for the bass horn) play for the diabladas, morenos, who swing wooden ratchets, and other costumed dances, while lakitas play large panpipes over bass drums, and the dancers sing hymns of greeting and farewell to the Virgin.",
+  "recipe": "classic modern bailes religiosos de la tirana, carnival Processional, andean branch. horn section ensemble trumpet, trombone, sousaphone, bombo andino, snare drum, andean tradition paired rows interlocking siku panpipes. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 300,
+  "score": 3.213,
+  "config": {
+    "traditions": [
+      "bailes_religiosos_la_tirana"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "kombu_brass",
+          "trumpet_maker_school": "trumpet_monette"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "brass_size": 0,
+          "trumpet_mouthpiece": -0.1,
+          "brass_mute": 0,
+          "trumpet_technique": 1.1049999999999998,
+          "trumpet_bell_metal": 0,
+          "trumpet_maker_school": 0.09899999999999999
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "kombu_brass",
+          "trombone_maker_school": "trombone_edwards_griego"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "trombone_type": -0.035,
+          "trombone_mouthpiece": -0.1,
+          "trombone_mute": 0,
+          "trombone_technique": 0.0945,
+          "trombone_bell_metal": 0,
+          "trombone_maker_school": 0
+        }
+      },
+      {
+        "id": "sousaphone",
+        "slots": {
+          "sousaphone_bore": "sousaphone_bb_contrabass",
+          "sousaphone_context": "sousaphone_oompah_march"
+        },
+        "scores": {
+          "sousaphone_bore": 0,
+          "sousaphone_context": 0.03599999999999999
+        }
+      },
+      {
+        "id": "bombo_andino",
+        "slots": {
+          "bombo_andino_construction": "bombo_andino_stave",
+          "bombo_andino_skin": "bombo_andino_cow",
+          "bombo_andino_shell_wood": "bombo_andino_quebracho"
+        },
+        "scores": {
+          "bombo_andino_construction": 0.2415,
+          "bombo_andino_skin": -0.05,
+          "bombo_andino_shell_wood": 0
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0
+        }
+      },
+      {
+        "id": "siku_panpipes",
+        "slots": {
+          "siku_construction": "siku_ira_arca_paired",
+          "siku_size": "siku_malta"
+        },
+        "scores": {
+          "siku_construction": 1.95,
+          "siku_size": 0.0315
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.168,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.063,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "sousaphone": [
+        "sousaphone_bore",
+        "sousaphone_context"
+      ],
+      "bombo_andino": [
+        "bombo_andino_construction",
+        "bombo_andino_skin",
+        "bombo_andino_shell_wood"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ],
+      "siku_panpipes": [
+        "siku_construction",
+        "siku_size"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "trumpet_bell_metal": "kombu_brass",
+      "trumpet_maker_school": "trumpet_monette",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "big_band_punch",
+      "trombone_bell_metal": "kombu_brass",
+      "trombone_maker_school": "trombone_edwards_griego",
+      "sousaphone_bore": "sousaphone_bb_contrabass",
+      "sousaphone_context": "sousaphone_oompah_march",
+      "bombo_andino_construction": "bombo_andino_stave",
+      "bombo_andino_skin": "bombo_andino_cow",
+      "bombo_andino_shell_wood": "bombo_andino_quebracho",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455",
+      "siku_construction": "siku_ira_arca_paired",
+      "siku_size": "siku_malta",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

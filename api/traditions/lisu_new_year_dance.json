@@ -1,0 +1,104 @@
+{
+  "id": "lisu_new_year_dance",
+  "name": "Lisu gourd-pipe and lute dance music",
+  "family": "global",
+  "lineage": "Music of the Lisu, a Tibeto-Burman-speaking people of the Nujiang valley of Yunnan, of Kachin and Shan States in Myanmar and of the hills of northern Thailand. At the New Year festival villagers dance in circles on the village dance ground to the gourd mouth organ and a long-necked plucked lute. The lusheng card stands in for the Lisu gourd pipe and the sanxian card for the Lisu lute.",
+  "recipe": "classic modern lisu gourd-pipe and lute dance music, drone Modal, wind pipe branch, string drone modal. buzzy festival six pipe lusheng, sanxian. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 225,
+  "score": 6.45,
+  "config": {
+    "traditions": [
+      "lisu_new_year_dance"
+    ],
+    "instruments": [
+      {
+        "id": "lusheng",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "lusheng_form": "lusheng_form_miao_six_pipe",
+          "lusheng_performance": "lusheng_performance_dance",
+          "lusheng_construction": "lusheng_construction_bronze_reed"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "lusheng_form": 5.470000000000001,
+          "lusheng_performance": -0.035,
+          "lusheng_construction": -0.035
+        }
+      },
+      {
+        "id": "sanxian",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sanxian_size": "sanxian_da",
+          "sanxian_context": "sanxian_shuochang",
+          "sanxian_head": "sanxian_python_skin",
+          "sanxian_strings": "dutar_strings_unspecified",
+          "sanxian_body_wood": "sanxian_rosewood"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "sanxian_size": 0.09,
+          "sanxian_context": 1.335,
+          "sanxian_head": -0.035,
+          "sanxian_strings": 0,
+          "sanxian_body_wood": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "lusheng": [
+        "free_reed_technique",
+        "lusheng_form",
+        "lusheng_performance",
+        "lusheng_construction"
+      ],
+      "sanxian": [
+        "plucked_traditional_technique",
+        "sanxian_size",
+        "sanxian_context",
+        "sanxian_head",
+        "sanxian_strings",
+        "sanxian_body_wood"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "free_reed_technique": "free_reed_folk_first_position",
+      "lusheng_form": "lusheng_form_miao_six_pipe",
+      "lusheng_performance": "lusheng_performance_dance",
+      "lusheng_construction": "lusheng_construction_bronze_reed",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "sanxian_size": "sanxian_da",
+      "sanxian_context": "sanxian_shuochang",
+      "sanxian_head": "sanxian_python_skin",
+      "sanxian_strings": "dutar_strings_unspecified",
+      "sanxian_body_wood": "sanxian_rosewood"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

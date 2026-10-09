@@ -1,69 +1,111 @@
 {
-  "id": "psychedelic_space_rock",
-  "name": "Psychedelic space rock",
+  "id": "space_rock",
+  "merged_from": "psychedelic_space_rock",
+  "name": "Space rock (late-1960s through 1970s psychedelic cosmic rock)",
   "family": "rock_punk",
-  "lineage": "Psychedelic space rock uses extended instrumental development and amplified textures to create an expansive rock sound.",
-  "recipe": "classic psychedelic space rock, distorted Rock, experimental branch. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 355,
-  "score": 52.058,
+  "lineage": "Late-1960s-and-1970s rock subgenre integrating extended psychedelic instrumental passages with science-fiction-cosmic thematic content. Hawkwind (UK 1969-onward) inaugurated the canonical style with Space Ritual (1973); Pink Floyd's pre-Dark-Side material, Gong's Radio Gnome Invisible trilogy, and (in the 1980s revival) Spacemen 3 and Loop continued the lineage. Distinguished from broader progressive rock by space rock's specific psychedelic-cosmic thematic focus and extended-instrumental-passage emphasis.",
+  "recipe": "classic Central European space rock, distorted Rock, progressive rock branch, experimental distorted rock canadian psychedelic rock finnish psychedelic rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog synth, vibrato wobble internal speaker close miked stylophone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape echo plate reverb phaser.",
+  "recipe_chars": 727,
+  "score": 365.805,
   "config": {
     "traditions": [
-      "psychedelic_space_rock"
+      "space_rock",
+      "canadian_psychedelic_rock",
+      "finnish_psychedelic_rock"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 29.944999999999997,
+          "voice_quality": 8.84,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.3799999999999994,
+          "voice_articulation": 12.089999999999996,
+          "voice_microtone": 30.494999999999997,
+          "voice_tradition": 10.53,
+          "voice_mechanism_compound": 6.305000000000001,
+          "voice_estill_quality": 4.03,
+          "voice_speech_song": 12.934999999999997,
+          "voice_ensemble_config": 11.829999999999995,
+          "voice_ornament_system": 3.185,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 10.319999999999999,
+          "voice_multitrack_stack": 8.195
+        }
+      },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 4.9815000000000005,
-          "amp_make": 5.720000000000001,
-          "body_wood": 0.5565,
-          "neck_wood": 1.3,
-          "fretboard": 1.3,
-          "pickup_magnet": 0.147,
-          "pickup_winding": 0.3045,
-          "string_material": 1.3,
-          "bridge": 0.45625,
-          "scale_length": 1.3,
-          "string_gauge": 0.39325,
-          "finish": 0.1365,
-          "string_tuning": 0.08174999999999999
+          "electric_technique": 11.87,
+          "amp_make": 15.6,
+          "body_wood": 0.74,
+          "neck_wood": 3.3799999999999994,
+          "fretboard": 3.3799999999999994,
+          "pickup_magnet": 0.15,
+          "pickup_winding": 0.48,
+          "string_material": 3.3799999999999994,
+          "bridge": 0.09,
+          "scale_length": 3.769999999999999,
+          "string_gauge": 0.09,
+          "finish": 0.195,
+          "string_tuning": 21.45
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "body_wood": "swamp_ash_b",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_locked",
+          "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.175,
-          "body_wood": 0.39,
-          "pickup_config": 0.1785,
-          "string_type": 14.625,
-          "scale_length_b": 0.273,
-          "fretted_or_not": 0.03899999999999999,
-          "bass_technique": -0.15000000000000002,
+          "amp_make": 16.705000000000002,
+          "body_wood": 0.3,
+          "pickup_config": 0.15,
+          "string_type": 36.64,
+          "scale_length_b": 0.09,
+          "fretted_or_not": 0.65,
+          "bass_technique": 30.200000000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -75,58 +117,107 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.25,
-          "drumhead": 1.3,
+          "drum_technique": 30.250000000000004,
+          "drumhead": 3.3799999999999994,
           "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 0.8449999999999999,
+          "oscillator": 3.3799999999999994,
+          "filter_topology": 1.235,
+          "envelope": 1.5849999999999997,
+          "modulation": 0.15
+        }
+      },
+      {
+        "id": "stylophone",
+        "slots": {
+          "stylophone_model": "stylophone_standard_1968",
+          "stylophone_technique": "stylophone_tapped_melody",
+          "stylophone_vibrato": "stylophone_vibrato_on",
+          "stylophone_output": "stylophone_internal_speaker"
+        },
+        "scores": {
+          "stylophone_model": 5.3999999999999995,
+          "stylophone_technique": 5.595,
+          "stylophone_vibrato": 1.69,
+          "stylophone_output": 1.8399999999999999
         }
       }
     ],
-    "pinned": {
-      "electric_guitar_humbucker": [
-        "electric_technique",
-        "string_tuning"
-      ],
-      "electric_bass": [
-        "bass_technique"
-      ],
-      "drum_kit": [
-        "drum_technique",
-        "drum_kit_kick_pedal"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "krautrock_dusseldorf_kling_klang_studio",
+    "archetype": "arch_late60s_us_multitrack",
     "inline_chain": {
-      "mic": "dynamic_mic",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_active_parametric",
-      "amp": null,
-      "medium": "digital_high"
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_british_hiwatt",
+      "medium": "tape_15ips"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": []
+    "fx_extras": [
+      "tape_echo",
+      "phaser_pedal"
+    ]
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "krautrock_dusseldorf_kling_klang_studio",
     "parts": {
-      "electric_technique": "electric_fuzz_riff",
-      "string_tuning": "standard_tuning",
-      "bass_technique": "fingerstyle_locked",
+      "body_wood": "mahogany_h",
+      "pickup_magnet": "alnico_5_h",
+      "string_material": "nickel_plated_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_s",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive",
+      "drumhead": "single_coated",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "voice_register": "chest_voice",
+      "voice_quality": "full_chest_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "electronic_technique": "electronic_pad_drone",
+      "string_tuning": "standard_tuning"
     },
-    "pin_parts": true,
-    "chain_mic": "dynamic_mic",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_active_parametric",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box",
-    "chain_amp_guitar": "amp_modern_modeling",
-    "chain_amp_bass": "amp_american_ampeg_svt"
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored",
+    "chain_fx": [
+      "tape_echo",
+      "phaser_pedal"
+    ],
+    "chain_amp": "amp_british_hiwatt",
+    "chain_amp_guitar": "amp_british_hiwatt",
+    "chain_amp_bass": "amp_british_hiwatt"
   }
 }

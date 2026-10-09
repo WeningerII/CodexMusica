@@ -5,7 +5,7 @@
   "lineage": "Italian songwriter tradition codified through the Genoa school (Fabrizio De André, Luigi Tenco, Bruno Lauzi, Gino Paoli, Umberto Bindi), the Milan school (Enzo Jannacci, Giorgio Gaber), the Roman school (Antonello Venditti, Francesco De Gregori, Lucio Dalla, Claudio Baglioni), and the modern continuation (Vinicio Capossela, Cristiano De André), with French chanson and Brazilian bossa nova as primary external lineage influences",
   "recipe": "classic Central European mid-1960s cantautore italiano, ballad Poetry, post chanson branch, chanson fado classic chanson, chanson fado fado lisboa chanson classique. thick, lament wail, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, birch laminated maple laminated sitka spruce diaphragmatic multi laminate grand piano, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. german liedermacher kabarett berlin. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 659,
-  "score": 160.304,
+  "score": 159.528,
   "config": {
     "traditions": [
       "cantautore_italiano",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.1874999999999996,
+          "voice_register": 2.1424999999999996,
           "voice_quality": 17.05,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -66,7 +66,7 @@
           "top_wood": 1.4949999999999999,
           "back_sides": 1.6899999999999997,
           "string_acoustic": 1.4949999999999999,
-          "acoustic_om_technique": 9.565
+          "acoustic_om_technique": 9.6025
         }
       },
       {
@@ -87,11 +87,11 @@
           "grand_piano_size": 1.4949999999999999,
           "grand_piano_brand": 1.4949999999999999,
           "piano_hammer": 5.2212499999999995,
-          "piano_rim": 8.6825,
-          "piano_soundboard": 5.494999999999999,
+          "piano_rim": 8.60375,
+          "piano_soundboard": 5.345,
           "piano_pinblock": 4.51125,
-          "piano_plate": 4.65,
-          "piano_pitch_standard": 6.3365
+          "piano_plate": 4.5,
+          "piano_pitch_standard": 5.9465
         }
       },
       {

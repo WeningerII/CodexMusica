@@ -5,7 +5,7 @@
   "lineage": "Atlanta's first rap generation ran from roughly 1986 to 1995, moving from Miami-bass-derived 808 booty music (Kilo Ali, MC Shy D, Raheem the Dream, Success-N-Effect on Ichiban and DJ Toomp's boards) into the LaFace/Organized Noize live-band Southern soul of OutKast and Goodie Mob — 95–108 BPM with long-decay TR-808 kicks and open hats, live Fender Rhodes, wah guitar and P-funk bass overdubs, gospel-choir backing pads, and a drawled, laid-back Southern flow that Northern critics initially dismissed.",
   "recipe": "classic North American mid-1980s old school atlanta hip hop, mc Rhythm, southern branch, funk percussive groove percussion, christian gospel black gospel contemporary urban gospel. thick, declaimed, wide pitch sway, multi note runs per syllable. roland tr 8s modern aira digital recreation TR-808, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, Fender blackface amp American 60s amp spring reverb bright ebony open string slide resonance single coil electric guitar, pitched chopped sampler, sampled chopped turntable, contemporary full choir southern black gospel. multi room 1985-2000 major-flagship multitrack flagship us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 878,
-  "score": 450.233,
+  "score": 449.323,
   "config": {
     "traditions": [
       "old_school_atlanta_hip_hop",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 33.165000000000006,
+          "voice_register": 33.315000000000005,
           "voice_quality": 29.539999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.52,
-          "voice_articulation": 25.965000000000007,
+          "voice_vibrato": 3.325,
+          "voice_articulation": 25.815000000000005,
           "voice_microtone": 18.394999999999996,
-          "voice_tradition": 31.695000000000004,
+          "voice_tradition": 31.455000000000005,
           "voice_mechanism_compound": 3.185,
-          "voice_estill_quality": 28.565,
+          "voice_estill_quality": 28.475,
           "voice_speech_song": 20.15,
-          "voice_ensemble_config": 25.310000000000002,
+          "voice_ensemble_config": 24.965000000000003,
           "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 1.5949999999999998,
+          "voice_pitch_organization": 1.835,
           "voice_processing_chain": 9.375,
           "voice_multitrack_stack": 3.0550000000000006
         }
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 9.754999999999999,
-          "drum_machine_808_context": 7.469999999999999,
-          "tr808_production_origin": 1.6949999999999998
+          "tr808_voice": 10.235,
+          "drum_machine_808_context": 7.754999999999999,
+          "tr808_production_origin": 1.65
         }
       },
       {
@@ -76,9 +76,9 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 28.775000000000006,
-          "rhodes_model": 0.915,
-          "rhodes_use": 0.915,
+          "keyboard_technique": 28.970000000000006,
+          "rhodes_model": 0.9750000000000001,
+          "rhodes_use": 0.9750000000000001,
           "rhodes_tine_material": -0.5950000000000001,
           "rhodes_hammer_tip": -0.31499999999999995,
           "rhodes_pickup_position": 1.3
@@ -97,13 +97,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.424999999999999,
-          "body_wood": 1.8299999999999998,
+          "amp_make": 13.799999999999999,
+          "body_wood": 1.6499999999999997,
           "pickup_config": 0.845,
           "string_type": 10.3025,
-          "scale_length_b": 1.9349999999999998,
+          "scale_length_b": 1.74,
           "fretted_or_not": 0.9099999999999999,
-          "bass_technique": 11.170000000000002,
+          "bass_technique": 10.825000000000001,
           "electric_bass_string_configuration": 0
         }
       },
@@ -113,7 +113,7 @@
           "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
+          "neck_wood": "wenge_neck",
           "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
@@ -126,17 +126,17 @@
         },
         "scores": {
           "electric_technique": 11.110000000000001,
-          "amp_make": 16.245,
-          "body_wood": 0.915,
-          "neck_wood": 0.915,
+          "amp_make": 16.095000000000002,
+          "body_wood": 0.8250000000000001,
+          "neck_wood": 0.9099999999999999,
           "fretboard": 2.21,
           "pickup_magnet": 0.195,
           "string_material": 0.195,
           "string_gauge": 1.69,
-          "bridge": 1.24,
-          "scale_length": 1.8299999999999998,
+          "bridge": 1.195,
+          "scale_length": 1.6499999999999997,
           "finish": 0.09,
-          "string_tuning": 2.2800000000000002,
+          "string_tuning": 2.1900000000000004,
           "single_coil_pickup_construction": 0
         }
       },
@@ -145,15 +145,15 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.62,
-          "sampler_archetypes": 7.859999999999999,
-          "sampler_bit_depth": 0.8300000000000001,
-          "sampler_workflow": 5.52,
+          "electronic_technique": 5.47,
+          "sampler_archetypes": 7.6499999999999995,
+          "sampler_bit_depth": 0.785,
+          "sampler_workflow": 5.325,
           "sampler_classic_context": 24.927500000000002
         }
       },
@@ -164,20 +164,20 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 5.62,
+          "electronic_technique": 5.47,
           "turntable_technique": 5.91
         }
       },
       {
         "id": "choir_southern_black_gospel",
         "slots": {
-          "voices": "alto_section",
+          "voices": "bass_shouts",
           "accompaniment": "gospel_full_band",
           "era": "gospel_quartet_lineage"
         },
         "scores": {
-          "voices": 0.915,
-          "accompaniment": 1.3,
+          "voices": 0.9099999999999999,
+          "accompaniment": 1.645,
           "era": 18.98
         }
       }

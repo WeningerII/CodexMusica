@@ -5,7 +5,7 @@
   "lineage": "Kenyan R&B develops through singers, producers and collaborative networks, including Nairobi artists such as Karun and Jinku. Contemporary soul and electronic production support personal songwriting about relationships, identity and emotional change.",
   "recipe": "classic kenyan r&b, functional Song, soul R&B branch. basswood humbucker electric guitar, la bella flats Detroit soul bass canon fingerstyle locked electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 261,
-  "score": 22.075,
+  "score": 22.564,
   "config": {
     "traditions": [
       "kenyan_r_and_b"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.252,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -58,31 +58,31 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_modern_modeling",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_9_hum",
           "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_c"
         },
         "scores": {
           "electric_technique": -0.1,
           "amp_make": -0.07,
-          "body_wood": 1.0605000000000002,
-          "neck_wood": 0.33599999999999997,
-          "fretboard": 0.2415,
+          "body_wood": 1.0920000000000003,
+          "neck_wood": 0.378,
+          "fretboard": 0.378,
           "pickup_magnet": 0.315,
           "pickup_winding": 0.315,
-          "string_material": 0.2415,
-          "bridge": 0.33599999999999997,
-          "scale_length": 1.092,
-          "string_gauge": 0.33599999999999997,
+          "string_material": 0.378,
+          "bridge": 0.231,
+          "scale_length": 1.3335000000000004,
+          "string_gauge": 0.3,
           "finish": 0,
-          "string_tuning": 1.0080000000000002
+          "string_tuning": 1.2390000000000003
         }
       },
       {
@@ -92,17 +92,17 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": -0.07,
-          "body_wood": 0.6720000000000002,
-          "pickup_config": 0.45149999999999996,
+          "body_wood": 0.462,
+          "pickup_config": 0.588,
           "string_type": 8.45,
-          "scale_length_b": 0.33599999999999997,
+          "scale_length_b": 0.315,
           "fretted_or_not": 0.3315,
           "bass_technique": 6.15,
           "electric_bass_string_configuration": 0

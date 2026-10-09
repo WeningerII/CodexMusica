@@ -5,7 +5,7 @@
   "lineage": "Children’s choirs bring young singers together in educational, community and concert settings. Repertoire ranges from simple shared melodies to multipart works written for developing ensembles.",
   "recipe": "classic children's choir, art Music. group vocals. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 225,
-  "score": 16.404,
+  "score": 16.486,
   "config": {
     "traditions": [
       "children_s_choir"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.7364999999999999,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
@@ -68,7 +68,7 @@
           "grand_piano_size": 0.03899999999999999,
           "grand_piano_brand": 0.39,
           "piano_hammer": 2.45,
-          "piano_rim": 2.5205,
+          "piano_rim": 2.5595000000000003,
           "piano_soundboard": 2.45,
           "piano_pinblock": 2.45,
           "piano_plate": 2.45,

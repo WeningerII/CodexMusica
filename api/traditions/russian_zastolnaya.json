@@ -5,7 +5,7 @@
   "lineage": "Russian zastol'naya pesnya (table-song / drinking-song) tradition continuous from medieval-Russian feast-and-tavern song-tradition through 19th-century Russian-Romantic-era Glinka-and-Mussorgsky-folk-collection through Soviet-era continuous performance into modern Russian-and-Russian-diaspora continuous feast-and-pub practice; foundational repertoire includes \"Калинка\" (Kalinka) and \"Подмосковные вечера\" (Moscow Nights — though both are more broadly folk-popular than strictly drinking-songs)",
   "recipe": "classic modern russian zastol'naya pesnya, drinking Song, European branch, balkan drinking song, Slavic bard ballad poetry, European wedding starogradska muzika georgian supra feast-singing. thick, breath veiled tone, straight onset, interlocked note trading. b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, prima nylon modern spruce maple Soviet orchestra canon strummed balalaika. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 509,
-  "score": 202.977,
+  "score": 200.278,
   "config": {
     "traditions": [
       "russian_zastolnaya",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.924999999999999,
+          "voice_register": 7.074999999999999,
           "voice_quality": 9.23,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6000000000000005,
+          "voice_vibrato": 2.5850000000000004,
           "voice_articulation": 18.394999999999992,
           "voice_microtone": 19.23999999999999,
-          "voice_tradition": 19.949999999999996,
+          "voice_tradition": 18.959999999999997,
           "voice_mechanism_compound": 1.4300000000000002,
           "voice_estill_quality": 1.5925,
           "voice_speech_song": 34.31999999999999,
@@ -61,8 +61,8 @@
           "bayan_russian_reed_voicing": "bayan_russian_broken_deck"
         },
         "scores": {
-          "free_reed_technique": 7.1099999999999985,
-          "bayan_russian_model": 16.77,
+          "free_reed_technique": 7.064999999999999,
+          "bayan_russian_model": 15.045,
           "bayan_russian_context": 19.11,
           "bayan_russian_reed_voicing": 0.65
         }
@@ -77,8 +77,8 @@
           "balalaika_tradition": "balalaika_soviet_orchestra"
         },
         "scores": {
-          "plucked_traditional_technique": 6.889999999999999,
-          "balalaika_size": 1.755,
+          "plucked_traditional_technique": 7.129999999999999,
+          "balalaika_size": 1.44,
           "balalaika_strings": 3.5400000000000005,
           "balalaika_body_wood": 1.2,
           "balalaika_tradition": 1.69

@@ -1,0 +1,84 @@
+{
+  "id": "pashtun_attan",
+  "name": "Attan (Pashtun dhol-and-surnai circle dance)",
+  "family": "global",
+  "lineage": "Circle dance of the Pashtuns of Afghanistan and the Pakistani frontier, regarded as Afghanistan's national dance and danced at weddings, festivals and gatherings, with distinct regional and tribal variants. Dancers circle a dhol drummer, often joined by the surnai shawm, turning and swinging their heads as the tempo rises from a slow opening to a fast close; the dohol card stands for the Afghan dhol.",
+  "recipe": "classic modern attan, groove Percussion. dohol, surnai afghan. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 142,
+  "score": 0.436,
+  "config": {
+    "traditions": [
+      "pashtun_attan"
+    ],
+    "instruments": [
+      {
+        "id": "dohol",
+        "slots": {
+          "dohol_stroke": "dohol_changal",
+          "dohol_context": "dohol_sorna"
+        },
+        "scores": {
+          "dohol_stroke": 0,
+          "dohol_context": 0
+        }
+      },
+      {
+        "id": "surnai_afghan",
+        "slots": {
+          "surnai_afghan_size": "surnai_afghan_standard",
+          "surnai_afghan_technique": "surnai_afghan_circular",
+          "surnai_afghan_body": "surnai_afghan_mulberry"
+        },
+        "scores": {
+          "surnai_afghan_size": 0.3,
+          "surnai_afghan_technique": 0.1365,
+          "surnai_afghan_body": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dohol": [
+        "dohol_stroke",
+        "dohol_context"
+      ],
+      "surnai_afghan": [
+        "surnai_afghan_size",
+        "surnai_afghan_technique",
+        "surnai_afghan_body"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "dohol_stroke": "dohol_changal",
+      "dohol_context": "dohol_sorna",
+      "surnai_afghan_size": "surnai_afghan_standard",
+      "surnai_afghan_technique": "surnai_afghan_circular",
+      "surnai_afghan_body": "surnai_afghan_mulberry"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

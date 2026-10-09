@@ -3,9 +3,9 @@
   "name": "Nz punk",
   "family": "rock_punk",
   "lineage": "New Zealand punk develops through local independent and DIY guitar-band networks.",
-  "recipe": "classic nz punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 319,
-  "score": 37.897,
+  "recipe": "classic nz punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 301,
+  "score": 37.351,
   "config": {
     "traditions": [
       "nz_punk"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": 2.21,
           "amp_make": 13.129999999999999,
-          "body_wood": 1.209,
+          "body_wood": 0.9359999999999999,
           "neck_wood": 0.063,
           "fretboard": 0.18,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.209,
+          "body_wood": 0.9359999999999999,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

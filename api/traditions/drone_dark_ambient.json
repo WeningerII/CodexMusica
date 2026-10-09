@@ -5,7 +5,7 @@
   "lineage": "Long-form sustained-tone genre family descending from early-20th-century minimalist composition (La Monte Young, Tony Conrad, Charlemagne Palestine), Brian Eno post-Roxy ambient canon (Ambient 1: Music for Airports 1978), the Eno-and-Lanois ambient-textural canon (Apollo: Atmospheres and Soundtracks 1983), and the 1990s-onward dark ambient extension into ritualistic-occult mood (Lustmord, Coil, Raison dÊtre, the Cold Meat Industry label catalog)",
   "recipe": "classic Central European mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal. pad like pad analog emu modular 1971 1978 analog studio grade east coast precision pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine, ritual waterphone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 546,
-  "score": 113.605,
+  "score": 113.395,
   "config": {
     "traditions": [
       "drone_dark_ambient"
@@ -21,7 +21,7 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 20.815,
+          "electronic_technique": 20.86,
           "oscillator": 2.015,
           "filter_topology": 0.78,
           "envelope": 7.744999999999999,
@@ -37,8 +37,8 @@
           "mod_lineage": "mod_emu_modular"
         },
         "scores": {
-          "electronic_technique": 20.815,
-          "mod_voltage_source": 0.7649999999999999,
+          "electronic_technique": 20.86,
+          "mod_voltage_source": 0.8099999999999999,
           "mod_patch_density": 8.104999999999999,
           "mod_lineage": 1.2349999999999999
         }
@@ -65,8 +65,8 @@
           "sm_voicing": "sm_violins"
         },
         "scores": {
-          "electronic_technique": 20.815,
-          "sm_voice_count": 1.7950000000000002,
+          "electronic_technique": 20.86,
+          "sm_voice_count": 1.6,
           "sm_chorus": 0.15,
           "sm_voicing": 2.08
         }
@@ -83,7 +83,7 @@
           "waterphone_model": 9.955,
           "waterphone_excitation": 0.345,
           "waterphone_context": 10.3,
-          "waterphone_construction": 0.195
+          "waterphone_construction": 0
         }
       }
     ],

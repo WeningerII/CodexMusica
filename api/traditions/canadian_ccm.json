@@ -5,7 +5,7 @@
   "lineage": "Canadian contemporary Christian music brings Christian faith and spiritual reflection into modern songwriting and recorded performance. Steve Bell’s Winnipeg-based troubadour practice represents its acoustic, story-centered side.",
   "recipe": "classic canadian ccm, ritual Devotional. unprocessed natural acoustic, single lead single track no stacking. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 224,
-  "score": 3.329,
+  "score": 3.171,
   "config": {
     "traditions": [
       "canadian_ccm"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.3945,
-          "voice_multitrack_stack": 0.8084999999999999,
+          "voice_multitrack_stack": 0.8399999999999999,
           "voice_tessitura": 0
         }
       },
@@ -63,9 +63,9 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0.0735,
+          "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.147,
+          "string_acoustic": 0.0315,
           "acoustic_om_technique": 0.5499999999999998
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Mexican adaptation of the broader Latin-American bolero, developed in mid-twentieth-century Mexico City through Agustín Lara (born 1897) and the 1940s-1950s Mexican-cinema golden-age. Solo voice with piano-or-trio accompaniment, slow 2/4 meter with the canonical bolero rhythmic figure, intensely romantic-melancholic register. Distinguished from Cuban bolero by Mexican-Spanish lyrical register and elaborate harmonic-vocabulary.",
   "recipe": "classic Mexican mid-1940s bolero mexicano, functional Song, Mexican branch, Latin am troubadour ballad poetry milonga folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, upright bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 559,
-  "score": 154.69,
+  "score": 153.347,
   "config": {
     "traditions": [
       "bolero_mexicano",
@@ -38,7 +38,7 @@
           "voice_quality": 12.414999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.752500000000001,
+          "voice_vibrato": 5.385000000000001,
           "voice_articulation": 14.234999999999994,
           "voice_microtone": 14.234999999999992,
           "voice_tradition": 6.532500000000001,
@@ -64,9 +64,9 @@
         "scores": {
           "acoustic_technique": 7.2700000000000005,
           "string_tuning": 0,
-          "top_wood_parlor": 2.73,
+          "top_wood_parlor": 2.535,
           "back_sides_parlor": 0.35,
-          "string_acoustic_parlor": 2.73
+          "string_acoustic_parlor": 2.535
         }
       },
       {
@@ -84,14 +84,14 @@
         },
         "scores": {
           "keyboard_technique": 3.19375,
-          "grand_piano_size": 2.58,
-          "grand_piano_brand": 4.315,
+          "grand_piano_size": 2.3850000000000002,
+          "grand_piano_brand": 4.12,
           "piano_hammer": 4.4525,
           "piano_rim": 4.8100000000000005,
           "piano_soundboard": 2.45,
           "piano_pinblock": 0.7149999999999999,
           "piano_plate": 0.45,
-          "piano_pitch_standard": 1.96
+          "piano_pitch_standard": 1.81
         }
       },
       {
@@ -102,7 +102,7 @@
         },
         "scores": {
           "upright_strings": 0.24375000000000002,
-          "upright_play": 1.7799999999999998
+          "upright_play": 1.7349999999999999
         }
       }
     ],

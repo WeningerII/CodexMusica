@@ -3,9 +3,9 @@
   "name": "Cantonese opera (yueju)",
   "family": "classical",
   "lineage": "Mid-19th-century onward Pearl-River-Delta Cantonese yueju operatic tradition centered on Guangdong, Guangzhou, and Hong Kong — codified through the 19th-century touring red-boat troupes (hongchuan) and the early-20th-century Hong Kong commercial recording era — characterized by literary-Cantonese sung text, gaohu-fiddle-and-percussion accompaniment, and the male / female / clown role types of jingju adapted to Cantonese language and aesthetic",
-  "recipe": "classic East Asian mid-1930s cantonese opera, art Music, Cantonese opera branch, east Asian beijing opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, slow rate, interlocked note trading. yueqin, Cantonese silk and bamboo legato gaohu, silk mahogany commercial grade pipa, percussion section ban clapper luogu, yangqin. chinese traditional teahouse. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 446,
-  "score": 423.52,
+  "recipe": "classic East Asian mid-1930s cantonese opera, art Music, Cantonese opera branch, east Asian beijing opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, slow rate, interlocked note trading. yueqin, Cantonese silk and bamboo legato gaohu, silk red sandalwood zitan premium pipa, percussion section ban clapper luogu, yangqin. chinese traditional teahouse. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 449,
+  "score": 427.326,
   "config": {
     "traditions": [
       "cantonese_opera",
@@ -38,18 +38,18 @@
           "voice_quality": 27.549999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.857499999999998,
-          "voice_articulation": 22.968749999999996,
-          "voice_microtone": 23.04874999999999,
-          "voice_tradition": 41.34374999999999,
+          "voice_vibrato": 12.838749999999997,
+          "voice_articulation": 23.529999999999998,
+          "voice_microtone": 23.529999999999994,
+          "voice_tradition": 41.28062499999999,
           "voice_mechanism_compound": 11.244999999999997,
-          "voice_estill_quality": 34.942499999999995,
-          "voice_speech_song": 28.449999999999996,
-          "voice_ensemble_config": 26.319999999999997,
+          "voice_estill_quality": 35.36125,
+          "voice_speech_song": 28.455624999999994,
+          "voice_ensemble_config": 27.104999999999997,
           "voice_ornament_system": 28.449999999999996,
-          "voice_pitch_organization": 25.016249999999992,
-          "voice_processing_chain": 5.6362499999999995,
-          "voice_multitrack_stack": 4.42
+          "voice_pitch_organization": 25.00749999999999,
+          "voice_processing_chain": 5.62,
+          "voice_multitrack_stack": 4.4125
         }
       },
       {
@@ -63,7 +63,7 @@
         "scores": {
           "plucked_traditional_technique": 10.499999999999998,
           "yueqin_use": 3.12,
-          "yueqin_construction": 7.383749999999999,
+          "yueqin_construction": 7.54125,
           "yueqin_strings": 0
         }
       },
@@ -78,7 +78,7 @@
         "scores": {
           "bowed_technique": 10.499999999999998,
           "gaohu_type": 23.518749999999994,
-          "gaohu_setting": 25.465,
+          "gaohu_setting": 26.700625000000002,
           "gaohu_membrane": -0.05
         }
       },
@@ -89,14 +89,14 @@
           "pipa_frets": "pipa_traditional_frets",
           "pipa_strings": "pipa_silk",
           "pipa_pick": "pipa_fingerpicks",
-          "pipa_body_wood": "pipa_mahogany"
+          "pipa_body_wood": "pipa_red_sandalwood"
         },
         "scores": {
           "plucked_traditional_technique": 10.499999999999998,
           "pipa_frets": 0.50625,
-          "pipa_strings": 8.655,
-          "pipa_pick": 0.057499999999999996,
-          "pipa_body_wood": 1.91875
+          "pipa_strings": 8.5825,
+          "pipa_pick": 0.045,
+          "pipa_body_wood": 2.0799999999999996
         }
       },
       {
@@ -106,8 +106,8 @@
           "luogu_sections": "luogu_full_jingju"
         },
         "scores": {
-          "luogu_use": 17.8825,
-          "luogu_sections": 9.687499999999998
+          "luogu_use": 18.03875,
+          "luogu_sections": 9.706249999999999
         }
       },
       {
@@ -118,7 +118,7 @@
         },
         "scores": {
           "yangqin_courses": 0,
-          "yangqin_technique": 0.045
+          "yangqin_technique": 0.06937499999999999
         }
       }
     ],

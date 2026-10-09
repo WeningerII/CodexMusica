@@ -3,14 +3,14 @@
   "name": "Hellbilly Music",
   "family": "country",
   "lineage": "American horror-country hybrid crystallized in the late 1980s-1990s around Reverend Horton Heat's Sub Pop sides and Unknown Hinson's Charlotte club act, later popularized as a term by Rob Zombie — upright-bass slap and rockabilly shuffle at 150-190 BPM welded to overdriven baritone-heavy guitar, tremolo surf figures, graveyard/moonshine narratives and a leering, growled or howled baritone vocal delivery.",
-  "recipe": "classic North American 1987-1989 hellbilly music, functional Song, americana branch, outlaw country, punk distorted rock, surf rock distorted rock redneck rock lubbock sound. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel humbucker electric guitar, treble-extended sustaining steel upright bass, pre muffled edge muffled sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 739,
-  "score": 377.922,
+  "recipe": "classic North American 1987-1989 hellbilly music, functional Song, americana branch, outlaw country, punk distorted rock, surf rock distorted rock redneck rock cowpunk. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel humbucker electric guitar, treble-extended sustaining steel upright bass, pre muffled edge muffled sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 733,
+  "score": 379.163,
   "config": {
     "traditions": [
       "hellbilly",
       "redneck_rock",
-      "lubbock_sound"
+      "cowpunk"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 44.32000000000002,
-          "voice_quality": 9.230000000000002,
+          "voice_register": 43.06950000000002,
+          "voice_quality": 8.645000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 28.585,
-          "voice_articulation": 13.844999999999995,
-          "voice_microtone": 17.279999999999998,
-          "voice_tradition": 8.905,
-          "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 30.574999999999996,
-          "voice_speech_song": 20.864999999999995,
-          "voice_ensemble_config": 12.739999999999995,
+          "voice_vibrato": 25.659499999999998,
+          "voice_articulation": 16.379999999999995,
+          "voice_microtone": 20.529999999999994,
+          "voice_tradition": 8.254999999999999,
+          "voice_mechanism_compound": 4.7125,
+          "voice_estill_quality": 27.339499999999997,
+          "voice_speech_song": 21.709999999999994,
+          "voice_ensemble_config": 14.624999999999993,
           "voice_ornament_system": 0.8499999999999999,
-          "voice_pitch_organization": 1.62,
-          "voice_processing_chain": 5.8500000000000005,
-          "voice_multitrack_stack": 6.1675
+          "voice_pitch_organization": 1.045,
+          "voice_processing_chain": 5.4750000000000005,
+          "voice_multitrack_stack": 7.272000000000001
         }
       },
       {
@@ -62,26 +62,26 @@
           "fretboard": "maple_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
-          "bridge": "two_point_trem",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
-          "finish": "oil_satin",
+          "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 28.84375,
-          "amp_make": 34.48125,
-          "body_wood": 0.59625,
-          "neck_wood": 0.59625,
-          "fretboard": 0.39,
+          "electric_technique": 27.54375,
+          "amp_make": 31.20575,
+          "body_wood": 0.195,
+          "neck_wood": 0.195,
+          "fretboard": 0.585,
           "pickup_magnet": 0.195,
-          "string_material": 1.4299999999999997,
-          "string_gauge": 0.59625,
+          "string_material": 2.0799999999999996,
+          "string_gauge": 0.585,
           "bridge": 0.195,
-          "scale_length": 1.1925000000000001,
-          "finish": 0.195,
-          "string_tuning": 7.41,
+          "scale_length": 0.195,
+          "finish": 0,
+          "string_tuning": 9.75,
           "single_coil_pickup_construction": 0
         }
       },
@@ -92,8 +92,8 @@
           "upright_play": "slap_upright"
         },
         "scores": {
-          "upright_strings": 1.4299999999999997,
-          "upright_play": 1.61875
+          "upright_strings": 2.0799999999999996,
+          "upright_play": 2.1182499999999997
         }
       },
       {
@@ -104,7 +104,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.93125,
+          "drum_technique": 17.331249999999997,
           "drumhead": 2.45,
           "drum_kit_kick_pedal": 0
         }
@@ -114,32 +114,32 @@
         "slots": {
           "electric_technique": "electric_fingerstyle_country",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
-          "finish": "oil_satin_hum",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 27.195,
-          "amp_make": 34.48125,
-          "body_wood": 0.6412499999999999,
-          "neck_wood": 0.59625,
-          "fretboard": 0.39,
-          "pickup_magnet": 0.65,
+          "electric_technique": 23.795,
+          "amp_make": 31.20575,
+          "body_wood": 0.585,
+          "neck_wood": 0.195,
+          "fretboard": 0.585,
+          "pickup_magnet": 0.585,
           "pickup_winding": 0.21,
-          "string_material": 1.4299999999999997,
-          "bridge": 0.59625,
-          "scale_length": 1.1925000000000001,
-          "string_gauge": 0.59625,
-          "finish": 0.195,
-          "string_tuning": 7.41
+          "string_material": 2.0799999999999996,
+          "bridge": 0.195,
+          "scale_length": 0.195,
+          "string_gauge": 0.585,
+          "finish": 0,
+          "string_tuning": 9.75
         }
       }
     ],

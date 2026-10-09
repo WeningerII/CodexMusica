@@ -5,7 +5,7 @@
   "lineage": "Blues mexicano identifies Mexican blues bands and songwriters. The selected Real de Catorce branch formed in Mexico City and combines José Cruz’s sung poetry with blues song structures. A reduced voice, harmonica, guitar, electric-bass and drum arrangement follows documented personnel, retaining room for blues-rock, swing and jazz inflections without imposing a single national rhythm.",
   "recipe": "classic modern blues mexicano, functional Song, blues electric branch. equal tempered, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, clean strummed single coil electric guitar, walking fingerstyle electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 605,
-  "score": 116.052,
+  "score": 116.136,
   "config": {
     "traditions": [
       "blues_mexicano"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.224,
+          "voice_speech_song": 1.497,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "harmonica_type": 0.063,
-          "harmonica_comb": 20.495,
-          "harmonica_reed": 19.543499999999998,
-          "harmonica_technique": 20.201999999999998,
+          "harmonica_comb": 20.4635,
+          "harmonica_reed": 19.512,
+          "harmonica_technique": 20.0655,
           "harmonica_maker_school": 22.36,
           "harmonica_tuning": 10.009999999999998
         }
@@ -92,7 +92,7 @@
           "body_wood": 0.28049999999999997,
           "neck_wood": 0.0315,
           "fretboard": -0.035,
-          "pickup_magnet": 0.0315,
+          "pickup_magnet": 0,
           "string_material": 0,
           "string_gauge": 0.0315,
           "bridge": 0.0315,
@@ -119,9 +119,9 @@
           "body_wood": 0.28049999999999997,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.102,
+          "scale_length_b": 0.0705,
           "fretted_or_not": 0.0705,
-          "bass_technique": 3.5305,
+          "bass_technique": 3.6355,
           "electric_bass_string_configuration": 0
         }
       },
@@ -134,7 +134,7 @@
         },
         "scores": {
           "drum_technique": 3.3865,
-          "drumhead": 0.0315,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0
         }
       }

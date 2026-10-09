@@ -1,39 +1,40 @@
 {
-  "id": "latin_american_classical_piano",
-  "name": "Latin american classical piano",
+  "id": "latin_classical",
+  "merged_from": "latin_american_classical_piano",
+  "name": "Latin classical",
   "family": "classical",
-  "lineage": "Latin American classical piano encompasses performers and composers working across regional and international concert traditions. Recitals bring Latin American works into conversation with a broader piano repertoire.",
-  "recipe": "classic latin american classical piano, art Music, western common practice branch. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 268,
-  "score": 64.504,
+  "lineage": "Latin classical brings together concert music associated with Latin American composers and performers. Regional musical references meet varied approaches to form, harmony and instrumental writing.",
+  "recipe": "classic latin classical, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 248,
+  "score": 81.627,
   "config": {
     "traditions": [
-      "latin_american_classical_piano"
+      "latin_classical"
     ],
     "instruments": [
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_blue_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 7.554,
-          "grand_piano_size": 0.684,
-          "grand_piano_brand": 0.798,
-          "piano_hammer": 10.6995,
-          "piano_rim": 11.277,
-          "piano_soundboard": 8.6865,
-          "piano_pinblock": 7.555000000000001,
-          "piano_plate": 7.8805000000000005,
-          "piano_pitch_standard": 9.369499999999999
+          "keyboard_technique": 7.5,
+          "grand_piano_size": 0.453,
+          "grand_piano_brand": 0.9555,
+          "piano_hammer": 13.323,
+          "piano_rim": 11.7345,
+          "piano_soundboard": 11.25,
+          "piano_pinblock": 11.25,
+          "piano_plate": 13.05,
+          "piano_pitch_standard": 12.111
         }
       }
     ],

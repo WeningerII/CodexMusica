@@ -1,256 +1,91 @@
 {
-  "id": "broadway",
-  "name": "Broadway (musical theatre song)",
+  "id": "show_tunes",
+  "merged_from": "broadway",
+  "name": "Show Tunes",
   "family": "pop",
-  "lineage": "American musical-theatre song of the New York Broadway houses, codified between Show Boat (1927) and the Rodgers-and-Hammerstein book musical of the 1940s-50s and extended by Sondheim from Company (1970) — pit-orchestra scoring for reeds, brass, strings, piano and kit, diatonic-to-chromatic 32-bar and through-composed forms, verse-and-refrain structure, tempo and key shifts written to dramatic action, and an unamplified-legit-to-belt vocal delivery with fully articulated consonants that carries dialogue-bearing lyrics.",
-  "recipe": "classic North American mid-1940s broadway, functional Song, crooners branch, western common practice art music, stage performance spoken word vaudeville requiem mass. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, steel sitka spruce bigleaf maple western maple oil varnish violin orchestral, steel carpathian spruce European maple sycamore maple oil varnish cello, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn legato trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone, composite resin blackwood dust clarinet, pre muffled edge muffled brushes-and-sticks drum kit.",
-  "recipe_chars": 989,
-  "score": 336.725,
+  "lineage": "Where You Are (Moana) — Jerry Cleveland complete solo-piano arrangement in Disney Peaceful Piano Solos, Hal Leonard294663. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic show tunes, functional Song. 17 ply hard rock maple 7 ply quartersawn maple gray iron grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 205,
+  "score": 12.369,
   "config": {
     "traditions": [
-      "broadway",
-      "vaudeville",
-      "requiem_mass"
+      "show_tunes"
     ],
     "instruments": [
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "broadway_legit_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
-        },
-        "scores": {
-          "voice_register": 9.06875,
-          "voice_quality": 14.039999999999996,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 2.4699999999999998,
-          "voice_articulation": 24.115000000000002,
-          "voice_microtone": 24.569999999999997,
-          "voice_tradition": 14.181874999999998,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 7.6,
-          "voice_speech_song": 30.94,
-          "voice_ensemble_config": 22.5875,
-          "voice_ornament_system": 2.1950000000000003,
-          "voice_pitch_organization": 2.8925,
-          "voice_processing_chain": 3.1849999999999996,
-          "voice_multitrack_stack": 2.3775
-        }
-      },
-      {
-        "id": "choir_ensemble",
-        "slots": {
-          "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_romantic"
-        },
-        "scores": {
-          "choir_size": 10.34625,
-          "choir_polyphonic_configuration": 2.34,
-          "choir_regional_canonical_configuration": 4.154375,
-          "choir_ensemble_repertoire": 2.535
-        }
-      },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "japanese_1980s_hammer",
-          "piano_rim": "asian_laminated_rim_birch_maple",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 5.325,
-          "grand_piano_size": 1.018125,
-          "grand_piano_brand": 2.34,
-          "piano_hammer": 5.39,
-          "piano_rim": 7.04,
-          "piano_soundboard": 6.125,
-          "piano_pinblock": 2.3,
-          "piano_plate": 2.09,
-          "piano_pitch_standard": 7.279999999999999
-        }
-      },
-      {
-        "id": "violin_orchestral",
-        "slots": {
-          "bowed_technique": "bowed_spiccato_articulated",
-          "orch_strings": "steel_orch",
-          "orch_top_wood": "sitka_spruce_violin_top",
-          "orch_back_wood": "bigleaf_western_maple_violin",
-          "orch_varnish": "oil_amber_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "baroque_bow",
-          "orch_bow_stick": "pernambuco_stick_orch",
-          "orch_articulation": "arco_orch",
-          "orch_rosin": "magic_rosin_orch"
-        },
-        "scores": {
-          "bowed_technique": 2.25,
-          "orch_strings": 2.04,
-          "orch_top_wood": 5.6137500000000005,
-          "orch_back_wood": 3.3149999999999995,
-          "orch_varnish": 2,
-          "orch_setup_period": 2.8099999999999996,
-          "orch_bow": 1.4300000000000002,
-          "orch_bow_stick": 2.535,
-          "orch_articulation": 0.7331249999999999,
-          "orch_rosin": 2.0149999999999997
-        }
-      },
-      {
-        "id": "cello",
-        "slots": {
-          "bowed_technique": "bowed_spiccato_articulated",
-          "cello_strings": "cello_steel",
-          "cello_top_wood": "carpathian_spruce_cello",
-          "cello_back_wood": "european_maple_cello_back",
-          "cello_varnish": "oil_amber_varnish_cello",
-          "cello_setup_period": "modern_setup_cello",
-          "cello_bow_grip": "french_bow_grip",
-          "cello_rosin": "pirastro_cellisto_rosin",
-          "cello_bow_stick": "pernambuco_stick_cello"
-        },
-        "scores": {
-          "bowed_technique": 2.25,
-          "cello_strings": 2.04,
-          "cello_top_wood": 2.08,
-          "cello_back_wood": 3.055,
-          "cello_varnish": 2,
-          "cello_setup_period": 2.8099999999999996,
-          "cello_bow_grip": 0.65,
-          "cello_rosin": 2.435,
-          "cello_bow_stick": 2.535
-        }
-      },
-      {
-        "id": "trumpet",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "monette_unity_b1_mp",
-          "brass_mute": "straight_mute",
-          "trumpet_technique": "trumpet_classical_legato",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
-        },
-        "scores": {
-          "wind_articulation": 1.44,
-          "brass_size": 1.195,
-          "trumpet_mouthpiece": 7.322500000000001,
-          "brass_mute": 1.25,
-          "trumpet_technique": 1.25,
-          "trumpet_bell_metal": 1.6899999999999997,
-          "trumpet_maker_school": 2.6
-        }
-      },
-      {
-        "id": "trombone",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "trombone_type": "tenor_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_12c",
-          "trombone_mute": "no_mute_trb",
-          "trombone_technique": "big_band_punch",
-          "trombone_bell_metal": "trombone_yellow_brass",
-          "trombone_maker_school": "trombone_bach_42"
-        },
-        "scores": {
-          "wind_articulation": 1.44,
-          "trombone_type": 1.8006249999999997,
-          "trombone_mouthpiece": 7.424999999999999,
-          "trombone_mute": 0.7331249999999999,
-          "trombone_technique": 0.24,
-          "trombone_bell_metal": 1.6899999999999997,
-          "trombone_maker_school": 2.6
-        }
-      },
-      {
-        "id": "clarinet",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "clarinet_body": "buffet_greenline_clarinet",
-          "clarinet_size": "e_flat_clarinet",
-          "clarinet_reed": "soft_clarinet_reed",
-          "clarinet_articulation": "tongued_clarinet"
-        },
-        "scores": {
-          "wind_articulation": 1.44,
-          "clarinet_body": 2,
-          "clarinet_size": 1.195,
-          "clarinet_reed": 1.195,
-          "clarinet_articulation": 0
-        }
-      },
-      {
-        "id": "drum_kit",
-        "slots": {
-          "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
-          "drum_kit_kick_pedal": "dk_kick_single_felt"
-        },
-        "scores": {
-          "drum_technique": 22.490000000000002,
-          "drumhead": 6.744999999999999,
-          "drum_kit_kick_pedal": 0
-        }
-      },
-      {
-        "id": "upright_bass",
-        "slots": {
-          "upright_strings": "gut_wound_upright",
-          "upright_play": "pizz_upright"
-        },
-        "scores": {
-          "upright_strings": 1.7499999999999998,
-          "upright_play": 1.7499999999999998
+          "keyboard_technique": 3.8000000000000003,
+          "grand_piano_size": 0.3,
+          "grand_piano_brand": 0.40950000000000003,
+          "piano_hammer": 0.7,
+          "piano_rim": 1.2999999999999998,
+          "piano_soundboard": 0.8365,
+          "piano_pinblock": 1.9999999999999998,
+          "piano_plate": 1.2999999999999998,
+          "piano_pitch_standard": 1.7229999999999999
         }
       }
     ],
-    "room": "columbia_30th_street_studio_nyc",
-    "archetype": "arch_early_tape_us_commercial",
-    "inline_chain": {
-      "mic": "mic_u47_tube_neumann",
-      "pre": "pre_tube_german_v72",
-      "console": "console_american_op_amp",
-      "comp": "comp_fairchild_670_tube",
-      "eq": null,
-      "amp": null,
-      "medium": "tape_15ips"
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
     },
-    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "tin_pan_alley_thirty_two_bar_aaba",
-    "room": "columbia_30th_street_studio_nyc",
-    "chain_mic": "mic_u47_tube_neumann",
-    "chain_pre": "pre_tube_german_v72",
-    "chain_comp": "comp_fairchild_670_tube",
-    "chain_medium": "tape_15ips",
-    "chain_console": "console_american_op_amp"
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

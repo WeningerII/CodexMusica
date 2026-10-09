@@ -3,14 +3,14 @@
   "name": "Conjunto de arpa grande",
   "family": "vernacular",
   "lineage": "Tierra Caliente tradition of Michoacán and southern Jalisco documented from the late nineteenth century, in which a large diatonic arpa grande plays bass and melody while a player drums the tapping rhythm on its soundbox, joined by two violins, vihuela and guitarra de golpe in fast 6/8 sones and jarabes with hemiola cross-accent and high, tightly-pitched shouted vocals.",
-  "recipe": "classic early-1940s conjunto de arpa grande, functional Song, Mexican branch, string improv improv on frame, Latin am groove percussion folklore panameño festejo. kargyraa, breath veiled tone, fast rate, interlocked note trading. arpa grande, sitka spruce French Polish shellac pad Baroque setup short neck violin orchestral, vihuela mexicana, traditional mixed string set guitarron mexicano. adobe room. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 479,
-  "score": 139.385,
+  "recipe": "classic early-1940s conjunto de arpa grande, functional Song, Mexican branch, string improv improv on frame, Latin am groove percussion folklore panameño tsugaru-jamisen. thick, breath veiled tone, fast rate, interlocked note trading. arpa grande, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, vihuela mexicana, traditional mixed string set guitarron mexicano. adobe room. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 490,
+  "score": 137.136,
   "config": {
     "traditions": [
       "arpa_grande",
       "folklore_panameno",
-      "festejo"
+      "shamisen_tsugaru"
     ],
     "instruments": [
       {
@@ -21,7 +21,7 @@
           "arpa_grande_strings": "arpa_grande_gut"
         },
         "scores": {
-          "arpa_grande_role": 0.42,
+          "arpa_grande_role": 0.65,
           "arpa_grande_form": 0.045,
           "arpa_grande_strings": 0
         }
@@ -29,8 +29,8 @@
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "steel_orch",
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "plain_sheep_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "french_polish_violin",
@@ -41,16 +41,16 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": -0.035,
-          "orch_strings": 0.38999999999999996,
-          "orch_top_wood": 1.2349999999999999,
-          "orch_back_wood": 0.325,
-          "orch_varnish": 1.19,
+          "bowed_technique": 0.52,
+          "orch_strings": 0.78,
+          "orch_top_wood": 1.3849999999999998,
+          "orch_back_wood": 1.17,
+          "orch_varnish": 1.3399999999999999,
           "orch_setup_period": 1.755,
-          "orch_bow": 0.65,
-          "orch_bow_stick": -0.035,
-          "orch_articulation": 1.3649999999999998,
-          "orch_rosin": 0.585
+          "orch_bow": 0.195,
+          "orch_bow_stick": -0.05,
+          "orch_articulation": 2.0149999999999997,
+          "orch_rosin": 1.2349999999999999
         }
       },
       {
@@ -58,22 +58,22 @@
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
           "vihuela_mexicana_back": "vihuela_mexicana_arched",
-          "vihuela_mexicana_context": "vihuela_mexicana_modern",
+          "vihuela_mexicana_context": "vihuela_mexicana_huasteca",
           "vihuela_mexicana_body_wood": "vihuela_mexicana_mahogany",
           "vihuela_mexicana_strings": "vihuela_mexicana_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 2.275,
+          "plucked_traditional_technique": 2.1774999999999998,
           "vihuela_mexicana_back": 0.6,
-          "vihuela_mexicana_context": 1.495,
+          "vihuela_mexicana_context": 1.95,
           "vihuela_mexicana_body_wood": 0.75,
-          "vihuela_mexicana_strings": 0.975
+          "vihuela_mexicana_strings": 0.78
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "kargyraa_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -85,28 +85,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.2999999999999998,
-          "voice_quality": 13.51999999999999,
+          "voice_register": 2.6750000000000007,
+          "voice_quality": 14.429999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.95,
-          "voice_articulation": 20.15,
-          "voice_microtone": 18.264999999999993,
-          "voice_tradition": 9.36,
-          "voice_mechanism_compound": 3.185,
-          "voice_estill_quality": 2.990000000000001,
-          "voice_speech_song": 24.504999999999995,
-          "voice_ensemble_config": 18.589999999999996,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 3.3150000000000004,
-          "voice_multitrack_stack": 1.4949999999999999
+          "voice_vibrato": 2.6,
+          "voice_articulation": 16.705,
+          "voice_microtone": 14.624999999999993,
+          "voice_tradition": 10.952499999999997,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 4.030000000000001,
+          "voice_speech_song": 20.864999999999995,
+          "voice_ensemble_config": 14.949999999999996,
+          "voice_ornament_system": 1.6362499999999995,
+          "voice_pitch_organization": 1.2899999999999998,
+          "voice_processing_chain": 3.575,
+          "voice_multitrack_stack": 2.145
         }
       },
       {
@@ -121,8 +121,8 @@
         "scores": {
           "guitarron_body": 1.69,
           "guitarron_body_wood": 0.78,
-          "guitarron_strings": 2.795,
-          "guitarron_string_material": -0.03500000000000003,
+          "guitarron_strings": 4.225,
+          "guitarron_string_material": -0.13999999999999996,
           "guitarron_technique": 2.08
         }
       }

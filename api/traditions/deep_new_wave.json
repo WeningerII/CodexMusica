@@ -1,147 +1,226 @@
 {
-  "id": "deep_new_wave",
-  "name": "Deep New Wave",
-  "family": "electronic",
-  "lineage": "Deep new wave brings less widely circulated new-wave and synth-pop repertoire into view. Song-led electronic arrangements connect distinctive vocal lines with repeating keyboard textures.",
-  "recipe": "classic deep new wave, functional Song. solo with instrumental accompaniment. analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 195,
-  "score": 1.594,
+  "id": "new_wave",
+  "merged_from": "deep_new_wave",
+  "name": "New wave",
+  "family": "rock_punk",
+  "lineage": "Late-1970s through mid-1980s post-punk-derived pop-rock — codified through Blondie, Talking Heads (Remain in Light 1980), Devo (Q: Are We Not Men? A: We Are Devo! 1978), The Cars (The Cars 1978), Elvis Costello (My Aim Is True 1977), and the broader Stiff Records / Sire Records ecosystem; characterized by angular-rhythm-section, ironic-detached vocals, and pop-song-form embrace distinguishing it from punk",
+  "recipe": "classic North American 1977-1979 new wave, functional Song, new wave branch, pop rock synthpop, alternative distorted rock french synthpop. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
+  "recipe_chars": 693,
+  "score": 525.82,
   "config": {
     "traditions": [
-      "deep_new_wave"
+      "new_wave",
+      "synthpop",
+      "french_synthpop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
+          "voice_register": 54.26500000000002,
+          "voice_quality": 14.16999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.054,
-          "voice_tessitura": 0
+          "voice_vibrato": 5.163749999999999,
+          "voice_articulation": 16.57499999999999,
+          "voice_microtone": 52.67500000000001,
+          "voice_tradition": 37.58937499999999,
+          "voice_mechanism_compound": 2.0149999999999997,
+          "voice_estill_quality": 1.8199999999999996,
+          "voice_speech_song": 25.99999999999999,
+          "voice_ensemble_config": 18.00499999999999,
+          "voice_ornament_system": 1.1049999999999995,
+          "voice_pitch_organization": 0.9099999999999997,
+          "voice_processing_chain": 21.121249999999996,
+          "voice_multitrack_stack": 11.914999999999997
         }
       },
       {
-        "id": "analog_poly_synth",
+        "id": "electric_guitar_single_coil",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
+          "body_wood": "mahogany",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_11",
+          "bridge": "locking_trem",
+          "scale_length": "scale_gibson",
+          "finish": "poly",
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0,
-          "poly_voices": 0,
-          "poly_maker_lineage": -0.05
+          "electric_technique": 33.269999999999996,
+          "amp_make": 22.864999999999995,
+          "body_wood": 1.84,
+          "neck_wood": 1.84,
+          "fretboard": 1.79,
+          "pickup_magnet": 0.3,
+          "string_material": 0.3,
+          "string_gauge": 2.9450000000000003,
+          "bridge": 1.15,
+          "scale_length": 2.035,
+          "finish": 0.15,
+          "string_tuning": 13.681249999999999,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 12.284999999999997,
+          "body_wood": 2.035,
+          "pickup_config": 0.585,
+          "string_type": 25.75625,
+          "scale_length_b": 1.7950000000000002,
+          "fretted_or_not": 0.15,
+          "bass_technique": 32.445,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 22.625,
+          "drumhead": 30.874999999999996,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 31.684375,
+          "oscillator": 1.2349999999999999,
+          "filter_topology": 3.0549999999999997,
+          "envelope": 0.500625,
+          "modulation": 0.15
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_violins"
+        },
+        "scores": {
+          "electronic_technique": 0.40062499999999995,
+          "sm_voice_count": 3.964999999999999,
+          "sm_chorus": 2.4050000000000002,
+          "sm_voicing": 0.24
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "analog_poly_synth": [
-        "electronic_technique",
-        "poly_archetypes",
-        "poly_voices",
-        "poly_maker_lineage"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "studio_indie_commercial_us_80s",
+    "archetype": "arch_80s_indie_commercial_us",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
-      "amp": null,
-      "medium": "digital_high"
+      "mic": "mic_sm57_dynamic_shure",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
+      "amp": "amp_roland_jc120",
+      "medium": "tape_30ips"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": []
+    "fx_extras": [
+      "chorus_pedal",
+      "flanger_pedal"
+    ]
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "studio_indie_commercial_us_80s",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "body_wood": "alder",
+      "pickup_magnet": "alnico_5",
+      "string_material": "nickel_plated",
+      "bridge": "vintage_trem",
+      "scale_length": "scale_fender",
+      "pickup_config": "split_coil",
+      "string_type": "flatwound",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "drumhead": "hydraulic",
+      "drum_technique": "gated_isolation",
+      "voice_register": "mix_voice",
+      "voice_quality": "aspirated_voice",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electronic_technique": "electronic_pad_drone",
-      "poly_archetypes": "prophet_5",
-      "poly_voices": "poly_5_voice",
-      "poly_maker_lineage": "poly_sequential_smith"
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "electronic_technique": "electronic_arpeggiated",
+      "sm_voice_count": "sm_full_poly",
+      "sm_chorus": "sm_chorus_lush",
+      "sm_voicing": "sm_violins",
+      "string_tuning": "standard_tuning"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_mic": "mic_sm57_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_inline_80s",
+    "chain_fx": [
+      "chorus_pedal",
+      "flanger_pedal"
+    ],
+    "chain_amp": "amp_roland_jc120",
+    "chain_amp_guitar": "amp_american_fender_blackface",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

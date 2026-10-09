@@ -5,7 +5,7 @@
   "lineage": "Mamman Sani — La Musique Electronique du Niger (1978;2013 reissue). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic late-1970s african electronic, experimental Elec. electronic organ unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 186,
-  "score": 0.168,
+  "score": 0.032,
   "config": {
     "traditions": [
       "african_electronic"
@@ -18,8 +18,8 @@
           "keyboard_technique": "electronic_organ_melodic_sustained"
         },
         "scores": {
-          "electronic_organ_identity": 0.105,
-          "keyboard_technique": 0.063
+          "electronic_organ_identity": 0,
+          "keyboard_technique": 0.0315
         }
       }
     ],

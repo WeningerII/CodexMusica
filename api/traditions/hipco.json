@@ -5,7 +5,7 @@
   "lineage": "Akwaaba issues Chief Boima’s complete Lone Stars Mix (2011): a sixteen-selection sequence assembled from Liberian Hipco and Gbema recordings, distinct from the fifteen-track compilation it previews. The issuer positively describes Boima piecing the recordings together; his firsthand notes separately document his DJ work. This preserves all mixed-in voices and instruments at the DJ-performance layer, not a reconstruction of the constituent studio sessions. Embedded voice counts, original instruments and deck/software architecture are unknown; no separate live vocalist is asserted. Authored complete issued-mix rendition uses the existing source-unspecified DJ playback/mixing owner. It models the documented assembling/mixing practice, not a generic sampler substituted for an opaque produced master. One DJ role retains all embedded recorded layers and unknown vocal cardinality. No vinyl, scratch gesture, named decks, synthesis architecture, original gear, measured tuning or source instrumental personnel are invented. Neutral numeric axes and controlled live room are editorial recording choices.",
   "recipe": "classic early-2010s hipco, mc Rhythm, Afro-diasporic branch. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 107,
-  "score": 0.032,
+  "score": 0.063,
   "config": {
     "traditions": [
       "hipco"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.0315
+          "dj_playback_mixing_identity": 0.063
         }
       }
     ],

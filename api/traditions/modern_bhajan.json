@@ -5,7 +5,7 @@
   "lineage": "Modern bhajan brings Hindu devotional song into contemporary independent releases, music videos and streaming communities. Traditional praise texts and recurring invocations meet acoustic songwriting, amplified arrangements, electronic production and devotional rap.",
   "recipe": "classic modern bhajan, ritual Devotional, hindu branch. solo with instrumental accompaniment, unprocessed natural acoustic. dreadnought acoustic guitar, credited flute unspecified. live tracking.",
   "recipe_chars": 195,
-  "score": 3.581,
+  "score": 3.549,
   "config": {
     "traditions": [
       "modern_bhajan"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.3860000000000001,
+          "voice_ensemble_config": 1.3544999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.3,

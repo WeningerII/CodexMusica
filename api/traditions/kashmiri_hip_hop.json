@@ -5,7 +5,7 @@
   "lineage": "Kashmiri hip hop connects rappers, producers and audiences in Kashmir and its diaspora. Artists such as MC Kash, Ahmer, SOS and their collaborators have developed a regional scene using Kashmiri, Urdu and other languages, with local experience and cultural memory shaping the writing.",
   "recipe": "classic kashmiri hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. software sample playback. treated studio.",
   "recipe_chars": 173,
-  "score": 21.809,
+  "score": 21.869,
   "config": {
     "traditions": [
       "kashmiri_hip_hop"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.035,
-          "voice_ensemble_config": 1.6295000000000002,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

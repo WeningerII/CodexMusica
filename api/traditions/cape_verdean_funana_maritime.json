@@ -3,14 +3,14 @@
   "name": "Cape Verdean funaná (maritime-and-island work-song)",
   "family": "global",
   "lineage": "Cape Verdean Atlantic-island music tradition with maritime-and-emigration thematic integration; the broader Cape Verdean musical tradition (morna, coladeira, funaná, batuque) developed across 16th-onward Portuguese-colonial-era through post-1975 independent-Cape-Verdean continuous practice; the Cape Verdean maritime-emigration culture integrates extensive maritime-and-port-departure-lament repertoire",
-  "recipe": "classic West African mid-1970s cape verdean funaná, sea Shanty, atlantic branch, americas drinking song, iberian Latin protest song, chanson fado ballad poetry nouvelle chanson française. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese gut pre modern Portuguese cavaquinho, steel castagnari Italian premium folk music accordion. batuko outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 527,
-  "score": 175.612,
+  "recipe": "classic West African mid-1970s cape verdean funaná, sea Shanty, atlantic branch, americas drinking song, iberian Latin protest song, chanson fado ballad poetry nouvelle chanson française mexican cantina drinking song. thick, breath veiled tone, slow rate, interlocked note trading. cedar carbon fiber fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese steel modern cavaquinho, steel castagnari Italian premium folk music accordion. batuko outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 551,
+  "score": 151.845,
   "config": {
     "traditions": [
       "cape_verdean_funana_maritime",
-      "chanson",
-      "nouvelle_chanson_francaise"
+      "nouvelle_chanson_francaise",
+      "mexican_cantina_drinking"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.2500000000000018,
-          "voice_quality": 12.414999999999992,
+          "voice_register": 2.675,
+          "voice_quality": 7.8,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 18.72,
-          "voice_microtone": 17.874999999999996,
-          "voice_tradition": 6.175,
-          "voice_mechanism_compound": 5.07,
-          "voice_estill_quality": 6.295000000000001,
-          "voice_speech_song": 24.894999999999996,
-          "voice_ensemble_config": 21.189999999999998,
-          "voice_ornament_system": 1.6999999999999997,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 4.115,
-          "voice_multitrack_stack": 5.200000000000001
+          "voice_vibrato": 1.625,
+          "voice_articulation": 15.274999999999995,
+          "voice_microtone": 15.079999999999993,
+          "voice_tradition": 6.109999999999999,
+          "voice_mechanism_compound": 3.7700000000000005,
+          "voice_estill_quality": 4.615000000000001,
+          "voice_speech_song": 24.179999999999996,
+          "voice_ensemble_config": 17.289999999999996,
+          "voice_ornament_system": 2.5749999999999993,
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 3.8250000000000006,
+          "voice_multitrack_stack": 4.0950000000000015
         }
       },
       {
@@ -59,16 +59,16 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "lattice_cl",
-          "string_classical": "nylon_normal_cl",
+          "string_classical": "carbon_cl",
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 5.44,
+          "acoustic_technique": 3.115,
           "string_tuning": 0,
-          "top_wood_classical": 5.525,
-          "bracing_classical": 0.585,
+          "top_wood_classical": 2.9899999999999998,
+          "bracing_classical": 0.845,
           "string_classical": 1.2349999999999999,
-          "attack_technique_cl": 1.295
+          "attack_technique_cl": 0.9
         }
       },
       {
@@ -78,14 +78,14 @@
           "cavaquinho_origin": "cavaquinho_portuguese",
           "cavaquinho_context": "cavaquinho_choro",
           "cavaquinho_body_wood": "cavaquinho_jacaranda",
-          "cavaquinho_strings": "cavaquinho_gut_historical"
+          "cavaquinho_strings": "cavaquinho_steel"
         },
         "scores": {
-          "plucked_traditional_technique": 0.78,
-          "cavaquinho_origin": 1.1549999999999998,
-          "cavaquinho_context": 18.72,
-          "cavaquinho_body_wood": 2.015,
-          "cavaquinho_strings": 2.015
+          "plucked_traditional_technique": -0.035,
+          "cavaquinho_origin": 1.02,
+          "cavaquinho_context": 16.314999999999998,
+          "cavaquinho_body_wood": 3.9599999999999995,
+          "cavaquinho_strings": 3.119999999999999
         }
       },
       {
@@ -100,13 +100,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 0.795,
-          "accordion_reed_material": 1.045,
-          "musette_offset": 2.5,
-          "reed_config": 2.6449999999999996,
+          "free_reed_technique": 0.945,
+          "accordion_reed_material": 1,
+          "musette_offset": 1.25,
+          "reed_config": 1.5999999999999996,
           "bellows": 0,
-          "voicing_chamber": 0.65,
-          "accordion_maker_school": 2.535
+          "voicing_chamber": 0.5,
+          "accordion_maker_school": 3.965
         }
       }
     ],

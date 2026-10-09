@@ -3,14 +3,14 @@
   "name": "Afghan traditional (klasik and Kabuli art music)",
   "family": "global",
   "lineage": "Art and regional music of Afghanistan centered on the Kharabat quarter of Kabul, where Hindustani musicians brought from India in the 1860s under Amir Sher Ali Khan established hereditary ustad lineages, later broadcast nationally by Radio Kabul from the 1940s through figures such as Ustad Sarahang, Ustad Rahim Bakhsh and Ustad Mohammad Omar, marked by the plucked rubab with sympathetic strings, tabla and zerbaghali accompaniment, raga-derived naghma-e-kashal instrumental forms, and ghazal singing in Dari and Pashto.",
-  "recipe": "classic South Asian mid-1860s afghan traditional, art Music, south Asian branch, indian classical improv improv on frame, string drone modal balochi folk tarana. thick, breath veiled tone, slow rate, interlocked note trading. carved mulberry ornamented lead melodic warm tone rubab, indian rosewood rosewood copper tabla, zerbaghali, vocal female harmonium indian, self accompanied gut legato sarinda, sympathetic resonance legato ghichak, fergana tashkent maqom tradition distinct from bukharan dutar. karachi lahore naat devotional majlis. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-  "recipe_chars": 652,
-  "score": 222.005,
+  "recipe": "classic South Asian mid-1860s afghan traditional, art Music, south Asian branch, indian classical improv improv on frame, string drone modal takamba balochi folk. vocal fry, breath veiled tone, slow rate, interlocked note trading. carved mulberry ornamented lead melodic warm tone rubab, indian rosewood rosewood copper tabla, zerbaghali, vocal female harmonium indian, self accompanied gut sarinda, sympathetic resonance ghichak, turkmen long necked bagshy tradition fergana tashkent maqom tradition distinct from bukharan dutar. karachi lahore naat devotional majlis. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 680,
+  "score": 219.625,
   "config": {
     "traditions": [
       "afghan_traditional",
-      "balochi_folk",
-      "tarana"
+      "takamba_gao",
+      "balochi_folk"
     ],
     "instruments": [
       {
@@ -21,8 +21,8 @@
           "rubab_strings": "rubab_gut_nylon"
         },
         "scores": {
-          "rubab_form": 8.125,
-          "rubab_style": 13.725,
+          "rubab_form": 7.345000000000001,
+          "rubab_style": 13.875,
           "rubab_strings": 3.5500000000000003
         }
       },
@@ -34,9 +34,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 4.485,
-          "tabla_bayan": 2.6649999999999996,
-          "tabla_syahi": 3.5749999999999993
+          "tabla_dayan": 2.535,
+          "tabla_bayan": 1.69,
+          "tabla_syahi": 4.029999999999999
         }
       },
       {
@@ -54,15 +54,15 @@
         "id": "harmonium_indian",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_action": "harmonium_foot_pump",
           "harmonium_voicing": "harmonium_female",
-          "harmonium_use": "harmonium_classical"
+          "harmonium_use": "harmonium_qawwali"
         },
         "scores": {
           "free_reed_technique": 1.3324999999999998,
-          "harmonium_action": 3.445,
-          "harmonium_voicing": 1.4949999999999999,
-          "harmonium_use": 3.77
+          "harmonium_action": 2.02,
+          "harmonium_voicing": 3.375,
+          "harmonium_use": 2.875
         }
       },
       {
@@ -74,9 +74,9 @@
           "sarinda_build": "sarinda_build_gut_no_taraf"
         },
         "scores": {
-          "bowed_technique": 4.57,
+          "bowed_technique": 2.695,
           "sarinda_form": 4.675,
-          "sarinda_context": 3.5424999999999995,
+          "sarinda_context": 2.6975,
           "sarinda_build": 3.25
         }
       },
@@ -89,7 +89,7 @@
           "ghichak_context": "ghichak_kabuli"
         },
         "scores": {
-          "bowed_technique": 4.57,
+          "bowed_technique": 2.695,
           "ghichak_resonator": 0,
           "ghichak_strings": 1.645,
           "ghichak_context": 0.15
@@ -103,15 +103,15 @@
           "dutar_tradition": "dutar_fergana_tashkent_maqom"
         },
         "scores": {
-          "dutar_body": 0.65,
+          "dutar_body": 1.4099999999999997,
           "dutar_strings": -1.305,
-          "dutar_tradition": 5.459999999999999
+          "dutar_tradition": 4.809999999999999
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -119,32 +119,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "hindustani_khyal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.6699999999999995,
-          "voice_quality": 13.649999999999993,
+          "voice_register": 3.0299999999999994,
+          "voice_quality": 14.754999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.0775,
-          "voice_articulation": 16.639999999999997,
-          "voice_microtone": 20.962499999999995,
-          "voice_tradition": 13.6175,
-          "voice_mechanism_compound": 6.15,
-          "voice_estill_quality": 7.09,
-          "voice_speech_song": 17.03,
-          "voice_ensemble_config": 17.224999999999998,
-          "voice_ornament_system": 14.02,
-          "voice_pitch_organization": 7.475,
-          "voice_processing_chain": 6.759999999999999,
-          "voice_multitrack_stack": 2.5999999999999996
+          "voice_vibrato": 4.485,
+          "voice_articulation": 20.72,
+          "voice_microtone": 25.004999999999995,
+          "voice_tradition": 10.335,
+          "voice_mechanism_compound": 5.785,
+          "voice_estill_quality": 4.16,
+          "voice_speech_song": 21.775,
+          "voice_ensemble_config": 21.319999999999997,
+          "voice_ornament_system": 10.52,
+          "voice_pitch_organization": 5.6,
+          "voice_processing_chain": 7.409999999999999,
+          "voice_multitrack_stack": 3.825
         }
       }
     ],

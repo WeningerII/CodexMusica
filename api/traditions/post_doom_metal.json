@@ -3,14 +3,14 @@
   "name": "Post-doom metal",
   "family": "rock_punk",
   "lineage": "Broad post-doom discovery cluster represented by SubRosa’s Salt Lake City experimental sludge-doom and chamber-string branch.",
-  "recipe": "classic modern post-doom metal, distorted Rock, doom branch, post metal metal uk post-metal atmospheric post-metal. solo with instrumental accompaniment. orange amp British heavy crunch basswood low output no compression lower tension down tuning humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, solid body four string prog rock electric violin. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 559,
-  "score": 133.742,
+  "recipe": "classic modern post-doom metal, distorted Rock, doom branch, post metal metal uk post-metal edinburgh metal. solo with instrumental accompaniment. orange amp British heavy crunch basswood lower tension down tuning riff driven humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, solid body four string prog rock electric violin. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 538,
+  "score": 122.063,
   "config": {
     "traditions": [
       "post_doom_metal",
       "uk_post_metal",
-      "atmospheric_post_metal"
+      "edinburgh_metal"
     ],
     "instruments": [
       {
@@ -32,16 +32,16 @@
         },
         "scores": {
           "electric_technique": 11.4355,
-          "amp_make": 16.65,
-          "body_wood": 11.635000000000002,
-          "neck_wood": 0.5025,
-          "fretboard": 0.5025,
-          "pickup_magnet": 0.3,
-          "pickup_winding": 1.04,
-          "string_material": 0.5025,
-          "bridge": 2.5169999999999995,
-          "scale_length": 12.025,
-          "string_gauge": 2.1674999999999995,
+          "amp_make": 15.681999999999999,
+          "body_wood": 11.7,
+          "neck_wood": 0.36599999999999994,
+          "fretboard": 0.36599999999999994,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.39,
+          "string_material": 0.36599999999999994,
+          "bridge": 2.145,
+          "scale_length": 12.089999999999998,
+          "string_gauge": 1.7550000000000001,
           "finish": 0,
           "string_tuning": 7.345000000000001
         }
@@ -59,10 +59,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 16.65,
+          "amp_make": 15.681999999999999,
           "body_wood": 0.39,
           "pickup_config": 0.045,
-          "string_type": 13.162500000000001,
+          "string_type": 12.025,
           "scale_length_b": 1.0964999999999998,
           "fretted_or_not": 0.3705,
           "bass_technique": -0.15000000000000002,
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.125000000000002,
-          "drumhead": 1.755,
+          "drum_technique": 9.25,
+          "drumhead": 1.1855,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,7 +114,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4300000000000002,
+          "voice_ensemble_config": 0.585,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -130,7 +130,7 @@
         },
         "scores": {
           "electric_violin_form": 1.9020000000000001,
-          "electric_violin_context": 20.9625,
+          "electric_violin_context": 17.745,
           "electric_violin_pickup": 0.975
         }
       }

@@ -1,20 +1,42 @@
 {
-  "id": "norwegian_contemporary_jazz",
-  "name": "Norwegian contemporary jazz",
+  "id": "norwegian_jazz",
+  "merged_from": "norwegian_contemporary_jazz",
+  "name": "Norwegian jazz",
   "family": "jazz",
-  "lineage": "Norwegian contemporary jazz encompasses composition-led ensembles, exploratory improvisation and varied acoustic and electronic approaches. Lyrical small-group practice often brings songlike melody and resonant harmony into flexible, open structures.",
-  "recipe": "classic modern norwegian contemporary jazz, improv On Frame, American jazz branch. grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 323,
-  "score": 46.448,
+  "lineage": "Norwegian jazz developed through local ensembles and international collaborations, exploring both melodic composition and open improvisation. Acoustic small groups form an important strand, with sustained instrumental voices and responsive rhythmic interplay.",
+  "recipe": "classic modern norwegian jazz, improv On Frame, American jazz branch. saxophone, grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 321,
+  "score": 47.226,
   "config": {
     "traditions": [
-      "norwegian_contemporary_jazz"
+      "norwegian_jazz"
     ],
     "instruments": [
       {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "sax_size": 0.19500000000000003,
+          "sax_reed": 0.1785,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0,
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.606
+        }
+      },
+      {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "steinway_original_hammer",
@@ -25,9 +47,9 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.07,
-          "grand_piano_size": 0.16449999999999998,
-          "grand_piano_brand": 0.144,
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.147,
+          "grand_piano_brand": 0.105,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
@@ -43,7 +65,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.063,
+          "upright_strings": 0.16799999999999998,
           "upright_play": 11.25
         }
       },
@@ -66,18 +88,27 @@
           "drum_technique": 10.399999999999999,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.16449999999999998,
-          "shell_thickness": 1.13,
+          "shell_wood": 0.252,
+          "shell_thickness": 0,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.16449999999999998,
-          "cymbal_alloy": 11.264499999999998,
+          "snare_wires": 0.18974999999999997,
+          "cymbal_alloy": 11.426999999999998,
           "cymbal_hammering": 11.641,
-          "cymbal_lathing": -0.10500000000000001,
+          "cymbal_lathing": 1.1049999999999998,
           "cymbal_finish": 0
         }
       }
     ],
     "pinned": {
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
       "grand_piano": [
         "keyboard_technique",
         "grand_piano_size",
@@ -127,7 +158,14 @@
     "tuning": "twelve_tet",
     "room": "live_room",
     "parts": {
-      "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+      "wind_articulation": "wind_cool_lyrical",
+      "sax_size": "tenor_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_cool_lyrical",
+      "sax_maker_school": "sax_yamaha_custom",
+      "keyboard_technique": "keyboard_jazz_comping",
       "grand_piano_size": "grand_9_foot",
       "grand_piano_brand": "steinway_d",
       "piano_hammer": "steinway_original_hammer",

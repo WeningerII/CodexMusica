@@ -3,9 +3,9 @@
   "name": "Indie singer-songwriter",
   "family": "vernacular",
   "lineage": "Indie singer-songwriter is a cross-regional discovery category around performer-authored recorded songs. Glen Hansard’s independently released acoustic songwriting offers a documented representative branch without limiting the category to Ireland.",
-  "recipe": "classic modern indie singer-songwriter, ballad Poetry. breath veiled tone, m1 with m0 pulse borrowing, opera quality low larynx anchored, one note per syllable. dreadnought acoustic guitar, sitka spruce violin orchestral. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe": "classic modern indie singer-songwriter, ballad Poetry. breath veiled tone, m1 with m0 pulse borrowing, opera quality low larynx anchored, notated speech melody. dreadnought acoustic guitar, sitka spruce violin orchestral. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 359,
-  "score": 19.585,
+  "score": 18.978,
   "config": {
     "traditions": [
       "indie_singer_songwriter"
@@ -14,17 +14,17 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "head_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_syllabic_singing",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_equal_tempered_12",
@@ -33,18 +33,18 @@
         },
         "scores": {
           "voice_register": 0.054,
-          "voice_quality": 3.3800000000000017,
+          "voice_quality": 3.2000000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.414,
-          "voice_articulation": -0.14,
+          "voice_vibrato": 0.3,
+          "voice_articulation": -0.14600000000000002,
           "voice_microtone": 1.8041124150158794e-17,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.5609999999999999,
-          "voice_estill_quality": 3.1380000000000003,
-          "voice_speech_song": 1.461,
+          "voice_mechanism_compound": 0.507,
+          "voice_estill_quality": 3.0840000000000005,
+          "voice_speech_song": 0.9749999999999996,
           "voice_ensemble_config": 1.6899999999999997,
-          "voice_ornament_system": 2.0839999999999996,
+          "voice_ornament_system": 2.03,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.534,
           "voice_multitrack_stack": 2.3
@@ -60,11 +60,11 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 0.254,
+          "acoustic_technique": 0.2,
           "string_tuning": 0,
-          "top_wood": 0.1365,
-          "back_sides": 0.1365,
-          "string_acoustic": 0.1365
+          "top_wood": 0.273,
+          "back_sides": 0.273,
+          "string_acoustic": 0.273
         }
       },
       {
@@ -76,21 +76,21 @@
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "spirit_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "baroque_bow",
+          "orch_bow": "modern_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
           "bowed_technique": -0.05,
-          "orch_strings": 0.1365,
+          "orch_strings": 0.273,
           "orch_top_wood": 1.004,
           "orch_back_wood": -0.05,
           "orch_varnish": -0.05,
           "orch_setup_period": -0.1,
-          "orch_bow": 0.18,
+          "orch_bow": 0,
           "orch_bow_stick": -0.05,
-          "orch_articulation": 0.435,
+          "orch_articulation": 0.4635,
           "orch_rosin": -0.035
         }
       }

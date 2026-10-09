@@ -5,7 +5,7 @@
   "lineage": "Romanian trap includes the Bucharest Seek Music collective branch represented by Șatra B.E.N.Z.; distinct from the broader Romanian rap composer-collaboration model.",
   "recipe": "classic modern romanian trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 285,
-  "score": 31.607,
+  "score": 31.204,
   "config": {
     "traditions": [
       "romanian_trap"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.035,
-          "voice_ensemble_config": 0.3315,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -58,8 +58,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.397,
-          "drum_machine_808_context": 0.34650000000000003,
+          "tr808_voice": 2.25,
+          "drum_machine_808_context": 0.168,
           "tr808_production_origin": 0.14775
         }
       },
@@ -72,7 +72,7 @@
         },
         "scores": {
           "electronic_technique": 0.2,
-          "va_archetypes": 0.1365,
+          "va_archetypes": 0,
           "digital_subtractive_context": 1.17
         }
       }

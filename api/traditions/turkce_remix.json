@@ -5,7 +5,7 @@
   "lineage": "Türkçe remix connects Turkish-language popular songs with remix production and club circulation. Producers and DJs reshape familiar vocal material through electronic arrangement and rhythmic treatment.",
   "recipe": "classic türkçe remix, electronic Dance. solo with instrumental accompaniment. sampler, drum machine analog. shoebox concert hall.",
   "recipe_chars": 129,
-  "score": 9.14,
+  "score": 9.152,
   "config": {
     "traditions": [
       "turkce_remix"
@@ -62,7 +62,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 0.313,
+          "electronic_technique": 0.325,
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": -0.05,
           "sampler_workflow": 0.26,

@@ -5,7 +5,7 @@
   "lineage": "Chill beats connects instrumental hip-hop beatmaking with relaxed listening and jazz-colored samples. Producers such as Mujo circulate compact beat tapes through independent online platforms.",
   "recipe": "classic chill beats, experimental Elec, lofi branch. chopped sampler. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 161,
-  "score": 10.715,
+  "score": 10.61,
   "config": {
     "traditions": [
       "chill_beats"
@@ -22,7 +22,7 @@
         },
         "scores": {
           "electronic_technique": 1.981,
-          "sampler_archetypes": 2.7415,
+          "sampler_archetypes": 2.6365,
           "sampler_bit_depth": 0.16799999999999998,
           "sampler_workflow": 1.7945,
           "sampler_classic_context": 4.03

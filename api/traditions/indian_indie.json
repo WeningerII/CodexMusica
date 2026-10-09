@@ -5,7 +5,7 @@
   "lineage": "Indian indie connects independent songwriters and producers across India’s varied music communities. Acoustic arrangements can bring regional instruments into dialogue with other popular-song colours.",
   "recipe": "classic indian indie, functional Song. unprocessed natural acoustic. singing indian rosewood rosewood acoustic guitar, ukulele, charango, acoustic only no pickup mandolin, glockenspiel, sarod, oud. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 296,
-  "score": 7.495,
+  "score": 7.549,
   "config": {
     "traditions": [
       "indian_indie"
@@ -64,7 +64,7 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": 2.3595,
+          "back_sides": 2.4135,
           "string_acoustic": 0,
           "acoustic_om_technique": -0.25
         }

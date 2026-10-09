@@ -5,7 +5,7 @@
   "lineage": "Seattle indie spans independent guitar-band communities beyond the city’s grunge lineage.",
   "recipe": "classic seattle indie, distorted Rock, punk branch. basswood humbucker electric guitar, basswood electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 300,
-  "score": 27.955,
+  "score": 27.409,
   "config": {
     "traditions": [
       "seattle_indie"
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "neck_wood": 0.063,
           "fretboard": 0.273,
           "pickup_magnet": 0,
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

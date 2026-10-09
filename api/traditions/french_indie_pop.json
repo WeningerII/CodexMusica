@@ -5,7 +5,7 @@
   "lineage": "French indie pop brings independent songwriting together with melodic band arrangements and more exploratory instrumental colours.",
   "recipe": "classic french indie pop, functional Song, europop branch. solo with instrumental accompaniment. arpeggiated clean humbucker electric guitar, electric bass, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 292,
-  "score": 20.085,
+  "score": 20.222,
   "config": {
     "traditions": [
       "french_indie_pop"
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.108
         }
       }

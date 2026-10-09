@@ -3,9 +3,9 @@
   "name": "Chicano punk",
   "family": "rock_punk",
   "lineage": "Chicano punk links Mexican-American cultural identity with independent punk-band practice, including the East Los Angeles scene.",
-  "recipe": "classic chicano punk, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, driving sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 366,
-  "score": 53.726,
+  "recipe": "classic chicano punk, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, driving sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 343,
+  "score": 53.38,
   "config": {
     "traditions": [
       "chicano_punk"
@@ -30,7 +30,7 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 17.252999999999997,
+          "amp_make": 17.043,
           "body_wood": 0.39,
           "neck_wood": 0.063,
           "fretboard": 0.273,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 12.299999999999999,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -112,11 +112,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.609,
+          "voice_speech_song": 0.47250000000000003,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

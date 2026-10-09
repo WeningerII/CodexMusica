@@ -5,7 +5,7 @@
   "lineage": "Trap kreyòl brings trap production into Haitian Creole rap and its local and diaspora communities. Platforms such as Jenerasyon Trap connect artists, DJs and listeners through releases and mixed programmes.",
   "recipe": "classic trap kreyòl, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. live tracking.",
   "recipe_chars": 163,
-  "score": 24.181,
+  "score": 24.517,
   "config": {
     "traditions": [
       "trap_kreyol"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 8.45,
-          "voice_ensemble_config": 0.6209999999999999,
+          "voice_ensemble_config": 0.8204999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -64,7 +64,7 @@
           "electronic_technique": 2.2,
           "sample_bitdepth": 0.39,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0.2415
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "外地人乐队 (Waidiren) — 晚点再说 (2023), complete four-track EP. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic early-2020s shanghai indie, distorted Rock, alternative branch. one note per syllable, duet, live take. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 365,
-  "score": 33.275,
+  "score": 33.8,
   "config": {
     "traditions": [
       "shanghai_indie"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.8999999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.6,
           "voice_tessitura": 0
         }
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": 2.6000000000000005,
           "amp_make": 0,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
+          "neck_wood": 0.6825000000000001,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 1.8730000000000002,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 1.768,
           "finish": 0,
           "string_tuning": 1.3
         }
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 1.8415000000000001,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 5.931500000000001,

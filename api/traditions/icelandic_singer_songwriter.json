@@ -1,14 +1,15 @@
 {
-  "id": "icelandic_singer_songwriter",
-  "name": "Icelandic singer-songwriter",
+  "id": "icelandic_folk",
+  "merged_from": "icelandic_singer_songwriter",
+  "name": "Icelandic folk",
   "family": "vernacular",
-  "lineage": "Icelandic performer-songwriters work across acoustic song, folk-pop and electronics. Svavar Knútur provides a documented contemporary troubadour example within the exact discovery roster.",
-  "recipe": "classic modern icelandic singer-songwriter, ballad Poetry. thick, straight onset, equal tempered, opera quality low larynx anchored. fingerpicked acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 300,
-  "score": 27.396,
+  "lineage": "Icelandic folk includes inherited songs and modern troubadour performance. Svavar Knútur’s explicit folk-heritage tribute Amma provides the selected contemporary song branch.",
+  "recipe": "classic modern icelandic folk, ballad Poetry. thick, straight onset, neutral third half flat, notated speech melody. fingerpicked acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 284,
+  "score": 30.953,
   "config": {
     "traditions": [
-      "icelandic_singer_songwriter"
+      "icelandic_folk"
     ],
     "instruments": [
       {
@@ -20,34 +21,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.550000000000002,
+          "voice_register": 7,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.63,
+          "voice_vibrato": 1.0799999999999998,
           "voice_articulation": 0,
-          "voice_microtone": 2.3865000000000007,
+          "voice_microtone": 1.6899999999999997,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 1.1049999999999998,
+          "voice_estill_quality": 0.19500000000000003,
           "voice_speech_song": 3.9650000000000007,
           "voice_ensemble_config": 2.21,
-          "voice_ornament_system": 1.0839999999999999,
+          "voice_ornament_system": 0.26,
           "voice_pitch_organization": 0.15000000000000002,
-          "voice_processing_chain": 1.534,
-          "voice_multitrack_stack": 1
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -62,9 +63,9 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0.054,
-          "back_sides": 0.054,
+          "back_sides": 0,
           "string_acoustic": 0.3,
-          "acoustic_om_technique": 6.258
+          "acoustic_om_technique": 9.654000000000002
         }
       }
     ],

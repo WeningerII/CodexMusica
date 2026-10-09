@@ -3,14 +3,14 @@
   "name": "Museve",
   "family": "global",
   "lineage": "Zimbabwean guitar-band dance style named by Simon Chimbetu in the late 1980s from his dendera branch of sungura, running a fast 4/4 at roughly 130–150 BPM with a rapid rolling snare-and-hi-hat kit pattern, two interlocking clean electric guitars trading cyclic mbira-derived riffs, walking bass and Shona narrative vocals in warm two- and three-part harmony.",
-  "recipe": "classic Southern African 1987-1989 museve, functional Song, African pop branch, modal electric drone modal, sub saharan African protest song tuareg guitar african blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. ebony clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, two tone contrasting hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
-  "recipe_chars": 635,
-  "score": 237.163,
+  "recipe": "classic Southern African 1987-1989 museve, functional Song, African pop branch, modal electric drone modal, sub saharan African protest song african blues tuareg desert blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. ebony clean strummed single coil electric guitar, alder la bella flats Detroit soul bass canon walking fingerstyle electric bass, pre muffled edge muffled brushes-and-sticks drum kit, two tone contrasting hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 651,
+  "score": 238.681,
   "config": {
     "traditions": [
       "museve",
-      "tuareg_guitar",
-      "african_blues"
+      "african_blues",
+      "desert_blues"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 7.400500000000001,
-          "voice_quality": 9.1,
+          "voice_register": 8.175499999999998,
+          "voice_quality": 9.035,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.995,
-          "voice_articulation": 20.28,
-          "voice_microtone": 25.804999999999996,
-          "voice_tradition": 18.6875,
-          "voice_mechanism_compound": 11.375,
-          "voice_estill_quality": 7.409999999999999,
-          "voice_speech_song": 22.75,
-          "voice_ensemble_config": 19.175,
-          "voice_ornament_system": 4.03,
+          "voice_vibrato": 3.27,
+          "voice_articulation": 18.785,
+          "voice_microtone": 24.894999999999992,
+          "voice_tradition": 24.8625,
+          "voice_mechanism_compound": 11.244999999999997,
+          "voice_estill_quality": 7.994999999999999,
+          "voice_speech_song": 21.58,
+          "voice_ensemble_config": 17.484999999999996,
+          "voice_ornament_system": 6.840000000000001,
           "voice_pitch_organization": 3.5100000000000007,
-          "voice_processing_chain": 13.21475,
-          "voice_multitrack_stack": 8.433500000000002
+          "voice_processing_chain": 11.72475,
+          "voice_multitrack_stack": 6.98
         }
       },
       {
@@ -57,7 +57,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "pine",
+          "body_wood": "alder",
           "neck_wood": "roasted_maple",
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
@@ -70,41 +70,41 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 5.65,
-          "amp_make": 2.0149999999999997,
-          "body_wood": 0.147,
-          "neck_wood": 0.15,
-          "fretboard": 1.53025,
-          "pickup_magnet": 0.045,
+          "electric_technique": 5,
+          "amp_make": 1.755,
+          "body_wood": 0.195,
+          "neck_wood": 0.65,
+          "fretboard": 1.68025,
+          "pickup_magnet": 0.195,
           "string_material": 0.042749999999999996,
           "string_gauge": 0.387,
-          "bridge": 1.53025,
+          "bridge": 1.68025,
           "scale_length": 0.195,
           "finish": 0,
-          "string_tuning": 7.409999999999999,
+          "string_tuning": 7.994999999999999,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_hiwatt",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "thomastik_jazz_bass_flat",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "sub_bass_synth_blend",
+          "bass_technique": "fingerstyle_walking",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.98525,
+          "amp_make": 2.4049999999999994,
           "body_wood": 1.51675,
           "pickup_config": 1.48525,
-          "string_type": 1.2349999999999999,
-          "scale_length_b": 0.09,
+          "string_type": 1.5599999999999996,
+          "scale_length_b": 0.39,
           "fretted_or_not": 0.65,
-          "bass_technique": 1.2999999999999998,
+          "bass_technique": 1.0925,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.655,
-          "drumhead": 4.7715,
+          "drum_technique": 16.965,
+          "drumhead": 4.1215,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -129,9 +129,9 @@
           "hosho_filler": "hosho_hota_seeds"
         },
         "scores": {
-          "hosho_form": 5.685,
-          "hosho_groove": 9.12525,
-          "hosho_filler": 3.295
+          "hosho_form": 5.835,
+          "hosho_groove": 9.775250000000002,
+          "hosho_filler": 3.4765
         }
       }
     ],

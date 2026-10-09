@@ -3,9 +3,9 @@
   "name": "Oldschool Jungle",
   "family": "electronic",
   "lineage": "Formed in London and Bristol 1992-94 out of hardcore rave's acceleration, codified by Rebel MC, Shy FX, Congo Natty and DJ Hype on white-label 12-inches — 155-170 BPM chopped Amen and Apache breakbeats time-stretched over halftime 80 BPM sub-bass and Jamaican dancehall samples, with ragga toasting and pitched-up diva vocals cut to dubplate for pirate-radio play.",
-  "recipe": "classic Western European early-1990s oldschool jungle, bass System, uk soundsystem branch, dub descendants bass system, techno electronic dance, Afro-diasporic MC rhythm techno bass funk consciente. rap, toasting deejay flow, pitched rhythmic chat, solo with instrumental accompaniment. chopped sampler, sampled chopped sampler drum machine, sampled chopped turntable, low sub bass analog poly synth, low sub bass monosynth acid bass. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-  "recipe_chars": 574,
-  "score": 107.235,
+  "recipe": "classic Western European early-1990s oldschool jungle, bass System, uk soundsystem branch, dub descendants bass system, techno electronic dance, Afro-diasporic MC rhythm techno bass funk consciente. rap, toasting deejay flow, pitched rhythmic chat, solo with instrumental accompaniment. chopped sampler, sampler drum machine, turntable, low sub bass analog poly synth, low sub bass monosynth acid bass. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 542,
+  "score": 106.5,
   "config": {
     "traditions": [
       "oldschool_jungle",
@@ -36,13 +36,13 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 6.885,
+          "voice_quality": 6.78,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0.195,
           "voice_microtone": 0,
-          "voice_tradition": 7.29,
+          "voice_tradition": 7.335,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 6.045,
@@ -58,14 +58,14 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_archetypes": "akai_mpc",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 3.085,
-          "sampler_archetypes": 1.8199999999999998,
+          "electronic_technique": 2.935,
+          "sampler_archetypes": 1.5949999999999998,
           "sampler_bit_depth": 0.345,
           "sampler_workflow": 5.25,
           "sampler_classic_context": 19.889999999999997
@@ -80,7 +80,7 @@
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 3.085,
+          "electronic_technique": 2.935,
           "sample_bitdepth": 0.65,
           "sample_swing": 8.25,
           "sample_processing": 3.4
@@ -93,7 +93,7 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 3.085,
+          "electronic_technique": 2.935,
           "turntable_technique": 1.3649999999999998
         }
       },

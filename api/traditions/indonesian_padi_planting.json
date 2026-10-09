@@ -5,7 +5,7 @@
   "lineage": "Indonesian rice-planting song tradition across Javanese, Sundanese, Balinese, Sumatran-Minangkabau, and Sulawesi regional-cultures continuous from premodern Indonesian-agricultural village-labor practice through colonial-period continuous performance into modern Indonesian-rural continuous practice; the Indonesian rice-paddy planting and harvest-songs integrate gamelan-and-vocal arrangements distinct to each regional culture",
   "recipe": "classic East African modern indonesian rice-planting song traditions, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta cambodian traditional. vocal fry, breath veiled tone, straight note core, interlocked note trading. bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 469,
-  "score": 163.785,
+  "score": 157.065,
   "config": {
     "traditions": [
       "indonesian_padi_planting",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 4.42,
+          "voice_register": 3.835,
           "voice_quality": 6.435000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.75025,
+          "voice_vibrato": 4.28,
           "voice_articulation": 12.544999999999996,
           "voice_microtone": 13.194999999999993,
-          "voice_tradition": 26.574749999999998,
+          "voice_tradition": 23.174999999999997,
           "voice_mechanism_compound": 2.015,
-          "voice_estill_quality": 1.8699999999999999,
+          "voice_estill_quality": 1.885,
           "voice_speech_song": 19.109999999999992,
           "voice_ensemble_config": 12.284999999999995,
-          "voice_ornament_system": 8.97,
-          "voice_pitch_organization": 30.019999999999996,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 4.615
+          "voice_ornament_system": 8.925,
+          "voice_pitch_organization": 29.929999999999996,
+          "voice_processing_chain": 3.7350000000000003,
+          "voice_multitrack_stack": 4.225
         }
       },
       {
@@ -61,8 +61,8 @@
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 5.785,
-          "suling_use": 4.42,
+          "wind_articulation": 5.035,
+          "suling_use": 3.9699999999999998,
           "suling_tuning": 1.2349999999999999,
           "suling_body_material": 4.175000000000001
         }

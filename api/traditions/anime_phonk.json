@@ -5,7 +5,7 @@
   "lineage": "Anime phonk connects phonk production with anime imagery, character themes and online montage culture. Producers combine forceful low bass and electronic rhythms with melodic or metallic hooks and edited vocal phrases, overlapping drift phonk, glitch production and Brazilian funk crossovers.",
   "recipe": "classic anime phonk, electronic Dance. stutter edit cut as instrument human voice ensemble credited synthesizer credited programmed drums unspecified, sub bass low produced 808 bass, produced cowbell. treated studio.",
   "recipe_chars": 216,
-  "score": 13.405,
+  "score": 13.542,
   "config": {
     "traditions": [
       "anime_phonk"
@@ -60,7 +60,7 @@
           "produced_808_bass_processing": "produced_808_bass_soft_clipped"
         },
         "scores": {
-          "produced_808_bass_identity": 2.894,
+          "produced_808_bass_identity": 3.0305,
           "produced_808_bass_decay": 0.0315,
           "produced_808_bass_processing": 0
         }

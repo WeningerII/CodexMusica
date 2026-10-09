@@ -5,7 +5,7 @@
   "lineage": "Kentucky’s rap scenes include Louisville’s studio and mixtape networks. Jack Harlow’s Louisville-rooted piano-loop-and-drum production branch supplies this representative recording model.",
   "recipe": "classic modern kentucky hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler, TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 305,
-  "score": 43.889,
+  "score": 43.988,
   "config": {
     "traditions": [
       "kentucky_hip_hop"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 11.764999999999999,
-          "voice_ensemble_config": 1.1655,
+          "voice_ensemble_config": 1.197,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
+          "voice_processing_chain": 0.3315,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -60,9 +60,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 4,
-          "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.39,
+          "electronic_technique": 4.0315,
+          "sampler_archetypes": 0.7815,
+          "sampler_bit_depth": 0.3315,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 8.645
         }
@@ -77,7 +77,7 @@
         "scores": {
           "tr808_voice": 3.8235,
           "drum_machine_808_context": 0.39,
-          "tr808_production_origin": 0.8999999999999999
+          "tr808_production_origin": 0.9314999999999999
         }
       }
     ],

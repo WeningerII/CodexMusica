@@ -5,7 +5,7 @@
   "lineage": "Espírito Santo rap is represented by the documented Rap Sinfônico collaboration between local MCs, DJ Vitinho and the Oses string section in Vitória. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
   "recipe": "classic modern rap capixaba, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. melodic orchestral imitation pitched sampler, turntable, Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, Baroque setup short neck lighter bass bar no chinrest viola classical, gut Baroque setup snakewood cello. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 552,
-  "score": 73.857,
+  "score": 74.579,
   "config": {
     "traditions": [
       "rap_capixaba"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 15.469,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_speech_song": 15.655,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 2.2,
           "sampler_archetypes": 3.9,
-          "sampler_bit_depth": 0.318,
+          "sampler_bit_depth": 0.426,
           "sampler_workflow": 2.85,
           "sampler_classic_context": 5.785
         }
@@ -98,7 +98,7 @@
           "orch_top_wood": -0.035,
           "orch_back_wood": 0.325,
           "orch_varnish": -0.035,
-          "orch_setup_period": 2.6510000000000002,
+          "orch_setup_period": 2.684,
           "orch_bow": 1,
           "orch_bow_stick": 0.4500000000000002,
           "orch_articulation": 0.3,
@@ -125,7 +125,7 @@
           "viola_top_wood": -0.035,
           "viola_back_wood": 0.325,
           "viola_varnish": -0.035,
-          "viola_setup_period": 2.6510000000000002,
+          "viola_setup_period": 2.684,
           "viola_bow_stick": 0.4500000000000002,
           "viola_rosin": 0.8999999999999999
         }
@@ -149,7 +149,7 @@
           "cello_top_wood": -0.035,
           "cello_back_wood": -0.035,
           "cello_varnish": -0.035,
-          "cello_setup_period": 2.6510000000000002,
+          "cello_setup_period": 2.684,
           "cello_bow_grip": 0,
           "cello_rosin": 0.2315,
           "cello_bow_stick": 2.45

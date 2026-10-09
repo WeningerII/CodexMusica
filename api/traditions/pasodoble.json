@@ -3,9 +3,9 @@
   "name": "Pasodoble",
   "family": "global",
   "lineage": "Spanish two-step march that crystallized in early-nineteenth-century military bands and became the fixed music of the bullring paseíllo and of village banda repertoire, codified by Pascual Marquina ('España Cañí', 1921) and Santiago Lope — brisk 2/4 at roughly 110-130 BPM, bass drum and cymbal on the beat with off-beat brass punches, a strident cornet or trumpet melody often in Phrygian-inflected minor, dulzaina or clarinet counterlines, and a contrasting trio in the parallel major.",
-  "recipe": "classic North American early-1920s pasodoble, carnival Processional, European branch, iberian functional song, European drinking song rondalla blaskapelle. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral shallow cup lead trumpet ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, grenadilla African blackwood traditional clarinet, tenor gold brass warmer tone saxophone, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, double bass rapid double strokes bass drum, processional cane double reed canonical arundo donax raw outdoor dulzaina, traditional mellow brass tambourine orch. us uk civic amateur band hall. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 916,
-  "score": 68.578,
+  "recipe": "classic North American early-1920s pasodoble, carnival Processional, European branch, iberian functional song, European drinking song rondalla blaskapelle. yellow brass canonical 70 30 bach stradivarius shallow cup lead trumpet ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor bass trombone trombone, grenadilla African blackwood traditional clarinet, tenor gold brass warmer tone saxophone, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, double bass rapid double strokes bass drum, processional cane double reed canonical arundo donax raw outdoor dulzaina, traditional mellow brass tambourine orch. us uk civic amateur band hall. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 845,
+  "score": 68.118,
   "config": {
     "traditions": [
       "pasodoble",
@@ -17,9 +17,9 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "cornet",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
-          "brass_mute": "no_mute_brass",
+          "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
@@ -27,11 +27,11 @@
         "scores": {
           "wind_articulation": 1.2999999999999998,
           "brass_size": 0.195,
-          "trumpet_mouthpiece": 1.8439999999999999,
+          "trumpet_mouthpiece": 1.694,
           "brass_mute": 0.3,
           "trumpet_technique": 1.2999999999999998,
           "trumpet_bell_metal": 2.08,
-          "trumpet_maker_school": 1.11
+          "trumpet_maker_school": 0.9150000000000001
         }
       },
       {
@@ -39,7 +39,7 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "valve_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
           "trombone_mute": "straight_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
@@ -48,7 +48,7 @@
         "scores": {
           "wind_articulation": 1.2999999999999998,
           "trombone_type": 0.195,
-          "trombone_mouthpiece": 3.0549999999999997,
+          "trombone_mouthpiece": 3.0900000000000003,
           "trombone_mute": 0.39,
           "trombone_technique": 0.345,
           "trombone_bell_metal": 2.08,
@@ -87,7 +87,7 @@
           "wind_articulation": 1.2999999999999998,
           "sax_size": 1.2999999999999998,
           "sax_reed": 0.3,
-          "sax_body_alloy": 3.04,
+          "sax_body_alloy": 2.9949999999999997,
           "sax_mouthpiece": 0.49949999999999994,
           "sax_technique": -0.035,
           "sax_maker_school": 0.195
@@ -104,23 +104,23 @@
           "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": -0.035,
+          "wind_articulation": -0.05,
           "tuba_pitch": 2.919,
           "tuba_context": 6.11,
           "tuba_bell_metal": 2.08,
-          "tuba_valve_system": 0.375,
+          "tuba_valve_system": 0.33,
           "tuba_maker_school": 4.355
         }
       },
       {
         "id": "bass_drum",
         "slots": {
-          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_size": "bass_drum_22_standard",
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.39,
-          "bass_drum_beater": 2.7350000000000003
+          "bass_drum_size": 0.3,
+          "bass_drum_beater": 2.7800000000000002
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "North carolina emo",
   "family": "rock_punk",
   "lineage": "North Carolina emo connects melodic independent bands across regional scenes.",
-  "recipe": "classic north carolina emo, distorted Rock, emo branch. humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 224,
-  "score": 17.674,
+  "recipe": "classic north carolina emo, distorted Rock, emo branch. basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 242,
+  "score": 18.133,
   "config": {
     "traditions": [
       "north_carolina_emo"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": -0.10500000000000001,
           "amp_make": 2.73,
-          "body_wood": 0.9555000000000002,
+          "body_wood": 1.239,
           "neck_wood": 0.168,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -39,7 +39,7 @@
           "string_material": 0.168,
           "bridge": 0.1365,
           "scale_length": 0,
-          "string_gauge": 0.276,
+          "string_gauge": 0.222,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.9555000000000002,
+          "body_wood": 1.239,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -113,7 +113,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.162,
+          "voice_ensemble_config": 0.108,
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

@@ -5,7 +5,7 @@
   "lineage": "Jazz català encompasses musicians and scenes associated with Catalonia, shaped by local performance culture and international jazz exchange. Bebop-derived improvisation and solo-piano practice form part of a wider field of ensembles and contemporary approaches.",
   "recipe": "classic modern jazz català, improv On Frame, American jazz branch. a 440 modern pitch us standard grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 255,
-  "score": 2.587,
+  "score": 2.557,
   "config": {
     "traditions": [
       "jazz_catala"
@@ -30,7 +30,7 @@
           "grand_piano_brand": 0.1365,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
-          "piano_soundboard": -0.07,
+          "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": 0.2,
           "piano_pitch_standard": 2.015

@@ -64,7 +64,7 @@ if (!flags.tradition) {
   process.exit(2);
 }
 
-const tid = flags.tradition;
+const tid = C.resolveTraditionId(flags.tradition);
 const staples = flags.staples
   ? flags.staples
       .split(',')

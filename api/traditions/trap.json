@@ -5,7 +5,7 @@
   "lineage": "The trap tradition — a Southern US hip-hop subgenre built on 808 sub-bass, rapid hi-hat rolls, and dark synth, codified in Atlanta",
   "recipe": "classic Los Angeles modern trap, mc Rhythm, southern branch. vocal fry, rap, narrative, neutral third half flat. TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 317,
-  "score": 76.379,
+  "score": 75.809,
   "config": {
     "traditions": [
       "trap"
@@ -22,7 +22,7 @@
           "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
-          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -32,22 +32,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.0195,
+          "voice_register": 1.1245000000000003,
           "voice_quality": 7.344999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.3045,
-          "voice_articulation": 4.340249999999999,
+          "voice_vibrato": 0.40950000000000003,
+          "voice_articulation": 4.235249999999999,
           "voice_microtone": 3.250000000000001,
           "voice_tradition": 5.459999999999999,
-          "voice_mechanism_compound": 1.3,
+          "voice_mechanism_compound": 1.43,
           "voice_estill_quality": 0.1365,
           "voice_speech_song": 7.279999999999999,
           "voice_ensemble_config": 2.990000000000001,
           "voice_ornament_system": 2.860000000000001,
-          "voice_pitch_organization": 1.4995,
-          "voice_processing_chain": 4.6315,
-          "voice_multitrack_stack": 1.493
+          "voice_pitch_organization": 1.4365,
+          "voice_processing_chain": 4.6,
+          "voice_multitrack_stack": 1.5665000000000002
         }
       },
       {
@@ -58,7 +58,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.730749999999999,
+          "tr808_voice": 7.405249999999999,
           "drum_machine_808_context": 3.7700000000000005,
           "tr808_production_origin": 0.39
         }
@@ -69,14 +69,14 @@
           "electronic_technique": "electronic_bass_sub",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
-          "envelope": "pluck_env",
+          "envelope": "pad_env",
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 14.317249999999996,
-          "oscillator": 3.38,
+          "electronic_technique": 13.991749999999996,
+          "oscillator": 3.2052500000000004,
           "filter_topology": 1.04,
-          "envelope": 0.2415,
+          "envelope": 0.2835,
           "modulation": 0
         }
       }

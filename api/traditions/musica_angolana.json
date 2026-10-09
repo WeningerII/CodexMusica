@@ -3,9 +3,9 @@
   "name": "Música Angolana",
   "family": "pop",
   "lineage": "Angolan music, encompassing varied regional traditions, popular styles and contemporary songwriting.",
-  "recipe": "classic música angolana, functional Song. classical nylon-string guitar, double bass, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 215,
-  "score": 2.105,
+  "recipe": "classic música angolana, functional Song. one note per syllable. classical nylon-string guitar, double bass, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 238,
+  "score": 2.321,
   "config": {
     "traditions": [
       "musica_angolana"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.40950000000000003,
+          "voice_speech_song": 0.5715,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -66,7 +66,7 @@
           "acoustic_technique": 0.25,
           "string_tuning": 0,
           "top_wood_classical": 0.40950000000000003,
-          "bracing_classical": 0.546,
+          "bracing_classical": 0.6000000000000001,
           "string_classical": 0,
           "attack_technique_cl": 0
         }

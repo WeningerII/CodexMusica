@@ -5,7 +5,7 @@
   "lineage": "South Louisiana Cajun French dance-hall music tradition rooted in the 1755 Acadian expulsion from Nova Scotia, codified through the Hackberry Ramblers (1930s commercial recordings), Iry LeJeune (post-WWII accordion revival), Nathan Abshire, Dewey Balfa and the Balfa Brothers, the Savoy Family Band (Marc and Ann Savoy and their sons), and the modern continuation (Steve Riley and the Mamou Playboys, BeauSoleil with Michael Doucet)",
   "recipe": "classic Southern American mid-1930s cajun, drone Modal, string branch, Caribbean groove percussion mento zydeco. thick, breath veiled tone, wide pitch sway, interlocked note trading. single row diatonic Cajun tradition bellows chop drone foot cajun accordion, magic rosin modern acrylic base drone like fiddle. cajun dance hall acadia louisiana. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 440,
-  "score": 174.832,
+  "score": 174.862,
   "config": {
     "traditions": [
       "cajun",
@@ -34,15 +34,15 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 7.91,
+          "voice_register": 7.82,
           "voice_quality": 18.199999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.75,
           "voice_articulation": 15.079999999999995,
           "voice_microtone": 16.639999999999993,
-          "voice_tradition": 11.875,
-          "voice_mechanism_compound": 6.874999999999999,
+          "voice_tradition": 12.025,
+          "voice_mechanism_compound": 7.084999999999999,
           "voice_estill_quality": 12.399999999999997,
           "voice_speech_song": 19.434999999999995,
           "voice_ensemble_config": 16.509999999999994,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "cajun_accordion_make": 20.539999999999996,
-          "cajun_accordion_style": 11.855
+          "cajun_accordion_style": 11.615
         }
       },
       {

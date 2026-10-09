@@ -1,0 +1,93 @@
+{
+  "id": "cham_ninh_thuan",
+  "name": "Cham music of Ninh Thuận (Katê festival and ritual music)",
+  "family": "global",
+  "lineage": "Music of the Cham of Ninh Thuận and Bình Thuận on Vietnam's south-central coast, heard at the Katê festival at the Po Klong Garai and Po Rome towers and at life-cycle rites. Its core ensemble pairs the saranai shawm with the double-headed ginăng drum and the single-headed baranưng frame drum, accompanying ritual dance. The serunai card stands in for the saranai, and generic membrane-drum and frame-drum cards for the ginăng and baranưng.",
+  "recipe": "classic modern cham music of ninh thuận, ritual Devotional, indigenous branch. serunai shawm, membrane drum pulse resonant acoustic membrane drum, credited frame drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 248,
+  "score": 12.64,
+  "config": {
+    "traditions": [
+      "cham_ninh_thuan"
+    ],
+    "instruments": [
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_kelantan",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 0.6855,
+          "serunai_bell": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 6.515,
+          "acoustic_membrane_drum_gesture": 5.59
+        }
+      },
+      {
+        "id": "credited_frame_drums",
+        "slots": {
+          "credited_frame_drums_identity": "credited_frame_drums_source_unspecified"
+        },
+        "scores": {
+          "credited_frame_drums_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "serunai_shawm": [
+        "serunai_form",
+        "serunai_bell"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "credited_frame_drums": [
+        "credited_frame_drums_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "serunai_form": "serunai_kelantan",
+      "serunai_bell": "serunai_bell_wood",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "credited_frame_drums_identity": "credited_frame_drums_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -70,6 +70,7 @@ function buildContext(tradId, opts) {
   return result;
 }
 function _buildContextUncached(tradId, includeName = true) {
+  tradId = C.resolveTraditionId(tradId);
   const t = C.TRADITIONS.find((x) => x.id === tradId);
   const e = C.TRADITION_EXTRAS[tradId] || {};
   if (!t) return null;
@@ -328,6 +329,7 @@ function getNeighbors(tradId, n = 5) {
   return result;
 }
 function _getNeighborsUncached(tradId, n = 5) {
+  tradId = C.resolveTraditionId(tradId);
   const t = C.TRADITIONS.find((x) => x.id === tradId);
   const e = C.TRADITION_EXTRAS[tradId];
   if (!t || !e || !e.axes) return [];

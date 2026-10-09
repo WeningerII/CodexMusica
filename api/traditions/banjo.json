@@ -5,7 +5,7 @@
   "lineage": "American banjo music encompasses classic fingerstyle repertory, old-time dance music, bluegrass and newer solo and ensemble instrumentals.",
   "recipe": "classic banjo music, improv On Frame, string improv branch. wood block rim maple boutique bluegrass bluegrass canon banjo 5 string. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 230,
-  "score": 18.032,
+  "score": 17.895,
   "config": {
     "traditions": [
       "banjo"
@@ -28,13 +28,13 @@
         "scores": {
           "banjo_back": 0.3045,
           "tone_ring": 2.1995,
-          "banjo_head": 0.3045,
+          "banjo_head": 0.1995,
           "banjo_pot": 0.3465,
           "banjo_play": 1,
           "banjo_rim_wood": 2.5,
           "banjo_neck_wood": 2.5,
           "banjo_strings": 0,
-          "banjo_bridge": 2.6365,
+          "banjo_bridge": 2.605,
           "banjo_setup_period": 6.24
         }
       }

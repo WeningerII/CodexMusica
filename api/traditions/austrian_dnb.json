@@ -5,7 +5,7 @@
   "lineage": "Austria’s drum-and-bass scene grew through producers, promoters and clubs, with Vienna an important center. Its varied repertoire spans liquid, deep and dance-floor styles alongside detailed bass sound design.",
   "recipe": "classic modern austrian drum and bass, bass System, bass descendants branch. sampler drum machine, sub bass wavetable synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 337,
-  "score": 15.155,
+  "score": 15.077,
   "config": {
     "traditions": [
       "austrian_dnb"
@@ -53,7 +53,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": 0,
-          "sampler_bit_depth": 0.11512499999999998,
+          "sampler_bit_depth": 0.03712499999999999,
           "sampler_workflow": 0.2,
           "sampler_classic_context": 2.4095
         }

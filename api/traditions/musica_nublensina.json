@@ -5,7 +5,7 @@
   "lineage": "Music associated with Chile’s Ñuble region, including contemporary independent song and amplified rock.",
   "recipe": "classic música ñublensina, distorted Rock, punk branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 240,
-  "score": 24.99,
+  "score": 24.717,
   "config": {
     "traditions": [
       "musica_nublensina"
@@ -79,7 +79,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0

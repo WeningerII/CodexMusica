@@ -5,7 +5,7 @@
   "lineage": "Spanish folk encompasses regional song, dance and instrumental traditions maintained through local communities and transmission between generations. Cantabrian rabel singing is one intimate strand, in which bowed strings accompany narrative and vernacular song.",
   "recipe": "classic modern spanish folk, ballad Poetry. thick, pure, narrative, m1 with m0 pulse borrowing. melodic bowed song accompaniment rabel castellano. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 284,
-  "score": 24.721,
+  "score": 24.661,
   "config": {
     "traditions": [
       "spanish_folk"
@@ -28,7 +28,7 @@
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_aural_relative",
-          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
@@ -36,11 +36,11 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.638625,
-          "voice_articulation": 1.0399999999999998,
+          "voice_vibrato": 1.514875,
+          "voice_articulation": 1.0171249999999998,
           "voice_microtone": 0,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.52725,
+          "voice_mechanism_compound": 0.613875,
           "voice_estill_quality": 0.19500000000000003,
           "voice_speech_song": 8.385,
           "voice_ensemble_config": 1.3,

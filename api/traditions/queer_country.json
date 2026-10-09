@@ -5,7 +5,7 @@
   "lineage": "Queer country names communities and artistic projects that bring openly queer experience into country music. Lavender Country’s Seattle-based work in the early 1970s became an important precedent for later performers, songs and organizing networks.",
   "recipe": "classic 1970-1973 queer country, functional Song, country branch. thick, breath veiled tone, straight note core, neutral third half flat. grand piano, fiddle. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 303,
-  "score": 68.793,
+  "score": 68.41,
   "config": {
     "traditions": [
       "queer_country"
@@ -36,14 +36,14 @@
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.0355,
+          "voice_vibrato": 15.981499999999999,
           "voice_articulation": 0.13000000000000003,
           "voice_microtone": 3.7700000000000005,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 15.511499999999998,
+          "voice_estill_quality": 15.172499999999998,
           "voice_speech_song": 6.305,
-          "voice_ensemble_config": 0.19949999999999998,
+          "voice_ensemble_config": 0.23099999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 1.4,
           "voice_processing_chain": 3.1200000000000006,
@@ -55,7 +55,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "fazioli",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "imadegawa_e_type_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
@@ -65,8 +65,8 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.1365,
-          "grand_piano_brand": 0.42,
+          "grand_piano_size": 0.168,
+          "grand_piano_brand": 0.39,
           "piano_hammer": 0.9314999999999999,
           "piano_rim": -0.035,
           "piano_soundboard": -0.05,
@@ -88,9 +88,9 @@
         "scores": {
           "bowed_technique": 2.34,
           "fiddle_strings": 0.2205,
-          "fiddle_bow": 0.1365,
+          "fiddle_bow": 0.168,
           "fiddle_mute": 0.9099999999999999,
-          "fiddle_articulation": 0.222,
+          "fiddle_articulation": 0.168,
           "fiddle_string_configuration": 0
         }
       }

@@ -3,9 +3,9 @@
   "name": "Finnish alternative rock",
   "family": "rock_punk",
   "lineage": "Finnish alternative rock represented by Apulanta’s amplified2013 stage setup. The model preserves the voice/guitar/bass/drum core and an actual stereo playback input rather than assuming a strictly acoustic trio or adding a keyboard player that the rider does not list.",
-  "recipe": "classic finnish alternative rock, distorted Rock, alternative branch. unprocessed natural acoustic. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, sampler. live tracking. dynamic moving-coil, console-strip pre, parametric EQ. 24-bit digital digital delay.",
-  "recipe_chars": 349,
-  "score": 43.234,
+  "recipe": "classic finnish alternative rock, distorted Rock, alternative branch. unprocessed natural acoustic. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany electric bass, sticks backbeat drum kit, sampler. live tracking. dynamic moving-coil, console-strip pre, parametric EQ. 24-bit digital digital delay.",
+  "recipe_chars": 358,
+  "score": 43.853,
   "config": {
     "traditions": [
       "finnish_alternative_rock"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.4155,
+          "voice_ensemble_config": 0.384,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.168,
+          "voice_processing_chain": 1.1365,
           "voice_multitrack_stack": 0.1425
         }
       },
@@ -70,15 +70,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 4.42,
-          "body_wood": 2.46825,
-          "neck_wood": 0.441,
+          "body_wood": 2.7097499999999997,
+          "neck_wood": 0.546,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.9099999999999999,
-          "scale_length": 1.743,
-          "string_gauge": 0.9099999999999999,
+          "bridge": 0.868,
+          "scale_length": 1.8795000000000002,
+          "string_gauge": 0.868,
           "finish": 0,
           "string_tuning": 4.55
         }
@@ -97,10 +97,10 @@
         },
         "scores": {
           "amp_make": 5.785,
-          "body_wood": 0.8820000000000001,
+          "body_wood": 1.0920000000000003,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.441,
+          "scale_length_b": 0.546,
           "fretted_or_not": 0.0735,
           "bass_technique": 8.7,
           "electric_bass_string_configuration": 0
@@ -133,7 +133,7 @@
         "scores": {
           "electronic_technique": -0.035,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.504,
+          "sampler_bit_depth": 0.47250000000000003,
           "sampler_workflow": -0.07,
           "sampler_classic_context": -0.05
         }

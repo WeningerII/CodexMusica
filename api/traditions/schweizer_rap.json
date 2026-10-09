@@ -3,9 +3,9 @@
   "name": "Schweizer rap",
   "family": "hip_hop",
   "lineage": "Schweizer rap represented by Lo & Leduc’s Bernese dialect rap/pop and full-band performance practice.",
-  "recipe": "classic modern schweizer rap, mc Rhythm, intl hip hop branch. rap. electric bass, controlled decay pre muffled edge muffled drum kit, alder clean strummed single coil electric guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, trumpet, saxophone, student commercial trombone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 459,
-  "score": 53.676,
+  "recipe": "classic modern schweizer rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. electric bass, controlled decay pre muffled edge muffled drum kit, alder clean strummed single coil electric guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, trumpet, saxophone, student commercial trombone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 497,
+  "score": 54.313,
   "config": {
     "traditions": [
       "schweizer_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 14.816,
+          "voice_quality": 15.004999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.4724999999999999,
+          "voice_ensemble_config": 0.6824999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -56,7 +56,7 @@
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
@@ -65,9 +65,9 @@
         "scores": {
           "amp_make": 0.325,
           "body_wood": 0,
-          "pickup_config": 1.105,
-          "string_type": 0.26,
-          "scale_length_b": 0.105,
+          "pickup_config": 1.3,
+          "string_type": 0.315,
+          "scale_length_b": 0.1785,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -99,7 +99,7 @@
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_fender",
-          "finish": "nitro",
+          "finish": "oil_satin",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
@@ -107,15 +107,15 @@
           "electric_technique": 6.25,
           "amp_make": 0,
           "body_wood": 1,
-          "neck_wood": 0.1365,
+          "neck_wood": 0.2415,
           "fretboard": 0.1365,
           "pickup_magnet": 0.1365,
           "string_material": 0.1365,
           "string_gauge": 1.0735,
-          "bridge": 0.105,
+          "bridge": 0.1785,
           "scale_length": 0,
-          "finish": 0,
-          "string_tuning": 0.6825,
+          "finish": 0.1365,
+          "string_tuning": 0.546,
           "single_coil_pickup_construction": 0
         }
       },
@@ -135,10 +135,10 @@
         "scores": {
           "keyboard_technique": 2.45,
           "grand_piano_size": 1,
-          "grand_piano_brand": 0.3045,
-          "piano_hammer": 2.996,
+          "grand_piano_brand": 0.5774999999999999,
+          "piano_hammer": 3.0380000000000003,
           "piano_rim": 3.185,
-          "piano_soundboard": 2.8775,
+          "piano_soundboard": 2.804,
           "piano_pinblock": -0.05,
           "piano_plate": 0.8999999999999999,
           "piano_pitch_standard": -0.035
@@ -153,16 +153,16 @@
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
+          "trumpet_maker_school": "trumpet_yamaha_xeno"
         },
         "scores": {
           "wind_articulation": 0.19500000000000003,
           "brass_size": 0.1365,
-          "trumpet_mouthpiece": 0.7149999999999999,
+          "trumpet_mouthpiece": 0.6819999999999999,
           "brass_mute": 1,
           "trumpet_technique": 0.19500000000000003,
-          "trumpet_bell_metal": 0.6539999999999999,
-          "trumpet_maker_school": 0.7455
+          "trumpet_bell_metal": 0.5175,
+          "trumpet_maker_school": 0.588
         }
       },
       {
@@ -183,28 +183,28 @@
           "sax_body_alloy": -0.035,
           "sax_mouthpiece": 0.1365,
           "sax_technique": -0.035,
-          "sax_maker_school": 0.5459999999999999
+          "sax_maker_school": 0.588
         }
       },
       {
         "id": "trombone",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "trombone_type": "bass_trombone",
+          "trombone_type": "valve_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_12c",
           "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
-          "trombone_maker_school": "trombone_bach_42"
+          "trombone_maker_school": "trombone_yamaha_xeno"
         },
         "scores": {
           "wind_articulation": 0.19500000000000003,
-          "trombone_type": 0.063,
+          "trombone_type": 0.1365,
           "trombone_mouthpiece": 2.9960000000000004,
           "trombone_mute": 1,
           "trombone_technique": 0.39,
-          "trombone_bell_metal": 0.6539999999999999,
-          "trombone_maker_school": 0.7455
+          "trombone_bell_metal": 0.5175,
+          "trombone_maker_school": 0.588
         }
       }
     ],

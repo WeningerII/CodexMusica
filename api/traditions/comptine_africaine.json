@@ -3,9 +3,9 @@
   "name": "Comptine africaine",
   "family": "vernacular",
   "lineage": "Comptine africaine brings together children’s songs, games and lullabies from African communities. Moussa Koita’s Burkina Faso repertoire draws on childhood memories of Bobo-Dioulasso and singing in Bambara.",
-  "recipe": "classic comptine africaine, nursery Rhyme, sub saharan African branch. duet, live take. singing indian rosewood rosewood acoustic guitar, djembe. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 244,
-  "score": 2.734,
+  "recipe": "classic comptine africaine, nursery Rhyme, sub saharan African branch. singing indian rosewood rosewood acoustic guitar, djembe. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 227,
+  "score": 2.434,
   "config": {
     "traditions": [
       "comptine_africaine"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6224999999999999,
+          "voice_ensemble_config": 0.4725,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.6224999999999999,
+          "voice_multitrack_stack": 0.47250000000000003,
           "voice_tessitura": 0
         }
       },

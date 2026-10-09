@@ -5,7 +5,7 @@
   "lineage": "NYC Paradise-Garage house lineage named for the Larry Levan-resident Paradise Garage nightclub (1977-1987) — codified through Larry Levan, Frankie Knuckles (before his Chicago move), and the Salsoul / West End / Prelude labels; characterized by gospel-vocal-led songs, four-on-the-floor 120 BPM tempo, and live-instrument production retaining disco-era warmth",
   "recipe": "classic Asian mid-1980s garage house, electronic Dance, garage house u s branch, soul R&B functional song british soul classic soul. thick, blues-shouter, slow rate, narrative. Hammond a 100 built in Leslie home spinet gospel runs full spectrum slow chorale tonewheel organ, cold pressed weikert felt 18 ply hard rock maple vintage production grand piano, digital subtractive, TR-909. jazz club. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 529,
-  "score": 357.932,
+  "score": 357.317,
   "config": {
     "traditions": [
       "garage_house_paradise",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 30.374999999999996,
-          "voice_quality": 25.02499999999999,
+          "voice_register": 30.329999999999995,
+          "voice_quality": 24.979999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.3649999999999998,
           "voice_articulation": 22.695,
           "voice_microtone": 15.599999999999993,
-          "voice_tradition": 29.27,
+          "voice_tradition": 29.225,
           "voice_mechanism_compound": 1.8200000000000003,
-          "voice_estill_quality": 27.694999999999997,
+          "voice_estill_quality": 27.889999999999997,
           "voice_speech_song": 20.734999999999992,
           "voice_ensemble_config": 19.694999999999993,
           "voice_ornament_system": 0.5449999999999999,
           "voice_pitch_organization": 0.345,
-          "voice_processing_chain": 8.08,
+          "voice_processing_chain": 8.035,
           "voice_multitrack_stack": 4.355
         }
       },
@@ -63,12 +63,12 @@
           "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 28.535,
+          "keyboard_technique": 28.49,
           "drawbar_setting": 5.125,
           "rotary_speed": 22.519999999999996,
           "percussion_setting": 0.65,
           "tonewheel_model": 5.329999999999999,
-          "leslie_cabinet_model": 0.9450000000000001
+          "leslie_cabinet_model": 0.75
         }
       },
       {
@@ -85,7 +85,7 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 28.535,
+          "keyboard_technique": 28.49,
           "grand_piano_size": 1.4299999999999997,
           "grand_piano_brand": 1.4299999999999997,
           "piano_hammer": 1.17,
@@ -118,7 +118,7 @@
         },
         "scores": {
           "tr909_voice": 16.249999999999996,
-          "drum_machine_909_context": 2.8800000000000003,
+          "drum_machine_909_context": 2.535,
           "tr909_production_origin": 0.75
         }
       }

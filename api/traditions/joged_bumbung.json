@@ -1,0 +1,134 @@
+{
+  "id": "joged_bumbung",
+  "name": "Joged bumbung (Balinese bamboo social dance)",
+  "family": "global",
+  "lineage": "Flirtatious Balinese social dance in which a female joged dancer invites men from the audience to dance with her, accompanied by a bamboo gamelan of grantang tube xylophones (here the t'rung card), suling flutes (here the generic bamboo-flute card), kendang and ceng-ceng. It is especially popular in Buleleng and Jembrana, and UNESCO's inscription of traditional Balinese dance includes it among the entertainment dances.",
+  "recipe": "classic modern joged bumbung, art Music, southeast Asian branch. ensemble blended trung bamboo xylophone, bamboo credited bamboo flute unspecified, rapid interlocking gamelan balinese paired male female kendang indonesian, ceng ceng. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 313,
+  "score": 16.023,
+  "config": {
+    "traditions": [
+      "joged_bumbung"
+    ],
+    "instruments": [
+      {
+        "id": "trung_bamboo_xylophone",
+        "slots": {
+          "trung_size": "trung_traditional",
+          "trung_mallet": "trung_bamboo_stick",
+          "trung_context": "trung_ensemble"
+        },
+        "scores": {
+          "trung_size": 0.03712499999999999,
+          "trung_mallet": 0.37987499999999996,
+          "trung_context": 1.4441249999999999
+        }
+      },
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 4.29,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_balinese",
+          "kendang_shell_wood": "chitravina_jackwood",
+          "kendang_head": "ho_dumang_double_headed_drum_membranes_documented"
+        },
+        "scores": {
+          "kendang_size": 2.6,
+          "kendang_context": 6.89,
+          "kendang_shell_wood": 0,
+          "kendang_head": 0
+        }
+      },
+      {
+        "id": "ceng_ceng",
+        "slots": {
+          "ceng_ceng_form": "ceng_ceng_ricik",
+          "ceng_ceng_technique": "ceng_ceng_kotekan",
+          "ceng_ceng_alloy": "ceng_ceng_perunggu"
+        },
+        "scores": {
+          "ceng_ceng_form": 0.142125,
+          "ceng_ceng_technique": 0.39,
+          "ceng_ceng_alloy": 0
+        }
+      }
+    ],
+    "pinned": {
+      "trung_bamboo_xylophone": [
+        "trung_size",
+        "trung_mallet",
+        "trung_context"
+      ],
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ],
+      "kendang_indonesian": [
+        "kendang_size",
+        "kendang_context",
+        "kendang_shell_wood",
+        "kendang_head"
+      ],
+      "ceng_ceng": [
+        "ceng_ceng_form",
+        "ceng_ceng_technique",
+        "ceng_ceng_alloy"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "trung_size": "trung_traditional",
+      "trung_mallet": "trung_bamboo_stick",
+      "trung_context": "trung_ensemble",
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+      "kendang_size": "kendang_gendhing",
+      "kendang_context": "kendang_balinese",
+      "kendang_shell_wood": "chitravina_jackwood",
+      "kendang_head": "ho_dumang_double_headed_drum_membranes_documented",
+      "ceng_ceng_form": "ceng_ceng_ricik",
+      "ceng_ceng_technique": "ceng_ceng_kotekan",
+      "ceng_ceng_alloy": "ceng_ceng_perunggu"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

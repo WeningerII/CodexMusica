@@ -5,7 +5,7 @@
   "lineage": "Dub punk is represented here by Dumai Dunai. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic dub punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, rim clicks drum kit, analog poly synth, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, saxophone, bach 42 canonical American orchestral tenor trombone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital roland RE-201 space echo spring reverb.",
   "recipe_chars": 559,
-  "score": 51.613,
+  "score": 49.456,
   "config": {
     "traditions": [
       "dub_punk"
@@ -25,22 +25,22 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.11850000000000002,
           "amp_make": 15.079999999999997,
-          "body_wood": 1.7954999999999999,
-          "neck_wood": 0.40950000000000003,
+          "body_wood": 1.5225,
+          "neck_wood": 0.273,
           "fretboard": 0.273,
           "pickup_magnet": 0.40950000000000003,
           "pickup_winding": 0.147,
           "string_material": 0.063,
           "bridge": 1.2730000000000001,
-          "scale_length": 1.4174999999999998,
+          "scale_length": 1.281,
           "string_gauge": 1,
-          "finish": 0.1365,
+          "finish": 0,
           "string_tuning": 0.3
         }
       },
@@ -48,7 +48,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.8190000000000002,
+          "body_wood": 0.546,
           "pickup_config": 0.273,
           "string_type": 4.875,
-          "scale_length_b": 0.40950000000000003,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "rim_clicks_dub",
-          "drumhead": "double_coated",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 6.449999999999999,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.3,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -148,11 +148,11 @@
         "scores": {
           "wind_articulation": 0.585,
           "brass_size": 0.063,
-          "trumpet_mouthpiece": 1.481,
-          "brass_mute": 0.273,
+          "trumpet_mouthpiece": 1.6175000000000002,
+          "brass_mute": 0.1365,
           "trumpet_technique": 0.585,
-          "trumpet_bell_metal": 0.6825000000000001,
-          "trumpet_maker_school": 1.9004999999999999
+          "trumpet_bell_metal": 0.546,
+          "trumpet_maker_school": 1.6275
         }
       },
       {
@@ -191,10 +191,10 @@
           "wind_articulation": 0.585,
           "trombone_type": 0,
           "trombone_mouthpiece": 0.7149999999999999,
-          "trombone_mute": 0.273,
+          "trombone_mute": 0.1365,
           "trombone_technique": 0.39,
-          "trombone_bell_metal": 0.6825000000000001,
-          "trombone_maker_school": 1.7745
+          "trombone_bell_metal": 0.546,
+          "trombone_maker_school": 1.5015
         }
       }
     ],

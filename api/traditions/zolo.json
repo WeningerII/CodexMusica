@@ -5,7 +5,7 @@
   "lineage": "Zolo groups eccentric art-pop, new-wave and progressive approaches marked by playful contrasts and unconventional songwriting. Sparks exemplify its theatrical vocal and keyboard-centered strand.",
   "recipe": "classic zolo, functional Song. solo with instrumental accompaniment. clean strummed humbucker electric guitar, electric bass, full lathed both sides lathed drum kit, analog poly synth. live tracking.",
   "recipe_chars": 199,
-  "score": 11.647,
+  "score": 11.691,
   "config": {
     "traditions": [
       "zolo"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6825000000000001,
+          "voice_ensemble_config": 0.726,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

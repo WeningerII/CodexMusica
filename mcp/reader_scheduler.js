@@ -44,6 +44,7 @@ export function createCatalogResolver({
   directory,
   engineCommit,
   resourceFingerprint = 'reader-v1',
+  pronunciationRoot = fileURLToPath(new URL('../lyric-harness/', import.meta.url)),
   methodsPath = fileURLToPath(new URL('../lyric-harness/library/methods.json', import.meta.url)),
 }) {
   const snapshots = new Map();
@@ -149,6 +150,106 @@ export function createCatalogResolver({
     source.snapshot_id = request.snapshot_id;
     return { source, entry, manifest };
   };
+  // Resolve collection defaults once, before identity creation. Stored requests
+  // retain these choices on resume; an explicit caller set (even []) is final.
+  const prepareRequest = async (request) => {
+    const { source } = await resolveSource(request);
+    const declarations = request.declaration_set;
+    if (
+      declarations !== undefined &&
+      (!declarations || typeof declarations !== 'object' || Array.isArray(declarations))
+    )
+      return request;
+    if (
+      declarations &&
+      (Object.hasOwn(declarations, 'pronunciations') ||
+        (declarations.language !== undefined && declarations.language !== 'eng'))
+    )
+      return request;
+    const collection = /^corpus\/library\/gutenberg-next-ten\/(\d+)\//.exec(
+      source.source_path || ''
+    )?.[1];
+    if (!collection) return request;
+    const candidate = /\[item: PG(\d+)-([^\]]+)\]/.exec(source.title || '');
+    if (!candidate || candidate[1] !== collection)
+      throw error('STALE_READING', 'The collection reading has no matching source marker.');
+    const prefix = 'imports/gutenberg-next-ten/pronunciations/';
+    let assets;
+    try {
+      const registry = JSON.parse(
+        await readFile(path.join(pronunciationRoot, 'data/runtime_assets.json'), 'utf8')
+      );
+      const asset = registry.assets?.find(
+        (item) => item.id === 'gutenberg_next_ten_pronunciations'
+      );
+      if (
+        !asset ||
+        asset.base !== 'root' ||
+        asset.runtime !== true ||
+        asset.decision !== 'approved' ||
+        !Array.isArray(asset.files) ||
+        asset.files.length !== 11
+      )
+        throw new Error('The pronunciation asset is not approved.');
+      assets = new Map();
+      const root = await realpath(pronunciationRoot);
+      for (const file of asset.files) {
+        if (
+          typeof file.path !== 'string' ||
+          !file.path.startsWith(prefix) ||
+          !/^(?:bindings|\d+)\.json$/.test(file.path.slice(prefix.length)) ||
+          assets.has(file.path)
+        )
+          throw new Error('Invalid pronunciation asset path.');
+        const resolved = await realpath(path.join(root, file.path));
+        if (!resolved.startsWith(`${root}${path.sep}`))
+          throw new Error('Pronunciation asset escaped its root.');
+        const bytes = await readFile(resolved);
+        if (bytes.length !== file.bytes || sha256(bytes) !== file.sha256)
+          throw new Error('Pronunciation asset hash or size mismatch.');
+        assets.set(file.path, JSON.parse(bytes.toString('utf8')));
+      }
+      if (!assets.has(`${prefix}bindings.json`) || !assets.has(`${prefix}${collection}.json`))
+        throw new Error('Required pronunciation asset is missing.');
+    } catch {
+      throw error(
+        'READER_UNAVAILABLE',
+        'The approved collection pronunciation assets are unavailable or invalid.'
+      );
+    }
+    const matches = Object.entries(assets.get(`${prefix}bindings.json`)).filter(
+      ([, binding]) => binding.collection === collection && binding.candidate_id === candidate[2]
+    );
+    if (!matches.length) return request;
+    const [readingId, binding] = matches[0];
+    if (
+      matches.length !== 1 ||
+      readingId !== source.reading_unit_id ||
+      binding.reading_revision !== source.reading_revision ||
+      binding.source_sha256 !== source.source_sha256
+    )
+      throw error(
+        'STALE_READING',
+        'The pronunciation binding does not match this complete source reading.'
+      );
+    const defaults = assets.get(`${prefix}${collection}.json`)[candidate[2]]?.pronunciations;
+    if (!Array.isArray(defaults) || !defaults.length)
+      throw error('READER_UNAVAILABLE', 'The bound pronunciation set is missing.');
+    const lines = new Set(
+      (source.lines || [])
+        .filter((line) => line.kind === 'lyric')
+        .map((line) => line.analysis_text ?? line.text)
+    );
+    if (defaults.some((choice) => !lines.has(choice.line)))
+      throw error(
+        'STALE_READING',
+        'A bound pronunciation line is absent from this source reading.'
+      );
+    return {
+      ...request,
+      declaration_set: { ...declarations, pronunciations: structuredClone(defaults) },
+    };
+  };
   const resolveIdentity = async (request) => {
     const { entry, manifest } = await resolveSource(request);
     if (request.requested_methods !== undefined) {
@@ -214,7 +315,7 @@ export function createCatalogResolver({
           .length,
     };
   };
-  return { resolveSource, resolveIdentity, probe };
+  return { resolveSource, resolveIdentity, prepareRequest, probe };
 }
 
 export function packReaderPages(records) {

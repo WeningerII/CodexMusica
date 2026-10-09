@@ -5,7 +5,7 @@
   "lineage": "Monterrey and Tamaulipas variant of norteño consolidated in the 1950s–70s when alto and tenor saxophone were added to or substituted for the button accordion, giving a conjunto of sax, bajo sexto, electric bass and drum kit playing polkas, huapangos norteños and cumbias at 100–140 BPM with breathy, heavily-vibratoed saxophone lines doubling the vocal in thirds.",
   "recipe": "classic Southwestern American mid-1950s norteño-sax, functional Song, tejano border branch, tejano border corrido, tejano border ranchera, Mexican functional song corridos tumbados. vocal fry, full chest belt, wide pitch sway, interlocked note trading. tenor gold brass warmer tone selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, castagnari Italian premium folk music chordal accordion, nickel wound modern tejano bajo sexto, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 789,
-  "score": 224.912,
+  "score": 224.687,
   "config": {
     "traditions": [
       "norteno_sax",
@@ -85,9 +85,9 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.0937500000000004,
+          "amp_make": 3.0487500000000005,
           "body_wood": 0.78,
-          "pickup_config": 0.39,
+          "pickup_config": 0.3,
           "string_type": 3.2500000000000004,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.219375,
@@ -129,7 +129,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.65,
+          "voice_register": 2.6049999999999995,
           "voice_quality": 19.06999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -144,7 +144,7 @@
           "voice_ornament_system": 2.4050000000000002,
           "voice_pitch_organization": 1.755,
           "voice_processing_chain": 3.119999999999999,
-          "voice_multitrack_stack": 2.8449999999999998
+          "voice_multitrack_stack": 2.8
         }
       }
     ],

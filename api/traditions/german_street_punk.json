@@ -5,7 +5,7 @@
   "lineage": "German street punk includes Oi!-connected bands emphasizing direct ensemble attack and group participation.",
   "recipe": "classic german street punk, distorted Rock, punk branch. group vocals, live take. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, soft attack transient basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 377,
-  "score": 40.821,
+  "score": 40.684,
   "config": {
     "traditions": [
       "german_street_punk"
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.273,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },

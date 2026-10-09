@@ -5,7 +5,7 @@
   "lineage": "Rural Norwegian instrumental and vocal tradition documented systematically from Ludvig Mathias Lindeman's 1840s collecting through the 20th-century kappleik contest circuit — asymmetric springar and gangar dance rhythms with unevenly long beats, Hardanger fiddle and ordinary fiddle slåtter over sympathetic-string drones, herding calls (lokk) and stev sung in free rhythm, plus lur and bukkehorn signalling instruments and the drone zither langeleik.",
   "recipe": "classic Northern European mid-1840s norwegian folk music, drone Modal, string branch, string improv improv on frame, Celtic balladic ballad poetry scottish gaelic folk song newfoundland traditional song and dance music. thick, breath veiled tone, straight note core, interlocked note trading. mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian hardanger fiddle inst, double stops fiddle, dance driving langeleik, lur, bukkehorn. norwegian hardanger outdoor alpine. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 579,
-  "score": 252.065,
+  "score": 249.905,
   "config": {
     "traditions": [
       "norwegian_folk",
@@ -25,11 +25,11 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "hardingfele_strings": 5.38,
+          "hardingfele_strings": 5.334999999999999,
           "hardingfele_tuning": 0.65,
-          "hardingfele_strings_material": 0.39,
+          "hardingfele_strings_material": 0.345,
           "hardingfele_inlay": 7.734999999999999,
-          "hardingfele_body_wood": 2.7499999999999996
+          "hardingfele_body_wood": 2.7949999999999995
         }
       },
       {
@@ -43,8 +43,8 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 11.995,
-          "fiddle_strings": 0.38999999999999996,
+          "bowed_technique": 12.384999999999998,
+          "fiddle_strings": 0.345,
           "fiddle_bow": 0.345,
           "fiddle_mute": 0.24,
           "fiddle_articulation": 0.41999999999999993,
@@ -59,8 +59,8 @@
           "langeleik_strings": "langeleik_brass_gut"
         },
         "scores": {
-          "langeleik_form": 7.334999999999999,
-          "langeleik_repertoire": 12.44,
+          "langeleik_form": 7.049999999999999,
+          "langeleik_repertoire": 12.035,
           "langeleik_strings": -0.07
         }
       },
@@ -72,7 +72,7 @@
           "lur_mouthpiece": "lur_carved_rim"
         },
         "scores": {
-          "lur_form": 3.39,
+          "lur_form": 3.345,
           "lur_repertoire": 4.45,
           "lur_mouthpiece": -0.05
         }
@@ -85,7 +85,7 @@
         },
         "scores": {
           "bukkehorn_form": 2.9499999999999997,
-          "bukkehorn_technique": 3.625
+          "bukkehorn_technique": 3.535
         }
       },
       {
@@ -109,22 +109,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 4.920000000000001,
+          "voice_register": 4.875000000000001,
           "voice_quality": 11.569999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.1775,
           "voice_articulation": 24.700000000000003,
           "voice_microtone": 26.65,
-          "voice_tradition": 25.415000000000003,
+          "voice_tradition": 24.065000000000005,
           "voice_mechanism_compound": 7.0200000000000005,
           "voice_estill_quality": 7.5075,
           "voice_speech_song": 26.130000000000006,
           "voice_ensemble_config": 28.210000000000004,
-          "voice_ornament_system": 18.349999999999998,
+          "voice_ornament_system": 18.305,
           "voice_pitch_organization": 3.0550000000000006,
           "voice_processing_chain": 3.77,
-          "voice_multitrack_stack": 3.335000000000001
+          "voice_multitrack_stack": 3.140000000000001
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Music of the Fulɓe (Peul, Fulani) herding and fishing communities spread from the Senegal River valley through Mali, Niger and northern Cameroon, transmitted by gawlo praise singers and pastoral flute players and brought to record by Baaba Maal and Mansour Seck from the 1980s — slow to moderate free or loosely metered song built on the hoddu lute's short pentatonic cycles, bowed nyanyeru fiddle, overblown serdu flute doubled by the player's own hummed drone, and clear high melismatic solo singing in Pulaar over struck calabash.",
   "recipe": "classic North African mid-1980s musique peule, praise Song, sub saharan African branch, wind pipe drone modal kaba gaida greek clarinet. extended whistle, breath veiled tone, slow rate, interlocked note trading. hoddu, goje, yamaha modern Japanese mid to premium flute, foundational low fundamental tuning deep calabash inverted calabash, snappy to palm hand clap, deep foundational bass rhythm calabash shekere. saharan desert encampment. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 514,
-  "score": 183.062,
+  "score": 183.099,
   "config": {
     "traditions": [
       "musique_peule",
@@ -37,7 +37,7 @@
         "scores": {
           "bowed_technique": -0.035,
           "goje_form": 4.41,
-          "goje_repertoire": 8.8105,
+          "goje_repertoire": 9.020499999999998,
           "goje_material": 0.95
         }
       },
@@ -54,7 +54,7 @@
           "wind_articulation": 1.17,
           "flute_size": 1.755,
           "flute_material": 1.3,
-          "flute_technique": 0.39,
+          "flute_technique": 0.345,
           "flute_maker_school": 2.0149999999999992
         }
       },
@@ -86,9 +86,9 @@
           "voice_vibrato": 4.03,
           "voice_articulation": 16.899999999999995,
           "voice_microtone": 21.872499999999995,
-          "voice_tradition": 14.944999999999999,
+          "voice_tradition": 15.177499999999998,
           "voice_mechanism_compound": 5.2,
-          "voice_estill_quality": 5.51,
+          "voice_estill_quality": 5.525,
           "voice_speech_song": 20.734999999999992,
           "voice_ensemble_config": 18.394999999999996,
           "voice_ornament_system": 6.760000000000001,
@@ -105,7 +105,7 @@
         },
         "scores": {
           "inverted_calabash_size": 2.6795,
-          "inverted_calabash_technique": 0.5549999999999999
+          "inverted_calabash_technique": 0.3
         }
       },
       {
@@ -115,8 +115,8 @@
           "clap_capture": "clap_close_dry"
         },
         "scores": {
-          "clap_technique": 3.769999999999999,
-          "clap_capture": 0.39
+          "clap_technique": 3.5899999999999994,
+          "clap_capture": 0.3
         }
       },
       {
@@ -126,7 +126,7 @@
           "shekere_beads": "shekere_seed"
         },
         "scores": {
-          "shekere_size": 1.8944999999999999,
+          "shekere_size": 2.0444999999999998,
           "shekere_beads": 1.95
         }
       }

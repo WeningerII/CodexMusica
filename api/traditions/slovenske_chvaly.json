@@ -5,7 +5,7 @@
   "lineage": "F6 — complete six-member Slovak/Romani praise-band practice documented in2010 interview. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic slovenské chvály, ritual Devotional. unprocessed natural acoustic. acoustic conventional tuning standard pitch humbucker electric guitar, tuning stability 7 ply quartersawn maple grand piano, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 424,
-  "score": 23.53,
+  "score": 23.129,
   "config": {
     "traditions": [
       "slovenske_chvaly"
@@ -63,9 +63,9 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0.0735,
+          "top_wood": 0,
           "back_sides": 0.325,
-          "string_acoustic": 0.147,
+          "string_acoustic": 0.0315,
           "acoustic_om_technique": 0.5499999999999999
         }
       },
@@ -93,7 +93,7 @@
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
-          "pickup_winding": 0.0735,
+          "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
@@ -117,13 +117,13 @@
         },
         "scores": {
           "keyboard_technique": 1.45,
-          "grand_piano_size": 0.0735,
+          "grand_piano_size": 0.0315,
           "grand_piano_brand": 0.39,
           "piano_hammer": 0.2,
           "piano_rim": 0.6499999999999999,
           "piano_soundboard": -0.07,
           "piano_pinblock": 1.56,
-          "piano_plate": -0.1,
+          "piano_plate": -0.07,
           "piano_pitch_standard": -0.035
         }
       },
@@ -135,7 +135,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.0945
+          "keyboard_technique": 0.063
         }
       },
       {
@@ -154,7 +154,7 @@
           "amp_make": 0,
           "body_wood": 0.39,
           "pickup_config": 0,
-          "string_type": 0.0735,
+          "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0.063,
           "bass_technique": 0.15000000000000002,
@@ -180,10 +180,10 @@
           "drum_technique": 0.75,
           "drumhead": 1.69,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.8089999999999997,
+          "shell_wood": 2.8599999999999994,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
-          "snare_wires": 0.0735,
+          "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 2.2,
           "cymbal_lathing": 2.563,

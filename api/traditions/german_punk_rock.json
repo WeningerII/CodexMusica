@@ -1,14 +1,15 @@
 {
-  "id": "german_punk_rock",
-  "name": "German punk rock",
+  "id": "german_punk",
+  "merged_from": "german_punk_rock",
+  "name": "German punk",
   "family": "rock_punk",
-  "lineage": "German punk rock includes melodic bands connecting punk chordal drive with alternative-rock songwriting.",
-  "recipe": "classic german punk rock, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 356,
-  "score": 64.89,
+  "lineage": "German punk includes independent scenes continuing the direct guitar-band sound of first-wave punk.",
+  "recipe": "classic german punk, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 343,
+  "score": 42.447,
   "config": {
     "traditions": [
-      "german_punk_rock"
+      "german_punk"
     ],
     "instruments": [
       {
@@ -30,8 +31,8 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 19.386,
-          "body_wood": 1.029,
+          "amp_make": 16.38,
+          "body_wood": 0.756,
           "neck_wood": 0.063,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -57,13 +58,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.175,
-          "body_wood": 1.029,
+          "amp_make": 2.275,
+          "body_wood": 0.756,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 22.5315,
+          "bass_technique": 15.0315,
           "electric_bass_string_configuration": 0
         }
       },
@@ -75,8 +76,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.25,
-          "drumhead": 0.273,
+          "drum_technique": 3.75,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -93,12 +94,12 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
@@ -112,12 +113,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.8895000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.354,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       }
@@ -197,14 +198,14 @@
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
       "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_ornament_system": "voice_ornament_none",
       "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
       "electric_technique": "electric_power_chord",
       "string_tuning": "standard_tuning",
       "bass_technique": "pick_aggressive",

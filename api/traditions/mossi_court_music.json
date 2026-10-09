@@ -1,0 +1,173 @@
+{
+  "id": "mossi_court_music",
+  "name": "Mossi court music (Moogo Naaba palace drumming)",
+  "family": "classical",
+  "lineage": "Court music of the Mossi kingdoms of Burkina Faso, centred on the palace of the Moogo Naaba in Ouagadougou. Hereditary court drummers led by the bendr-naaba recite royal genealogies and histories on the bendré, a large calabash drum with a skin head, alongside lunga hourglass talking drums and praise singing at palace ceremonies. The bara card stands in for the bendré and the talking-drum card for the lunga.",
+  "recipe": "classic modern mossi court music, praise Song, sub saharan African branch. heightened speech stylized intonation, solo with instrumental accompaniment. low fundamental tuning ceremonial deep bara, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 377,
+  "score": 23.921,
+  "config": {
+    "traditions": [
+      "mossi_court_music"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_heightened_speech",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.4305,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "bara",
+        "slots": {
+          "bara_size": "bara_size_royal_bendre",
+          "bara_head": "bara_head_goat_low",
+          "bara_technique": "bara_technique_pressed_bend",
+          "bara_role": "bara_role_mossi_court"
+        },
+        "scores": {
+          "bara_size": 8.081499999999998,
+          "bara_head": 0.2,
+          "bara_technique": 0.2815,
+          "bara_role": 8.2815
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "tama_senegal",
+          "talking_drum_context": "talking_drum_praise",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": -0.035,
+          "talking_drum_context": 0.39,
+          "talking_drum_shell_wood": 1.95,
+          "talking_drum_head": 1.1365
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "bara": [
+        "bara_size",
+        "bara_head",
+        "bara_technique",
+        "bara_role"
+      ],
+      "talking_drum": [
+        "talking_drum_origin",
+        "talking_drum_context",
+        "talking_drum_shell_wood",
+        "talking_drum_head"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bara_size": "bara_size_royal_bendre",
+      "bara_head": "bara_head_goat_low",
+      "bara_technique": "bara_technique_pressed_bend",
+      "bara_role": "bara_role_mossi_court",
+      "talking_drum_origin": "tama_senegal",
+      "talking_drum_context": "talking_drum_praise",
+      "talking_drum_shell_wood": "talking_drum_iroko_alt",
+      "talking_drum_head": "talking_drum_goat_skin_canonical"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

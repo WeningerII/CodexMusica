@@ -3,27 +3,27 @@
   "name": "Expressionist (Art Music)",
   "family": "classical",
   "lineage": "Central European art-music idiom crystallized in Vienna and Berlin roughly 1908-1925 by Arnold Schoenberg, Alban Berg and Anton Webern, marked by free atonality before serialism, extreme registral leaps and dynamic swings from ppp to fff within a bar, Sprechstimme half-sung declamation, splintered chamber-orchestra timbres (bass clarinet, celesta, muted brass, harmonium), fluctuating tempo without stable meter, and texts of dread, hysteria and nocturnal isolation.",
-  "recipe": "classic British mid-1910s expressionist, art Music, western modern branch, western common practice art music, musique concrete experimental electric german romanticism late romantic era. thick, close mic intimate, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, low c classical legato bass clarinet, legato celesta, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, silver yamaha modern Japanese mid to premium continuous-airflow legato flute, concert harp, composite resin modern climate stable buffet greenline style continuous-airflow legato english horn, stable synthetic timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 853,
-  "score": 439.983,
+  "recipe": "classic British mid-1910s expressionist, art Music, western modern branch, western common practice art music, musique concrete experimental electric german romanticism tape music. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, dark classical legato bass clarinet, legato celesta, synthetic sitka spruce European maple sycamore maple oil varnish violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, silver yamaha modern Japanese mid to premium continuous-airflow legato flute, concert harp, composite resin modern climate stable buffet greenline style continuous-airflow legato english horn, stable synthetic timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 847,
+  "score": 426.316,
   "config": {
     "traditions": [
       "expressionist_art_music",
       "german_romanticism",
-      "late_romantic_era"
+      "tape_music"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_tradition": "baroque_ornamental_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
           "voice_register": 6.15,
-          "voice_quality": 3.2500000000000004,
+          "voice_quality": 5.98,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.58,
-          "voice_articulation": 19.824999999999996,
-          "voice_microtone": 20.929999999999996,
-          "voice_tradition": 7.0200000000000005,
+          "voice_vibrato": 8.384999999999998,
+          "voice_articulation": 18.979999999999997,
+          "voice_microtone": 20.084999999999994,
+          "voice_tradition": 6.7445,
           "voice_mechanism_compound": 4.9,
-          "voice_estill_quality": 8.14092857142857,
-          "voice_speech_song": 27.169999999999998,
-          "voice_ensemble_config": 19.824999999999996,
-          "voice_ornament_system": 6.270714285714286,
-          "voice_pitch_organization": 4.9,
-          "voice_processing_chain": 4.68,
-          "voice_multitrack_stack": 2.08
+          "voice_estill_quality": 7.939500000000001,
+          "voice_speech_song": 26.519999999999996,
+          "voice_ensemble_config": 18.979999999999997,
+          "voice_ornament_system": 5.61,
+          "voice_pitch_organization": 5.7,
+          "voice_processing_chain": 4.745,
+          "voice_multitrack_stack": 1.819
         }
       },
       {
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": 5,
-          "grand_piano_size": 3.057928571428571,
-          "grand_piano_brand": 1.8849999999999996,
-          "piano_hammer": 15.03892857142857,
-          "piano_rim": 12.805,
+          "grand_piano_size": 2.199,
+          "grand_piano_brand": 1.4949999999999999,
+          "piano_hammer": 15.024999999999999,
+          "piano_rim": 13.195,
           "piano_soundboard": 10.5,
           "piano_pinblock": 10.65,
           "piano_plate": 10.59,
-          "piano_pitch_standard": 16.050428571428572
+          "piano_pitch_standard": 16.044000000000004
         }
       },
       {
@@ -84,7 +84,7 @@
           "bass_clarinet_style": "bass_clarinet_classical_legato"
         },
         "scores": {
-          "bass_clarinet_range": 1.69,
+          "bass_clarinet_range": 0.845,
           "bass_clarinet_style": 2.6
         }
       },
@@ -107,7 +107,7 @@
           "bowed_technique": "bowed_pizzicato",
           "orch_strings": "synthetic_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
-          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
@@ -117,15 +117,15 @@
         },
         "scores": {
           "bowed_technique": 5.375,
-          "orch_strings": 3.12,
-          "orch_top_wood": 7.787714285714286,
-          "orch_back_wood": 13.325,
+          "orch_strings": 2.6649999999999996,
+          "orch_top_wood": 7.7845,
+          "orch_back_wood": 12.43,
           "orch_varnish": 10.5,
-          "orch_setup_period": 11.738,
-          "orch_bow": 0.9749999999999999,
-          "orch_bow_stick": 13.385714285714284,
-          "orch_articulation": 1.8199999999999998,
-          "orch_rosin": 14.625
+          "orch_setup_period": 11.7305,
+          "orch_bow": 1.17,
+          "orch_bow_stick": 13.374999999999998,
+          "orch_articulation": 1.3649999999999998,
+          "orch_rosin": 13.65
         }
       },
       {
@@ -143,14 +143,14 @@
         },
         "scores": {
           "bowed_technique": 5.375,
-          "cello_strings": 4.029999999999999,
-          "cello_top_wood": 7.162714285714285,
-          "cello_back_wood": 12.235,
+          "cello_strings": 3.575,
+          "cello_top_wood": 7.1595,
+          "cello_back_wood": 12.43,
           "cello_varnish": 10.5,
-          "cello_setup_period": 11.738,
+          "cello_setup_period": 11.7305,
           "cello_bow_grip": 2.6,
           "cello_rosin": 10.935,
-          "cello_bow_stick": 13.385714285714284
+          "cello_bow_stick": 13.374999999999998
         }
       },
       {
@@ -163,11 +163,11 @@
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 5.850714285714286,
-          "flute_size": 1.3,
-          "flute_material": 2.21,
+          "wind_articulation": 5.19,
+          "flute_size": 0.65,
+          "flute_material": 1.5600000000000003,
           "flute_technique": 0.9100000000000003,
-          "flute_maker_school": 3.25
+          "flute_maker_school": 3.055
         }
       },
       {
@@ -177,21 +177,21 @@
           "harp_pedals": "harp_double_pedal"
         },
         "scores": {
-          "harp_strings": 3.445,
-          "harp_pedals": 3.6399999999999997
+          "harp_strings": 2.795,
+          "harp_pedals": 2.795
         }
       },
       {
         "id": "english_horn",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "english_horn_school": "english_horn_american",
+          "english_horn_school": "english_horn_french",
           "english_horn_context": "english_horn_film",
           "english_horn_body_wood": "english_horn_resin_composite"
         },
         "scores": {
-          "wind_articulation": 5.850714285714286,
-          "english_horn_school": 0.9100000000000003,
+          "wind_articulation": 5.19,
+          "english_horn_school": 1.25,
           "english_horn_context": 0.9100000000000003,
           "english_horn_body_wood": 2.21
         }

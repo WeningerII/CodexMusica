@@ -1,0 +1,188 @@
+{
+  "id": "marabi",
+  "name": "Marabi (Johannesburg slumyard keyboard and dance-band music)",
+  "family": "global",
+  "lineage": "Working-class urban music of the Johannesburg slumyards of the 1920s and 1930s, such as Doornfontein and Prospect Township, played at shebeen parties on a pedal organ or piano, often with a pebble-filled tin rattle, over a short, endlessly repeated cycle of tonic, subdominant and dominant chords. In the 1930s and 1940s African dance bands such as the Jazz Maniacs and the Merry Blackbirds carried the marabi cycle onto 78 rpm records, and it became a root of kwela, mbaqanga and South African jazz. The shaker card stands in for the tin rattle.",
+  "recipe": "classic mid-1920s marabi, functional Song, African pop branch. block chord pump organ harmonium, block chord upright piano, shaker source unspecified, continuous-airflow legato saxophone, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 404,
+  "score": 22.37,
+  "config": {
+    "traditions": [
+      "marabi"
+    ],
+    "instruments": [
+      {
+        "id": "pump_organ_harmonium",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "pump_organ_construction": "pump_organ_19th_parlor",
+          "pump_organ_stops": "pump_organ_celeste_stop"
+        },
+        "scores": {
+          "keyboard_technique": 3.7,
+          "pump_organ_construction": -0.05,
+          "pump_organ_stops": -0.05
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 3.7,
+          "upright_use": 0.3045,
+          "upright_piano_size": 0
+        }
+      },
+      {
+        "id": "shaker_source_unspecified",
+        "slots": {
+          "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+        },
+        "scores": {
+          "shaker_source_unspecified_identity": 0.39
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_balanced_action"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "sax_size": -0.035,
+          "sax_reed": 0,
+          "sax_body_alloy": -1.159,
+          "sax_mouthpiece": 0.168,
+          "sax_technique": 5,
+          "sax_maker_school": -2.05
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "hand_hammered"
+        },
+        "scores": {
+          "drum_technique": -0.05,
+          "drumhead": 0.273,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.273,
+          "shell_thickness": 0,
+          "bearing_edges": -1.164,
+          "snare_wires": 0,
+          "cymbal_alloy": 5.091500000000001,
+          "cymbal_hammering": 3.7865,
+          "cymbal_lathing": 3.7865,
+          "cymbal_finish": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "pump_organ_harmonium": [
+        "keyboard_technique",
+        "pump_organ_construction",
+        "pump_organ_stops"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "shaker_source_unspecified": [
+        "shaker_source_unspecified_identity"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ]
+    },
+    "room": "studio_electrical_era_office",
+    "archetype": "arch_electrical_disc_cut",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_electrical_era_office",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "pump_organ_construction": "pump_organ_19th_parlor",
+      "pump_organ_stops": "pump_organ_celeste_stop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role",
+      "wind_articulation": "wind_continuous_legato",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_balanced_action",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "hand_hammered"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "colored"
+  }
+}

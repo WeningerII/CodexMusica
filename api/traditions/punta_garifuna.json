@@ -3,9 +3,9 @@
   "name": "Punta (Garifuna)",
   "family": "global",
   "lineage": "Garifuna (Black-Carib) Honduran-Belizean-Guatemalan-Nicaraguan Caribbean-coast Afro-Amerindian song-and-dance tradition descended from the 1797 British-deportation of the surviving Carib-Arawak-Afro-Caribbean people from St-Vincent to Roatan-island (now eastern-Caribbean-coast Central-America). The canonical punta ensemble: three garaon barrel-drums (primero high-improvisation, segunda middle-rhythm, tercera bass-drum) with maracas (sisira), conch-shell-trumpet, and call-and-response female-vocal-leadership. The 2/4 rapid-tempo punta-rhythm accentuates the dance characterized by virtuosic hip-and-glute movement. (under the broader Garifuna language-music-and-dance category). The 1980s-onward punta-rock electrified-and-commercialized variant brought guitar-and-keyboard to the genre.",
-  "recipe": "classic Caribbean mid-1980s punta, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, breath veiled tone, straight note core, interlocked note trading. log drum, maracas, a cappella small 3 to 8 one per part three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble, interlocking celebratory fast hardwood shell deerskin head garaon. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 542,
-  "score": 231.849,
+  "recipe": "classic Caribbean mid-1980s punta, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, breath veiled tone, straight note core, interlocked note trading. log drum, maracas, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, interlocking celebratory fast hardwood shell deerskin head garaon. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 540,
+  "score": 232.979,
   "config": {
     "traditions": [
       "punta_garifuna",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.6600000000000015,
+          "voice_register": 3.570000000000001,
           "voice_quality": 19.889999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,7 +43,7 @@
           "voice_microtone": 18.849999999999994,
           "voice_tradition": 10.985,
           "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 4.38,
+          "voice_estill_quality": 4.335,
           "voice_speech_song": 19.824999999999996,
           "voice_ensemble_config": 18.914999999999996,
           "voice_ornament_system": 6.075,
@@ -55,12 +55,12 @@
       {
         "id": "log_drum",
         "slots": {
-          "log_drum_voice": "log_drum_sub",
+          "log_drum_voice": "log_drum_mid",
           "log_drum_context": "log_drum_sa_house"
         },
         "scores": {
-          "log_drum_voice": 0.66,
-          "log_drum_context": 5.1705000000000005
+          "log_drum_voice": 0.65,
+          "log_drum_context": 5.3205
         }
       },
       {
@@ -79,7 +79,7 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_andean_three_voice_parallel_thirds",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
@@ -97,7 +97,7 @@
           "garaon_build": "garaon_mahogany_deerskin"
         },
         "scores": {
-          "garaon_drum": 45.7985,
+          "garaon_drum": 46.9235,
           "garaon_repertoire": 20.049999999999997,
           "garaon_build": 10.75
         }

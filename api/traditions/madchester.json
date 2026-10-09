@@ -1,16 +1,17 @@
 {
-  "id": "madchester",
-  "name": "Madchester (Manchester Scene)",
-  "family": "rock",
-  "lineage": "Manchester city scene of 1988-1992 centred on the Haçienda and Factory Records, with The Stone Roses, Happy Mondays, 808 State and A Guy Called Gerald, blending acid-house 4/4 and sampled breakbeats with psychedelic guitar, Northern-drawled vocals and Latin hand percussion at 110-125 BPM, produced by Martin Hannett and Paul Oakenfold.",
-  "recipe": "classic British 1988-1992 madchester, distorted Rock, alternative branch, house electronic dance, pop experimental experimental electric new york garage house freestyle house. thick, breath veiled tone, slow rate, interlocked note trading. mahogany rosewood riff driven single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, roland tr 8s modern aira digital recreation TR-909, field textural sampler, lead water buffalo premium alternative siam oak mid tier modern open slap hand drum congas, singing lead analog poly synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 841,
-  "score": 307.793,
+  "id": "madchester_baggy",
+  "merged_from": "madchester",
+  "name": "Madchester / baggy",
+  "family": "rock_punk",
+  "lineage": "Late-1980s-and-early-1990s Manchester-based British rock-and-dance subgenre synthesizing indie-rock with acid-house club rhythmic-influence. The Stone Roses, Happy Mondays, Inspiral Carpets, the Charlatans, and James constitute the canonical roster; the Hacienda nightclub (Manchester, opened 1982) provided the canonical performance venue. The 1989 Stone Roses self-titled debut and the parallel Happy Mondays Bummed (1988) consolidated the canonical sound.",
+  "recipe": "classic British 1987-1989 madchester / baggy, distorted Rock, alternative branch, house electronic dance slap house afro house. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sound design field sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus flanger.",
+  "recipe_chars": 701,
+  "score": 290.827,
   "config": {
     "traditions": [
-      "madchester",
-      "new_york_garage_house",
-      "freestyle_house"
+      "madchester_baggy",
+      "slap_house",
+      "afro_house"
     ],
     "instruments": [
       {
@@ -20,69 +21,69 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 11.534999999999995,
-          "voice_quality": 9.294999999999998,
+          "voice_register": 10.259999999999993,
+          "voice_quality": 18.2,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6249999999999998,
-          "voice_articulation": 18.459999999999994,
-          "voice_microtone": 18.459999999999994,
-          "voice_tradition": 4.594999999999999,
-          "voice_mechanism_compound": 4.859999999999999,
-          "voice_estill_quality": 4.620000000000001,
-          "voice_speech_song": 19.304999999999993,
-          "voice_ensemble_config": 21.254999999999992,
-          "voice_ornament_system": 1.15,
-          "voice_pitch_organization": 0.8999999999999997,
-          "voice_processing_chain": 15.470000000000002,
-          "voice_multitrack_stack": 4.94
+          "voice_vibrato": 3.115,
+          "voice_articulation": 17.549999999999997,
+          "voice_microtone": 17.354999999999993,
+          "voice_tradition": 10.2375,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 17.549999999999997,
+          "voice_ensemble_config": 17.484999999999992,
+          "voice_ornament_system": 0.49999999999999994,
+          "voice_pitch_organization": 6.675000000000001,
+          "voice_processing_chain": 13.02,
+          "voice_multitrack_stack": 7.57
         }
       },
       {
-        "id": "electric_guitar_single_coil",
+        "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
+          "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
-          "string_material": "nickel_plated",
-          "string_gauge": "g_12",
-          "bridge": "vintage_trem",
-          "scale_length": "scale_gibson",
-          "finish": "poly",
-          "string_tuning": "drop_d",
-          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "low_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 3.35,
-          "amp_make": 2.7350000000000008,
-          "body_wood": 1.63,
-          "neck_wood": 1.63,
-          "fretboard": 1.5799999999999996,
-          "pickup_magnet": 0.585,
-          "string_material": 0.585,
-          "string_gauge": 1.4949999999999999,
-          "bridge": 0.195,
-          "scale_length": 1.6899999999999997,
-          "finish": 0.5,
-          "string_tuning": 3.835,
-          "single_coil_pickup_construction": 0
+          "electric_technique": 8.02,
+          "amp_make": 5.485,
+          "body_wood": 4.88,
+          "neck_wood": 0.32999999999999996,
+          "fretboard": 0.22499999999999998,
+          "pickup_magnet": 0.8,
+          "pickup_winding": 0.845,
+          "string_material": 0.8,
+          "bridge": 0.8,
+          "scale_length": 5.074999999999999,
+          "string_gauge": 0.37499999999999994,
+          "finish": 0.045,
+          "string_tuning": 9.549999999999999
         }
       },
       {
@@ -92,19 +93,19 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.8200000000000003,
-          "body_wood": 1.6899999999999997,
-          "pickup_config": 0.65,
-          "string_type": 6.25,
-          "scale_length_b": 1.98,
-          "fretted_or_not": 0.5,
-          "bass_technique": 6.3950000000000005,
+          "amp_make": 5.77,
+          "body_wood": 0.66,
+          "pickup_config": 0.26999999999999996,
+          "string_type": 10.25,
+          "scale_length_b": 0.43500000000000005,
+          "fretted_or_not": 0.135,
+          "bass_technique": 10.395,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,73 +113,30 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.719999999999995,
-          "drumhead": 1.7449999999999997,
+          "drum_technique": 17.614999999999995,
+          "drumhead": 2.8925000000000005,
           "drum_kit_kick_pedal": 0
-        }
-      },
-      {
-        "id": "drum_machine_909",
-        "slots": {
-          "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_tr_8s_modern"
-        },
-        "scores": {
-          "tr909_voice": 22.5,
-          "drum_machine_909_context": 0.845,
-          "tr909_production_origin": 1.875
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
+          "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "emu_emax",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 3.644999999999999,
-          "sampler_archetypes": 0.3,
-          "sampler_bit_depth": 1.3649999999999998,
-          "sampler_workflow": 3.885,
-          "sampler_classic_context": 48.22999999999999
-        }
-      },
-      {
-        "id": "congas",
-        "slots": {
-          "percussion_technique": "percussion_open_slap",
-          "conga_set": "quinto",
-          "conga_skin": "conga_water_buffalo",
-          "conga_shell_wood": "conga_siam_oak"
-        },
-        "scores": {
-          "percussion_technique": 9.56,
-          "conga_set": 1.225,
-          "conga_skin": 1.5,
-          "conga_shell_wood": 1.48
-        }
-      },
-      {
-        "id": "analog_poly_synth",
-        "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
-        },
-        "scores": {
-          "electronic_technique": 3.335,
-          "poly_archetypes": 2.5,
-          "poly_voices": 0.3,
-          "poly_maker_lineage": 0.78
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 0.845,
+          "sampler_bit_depth": 0.09,
+          "sampler_workflow": 2.6350000000000007,
+          "sampler_classic_context": 42.9975
         }
       }
     ],
@@ -187,24 +145,66 @@
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "pre_neve_1073_input",
-      "console": "console_soundcraft_3200_uk_80s",
-      "comp": "comp_smart_c1_bus",
-      "eq": null,
-      "amp": null,
-      "medium": "digital_std"
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
+      "medium": "tape_30ips"
     },
-    "tuning": "funk_one_drop_syncopated_4_4",
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": []
+    "fx_extras": [
+      "chorus_pedal",
+      "flanger_pedal"
+    ]
   },
   "source": {
-    "tuning": "funk_one_drop_syncopated_4_4",
+    "tuning": "twelve_tet",
     "room": "studio_british_class_a_commercial",
+    "parts": {
+      "body_wood": "alder_h",
+      "pickup_magnet": "alnico_5_h",
+      "string_material": "nickel_plated_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_fender_h",
+      "pickup_config": "split_coil",
+      "string_type": "flatwound",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "drumhead": "single_coated",
+      "drum_technique": "sticks_rock",
+      "voice_register": "mix_voice",
+      "voice_quality": "aspirated_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "sampler_archetypes": "akai_s900",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "string_tuning": "standard_tuning"
+    },
     "chain_mic": "mic_u87_condenser_neumann",
     "chain_pre": "pre_neve_1073_input",
-    "chain_comp": "comp_smart_c1_bus",
-    "chain_medium": "digital_std",
-    "chain_console": "console_soundcraft_3200_uk_80s"
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_british_transformer_70s",
+    "chain_fx": [
+      "chorus_pedal",
+      "flanger_pedal"
+    ],
+    "chain_amp": "amp_american_blackface",
+    "chain_amp_guitar": "amp_american_fender_blackface",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

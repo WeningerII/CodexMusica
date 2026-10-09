@@ -5,7 +5,7 @@
   "lineage": "Eugene indie grows through the Oregon city’s independent bands, live spaces and local recording networks. Emo, punk and guitar-pop form part of a wider scene shaped by regional exchange and self-directed production.",
   "recipe": "classic eugene indie, distorted Rock, punk branch. group vocals, live take. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 222,
-  "score": 33.742,
+  "score": 33.469,
   "config": {
     "traditions": [
       "eugene_indie"
@@ -79,7 +79,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0

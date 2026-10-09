@@ -3,9 +3,9 @@
   "name": "Jazz flute",
   "family": "jazz",
   "lineage": "Jazz flute uses the flute’s articulation, register and breath colour in jazz melody and improvisation. Soloists work in acoustic groups, vocal collaborations and more experimental ensembles.",
-  "recipe": "classic jazz flute, improv On Frame, avant branch. no specific ornament system, unprocessed natural acoustic. powell boston canonical American orchestral multiphonic flute. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 273,
-  "score": 8.891,
+  "recipe": "classic jazz flute, improv On Frame, avant branch. no specific ornament system, unprocessed natural acoustic, single lead single track no stacking. powell boston canonical American orchestral multiphonic flute. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 311,
+  "score": 8.922,
   "config": {
     "traditions": [
       "jazz_flute"
@@ -64,7 +64,7 @@
           "voice_ornament_system": 0.5775,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.063,
-          "voice_multitrack_stack": 0.47250000000000003
+          "voice_multitrack_stack": 0.504
         }
       }
     ],

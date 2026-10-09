@@ -5,7 +5,7 @@
   "lineage": "Gàidhlig song tradition of the Highlands, Hebrides and Cape Breton, collected by Frances Tolmie, Marjory Kennedy-Fraser and the School of Scottish Studies from the 1900s onward — waulking songs (òrain luaidh) with call-and-response leader and chorus locked to the beat of cloth on the board, plus laments, love songs, milking songs and precented psalm lines, sung mostly unaccompanied in narrow-range pentatonic and hexatonic modes with vocable refrains and modest ornamentation, and since the 1970s arranged with clàrsach, guitar and fiddle by revival groups.",
   "recipe": "classic Northern European mid-1900s scottish gaelic folk song, ballad Poetry, Celtic balladic branch, Celtic hebridean domestic rhythm, Celtic balladic cape breton Gaelic cape breton fiddle and piano tradition cape breton milling-frolic. thick, breath veiled tone, fast rate, interlocked note trading. celtic harp, fiddle, dadgad tuning drone like modal dreadnought acoustic guitar, melodic tin whistle, castagnari Italian premium folk music drone like accordion. scottish bothy farmhouse kitchen. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 572,
-  "score": 314.552,
+  "score": 315.488,
   "config": {
     "traditions": [
       "scottish_gaelic_folk",
@@ -41,9 +41,9 @@
           "voice_vibrato": 1.69,
           "voice_articulation": 21.515,
           "voice_microtone": 21.71,
-          "voice_tradition": 50.555,
-          "voice_mechanism_compound": 7.635999999999999,
-          "voice_estill_quality": 6.747999999999999,
+          "voice_tradition": 50.806999999999995,
+          "voice_mechanism_compound": 7.734999999999999,
+          "voice_estill_quality": 6.9159999999999995,
           "voice_speech_song": 25.740000000000002,
           "voice_ensemble_config": 26.357499999999998,
           "voice_ornament_system": 38.059,
@@ -57,12 +57,12 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "celtic_harp_levers": "lever_camac",
-          "celtic_harp_strings": "celtic_gut"
+          "celtic_harp_strings": "celtic_wire_strung"
         },
         "scores": {
           "acoustic_technique": 1.45,
           "celtic_harp_levers": -0.35,
-          "celtic_harp_strings": 0.65
+          "celtic_harp_strings": 0.8579999999999999
         }
       },
       {
@@ -94,7 +94,7 @@
           "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
-          "acoustic_technique": 13.348,
+          "acoustic_technique": 13.3165,
           "string_tuning": 25.1,
           "top_wood": 0.45499999999999996,
           "back_sides": 0.45499999999999996,
@@ -110,10 +110,10 @@
           "whistle_body_material": "whistle_brass_canonical"
         },
         "scores": {
-          "wind_articulation": 15.3265,
+          "wind_articulation": 15.295,
           "whistle_key": 1.5,
           "whistle_ornament": 1.3,
-          "whistle_body_material": 0.2715
+          "whistle_body_material": 0.5445
         }
       },
       {

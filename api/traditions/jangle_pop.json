@@ -5,7 +5,7 @@
   "lineage": "1980s indie genre extending the 1960s Byrds twelve-string-electric chimey-guitar sound — codified through R.E.M. (the Athens Georgia voice, Murmur 1983, Reckoning 1984, Fables of the Reconstruction 1985), The dB s, the Smiths (the UK parallel canon, with Johnny Marrs Rickenbacker arpeggios over Morrisseys baritone), the Replacements early period, the Feelies, Game Theory, and the broader Paisley Underground Los Angeles scene (Dream Syndicate, Rain Parade, Three OClock); foundational sound: chiming Rickenbacker 12-string-electric over driving rhythm-section and melodic vocal hooks",
   "recipe": "classic North American mid-1980s jangle pop, functional Song, pop rock branch, alternative distorted rock british indie rock german indie rock. thick, breath veiled tone, straight note core, interlocked note trading. vox ac amp British 60s amp top boost chime rotosound toaster twelve string electric, marshall plexi amp British rock amp clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 693,
-  "score": 280.115,
+  "score": 280.37,
   "config": {
     "traditions": [
       "jangle_pop",
@@ -41,7 +41,7 @@
           "voice_vibrato": 3.185000000000001,
           "voice_articulation": 8.774999999999999,
           "voice_microtone": 24.299999999999997,
-          "voice_tradition": 10.744999999999997,
+          "voice_tradition": 10.699999999999998,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 3.185000000000001,
           "voice_speech_song": 12.739999999999997,
@@ -63,9 +63,9 @@
           "twelve_string_electric_pickup": "twelve_string_toaster_rick"
         },
         "scores": {
-          "electric_technique": 13.414999999999997,
+          "electric_technique": 13.369999999999997,
           "amp_make": 5.19,
-          "twelve_string_electric_model": 6.535000000000001,
+          "twelve_string_electric_model": 6.385000000000001,
           "twelve_string_electric_context": 9.749999999999998,
           "twelve_string_electric_strings": 1.995,
           "twelve_string_electric_pickup": 5.3500000000000005
@@ -78,8 +78,8 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "pine",
           "neck_wood": "roasted_maple",
-          "fretboard": "ebony_fb",
-          "pickup_magnet": "alnico_2",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
@@ -89,13 +89,13 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 13.414999999999997,
+          "electric_technique": 13.369999999999997,
           "amp_make": 8.58,
-          "body_wood": 0.45499999999999996,
+          "body_wood": 0.35,
           "neck_wood": 0.38999999999999996,
-          "fretboard": 0.195,
-          "pickup_magnet": 0.195,
-          "string_material": 0.15,
+          "fretboard": 0.345,
+          "pickup_magnet": 0.345,
+          "string_material": 0.345,
           "string_gauge": 0.45499999999999996,
           "bridge": 0.195,
           "scale_length": 0.195,
@@ -118,7 +118,7 @@
         },
         "scores": {
           "amp_make": 8.905,
-          "body_wood": 0.63,
+          "body_wood": 0.78,
           "pickup_config": 0.585,
           "string_type": 20.475,
           "scale_length_b": 0.195,

@@ -5,7 +5,7 @@
   "lineage": "Swedish electronic music includes producers and bands that connect electronic rhythm with distinctive vocal songwriting and played instruments.",
   "recipe": "classic swedish electronic, electronic Dance. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 224,
-  "score": 3.454,
+  "score": 3.349,
   "config": {
     "traditions": [
       "swedish_electronic"
@@ -35,7 +35,7 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.21,
+          "kick_voice": 0.105,
           "snare_voice": 0.0315,
           "hat_voice": 1,
           "shuffle_quantize": -0.05

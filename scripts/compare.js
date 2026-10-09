@@ -67,7 +67,7 @@ function axisDeltas(axA, axB) {
 }
 
 if (flags.traditions) {
-  const [idA, idB] = twoIds(flags.traditions, positional);
+  const [idA, idB] = twoIds(flags.traditions, positional).map(C.resolveTraditionId);
   if (!idA || !idB) {
     console.error('--traditions requires two ids — use --traditions=a,b or --traditions a b');
     process.exit(2);

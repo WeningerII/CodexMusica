@@ -3,9 +3,9 @@
   "name": "Horror punk brasileiro",
   "family": "rock_punk",
   "lineage": "Brazilian horror punk links punk-band drive with horror imagery and rock-and-roll influences.",
-  "recipe": "classic horror punk brasileiro, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 400,
-  "score": 52.178,
+  "recipe": "classic horror punk brasileiro, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 382,
+  "score": 50.597,
   "config": {
     "traditions": [
       "horror_punk_brasileiro"
@@ -30,8 +30,8 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 17.68,
-          "body_wood": 1.263,
+          "amp_make": 17.4295,
+          "body_wood": 0.756,
           "neck_wood": 0.063,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 1.263,
+          "body_wood": 0.756,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.453,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },

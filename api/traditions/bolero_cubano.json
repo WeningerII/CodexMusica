@@ -3,9 +3,9 @@
   "name": "Bolero cubano",
   "family": "global",
   "lineage": "Born in Santiago de Cuba in the 1880s with Pepe Sánchez's \"Tristezas\" and reshaped for radio and the LP in 1940s-50s Havana by Isolina Carrillo, Beny Moré and the filin generation: slow 2/4 with the cinquillo figure in bongó and güiro, arpeggiated guitar or lush piano-and-strings accompaniment, a soloist singing long legato phrases with heavy rubato and portamento, and lyrics of romantic reproach organized in two contrasting sixteen-bar sections.",
-  "recipe": "classic Caribbean mid-1880s bolero cubano, functional Song, tropical song branch, Latin am troubadour ballad poetry, son salsa Cuban milonga folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, no chemical hardener t rivet oversize maple tension resonator European spruce grand piano, venice catlin high twist renaissance bass Italian alpine spruce val di fiemme double bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, maracas, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn legato trumpet, guiro. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 901,
-  "score": 232.96,
+  "recipe": "classic Caribbean mid-1880s bolero cubano, functional Song, tropical song branch, Latin am troubadour ballad poetry, son salsa Cuban milonga folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, no chemical hardener t rivet oversize maple tension resonator European spruce grand piano, venice catlin high twist renaissance bass Italian alpine spruce val di fiemme double bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, maracas, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn legato trumpet, guiro. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 854,
+  "score": 230.477,
   "config": {
     "traditions": [
       "bolero_cubano",
@@ -38,7 +38,7 @@
           "voice_quality": 17.22499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.4525,
+          "voice_vibrato": 4.385,
           "voice_articulation": 22.685,
           "voice_microtone": 23.334999999999994,
           "voice_tradition": 8.1575,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.5749999999999997,
           "voice_pitch_organization": 1.3,
           "voice_processing_chain": 5.004999999999999,
-          "voice_multitrack_stack": 1.63
+          "voice_multitrack_stack": 1.6899999999999997
         }
       },
       {
@@ -65,8 +65,8 @@
         "scores": {
           "acoustic_technique": 7.2700000000000005,
           "string_tuning": 0,
-          "top_wood_classical": 11.28,
-          "bracing_classical": 1.3,
+          "top_wood_classical": 10.739999999999998,
+          "bracing_classical": 1.195,
           "string_classical": 0.975,
           "attack_technique_cl": 1.04
         }
@@ -93,7 +93,7 @@
           "piano_soundboard": 2.1125,
           "piano_pinblock": 0.7149999999999999,
           "piano_plate": 0.45,
-          "piano_pitch_standard": 3.56
+          "piano_pitch_standard": 3.41
         }
       },
       {
@@ -117,7 +117,7 @@
           "bass_top_wood": 1.065,
           "bass_back_wood": 1.3699999999999999,
           "bass_varnish": 0.325,
-          "bass_setup_period": 3.055,
+          "bass_setup_period": 2.98,
           "bass_play": 0.5199999999999999,
           "bass_rosin": 1.9174999999999998,
           "bass_bow_stick": 0.35750000000000004
@@ -132,7 +132,7 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 10.735000000000001,
+          "percussion_technique": 10.495000000000001,
           "bongos_skin": 5.59,
           "bongos_context": 0.195,
           "bongos_shell_wood": 2.34
@@ -145,8 +145,8 @@
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 0.63,
-          "maracas_filling": 0.195
+          "maracas_construction": 0.435,
+          "maracas_filling": 0
         }
       },
       {
@@ -166,8 +166,8 @@
           "trumpet_mouthpiece": 2.3724999999999996,
           "brass_mute": 0.65,
           "trumpet_technique": 1.375,
-          "trumpet_bell_metal": 1.17,
-          "trumpet_maker_school": 1.41
+          "trumpet_bell_metal": 0.78,
+          "trumpet_maker_school": 1.02
         }
       },
       {
@@ -177,7 +177,7 @@
           "guiro_striker": "guiro_comb"
         },
         "scores": {
-          "guiro_origin": 0.195,
+          "guiro_origin": 0,
           "guiro_striker": 0.39
         }
       }

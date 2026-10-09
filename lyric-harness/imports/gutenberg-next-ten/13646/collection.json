@@ -1,0 +1,40 @@
+{
+  "gutenberg_id": "13646",
+  "title": "A Book of Nonsense",
+  "author": "Edward Lear",
+  "publication_year": 1894,
+  "edition": "1894 cover/edition; dedication dated1862 is separate; first publication1846.",
+  "source_url": "https://www.gutenberg.org/files/13646/13646-h/13646-h.htm",
+  "ebook_url": "https://www.gutenberg.org/ebooks/13646",
+  "source_sha256": "8303b50e36947c4d9099bb119d4822619ffaff6e6f1c458e090898182ed89426",
+  "source_bytes": 74086,
+  "retrieved_on": "2026-10-08",
+  "rights_evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/13646",
+      "excerpt": "Copyright: Public domain in the USA.",
+      "checked": "2026-10-08",
+      "jurisdiction": "United States"
+    }
+  ],
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/files/13646/13646-h/13646-h.htm",
+    "detail": "1894 cover/edition; dedication dated1862 is separate; first publication1846."
+  },
+  "deduplication": "Common batch integration compares all eligible whole units against existing corpus and this batch; counts here are pre-deduplication.",
+  "scope": "Complete original English short poems, retaining dialect, spelling, punctuation and stanza boundaries; no numeric line cap. Extended works and translations remain in exclusion ledger, never split.",
+  "retrieval": "GITenberg mirror of the same PG transcription; edition and rights cross-checked with live official Gutenberg metadata.",
+  "extraction": "HTML rhyme elements; br and block indentation spans define printed lines; original Unicode entities decoded. Includes complete introductory verse.",
+  "retrieval_url": "https://raw.githubusercontent.com/GITenberg/A-Book-of-Nonsense_13646/master/13646-h/13646-h.htm",
+  "source_entries": 113,
+  "counts": {
+    "candidate_units": 113,
+    "eligible_before_deduplication": 113,
+    "excluded_before_deduplication": 0
+  },
+  "validation": {
+    "adapter_rerun_byte_identical": true,
+    "source_sha256_checked": true,
+    "boundary_regressions": "test_adapter.py"
+  }
+}

@@ -3,9 +3,9 @@
   "name": "Downtempo",
   "family": "electronic",
   "lineage": "Downtempo formed in the chill-out rooms of London, Bristol, Vienna and Washington DC between 1990 and 1997 through Kruder & Dorfmeister, Thievery Corporation, Nightmares on Wax and Zero 7 — 80-105 BPM sampled or programmed breakbeats with heavy swing, dub-derived delay and spring reverb, filtered upright-bass and Rhodes loops, jazz and bossa samples, and either wordless textures or a single languid guest vocal.",
-  "recipe": "classic Asian early-1990s downtempo, electronic Dance, continental branch, ambient experimental electric, deep house house, idm glitch experimental electric folktronica ambient house. thick, breath veiled tone, straight onset, interlocked note trading. glitched textural sampler, sampled chopped turntable, centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, growly gut upright bass, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, TR-909, flute. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 664,
-  "score": 245.625,
+  "recipe": "classic Asian early-1990s downtempo, electronic Dance, continental branch, ambient experimental electric, deep house house, idm glitch experimental electric folktronica ambient house. thick, breath veiled tone, straight onset, interlocked note trading. glitched textural sampler, turntable, centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, growly gut upright bass, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, TR-909, flute. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 648,
+  "score": 246.39,
   "config": {
     "traditions": [
       "downtempo",
@@ -25,7 +25,7 @@
         "scores": {
           "electronic_technique": 14.115,
           "sampler_archetypes": 0.4482142857142857,
-          "sampler_bit_depth": 0.43499999999999994,
+          "sampler_bit_depth": 0.6449999999999999,
           "sampler_workflow": 13.875,
           "sampler_classic_context": 31.654999999999998
         }
@@ -37,7 +37,7 @@
           "turntable_technique": "turntable_chirp_baby"
         },
         "scores": {
-          "electronic_technique": 3.098928571428572,
+          "electronic_technique": 2.9039285714285716,
           "turntable_technique": 0
         }
       },
@@ -52,8 +52,8 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 0.8249999999999998,
-          "rhodes_model": 3.685,
+          "keyboard_technique": 0.8699999999999999,
+          "rhodes_model": 3.88,
           "rhodes_use": 1.3,
           "rhodes_tine_material": 0.1949999999999999,
           "rhodes_hammer_tip": -0.42000000000000004,
@@ -111,7 +111,7 @@
           "voice_quality": 10.985,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.8449999999999998,
+          "voice_vibrato": 3.95,
           "voice_articulation": 20.149999999999995,
           "voice_microtone": 19.95499999999999,
           "voice_tradition": 14.1375,
@@ -121,7 +121,7 @@
           "voice_ensemble_config": 19.434999999999995,
           "voice_ornament_system": 0.45499999999999996,
           "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 17.707142857142856,
+          "voice_processing_chain": 17.902142857142856,
           "voice_multitrack_stack": 2.5350000000000006
         }
       },
@@ -135,7 +135,7 @@
         "scores": {
           "tr909_voice": 9.25,
           "drum_machine_909_context": 0.3,
-          "tr909_production_origin": 0.15
+          "tr909_production_origin": 0.255
         }
       },
       {
@@ -151,7 +151,7 @@
           "wind_articulation": 0.26,
           "flute_size": 0.65,
           "flute_material": 0.65,
-          "flute_technique": 0.99,
+          "flute_technique": 1.095,
           "flute_maker_school": 0.845
         }
       }

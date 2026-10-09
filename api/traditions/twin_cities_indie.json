@@ -5,7 +5,7 @@
   "lineage": "Twin Cities indie encompasses independent music rooted in Minneapolis and Saint Paul. Its regional networks bring together guitar rock, pop songwriting and folk-influenced approaches, with electronic production also entering contemporary bands.",
   "recipe": "classic twin cities indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited synthesizer credited programmed drums unspecified. shoebox concert hall.",
   "recipe_chars": 369,
-  "score": 47.269,
+  "score": 47.406,
   "config": {
     "traditions": [
       "twin_cities_indie"
@@ -70,14 +70,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 3.6680000000000006,
+          "electric_technique": 3.6365000000000003,
           "amp_make": 0,
           "body_wood": 0.9099999999999999,
-          "neck_wood": 0.105,
+          "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0.1365,
           "string_material": 0,
-          "string_gauge": 1.673,
+          "string_gauge": 1.5679999999999998,
           "bridge": 0.1365,
           "scale_length": 0,
           "finish": 0,
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.9099999999999999,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0.7,
           "cymbal_alloy": 0.49999999999999983,
           "cymbal_hammering": 11.981499999999999,

@@ -1,0 +1,185 @@
+{
+  "id": "dhadi_punjab",
+  "name": "Dhadi (Punjabi heroic ballad singing)",
+  "family": "global",
+  "lineage": "Dhadis are Punjabi ballad singers named after the dhadd, a small hourglass drum struck with the fingers whose pitch is bent by squeezing its lacing; here the hudka card stands in for the dhadd, and the sarangi card for the Punjabi folk sarangi. A dhadi jatha of two dhadd players and a sarangi player sings vars, heroic ballads of Sikh history, at gurdwaras and religious fairs, alternating sung verses with spoken narration, a practice the community traces to the patronage of Guru Hargobind. Sohan Singh Seetal was among its most celebrated twentieth-century singers.",
+  "recipe": "classic modern dhadi, ballad Poetry, indian bard branch. duet, single lead single track no stacking. hudka uttarakhand, sarangi. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 208,
+  "score": 6.503,
+  "config": {
+    "traditions": [
+      "dhadi_punjab"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0.0315,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.7559999999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.7034999999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "hudka_uttarakhand",
+        "slots": {
+          "hudka_membrane": "gendang_melayu_goat",
+          "hudka_shell": "hudka_wood_hourglass",
+          "hudka_tension": "hudka_pressure_lacing",
+          "hudka_excitation": "hudka_hand_struck",
+          "hudka_support": "hudka_underarm"
+        },
+        "scores": {
+          "hudka_membrane": 0,
+          "hudka_shell": 0.2415,
+          "hudka_tension": 1.6315000000000002,
+          "hudka_excitation": 0,
+          "hudka_support": 0.37799999999999995
+        }
+      },
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_35_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "dutar_strings_unspecified",
+          "sarangi_body_wood": "sarangi_tun_body"
+        },
+        "scores": {
+          "bowed_technique": 1.932,
+          "sarangi_belly": 0.2415,
+          "sarangi_taraf": 0,
+          "sarangi_bow": 0,
+          "sarangi_main_strings": 0,
+          "sarangi_body_wood": 0.45149999999999996
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "hudka_uttarakhand": [
+        "hudka_shell",
+        "hudka_membrane",
+        "hudka_tension",
+        "hudka_excitation",
+        "hudka_support"
+      ],
+      "sarangi": [
+        "bowed_technique",
+        "sarangi_belly",
+        "sarangi_taraf",
+        "sarangi_bow",
+        "sarangi_main_strings",
+        "sarangi_body_wood"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "hudka_shell": "hudka_wood_hourglass",
+      "hudka_membrane": "gendang_melayu_goat",
+      "hudka_tension": "hudka_pressure_lacing",
+      "hudka_excitation": "hudka_hand_struck",
+      "hudka_support": "hudka_underarm",
+      "bowed_technique": "bowed_local_song_melody",
+      "sarangi_belly": "goat_skin_sarangi",
+      "sarangi_taraf": "sarangi_35_strings",
+      "sarangi_bow": "horse_hair_loose",
+      "sarangi_main_strings": "dutar_strings_unspecified",
+      "sarangi_body_wood": "sarangi_tun_body"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

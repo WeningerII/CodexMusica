@@ -3,53 +3,53 @@
   "name": "Coladeira",
   "family": "global",
   "lineage": "Cape Verdean urban dance genre that crystallised on São Vicente and in Mindelo in the 1930s-40s as morna's up-tempo counterpart and was carried to Lisbon, Rotterdam and Boston diaspora studios from the 1960s — brisk duple-time 120-160 BPM guitar-and-cavaquinho strumming with an offbeat accompaniment stroke, walking bass, satirical or topical Kriolu lyrics, and later horn sections and drum machines in the funaná-adjacent coladeira-zouk hybrid.",
-  "recipe": "classic Western European mid-1930s coladeira, functional Song, tropical song branch, chanson fado morna, Caribbean groove percussion cape verdean folk cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. cape verdean cavaquinho, cedar fingerpicked fan strum classical nylon-string guitar, la bella flats Detroit soul bass canon electric bass, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, saxophone, lead open slap hand drum congas. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
-  "recipe_chars": 751,
-  "score": 242.667,
+  "recipe": "classic Western European mid-1930s coladeira, functional Song, tropical song branch, chanson fado morna, Caribbean groove percussion calypso soca. thick, breath veiled tone, fast rate, interlocked note trading. cape verdean cavaquinho, low mid rich spectrum broken in fast cedar classical nylon-string guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, tenor gold brass warmer tone ensemble honking saxophone, congas. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+  "recipe_chars": 779,
+  "score": 173.47,
   "config": {
     "traditions": [
       "coladeira",
-      "cape_verdean_folk",
-      "cape_verdean_batuko"
+      "calypso",
+      "soca"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.795,
-          "voice_quality": 28.209999999999994,
+          "voice_register": 2.995,
+          "voice_quality": 11.569999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4624999999999997,
-          "voice_articulation": 24.374999999999996,
-          "voice_microtone": 25.609999999999992,
-          "voice_tradition": 14.104999999999997,
-          "voice_mechanism_compound": 5.135,
-          "voice_estill_quality": 6.175,
-          "voice_speech_song": 32.629999999999995,
-          "voice_ensemble_config": 23.464999999999996,
-          "voice_ornament_system": 1.3,
-          "voice_pitch_organization": 1.56,
-          "voice_processing_chain": 3.2500000000000004,
-          "voice_multitrack_stack": 4.61
+          "voice_vibrato": 0.9500000000000001,
+          "voice_articulation": 17.679999999999996,
+          "voice_microtone": 17.419999999999995,
+          "voice_tradition": 4.517500000000001,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 25.22,
+          "voice_ensemble_config": 17.419999999999995,
+          "voice_ornament_system": 0.65,
+          "voice_pitch_organization": 1.1949999999999998,
+          "voice_processing_chain": 3.4450000000000003,
+          "voice_multitrack_stack": 4.095000000000001
         }
       },
       {
@@ -64,7 +64,7 @@
           "cv_cavaquinho_construction": 0.43500000000000005,
           "cv_cavaquinho_strings": 0.225,
           "cv_cavaquinho_wood": 0.15,
-          "cv_cavaquinho_technique": 13.569999999999997
+          "cv_cavaquinho_technique": 6.369999999999999
         }
       },
       {
@@ -78,34 +78,34 @@
           "attack_technique_cl": "rasgueado_cl"
         },
         "scores": {
-          "acoustic_technique": 6.1450000000000005,
+          "acoustic_technique": 2.695,
           "string_tuning": 0,
-          "top_wood_classical": 10.334999999999999,
-          "bracing_classical": 0.195,
+          "top_wood_classical": 6.759999999999999,
+          "bracing_classical": 0.135,
           "string_classical": 0.045,
-          "attack_technique_cl": 1.8199999999999998
+          "attack_technique_cl": 0.5199999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "slap_pop",
+          "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.21,
+          "amp_make": 4.370000000000001,
           "body_wood": 0.39,
           "pickup_config": 0.3,
-          "string_type": 2.145,
+          "string_type": 4.7700000000000005,
           "scale_length_b": 0.195,
-          "fretted_or_not": 1.4949999999999999,
-          "bass_technique": 1.4299999999999997,
+          "fretted_or_not": 0.195,
+          "bass_technique": 1.57,
           "electric_bass_string_configuration": 0
         }
       },
@@ -113,7 +113,7 @@
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_chopped_old_time",
-          "orch_strings": "rectified_gut_violin",
+          "orch_strings": "steel_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "french_polish_violin",
@@ -121,39 +121,39 @@
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "pizz_orch",
-          "orch_rosin": "bernardel_rosin_orch"
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.52,
-          "orch_strings": 0.78,
-          "orch_top_wood": 5.654999999999999,
-          "orch_back_wood": 0.7149999999999999,
-          "orch_varnish": -0.035,
-          "orch_setup_period": 2.145,
-          "orch_bow": 3.835,
-          "orch_bow_stick": -0.035,
-          "orch_articulation": 1.4949999999999999,
-          "orch_rosin": -0.035
+          "bowed_technique": 0.06499999999999999,
+          "orch_strings": 0.65,
+          "orch_top_wood": 3.705,
+          "orch_back_wood": 2.48,
+          "orch_varnish": 2.015,
+          "orch_setup_period": 2.7950000000000004,
+          "orch_bow": 3.3799999999999994,
+          "orch_bow_stick": 2.245,
+          "orch_articulation": 0.195,
+          "orch_rosin": 1.395
         }
       },
       {
         "id": "saxophone",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "sax_size": "baritone_sax",
+          "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "gold_brass_sax",
           "sax_mouthpiece": "metal_mp",
-          "sax_technique": "sax_split_tone_overblown",
+          "sax_technique": "sax_honking_attack",
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 1.4949999999999999,
-          "sax_size": 0.845,
-          "sax_reed": 0.15,
-          "sax_body_alloy": 0.7149999999999999,
-          "sax_mouthpiece": 0.15,
-          "sax_technique": 0.78,
+          "wind_articulation": 3.8449999999999998,
+          "sax_size": 1.7650000000000001,
+          "sax_reed": 0.65,
+          "sax_body_alloy": 2.2199999999999998,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": 1.5250000000000001,
           "sax_maker_school": 0
         }
       },
@@ -162,14 +162,14 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "conga_set": "quinto",
-          "conga_skin": "conga_cowhide",
-          "conga_shell_wood": "conga_oak_staved"
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_mahogany"
         },
         "scores": {
-          "percussion_technique": 8.14,
-          "conga_set": 1.04,
-          "conga_skin": 0.15,
-          "conga_shell_wood": 0.045
+          "percussion_technique": 1.7225,
+          "conga_set": 0.9299999999999999,
+          "conga_skin": 0.195,
+          "conga_shell_wood": 0.195
         }
       }
     ],

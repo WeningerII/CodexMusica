@@ -5,7 +5,7 @@
   "lineage": "1920s-1950s American popular-song repertoire from Tin Pan Alley, Broadway, and Hollywood (Gershwin, Berlin, Porter, Kern, Rodgers-and-Hart-and-Hammerstein) as interpreted by mid-century vocal jazz singers — Sinatra, Ella Fitzgerald, Sarah Vaughan, Tony Bennett, Nat King Cole",
   "recipe": "classic North American mid-1920s great american songbook, functional Song, crooners branch, American jazz smooth vocal cool jazz vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 804,
-  "score": 371.673,
+  "score": 371.343,
   "config": {
     "traditions": [
       "great_american_songbook",
@@ -38,12 +38,12 @@
           "voice_quality": 15.502499999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.285625,
+          "voice_vibrato": 18.135624999999997,
           "voice_articulation": 4.875,
           "voice_microtone": 19.599999999999998,
           "voice_tradition": 21.45,
           "voice_mechanism_compound": 1.625,
-          "voice_estill_quality": 2.3450000000000006,
+          "voice_estill_quality": 2.3000000000000007,
           "voice_speech_song": 8.58,
           "voice_ensemble_config": 7.605,
           "voice_ornament_system": 0.33,
@@ -73,7 +73,7 @@
           "piano_rim": 6.629999999999999,
           "piano_soundboard": 3.945,
           "piano_pinblock": 1.4849999999999999,
-          "piano_plate": 1.625,
+          "piano_plate": 1.49,
           "piano_pitch_standard": 1.625
         }
       },

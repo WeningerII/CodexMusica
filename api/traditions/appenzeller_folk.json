@@ -5,7 +5,7 @@
   "lineage": "Appenzeller folk music connects instrumental and vocal traditions of the Appenzell region. Dance melodies, local ensemble playing and solo instrumental performances sustain a varied repertoire.",
   "recipe": "classic appenzeller folk, drone Modal, string branch. hammered dulcimer. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 171,
-  "score": 3.545,
+  "score": 3.377,
   "config": {
     "traditions": [
       "appenzeller_folk"
@@ -21,9 +21,9 @@
         },
         "scores": {
           "hammer_dulcimer_courses": 0.273,
-          "hammer_material": 2.274,
-          "hammered_dulcimer_body_wood": 0.273,
-          "hammered_dulcimer_strings": 0.7244999999999999
+          "hammer_material": 2.169,
+          "hammered_dulcimer_body_wood": 0.2415,
+          "hammered_dulcimer_strings": 0.693
         }
       }
     ],

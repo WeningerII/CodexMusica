@@ -3,9 +3,9 @@
   "name": "Highlife",
   "family": "global",
   "lineage": "West African dance-band popular music tradition codified through E.T. Mensah and the Tempos (Ghanaian highlife pioneer, 1947-onward), Bobby Benson (Nigerian highlife pioneer), Victor Olaiya, the Black Beats, the Cardinal Rex Lawson dance band, then extended through the 1960s-70s Lagos-Accra recording boom — built on a fusion of Caribbean calypso, ballroom dance-band horn-section orchestration, and West African rhythmic foundations (Akan, Ga, Yoruba percussion patterns)",
-  "recipe": "classic West African modern highlife, groove Percussion, west African branch, African pop functional song sungura congolese rumba. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, schilke chicago lead bright ensemble shallow cup lead trumpet trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, thomastik infeld low tension jazz warm walking fingerstyle electric bass, pre muffled edge muffled brushes-and-sticks drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, foundational bass rhythm calabash shekere, ensemble student commercial trombone. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
-  "recipe_chars": 801,
-  "score": 161.985,
+  "recipe": "classic West African modern highlife, groove Percussion, west African branch, African pop functional song sungura congolese rumba. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, schilke chicago lead bright ensemble shallow cup lead trumpet trumpet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, thomastik infeld low tension jazz warm walking fingerstyle electric bass, pre muffled edge muffled brushes-and-sticks drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, foundational bass rhythm calabash shekere, ensemble student commercial trombone. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
+  "recipe_chars": 798,
+  "score": 162.213,
   "config": {
     "traditions": [
       "highlife",
@@ -32,14 +32,14 @@
         },
         "scores": {
           "electric_technique": 11.345,
-          "amp_make": 2.52,
+          "amp_make": 2.5725000000000002,
           "body_wood": 0.39,
           "neck_wood": 1.75,
           "fretboard": 1.75,
           "pickup_magnet": 1.75,
           "string_material": 1.75,
           "string_gauge": 0.39,
-          "bridge": 0.24,
+          "bridge": 0.2925,
           "scale_length": 0.39,
           "finish": 0,
           "string_tuning": 2.275,
@@ -58,11 +58,11 @@
           "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 4.48,
+          "wind_articulation": 4.532500000000001,
           "brass_size": 1.75,
-          "trumpet_mouthpiece": 6.494999999999999,
+          "trumpet_mouthpiece": 6.404999999999999,
           "brass_mute": 0.5849999999999999,
-          "trumpet_technique": 4.48,
+          "trumpet_technique": 4.532500000000001,
           "trumpet_bell_metal": 0.78,
           "trumpet_maker_school": 2.015
         }
@@ -73,16 +73,16 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4.48,
+          "wind_articulation": 4.532500000000001,
           "sax_size": 1.9999999999999998,
           "sax_reed": 1.75,
-          "sax_body_alloy": 3.6249999999999996,
+          "sax_body_alloy": 3.6275,
           "sax_mouthpiece": 1.75,
           "sax_technique": 3.7749999999999995,
           "sax_maker_school": 4.647499999999999
@@ -162,7 +162,7 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 4.48,
+          "wind_articulation": 4.532500000000001,
           "trombone_type": 3.7149999999999994,
           "trombone_mouthpiece": 11.98,
           "trombone_mute": 0.5849999999999999,

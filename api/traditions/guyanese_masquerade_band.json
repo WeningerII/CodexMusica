@@ -1,0 +1,101 @@
+{
+  "id": "guyanese_masquerade_band",
+  "name": "Masquerade (Guyanese Christmas fife-and-drum bands)",
+  "family": "global",
+  "lineage": "Masquerade bands are the Christmas street bands of Georgetown and other Guyanese towns and villages, in which a flute or fife leads over the kettle drum, a snare-type side drum, and the big bass drum, while dancers called flouncers spin and costumed characters, among them the stilt-walking Mother Sally, perform for coins. Rooted in the Christmas festivities of the enslaved, it is documented by Vibert C. Cambridge in 'Musical Life in Guyana'.",
+  "recipe": "classic modern masquerade, carnival Processional, Caribbean branch. fife, snare bass drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 170,
+  "score": 0.518,
+  "config": {
+    "traditions": [
+      "guyanese_masquerade_band"
+    ],
+    "instruments": [
+      {
+        "id": "fife",
+        "slots": {
+          "fife_tradition": "fife_tradition_anglo_american",
+          "fife_build": "fife_build_grenadilla",
+          "fife_pitch": "fife_pitch_bflat",
+          "fife_role": "fife_role_corps_unison"
+        },
+        "scores": {
+          "fife_tradition": 0.254,
+          "fife_build": -0.07,
+          "fife_pitch": 0.254,
+          "fife_role": -0.07
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_24_26_big",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0,
+          "bass_drum_beater": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "fife": [
+        "fife_tradition",
+        "fife_build",
+        "fife_pitch",
+        "fife_role"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ],
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "fife_tradition": "fife_tradition_anglo_american",
+      "fife_build": "fife_build_grenadilla",
+      "fife_pitch": "fife_pitch_bflat",
+      "fife_role": "fife_role_corps_unison",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455",
+      "bass_drum_size": "bass_drum_24_26_big",
+      "bass_drum_beater": "bass_drum_felt_pedal"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

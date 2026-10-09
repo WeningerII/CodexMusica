@@ -1,0 +1,80 @@
+{
+  "id": "rabinal_achi_music",
+  "name": "Rabinal Achí (Xajooj Tun dance-drama music)",
+  "family": "global",
+  "lineage": "Music of the Rabinal Achí, or Xajooj Tun ('dance of the tun'), a masked Maya Achi dance-drama of Rabinal in Baja Verapaz, Guatemala, that tells of the capture, trial and sacrifice of a K'iche' warrior; it is performed for the feast of Saint Paul in January and UNESCO recognises it as Intangible Cultural Heritage of Humanity. Its text was first written down in the mid-nineteenth century. The speeches and dances are accompanied by the tun, a wooden slit drum, and long trumpets. The maguaré card stands in for the tun and the horns card for the long trumpets.",
+  "recipe": "classic modern rabinal achí, ritual Devotional, indigenous branch. maguare, credited horns unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 183,
+  "score": 1.828,
+  "config": {
+    "traditions": [
+      "rabinal_achi_music"
+    ],
+    "instruments": [
+      {
+        "id": "maguare",
+        "slots": {
+          "maguare_pair": "maguare_female",
+          "maguare_function": "maguare_ritual",
+          "maguare_beater": "maguare_rubber"
+        },
+        "scores": {
+          "maguare_pair": 1.3,
+          "maguare_function": 0.288,
+          "maguare_beater": 0.39
+        }
+      },
+      {
+        "id": "credited_horns_unspecified",
+        "slots": {
+          "credited_horns_identity": "credited_horns_source_unspecified"
+        },
+        "scores": {
+          "credited_horns_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "maguare": [
+        "maguare_pair",
+        "maguare_function",
+        "maguare_beater"
+      ],
+      "credited_horns_unspecified": [
+        "credited_horns_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "maguare_pair": "maguare_female",
+      "maguare_function": "maguare_ritual",
+      "maguare_beater": "maguare_rubber",
+      "credited_horns_identity": "credited_horns_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

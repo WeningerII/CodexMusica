@@ -3,9 +3,9 @@
   "name": "Cape Breton fiddle and piano tradition",
   "family": "vernacular",
   "lineage": "Gaelic Scottish fiddle repertoire carried to Cape Breton Island, Nova Scotia by Highland Clearance emigrants after 1800 and preserved there in older form than in Scotland, codified on record by Winston 'Scotty' Fitzgerald and Buddy MacMaster — strathspey-reel medleys driven at square-dance tempo with pronounced Scotch-snap dotting, cuts and grace notes bowed rather than fingered, foot-tapping, and a percussive chordal piano accompaniment unique to the island.",
-  "recipe": "classic early-1800s cape breton fiddle and piano tradition, ballad Poetry, cape breton Gaelic branch, Celtic traditional improv on frame, Celtic balladic Scottish ballad orkney and shetland folk irish tenor banjo playing. light, breath veiled tone, straight onset, interlocked note trading. magic rosin modern acrylic base double stops fiddle, upright piano, foot tap, dadgad tuning phosphor bronze modern martin drone like modal dreadnought acoustic guitar, African blackwood grenadilla canonical Scottish cane drone reeds traditional arundo donax cane double reed canonical arundo donax sheepskin cowhide traditional pre modern highland bagpipes. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 728,
-  "score": 262.329,
+  "recipe": "classic early-1800s cape breton fiddle and piano tradition, ballad Poetry, cape breton Gaelic branch, Celtic traditional improv on frame, Celtic balladic Scottish ballad orkney and shetland folk irish tenor banjo playing. light, breath veiled tone, straight onset, interlocked note trading. magic rosin modern acrylic base double stops fiddle, upright piano, foot tap, dadgad tuning phosphor bronze modern martin drone like modal dreadnought acoustic guitar, African blackwood grenadilla canonical Scottish cane drone reeds traditional arundo donax sheepskin cowhide traditional pre modern highland bagpipes. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 688,
+  "score": 262.148,
   "config": {
     "traditions": [
       "cape_breton_folk",
@@ -24,11 +24,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 14.464999999999998,
+          "bowed_technique": 14.269999999999998,
           "fiddle_strings": 0.59,
           "fiddle_bow": 1.295,
           "fiddle_mute": 0.8107142857142857,
-          "fiddle_articulation": 1.9639285714285712,
+          "fiddle_articulation": 2.008928571428571,
           "fiddle_string_configuration": 0
         }
       },
@@ -66,8 +66,8 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 14.084999999999999,
-          "string_tuning": 23.115000000000002,
+          "acoustic_technique": 13.875,
+          "string_tuning": 23.16,
           "top_wood": 0.9099999999999999,
           "back_sides": 0.9099999999999999,
           "string_acoustic": 1.4949999999999999
@@ -98,15 +98,15 @@
           "voice_quality": 12.869999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3649999999999998,
+          "voice_vibrato": 1.303928571428571,
           "voice_articulation": 18.589999999999993,
           "voice_microtone": 17.74499999999999,
-          "voice_tradition": 32.60964285714285,
+          "voice_tradition": 32.894642857142856,
           "voice_mechanism_compound": 4.875,
           "voice_estill_quality": 4.2250000000000005,
           "voice_speech_song": 19.824999999999992,
           "voice_ensemble_config": 20.604999999999993,
-          "voice_ornament_system": 30.63464285714285,
+          "voice_ornament_system": 30.39464285714285,
           "voice_pitch_organization": 1.1049999999999998,
           "voice_processing_chain": 6.825,
           "voice_multitrack_stack": 7.215000000000001
@@ -125,9 +125,9 @@
         "scores": {
           "wind_articulation": 12.12,
           "highland_drones": 0,
-          "highland_chanter": 3.98,
+          "highland_chanter": 4.175,
           "highland_drone_reeds": 2.9899999999999998,
-          "highland_chanter_reed": 1.04,
+          "highland_chanter_reed": 0.9950000000000001,
           "highland_bag": 2.9899999999999998
         }
       }

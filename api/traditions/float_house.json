@@ -3,27 +3,27 @@
   "name": "Float House",
   "family": "electronic",
   "lineage": "Melodic, weightless strand of deep and progressive house consolidated after 2015 around the Anjunadeep and This Never Happened labels — Lane 8, Yotto and Ben Böhmer working at 118-124 BPM with soft-attack 909-derived kicks, sidechained sustained pads, filtered Rhodes and piano chords, wide reverbed vocal fragments, and eight-to-sixteen-bar sweeps that replace the drop with continuous swell.",
-  "recipe": "classic mid-2010s float house, electronic Dance, deep house branch, trance electronic dance, ambient experimental electric dream house ambient techno. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-909, sustained pad analog poly synth, wide pickup gap more bell less bark rhodes electric, monosynth acid bass, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 573,
-  "score": 201.615,
+  "recipe": "classic mid-2010s float house, electronic Dance, deep house branch, trance electronic dance, ambient experimental electric progressive psytrance tech trance. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-909, sustained pad analog poly synth, wide pickup gap more bell less bark rhodes electric, monosynth acid bass, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 578,
+  "score": 201.725,
   "config": {
     "traditions": [
       "float_house",
-      "dream_house",
-      "ambient_techno"
+      "psyprog",
+      "tech_trance"
     ],
     "instruments": [
       {
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_techno",
+          "drum_machine_909_context": "drum_machine_909_house",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 18.07,
-          "drum_machine_909_context": 3.5199999999999996,
-          "tr909_production_origin": 0.195
+          "tr909_voice": 17.32,
+          "drum_machine_909_context": 0.39,
+          "tr909_production_origin": 0.65
         }
       },
       {
@@ -35,16 +35,16 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 6.24,
-          "poly_archetypes": 1.3,
-          "poly_voices": 1.3,
+          "electronic_technique": 3.7049999999999996,
+          "poly_archetypes": 1.4949999999999999,
+          "poly_voices": 1.4949999999999999,
           "poly_maker_lineage": -0.7650000000000001
         }
       },
       {
         "id": "rhodes_electric",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_gospel_chord_runs",
           "rhodes_model": "rhodes_mark2",
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
@@ -52,12 +52,12 @@
           "rhodes_pickup_position": "rhodes_pickup_far_bell"
         },
         "scores": {
-          "keyboard_technique": 1.0899999999999999,
-          "rhodes_model": 1.595,
-          "rhodes_use": 3.185,
+          "keyboard_technique": 1.5,
+          "rhodes_model": 1.625,
+          "rhodes_use": 2.535,
           "rhodes_tine_material": 0.39,
           "rhodes_hammer_tip": -0.7,
-          "rhodes_pickup_position": 2.275
+          "rhodes_pickup_position": 1.63
         }
       },
       {
@@ -66,13 +66,13 @@
           "electronic_technique": "electronic_acid_squelch",
           "wave_acid": "saw_acid",
           "filter_acid": "opening_acid",
-          "accent_acid": "heavy_accent_acid"
+          "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 3.394999999999999,
-          "wave_acid": 0.65,
+          "electronic_technique": 3.895,
+          "wave_acid": 0.195,
           "filter_acid": 0.6150000000000001,
-          "accent_acid": 1.145
+          "accent_acid": 2.34
         }
       },
       {
@@ -81,15 +81,15 @@
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "emu_emax",
           "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 5.375,
+          "electronic_technique": 1.6999999999999997,
           "sampler_archetypes": 0.195,
-          "sampler_bit_depth": 0.59,
-          "sampler_workflow": 5.375,
-          "sampler_classic_context": 37.885
+          "sampler_bit_depth": 0.045,
+          "sampler_workflow": 2.0149999999999997,
+          "sampler_classic_context": 38.79499999999999
         }
       },
       {
@@ -102,33 +102,33 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.185,
-          "voice_quality": 8.320000000000002,
+          "voice_register": 2.535,
+          "voice_quality": 8.58,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6899999999999997,
-          "voice_articulation": 13.844999999999995,
-          "voice_microtone": 13.649999999999993,
-          "voice_tradition": 5.615,
+          "voice_vibrato": 2.7300000000000004,
+          "voice_articulation": 16.964999999999993,
+          "voice_microtone": 17.41999999999999,
+          "voice_tradition": 6.5,
           "voice_mechanism_compound": 4.68,
           "voice_estill_quality": 4.485,
-          "voice_speech_song": 13.844999999999995,
-          "voice_ensemble_config": 15.209999999999994,
-          "voice_ornament_system": 1.5250000000000001,
+          "voice_speech_song": 16.314999999999994,
+          "voice_ensemble_config": 16.834999999999994,
+          "voice_ornament_system": 0.545,
           "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 17.8,
-          "voice_multitrack_stack": 4.42
+          "voice_processing_chain": 18.930000000000003,
+          "voice_multitrack_stack": 4.615
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Czech swing is represented by Ondřej Havelka and His Melody Makers — selected singer/horns/rhythm branch. One documented branch is realized as an authored present-day recording arrangement. Sources establish the ensemble roles, genre boundary and practice locality. Exact instrument subtype, technique pins, room, signal chain, numeric axes and tuning baseline are authored choices, not assertions of original session equipment or universal regional practice.",
   "recipe": "classic czech swing, improv On Frame, American jazz branch. solo with instrumental accompaniment. bach stradivarius 180 canonical American orchestral jazz balance ensemble trumpet, clarinet, cold pressed light felt practice grade oversize maple tension resonator grand piano, growly gut upright bass, jazz warm flatwound thomastik dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 460,
-  "score": 40.83,
+  "score": 41.686,
   "config": {
     "traditions": [
       "czech_swing"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.6522500000000004,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 1.8622500000000004,
+          "voice_ornament_system": 0.105,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1995,
-          "voice_multitrack_stack": 0.3075
+          "voice_processing_chain": 0.3045,
+          "voice_multitrack_stack": 0.3585
         }
       },
       {
@@ -65,7 +65,7 @@
           "wind_articulation": 1.1049999999999998,
           "brass_size": 0.39,
           "trumpet_mouthpiece": 8.125,
-          "brass_mute": 0.0735,
+          "brass_mute": 0.147,
           "trumpet_technique": 1.1049999999999998,
           "trumpet_bell_metal": 0.105,
           "trumpet_maker_school": 1.95
@@ -83,8 +83,8 @@
         "scores": {
           "wind_articulation": -0.035,
           "clarinet_body": -0.05,
-          "clarinet_size": 0.0945,
-          "clarinet_reed": 0.208125,
+          "clarinet_size": 0.1995,
+          "clarinet_reed": 0.313125,
           "clarinet_articulation": 0
         }
       },
@@ -92,7 +92,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_7_foot",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "felt_piano_practice_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
@@ -103,12 +103,12 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.105,
+          "grand_piano_size": 0.147,
           "grand_piano_brand": 0.39,
-          "piano_hammer": 2.535,
+          "piano_hammer": 2.5215,
           "piano_rim": 1.885,
           "piano_soundboard": 0.26,
-          "piano_pinblock": 1.56,
+          "piano_pinblock": 1.434,
           "piano_plate": -0.035,
           "piano_pitch_standard": -0.035
         }
@@ -128,16 +128,16 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_chord_melody",
-          "string_tuning": "open_d",
+          "string_tuning": "eb_standard",
           "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "back_sides": "maple_bs",
           "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
           "acoustic_technique": 1.3445,
           "string_tuning": 1.56,
-          "top_wood": 0.2415,
-          "back_sides": 0.0735,
+          "top_wood": 0.3465,
+          "back_sides": 0.16799999999999998,
           "string_acoustic": 3.25
         }
       }

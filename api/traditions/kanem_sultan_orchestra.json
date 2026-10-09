@@ -1,0 +1,109 @@
+{
+  "id": "kanem_sultan_orchestra",
+  "name": "Kanem sultan's orchestra (Kanembu court music, Mao)",
+  "family": "classical",
+  "lineage": "Ceremonial music of the court of the sultan (alifa) of Kanem at Mao, in the Sahelian court tradition of Kanem-Bornu, whose royal ensembles combine long metal trumpets, shawms and drums; Monique Brandily's recordings of the sultan's orchestra are held in the CREM archive. The kakaki, the Kanuri-form algaita and a generic drum card represent the ensemble.",
+  "recipe": "classic modern kanem sultan's orchestra, praise Song, sub saharan African branch. call ritual kakaki, ceremonial praise driven algaita, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 268,
+  "score": 20.988,
+  "config": {
+    "traditions": [
+      "kanem_sultan_orchestra"
+    ],
+    "instruments": [
+      {
+        "id": "kakaki",
+        "slots": {
+          "wind_articulation": "wind_call_blowing",
+          "kakaki_length": "kakaki_standard",
+          "kakaki_context": "kakaki_procession",
+          "kakaki_bell_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 3.6830000000000003,
+          "kakaki_length": 5.077,
+          "kakaki_context": 0,
+          "kakaki_bell_metal": 0.0315
+        }
+      },
+      {
+        "id": "algaita",
+        "slots": {
+          "algaita_form": "algaita_kanuri",
+          "algaita_context": "algaita_royal_praise",
+          "algaita_reed": "algaita_cane_reed"
+        },
+        "scores": {
+          "algaita_form": 3.7815,
+          "algaita_context": 3.5100000000000002,
+          "algaita_reed": 0.25
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 1.69,
+          "acoustic_membrane_drum_gesture": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "kakaki": [
+        "wind_articulation",
+        "kakaki_length",
+        "kakaki_context",
+        "kakaki_bell_metal"
+      ],
+      "algaita": [
+        "algaita_form",
+        "algaita_context",
+        "algaita_reed"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "wind_articulation": "wind_call_blowing",
+      "kakaki_length": "kakaki_standard",
+      "kakaki_context": "kakaki_procession",
+      "kakaki_bell_metal": "horn_yellow_brass",
+      "algaita_form": "algaita_kanuri",
+      "algaita_context": "algaita_royal_praise",
+      "algaita_reed": "algaita_cane_reed",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

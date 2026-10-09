@@ -5,7 +5,7 @@
   "lineage": "Mid-1960s recordings made at Muscle Shoals, American Sound in Memphis and Fame by integrated house bands — country song forms and pedal-steel voicings played with a gospel-derived rhythm-section pocket, tambourine on the backbeat, Wurlitzer or tonewheel organ pads, at 60-100 BPM, sung with the melisma and rasp of Southern soul over three-chord country changes.",
   "recipe": "classic Southern American 1964-1966 country soul, functional Song, soul R&B branch, nashville country instrumental country nashville sound. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup alder la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet gospel runs full spectrum slow chorale tonewheel organ, gospel runs electric piano tine, tambourine orch. converted coffin warehouse 1969-1979 mid tier muscle shoals sound studio. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 881,
-  "score": 646.997,
+  "score": 646.409,
   "config": {
     "traditions": [
       "country_soul",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 46.73125,
-          "voice_quality": 13.56224999999999,
+          "voice_register": 46.69975,
+          "voice_quality": 13.53074999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 25.33,
@@ -43,12 +43,12 @@
           "voice_microtone": 16.184999999999988,
           "voice_tradition": 16.20675,
           "voice_mechanism_compound": 5.459999999999999,
-          "voice_estill_quality": 30.912374999999997,
+          "voice_estill_quality": 30.954374999999995,
           "voice_speech_song": 25.934999999999995,
           "voice_ensemble_config": 16.31499999999999,
           "voice_ornament_system": 1.4949999999999997,
           "voice_pitch_organization": 1.28125,
-          "voice_processing_chain": 6.183000000000001,
+          "voice_processing_chain": 6.393000000000001,
           "voice_multitrack_stack": 7.215000000000001
         }
       },
@@ -71,11 +71,11 @@
         },
         "scores": {
           "electric_technique": 27.26025,
-          "amp_make": 38.388,
+          "amp_make": 38.2515,
           "body_wood": 1.885,
           "neck_wood": 1.885,
           "fretboard": 1.8199999999999998,
-          "pickup_magnet": 0.042749999999999996,
+          "pickup_magnet": 0.14775,
           "string_material": 3.5100000000000002,
           "string_gauge": 1.885,
           "bridge": 0.09974999999999999,
@@ -99,12 +99,12 @@
         },
         "scores": {
           "electric_technique": 31.525,
-          "amp_make": 38.388,
+          "amp_make": 38.2515,
           "pickup_steel": 1.885,
-          "string_setup": 12.278125,
-          "bar_material": 3.26775,
+          "string_setup": 12.383125,
+          "bar_material": 3.37275,
           "pedal_steel_brand": 34.076249999999995,
-          "pedal_steel_neck_config": 27.453625,
+          "pedal_steel_neck_config": 27.422124999999998,
           "pedal_steel_strings": 31.264999999999997
         }
       },
@@ -121,10 +121,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 25.916749999999997,
+          "amp_make": 25.78025,
           "body_wood": 1.885,
           "pickup_config": 0,
-          "string_type": 16.40825,
+          "string_type": 15.85175,
           "scale_length_b": 2.275,
           "fretted_or_not": 0.09974999999999999,
           "bass_technique": 24.82,
@@ -140,7 +140,7 @@
         },
         "scores": {
           "drum_technique": 16.444999999999993,
-          "drumhead": 5.575124999999999,
+          "drumhead": 5.543625,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -155,7 +155,7 @@
           "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 15.699749999999998,
+          "keyboard_technique": 15.668249999999999,
           "drawbar_setting": 3.29275,
           "rotary_speed": 11.823749999999999,
           "percussion_setting": 0.65,
@@ -171,7 +171,7 @@
           "tine_effect": "overdrive_tine"
         },
         "scores": {
-          "keyboard_technique": 15.699749999999998,
+          "keyboard_technique": 15.668249999999999,
           "tine_voicing": 0,
           "tine_effect": 0.65
         }

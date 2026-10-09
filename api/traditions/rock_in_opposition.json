@@ -3,9 +3,9 @@
   "name": "Rock in Opposition",
   "family": "rock_punk",
   "lineage": "A movement declared at Henry Cow's March 1978 London festival, when Fred Frith and Chris Cutler allied Univers Zéro, Stormy Six, Samla Mammas Manna and Etron Fou Leloublan against the record industry, producing a through-composed chamber-rock of shifting odd meters, dissonant reed-and-string writing, Bartók- and Weill-derived harmony, notated scores fused with free-improvisation blocks, and pointedly leftist texts sung in several European languages.",
-  "recipe": "classic British late-1970s rock in opposition, distorted Rock, experimental branch, progressive rock distorted rock, western modern art music microtonal music orchestral soundtrack. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder maple stainless steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, glotin var French cane bassoon, composite resin blackwood dust clarinet, gut sitka spruce hard rock maple acer saccharum oil varnish violin orchestral, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 896,
-  "score": 442.018,
+  "recipe": "classic British late-1970s rock in opposition, distorted Rock, experimental branch, progressive rock distorted rock, western modern art music microtonal music orchestral soundtrack. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder maple stainless steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, bassoon, composite resin blackwood dust clarinet, gut sitka spruce hard rock maple acer saccharum oil varnish violin orchestral, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 873,
+  "score": 441.11,
   "config": {
     "traditions": [
       "rock_in_opposition",
@@ -34,12 +34,12 @@
           "electric_technique": 2.7300000000000004,
           "amp_make": 8.19,
           "body_wood": 2.4050000000000002,
-          "neck_wood": 1.2683333333333333,
+          "neck_wood": 1.1183333333333334,
           "fretboard": 0.9099999999999999,
           "pickup_magnet": 0.9099999999999999,
           "pickup_winding": 0.9099999999999999,
-          "string_material": 1.2683333333333333,
-          "bridge": 0.15,
+          "string_material": 1.1183333333333334,
+          "bridge": 0.345,
           "scale_length": 0.9100000000000003,
           "string_gauge": 2.6649999999999996,
           "finish": 0,
@@ -95,7 +95,7 @@
           "wind_articulation": 2.5,
           "bassoon_school": 2.2775,
           "bassoon_body_wood": 0.585,
-          "bassoon_reed": 1.0199999999999998,
+          "bassoon_reed": 0.9749999999999999,
           "bassoon_context": 2.275
         }
       },
@@ -112,7 +112,7 @@
           "wind_articulation": 2.5,
           "clarinet_body": 8,
           "clarinet_size": 1.3,
-          "clarinet_reed": 1.2683333333333333,
+          "clarinet_reed": 1.1183333333333334,
           "clarinet_articulation": 0.195
         }
       },
@@ -136,11 +136,11 @@
           "orch_top_wood": 8.010833333333334,
           "orch_back_wood": 19.370000000000005,
           "orch_varnish": 8,
-          "orch_setup_period": 7.71,
+          "orch_setup_period": 7.56,
           "orch_bow": 0.845,
           "orch_bow_stick": 8.551666666666668,
           "orch_articulation": 1.7550000000000001,
-          "orch_rosin": 8.321666666666667
+          "orch_rosin": 8.171666666666667
         }
       },
       {
@@ -164,14 +164,14 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 21.549999999999994,
+          "voice_register": 21.399999999999995,
           "voice_quality": 6.500000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.6016666666666666,
           "voice_articulation": 20.474999999999994,
           "voice_microtone": 24.001666666666665,
-          "voice_tradition": 6.629999999999999,
+          "voice_tradition": 6.576666666666666,
           "voice_mechanism_compound": 4.29,
           "voice_estill_quality": 5.3950000000000005,
           "voice_speech_song": 25.414999999999996,
@@ -202,9 +202,9 @@
           "piano_hammer": 18.72,
           "piano_rim": 19.369999999999997,
           "piano_soundboard": 8.18,
-          "piano_pinblock": 8.09,
+          "piano_pinblock": 8.135,
           "piano_plate": 8.855833333333333,
-          "piano_pitch_standard": 16.035
+          "piano_pitch_standard": 15.885
         }
       }
     ],

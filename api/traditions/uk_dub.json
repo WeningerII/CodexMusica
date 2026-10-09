@@ -5,7 +5,7 @@
   "lineage": "UK dub developed through Britain’s reggae studios and sound systems, making the mixing desk and effects part of musical composition. It extends Jamaican versioning practices through local producers, musicians and dedicated bass-focused listening cultures.",
   "recipe": "classic uk dub, bass System, dub descendants branch. focused narrow output alnico humbucker electric guitar, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon electric bass, grand piano, tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica, flute, saxophone, trumpet, bass leaning trombone, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital tape echo spring reverb.",
   "recipe_chars": 464,
-  "score": 47.012,
+  "score": 45.852,
   "config": {
     "traditions": [
       "uk_dub"
@@ -16,7 +16,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_unspecified",
-          "body_wood": "basswood_h",
+          "body_wood": "korina",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_5_h",
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.44100000000000006,
+          "body_wood": 0.4095,
           "neck_wood": 0.273,
-          "fretboard": 0.1365,
+          "fretboard": 0,
           "pickup_magnet": 1,
           "pickup_winding": 0.0315,
           "string_material": 0,
           "bridge": 1,
           "scale_length": 0.546,
-          "string_gauge": 0.5355,
+          "string_gauge": 0.36750000000000005,
           "finish": 0,
           "string_tuning": 0.3675
         }
@@ -59,7 +59,7 @@
         "scores": {
           "amp_make": 3.575,
           "body_wood": 0.546,
-          "pickup_config": 1.1365,
+          "pickup_config": 1,
           "string_type": 3.5100000000000002,
           "scale_length_b": 1.0315,
           "fretted_or_not": 0,
@@ -105,8 +105,8 @@
         "scores": {
           "keyboard_technique": -0.07,
           "drawbar_setting": 0.325,
-          "rotary_speed": 0.105,
-          "percussion_setting": 0.168,
+          "rotary_speed": 0.1365,
+          "percussion_setting": 0.0315,
           "tonewheel_model": 0.325,
           "leslie_cabinet_model": 0
         }
@@ -122,7 +122,7 @@
         "scores": {
           "keyboard_technique": -0.07,
           "melodica_use": 8.855,
-          "melodica_pitch": 0.4215,
+          "melodica_pitch": 0.21,
           "melodica_maker_school": 11.765
         }
       },
@@ -150,7 +150,7 @@
           "sax_size": "tenor_sax",
           "sax_reed": "hard_reed",
           "sax_body_alloy": "rose_brass_sax",
-          "sax_mouthpiece": "ebonite_vintage",
+          "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_keilwerth_german"
         },
@@ -159,7 +159,7 @@
           "sax_size": 0.15000000000000002,
           "sax_reed": 1,
           "sax_body_alloy": -0.035,
-          "sax_mouthpiece": 0.1365,
+          "sax_mouthpiece": 0,
           "sax_technique": -0.05,
           "sax_maker_school": 0.0315
         }
@@ -170,19 +170,19 @@
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "cornet",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
-          "brass_mute": "no_mute_brass",
+          "brass_mute": "cup_mute",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_monette"
+          "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
           "wind_articulation": 0.19500000000000003,
           "brass_size": 0,
           "trumpet_mouthpiece": 0.7149999999999999,
-          "brass_mute": 0.0315,
+          "brass_mute": 0,
           "trumpet_technique": 0.19500000000000003,
-          "trumpet_bell_metal": 0.4005,
-          "trumpet_maker_school": 0.1995
+          "trumpet_bell_metal": 0.3465,
+          "trumpet_maker_school": 0.1365
         }
       },
       {
@@ -191,19 +191,19 @@
           "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "bass_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_3g",
-          "trombone_mute": "no_mute_trb",
+          "trombone_mute": "cup_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
           "wind_articulation": 0.19500000000000003,
-          "trombone_type": 0.441,
+          "trombone_type": 0.336,
           "trombone_mouthpiece": 3.575,
-          "trombone_mute": 0.0315,
-          "trombone_technique": 0.3284999999999999,
-          "trombone_bell_metal": 0.4005,
-          "trombone_maker_school": 0.1365
+          "trombone_mute": 0,
+          "trombone_technique": 0.46499999999999986,
+          "trombone_bell_metal": 0.3465,
+          "trombone_maker_school": 0.105
         }
       },
       {

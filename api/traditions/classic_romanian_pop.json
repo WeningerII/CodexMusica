@@ -3,9 +3,9 @@
   "name": "Classic romanian pop",
   "family": "pop",
   "lineage": "Classic Romanian pop brings established popular-song repertoire together with continuing pop-rock performance traditions.",
-  "recipe": "classic classic romanian pop, functional Song, europop branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 357,
-  "score": 38.68,
+  "recipe": "classic classic romanian pop, functional Song, europop branch. solo with instrumental accompaniment. basswood clean strummed humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 366,
+  "score": 38.848,
   "config": {
     "traditions": [
       "classic_romanian_pop"
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": 9.95,
           "amp_make": 1.17,
-          "body_wood": 0.9240000000000002,
+          "body_wood": 1.0605000000000002,
           "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0.2415,
           "pickup_winding": 2.18,
           "string_material": 0,
           "bridge": 0.273,
-          "scale_length": 0.714,
+          "scale_length": 0.8190000000000002,
           "string_gauge": 0.3045,
           "finish": 0,
           "string_tuning": 0
@@ -60,7 +60,7 @@
           "amp_make": 1.625,
           "body_wood": 0.546,
           "pickup_config": 0.2415,
-          "string_type": 2.878,
+          "string_type": 2.8045,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.3315,
           "bass_technique": -0.15000000000000002,

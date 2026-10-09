@@ -1,0 +1,97 @@
+{
+  "id": "kadazandusun_gong_ensemble",
+  "name": "Magagung (Kadazandusun gong ensemble)",
+  "family": "global",
+  "lineage": "Gong ensembles of the Kadazandusun of Sabah's west coast and interior, played for the sumazau dance, the Kaamatan harvest festival and weddings. Several large and medium hanging bossed gongs (the tawak and gong cards stand in), each with its own pattern, interlock over a large drum (the generic membrane-drum card stands in).",
+  "recipe": "classic modern magagung, groove Percussion, east Asian branch. tawak gong, gong tamtam, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 220,
+  "score": 8.6,
+  "config": {
+    "traditions": [
+      "kadazandusun_gong_ensemble"
+    ],
+    "instruments": [
+      {
+        "id": "tawak_gong",
+        "slots": {
+          "tawak_size": "tawak_large",
+          "tawak_beater": "tawak_padded"
+        },
+        "scores": {
+          "tawak_size": 0.39,
+          "tawak_beater": 0.3
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.39,
+          "gong_striker": 0.39
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 4.29,
+          "acoustic_membrane_drum_gesture": 2.9899999999999998
+        }
+      }
+    ],
+    "pinned": {
+      "tawak_gong": [
+        "tawak_size",
+        "tawak_beater"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "tawak_size": "tawak_large",
+      "tawak_beater": "tawak_padded",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

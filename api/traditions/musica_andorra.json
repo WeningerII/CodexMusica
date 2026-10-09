@@ -5,7 +5,7 @@
   "lineage": "Andorra’s musical field, encompassing song, instrumental music and contemporary acoustic-electronic work.",
   "recipe": "classic música andorra, experimental Elec, ambient branch. solo with instrumental accompaniment, unprocessed natural acoustic. electric double bass, acoustic guitar, sustained pad analog poly synth, cello, viola classical, violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 340,
-  "score": 7.224,
+  "score": 7.654,
   "config": {
     "traditions": [
       "musica_andorra"
@@ -92,12 +92,12 @@
         "scores": {
           "bowed_technique": -0.035,
           "bass_size": 0,
-          "bass_strings": 0.4515,
+          "bass_strings": 0.525,
           "bass_top_wood": -0.07,
           "bass_back_wood": -0.07,
           "bass_varnish": -0.1,
           "bass_setup_period": -0.07,
-          "bass_play": 0.1995,
+          "bass_play": 0.3045,
           "bass_rosin": -0.07,
           "bass_bow_stick": -0.10500000000000001
         }
@@ -149,12 +149,12 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "cello_strings": 0.1785,
+          "cello_strings": 0.252,
           "cello_top_wood": -0.07,
           "cello_back_wood": -0.07,
           "cello_varnish": -0.1,
           "cello_setup_period": -0.07,
-          "cello_bow_grip": 0,
+          "cello_bow_grip": 0.105,
           "cello_rosin": -0.1,
           "cello_bow_stick": -0.10500000000000001
         }
@@ -175,7 +175,7 @@
         "scores": {
           "bowed_technique": -0.035,
           "viola_size": 0,
-          "viola_strings": 0.1785,
+          "viola_strings": 0.252,
           "viola_top_wood": -0.07,
           "viola_back_wood": -0.07,
           "viola_varnish": -0.1,

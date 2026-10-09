@@ -5,7 +5,7 @@
   "lineage": "Korean hardcore includes rapid, compact guitar-band practice with fastcore and thrash-punk connections.",
   "recipe": "classic korean hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit, credited samples unspecified. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 395,
-  "score": 38.449,
+  "score": 37.494,
   "config": {
     "traditions": [
       "korean_hardcore"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": 2.21,
           "amp_make": 13.845,
-          "body_wood": 1.49325,
+          "body_wood": 1.08375,
           "neck_wood": 0.063,
           "fretboard": 0.1425,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.49325,
+          "body_wood": 1.08375,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1425,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.41550000000000004,
+          "drumhead": 0.279,
           "drum_kit_kick_pedal": 0
         }
       },

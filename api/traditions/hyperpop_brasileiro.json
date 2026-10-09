@@ -5,7 +5,7 @@
   "lineage": "Hyperpop brasileiro connects Brazilian producers, DJs and pop artists through internet circulation, collaborations and events such as the Hyperpop Festival.",
   "recipe": "classic hyperpop brasileiro, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 93,
-  "score": 0.063,
+  "score": 0.095,
   "config": {
     "traditions": [
       "hyperpop_brasileiro"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0945
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Spanish-language romantic rap overlaps intimate pop and sung delivery. Beret’s early piano-backed work supplies the selected crossover branch.",
   "recipe": "classic modern rap romántico, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 362,
-  "score": 46.926,
+  "score": 47.392,
   "config": {
     "traditions": [
       "rap_romantico"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.719,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_speech_song": 13.905,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
@@ -54,7 +54,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_5_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
@@ -65,11 +65,11 @@
         },
         "scores": {
           "keyboard_technique": 3.254,
-          "grand_piano_size": 0.159,
-          "grand_piano_brand": 1.7080000000000002,
-          "piano_hammer": 3.746,
+          "grand_piano_size": 0.162,
+          "grand_piano_brand": 1.762,
+          "piano_hammer": 3.7145,
           "piano_rim": 4.16,
-          "piano_soundboard": 3.3275,
+          "piano_soundboard": 3.254,
           "piano_pinblock": -0.05,
           "piano_plate": 0.26,
           "piano_pitch_standard": 0.7149999999999999

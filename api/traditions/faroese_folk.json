@@ -3,14 +3,14 @@
   "name": "Faroese folk music (føroysk fólkatónleikur)",
   "family": "global",
   "lineage": "Faroe Islands oral tradition centred on the kvæði ballad chain-dance, documented from V.U. Hammershaimb's 19th-century collecting and the Corpus Carminum Færoensium — hundreds of stanzas sung unaccompanied by a lead skipari with the whole ring answering the refrain, propelled by heavy synchronized foot-stomping in a steady two-beat step, plus the shorter Danish-derived vísur and religious kingosálmar heterophonic hymn singing.",
-  "recipe": "classic North American early-1940s faroese folk music, ballad Poetry, Celtic balladic branch, vocal drone modal, north Southeast Asian baltic Southeast Asian shanty sutartinės cante alentejano. thick, breath veiled tone, slow rate, interlocked note trading. drone like fiddle, castagnari Italian premium folk music drone like accordion. us uk civic amateur band hall. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 442,
-  "score": 147.485,
+  "recipe": "classic North American early-1940s faroese folk music, ballad Poetry, Celtic balladic branch, vocal drone modal, north Southeast Asian baltic Southeast Asian shanty cante alentejano karelian folk music. thick, breath veiled tone, slow rate, interlocked note trading. drone like fiddle, castagnari Italian premium folk music drone like accordion. us uk civic amateur band hall. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 451,
+  "score": 156.007,
   "config": {
     "traditions": [
       "faroese_folk",
-      "sutartines",
-      "cante_alentejano"
+      "cante_alentejano",
+      "karelian_folk_music"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 4.415,
-          "voice_quality": 13.584999999999992,
+          "voice_quality": 13.454999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.0799999999999996,
-          "voice_articulation": 10.984999999999994,
-          "voice_microtone": 15.469999999999994,
-          "voice_tradition": 25.869999999999997,
-          "voice_mechanism_compound": 6.5,
-          "voice_estill_quality": 3.3149999999999995,
-          "voice_speech_song": 11.699999999999996,
-          "voice_ensemble_config": 12.869999999999996,
-          "voice_ornament_system": 8.190000000000001,
-          "voice_pitch_organization": 4.030000000000001,
-          "voice_processing_chain": 5.329999999999999,
-          "voice_multitrack_stack": 3.835
+          "voice_articulation": 11.504999999999997,
+          "voice_microtone": 15.924999999999995,
+          "voice_tradition": 27.754999999999995,
+          "voice_mechanism_compound": 7.995,
+          "voice_estill_quality": 4.387500000000001,
+          "voice_speech_song": 12.609999999999996,
+          "voice_ensemble_config": 12.089999999999996,
+          "voice_ornament_system": 9.765,
+          "voice_pitch_organization": 4.225000000000001,
+          "voice_processing_chain": 6.434999999999999,
+          "voice_multitrack_stack": 3.6399999999999997
         }
       },
       {
@@ -63,11 +63,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 7.67,
+          "bowed_technique": 7.475,
           "fiddle_strings": 0.95,
           "fiddle_bow": 0.45499999999999996,
-          "fiddle_mute": 0.45499999999999996,
-          "fiddle_articulation": 0.9099999999999999,
+          "fiddle_mute": 0.65,
+          "fiddle_articulation": 1.105,
           "fiddle_string_configuration": 0
         }
       },
@@ -75,7 +75,7 @@
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_drone_under",
-          "accordion_reed_material": "tipo_a_mano",
+          "accordion_reed_material": "brass_reeds",
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
@@ -83,13 +83,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 8.32,
-          "accordion_reed_material": 0.15,
-          "musette_offset": 0.845,
+          "free_reed_technique": 8.125,
+          "accordion_reed_material": 0.39,
+          "musette_offset": 1.2750000000000001,
           "reed_config": 0.45499999999999996,
           "bellows": 0.42000000000000004,
           "voicing_chamber": 0,
-          "accordion_maker_school": 3.38
+          "accordion_maker_school": 3.575
         }
       }
     ],

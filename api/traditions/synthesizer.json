@@ -5,7 +5,7 @@
   "lineage": "Synthesizer repertoire foregrounds electronically generated tone across several musical approaches.",
   "recipe": "classic synthesizer, experimental Elec. modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 161,
-  "score": 5.525,
+  "score": 5.494,
   "config": {
     "traditions": [
       "synthesizer"
@@ -21,7 +21,7 @@
         },
         "scores": {
           "electronic_technique": 4.357,
-          "mod_voltage_source": 0.063,
+          "mod_voltage_source": 0.0315,
           "mod_patch_density": 0.39,
           "mod_lineage": 0.7149999999999999
         }

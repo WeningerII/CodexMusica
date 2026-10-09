@@ -5,7 +5,7 @@
   "lineage": "Codified in London from 2013 by A. G. Cook's PC Music label together with SOPHIE and QT, bubblegum bass sets 130-150 BPM hard-clipped square and rubbery FM bass leads under extremely pitch-shifted, formant-raised and heavily retuned female vocals, borrowing eurodance and J-pop chord loops while treating hyper-glossy commercial sheen and synthetic textures as an explicit conceptual stance.",
   "recipe": "classic early-2010s bubblegum bass, experimental Elec, pop experimental branch, eurodance electronic dance, pop rock synthpop new romanticism wonky pop. singing lead digital subtractive, yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead wavetable synth, 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack, TR-909, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 623,
-  "score": 110.167,
+  "score": 110.618,
   "config": {
     "traditions": [
       "bubblegum_bass",
@@ -21,7 +21,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 21.584999999999997,
+          "electronic_technique": 21.735,
           "va_archetypes": 0.39,
           "digital_subtractive_context": 18.915
         }
@@ -36,7 +36,7 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 21.584999999999997,
+          "electronic_technique": 21.735,
           "fm_algorithm": 0.645,
           "fm_modulator_ratio": 0.525,
           "fm_polyphony": 0.845,
@@ -53,7 +53,7 @@
         "scores": {
           "multitrack_stack_density": 0.845,
           "multitrack_stack_era_aesthetic": 1.7225,
-          "multitrack_stack_processing": 3.34
+          "multitrack_stack_processing": 3.49
         }
       },
       {
@@ -61,11 +61,11 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "wt_position": "wt_morphing",
-          "wt_family": "wt_industrial",
+          "wt_family": "wt_vocal",
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 21.584999999999997,
+          "electronic_technique": 21.735,
           "wt_position": 2.8600000000000003,
           "wt_family": 0.39,
           "wt_polyphony": 0.845
@@ -92,7 +92,7 @@
           "voc_modulator": "voc_drum_mod"
         },
         "scores": {
-          "voc_band_count": 0.39,
+          "voc_band_count": 0.24,
           "voc_carrier": 0.24,
           "voc_modulator": 1.45
         }

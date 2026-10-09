@@ -52,8 +52,8 @@ if (!flags.tradition) {
   process.exit(2);
 }
 
-const tid = flags.tradition;
-const staples = flags.staples ? flags.staples.split(',') : [];
+const tid = C.resolveTraditionId(flags.tradition);
+const staples = flags.staples ? flags.staples.split(',').map(C.resolveTraditionId) : [];
 const filterInstrument = flags.instrument || null;
 const filterPart = flags.part || null;
 const runnerUpCount = parseInt(flags['runner-up']) || 3;

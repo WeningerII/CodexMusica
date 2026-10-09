@@ -1,0 +1,172 @@
+{
+  "id": "hebei_shengguan_yinyuehui",
+  "name": "Hebei yinyue hui (village shengguan ritual associations)",
+  "family": "global",
+  "lineage": "Amateur village ritual associations (yinyue hui) of central Hebei, south of Beijing, play shengguan wind music for funerals, calendrical rituals and temple fairs from gongche scores copied within each association; those of Qujiaying and Gaoluo are the best documented, and the form is listed as national intangible heritage. A guanzi leads, doubled by sheng and dizi with yunluo gong-chimes, over drum, cymbals and gongs (the acoustic drum card stands in for the association drum).",
+  "recipe": "classic modern hebei yinyue hui, ritual Devotional. guanzi, sheng, dizi, yunluo, membrane drum pulse resonant acoustic membrane drum, naobo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 220,
+  "score": 8.266,
+  "config": {
+    "traditions": [
+      "hebei_shengguan_yinyuehui"
+    ],
+    "instruments": [
+      {
+        "id": "guanzi",
+        "slots": {
+          "guanzi_size": "guanzi_zhongyin",
+          "guanzi_body": "guanzi_hardwood",
+          "guanzi_style": "guanzi_beijing"
+        },
+        "scores": {
+          "guanzi_size": 0.03712499999999999,
+          "guanzi_body": 0,
+          "guanzi_style": 0.3
+        }
+      },
+      {
+        "id": "sheng",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "sheng_size": "sheng_traditional_17",
+          "sheng_context": "sheng_court",
+          "sheng_pipe_material": "sheng_bamboo_canonical"
+        },
+        "scores": {
+          "free_reed_technique": -0.11850000000000002,
+          "sheng_size": 0.105,
+          "sheng_context": 0.40950000000000003,
+          "sheng_pipe_material": 0
+        }
+      },
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "dizi_membrane": "dizi_with_membrane",
+          "dizi_pitch": "dizi_f",
+          "dizi_body_material": "dizi_purple_bamboo",
+          "dizi_regional_style": "dizi_bangdi_northern"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "dizi_membrane": 0.03712499999999999,
+          "dizi_pitch": 0.0315,
+          "dizi_body_material": 0,
+          "dizi_regional_style": 0.063
+        }
+      },
+      {
+        "id": "yunluo",
+        "slots": {
+          "yunluo_size": "yunluo_ten",
+          "yunluo_mallet": "yunluo_hardwood"
+        },
+        "scores": {
+          "yunluo_size": 0.105,
+          "yunluo_mallet": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 3.4237499999999996,
+          "acoustic_membrane_drum_gesture": 3.4237499999999996
+        }
+      },
+      {
+        "id": "naobo",
+        "slots": {
+          "naobo_type": "naobo_dabo",
+          "naobo_stroke": "naobo_open_clash"
+        },
+        "scores": {
+          "naobo_type": 0.337125,
+          "naobo_stroke": 0.3315
+        }
+      }
+    ],
+    "pinned": {
+      "guanzi": [
+        "guanzi_size",
+        "guanzi_body",
+        "guanzi_style"
+      ],
+      "sheng": [
+        "free_reed_technique",
+        "sheng_size",
+        "sheng_context",
+        "sheng_pipe_material"
+      ],
+      "dizi": [
+        "wind_articulation",
+        "dizi_membrane",
+        "dizi_pitch",
+        "dizi_body_material",
+        "dizi_regional_style"
+      ],
+      "yunluo": [
+        "yunluo_size",
+        "yunluo_mallet"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "naobo": [
+        "naobo_type",
+        "naobo_stroke"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "field_recording",
+    "parts": {
+      "guanzi_size": "guanzi_zhongyin",
+      "guanzi_body": "guanzi_hardwood",
+      "guanzi_style": "guanzi_beijing",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "sheng_size": "sheng_traditional_17",
+      "sheng_context": "sheng_court",
+      "sheng_pipe_material": "sheng_bamboo_canonical",
+      "wind_articulation": "wind_continuous_legato",
+      "dizi_membrane": "dizi_with_membrane",
+      "dizi_pitch": "dizi_f",
+      "dizi_body_material": "dizi_purple_bamboo",
+      "dizi_regional_style": "dizi_bangdi_northern",
+      "yunluo_size": "yunluo_ten",
+      "yunluo_mallet": "yunluo_hardwood",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "naobo_type": "naobo_dabo",
+      "naobo_stroke": "naobo_open_clash"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

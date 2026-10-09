@@ -3,9 +3,9 @@
   "name": "Rock nica",
   "family": "rock",
   "lineage": "Rock nica encompasses Nicaragua’s rock scenes, including hardcore and punk bands from Managua.",
-  "recipe": "classic rock nica, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 358,
-  "score": 65.334,
+  "recipe": "classic rock nica, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 396,
+  "score": 64.115,
   "config": {
     "traditions": [
       "rock_nica"
@@ -24,23 +24,23 @@
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
-          "finish": "oil_satin_hum",
+          "string_gauge": "g_12_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 17.095,
-          "body_wood": 1.722,
-          "neck_wood": 0.40950000000000003,
-          "fretboard": 0.1365,
-          "pickup_magnet": 0.273,
+          "body_wood": 1.386,
+          "neck_wood": 0.273,
+          "fretboard": 0.273,
+          "pickup_magnet": 0.40950000000000003,
           "pickup_winding": 0.147,
           "string_material": 0.063,
-          "bridge": 0.40950000000000003,
-          "scale_length": 1.3439999999999999,
+          "bridge": 0.273,
+          "scale_length": 1.1444999999999999,
           "string_gauge": 0.40950000000000003,
-          "finish": 0.1365,
+          "finish": 0,
           "string_tuning": 0
         }
       },
@@ -48,7 +48,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 7.475,
-          "body_wood": 0.8190000000000002,
-          "pickup_config": 0.1365,
-          "string_type": 17.733999999999998,
-          "scale_length_b": 0.40950000000000003,
+          "body_wood": 0.546,
+          "pickup_config": 0.273,
+          "string_type": 17.461,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 13.75,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.36750000000000005,
+          "voice_ensemble_config": 0.504,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

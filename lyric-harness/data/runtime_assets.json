@@ -258,8 +258,8 @@
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1644323,
-          "sha256": "1aa4c2b008a99bf005beaf3d7e954fad213b322a0b0a1b9ff163e645a3503ed3"
+          "bytes": 1651780,
+          "sha256": "90de41f950537eaa27b117ffa29d01262dc69379a55b3db96bacc2c77172bd98"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",
@@ -306,8 +306,8 @@
         },
         {
           "path": "data/section_marks.tsv",
-          "bytes": 8349,
-          "sha256": "a0304cdc0b8c18d619df90c0e78261569bdbda2f8a7f5e9ce7c464acbe183fdb"
+          "bytes": 8490,
+          "sha256": "eb570b8e6b42f95ea990e76e7690eefd08586d8dd2077234b3d9185a11795f61"
         },
         {
           "path": "data/song_functions_eng.tsv",
@@ -340,6 +340,73 @@
           "path": "quality/canon_index.tsv",
           "bytes": 96430,
           "sha256": "6b653e1a2ea148acc16aefba908fa4a52ba7b45602924b2567dc7e3420aa3130"
+        }
+      ]
+    },
+    {
+      "id": "gutenberg_next_ten_pronunciations",
+      "base": "root",
+      "runtime": true,
+      "decision": "approved",
+      "reason": "User-approved source-bound preparer-selected performance readings for this imported collection; exact registered reading revisions and source hashes restrict defaults. Not authentic historical-dialect attestation and not shared lexicon mutations.",
+      "source_ids": [
+        "imports/gutenberg-next-ten/pronunciations"
+      ],
+      "files": [
+        {
+          "path": "imports/gutenberg-next-ten/pronunciations/13646.json",
+          "bytes": 15206,
+          "sha256": "66ad246addc165ef27d33e8cade9f0dfdceb11052c635b21388db8667cadaba3"
+        },
+        {
+          "path": "imports/gutenberg-next-ten/pronunciations/1568.json",
+          "bytes": 47584,
+          "sha256": "6e7edbbfb8fc99f5cf3c2e516621ab369d127e035bcd6fc339b8dfcd36120e9b"
+        },
+        {
+          "path": "imports/gutenberg-next-ten/pronunciations/27195.json",
+          "bytes": 533199,
+          "sha256": "eec25f925be450d9444f78bed686aa9ec546ad1c9716f8c53c9b95e95fc6cede"
+        },
+        {
+          "path": "imports/gutenberg-next-ten/pronunciations/3138.json",
+          "bytes": 18587,
+          "sha256": "fe14fe251d8b7daf432843b1760fcffa873359139b9fd78e04b09aa398a72666"
+        },
+        {
+          "path": "imports/gutenberg-next-ten/pronunciations/40048.json",
+          "bytes": 1365850,
+          "sha256": "875ae538c40274c88d1196a5bb3e71c786e06991f37d9a8a17aa66b86039c8ff"
+        },
+        {
+          "path": "imports/gutenberg-next-ten/pronunciations/50878.json",
+          "bytes": 8961,
+          "sha256": "81ec45c3f3f62e28f5a16f5765b89ef3ac2c4eda03d49ea4f6d0ea461f70d0df"
+        },
+        {
+          "path": "imports/gutenberg-next-ten/pronunciations/51226.json",
+          "bytes": 11807,
+          "sha256": "5fff701d8fa41dc618791f1dc12117fe38144e592af20963b0e9328edfaa941e"
+        },
+        {
+          "path": "imports/gutenberg-next-ten/pronunciations/58414.json",
+          "bytes": 11345,
+          "sha256": "34a1f1f36edd99e669d647f55630ee5a3d05e920f2718b56453ccbe290697ce0"
+        },
+        {
+          "path": "imports/gutenberg-next-ten/pronunciations/69378.json",
+          "bytes": 318135,
+          "sha256": "f136426429a7f954067c5408878a67635d68cb5484a62c95d8b7bff31bf200e2"
+        },
+        {
+          "path": "imports/gutenberg-next-ten/pronunciations/934.json",
+          "bytes": 21585,
+          "sha256": "481bc4f0e23fc30f26ef02894f1627b63e55e7cb7a8057b4ae97a3f8bd8385db"
+        },
+        {
+          "path": "imports/gutenberg-next-ten/pronunciations/bindings.json",
+          "bytes": 266254,
+          "sha256": "581ef7cafbc7f6108f2d973ec7ce159b3b646ae713fc0711bfa811dc19b3c25a"
         }
       ]
     }

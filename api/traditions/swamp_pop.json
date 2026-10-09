@@ -3,9 +3,9 @@
   "name": "Louisiana Swamp Pop",
   "family": "pop_rock",
   "lineage": "South Louisiana and southeast Texas hybrid created by young Cajun and Creole musicians circa 1955-1965 — recorded by Jay Miller in Crowley and Floyd Soileau in Ville Platte — pairing New Orleans triplet R&B piano and honking tenor saxophone with Cajun-French melodic phrasing, slow 12/8 ballad shuffles at 60-75 BPM alongside up-tempo two-beat dance numbers, plaintive high-tenor lead vocals with audible French-accented diction, and a thick, slapback-drenched small-studio mix.",
-  "recipe": "classic North American mid-1960s louisiana swamp pop, functional Song, soul R&B branch, soul R&B doowop, blues electric functional song, honky tonk era country doo-wop souldies. thick, blues-shouter, wide pitch sway, interlocked note trading. gospel runs upright piano, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, Fender blackface amp American 60s amp spring reverb bright swamp ash ash single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character swamp ash ash electric bass, pre muffled edge muffled brushes-and-sticks drum kit, single row diatonic Cajun tradition bellows chop drone foot cajun accordion. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 830,
-  "score": 428.347,
+  "recipe": "classic North American mid-1960s louisiana swamp pop, functional Song, soul R&B branch, soul R&B doowop, blues electric functional song, honky tonk era country doo-wop souldies. thick, blues-shouter, straight note core, interlocked note trading. gospel runs upright piano, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, Fender blackface amp American 60s amp spring reverb bright mahogany lower tension down tuning single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, single row diatonic Cajun tradition bellows chop drone foot cajun accordion. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 864,
+  "score": 429.587,
   "config": {
     "traditions": [
       "swamp_pop",
@@ -20,7 +20,7 @@
           "voice_quality": "blues_shouter_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
@@ -38,18 +38,18 @@
           "voice_quality": 19.922499999999985,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.209999999999999,
+          "voice_vibrato": 5.279999999999999,
           "voice_articulation": 22.35999999999999,
           "voice_microtone": 21.57999999999999,
-          "voice_tradition": 21.064999999999998,
+          "voice_tradition": 21.319999999999997,
           "voice_mechanism_compound": 5.459999999999999,
           "voice_estill_quality": 18.439999999999998,
           "voice_speech_song": 30.159999999999993,
           "voice_ensemble_config": 21.514999999999993,
-          "voice_ornament_system": 1.7799999999999998,
-          "voice_pitch_organization": 2.3850000000000002,
-          "voice_processing_chain": 8.784999999999998,
-          "voice_multitrack_stack": 7.61
+          "voice_ornament_system": 1.69,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 8.68,
+          "voice_multitrack_stack": 8.255
         }
       },
       {
@@ -60,7 +60,7 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 15.504999999999999,
+          "keyboard_technique": 15.849999999999998,
           "upright_use": 0.195,
           "upright_piano_size": 1.69
         }
@@ -72,16 +72,16 @@
           "sax_size": "tenor_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "rose_brass_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_honking_attack",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 15.235,
-          "sax_size": 17.539999999999996,
+          "wind_articulation": 15.624999999999998,
+          "sax_size": 17.344999999999995,
           "sax_reed": 0.09,
           "sax_body_alloy": -0.035,
-          "sax_mouthpiece": 0.195,
+          "sax_mouthpiece": 0.045,
           "sax_technique": 15.2,
           "sax_maker_school": 1.56
         }
@@ -91,10 +91,10 @@
         "slots": {
           "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "swamp_ash",
+          "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "maple_fb",
-          "pickup_magnet": "alnico_2",
+          "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "hardtail",
@@ -104,15 +104,15 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 14.139999999999997,
+          "electric_technique": 14.334999999999997,
           "amp_make": 21.505,
-          "body_wood": 1.495,
+          "body_wood": 1.4949999999999999,
           "neck_wood": 0.195,
           "fretboard": 0.195,
           "pickup_magnet": 0.045,
           "string_material": 0.045,
-          "string_gauge": 4.26,
-          "bridge": 0.045,
+          "string_gauge": 4.484999999999999,
+          "bridge": 0,
           "scale_length": 1.4949999999999999,
           "finish": 0.045,
           "string_tuning": 2.145,
@@ -123,7 +123,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "swamp_ash_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
@@ -132,13 +132,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 20.924999999999997,
-          "body_wood": 1.495,
+          "amp_make": 20.489999999999995,
+          "body_wood": 1.4949999999999999,
           "pickup_config": 0,
-          "string_type": 18.654999999999998,
-          "scale_length_b": 1.3299999999999998,
-          "fretted_or_not": 0.39,
-          "bass_technique": 13.899999999999999,
+          "string_type": 18.715,
+          "scale_length_b": 1.4949999999999999,
+          "fretted_or_not": 0.3,
+          "bass_technique": 13.944999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -151,7 +151,7 @@
         },
         "scores": {
           "drum_technique": 21.449999999999996,
-          "drumhead": 6.944999999999999,
+          "drumhead": 6.749999999999999,
           "drum_kit_kick_pedal": 0
         }
       },

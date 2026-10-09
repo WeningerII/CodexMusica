@@ -5,7 +5,7 @@
   "lineage": "Music of Maranhão, connecting regional songwriting, MPB, samba and Afro-Maranhão influences.",
   "recipe": "classic música maranhense, functional Song, Brazilian song branch. solo with instrumental accompaniment. classical nylon-string guitar, congas. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 242,
-  "score": 6.64,
+  "score": 6.598,
   "config": {
     "traditions": [
       "musica_maranhense"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4385000000000001,
+          "voice_ensemble_config": 1.4700000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.2415,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -66,7 +66,7 @@
           "acoustic_technique": 0.05000000000000002,
           "string_tuning": 0,
           "top_wood_classical": 0.39,
-          "bracing_classical": 0.5145,
+          "bracing_classical": 0.4095,
           "string_classical": 0.1365,
           "attack_technique_cl": 0
         }

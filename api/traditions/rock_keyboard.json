@@ -5,7 +5,7 @@
   "lineage": "Rock keyboard centres on keyboard-led performers and instrumental approaches within rock and progressive music.",
   "recipe": "classic rock keyboard, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 329,
-  "score": 59.585,
+  "score": 59.396,
   "config": {
     "traditions": [
       "rock_keyboard"
@@ -32,13 +32,13 @@
           "electric_technique": -0.11850000000000002,
           "amp_make": 7.0200000000000005,
           "body_wood": 0.7979999999999999,
-          "neck_wood": 0.5459999999999999,
-          "fretboard": 0.5459999999999999,
+          "neck_wood": 0.5145,
+          "fretboard": 0.5145,
           "pickup_magnet": 0.357,
           "pickup_winding": 0.357,
-          "string_material": 0.5459999999999999,
+          "string_material": 0.5145,
           "bridge": 0.063,
-          "scale_length": 1.3755000000000002,
+          "scale_length": 1.344,
           "string_gauge": 0.063,
           "finish": 0.1365,
           "string_tuning": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 13.75,
-          "drumhead": 0.5459999999999999,
+          "drumhead": 0.5145,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -91,7 +91,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "poly_archetypes": 7.15,
-          "poly_voices": 0.273,
+          "poly_voices": 0.2415,
           "poly_maker_lineage": -0.035
         }
       }

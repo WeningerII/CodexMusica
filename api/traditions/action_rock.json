@@ -5,7 +5,7 @@
   "lineage": "Scandinavian high-energy rock-and-roll and garage-punk continuum, represented by the Swedish Hellacopters. The action-rock label foregrounds immediate riff attack, melodic guitar leads and a driving band backbeat. This contemporary studio model selects the guitar-bass-drums core rather than prescribing every keyboard or percussion overdub heard across the repertoire.",
   "recipe": "classic modern action rock, distorted Rock, classic branch, punk distorted rock hardcore punk austrian punk. thick, interlocked note trading, equal tempered, modern pop training. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, high-headroom ampeg svt amp rock bass amp electric bass, driving sticks drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive.",
   "recipe_chars": 544,
-  "score": 173.705,
+  "score": 173.315,
   "config": {
     "traditions": [
       "action_rock",
@@ -27,12 +27,12 @@
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 0.39499999999999996,
-          "amp_make": 32.01,
+          "amp_make": 31.814999999999998,
           "body_wood": 0.195,
           "neck_wood": 0.195,
           "fretboard": 1.4949999999999999,
@@ -42,7 +42,7 @@
           "bridge": 0.195,
           "scale_length": 0.195,
           "string_gauge": 1.885,
-          "finish": 0.195,
+          "finish": 0,
           "string_tuning": 0.15
         }
       },

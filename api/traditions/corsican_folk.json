@@ -5,7 +5,7 @@
   "lineage": "Village song repertoire of Corsica documented by Félix Quilici's 1948-63 field recordings and revived after 1970 — the free-rhythm solo genres (lamentu, voceru, nanna lullaby, tribbiera threshing calls, chjam'è rispondi improvised verse duels) alongside three-voice paghjella and accompanied dance songs, sung in Corsican with heavy nasal ricuccata ornament, non-vibrato chest tone, and accompaniment by cetera-derived plucked strings, guitar or button accordion in duple mountain dance rhythms.",
   "recipe": "classic late-1940s corsican folk, ballad Poetry, Mediterranean ballad branch, European funeral lament, vocal drone modal naturjodel këngë popullore e jugut. vocal fry, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, bowl back Italian German spruce classical leaning parallel tone bars loar graduation mandolin, brass castagnari Italian premium folk music drone like accordion, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, flute. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 712,
-  "score": 225.753,
+  "score": 229.999,
   "config": {
     "traditions": [
       "corsican_folk",
@@ -38,16 +38,16 @@
           "voice_quality": 10.919999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0949999999999998,
-          "voice_articulation": 16.644999999999996,
+          "voice_vibrato": 3.3935,
+          "voice_articulation": 16.704999999999995,
           "voice_microtone": 18.71999999999999,
           "voice_tradition": 18.362500000000004,
           "voice_mechanism_compound": 7.0200000000000005,
           "voice_estill_quality": 4.615000000000001,
           "voice_speech_song": 19.239999999999995,
-          "voice_ensemble_config": 19.699999999999996,
+          "voice_ensemble_config": 20.071999999999996,
           "voice_ornament_system": 5.330000000000001,
-          "voice_pitch_organization": 6.5200000000000005,
+          "voice_pitch_organization": 6.955000000000001,
           "voice_processing_chain": 6.175,
           "voice_multitrack_stack": 3.25
         }
@@ -59,7 +59,7 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
-          "string_classical": "nylon_normal_cl",
+          "string_classical": "plain_sheep_gut_classical_guitar",
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
@@ -67,8 +67,8 @@
           "string_tuning": 0,
           "top_wood_classical": 7.149999999999999,
           "bracing_classical": 0.45499999999999996,
-          "string_classical": 0.78,
-          "attack_technique_cl": 0.8
+          "string_classical": 0.975,
+          "attack_technique_cl": 0.845
         }
       },
       {
@@ -89,8 +89,8 @@
           "mandolin_top": 1.0399999999999998,
           "mandolin_back": 0.8449999999999999,
           "mandolin_bracing": 1.04,
-          "mandolin_strings": 1.205,
-          "mandolin_fingerboard": 1.04,
+          "mandolin_strings": 1.2349999999999999,
+          "mandolin_fingerboard": 1.1644999999999999,
           "mandolin_pickup": 15.014999999999997
         }
       },
@@ -107,10 +107,10 @@
         },
         "scores": {
           "free_reed_technique": 4.875,
-          "accordion_reed_material": 1.15,
-          "musette_offset": 1.545,
+          "accordion_reed_material": 1.4949999999999999,
+          "musette_offset": 1.665,
           "reed_config": 0.39,
-          "bellows": 0.045,
+          "bellows": 0,
           "voicing_chamber": 0,
           "accordion_maker_school": 1.69
         }
@@ -124,9 +124,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 4.485,
-          "choir_polyphonic_configuration": 5.82,
-          "choir_regional_canonical_configuration": 10.235,
+          "choir_size": 4.875,
+          "choir_polyphonic_configuration": 6.045,
+          "choir_regional_canonical_configuration": 11.132,
           "choir_ensemble_repertoire": 2.6
         }
       },
@@ -140,9 +140,9 @@
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 1.85,
-          "flute_size": 0.65,
-          "flute_material": 1.15,
+          "wind_articulation": 2.0645000000000002,
+          "flute_size": 0.845,
+          "flute_material": 1.4949999999999999,
           "flute_technique": 0.935,
           "flute_maker_school": 0.09
         }

@@ -5,7 +5,7 @@
   "lineage": "A German-language rap community shaped by online video creators, collaborations and rapidly circulating songs. Music, comedy, gaming and choreographed video production intersect within the broader Deutschrap field.",
   "recipe": "classic modern german viral rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. drum machine analog, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro.",
   "recipe_chars": 209,
-  "score": 31.093,
+  "score": 30.96,
   "config": {
     "traditions": [
       "german_viral_rap"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.879999999999999,
+          "voice_speech_song": 13.131999999999998,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -77,9 +77,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 2.636,
-          "oscillator": 0.186,
-          "filter_topology": 0.39,
+          "electronic_technique": 2.4890000000000003,
+          "oscillator": 0.03899999999999999,
+          "filter_topology": 0.3,
           "envelope": 0.39,
           "modulation": 0.25549999999999995
         }

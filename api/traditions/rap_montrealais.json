@@ -1,14 +1,15 @@
 {
-  "id": "rap_montrealais",
-  "name": "Rap montréalais",
+  "id": "hip_hop_quebecois",
+  "merged_from": "rap_montrealais",
+  "name": "Hip hop québécois",
   "family": "hip_hop",
-  "lineage": "Montreal rap includes collective production and cross-city Quebec collaborations. Alaclair Ensemble’s 2010 bonus-track arrangement supplies a documented live-instrument branch.",
-  "recipe": "classic early-2010s rap montréalais, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. electric bass, rhodes electric, Hammond a 100 built in Leslie home spinet tonewheel organ, single coil electric guitar, flute. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 443,
-  "score": 33.567,
+  "lineage": "Québec hip-hop scenes; selected Loco Locass Langage-toi studio-collage branch",
+  "recipe": "classic modern hip hop québécois, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler, sub bass rompler workstation, trumpet. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 349,
+  "score": 49.185,
   "config": {
     "traditions": [
-      "rap_montrealais"
+      "hip_hop_quebecois"
     ],
     "instruments": [
       {
@@ -19,7 +20,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_articulation": "spoken_voice",
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
@@ -27,138 +28,80 @@
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_aural_relative",
           "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 12.35,
+          "voice_quality": 10.14,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0,
+          "voice_articulation": 0.39,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.219,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_speech_song": 11.244999999999997,
+          "voice_ensemble_config": 0.73275,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 0.354,
+          "voice_multitrack_stack": 0.39
         }
       },
       {
-        "id": "electric_bass",
+        "id": "sampler_classic",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "roundwound_s",
-          "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "amp_make": 0.325,
-          "body_wood": 0.162,
-          "pickup_config": 0.105,
-          "string_type": 0.2955,
-          "scale_length_b": 0.267,
-          "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002,
-          "electric_bass_string_configuration": 0
+          "electronic_technique": 6.05875,
+          "sampler_archetypes": 3.25,
+          "sampler_bit_depth": 0.213,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 9.555
         }
       },
       {
-        "id": "rhodes_electric",
+        "id": "rompler_workstation",
         "slots": {
-          "keyboard_technique": "keyboard_ostinato_groove",
-          "rhodes_model": "rhodes_suitcase",
-          "rhodes_use": "rhodes_soul",
-          "rhodes_tine_material": "rhodes_mark7_modern_tine",
-          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
-          "rhodes_pickup_position": "rhodes_pickup_centered"
+          "electronic_technique": "electronic_bass_sub",
+          "rompler_preset_bank": "rompler_preset_gm_combo",
+          "rompler_context": "rompler_context_band_keyboard",
+          "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "keyboard_technique": -0.1,
-          "rhodes_model": 0.108,
-          "rhodes_use": 0.37050000000000005,
-          "rhodes_tine_material": 0.1365,
-          "rhodes_hammer_tip": -1.2655,
-          "rhodes_pickup_position": 0.39
+          "electronic_technique": 5.5040000000000004,
+          "rompler_preset_bank": 0.12825,
+          "rompler_context": 0,
+          "rompler_lineage": 0
         }
       },
       {
-        "id": "tonewheel_organ",
-        "slots": {
-          "keyboard_technique": "keyboard_ostinato_groove",
-          "drawbar_setting": "gospel_drawbars",
-          "rotary_speed": "stopped_rotor",
-          "percussion_setting": "percussion_off",
-          "tonewheel_model": "tonewheel_hammond_a100",
-          "leslie_cabinet_model": "leslie_122_canonical"
-        },
-        "scores": {
-          "keyboard_technique": -0.1,
-          "drawbar_setting": -0.035,
-          "rotary_speed": 0.8999999999999999,
-          "percussion_setting": 0,
-          "tonewheel_model": 2.015,
-          "leslie_cabinet_model": -0.035
-        }
-      },
-      {
-        "id": "electric_guitar_single_coil",
-        "slots": {
-          "electric_technique": "electric_chicken_scratch",
-          "amp_make": "amp_unspecified",
-          "body_wood": "basswood",
-          "neck_wood": "maple",
-          "fretboard": "pau_ferro_fb",
-          "pickup_magnet": "ceramic",
-          "string_material": "nickel_plated",
-          "string_gauge": "g_10",
-          "bridge": "two_point_trem",
-          "scale_length": "scale_gibson",
-          "finish": "nitro",
-          "string_tuning": "drop_d",
-          "single_coil_pickup_construction": "single_coil_construction_unspecified"
-        },
-        "scores": {
-          "electric_technique": 0.15000000000000002,
-          "amp_make": 0,
-          "body_wood": 0.1905,
-          "neck_wood": 0.1365,
-          "fretboard": 0.1365,
-          "pickup_magnet": 0.1365,
-          "string_material": 0.2445,
-          "string_gauge": 0.0735,
-          "bridge": 0.159,
-          "scale_length": 0.108,
-          "finish": 0,
-          "string_tuning": 0.5715,
-          "single_coil_pickup_construction": 0
-        }
-      },
-      {
-        "id": "flute",
+        "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_cool_lyrical",
-          "flute_size": "piccolo_flute",
-          "flute_material": "silver_flute",
-          "flute_technique": "jazz_flute",
-          "flute_maker_school": "flute_yamaha"
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
           "wind_articulation": -0.035,
-          "flute_size": 0.1365,
-          "flute_material": 0.2415,
-          "flute_technique": 0,
-          "flute_maker_school": 0.714
+          "brass_size": 0.1365,
+          "trumpet_mouthpiece": -0.1,
+          "brass_mute": 0,
+          "trumpet_technique": -0.05,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.5774999999999999
         }
       }
     ],
@@ -181,29 +124,36 @@
         "voice_processing_chain",
         "voice_multitrack_stack"
       ],
-      "electric_bass": [
-        "bass_technique"
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
       ],
-      "rhodes_electric": [
-        "keyboard_technique"
+      "rompler_workstation": [
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
       ],
-      "tonewheel_organ": [
-        "keyboard_technique"
-      ],
-      "electric_guitar_single_coil": [
-        "electric_technique"
-      ],
-      "flute": [
-        "flute_technique"
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
       ]
     },
-    "room": "studio_auteur_home_pro",
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "dynamic_mic",
-      "pre": "pre_500_series_modern",
-      "console": "console_in_the_box",
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
       "comp": "comp_none",
-      "eq": "eq_none",
+      "eq": "eq_active_parametric",
       "amp": null,
       "medium": "digital_high"
     },
@@ -214,35 +164,47 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_auteur_home_pro",
+    "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "rap_voice",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_articulation": "spoken_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_speech_song": "voice_rhythmic_spoken_flow",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "bass_technique": "fingerstyle_locked",
-      "keyboard_technique": "keyboard_ostinato_groove",
-      "electric_technique": "electric_chicken_scratch",
-      "flute_technique": "jazz_flute"
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_aural_relative",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "rompler_preset_bank": "rompler_preset_gm_combo",
+      "rompler_context": "rompler_context_band_keyboard",
+      "rompler_lineage": "rompler_lineage_unspecified",
+      "wind_articulation": "wind_cool_lyrical",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_bebop_lines",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius"
     },
     "pin_parts": true,
-    "chain_mic": "dynamic_mic",
-    "chain_pre": "pre_500_series_modern",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
     "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
+    "chain_eq": "eq_active_parametric",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_console": "clean",
+    "chain_fx": []
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Korean folk-song repertoire transmitted orally by village and professional singers and codified into regional tori dialects during the twentieth century — Gyeonggi minyo with its light, clear sesetgarum triple-shake, Namdo minyo of Jeolla with the heavy yukjabaegi wide vibrato and downward slides, Seodo minyo of the northwest with nasal tremulous delivery, and Dongbu minyo of the east — typically in 6/8 or 12/8 jangdan cycles played on the janggu hourglass drum, with call-and-response between a lead singer and chorus.",
   "recipe": "classic East Asian modern korean minyo, field Work, east Asian branch, med east poetic ballad poetry, east Asian samul nori tamazight. thick, breath veiled tone, slow rate, interlocked note trading. composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu, daegeum, silk canonical Korean court paulownia canonical Korean haegeum, Korean court ensemble small piri higher pitched bamboo canonical Korean arundo donax large canonical Korean gugak piri, paulownia Korean gayageum, paulownia canonical Korean cowhide canonical Korean buk korean. korean gugak hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 695,
-  "score": 280.962,
+  "score": 281.226,
   "config": {
     "traditions": [
       "korean_minyo",
@@ -41,13 +41,13 @@
           "voice_vibrato": 4.095000000000001,
           "voice_articulation": 19.824999999999996,
           "voice_microtone": 20.76749999999999,
-          "voice_tradition": 24.22,
+          "voice_tradition": 24.269499999999997,
           "voice_mechanism_compound": 7.215,
           "voice_estill_quality": 8.97,
           "voice_speech_song": 25.73999999999999,
           "voice_ensemble_config": 22.164999999999992,
           "voice_ornament_system": 16.549999999999997,
-          "voice_pitch_organization": 3.085000000000001,
+          "voice_pitch_organization": 3.250000000000001,
           "voice_processing_chain": 6.825000000000001,
           "voice_multitrack_stack": 6.435000000000001
         }
@@ -90,7 +90,7 @@
         },
         "scores": {
           "bowed_technique": 1.25,
-          "haegeum_use": 1.1,
+          "haegeum_use": 1.1495000000000002,
           "haegeum_strings": 5.484999999999999,
           "haegeum_body_wood": 5.484999999999999
         }

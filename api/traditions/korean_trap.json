@@ -5,7 +5,7 @@
   "lineage": "Korean trap developed through Seoul-rooted crews and international collaborations. Keith Ape and the Cohort exemplify a spare, bass-heavy approach that also connects Korean and Japanese rap networks.",
   "recipe": "classic modern korean trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 283,
-  "score": 29.875,
+  "score": 29.909,
   "config": {
     "traditions": [
       "korean_trap"
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.6969999999999996,
-          "drum_machine_808_context": 1.6465,
+          "tr808_voice": 3.73,
+          "drum_machine_808_context": 1.6480000000000001,
           "tr808_production_origin": 0.159
         }
       },

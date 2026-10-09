@@ -5,7 +5,7 @@
   "lineage": "Pop worship connects contemporary popular-song writing with Christian devotional practice. Singers and ensembles adapt melodic repertoire for shared worship and reflective listening.",
   "recipe": "classic pop worship, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. block chord grand piano, strummed open chord ringing overtones dreadnought acoustic clean strummed humbucker electric guitar, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 342,
-  "score": 18.932,
+  "score": 19.109,
   "config": {
     "traditions": [
       "pop_worship"
@@ -67,12 +67,12 @@
         },
         "scores": {
           "keyboard_technique": 4.95,
-          "grand_piano_size": 0.294,
+          "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.273,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.7149999999999999
         }
@@ -122,7 +122,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.294,
+          "string_gauge": 0.3675,
           "finish": 0,
           "string_tuning": 0
         }

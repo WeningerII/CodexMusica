@@ -1,0 +1,84 @@
+{
+  "id": "gamelan_gambang",
+  "name": "Gamelan gambang (Balinese cremation xylophone ensemble)",
+  "family": "global",
+  "lineage": "Archaic sacred ensemble of Bali played chiefly at cremations and other death rites, and in some villages at temple festivals. Four gambang xylophones with bamboo keys, struck with forked two-headed mallets, play rapid interlocking patterns in seven-tone pelog against one or two bronze saron that carry the slower melody.",
+  "recipe": "classic modern gamelan gambang, ritual Devotional, hindu branch. gambang bali, pelog tuning saron gamelan. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 186,
+  "score": 4.252,
+  "config": {
+    "traditions": [
+      "gamelan_gambang"
+    ],
+    "instruments": [
+      {
+        "id": "gambang_bali",
+        "slots": {
+          "gambang_bali_keys": "gambang_bali_bamboo_keys",
+          "gambang_bali_mallet": "gambang_bali_forked_panggul",
+          "gambang_bali_context": "gambang_bali_pitra_yadnya"
+        },
+        "scores": {
+          "gambang_bali_keys": 0.3,
+          "gambang_bali_mallet": 1.773625,
+          "gambang_bali_context": 1.173625
+        }
+      },
+      {
+        "id": "saron_gamelan",
+        "slots": {
+          "saron_size": "saron_demung",
+          "saron_tuning_system": "saron_pelog"
+        },
+        "scores": {
+          "saron_size": 0.0315,
+          "saron_tuning_system": 1.12375
+        }
+      }
+    ],
+    "pinned": {
+      "gambang_bali": [
+        "gambang_bali_keys",
+        "gambang_bali_mallet",
+        "gambang_bali_context"
+      ],
+      "saron_gamelan": [
+        "saron_size",
+        "saron_tuning_system"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "gamelan_pelog",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "gamelan_pelog",
+    "room": "field_recording",
+    "parts": {
+      "gambang_bali_keys": "gambang_bali_bamboo_keys",
+      "gambang_bali_mallet": "gambang_bali_forked_panggul",
+      "gambang_bali_context": "gambang_bali_pitra_yadnya",
+      "saron_size": "saron_demung",
+      "saron_tuning_system": "saron_pelog"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

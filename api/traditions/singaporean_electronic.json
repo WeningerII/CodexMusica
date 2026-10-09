@@ -5,7 +5,7 @@
   "lineage": "Singaporean electronic music connects local and diaspora producers with live electronic performance and international dance production. Solo performers can combine instrumental control with their own singing.",
   "recipe": "classic singaporean electronic, electronic Dance. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 5.197,
+  "score": 5.114,
   "config": {
     "traditions": [
       "singaporean_electronic"
@@ -35,7 +35,7 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.21,
+          "kick_voice": 0.105,
           "snare_voice": 0.0315,
           "hat_voice": 0,
           "shuffle_quantize": -0.05
@@ -73,7 +73,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.1775,
+          "voice_ensemble_config": 5.2,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": -0.15000000000000002,

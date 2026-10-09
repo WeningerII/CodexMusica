@@ -5,7 +5,7 @@
   "lineage": "Brazilian gospel electronic music connects Portuguese-language Christian repertoire with electronic production, remix culture and devotional events. DJs and producers such as Noble DJ Remix build networks around gospel songs and dance-oriented ministry.",
   "recipe": "classic música eletrônica gospel, ritual Devotional, christian gospel branch. analog poly synth, drum machine analog. live tracking.",
   "recipe_chars": 132,
-  "score": 0.978,
+  "score": 0.915,
   "config": {
     "traditions": [
       "musica_eletronica_gospel"
@@ -62,7 +62,7 @@
         },
         "scores": {
           "electronic_technique": -0.05,
-          "poly_archetypes": 0.294,
+          "poly_archetypes": 0.3675,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
@@ -77,7 +77,7 @@
         },
         "scores": {
           "kick_voice": 0,
-          "snare_voice": 0.40950000000000003,
+          "snare_voice": 0.273,
           "hat_voice": 0,
           "shuffle_quantize": -0.05
         }

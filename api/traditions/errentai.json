@@ -1,0 +1,211 @@
+{
+  "id": "errentai",
+  "name": "Errentai (Inner Mongolian and north Shanxi duet song-drama)",
+  "family": "global",
+  "lineage": "Two-person song-drama of the Han communities of western Inner Mongolia, northern Shanxi, northern Shaanxi and the Zhangjiakou area of Hebei, which grew from local folk song and dance and the songs of migrants who went 'beyond the West Pass' to the grasslands; it entered China's national intangible heritage list in 2006. A clown and a dan sing and dance to the 'old three pieces' of sihu four-string fiddle, mei bamboo flute (the dizi card) and yangqin, with the performers' bamboo clappers (sikuaiwa; the paiban card in its kuaiban form stands in), and instrumental paiziqu tunes open and link the scenes.",
+  "recipe": "classic mid-2000s errentai, art Music, east Asian branch. duet, single lead single track no stacking. sihu, purple bamboo premium northern bangdi northern sharp opera percussive dizi, traditional bamboo yangqin, paiban. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 299,
+  "score": 22.839,
+  "config": {
+    "traditions": [
+      "errentai"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.588,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "sihu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "sihu_size": "sihu_size_treble",
+          "sihu_role": "sihu_role_quyi",
+          "sihu_body": "sihu_body_wood_python",
+          "sihu_technique": "sihu_technique_plain"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "sihu_size": 3.05,
+          "sihu_role": 3.185,
+          "sihu_body": -0.1,
+          "sihu_technique": 2.5315
+        }
+      },
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "dizi_membrane": "dizi_with_membrane",
+          "dizi_pitch": "dizi_f",
+          "dizi_body_material": "dizi_purple_bamboo",
+          "dizi_regional_style": "dizi_bangdi_northern"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "dizi_membrane": 0,
+          "dizi_pitch": 0.063,
+          "dizi_body_material": 5.361999999999999,
+          "dizi_regional_style": 2.6
+        }
+      },
+      {
+        "id": "yangqin",
+        "slots": {
+          "yangqin_courses": "yangqin_traditional_smaller",
+          "yangqin_technique": "yangqin_bamboo_mallets"
+        },
+        "scores": {
+          "yangqin_courses": 0.0945,
+          "yangqin_technique": 3.3799999999999994
+        }
+      },
+      {
+        "id": "paiban",
+        "slots": {
+          "paiban_form": "paiban_kuaiban"
+        },
+        "scores": {
+          "paiban_form": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "sihu": [
+        "bowed_technique",
+        "sihu_size",
+        "sihu_role",
+        "sihu_body",
+        "sihu_technique"
+      ],
+      "dizi": [
+        "wind_articulation",
+        "dizi_membrane",
+        "dizi_pitch",
+        "dizi_body_material",
+        "dizi_regional_style"
+      ],
+      "yangqin": [
+        "yangqin_courses",
+        "yangqin_technique"
+      ],
+      "paiban": [
+        "paiban_form"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bowed_technique": "bowed_legato_classical",
+      "sihu_size": "sihu_size_treble",
+      "sihu_role": "sihu_role_quyi",
+      "sihu_body": "sihu_body_wood_python",
+      "sihu_technique": "sihu_technique_plain",
+      "wind_articulation": "wind_continuous_legato",
+      "dizi_membrane": "dizi_with_membrane",
+      "dizi_pitch": "dizi_f",
+      "dizi_body_material": "dizi_purple_bamboo",
+      "dizi_regional_style": "dizi_bangdi_northern",
+      "yangqin_courses": "yangqin_traditional_smaller",
+      "yangqin_technique": "yangqin_bamboo_mallets",
+      "paiban_form": "paiban_kuaiban"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

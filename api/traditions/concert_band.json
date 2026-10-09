@@ -3,160 +3,160 @@
   "name": "Concert Band",
   "family": "classical",
   "lineage": "The seated indoor wind-and-percussion ensemble that grew from nineteenth-century military and municipal bands, professionalised by Patrick Gilmore, John Philip Sousa and the Goldman Band, and given a serious concert repertoire by Holst's Suites in E-flat and F (1909, 1911), Vaughan Williams's Folk Song Suite (1923) and the American school-band literature of Persichetti, Grainger and Frank Ticheli; large doubled sections of flutes, clarinets, saxophones, cornets, horns, trombones, euphoniums and tubas with full percussion, reading fully notated scores at conventional concert tempos.",
-  "recipe": "classic North American late-1900s concert band, art Music, western common practice branch, American marching groove percussion, European carnival processional brass band drum and bugle corps. powell boston canonical American orchestral legato flute, grenadilla African blackwood traditional legato clarinet, tenor gold brass warmer tone ensemble saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, brass legato french horn, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor ensemble extra large cup tenor bottom heavy trombone, yellow brass canonical British brass band besson sovereign canonical British brass band legato euphonium, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, timpani, nickel silver nickel silver legato piccolo. us uk civic amateur band hall. decca tree.",
-  "recipe_chars": 998,
-  "score": 192.322,
+  "recipe": "classic North American late-1900s concert band, art Music, western common practice branch, American marching groove percussion, European carnival processional drum and bugle corps. powell boston canonical American orchestral continuous-airflow legato flute, grenadilla African blackwood traditional continuous-airflow legato clarinet, gold brass warmer tone continuous-airflow legato saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato heavy one piece trumpet, brass continuous-airflow legato french horn, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor continuous-airflow legato bass trombone trombone, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, timpani.",
+  "recipe_chars": 983,
+  "score": 195.89,
   "config": {
     "traditions": [
       "concert_band",
-      "brass_band",
-      "drum_corps"
+      "drum_corps",
+      "concert_march"
     ],
     "instruments": [
       {
         "id": "flute",
         "slots": {
-          "wind_articulation": "wind_classical_legato",
-          "flute_size": "piccolo_flute",
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "concert_flute",
           "flute_material": "gold_flute",
           "flute_technique": "classical_flute",
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 3.855,
+          "wind_articulation": 3.895,
           "flute_size": 0.65,
-          "flute_material": 0.39,
+          "flute_material": 0.65,
           "flute_technique": 0.105,
-          "flute_maker_school": 5.525
+          "flute_maker_school": 6.955000000000001
         }
       },
       {
         "id": "clarinet",
         "slots": {
-          "wind_articulation": "wind_classical_legato",
+          "wind_articulation": "wind_continuous_legato",
           "clarinet_body": "grenadilla_clarinet",
           "clarinet_size": "a_clarinet",
-          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 3.855,
-          "clarinet_body": 4.92,
-          "clarinet_size": 1.815,
-          "clarinet_reed": 0.65,
+          "wind_articulation": 3.895,
+          "clarinet_body": 5.295,
+          "clarinet_size": 1.65,
+          "clarinet_reed": 0.195,
           "clarinet_articulation": 0.345
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "sax_size": "tenor_sax",
-          "sax_reed": "soft_reed",
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "baritone_sax",
+          "sax_reed": "medium_reed",
           "sax_body_alloy": "gold_brass_sax",
-          "sax_mouthpiece": "metal_mp",
-          "sax_technique": "sax_split_tone_overblown",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 4.615000000000001,
-          "sax_size": 1.0399999999999998,
-          "sax_reed": 0.65,
-          "sax_body_alloy": 8.404,
+          "wind_articulation": 3.895,
+          "sax_size": 0.65,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 8.41,
           "sax_mouthpiece": 0.65,
           "sax_technique": -0.035,
-          "sax_maker_school": 0
+          "sax_maker_school": 0.045
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "trumpet_b_flat",
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "straight_mute",
-          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_technique": "trumpet_classical_legato",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.615000000000001,
-          "brass_size": 0.65,
-          "trumpet_mouthpiece": 6.3895,
+          "wind_articulation": 3.895,
+          "brass_size": 0.045,
+          "trumpet_mouthpiece": 5.72,
           "brass_mute": 3.795,
-          "trumpet_technique": 4.615000000000001,
-          "trumpet_bell_metal": 3.185,
-          "trumpet_maker_school": 5.525
+          "trumpet_technique": 3.855,
+          "trumpet_bell_metal": 2.9899999999999998,
+          "trumpet_maker_school": 6.955000000000001
         }
       },
       {
         "id": "french_horn",
         "slots": {
-          "wind_articulation": "wind_classical_legato",
+          "wind_articulation": "wind_continuous_legato",
           "french_horn_bore": "french_horn_descant",
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 3.855,
+          "wind_articulation": 3.895,
           "french_horn_bore": 0.39,
-          "french_horn_metal": 3.835
+          "french_horn_metal": 2.9899999999999998
         }
       },
       {
         "id": "trombone",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_continuous_legato",
           "trombone_type": "bass_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_4g",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
           "trombone_mute": "straight_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_red_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 4.615000000000001,
+          "wind_articulation": 3.895,
           "trombone_type": 0,
-          "trombone_mouthpiece": 6.609,
-          "trombone_mute": 1.8599999999999999,
-          "trombone_technique": 0.585,
-          "trombone_bell_metal": 3.38,
-          "trombone_maker_school": 6.76
+          "trombone_mouthpiece": 7.625,
+          "trombone_mute": 1.695,
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 3.1849999999999996,
+          "trombone_maker_school": 7.345000000000001
         }
       },
       {
         "id": "euphonium",
         "slots": {
-          "wind_articulation": "wind_classical_legato",
+          "wind_articulation": "wind_continuous_legato",
           "euph_use": "euph_orchestral",
           "euphonium_pitch": "euphonium_bb",
           "euphonium_bell_metal": "euphonium_yellow_brass",
           "euphonium_maker_school": "euphonium_besson_sovereign"
         },
         "scores": {
-          "wind_articulation": 3.855,
-          "euph_use": 8.125,
-          "euphonium_pitch": 9.49,
-          "euphonium_bell_metal": 9.49,
-          "euphonium_maker_school": 9.49
+          "wind_articulation": 3.895,
+          "euph_use": 9.565,
+          "euphonium_pitch": 10.139999999999999,
+          "euphonium_bell_metal": 10.139999999999999,
+          "euphonium_maker_school": 10.139999999999999
         }
       },
       {
         "id": "tuba",
         "slots": {
-          "wind_articulation": "wind_classical_legato",
-          "tuba_pitch": "tuba_eb",
+          "wind_articulation": "wind_continuous_legato",
+          "tuba_pitch": "tuba_cc",
           "tuba_context": "tuba_brass_band",
           "tuba_bell_metal": "tuba_yellow_brass",
           "tuba_valve_system": "tuba_piston_american",
           "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": 3.855,
-          "tuba_pitch": 6.694999999999999,
-          "tuba_context": 8.06,
-          "tuba_bell_metal": 3.38,
-          "tuba_valve_system": 7.02,
-          "tuba_maker_school": 9.49
+          "wind_articulation": 3.895,
+          "tuba_pitch": 7.605,
+          "tuba_context": 8.059999999999999,
+          "tuba_bell_metal": 3.1849999999999996,
+          "tuba_valve_system": 8.45,
+          "tuba_maker_school": 10.139999999999999
         }
       },
       {
@@ -168,21 +168,21 @@
         },
         "scores": {
           "percussion_technique": 0.375,
-          "timpani_size": 2.01,
-          "timpani_head": 0.38999999999999996
+          "timpani_size": 1.845,
+          "timpani_head": 0.65
         }
       },
       {
         "id": "piccolo",
         "slots": {
-          "wind_articulation": "wind_classical_legato",
+          "wind_articulation": "wind_continuous_legato",
           "piccolo_material": "piccolo_metal",
           "piccolo_context": "piccolo_orch"
         },
         "scores": {
-          "wind_articulation": 3.855,
-          "piccolo_material": 3.51,
-          "piccolo_context": 3.9344999999999994
+          "wind_articulation": 3.895,
+          "piccolo_material": 4.29,
+          "piccolo_context": 4.385
         }
       }
     ],

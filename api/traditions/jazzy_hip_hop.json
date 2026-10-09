@@ -1,85 +1,89 @@
 {
-  "id": "jazzy_hip_hop",
-  "name": "Jazzy hip-hop / lo-fi hip-hop",
-  "family": "hip_hop",
-  "lineage": "2010s lo-fi hip-hop subgenre developed through YouTube streaming-channel infrastructure (especially the canonical ChilledCow / Lofi Girl 24/7 stream launched 2017, and parallel College Music, Chillhop Music streams). Characterized by jazz-piano-and-trumpet sampling, mellow-and-relaxed drum-machine production, lo-fi-cassette-tape distortion aesthetic, and explicit \"study music\" and \"ambient productivity\" functional context. Nujabes (foundational, 1974-2010), J Dilla (foundational), Idealism, Jinsang, and the broader Lofi Girl roster anchor the canonical lo-fi hip-hop roster.",
-  "recipe": "classic early-1970s jazzy hip-hop / lo-fi hip-hop, mc Rhythm, us hip hop branch, ambient experimental electric vaporwave aesthetic witch house. thick, rap, straight onset, interlocked note trading. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, Japanese factory 18 ply hard rock maple vintage production Asian spruce grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral shallow cup lead trumpet trumpet. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 729,
-  "score": 283.467,
+  "id": "lofi_hiphop",
+  "merged_from": "jazzy_hip_hop",
+  "name": "Lo-fi hip hop (chillhop)",
+  "family": "global",
+  "lineage": "Mid-2010s onward online-distributed instrumental-hip-hop genre characterized by tape-saturated downtempo beat-tape production, jazz-and-soul sample foundations, and study-and-relax-targeted use context — codified through Nujabes (Modal Soul 2005, posthumously canonical), J Dilla (Donuts 2006, the lineage-bearing predecessor), and developed through ChilledCow and Lofi Girl YouTube live-streams, with countless bedroom-producer contributors",
+  "recipe": "classic 2014-2016 lo-fi hip hop, experimental Elec, lofi branch, us hip hop modern cloud rap dark plugg. chopped sampler, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, roland tr 8s modern aira digital recreation TR-808, modern bright beech laminated maple laminated European tradition Asian spruce grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 588,
+  "score": 187.227,
   "config": {
     "traditions": [
-      "jazzy_hip_hop",
-      "vapor_aesthetic",
-      "witch_house_2010s"
+      "lofi_hiphop",
+      "cloud_rap",
+      "dark_plugg"
     ],
     "instruments": [
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
-        },
-        "scores": {
-          "voice_register": 6.1850000000000005,
-          "voice_quality": 11.665,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 5.275,
-          "voice_articulation": 16.704999999999995,
-          "voice_microtone": 16.50999999999999,
-          "voice_tradition": 11.06,
-          "voice_mechanism_compound": 1.6899999999999997,
-          "voice_estill_quality": 1.4949999999999997,
-          "voice_speech_song": 16.704999999999995,
-          "voice_ensemble_config": 17.484999999999992,
-          "voice_ornament_system": 1.1999999999999997,
-          "voice_pitch_organization": 6.5649999999999995,
-          "voice_processing_chain": 10.024999999999999,
-          "voice_multitrack_stack": 10.79
-        }
-      },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "emu_sp1200",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 11.765,
-          "sampler_archetypes": 22.085,
-          "sampler_bit_depth": 7.6899999999999995,
-          "sampler_workflow": 11.715,
-          "sampler_classic_context": 33.442499999999995
+          "electronic_technique": 8.610999999999999,
+          "sampler_archetypes": 15.469999999999999,
+          "sampler_bit_depth": 3.5100000000000002,
+          "sampler_workflow": 9.060999999999998,
+          "sampler_classic_context": 24.277499999999996
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 5.7,
+          "rhodes_model": 5.221,
+          "rhodes_use": 2.795,
+          "rhodes_tine_material": 3.705,
+          "rhodes_hammer_tip": 0.6824999999999998,
+          "rhodes_pickup_position": 1.195
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 8.865,
+          "body_wood": 1.95,
+          "pickup_config": 4.8100000000000005,
+          "string_type": 7.999999999999999,
+          "scale_length_b": 3.5100000000000002,
+          "fretted_or_not": 0.135,
+          "bass_technique": 6.54,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_rb",
-          "tr808_production_origin": "tr808_roland_osaka_canonical"
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 10.215,
-          "drum_machine_808_context": 3.3799999999999994,
-          "tr808_production_origin": 2.4049999999999994
+          "tr808_voice": 8.85,
+          "drum_machine_808_context": 2.8600000000000003,
+          "tr808_production_origin": 2.8600000000000003
         }
       },
       {
@@ -88,97 +92,68 @@
           "keyboard_technique": "keyboard_avant_prepared",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "japanese_1980s_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_hammer": "renner_blue_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 7.200000000000001,
-          "grand_piano_size": 0.63,
-          "grand_piano_brand": 0.845,
-          "piano_hammer": 2.87,
-          "piano_rim": 3.25,
-          "piano_soundboard": 1.8150000000000002,
-          "piano_pinblock": 2.045,
-          "piano_plate": 3.25,
-          "piano_pitch_standard": 1.885
-        }
-      },
-      {
-        "id": "trumpet",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "brass_size": "cornet",
-          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
-          "brass_mute": "cup_mute",
-          "trumpet_technique": "trumpet_classical_legato",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
-        },
-        "scores": {
-          "wind_articulation": 2.8750000000000004,
-          "brass_size": 1.3,
-          "trumpet_mouthpiece": 6.415000000000001,
-          "brass_mute": 1.3,
-          "trumpet_technique": -0.05,
-          "trumpet_bell_metal": 5.069999999999999,
-          "trumpet_maker_school": 5.915
+          "keyboard_technique": 6.700000000000001,
+          "grand_piano_size": 1.95,
+          "grand_piano_brand": 2.145,
+          "piano_hammer": 7.085000000000001,
+          "piano_rim": 6.340000000000001,
+          "piano_soundboard": 5.984000000000001,
+          "piano_pinblock": 5.645000000000001,
+          "piano_plate": 8.97,
+          "piano_pitch_standard": 11.05
         }
       }
     ],
-    "room": "studio_distributed_production",
-    "archetype": "arch_modern_pro_daw_studio",
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
     "inline_chain": {
-      "mic": "condenser_ldc",
-      "pre": "pre_neve_1073_input",
-      "console": "console_british_inline_80s",
-      "comp": "comp_smart_c1_bus",
-      "eq": "eq_console_surgical",
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": "digital_high"
+      "medium": "cassette_medium"
     },
     "tuning": "twelve_tet",
-    "aesthetic": null,
+    "aesthetic": "lofi_deliberate",
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_distributed_production",
+    "room": "untreated_bedroom",
     "parts": {
-      "voice_register": "chest_voice",
-      "voice_quality": "rap_voice",
-      "voice_speech_song": "voice_rhythmic_spoken_flow",
-      "voice_tradition": "modern_pop_vocal_training",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
-      "voice_microtone": "tempered_voice",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_estill_quality": "voice_estill_speech",
-      "voice_vibrato": "slow_vibrato",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "body_wood": "alder_b",
+      "pickup_config": "soapbar",
+      "string_type": "coated_nano_bass",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "sub_bass_synth_blend",
       "tr808_voice": "tr808_kick_long",
-      "drum_machine_808_context": "drum_machine_808_trap",
+      "drum_machine_808_context": "drum_machine_808_rb",
       "tr808_production_origin": "tr808_roland_osaka_canonical",
-      "sampler_archetypes": "emu_sp1200",
-      "sampler_workflow": "sampler_chopped_breaks",
-      "sampler_classic_context": "sampler_classic_hiphop",
-      "keyboard_technique": "keyboard_jazz_comping",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_workflow": "sampler_microsampling_glitch",
+      "sampler_classic_context": "sampler_classic_post",
+      "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
-      "wind_articulation": "wind_punchy_ensemble",
-      "brass_size": "trumpet_b_flat",
-      "trumpet_technique": "trumpet_punchy_ensemble"
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_jazz"
     },
-    "chain_mic": "condenser_ldc",
-    "chain_pre": "pre_neve_1073_input",
-    "chain_comp": "comp_smart_c1_bus",
-    "chain_eq": "eq_console_surgical",
-    "chain_medium": "digital_high",
-    "chain_console": "console_british_inline_80s"
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
   }
 }

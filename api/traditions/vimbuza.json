@@ -3,9 +3,9 @@
   "name": "Vimbuza (Tumbuka healing dance)",
   "family": "global",
   "lineage": "Tumbuka healing performance in northern Malawi, with responsive singing and interlocking drums.",
-  "recipe": "classic modern vimbuza, ritual Devotional, indigenous branch. malawi. interlocking vimbuza drums, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 188,
-  "score": 4.364,
+  "recipe": "classic modern vimbuza, ritual Devotional, indigenous branch. malawi. interlocking resonant vimbuza drums, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 197,
+  "score": 4.692,
   "config": {
     "traditions": [
       "vimbuza"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.21
+          "voice_multitrack_stack": 0.3525
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "vimbuza_drums_role": 1.69,
-          "vimbuza_drums_gesture": 0.9239999999999999
+          "vimbuza_drums_gesture": 1.0665
         }
       },
       {
@@ -68,7 +68,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0,
+          "clap_technique": 0.042749999999999996,
           "clap_capture": 0
         }
       }

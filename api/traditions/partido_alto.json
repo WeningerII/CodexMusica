@@ -5,7 +5,7 @@
   "lineage": "Rio de Janeiro samba subgenre of Afro-Bahian descent that crystallized in the morro communities in the 1930s-70s, built on a fixed responsorial refrain answered by improvised sung verses (partido-alto improvisation duels), a syncopated pandeiro-and-hand-percussion clave, and cavaquinho/violão accompaniment at around 100 BPM, codified in recordings by Candeia, Martinho da Vila and Wilson Moreira.",
   "recipe": "classic Southern American mid-1930s partido-alto, groove Percussion, Brazilian branch, pagode Brazilian, Latin am troubadour ballad poetry, Brazilian song functional song roda de samba brega paraense. vocal fry, breath veiled tone, interlocked note trading, neutral third half flat. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, samba foundation mahogany samba canon cavaquinho, choro tradition nylon Brazilian rosewood pre 1992 choro accompaniment violao 7 cordas, multi rod cluster canonical samba aluminum canonical rio escola tamborim, nylon canonical rio carnival surdo, hand clap, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu choir ensemble. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
   "recipe_chars": 946,
-  "score": 210.523,
+  "score": 210.842,
   "config": {
     "traditions": [
       "partido_alto",
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -47,8 +47,8 @@
           "voice_speech_song": 20.994999999999997,
           "voice_ensemble_config": 16.314999999999994,
           "voice_ornament_system": 1.1049999999999998,
-          "voice_pitch_organization": 1.7,
-          "voice_processing_chain": 4.335,
+          "voice_pitch_organization": 1.895,
+          "voice_processing_chain": 4.185,
           "voice_multitrack_stack": 2.52
         }
       },
@@ -66,9 +66,9 @@
           "percussion_technique": 5.17,
           "pandeiro_size": 3.9,
           "pandeiro_context": 0.78,
-          "pandeiro_head": 7.340000000000001,
-          "pandeiro_shell_wood": 7.340000000000001,
-          "pandeiro_jingles": 7.340000000000001
+          "pandeiro_head": 7.475000000000001,
+          "pandeiro_shell_wood": 7.475000000000001,
+          "pandeiro_jingles": 7.475000000000001
         }
       },
       {
@@ -99,10 +99,10 @@
         },
         "scores": {
           "violao_7_string7": 0.48000000000000004,
-          "violao_7_strings": 1.98,
+          "violao_7_strings": 2.175,
           "violao_7_body_wood": 4.745000000000002,
-          "violao_7_top_wood": 0.38999999999999996,
-          "violao_7_role": 1.2850000000000001
+          "violao_7_top_wood": 0.585,
+          "violao_7_role": 1.24
         }
       },
       {
@@ -134,11 +134,11 @@
       {
         "id": "hand_clap",
         "slots": {
-          "clap_technique": "clap_fingers_to_palm",
+          "clap_technique": "clap_flat_sharp",
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0.825,
+          "clap_technique": 0.65,
           "clap_capture": 0.045
         }
       },
@@ -152,9 +152,9 @@
         },
         "scores": {
           "choir_size": 6.954999999999999,
-          "choir_polyphonic_configuration": 1.3649999999999998,
-          "choir_regional_canonical_configuration": 6.56,
-          "choir_ensemble_repertoire": 2.7149999999999994
+          "choir_polyphonic_configuration": 1.41,
+          "choir_regional_canonical_configuration": 6.41,
+          "choir_ensemble_repertoire": 2.5199999999999996
         }
       }
     ],

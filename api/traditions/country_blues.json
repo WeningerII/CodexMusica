@@ -5,7 +5,7 @@
   "lineage": "Rural Southern US solo guitar-and-voice blues consolidated on race records between 1926 and 1935 through Blind Lemon Jefferson, Charley Patton, Blind Blake and Mississippi John Hurt — free-floating 8-to-13-bar stanzas at 70-110 BPM, thumb-driven alternating or monotonic bass under treble string answers, bottleneck slide and heavy string bending, and a declamatory field-holler vocal that the guitar answers phrase for phrase.",
   "recipe": "classic mid-1920s country blues, functional Song, blues acoustic branch, blues narrative delta narrative, blues narrative piedmont narrative, pre commercial country ragtime blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning fingerpicked parlor acoustic open g tuning steel bronze fingerpicked steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, foot stomp. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 608,
-  "score": 429.75,
+  "score": 426.599,
   "config": {
     "traditions": [
       "country_blues",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 36.76000000000001,
+          "voice_register": 36.58300000000001,
           "voice_quality": 26.449999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 35.32,
           "voice_articulation": 18.979999999999997,
-          "voice_microtone": 33.705000000000005,
-          "voice_tradition": 14.734999999999996,
+          "voice_microtone": 33.691500000000005,
+          "voice_tradition": 14.373499999999996,
           "voice_mechanism_compound": 1.8850000000000002,
-          "voice_estill_quality": 8.825,
+          "voice_estill_quality": 8.555,
           "voice_speech_song": 20.149999999999995,
           "voice_ensemble_config": 16.119999999999997,
-          "voice_ornament_system": 2.51,
+          "voice_ornament_system": 2.36,
           "voice_pitch_organization": 2.4699999999999998,
-          "voice_processing_chain": 3.87,
+          "voice_processing_chain": 3.8115,
           "voice_multitrack_stack": 4.029999999999999
         }
       },
@@ -57,16 +57,16 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_g",
-          "top_wood_parlor": "cedar_p",
+          "top_wood_parlor": "mahogany_top_p",
           "back_sides_parlor": "mahogany_bs_p",
           "string_acoustic_parlor": "eighty_twenty_p"
         },
         "scores": {
-          "acoustic_technique": 14.600000000000001,
+          "acoustic_technique": 13.8785,
           "string_tuning": 12.87,
-          "top_wood_parlor": 0.345,
+          "top_wood_parlor": 0.42,
           "back_sides_parlor": 0.21,
-          "string_acoustic_parlor": 1.8399999999999999
+          "string_acoustic_parlor": 1.8264999999999998
         }
       },
       {
@@ -79,11 +79,11 @@
           "res_strings": "eighty_twenty_res"
         },
         "scores": {
-          "acoustic_technique": 14.600000000000001,
+          "acoustic_technique": 13.8785,
           "string_tuning": 12.87,
           "cone_type": 5.999999999999998,
-          "body_resonator": 1.9299999999999997,
-          "res_strings": 1.84
+          "body_resonator": 1.9164999999999999,
+          "res_strings": 1.8265
         }
       },
       {
@@ -98,11 +98,11 @@
         },
         "scores": {
           "harmonica_type": 0.9099999999999999,
-          "harmonica_comb": 31.294999999999995,
-          "harmonica_reed": 29.169999999999998,
+          "harmonica_comb": 31.236499999999996,
+          "harmonica_reed": 29.124999999999996,
           "harmonica_technique": 35.324999999999996,
-          "harmonica_maker_school": 30.609999999999996,
-          "harmonica_tuning": 14.429999999999998
+          "harmonica_maker_school": 30.4255,
+          "harmonica_tuning": 14.005499999999998
         }
       },
       {

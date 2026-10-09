@@ -5,7 +5,7 @@
   "lineage": "Historic Swedish pop represented by ABBA’s layered1970s studio arrangements. This model keeps piano, paired lead voices, guitar/bass/drums, the distinct marimba hook documented for Mamma Mia, and a bowed-string overdub color. It does not prescribe one ensemble for every Swedish-language or English-language classic.",
   "recipe": "classic classic swedish pop, functional Song, europop branch. one note per syllable, duet, thirds fifths octaves voicing. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marimba cremonese pre 1750 four layer system modern setup longer neck longer fingerboard violin orchestral, soft down tuning clean strummed single coil electric guitar, la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled drum kit. treated studio. large-diaphragm condenser, ultra-clean solid-state pre, colored vintage console, clean digital mastering EQ. Studer 30ips tape.",
   "recipe_chars": 614,
-  "score": 69.512,
+  "score": 69.712,
   "config": {
     "traditions": [
       "classic_swedish_pop"
@@ -68,7 +68,7 @@
           "grand_piano_size": 0.3295,
           "grand_piano_brand": 0.39249999999999996,
           "piano_hammer": 7.6915000000000004,
-          "piano_rim": 8.773,
+          "piano_rim": 8.8045,
           "piano_soundboard": 7.75,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
@@ -107,7 +107,7 @@
         },
         "scores": {
           "electric_technique": 8.289,
-          "amp_make": 1.255,
+          "amp_make": 1.15,
           "body_wood": 0.298,
           "neck_wood": 0.298,
           "fretboard": 0.1365,
@@ -178,7 +178,7 @@
           "orch_back_wood": 0.325,
           "orch_varnish": 1.2,
           "orch_setup_period": 1.56,
-          "orch_bow": 1.3649999999999998,
+          "orch_bow": 1.6379999999999997,
           "orch_bow_stick": -0.035,
           "orch_articulation": 0.33699999999999997,
           "orch_rosin": -0.035

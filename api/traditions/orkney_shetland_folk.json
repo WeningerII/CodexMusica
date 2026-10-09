@@ -5,7 +5,7 @@
   "lineage": "Northern-isles fiddle tradition of the Norse-settled Scottish archipelago, collected and taught into the modern era by Tom Anderson from the 1940s onward — Shetland reels and 'trowie' tunes with heavy ringing-string double stops and off-beat bowing, wedding and Up Helly Aa dance repertoire, Orkney's slower strathspey-inflected airs, backed by vamping piano or guitar rather than by pipes.",
   "recipe": "classic Northern European mid-1940s orkney and shetland folk, ballad Poetry, Scottish ballad branch, Celtic traditional improv on frame, string drone modal kantele music dombra küy. thick, breath veiled tone, pure, interlocked note trading. magic rosin modern acrylic base double stops fiddle, no chemical hardener t rivet beech laminated maple laminated European tradition grand piano, dadgad tuning steel silk drone like modal dreadnought acoustic guitar, venice catlin high twist renaissance bass plywood laminate double bass. scottish bothy farmhouse kitchen. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 687,
-  "score": 248.15,
+  "score": 247.2,
   "config": {
     "traditions": [
       "orkney_shetland_folk",
@@ -24,7 +24,7 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 8.14,
+          "bowed_technique": 7.945000000000001,
           "fiddle_strings": 0.15,
           "fiddle_bow": 1.045,
           "fiddle_mute": 0.65,
@@ -41,7 +41,7 @@
           "piano_hammer": "abel_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
@@ -51,10 +51,10 @@
           "grand_piano_brand": 0.65,
           "piano_hammer": 3.6899999999999995,
           "piano_rim": 5.135,
-          "piano_soundboard": 4.725,
-          "piano_pinblock": 2.65,
-          "piano_plate": 3.39,
-          "piano_pitch_standard": 7.97
+          "piano_soundboard": 4.335,
+          "piano_pinblock": 2.6900000000000004,
+          "piano_plate": 3.09,
+          "piano_pitch_standard": 7.969999999999999
         }
       },
       {
@@ -67,8 +67,8 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 14.559999999999999,
-          "string_tuning": 13.290000000000001,
+          "acoustic_technique": 14.35,
+          "string_tuning": 13.335,
           "top_wood": 0.845,
           "back_sides": 0.65,
           "string_acoustic": 2.04
@@ -129,13 +129,13 @@
           "voice_vibrato": 0.845,
           "voice_articulation": 18.849999999999994,
           "voice_microtone": 21.77499999999999,
-          "voice_tradition": 24.559999999999995,
+          "voice_tradition": 24.845,
           "voice_mechanism_compound": 6.954999999999999,
           "voice_estill_quality": 5.255000000000001,
           "voice_speech_song": 20.084999999999994,
           "voice_ensemble_config": 18.914999999999992,
-          "voice_ornament_system": 9.165000000000001,
-          "voice_pitch_organization": 4.755000000000001,
+          "voice_ornament_system": 9.045,
+          "voice_pitch_organization": 4.65,
           "voice_processing_chain": 5.329999999999999,
           "voice_multitrack_stack": 5.005000000000001
         }

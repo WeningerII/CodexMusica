@@ -1,0 +1,130 @@
+{
+  "id": "organo_oriental_manzanillo",
+  "name": "Órgano oriental (Manzanillo dance-organ music)",
+  "family": "global",
+  "lineage": "Dance music of Manzanillo and Holguín in eastern Cuba played on large crank-operated organs that read perforated cardboard music, first imported from France and later built locally, notably by the Borbolla family workshop in Manzanillo. The organ is joined by timbales, güiro and tumbadora to play danzones, sones and boleros for public dances.",
+  "recipe": "classic modern órgano oriental, groove Percussion, charanga danza branch. fairground organ carousel march brassy dance brass reed pipes book music barrel organ, timbales stick played, guiro, tumbadora. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 281,
+  "score": 9.701,
+  "config": {
+    "traditions": [
+      "organo_oriental_manzanillo"
+    ],
+    "instruments": [
+      {
+        "id": "barrel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "barrel_organ_form": "barrel_organ_form_fairground",
+          "barrel_organ_programme": "barrel_organ_programme_fair",
+          "barrel_organ_pipework": "barrel_organ_pipework_reed_book"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "barrel_organ_form": 2.55,
+          "barrel_organ_programme": 2.925,
+          "barrel_organ_pipework": 3.7336250000000004
+        }
+      },
+      {
+        "id": "timbales_stick_played",
+        "slots": {
+          "timbales_playing": "timbales_stick_pattern",
+          "timbales_shell": "timbales_steel",
+          "timbales_context": "timbales_son"
+        },
+        "scores": {
+          "timbales_playing": 0.0315,
+          "timbales_shell": 0,
+          "timbales_context": 0.231
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_wood"
+        },
+        "scores": {
+          "guiro_origin": 0.01875,
+          "guiro_striker": 0
+        }
+      },
+      {
+        "id": "tumbadora",
+        "slots": {
+          "tumbadora_size": "tumbadora_conga",
+          "tumbadora_technique": "tumbadora_tumbao",
+          "tumbadora_head": "tumbadora_cowhide"
+        },
+        "scores": {
+          "tumbadora_size": 0.21562499999999998,
+          "tumbadora_technique": 0.21562499999999998,
+          "tumbadora_head": 0
+        }
+      }
+    ],
+    "pinned": {
+      "barrel_organ": [
+        "keyboard_technique",
+        "barrel_organ_form",
+        "barrel_organ_programme",
+        "barrel_organ_pipework"
+      ],
+      "timbales_stick_played": [
+        "timbales_playing",
+        "timbales_shell",
+        "timbales_context"
+      ],
+      "guiro": [
+        "guiro_origin",
+        "guiro_striker"
+      ],
+      "tumbadora": [
+        "tumbadora_size",
+        "tumbadora_technique",
+        "tumbadora_head"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "barrel_organ_form": "barrel_organ_form_fairground",
+      "barrel_organ_programme": "barrel_organ_programme_fair",
+      "barrel_organ_pipework": "barrel_organ_pipework_reed_book",
+      "timbales_playing": "timbales_stick_pattern",
+      "timbales_shell": "timbales_steel",
+      "timbales_context": "timbales_son",
+      "guiro_origin": "guiro_cuban",
+      "guiro_striker": "guiro_wood",
+      "tumbadora_size": "tumbadora_conga",
+      "tumbadora_technique": "tumbadora_tumbao",
+      "tumbadora_head": "tumbadora_cowhide"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

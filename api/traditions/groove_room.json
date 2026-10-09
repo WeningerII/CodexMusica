@@ -5,7 +5,7 @@
   "lineage": "Groove Room brings together a contemporary network of melodic house producers and remixers. Labels and online DJ programmes connect rounded dance rhythms, tuneful electronic textures and vocal material with both club and relaxed listening.",
   "recipe": "classic groove room, electronic Dance, deep house branch. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 104,
-  "score": 0.063,
+  "score": 0.032,
   "config": {
     "traditions": [
       "groove_room"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0315
         }
       }
     ],

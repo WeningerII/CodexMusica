@@ -5,7 +5,7 @@
   "lineage": "Danish electronic music connects local producers and collaborators across dance music and electronica.",
   "recipe": "classic danish electronic, electronic Dance. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 223,
-  "score": 1.282,
+  "score": 1.387,
   "config": {
     "traditions": [
       "danish_electronic"
@@ -73,11 +73,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.419,
+          "voice_ensemble_config": 1.4925,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063
+          "voice_multitrack_stack": 0.0945
         }
       }
     ],

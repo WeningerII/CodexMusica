@@ -5,7 +5,7 @@
   "lineage": "Māori performing-arts discipline formalised through 20th-century concert parties and the biennial Te Matatini national competition founded in 1972 — a fixed bracket of whakaeke, mōteatea, waiata ā-ringa, poi, haka and whakawātea, with unison group chant in te reo Māori, sharply stamped foot percussion and thigh slaps supplying the pulse, declaimed leader calls answered by the full rōpū, and pūkaea or pūtātara conch calls opening the set.",
   "recipe": "classic Oceanian early-1970s kapa haka, praise Song, oceania pacific branch, European carnival processional, oceania pacific funeral lament hawaiian kanikau māori waiata tangi. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. bare foot foot stomp, group massed hand clap, call ritual conch shell horn, putorino, pacific slit gong. marae forecourt. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 433,
-  "score": 122.65,
+  "score": 122.515,
   "config": {
     "traditions": [
       "kapa_haka",
@@ -38,7 +38,7 @@
           "voice_quality": 12.219999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.675,
+          "voice_vibrato": 1.7349999999999999,
           "voice_articulation": 10.204999999999998,
           "voice_microtone": 10.919999999999991,
           "voice_tradition": 17.945,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "stomp_footwear": 1,
-          "stomp_surface": 0.09
+          "stomp_surface": 0
         }
       },
       {
@@ -70,7 +70,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 1.75,
+          "clap_technique": 1.5999999999999999,
           "clap_capture": 0
         }
       },
@@ -103,11 +103,11 @@
         "slots": {
           "pacific_slit_gong_form": "pacific_slit_gong_toere",
           "pacific_slit_gong_role": "pacific_slit_gong_ceremonial",
-          "pacific_slit_gong_wood": "pacific_slit_gong_miro"
+          "pacific_slit_gong_wood": "pacific_slit_gong_toa"
         },
         "scores": {
           "pacific_slit_gong_form": 0.26,
-          "pacific_slit_gong_role": 4.1049999999999995,
+          "pacific_slit_gong_role": 4.1499999999999995,
           "pacific_slit_gong_wood": -0.035
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Canadian house production with a selected Montréal deep-house branch represented by Fred Everything. His first-person accounts connect Québec City beginnings and Montréal record-shop/club networks to a hardware-rich workflow using sampled drums, analog synthesizers and keyboard harmony.",
   "recipe": "classic modern canadian house, electronic Dance, deep house branch. sampler drum machine, analog poly synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 321,
-  "score": 28.877,
+  "score": 28.907,
   "config": {
     "traditions": [
       "canadian_house"
@@ -55,7 +55,7 @@
           "sampler_archetypes": 0,
           "sampler_bit_depth": 0.063,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 26.100499999999997
+          "sampler_classic_context": 26.130000000000003
         }
       }
     ],

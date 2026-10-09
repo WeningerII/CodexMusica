@@ -5,7 +5,7 @@
   "lineage": "German Oi connects German punk bands with direct song writing and forceful ensemble performance. Groups develop their own repertoire within a wider international Oi and punk community.",
   "recipe": "classic german oi, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 339,
-  "score": 33.082,
+  "score": 32.4,
   "config": {
     "traditions": [
       "german_oi"
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": 2.6000000000000005,
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
-          "neck_wood": 0.40950000000000003,
+          "body_wood": 0.546,
+          "neck_wood": 0.273,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0,
           "finish": 0,
           "string_tuning": 0
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
+          "body_wood": 0.546,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

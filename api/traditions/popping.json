@@ -5,7 +5,7 @@
   "lineage": "Popping music serves the rhythmic needs of a dance practice built around sharply timed muscular hits, controlled isolations and flowing movement. Funk, electro and related recorded repertoires circulate through dancers, DJs and competitions.",
   "recipe": "classic popping, groove Percussion, funk percussive branch. pocket fingerstyle locked electric bass, drum kit, analog poly synth. treated studio.",
   "recipe_chars": 145,
-  "score": 9.641,
+  "score": 9.71,
   "config": {
     "traditions": [
       "popping"
@@ -25,12 +25,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.0315,
-          "pickup_config": 0.168,
+          "body_wood": 0.1365,
+          "pickup_config": 0.2415,
           "string_type": 0,
-          "scale_length_b": 0.39,
+          "scale_length_b": 0.3315,
           "fretted_or_not": 1.95,
-          "bass_technique": 6.391500000000001,
+          "bass_technique": 6.15,
           "electric_bass_string_configuration": 0
         }
       },
@@ -53,13 +53,13 @@
           "drum_technique": -0.035,
           "drumhead": 0.3315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.27299999999999996,
-          "shell_thickness": 0.0315,
-          "bearing_edges": 0.3045,
+          "shell_wood": 0.16799999999999998,
+          "shell_thickness": 0,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.1685,
           "cymbal_hammering": -0.10500000000000001,
-          "cymbal_lathing": 0.18150000000000002,
+          "cymbal_lathing": 0.19500000000000003,
           "cymbal_finish": 0
         }
       },
@@ -72,9 +72,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0,
-          "poly_voices": 0.0315,
+          "electronic_technique": -0.07,
+          "poly_archetypes": 0.105,
+          "poly_voices": 0.273,
           "poly_maker_lineage": -0.035
         }
       }

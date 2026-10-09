@@ -5,7 +5,7 @@
   "lineage": "Dominican-New York hybrid launched around 1989-1993 by Proyecto Uno, Ilegales and Sandy y Papo, laying Spanish and Spanglish rap over 140-160 BPM merengue with programmed tambora patterns, güira sixteenths, synth-brass jaleo stabs and sampled house drums, alternating rapped verses with sung merengue choruses.",
   "recipe": "classic Caribbean 1989-1993 merenrap, mc Rhythm, Afro-diasporic branch, reggaeton MC rhythm, tropical song functional song chutney soca huayno popular. extended whistle, breath veiled tone, breath pulsed, interlocked note trading. locked with tambora fast scrape guira wood avocado canonical Dominican merengue tradition tambora dominicana, rose brass darker warmer saxophone, analog poly synth, sampler drum machine. Dominican canon 1970-1995 mid tier dominican capital studio 80s. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
   "recipe_chars": 679,
-  "score": 166.627,
+  "score": 166.827,
   "config": {
     "traditions": [
       "merenrap",
@@ -23,7 +23,7 @@
           "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_tradition": "andean_quechua_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,7 +41,7 @@
           "voice_vibrato": 0.65,
           "voice_articulation": 18.199999999999996,
           "voice_microtone": 16.249999999999996,
-          "voice_tradition": 3.9650000000000003,
+          "voice_tradition": 4.074999999999999,
           "voice_mechanism_compound": 5.265,
           "voice_estill_quality": 5.07,
           "voice_speech_song": 23.074999999999996,
@@ -61,7 +61,7 @@
         },
         "scores": {
           "guira_dominicana_form": 5.15,
-          "guira_dominicana_pattern": 19.15,
+          "guira_dominicana_pattern": 19.494999999999997,
           "guira_dominicana_sheet": 3.5949999999999998
         }
       },
@@ -74,8 +74,8 @@
           "tambora_dominicana_heads": "tambora_dominicana_male_female"
         },
         "scores": {
-          "tambora_shell": 4.034999999999999,
-          "tambora_technique": 3.724999999999999,
+          "tambora_shell": 4.079999999999999,
+          "tambora_technique": 3.919999999999999,
           "tambora_dominicana_shell_wood": 1.69,
           "tambora_dominicana_heads": 0.195
         }
@@ -92,7 +92,7 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 1.2499999999999998,
+          "wind_articulation": 1.2949999999999997,
           "sax_size": 0.5,
           "sax_reed": 0.15,
           "sax_body_alloy": 2.47,
@@ -125,9 +125,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 1.395,
-          "sample_bitdepth": 1.125,
-          "sample_swing": 1.68,
+          "electronic_technique": 1.56,
+          "sample_bitdepth": 0.6300000000000001,
+          "sample_swing": 1.47,
           "sample_processing": 1.545
         }
       }

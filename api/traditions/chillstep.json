@@ -3,27 +3,27 @@
   "name": "Chillstep",
   "family": "electronic",
   "lineage": "Melodic downtempo offshoot of UK dubstep that coalesced online circa 2010-2013 through Blackmill, Phaeleh and Seven Lions, keeping the 140 BPM half-time snare-on-three skeleton and sub-bass weight of dubstep but replacing wobble aggression with sustained major-key pad washes, arpeggiated piano figures, long reverb tails and wordless or breathy female topline vocals.",
-  "recipe": "classic 2010-2013 chillstep, bass System, dub descendants branch, uk soundsystem bass system, ambient experimental electric, trance electronic dance uk garage and 2-step bassline. extended whistle, breath veiled tone, straight note core, interlocked note trading. sub bass analog poly sub bass wavetable synth, sub bass monosynth acid bass, sampler drum machine, cold pressed weikert felt a 440 modern pitch us standard grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 605,
-  "score": 202.125,
+  "recipe": "classic 2010-2013 chillstep, bass System, dub descendants branch, uk soundsystem bass system, ambient experimental electric, trance electronic dance progressive psytrance classic trance. balanced, breath veiled tone, straight note core, interlocked note trading. sub bass analog poly sub bass wavetable synth, sub bass monosynth acid bass, sampler drum machine, a 442 European orchestral grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 573,
+  "score": 199.775,
   "config": {
     "traditions": [
       "chillstep",
-      "uk_garage_2step",
-      "bassline"
+      "psyprog",
+      "classic_trance"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "mix_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.5924999999999998,
-          "voice_quality": 7.345000000000001,
+          "voice_register": 1.95,
+          "voice_quality": 5.135000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.5024999999999995,
-          "voice_articulation": 15.079999999999993,
-          "voice_microtone": 20.08499999999999,
-          "voice_tradition": 5.3950000000000005,
-          "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 1.8849999999999996,
-          "voice_speech_song": 15.859999999999992,
-          "voice_ensemble_config": 15.20999999999999,
-          "voice_ornament_system": 5.265000000000001,
-          "voice_pitch_organization": 4.550000000000001,
-          "voice_processing_chain": 8.04,
-          "voice_multitrack_stack": 4.647500000000001
+          "voice_vibrato": 2.990000000000001,
+          "voice_articulation": 12.869999999999996,
+          "voice_microtone": 16.054999999999993,
+          "voice_tradition": 7.865,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 3.4450000000000003,
+          "voice_speech_song": 12.414999999999994,
+          "voice_ensemble_config": 12.999999999999995,
+          "voice_ornament_system": 2.8600000000000003,
+          "voice_pitch_organization": 3.5750000000000006,
+          "voice_processing_chain": 14.895,
+          "voice_multitrack_stack": 3.7050000000000005
         }
       },
       {
@@ -61,10 +61,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 20.864999999999995,
-          "poly_archetypes": 2.6,
-          "poly_voices": 2.6,
-          "poly_maker_lineage": -1.33
+          "electronic_technique": 17.225,
+          "poly_archetypes": 3.9000000000000004,
+          "poly_voices": 3.9000000000000004,
+          "poly_maker_lineage": -1.435
         }
       },
       {
@@ -72,14 +72,14 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "wt_position": "wt_morphing",
-          "wt_family": "wt_vocal",
-          "wt_polyphony": "wt_mono"
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_poly"
         },
         "scores": {
-          "electronic_technique": 20.864999999999995,
-          "wt_position": 3.77,
-          "wt_family": 0.195,
-          "wt_polyphony": 0.045
+          "electronic_technique": 17.225,
+          "wt_position": 7.280000000000001,
+          "wt_family": 0.045,
+          "wt_polyphony": 0.44999999999999996
         }
       },
       {
@@ -91,25 +91,25 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 20.864999999999995,
-          "wave_acid": 0.345,
-          "filter_acid": 2.275,
-          "accent_acid": 0.345
+          "electronic_technique": 17.225,
+          "wave_acid": 0.24,
+          "filter_acid": 2.08,
+          "accent_acid": 1.4949999999999999
         }
       },
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
+          "sample_bitdepth": "twenty_four_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 1.0074999999999998,
-          "sample_bitdepth": 0.045,
-          "sample_swing": 7.444999999999999,
-          "sample_processing": 1.2349999999999999
+          "electronic_technique": 0.26,
+          "sample_bitdepth": 0.195,
+          "sample_swing": 14.045,
+          "sample_processing": 1.295
         }
       },
       {
@@ -120,21 +120,21 @@
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "ronsen_weikert_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_solid_quartersawn",
+          "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 1.6999999999999997,
-          "grand_piano_size": 1.2349999999999999,
-          "grand_piano_brand": 1.2349999999999999,
-          "piano_hammer": 1.17,
-          "piano_rim": 0.52,
-          "piano_soundboard": 0.7149999999999999,
+          "grand_piano_size": 0.585,
+          "grand_piano_brand": 0.78,
+          "piano_hammer": 0.5199999999999999,
+          "piano_rim": 0.4,
+          "piano_soundboard": 0.45,
           "piano_pinblock": -0.05,
-          "piano_plate": -0.05,
-          "piano_pitch_standard": 3.6399999999999997
+          "piano_plate": 0.495,
+          "piano_pitch_standard": 6.069999999999999
         }
       }
     ],

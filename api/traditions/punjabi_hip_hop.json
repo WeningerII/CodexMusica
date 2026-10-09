@@ -5,7 +5,7 @@
   "lineage": "Punjabi rap grew from mid-2000s UK and Canadian diaspora records (Bohemia's Delhi-Punjabi Urdu rap, RDB's bhangra-rap fusions) into a mass Indian form after 2017 through Sidhu Moose Wala, Karan Aujla and the Brampton-Ludhiana production axis — 90-160 BPM tracks that graft trap 808s and half-time snares onto dhol chaal accents and tumbi riffs, with rapped or half-sung Punjabi verses in a hard, chest-forward register and lyric matter running from village pride to gangster narrative.",
   "recipe": "classic 2004-2006 punjabi hip hop, mc Rhythm, intl hip hop branch, south Asian pop functional song punjabi pop bhojpuri pop. thick, rap, slow rate, interlocked note trading. TR-808, dhol, steel single string canonical Punjabi fingerpicked tumbi, sampled chopped sampler drum machine, singing lead wavetable synth, vocal male straight harmonium indian, mahogany pyramid pure nickel bass British mid 60s era electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 528,
-  "score": 283.68,
+  "score": 283.54,
   "config": {
     "traditions": [
       "punjabi_hip_hop",
@@ -29,13 +29,13 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 15.364999999999995,
-          "voice_quality": 14.385,
+          "voice_register": 15.169999999999995,
+          "voice_quality": 14.19,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.73,
@@ -46,10 +46,10 @@
           "voice_estill_quality": 4.680000000000001,
           "voice_speech_song": 26.65,
           "voice_ensemble_config": 21.45,
-          "voice_ornament_system": 5.3675,
-          "voice_pitch_organization": 3.9699999999999998,
+          "voice_ornament_system": 5.5625,
+          "voice_pitch_organization": 4.4,
           "voice_processing_chain": 13.099999999999998,
-          "voice_multitrack_stack": 4.535
+          "voice_multitrack_stack": 4.6850000000000005
         }
       },
       {
@@ -118,7 +118,7 @@
         },
         "scores": {
           "electronic_technique": 10.9625,
-          "wt_position": 1.215,
+          "wt_position": 1.17,
           "wt_family": 0.8250000000000001,
           "wt_polyphony": 0.195
         }
@@ -132,8 +132,8 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 6.800000000000001,
-          "harmonium_action": 1.625,
+          "free_reed_technique": 6.5600000000000005,
+          "harmonium_action": 1.385,
           "harmonium_voicing": 1.6249999999999998,
           "harmonium_use": 1.2349999999999999
         }

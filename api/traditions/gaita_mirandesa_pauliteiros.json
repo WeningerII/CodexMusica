@@ -1,0 +1,122 @@
+{
+  "id": "gaita_mirandesa_pauliteiros",
+  "name": "Gaita mirandesa and pauliteiros (Terra de Miranda)",
+  "family": "global",
+  "lineage": "In the Terra de Miranda of north-eastern Trás-os-Montes, where the Mirandese language is spoken, the gaita de foles mirandesa bagpipe with snare drum (caixa) and bass drum (bombo) plays for the pauliteiros, teams of men who dance the lhaços while striking wooden sticks together, and for processions, feasts and songs. The repertoire has been documented by Mário Correia's Sons da Terra recordings and carried on by younger groups; the single-drone Asturian gaita card stands in for the Mirandese bagpipe, the tenor-drum and membrane-drum cards for the caixa and bombo, and the credited-percussion card for the dancers' sticks.",
+  "recipe": "classic modern gaita mirandesa and pauliteiros, drone Modal, wind pipe branch. gaita asturiana, cutting sticks articulate tenor membrane drum pulse resonant acoustic membrane drum, credited auxiliary percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 291,
+  "score": 12.698,
+  "config": {
+    "traditions": [
+      "gaita_mirandesa_pauliteiros"
+    ],
+    "instruments": [
+      {
+        "id": "gaita_asturiana",
+        "slots": {
+          "gaita_ast_tuning": "gaita_ast_do",
+          "gaita_ast_drone": "gaita_ast_ronco",
+          "gaita_ast_style": "gaita_ast_muineira"
+        },
+        "scores": {
+          "gaita_ast_tuning": 0.3,
+          "gaita_ast_drone": 0.063,
+          "gaita_ast_style": 0
+        }
+      },
+      {
+        "id": "tenor_drum",
+        "slots": {
+          "tenor_drum_form": "tenor_drum_military_field",
+          "tenor_drum_head": "tenor_drum_mylar",
+          "tenor_drum_beater": "tenor_drum_wood_sticks",
+          "tenor_drum_shell": "tenor_drum_rope_stave"
+        },
+        "scores": {
+          "tenor_drum_form": -0.07,
+          "tenor_drum_head": -0.035,
+          "tenor_drum_beater": 2.25,
+          "tenor_drum_shell": -0.07
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 5.705,
+          "acoustic_membrane_drum_gesture": 4.705
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "gaita_asturiana": [
+        "gaita_ast_tuning",
+        "gaita_ast_drone",
+        "gaita_ast_style"
+      ],
+      "tenor_drum": [
+        "tenor_drum_form",
+        "tenor_drum_head",
+        "tenor_drum_beater",
+        "tenor_drum_shell"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "gaita_ast_tuning": "gaita_ast_do",
+      "gaita_ast_drone": "gaita_ast_ronco",
+      "gaita_ast_style": "gaita_ast_muineira",
+      "tenor_drum_form": "tenor_drum_military_field",
+      "tenor_drum_head": "tenor_drum_mylar",
+      "tenor_drum_beater": "tenor_drum_wood_sticks",
+      "tenor_drum_shell": "tenor_drum_rope_stave",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

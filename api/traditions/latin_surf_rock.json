@@ -5,7 +5,7 @@
   "lineage": "Instrumental surf-rock scenes in Spanish-speaking music communities, centred on melodic electric guitars, bass and drums.",
   "recipe": "classic latin surf rock, distorted Rock, surf rock branch. Fender blackface amp American 60s amp spring reverb bright tremolo humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 340,
-  "score": 69.567,
+  "score": 68.029,
   "config": {
     "traditions": [
       "latin_surf_rock"
@@ -21,7 +21,7 @@
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
-          "string_material": "nickel_plated_h",
+          "string_material": "pure_nickel_h",
           "bridge": "string_thru",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 9.980999999999998,
-          "amp_make": 10.901624999999997,
+          "electric_technique": 9.949499999999999,
+          "amp_make": 10.675124999999998,
           "body_wood": 0.1365,
           "neck_wood": 0.1365,
-          "fretboard": 0.2415,
-          "pickup_magnet": 0.3045,
-          "pickup_winding": 0.22049999999999997,
-          "string_material": 0.01875,
-          "bridge": 0.378,
+          "fretboard": 0.1365,
+          "pickup_magnet": 0.16799999999999998,
+          "pickup_winding": 0.17512499999999998,
+          "string_material": 0,
+          "bridge": 0.2925,
           "scale_length": 0.2415,
-          "string_gauge": 0.1365,
+          "string_gauge": 0.15599999999999997,
           "finish": 0,
-          "string_tuning": 0.0315
+          "string_tuning": 0.03599999999999999
         }
       },
       {
@@ -58,9 +58,9 @@
         },
         "scores": {
           "amp_make": 9.815,
-          "body_wood": 0.4095,
-          "pickup_config": 0.27299999999999996,
-          "string_type": 19.74975,
+          "body_wood": 0.3045,
+          "pickup_config": 0.16799999999999998,
+          "string_type": 19.047,
           "scale_length_b": 0.105,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
