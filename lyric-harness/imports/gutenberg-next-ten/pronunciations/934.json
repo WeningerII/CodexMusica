@@ -64,6 +64,38 @@
         "phones": ["L", "AE2", "K", "AH0", "D", "EY1", "D", "IY0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "By a love-lorn loon,",
+        "token": 3,
+        "word": "love-lorn",
+        "phones": ["L", "AH1", "V", "L", "AO2", "R", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      },
+      {
+        "line": "As he sighed for the love of a ladye.",
+        "token": 9,
+        "word": "ladye",
+        "phones": ["L", "EY1", "D", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Archaic lady spelling."
+      },
+      {
+        "line": "As he sighed for the love of a ladye!",
+        "token": 9,
+        "word": "ladye",
+        "phones": ["L", "EY1", "D", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Archaic lady spelling."
+      },
+      {
+        "line": "For he lived in the love of a ladye!",
+        "token": 9,
+        "word": "ladye",
+        "phones": ["L", "EY1", "D", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Archaic lady spelling."
       }
     ]
   },
@@ -76,6 +108,14 @@
         "phones": ["K", "L", "AY1", "M"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "From an impudent stare",
+        "token": 3,
+        "word": "impudent",
+        "phones": ["IH1", "M", "P", "Y", "AH0", "D", "AH0", "N", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -88,6 +128,22 @@
         "phones": ["K", "AA1", "K", "K", "R", "OW2"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "When the footpads quail at the night-bird’s wail, and black dogs bay the moon,",
+        "token": 3,
+        "word": "footpads",
+        "phones": ["F", "UH1", "T", "P", "AE2", "D", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "And then each ghost with his ladye-toast to their churchyard beds take flight,",
+        "token": 7,
+        "word": "ladye-toast",
+        "phones": ["L", "EY1", "D", "IY0", "T", "OW2", "S", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent archaic lady plus toast compound."
       }
     ]
   },
@@ -220,6 +276,22 @@
         "phones": ["TH", "R", "IY1", "S", "K", "AO2", "R"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "You’re decidedly de trop—",
+        "token": 4,
+        "word": "trop",
+        "phones": ["T", "R", "OW1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar de trop French borrowing, final p silent; show rhyme."
+      },
+      {
+        "line": "Give its quotum",
+        "token": 3,
+        "word": "quotum",
+        "phones": ["K", "W", "OW1", "T", "AH0", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar quotum quota/share word."
       }
     ]
   },
@@ -256,6 +328,14 @@
         "phones": ["D", "AH1", "N", "S"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "And you’ll never with dishonesty be twitted.",
+        "token": 7,
+        "word": "twitted",
+        "phones": ["T", "W", "IH1", "T", "IH0", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Ordinary twitted inflection."
       }
     ]
   },
@@ -268,6 +348,22 @@
         "phones": ["P", "IH1", "R", "AH0", "S"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "(They haven’t any slummeries in England.)",
+        "token": 4,
+        "word": "slummeries",
+        "phones": ["S", "L", "AH1", "M", "ER0", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent slummeries derivation."
+      },
+      {
+        "line": "Like them an Earl of Thackeray and p’raps a Duke of Dickens—",
+        "token": 8,
+        "word": "p'raps",
+        "phones": ["P", "R", "AE1", "P", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -288,6 +384,22 @@
         "phones": ["G", "AE0", "M", "B", "OW1", "ZH"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Who is all of a trimmle and twitter,",
+        "token": 6,
+        "word": "trimmle",
+        "phones": ["T", "R", "IH1", "M", "AH0", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Printed tremble-like comic form, short-i retained."
+      },
+      {
+        "line": "And your tongue is decidedly yallow,",
+        "token": 6,
+        "word": "yallow",
+        "phones": ["Y", "AE1", "L", "OW0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Yallow yellow variant, explicitly rhymes with tallow."
       }
     ]
   },
@@ -340,6 +452,70 @@
         "phones": ["D", "IH2", "TH", "IH0", "R", "AE1", "M", "B", "IH0", "K"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "We’ve a choir hyporchematic (that is, ballet-operatic)",
+        "token": 4,
+        "word": "hyporchematic",
+        "phones": ["HH", "AY2", "P", "ER0", "K", "IY0", "M", "AE1", "T", "IH0", "K"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected learned English hyporchematic reading; rhyme confirms -matic stress."
+      },
+      {
+        "line": "Would accept as the choregus of the early Attic stage.",
+        "token": 5,
+        "word": "choregus",
+        "phones": ["K", "AH0", "R", "IY1", "G", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "And I’ll pay ’em (if they’ll back me) all in oboloi and drachmae,",
+        "token": 13,
+        "word": "drachmae",
+        "phones": ["D", "R", "AE1", "K", "M", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar plural, consistent with back me rhyme."
+      },
+      {
+        "line": "Which they’ll get (if they prefer it) at the Kalends that are Greek!",
+        "token": 10,
+        "word": "Kalends",
+        "phones": ["K", "AE1", "L", "AH0", "N", "D", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar kalends."
+      },
+      {
+        "line": "There they’d satisfy their twist on a recherché cold ἄριστον,",
+        "token": 8,
+        "word": "recherché",
+        "phones": ["R", "AH0", "SH", "EH2", "R", "SH", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known recherché loanword, selected English reading."
+      },
+      {
+        "line": "Corybantian maniac kick—Dionysiac or Bacchic—",
+        "token": 1,
+        "word": "Corybantian",
+        "phones": ["K", "AO2", "R", "IH0", "B", "AE1", "N", "SH", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected conventional English Corybantian reading."
+      },
+      {
+        "line": "Corybantian maniac kick—Dionysiac or Bacchic—",
+        "token": 4,
+        "word": "Dionysiac",
+        "phones": ["D", "AY2", "AH0", "N", "IH1", "Z", "IY0", "AE2", "K"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Or Mrs. Grundy, p’r’aps, may have a word or two to say:",
+        "token": 4,
+        "word": "p'r'aps",
+        "phones": ["P", "R", "AE1", "P", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Explicitly contracted perhaps, one syllable selected."
       }
     ]
   },
@@ -480,6 +656,22 @@
         "phones": ["IH0", "N", "T", "ER1", "M", "AH0", "N", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "I play at écarté—",
+        "token": 4,
+        "word": "écarté",
+        "phones": ["EY2", "K", "AA0", "R", "T", "EY1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar card-game name; selected Anglicized three-syllable reading. Preparer selection, not historical attestation."
+      },
+      {
+        "line": "Lure simpletons into your clutches,",
+        "token": 2,
+        "word": "simpletons",
+        "phones": ["S", "IH1", "M", "P", "AH0", "L", "T", "AH0", "N", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Regular simpleton plural."
       }
     ]
   },
@@ -516,6 +708,14 @@
         "phones": ["HH", "OY1", "D", "AH0", "N", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Can govern a tuppenny-ha’penny State!",
+        "token": 4,
+        "word": "tuppenny-ha'penny",
+        "phones": ["T", "AH1", "P", "AH0", "N", "IY0", "HH", "EY2", "P", "AH0", "N", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar British tuppenny and ha'penny compound."
       }
     ]
   },
@@ -528,6 +728,14 @@
         "phones": ["T", "R", "IH0", "P", "AE1", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Sits, worry disguising, anathematising",
+        "token": 4,
+        "word": "anathematising",
+        "phones": ["AH0", "N", "AE1", "TH", "AH0", "M", "AH0", "T", "AY2", "Z", "IH0", "NG"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
       }
     ]
   },
@@ -540,6 +748,22 @@
         "phones": ["JH", "AE1", "N", "Y", "UW0", "EH2", "R", "IY0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Quite Frenchified I am,",
+        "token": 2,
+        "word": "Frenchified",
+        "phones": ["F", "R", "EH1", "N", "CH", "IH0", "F", "AY2", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Frenchified morphology."
+      },
+      {
+        "line": "Perhaps some day a fam—",
+        "token": 5,
+        "word": "fam",
+        "phones": ["F", "AE1", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Interrupted fam- in famine; do not expand unfinished word."
       }
     ]
   },
@@ -552,6 +776,294 @@
         "phones": ["K", "R", "OW0", "M", "AE1", "T", "IH0", "K", "S"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Or never attempt agitato.",
+        "token": 4,
+        "word": "agitato",
+        "phones": ["AE2", "JH", "IH0", "T", "AA1", "T", "OW0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar musical agitato, selected anglicized pronunciation."
+      }
+    ]
+  },
+  "pg934-006": {
+    "pronunciations": [
+      {
+        "line": "Type of Ovidius Naso!",
+        "token": 3,
+        "word": "Ovidius",
+        "phones": ["OW0", "V", "IH1", "D", "IY0", "AH0", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar English classical Ovidius reading."
+      }
+    ]
+  },
+  "pg934-040": {
+    "pronunciations": [
+      {
+        "line": "With a sad heigho!",
+        "token": 4,
+        "word": "heigho",
+        "phones": ["HH", "AY1", "HH", "OW2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar sigh/refrain reading selected."
+      },
+      {
+        "line": "’Tis but a little word—“heigho!”",
+        "token": 6,
+        "word": "heigho",
+        "phones": ["HH", "AY1", "HH", "OW2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar sigh/refrain reading selected."
+      },
+      {
+        "line": "So soft, ’tis scarcely heard—“heigho!”",
+        "token": 6,
+        "word": "heigho",
+        "phones": ["HH", "AY1", "HH", "OW2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar sigh/refrain reading selected."
+      },
+      {
+        "line": "May hang upon a maid’s “heigho!”",
+        "token": 6,
+        "word": "heigho",
+        "phones": ["HH", "AY1", "HH", "OW2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar sigh/refrain reading selected."
+      }
+    ]
+  },
+  "pg934-042": {
+    "pronunciations": [
+      {
+        "line": "IF you’re anxious for to shine in the high æsthetic line, as a man of culture rare,",
+        "token": 10,
+        "word": "æsthetic",
+        "phones": ["EH0", "S", "TH", "EH1", "T", "IH0", "K"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar aesthetic with historical ligature."
+      },
+      {
+        "line": "And convince ’em, if you can, that the reign of good QUEEN ANNE was Culture’s palmiest day.",
+        "token": 16,
+        "word": "palmiest",
+        "phones": ["P", "AA1", "M", "IY0", "IH0", "S", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar palmy superlative."
+      },
+      {
+        "line": "An attachment à la Plato for a bashful young potato, or a not-too-French French bean.",
+        "token": 3,
+        "word": "à",
+        "phones": ["AA1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. French à in familiar à la phrase."
+      },
+      {
+        "line": "Though the Philistines may jostle, you will rank as an apostle in the high æsthetic band,",
+        "token": 15,
+        "word": "æsthetic",
+        "phones": ["EH0", "S", "TH", "EH1", "T", "IH0", "K"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar aesthetic with historical ligature."
+      },
+      {
+        "line": "If you walk down Piccadilly with a poppy or a lily in your mediæval hand.",
+        "token": 14,
+        "word": "mediæval",
+        "phones": ["M", "IY2", "D", "IY0", "IY1", "V", "AH0", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar medieval; ligature does not alter selected reading."
+      }
+    ]
+  },
+  "pg934-050": {
+    "pronunciations": [
+      {
+        "line": "Take, O maid, these posies:",
+        "token": 5,
+        "word": "posies",
+        "phones": ["P", "OW1", "Z", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "pg934-051": {
+    "pronunciations": [
+      {
+        "line": "For your brain is on fire—the bedclothes conspire of usual slumber to plunder you:",
+        "token": 8,
+        "word": "bedclothes",
+        "phones": ["B", "EH1", "D", "K", "L", "OW2", "DH", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar bedclothes compound."
+      },
+      {
+        "line": "Then the bedclothes all creep to the ground in a heap, and you pick ’em all up in a tangle;",
+        "token": 3,
+        "word": "bedclothes",
+        "phones": ["B", "EH1", "D", "K", "L", "OW2", "DH", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar bedclothes compound."
+      },
+      {
+        "line": "For you dream you are crossing the Channel, and tossing about in a steamer from Harwich,",
+        "token": 16,
+        "word": "Harwich",
+        "phones": ["HH", "AE1", "R", "IH0", "CH"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar British port name, consistent with carriage rhyme."
+      },
+      {
+        "line": "You get a good spadesman to plant a small tradesman (first take off his boots with a boot-tree),",
+        "token": 5,
+        "word": "spadesman",
+        "phones": ["S", "P", "EY1", "D", "Z", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent occupational compound, matching tradesman rhyme."
+      },
+      {
+        "line": "You get a good spadesman to plant a small tradesman (first take off his boots with a boot-tree),",
+        "token": 10,
+        "word": "tradesman",
+        "phones": ["T", "R", "EY1", "D", "Z", "M", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar tradesman."
+      },
+      {
+        "line": "From the greengrocer tree you get grapes and green pea, cauliflower, pineapple, and cranberries,",
+        "token": 3,
+        "word": "greengrocer",
+        "phones": ["G", "R", "IY1", "N", "G", "R", "OW2", "S", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Ordinary greengrocer compound."
+      },
+      {
+        "line": "While the pastry-cook plant cherry-brandy will grant—apple puffs, and three-corners, and banberries—",
+        "token": 13,
+        "word": "banberries",
+        "phones": ["B", "AE1", "N", "B", "EH2", "R", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Banberries paired with cranberries; selected explicit berry-like spelling performance."
+      }
+    ]
+  },
+  "pg934-055": {
+    "pronunciations": [
+      {
+        "line": "I ween;",
+        "token": 2,
+        "word": "ween",
+        "phones": ["W", "IY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known poetic verb ween."
+      },
+      {
+        "line": "Whate’er your tense",
+        "token": 1,
+        "word": "Whate'er",
+        "phones": ["W", "AH2", "T", "EH1", "R"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar contracted whatever."
+      }
+    ]
+  },
+  "pg934-060": {
+    "pronunciations": [
+      {
+        "line": "Spring is green—Fal lal la!",
+        "token": 4,
+        "word": "Fal",
+        "phones": ["F", "AE1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Refrain vocable; selected transparent short-a reading, not a historical tune claim."
+      },
+      {
+        "line": "Summer’s rose—Fal lal la!",
+        "token": 3,
+        "word": "Fal",
+        "phones": ["F", "AE1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Refrain vocable; selected transparent short-a reading, not a historical tune claim."
+      },
+      {
+        "line": "Fal la!",
+        "token": 1,
+        "word": "Fal",
+        "phones": ["F", "AE1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Refrain vocable; selected transparent short-a reading, not a historical tune claim."
+      },
+      {
+        "line": "Autumn’s gold—Fal lal la!",
+        "token": 3,
+        "word": "Fal",
+        "phones": ["F", "AE1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Refrain vocable; selected transparent short-a reading, not a historical tune claim."
+      },
+      {
+        "line": "Winter’s grey—Fal lal la!",
+        "token": 3,
+        "word": "Fal",
+        "phones": ["F", "AE1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Refrain vocable; selected transparent short-a reading, not a historical tune claim."
+      },
+      {
+        "line": "In the Summer grass is mown:",
+        "token": 6,
+        "word": "mown",
+        "phones": ["M", "OW1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      },
+      {
+        "line": "Spring is hope—Fal lal la!",
+        "token": 4,
+        "word": "Fal",
+        "phones": ["F", "AE1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Refrain vocable; selected transparent short-a reading, not a historical tune claim."
+      },
+      {
+        "line": "Summer’s joy—Fal lal la!",
+        "token": 3,
+        "word": "Fal",
+        "phones": ["F", "AE1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Refrain vocable; selected transparent short-a reading, not a historical tune claim."
+      },
+      {
+        "line": "Autumn, toil—Fal lal la!",
+        "token": 3,
+        "word": "Fal",
+        "phones": ["F", "AE1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Refrain vocable; selected transparent short-a reading, not a historical tune claim."
+      },
+      {
+        "line": "Winter, rest—Fal lal la!",
+        "token": 3,
+        "word": "Fal",
+        "phones": ["F", "AE1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Refrain vocable; selected transparent short-a reading, not a historical tune claim."
+      }
+    ]
+  },
+  "pg934-071": {
+    "pronunciations": [
+      {
+        "line": "But there, a girl may preach and prate",
+        "token": 8,
+        "word": "prate",
+        "phones": ["P", "R", "EY1", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar prate."
       }
     ]
   }

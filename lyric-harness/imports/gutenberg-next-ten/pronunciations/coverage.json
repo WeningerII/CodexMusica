@@ -5,111 +5,111 @@
   "occurrence_counts": {
     "supported_default": 179707,
     "missing_high": 10680,
-    "missing_with_prepared_declaration": 7381,
-    "missing_without_prepared_declaration": 3299,
-    "supported_high": 2200
+    "missing_with_prepared_declaration": 10342,
+    "supported_high": 2200,
+    "missing_without_prepared_declaration": 338
   },
   "unique_spelling_counts": {
     "supported_default": 13921,
     "missing_high": 2984,
     "supported_high": 887
   },
-  "missing_unique_with_any_prepared_declaration": 1729,
-  "missing_unique_with_no_prepared_declaration": 1255,
+  "missing_unique_with_any_prepared_declaration": 2809,
+  "missing_unique_with_no_prepared_declaration": 175,
   "supported_occurrences_declared": 0,
   "by_collection": {
-    "13646": {
-      "supported_default": 3393,
-      "missing_high": 53,
-      "supported_high": 11,
-      "works_with_choices": 24,
-      "declarations": 41,
-      "missing_occurrences_covered": 41,
-      "missing_occurrences_remaining": 12
-    },
-    "1568": {
-      "supported_default": 15181,
-      "missing_high": 206,
-      "supported_high": 205,
-      "works_with_choices": 64,
-      "declarations": 127,
-      "missing_occurrences_covered": 130,
-      "missing_occurrences_remaining": 76
-    },
-    "27195": {
-      "missing_high": 2438,
-      "supported_default": 20445,
-      "supported_high": 271,
-      "works_with_choices": 298,
-      "declarations": 1570,
-      "missing_occurrences_covered": 1624,
-      "missing_occurrences_remaining": 814
-    },
-    "3138": {
-      "supported_default": 11115,
-      "missing_high": 256,
-      "supported_high": 113,
-      "works_with_choices": 34,
-      "declarations": 49,
-      "missing_occurrences_covered": 56,
-      "missing_occurrences_remaining": 200
+    "50878": {
+      "supported_default": 11901,
+      "missing_high": 237,
+      "missing_occurrences_covered": 231,
+      "supported_high": 101,
+      "missing_occurrences_remaining": 6,
+      "works_with_choices": 41,
+      "declarations": 219
     },
     "40048": {
       "supported_default": 62993,
       "missing_high": 5738,
+      "missing_occurrences_covered": 5509,
       "supported_high": 1039,
-      "works_with_choices": 197,
-      "declarations": 4082,
-      "missing_occurrences_covered": 4218,
-      "missing_occurrences_remaining": 1520
+      "missing_occurrences_remaining": 229,
+      "works_with_choices": 207,
+      "declarations": 5226
     },
-    "50878": {
-      "supported_default": 11901,
-      "missing_high": 237,
-      "supported_high": 101,
-      "works_with_choices": 18,
-      "declarations": 24,
-      "missing_occurrences_covered": 24,
-      "missing_occurrences_remaining": 213
-    },
-    "51226": {
-      "supported_default": 9791,
-      "missing_high": 73,
-      "supported_high": 60,
-      "works_with_choices": 19,
-      "declarations": 32,
-      "missing_occurrences_covered": 33,
-      "missing_occurrences_remaining": 40
-    },
-    "58414": {
-      "supported_default": 9689,
-      "missing_high": 117,
-      "supported_high": 72,
-      "works_with_choices": 16,
-      "declarations": 30,
-      "missing_occurrences_covered": 32,
-      "missing_occurrences_remaining": 85
-    },
-    "69378": {
-      "supported_default": 27330,
-      "missing_high": 1421,
-      "supported_high": 276,
-      "works_with_choices": 199,
-      "declarations": 960,
-      "missing_occurrences_covered": 1154,
-      "missing_occurrences_remaining": 267
+    "27195": {
+      "missing_high": 2438,
+      "missing_occurrences_covered": 2400,
+      "supported_default": 20445,
+      "missing_occurrences_remaining": 38,
+      "supported_high": 271,
+      "works_with_choices": 321,
+      "declarations": 2313
     },
     "934": {
       "supported_default": 7869,
       "missing_high": 141,
+      "missing_occurrences_covered": 139,
       "supported_high": 52,
-      "works_with_choices": 23,
-      "declarations": 58,
-      "missing_occurrences_covered": 69,
-      "missing_occurrences_remaining": 72
+      "missing_occurrences_remaining": 2,
+      "works_with_choices": 31,
+      "declarations": 118
+    },
+    "51226": {
+      "supported_default": 9791,
+      "missing_high": 73,
+      "missing_occurrences_covered": 71,
+      "supported_high": 60,
+      "missing_occurrences_remaining": 2,
+      "works_with_choices": 32,
+      "declarations": 67
+    },
+    "58414": {
+      "supported_default": 9689,
+      "missing_high": 117,
+      "missing_occurrences_covered": 113,
+      "supported_high": 72,
+      "missing_occurrences_remaining": 4,
+      "works_with_choices": 24,
+      "declarations": 69
+    },
+    "69378": {
+      "supported_default": 27330,
+      "missing_high": 1421,
+      "missing_occurrences_covered": 1405,
+      "supported_high": 276,
+      "missing_occurrences_remaining": 16,
+      "works_with_choices": 217,
+      "declarations": 1172
+    },
+    "13646": {
+      "supported_default": 3393,
+      "missing_high": 53,
+      "missing_occurrences_covered": 51,
+      "supported_high": 11,
+      "missing_occurrences_remaining": 2,
+      "works_with_choices": 27,
+      "declarations": 51
+    },
+    "1568": {
+      "supported_default": 15181,
+      "missing_high": 206,
+      "missing_occurrences_covered": 201,
+      "supported_high": 205,
+      "missing_occurrences_remaining": 5,
+      "works_with_choices": 75,
+      "declarations": 196
+    },
+    "3138": {
+      "supported_default": 11115,
+      "missing_high": 256,
+      "missing_occurrences_remaining": 34,
+      "missing_occurrences_covered": 222,
+      "supported_high": 113,
+      "works_with_choices": 55,
+      "declarations": 207
     }
   },
   "scope": "Actual final imported corpus catalog marked_units lyric rows, production line_tokens(strip_parens=False), compound pieces through default/high transcribe_word. Unknown is missing coverage, not invalid language. Repeated lines counted separately; declarations apply to verbatim repeats.",
-  "prepared_declarations": 6973,
-  "works_with_prepared_declarations": 892
+  "prepared_declarations": 9638,
+  "works_with_prepared_declarations": 1030
 }

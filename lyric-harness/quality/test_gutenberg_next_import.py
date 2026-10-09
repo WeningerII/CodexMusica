@@ -139,7 +139,7 @@ class BatchEvidenceTests(unittest.TestCase):
                             words.add(choice['word'])
                     work_count += 1
                     declaration_count += len(choices)
-        self.assertEqual((work_count, declaration_count), (892, 6973))
+        self.assertEqual((work_count, declaration_count), (1030, 9638))
         coverage = read_json(BATCH / 'pronunciations' / 'coverage.json')
         self.assertEqual(coverage['works_with_prepared_declarations'], work_count)
         self.assertEqual(coverage['prepared_declarations'], declaration_count)

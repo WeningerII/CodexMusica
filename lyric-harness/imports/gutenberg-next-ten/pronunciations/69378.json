@@ -24,6 +24,54 @@
         "phones": ["AE2", "L", "AH0", "B", "AE1", "M", "IY0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "I’m gwine to Alabamy,--Oh,",
+        "token": 2,
+        "word": "gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "For to see my mammy,--Ah.",
+        "token": 5,
+        "word": "mammy",
+        "phones": ["M", "AE1", "M", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar mother term; selected ordinary reading."
+      },
+      {
+        "line": "And I’m her pickaniny,--Ah.",
+        "token": 4,
+        "word": "pickaniny",
+        "phones": ["P", "IH2", "K", "AH0", "N", "IH1", "N", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "She lives on the Tombigbee,--Oh,",
+        "token": 5,
+        "word": "Tombigbee",
+        "phones": ["T", "AA0", "M", "B", "IH1", "G", "B", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar river name."
+      },
+      {
+        "line": "I wish I had her wid me,--Ah.",
+        "token": 6,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "But I’d like to see my mammy,--Oh,",
+        "token": 7,
+        "word": "mammy",
+        "phones": ["M", "AE1", "M", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar mother term; selected ordinary reading."
       }
     ]
   },
@@ -260,6 +308,30 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Little girl wid head hung down,",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Lawdy, Lawdy, little girl wid head hung down,",
+        "token": 5,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "I’m sorry for little girl wid head hung down.",
+        "token": 6,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -460,6 +532,14 @@
         "phones": ["D", "EY1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Daddy sick, mammy daid,",
+        "token": 3,
+        "word": "mammy",
+        "phones": ["M", "AE1", "M", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar mother term; selected ordinary reading."
       }
     ]
   },
@@ -472,6 +552,14 @@
         "phones": ["OW1", "L"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "My mammy’s weepin’, daddy’s sleepin’,",
+        "token": 2,
+        "word": "mammy's",
+        "phones": ["M", "AE1", "M", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -564,6 +652,14 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Wid pick and shovel, too.",
+        "token": 1,
+        "word": "Wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -1112,6 +1208,30 @@
         "phones": ["B", "IH0", "F", "AO1"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Wid his head hung down,",
+        "token": 1,
+        "word": "Wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Lawd, Lawd, wid his head hung down.",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "She had had wid Lazarus.",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -1172,6 +1292,22 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "They try to take him to Milledgeville,",
+        "token": 7,
+        "word": "Milledgeville",
+        "phones": ["M", "IH1", "L", "IH0", "JH", "V", "IH2", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
+      },
+      {
+        "line": "Lawd, tried to take him to Milledgeville,",
+        "token": 7,
+        "word": "Milledgeville",
+        "phones": ["M", "IH1", "L", "IH0", "JH", "V", "IH2", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar lexical or morphological reading selected from the supplied lyric context."
       }
     ]
   },
@@ -1288,6 +1424,14 @@
         "phones": ["W", "EH1", "R"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Han’s up, nigger, don’t fool wid me,",
+        "token": 6,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -1300,6 +1444,14 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "A creeper’s been.",
+        "token": 2,
+        "word": "creeper's",
+        "phones": ["K", "R", "IY1", "P", "ER0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Regular possessive/contraction of creeper."
       }
     ]
   },
@@ -1312,6 +1464,14 @@
         "phones": ["AY1", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Dere’s a nigger on my track,",
+        "token": 1,
+        "word": "Dere's",
+        "phones": ["D", "EH1", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written dere plus contracted is; selected rhotic performance reading, not a historical accent claim."
       }
     ]
   },
@@ -1324,6 +1484,22 @@
         "phones": ["D", "EH1", "M"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "I sleeps wid one year out,",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Lookin’ fer dat tattlin’ gal.",
+        "token": 4,
+        "word": "tattlin'",
+        "phones": ["T", "AE1", "T", "L", "IH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Tattling with g omission."
       }
     ]
   },
@@ -1420,6 +1596,22 @@
         "phones": ["R", "AE1", "M", "L", "AH0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Friday ketches me wid my foot in my han’,",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "I’m de out-derndest traveler of any man.",
+        "token": 3,
+        "word": "out-derndest",
+        "phones": ["AW2", "T", "D", "ER1", "N", "D", "AH0", "S", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written out-derndest compound retaining dern vowel."
       }
     ]
   },
@@ -1480,6 +1672,14 @@
         "phones": ["D", "EH1", "M"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Who’s you foolin’ wid?",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -1500,6 +1700,14 @@
         "phones": ["S", "IH1", "CH"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Dere’s a creeper hangin’ ’roun’,",
+        "token": 1,
+        "word": "Dere's",
+        "phones": ["D", "EH1", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written dere plus contracted is; selected rhotic performance reading, not a historical accent claim."
       }
     ]
   },
@@ -1644,6 +1852,14 @@
         "phones": ["P", "AY1", "N", "T", "IH0", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "His head was big an’ nappy,",
+        "token": 6,
+        "word": "nappy",
+        "phones": ["N", "AE1", "P", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar nappy; hair and ale senses have the same selected reading."
       }
     ]
   },
@@ -1840,6 +2056,14 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Says if I had my way wid jailer,",
+        "token": 7,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -1868,6 +2092,14 @@
         "phones": ["T", "EY1", "N", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "When ol’ black mariah",
+        "token": 2,
+        "word": "ol'",
+        "phones": ["OW1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Old with final d elided, as written. Preparer selection, not historical attestation."
       }
     ]
   },
@@ -1904,6 +2136,14 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Friday wid chain gang band,",
+        "token": 2,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -1960,6 +2200,14 @@
         "phones": ["G", "IH1", "M", "IY0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Wid a hammer in my hand,",
+        "token": 1,
+        "word": "Wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -2092,6 +2340,14 @@
         "phones": ["S", "P", "EH1", "K", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Wid my back turned to de wall.”",
+        "token": 1,
+        "word": "Wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -2300,6 +2556,14 @@
         "phones": ["D", "EH1", "R"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Filled wid silver an’ gold;",
+        "token": 2,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -2384,6 +2648,14 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Woke up wid my back to the wall.",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -2396,6 +2668,14 @@
         "phones": ["K", "AO1", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Cawn pone, fat meat,",
+        "token": 2,
+        "word": "pone",
+        "phones": ["P", "OW1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar corn pone."
       }
     ]
   },
@@ -2492,6 +2772,22 @@
         "phones": ["D", "AO1", "G", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Dis nigger astray wid nowhere to board.",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Goin’ back to de gang, tired o’ bummin’.",
+        "token": 8,
+        "word": "bummin'",
+        "phones": ["B", "AH1", "M", "IH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written bummin' across both contexts."
       }
     ]
   },
@@ -3204,6 +3500,22 @@
         "phones": ["L", "AO1", "D", "IY0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Ol’ Aunty Dinah had candy wagon,",
+        "token": 2,
+        "word": "Aunty",
+        "phones": ["AE1", "N", "T", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar aunty variant selected for performance, not universal dialect claim."
+      },
+      {
+        "line": "Ain’t thing matter, but I ain’t gwine.",
+        "token": 7,
+        "word": "gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -3720,6 +4032,22 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Beat you to the pone,",
+        "token": 5,
+        "word": "pone",
+        "phones": ["P", "OW1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar corn pone."
+      },
+      {
+        "line": "On Jennielee Square;",
+        "token": 2,
+        "word": "Jennielee",
+        "phones": ["JH", "EH1", "N", "IY0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent Jennie-Lee name compound."
       }
     ]
   },
@@ -3884,6 +4212,14 @@
         "phones": ["F", "AO1"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Reason why I love Boleen,",
+        "token": 5,
+        "word": "Boleen",
+        "phones": ["B", "OW0", "L", "IY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent selected personal-name performance."
       }
     ]
   },
@@ -4192,6 +4528,30 @@
         "phones": ["OW1", "L"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Mammy in de yard.",
+        "token": 1,
+        "word": "Mammy",
+        "phones": ["M", "AE1", "M", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar mother term; selected ordinary reading."
+      },
+      {
+        "line": "Mammy workin’ hard,",
+        "token": 1,
+        "word": "Mammy",
+        "phones": ["M", "AE1", "M", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar mother term; selected ordinary reading."
+      },
+      {
+        "line": "Mammy workin’ hard.",
+        "token": 1,
+        "word": "Mammy",
+        "phones": ["M", "AE1", "M", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar mother term; selected ordinary reading."
       }
     ]
   },
@@ -4604,6 +4964,14 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Wid my new shine on,",
+        "token": 1,
+        "word": "Wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -4864,6 +5232,30 @@
         "phones": ["Y", "AE1", "L", "OW0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Goodby, Sookie, good by, Sal,",
+        "token": 2,
+        "word": "Sookie",
+        "phones": ["S", "UH1", "K", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected familiar Sookie/Suky name reading."
+      },
+      {
+        "line": "Goodby, Sookie, good by, Sal",
+        "token": 2,
+        "word": "Sookie",
+        "phones": ["S", "UH1", "K", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected familiar Sookie/Suky name reading."
+      },
+      {
+        "line": "I’s leavin’ dis hot town wid dat yallow gal.",
+        "token": 6,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -5124,6 +5516,14 @@
         "phones": ["B", "IH0", "F", "AO1"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "She ain’t nuffin but a roust-about, baby.",
+        "token": 6,
+        "word": "roust-about",
+        "phones": ["R", "AW1", "S", "T", "AH0", "B", "AW2", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Known roustabout with source hyphen."
       }
     ]
   },
@@ -5160,6 +5560,14 @@
         "phones": ["D", "EH1", "R"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Livin’ wid dese two women o’ mine.",
+        "token": 2,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -5296,6 +5704,22 @@
         "phones": ["T", "IY1", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Mammy gonna call me",
+        "token": 1,
+        "word": "Mammy",
+        "phones": ["M", "AE1", "M", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar mother term; selected ordinary reading."
+      },
+      {
+        "line": "Mammy gonna want me",
+        "token": 1,
+        "word": "Mammy",
+        "phones": ["M", "AE1", "M", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar mother term; selected ordinary reading."
       }
     ]
   },
@@ -5420,6 +5844,14 @@
         "phones": ["D", "EH1", "M"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Give me dem shoes, stockin’s, an’ dat petticoat,",
+        "token": 5,
+        "word": "stockin's",
+        "phones": ["S", "T", "AA1", "K", "IH0", "N", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Stockings with written final n; same sound also fits stockin's meaning stocking is."
       }
     ]
   },
@@ -5448,6 +5880,30 @@
         "phones": ["B", "OW1", "F"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "’Cause I can’t buy her stockin’s an’ a gown,",
+        "token": 6,
+        "word": "stockin's",
+        "phones": ["S", "T", "AA1", "K", "IH0", "N", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Stockings with written final n; same sound also fits stockin's meaning stocking is."
+      },
+      {
+        "line": "’Cause I can’t buy her stockin’s an’ a gown.",
+        "token": 6,
+        "word": "stockin's",
+        "phones": ["S", "T", "AA1", "K", "IH0", "N", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Stockings with written final n; same sound also fits stockin's meaning stocking is."
+      },
+      {
+        "line": "I don’t kere, don’t matter wid me,",
+        "token": 6,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -5524,6 +5980,14 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Each and de udder’s man.",
+        "token": 4,
+        "word": "udder's",
+        "phones": ["AH1", "D", "ER0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -5616,6 +6080,22 @@
         "phones": ["D", "IY1", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Some say, give me a high yaller,",
+        "token": 7,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
+      },
+      {
+        "line": "A yaller is low down,",
+        "token": 2,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
       }
     ]
   },
@@ -5636,6 +6116,30 @@
         "phones": ["AW1", "T", "AH0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Yaller gal’s yourn",
+        "token": 1,
+        "word": "Yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
+      },
+      {
+        "line": "When de yaller gal’s lyin’.",
+        "token": 3,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
+      },
+      {
+        "line": "You take yaller,",
+        "token": 3,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
       }
     ]
   },
@@ -5656,6 +6160,30 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Mammy won’t lemme see ’er, can’t even go wid her.",
+        "token": 1,
+        "word": "Mammy",
+        "phones": ["M", "AE1", "M", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar mother term; selected ordinary reading."
+      },
+      {
+        "line": "Mammy won’t lemme see ’er, can’t even go wid her.",
+        "token": 9,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Daddy had a pistol, mammy had a gun,",
+        "token": 5,
+        "word": "mammy",
+        "phones": ["M", "AE1", "M", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar mother term; selected ordinary reading."
       }
     ]
   },
@@ -5760,6 +6288,30 @@
         "phones": ["S", "AA1", "P", "AH0", "N", "T"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "A creeper’s been ’roun’ dis do’, dis do’.",
+        "token": 2,
+        "word": "creeper's",
+        "phones": ["K", "R", "IY1", "P", "ER0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Regular possessive/contraction of creeper."
+      },
+      {
+        "line": "When I gits through wid dat creeper’s neck",
+        "token": 5,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "When I gits through wid dat creeper’s neck",
+        "token": 7,
+        "word": "creeper's",
+        "phones": ["K", "R", "IY1", "P", "ER0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Regular possessive/contraction of creeper."
       }
     ]
   },
@@ -5772,6 +6324,14 @@
         "phones": ["AH1", "D", "AH0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "In de bed wid dat udder man,",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -5824,6 +6384,14 @@
         "phones": ["D", "EH1", "R"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Jes’ as lieve to go dere",
+        "token": 3,
+        "word": "lieve",
+        "phones": ["L", "IY1", "V"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar as-lieve variant of lief."
       }
     ]
   },
@@ -5900,6 +6468,30 @@
         "phones": ["L", "EY1", "G", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "De mulatto gal got yaller skin, yaller skin,",
+        "token": 5,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
+      },
+      {
+        "line": "De mulatto gal got yaller skin, yaller skin,",
+        "token": 7,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
+      },
+      {
+        "line": "De mulatto gal got yaller skin,",
+        "token": 5,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
       }
     ]
   },
@@ -5968,6 +6560,46 @@
         "phones": ["D", "IY1", "Z"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "My man dance wid de band.",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "His head am nappy,",
+        "token": 4,
+        "word": "nappy",
+        "phones": ["N", "AE1", "P", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar nappy; hair and ale senses have the same selected reading."
+      },
+      {
+        "line": "My man dance wid dat yaller gal.",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "My man dance wid dat yaller gal.",
+        "token": 6,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
+      },
+      {
+        "line": "Her head am nappy,",
+        "token": 4,
+        "word": "nappy",
+        "phones": ["N", "AE1", "P", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar nappy; hair and ale senses have the same selected reading."
       }
     ]
   },
@@ -6188,6 +6820,14 @@
         "phones": ["OW1", "L"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "He’s got dat yaller gal.",
+        "token": 4,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
       }
     ]
   },
@@ -6280,6 +6920,22 @@
         "phones": ["M", "AO1", "N", "IH0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Dere’s a Lizzie after my man,",
+        "token": 1,
+        "word": "Dere's",
+        "phones": ["D", "EH1", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written dere plus contracted is; selected rhotic performance reading, not a historical accent claim."
+      },
+      {
+        "line": "Dere’s a Lizzie after my man;",
+        "token": 1,
+        "word": "Dere's",
+        "phones": ["D", "EH1", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written dere plus contracted is; selected rhotic performance reading, not a historical accent claim."
       }
     ]
   },
@@ -6300,6 +6956,14 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Wid her head propped on my chair.",
+        "token": 1,
+        "word": "Wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -6380,6 +7044,14 @@
         "phones": ["T", "R", "UW1", "F"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Coon, coon, coon, great big yaller coon,",
+        "token": 6,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
       }
     ]
   },
@@ -6404,6 +7076,14 @@
         "phones": ["S", "IH1", "CH"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "He’ll fall out wid you and stay away.",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -6432,6 +7112,22 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Wid all soldiers walk han’ in han’.",
+        "token": 1,
+        "word": "Wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Men were dyin’ wid thousands of groans,",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -6492,6 +7188,14 @@
         "phones": ["CH", "IH1", "T", "L", "IH0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Come along, chillun, come along,",
+        "token": 3,
+        "word": "chillun",
+        "phones": ["CH", "IH1", "L", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar chillun form, no restored dr cluster."
       }
     ]
   },
@@ -6536,6 +7240,14 @@
         "phones": ["R", "AH1", "K", "AH0", "S"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "So come along, chillun, come along,",
+        "token": 4,
+        "word": "chillun",
+        "phones": ["CH", "IH1", "L", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar chillun form, no restored dr cluster."
       }
     ]
   },
@@ -6604,6 +7316,14 @@
         "phones": ["R", "AH1", "K", "AH0", "S"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Come on, little chillun,",
+        "token": 4,
+        "word": "chillun",
+        "phones": ["CH", "IH1", "L", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar chillun form, no restored dr cluster."
       }
     ]
   },
@@ -6652,6 +7372,62 @@
         "phones": ["OW1", "L"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Gwine to git a home by an’ by,",
+        "token": 1,
+        "word": "Gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Gwine to git a home by an’ by.",
+        "token": 1,
+        "word": "Gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "I’m gwine to jine de contraband, chillun,",
+        "token": 2,
+        "word": "gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "I’m gwine to jine de contraband, chillun,",
+        "token": 7,
+        "word": "chillun",
+        "phones": ["CH", "IH1", "L", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar chillun form, no restored dr cluster."
+      },
+      {
+        "line": "Gwine to git a home by an’ by;",
+        "token": 1,
+        "word": "Gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Cow path crooked gwine through the wood,",
+        "token": 4,
+        "word": "gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Missus says I shan’t, I says I should,",
+        "token": 4,
+        "word": "shan't",
+        "phones": ["SH", "AE1", "N", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar shan't performance variant; not a regional authenticity claim."
       }
     ]
   },
@@ -6684,6 +7460,22 @@
         "phones": ["OW1", "L"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "If you want to see pretty yaller gal,",
+        "token": 7,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
+      },
+      {
+        "line": "Ol’ massa bought pretty yaller gal,",
+        "token": 5,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
       }
     ]
   },
@@ -6716,6 +7508,14 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "A Georgia yaller gal",
+        "token": 3,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
       }
     ]
   },
@@ -6744,6 +7544,22 @@
         "phones": ["D", "EH1", "R"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Come on fellers, wid yo’ luck in yo’ han’",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Stretch flat on yo’ belly wid yo’ back in de air,",
+        "token": 6,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -6884,6 +7700,38 @@
         "phones": ["K", "AO1", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Nigger eats pone;",
+        "token": 3,
+        "word": "pone",
+        "phones": ["P", "OW1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar corn pone."
+      },
+      {
+        "line": "Drap in de pone,",
+        "token": 4,
+        "word": "pone",
+        "phones": ["P", "OW1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar corn pone."
+      },
+      {
+        "line": "Ol’ black nigger wid",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Home-made sirup",
+        "token": 2,
+        "word": "sirup",
+        "phones": ["S", "IH1", "R", "AH0", "P"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar syrup alternative spelling; selected common reading."
       }
     ]
   },
@@ -6928,6 +7776,22 @@
         "phones": ["Y", "EH1", "L", "AH0"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "you gwine to meet?",
+        "token": 2,
+        "word": "gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Down at the Black Fo’-Hundred’s Hall,",
+        "token": 5,
+        "word": "Fo'-Hundred's",
+        "phones": ["F", "OW2", "HH", "AH1", "N", "D", "R", "AH0", "D", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Fo' retains omitted r; hundred's possessive."
       }
     ]
   },
@@ -7012,6 +7876,30 @@
         "phones": ["Z", "AE2", "M", "AH0", "N", "EY1", "SH", "AH0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "That the angels gwine to ax,",
+        "token": 4,
+        "word": "gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "No matter what you’re gwine to do,",
+        "token": 5,
+        "word": "gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "No matter whar you’re gwine,",
+        "token": 5,
+        "word": "gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -7076,6 +7964,56 @@
         "phones": ["D", "EH1", "R"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "My high, my ho, my rumstipumstididdle,",
+        "token": 6,
+        "word": "rumstipumstididdle",
+        "phones": [
+          "R",
+          "AH2",
+          "M",
+          "S",
+          "T",
+          "IH0",
+          "P",
+          "AH2",
+          "M",
+          "S",
+          "T",
+          "IH0",
+          "D",
+          "IH1",
+          "D",
+          "AH0",
+          "L"
+        ],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected segmented rum-sti-pum-sti-diddle vocable performance, not authorial attestation."
+      },
+      {
+        "line": "Soot bag, pidly-wickem, linch ’em, nip cat,",
+        "token": 3,
+        "word": "pidly-wickem",
+        "phones": ["P", "IH1", "D", "L", "IY0", "W", "IH2", "K", "AH0", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent pidly-wickem nonsense form, performance choice only."
+      },
+      {
+        "line": "A long-tailed rat in a bucket of souse,",
+        "token": 8,
+        "word": "souse",
+        "phones": ["S", "AW1", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar noun souse; house rhyme confirms voiceless ending."
+      },
+      {
+        "line": "Dere’s where de niggers grow ten feet,",
+        "token": 1,
+        "word": "Dere's",
+        "phones": ["D", "EH1", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written dere plus contracted is; selected rhotic performance reading, not a historical accent claim."
       }
     ]
   },
@@ -7148,6 +8086,30 @@
         "phones": ["K", "AE1", "P", "AH0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Mary, don’t you weep an’, Marthie, don’t you moan,",
+        "token": 6,
+        "word": "Marthie",
+        "phones": ["M", "AA1", "R", "TH", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Marthie pet form with final ee."
+      },
+      {
+        "line": "Mary, don’t you weep an’, Marthie, don’t you moan;",
+        "token": 6,
+        "word": "Marthie",
+        "phones": ["M", "AA1", "R", "TH", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Marthie pet form with final ee."
+      },
+      {
+        "line": "You has to go to heaven wid yo’ buryin’ clothes on;",
+        "token": 7,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -7428,6 +8390,22 @@
         "phones": ["D", "EH1", "M"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Dig my grave wid a silver spade,",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Let me down wid a silver chain,",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -7544,6 +8522,14 @@
         "phones": ["M", "AO1", "N", "IH0", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Goodby, hypocrite, you Beelzebub,",
+        "token": 4,
+        "word": "Beelzebub",
+        "phones": ["B", "IY0", "EH1", "L", "Z", "AH0", "B", "AH2", "B"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
       }
     ]
   },
@@ -7732,6 +8718,38 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "O baby, jes’ ship my clo’es out in valise,",
+        "token": 9,
+        "word": "valise",
+        "phones": ["V", "AH0", "L", "IY1", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "O baby, jes’ ship my clo’es out in valise.",
+        "token": 9,
+        "word": "valise",
+        "phones": ["V", "AH0", "L", "IY1", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Geech had my woman",
+        "token": 1,
+        "word": "Geech",
+        "phones": ["G", "IY1", "CH"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent Geech spelling; selected reading without claiming speaker identity."
+      },
+      {
+        "line": "Oh, de Geech had my woman",
+        "token": 3,
+        "word": "Geech",
+        "phones": ["G", "IY1", "CH"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent Geech spelling; selected reading without claiming speaker identity."
       }
     ]
   },
@@ -7828,6 +8846,38 @@
         "phones": ["B", "IH0", "F", "AO1"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Walkin’ wid her head hung high.",
+        "token": 2,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "If she knows girl name Sady,",
+        "token": 6,
+        "word": "Sady",
+        "phones": ["S", "EY1", "D", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Name selected as Sadie, supported by Brady rhyme."
+      },
+      {
+        "line": "Co’se I don’t know no Sady",
+        "token": 6,
+        "word": "Sady",
+        "phones": ["S", "EY1", "D", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Name selected as Sadie, supported by Brady rhyme."
+      },
+      {
+        "line": "But I wants to stay wid dis lady,",
+        "token": 6,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -7864,6 +8914,30 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "I’ll die wid de hammer in my han’.”",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "I’d die wid de hammer in my han’.”",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "He’d die wid de hammer in his han’.",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -8020,6 +9094,14 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "I die wid my hammer in my han’, Lawd, Lawd.”",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -8112,6 +9194,30 @@
         "phones": ["B", "IH0", "F", "AO1"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "I die wid de hammer in my han’,",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Lawd, I’d die wid de hammer in my han’.”",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "I’d die wid de hammer in may han’,",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -8132,6 +9238,14 @@
         "phones": ["B", "IH0", "F", "AO1"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "I’d die wid de hammer in my han’.”",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -8160,6 +9274,14 @@
         "phones": ["B", "IH0", "F", "AO1"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "I’d die wid de hammer in my han’.”",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -8184,6 +9306,14 @@
         "phones": ["B", "IH0", "F", "AO1"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "I’d die wid de hammer in my han’.”",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -8212,6 +9342,46 @@
         "phones": ["B", "IH0", "F", "AO1"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "I’d die wid de hammer in my han’.”",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "John Henry’s wife said to his chillun,",
+        "token": 7,
+        "word": "chillun",
+        "phones": ["CH", "IH1", "L", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar chillun form, no restored dr cluster."
+      },
+      {
+        "line": "“Little chillun, don’t you worry none,",
+        "token": 2,
+        "word": "chillun",
+        "phones": ["CH", "IH1", "L", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar chillun form, no restored dr cluster."
+      },
+      {
+        "line": "News done reach gran’ma’s do’,",
+        "token": 4,
+        "word": "gran'ma's",
+        "phones": ["G", "R", "AE1", "N", "M", "AA2", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Printed grandma contraction omits d."
+      },
+      {
+        "line": "I die wid de hammer in my han’.”",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -8296,6 +9466,46 @@
         "phones": ["K", "AO1", "N"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      },
+      {
+        "line": "Settin’ on his mamy’s knee,",
+        "token": 4,
+        "word": "mamy's",
+        "phones": ["M", "AE1", "M", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Mammy possessive variant in maternal context."
+      },
+      {
+        "line": "An’ I lay dis ol’ sev’n-poun’ down.”",
+        "token": 6,
+        "word": "sev'n-poun'",
+        "phones": ["S", "EH1", "V", "N", "P", "AW2", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Explicit sev'n-poun' contraction retaining omissions."
+      },
+      {
+        "line": "I die wid de hammer in my han’.”",
+        "token": 3,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Wid orders in his han’,",
+        "token": 1,
+        "word": "Wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Here come a woman wid a hobble-skirt.”",
+        "token": 5,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
       }
     ]
   },
@@ -8472,6 +9682,582 @@
         "phones": ["L", "AO1", "D"],
         "basis": "declared",
         "source": "Pronunciation selected by import preparer for this spelling/context; performance reading, not historical attestation."
+      }
+    ]
+  },
+  "line01701": {
+    "pronunciations": [
+      {
+        "line": "But I’s gwine away,",
+        "token": 3,
+        "word": "gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "line01954": {
+    "pronunciations": [
+      {
+        "line": "Uhuh, time ain’t long.",
+        "token": 1,
+        "word": "Uhuh",
+        "phones": ["AH0", "HH", "AH1"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar affirmative uh-huh vocable."
+      }
+    ]
+  },
+  "line01991": {
+    "pronunciations": [
+      {
+        "line": "An’ it left me alone wid you.",
+        "token": 6,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      }
+    ]
+  },
+  "line03210": {
+    "pronunciations": [
+      {
+        "line": "Got me in the calaboose,",
+        "token": 5,
+        "word": "calaboose",
+        "phones": ["K", "AE2", "L", "AH0", "B", "UW1", "S"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "line05464": {
+    "pronunciations": [
+      {
+        "line": "O Lord, Berda, you come too soon,",
+        "token": 3,
+        "word": "Berda",
+        "phones": ["B", "ER1", "D", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected ordinary spelling-based personal-name reading, not identification of the historical bearer."
+      },
+      {
+        "line": "Berda walked out screamin’ an cryin’,",
+        "token": 1,
+        "word": "Berda",
+        "phones": ["B", "ER1", "D", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected ordinary spelling-based personal-name reading, not identification of the historical bearer."
+      },
+      {
+        "line": "Berda, you come too soon,",
+        "token": 1,
+        "word": "Berda",
+        "phones": ["B", "ER1", "D", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected ordinary spelling-based personal-name reading, not identification of the historical bearer."
+      },
+      {
+        "line": "Berda, you come too soon.",
+        "token": 1,
+        "word": "Berda",
+        "phones": ["B", "ER1", "D", "AH0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Selected ordinary spelling-based personal-name reading, not identification of the historical bearer."
+      }
+    ]
+  },
+  "line05473": {
+    "pronunciations": [
+      {
+        "line": "I’m gwine to de party,",
+        "token": 2,
+        "word": "gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "line05511": {
+    "pronunciations": [
+      {
+        "line": "Dig-a my grave wid a silver spade,",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Let me down wid a golden chain.",
+        "token": 4,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      }
+    ]
+  },
+  "line05707": {
+    "pronunciations": [
+      {
+        "line": "Shanghai pullet eat by her betters.",
+        "token": 2,
+        "word": "pullet",
+        "phones": ["P", "UH1", "L", "IH0", "T"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar pullet."
+      },
+      {
+        "line": "Chicken wid a preacher don’t stand no show,",
+        "token": 2,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      }
+    ]
+  },
+  "line05975": {
+    "pronunciations": [
+      {
+        "line": "Mammy-in-law",
+        "token": 1,
+        "word": "Mammy-in-law",
+        "phones": ["M", "AE1", "M", "IY0", "IH0", "N", "L", "AO2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent mammy-in-law compound."
+      },
+      {
+        "line": "Mammy-in-law done turn me out.",
+        "token": 1,
+        "word": "Mammy-in-law",
+        "phones": ["M", "AE1", "M", "IY0", "IH0", "N", "L", "AO2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Transparent mammy-in-law compound."
+      }
+    ]
+  },
+  "line06074": {
+    "pronunciations": [
+      {
+        "line": "If dere’s a man in de moon,",
+        "token": 2,
+        "word": "dere's",
+        "phones": ["D", "EH1", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written dere plus contracted is; selected rhotic performance reading, not a historical accent claim."
+      },
+      {
+        "line": "Dere’s a woman hangin’ roun’.",
+        "token": 1,
+        "word": "Dere's",
+        "phones": ["D", "EH1", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written dere plus contracted is; selected rhotic performance reading, not a historical accent claim."
+      }
+    ]
+  },
+  "line06843": {
+    "pronunciations": [
+      {
+        "line": "Dere’s misery in dis lan’, dis lan’.",
+        "token": 1,
+        "word": "Dere's",
+        "phones": ["D", "EH1", "R", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written dere plus contracted is; selected rhotic performance reading, not a historical accent claim."
+      }
+    ]
+  },
+  "line07257": {
+    "pronunciations": [
+      {
+        "line": "Your hair just nappy as mine.",
+        "token": 4,
+        "word": "nappy",
+        "phones": ["N", "AE1", "P", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar nappy; hair and ale senses have the same selected reading."
+      }
+    ]
+  },
+  "line07866": {
+    "pronunciations": [
+      {
+        "line": "Once I loved a yaller gal, she said she’d marry me,",
+        "token": 5,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
+      },
+      {
+        "line": "Now my Jenny’s married to a little yaller coon,",
+        "token": 8,
+        "word": "yaller",
+        "phones": ["Y", "AE1", "L", "ER0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-led yaller reading, preserving its vowel and ending rather than replacing it with yellow."
+      },
+      {
+        "line": "Wooly-headed pickaninnies runnin’ roun’ the flo’,",
+        "token": 2,
+        "word": "pickaninnies",
+        "phones": ["P", "IH2", "K", "AH0", "N", "IH1", "N", "IY0", "Z"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar historical term pronunciation, without endorsement of term."
+      },
+      {
+        "line": "I’m gwine away to China, so I’ll never see her mo’,",
+        "token": 2,
+        "word": "gwine",
+        "phones": ["G", "W", "AY1", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "line08362": {
+    "pronunciations": [
+      {
+        "line": "My ol’ uncle, don’t you grieve after me, etc.",
+        "token": 2,
+        "word": "ol'",
+        "phones": ["OW1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Old with final d elided, as written. Preparer selection, not historical attestation."
+      }
+    ]
+  },
+  "line09448": {
+    "pronunciations": [
+      {
+        "line": "Die wid his hammer in his han’,",
+        "token": 2,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Die wid his hammer in his han’.",
+        "token": 2,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      }
+    ]
+  },
+  "line10261": {
+    "pronunciations": [
+      {
+        "line": "Stagolee, Stagolee, what’s dat in yo’ grip?",
+        "token": 1,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Stagolee, Stagolee, what’s dat in yo’ grip?",
+        "token": 2,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Oh, dat man, bad man, Stagolee done come.",
+        "token": 6,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Stagolee, Stagolee, where you been so long?",
+        "token": 1,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Stagolee, Stagolee, where you been so long?",
+        "token": 2,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Stagolee was a bully man, an’ ev’ybody knowed",
+        "token": 1,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Stagolee was a bully man, an’ ev’ybody knowed",
+        "token": 7,
+        "word": "ev'ybody",
+        "phones": ["EH1", "V", "IY0", "B", "AA2", "D", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Everybody with explicitly omitted medial r syllable."
+      },
+      {
+        "line": "When dey seed Stagolee comin’ to give Stagolee de road.",
+        "token": 4,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "When dey seed Stagolee comin’ to give Stagolee de road.",
+        "token": 8,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Stagolee started out, he give his wife his han’;",
+        "token": 1,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Stagolee killed a man an’ laid him on de flo’,",
+        "token": 1,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "What’s dat he kill him wid? Dat same ol’ fohty-fo’.",
+        "token": 6,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "What’s dat he kill him wid? Dat same ol’ fohty-fo’.",
+        "token": 9,
+        "word": "ol'",
+        "phones": ["OW1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Old with final d elided, as written. Preparer selection, not historical attestation."
+      },
+      {
+        "line": "What’s dat he kill him wid? Dat same ol’ fohty-fo’.",
+        "token": 10,
+        "word": "fohty-fo'",
+        "phones": ["F", "AO1", "T", "IY0", "F", "OW2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written fohty-fo preserves absent r and final long-o selection."
+      },
+      {
+        "line": "Stagolee killed man an’ laid him on his side,",
+        "token": 1,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "What’s dat he kill him wid? Dat same ol’ fohty-five.",
+        "token": 6,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "What’s dat he kill him wid? Dat same ol’ fohty-five.",
+        "token": 9,
+        "word": "ol'",
+        "phones": ["OW1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Old with final d elided, as written. Preparer selection, not historical attestation."
+      },
+      {
+        "line": "What’s dat he kill him wid? Dat same ol’ fohty-five.",
+        "token": 10,
+        "word": "fohty-five",
+        "phones": ["F", "AO1", "T", "IY0", "F", "AY2", "V"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Out of house an’ down de street Stagolee did run,",
+        "token": 8,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "In his hand he held a great big smok’n’ gun.",
+        "token": 9,
+        "word": "smok'n'",
+        "phones": ["S", "M", "OW1", "K", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Smoking contraction, selected syllabic n approximation; no final g added."
+      },
+      {
+        "line": "Stagolee, Stagolee, I’ll tell you what I’ll do;",
+        "token": 1,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Stagolee, Stagolee, I’ll tell you what I’ll do;",
+        "token": 2,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "If you’ll git me out’n dis trouble I’ll do as much for you.",
+        "token": 5,
+        "word": "out'n",
+        "phones": ["AW1", "T", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar out-of contraction as printed."
+      },
+      {
+        "line": "Stagolee was shot, but he don’t want no name.",
+        "token": 1,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Stagolee, Stagolee, look what you done done:",
+        "token": 1,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Stagolee, Stagolee, look what you done done:",
+        "token": 2,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      },
+      {
+        "line": "Killed de best ol’ citerzen, now you’ll have to be hung.",
+        "token": 4,
+        "word": "ol'",
+        "phones": ["OW1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Old with final d elided, as written. Preparer selection, not historical attestation."
+      },
+      {
+        "line": "Killed de best ol’ citerzen, now you’ll have to be hung.",
+        "token": 5,
+        "word": "citerzen",
+        "phones": ["S", "IH1", "T", "ER0", "Z", "AH0", "N"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Citizen respelled citerzen, selected reading preserves represented er."
+      },
+      {
+        "line": "Stagolee cried to de jury, “Please don’t take my life,",
+        "token": 1,
+        "word": "Stagolee",
+        "phones": ["S", "T", "AE1", "G", "AH0", "L", "IY2"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Language-knowledge performance reading selected after reviewing supplied lyric contexts; not a historical pronunciation attestation."
+      }
+    ]
+  },
+  "line10301": {
+    "pronunciations": [
+      {
+        "line": "Shoot dem lights out o’ de brakeman’s han’,",
+        "token": 2,
+        "word": "dem",
+        "phones": ["D", "EH1", "M"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Written initial d retained in familiar them form."
+      },
+      {
+        "line": "Ol’ corn whiskey cause of it all,",
+        "token": 1,
+        "word": "Ol'",
+        "phones": ["OW1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Old with final d elided, as written. Preparer selection, not historical attestation."
+      },
+      {
+        "line": "Ol’ McMillan had a special train;",
+        "token": 1,
+        "word": "Ol'",
+        "phones": ["OW1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Old with final d elided, as written. Preparer selection, not historical attestation."
+      },
+      {
+        "line": "Ev’ybody tol’ him he better turn back;",
+        "token": 1,
+        "word": "Ev'ybody",
+        "phones": ["EH1", "V", "IY0", "B", "AA2", "D", "IY0"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Everybody with explicitly omitted medial r syllable."
+      },
+      {
+        "line": "Railroad Bill was the worst ol’ coon:",
+        "token": 6,
+        "word": "ol'",
+        "phones": ["OW1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Old with final d elided, as written. Preparer selection, not historical attestation."
+      },
+      {
+        "line": "Ol’ Culpepper went up on number five,",
+        "token": 1,
+        "word": "Ol'",
+        "phones": ["OW1", "L"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Old with final d elided, as written. Preparer selection, not historical attestation."
+      }
+    ]
+  },
+  "line10342": {
+    "pronunciations": [
+      {
+        "line": "An’ she cooled me wid her fan,",
+        "token": 5,
+        "word": "wid",
+        "phones": ["W", "IH1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Spelling-selected short-i with final d, preserving the printed consonant rather than replacing it with th."
+      },
+      {
+        "line": "Lawd, I wished I never had seen her",
+        "token": 1,
+        "word": "Lawd",
+        "phones": ["L", "AO1", "D"],
+        "basis": "declared",
+        "source": "Selected by import preparer in the 2026-10-09 context review using language knowledge; performance reading, not historical attestation. Familiar Lawd form retaining non-rhotic spelling."
       }
     ]
   }
