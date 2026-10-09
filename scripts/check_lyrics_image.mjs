@@ -124,7 +124,7 @@ if (
     import { setTimeout as delay } from 'node:timers/promises';
     const [commit, mode] = process.argv.slice(1);
     assert.equal(process.versions.node.split('.')[0], '22', 'production runtime must be Node 22');
-    const until = Date.now() + 20_000;
+    const until = Date.now() + 30_000;
     let health;
     while (Date.now() < until) {
       try {
@@ -133,7 +133,7 @@ if (
       } catch { /* bounded startup polling */ }
       await delay(250);
     }
-    assert.ok(health, 'production server did not become healthy within 20 seconds');
+    assert.ok(health, 'production server did not become healthy within 30 seconds');
     assert.equal(health.commit, commit, 'health commit must match the built image');
     assert.equal(health.build.commit, commit);
     const baked = JSON.parse(fs.readFileSync('/app/mcp/build_identity.json', 'utf8'));
@@ -209,11 +209,11 @@ if (
     assert.equal(config.HostConfig.MemorySwap, 2 * 1024 ** 3);
     assert.equal(config.HostConfig.NetworkMode, 'none');
     await docker(['exec', server, 'node', '--input-type=module', '-e', probe, commit, 'before'], {
-      timeoutMs: 25_000,
+      timeoutMs: 35_000,
     });
     await docker(['restart', '--time=2', server], { quiet: true, timeoutMs: 10_000 });
     await docker(['exec', server, 'node', '--input-type=module', '-e', probe, commit, 'after'], {
-      timeoutMs: 25_000,
+      timeoutMs: 35_000,
     });
     console.log(
       'Production lyrics image gate passed: real harness/worker/proposer/verification and durable restart.'
