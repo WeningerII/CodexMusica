@@ -10,6 +10,7 @@
 //
 // Gate-classes (each maps to the gate that owns it):
 //   broken ref          -> validate.js
+//   exemplars not list  -> validate.js        (a tradition's recordings written as one string)
 //   >1000-char recipe   -> check_api.js
 //   dropped tradition   -> check_api.js
 //   app<->node desync   -> equivalence.js
@@ -252,6 +253,34 @@ if (want('1', 'broken-ref')) {
   const f = path.join(d, 'references/05_traditions.js');
   fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace("room: '", "room: 'zzz_fault_"));
   record('broken-ref -> validate.js', gate(d, ['scripts/validate.js']), /zzz_fault|BROKEN_REF/i);
+}
+
+// 1b. exemplars written as one string -> validate.js
+//     Twenty traditions once shipped `exemplars` as a bare string, and every
+//     reader (the genre page's Recordings, the picker leaf) threw on it. The
+//     plant is that exact shape: the first tradition's list collapsed to its
+//     first entry. The unplanted copy must pass first, so the catch is this
+//     check's and not a catalog that was already invalid.
+if (want('1b', 'exemplars-not-list')) {
+  const cls = 'exemplars-not-list -> validate.js';
+  const d = mkenv(['scripts', 'references']);
+  const baseline = gate(d, ['scripts/validate.js']);
+  if (baseline.code !== 0) {
+    refuse(cls, 'BASELINE-INVALID', `the unplanted catalog fails the gate, exit ${baseline.code}`);
+  } else {
+    const f = path.join(d, 'references/06_extras.js');
+    const src = fs.readFileSync(f, 'utf8');
+    const m = src.match(/^ {2}'([a-z0-9_]+)': \{[\s\S]*?\n {4}exemplars: \[('[^']*')[^\]\n]*\],/m);
+    if (!m) throw new Error('faults: no single-quoted exemplars list in 06_extras.js to collapse');
+    const at = m.index + m[0].lastIndexOf('exemplars: [');
+    const end = m.index + m[0].length;
+    fs.writeFileSync(f, src.slice(0, at) + `exemplars: ${m[2]},` + src.slice(end));
+    record(
+      cls,
+      gate(d, ['scripts/validate.js']),
+      new RegExp(`BAD_TYPE \\[extras\\.exemplars\\][\\s\\S]*got string[^\\n]*: ${m[1]}\\b`)
+    );
+  }
 }
 
 // 2. >1000-char recipe -> check_api.js
@@ -2841,7 +2870,7 @@ if (escaped.length) {
   );
   for (const e of escaped) console.error(`  ✗ ${e.cls}  [${e.reason}]`);
   console.error(
-    '  (ESCAPED = gate passed; TIMEOUT = gate hung; WRONG-REASON = failed but not on the planted defect; BASELINE-OVER = the unplanted page already fails the budget gate, so nothing could be planted)'
+    '  (ESCAPED = gate passed; TIMEOUT = gate hung; WRONG-REASON = failed but not on the planted defect; BASELINE-OVER = the unplanted page already fails the budget gate, so nothing could be planted; BASELINE-INVALID = the unplanted catalog already fails validate.js)'
   );
 }
 if (uncovered.length) {

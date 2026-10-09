@@ -349,6 +349,34 @@ for (const tid of Object.keys(C.TRADITION_EXTRAS)) {
       if (!treeIds.has(ref)) errors.push(['BROKEN_REF', 'extras.crossRefs', tid, ref]);
     }
   }
+  // exemplars is a LIST of recordings. Every reader calls array methods on it
+  // (the genre page's Recordings section, the tradition picker's leaf line,
+  // fingerprint.js, nearest_neighbor.js), so a bare string throws a TypeError
+  // the moment one of them reaches that tradition. The offending value is part
+  // of the detail so each tradition id is named on its own line of the report.
+  if (e.exemplars !== undefined) {
+    if (!Array.isArray(e.exemplars)) {
+      const got = e.exemplars === null ? 'null' : typeof e.exemplars;
+      const shown =
+        typeof e.exemplars === 'string' ? ' ' + JSON.stringify(e.exemplars.slice(0, 60)) : '';
+      errors.push([
+        'BAD_TYPE',
+        'extras.exemplars',
+        tid,
+        `must be an array of non-empty strings, got ${got}${shown}`,
+      ]);
+    } else {
+      e.exemplars.forEach((x, i) => {
+        if (typeof x !== 'string' || !x.trim())
+          errors.push([
+            'BAD_TYPE',
+            'extras.exemplars',
+            tid,
+            `must be an array of non-empty strings, entry ${i} is ${JSON.stringify(x)}`,
+          ]);
+      });
+    }
+  }
   // Axes are REQUIRED, not optional. The lazy-loaded app materializes a 13-key
   // zero-vector for any tradition whose browse-index axes are absent, while the
   // embedded build reads absent axes as null (hiding find-similar, flattening the
