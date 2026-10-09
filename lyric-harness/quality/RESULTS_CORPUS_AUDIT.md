@@ -1,6 +1,17 @@
 # RESULTS — the corpus audit (adversary 5)
 
-Current result, 2026-10-08 (next ten Project Gutenberg collections for the Library):
+Current result, 2026-10-09 (third ten Project Gutenberg collections for the Library):
+**2,328 files, 0 FAIL, 38 WARN, 1,856 NOTE**. The 51 new author files add
+51 source declarations (2,866 -> 2,917). Check G adds 44 elision notes;
+check H adds eight residue-only notes for one-line stanzas (46 -> 54).
+No failures or warnings are added. The indent census remains 524 agreeing,
+six opposite and 22 within-null files. Printed introduction labels and
+ornaments are excluded from verse before this census.
+The population checker confirms all additions are outside all six calibrated
+populations; no calibrated constant was re-derived or changed.
+See `../imports/gutenberg-third-ten/README.md` for extraction and deduplication.
+
+Previous result, 2026-10-08 (next ten Project Gutenberg collections for the Library):
 **2,277 files, 0 FAIL, 38 WARN, 1,804 NOTE**. The 76 new author files add
 76 source declarations (2,790 -> 2,866). Check G adds 56 elision notes;
 check H adds five residue-only notes for actual one-line stanzas (41 -> 46).

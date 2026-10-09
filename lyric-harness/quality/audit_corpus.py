@@ -3271,7 +3271,10 @@ def main(argv=None):
 # 2026-10-08 next ten Library collections: files 2201 -> 2277; NOTE
 # 1743 -> 1804 (56 elision notes, five actual one-line stanza residue notes).
 # FAIL remains zero; WARN remains 38. Calibration populations unchanged.
-PINNED_SHAPE = {"files": 2277, "FAIL": 0, "WARN": 38, "NOTE": 1804}
+# 2026-10-09 third ten Library collections: files 2277 -> 2328; NOTE
+# 1804 -> 1856 (44 elision notes, eight one-line stanza residue notes).
+# FAIL remains zero; WARN remains 38. Calibration populations unchanged.
+PINNED_SHAPE = {"files": 2328, "FAIL": 0, "WARN": 38, "NOTE": 1856}
 
 
 def _verify_shape(files, findings):

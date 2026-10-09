@@ -26,7 +26,7 @@ RUN cd lyric-harness \
  && python3 -m library.registry > library/methods.json \
  && python3 -c "from pathlib import Path; from library.contracts import RESULT_SCHEMA, canonical_json; Path('library/schema.json').write_text(canonical_json(RESULT_SCHEMA) + '\\n', encoding='utf-8')" \
  && python3 -m library.catalog build --output /build/library-canonical \
-      --repo-sha ad45ed79347466bee7c9161b03cdf5edcd95b999 \
+      --repo-sha 97ec4b0c4f0be7ec605940dd05b663f6ffd3d182 \
       --source-manifest library/catalog_sources.json \
  && python3 quality/release_assets.py --assemble /runtime/lyric-harness \
       --reader-catalog /build/library-canonical \
