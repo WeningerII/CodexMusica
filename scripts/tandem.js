@@ -390,7 +390,8 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
 
 // Tradition-signature parity: signatures live canonically in
 // references/_tradition_signatures.json (read by the agent scripts) and are
-// inlined into src/app.js for the browser by scripts/build_signatures.js. They
+// generated into references/10_tradition_signatures.js for the browser by
+// scripts/build_signatures.js. They
 // previously forked (208 keys differed, a rename on one side, 13 orphan keys).
 // This check fails if the inlined block drifts from the JSON — regenerate with
 // `node scripts/build_signatures.js`.
@@ -748,7 +749,7 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
   if (!html.includes('const CODEX_LAZY_API')) {
     throw new Error('shipped codex.html missing CODEX_LAZY_API — not the lazy shell');
   }
-  // The instrument engine is out of the page too: its eight tables load from
+  // The instrument engine is out of the page too: its ten tables load from
   // api/engine.json (at the first paint, or from <head> when a saved session
   // needs it) into `let` slots that
   // CODEX_ENGINE_COMMIT fills in one step, and the first view reads names and
@@ -773,6 +774,11 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
     'TUNINGS',
     'INSTRUMENT_AXIS_DEFINITIONS',
     'PREFACE_LEXICON',
+    // The two render tables: the signatures are a references file the lazy
+    // build omits whole; src/app.js mirrors the frequencies for the embedded
+    // build and Node, and the lazy build cuts that mirror.
+    'TRADITION_SIGNATURES',
+    'DESCRIPTOR_DF',
   ];
   const carried = engine.filter((n) => new RegExp(`\\b(?:const|let|var) ${n}\\s*=`).test(html));
   if (carried.length) {
@@ -787,6 +793,17 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
   }
   if (!/\bconst INSTRUMENT_INDEX\s*=/.test(html)) {
     throw new Error('shipped codex.html missing INSTRUMENT_INDEX — the first view has no names');
+  }
+  // The genre tree's node descriptions are out of the page too: the lazy build
+  // keeps each node's id, name and parent (the first view reads those), and
+  // the picker merges the descriptions from api/browse_prose.json "tree".
+  const at = html.search(/\bconst TREE_NODES\s*=/);
+  if (at < 0) throw new Error('shipped codex.html missing TREE_NODES — the first view has no tree');
+  const treeBlock = html.slice(at, html.indexOf('</script>', at));
+  if (/[{,]\s*"?description"?\s*:/.test(treeBlock)) {
+    throw new Error(
+      'shipped codex.html carries TREE_NODES descriptions — they load from api/browse_prose.json "tree"'
+    );
   }
   const P = require('./_page_tables.js');
   const slots = [...html.matchAll(/\blet\s+([A-Za-z_$][\w$]*(?:\s*,\s*[A-Za-z_$][\w$]*)*)\s*;/g)]
@@ -815,7 +832,7 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
   return (
     'no TRADITIONS/TRADITION_EXTRAS or engine tables in page; boots from ' +
     `api/browse_boot.json, the engine from api/engine.json into one \`let\` of ${slots[0].length} slots, ` +
-    "its digests the source's"
+    "its digests the source's; TREE_NODES without its descriptions"
   );
 });
 check('JS parseable (vm.Script syntax check)', () => {

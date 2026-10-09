@@ -1072,7 +1072,8 @@ jobs:
     # section runs that check alone, --checks). MEASURED on PR #502's first
     # run (run 37559558317, 2026-10-07, cold): the job 32m01s, the build
     # 12m40s, fault injection 18m22s. 30 would have cancelled it; 45 leaves
-    # 13 min, room for a slow runner.
+    # 13 min, room for a slow runner. Step 10 adds 17 classes (10a, 10c-10r);
+    # the full fault run took 27 min locally (step 9: 29), so 45 should hold.
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
@@ -1174,10 +1175,11 @@ jobs:
           key: artifact-build-v1-${{ steps.artifact-key.outputs.key }}
 
       # The lazy page's gzip budgets (scripts/check_payload_budget.js): the page,
-      # the page plus the boot index, its inline data, and api/engine.json. On a
-      # diff that can move an artifact it measures the FRESH build, the pair this
-      # tree produces, already byte-compared to the committed pair above; on any
-      # other diff, the committed pair, as the fault step below does. It runs
+      # the page plus the boot index, its inline data, api/engine.json, and all
+      # three downloads an early Add waits for together (add-path). On a diff
+      # that can move an artifact it measures the FRESH build, the pair this tree
+      # produces, already byte-compared to the committed pair above; on any other
+      # diff, the committed pair, as the fault step below does. It runs
       # after the cache save on purpose: the gate is not a build input, so a run
       # that fails here still banks its verified build, and a follow-up that
       # changes only the gate reuses it. verify's parallel regression step runs

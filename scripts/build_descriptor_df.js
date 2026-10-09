@@ -23,6 +23,10 @@
 //     as TRADITION_SIGNATURES is.
 // Tokens ABSENT from the frozen table fall back to 999 in both renderers —
 // byte-identical to how an unknown token behaves today.
+// The lazy page does not carry the app.js block: build_html.js cuts it, and the
+// page reads the table from api/engine.json (scripts/_page_tables.js), which
+// check_api.js holds to the JSON. After a change here, run `npm run build:api`
+// and `node scripts/build_html.js`.
 //
 // WHAT CHANGES WHEN YOU REGENERATE: `--freeze` is the ONLY command in the repo
 // that can move descriptor order. Re-freezing adopts today's catalog counts, so
@@ -162,7 +166,9 @@ function renderAppBlock(dfObj) {
   return 'const DESCRIPTOR_DF = {\n' + lines.join('\n') + '\n};';
 }
 
-const APP_BLOCK_RE = /const DESCRIPTOR_DF = (\{[\s\S]*?\n\});/;
+// Shared with build_html.js (which cuts the block from the lazy page) and
+// tandem.js.
+const APP_BLOCK_RE = require('./_page_tables.js').APP_TABLES.DESCRIPTOR_DF;
 
 function extractAppBlock() {
   const app = fs.readFileSync(APP_PATH, 'utf8');
@@ -317,7 +323,8 @@ function main() {
         'inlined them into src/app.js.'
     );
     console.log(
-      'Descriptor ORDER may have moved. Rebuild and re-bless in this commit: `npm run build:api`, ' +
+      'Descriptor ORDER may have moved. Rebuild and re-bless in this commit: `npm run build:api` ' +
+        '(api/engine.json carries this table for the lazy page), ' +
         '`CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js`, then the recipe snapshots.'
     );
     return;
@@ -348,6 +355,9 @@ function main() {
   }
   console.log(
     `regenerated src/app.js DESCRIPTOR_DF from references/_descriptor_df.json (${stats.frozenTokens} tokens).`
+  );
+  console.log(
+    'api/engine.json carries this table for the lazy page; run `npm run build:api` and `node scripts/build_html.js`.'
   );
   report(stats);
 }

@@ -27,10 +27,14 @@
 //   • browse.json, browse_boot.json and browse_prose.json are exactly what
 //     scripts/_browse_tables.js derives from the catalog (the lazy app boots
 //     from the second and reads the third after its first paint; the first
-//     stays published).
+//     stays published), and the third's "tree" is the genre tree's node
+//     descriptions, keyed by TREE_NODES ids.
 //   • engine.json (the instrument engine the lazy shell fetches) is exactly what
 //     scripts/_page_tables.js derives from references/: one element per line,
-//     unmerged, page-stripped, its digest the digest of its tables.
+//     unmerged, page-stripped, its digest the digest of its tables and of the
+//     codec that writes two of them (each recomputed here, not through
+//     engineSha), and those two (TRADITION_SIGNATURES, DESCRIPTOR_DF) decoding
+//     to their references JSON.
 //
 // Usage:
 //   node scripts/check_api.js                 # check the committed api/
@@ -369,6 +373,26 @@ if (browse) {
       'browse_prose.json',
       want.filter((w, i) => !same(B.proseItem(w), items[i])).map((w) => w.id)
     );
+    // The genre tree's node descriptions, which the lazy page's TREE_NODES
+    // leaves out and merges back by id from here. Without them its picker
+    // never draws one; a key no node has would never be shown.
+    const tree = prose.tree && typeof prose.tree === 'object' ? prose.tree : null;
+    const nodeIds = new Set(C.TREE_NODES.map((n) => n.id));
+    if (!tree)
+      fail(
+        'browse_prose.json carries no "tree" (the genre tree\'s node descriptions); run npm run build:api'
+      );
+    else {
+      const stray = Object.keys(tree).filter((id) => !nodeIds.has(id));
+      if (stray.length)
+        fail(
+          `browse_prose.json: "tree" names ${stray.length} id(s) TREE_NODES does not have (e.g. ${stray.slice(0, 5).join(', ')})`
+        );
+      if (!same(tree, B.treeProse(C.TREE_NODES)))
+        fail(
+          'browse_prose.json: "tree" differs from the node descriptions references/04_tree.js has; run npm run build:api'
+        );
+    }
   }
 }
 
@@ -394,8 +418,56 @@ if (browse) {
         fail('engine.json: its merge plan was not written by the merge code in scripts/_merge.js');
       if (JSON.stringify(header.tables) !== JSON.stringify(P.ENGINE_TABLES))
         fail('engine.json: its header does not list ENGINE_TABLES (scripts/_page_tables.js)');
-      if (header.tables_sha1 !== P.engineSha(tables))
-        fail('engine.json: tables_sha1 is not the digest of the tables it carries');
+      if (header.tables.length !== 10)
+        fail(`engine.json: its header lists ${header.tables.length} tables; the engine has 10`);
+      // The digests, recomputed here rather than through engineSha, so a fold
+      // that dropped the codec would not vouch for itself: codec_sha1 is the
+      // sha1 of the region the page inlines, read from the codec's own file,
+      // and tables_sha1 the sha1 of the page copy of the tables with it.
+      const sha1 = (s) => require('crypto').createHash('sha1').update(s).digest('hex');
+      const region = fs
+        .readFileSync(path.join(__dirname, '_engine_codec.js'), 'utf8')
+        .match(/\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//);
+      if (!region || header.codec_sha1 !== sha1(region[1]))
+        fail(
+          'engine.json: codec_sha1 is not the digest of the codec region in scripts/_engine_codec.js'
+        );
+      if (
+        header.tables_sha1 !==
+        sha1(
+          JSON.stringify(P.engineTables(path.join(ROOT, 'references'))) + '\n' + header.codec_sha1
+        )
+      )
+        fail(
+          'engine.json: tables_sha1 is not the digest of the page copy of the engine tables with codec_sha1 folded in'
+        );
+      // The two encoded tables, decoded, against references/ read here: the
+      // frequencies entry for entry, and the signatures with only their empty
+      // lists left out (filtered inline, not through the page strip, so a
+      // strip that drops more than that is caught).
+      const refJson = (f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'references', f), 'utf8'));
+      const entries = (o) =>
+        JSON.stringify(
+          Object.keys(o)
+            .sort()
+            .map((k) => [k, o[k]])
+        );
+      if (entries(tables.DESCRIPTOR_DF) !== entries(refJson('_descriptor_df.json').df))
+        fail(
+          'engine.json: its DESCRIPTOR_DF line does not decode to references/_descriptor_df.json'
+        );
+      const sigs = Object.fromEntries(
+        Object.entries(refJson('_tradition_signatures.json')).filter(([, v]) => v.length > 0)
+      );
+      if (JSON.stringify(tables.TRADITION_SIGNATURES) !== JSON.stringify(sigs))
+        fail(
+          'engine.json: its TRADITION_SIGNATURES line does not decode to references/_tradition_signatures.json less its empty lists'
+        );
+      const empty = Object.keys(tables.TRADITION_SIGNATURES).filter(
+        (id) => !tables.TRADITION_SIGNATURES[id].length
+      );
+      if (empty.length)
+        fail(`engine.json: TRADITION_SIGNATURES carries ${empty.length} empty list(s)`);
       for (const [name, specs] of Object.entries(P.PAGE_DROP_FIELDS)) {
         if (!(name in tables)) continue;
         const t = JSON.stringify(tables[name]);

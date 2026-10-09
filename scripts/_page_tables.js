@@ -35,10 +35,15 @@
 // ──────────────────────────── the instrument engine ────────────────────────────
 // ENGINE_TABLES are what the page reads to edit and render a recipe: the
 // instruments with their parts and variants, the family parts merged into them,
-// rooms, chains, tunings, the instrument axes and the preface lexicon. They
-// were 92% of the lazy page's inline data, gzipped (check_payload_budget's
-// inline-data measure, on the step-8 page), and the first view reads none of
-// them but the instruments' names and families (INSTRUMENT_INDEX, below). The
+// rooms, chains, tunings, the instrument axes and the preface lexicon, and the
+// two tables a recipe's render reads from a card (each tradition's signature,
+// and how common each descriptor is). They were 92% of the lazy page's inline
+// data, gzipped (check_payload_budget's inline-data measure, on the step-8
+// page), and the first view reads none of them but the instruments' names and
+// families (INSTRUMENT_INDEX, below). The signatures are a generated
+// references file (references/10_tradition_signatures.js) like the others;
+// the frequencies are a literal in src/app.js, which the lazy build cuts
+// (APP_TABLES). The
 // --embedded build keeps them inline; the lazy shell declares an empty slot for
 // each, and fetches api/engine.json at its first paint, or sooner when an
 // action needs it or a saved session will (Engine in src/app.js,
@@ -58,6 +63,11 @@
 //     page passes it to the same merge, which then skips its predicate passes
 //     (a quarter of a second of main thread at 4x CPU) and builds the same
 //     objects; mergePlan proves that before the file is written.
+//   • TRADITION_SIGNATURES and DESCRIPTOR_DF are written by the codec in
+//     scripts/_engine_codec.js, one compact line each, rather than as plain
+//     JSON (about 72 KB more of the file gzipped); the frequencies are counts
+//     against the words the other lines already carry. The signatures' page
+//     copy drops its empty lists (PAGE_DROP_EMPTY, below).
 //
 // It is ONE JSON array with ONE ELEMENT PER LINE, so the page can parse it a
 // line at a time in idle slices rather than in one long task:
@@ -69,12 +79,16 @@
 //   ["INSTRUMENTS", [ …the next 50… ]],
 //   …
 //   ["PREFACE_LEXICON", […]],
+//   ["TRADITION_SIGNATURES", {"v": […], "k": …, "l": …}],
+//   ["DESCRIPTOR_DF", {"a": …, "r": {…}}],
 //   ["MERGE_PLAN", {"merge_sha1": …, "kinds": {…}}]
 //   ]
 //
-// tables_sha1 is engineSha(the tables), whole (the index fields filled in); the
-// page carries the same digest (CODEX_ENGINE_SHA) and refuses a file that does
-// not match it, so a page and an engine from different deploys never mix.
+// tables_sha1 is engineSha(the tables), whole (the index fields filled in, the
+// two render tables plain), with the codec's digest (codec_sha1, also in the
+// header) folded in; the page carries the same digest (CODEX_ENGINE_SHA) and
+// refuses a file that does not match it, so a page and an engine from
+// different deploys, or written by a different codec, never mix.
 // merge_sha1 is mergeSha(), the digest of the merge code that wrote the plan;
 // the page uses the plan only when its own merge code has that digest
 // (CODEX_MERGE_SHA), and otherwise merges the long way, to the same result.
@@ -84,6 +98,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const codec = require('./_engine_codec.js');
 
 const PAGE_DROP_TABLES = new Set(['CHAIN_ARCHETYPES', 'PRODUCTION_AESTHETICS', 'ARRANGEMENTS']);
 const VARIANT_DROP = ['match_tokens', 'canonical_tags', 'surface', 'auto'];
@@ -143,9 +158,33 @@ function stripTable(name, value) {
   for (const [pathSpec, fields] of PAGE_DROP_FIELDS[name] || [])
     for (const node of reach(tableElements(value), pathSpec))
       for (const k of fields) delete node[k];
+  if (PAGE_DROP_EMPTY.has(name)) {
+    const kept = nonEmptySignatures(value);
+    for (const k of Object.keys(value))
+      if (!Object.prototype.hasOwnProperty.call(kept, k)) delete value[k];
+  }
   assertJsonSafe(value, name);
   return value;
 }
+
+// The signature table's page copy holds only the non-empty lists. Its one
+// reader in the page, _traditionSignatureFor, answers
+// `(tradId && TRADITION_SIGNATURES[tradId]) || []`, which is [] for a missing
+// id and for an empty list alike, so dropping the empty lists (1,079 of 5,999
+// today) changes no answer and spares api/engine.json about 6 KB gzipped (as
+// step 10 measured it, with 1,183). This is the one
+// definition of that rule: the codec (scripts/_engine_codec.js) refuses an
+// empty list, and the gates compare the decoded table with this, never with a
+// filter of their own (check_api.js recomputes it inline on purpose, to catch
+// a rule that drops too much).
+const nonEmptySignatures = (sigs) => {
+  const out = {};
+  for (const [id, list] of Object.entries(sigs)) if (list.length) out[id] = list;
+  return out;
+};
+// The tables whose page copy drops its empty lists (stripTable), by the rule
+// above.
+const PAGE_DROP_EMPTY = new Set(['TRADITION_SIGNATURES']);
 
 const ENGINE_TABLES = [
   'INSTRUMENT_FAMILY_PARTS',
@@ -159,6 +198,7 @@ const ENGINE_TABLES = [
   // Read only when a card is configured (src/app.js _traditionSignatureFor),
   // which already waits for the engine; generated by scripts/build_signatures.js.
   'TRADITION_SIGNATURES',
+  'DESCRIPTOR_DF',
 ];
 // references files whose every table is an engine table: the lazy page omits
 // them whole (a fully stripped file would leave an empty labelled block).
@@ -171,6 +211,21 @@ const ENGINE_SOURCES = [
   '07_preface_lexicon.js',
   '10_tradition_signatures.js',
 ];
+// DESCRIPTOR_DF is not declared in a references .js file: it is generated into
+// references/ as JSON (scripts/build_descriptor_df.js), with a mirror in
+// src/app.js that the embedded build and Node evaluate and the lazy build cuts
+// (APP_TABLES, below). The engine reads it from the JSON: [file, the table from
+// its parsed value].
+const ENGINE_JSON_SOURCES = {
+  DESCRIPTOR_DF: ['_descriptor_df.json', (j) => j.df],
+};
+// The mirror's declaration in src/app.js, as its generator writes it
+// (build_descriptor_df.js) and tandem.js reads it; the lazy build cuts it
+// (build_html.js). Group 1 is the object literal; the match ends at the `;`, so
+// the generator's replace keeps the newline after it.
+const APP_TABLES = {
+  DESCRIPTOR_DF: /const DESCRIPTOR_DF = (\{[\s\S]*?\n\});/,
+};
 const ENGINE_RUN = 50; // instruments per line of api/engine.json
 // The instrument fields api/engine.json leaves to INSTRUMENT_INDEX, in its
 // column order (instrumentIndex, below).
@@ -200,6 +255,8 @@ function engineTables(refsDir) {
     vm.runInContext(source, ctx, { filename: f });
     for (const n of names) if (ENGINE_TABLES.includes(n)) found[n] = vm.runInContext(n, ctx);
   }
+  for (const [n, [file, pick]] of Object.entries(ENGINE_JSON_SOURCES))
+    found[n] = pick(JSON.parse(fs.readFileSync(path.join(refsDir, file), 'utf8')));
   const out = {};
   for (const n of ENGINE_TABLES) {
     if (!(n in found)) throw new Error(`_page_tables: no references file declares ${n}`);
@@ -207,8 +264,14 @@ function engineTables(refsDir) {
   }
   return out;
 }
+// The digest of the tables and of the codec that writes two of them
+// (scripts/_engine_codec.js), so a page and a file written by different codecs
+// are refused as stale, never decoded wrongly.
 const engineSha = (tables) =>
-  crypto.createHash('sha1').update(JSON.stringify(tables)).digest('hex');
+  crypto
+    .createHash('sha1')
+    .update(JSON.stringify(tables) + '\n' + codec.codecSha())
+    .digest('hex');
 
 // ─────────────────────────────── the merge plan ───────────────────────────────
 // The digest of the merge code the page carries: the region of scripts/_merge.js
@@ -322,6 +385,8 @@ function fillIndexFields(instruments, index) {
   return instruments;
 }
 
+// The tables api/engine.json writes through the codec, in its order.
+const ENCODED = ['TRADITION_SIGNATURES', 'DESCRIPTOR_DF'];
 // api/engine.json's text (see the layout above).
 function engineText(refsDir) {
   const tables = engineTables(refsDir);
@@ -329,17 +394,24 @@ function engineText(refsDir) {
     {
       name: ENGINE_NAME,
       tables_sha1: engineSha(tables),
+      codec_sha1: codec.codecSha(),
       tables: ENGINE_TABLES,
       run: ENGINE_RUN,
       index_fields: INDEX_FIELDS,
     },
   ];
   for (const n of ENGINE_TABLES) {
+    if (ENCODED.includes(n)) continue;
     if (n !== 'INSTRUMENTS') els.push([n, tables[n]]);
     else
       for (let i = 0; i < tables[n].length; i += ENGINE_RUN)
         els.push([n, tables[n].slice(i, i + ENGINE_RUN).map(indexFieldsOut)]);
   }
+  // The two render tables, encoded against the words of the lines above as
+  // they are written (scripts/_engine_codec.js), go just before the plan.
+  els.push(
+    ...codec.encodeDescriptorTables(els.slice(1), tables.TRADITION_SIGNATURES, tables.DESCRIPTOR_DF)
+  );
   els.push(['MERGE_PLAN', mergePlan(tables)]);
   const lines = els.map((e) => JSON.stringify(e));
   for (const l of lines)
@@ -347,8 +419,10 @@ function engineText(refsDir) {
   return '[\n' + lines.join(',\n') + '\n]\n';
 }
 // The inverse, for the gates: { header, tables, plan }, the instruments' index
-// fields filled back from `index` (instrumentIndex of the same instruments).
-// Requires the line layout.
+// fields filled back from `index` (instrumentIndex of the same instruments),
+// and the two encoded tables decoded as the page decodes them (the signatures
+// without their empty lists; the frequencies in the codec's key order, so
+// compare them by entry, not through engineSha). Requires the line layout.
 function readEngineText(text, index) {
   const lines = text.split('\n');
   if (lines[0] !== '[' || lines[lines.length - 2] !== ']' || lines[lines.length - 1] !== '')
@@ -362,8 +436,11 @@ function readEngineText(text, index) {
   for (const [name, value] of rest) {
     if (name === 'INSTRUMENTS') (tables.INSTRUMENTS = tables.INSTRUMENTS || []).push(...value);
     else if (name === 'MERGE_PLAN') plan = value;
-    else tables[name] = value;
+    else if (!ENCODED.includes(name)) tables[name] = value;
   }
+  // Decoded against the lines as written, before the index fields are filled.
+  const decoded = codec.decodeEngineTables(rest);
+  for (const n of ENCODED) tables[n] = decoded[n];
   if (JSON.stringify(header.index_fields) !== JSON.stringify(INDEX_FIELDS))
     throw new Error(`engine.json: its header's index_fields are not ${INDEX_FIELDS.join(', ')}`);
   fillIndexFields(tables.INSTRUMENTS || [], index);
@@ -383,7 +460,11 @@ module.exports = {
   tableElements,
   assertJsonSafe,
   stripTable,
+  nonEmptySignatures,
+  PAGE_DROP_EMPTY,
   ENGINE_TABLES,
+  ENGINE_JSON_SOURCES,
+  APP_TABLES,
   ENGINE_FILES,
   ENGINE_SOURCES,
   ENGINE_RUN,

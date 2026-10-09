@@ -140,13 +140,20 @@ function scriptClosure() {
   //   _compile_worker.js   — spawned as a worker_threads entry point
   //   _card_descriptors.js — build_html.js reads its @inline region as text and
   //                          splices it into the page (build_html.js:215)
+  //   _engine_codec.js     — the codec api/engine.json writes the two render
+  //                          tables with; its @inline region is read as text,
+  //                          digested (codecSha) and inlined into the lazy page
   //
   // This list is short and hand-written, which would normally be the weak point.
   // It is not, because check_build_closure.js traces a real build and fails on
   // any file the build reads that the closure calls inert — _card_descriptors.js
   // was found that way rather than by reading build_html.js, on the gate's first
   // run. A future by-path input announces itself the same way.
-  for (const extra of ['scripts/_compile_worker.js', 'scripts/_card_descriptors.js']) {
+  for (const extra of [
+    'scripts/_compile_worker.js',
+    'scripts/_card_descriptors.js',
+    'scripts/_engine_codec.js',
+  ]) {
     if (fs.existsSync(path.join(ROOT, extra))) seen.add(extra);
   }
   return seen;

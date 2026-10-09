@@ -6,6 +6,89 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — the descriptor tables and the tree's descriptions leave the lazy page: codex.html is 0.36 MB gzipped, not 0.46 MB
+
+Two generated tables were still evaluated on every first view that never reads them:
+`DESCRIPTOR_DF`, inside `src/app.js` (about 74 KB gzipped), and `TRADITION_SIGNATURES`,
+which #512 had already made an engine table but wrote into `api/engine.json` as plain
+JSON. Both are read only when a card is drawn, which already waits for the engine. The
+genre tree's 300-odd node descriptions (about 33 KB gzipped) rode in the page too, and
+only the tradition picker shows them.
+
+- **Both tables travel encoded in `api/engine.json`** (`scripts/_engine_codec.js`). The
+  descriptor frequencies are counts against the sorted set of descriptor and token words
+  the other engine lines already carry, with a small remainder for the words they do not
+  (5.5 KB gzipped, against 74 KB as JSON). The signatures use their own word list, and
+  the 1,079 empty lists are left out, which the one reader already answers as `[]`. The
+  codec's digest is folded into the engine digest, so a page and a file from different
+  codecs are refused as stale. The decoder reads a count or index only when it is
+  written whole.
+- **The lazy build cuts the `DESCRIPTOR_DF` mirror** from `src/app.js`. The mirror stays
+  for the embedded build and Node; deleting it (AUDIT F111) is still staged per F162.
+- **The tree's descriptions move to `api/browse_prose.json`** under `"tree"`, which loads
+  after the engine's bytes. Until it lands, a tree row leaves its description out and
+  says nothing is missing; the picker redraws in place when it lands. The embedded build
+  keeps them inline.
+- **Both direct readers miss before the engine.** `_traditionSignatureFor` and
+  `_ensureDescriptorDF` throw a counted `EngineNotReadyError` instead of answering `[]` or
+  caching an empty map. Every caller is reached from a card, so neither fires on a
+  working path; they are inert in the embedded build and Node.
+
+**Measured** on one idle machine in one session, main (38e96d971) and this branch served
+side by side with gzip and run interleaved. Slow phone: DevTools-applied 562.5 ms
+latency, 1.47 Mbps, 4× CPU, the Lighthouse mobile viewport, medians of 3. Typical 4G:
+170 ms, 9 Mbps, 4× CPU, medians of 2 (the early Add, 6). The early Add is issued 1 s
+after the first view; times are from navigation. Lighthouse 13.5 mobile, simulated,
+medians of 10.
+
+| | main | this change |
+|---|---|---|
+| page `codex.html` gzipped | 462,992 B | **355,196 B** |
+| page + boot index | 753,477 B | **645,681 B** |
+| `api/engine.json` gzipped | 729,821 B | **712,192 B** |
+| page + boot index + engine (add-path) | 1,483,298 B | **1,357,873 B** |
+| **Slow phone:** first view | 5.43 s | **4.90 s** |
+| engine ready, nobody waiting | 10.74 s | **10.40 s** |
+| early Add done (its visible wait) | 10.99 s (4.66 s) | **10.60 s (4.66 s)** |
+| saved session drawn | 9.83 s | **9.27 s** |
+| **Typical 4G:** first view | 1.90 s | **1.71 s** |
+| early Add done (its visible wait) | 3.89 s (0.82 s) | **3.88 s (1.02 s)** |
+| saved session drawn | 2.85 s | 2.85 s |
+| **Lighthouse** score | 0.535 | **0.595** |
+| first contentful paint | 2.95 s | **2.49 s** |
+| largest contentful paint | 5.25 s | **4.56 s** |
+| total blocking time | 1.01 s | **0.93 s** |
+| time to interactive | 5.26 s | **4.60 s** |
+
+What it costs: decoding the two tables takes about 130–170 ms of main-thread time at 4×
+CPU (a sampled profile of the engine load: the word walk, the sort and the decode),
+work the page used to spend evaluating the literals before its first paint. On the slow
+phone the bytes saved outweigh it. On typical 4G, which is CPU-bound, the early Add
+comes out even and its visible wait is 0.2 s longer, because the first view comes
+sooner. `api/browse_prose.json` grows by about 33 KB gzipped; it loads after the engine.
+
+**Gates.**
+- `scripts/check_engine_codec.js` (new, in `test:serial`): the round trip is exact, the
+  word list does not depend on walk order, the inlined region decodes alone, and the
+  encoder and decoder refuse what they cannot carry.
+- `check_lazy_app.js`: E11 (both readers miss while the engine is held, then match the
+  embedded build), a wider engine fingerprint (both tables, a descriptor sort with
+  remainder words, every format for three genres), F4c with another codec, F4d with
+  either line missing, F4g (lines that do not decode are refused whole), and W-tree (no
+  node description before the prose, none claimed missing, redrawn in place, one Retry
+  after a failure). E6 counts 78 direct reads.
+- `check_api.js` recomputes the codec digest and the folded engine digest on its own,
+  and decodes both lines against the references independently.
+- `check_signature_tokens.js` also reads the table as `api/engine.json` carries it.
+- `build_html.js --check` refuses a lazy page that declares either table or carries a
+  tree description, and holds the inlined codec region to its digest.
+- `faults.js`: 17 new classes (10a, 10c–10r), each caught by the gate named in its row.
+- **Budgets** (`scripts/check_payload_budget.js`): page 573,440 → 389,120, critical
+  778,240 → 710,656, inline-data 143,360 → 86,016; engine unchanged; and a new add-path
+  budget of 1,399,808 for the page, the boot index and the engine together, the bytes an
+  early Add or a saved session waits for. Main fails four of the five; so would the two
+  tables written plain.
+
 ### Changed — atlas: one pin per placeable genre, and a list for the placeless
 
 The 937 genres the arbitrary-pin review left without a single right place were sorted

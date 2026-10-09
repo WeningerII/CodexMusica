@@ -651,7 +651,10 @@ path). Don't hand-edit the duplicated pieces independently:
   from it, the copy the page reads as an engine table (inline in the embedded page,
   from `api/engine.json` in the lazy one) and the loader reads for Node. Never edit that
   file by hand. Adding a token means classing it
-  in `references/_soundword_vocab.json` and, if it is cultural, ruling the pair (I8).
+  in `references/_soundword_vocab.json` and, if it is cultural, ruling the pair (I8). The
+  lazy `codex.html` carries neither this table nor `DESCRIPTOR_DF`: it ships both inside
+  `api/engine.json`, so after regenerating either one, also run `npm run build:api` and
+  `node scripts/build_html.js`.
 - **Retired tradition ids** live in `references/_tradition_aliases.json` (retired id →
   `{of, name, verdict}`). A merge deletes the duplicate record from `05`/`06` and every
   per-tradition table and adds its id there; `scripts/_loader.js` exposes

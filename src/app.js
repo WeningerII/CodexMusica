@@ -33,8 +33,10 @@ const RECIPE_CHAR_CEILING = 1000;
 //          first view draws from it alone.
 //       2. api/browse_prose.json, every genre's prose, asked for once the first
 //          view has painted (loadProse) and merged by id into the rows already
-//          in memory. Until it lands, search covers names only and a reader
-//          shows a genre's prose as loading (proseState), never as absent.
+//          in memory, with the genre tree's node descriptions ("tree"),
+//          merged by id into TREE_NODES. Until it lands, search covers names
+//          only, a reader shows a genre's prose as loading (proseState), never
+//          as absent, and the picker's tree rows leave their descriptions out.
 //          Once it lands, search, the tree, find-similar and fingerprints run
 //          locally with recall and display identical to the embedded build.
 //       3. api/traditions/{id}.json, the few row fields an IMPORT needs
@@ -58,6 +60,11 @@ const Catalog = (() => {
   const _proseListeners = [];      // onProse: called after every load settles
   let _proseOnline = false;        // the 'online' retry is registered
   let _nameIndex = null;           // names-only search rows, while !_proseAll
+  // The genre tree's node descriptions (TREE_NODES[].description). The lazy
+  // page's TREE_NODES carries each node's id, name and parent only; the
+  // descriptions ride in browse_prose.json under "tree" and merge in place.
+  // True from the start where TREE_NODES carries them (the embedded build).
+  let _treeProse = typeof TREE_NODES !== 'undefined' && TREE_NODES.some((n) => n.description);
 
   // Retired names per surviving id, normalized for search.
   const _aliasNames = new Map();
@@ -147,6 +154,11 @@ const Catalog = (() => {
   // Merged IN PLACE: pages hold these row and extras objects (G.sorted,
   // G.members, the search index's rows), so a merge is seen by every reader.
   function mergeProse(p) {
+    // The tree first: a prose file that lacks some genres still carries it.
+    if (p && p.tree && typeof TREE_NODES !== 'undefined') {
+      for (const n of TREE_NODES) if (typeof p.tree[n.id] === 'string') n.description = p.tree[n.id];
+      _treeProse = true;
+    }
     const seen = new Set();
     for (const it of (p && p.items) || []) {
       const row = _byId.get(it && it.id);
@@ -340,6 +352,7 @@ const Catalog = (() => {
     hasProse: (id) => proseState(id) === 'here',
     proseLoaded: () => _proseAll,
     proseFailed: () => !_proseAll && _proseFailed,
+    treeProse: () => _treeProse,       // the tree's node descriptions have merged (embedded: always)
   };
 })();
 
@@ -422,12 +435,15 @@ const _drain = (steps) => { let r = steps.next(); while (!r.done) r = steps.next
 // uiAfterPaint), or sooner when an action needs it (ensure), Engine fetches
 // api/engine.json (scripts/_page_tables.js), parses it a line at a time, fills
 // each instrument's index fields back, merges the family parts (with the
-// file's merge plan, which spares it the predicate passes), indexes and sorts,
-// all in idle slices on local objects, then fills every slot in one step: the
-// tables go from absent to whole, never half-filled. Until its bytes are here
-// (fetched), the page's optional downloads wait, so none of them shares the
-// link with it. A saved session asks for the file from <head>
-// (src/engine_preload.js), and this fetch reuses that response.
+// file's merge plan, which spares it the predicate passes), decodes the two
+// render tables (TRADITION_SIGNATURES, from references/10_tradition_signatures.js
+// in the embedded build and Node; DESCRIPTOR_DF, whose generated mirror below
+// is the embedded build's and Node's, and the lazy build cuts it),
+// indexes and sorts, all in idle slices on local objects, then fills every
+// slot in one step: the tables go from absent to whole, never half-filled.
+// Until its bytes are here (fetched), the page's optional downloads wait, so
+// none of them shares the link with it. A saved session asks for the file from
+// <head> (src/engine_preload.js), and this fetch reuses that response.
 //
 // Until then nothing acts on partial data. Inst, Room, Tuning, ChainItem and
 // Variant throw EngineNotReadyError rather than answer "unknown" (Engine.miss,
@@ -511,18 +527,32 @@ const Engine = (() => {
         state = 'preparing';
         await sliced((function* () {
           let closed = false;
+          // The two render tables come encoded (scripts/_engine_codec.js): the
+          // descriptor frequencies as counts against the words of the other
+          // lines, so each other line's words are collected as it is parsed,
+          // as written (before the index fields are filled back or the family
+          // parts merged), and both are decoded once the file is whole.
+          const V = codexVocab(), enc = {};
           for (let i = 2; i < lines.length; i++) {
             if (lines[i] === ']') { closed = true; break; }
             const [name, value] = el(i);
-            if (name === 'INSTRUMENTS') for (const x of value) t.INSTRUMENTS.push(x);
-            else if (name === 'MERGE_PLAN') plan = value;
-            else t[name] = value;
+            if (name === 'DESCRIPTOR_DF' || name === 'TRADITION_SIGNATURES') { enc[name] = value; t[name] = null; }
+            else {
+              if (name !== 'MERGE_PLAN') V.walk(value);
+              if (name === 'INSTRUMENTS') for (const x of value) t.INSTRUMENTS.push(x);
+              else if (name === 'MERGE_PLAN') plan = value;
+              else t[name] = value;
+            }
             yield;
           }
           // A file cut short at a line boundary still parses; it must not be
           // committed with tables missing. A load failure, so it can be retried.
           if (!closed || (head.tables || []).some((n) => !(n in t)))
             throw new Error('instrument data arrived incomplete');
+          // The file's digest folds in the codec's (tables_sha1 matched this
+          // page's above), so lines that do not decode were not written by
+          // this page's codec: another deploy's file, refused as stale.
+          try { yield* codexDecodeSteps(V, enc, t); } catch { throw stale(); }
           // Each instrument's id, name, family and short come as 0: this page
           // has them in INSTRUMENT_INDEX, in the same order, and fills them back
           // before anything reads them (scripts/_page_tables.js, INDEX_FIELDS).
@@ -651,8 +681,13 @@ const CATALOG_READY = (typeof CODEX_LAZY_API !== 'undefined' && !Catalog.all().l
 // went wrong" toast would sit over the boot error the handler then draws.
 if (CATALOG_READY) CATALOG_READY.catch(() => {});
 
+// The one direct read of TRADITION_SIGNATURES. Before the instrument data is
+// in, it misses (a counted EngineNotReadyError) rather than answer [] — an
+// empty signature would read as "this tradition has none". Every caller is
+// reached from a card, so the guard never fires on a working path; it is
+// inert in the embedded build and in Node, where _engineLive is true.
 const _traditionSignatureFor = (tradId) =>
-  (tradId && typeof TRADITION_SIGNATURES !== 'undefined' && TRADITION_SIGNATURES && TRADITION_SIGNATURES[tradId]) || [];
+  !_engineLive ? Engine.miss('TRADITION_SIGNATURES ' + tradId) : (tradId && TRADITION_SIGNATURES[tradId]) || [];
 
 // ─────────────────────────────────────────────────────────────────────────
 // TRADITION GLYPH SYSTEM — emoji/SVG iconography for traditions, restored to
@@ -12800,7 +12835,10 @@ const DESCRIPTOR_DF = {
 };
 
 let _DESCRIPTOR_DF = null;
+// The one direct read of DESCRIPTOR_DF. The guard comes before the memo, so a
+// read before the instrument data is in misses and caches nothing.
 function _ensureDescriptorDF() {
+  if (!_engineLive) return Engine.miss('DESCRIPTOR_DF');
   if (_DESCRIPTOR_DF !== null) return _DESCRIPTOR_DF;
   _DESCRIPTOR_DF = new Map(Object.entries(DESCRIPTOR_DF));
   return _DESCRIPTOR_DF;
@@ -12812,6 +12850,8 @@ function _ensureDescriptorDF() {
 // previous alphabetical-only sort which gave equal weight to scaffolding,
 // texture, and meaning-bearers regardless of their semantic density.
 function _sortDescriptorsByPriority(descs) {
+  // Nothing to sort needs no frequencies: an empty list never reaches the guard.
+  if (!descs || !descs.length) return [];
   const df = _ensureDescriptorDF();
   return (descs || []).slice().sort(function (a, b) {
     const ta = _descriptorTier(a);
@@ -18523,7 +18563,12 @@ function renderTreeNode(node, depth) {
   html += `<span class="tree-chevron ${expanded ? 'expanded' : ''}">${icon('chevron-right', 12)}</span>`;
   html += `<div>`;
   html += `<div class="tree-row-name">${(typeof traditionGlyphsHTML==='function'?traditionGlyphsHTML(node.id,28):'')}${esc(node.name)}</div>`;
-  if (node.description && depth > 0) html += `<div class="tree-row-desc">${esc(node.description)}</div>`;
+  // Lazy shell: a node's description arrives with the genres' prose. Until
+  // then the row leaves it out (no claim) and the picker redraws on settle.
+  if (depth > 0) {
+    if (node.description) html += `<div class="tree-row-desc">${esc(node.description)}</div>`;
+    else if (!Catalog.treeProse()) _pickerProsePending = true;
+  }
   html += `</div>`;
   html += `<div class="tree-row-count">${leafCount}</div>`;
   html += `</div>`;
