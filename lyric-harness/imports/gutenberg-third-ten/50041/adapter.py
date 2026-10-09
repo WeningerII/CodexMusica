@@ -132,6 +132,8 @@ def extract(path=None):
             'translation_evidence':'Printed title, verse and source notes screened. No translator or foreign-language source credited unless specifically excluded; tune attribution alone is not a translation of the words.',
             'editorial_notes_excluded':notes,
             'verse_line_count':sum(len(s['lines']) for s in sections)}
+        if number in EXCLUSIONS:
+            row['translation_evidence'] = EXCLUSIONS[number]
         if number in ('57', '59'):
             row['author'] = 'Charles Jefferys' if number == '57' else 'Mrs. Cornwell Baron Wilson'
             row['translation_evidence'] = 'Original English words credited to ' + row['author'] + ' in Eastman Sibley Music Library sheet-music catalogue: https://www.esm.rochester.edu/sibley/files/US-Sheet-Music_Sub-group-I_Series-3B.pdf'

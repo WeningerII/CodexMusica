@@ -112,6 +112,8 @@ def extract(path=None):
             'translation_evidence':'Printed title, verse and source notes screened. No translator or foreign-language source credited unless specifically excluded; tune attribution alone is not a translation of the words.',
             'editorial_notes_excluded':notes,
             'verse_line_count':sum(len(s['lines']) for s in sections)}
+        if number in EXCLUSIONS:
+            row['translation_evidence'] = EXCLUSIONS[number]
         if labels:
             row['sections'] = sections
             row['source_section_labels'] = labels
