@@ -568,6 +568,10 @@ jobs:
       - name: Library readable works never regress (id by id)
         run: npm run check:library-regression
 
+      - name: Library baseline writer refuses unauthenticated snapshots
+        working-directory: lyric-harness
+        run: python3 -m unittest library.test_unit_manifest
+
       # Pages serves main verbatim and refuses a site over 1 GB; git refuses a
       # file of 100 MB or more. The Library's static data must leave headroom.
       - name: Served tree inside GitHub Pages limits

@@ -35,7 +35,7 @@
 //   eligibility-changes.json  [{id, from, to, reason, approved_by, date}]
 //   revisions.json            [{id, from_revision, to_revision, reason}]
 //
-// Usage: node scripts/check_library_regression.js [--current=FILE] [--report=FILE] [--json]
+// Usage: node scripts/check_library_regression.js [--current=FILE] [--ledgers=DIR] [--report=FILE] [--json]
 // Exit 0 when every baseline id is accounted for and nothing failed; 1 otherwise.
 
 'use strict';
@@ -51,11 +51,11 @@ const DIR = path.join(ROOT, 'tests', 'library');
 const BASELINES = [
   {
     file: 'units-5226b4fb.tsv.gz',
-    sha256: '6aaf98bdcb3b0b1c9275c9f178e4d39d4a996111cd7d4165c13ece272137f025',
+    sha256: 'c8b9b24e013440d7827ef8e567fa63123cbe395622450338c82845bc23f18bc7',
   },
   {
     file: 'units-317c5afa.tsv.gz',
-    sha256: '7ebe137c7bf295445e2b31ba2cb0af819fc9a56fc43aeb8899deeecacf07c562',
+    sha256: '1e0876c0b2e0c6a5e53fa8ee73a2f168a17e76927c0324f4d8d9a5454184d53f',
   },
 ];
 const COLUMNS = [
@@ -79,6 +79,35 @@ function sha256(bytes) {
   return crypto.createHash('sha256').update(bytes).digest('hex');
 }
 
+const AVAILABILITY = new Set(['readable', 'held', 'research_only', 'rejected']);
+const ADMITTED = new Set([
+  'ADMIT_PD_AFFIRMED',
+  'ADMIT_DATE_VERIFIED',
+  'ADMIT_PUBLICATION_VERIFIED',
+]);
+const HEX64 = /^[0-9a-f]{64}$/;
+const UNIT_ID = /^reading_[0-9a-f-]{36}$/;
+const VERDICT = /^(ADMIT|REJECT)_[A-Z_]+$/;
+const DATE = /^\d{4}-\d{2}-\d{2}$/;
+const filled = (v) => typeof v === 'string' && v.trim().length > 0;
+
+// Every row is validated, current build and baseline alike: a manifest with an
+// empty hash, an unknown availability, or a readable unit no admitting verdict
+// supports is refused rather than classified. Ledgers cannot manufacture
+// admission evidence; this runs before any ledger is consulted.
+function validateRow(row, label) {
+  const where = `${label}: ${row.reading_unit_id}`;
+  if (!UNIT_ID.test(row.reading_unit_id)) throw new Error(`${where}: malformed reading_unit_id`);
+  if (!AVAILABILITY.has(row.availability))
+    throw new Error(`${where}: unknown availability ${JSON.stringify(row.availability)}`);
+  for (const c of ['reading_revision', 'artifact_sha256', 'normalized_sha256'])
+    if (!HEX64.test(row[c])) throw new Error(`${where}: ${c} is not a sha256 digest`);
+  const verdicts = row.admission ? row.admission.split(',') : [];
+  for (const v of verdicts) if (!VERDICT.test(v)) throw new Error(`${where}: bad verdict ${v}`);
+  if (row.availability === 'readable' && !verdicts.some((v) => ADMITTED.has(v)))
+    throw new Error(`${where}: readable without an admitting verdict`);
+}
+
 function parse(bytes, label) {
   const text = zlib.gunzipSync(bytes).toString('utf8');
   const header = {};
@@ -100,20 +129,56 @@ function parse(bytes, label) {
     const cells = line.split('\t');
     if (cells.length !== COLUMNS.length) throw new Error(`${label}: malformed row ${line}`);
     const row = Object.fromEntries(COLUMNS.map((c, i) => [c, cells[i]]));
+    validateRow(row, label);
     if (units.has(row.reading_unit_id))
       throw new Error(`${label}: duplicate id ${row.reading_unit_id}`);
     units.set(row.reading_unit_id, row);
   }
   if (Number(header.units) !== units.size)
     throw new Error(`${label}: header says ${header.units} units, file has ${units.size}`);
+  for (const f of ['snapshot_id', 'builder_commit', 'policy.admitted_verdicts'])
+    if (!filled(header[f])) throw new Error(`${label}: header lacks ${f}`);
   return { header, units };
 }
 
-function readLedger(name) {
-  const file = path.join(DIR, name);
-  const value = JSON.parse(fs.readFileSync(file, 'utf8'));
+function readLedger(dir, name) {
+  const value = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'));
   if (!Array.isArray(value)) throw new Error(`${name}: expected a JSON array`);
   return value;
+}
+
+// A ledger entry is evidence for a reviewer, not proof of authorization: the
+// checks below refuse malformed entries; they cannot tell a real approval
+// from a typed one.
+function validateLedgers(ledgers) {
+  const froms = new Set();
+  const tos = new Set();
+  for (const e of ledgers.idMap) {
+    if (!UNIT_ID.test(e.from || '') || !UNIT_ID.test(e.to || '') || e.from === e.to)
+      throw new Error(`id-map.json: malformed entry ${JSON.stringify(e)}`);
+    if (!HEX64.test(e.normalized_sha256 || ''))
+      throw new Error(`id-map.json: ${e.from} declares no normalized_sha256`);
+    if (froms.has(e.from)) throw new Error(`id-map.json: ${e.from} is mapped twice`);
+    if (tos.has(e.to)) throw new Error(`id-map.json: two ids map to ${e.to}`);
+    froms.add(e.from);
+    tos.add(e.to);
+  }
+  for (const e of ledgers.eligibility) {
+    if (!UNIT_ID.test(e.id || '') || !AVAILABILITY.has(e.from) || !AVAILABILITY.has(e.to))
+      throw new Error(`eligibility-changes.json: malformed entry ${JSON.stringify(e)}`);
+    if (e.approved_by !== 'John' || !DATE.test(e.date || '') || isNaN(Date.parse(e.date)))
+      throw new Error(`eligibility-changes.json: ${e.id} lacks John's dated approval`);
+    if (!filled(e.reason)) throw new Error(`eligibility-changes.json: ${e.id} gives no reason`);
+  }
+  for (const e of ledgers.revisions) {
+    if (
+      !UNIT_ID.test(e.id || '') ||
+      !HEX64.test(e.from_revision || '') ||
+      !HEX64.test(e.to_revision || '')
+    )
+      throw new Error(`revisions.json: malformed entry ${JSON.stringify(e)}`);
+    if (!filled(e.reason)) throw new Error(`revisions.json: ${e.id} gives no reason`);
+  }
 }
 
 function classify(base, current, ledgers) {
@@ -133,16 +198,35 @@ function classify(base, current, ledgers) {
     added: [],
   };
   const failures = [];
-  const seen = new Set();
+  // matchedBy: current id -> the baseline id it accounts for. Matching must be
+  // injective, so one current unit can never stand in for two baseline units.
+  const matchedBy = new Map();
+  const claim = (curId, baseId) => {
+    if (matchedBy.has(curId)) {
+      failures.push(`collision: ${baseId} and ${matchedBy.get(curId)} both resolve to ${curId}`);
+      return false;
+    }
+    matchedBy.set(curId, baseId);
+    return true;
+  };
   for (const [id, b] of base.units) {
     let cur = current.units.get(id);
-    let viaMap = null;
+    let curId = id;
     if (!cur && idMap.has(id)) {
       const entry = idMap.get(id);
       const mapped = current.units.get(entry.to);
-      if (mapped && mapped.normalized_sha256 === b.normalized_sha256) {
+      if (base.units.has(entry.to))
+        failures.push(`id-map: ${id} -> ${entry.to}, but ${entry.to} is itself a baseline unit`);
+      else if (!mapped)
+        failures.push(`id-map: ${id} -> ${entry.to}, which the current build lacks`);
+      else if (
+        entry.normalized_sha256 !== b.normalized_sha256 ||
+        entry.normalized_sha256 !== mapped.normalized_sha256
+      )
+        failures.push(`id-map: ${id} -> ${entry.to} declares a text hash neither row confirms`);
+      else {
         cur = mapped;
-        viaMap = entry.to;
+        curId = entry.to;
       }
     }
     if (!cur) {
@@ -150,9 +234,20 @@ function classify(base, current, ledgers) {
       failures.push(`missing: ${id} (${b.availability}) is absent and not id-mapped`);
       continue;
     }
-    seen.add(viaMap || id);
+    if (!claim(curId, id)) continue;
     const wasReadable = b.availability === 'readable';
     const isReadable = cur.availability === 'readable';
+    if (cur.reading_revision === b.reading_revision) {
+      // The revision hashes the whole reading: the same revision with other
+      // stored bytes or other text is a corrupt or forged manifest.
+      if (
+        cur.artifact_sha256 !== b.artifact_sha256 ||
+        cur.normalized_sha256 !== b.normalized_sha256
+      )
+        failures.push(
+          `inconsistent: ${id} keeps revision ${b.reading_revision.slice(0, 12)} with different content hashes`
+        );
+    }
     if (wasReadable && isReadable) {
       if (cur.reading_revision === b.reading_revision) classes.unchanged.push(id);
       else {
@@ -172,33 +267,32 @@ function classify(base, current, ledgers) {
     else if (b.availability === cur.availability) classes['unchanged-non-readable'].push(id);
     else classes.transition.push(id);
   }
-  for (const id of current.units.keys()) if (!seen.has(id)) classes.added.push(id);
+  for (const id of current.units.keys()) if (!matchedBy.has(id)) classes.added.push(id);
 
   // Every id on both sides is accounted for exactly once.
   const baseTotal = Object.entries(classes)
     .filter(([k]) => k !== 'added')
     .reduce((n, [, v]) => n + v.length, 0);
-  if (baseTotal !== base.units.size)
+  if (baseTotal + failures.filter((f) => f.startsWith('collision:')).length !== base.units.size)
     failures.push(
       `reconcile: baseline classes sum to ${baseTotal}, baseline has ${base.units.size}`
     );
-  const currentTotal = seen.size + classes.added.length;
+  const currentTotal = matchedBy.size + classes.added.length;
   if (currentTotal !== current.units.size)
     failures.push(
-      `reconcile: matched ${seen.size} + added ${classes.added.length} = ${currentTotal}, current has ${current.units.size}`
+      `reconcile: matched ${matchedBy.size} + added ${classes.added.length} = ${currentTotal}, current has ${current.units.size}`
     );
   return { classes, failures };
 }
 
 function main() {
+  const ledgerDir = args.ledgers ? path.resolve(args.ledgers) : DIR;
   const ledgers = {
-    idMap: readLedger('id-map.json'),
-    eligibility: readLedger('eligibility-changes.json'),
-    revisions: readLedger('revisions.json'),
+    idMap: readLedger(ledgerDir, 'id-map.json'),
+    eligibility: readLedger(ledgerDir, 'eligibility-changes.json'),
+    revisions: readLedger(ledgerDir, 'revisions.json'),
   };
-  for (const e of ledgers.eligibility)
-    if (e.approved_by !== 'John' || !e.date || !e.reason)
-      throw new Error(`eligibility-changes.json: entry for ${e.id} lacks John's dated approval`);
+  validateLedgers(ledgers);
 
   const baselines = BASELINES.map(({ file, sha256: pinned }) => {
     const bytes = fs.readFileSync(path.join(DIR, file));
