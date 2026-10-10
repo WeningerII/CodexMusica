@@ -1548,10 +1548,10 @@ export class ReaderJobStore {
   //
   // Bounds: a slice reads at most `objects` objects or `bytes` bytes, starts
   // at most `records` records, and stops at `ms`; the mark resumes mid-chain.
-  // The one exception is correctness: before each sweep slice, under the
-  // lock, records saved since the collection began are re-marked in full
-  // (only their new nodes are read; marked chains stop the walk). A failed
-  // read abandons the whole collection, so a partial mark never sweeps.
+  // There is no exception: before each sweep slice, under the lock, records
+  // saved since the collection began are re-marked within the same budget,
+  // and the sweep waits until that re-mark is complete. A failed read
+  // abandons the whole collection, so a partial mark never sweeps.
   maintain(bounds = MAINTENANCE_BOUNDS) {
     const started = Date.now();
     const budget = { objects: 0, bytes: 0 };
@@ -1599,16 +1599,22 @@ export class ReaderJobStore {
     if (gc.phase === 'sweep' && !spent()) {
       this._open(() => {
         if (this._gc !== gc) return; // abandoned on entering the lock
+        // Records saved since the collection began are re-marked within this
+        // slice's budget. The sweep is withheld until that traversal is
+        // complete inside one hold of the lock (no save can interleave), so
+        // under sustained writes reclamation waits rather than the bound.
         try {
           for (const id of gc.dirty) {
             const record = this.records.get(id);
-            if (record) this._markRecord(record, gc.live, budget);
+            if (record) gc.stack.push(['checkpoints', record.checkpoint_hash]);
           }
           gc.dirty.clear();
+          while (gc.stack.length && !spent()) this._markStep(gc.stack, gc.live, budget);
         } catch (error) {
           this._abandonGc();
           throw error;
         }
+        if (gc.stack.length) return;
         // Every directory entry examined counts against the object bound.
         while (!spent()) {
           if (!gc.dir) {

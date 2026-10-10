@@ -157,11 +157,12 @@ sweeping, and stops at 50 ms; expiry, the mark (mid-chain) and the sweep's
 directory enumeration all resume on the next slice. An object is marked live
 only after it is read, and a failed read abandons the whole collection, so a
 partial mark never sweeps. Every record saved while a collection is open is
-re-marked under the lock before the next sweep slice (only its new nodes are
-read), and another writer's commit abandons the collection. The sweep also
-deletes only unreferenced objects last written before its mark began; rewriting
-an object or referencing a page by hash refreshes its time. A full verification
-scan runs every 15 minutes.
+re-marked under the lock within the same slice budget, and the sweep is withheld
+until that re-mark completes inside one hold of the lock, so under sustained
+writes reclamation waits rather than the bound; another writer's commit abandons
+the collection. The sweep also deletes only unreferenced objects last written
+before its mark began; rewriting an object or referencing a page by hash
+refreshes its time. A full verification scan runs every 15 minutes.
 
 Object readers in Node and in the Python worker accept a stored file of at most
 2 MiB holding a plain object or exactly one gzip member with no trailing bytes,

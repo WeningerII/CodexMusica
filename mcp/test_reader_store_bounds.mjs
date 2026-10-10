@@ -611,3 +611,37 @@ test("one job's growth never consumes another job's reservation", (t) => {
     store.cancel(second.record.id, second.capability, 'viewer-b', { idempotency_key: `s-${i}` });
   assert.ok(scan(store) <= maxBytes);
 });
+
+test('the dirty re-mark stays inside the slice bound and withholds the sweep until it completes', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const gone = run(store, 'viewer-g', 'k-g', 'gone');
+  store.delete(gone.record.id, gone.capability, 'viewer-g');
+  age(store);
+  // Open a collection, then save a record with a long new chain.
+  store.maintain({ records: 0, objects: 1000, bytes: 1 << 30, ms: 10_000 });
+  const job = create(store, 'viewer-a', 'k-a');
+  const lease = store.lease(job.record.id);
+  for (let i = 0; i < 6; i++)
+    store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+      cursor: { phase: 'p', at: i },
+      pages: [{ instances: [{ id: `d${i}` }] }],
+      progress: { candidates: i + 1 },
+      coverage,
+    });
+  // Backdate everything, so only the re-mark (not mtime) protects the new chain.
+  age(store);
+  const bounds = { records: 1000, objects: 2, bytes: 1 << 30, ms: 10_000 };
+  let withheld = 0;
+  for (let i = 0; i < 200; i++) {
+    const r = store.maintain(bounds);
+    assert.ok(r.read <= bounds.objects, `a slice read ${r.read} objects`);
+    if (r.phase === 'sweep' && r.swept === 0 && store._gc?.stack.length) withheld++;
+    if (r.phase === 'idle') break;
+  }
+  assert.ok(withheld > 0, 'the sweep waited for the re-mark');
+  assert.equal(store._gc, null);
+  for (const p of store.workerPayload(job.record.id).page_paths)
+    assert.equal(fs.existsSync(p), true);
+  assert.equal(store.usage, scan(store));
+});
