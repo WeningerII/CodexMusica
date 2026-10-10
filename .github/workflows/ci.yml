@@ -774,6 +774,8 @@ jobs:
           name: lyrics-image-build-${{ github.run_attempt }}
           path: image-build-evidence/
           if-no-files-found: error
+      - name: Image gate readiness polling against stalled and unhealthy fixtures
+        run: node --test scripts/test_lyrics_image_readiness.mjs
       - name: Offline image pipeline and restart recovery
         timeout-minutes: 5
         env:
