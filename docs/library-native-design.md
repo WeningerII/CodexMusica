@@ -1,4 +1,4 @@
-# Native Library tab: design for review (revision 2)
+# Native Library tab: design for review (revision 3)
 
 **Status: proposed, not implemented.** This is a review draft for R2 and 3PO. Nothing in it is approved. After R2 and 3PO agree, it goes to John, who makes the decisions listed under "Owner decisions". No implementation starts before then.
 
@@ -15,7 +15,7 @@
 4. The designs were synthesized into one, built on the performance-first design with the best parts of the other two.
 5. Two red-team reviewers checked the synthesis against the code at `031b7de` and against a locally built copy of snapshot 317c.
 
-The red team found 12 blocking defects and no architectural flaw. Revision 1 below resolves each of them. **Revision 2 (3PO's verdict) overrides Revision 1, which overrides the base design further down.** The base design is kept verbatim from the synthesis so reviewers can trace every change.
+The red team found 12 blocking defects and no architectural flaw. Revision 1 below resolves each of them. **Revision 3 amends Revision 2, which overrides Revision 1, which overrides the base design further down.** The base design is kept verbatim from the synthesis so reviewers can trace every change.
 
 **Planned files:** new tool names written without a directory (for example `check_library_data.js`) are planned files under `scripts/` that do not exist yet.
 
@@ -43,6 +43,102 @@ The red team found 12 blocking defects and no architectural flaw. Revision 1 bel
   - Everything is built behind a build flag, and the tab goes live in one cutover PR.
   - Render changes ship first, dark.
   - The old Site becomes a move page that redirects old links and offers device data for download. It is retired later, with John's go-ahead.
+
+---
+
+## Revision 3: narrow corrections from 3PO's second verdict
+
+3PO's [verdict on `44577289c`](https://github.com/WeningerII/CodexMusica/pull/519#issuecomment-6101621407) found the nine earlier findings substantially addressed and asked for seven contract corrections and two clarifications, with no architectural rework. **Revision 3 amends the Revision 2 items it names.** Everything else in Revision 2 stands.
+
+### C1 (amends V1). Reading paths carry projection identity, not only the revision
+**Why:** `source_labels`, `source_basis` and `work_reviewed_equivalence` are added after the canonical revision is computed (`catalog_site_export.py:243-261`). A labels-only change would alter the bytes at an "immutable" URL.
+
+**Contract:**
+- Each reading's files live under `r/<hh>/<reading_unit_id>/<rev16>-<proj12>/`. `proj12` is the first 12 hex of the sha256 of the canonical projected head, which includes every enrichment and the page-file hashes.
+- Page files are named by their own content hash. The head lists each page's sha256, and the client verifies it.
+- Rows, `u/` shards and search results carry `rev16-proj12`.
+- An enrichment-only change gives a new directory. The old directory's bytes never change.
+
+**Gate:** in `check_library_data`, take a fixture with an unchanged revision and changed labels. The old URLs stay byte-identical (retained), a new `proj12` directory appears, and rows point to it.
+
+### C2 (amends V1 retention). Retention never preserves a body that is no longer eligible
+**Contract:**
+- Every build revalidates **all retained generations** against current eligibility.
+- When a unit is no longer readable, every retained file for it is deleted in the same commit, and its `u/` entry is removed.
+- The client then gets 404, finds no shard entry, and falls back to the metadata-only UI through `/library/v1/metadata/:id`, with the "not readable" notice.
+- Eligibility is judged per unit, so an independently eligible older edition is unaffected when another edition changes.
+
+**Gate:**
+- `check_library_data` asserts that no file in any retained generation belongs to a non-readable id.
+- `check_library_page` stage `rights-correction` demotes a unit in a fixture. The retained URL is gone, and the tab shows metadata only.
+
+### C3 (amends V3). Quota resynchronization is fenced by generation
+**Contract:**
+1. **Write intent.** Before a record commit, the writer writes `records/.pending` containing `{generation: g+1}`. After the commit it publishes `.generation = g+1` and removes `.pending`.
+2. **Verification scan off the request path.**
+   - The scan reads `.generation = g0` at the start and keeps an in-memory journal of the deltas this process applies during the scan.
+   - At the end:
+     - if `.generation` still equals `g0` plus this process's own commits, the result is `scan + journal`, and it replaces the counter;
+     - if another process committed meanwhile, the result is discarded and the scan retries, at most 3 times, then rescheduled.
+   - A scan never overwrites a counter with a mixed-generation total.
+3. **Crash between commit and publication.** On open, if `.pending` exists or a record is newer than `.generation`, a full rescan is scheduled off the request path. Until it finishes, `_capacity` refuses any write that would come within `RESERVE_BYTES × 16` of the quota, so the counter can't under-count into an overrun.
+4. **Bounds per maintenance tick:** ≤ 100 records, ≤ 500 objects, ≤ 64 MB of bytes read, and ≤ 50 ms of wall time, yielding between batches.
+
+**Tests:** in `mcp/test_reader_store_bounds.mjs`:
+- two store instances writing concurrently;
+- writes during a verification scan;
+- a crash injected between record commit and generation publication;
+- a rescan converging to the full-scan truth.
+
+The `store-load` budgets remain the implementation acceptance test.
+
+### C4 (amends V4). Rollback compatibility is enforced outside the image
+**Contract:**
+- When phase B enables gzip writes, the store writes `store-format.json {"min_reader": "A"}`.
+- The deploy and qualification workflows read the candidate image's reader-format label and refuse any image below `min_reader`. That is enforced outside the old image, which can't know about gzip.
+- Render's dashboard rollback bypasses workflows, so the runbook forbids a dashboard rollback past phase A once `store-format.json` exists.
+- **Rollback to before phase A** requires `scripts/reader_store_inflate.mjs`, run under the exclusive writer lock. It first checks free space ≥ the inflated size + 20%, writes plain objects beside the gzip ones, verifies each hash, then removes the gzip objects and `store-format.json`, and keeps a checksum manifest for recovery.
+- Rolling back from B to A stays valid.
+
+**Tests:**
+- the deploy gate refuses a pre-A image when `store-format.json` exists;
+- the inflate conversion on a fixture store, including a simulated out-of-space refusal and an interrupted run that resumes.
+
+### C5 (amends V6). Corpus URLs use package identity
+**Contract:**
+- Corpus downloads are `GET /library/v1/corpus/<package_sha16>/<format>.zip`. `package_sha16` is the first 16 hex of the package's own sha256, already recorded in the package manifest.
+- A whole-selection export maps to that URL.
+
+**Test:** an unchanged snapshot with changed exporter code gives a new package sha, a new URL, and an old URL that answers 404 with the current URL in its error body. HEAD validation then re-plans.
+
+### C6 (amends V7). Reauthorize on every activation
+**Contract:** a fresh authorized `GET /library/v1/jobs/:id` returning 200 is required before reusing in-memory evidence on **every** activation of a reader or job view. That covers:
+- route entry, including Back and Forward within the same document;
+- switching to an evidence lens;
+- returning to a hidden tab after more than 60 s.
+
+This governs later rendering and access. It cannot erase bytes already shown.
+
+**Test:** in `private-cache`, within one document: clear the cookie, then Back/Forward to the reading. No evidence renders from memory, and the "earlier browser session" message shows.
+
+### C7 (amends the retirement purge). Positive evidence of old-Site ownership
+**Contract:**
+- The purge selector is an **allowlist** of `(job_id, viewer)` pairs exported from the old Site's D1 `library_jobs` bindings. John runs that export, since the repo holds no Sites credentials.
+- A dry run lists the store records whose id **and** viewer both match. Unmatched or unknown records are left untouched.
+- The purge runs only after John confirms the exact dry-run count at action time.
+
+**Test:** the purge tool on a fixture store with matched, viewer-mismatched and unknown records. Only exact matches are selected, and the default is dry-run.
+
+### Clarifications
+- **B6 lookup:** "both snapshots contain this revision" is confirmed through `GET /library/v1/metadata/:id`, which returns the unit's `reading_revision`. `/health` carries no per-unit data. Static `projected_from` stays the provenance label.
+- **V5 trade-off, stated for John:** refusing to export a historical analysis whose reading revision is no longer installed is a truthful fail-closed choice. It is **not** unchanged export availability: some older analyses that the old Site would have exported cannot be exported after a corpus revision, and the user is offered a re-run instead. This is added to owner decision 12.
+- **Chunk reload recovery:**
+  - Before reloading, the tab flushes pending device-state writes and verifies them by reading them back.
+  - If persistence failed, it does **not** reload. It shows the existing "unsaved" state and offers the device-state download.
+  - The existing save-failure and conflict safeguards are unchanged.
+
+### Owner decision 12, reworded
+Old private jobs and D1/R2 are not migrated. **Possible irreversible loss** is stated, and an export window comes before the move page. After a corpus revision, exports of older analyses are refused where the analysed revision is no longer installed, with a re-run offered instead. The purge uses the D1 allowlist and needs John's action-time confirmation of the exact count.
 
 ---
 
