@@ -414,7 +414,7 @@ test('unknown words are not mislabeled as having multiple readings', () => {
 });
 
 test('function failures name each failed word and sung token at its draft line', () => {
-  const ids = [15, 28].map((n) => `function:END_WORD_UNREADABLE:T7:L${n}`);
+  const ids = [15, 28].map((n) => `function:END_WORD_UNREADABLE:L${n}`);
   const v = {
     findings: [note('END_WORD_UNREADABLE', [15, 28])],
     coverage: {
@@ -507,4 +507,33 @@ test('mixed expanded function failures retain known lines alongside unlocated co
   ]);
   assert.deepEqual(detailOf(v, 'coverage').coverage.obligations.at(-1), unlocated);
   assert.deepEqual(detailOf(v, 'coverage', [3]).coverage.obligations, [located[1]]);
+});
+
+test('unmapped physical endpoints name the word and line without inventing a sung token', () => {
+  const v = {
+    findings: [note('END_WORD_UNREADABLE', [1, 2])],
+    coverage: {
+      refused_obligations: [
+        'function:draft',
+        'function:END_WORD_UNREADABLE:L1',
+        'function:END_WORD_UNREADABLE:L2',
+      ],
+      obligations: ['我', '1966'].map((word, i) => ({
+        id: `function:END_WORD_UNREADABLE:L${i + 1}`,
+        status: 'refused',
+        code: 'END_WORD_UNREADABLE',
+        line: i + 1,
+        token: null,
+        word,
+      })),
+    },
+  };
+  assert.deepEqual(
+    blockingOf(v),
+    ['我', '1966'].map(
+      (word, i) =>
+        `L${i + 1}: not judged — function (END_WORD_UNREADABLE); unreadable: endpoint '${word}' (no sung-token position)`
+    )
+  );
+  assert.equal(detailOf(v, 'coverage', [1]).coverage.obligations[0].token, null);
 });

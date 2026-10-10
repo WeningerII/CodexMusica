@@ -249,14 +249,18 @@ def rules_md():
                    f"{', '.join(r['files'])} |")
     out.append("\nFunction reading refusals: `END_WORD_UNREADABLE` blocks requested "
                "function coverage, not a quality flag. Concrete failures carry "
-               "`function:END_WORD_UNREADABLE:TN:LN` plus the failed word, sung-token "
-               "position and exact lyric text. `function:draft` retains the aggregate "
+               "`function:END_WORD_UNREADABLE:LN` plus the failed word, sung-token "
+               "position (null when unmapped) and exact lyric text. Diagnostic coordinates "
+               "do not change the stable line obligation or whole-refusal identity. "
+               "`function:draft` retains the aggregate "
                "refusal. A comparison without a draft coordinate remains explicitly "
                "unlocated; its section-local line is not a draft line number. "
                "Mixed failures retain known line obligations plus a separate "
                "`location_scope: section_local` record for unlocated words. "
-               "Occurrence declarations bind exact text and sung-token position; "
-               "they do not add dictionary readings or change the perfect-rime policy.")
+               "Occurrence declarations bind exact text and sung-token position "
+               "only when the original function endpoint maps to that complete physical token. "
+               "They do not change endpoint selection, add dictionary readings or change "
+               "the perfect-rime policy.")
     return "\n".join(out) + "\n"
 
 

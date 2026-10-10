@@ -1661,7 +1661,8 @@ class EndWordFailure:
 
     def describe(self):
         where = f"L{self.line}" if self.line is not None else f"{self.side} line {self.section_line}"
-        return f"{where} token {self.token} {self.word!r} in {self.text!r}"
+        position = f"token {self.token}" if self.token is not None else "endpoint (no sung-token position)"
+        return f"{where} {position} {self.word!r} in {self.text!r}"
 
 
 @dataclass(frozen=True)
@@ -1908,7 +1909,7 @@ def rime_cmudict(lex=None):
 
     def key(word, *, line=None, token=None):
         reader = lex
-        if line is not None:
+        if line is not None and token is not None:
             reader = lex.for_line(line).for_token(token - 1)
         w = normalise_line(word).strip("'")
         if not w:
@@ -1945,11 +1946,23 @@ def rime_cmudict(lex=None):
         return " ".join(re.sub(r"[012]$", "", ph) for ph in p[idx:])
 
     def end_occurrence(line):
-        # The declaration coordinate is the sung-token stream, not grid.tokens.
+        # Preserve the legacy endpoint even when the declaration tokenizer
+        # omits it (digits, non-Latin text, unsung parentheticals). Bind only
+        # if that same physical span is exactly the last complete sung token.
         import lyric_harness as LH
-        words = LH.line_tokens(line, strip_parens=lex.strip_parens)
-        word = words[-1] if words else ""
-        return word, len(words), key(word, line=line, token=len(words)) if words else None
+        word = _end_word(line)
+        raw = unicodedata.normalize("NFC", line)
+        spans = list(re.finditer(r"(?:[^\W_]|['‘’-])+", raw))
+        words = LH.line_tokens(raw, strip_parens=lex.strip_parens)
+        token = None
+        if spans and words:
+            span = spans[-1]
+            without = raw[:span.start()] + " " * len(span.group()) + raw[span.end():]
+            if (normalise_line(span.group()) == word == normalise_line(words[-1])
+                    and LH.line_tokens(span.group(), strip_parens=False) == [words[-1]]
+                    and LH.line_tokens(without, strip_parens=lex.strip_parens) == words[:-1]):
+                token = len(words)
+        return word, token, key(word, line=line, token=token)
 
     key.end_occurrence = end_occurrence
     key.declared_name = ("CMUdict General American; phones from the last "
@@ -1970,7 +1983,7 @@ def _end_occurrence(line, rhyme_key):
     if read is not None:
         return read(line)
     word = _end_word(line)
-    return word, len(tokens(line)), rhyme_key(word)
+    return word, None, rhyme_key(word)
 
 
 def _rhyme_code(lines, rhyme_key, *, failures=None, side=""):

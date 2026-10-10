@@ -86,7 +86,7 @@ import copy
 import hashlib
 import os
 import sys
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
@@ -3408,7 +3408,7 @@ class Reviser:
                     unlocated = [f for f in refusal.failed_words if f.line is None]
                     for f in located:
                         coverage_out.append({
-                            "id": f"function:{refusal.code}:T{f.token}:L{f.line}",
+                            "id": f"function:{refusal.code}:L{f.line}",
                             "layer": "function", "status": "refused", "code": refusal.code,
                             "line": f.line, "token": f.token, "word": f.word,
                             "text": f.text})
@@ -6548,7 +6548,13 @@ class Reviser:
                 for finding in fs:
                     add(ln, finding)
             for finding in found["whole"]:
-                add(min(finding.locations) if finding.locations else 0, finding)
+                if finding.code == "END_WORD_UNREADABLE":
+                    # One aggregate function refusal, as before diagnostics
+                    # acquired locations. Moving/removing diagnostic endpoints
+                    # does not fix this still-standing whole-song obligation.
+                    add(0, replace(finding, locations=()))
+                else:
+                    add(min(finding.locations) if finding.locations else 0, finding)
             return collections.Counter(out_keys + sorted(aggregates))
 
         cb, ca = identities(f_before), identities(f_after)

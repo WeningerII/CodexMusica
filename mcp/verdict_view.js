@@ -153,14 +153,13 @@ export function blockingOf(verdict) {
     );
     const failures = (verdict.coverage?.obligations || [])
       .filter(
-        (o) =>
-          o.status === 'refused' &&
-          o.code === 'END_WORD_UNREADABLE' &&
-          o.line === n &&
-          o.word &&
-          Number.isInteger(o.token)
+        (o) => o.status === 'refused' && o.code === 'END_WORD_UNREADABLE' && o.line === n && o.word
       )
-      .map((o) => `token ${o.token} '${o.word}'`);
+      .map((o) =>
+        Number.isInteger(o.token)
+          ? `token ${o.token} '${o.word}'`
+          : `endpoint '${o.word}' (no sung-token position)`
+      );
     out.push(
       `L${n}: not judged — ${[...e.kinds].join(', ')}` +
         (e.partners.size ? ` with ${lineList([...e.partners])}` : '') +

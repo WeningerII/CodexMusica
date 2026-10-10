@@ -270,10 +270,10 @@ class PronunciationChoices(unittest.TestCase):
         # An earlier occurrence must never lend its choice to the final word.
         earlier = self.lex([choice(line, 2, 'record', NOUN)])
         self.assertEqual(G.rime_cmudict(earlier).end_occurrence(line)[2], 'AO R D')
-        # Parenthetical asides are not sung endpoints under the default coordinate.
+        # The legacy function endpoint stays the physical trailing word.
         aside = 'Read record (softly)'
         declared = self.lex([choice(aside, 2, 'record', NOUN)])
-        self.assertEqual(G.rime_cmudict(declared).end_occurrence(aside), ('record', 2, 'EH K ER D'))
+        self.assertEqual(G.rime_cmudict(declared).end_occurrence(aside), ('softly', None, key('softly')))
 
     def test_function_partition_and_rendered_drift_use_the_same_occurrences(self):
         from quality import grid as G
@@ -305,7 +305,7 @@ class PronunciationChoices(unittest.TestCase):
         findings = Reviser(lex=self.base)._function_findings(lines, bp, coverage_out=coverage)
         refused = [o for o in coverage if o['status'] == 'refused']
         self.assertEqual({o['id'] for o in refused}, {'function:draft'} |
-                         {f'function:END_WORD_UNREADABLE:T3:L{n}' for n in range(1, 7)})
+                         {f'function:END_WORD_UNREADABLE:L{n}' for n in range(1, 7)})
         note = next(f for f in findings if f.code == 'END_WORD_UNREADABLE')
         self.assertEqual(note.locations, list(range(1, 7)))
         for n in range(1, 7):
@@ -344,7 +344,7 @@ class PronunciationChoices(unittest.TestCase):
         ref = next(r for r in result.refusals if r.code == 'END_WORD_UNREADABLE')
         self.assertEqual([(f.side, f.section_line, f.word, f.line) for f in ref.failed_words],
                          [('first', 2, 'zzz', None), ('again', 2, 'yyy', None)])
-        self.assertIn("first line 2 token 1 'zzz'", ref.evidence)
+        self.assertIn("first line 2 endpoint (no sung-token position) 'zzz'", ref.evidence)
         self.assertIsNone(result.rhyme_scheme_preserved)
 
     def test_function_bridge_and_reprise_share_occurrence_routing(self):
@@ -441,8 +441,8 @@ class PronunciationChoices(unittest.TestCase):
         failures = [o for o in coverage if o.get('code') == 'END_WORD_UNREADABLE']
         located = [o for o in failures if 'line' in o]
         self.assertEqual([(o['id'], o['line'], o['token'], o['word']) for o in located],
-                         [('function:END_WORD_UNREADABLE:T3:L1', 1, 3, 'streetlights'),
-                          ('function:END_WORD_UNREADABLE:T3:L3', 3, 3, 'streetlights')])
+                         [('function:END_WORD_UNREADABLE:L1', 1, 3, 'streetlights'),
+                          ('function:END_WORD_UNREADABLE:L3', 3, 3, 'streetlights')])
         unlocated = [o for o in failures if 'line' not in o]
         self.assertEqual(len(unlocated), 1)
         self.assertEqual(unlocated[0]['location_scope'], 'section_local')
@@ -454,5 +454,122 @@ class PronunciationChoices(unittest.TestCase):
         self.assertEqual(P.refused_lines(cov), ({1, 3}, False))
         note = next(f for f in findings if f.code == 'END_WORD_UNREADABLE')
         self.assertEqual(note.locations, [1, 3])
+
+    def test_function_preserves_legacy_endpoints_without_declarations(self):
+        from quality import grid as G
+        key = G.rime_cmudict(self.base)
+        for line, word, token in [
+            ('I gave my heart to you 我', '我', None),
+            ('we have waited since 1966', '1966', None),
+            ("I'm going home (ooh)", 'ooh', None),
+            ('(Name your price and take it home)', 'home', None),
+            ('Read record (record)', 'record', None),
+            ("That 's", "'s", None),
+            ('Read record我', 'record我', None),
+            ('Read record2', 'record2', None),
+            ('Read (quietly) record', 'record', 2),
+            ("There 's record", 'record', 2),
+            ('Read **record**!', 'record', 2),
+            ('', '', None), ('...', '', None),
+        ]:
+            with self.subTest(line=line):
+                self.assertEqual(key.end_occurrence(line), (word, token, key(word)))
+        result = G.compare_returns(
+            ["I'm going home (ooh)", "I'm all alone (yeah)"],
+            ["I'm going home (yeah)", "I'm all alone (yeah)"], rhyme_key=key)
+        self.assertFalse(result.rhyme_scheme_preserved)
+        for word in ['我', '1966']:
+            line = 'We wait ' + word
+            result = G.compare_returns([line], [line], rhyme_key=key)
+            self.assertIsNone(result.rhyme_scheme_preserved)
+            failure = result.refusals[0].failed_words[0]
+            self.assertEqual((failure.word, failure.token), (word, None))
+            self.assertIn('no sung-token position', failure.describe())
+
+    def test_function_only_binds_the_complete_physical_endpoint(self):
+        from quality import grid as G
+        for line in ['Read (quietly) record', "There 's record"]:
+            lex = self.lex([choice(line, 2, 'record', NOUN)])
+            self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('record', 2, 'EH K ER D'))
+        for line in ['Read record (record)', 'Read record2', 'Read record我']:
+            lex = self.lex([choice(line, 2, 'record', NOUN)])
+            got = G.rime_cmudict(lex).end_occurrence(line)
+            self.assertIsNone(got[1])
+            self.assertEqual(got[2], G.rime_cmudict(self.base)(G._end_word(line)))
+        # Voices includes parentheses in its declaration stream, but still
+        # cannot bind a component of a joined enclitic as a whole token.
+        lex = copy.copy(self.base)
+        lex.strip_parens = False
+        line = 'Read record (record)'
+        lex.pronunciations = P.validate_choices([choice(line, 3, 'record', NOUN)], lex)
+        self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('record', 3, 'EH K ER D'))
+        line = "That 's"
+        lex = self.lex([choice(line, 1, "That's", ['DH', 'AE1', 'T', 'S'], 'declared')])
+        self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ("'s", None, G.rime_cmudict(self.base)("'s")))
+
+    def _verify_function_change(self, before, after, repair=False, other_code=False):
+        # Real function reports/coverage, controlled unrelated quality findings:
+        # the verifier must neither invent a regression nor count metadata as a fix.
+        from unittest.mock import patch
+        from quality.revise import Reviser, Finding
+        rev = Reviser(lex=self.base).for_revision(before)
+        def snapshot(lines, *args, **kwargs):
+            obligations = []
+            whole = rev._function_findings(lines, self.function_blueprint(lines, size=1), coverage_out=obligations)
+            whole = [f for f in whole if f.code == 'END_WORD_UNREADABLE']
+            if other_code:
+                for finding in whole:
+                    finding.code = 'OTHER_WHOLE_NOTE'
+            per_line = {1: [Finding('TEST_DEFECT', 'flag', 'fixture defect', '', [1])]} if repair and lines == before else {}
+            return dict(whole=whole, per_line=per_line,
+                        grade=dict(pairs_mandated=1, pairs_judged=1, pairs_refused=0),
+                        coverage=dict(refused_obligations=[o['id'] for o in obligations if o['status'] == 'refused']))
+        with patch.object(rev, 'inspect', side_effect=snapshot), patch.object(rev, 'brief', return_value=[]):
+            return rev.verify(before, after, 'AA')
+
+    def test_function_diagnostic_token_shift_does_not_refuse_a_judged_check(self):
+        before = ['We reach streetlights', 'We reach streetlights']
+        after = ['We still reach streetlights', before[1]]
+        result = self._verify_function_change(before, after, repair=True)
+        self.assertTrue(result['accepted'], result['reasons'])
+        self.assertEqual(result['layer_coverage_regressions'], [])
+        self.assertNotIn((0, 'END_WORD_UNREADABLE'), result['fixed'])
+
+    def test_function_new_unreadable_line_remains_a_coverage_regression(self):
+        result = self._verify_function_change(
+            ['We reach home', 'We reach streetlights'],
+            ['We reach streetlights', 'We reach streetlights'], repair=True)
+        self.assertFalse(result['accepted'])
+        self.assertEqual(result['layer_coverage_regressions'], ['function:END_WORD_UNREADABLE:L1'])
+
+    def test_function_remaining_refusal_is_not_fixed_by_diagnostic_location_change(self):
+        result = self._verify_function_change(
+            ['We reach streetlights', 'We reach streetlights'],
+            ['We reach home', 'We reach streetlights'])
+        self.assertFalse(result['accepted'])
+        self.assertIn('nothing was fixed', result['reasons'])
+        self.assertEqual(result['fixed'], [])
+        self.assertEqual(result['new'], [])
+
+    def test_function_diagnostic_identity_does_not_change_other_whole_findings(self):
+        result = self._verify_function_change(
+            ['We reach streetlights', 'We reach streetlights'],
+            ['We reach home', 'We reach streetlights'], other_code=True)
+        self.assertTrue(result['accepted'], result['reasons'])
+        self.assertIn((1, 'OTHER_WHOLE_NOTE'), result['fixed'])
+        self.assertIn((2, 'OTHER_WHOLE_NOTE'), result['new'])
+
+    def test_function_diagnostic_locations_do_not_create_rewrite_targets(self):
+        from types import SimpleNamespace
+        from quality.revise import Reviser
+        from quality.loop import _open_lines, REPAIRABLE_UNJUDGED
+        lines = ['We reach streetlights'] * 2
+        findings = Reviser(lex=self.base)._function_findings(lines, self.function_blueprint(lines, size=1))
+        note = next(f for f in findings if f.code == 'END_WORD_UNREADABLE')
+        self.assertEqual(note.locations, [1, 2])
+        self.assertNotIn(note.code, REPAIRABLE_UNJUDGED)
+        # Even if joined to a line, diagnostic locations alone cannot ask
+        # for a rewrite under the existing empty-by-default pursue policy.
+        self.assertEqual(_open_lines([SimpleNamespace(line_no=1, findings=[note])]), [])
 
 if __name__ == '__main__': unittest.main()

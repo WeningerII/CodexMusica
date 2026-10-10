@@ -559,10 +559,21 @@ choices now use the exact-token transcription path before bare-headword
 normalization; unselected whole-word lookup is unchanged. Leading, trailing,
 paired and curly apostrophes, repeated quoted homographs, OOV returns and
 changed-line isolation are regression-tested.
+Review also exposed an undeclared endpoint-policy regression in the first
+patch. Function retains its original physical end word, including trailing
+digits, non-Latin text, and parentheticals. Binding requires that exact physical
+span to be the complete final sung token. Earlier identical tokens, unsung
+asides and joined-enclitic components cannot lend a declaration. When no mapping
+exists, diagnostics state the known word/line with no sung-token position.
+Coverage IDs identify the refused line, not the diagnostic token: inserting an
+earlier word must not invent a newly refused requirement. The whole function
+refusal keeps its legacy aggregate verifier identity when only its locations
+change; a remaining refusal does not count as fixed. Genuine newly refused lines
+still reject a revision. These changes do not alter other findings' identities.
 
 `END_WORD_UNREADABLE` retains every failed word, token and line through
 code-level aggregation. Coverage identifies concrete failures as
-`function:END_WORD_UNREADABLE:TN:LN`; the aggregate `function:draft` remains
+`function:END_WORD_UNREADABLE:LN`; the aggregate `function:draft` remains
 refused. Expanded pointers retain section-local evidence instead of invented
 draft positions. A mixed comparison keeps each known draft-location obligation
 and a separate `location_scope: section_local` record containing only the
