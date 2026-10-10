@@ -20,6 +20,7 @@ Sections:
  10  the file keys what the tokenizer keeps: edge apostrophes, accents
  11  the coordinate survives the consumers that build their own readers
  12  versions: a run names a frozen file, keeps its bytes, and never moves
+ 13  v2: exactly two reviewed additions; v1/default and derivation unchanged
 """
 
 import os
@@ -578,12 +579,91 @@ def test_versions():
         shutil.rmtree(tmp)
 
 
+def test_reviewed_v2():
+    print("\n13. v2 adds exactly two reviewed rows, isolated from v1 and derivation")
+    import csv
+    import json
+    import hashlib
+    from pathlib import Path
+    v1, v2 = S.resolve_version("v1"), S.resolve_version("v2")
+    check("v2 is frozen at its reviewed bytes",
+          v2["sha256"] == "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+          and v2["rows"] == 205)
+    rows1, rows2 = S.load_rows(v1["abspath"]), S.load_rows(v2["abspath"])
+    added = [r for r in rows2 if r["word"] in {"streetlight", "streetlights"}]
+    keys = lambda rows: [tuple(tuple(r[c]) if isinstance(r[c], list) else r[c]
+                              for c in S.COLUMNS) for r in rows]
+    check("all 203 v1 rows survive unchanged; only the two approved words are added",
+          len(rows2) == 205 and len(added) == 2
+          and keys([r for r in rows2 if r not in added]) == keys(rows1))
+    check("v1 remains the active default and the legacy bare flag",
+          S.load_versions()["default"] == "v1" and S.canonical_version(True) == "v1")
+    new = S.SupplementedLexicon(version="v2", expected_sha256=v2["sha256"])
+    old = S.SupplementedLexicon(version="v1", expected_sha256=v1["sha256"])
+    phones = "S T R IY1 T L AY2 T".split()
+    for word, reading, source in [
+            ("streetlight", phones, "moby:3205:attested"),
+            ("streetlights", phones + ["S"], "reviewed:moby-3205:plural")]:
+        check(f"{word} reads exactly the reviewed phones and stress under v2",
+              new.transcribe_word(word) == (reading, False)
+              and new.dictionary_readings(word) == [reading])
+        check(f"{word} retains its own attested/derived provenance",
+              new.reading_source(word, reading) == source)
+        check(f"{word} stays absent and unread in v1 and plain CMUdict",
+              all(word not in lex.entries and lex.transcribe_word(word)[1]
+                  for lex in (old, PLAIN)))
+    check("v2 identifies its own immutable basis",
+          S.lexicon_identity(new) == {"supplement_id": "v2", "sha256": v2["sha256"]})
+    try:
+        S.resolve_version("v2", v1["sha256"])
+        refused = False
+    except S.SupplementUnavailable:
+        refused = True
+    check("a v1 saved hash cannot silently select v2", refused)
+    # Remove only the finite plural row: the singular must not become a stem
+    # for the engine's productive plural reduction or fallback.
+    text = Path(v2["abspath"]).read_text()
+    path = _write([line for line in text.splitlines() if not line.startswith("streetlights\t")])
+    try:
+        singular_only = S.SupplementedLexicon(supplement_path=path)
+        check("the positive control still reads the retained singular",
+              singular_only.transcribe_word("streetlight") == (phones, False))
+        check("without its explicit row, the plural is not derived from the supplement",
+              singular_only.transcribe_word("streetlights")[1]
+              and singular_only.dictionary_readings("streetlights") == [])
+    finally:
+        os.remove(path)
+    check("v2 adds no productive plural of its plural",
+          new.transcribe_word("streetlightss")[1]
+          and "streetlightss" not in new.entries)
+    sources = {row["source_id"]: row for row in csv.DictReader(
+        open(os.path.join(ROOT, "data", "sources.tsv"), encoding="utf-8"), delimiter="\t")}
+    check("both source registrations have separate provenance rows",
+          all(r["source"] in S.SOURCES and r["source"] in sources for r in added)
+          and len({r["source"] for r in added}) == 2)
+    plural = next(r for r in added if r["word"] == "streetlights")
+    check("the plural is explicitly a reviewed finite derivation, not attested or rule-generated",
+          "NOT directly attested" in plural["basis"]
+          and plural["review"].startswith("reviewed:")
+          and "no productive" in plural["basis"])
+    assets = json.loads(Path(ROOT, "data", "runtime_assets.json").read_text())
+    files = {f["path"]: f for a in assets["assets"] for f in a.get("files", [])}
+    for rel in ["data/lexicon_supplement_v2.tsv", "data/lexicon_supplement_versions.json", "data/sources.tsv"]:
+        content = Path(ROOT, rel).read_bytes()
+        record = files.get(rel, {})
+        check(f"runtime inventory matches combined-tree {rel}",
+              (record.get("bytes"), record.get("sha256")) ==
+              (len(content), hashlib.sha256(content).hexdigest()))
+    rc, out = _cli("--lexicon-supplement=v2", "declaration")
+    check("the actual CLI resolves and discloses v2", rc == 0 and "supplement v2" in out, out[-160:])
+
+
 def main():
     for fn in (test_shipped_file, test_contract_refusals,
                test_plain_lexicon_untouched, test_derivation_reads_cmudict_alone,
                test_whole_before_piece, test_witnesses, test_reading_sources,
                test_identities_move, test_tokenizer_keys, test_consumer_paths,
-               test_cli, test_versions):
+               test_cli, test_versions, test_reviewed_v2):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0
