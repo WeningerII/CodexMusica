@@ -43,6 +43,6 @@
     "faithfulness": "Complete songs; HTML verse-line and stanza boundaries preserved; typography indentation removed; page numbers, credit paragraphs, tune and chorus labels excluded from sung words. Printed abbreviated refrains retained without expansion. No dialect spelling modernization.",
     "replay": "python adapter.py (requires beautifulsoup4)"
   },
-  "translation_review": "Printed credits and source notes screened; the French Marseilles hymn excluded in No.1; three operatic selections with unresolved text-language provenance conservatively excluded in No.4. Anonymous entries are not represented as exhaustively independently attributed.",
+  "translation_review": "Printed credits and source notes screened; the French Marseilles hymn excluded in No.1; in No.4, the Norma adaptation excluded as a translation and By the Sad Sea-Waves conservatively excluded pending text-language verification. Anonymous entries are not represented as exhaustively independently attributed.",
   "count_reconciliation": "70 complete song headings; printed contents retained with body-heading mapping. Later catalogues advertise other volumes and are excluded."
 }
