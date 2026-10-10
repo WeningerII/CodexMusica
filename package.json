@@ -64,6 +64,7 @@
     "check:fresh": "node scripts/check_artifact_fresh.js",
     "check:budget": "node scripts/check_payload_budget.js",
     "check:library-regression": "node scripts/check_library_regression.js",
+    "check:library-perf": "node scripts/check_library_perf.js",
     "check:df": "node scripts/build_descriptor_df.js --check",
     "check:glyphs": "node scripts/check_glyph_skin.js && node scripts/build_nav_glyphs.js --check",
     "check:dupes": "node scripts/check_duplicates.js",
