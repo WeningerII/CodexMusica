@@ -154,6 +154,36 @@ one bounded request can stop and resume from its receipt; then attempt a full so
 This code and the offline regression suite do not prove live provider latency,
 writer convergence, the actual mounted disk, or sustained memory headroom.
 
+## Reading basis: the lexicon supplement
+
+Every tool that reads words (`lyric_screen`, `lyric_grade`, `lyric_revise`,
+`lyric_check`, `lyric_verify`, `lyric_recover`) reads CMUdict plus one frozen
+version of the reviewed lexicon supplement, named in
+`lyric-harness/data/lexicon_supplement_versions.json`. The declaration is
+`lexicon_supplement` (a version id, or `none` for CMUdict alone), and the record
+keeps the version's file SHA256 beside it as `lexicon_supplement_sha256`
+(`mcp/lexicon_basis.js`).
+
+- **New work** that omits the field reads the manifest's `default`.
+- **A continued run** (by `run_id`, `state`, `checkpoint`, or a session's grade
+  receipt) keeps the version and SHA256 it recorded. A record written before
+  this field existed reads `none`: it stays on CMUdict alone whatever the
+  default now is. Inheritance is applied first, the default only after it.
+- **An explicit different version** on a continuation is a moved declaration and
+  refuses, like any other declaration.
+- **A version this build does not ship**, a missing file, or a file whose bytes
+  are not the recorded SHA256 refuses as `LEXICON_SUPPLEMENT_UNAVAILABLE`. No
+  other version is ever substituted. The harness checks the file's bytes again
+  (`--lexicon-supplement=<id> --lexicon-supplement-sha256=<hex>`).
+- Every verdict carries `lexicon: {supplement_id, sha256}` from the harness's
+  authenticated record, `null`/`null` for CMUdict alone. A creation session's
+  grade receipt takes its basis from that field, never from the call's arguments.
+
+A shipped version's file is never edited; a new batch is a new version and a new
+file. Adding one changes the release asset inventory, so an in-flight
+continuation from the previous image still meets `CONTINUATION_MIGRATION_REQUIRED`:
+a stable version identity does not promise resume across deployments.
+
 ## What the money limits establish
 
 The shared model ledger reserves an allowance before each network dispatch, across

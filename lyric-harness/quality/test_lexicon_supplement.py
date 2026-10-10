@@ -19,6 +19,7 @@ Sections:
   9  the CLI coordinate: declared, disclosed, refused when misspelled
  10  the file keys what the tokenizer keeps: edge apostrophes, accents
  11  the coordinate survives the consumers that build their own readers
+ 12  versions: a run names a frozen file, keeps its bytes, and never moves
 """
 
 import os
@@ -452,7 +453,90 @@ def test_cli():
     rc, out = _cli("declaration")
     check("omitted, nothing about it is printed", rc == 0 and "supplement" not in out)
     rc, out = _cli("--lexicon-supplement=1", "declaration")
-    check("a value on the presence flag is refused, not ignored", rc == 2, out[-160:])
+    check("a version this build does not ship is refused, not ignored",
+          rc == 2 and S.UNAVAILABLE in out, out[-160:])
+
+
+def test_versions():
+    print("\n12. versions: a run names a frozen file, and keeps it")
+    manifest = S.load_versions()
+    v1 = next(r for r in manifest["versions"] if r["id"] == "v1")
+    # THE PIN. v1 is frozen: editing its file AND its manifest row together
+    # would pass every runtime check (they agree with each other), and would
+    # re-read every saved v1 run under new rows. This literal is the guard
+    # against that edit; a new batch is a new version, never a new v1.
+    check("v1 is frozen at the bytes #522 shipped",
+          v1["sha256"] == "452d7aae056ed67f6bff94b76bf6f5df66516ce9e1c95d31796d45a8a92957f7"
+          and v1["path"] == "data/lexicon_supplement.tsv" and v1["rows"] == 203,
+          v1)
+    check("every shipped version resolves byte for byte", S.version_problems() == [])
+    check("`none`, the bare flag and an id canonicalise as the record keeps them",
+          (S.canonical_version(None), S.canonical_version("none"),
+           S.canonical_version(True), S.canonical_version("v1"))
+          == ("none", "none", "v1", "v1"))
+    check("`none` resolves to no supplement", S.resolve_version("none") is None)
+    lex = S.SupplementedLexicon(version="v1")
+    check("a declared version reads its own file and names itself",
+          lex.supplement_id == "v1" and lex.supplement_sha256 == v1["sha256"]
+          and S.lexicon_identity(lex) == {"supplement_id": "v1", "sha256": v1["sha256"]})
+    check("CMUdict alone is null/null",
+          S.lexicon_identity(PLAIN) == {"supplement_id": None, "sha256": None})
+    check("the shipped default path is recognised as v1", SUPP.supplement_id == "v1")
+
+    def refused(fn):
+        try:
+            fn()
+        except S.SupplementUnavailable as error:
+            return str(error)
+        return None
+
+    msg = refused(lambda: S.resolve_version("v9"))
+    check("an unknown version refuses and names what ships",
+          msg and S.UNAVAILABLE in msg and "v1" in msg, msg)
+    msg = refused(lambda: S.resolve_version("v1", "0" * 64))
+    check("a saved run's sha256 that is not the shipped file's refuses",
+          msg and v1["sha256"] in msg and "0" * 64 in msg, msg)
+    msg = refused(lambda: S.resolve_version("none", v1["sha256"]))
+    check("a sha256 with no version refuses", msg and S.UNAVAILABLE in msg, msg)
+
+    # A version whose file is missing, or whose bytes moved under an
+    # unchanged manifest row, refuses: planted in a copy of the data dir.
+    tmp = tempfile.mkdtemp()
+    try:
+        data = os.path.join(tmp, "data")
+        os.makedirs(data)
+        shutil.copy(S.SUPPLEMENT_PATH, os.path.join(data, "lexicon_supplement.tsv"))
+        manifest_path = os.path.join(data, "lexicon_supplement_versions.json")
+        shutil.copy(S.VERSIONS_PATH, manifest_path)
+        check("the copied manifest resolves",
+              S.resolve_version("v1", versions_path=manifest_path)["sha256"] == v1["sha256"])
+        with open(os.path.join(data, "lexicon_supplement.tsv"), "a", encoding="utf-8") as fh:
+            fh.write("# an edit\n")
+        msg = refused(lambda: S.resolve_version("v1", versions_path=manifest_path))
+        check("a changed file under an unchanged manifest row refuses",
+              msg and "hashes to" in msg, msg)
+        os.remove(os.path.join(data, "lexicon_supplement.tsv"))
+        msg = refused(lambda: S.resolve_version("v1", versions_path=manifest_path))
+        check("a missing file refuses", msg and "cannot be read" in msg, msg)
+    finally:
+        shutil.rmtree(tmp)
+
+    # The CLI: the record names the version on every lyric result; the
+    # declared sha256 is checked; `none` is CMUdict alone.
+    rc, out = _cli("--lexicon-supplement=v1", "declaration")
+    check("--lexicon-supplement=v1 is declared and disclosed",
+          rc == 0 and "supplement v1" in out, out.strip().splitlines()[-1:])
+    rc, out = _cli("--lexicon-supplement=v1", f"--lexicon-supplement-sha256={'0' * 64}",
+                   "declaration")
+    check("a declared sha256 the file does not have refuses at the CLI",
+          rc == 2 and S.UNAVAILABLE in out, out[-200:])
+    rc, out = _cli("--lexicon-supplement=none", "declaration")
+    check("--lexicon-supplement=none reads CMUdict alone",
+          rc == 0 and "supplement" not in out, out[-160:])
+    rc, out = _cli("--lexicon-supplement-sha256=" + v1["sha256"], "declaration")
+    check("a sha256 without a version refuses", rc == 2 and S.UNAVAILABLE in out, out[-160:])
+    rc, out = _cli("--lexicon-supplement=v1", "--lexicon-supplement=v1", "declaration")
+    check("two declarations refuse", rc == 2, out[-160:])
 
 
 def main():
@@ -460,7 +544,7 @@ def main():
                test_plain_lexicon_untouched, test_derivation_reads_cmudict_alone,
                test_whole_before_piece, test_witnesses, test_reading_sources,
                test_identities_move, test_tokenizer_keys, test_consumer_paths,
-               test_cli):
+               test_cli, test_versions):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

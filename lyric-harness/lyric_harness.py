@@ -6945,9 +6945,17 @@ def _ban_bindings(found, findings):
     return {"asked": len(verdicts) - len(not_asked), "not_asked": not_asked}
 
 
+#: The supplement the CLI's lexicon reads ({"supplement_id", "sha256"}, both
+#: null for CMUdict alone), set once the lexicon is built; every lyric result
+#: after that point carries it, so a run's reading basis is in its record.
+_LEXICON_IDENTITY = None
+
+
 def _lyric_result(**record):
     """Emit one authenticated machine record; report prose is never status."""
     import json
+    if _LEXICON_IDENTITY is not None and "lexicon" not in record:
+        record["lexicon"] = dict(_LEXICON_IDENTITY)
     record.update(version=1, transport_token=os.environ.get("LYRIC_CONTROL_TOKEN"))
     print("  lyric result: " + json.dumps(record, ensure_ascii=False,
                                           separators=(",", ":")), flush=True)
@@ -9050,6 +9058,10 @@ def _parse_narrative_flag(raw):
 
 
 def main():
+    # One worker process serves many requests: a record emitted before this
+    # request's lexicon is built must not carry the previous request's basis.
+    global _LEXICON_IDENTITY
+    _LEXICON_IDENTITY = None
     decl = Declaration()
     args = sys.argv[1:]
     # Normalize these declared value flags before individual verbs read or
@@ -9118,18 +9130,29 @@ def main():
     if voices:
         args = [a for a in args if a != "--voices"]
 
-    # --lexicon-supplement is a GLOBAL, bare-presence reading coordinate, the
-    # same shape as --voices and for the same reason: the lexicon is built
-    # once, here. It adds the reviewed rows of data/lexicon_supplement.tsv
-    # (quality/lexicon_supplement.py names what they are and what they never
-    # touch). Omitted, `Lexicon` is built exactly as before and that file is
-    # never opened.
-    supplement = _bare_flag_or_refuse(
-        args, "--lexicon-supplement",
-        "that the reviewed lexicon supplement (data/lexicon_supplement.tsv) "
-        "is read beside CMUdict")
-    if supplement:
-        args = [a for a in args if a != "--lexicon-supplement"]
+    # --lexicon-supplement=<id|none> is a GLOBAL reading coordinate, built
+    # once, here, like --voices. It names a FROZEN version of the reviewed
+    # supplement (data/lexicon_supplement_versions.json; quality/
+    # lexicon_supplement.py names what the rows are and what they never
+    # touch). `--lexicon-supplement-sha256=<hex>` is a saved run's record of
+    # that version's bytes: when given, a file that is not those bytes
+    # REFUSES, so a run is never re-read under a different supplement. The
+    # bare flag is #522's spelling of v1. Omitted or `none`, `Lexicon` is
+    # built exactly as before and no supplement file is opened.
+    supplement = None
+    supplement_sha = None
+    for a in args:
+        if a == "--lexicon-supplement" or a.startswith("--lexicon-supplement="):
+            if supplement is not None:
+                _refuse("declare one --lexicon-supplement")
+            supplement = True if a == "--lexicon-supplement" else a.split("=", 1)[1]
+        elif a.startswith("--lexicon-supplement-sha256"):
+            if supplement_sha is not None or not a.startswith("--lexicon-supplement-sha256="):
+                _refuse("declare one --lexicon-supplement-sha256=<64 hex>")
+            supplement_sha = a.split("=", 1)[1]
+    args = [a for a in args if not (a == "--lexicon-supplement"
+                                    or a.startswith("--lexicon-supplement="))
+            and not a.startswith("--lexicon-supplement-sha256")]
 
     if not args or args[0] in ("-h", "--help"):
         print(__doc__)
@@ -9141,12 +9164,23 @@ def main():
     args = [a for a in args if not a.startswith("--pronunciations=")]
     try:
         choices = json.loads(pronunciation_json) if pronunciation_json is not None else []
-        if supplement:
-            from quality.lexicon_supplement import SupplementedLexicon
-            lex = SupplementedLexicon(fallback=fallback, strip_parens=not voices,
-                                      pronunciations=choices)
-        else:
+        if supplement in (None, False, "none"):
+            if supplement_sha is not None:
+                _refuse("LEXICON_SUPPLEMENT_UNAVAILABLE: --lexicon-supplement-sha256 "
+                        "names a supplement's bytes, and no supplement version is "
+                        "declared; declare the version it belongs to")
             lex = Lexicon(fallback=fallback, strip_parens=not voices, pronunciations=choices)
+            _LEXICON_IDENTITY = {"supplement_id": None, "sha256": None}
+        else:
+            from quality import lexicon_supplement as _LS
+            try:
+                lex = _LS.SupplementedLexicon(fallback=fallback, strip_parens=not voices,
+                                              pronunciations=choices,
+                                              version=_LS.canonical_version(supplement),
+                                              expected_sha256=supplement_sha)
+            except (_LS.SupplementUnavailable, OSError) as e:
+                _refuse(str(e))
+            _LEXICON_IDENTITY = _LS.lexicon_identity(lex)
     except (ValueError, TypeError) as e:
         _refuse(f"invalid pronunciation declaration: {e}")
 
@@ -12379,7 +12413,8 @@ def main():
                         "pronunciations": lex.pronunciations,
                         "pronunciation_options": reading_options(lex, lines, found["coverage"]),
                         "findings": _machine_findings,
-                        "ban_scope": _ban_scope}
+                        "ban_scope": _ban_scope,
+                        "lexicon": dict(_LEXICON_IDENTITY)}
             print("  lyric result: " + json.dumps(_machine, ensure_ascii=False,
                                                   separators=(",", ":")), flush=True)
             # Rhyme groups and full-line returns are distinct obligations.
@@ -13049,6 +13084,7 @@ def main():
                 print("  lyric result: " + json.dumps({
                     "version": 1, "status": "verified", "command": "verify",
                     "pronunciations": lex.pronunciations,
+                    "lexicon": dict(_LEXICON_IDENTITY),
                     "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
                     "before_draft": list(before), "final_draft": list(after),
                     "accepted": bool(v.get("accepted")), "reasons": v.get("reasons", []),
@@ -13746,6 +13782,7 @@ def main():
                 print("  lyric result: " + json.dumps({
                     "version": 1, "status": "finished", "input_draft": list(lines),
                     "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
+                    "lexicon": dict(_LEXICON_IDENTITY),
                     "accepted_lines": list(result.lines),
                     "final_draft": list(result.lines), "coverage": _coverage,
                     "pronunciations": lex.pronunciations,

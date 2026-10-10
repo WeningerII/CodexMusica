@@ -1,6 +1,7 @@
 // Offline connector regressions. Real independent MCP clients and handlers;
 // synthetic cached records avoid invoking a writer or needing a model key.
 import assert from 'node:assert/strict';
+import { LEXICON_MANIFEST } from './lexicon_basis.js';
 import { createHash } from 'node:crypto';
 import { createServer } from 'node:http';
 import { once } from 'node:events';
@@ -483,6 +484,28 @@ try {
       assert.equal(moved.isError, true);
       assert.match(message(moved), /checkpoint declarations moved/);
       assert.equal(calls, 2);
+      // The checkpoint keeps the supplement its run read (lexicon_basis.js):
+      // an explicit other version is a move, and a recorded sha256 that is
+      // not the shipped file's refuses before any replay or provider request.
+      const basis = { supplement_id: 'v1', sha256: LEXICON_MANIFEST.versions[0].sha256 };
+      assert.deepEqual(first.lexicon, basis);
+      assert.deepEqual(resumed.lexicon, basis);
+      assert.equal(decodeState(first.checkpoint).connector_declarations.lexicon_supplement, 'v1');
+      const movedBasis = await a.callTool({
+        name: 'lyric_revise',
+        arguments: { checkpoint: first.checkpoint, lexicon_supplement: 'none' },
+      });
+      assert.equal(movedBasis.isError, true);
+      assert.match(message(movedBasis), /checkpoint declarations moved: .*lexicon_supplement/);
+      const forgedBasis = decodeState(first.checkpoint);
+      forgedBasis.connector_declarations.lexicon_supplement_sha256 = '0'.repeat(64);
+      const badBasis = await a.callTool({
+        name: 'lyric_revise',
+        arguments: { checkpoint: encodeState(forgedBasis) },
+      });
+      assert.equal(badBasis.isError, true);
+      assert.match(message(badBasis), /LEXICON_SUPPLEMENT_UNAVAILABLE: the run was graded under/);
+      assert.equal(calls, 2, 'a basis refusal makes no provider request');
       console.log(
         'lyric state: real kitchen accepted draft, parked carry, thinking usage and checkpoint replay passed (localhost model only)'
       );
