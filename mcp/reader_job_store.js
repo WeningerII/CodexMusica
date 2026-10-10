@@ -3,6 +3,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import zlib from 'node:zlib';
 
 export const READER_LIMITS = Object.freeze({
   pageInstances: 250,
@@ -26,6 +27,18 @@ const STATES = new Set([
 ]);
 const OUTSTANDING = new Set(['queued', 'running', 'paused']);
 const RESERVE_BYTES = 16 * 1024;
+// A read slides a job's retention in memory; the slide is persisted at most
+// once an hour, so polling never writes a record per request. A crash loses at
+// most this much sliding retention (mcp/READER_RUNTIME.md).
+const TOUCH_INTERVAL_MS = 60 * 60 * 1000;
+// One maintenance slice (expiry, collection, usage verification) does at most
+// this much work, then yields: it never holds the event loop for long.
+export const MAINTENANCE_BOUNDS = Object.freeze({
+  records: 100,
+  objects: 500,
+  bytes: 64 * 1024 * 1024,
+  ms: 50,
+});
 const OBJECT_KINDS = ['pages', 'indexes', 'checkpoints', 'manifests'];
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const sha = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -136,6 +149,21 @@ function syncDirectory(dir) {
   }
 }
 
+// Phase A of storage at rest: every object reader accepts plain or gzip bytes.
+// Identity is always sha256 of the UNCOMPRESSED bytes, and inflation is bounded
+// by the same object limit the plain format has. The writer still writes plain
+// objects; gzip writes are a separate, later switch (READER_STORE_GZIP).
+export function decodeStoredObject(raw) {
+  if (raw.length >= 2 && raw[0] === 0x1f && raw[1] === 0x8b) {
+    try {
+      return zlib.gunzipSync(raw, { maxOutputLength: READER_LIMITS.objectBytes });
+    } catch {
+      throw problem('STORAGE_CORRUPT', 'Stored reader object failed bounded inflation.', 503);
+    }
+  }
+  return raw;
+}
+
 export class ReaderJobStore {
   constructor({
     directory,
@@ -178,6 +206,14 @@ export class ReaderJobStore {
       for (const dir of ['records', ...OBJECT_KINDS])
         fs.mkdirSync(path.join(this.directory, dir), { recursive: true, mode: 0o700 });
       syncDirectory(this.directory);
+      this.generation = -1;
+      this.usage = null;
+      this.durableExpiry = new Map();
+      this._writing = false;
+      this._inflight = false;
+      this._recountWanted = false;
+      this._timers = [];
+      this._gc = null;
       this._locked(() => {
         const keyFile = path.join(this.directory, 'capability-key');
         if (!fs.existsSync(keyFile))
@@ -185,7 +221,6 @@ export class ReaderJobStore {
         this.key = fs.readFileSync(keyFile);
         if (this.key.length !== 32)
           throw problem('STORAGE_CORRUPT', 'Reader capability key is invalid.', 503);
-        this._reload();
         for (const record of this.records.values()) {
           if (record.state !== 'running') continue;
           this._save(
@@ -204,8 +239,12 @@ export class ReaderJobStore {
             true
           );
         }
-        this._prune();
-        this._collect();
+        this._pruneExpired(Infinity);
+        this._collectAll();
+        // Startup holds the writer lock throughout, so this full scan is a
+        // quiescent one by construction: usage is known before any request.
+        this.usage = this._usage();
+        this._recountWanted = false;
         this._probe();
       });
       this.durable = true;
@@ -252,7 +291,12 @@ export class ReaderJobStore {
     try {
       fs.writeFileSync(fd, JSON.stringify({ pid: process.pid, nonce }));
       fs.fsyncSync(fd);
-      return run();
+      this._enterLock();
+      try {
+        return run();
+      } finally {
+        this._leaveLock();
+      }
     } finally {
       fs.closeSync(fd);
       const owner = JSON.parse(fs.readFileSync(lock, 'utf8'));
@@ -261,6 +305,75 @@ export class ReaderJobStore {
         syncDirectory(this.directory);
       }
     }
+  }
+
+  // ── generation and write intent ────────────────────────────────────────
+  // Every mutation (record writes, object writes, object deletes) happens under
+  // the writer lock and is bracketed: `pending` is written before its first
+  // byte, and `generation` is advanced and `pending` removed after it. Another
+  // instance that finds the generation moved knows its cache is stale; a
+  // `pending` found on taking the lock means the last writer died mid-write.
+  _genFile() {
+    return path.join(this.directory, 'generation');
+  }
+  _pendingFile() {
+    return path.join(this.directory, 'pending');
+  }
+  _readGeneration() {
+    try {
+      const value = JSON.parse(fs.readFileSync(this._genFile(), 'utf8')).generation;
+      if (!Number.isSafeInteger(value) || value < 0) throw new Error('bad generation');
+      return value;
+    } catch (error) {
+      if (error.code === 'ENOENT') return 0;
+      throw problem('STORAGE_CORRUPT', 'Reader store generation marker is invalid.', 503);
+    }
+  }
+  _hasPending() {
+    return fs.existsSync(this._pendingFile());
+  }
+  _enterLock() {
+    this._writing = false;
+    const pending = this._hasPending();
+    const generation = this._readGeneration();
+    if (!pending && generation === this.generation) return;
+    // Another writer committed, or one died mid-write: the cache and the usage
+    // counter can no longer be trusted until a quiescent recount.
+    this._reload();
+    this.generation = generation;
+    this.usage = null;
+    if (pending) this._beginWrite(); // publishes a fresh generation on leave
+    this._scheduleRecount();
+  }
+  _beginWrite() {
+    if (this._writing) return;
+    atomicWrite(
+      this._pendingFile(),
+      Buffer.from(JSON.stringify({ generation: this.generation + 1 })),
+      this.fault,
+      'pending'
+    );
+    this._writing = true;
+  }
+  _leaveLock() {
+    // Only a write that did not finish leaves the counter in doubt. A refusal
+    // thrown after completed writes is not a failure: each delta was applied.
+    if (this._inflight) {
+      this._inflight = false;
+      this.usage = null;
+      this._scheduleRecount();
+    }
+    if (!this._writing) return;
+    this.generation += 1;
+    atomicWrite(
+      this._genFile(),
+      Buffer.from(JSON.stringify({ generation: this.generation })),
+      this.fault,
+      'generation'
+    );
+    fs.unlinkSync(this._pendingFile());
+    syncDirectory(this.directory);
+    this._writing = false;
   }
 
   _reload() {
@@ -286,6 +399,7 @@ export class ReaderJobStore {
       records.set(id, record);
     }
     this.records = records;
+    this.durableExpiry = new Map([...records.values()].map((r) => [r.id, r.expires_at]));
   }
 
   _readFile(file) {
@@ -301,8 +415,23 @@ export class ReaderJobStore {
     return total;
   }
   _capacity(bytes, reserve = true, extraRecords = 0) {
+    if (this.usage === null) {
+      // Usage is unknown until a quiescent recount: allocating or growing
+      // writes fail closed. A reserved state transition that stays inside the
+      // RESERVE_BYTES every record was admitted with is not a new allocation,
+      // so it may proceed; cleanup (deletes, expiry) never reaches here.
+      const growing = bytes > 0 || extraRecords > 0;
+      const withinReservation = !reserve && extraRecords === 0 && bytes <= RESERVE_BYTES;
+      if (growing && !withinReservation)
+        throw problem(
+          'STORE_RECOUNTING',
+          'Reader storage usage is being recounted; retry shortly.',
+          503
+        );
+      return;
+    }
     if (
-      this._usage() + bytes + (reserve ? (this.records.size + extraRecords) * RESERVE_BYTES : 0) >
+      this.usage + bytes + (reserve ? (this.records.size + extraRecords) * RESERVE_BYTES : 0) >
       this.maxBytes
     )
       throw problem(
@@ -319,8 +448,13 @@ export class ReaderJobStore {
     const file = path.join(this.directory, 'records', `${record.id}.json`);
     const previous = fs.existsSync(file) ? fs.statSync(file).size : 0;
     this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1);
+    this._beginWrite();
+    this._inflight = true;
     atomicWrite(file, bytes, this.fault, 'record');
+    if (this.usage !== null) this.usage += bytes.length - previous;
+    this._inflight = false;
     this.records.set(record.id, record);
+    this.durableExpiry.set(record.id, record.expires_at);
     return clone(record);
   }
   _blob(kind, value) {
@@ -328,11 +462,19 @@ export class ReaderJobStore {
     const hash = sha(bytes);
     const file = path.join(this.directory, kind, `${hash}.json`);
     if (fs.existsSync(file)) {
-      if (!this._readFile(file).equals(bytes))
+      if (!decodeStoredObject(this._readFile(file)).equals(bytes))
         throw problem('STORAGE_CORRUPT', 'Immutable object hash collision.', 503);
+      // Re-referenced: refresh its mtime so a collection that began earlier
+      // cannot sweep it (the sweep only deletes objects older than its mark).
+      const now = new Date();
+      fs.utimesSync(file, now, now);
     } else {
       this._capacity(bytes.length);
+      this._beginWrite();
+      this._inflight = true;
       atomicWrite(file, bytes, this.fault, kind);
+      if (this.usage !== null) this.usage += bytes.length;
+      this._inflight = false;
     }
     return { sha256: hash, bytes: bytes.length };
   }
@@ -347,6 +489,7 @@ export class ReaderJobStore {
         throw problem('STORAGE_CORRUPT', 'Committed reader object is missing.', 503);
       throw error;
     }
+    bytes = decodeStoredObject(bytes);
     if (sha(bytes) !== hash)
       throw problem('STORAGE_CORRUPT', 'Immutable reader object failed hash verification.', 503);
     return JSON.parse(bytes);
@@ -362,6 +505,16 @@ export class ReaderJobStore {
       .update(`reader-v1\0${record.id}\0${record.viewer}`)
       .digest('hex');
   }
+  // Trusted, in-process only: the /library/v1 router derives the capability
+  // for a cookie's viewer on every call. It is never serialised anywhere.
+  capabilityFor(id, viewer) {
+    if (!ID.test(id || '') || typeof viewer !== 'string' || !viewer)
+      throw problem('NOT_FOUND', 'Reader job does not exist.', 404);
+    return this._capability({ id, viewer });
+  }
+  _expiredUnswept(record) {
+    return !['expired', 'deleted'].includes(record.state) && record.expires_at <= this.now();
+  }
   _authorized(id, capability, viewer) {
     const record = this._require(id);
     if (
@@ -374,7 +527,8 @@ export class ReaderJobStore {
       )
     )
       throw problem('NOT_FOUND', 'Reader job does not exist.', 404);
-    if (['expired', 'deleted'].includes(record.state))
+    // Expiry binds at read time, whether or not the sweep has run yet.
+    if (['expired', 'deleted'].includes(record.state) || this._expiredUnswept(record))
       throw problem(
         'RESULT_EXPIRED',
         'Reader result expired or was deleted; explicitly create a new analysis with a new key.',
@@ -388,13 +542,37 @@ export class ReaderJobStore {
       true
     );
   }
+  // A read against the cached records, without the writer lock. Only when the
+  // generation moved (another writer) or a write is pending does it take the
+  // lock, which reloads the cache.
+  _cached(run) {
+    if (this.failure)
+      throw problem(
+        'STORAGE_UNAVAILABLE',
+        'Reader persistence failed; committed work is retained.',
+        503
+      );
+    if (this._hasPending() || this._readGeneration() !== this.generation) return this._open(run);
+    return run();
+  }
+  // Slide retention after an authorised read: in memory every time, durably
+  // only when the persisted expiry is more than TOUCH_INTERVAL_MS stale.
+  _refresh(record, authorize) {
+    const now = this.now();
+    const durable = this.durableExpiry.get(record.id) ?? record.expires_at;
+    if (now + this.ttlMs - durable <= TOUCH_INTERVAL_MS) {
+      const live = this.records.get(record.id);
+      if (live) {
+        live.accessed_at = now;
+        live.expires_at = now + this.ttlMs;
+      }
+      return clone(live || record);
+    }
+    return this._open(() => this._touch(authorize()));
+  }
   _open(run) {
     try {
-      return this._locked(() => {
-        this._reload();
-        if (this._prune()) this._collect();
-        return run();
-      });
+      return this._locked(run);
     } catch (error) {
       if (!error.status) {
         this.failure = error.message;
@@ -408,12 +586,14 @@ export class ReaderJobStore {
     }
   }
   _outstanding(viewer) {
-    return [...this.records.values()].filter((r) => r.viewer === viewer && OUTSTANDING.has(r.state))
-      .length;
+    return [...this.records.values()].filter(
+      (r) => r.viewer === viewer && OUTSTANDING.has(r.state) && !this._expiredUnswept(r)
+    ).length;
   }
   _queueRoom() {
     if (
-      [...this.records.values()].filter((r) => r.state === 'queued').length >= READER_LIMITS.waiting
+      [...this.records.values()].filter((r) => r.state === 'queued' && !this._expiredUnswept(r))
+        .length >= READER_LIMITS.waiting
     )
       throw problem(
         'QUEUE_FULL',
@@ -447,7 +627,7 @@ export class ReaderJobStore {
             'IDEMPOTENCY_CONFLICT',
             'Idempotency key already belongs to changed input.'
           );
-        if (['expired', 'deleted'].includes(prior.state))
+        if (['expired', 'deleted'].includes(prior.state) || this._expiredUnswept(prior))
           throw problem(
             'RESULT_EXPIRED',
             'This analysis expired or was deleted; a new analysis needs a new key.',
@@ -575,17 +755,19 @@ export class ReaderJobStore {
     return record;
   }
   _quotaPause(record, error) {
-    if (error.code !== 'RESOURCE_LIMIT' || error.status !== 507) throw error;
+    const recounting = error.code === 'STORE_RECOUNTING' && error.status === 503;
+    if (!recounting && (error.code !== 'RESOURCE_LIMIT' || error.status !== 507)) throw error;
     // The cursor is unchanged. Reserved metadata space makes this pause durable.
+    // A recount pause returns to the queue by itself once a slot opens.
     return this._save(
       {
         ...record,
         state: record.cancel_requested ? 'cancelled' : 'paused',
         cancel_requested: false,
-        deferred_requeue: false,
+        deferred_requeue: recounting && !record.cancel_requested,
         fence: null,
         lease_expires_at: null,
-        reason: { code: 'RESOURCE_LIMIT', message: error.message },
+        reason: { code: error.code, message: error.message },
       },
       true
     );
@@ -1003,10 +1185,11 @@ export class ReaderJobStore {
     });
   }
   get(id, capability, viewer) {
-    return this._open(() => this._touch(this._authorized(id, capability, viewer)));
+    const authorize = () => this._authorized(id, capability, viewer);
+    return this._refresh(this._cached(authorize), authorize);
   }
   inspect(id) {
-    return this._open(() => clone(this._require(id)));
+    return this._cached(() => clone(this._require(id)));
   }
   listQueued() {
     return this._open(() => {
@@ -1036,12 +1219,13 @@ export class ReaderJobStore {
     throw problem('NOT_FOUND', 'Manifest is not a committed generation of this reader job.', 404);
   }
   readManifest(id, capability, viewer, manifestHash = null) {
-    return this._open(() => {
-      const record = this._authorized(id, capability, viewer);
-      const manifest = this._committedManifest(record, manifestHash);
-      this._touch(record);
-      return clone(manifest);
+    const authorize = () => this._authorized(id, capability, viewer);
+    const { record, manifest } = this._cached(() => {
+      const record = authorize();
+      return { record, manifest: this._committedManifest(record, manifestHash) };
     });
+    this._refresh(record, authorize);
+    return clone(manifest);
   }
   readManifestPage(id, capability, viewer, manifestHash = null, { offset = 0, limit = 100 } = {}) {
     if (
@@ -1056,8 +1240,9 @@ export class ReaderJobStore {
         'Manifest pagination requires nonnegative offset and limit 1–250.',
         400
       );
-    return this._open(() => {
-      const record = this._authorized(id, capability, viewer);
+    const authorize = () => this._authorized(id, capability, viewer);
+    const { record, result } = this._cached(() => {
+      const record = authorize();
       const hash = manifestHash || record.manifest_hash;
       const manifest = this._committedManifest(record, hash);
       const refs = [];
@@ -1067,19 +1252,24 @@ export class ReaderJobStore {
         at++;
         if (refs.length === limit) break;
       }
-      this._touch(record);
       return {
-        manifest_hash: hash,
-        page_refs: refs,
-        total: manifest.page_count,
-        offset,
-        next_offset: offset + refs.length < manifest.page_count ? offset + refs.length : null,
+        record,
+        result: {
+          manifest_hash: hash,
+          page_refs: refs,
+          total: manifest.page_count,
+          offset,
+          next_offset: offset + refs.length < manifest.page_count ? offset + refs.length : null,
+        },
       };
     });
+    this._refresh(record, authorize);
+    return result;
   }
   readPage(id, pageSha, capability, viewer, manifestHash = null) {
-    return this._open(() => {
-      const record = this._authorized(id, capability, viewer);
+    const authorize = () => this._authorized(id, capability, viewer);
+    const { record, page } = this._cached(() => {
+      const record = authorize();
       const manifest = this._committedManifest(record, manifestHash);
       let member = false;
       for (const ref of this._refs(manifest.page_index_hash))
@@ -1093,13 +1283,13 @@ export class ReaderJobStore {
           'Evidence page is not part of the requested committed manifest.',
           404
         );
-      const page = this._object('pages', pageSha);
-      this._touch(record);
-      return clone(page);
+      return { record, page: this._object('pages', pageSha) };
     });
+    this._refresh(record, authorize);
+    return clone(page);
   }
   workerPayload(id) {
-    return this._open(() => {
+    return this._cached(() => {
       const record = this._require(id);
       if (['expired', 'deleted'].includes(record.state))
         throw problem('RESULT_EXPIRED', 'Reader work expired.', 410);
@@ -1167,50 +1357,62 @@ export class ReaderJobStore {
       const control = this._control(record, 'delete', options, { id });
       if (control.replay) return clone(record);
       this._expected(record, options);
-      const result = this._tombstone(control.record, 'deleted');
-      this._collect();
-      return result;
+      // The deleted job's objects become garbage; maintenance reclaims them.
+      return this._tombstone(control.record, 'deleted');
     });
   }
-  _prune() {
-    let changed = false;
-    for (const record of this.records.values()) {
+  // ── maintenance: expiry, collection, usage verification ─────────────────
+  // None of it runs on a request. A timer (startMaintenance) runs one bounded
+  // slice at a time; prune() runs everything to completion for operators and
+  // tests. Expiry still binds at read time (_authorized), so correctness never
+  // depends on a sweep having run.
+  _pruneExpired(limit) {
+    let changed = 0;
+    for (const record of [...this.records.values()]) {
+      if (changed >= limit) break;
       if (['expired', 'deleted'].includes(record.state) || record.expires_at > this.now()) continue;
       this._tombstone(record, 'expired');
-      changed = true;
+      changed++;
     }
     return changed;
   }
-  prune() {
-    return this._open(() => {
-      this._collect();
-      return { bytes: this._usage() };
-    });
-  }
-  _collect() {
-    const live = Object.fromEntries(OBJECT_KINDS.map((kind) => [kind, new Set()]));
+  _markRecord(record, live, budget) {
     const visitIndex = (root) => {
       for (let cursor = root; cursor && !live.indexes.has(cursor); ) {
         live.indexes.add(cursor);
         const node = this._object('indexes', cursor);
+        budget.objects++;
         for (const ref of node.page_refs) live.pages.add(ref.sha256);
         cursor = node.previous_hash;
       }
     };
-    for (const record of this.records.values()) {
-      for (let cursor = record.checkpoint_hash; cursor && !live.checkpoints.has(cursor); ) {
-        live.checkpoints.add(cursor);
-        const checkpoint = this._object('checkpoints', cursor);
-        live.manifests.add(checkpoint.manifest_hash);
-        visitIndex(checkpoint.page_index_hash);
-        cursor = checkpoint.previous_hash;
-      }
+    for (let cursor = record.checkpoint_hash; cursor && !live.checkpoints.has(cursor); ) {
+      live.checkpoints.add(cursor);
+      const checkpoint = this._object('checkpoints', cursor);
+      budget.objects++;
+      live.manifests.add(checkpoint.manifest_hash);
+      visitIndex(checkpoint.page_index_hash);
+      cursor = checkpoint.previous_hash;
     }
+  }
+  _unlinkCounted(file) {
+    const size = fs.statSync(file).size;
+    this._beginWrite();
+    this._inflight = true;
+    fs.unlinkSync(file);
+    if (this.usage !== null) this.usage -= size;
+    this._inflight = false;
+  }
+  // Under the lock, all at once: startup and prune() only.
+  _collectAll() {
+    const live = Object.fromEntries(OBJECT_KINDS.map((kind) => [kind, new Set()]));
+    const budget = { objects: 0 };
+    for (const record of this.records.values()) this._markRecord(record, live, budget);
     for (const kind of OBJECT_KINDS) {
       let removed = false;
       for (const file of fs.readdirSync(path.join(this.directory, kind))) {
         if (!file.endsWith('.json') || !live[kind].has(file.slice(0, -5))) {
-          fs.unlinkSync(path.join(this.directory, kind, file));
+          this._unlinkCounted(path.join(this.directory, kind, file));
           removed = true;
         }
       }
@@ -1220,10 +1422,160 @@ export class ReaderJobStore {
     const recordsDir = path.join(this.directory, 'records');
     for (const file of fs.readdirSync(recordsDir))
       if (file.endsWith('.tmp')) {
-        fs.unlinkSync(path.join(recordsDir, file));
+        this._unlinkCounted(path.join(recordsDir, file));
         removedTemporary = true;
       }
     if (removedTemporary) syncDirectory(recordsDir);
+  }
+  prune() {
+    return this._open(() => {
+      this._pruneExpired(Infinity);
+      this._collectAll();
+      this._gc = null;
+      return { bytes: this.usage };
+    });
+  }
+  // One bounded slice. Collection is mark-then-sweep across slices: the mark
+  // reads the cached records without the lock, and the sweep deletes only
+  // objects that are unmarked AND older than the mark's start, so anything
+  // written or re-referenced since (its mtime is refreshed) is never swept.
+  maintain(bounds = MAINTENANCE_BOUNDS) {
+    const started = Date.now();
+    const budget = { objects: 0, bytes: 0 };
+    const spent = () =>
+      budget.objects >= bounds.objects ||
+      budget.bytes >= bounds.bytes ||
+      Date.now() - started >= bounds.ms;
+    const expired = this._open(() => this._pruneExpired(bounds.records));
+    if (!this._gc) {
+      this._gc = {
+        phase: 'mark',
+        startedAt: Date.now() - 1000,
+        ids: [...this.records.keys()],
+        at: 0,
+        live: Object.fromEntries(OBJECT_KINDS.map((kind) => [kind, new Set()])),
+        queue: null,
+      };
+    }
+    const gc = this._gc;
+    let marked = 0;
+    while (gc.phase === 'mark' && !spent() && marked < bounds.records) {
+      if (gc.at >= gc.ids.length) {
+        gc.phase = 'sweep';
+        break;
+      }
+      const record = this.records.get(gc.ids[gc.at++]);
+      if (record) this._markRecord(record, gc.live, budget);
+      marked++;
+    }
+    let swept = 0;
+    if (gc.phase === 'sweep' && !spent()) {
+      if (!gc.queue) {
+        gc.queue = [];
+        for (const kind of OBJECT_KINDS)
+          for (const file of fs.readdirSync(path.join(this.directory, kind)))
+            gc.queue.push([kind, file]);
+        for (const file of fs.readdirSync(path.join(this.directory, 'records')))
+          if (file.endsWith('.tmp')) gc.queue.push(['records', file]);
+      }
+      this._open(() => {
+        while (gc.queue.length && swept < bounds.objects && Date.now() - started < bounds.ms) {
+          const [kind, file] = gc.queue.pop();
+          const full = path.join(this.directory, kind, file);
+          let stat;
+          try {
+            stat = fs.statSync(full);
+          } catch {
+            continue;
+          }
+          const unreferenced =
+            kind === 'records' || !file.endsWith('.json') || !gc.live[kind].has(file.slice(0, -5));
+          if (unreferenced && stat.mtimeMs < gc.startedAt) {
+            this._unlinkCounted(full);
+            swept++;
+          }
+        }
+      });
+      if (!gc.queue.length) this._gc = null;
+    }
+    return { expired, marked, swept, phase: this._gc ? this._gc.phase : 'idle' };
+  }
+  // A quiescent recount: the scan runs in small slices off the request path
+  // and is accepted only if no mutation or pending write happened across it,
+  // checked and published under the writer lock. There is no delta journal.
+  async recount({ attempts = 3, slice = 200 } = {}) {
+    const yieldNow = () => new Promise((resolve) => setImmediate(resolve));
+    for (let attempt = 0; attempt < attempts; attempt++) {
+      if (this._hasPending()) {
+        await new Promise((resolve) => setTimeout(resolve, 100));
+        continue;
+      }
+      const g0 = this._readGeneration();
+      let total = fs.statSync(path.join(this.directory, 'capability-key')).size;
+      let n = 0;
+      for (const dir of ['records', ...OBJECT_KINDS])
+        for (const name of fs.readdirSync(path.join(this.directory, dir))) {
+          try {
+            total += fs.statSync(path.join(this.directory, dir, name)).size;
+          } catch {
+            // vanished mid-scan: the generation check below will discard this pass
+          }
+          if (++n % slice === 0) await yieldNow();
+        }
+      const accepted = this._locked(() => {
+        if (this._hasPending() || this._readGeneration() !== g0 || this._writing) return false;
+        if (this.usage !== null && this.usage !== total)
+          console.warn(
+            JSON.stringify({ event: 'READER_USAGE_DRIFT', counter: this.usage, scan: total })
+          );
+        this.usage = total;
+        this.generation = g0;
+        this._recountWanted = false;
+        return true;
+      });
+      if (accepted) return true;
+    }
+    this._scheduleRecount(1000);
+    return false;
+  }
+  _scheduleRecount(delayMs = 0) {
+    this._recountWanted = true;
+    if (!this._timers.length) return; // tests and tools call recount() themselves
+    const timer = setTimeout(() => {
+      this.recount().catch((error) => {
+        this.failure = error.message;
+      });
+    }, delayMs);
+    timer.unref?.();
+  }
+  startMaintenance({ intervalMs = 60_000, verifyMs = 15 * 60_000 } = {}) {
+    if (this._timers.length) return;
+    const run = (fn) => () => {
+      try {
+        const out = fn();
+        if (out && typeof out.catch === 'function') out.catch(() => {});
+      } catch {
+        // a failed slice is retried on the next tick; persistence failures mark this.failure
+      }
+    };
+    this._timers.push(
+      setInterval(
+        run(() => this.maintain()),
+        intervalMs
+      )
+    );
+    this._timers.push(
+      setInterval(
+        run(() => this.recount()),
+        verifyMs
+      )
+    );
+    for (const timer of this._timers) timer.unref?.();
+    if (this._recountWanted) this._scheduleRecount();
+  }
+  stopMaintenance() {
+    for (const timer of this._timers) clearInterval(timer);
+    this._timers = [];
   }
   _probe() {
     const file = path.join(this.directory, 'readiness-probe');
@@ -1240,7 +1592,8 @@ export class ReaderJobStore {
       return {
         durable: true,
         namespace: 'reader-jobs-v1',
-        bytes: this._usage(),
+        bytes: this.usage,
+        usage_known: this.usage !== null,
         max_bytes: this.maxBytes,
         lease_ms: this.leaseMs,
         retention_ms: this.ttlMs,
