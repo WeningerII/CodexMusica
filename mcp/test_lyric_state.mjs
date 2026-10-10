@@ -506,6 +506,23 @@ try {
       assert.equal(badBasis.isError, true);
       assert.match(message(badBasis), /LEXICON_SUPPLEMENT_UNAVAILABLE: the run was graded under/);
       assert.equal(calls, 2, 'a basis refusal makes no provider request');
+      // A checkpoint whose declarations lack the field reads as `none`, so an
+      // explicit `none` is not a moved declaration (3PO's review of #529).
+      // This one was journaled under v1, so the harness's own checkpoint key
+      // (its argv) still refuses to replay it under none, before any request.
+      const unlabelled = decodeState(first.checkpoint);
+      delete unlabelled.connector_declarations.lexicon_supplement;
+      delete unlabelled.connector_declarations.lexicon_supplement_sha256;
+      const restatedNone = await a.callTool({
+        name: 'lyric_revise',
+        arguments: { checkpoint: encodeState(unlabelled), lexicon_supplement: 'none' },
+      });
+      assert.doesNotMatch(message(restatedNone), /declarations moved/);
+      assert.match(
+        message(restatedNone),
+        /checkpoint cannot resume|declaration, proposer or version differs/
+      );
+      assert.equal(calls, 2, 'a v1 journal is not replayed under none');
       console.log(
         'lyric state: real kitchen accepted draft, parked carry, thinking usage and checkpoint replay passed (localhost model only)'
       );
