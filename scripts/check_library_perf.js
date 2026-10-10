@@ -271,7 +271,10 @@ async function runOnce(browser, side, profileName, milestoneNames) {
     };
     await page.addInitScript({ content: detectorSource(spec) });
     if (side.server) side.server.reset();
-    await page.goto(side.target, { waitUntil: 'commit', timeout: MILESTONE_TIMEOUT_MS });
+    const response = await page.goto(side.target, {
+      waitUntil: 'commit',
+      timeout: MILESTONE_TIMEOUT_MS,
+    });
     const deadline = Date.now() + MILESTONE_TIMEOUT_MS;
     let state = null;
     for (;;) {
@@ -284,6 +287,32 @@ async function runOnce(browser, side, profileName, milestoneNames) {
     const dom = await page
       .evaluate(() => document.getElementsByTagName('*').length)
       .catch(() => null);
+    // A missed milestone says what the page showed instead, so a wrong
+    // selector, a consent wall or a bot check is visible in the log.
+    if (milestoneNames.some((n) => !state || state.milestones[n] == null)) {
+      const shown = await page
+        .evaluate((spec) => {
+          const seen = (sel) => {
+            const el = document.querySelector(sel);
+            if (!el) return 'absent';
+            const r = el.getBoundingClientRect();
+            return r.width && r.height ? 'painted' : 'unpainted';
+          };
+          return {
+            url: window.location.href,
+            title: document.title,
+            busy: spec.busy ? seen(spec.busy) : null,
+            selectors: Object.fromEntries(
+              Object.values(spec.milestones).flatMap((m) => m.selectors.map((s) => [s, seen(s)]))
+            ),
+            text: (document.body ? document.body.innerText : '').replace(/\s+/g, ' ').slice(0, 300),
+          };
+        }, spec)
+        .catch((error) => ({ error: error.message }));
+      console.log(
+        `MISS ${side.name} ${profileName} ${JSON.stringify({ status: response ? response.status() : null, ...shown })}`
+      );
+    }
     const result = { milestones: {}, probes: {}, bytes: {}, requests: {}, opaque: {}, dom };
     for (const n of milestoneNames) {
       result.milestones[n] = state && state.milestones[n] != null ? state.milestones[n] : null;
