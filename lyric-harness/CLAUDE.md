@@ -20,16 +20,16 @@ House rules: never abbreviate project names (Codex Musica, Pantheon Registry, De
 
 New song: `lyric_sweep` (pick a seed) → `lyric_screen` (test rhyme words) → `lyric_plan` (song shape and rhyme plan) → write the draft → `lyric_grade` → `lyric_revise` (asks for replacement lines until it stops). Pasted lyrics: `lyric_recover` → `lyric_check` → `lyric_revise` → `lyric_verify`.
 
-Slowest call per tool on the 16-line reference song (2026-10-04, limit 600s per call): `lyric_sweep` 1s, `lyric_screen` 29s, `lyric_plan` 1s, `lyric_grade` 11s, `lyric_revise` 23s, `lyric_recover` 5s, `lyric_check` 27s, `lyric_verify` 7s, `lyric_types` 1s.
+Slowest call per tool on the 16-line reference song (2026-10-10, limit 600s per call): `lyric_sweep` 1s, `lyric_screen` 19s, `lyric_plan` 0s, `lyric_grade` 9s, `lyric_revise` 14s, `lyric_recover` 3s, `lyric_check` 23s, `lyric_verify` 5s, `lyric_types` 2s.
 
 ## Map sections (read only what the task needs)
 
 | section | what it answers | tokens |
 |---|---|---:|
-| `map/song-path.md` | which functions run for each tool, and where the time goes | 3.2k |
+| `map/song-path.md` | which functions run for each tool, and where the time goes | 3.5k |
 | `map/rules.md` | every finding code, its severity, and whether it can stop a song | 1.1k |
 | `map/limits.md` | every numeric cap, budget and time limit, with its file | 1.4k |
-| `map/files.md` | which files the song program uses, which it never loads, sizes | 2.6k |
+| `map/files.md` | which files the song program uses, which it never loads, sizes | 3k |
 | `map/timings.md` | seconds per tool call on the reference song | <1k |
 
 ## Reading code without filling the context
@@ -51,7 +51,7 @@ Slowest call per tool on the 16-line reference song (2026-10-04, limit 600s per 
   - The doctrine index — every number, and where it lives (3k)
 - `MISSING.md` (630k): the defect register, entries `M-<n>`. Grep for the entry number.
 - `BACKLOG.md` (50k): open work, by tier.
-- `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 46 data files and 0 under `corpus/` (`map/files.md` lists them).
+- `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 70 data files and 0 under `corpus/` (`map/files.md` lists them).
 
 ## Keeping this map true
 
