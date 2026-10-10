@@ -125,6 +125,10 @@ lyric-harness/map/*.json
 # Independent Sites package: preserve the reviewed source and its locked inputs.
 /sites/library/
 
+# A byte-identical copy of sites/library/lib/unicode-casefold.json (the Worker's
+# fold table), compared by sha256 in mcp/test_library_search.mjs until PR 7.
+mcp/library_casefold.json
+
 # Third batch preserves adapter-generated evidence bytes.
 /lyric-harness/imports/gutenberg-third-ten/*/candidates.json
 /lyric-harness/imports/gutenberg-third-ten/*/boundaries.json

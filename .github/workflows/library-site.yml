@@ -5,12 +5,20 @@ on:
     paths:
       - 'sites/library/**'
       - 'tests/library/goldens/**'
+      - 'lyric-harness/library/search_store.py'
+      - 'mcp/library_search.js'
+      - 'mcp/library_casefold.json'
+      - 'mcp/test_library_search_parity.mjs'
       - '.github/workflows/library-site.yml'
   push:
     branches: ['**']
     paths:
       - 'sites/library/**'
       - 'tests/library/goldens/**'
+      - 'lyric-harness/library/search_store.py'
+      - 'mcp/library_search.js'
+      - 'mcp/library_casefold.json'
+      - 'mcp/test_library_search_parity.mjs'
       - '.github/workflows/library-site.yml'
   workflow_dispatch: {}
 
@@ -220,3 +228,11 @@ jobs:
             fi
           done
           echo "Every golden reproduces byte for byte."
+      # The native search (/library/v1/search and /metadata/:id) answers from a
+      # store built from this same export. Every search and metadata golden
+      # must come back byte-identical.
+      - name: Native search store reproduces every search and metadata golden
+        working-directory: lyric-harness
+        run: |
+          python3 -m library.search_store "$RUNNER_TEMP/library-golden-export" "$RUNNER_TEMP/library-search"
+          node ../mcp/test_library_search_parity.mjs "$RUNNER_TEMP/library-search"

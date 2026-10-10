@@ -66,6 +66,8 @@ Connector:
 | PROGRESS_BYTES | 2,097,152 (2,048 KB) | `../mcp/job_store.js` |
 | RESPONSE_BYTES | 9,437,184 (9,216 KB) | `../mcp/job_store.js` |
 | DEFAULT_MAX_BYTES | 268,435,456 (262,144 KB) | `../mcp/job_store.js` |
+| PAGE_BYTES | 2,097,152 (2,048 KB) | `../mcp/library_search.js` |
+| SEARCH_LIMIT | 100 | `../mcp/library_search.js` |
 | MAX_WORDS | 12 | `../mcp/lyric_tools.js` |
 | MAX_WORD_CHARS | 40 | `../mcp/lyric_tools.js` |
 | MAX_LINES | 463 | `../mcp/lyric_tools.js` |
