@@ -9118,6 +9118,19 @@ def main():
     if voices:
         args = [a for a in args if a != "--voices"]
 
+    # --lexicon-supplement is a GLOBAL, bare-presence reading coordinate, the
+    # same shape as --voices and for the same reason: the lexicon is built
+    # once, here. It adds the reviewed rows of data/lexicon_supplement.tsv
+    # (quality/lexicon_supplement.py names what they are and what they never
+    # touch). Omitted, `Lexicon` is built exactly as before and that file is
+    # never opened.
+    supplement = _bare_flag_or_refuse(
+        args, "--lexicon-supplement",
+        "that the reviewed lexicon supplement (data/lexicon_supplement.tsv) "
+        "is read beside CMUdict")
+    if supplement:
+        args = [a for a in args if a != "--lexicon-supplement"]
+
     if not args or args[0] in ("-h", "--help"):
         print(__doc__)
         print(USAGE)
@@ -9128,7 +9141,12 @@ def main():
     args = [a for a in args if not a.startswith("--pronunciations=")]
     try:
         choices = json.loads(pronunciation_json) if pronunciation_json is not None else []
-        lex = Lexicon(fallback=fallback, strip_parens=not voices, pronunciations=choices)
+        if supplement:
+            from quality.lexicon_supplement import SupplementedLexicon
+            lex = SupplementedLexicon(fallback=fallback, strip_parens=not voices,
+                                      pronunciations=choices)
+        else:
+            lex = Lexicon(fallback=fallback, strip_parens=not voices, pronunciations=choices)
     except (ValueError, TypeError) as e:
         _refuse(f"invalid pronunciation declaration: {e}")
 
@@ -9141,6 +9159,8 @@ def main():
 
     if cmd == "declaration":
         print(decl.show())
+        if hasattr(lex, "declaration_line"):
+            print(lex.declaration_line())
 
     elif cmd == "score":
         rest = " ".join(args[1:])

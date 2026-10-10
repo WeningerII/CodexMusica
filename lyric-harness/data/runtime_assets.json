@@ -187,6 +187,7 @@
         "data/eng_elision.tsv",
         "data/g2p_letter_rules.tsv",
         "data/kalevala_alliteration_pairs.tsv",
+        "data/lexicon_supplement.tsv",
         "data/ltc_rhyme_standards.tsv",
         "data/opensubtitles_en_50k.tsv",
         "data/qieyun_mc.tsv",
@@ -215,6 +216,11 @@
           "path": "data/g2p_letter_rules.tsv",
           "bytes": 364475,
           "sha256": "1fa694d4831ba076b5a5d6e8ed60ebb015f20d50dab9b05a7b058b026d6bef40"
+        },
+        {
+          "path": "data/lexicon_supplement.tsv",
+          "bytes": 53393,
+          "sha256": "452d7aae056ed67f6bff94b76bf6f5df66516ce9e1c95d31796d45a8a92957f7"
         },
         {
           "path": "data/ltc_rhyme_standards.tsv",
@@ -258,8 +264,8 @@
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1659041,
-          "sha256": "b44d54aadc5b5bf7a2568d60c7dee93e05dd4744a129416618672fda90685d0f"
+          "bytes": 1660506,
+          "sha256": "c6e91913baa14127d9722acb7759f7e02837668979068656abe11c48937b526d"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",

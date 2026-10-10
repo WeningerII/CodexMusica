@@ -4800,7 +4800,10 @@ class Reviser:
                   None if fb is None else (type(fb).__name__,
                                            getattr(fb, "min_confidence", None)),
                   str(_cmudict_path),
-                  fingerprint(getattr(lex, "pronunciations", ())))
+                  fingerprint(getattr(lex, "pronunciations", ())),
+                  # A SupplementedLexicon reads one more file; its digest is a
+                  # coordinate of every reading (quality/lexicon_supplement.py).
+                  getattr(lex, "supplement_sha256", None))
             return (dt, lk)
         except Exception:
             return None

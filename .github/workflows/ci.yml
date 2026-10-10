@@ -2702,7 +2702,7 @@ jobs:
       #   definition refuses, and section 1 grades those dropped words through the exact judge
       #   for every declarable name on both routes, section 2 proving the check catches an index
       #   that drops too much; label 102 to 103
-      - name: The 103 cheap suites (their history is the comment above)
+      - name: The 104 cheap suites (their history is the comment above)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2797,7 +2797,7 @@ jobs:
                    controls data_row_claims english_text stub_resolution melody meter tempo verify_figures expected_drift \
                    songs ban_convergence cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
-                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon song_shape backlog_status source_identity figure_exhibits relation_index; do
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon song_shape backlog_status source_identity figure_exhibits relation_index lexicon_supplement; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured

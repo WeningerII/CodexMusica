@@ -290,6 +290,15 @@ def _lexicon_identity(lex):
         except OSError as error:
             raise Unspellable(f"{os.path.basename(path)} cannot be read: "
                               f"{error.strerror or error}")
+    # THE REVIEWED SUPPLEMENT, when the lexicon reads one: a third resource
+    # (quality/lexicon_supplement.py). Absent, the key is exactly as before.
+    supplement = getattr(lex, "supplement_path", None)
+    if supplement:
+        try:
+            resources[os.path.basename(supplement)] = _digest_content(supplement)
+        except OSError as error:
+            raise Unspellable(f"{os.path.basename(supplement)} cannot be read: "
+                              f"{error.strerror or error}")
     identity["resources"] = resources
     return identity
 
