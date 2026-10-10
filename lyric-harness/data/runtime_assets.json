@@ -188,6 +188,7 @@
         "data/g2p_letter_rules.tsv",
         "data/kalevala_alliteration_pairs.tsv",
         "data/lexicon_supplement.tsv",
+        "data/lexicon_supplement_v2.tsv",
         "data/lexicon_supplement_versions.json",
         "data/ltc_rhyme_standards.tsv",
         "data/opensubtitles_en_50k.tsv",
@@ -224,9 +225,14 @@
           "sha256": "452d7aae056ed67f6bff94b76bf6f5df66516ce9e1c95d31796d45a8a92957f7"
         },
         {
+          "path": "data/lexicon_supplement_v2.tsv",
+          "bytes": 54108,
+          "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+        },
+        {
           "path": "data/lexicon_supplement_versions.json",
-          "bytes": 764,
-          "sha256": "e622f13be767c00c51d083d0db12872d35bfddab157fdf13804c474f46c95aec"
+          "bytes": 1104,
+          "sha256": "421914ffc3c8a143967e5b8c6036710923649ecd0df46d2aef30075fca54ba9c"
         },
         {
           "path": "data/ltc_rhyme_standards.tsv",

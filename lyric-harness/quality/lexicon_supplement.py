@@ -71,6 +71,16 @@ COLUMNS = ("word", "phones", "source", "basis", "review")
 #: Where a row may come from. A new source is a new key here, with its licence
 #: and its row in data/sources.tsv; a row naming anything else is refused.
 SOURCES = {
+    "moby:3205:attested": (
+        "Moby Pronunciator II, mpron.txt; public-domain grant by Grady Ward, "
+        "January 2001, in https://www.gutenberg.org/files/3205/3205.txt. "
+        "Direct attestation converted using its phone/stress legend; the "
+        "bundled old CMUdict is excluded. See data/sources.tsv."),
+    "reviewed:moby-3205:plural": (
+        "Finite reviewed plural of the Moby-attested streetlight, supported "
+        "by its light/lights pair; not a direct streetlights attestation "
+        "and not a productive rule. Same public-domain source grant; "
+        "data/sources.tsv states the derivation and source lines."),
     "rule:number-compound": (
         "CMUdict's own readings of the parts, joined the way CMUdict's attested "
         "compounds join them (see number_rows)"),
