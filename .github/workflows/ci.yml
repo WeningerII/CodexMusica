@@ -561,6 +561,13 @@ jobs:
       - name: Docs drift + documented-command validity
         run: npm run check-docs
 
+      # The native Library tab may not lose a work the old Site made readable.
+      # Every committed per-unit baseline (tests/library/units-*.tsv.gz, pinned
+      # by sha256) is classified id by id against the newest one; a later
+      # library-data job passes the fresh build's manifest as --current.
+      - name: Library readable works never regress (id by id)
+        run: npm run check:library-regression
+
       # Proves the scope decision above. Traces a real build of all three
       # artifacts and fails if anything it reads is classified inert — i.e. if
       # the step above could ever skip a rebuild that was needed. Runs on every

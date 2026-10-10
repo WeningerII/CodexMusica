@@ -93,6 +93,7 @@
 //   input outside closure -> check_build_closure.js  (CI would skip a rebuild it needed)
 //   false cultural claim  -> check_signature_tokens.js (a pair ruled false is back in the table)
 //   unruled cultural pair -> check_signature_tokens.js (a cultural token lands with no verdict)
+//   library work lost   -> check_library_regression.js (a later build drops a unit the old Site made readable)
 //   restated ceiling    -> check_chat_counter.js    (ask-bar counter names a bound the field no longer enforces)
 //   theme after paint   -> check_ui_foundation.js   (the stored theme lands only once the page has painted)
 //   map loses recipe    -> check_ui_foundation.js   (the Map view hides Your recipe again)
@@ -2796,6 +2797,37 @@ if (want('38', 'toast-action-lingers')) {
     'toast-action-lingers -> check_ui_foundation.js',
     gate(d, ['scripts/check_ui_foundation.js']),
     /Undo of a faded toast still takes a click/
+  );
+}
+// 39. THE LIBRARY LOSES A WORK -> check_library_regression.js. The native
+//     Library tab must keep every work the old Site made readable. Plant the
+//     regression the gate exists for: a later build whose manifest no longer
+//     lists one 5226-readable unit. The committed baselines stay pinned; the
+//     defect arrives the way a real one would, as the build under test.
+if (want('39', 'library-readable-regression')) {
+  const d = mkenv(['scripts', 'tests/library']);
+  const zlib = require('zlib');
+  const base = zlib
+    .gunzipSync(fs.readFileSync(path.join(d, 'tests/library/units-317c5afa.tsv.gz')))
+    .toString('utf8');
+  const lines = base.split('\n');
+  const old = new Set(
+    zlib
+      .gunzipSync(fs.readFileSync(path.join(d, 'tests/library/units-5226b4fb.tsv.gz')))
+      .toString('utf8')
+      .split('\n')
+      .filter((l) => l.includes('\treadable\t'))
+      .map((l) => l.split('\t')[0])
+  );
+  const victim = lines.findIndex((l) => old.has(l.split('\t')[0]));
+  if (victim < 0) throw new Error('faults: no 5226-readable unit found in the 317c manifest');
+  lines.splice(victim, 1);
+  const out = lines.join('\n').replace(/^# units: (\d+)$/m, (_, n) => `# units: ${Number(n) - 1}`);
+  fs.writeFileSync(path.join(d, 'planted.tsv.gz'), zlib.gzipSync(out));
+  record(
+    'library-readable-regression -> check_library_regression.js',
+    gate(d, ['scripts/check_library_regression.js', '--current=planted.tsv.gz']),
+    /missing: reading_.* is absent and not id-mapped/
   );
 }
 
