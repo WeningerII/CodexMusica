@@ -568,6 +568,11 @@ jobs:
       - name: Library readable works never regress (id by id)
         run: npm run check:library-regression
 
+      # Pages serves main verbatim and refuses a site over 1 GB; git refuses a
+      # file of 100 MB or more. The Library's static data must leave headroom.
+      - name: Served tree inside GitHub Pages limits
+        run: node scripts/check_pages_size.js
+
       # Proves the scope decision above. Traces a real build of all three
       # artifacts and fails if anything it reads is classified inert — i.e. if
       # the step above could ever skip a rebuild that was needed. Runs on every

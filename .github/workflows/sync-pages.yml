@@ -199,3 +199,18 @@ jobs:
           # outcome we want. Never force onto the production branch: the guard
           # closes the wide window, and non-fast-forward closes the narrow one.
           git push origin main
+
+      # Records how Pages serves a .json.gz file (library/probe/probe.json.gz),
+      # which the native Library tab's static data depends on and nothing can
+      # check offline. It records into the job log and never blocks publishing.
+      # The first deploy that adds the probe may still be propagating, so it
+      # retries for up to ten minutes.
+      - name: Record Pages .json.gz serving (Library probe, non-blocking)
+        if: always()
+        continue-on-error: true
+        run: |
+          for i in $(seq 1 20); do
+            if node scripts/probe_pages_gzip.js; then exit 0; fi
+            sleep 30
+          done
+          echo "Pages probe did not answer with the payload within ten minutes (recorded, not blocking)."
