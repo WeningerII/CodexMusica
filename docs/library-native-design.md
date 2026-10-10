@@ -1,4 +1,4 @@
-# Native Library tab: design for review (revision 1)
+# Native Library tab: design for review (revision 2)
 
 **Status: proposed, not implemented.** This is a review draft for R2 and 3PO. Nothing in it is approved. After R2 and 3PO agree, it goes to John, who makes the decisions listed under "Owner decisions". No implementation starts before then.
 
@@ -15,7 +15,7 @@
 4. The designs were synthesized into one, built on the performance-first design with the best parts of the other two.
 5. Two red-team reviewers checked the synthesis against the code at `031b7de` and against a locally built copy of snapshot 317c.
 
-The red team found 12 blocking defects and no architectural flaw. Revision 1 below resolves each of them. **Where Revision 1 conflicts with the base design further down, Revision 1 wins.** The base design is kept verbatim from the synthesis so reviewers can trace every change.
+The red team found 12 blocking defects and no architectural flaw. Revision 1 below resolves each of them. **Revision 2 (3PO's verdict) overrides Revision 1, which overrides the base design further down.** The base design is kept verbatim from the synthesis so reviewers can trace every change.
 
 **Planned files:** new tool names written without a directory (for example `check_library_data.js`) are planned files under `scripts/` that do not exist yet.
 
@@ -43,6 +43,247 @@ The red team found 12 blocking defects and no architectural flaw. Revision 1 bel
   - Everything is built behind a build flag, and the tab goes live in one cutover PR.
   - Render changes ship first, dark.
   - The old Site becomes a move page that redirects old links and offers device data for download. It is retired later, with John's go-ahead.
+
+---
+
+## Revision 2: answers to 3PO's verdict on `774435ca1`
+
+3PO requested changes with nine blocking findings ([verdict](https://github.com/WeningerII/CodexMusica/pull/519#issuecomment-6101557150)). Revision 2 resolves each one with a contract, a decision and a named test. **Revision 2 overrides Revision 1 and the base design wherever they conflict.** R2 re-checked every code citation in the verdict against `031b7de` before writing this.
+
+### V1. Reading files are addressed by revision, immutably
+**Finding:** head and page files used id-only paths with query-string retries. Pages ignores query strings, and deploy caches could pair an old head with a new page.
+
+**Contract:**
+- Paths carry the revision:
+  - `library/data/r/<hh>/<reading_unit_id>/<rev16>.json.gz` for the head;
+  - `…/<rev16>.p<k>.json.gz` for the pages.
+- A revision path never changes content once published, so mixed generations cannot occur by construction.
+- Every head and page file embeds `{reading_unit_id, reading_revision, page_index, page_count}`. The client checks all four against what it requested and **fails closed** on any mismatch: discard, show no text, run recovery.
+- **Where the revision comes from:**
+  - list rows (`w/`, `c/`), search results and the tab's own links always carry `?revision=`, and the head preload uses it directly;
+  - a deep link without one first fetches the `u/<hh>` shard (≤6 KB gz, one extra request), then the head.
+- **Shards and indexes** (`catalog.json`, `collections.json`, `c/`, `w/`, `u/`) embed `data_id`.
+  - A mismatch between them refetches the stale one with `cache: 'reload'`.
+  - If the mismatch persists, the tab shows "The Library was just updated" with Reload, keeping the hash route.
+- **Retention:** the previous generation's revision files are kept for 30 days after a revision changes. An open tab holding an old list keeps working, and when it next refreshes a shard it lands on the new revision by `line_id` with a notice.
+- **Recovery on 404:** after 30 days, or for a revision never published, the tab refetches the `u/` shard (`cache: 'reload'`) and opens the current revision with the "This reading was updated" notice, landing by `line_id` where it exists.
+
+**Tests:**
+- `check_library_page` stage `generations`:
+  - (a) an old head with a new page, and (b) a new head with an old page, both served by `_pages_server` on purpose: the client rejects each and recovers;
+  - (c) a 404 on a retired revision recovers to the current one;
+  - (d) a `data_id` mismatch between `catalog.json` and `c/` triggers a reload, then the update notice.
+- `check_library_data` asserts that every file's embedded identity equals its path.
+
+### V2. Deep pages carry their own global coordinates
+**Finding:** ranges derived by cumulative sums need every preceding page, but a deep link fetches only the head and the requested page.
+
+**Contract:**
+- Every page file's header carries its page-start global offsets: `{row_start, analysis_line_start, normalized_cp_start, normalized_utf16_start, physical_line_start}`.
+- Within a page, ranges are derived cumulatively from those starts.
+- The head file carries the same for page 0.
+- No coordinate ever depends on a page that wasn't fetched.
+
+**Tests:**
+- `check_library_data` asserts that every page's start offsets equal the canonical reading's, and that the derived per-line normalized code-point and UTF-16 ranges equal canonical for every line of every unit.
+- `check_library_page` stage `deep-offset` opens `?offset=500` and `?offset=22500` (Kalevala) and an astral-plane and RTL fixture at offset ≥ 500. It asserts:
+  - only the head and the target page were requested (request log);
+  - the `?span` marks land on the canonical characters.
+
+### V3. Bounded store maintenance off the request path
+**Finding (source-confirmed, not a measured production failure):** every authorized read runs `_touch` → `_save` → `_capacity` → `_usage`, which stats every record and evidence object (`reader_job_store.js:295-328, 385-389, 1005-1006`). Every `_open` also runs `_reload`, `_prune` and `_collect` under the writer lock. A record cache alone does not fix this.
+
+**Contract (store changes, all before `LIBRARY_PUBLIC=1`):**
+1. **Bounded durable touches.**
+   - A read refreshes `accessed_at` and `expires_at` in memory.
+   - It persists them durably only when the stored `expires_at` is more than 1 hour stale.
+   - Effect: at most one touch-write per job per hour.
+   - A crash loses at most 1 hour of sliding retention, which is stated in READER_RUNTIME.md.
+2. **Incremental quota accounting.**
+   - Usage is held as an in-memory counter. One full scan initializes it at open, and again whenever the on-disk generation counter changes because another writer committed.
+   - Every write and delete applies its exact byte delta under the lock.
+   - A verification scan runs off the request path, in chunks of ≤ 200 entries per `setImmediate` tick, every 15 minutes. A discrepancy re-bases the counter and logs `READER_USAGE_DRIFT` with both values.
+   - `_capacity` reads the counter and never scans.
+3. **Off-loop maintenance.** `_prune` and `_collect` (expiry and garbage collection) move from `_open` to a timer: one bounded batch of ≤ 100 records per minute, under the same writer lock. An expired job is still refused at read time by its `expires_at`, so correctness never depends on the sweep having run.
+4. **Read path.**
+   - Records are cached in memory, validated by an atomically written generation counter (`records/.generation`).
+   - A read takes no exclusive lock unless it writes (a due touch).
+   - Writers keep the existing `wx` lock, fencing, `atomicWrite` and digest checks unchanged.
+
+**Tests:**
+- `mcp/test_reader_store_bounds.mjs`:
+  - delta accounting equals a full scan after a randomized sequence of creates, checkpoints, deletes and expiries;
+  - a crash between a write and a counter update re-bases on reopen;
+  - the touch interval is honored;
+  - expired-but-unswept jobs are refused.
+- `qualify_reader` scenario `store-load`: 2,000 evidence-bearing jobs, expiry in progress, and concurrent checkpoint writes from the scheduler, with 20 pollers. Budgets:
+  - server-side job GET p99 ≤ 25 ms;
+  - event-loop delay p99 ≤ 50 ms;
+  - `/mcp` `tools/list` p99 within +20 ms of the no-load run.
+
+### V4. Compression at rest supports both consumers, ships in two phases, and needs scoped owner approval
+**Finding:** `workerPayload` hands `worker.py` physical page paths, which it opens as UTF-8 JSON (`reader_job_store.js:1101-1116`; `worker.py:74-87`). Sniffing in Node alone breaks checkpoint and resume.
+
+**Contract:**
+- **One reader in each runtime:**
+  - Node `readPageObject(path)` and Python `read_page_object(path)` both sniff `1f 8b`.
+  - Each inflates with a hard output bound equal to `READER_LIMITS.objectBytes`, refusing with `STORAGE_CORRUPT` beyond it, and verifies `sha256(uncompressed) == name`.
+  - Plain objects are read as today.
+  - `worker.py` `load_records` and every Node object read go through these functions.
+- **Identity is unchanged:** sha256 over the uncompressed bytes. The served `Content-Encoding: gzip` bytes are the stored bytes. The client verifies the uncompressed hash.
+- **Two-phase rollout, for rollback safety:**
+  - **Phase A** ships the dual readers and still writes plain objects. Rolling back past A is always safe.
+  - **Phase B** is a later deploy, after A has run qualified in production. It turns on gzip writes with `READER_STORE_GZIP=1`.
+  - Rolling back from B to A is safe because A reads both.
+  - Rolling back past A while gzip objects exist is refused by a startup check: an image without `readPageObject` finds `.gz`-magic objects and fails readiness loudly rather than misreading them.
+  - `scripts/reader_store_inflate.mjs` converts a store back to plain objects if ever needed.
+
+**Tests:**
+- mixed plain and gzip objects in one job;
+- checkpoint, then restart, then resume through `worker.py`;
+- an inflation bomb refused;
+- hash mismatch refused;
+- rollback B → A reads everything;
+- the old-image startup check fails on gzip objects.
+
+**Owner decision (scoped):**
+- Approve the phase-B switch for the shared reader store, about 18× capacity.
+- Alternative: keep plain objects and raise `READER_STORAGE_MAX_BYTES` within the 1 GB disk. PR 1 measures the disk's other occupants before quoting a safe figure.
+- With neither, public analysis capacity is about 100 analyses per 30 days.
+
+### V5. Exports of older analyses never mix generations
+**Finding:** job identity pins the reading revision, engine commit and resource fingerprint (`reader_scheduler.js:285-301`), but the design packaged the current image's reading, METHODS and schema.
+
+**Contract:**
+- **Definitions are retained by fingerprint.** At job creation, the store keeps content-addressed copies of the exact `methods.json` and result schema in force, about 0.3 MB once per distinct fingerprint, deduplicated. The job record references their hashes.
+  - An analysis export emits `ANALYSIS/METHODS.json` and `RESULT_SCHEMA.json` from those retained copies.
+  - `PROVENANCE.json` names the job's own `engine_commit`, `resource_fingerprint` and `snapshot_id`, never the current image's.
+- **Reading entries** (READINGS, TRANSCRIPTIONS, PROVENANCE, ATTRIBUTIONS, NOTICES) are emitted only when the current image holds the job's exact `reading_revision`. Revisions are content hashes, so the bytes are the ones analysed.
+  - Otherwise the export is refused with `409 EXPORT_READING_CHANGED`, and the UI offers "Run again on the current reading". The evidence stays viewable in the tab, labelled "Generated by engine `<commit8>` on revision `<rev8>`".
+- **Jobs created before this change** have no retained definitions. Their export is refused with `409 EXPORT_DEFINITIONS_UNAVAILABLE` unless their fingerprint equals the current one.
+
+**Tests:** `test_library_exports` scenario `generation`:
+1. Create a job.
+2. Redeploy a fixture runtime with a changed methods file, then export. The retained definitions are emitted, and PROVENANCE names the old fingerprint.
+3. Redeploy with the reading revised, then export: 409 `EXPORT_READING_CHANGED`.
+4. A pre-change job with a different fingerprint: 409 `EXPORT_DEFINITIONS_UNAVAILABLE`.
+
+### V6. A selection export is identified by its exact content, not its membership
+**Finding:** `set_id` hashed readable ids only, so new revisions, or a snapshot-only provenance change, produced different bytes at the same URL.
+
+**Contract:**
+- **Two identities:**
+  - `membership_id = sha256(sorted ids)`, used only for "is this selection still valid";
+  - `content_id = sha256(canonical {exporter_version, format, snapshot_id embedded in PROVENANCE, rights_registry_sha256, sorted [id, reading_revision] pairs})`.
+  - The bytes are a deterministic function of the `content_id` inputs.
+- **The plan is server-held, so no bitset appears in any URL or log.**
+  - `POST /library/v1/exports/plan {reading_unit_ids, format}` returns `{content_id, bytes, entries, url: /library/v1/exports/p/<content_id>.zip}`.
+  - The server keeps the plan in a process-local LRU: 2,000 plans, 1 hour each, about 9 MB at the 4.3 KB maximum.
+- **On GET** the server recomputes `content_id` from the held plan against the installed snapshot.
+  - Any difference returns `409 PLAN_STALE`.
+  - An evicted plan (restart or TTL) returns `409 PLAN_EXPIRED`.
+  - The client's pre-navigation HEAD (B4) catches both and re-plans transparently from its stored ids. The stored `pending-export` holds `{format, ids}`, never a URL.
+- A selection covering every readable unit maps to the prebuilt corpus package, whose URL is already content-addressed by snapshot.
+
+**Tests:**
+- (a) revision churn: same ids, one revision changed, so `content_id` changes, the old URL gets `PLAN_STALE`, and the re-plan downloads new bytes;
+- (b) snapshot-only churn: `sources.tsv` edited, no unit changed, so `content_id` changes through the PROVENANCE snapshot, and the same flow follows;
+- (c) restart, then `PLAN_EXPIRED`, then re-plan;
+- (d) the same plan twice yields identical sha256;
+- (e) no `sel=` or id list appears in any request URL (request-log assertion).
+
+### V7. Authenticated responses stay no-store; nothing private renders without a fresh authorization
+**Finding:** 7-day immutable private caching plus an IndexedDB evidence store could render evidence after cookie loss or deletion, unlike today's `private, no-store` (`reader_routes.js:339,365`).
+
+**Contract:**
+- Every credentialed `/library/v1` response, job, manifest, page and analysis export alike, is sent with `Cache-Control: private, no-store`, as today.
+- **No persistent evidence cache.** The IndexedDB `evidence` store is removed. Verified pages live in a per-tab in-memory cache only.
+- Before any evidence renders, the tab makes a fresh `GET /library/v1/jobs/:id` in that page lifetime and gets a 200. It then shows only pages whose hashes appear in the manifest that response names.
+- On 404 (cookie lost or another viewer), 410 (expired or deleted) or a local Delete, that job's in-memory pages are dropped at once, and the device key `interpretation:{id}:{revision}` keeps only the declarations, not the job reference.
+- Offline retention of private evidence is **not** proposed. It would be a separate, explicit product decision.
+
+**Tests:** `check_library_page` stage `private-cache`, run with a warmed browser:
+- (a) clear the cookie and reopen the reading: no evidence renders, and the "earlier browser session" message shows;
+- (b) delete the job, Back, Forward: nothing renders from cache;
+- (c) expire the job server-side and reload: 410 handled, nothing renders;
+- (d) response headers on every credentialed route are `no-store`.
+
+### V8. Timing harness: a recorded synthetic comparison plus an authoritative real-host comparison
+**Finding:** HAR wait time already includes network, adding throttling double-counts it, and Playwright's HAR replay ignores recorded timing.
+
+**Contract:**
+- **Synthetic CI comparison, labelled synthetic in every report.**
+  - The old Site's responses (bodies, headers, content-encoding and the recorded `202` → `200` manifest sequence, with its exact 202 count) are pinned as fixtures.
+  - They are served through `_pages_server` with **zero server delay**, the same as the new tab's static files, under identical CDP throttling.
+  - The old client's own 500 ms manifest polling runs unchanged.
+  - Any unmatched request aborts the run (strict no-live fallback).
+  - This isolates client and payload differences. It does not claim production timing.
+- **Server delay is measured, not inferred.**
+  - PR 0 measures old-Site server time separately as TTFB minus a same-connection baseline RTT, n ≥ 30 per endpoint from the same runner. It is reported as a modelled-delay table.
+  - A second synthetic profile replays with those measured delays, and the report shows both.
+- **Calibration.** PR 0 runs the old Site live from the runner n = 9 times and reports synthetic-vs-live medians as a calibration ratio. No threshold uses an uncalibrated synthetic number.
+- **Authoritative comparison: real hosts.**
+  - Both the old Site and the new tab are run live, on the same runner, with the same throttling, interleaved, n ≥ 9 per side.
+  - Before cutover this uses the production preview; if John declines the preview, it happens immediately after cutover with a rollback rule.
+
+**Tests:** `check_library_perf` refuses to emit a ratio when:
+- the two sides used different modes;
+- a fixture request was unmatched;
+- calibration is missing.
+
+The report labels every number synthetic, synthetic plus modelled delay, or live.
+
+### V9. "Measurably faster" is a real-host improvement condition plus caps, with a stricter definition of ready
+**Contract:**
+- **Pass requires both:**
+  - (a) the absolute caps: mobile shelves-ready ≤ 4.5 s, reader-ready ≤ 4.8 s;
+  - (b) a **live same-scenario improvement**: the new median ≤ `(1 − m)` × the old median, with the bootstrap 95% CI of the difference excluding zero.
+- **The margin `m` is John's to set.** Recommended: 0.45, which is ≤ 0.55×.
+- A 4.4 s new time against a 4.0 s old one therefore fails, whatever the cap.
+- **Ready means usable, measured the same way on both sides:**
+  1. the target element is in the viewport and painted: IntersectionObserver ratio > 0, computed visibility, a non-zero box;
+  2. text is rendered in its final or fallback font after `document.fonts` settles, or within 100 ms;
+  3. no `aria-busy`, skeleton or loading indicator remains in that region;
+  4. an **immediate-action probe** passes:
+     - shelves: activating the first card's Open starts navigation within 100 ms;
+     - reader: Next page or a line toggle responds within 100 ms;
+     - both run during the deferred workspace boot.
+
+**Tests:** `check_library_perf` implements the four conditions identically for old and new, and asserts the probe during deferred boot.
+
+---
+
+### Answers to 3PO's specific points, adopted
+
+| Point | Adopted contract |
+|---|---|
+| **B6 snapshot labels** | Static `projected_from`, labelled accurately. The "both contain this revision" note appears only after confirming revision equality with Render's `/library/v1/health` revision for that unit. The provenance gate compares against the **Worker's own provenance download bytes**, including its enrichments (source_basis, labels, notices), for the golden sample, and against a canonical rebuild for every unit. |
+| **B7 limits** | Each limit goes to John with its **exact consequence**: a 12-per-IP outstanding cap means a 7th viewer behind one network address, each running 2, is refused; 2 export streams per IP means a 3rd simultaneous download from that network waits for Retry-After; 6 corpus starts per IP per day means a classroom of 7 can't each start one. Options are listed with no ceiling, per abuse model. **One precise long-reading rule:** a reading with more than 5,000 analysis lines may have at most **one** queued or running job service-wide, and a second gets `429 LONG_READING_BUSY` with Retry-After. Tests cover boundary users (exactly at, one over), FIFO retry fairness under a held cap, and 7 viewers behind one IP. |
+| **Coverage classifier** | Adds `unchanged-non-readable` and every non-readable↔non-readable transition (held, research-only, rejected, metadata-only). The report **reconciles every id**: the class totals sum to 32,220 baseline ids plus the added ones, and to 36,880 current ids. No new 5226→317c rerun, since 3PO's exact-snapshot reconstruction stands for unchanged inputs; the gate enforces it from now on. |
+| **Feature matrix** | Adds row 60: **reader-side Method reference filtering** (the reader's Method select over `method_id`, `reader.tsx:96,681,1044`, and its own reference list at 1111), separate from the Rights page's definition filter. |
+| **Migration shapes** | Fixtures for the real old shapes: `export-selection:<snap>` as `string[]` of ids only; `position:<snap>:<id>` as `{line_id, offset}` **or a legacy bare string**; `interpretation:<snap>:<id>:<rev>` as `{declarations, job_id?, previous?: [{id, declarations}]}`; `analysis-export:<job>:<hash>`; `pending-export`; `shelf-position:<lang>` as a number. Revisions resolve through the committed **5226 manifest** using the snapshot in the key. **All `previous[].declarations` sets are carried** as declaration history; job ids are dropped. Entries whose revision changed are kept with a notice, landing by `line_id` when the line exists. Nothing is silently rejected or flattened, and the import report lists every entry with its outcome. |
+| **Rights** | The static projection stays strictly within verified eligibility, and existing exposure never justifies widening it. The Pages exposure of held corpus files is a separate, scoped decision. John's approval never substitutes for rights evidence. |
+| **Retirement** | Loss is stated plainly. A re-run may **not** reproduce old evidence if the engine or resources changed, and that loss can be irreversible. Before the move page, the old Site announces a window to export analyses. **Purge selector:** existing records hold no site id, so the selector is "viewer not matching `^lv1:` and `created_at` before the cutover time". It runs only with John's **action-time** confirmation of the exact count; design agreement is not that confirmation. |
+| **Privacy wording** | "Library device data stays in your browser, except what you submit: search terms, declarations sent with an analysis, and selections sent to plan an export." Selection bitsets no longer appear in URLs (V6). |
+| **Evidence wording** | Old boot, from code: manifest, then (serial catalog pages ‖ methods) via `Promise.all`, then shelves (`library-app.tsx:469-485`). PSI's five catalog entries were the largest-payload subset, omitting `offset=1000`, not a measured complete waterfall. The baseline is re-stated that way. |
+| **Chunk generations** | Chunk files are kept for **30 days across all generations**, about 70 KB gz per generation, rather than one previous generation. A tab opened days earlier still loads its chunks. Past 30 days, the recovery saves in-memory Library state (passage selection, filter text, inspector and lens) to `sessionStorage` and reloads to the same hash, which restores it. Test: two deployments between page load and the first reader and analysis use. |
+
+### Revision 2: owner decisions, consolidated (replaces the earlier lists)
+1. Data plane split: static reading on Pages; search, held metadata, exports, corpus and analysis on Render. *Recommended: approve.*
+2. READER_RUNTIME.md amendment: the public `/library/v1` family, an unsigned HttpOnly `__Host-` viewer cookie, capabilities derived in-process, and the no-capability rule kept verbatim. *Recommended: approve.*
+3. Reader store capacity (V4): phase-B gzip at rest, or a quota raise sized from PR 1's disk measurement. *Recommended: gzip, two-phase.*
+4. Rate limits and the long-reading rule (B7 table, with consequences). *John chooses each value.*
+5. "Measurably faster" margin `m` (V9). *Recommended: 0.45.*
+6. Production preview before cutover, for the live comparison. *Recommended: yes.*
+7. Whole-corpus packages on Render with Range. *Recommended: approve and accept egress.*
+8. Held and research-only metadata on codexmusica.com, as the old Site shows it, including radif-bearing titles; bodies and labels refused. *Recommended: keep.*
+9. Public serving of USA-only Gutenberg admissions, with the USA statement shown. *Recommended: confirm.*
+10. "Open in Lyrics" in the same tab. *Recommended: approve.*
+11. Final Sites deploy as a move page: export window, device-data download, redirects, 410 for the API, kept 12 months. *Recommended: yes.*
+12. Old private jobs and D1/R2: not migrated, loss stated; purge only with action-time confirmation. *Recommended: accept the plan; confirm at action time.*
+13. Retire 5226, `/internal/reader` and the bridge secrets after the move page. *Recommended: yes.*
+14. Navigation entry, recipe panel mode, deferred workspace, derived brand mark. *Recommended: approve.*
+15. Pre-existing exposure of held corpus files on Pages: a **separate decision**, alongside cutover.
 
 ---
 
@@ -1076,6 +1317,7 @@ WHERE THEY RUN
 | 57 | Device-persisted state (+ import from old Site) | IndexedDB codex-musica-library-v1 on chatgpt.site with snapshot-scoped keys; 'unsaved' notices | all #library routes; 'Import device data from the earlier Library' on #library/rights | IndexedDB codex-musica-library-v1 on codexmusica.com with snapshot-free keys (export-selection, position:{id}, interpretation:{id}:{revision}, shelf-position:{lang}, pending-export, analysis-export) + evidence store | check_library_page section device-state (each key persists; failure shows unsaved; import fixture remaps and reports); check_library_isolation (no cookie or capability in storage) |
 | 58 | Your recipe on the Library route (one-workspace) | Not applicable (separate site) | #library with recipe:'sidebar' (collapsed default); 'Loading your recipe…' during deferred workspace | shell session (formats unchanged) | check_ui_foundation one-workspace on #library; fault library-loses-recipe; check_lazy_app (saved-session #library boot shows pending panel then cards, no EngineNotReadyError, navigation to every route before workspace ready works) |
 | 59 | Design system and dark mode | Hard-coded light Google palette, no dark mode, own header | #surface-library scoped CSS on --cm-* tokens | src/theme.css tokens | check_ui_foundation D neutral dark surface; check_library_page renders every state light and dark |
+| 60 | Reader Method filter and reference (added in Revision 2) | Method select filters evidence by method_id (reader.tsx:96,681,1044); the reader has its own Method reference list (1111), separate from the Rights page definition filter | #library/read/<id> inspector | static methods.json + Render evidence | check_library_page section reader-method-filter (predicate equals the old filter on fixture evidence; reference list equals the old reader list) |
 
 ## Gates and files
 
