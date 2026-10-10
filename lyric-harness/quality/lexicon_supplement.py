@@ -450,11 +450,6 @@ def supplemented_lexicon(strip_parens=True, fallback=None,
     return _SUPPLEMENTED[key]
 
 
-def build_lexicon(supplement=False, **kwargs):
-    """The one place a caller turns the declared coordinate into a lexicon."""
-    return SupplementedLexicon(**kwargs) if supplement else LH.Lexicon(**kwargs)
-
-
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
