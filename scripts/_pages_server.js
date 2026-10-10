@@ -149,7 +149,11 @@ function delayFor(delays, urlPath) {
 // Fixture entries → Map<"METHOD path?query", [step...]>, each step
 // { status, headers, body }.
 function compileFixture(raw) {
-  const list = Array.isArray(raw) ? raw : raw && Array.isArray(raw.responses) ? raw.responses : null;
+  const list = Array.isArray(raw)
+    ? raw
+    : raw && Array.isArray(raw.responses)
+      ? raw.responses
+      : null;
   if (!list) throw new Error('fixture: expected an array of responses or { responses: [...] }');
   const groups = new Map();
   list.forEach((e, i) => {
@@ -204,7 +208,8 @@ function acceptsGzip(req) {
 
 async function start(opts = {}) {
   const { port = 0, host = '127.0.0.1' } = opts;
-  if (!opts.root === !opts.fixture) throw new Error('_pages_server: pass exactly one of root, fixture');
+  if (!opts.root === !opts.fixture)
+    throw new Error('_pages_server: pass exactly one of root, fixture');
   const delays = loadJson(opts.delays) || {};
   const root = opts.root ? fs.realpathSync(path.resolve(opts.root)) : null;
   let groups = null;
@@ -355,7 +360,9 @@ if (require.main === module) {
     process.argv.slice(2).map((a) => {
       const m = /^--([^=]+)(?:=(.*))?$/.exec(a);
       if (!m) {
-        console.error('usage: _pages_server.js --root=DIR | --fixture=FILE [--port=N] [--delays=FILE]');
+        console.error(
+          'usage: _pages_server.js --root=DIR | --fixture=FILE [--port=N] [--delays=FILE]'
+        );
         process.exit(2);
       }
       return [m[1], m[2] === undefined ? true : m[2]];
@@ -373,7 +380,8 @@ if (require.main === module) {
       let seen = 0;
       const tick = setInterval(() => {
         const u = srv.unmatched();
-        for (; seen < u.length; seen++) console.error(`599 unmatched: ${u[seen].method} ${u[seen].url}`);
+        for (; seen < u.length; seen++)
+          console.error(`599 unmatched: ${u[seen].method} ${u[seen].url}`);
       }, 250);
       const stop = () => {
         clearInterval(tick);
