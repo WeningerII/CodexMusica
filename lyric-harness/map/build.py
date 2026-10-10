@@ -247,6 +247,14 @@ def rules_md():
     for code, r in rows:
         out.append(f"| {code} | {'/'.join(r['severities'])} | {', '.join(r['gates']) or '—'} | "
                    f"{', '.join(r['files'])} |")
+    out.append("\nFunction reading refusals: `END_WORD_UNREADABLE` blocks requested "
+               "function coverage, not a quality flag. Concrete failures carry "
+               "`function:END_WORD_UNREADABLE:TN:LN` plus the failed word, sung-token "
+               "position and exact lyric text. `function:draft` retains the aggregate "
+               "refusal. A comparison without a draft coordinate remains explicitly "
+               "unlocated; its section-local line is not a draft line number. "
+               "Occurrence declarations bind exact text and sung-token position; "
+               "they do not add dictionary readings or change the perfect-rime policy.")
     return "\n".join(out) + "\n"
 
 

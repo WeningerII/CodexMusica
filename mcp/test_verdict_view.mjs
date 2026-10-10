@@ -84,7 +84,13 @@ const verdict = {
   pronunciations: [],
   pronunciation_options: {
     items: [
-      { line: 'Two line there', token: 1, word: 'Two', matching_lines: [2] },
+      {
+        line: 'Two line there',
+        token: 1,
+        word: 'Two',
+        matching_lines: [2],
+        dictionary_readings: [{ phones: ['T', 'UW1'] }, { phones: ['T', 'UW0'] }],
+      },
       { line: 'One line here', token: 1, word: 'One', matching_lines: [1] },
     ],
     total: 9,
@@ -374,4 +380,88 @@ test('a stopped revise names the session continuation, not run_id or state', () 
   assert.doesNotMatch(out.meaning, /run_id|under the same declarations/);
   assert.match(out.meaning, /lyric_revise, the latest session_id and no answer/);
   assert.match(out.meaning, /^subprocess failure \(-1\): verb killed at the shared tool deadline/);
+});
+
+test('unknown words are not mislabeled as having multiple readings', () => {
+  const v = {
+    findings: [note('UNREADABLE_INTERIOR_WORD', [12, 25])],
+    coverage: {
+      refused_obligations: ['meter:COUNT_IS_A_LOWER_BOUND:L12', 'meter:COUNT_IS_A_LOWER_BOUND:L25'],
+    },
+    pronunciation_options: {
+      items: [
+        { word: 'streetlights', matching_lines: [12, 25], dictionary_readings: [] },
+        {
+          word: 'the',
+          matching_lines: [12, 25],
+          dictionary_readings: [{ phones: ['DH', 'AH0'] }, { phones: ['DH', 'IY1'] }],
+        },
+        {
+          word: 'quick',
+          matching_lines: [12],
+          dictionary_readings: [{ phones: ['K', 'W', 'IH1', 'K'] }],
+        },
+      ],
+    },
+  };
+  assert.deepEqual(
+    blockingOf(v),
+    [12, 25].map(
+      (n) =>
+        `L${n}: not judged — meter (UNREADABLE_INTERIOR_WORD); words with more than one reading: L${n} the; no dictionary reading listed: L${n} streetlights`
+    )
+  );
+});
+
+test('function failures name each failed word and sung token at its draft line', () => {
+  const ids = [15, 28].map((n) => `function:END_WORD_UNREADABLE:T7:L${n}`);
+  const v = {
+    findings: [note('END_WORD_UNREADABLE', [15, 28])],
+    coverage: {
+      refused_obligations: ['function:draft', ...ids],
+      obligations: ids.map((id, i) => ({
+        id,
+        status: 'refused',
+        line: [15, 28][i],
+        token: 7,
+        word: 'sixty-six',
+        code: 'END_WORD_UNREADABLE',
+      })),
+    },
+  };
+  assert.deepEqual(
+    blockingOf(v),
+    [15, 28].map(
+      (n) => `L${n}: not judged — function (END_WORD_UNREADABLE); unreadable: token 7 'sixty-six'`
+    )
+  );
+  assert.deepEqual(obligationLines(ids[0]), [15]);
+  assert.equal(detailOf(v, 'coverage', [28]).coverage.obligations[0].line, 28);
+  assert.equal(detailOf(v, 'findings', [28]).findings.length, 1);
+  v.coverage.refused_obligations.push('function:UNLOCATED:0');
+  assert.equal(
+    blockingOf(v).at(-1),
+    'whole draft: not judged — function:draft, function:UNLOCATED:0'
+  );
+});
+
+test('short and every detail view preserve supplied lexicon identity without inventing one', () => {
+  for (const lexicon of [
+    { supplement_id: 'reviewed-v1', sha256: 'a'.repeat(64) },
+    { supplement_id: null, sha256: null },
+  ]) {
+    const v = { ...verdict, lexicon };
+    const content = blocks(v);
+    assert.deepEqual(JSON.parse(sessionView('lyric_grade', content)[1].text).lexicon, lexicon);
+    for (const detail of DETAIL_PARTS) {
+      const out = sessionView('lyric_grade', content, { detail, lines: [2] });
+      assert.deepEqual(JSON.parse(out[detail === 'full' ? 1 : 0].text).lexicon, lexicon);
+    }
+  }
+  assert.equal(
+    Object.hasOwn(JSON.parse(sessionView('lyric_grade', blocks())[1].text), 'lexicon'),
+    false
+  );
+  for (const part of DETAIL_PARTS)
+    assert.equal(Object.hasOwn(detailOf(verdict, part), 'lexicon'), false);
 });

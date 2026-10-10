@@ -545,6 +545,27 @@ checks in `quality/test_grid.py` — the question IS asked, across functions,
 and this register never mentioned the code. Closed on that evidence; D-4
 (the arc) is the separate entry it always was.
 
+**2026-10-10 — occurrence routing and failed-word diagnostics.** Function's
+perfect-rime callback now binds the existing exact lyric-line/sung-token
+reading before choosing its existing whole-word key. Chorus comparisons,
+reprise comparisons and bridge inventories use the same contextual endpoint.
+Unknown words still refuse; no fallback, dictionary rows, stress policy or
+first-reading perfect-rime policy changed. Repeated tokens can carry different
+readings without borrowing from an earlier token or from changed text.
+
+`END_WORD_UNREADABLE` retains every failed word, token and line through
+code-level aggregation. Coverage identifies concrete failures as
+`function:END_WORD_UNREADABLE:TN:LN`; the aggregate `function:draft` remains
+refused. Expanded pointers retain section-local evidence instead of invented
+draft positions. The session renderer distinguishes multiple dictionary
+readings from zero listed readings (including `streetlights`) and preserves
+supplied supplement identity in short/detail views. The producer owns that
+identity; absent identity is not inferred.
+
+Regression witnesses: `quality/test_pronunciation_choices.py` and
+`../mcp/test_verdict_view.mjs`. Synthetic fixtures only; no saved song is used.
+
+
 ### D-4 · No arc `OPEN`
 **Missing:** energy, dynamics, density, register, instrumentation change across
 the form — the shape a listener actually experiences.

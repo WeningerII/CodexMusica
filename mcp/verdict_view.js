@@ -52,19 +52,20 @@ const KEPT = [
   'banned_pairs_reason',
   'structures_uncalibrated',
   'final_draft_sha256',
+  'lexicon',
 ];
 
 export const sha256 = (text) => createHash('sha256').update(text, 'utf8').digest('hex');
 
 // The lines a refused obligation id names, in the grader's own spelling:
 // `rhyme:I:J:K` and `return:I:J` name lines I and J, `prominence:LN` and
-// `meter:CODE:LN` name line N. The same reading as the harness's
+// `meter:CODE:LN` and `function:CODE:TN:LN` name line N. The same reading as the harness's
 // quality/pronunciation.py refused_lines; any other id names no line.
 export function obligationLines(id) {
   const p = String(id).split(':');
   if (['rhyme', 'return'].includes(p[0]) && /^\d+$/.test(p[1] ?? '') && /^\d+$/.test(p[2] ?? ''))
     return [Number(p[1]), Number(p[2])];
-  if (['prominence', 'meter'].includes(p[0]) && /^L\d+$/.test(p.at(-1)))
+  if (['prominence', 'meter', 'function'].includes(p[0]) && /^L\d+$/.test(p.at(-1)))
     return [Number(p.at(-1).slice(1))];
   return null;
 }
@@ -100,7 +101,15 @@ export function blockingOf(verdict) {
     );
   const perLine = new Map();
   const unplaced = [];
-  for (const id of verdict.coverage?.refused_obligations || []) {
+  const refused = verdict.coverage?.refused_obligations || [];
+  const functionDetails = refused.filter(
+    (id) => id.startsWith('function:') && id !== 'function:draft'
+  );
+  for (const id of refused) {
+    // The aggregate remains refused in coverage; concrete failures below
+    // already render its cause. Keep unlocated function failures visible.
+    if (id === 'function:draft' && functionDetails.length && functionDetails.every(obligationLines))
+      continue;
     const lines = obligationLines(id);
     if (!lines) {
       unplaced.push(id);
@@ -128,18 +137,37 @@ export function blockingOf(verdict) {
     // L9 and L11 goes unjudged because of a word on either, and naming only
     // L11's (`the`, `a`) while `wire` on L9 was the cause sent a writer to
     // the wrong line (song run A, 2026-09-30).
-    const wordsAt = (ln) => [
-      ...new Set(options.filter((o) => o.matching_lines?.includes(ln)).map((o) => o.word)),
+    const wordsAt = (ln, predicate) => [
+      ...new Set(
+        options.filter((o) => o.matching_lines?.includes(ln) && predicate(o)).map((o) => o.word)
+      ),
     ];
-    const words = [n, ...[...e.partners].sort((a, b) => a - b)]
-      .map((ln) => [ln, wordsAt(ln)])
-      .filter(([, ws]) => ws.length)
-      .map(([ln, ws]) => `L${ln} ${ws.join(', ')}`);
+    const wordsFor = (predicate) =>
+      [n, ...[...e.partners].sort((a, b) => a - b)]
+        .map((ln) => [ln, wordsAt(ln, predicate)])
+        .filter(([, ws]) => ws.length)
+        .map(([ln, ws]) => `L${ln} ${ws.join(', ')}`);
+    const words = wordsFor((o) => o.dictionary_readings?.length > 1);
+    const unknown = wordsFor(
+      (o) => Array.isArray(o.dictionary_readings) && o.dictionary_readings.length === 0
+    );
+    const failures = (verdict.coverage?.obligations || [])
+      .filter(
+        (o) =>
+          o.status === 'refused' &&
+          o.code === 'END_WORD_UNREADABLE' &&
+          o.line === n &&
+          o.word &&
+          Number.isInteger(o.token)
+      )
+      .map((o) => `token ${o.token} '${o.word}'`);
     out.push(
       `L${n}: not judged — ${[...e.kinds].join(', ')}` +
         (e.partners.size ? ` with ${lineList([...e.partners])}` : '') +
         (why.length ? ` (${why.join(', ')})` : '') +
-        (words.length ? `; words with more than one reading: ${words.join('; ')}` : '')
+        (failures.length ? `; unreadable: ${[...new Set(failures)].join(', ')}` : '') +
+        (words.length ? `; words with more than one reading: ${words.join('; ')}` : '') +
+        (unknown.length ? `; no dictionary reading listed: ${unknown.join('; ')}` : '')
     );
   }
   if (unplaced.length) out.push(`whole draft: not judged — ${unplaced.join(', ')}`);
@@ -271,6 +299,7 @@ export function detailOf(verdict, part, lines) {
   const want = Array.isArray(lines) && lines.length ? new Set(lines) : null;
   const touches = (ns) => !want || (ns || []).some((n) => want.has(n));
   const out = { exit_code: verdict.exit_code, detail: part };
+  if (verdict.lexicon !== undefined) out.lexicon = verdict.lexicon;
   if (want) out.lines = [...want].sort((a, b) => a - b);
   if (part === 'findings')
     out.findings = (verdict.findings || []).filter((f) => touches(f.locations));

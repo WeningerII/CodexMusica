@@ -3404,6 +3404,14 @@ class Reviser:
                                  if requested else "not_requested"})
             if requested:
                 for index, refusal in enumerate(rep["refusals"]):
+                    if refusal.failed_words and all(f.line is not None for f in refusal.failed_words):
+                        for f in refusal.failed_words:
+                            coverage_out.append({
+                                "id": f"function:{refusal.code}:T{f.token}:L{f.line}",
+                                "layer": "function", "status": "refused", "code": refusal.code,
+                                "line": f.line, "token": f.token, "word": f.word,
+                                "text": f.text})
+                        continue
                     coverage_out.append({"id": f"function:{refusal.code}:{index}",
                                          "layer": "function",
                                          "status": ("not_requested" if refusal.code in unasked
@@ -3416,7 +3424,8 @@ class Reviser:
                 f.code, f.severity,
                 f.message, f.evidence, [], subject=getattr(f, "subject", ())))
         for r in rep["refusals"]:
-            whole.append(Finding(r.code, "note", r.message, r.evidence, []))
+            whole.append(Finding(r.code, "note", r.message, r.evidence,
+                                 sorted({f.line for f in r.failed_words if f.line is not None})))
 
         # THE SHAPE LAYER, JOINED 2026-08-14, and it names the one defect this
         # harness was built for and could not see from here. `grid.stanza_lock`

@@ -80,3 +80,5 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | UNCOVERED_BARS | note | — | fit.py |
 | UNIFORM_ANACRUSIS | note | — | grid.py |
 | UNIFORM_LINE_LENGTH | note | — | floor.py |
+
+Function reading refusals: `END_WORD_UNREADABLE` blocks requested function coverage, not a quality flag. Concrete failures carry `function:END_WORD_UNREADABLE:TN:LN` plus the failed word, sung-token position and exact lyric text. `function:draft` retains the aggregate refusal. A comparison without a draft coordinate remains explicitly unlocated; its section-local line is not a draft line number. Occurrence declarations bind exact text and sung-token position; they do not add dictionary readings or change the perfect-rime policy.

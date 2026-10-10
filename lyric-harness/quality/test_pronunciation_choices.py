@@ -249,4 +249,136 @@ class PronunciationChoices(unittest.TestCase):
         self.assertEqual(result.returncode, 2, result.stderr)
         self.assertIn('--pronunciations is supported', result.stdout + result.stderr)
 
+    @staticmethod
+    def function_blueprint(lines, size=2):
+        return {'sections': [dict(name=f'chorus{i//size}', function='chorus',
+                    bars=size, start_bar=i+1, meter={'beats': 4, 'unit': 4})
+                    for i in range(0, len(lines), size)],
+                'lines': [dict(text=t, bar=i+1, beat=1, duration=4)
+                          for i, t in enumerate(lines)]}
+
+    def test_function_uses_exact_endpoint_occurrence_not_first_repeated_token(self):
+        from quality import grid as G
+        line = 'Read record, record!'
+        lex = self.lex([choice(line, 2, 'record', VERB), choice(line, 3, 'record', NOUN)])
+        key = G.rime_cmudict(lex)
+        self.assertEqual(key.end_occurrence(line), ('record', 3, 'EH K ER D'))
+        self.assertEqual(key('record'), 'AO R D')
+        self.assertEqual(G.rime_cmudict(self.base).end_occurrence(line)[2], 'AO R D')
+        self.assertEqual(key.end_occurrence(line.replace('Read', 'Play'))[2], 'AO R D')
+        self.assertEqual(key.end_occurrence(line)[2], 'EH K ER D')
+        # An earlier occurrence must never lend its choice to the final word.
+        earlier = self.lex([choice(line, 2, 'record', NOUN)])
+        self.assertEqual(G.rime_cmudict(earlier).end_occurrence(line)[2], 'AO R D')
+        # Parenthetical asides are not sung endpoints under the default coordinate.
+        aside = 'Read record (softly)'
+        declared = self.lex([choice(aside, 2, 'record', NOUN)])
+        self.assertEqual(G.rime_cmudict(declared).end_occurrence(aside), ('record', 2, 'EH K ER D'))
+
+    def test_function_partition_and_rendered_drift_use_the_same_occurrences(self):
+        from quality import grid as G
+        lines = ['Read record', 'Hold the cord', 'Play record', 'Strike the chord']
+        lex = self.lex([choice(lines[0], 2, 'record', VERB),
+                        choice(lines[2], 2, 'record', NOUN)])
+        song, _ = G.song_from_blueprint(self.function_blueprint(lines))
+        findings, refusals, returns = G.return_findings(song, 'chorus', rhyme_key=G.rime_cmudict(lex))
+        self.assertFalse(returns[0][2].rhyme_scheme_preserved)
+        drift = next(f for f in findings if f.code == 'RETURN_SCHEME_DRIFT')
+        self.assertIn('is AA', drift.evidence)
+        self.assertIn('is AB', drift.evidence)
+        self.assertFalse([r for r in refusals if r.code == 'END_WORD_UNREADABLE'])
+
+    def test_function_failed_words_survive_aggregation_and_coverage(self):
+        from quality import grid as G
+        from quality.revise import Reviser
+        lines = ['We reach sixty-six', 'Wait for streetlights',
+                 'We reach sixty-six', 'Wait for streetlights',
+                 'We reach sixty-six', 'Wait for streetlights']
+        bp = self.function_blueprint(lines)
+        song, _ = G.song_from_blueprint(bp)
+        report = G.song_function_report(song, rhyme_key=G.rime_cmudict(self.base))
+        refusal = next(r for r in report['refusals'] if r.code == 'END_WORD_UNREADABLE')
+        self.assertEqual(sorted((f.line, f.token, f.word) for f in refusal.failed_words),
+                         [(n, 3, 'sixty-six' if n % 2 else 'streetlights') for n in range(1, 7)])
+        self.assertIn('2 of 2 return comparison(s)', refusal.evidence)
+        coverage = []
+        findings = Reviser(lex=self.base)._function_findings(lines, bp, coverage_out=coverage)
+        refused = [o for o in coverage if o['status'] == 'refused']
+        self.assertEqual({o['id'] for o in refused}, {'function:draft'} |
+                         {f'function:END_WORD_UNREADABLE:T3:L{n}' for n in range(1, 7)})
+        note = next(f for f in findings if f.code == 'END_WORD_UNREADABLE')
+        self.assertEqual(note.locations, list(range(1, 7)))
+        for n in range(1, 7):
+            self.assertIn(f'L{n} token 3', note.evidence)
+        cov = {'refused_obligations': [o['id'] for o in refused], 'obligations': coverage}
+        self.assertEqual(P.refused_lines(cov), (set(range(1, 7)), True))
+        self.assertEqual(P.reading_options(self.base, lines + ['Read record'], cov)['scope'], 'refused_lines')
+        self.assertNotIn('record', [o['word'] for o in P.reading_options(self.base, lines + ['Read record'], cov)['items']])
+        cov['refused_obligations'].append('function:UNKNOWN:0')
+        self.assertFalse(P.refused_lines(cov)[1])
+
+    def test_function_oov_declaration_clears_only_its_exact_occurrence(self):
+        from quality import grid as G
+        from quality.revise import Reviser
+        lines = ['We reach sixty-six', 'Wait for streetlights'] * 2
+        rows = [choice(lines[0], 3, 'sixty-six', ['S', 'IH1', 'K', 'S'], 'declared')]
+        lex = self.lex(rows)
+        bp = self.function_blueprint(lines)
+        coverage = []
+        findings = Reviser(lex=lex)._function_findings(lines, bp, coverage_out=coverage)
+        refusal = next(f for f in findings if f.code == 'END_WORD_UNREADABLE')
+        self.assertEqual(refusal.locations, [2, 4])
+        self.assertNotIn('sixty-six', refusal.evidence)
+        self.assertIsNone(G.rime_cmudict(lex)('sixty-six'))
+        self.assertIsNone(G.rime_cmudict(lex).end_occurrence('They reach sixty-six')[2])
+        rows.append(choice(lines[1], 3, 'streetlights', ['S', 'T', 'R', 'IY1', 'T', 'L', 'AY2', 'T', 'S'], 'declared'))
+        coverage = []
+        findings = Reviser(lex=self.lex(rows))._function_findings(lines, bp, coverage_out=coverage)
+        self.assertFalse([f for f in findings if f.code == 'END_WORD_UNREADABLE'])
+        self.assertEqual(next(o['status'] for o in coverage if o['id'] == 'function:draft'), 'answered')
+        self.assertNotIn('streetlights', self.base.entries)
+
+    def test_generic_function_callback_and_unplaced_failure_stay_honest(self):
+        from quality import grid as G
+        result = G.compare_returns(['cat', 'zzz'], ['hat', 'yyy'], rhyme_key=lambda w: None if w in ('zzz', 'yyy') else 'AT')
+        ref = next(r for r in result.refusals if r.code == 'END_WORD_UNREADABLE')
+        self.assertEqual([(f.side, f.section_line, f.word, f.line) for f in ref.failed_words],
+                         [('first', 2, 'zzz', None), ('again', 2, 'yyy', None)])
+        self.assertIn("first line 2 token 1 'zzz'", ref.evidence)
+        self.assertIsNone(result.rhyme_scheme_preserved)
+
+    def test_function_bridge_and_reprise_share_occurrence_routing(self):
+        from quality import grid as G
+        lines = ['Read record', 'Hold the cord', 'Play record', 'Strike the chord']
+        lex = self.lex([choice(lines[0], 2, 'record', NOUN)])
+        bp = self.function_blueprint(lines)
+        bp['sections'][0]['function'] = 'intro'
+        bp['sections'][1]['function'] = 'outro'
+        song, _ = G.song_from_blueprint(bp)
+        self.assertEqual(G._channel_values(song, song.sections[:1], G.rime_cmudict(lex))['rhyme_inventory'],
+                         {'EH K ER D', 'AO R D'})
+        _, _, returns = G.reprise_findings(song, rhyme_key=G.rime_cmudict(lex))
+        self.assertFalse(returns[0][2].rhyme_scheme_preserved)
+        song.lines[0].text = 'Wait for streetlights'
+        _, refs, _ = G.reprise_findings(song, rhyme_key=G.rime_cmudict(lex))
+        refusal = next(r for r in refs if r.code == 'END_WORD_UNREADABLE')
+        self.assertEqual([(f.line, f.token, f.word) for f in refusal.failed_words], [(1,3,'streetlights')])
+
+    def test_function_blank_filter_preserves_original_draft_line(self):
+        from quality import grid as G
+        from quality.revise import Reviser
+        lines = ['', 'Wait for streetlights', '', 'Wait for streetlights']
+        coverage = []
+        findings = Reviser(lex=self.base)._function_findings(lines, self.function_blueprint(lines), coverage_out=coverage)
+        note = next(f for f in findings if f.code == 'END_WORD_UNREADABLE')
+        self.assertEqual(note.locations, [2,4])
+        self.assertEqual([o['line'] for o in coverage if o.get('word') == 'streetlights'], [2,4])
+        # Expanded pointers do not pretend the expanded lines occupy the
+        # abbreviated section's printed coordinates.
+        song, _ = G.song_from_blueprint(self.function_blueprint(['Wait for streetlights', 'Sing home'] * 2))
+        result = G.compare_returns(['Wait for streetlights'], ['Wait for streetlights'], rhyme_key=G.rime_cmudict(self.base))
+        result.stub_resolutions = (('again', 1, 1, ('Wait for streetlights',)),)
+        located = G._locate_failure(song, *song.sections, result, result.refusals[0])
+        self.assertTrue(all(f.line is None for f in located.failed_words))
+
 if __name__ == '__main__': unittest.main()
