@@ -4,12 +4,15 @@ on:
   pull_request:
     paths:
       - 'sites/library/**'
+      - 'tests/library/goldens/**'
       - '.github/workflows/library-site.yml'
   push:
     branches: ['**']
     paths:
       - 'sites/library/**'
+      - 'tests/library/goldens/**'
       - '.github/workflows/library-site.yml'
+  workflow_dispatch: {}
 
 permissions:
   contents: read
@@ -115,3 +118,105 @@ jobs:
         env:
           LIBRARY_EXPORT_TEST_OUTPUT: ${{ runner.temp }}/library-export-verification
         run: node scripts/test-library-export-api.cjs
+
+  # The native Library tab re-implements the Worker's search, reading pages,
+  # hit projection, held metadata and selection ZIPs on Render. Its parity is
+  # proven against goldens the Worker's own controller produced on the pinned
+  # 317c catalog (tests/library/goldens/317c/). This job reproduces that
+  # capture from scratch, from main 031b7de's catalog inputs, and fails if any
+  # golden differs, so the committed goldens are evidence anyone can re-derive.
+  library-goldens:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: sites/library
+        shell: bash
+    env:
+      CLOUDFLARE_CF_FETCH_ENABLED: 'false'
+      WRANGLER_SEND_METRICS: 'false'
+      WRANGLER_WRITE_LOGS: 'false'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+          package_json_file: sites/library/package.json
+          run_install: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the immutable frontend dependency graph
+        run: pnpm install --frozen-lockfile
+
+      - name: Read the 317c catalog inputs (main at 031b7de)
+        uses: actions/checkout@v5
+        with:
+          repository: WeningerII/CodexMusica
+          ref: 031b7de424714d4b0e53e138c8e227df2592bb0c
+          path: .library-golden-fixture
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /lyric-harness/library/
+            /lyric-harness/corpus/
+            /lyric-harness/data/library_identity_registry.json*
+            /lyric-harness/data/sources.tsv
+            /lyric-harness/data/authority.tsv
+            /lyric-harness/data/calibration_work_editions.json
+            /lyric-harness/data/lyric_label_prefixes.json
+            /lyric-harness/lyric_harness.py
+            /lyric-harness/quality/lyric_reader.py
+            /lyric-harness/quality/provenance.py
+            /lyric-harness/quality/populate_authority.py
+      - name: Rebuild the pinned 317c snapshot
+        working-directory: .library-golden-fixture/lyric-harness
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from library.catalog import build
+
+          root = Path.cwd()
+          source_manifest = root / 'library/catalog_sources.json'
+          source_pin = json.loads(source_manifest.read_text())['repository_commit']
+          manifest = build(root, root / 'library/snapshot', source_pin,
+                           source_manifest=source_manifest)
+          assert manifest['snapshot_id'] == '317c5afae76bfce833ed10fd06d48ddd9ffa17053fbf02d7c461e80abedf86b7'
+          assert manifest['counts']['readable_reading_units'] == 25525
+          PY
+      - name: Export it with the label registry attached
+        working-directory: .library-golden-fixture/lyric-harness
+        run: |
+          python3 -m library.catalog_site_export \
+            --source library/snapshot \
+            --output "$RUNNER_TEMP/library-golden-export"
+          python3 - <<'PY'
+          import hashlib, json, os
+          im = json.load(open(os.environ['RUNNER_TEMP'] + '/library-golden-export/import_manifest.json'))
+          want = hashlib.sha256(open('data/lyric_label_prefixes.json', 'rb').read()).hexdigest()
+          assert im['derived_metadata']['label_registry_sha256'] == want, 'label registry not attached'
+          PY
+      - name: Stage and build the Worker on 317c
+        run: |
+          python3 scripts/stage-library.py \
+            "$RUNNER_TEMP/library-golden-export" \
+            "$GITHUB_WORKSPACE/.library-golden-fixture/lyric-harness/library/snapshot"
+          pnpm run build
+      - name: Recapture the goldens and compare with the committed ones
+        run: |
+          node scripts/capture-library-goldens.cjs \
+            ../../tests/library/goldens/317c/queries.json \
+            "$RUNNER_TEMP/goldens-317c"
+          for f in search.jsonl.gz readings.jsonl.gz metadata.jsonl.gz exports.json; do
+            if ! cmp -s "$RUNNER_TEMP/goldens-317c/$f" "../../tests/library/goldens/317c/$f"; then
+              echo "::error::$f differs from the committed golden"
+              exit 1
+            fi
+          done
+          echo "Every golden reproduces byte for byte."
