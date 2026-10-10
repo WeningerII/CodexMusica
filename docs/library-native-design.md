@@ -72,23 +72,31 @@ The red team found 12 blocking defects and no architectural flaw. Revision 1 bel
 - `check_library_data` asserts that no file in any retained generation belongs to a non-readable id.
 - `check_library_page` stage `rights-correction` demotes a unit in a fixture. The retained URL is gone, and the tab shows metadata only.
 
-### C3 (amends V3). Quota resynchronization is fenced by generation
+### C3 (amends V3; corrected after 3PO's third verdict). Quota resynchronization by quiescent scan
+**Correction:** the earlier "scan plus same-process delta journal" was wrong. For example, if a file shrinks from 100 to 50 bytes before the scan reaches it, the scan counts 50, the journal adds −50, and the result is 0, an undercount. A fixed margin of `RESERVE_BYTES × 16` (256 KiB) is also smaller than one allowed 2 MiB object, so it cannot prove capacity safety. Both are replaced.
+
 **Contract:**
-1. **Write intent.** Before a record commit, the writer writes `records/.pending` containing `{generation: g+1}`. After the commit it publishes `.generation = g+1` and removes `.pending`.
-2. **Verification scan off the request path.**
-   - The scan reads `.generation = g0` at the start and keeps an in-memory journal of the deltas this process applies during the scan.
-   - At the end:
-     - if `.generation` still equals `g0` plus this process's own commits, the result is `scan + journal`, and it replaces the counter;
-     - if another process committed meanwhile, the result is discarded and the scan retries, at most 3 times, then rescheduled.
-   - A scan never overwrites a counter with a mixed-generation total.
-3. **Crash between commit and publication.** On open, if `.pending` exists or a record is newer than `.generation`, a full rescan is scheduled off the request path. Until it finishes, `_capacity` refuses any write that would come within `RESERVE_BYTES × 16` of the quota, so the counter can't under-count into an overrun.
-4. **Bounds per maintenance tick:** ≤ 100 records, ≤ 500 objects, ≤ 64 MB of bytes read, and ≤ 50 ms of wall time, yielding between batches.
+1. **Intent and generation cover every mutation.** Record writes, object writes (pages, manifests, refs and retained definitions) and object deletes all take the writer lock. Each one writes `.pending {generation: g+1}` before its first byte, then publishes `.generation = g+1` and removes `.pending` after it completes. This includes an object written before its record commits, so an orphan object left by a crash is covered by the intent marker.
+2. **A scan is accepted only if it was quiescent.**
+   - The verification scan, off the request path and bounded per tick, reads `.generation = g0` with no `.pending` at the start.
+   - At the end it takes the writer lock and checks that `.generation` is still `g0` and that no `.pending` exists. Only then does it publish the scan total as the counter, under that lock.
+   - Any mutation during the interval discards the scan, which retries later.
+   - There is no live-scan delta journal.
+3. **Unknown usage fails closed.** Usage becomes unknown:
+   - at open until the first accepted scan;
+   - after a crash, detected when `.pending` exists or an object or record is newer than `.generation`;
+   - after a discarded verification that found drift.
+
+   While usage is unknown, every **allocating or growing** write is refused with `503 STORE_RECOUNTING` and Retry-After: job creation, checkpoints and touches that would grow a record. Reads continue. **Cleanup** (deletes, expiry and orphan-object collection) continues under the same lock and intent fencing. A recount is scheduled at once, and with writes blocked a scan is quiescent unless cleanup runs, so it converges quickly.
+4. **Steady state.** Once usage is known, each committed mutation applies its exact byte delta to the counter under the lock, as in V3. The periodic quiescent verification guards against drift.
+5. **Bounds per maintenance tick:** ≤ 100 records, ≤ 500 objects, ≤ 64 MB of bytes read, ≤ 50 ms of wall time.
 
 **Tests:** in `mcp/test_reader_store_bounds.mjs`:
+- **shrink-before-scan:** 100 → 50 bytes during a scan. The scan is discarded, and the next accepted scan equals the full-scan truth.
+- grow, delete and create interleavings during a scan;
 - two store instances writing concurrently;
-- writes during a verification scan;
-- a crash injected between record commit and generation publication;
-- a rescan converging to the full-scan truth.
+- a crash after a page object is written but before its record commits. On reopen, usage is unknown, growing writes get 503, the orphan is collected, a recount is accepted, and writes resume;
+- **unknown-usage admission:** a create during unknown usage returns 503 `STORE_RECOUNTING`, and a delete succeeds.
 
 The `store-load` budgets remain the implementation acceptance test.
 
