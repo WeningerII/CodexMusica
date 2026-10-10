@@ -1,0 +1,33 @@
+{
+  "about": "Live baseline of the old Library Site, timed by scripts/check_library_perf.js from a GitHub runner (the Claude Code container cannot reach the Site). Milestones follow the old Site's markup in sites/library/components/library/library-app.tsx (shelf heading h2, collection card caption title, the .empty-state loading panel) and reader.tsx (the reading h1 and the first lyric line). No probe is configured here: the immediate-action probe is defined per pair when the native tab is measured against this same Site, so both sides carry the same probe.",
+  "runs": 9,
+  "milestones": ["shelves-ready"],
+  "sides": {
+    "old": {
+      "mode": "live",
+      "url": "https://codex-musica-corpus-tonybolognamacaroni.chatgpt.site/",
+      "busy": ".empty-state",
+      "milestones": {
+        "shelves-ready": {
+          "selectors": ["section.shelf .shelf-heading h2", "section.shelf .collection-card .caption-title"]
+        }
+      }
+    }
+  },
+  "reader": {
+    "runs": 9,
+    "milestones": ["reader-ready"],
+    "sides": {
+      "old": {
+        "mode": "live",
+        "url": "https://codex-musica-corpus-tonybolognamacaroni.chatgpt.site/read/reading_3c5bf756-d01e-5900-b806-c98f94741e2f",
+        "busy": ".empty-state",
+        "milestones": {
+          "reader-ready": {
+            "selectors": ["h1", ".source-line.line-kind-lyric"]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+name: Library timing baseline
+
+# Records the old Library Site's live load times with the same harness the
+# native tab will be judged by (scripts/check_library_perf.js). It runs from a
+# GitHub runner because the Claude Code container cannot reach the Site. It
+# measures; it gates nothing. The report is printed to the log as one JSON line
+# per profile and uploaded as an artifact, and is committed by hand to
+# tests/perf/library-baseline.json with the run's date, commit and runner.
+
+on:
+  pull_request:
+    paths:
+      - 'tests/perf/library-baseline-config.json'
+      - 'scripts/check_library_perf.js'
+      - '.github/workflows/library-perf-baseline.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: library-perf-baseline-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+      - name: Time the old Site (mobile and desktop, shelves and reader)
+        run: |
+          set -e
+          node - <<'JS'
+          const fs = require('fs');
+          const cfg = JSON.parse(fs.readFileSync('tests/perf/library-baseline-config.json', 'utf8'));
+          const { reader, about, ...shelves } = cfg;
+          for (const profile of ['mobile', 'desktop']) {
+            fs.writeFileSync(`shelves-${profile}.json`, JSON.stringify({ ...shelves, profile }));
+            fs.writeFileSync(`reader-${profile}.json`, JSON.stringify({ ...reader, profile }));
+          }
+          JS
+          for f in shelves-mobile shelves-desktop reader-mobile reader-desktop; do
+            node scripts/check_library_perf.js --config="$f.json" --report="report-$f.json"
+            echo "BASELINE_JSON $f $(node -e "const r=require('./report-$f.json');const s=r.sides.old;console.log(JSON.stringify({date:new Date().toISOString(),commit:process.env.GITHUB_SHA,runner:process.env.RUNNER_NAME,profile:r.profile,runs:r.runs,mode:s.mode,target:s.target,milestones:Object.fromEntries(Object.entries(s.milestones).map(([k,v])=>[k,{median:v.median,p90:v.p90,mad:v.mad,missed:v.missed,samples:v.samples,bytes:v.bytes.median,requests:v.requests.median}])),fcp:s.fcp.median,lcp:s.lcp.median}))")"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: library-perf-baseline
+          path: report-*.json
