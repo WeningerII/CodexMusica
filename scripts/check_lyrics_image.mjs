@@ -9,6 +9,7 @@ import { access } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { performance } from 'node:perf_hooks';
+import { ATTEMPT_MS, READY_MS, getJson, waitForHealth } from './lyrics_image_readiness.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const [image, commit] = process.argv.slice(2);
@@ -116,24 +117,20 @@ if (
   };
 
   // Runs inside the actual service container. Only localhost is reachable.
+  // The exec limit below is the readiness window, the 10 s status request and
+  // 5 s of process start-up and overhead; the five-minute budget still caps it.
+  const probeExecMs = READY_MS + 10_000 + 5_000;
   // Neither the signing key nor its hash is written to tool or CI output.
   const probe = `
     import fs from 'node:fs';
     import crypto from 'node:crypto';
     import assert from 'node:assert/strict';
-    import { setTimeout as delay } from 'node:timers/promises';
+    ${getJson}
+    ${waitForHealth}
     const [commit, mode] = process.argv.slice(1);
     assert.equal(process.versions.node.split('.')[0], '22', 'production runtime must be Node 22');
-    const until = Date.now() + 30_000;
-    let health;
-    while (Date.now() < until) {
-      try {
-        const res = await fetch('http://127.0.0.1:8080/health', { signal: AbortSignal.timeout(1000) });
-        if (res.ok) { health = await res.json(); break; }
-      } catch { /* bounded startup polling */ }
-      await delay(250);
-    }
-    assert.ok(health, 'production server did not become healthy within 30 seconds');
+    const health = await waitForHealth('http://127.0.0.1:8080/health', ${READY_MS}, ${ATTEMPT_MS});
+    assert.ok(health, 'production server did not become healthy within ${READY_MS / 1000} seconds');
     assert.equal(health.commit, commit, 'health commit must match the built image');
     assert.equal(health.build.commit, commit);
     const baked = JSON.parse(fs.readFileSync('/app/mcp/build_identity.json', 'utf8'));
@@ -144,9 +141,9 @@ if (
     assert.equal(health.recovery.durable, true);
     assert.equal(health.recovery.healthy, true);
     assert.match(health.build.source_sha256, /^[0-9a-f]{64}$/);
-    const statusResponse = await fetch('http://127.0.0.1:8080/chat/status', { signal: AbortSignal.timeout(10_000) });
+    const statusResponse = await getJson('http://127.0.0.1:8080/chat/status', 10_000);
     assert.equal(statusResponse.status, 200);
-    const status = await statusResponse.json();
+    const status = statusResponse.body;
     assert.equal(status.enabled, true);
     assert.equal(status.capDurable, true);
     assert.equal(status.accountingBlocked, null);
@@ -209,11 +206,11 @@ if (
     assert.equal(config.HostConfig.MemorySwap, 2 * 1024 ** 3);
     assert.equal(config.HostConfig.NetworkMode, 'none');
     await docker(['exec', server, 'node', '--input-type=module', '-e', probe, commit, 'before'], {
-      timeoutMs: 45_000,
+      timeoutMs: probeExecMs,
     });
     await docker(['restart', '--time=2', server], { quiet: true, timeoutMs: 10_000 });
     await docker(['exec', server, 'node', '--input-type=module', '-e', probe, commit, 'after'], {
-      timeoutMs: 45_000,
+      timeoutMs: probeExecMs,
     });
     console.log(
       'Production lyrics image gate passed: real harness/worker/proposer/verification and durable restart.'
