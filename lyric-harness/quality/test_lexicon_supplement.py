@@ -18,6 +18,7 @@ Sections:
   8  every lexicon identity that reads the file moves with its bytes
   9  the CLI coordinate: declared, disclosed, refused when misspelled
  10  the file keys what the tokenizer keeps: edge apostrophes, accents
+ 11  the coordinate survives the consumers that build their own readers
 """
 
 import os
@@ -300,6 +301,143 @@ def test_tokenizer_keys():
           and fx.reading_source("tis", ["T", "IH1", "Z"]) == "cmudict")
 
 
+def _fixture(extra, **kwargs):
+    """A SupplementedLexicon over the shipped rows plus `extra` planted rows
+    (source `test:fixture`), built from a temporary copy."""
+    with open(S.SUPPLEMENT_PATH, encoding="utf-8") as fh:
+        lines = fh.read().splitlines()
+    body = sorted([l for l in lines if l and not l.startswith("#") and l != HEADER]
+                  + [f"{w}\t{ph}\ttest:fixture\tplanted\treviewed:test:2026-10-10"
+                     for w, ph in extra], key=lambda l: l.split("\t", 1)[0])
+    path = _write([HEADER] + body)
+    S.SOURCES["test:fixture"] = "planted by this suite"
+    try:
+        return S.SupplementedLexicon(supplement_path=path, **kwargs), path
+    finally:
+        del S.SOURCES["test:fixture"]
+
+
+def test_consumer_paths():
+    print("\n11. the coordinate survives the consumers that build their own readers")
+    from quality.phonology.eng import English
+    from quality import relations as R
+    from quality.revise import Reviser
+    r = English(lexicon=SUPP).read("thirty-one")
+    check("English.read on a supplement word names the row's source, not CMUdict",
+          r is not None and r.rule == "rule:number-compound"
+          and r.layer == "dictionary", repr(r))
+    check("and a CMUdict word still reads as CMUdict",
+          English(lexicon=SUPP).read("moon").rule == "CMUdict")
+    check("while a plain English reader refuses the supplement word",
+          English(lexicon=PLAIN).read("thirty-one") is None)
+    hi = English(fallback="high", lexicon=SUPP).read("thirty-one")
+    check("high mode reads the whole entry before its compound layer splits it",
+          hi is not None and hi.phones[-3:] == ("W", "AH2", "N")
+          and hi.rule == "rule:number-compound", repr(hi))
+    check("and reads a CMUdict compound whole too (e-mail), where plain high "
+          "mode splits it", English(fallback="high", lexicon=SUPP).read("e-mail").phones
+          == ("IY1", "M", "EY2", "L")
+          and English(fallback="high", lexicon=PLAIN).read("e-mail").phones
+          == ("IY1", "M", "EY1", "L"))
+    fx, path = _fixture([("zorbo", "Z AO1 R B OW0")])
+    fxh, path_h = _fixture([("zorbo", "Z AO1 R B OW0")], fallback="high")
+    try:
+        check("a planted supplement-only word reads",
+              English(lexicon=fx).read("zorbo") is not None)
+        check("but high mode derives nothing from it as a stem",
+              English(fallback="high", lexicon=fx).read("zorbos") is None)
+        check("nor does the no-fallback view of a lexicon built with one "
+              "(the _NoFallbackView route)",
+              English(lexicon=fxh).read("zorbos") is None
+              and English(lexicon=fxh).read("zorbo") is not None)
+        d_plain = English(lexicon=PLAIN).declaration()
+        d_supp = English(lexicon=SUPP).declaration()
+        d_fx = English(lexicon=fx).declaration()
+        check("English.declaration carries the supplement's digest, and only "
+              "when there is one",
+              "lexicon_supplement_sha256" not in d_plain
+              and d_supp.get("lexicon_supplement_sha256") == SUPP.supplement_sha256)
+        check("two supplement versions declare apart",
+              d_fx.get("lexicon_supplement_sha256") not in (None, d_supp.get("lexicon_supplement_sha256")))
+        lines = ["I turned thirty-one", "beneath the burning sun"]
+        keys = {R._wvp_key(lines, English(lexicon=lx), None, None)
+                for lx in (PLAIN, SUPP, fx)}
+        check("the whole-vocabulary memo keys plain, supplement and a second "
+              "version three ways apart", len(keys) == 3)
+        plain = R.whole_vocabulary_pairs(lines, English(lexicon=PLAIN),
+                                         requested_pairs=[(1, 2)])
+        memo = R.whole_vocabulary_pairs(lines, English(lexicon=SUPP),
+                                        requested_pairs=[(1, 2)])
+        R._WVP_MEMO.clear()
+        fresh = R.whole_vocabulary_pairs(lines, English(lexicon=SUPP),
+                                         requested_pairs=[(1, 2)])
+        check("a supplemented call after a plain one on the same text equals a "
+              "fresh supplemented call",
+              dict(memo) == dict(fresh) and memo.undecided == fresh.undecided)
+        check("and the two readings really differ there (so the check above "
+              "could fail)", dict(plain) != dict(memo)
+              and "perfect rhyme" in dict(memo).get((1, 2), ()),
+              f"plain {dict(plain)} | supplement {dict(memo).get((1, 2))}")
+    finally:
+        os.remove(path)
+        os.remove(path_h)
+    # MENU -> CHOSEN OCCURRENCE READING -> CONSUMER, on an apostrophe form whose
+    # bare word has CMUdict variants (3PO's seam): every reading the lexicon
+    # considers is on the menu with its source, a `basis: dictionary` choice
+    # of an inherited CMUdict reading is accepted, and the consumer reads it.
+    from quality import pronunciation as PR
+    fxr, path_r = _fixture([("'record", "R IY1 K AO0 R D")])
+    try:
+        line = "the 'record spins"
+        menu = PR.reading_options(fxr, [line])["items"]
+        item = [i for i in menu if i["word"] == "'record"]
+        offered = {tuple(r["phones"]): r.get("source") for r in item[0]["dictionary_readings"]} if item else {}
+        check("the menu lists the apostrophe form's row AND the bare word's "
+              "CMUdict readings, each with its source",
+              offered.get(("R", "IY1", "K", "AO0", "R", "D")) == "test:fixture"
+              and offered.get(("R", "EH1", "K", "ER0", "D")) == "cmudict"
+              and len(offered) == 4, str(offered))
+        check("and it is exactly the set the lexicon itself considers",
+              set(offered) == {tuple(p) for p in fxr.pronunciation_variants("'record")})
+        choice = {"line": line, "token": 2, "word": "'record",
+                  "phones": ["R", "EH1", "K", "ER0", "D"], "basis": "dictionary",
+                  "source": "test: an inherited CMUdict reading"}
+        S.SOURCES["test:fixture"] = "planted by this suite"
+        try:
+            chosen = S.SupplementedLexicon(supplement_path=path_r, pronunciations=[choice])
+        finally:
+            del S.SOURCES["test:fixture"]
+        check("a `basis: dictionary` choice of the inherited reading is accepted",
+              chosen.pronunciations and chosen.pronunciations[0]["phones"]
+              == ["R", "EH1", "K", "ER0", "D"])
+        phones, words, _ = chosen.transcribe(line)
+        check("and the consumer reads the chosen reading on that occurrence",
+              phones[2:7] == ["R", "EH1", "K", "ER0", "D"]
+              and "IY1" not in phones, str(phones))
+        tok = English(lexicon=chosen.for_line(line)).for_token(1).read("'record")
+        check("labelled as the declared choice, not as the row it displaced",
+              tok is not None and tok.layer == "declared"
+              and tok.phones == ("R", "EH1", "K", "ER0", "D"), repr(tok))
+        check("while elsewhere the apostrophe form's own row still leads",
+              fxr.transcribe_word("'record") == (["R", "IY1", "K", "AO0", "R", "D"], False))
+        check("pin_readings files an inherited reading as dictionary, not declared",
+              PR.pin_readings(fxr, [(line, 2, "'record", ["R", "EH1", "K", "ER0", "D"])],
+                              "test").pronunciations[0]["basis"] == "dictionary")
+    finally:
+        os.remove(path_r)
+    check("a plain Lexicon's menu and validator answer from the exact entry, as "
+          "before", PR.dictionary_readings(PLAIN, "record") == PLAIN.entries["record"])
+    check("the reviser's relation reader carries the supplemented lexicon",
+          Reviser(lex=SUPP)._relation_phonology().lexicon is SUPP
+          and Reviser(lex=PLAIN)._relation_phonology().lexicon is None)
+    runs_s, runs_p = {}, {}
+    Reviser(lex=SUPP)._band_findings(["I turned thirty-one"], runs_out=runs_s)
+    Reviser(lex=PLAIN)._band_findings(["I turned thirty-one"], runs_out=runs_p)
+    check("and so does its meter-band reader: thirty-ONE, not four prominent "
+          "syllables in a row", runs_s == {1: (2, 1)} and runs_p == {1: (4, 1)},
+          f"supplement {runs_s} | plain {runs_p}")
+
+
 def _cli(*args):
     run = subprocess.run([sys.executable, os.path.join(ROOT, "lyric_harness.py"), *args],
                          capture_output=True, text=True, timeout=600)
@@ -321,7 +459,8 @@ def main():
     for fn in (test_shipped_file, test_contract_refusals,
                test_plain_lexicon_untouched, test_derivation_reads_cmudict_alone,
                test_whole_before_piece, test_witnesses, test_reading_sources,
-               test_identities_move, test_tokenizer_keys, test_cli):
+               test_identities_move, test_tokenizer_keys, test_consumer_paths,
+               test_cli):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

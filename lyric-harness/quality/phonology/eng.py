@@ -225,6 +225,11 @@ class English(Phonology):
             d['pronunciation_scope_sha256'] = fingerprint({
                 'tokens': getattr(self.lexicon, '_pronunciation_tokens', {}),
                 'choice': getattr(self.lexicon, '_pronunciation_choice', None)})
+        # THE REVIEWED SUPPLEMENT is a reading coordinate when the lexicon
+        # carries one (quality/lexicon_supplement.py): every memo keyed by
+        # this declaration must tell its versions apart. Absent, unchanged.
+        if getattr(self.lexicon, "supplement_sha256", None):
+            d["lexicon_supplement_sha256"] = self.lexicon.supplement_sha256
         d["fallback"] = self.fallback
         d["fallback_licenses"] = FALLBACK_MODES[self.fallback]
         return d
@@ -253,7 +258,13 @@ class English(Phonology):
     def _fallback(self):
         if self._fb is None and self.fallback is not None:
             from quality.g2p import Fallback
-            self._fb = Fallback(self._lexicon(), min_confidence=self.fallback)
+            lex = self._lexicon()
+            # A supplemented lexicon hands derivation CMUdict alone: a
+            # reviewed row is a reading of its word, never a stem or a piece.
+            # `read` consults the whole entries before this fallback.
+            if hasattr(lex, "cmu_lexicon"):
+                lex = lex.cmu_lexicon()
+            self._fb = Fallback(lex, min_confidence=self.fallback)
         return self._fb
 
     # ---------------------------------------------------------------- reads
@@ -273,10 +284,20 @@ class English(Phonology):
         choice = getattr(self.lexicon, '_pronunciation_choice', None)
         if choice and choice['word'] == word:
             return Reading(tuple(choice['phones']), 'declared', choice['source'], (word.lower(),))
+        lex = self._lexicon()
+        # Inside the supplement coordinate a whole entry -- CMUdict's or a
+        # reviewed row -- is read whole before any fallback splits it, and
+        # its source is the row's own (quality/lexicon_supplement.py).
+        if hasattr(lex, "whole_reading"):
+            whole = lex.whole_reading(word)
+            if whole is not None:
+                phones, source = whole
+                return Reading(tuple(phones), "dictionary",
+                               "CMUdict" if source == "cmudict" else source,
+                               (word.lower(),))
         fb = self._fallback()
         if fb is not None:
             return fb.read(word)
-        lex = self._lexicon()
         if getattr(lex, "g2p_fallback", None) is not None:
             from quality.g2p import _NoFallbackView
             lex = _NoFallbackView(lex)

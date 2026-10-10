@@ -51,6 +51,7 @@ reading, sorted by word, readings of one word in their intended order.
           review lives in the queue, which does not ship.
 """
 import argparse
+import copy
 import hashlib
 import os
 import re
@@ -327,6 +328,55 @@ class SupplementedLexicon(LH.Lexicon):
             return "cmudict"
         return None
 
+    def cmu_lexicon(self):
+        """-> a plain `Lexicon` over CMUdict alone, sharing this one's frequency
+        ranks, `strip_parens`, fallback and declared readings. What a
+        derivation layer that takes a whole lexicon (the g2p `Fallback` an
+        `English` phonology builds) must be handed, so a supplement row is
+        never its stem."""
+        view = copy.copy(self)
+        view.__class__ = LH.Lexicon
+        view.entries = self.cmu_entries
+        return view
+
+    def without_fallback(self):
+        """-> this lexicon with its g2p fallback removed: supplement and
+        CMUdict lookups and reductions, nothing derived beyond them. The
+        `dictionary` column `g2p._NoFallbackView` draws."""
+        view = copy.copy(self)
+        view.g2p_fallback = None
+        return view
+
+    def dictionary_readings(self, word):
+        """-> every whole-entry reading this lexicon would consider for the
+        token, in its order: the apostrophe form's own reviewed rows, then the
+        bare word's readings (CMUdict's, then the supplement's), then any
+        further CMUdict reading filed under the apostrophe spelling. What a
+        reading menu lists and a `basis: dictionary` choice may name
+        (`quality.pronunciation.dictionary_readings`)."""
+        key = _key(word)
+        bare = _bare(key)
+        out = []
+        groups = ([p for p in self.entries.get(key, ())
+                   if (key, tuple(p)) in self._reading_sources] if key != bare else [],
+                  self.entries.get(bare, ()),
+                  self.cmu_entries.get(key, ()) if key != bare else ())
+        for group in groups:
+            for p in group:
+                if list(p) not in out:
+                    out.append(list(p))
+        return out
+
+    def whole_reading(self, word):
+        """-> (phones, source) for the word's first whole-entry reading
+        (CMUdict's or the supplement's, the exact apostrophe form first), or
+        None. No reduction from a supplement row, no fallback."""
+        variants = self.pronunciation_variants(word)
+        if not variants:
+            return None
+        phones = list(variants[0])
+        return phones, (self.reading_source(word, phones) or "cmudict")
+
     def _cmu_view(self):
         lex = self
 
@@ -382,6 +432,22 @@ class SupplementedLexicon(LH.Lexicon):
             if "-" in key and (key in self.entries or _bare(key) in self.entries):
                 return [word]
         return LH.Lexicon.word_pieces(self, word)
+
+
+_SUPPLEMENTED = {}
+
+
+def supplemented_lexicon(strip_parens=True, fallback=None,
+                         supplement_path=SUPPLEMENT_PATH):
+    """A cached `SupplementedLexicon`, keyed by its coordinates and the file's
+    digest -- the supplemented twin of `fit._english_lexicon`, for readers
+    that build their own lexicon (the meter-band reader)."""
+    key = (strip_parens, fallback, supplement_path, file_sha256(supplement_path))
+    if key not in _SUPPLEMENTED:
+        _SUPPLEMENTED[key] = SupplementedLexicon(
+            fallback=fallback, strip_parens=strip_parens,
+            supplement_path=supplement_path)
+    return _SUPPLEMENTED[key]
 
 
 def build_lexicon(supplement=False, **kwargs):

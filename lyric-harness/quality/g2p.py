@@ -1026,6 +1026,13 @@ class _NoFallbackView:
         # Bound once, not per word: a corpus file is ~100k tokens and this is
         # called on every one of them.
         self._read = Lexicon.transcribe_word
+        # A supplemented lexicon (quality/lexicon_supplement.py) is read as
+        # ITSELF without its fallback: its rows count as dictionary, and its
+        # reductions still start from CMUdict alone.
+        without = getattr(lex, "without_fallback", None)
+        if without is not None:
+            view = without()
+            self._read = lambda _self, word: view.transcribe_word(word)
 
     def transcribe_word(self, word):
         return self._read(self, word)
