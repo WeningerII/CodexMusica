@@ -420,8 +420,8 @@ Without this split, removing the bridge secrets would silently disable public an
 
 ### Rate limits and admission
 - The old Site had no rate limiter. Its only bounds were 2 outstanding analyses per viewer and 16 waiting globally. Per-IP limits would penalize shared NAT (schools, offices).
-- So the **binding analysis limits are per viewer**: 2 outstanding per viewer, as before, and creates at 30/h per viewer. Per-IP limits are **abuse ceilings** sized so a shared IP cannot plausibly reach them.
-- **Long-reading rule:** a reading with more than 5,000 analysis lines may have at most **one** queued or running job service-wide. A second gets `429 LONG_READING_BUSY` with Retry-After.
+- So the **binding analysis limits are per viewer**: 2 outstanding per viewer, as before, and creates at 30/h per viewer. Per-IP limits are **abuse ceilings**. Ordinary shared networks can reach them: the consequences table under owner decision 4 states exactly when.
+- **Long-reading rule:** across **all** long readings (more than 5,000 analysis lines), at most **one** long-reading job may be queued or running service-wide, whichever reading it is. Any further long-reading job gets `429 LONG_READING_BUSY` with Retry-After. Short readings are unaffected.
 - Mechanism: process-local windows keyed by clientIp with TRUSTED_PROXY_HOPS=1 (ratelimit.js `LIBRARY_LIMITS`). Every refusal is 429 with Retry-After, and the UI says when to retry. Export and corpus streams also have an idle timeout and a minimum transfer rate; the Render load-balancer duration limit is verified in PR 1.
 - Every value, with its old behaviour and exact consequence, is in the table under owner decision 4. John chooses each one.
 - Tests in `test_library_routes`:
@@ -450,7 +450,7 @@ Source-confirmed, not a measured production failure: every authorized read runs 
 3. **Incremental quota accounting.**
    - Usage is an in-memory counter. Once usage is known, each committed mutation applies its exact byte delta to the counter under the lock.
    - `_capacity` reads the counter and never scans.
-   - A generation change from another writer schedules a recount, which is accepted only under the quiescence rule below.
+   - When this instance observes a generation change it did not make (another writer committed), **its usage becomes unknown at once**, before any further allocating or growing write, and a recount is scheduled. The recount is accepted only under the quiescence rule below.
 4. **Verification scans are accepted only if quiescent.**
    - A verification scan runs off the request path every 15 minutes, within the per-tick bounds below. It reads `.generation = g0` with no `.pending` at the start.
    - At the end it takes the writer lock and checks that `.generation` is still `g0` and that no `.pending` exists. Only then does it publish the scan total as the counter, under that lock. A published total that differs from the counter logs `READER_USAGE_DRIFT` with both values.
@@ -459,7 +459,8 @@ Source-confirmed, not a measured production failure: every authorized read runs 
    - Usage is unknown:
      - at open, until the first accepted scan;
      - after a crash, detected when `.pending` exists or an object or record is newer than `.generation`;
-     - after a discarded verification that found drift.
+     - after a discarded verification that found drift;
+     - whenever this instance observes a generation change made by another writer.
    - While usage is unknown, every **allocating or growing** write is refused with `503 STORE_RECOUNTING` and Retry-After: job creation, checkpoints, and touches that would grow a record. Reads continue.
    - **Cleanup** (deletes, expiry and orphan-object collection) continues under the same lock and intent fencing.
    - A recount is scheduled at once. With growing writes blocked, a scan is quiescent unless cleanup runs, so it converges quickly.
@@ -476,6 +477,7 @@ Source-confirmed, not a measured production failure: every authorized read runs 
 - **shrink-before-scan:** a file shrinks from 100 to 50 bytes during a scan. The scan is discarded, and the next accepted scan equals the full-scan truth;
 - grow, delete and create interleavings during a scan;
 - two store instances writing concurrently;
+- **cross-writer growth:** writer A commits; writer B then refuses any allocating or growing write with `503 STORE_RECOUNTING` until B's own quiescent recount succeeds, after which B's writes resume with the correct total;
 - a crash after a page object is written but before its record commits. On reopen, usage is unknown, growing writes get 503, the orphan is collected, a recount is accepted, and writes resume;
 - **unknown-usage admission:** a create during unknown usage returns `503 STORE_RECOUNTING`, and a delete succeeds;
 - the touch interval is honored;
@@ -503,7 +505,6 @@ A second `qualify_reader` scenario runs a Kalevala search hit and a near-full se
 - **Rollback compatibility is enforced outside the image.**
   - When phase B enables gzip writes, the store writes `store-format.json {"min_reader": "A"}`.
   - The deploy and qualification workflows read the candidate image's reader-format label and refuse any image below `min_reader`. That check lives outside the old image, which cannot know about gzip.
-  - An image without `readPageObject` that finds `.gz`-magic objects fails readiness loudly rather than misreading them.
   - Render's dashboard rollback bypasses workflows, so the runbook forbids a dashboard rollback past phase A once `store-format.json` exists.
   - Rolling back from B to A stays valid, because A reads both.
 - **Rollback to before phase A** requires `reader_store_inflate.mjs`, run under the exclusive writer lock.
@@ -519,7 +520,6 @@ A second `qualify_reader` scenario runs a Kalevala search hit and a near-full se
 - an inflation bomb refused;
 - hash mismatch refused;
 - rollback B → A reads everything;
-- the old-image startup check fails on gzip objects;
 - the deploy gate refuses a pre-A image when `store-format.json` exists;
 - the inflate conversion on a fixture store, including a simulated out-of-space refusal and an interrupted run that resumes.
 
@@ -1299,7 +1299,7 @@ sites/library/**, .github/workflows/library-site.yml, the Dockerfile approved-li
 - **Pages/Render skew.** Pages publishes at merge, but Render promotes only after Production qualification. Units whose revision changed in a corpus PR therefore get STALE_READING on analysis, revision-mismatched search marks, or export 409s until promotion, typically up to a day. Revision addressing confines this to changed units, and smoke_library_live alerts if skew lasts more than 48 h.
 - **Render capacity on one standard instance.** The search store and its tables add about 40-120 MB to the 1638 MiB bound, measured by qualify_reader. Public analysis can fill the 16-job queue. Corpus downloads (578 MB per full set) cost egress, and the image grows by about 0.7 GB with about 3-5 more minutes of build unless the library stage cache hits. Rate limits and the export-plan LRU are process-local and reset on deploy; an evicted plan re-plans transparently.
 - **Persistent-disk deploys on Render are not zero-downtime**, so search, held metadata, exports and analysis are briefly unavailable at each promotion. Reading, Explore, default Works lists, compare, provenance and the Lyrics handoff stay up because they are static.
-- **Reader storage quota.** Without phase B, capacity stays at about 100 analyses per 30 days at 256 MiB uncompressed. Phase B is a store migration. A dashboard rollback past phase A after `store-format.json` exists would bypass the workflow gate, so the runbook forbids it, and the old image fails readiness loudly rather than misreading gzip objects.
+- **Reader storage quota.** Without phase B, capacity stays at about 100 analyses per 30 days at 256 MiB uncompressed. Phase B is a store migration. A dashboard rollback past phase A after `store-format.json` exists would bypass the workflow gate. A pre-A image cannot detect gzip objects, so the controls are the external deploy and rollback gate, the runbook's prohibition, and the verified inflate conversion before any pre-A rollback.
 - **Store recount windows.** While usage is unknown (at open, after a crash, after drift), allocating writes get `503 STORE_RECOUNTING`. With writes blocked, a quiescent scan converges quickly, but analysis creation pauses for that window. A crash also loses at most 1 hour of sliding retention.
 - **Safari ITP** may cap the viewer cookie at 7 days, because mcp.codexmusica.com is a CNAME to Render. A Safari user idle for a week then loses access to their own earlier analyses. The UI and PRIVACY.md say so and offer a re-run.
 - **Self-minted viewers.** The per-viewer caps bind ordinary browsers, but a client that fabricates viewers is bounded only by the per-IP ceilings, the mint limit and the global queue, and a multi-IP client could still fill the queue. Analysis yields to lyric work, so lyrics are not starved, but Library users may see QUEUE_FULL. The long-reading rule stops one reading such as Kalevala from occupying the single CPU repeatedly.
@@ -1407,7 +1407,7 @@ These 15 decisions replace every earlier list. Each gives R2's recommendation. J
    | search | none | 600/min per IP (abuse ceiling), with Retry-After shown in the UI | the 601st search within a minute from one network address waits for Retry-After | no ceiling |
    | analysis outstanding | 2 per viewer, 16 waiting globally | 2 per viewer (unchanged); 12 per IP ceiling; 16 waiting globally (unchanged) | a 7th viewer behind one network address, while 6 viewers there each run 2, is refused | no per-IP ceiling |
    | analysis creates | none | 30/h per viewer; 120/h per IP ceiling | a viewer's 31st create in an hour, or the 121st from one network address, waits for Retry-After | no ceiling |
-   | long readings (> 5,000 analysis lines) | none | at most **one** queued or running job per such reading, service-wide | a second job on that reading gets `429 LONG_READING_BUSY` with Retry-After | no rule |
+   | long readings (> 5,000 analysis lines) | none | at most **one** long-reading job queued or running service-wide, across all long readings | any further long-reading job, on any long reading, gets `429 LONG_READING_BUSY` with Retry-After; short readings are unaffected | no rule |
    | job reads | none (Worker relay) | 600/min per IP, plus client poll backoff (3 s, rising to 15 s after 2 min) | the 601st job read within a minute from one network address waits for Retry-After | no ceiling |
    | cancel / resume / delete | none | 120/h per viewer | a viewer's 121st action in an hour waits for Retry-After | no limit |
    | cookie mints | n/a | 30/h per IP | the 31st new browser behind one network address in an hour cannot start its first analysis until Retry-After | no limit |
