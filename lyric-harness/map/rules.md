@@ -80,3 +80,5 @@ Held open even as notes (`MANDATORY_PURSUE`): none (emptied 2026-10-04, owner ru
 | UNCOVERED_BARS | note | — | fit.py |
 | UNIFORM_ANACRUSIS | note | — | grid.py |
 | UNIFORM_LINE_LENGTH | note | — | floor.py |
+
+Function reading refusals: `END_WORD_UNREADABLE` blocks requested function coverage, not a quality flag. Concrete failures carry `function:END_WORD_UNREADABLE:LN` plus the failed word, sung-token position (null when unmapped) and exact lyric text. Diagnostic coordinates do not change the stable line obligation or whole-refusal identity. `function:draft` retains the aggregate refusal. A comparison without a draft coordinate remains explicitly unlocated; its section-local line is not a draft line number. Mixed failures retain known line obligations plus a separate `location_scope: section_local` record for unlocated words. Occurrence declarations bind exact text and sung-token position only when the original function endpoint maps to that complete physical token. They do not change endpoint selection, add dictionary readings or change the perfect-rime policy.

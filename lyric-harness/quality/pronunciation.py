@@ -112,18 +112,24 @@ def refused_lines(coverage):
     """-> (lines, scoped): the 1-based lines a refused obligation names.
 
     `scoped` is False when some refused obligation names no line (a
-    `function:` refusal, or an id this reader does not know), because then
+    `function:` refusal without a location, or an id this reader does not know), because then
     no line can be ruled out. Formats, as the grader writes them:
     `rhyme:I:J:K` and `return:I:J` name lines I and J; `prominence:LN` and
-    `meter:CODE:LN` name line N.
+    `meter:CODE:LN` and `function:CODE:TN:LN` name line N.
     """
     lines, scoped = set(), True
-    for oid in (coverage or {}).get('refused_obligations') or []:
+    refused = (coverage or {}).get('refused_obligations') or []
+    details = [oid for oid in refused if oid.startswith('function:') and oid != 'function:draft']
+    located_function = details and all(oid.split(':')[-1][:1] == 'L' and
+                                     oid.split(':')[-1][1:].isdigit() for oid in details)
+    for oid in refused:
+        if oid == 'function:draft' and located_function:
+            continue
         parts = str(oid).split(':')
         if parts[0] in ('rhyme', 'return') and len(parts) >= 3 \
                 and parts[1].isdigit() and parts[2].isdigit():
             lines.update((int(parts[1]), int(parts[2])))
-        elif parts[0] in ('prominence', 'meter') and parts[-1][:1] == 'L' \
+        elif parts[0] in ('prominence', 'meter', 'function') and parts[-1][:1] == 'L' \
                 and parts[-1][1:].isdigit():
             lines.add(int(parts[-1][1:]))
         else:

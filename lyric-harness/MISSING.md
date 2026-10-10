@@ -545,6 +545,54 @@ checks in `quality/test_grid.py` — the question IS asked, across functions,
 and this register never mentioned the code. Closed on that evidence; D-4
 (the arc) is the separate entry it always was.
 
+**2026-10-10 — occurrence routing and failed-word diagnostics.** Function's
+perfect-rime callback now binds the existing exact lyric-line/sung-token
+reading before choosing its existing whole-word key. Chorus comparisons,
+reprise comparisons and bridge inventories use the same contextual endpoint.
+Unknown words still refuse; no fallback, dictionary rows, stress policy or
+first-reading perfect-rime policy changed. Repeated tokens can carry different
+readings without borrowing from an earlier token or from changed text.
+Independent review caught edge apostrophes bypassing the selected entry key:
+`Read 'record'` T2 chose the bare verb instead of the declared noun, and
+`Sing zzyzx'` remained unreadable despite a valid supplied reading. Bound
+choices now use the exact-token transcription path before bare-headword
+normalization; unselected whole-word lookup is unchanged. Leading, trailing,
+paired and curly apostrophes, repeated quoted homographs, OOV returns and
+changed-line isolation are regression-tested.
+Review also exposed an undeclared endpoint-policy regression in the first
+patch. Function retains its original physical end word, including trailing
+digits, non-Latin text, and parentheticals. Binding requires that exact physical
+span to be the complete final sung token. Earlier identical tokens, unsung
+asides and joined-enclitic components cannot lend a declaration. When no mapping
+exists, diagnostics state the known word/line with no sung-token position.
+The source span and sung-token indexes use the original exact line, not an
+NFC-normalized copy: an interior decomposed `cafés` occupies two declaration
+tokens. Normalization is only used for endpoint equivalence; the valid later
+T4 declaration and diagnostic position must not drift to T3.
+Coverage IDs identify the refused line, not the diagnostic token: inserting an
+earlier word must not invent a newly refused requirement. The whole function
+refusal keeps its legacy aggregate verifier identity when only its locations
+change; a remaining refusal does not count as fixed. Genuine newly refused lines
+still reject a revision. These changes do not alter other findings' identities.
+
+`END_WORD_UNREADABLE` retains every failed word, token and line through
+code-level aggregation. Coverage identifies concrete failures as
+`function:END_WORD_UNREADABLE:LN`; the aggregate `function:draft` remains
+refused. Expanded pointers retain section-local evidence instead of invented
+draft positions. A mixed comparison keeps each known draft-location obligation
+and a separate `location_scope: section_local` record containing only the
+remaining unlocated failures. Independent review's three-chorus case (two
+complete returns plus an expanded pointer) previously dropped known L1/L3
+when expansion introduced an unlocated failure; the real resolver, coverage
+and renderer now have mixed-case regressions. The session renderer distinguishes multiple dictionary
+readings from zero listed readings (including `streetlights`) and preserves
+supplied supplement identity in short/detail views. The producer owns that
+identity; absent identity is not inferred.
+
+Regression witnesses: `quality/test_pronunciation_choices.py` and
+`../mcp/test_verdict_view.mjs`. Synthetic fixtures only; no saved song is used.
+
+
 ### D-4 · No arc `OPEN`
 **Missing:** energy, dynamics, density, register, instrumentation change across
 the form — the shape a listener actually experiences.

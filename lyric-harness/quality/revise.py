@@ -86,7 +86,7 @@ import copy
 import hashlib
 import os
 import sys
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
@@ -3404,11 +3404,29 @@ class Reviser:
                                  if requested else "not_requested"})
             if requested:
                 for index, refusal in enumerate(rep["refusals"]):
-                    coverage_out.append({"id": f"function:{refusal.code}:{index}",
-                                         "layer": "function",
-                                         "status": ("not_requested" if refusal.code in unasked
-                                                    else "refused"),
-                                         "code": refusal.code})
+                    located = [f for f in refusal.failed_words if f.line is not None]
+                    unlocated = [f for f in refusal.failed_words if f.line is None]
+                    for f in located:
+                        coverage_out.append({
+                            "id": f"function:{refusal.code}:L{f.line}",
+                            "layer": "function", "status": "refused", "code": refusal.code,
+                            "line": f.line, "token": f.token, "word": f.word,
+                            "text": f.text})
+                    if located and not unlocated:
+                        continue
+                    record = {"id": f"function:{refusal.code}:{index}",
+                              "layer": "function",
+                              "status": ("not_requested" if refusal.code in unasked else "refused"),
+                              "code": refusal.code}
+                    if unlocated:
+                        # Expansion has section-local evidence, not a draft
+                        # coordinate. It must not erase the known failures.
+                        record["location_scope"] = "section_local"
+                        record["failed_words"] = [
+                            {"side": f.side, "section_line": f.section_line,
+                             "token": f.token, "word": f.word, "text": f.text}
+                            for f in unlocated]
+                    coverage_out.append(record)
             coverage_out.append({"id": "shape:draft", "layer": "shape", "status": "answered"})
         whole = []
         for f in rep["findings"]:
@@ -3416,7 +3434,8 @@ class Reviser:
                 f.code, f.severity,
                 f.message, f.evidence, [], subject=getattr(f, "subject", ())))
         for r in rep["refusals"]:
-            whole.append(Finding(r.code, "note", r.message, r.evidence, []))
+            whole.append(Finding(r.code, "note", r.message, r.evidence,
+                                 sorted({f.line for f in r.failed_words if f.line is not None})))
 
         # THE SHAPE LAYER, JOINED 2026-08-14, and it names the one defect this
         # harness was built for and could not see from here. `grid.stanza_lock`
@@ -6529,7 +6548,13 @@ class Reviser:
                 for finding in fs:
                     add(ln, finding)
             for finding in found["whole"]:
-                add(min(finding.locations) if finding.locations else 0, finding)
+                if finding.code == "END_WORD_UNREADABLE":
+                    # One aggregate function refusal, as before diagnostics
+                    # acquired locations. Moving/removing diagnostic endpoints
+                    # does not fix this still-standing whole-song obligation.
+                    add(0, replace(finding, locations=()))
+                else:
+                    add(min(finding.locations) if finding.locations else 0, finding)
             return collections.Counter(out_keys + sorted(aggregates))
 
         cb, ca = identities(f_before), identities(f_after)
