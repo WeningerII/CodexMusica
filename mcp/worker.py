@@ -78,8 +78,10 @@ def read_page_object(page_path):
             body = inflater.decompress(raw, READER_OBJECT_BYTES + 1)
         except zlib.error as error:
             raise ValueError("reader page object is corrupt") from error
-        if len(body) > READER_OBJECT_BYTES or inflater.unconsumed_tail or not inflater.eof:
-            raise ValueError("reader page object exceeds its bound or is truncated")
+        # Exactly one member and no trailing bytes, as the Node reader requires.
+        if (len(body) > READER_OBJECT_BYTES or inflater.unconsumed_tail
+                or not inflater.eof or inflater.unused_data):
+            raise ValueError("reader page object exceeds its bound, is truncated or has trailing data")
     elif len(raw) > READER_OBJECT_BYTES:
         raise ValueError("reader page object exceeds its bound")
     else:

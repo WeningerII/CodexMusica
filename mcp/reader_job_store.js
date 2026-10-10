@@ -153,14 +153,47 @@ function syncDirectory(dir) {
 // Identity is always sha256 of the UNCOMPRESSED bytes, and inflation is bounded
 // by the same object limit the plain format has. The writer still writes plain
 // objects; gzip writes are a separate, later switch (READER_STORE_GZIP).
+//
+// A gzip object is exactly one member with no trailing bytes. gunzip would
+// concatenate further members and Python's reader stops after the first, so
+// both refuse anything else rather than disagree about what an object holds.
 export function decodeStoredObject(raw) {
   if (raw.length >= 2 && raw[0] === 0x1f && raw[1] === 0x8b) {
+    const corrupt = () =>
+      problem('STORAGE_CORRUPT', 'Stored reader object failed bounded inflation.', 503);
+    if (raw.length < 18 || raw[2] !== 8 || raw[3] & 0xe0) throw corrupt();
+    const flags = raw[3];
+    let at = 10;
+    if (flags & 4) at += 2 + raw.readUInt16LE(at);
+    for (const bit of [8, 16])
+      if (flags & bit) {
+        const end = raw.indexOf(0, at);
+        if (end < 0) throw corrupt();
+        at = end + 1;
+      }
+    if (flags & 2) at += 2;
+    const trailer = raw.length - 8;
+    if (at > trailer) throw corrupt();
+    let out;
     try {
-      return zlib.gunzipSync(raw, { maxOutputLength: READER_LIMITS.objectBytes });
+      const result = zlib.inflateRawSync(raw.subarray(at, trailer), {
+        maxOutputLength: READER_LIMITS.objectBytes,
+        info: true,
+      });
+      if (result.engine.bytesWritten !== trailer - at) throw corrupt();
+      out = result.buffer;
     } catch {
-      throw problem('STORAGE_CORRUPT', 'Stored reader object failed bounded inflation.', 503);
+      throw corrupt();
     }
+    if (
+      zlib.crc32(out) !== raw.readUInt32LE(trailer) ||
+      out.length !== raw.readUInt32LE(trailer + 4)
+    )
+      throw corrupt();
+    return out;
   }
+  if (raw.length > READER_LIMITS.objectBytes)
+    throw problem('STORAGE_CORRUPT', 'Stored reader object exceeds its bound.', 503);
   return raw;
 }
 
@@ -342,6 +375,7 @@ export class ReaderJobStore {
     this._reload();
     this.generation = generation;
     this.usage = null;
+    this._gc = null; // a collection marked against records another writer changed
     if (pending) this._beginWrite(); // publishes a fresh generation on leave
     this._scheduleRecount();
   }
@@ -414,14 +448,15 @@ export class ReaderJobStore {
         total += fs.statSync(path.join(this.directory, dir, name)).size;
     return total;
   }
-  _capacity(bytes, reserve = true, extraRecords = 0) {
+  _capacity(bytes, reserve = true, extraRecords = 0, recordSize = Infinity) {
     if (this.usage === null) {
       // Usage is unknown until a quiescent recount: allocating or growing
-      // writes fail closed. A reserved state transition that stays inside the
-      // RESERVE_BYTES every record was admitted with is not a new allocation,
-      // so it may proceed; cleanup (deletes, expiry) never reaches here.
+      // writes fail closed. A reserved state transition on an existing record
+      // whose whole file stays inside the RESERVE_BYTES it was admitted with
+      // is not a new allocation, so it may proceed (repeated growth cannot
+      // exceed that reservation); cleanup (deletes, expiry) never reaches here.
       const growing = bytes > 0 || extraRecords > 0;
-      const withinReservation = !reserve && extraRecords === 0 && bytes <= RESERVE_BYTES;
+      const withinReservation = !reserve && extraRecords === 0 && recordSize <= RESERVE_BYTES;
       if (growing && !withinReservation)
         throw problem(
           'STORE_RECOUNTING',
@@ -447,7 +482,7 @@ export class ReaderJobStore {
     const bytes = encoded(record, 'Reader record');
     const file = path.join(this.directory, 'records', `${record.id}.json`);
     const previous = fs.existsSync(file) ? fs.statSync(file).size : 0;
-    this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1);
+    this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, bytes.length);
     this._beginWrite();
     this._inflight = true;
     atomicWrite(file, bytes, this.fault, 'record');
@@ -455,6 +490,7 @@ export class ReaderJobStore {
     this._inflight = false;
     this.records.set(record.id, record);
     this.durableExpiry.set(record.id, record.expires_at);
+    this._gc?.dirty.add(record.id);
     return clone(record);
   }
   _blob(kind, value) {
@@ -683,11 +719,8 @@ export class ReaderJobStore {
       this._expireLeases();
       this._promoteDeferred();
       if ([...this.records.values()].some((r) => r.state === 'running')) return null;
-      const record = id
-        ? this._require(id)
-        : [...this.records.values()]
-            .filter((r) => r.state === 'queued')
-            .sort((a, b) => this._queueSort(a, b))[0];
+      const queued = this._dispatchable();
+      const record = id ? this._require(id) : queued.sort((a, b) => this._queueSort(a, b))[0];
       if (!record || record.state !== 'queued') return null;
       const leased = this._save(
         {
@@ -710,7 +743,7 @@ export class ReaderJobStore {
     let room =
       READER_LIMITS.waiting - [...this.records.values()].filter((r) => r.state === 'queued').length;
     const deferred = [...this.records.values()]
-      .filter((r) => r.state === 'paused' && r.deferred_requeue)
+      .filter((r) => r.state === 'paused' && r.deferred_requeue && !this._expireIfDue(r))
       .sort((a, b) => this._queueSort(a, b));
     for (const record of deferred) {
       if (room-- <= 0) break;
@@ -747,8 +780,23 @@ export class ReaderJobStore {
         );
     }
   }
+  // Expiry binds before any sweep: a job past its expiry is tombstoned the
+  // moment dispatch or a lease would touch it, so no expired work runs.
+  _expireIfDue(record) {
+    if (!this._expiredUnswept(record)) return false;
+    this._tombstone(record, 'expired');
+    return true;
+  }
+  _dispatchable() {
+    const queued = [];
+    for (const record of [...this.records.values()])
+      if (record.state === 'queued' && !this._expireIfDue(record)) queued.push(record);
+    return queued;
+  }
   _leaseRecord(id, attempt, fence) {
     this._expireLeases();
+    if (this._expireIfDue(this._require(id)))
+      throw problem('STALE_ATTEMPT', 'The reader job expired; its lease ended.');
     const record = this._require(id);
     if (record.state !== 'running' || record.attempt !== attempt || record.fence !== fence)
       throw problem('STALE_ATTEMPT', 'The worker no longer owns this reader lease.');
@@ -783,6 +831,10 @@ export class ReaderJobStore {
       const count = page.instances?.length;
       if (!Array.isArray(page.instances) || count > READER_LIMITS.pageInstances)
         throw problem('STORAGE_CORRUPT', 'Referenced evidence page has invalid instances.', 503);
+      // Re-referenced by hash: refresh its mtime, as _blob does, so a
+      // collection that began earlier cannot sweep it.
+      const now = new Date();
+      fs.utimesSync(path.join(this.directory, 'pages', `${value.sha256}.json`), now, now);
       return { sha256: value.sha256, count, bytes: encoded(page, 'Evidence page').length };
     }
     const page = jsonValue(value, 'Evidence page');
@@ -1194,8 +1246,7 @@ export class ReaderJobStore {
   listQueued() {
     return this._open(() => {
       this._promoteDeferred();
-      return [...this.records.values()]
-        .filter((r) => r.state === 'queued')
+      return this._dispatchable()
         .sort((a, b) => this._queueSort(a, b))
         .map(clone);
     });
@@ -1376,24 +1427,28 @@ export class ReaderJobStore {
     }
     return changed;
   }
-  _markRecord(record, live, budget) {
-    const visitIndex = (root) => {
-      for (let cursor = root; cursor && !live.indexes.has(cursor); ) {
-        live.indexes.add(cursor);
-        const node = this._object('indexes', cursor);
-        budget.objects++;
-        for (const ref of node.page_refs) live.pages.add(ref.sha256);
-        cursor = node.previous_hash;
-      }
-    };
-    for (let cursor = record.checkpoint_hash; cursor && !live.checkpoints.has(cursor); ) {
-      live.checkpoints.add(cursor);
-      const checkpoint = this._object('checkpoints', cursor);
-      budget.objects++;
-      live.manifests.add(checkpoint.manifest_hash);
-      visitIndex(checkpoint.page_index_hash);
-      cursor = checkpoint.previous_hash;
+  // One object of the mark: read it, mark what it references, and queue the
+  // chains it continues. An object is marked live only after it has been
+  // read, so a failure never leaves a node marked whose references were not.
+  _markStep(stack, live, budget) {
+    const [kind, hash] = stack.pop();
+    if (!hash || live[kind].has(hash)) return;
+    const file = path.join(this.directory, kind, `${hash}.json`);
+    const node = this._object(kind, hash);
+    budget.objects++;
+    budget.bytes += fs.statSync(file).size;
+    if (kind === 'checkpoints') {
+      live.manifests.add(node.manifest_hash);
+      stack.push(['checkpoints', node.previous_hash], ['indexes', node.page_index_hash]);
+    } else {
+      for (const ref of node.page_refs) live.pages.add(ref.sha256);
+      stack.push(['indexes', node.previous_hash]);
     }
+    live[kind].add(hash);
+  }
+  _markRecord(record, live, budget) {
+    const stack = [['checkpoints', record.checkpoint_hash]];
+    while (stack.length) this._markStep(stack, live, budget);
   }
   _unlinkCounted(file) {
     const size = fs.statSync(file).size;
@@ -1439,6 +1494,13 @@ export class ReaderJobStore {
   // reads the cached records without the lock, and the sweep deletes only
   // objects that are unmarked AND older than the mark's start, so anything
   // written or re-referenced since (its mtime is refreshed) is never swept.
+  //
+  // Bounds: a slice reads at most `objects` objects or `bytes` bytes, starts
+  // at most `records` records, and stops at `ms`; the mark resumes mid-chain.
+  // The one exception is correctness: before each sweep slice, under the
+  // lock, records saved since the collection began are re-marked in full
+  // (only their new nodes are read; marked chains stop the walk). A failed
+  // read abandons the whole collection, so a partial mark never sweeps.
   maintain(bounds = MAINTENANCE_BOUNDS) {
     const started = Date.now();
     const budget = { objects: 0, bytes: 0 };
@@ -1453,20 +1515,32 @@ export class ReaderJobStore {
         startedAt: Date.now() - 1000,
         ids: [...this.records.keys()],
         at: 0,
+        stack: [],
+        dirty: new Set(),
         live: Object.fromEntries(OBJECT_KINDS.map((kind) => [kind, new Set()])),
         queue: null,
       };
     }
     const gc = this._gc;
     let marked = 0;
-    while (gc.phase === 'mark' && !spent() && marked < bounds.records) {
-      if (gc.at >= gc.ids.length) {
-        gc.phase = 'sweep';
-        break;
+    try {
+      while (gc.phase === 'mark' && !spent()) {
+        if (gc.stack.length) {
+          this._markStep(gc.stack, gc.live, budget);
+          continue;
+        }
+        if (gc.at >= gc.ids.length) {
+          gc.phase = 'sweep';
+          break;
+        }
+        if (marked >= bounds.records) break;
+        const record = this.records.get(gc.ids[gc.at++]);
+        if (record) gc.stack.push(['checkpoints', record.checkpoint_hash]);
+        marked++;
       }
-      const record = this.records.get(gc.ids[gc.at++]);
-      if (record) this._markRecord(record, gc.live, budget);
-      marked++;
+    } catch (error) {
+      this._gc = null;
+      throw error;
     }
     let swept = 0;
     if (gc.phase === 'sweep' && !spent()) {
@@ -1479,7 +1553,23 @@ export class ReaderJobStore {
           if (file.endsWith('.tmp')) gc.queue.push(['records', file]);
       }
       this._open(() => {
-        while (gc.queue.length && swept < bounds.objects && Date.now() - started < bounds.ms) {
+        if (this._gc !== gc) return; // abandoned on entering the lock
+        try {
+          for (const id of gc.dirty) {
+            const record = this.records.get(id);
+            if (record) this._markRecord(record, gc.live, budget);
+          }
+          gc.dirty.clear();
+        } catch (error) {
+          this._gc = null;
+          throw error;
+        }
+        while (
+          gc.queue.length &&
+          swept < bounds.objects &&
+          budget.bytes < bounds.bytes &&
+          Date.now() - started < bounds.ms
+        ) {
           const [kind, file] = gc.queue.pop();
           const full = path.join(this.directory, kind, file);
           let stat;
@@ -1492,13 +1582,20 @@ export class ReaderJobStore {
             kind === 'records' || !file.endsWith('.json') || !gc.live[kind].has(file.slice(0, -5));
           if (unreferenced && stat.mtimeMs < gc.startedAt) {
             this._unlinkCounted(full);
+            budget.bytes += stat.size;
             swept++;
           }
         }
       });
-      if (!gc.queue.length) this._gc = null;
+      if (this._gc === gc && !gc.queue.length) this._gc = null;
     }
-    return { expired, marked, swept, phase: this._gc ? this._gc.phase : 'idle' };
+    return {
+      expired,
+      marked,
+      swept,
+      read: budget.objects,
+      phase: this._gc ? this._gc.phase : 'idle',
+    };
   }
   // A quiescent recount: the scan runs in small slices off the request path
   // and is accepted only if no mutation or pending write happened across it,
@@ -1510,18 +1607,24 @@ export class ReaderJobStore {
         await new Promise((resolve) => setTimeout(resolve, 100));
         continue;
       }
-      const g0 = this._readGeneration();
-      let total = fs.statSync(path.join(this.directory, 'capability-key')).size;
-      let n = 0;
-      for (const dir of ['records', ...OBJECT_KINDS])
-        for (const name of fs.readdirSync(path.join(this.directory, dir))) {
-          try {
-            total += fs.statSync(path.join(this.directory, dir, name)).size;
-          } catch {
-            // vanished mid-scan: the generation check below will discard this pass
+      let g0, total;
+      try {
+        g0 = this._readGeneration();
+        total = fs.statSync(path.join(this.directory, 'capability-key')).size;
+        let n = 0;
+        for (const dir of ['records', ...OBJECT_KINDS])
+          for (const name of fs.readdirSync(path.join(this.directory, dir))) {
+            try {
+              total += fs.statSync(path.join(this.directory, dir, name)).size;
+            } catch {
+              // vanished mid-scan: the generation check below will discard this pass
+            }
+            if (++n % slice === 0) await yieldNow();
           }
-          if (++n % slice === 0) await yieldNow();
-        }
+      } catch (error) {
+        console.warn(JSON.stringify({ event: 'READER_RECOUNT_FAILED', message: error.message }));
+        continue; // usage stays unknown: growth keeps failing closed
+      }
       const accepted = this._locked(() => {
         if (this._hasPending() || this._readGeneration() !== g0 || this._writing) return false;
         if (this.usage !== null && this.usage !== total)
@@ -1543,7 +1646,10 @@ export class ReaderJobStore {
     if (!this._timers.length) return; // tests and tools call recount() themselves
     const timer = setTimeout(() => {
       this.recount().catch((error) => {
-        this.failure = error.message;
+        // Never this.failure: unknown usage already fails growth closed, and
+        // reads and cleanup must keep working while the scan is retried.
+        console.warn(JSON.stringify({ event: 'READER_RECOUNT_FAILED', message: error.message }));
+        this._scheduleRecount(Math.min(60_000, Math.max(1000, delayMs * 2)));
       });
     }, delayMs);
     timer.unref?.();

@@ -47,6 +47,14 @@ class PageObjectTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.read(b"\x1f\x8b" + b"\x00" * 32)
 
+    def test_exactly_one_member_and_no_trailing_bytes(self):
+        # Parity with the Node reader, which gunzip alone would not give.
+        for raw in (gzip.compress(b"") + gzip.compress(BODY),
+                    gzip.compress(BODY) + gzip.compress(BODY),
+                    gzip.compress(BODY) + b"xyz"):
+            with self.assertRaises(ValueError):
+                self.read(raw)
+
     def test_an_oversized_plain_object_is_refused(self):
         with self.assertRaisesRegex(ValueError, "bound"):
             self.read(b" " * (worker.READER_OBJECT_BYTES + 1))

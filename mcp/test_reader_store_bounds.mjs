@@ -302,3 +302,177 @@ test('capabilityFor derives the same capability the store authorizes, and never 
   assert.notEqual(store.capabilityFor(job.record.id, 'viewer-b'), job.capability);
   refused(() => store.capabilityFor('../etc', 'viewer-a'), 'NOT_FOUND');
 });
+
+// ── #528 review: interleavings that must never lose live evidence ─────────
+function age(store) {
+  const old = new Date(Date.now() - 60_000);
+  for (const sub of ['pages', 'indexes', 'checkpoints', 'manifests'])
+    for (const f of fs.readdirSync(path.join(store.directory, sub)))
+      fs.utimesSync(path.join(store.directory, sub, f), old, old);
+  return old;
+}
+const markOnly = { records: 1000, objects: 1000, bytes: 1 << 30, ms: 10_000 };
+
+test('a page re-referenced by hash after the mark began is not swept', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const gone = run(store, 'viewer-a', 'k-a', 'shared');
+  const page = store.workerPayload(gone.record.id).page_paths[0];
+  const hash = path.basename(page, '.json');
+  store.delete(gone.record.id, gone.capability, 'viewer-a');
+  const old = age(store);
+  // Open a collection (its mark began) before the new reference exists.
+  store.maintain({ records: 0, objects: 1000, bytes: 1 << 30, ms: 10_000 });
+  assert.equal(store._gc?.phase, 'mark');
+  // A new job references the old page by hash only (no bytes rewritten).
+  const job = create(store, 'viewer-b', 'k-b');
+  const lease = store.lease(job.record.id);
+  store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+    cursor: { phase: 'done', done: true },
+    pages: [{ sha256: hash }],
+    progress: { candidates: 1 },
+    coverage,
+  });
+  finish(store, lease);
+  assert.ok(fs.statSync(page).mtimeMs > old.getTime(), 'a by-hash reference refreshes mtime');
+  // Even if its mtime were not refreshed, the record save re-marks it.
+  fs.utimesSync(page, old, old);
+  while (store.maintain(markOnly).phase !== 'idle');
+  assert.equal(fs.existsSync(page), true);
+  const ref = store.readManifestPage(job.record.id, job.capability, 'viewer-b').page_refs[0];
+  assert.equal(ref.sha256, hash);
+  assert.ok(store.readPage(job.record.id, hash, job.capability, 'viewer-b'));
+  assert.equal(store.usage, scan(store));
+});
+
+test('a mark that fails part-way abandons the collection instead of sweeping a partial mark', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const live = run(store, 'viewer-a', 'k-a', 'live');
+  const objects = () =>
+    ['pages', 'indexes', 'checkpoints', 'manifests'].flatMap((sub) =>
+      fs.readdirSync(path.join(store.directory, sub)).map((f) => `${sub}/${f}`)
+    );
+  const before = objects();
+  age(store);
+  const real = store._object.bind(store);
+  let calls = 0;
+  store._object = (kind, hash) => {
+    if (kind === 'indexes' && calls++ === 0)
+      throw Object.assign(new Error('transient read failure'), { code: 'EIO' });
+    return real(kind, hash);
+  };
+  assert.throws(() => store.maintain(markOnly), /transient read failure/);
+  assert.equal(store._gc, null, 'the partial mark is discarded');
+  store._object = real;
+  while (store.maintain(markOnly).phase !== 'idle');
+  assert.deepEqual(objects(), before, 'nothing live was swept');
+  assert.ok(store.readManifest(live.record.id, live.capability, 'viewer-a'));
+});
+
+test('a mark slice reads at most its object bound, resuming mid-chain', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const job = create(store, 'viewer-a', 'k-a');
+  let lease = store.lease(job.record.id);
+  // A long chain on ONE record: several checkpoints, each with an index node.
+  for (let i = 0; i < 5; i++) {
+    store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+      cursor: { phase: 'p', at: i },
+      pages: [{ instances: [{ id: `e${i}` }] }],
+      progress: { candidates: i + 1 },
+      coverage,
+    });
+  }
+  const bounds = { records: 1000, objects: 2, bytes: 1 << 30, ms: 10_000 };
+  let total = 0;
+  for (let r = store.maintain(bounds); ; r = store.maintain(bounds)) {
+    assert.ok(r.read <= bounds.objects, `a slice read ${r.read} objects`);
+    total += r.read;
+    if (r.phase !== 'mark') break;
+  }
+  assert.ok(total >= 10, 'the whole chain was marked across slices');
+  void lease;
+});
+
+test('while usage is unknown, reserved transitions cannot grow a record past its reservation', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const job = create(store, 'viewer-a', 'k-a');
+  fs.writeFileSync(path.join(store.directory, 'pending'), JSON.stringify({ generation: 9 }));
+  const grow = (n) =>
+    store._open(() =>
+      store._save({ ...store.records.get(job.record.id), pad: 'x'.repeat(n) }, true)
+    );
+  grow(100); // a small transition inside the record's 16 KiB reservation
+  grow(10_000); // still inside it
+  assert.equal(store.usage, null);
+  // Each step adds under 16 KiB, but the record would outgrow its reservation.
+  refused(() => grow(20_000), 'STORE_RECOUNTING');
+});
+
+test('expired work is never dispatched, promoted or continued', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const queued = create(store, 'viewer-a', 'k-a');
+  now += READER_LIMITS.retentionMs + 1;
+  assert.equal(store.lease(), null);
+  assert.equal(store.lease(queued.record.id), null);
+  assert.equal(store.inspect(queued.record.id).state, 'expired');
+  assert.deepEqual(store.listQueued(), []);
+
+  const running = create(store, 'viewer-b', 'k-b');
+  const lease = store.lease(running.record.id);
+  now += READER_LIMITS.retentionMs + 1;
+  refused(
+    () =>
+      store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+        cursor: { phase: 'done', done: true },
+        pages: [],
+        progress: { candidates: 0 },
+        coverage,
+      }),
+    'STALE_ATTEMPT'
+  );
+  assert.equal(store.inspect(running.record.id).state, 'expired');
+});
+
+test('a recount that throws is a failed attempt: the store stays usable and a later recount succeeds', async (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const job = run(store, 'viewer-a', 'k-a', 'a');
+  fs.writeFileSync(path.join(store.directory, 'pending'), JSON.stringify({ generation: 3 }));
+  refused(() => create(store, 'viewer-b', 'k-b'), 'STORE_RECOUNTING');
+  const readdir = fs.readdirSync;
+  fs.readdirSync = () => {
+    throw Object.assign(new Error('EIO'), { code: 'EIO' });
+  };
+  let accepted;
+  try {
+    accepted = await store.recount({ attempts: 2 });
+  } finally {
+    fs.readdirSync = readdir;
+  }
+  assert.equal(accepted, false);
+  assert.equal(store.failure, null, 'a scan error never marks the store failed');
+  assert.ok(store.get(job.record.id, job.capability, 'viewer-a'), 'reads still work');
+  assert.equal(await store.recount(), true);
+  assert.equal(store.usage, scan(store));
+});
+
+test('gzip objects are exactly one member: concatenations and trailing bytes refuse', () => {
+  const body = Buffer.from('{"instances":[]}');
+  assert.deepEqual(decodeStoredObject(zlib.gzipSync(body)), body);
+  const corrupt = (raw) =>
+    assert.throws(
+      () => decodeStoredObject(raw),
+      (e) => e.code === 'STORAGE_CORRUPT'
+    );
+  corrupt(Buffer.concat([zlib.gzipSync(Buffer.alloc(0)), zlib.gzipSync(body)]));
+  corrupt(Buffer.concat([zlib.gzipSync(body), zlib.gzipSync(body)]));
+  corrupt(Buffer.concat([zlib.gzipSync(body), Buffer.from('xyz')]));
+  corrupt(zlib.gzipSync(body).subarray(0, -3));
+  const badCrc = Buffer.from(zlib.gzipSync(body));
+  badCrc[badCrc.length - 8] ^= 1;
+  corrupt(badCrc);
+});

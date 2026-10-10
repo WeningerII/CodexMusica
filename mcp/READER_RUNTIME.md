@@ -119,7 +119,9 @@ Private results retain 30 days without authorized access; access refreshes their
 advertised expiry. The refresh slides in memory on every authorized read and is
 persisted at most once an hour, so a restart can shorten a result's retention by
 up to one hour, never lengthen it. Expiry binds at read time: a result past its
-expiry is refused with `RESULT_EXPIRED` before any sweep has marked it. Expired
+expiry is refused with `RESULT_EXPIRED` before any sweep has marked it, and a
+job past its expiry is tombstoned the moment dispatch, deferred promotion or
+its running lease touches it, so expired work never runs. Expired
 and deleted jobs never silently redispatch. Resume after incompatible
 source/resource changes requires a separate analysis.
 
@@ -128,24 +130,31 @@ source/resource changes requires a separate analysis.
 Reads never scan the store. Usage is an exact byte counter (the capability key,
 records, pages, indexes, checkpoints and manifests) kept by deltas under the
 writer lock. Every mutation first writes a `pending` marker, then bumps the
-store `generation` and removes the marker when it leaves the lock. On taking
-the lock, an instance that finds a marker (a crashed writer) or a generation it
-did not write (another instance) reloads its records and treats its counter as
+store `generation` and removes the marker when it leaves the lock. On taking the
+lock, an instance that finds a marker (a crashed writer) or a generation it did
+not write (another instance) reloads its records and treats its counter as
 unknown. While usage is unknown, an allocating or growing write is refused with
-503 `STORE_RECOUNTING` (a record state transition inside the metadata reserve
-each job was admitted with still commits, and a paused lease requeues as for
-`RESOURCE_LIMIT`); deletes, cancellation and
-reads proceed. A verification scan runs in slices outside the lock and is
-accepted only if no marker appeared and the generation did not move across it;
-otherwise it is discarded and retried. A drift found by an accepted scan is
-logged as `READER_USAGE_DRIFT` and corrected.
+503 `STORE_RECOUNTING` (a record state transition whose whole record stays
+inside the 16 KiB reserve it was admitted with still commits, and a paused lease
+requeues as for `RESOURCE_LIMIT`); deletes, cancellation and reads proceed. A
+verification scan runs in slices outside the lock and is accepted only if no
+marker appeared and the generation did not move across it; otherwise it is
+discarded and retried. A scan that fails is a failed attempt, logged as
+`READER_RECOUNT_FAILED` and retried with backoff; it never marks the store
+unavailable. A drift found by an accepted scan is logged as `READER_USAGE_DRIFT`
+and corrected.
 
-Collection runs off the request path: a timer sweeps expired records and runs
-an incremental mark-and-sweep in slices of at most 100 records, 500 objects,
-64 MiB or 50 ms. The sweep deletes only unreferenced objects last written
-before its mark began; rewriting an existing object refreshes its time, so an
-object re-referenced during a collection survives it. A full verification scan
-runs every 15 minutes. Object readers in Node and in the Python worker accept a
-plain or gzip-encoded object, bound inflation by the 2 MiB object limit, and
-verify the address against the uncompressed bytes; the store writes plain
-objects until gzip writes are separately approved.
+Collection runs off the request path: a timer sweeps expired records and runs an
+incremental mark-and-sweep in slices that read at most 500 objects or 64 MiB,
+start at most 100 records and stop at 50 ms; a long chain resumes mid-walk on
+the next slice. An object is marked live only after it is read, and a failed
+read abandons the whole collection, so a partial mark never sweeps. Every record
+saved while a collection is open is re-marked under the lock before the next
+sweep slice, and another writer's commit abandons the collection. The sweep also
+deletes only unreferenced objects last written before its mark began; rewriting
+an object or referencing a page by hash refreshes its time. A full verification
+scan runs every 15 minutes. Object readers in Node and in the Python worker
+accept a plain object or exactly one gzip member with no trailing bytes, bound
+inflation by the 2 MiB object limit, and verify the address against the
+uncompressed bytes; the store writes plain objects until gzip writes are
+separately approved.
