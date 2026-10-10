@@ -55,6 +55,11 @@ class PageObjectTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.read(raw)
 
+    def test_an_oversized_stored_gzip_file_is_refused(self):
+        # The stored-file bound applies before inflation, as Node's _readFile does.
+        with self.assertRaisesRegex(ValueError, "bound"):
+            self.read(gzip.compress(BODY) + b"\0" * worker.READER_OBJECT_BYTES)
+
     def test_an_oversized_plain_object_is_refused(self):
         with self.assertRaisesRegex(ValueError, "bound"):
             self.read(b" " * (worker.READER_OBJECT_BYTES + 1))

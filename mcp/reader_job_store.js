@@ -42,6 +42,7 @@ export const MAINTENANCE_BOUNDS = Object.freeze({
 const OBJECT_KINDS = ['pages', 'indexes', 'checkpoints', 'manifests'];
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const sha = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
+const reserveGap = (size) => Math.max(0, RESERVE_BYTES - size);
 function problem(code, message, status = 409) {
   return Object.assign(new Error(message), { code, status });
 }
@@ -247,6 +248,9 @@ export class ReaderJobStore {
       this._recountWanted = false;
       this._timers = [];
       this._gc = null;
+      this._expiryScan = null;
+      this.recordBytes = new Map();
+      this.slack = 0;
       this._locked(() => {
         const keyFile = path.join(this.directory, 'capability-key');
         if (!fs.existsSync(keyFile))
@@ -375,7 +379,7 @@ export class ReaderJobStore {
     this._reload();
     this.generation = generation;
     this.usage = null;
-    this._gc = null; // a collection marked against records another writer changed
+    this._abandonGc(); // a collection marked against records another writer changed
     if (pending) this._beginWrite(); // publishes a fresh generation on leave
     this._scheduleRecount();
   }
@@ -412,6 +416,7 @@ export class ReaderJobStore {
 
   _reload() {
     const records = new Map();
+    const sizes = new Map();
     for (const file of fs.readdirSync(path.join(this.directory, 'records'))) {
       if (!file.endsWith('.json')) continue;
       const id = file.slice(0, -5);
@@ -431,9 +436,13 @@ export class ReaderJobStore {
           503
         );
       records.set(id, record);
+      sizes.set(id, raw.length);
     }
     this.records = records;
     this.durableExpiry = new Map([...records.values()].map((r) => [r.id, r.expires_at]));
+    this.recordBytes = sizes;
+    this.slack = 0;
+    for (const size of sizes.values()) this.slack += reserveGap(size);
   }
 
   _readFile(file) {
@@ -448,16 +457,17 @@ export class ReaderJobStore {
         total += fs.statSync(path.join(this.directory, dir, name)).size;
     return total;
   }
-  _capacity(bytes, reserve = true, extraRecords = 0, recordSize = Infinity) {
+  // Every record holds a RESERVE_BYTES reservation: the quota invariant is
+  //   usage + slack <= maxBytes, slack = sum over records of max(0, RESERVE - size)
+  // so any record can grow to RESERVE_BYTES whatever the others do. A record
+  // growing inside its reservation moves bytes from slack to usage and leaves
+  // the sum unchanged; that is the only growth allowed while usage is unknown.
+  _capacity(bytes, reserve = true, extraRecords = 0, slackDelta = 0) {
+    const growth = bytes + slackDelta;
     if (this.usage === null) {
-      // Usage is unknown until a quiescent recount: allocating or growing
-      // writes fail closed. A reserved state transition on an existing record
-      // whose whole file stays inside the RESERVE_BYTES it was admitted with
-      // is not a new allocation, so it may proceed (repeated growth cannot
-      // exceed that reservation); cleanup (deletes, expiry) never reaches here.
-      const growing = bytes > 0 || extraRecords > 0;
-      const withinReservation = !reserve && extraRecords === 0 && recordSize <= RESERVE_BYTES;
-      if (growing && !withinReservation)
+      // Unknown until a quiescent recount: anything that raises usage + slack
+      // fails closed. Cleanup (deletes, expiry) never reaches here.
+      if (growth > 0 || extraRecords > 0)
         throw problem(
           'STORE_RECOUNTING',
           'Reader storage usage is being recounted; retry shortly.',
@@ -465,9 +475,16 @@ export class ReaderJobStore {
         );
       return;
     }
+    if (!reserve && growth > 0 && this.usage + this.slack + growth > this.maxBytes)
+      throw problem(
+        'RESOURCE_LIMIT',
+        'Reader storage quota reached; committed work is retained.',
+        507
+      );
     if (
+      bytes > 0 &&
       this.usage + bytes + (reserve ? (this.records.size + extraRecords) * RESERVE_BYTES : 0) >
-      this.maxBytes
+        this.maxBytes
     )
       throw problem(
         'RESOURCE_LIMIT',
@@ -482,12 +499,15 @@ export class ReaderJobStore {
     const bytes = encoded(record, 'Reader record');
     const file = path.join(this.directory, 'records', `${record.id}.json`);
     const previous = fs.existsSync(file) ? fs.statSync(file).size : 0;
-    this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, bytes.length);
+    const slackDelta = reserveGap(bytes.length) - (previous ? reserveGap(previous) : 0);
+    this._capacity(bytes.length - previous, !reserved, previous ? 0 : 1, slackDelta);
     this._beginWrite();
     this._inflight = true;
     atomicWrite(file, bytes, this.fault, 'record');
     if (this.usage !== null) this.usage += bytes.length - previous;
     this._inflight = false;
+    this.slack += slackDelta;
+    this.recordBytes.set(record.id, bytes.length);
     this.records.set(record.id, record);
     this.durableExpiry.set(record.id, record.expires_at);
     this._gc?.dirty.add(record.id);
@@ -1342,7 +1362,7 @@ export class ReaderJobStore {
   workerPayload(id) {
     return this._cached(() => {
       const record = this._require(id);
-      if (['expired', 'deleted'].includes(record.state))
+      if (['expired', 'deleted'].includes(record.state) || this._expiredUnswept(record))
         throw problem('RESULT_EXPIRED', 'Reader work expired.', 410);
       const page_refs = [...this._refs(record.page_index_hash)];
       return {
@@ -1417,14 +1437,37 @@ export class ReaderJobStore {
   // slice at a time; prune() runs everything to completion for operators and
   // tests. Expiry still binds at read time (_authorized), so correctness never
   // depends on a sweep having run.
-  _pruneExpired(limit) {
+  // Tombstones at most `limit` due records. A finite `examine` looks at that
+  // many records per call, resuming where the last call stopped.
+  _pruneExpired(limit, examine = Infinity) {
     let changed = 0;
-    for (const record of [...this.records.values()]) {
-      if (changed >= limit) break;
-      if (['expired', 'deleted'].includes(record.state) || record.expires_at > this.now()) continue;
+    const due = (record) =>
+      record && !['expired', 'deleted'].includes(record.state) && record.expires_at <= this.now();
+    if (examine === Infinity) {
+      for (const record of [...this.records.values()]) {
+        if (changed >= limit) break;
+        if (!due(record)) continue;
+        this._tombstone(record, 'expired');
+        changed++;
+      }
+      this.lastExpiryExamined = this.records.size;
+      return changed;
+    }
+    let looked = 0;
+    for (; looked < examine && changed < limit; looked++) {
+      if (!this._expiryScan || this._expiryScan.at >= this._expiryScan.ids.length) {
+        if (this._expiryScan) {
+          this._expiryScan = null;
+          break; // one full pass per cycle; the next call starts a new one
+        }
+        this._expiryScan = { ids: [...this.records.keys()], at: 0 };
+      }
+      const record = this.records.get(this._expiryScan.ids[this._expiryScan.at++]);
+      if (!due(record)) continue;
       this._tombstone(record, 'expired');
       changed++;
     }
+    this.lastExpiryExamined = looked;
     return changed;
   }
   // One object of the mark: read it, mark what it references, and queue the
@@ -1486,9 +1529,17 @@ export class ReaderJobStore {
     return this._open(() => {
       this._pruneExpired(Infinity);
       this._collectAll();
-      this._gc = null;
+      this._abandonGc();
       return { bytes: this.usage };
     });
+  }
+  _abandonGc() {
+    try {
+      this._gc?.dir?.closeSync();
+    } catch {
+      // already closed
+    }
+    this._gc = null;
   }
   // One bounded slice. Collection is mark-then-sweep across slices: the mark
   // reads the cached records without the lock, and the sweep deletes only
@@ -1508,7 +1559,7 @@ export class ReaderJobStore {
       budget.objects >= bounds.objects ||
       budget.bytes >= bounds.bytes ||
       Date.now() - started >= bounds.ms;
-    const expired = this._open(() => this._pruneExpired(bounds.records));
+    const expired = this._open(() => this._pruneExpired(bounds.records, bounds.records));
     if (!this._gc) {
       this._gc = {
         phase: 'mark',
@@ -1518,7 +1569,9 @@ export class ReaderJobStore {
         stack: [],
         dirty: new Set(),
         live: Object.fromEntries(OBJECT_KINDS.map((kind) => [kind, new Set()])),
-        queue: null,
+        kinds: [...OBJECT_KINDS, 'records'],
+        kind: null,
+        dir: null,
       };
     }
     const gc = this._gc;
@@ -1539,19 +1592,11 @@ export class ReaderJobStore {
         marked++;
       }
     } catch (error) {
-      this._gc = null;
+      this._abandonGc();
       throw error;
     }
     let swept = 0;
     if (gc.phase === 'sweep' && !spent()) {
-      if (!gc.queue) {
-        gc.queue = [];
-        for (const kind of OBJECT_KINDS)
-          for (const file of fs.readdirSync(path.join(this.directory, kind)))
-            gc.queue.push([kind, file]);
-        for (const file of fs.readdirSync(path.join(this.directory, 'records')))
-          if (file.endsWith('.tmp')) gc.queue.push(['records', file]);
-      }
       this._open(() => {
         if (this._gc !== gc) return; // abandoned on entering the lock
         try {
@@ -1561,16 +1606,29 @@ export class ReaderJobStore {
           }
           gc.dirty.clear();
         } catch (error) {
-          this._gc = null;
+          this._abandonGc();
           throw error;
         }
-        while (
-          gc.queue.length &&
-          swept < bounds.objects &&
-          budget.bytes < bounds.bytes &&
-          Date.now() - started < bounds.ms
-        ) {
-          const [kind, file] = gc.queue.pop();
+        // Every directory entry examined counts against the object bound.
+        while (!spent()) {
+          if (!gc.dir) {
+            if (!gc.kinds.length) {
+              gc.phase = 'done';
+              break;
+            }
+            gc.kind = gc.kinds.shift();
+            gc.dir = fs.opendirSync(path.join(this.directory, gc.kind));
+          }
+          const entry = gc.dir.readSync();
+          if (!entry) {
+            gc.dir.closeSync();
+            gc.dir = null;
+            continue;
+          }
+          budget.objects++;
+          const { kind } = gc;
+          const file = entry.name;
+          if (kind === 'records' && !file.endsWith('.tmp')) continue;
           const full = path.join(this.directory, kind, file);
           let stat;
           try {
@@ -1587,13 +1645,14 @@ export class ReaderJobStore {
           }
         }
       });
-      if (this._gc === gc && !gc.queue.length) this._gc = null;
+      if (this._gc === gc && gc.phase === 'done') this._gc = null;
     }
     return {
       expired,
       marked,
       swept,
       read: budget.objects,
+      examined: this.lastExpiryExamined,
       phase: this._gc ? this._gc.phase : 'idle',
     };
   }
@@ -1614,28 +1673,32 @@ export class ReaderJobStore {
         let n = 0;
         for (const dir of ['records', ...OBJECT_KINDS])
           for (const name of fs.readdirSync(path.join(this.directory, dir))) {
-            try {
-              total += fs.statSync(path.join(this.directory, dir, name)).size;
-            } catch {
-              // vanished mid-scan: the generation check below will discard this pass
-            }
+            // Any failed measurement (even ENOENT) invalidates the whole pass;
+            // the generation fence cannot vouch for a stat that did not happen.
+            total += fs.statSync(path.join(this.directory, dir, name)).size;
             if (++n % slice === 0) await yieldNow();
           }
       } catch (error) {
         console.warn(JSON.stringify({ event: 'READER_RECOUNT_FAILED', message: error.message }));
         continue; // usage stays unknown: growth keeps failing closed
       }
-      const accepted = this._locked(() => {
-        if (this._hasPending() || this._readGeneration() !== g0 || this._writing) return false;
-        if (this.usage !== null && this.usage !== total)
-          console.warn(
-            JSON.stringify({ event: 'READER_USAGE_DRIFT', counter: this.usage, scan: total })
-          );
-        this.usage = total;
-        this.generation = g0;
-        this._recountWanted = false;
-        return true;
-      });
+      let accepted = false;
+      try {
+        accepted = this._locked(() => {
+          if (this._hasPending() || this._readGeneration() !== g0 || this._writing) return false;
+          if (this.usage !== null && this.usage !== total)
+            console.warn(
+              JSON.stringify({ event: 'READER_USAGE_DRIFT', counter: this.usage, scan: total })
+            );
+          this.usage = total;
+          this.generation = g0;
+          this._recountWanted = false;
+          return true;
+        });
+      } catch (error) {
+        // STORE_BUSY (another live writer) or a transient read: retry, never fail.
+        console.warn(JSON.stringify({ event: 'READER_RECOUNT_FAILED', message: error.message }));
+      }
       if (accepted) return true;
     }
     this._scheduleRecount(1000);

@@ -476,3 +476,138 @@ test('gzip objects are exactly one member: concatenations and trailing bytes ref
   badCrc[badCrc.length - 8] ^= 1;
   corrupt(badCrc);
 });
+
+// ── #528 verdict at 89a5f4b6: quota, measurement, contention, bounds ──────
+test('the quota holds across two instances under unknown usage (per-record reservations)', async (t) => {
+  const d = dir(t);
+  let now = 1000;
+  const maxBytes = 48 * 1024;
+  const a = new ReaderJobStore({ directory: d, now: () => now, maxBytes });
+  const job = create(a, 'viewer-a', 'k-a');
+  const cancelUntilRefused = (store, prefix) => {
+    for (let i = 0; i < 5000; i++) {
+      try {
+        store.cancel(job.record.id, job.capability, 'viewer-a', {
+          idempotency_key: `${prefix}-${i}`,
+        });
+      } catch (error) {
+        return error.code;
+      }
+      assert.ok(scan(store) <= maxBytes, `quota exceeded at ${prefix}-${i}`);
+    }
+    return 'never refused';
+  };
+  assert.equal(cancelUntilRefused(a, 'a'), 'RESOURCE_LIMIT');
+  const b = new ReaderJobStore({ directory: d, now: () => now, maxBytes });
+  // Another writer commits (what a foreign commit leaves behind): B's view is stale.
+  const generation = path.join(a.directory, 'generation');
+  const g = JSON.parse(fs.readFileSync(generation, 'utf8')).generation;
+  fs.writeFileSync(generation, JSON.stringify({ generation: g + 1 }));
+  assert.equal(cancelUntilRefused(b, 'b'), 'STORE_RECOUNTING');
+  assert.ok(scan(b) <= maxBytes);
+  await b.recount();
+  assert.equal(cancelUntilRefused(b, 'b2'), 'RESOURCE_LIMIT');
+  assert.ok(scan(b) <= maxBytes);
+});
+
+test('a recount whose measurement fails is never accepted, even with an unchanged generation', async (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  run(store, 'viewer-a', 'k-a', 'a');
+  const truth = scan(store);
+  store.usage = null;
+  const stat = fs.statSync;
+  let failed = false;
+  fs.statSync = (file, ...rest) => {
+    if (!failed && String(file).includes(`${path.sep}pages${path.sep}`)) {
+      failed = true;
+      throw Object.assign(new Error('EIO'), { code: 'EIO' });
+    }
+    return stat(file, ...rest);
+  };
+  let accepted;
+  try {
+    accepted = await store.recount({ attempts: 1 });
+  } finally {
+    fs.statSync = stat;
+  }
+  assert.equal(failed, true);
+  assert.equal(accepted, false, 'an undercount is never published');
+  assert.equal(store.usage, null);
+  assert.equal(await store.recount(), true);
+  assert.equal(store.usage, truth);
+});
+
+test('lock contention during recount acceptance is retried, never a permanent failure', async (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const job = run(store, 'viewer-a', 'k-a', 'a');
+  store.usage = null;
+  const locked = store._locked.bind(store);
+  let busy = true;
+  store._locked = (fn) => {
+    if (busy) {
+      busy = false;
+      throw Object.assign(new Error('busy'), { code: 'STORE_BUSY', status: 503 });
+    }
+    return locked(fn);
+  };
+  assert.equal(await store.recount({ attempts: 2 }), true);
+  assert.equal(store.failure, null);
+  assert.ok(store.get(job.record.id, job.capability, 'viewer-a'));
+});
+
+test('an expired job cannot be handed to the worker', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const job = create(store, 'viewer-a', 'k-a');
+  store.lease(job.record.id);
+  now += READER_LIMITS.retentionMs + 1;
+  refused(() => store.workerPayload(job.record.id), 'RESULT_EXPIRED');
+});
+
+test('a slice examines at most its bound: expiry, mark and sweep enumeration all resume', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  for (let i = 0; i < 8; i++) {
+    const j = run(store, `v${i}`, `k${i}`, `t${i}`);
+    if (i % 2) store.delete(j.record.id, j.capability, j.record.viewer);
+  }
+  age(store);
+  now += READER_LIMITS.retentionMs + 1; // everything left is due to expire
+  const bounds = { records: 2, objects: 3, bytes: 1 << 30, ms: 10_000 };
+  let slices = 0;
+  let result;
+  do {
+    result = store.maintain(bounds);
+    assert.ok(result.expired <= bounds.records);
+    assert.ok(result.examined <= bounds.records, `expiry examined ${result.examined} records`);
+    assert.ok(result.read <= bounds.objects + 0, `a slice examined ${result.read} entries`);
+    slices++;
+  } while ((result.phase !== 'idle' || result.expired) && slices < 500);
+  assert.ok(slices > 5, 'the work was spread across many slices');
+  for (const id of store.records.keys())
+    assert.ok(['expired', 'deleted'].includes(store.inspect(id).state));
+  assert.equal(store.usage, scan(store));
+});
+
+test("one job's growth never consumes another job's reservation", (t) => {
+  let now = 1000;
+  const maxBytes = 64 * 1024;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, maxBytes });
+  const first = create(store, 'viewer-a', 'k-a');
+  const second = create(store, 'viewer-b', 'k-b');
+  let refusedWith;
+  for (let i = 0; i < 5000 && !refusedWith; i++) {
+    try {
+      store.cancel(first.record.id, first.capability, 'viewer-a', { idempotency_key: `f-${i}` });
+    } catch (error) {
+      refusedWith = error.code;
+    }
+  }
+  assert.equal(refusedWith, 'RESOURCE_LIMIT');
+  // The second job's own transitions still fit: its reservation was kept.
+  for (let i = 0; i < 5; i++)
+    store.cancel(second.record.id, second.capability, 'viewer-b', { idempotency_key: `s-${i}` });
+  assert.ok(scan(store) <= maxBytes);
+});

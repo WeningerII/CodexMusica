@@ -72,6 +72,8 @@ def read_page_object(page_path):
     """
     with open(page_path, "rb") as source_file:
         raw = source_file.read(READER_OBJECT_BYTES + 1)
+    if len(raw) > READER_OBJECT_BYTES:
+        raise ValueError("reader page object exceeds its bound")
     if raw[:2] == b"\x1f\x8b":
         inflater = zlib.decompressobj(16 + zlib.MAX_WBITS)
         try:
@@ -82,8 +84,6 @@ def read_page_object(page_path):
         if (len(body) > READER_OBJECT_BYTES or inflater.unconsumed_tail
                 or not inflater.eof or inflater.unused_data):
             raise ValueError("reader page object exceeds its bound, is truncated or has trailing data")
-    elif len(raw) > READER_OBJECT_BYTES:
-        raise ValueError("reader page object exceeds its bound")
     else:
         body = raw
     stem = os.path.splitext(os.path.basename(page_path))[0]

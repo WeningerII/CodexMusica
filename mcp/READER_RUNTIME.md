@@ -133,28 +133,38 @@ writer lock. Every mutation first writes a `pending` marker, then bumps the
 store `generation` and removes the marker when it leaves the lock. On taking the
 lock, an instance that finds a marker (a crashed writer) or a generation it did
 not write (another instance) reloads its records and treats its counter as
-unknown. While usage is unknown, an allocating or growing write is refused with
-503 `STORE_RECOUNTING` (a record state transition whose whole record stays
-inside the 16 KiB reserve it was admitted with still commits, and a paused lease
-requeues as for `RESOURCE_LIMIT`); deletes, cancellation and reads proceed. A
-verification scan runs in slices outside the lock and is accepted only if no
-marker appeared and the generation did not move across it; otherwise it is
-discarded and retried. A scan that fails is a failed attempt, logged as
-`READER_RECOUNT_FAILED` and retried with backoff; it never marks the store
-unavailable. A drift found by an accepted scan is logged as `READER_USAGE_DRIFT`
-and corrected.
+unknown.
 
-Collection runs off the request path: a timer sweeps expired records and runs an
-incremental mark-and-sweep in slices that read at most 500 objects or 64 MiB,
-start at most 100 records and stop at 50 ms; a long chain resumes mid-walk on
-the next slice. An object is marked live only after it is read, and a failed
-read abandons the whole collection, so a partial mark never sweeps. Every record
-saved while a collection is open is re-marked under the lock before the next
-sweep slice, and another writer's commit abandons the collection. The sweep also
+Every job holds a 16 KiB reservation for its own record. The quota invariant is
+usage plus slack at most `READER_STORAGE_MAX_BYTES`, where slack sums each
+record's unused reservation, so one job's growth can never consume another's
+room and any record can always grow to 16 KiB. While usage is unknown, a write
+that would raise usage plus slack (a new job, a new object, or a record
+outgrowing its reservation) is refused with 503 `STORE_RECOUNTING`; a record
+transition inside its reservation still commits, a paused lease requeues as for
+`RESOURCE_LIMIT`, and deletes and reads proceed.
+
+A verification scan runs in slices outside the lock and is accepted only if
+every measurement succeeded, no marker appeared and the generation did not move
+across it. Anything else, including a failed `stat` or lock contention at
+acceptance, is a failed attempt, logged as `READER_RECOUNT_FAILED` and retried
+with backoff; it never marks the store unavailable. A drift found by an accepted
+scan is logged as `READER_USAGE_DRIFT` and corrected.
+
+Collection runs off the request path. Each timer slice examines at most 100
+records for expiry and at most 500 objects or 64 MiB across marking and
+sweeping, and stops at 50 ms; expiry, the mark (mid-chain) and the sweep's
+directory enumeration all resume on the next slice. An object is marked live
+only after it is read, and a failed read abandons the whole collection, so a
+partial mark never sweeps. Every record saved while a collection is open is
+re-marked under the lock before the next sweep slice (only its new nodes are
+read), and another writer's commit abandons the collection. The sweep also
 deletes only unreferenced objects last written before its mark began; rewriting
 an object or referencing a page by hash refreshes its time. A full verification
-scan runs every 15 minutes. Object readers in Node and in the Python worker
-accept a plain object or exactly one gzip member with no trailing bytes, bound
-inflation by the 2 MiB object limit, and verify the address against the
-uncompressed bytes; the store writes plain objects until gzip writes are
+scan runs every 15 minutes.
+
+Object readers in Node and in the Python worker accept a stored file of at most
+2 MiB holding a plain object or exactly one gzip member with no trailing bytes,
+bound inflation by the same 2 MiB, and verify the address against the
+uncompressed bytes. The store writes plain objects until gzip writes are
 separately approved.
