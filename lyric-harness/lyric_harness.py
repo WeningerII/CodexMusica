@@ -6946,16 +6946,24 @@ def _ban_bindings(found, findings):
 
 
 #: The supplement the CLI's lexicon reads ({"supplement_id", "sha256"}, both
-#: null for CMUdict alone), set once the lexicon is built; every lyric result
-#: after that point carries it, so a run's reading basis is in its record.
+#: null for CMUdict alone), set once the lexicon is built. Each verb's record
+#: carries it through `_lexicon_kw()`, so a run's reading basis is in its
+#: record. Deliberately NOT added inside `_lyric_result`: `_refuse` reaches
+#: that function, `_refuse` is in the comparator's definition closure
+#: (quality/song_profile_calibration.py), and moving the comparator discards
+#: the predictability memo (standing rule 4). A refusal carries no basis.
 _LEXICON_IDENTITY = None
+
+
+def _lexicon_kw():
+    """-> {"lexicon": ...} once the lexicon is built, else {}."""
+    return ({} if _LEXICON_IDENTITY is None
+            else {"lexicon": dict(_LEXICON_IDENTITY)})
 
 
 def _lyric_result(**record):
     """Emit one authenticated machine record; report prose is never status."""
     import json
-    if _LEXICON_IDENTITY is not None and "lexicon" not in record:
-        record["lexicon"] = dict(_LEXICON_IDENTITY)
     record.update(version=1, transport_token=os.environ.get("LYRIC_CONTROL_TOKEN"))
     print("  lyric result: " + json.dumps(record, ensure_ascii=False,
                                           separators=(",", ":")), flush=True)
@@ -7690,7 +7698,7 @@ def _journal_stop(error, machine=None, plan=None):
              "not certified. Keep the journal. This run cannot resume; an "
              "identical restart can reach the same limit. Reduce the requested "
              "scope explicitly before starting independent work.]")
-    _lyric_result(status="journal_capacity", exit=3, stop_reason=error.code,
+    _lyric_result(**_lexicon_kw(), status="journal_capacity", exit=3, stop_reason=error.code,
                   code=error.code, input_draft=st.get("input_draft", error.lines),
                   accepted_lines=error.lines, final_draft=error.lines,
                   certified=False, resumable=False, new_run_required=True,
@@ -7860,7 +7868,7 @@ def _defer_proposer(path, lines=None):
         if pend.get("answer") in (None, "", {}):
             # Repeating a question executes no replay or grading. Preserve the
             # artifact and say which counters belong to this no-work call.
-            _lyric_result(status="suspended", exit=4,
+            _lyric_result(**_lexicon_kw(), status="suspended", exit=4,
                           final_draft=list(st["accepted_lines"]),
                           stale_answers=0, memo_state="no run key")
             print(f"  SUSPENDED — a {pend['kind']} proposal is required and "
@@ -10081,7 +10089,7 @@ def main():
         # its reason. The render above names two refused keys only in its
         # closing list, so a reader of the report alone gets no reason for
         # them; the record carries all of them, read off `rec.how`.
-        _lyric_result(status="recovered", exit=3 if _refs else 0,
+        _lyric_result(**_lexicon_kw(), status="recovered", exit=3 if _refs else 0,
                       input_format=input_format,
                       lines=list(getattr(rec, "sung_lines", []) or []),
                       set_aside=list(getattr(rec, "set_aside", []) or []),
@@ -10269,7 +10277,7 @@ def main():
         # read by the connector off the authenticated record rather than
         # parsed out of the table above. Printed before the bank block so
         # the un-flagged output stays a prefix of the flagged one.
-        _lyric_result(status="screened", pairs=[
+        _lyric_result(**_lexicon_kw(), status="screened", pairs=[
             {"a": r["a"], "b": r["b"], "relations": list(r["relations"]),
              "coarse_relations": list(r["coarse_relations"]),
              "schema_relations": list(r["schema_relations"]),
@@ -10674,7 +10682,7 @@ def main():
             print(f"  WROTE {what} -> {out_path}")
         else:
             print(json.dumps(payload, indent=1, sort_keys=True))
-        _lyric_result(status="planned", exit=0,
+        _lyric_result(**_lexicon_kw(), status="planned", exit=0,
                       plan_lines=the_plan["total_lines"],
                       plan_version=the_plan["plan_version"])
         print()
@@ -13523,7 +13531,7 @@ def main():
                           + ("" if not _cr else "  " + ", ".join(map(str, _cr))
                              + "  (previously JUDGED, now REFUSED — not a "
                                "new finding and not a fix)"))
-                    _lyric_result(version=1, status="tryline",
+                    _lyric_result(**_lexicon_kw(), version=1, status="tryline",
                                   command="tryline", line=_target,
                                   moves=sorted(_targets), candidate=_cand,
                                   accepted=_ok,
@@ -13667,7 +13675,7 @@ def main():
                     print(f"  Written to {path}. Fill `pending.answer`, then "
                           f"run the SAME command again.\n")
                     print(need.prompt)
-                    _lyric_result(status="suspended", exit=4,
+                    _lyric_result(**_lexicon_kw(), status="suspended", exit=4,
                                   **_lyric_run_record(say_memo, say_proposer,
                                                      finish_plan if cmd == "finish" else None))
                     sys.exit(4)
@@ -13691,7 +13699,7 @@ def main():
                     print(say_memo())
                     print(f"  Run the SAME command again with no answer to "
                           f"continue.\n")
-                    _lyric_result(status="stopped", exit=5,
+                    _lyric_result(**_lexicon_kw(), status="stopped", exit=5,
                                   stopped_before=stop.step,
                                   final_draft=list(say_proposer.state.get(
                                       "accepted_lines") or ()),
@@ -13904,7 +13912,7 @@ def main():
                 print("  REFUSED — the mandate was not accepted.")
             for ln in str(e).splitlines():
                 print(f"  {ln}")
-            _lyric_result(status="refused", exit=2, refusal=str(e))
+            _lyric_result(**_lexicon_kw(), status="refused", exit=2, refusal=str(e))
             sys.exit(2)
         except ValueError as e:
             # THE SAME REFUSAL, FOR ALL FOUR VERBS — FIXED 2026-08-13. A
