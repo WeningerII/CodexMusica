@@ -82,6 +82,7 @@ h3 {
   margin: auto;
 }
 .ui-header button,
+.ui-header nav .ui-nav-link,
 .session-actions button,
 .ui-detail-tools button,
 .assistant-toolbar button,
@@ -99,10 +100,14 @@ h3 {
   color: var(--cm-text-secondary);
   cursor: pointer;
 }
-.ui-header nav button {
+.ui-header nav button,
+.ui-header nav .ui-nav-link {
   border-radius: 0;
   border-bottom: 3px solid transparent;
   padding: 0 14px;
+}
+.ui-header nav .ui-nav-link {
+  text-decoration: none;
 }
 .ui-header nav button.active {
   color: var(--cm-accent-text);
@@ -528,7 +533,8 @@ h3 {
     gap: 8px;
     padding: 0 12px;
   }
-  .ui-header nav button {
+  .ui-header nav button,
+  .ui-header nav .ui-nav-link {
     padding: 0 10px;
   }
   .ui-tools [data-ui='saved'] span,
@@ -573,12 +579,14 @@ h3 {
     justify-content: space-around;
     gap: 0;
   }
-  .ui-header nav button {
+  .ui-header nav button,
+  .ui-header nav .ui-nav-link {
     flex: 1;
     font-size: 14px;
     padding: 0 8px;
   }
-  .ui-header nav button svg {
+  .ui-header nav button svg,
+  .ui-header nav .ui-nav-link svg {
     width: 18px;
   }
   .ui-tools {
@@ -951,7 +959,8 @@ body.workbench {
     justify-content: space-around;
     gap: 0;
   }
-  .workbench .ui-header nav button {
+  .workbench .ui-header nav button,
+  .workbench .ui-header nav .ui-nav-link {
     min-width: 0;
     flex: 1;
     font-size: 13px;
@@ -1202,7 +1211,8 @@ body.workbench {
   .ui-tools button {
     padding-inline: 6px;
   }
-  .ui-header nav button {
+  .ui-header nav button,
+  .ui-header nav .ui-nav-link {
     padding-inline: 4px;
     gap: 4px;
     font-size: 13px;
@@ -1281,6 +1291,22 @@ body.workbench {
 }
 @media (max-width: 420px), (min-width: 900px) and (max-width: 1099px) {
   .ui-brand-name {
+    position: absolute;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+}
+/* The Library link makes a fifth entry in Main sections. Where five labels
+   do not fit (the narrowest one-row header, and phones up to 440px, where
+   "Genre" was clipped), the link shows its icon alone; its name stays in
+   aria-label and the title tooltip. */
+@media (max-width: 440px), (min-width: 900px) and (max-width: 1099px) {
+  .ui-header nav .ui-nav-link,
+  .workbench .ui-header nav .ui-nav-link {
+    flex: none;
+  }
+  .ui-header nav .ui-nav-link span {
     position: absolute;
     clip-path: inset(50%);
     white-space: nowrap;

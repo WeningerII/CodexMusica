@@ -92,7 +92,7 @@
 
 'use strict';
 /* global document, window, openPrefaceModal, renderPrefaceModalBody, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync, Catalog, INSTRUMENTS, normalizeSearch, renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery, computeDistance */
-/* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES, uiAddGenre, Engine */
+/* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES, uiAddGenre, Engine, CMLibraryImport */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -338,6 +338,40 @@ async function loadDelta(page) {
           : 0;
       });
       check(empty >= 2, 'J. a new session shows no empty recipe state with its actions');
+
+      // K. the Library link. The Library is its own site; Main sections links
+      // to the one origin the Library-to-Lyrics import trusts, in a new tab,
+      // so the session here is never navigated away.
+      stage = 'K. the Library link.';
+      const library = await page.evaluate(() => {
+        const a = document.querySelector('.ui-header nav a.ui-nav-link');
+        return (
+          a && {
+            href: a.href,
+            target: a.target,
+            rel: a.rel,
+            name: a.getAttribute('aria-label'),
+            label: a.textContent.trim(),
+            shown: a.getClientRects().length > 0,
+            origin: CMLibraryImport.SITE_ORIGIN,
+          }
+        );
+      });
+      check(library, 'K. Main sections has no Library link');
+      if (library) {
+        check(
+          library.href === library.origin + '/',
+          `K. the Library link goes to ${library.href}, not ${library.origin}/`
+        );
+        check(
+          library.target === '_blank' && /\bnoopener\b/.test(library.rel),
+          `K. the Library link must open a new tab with noopener (target ${library.target}, rel ${library.rel})`
+        );
+        check(
+          library.label === 'Library' && /new tab/.test(library.name || '') && library.shown,
+          `K. the Library link is not a visible, named Library entry (${library.label} / ${library.name})`
+        );
+      }
 
       // B. the setting.
       stage = 'B. the setting.';
