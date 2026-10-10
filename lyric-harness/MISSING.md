@@ -565,6 +565,10 @@ digits, non-Latin text, and parentheticals. Binding requires that exact physical
 span to be the complete final sung token. Earlier identical tokens, unsung
 asides and joined-enclitic components cannot lend a declaration. When no mapping
 exists, diagnostics state the known word/line with no sung-token position.
+The source span and sung-token indexes use the original exact line, not an
+NFC-normalized copy: an interior decomposed `cafés` occupies two declaration
+tokens. Normalization is only used for endpoint equivalence; the valid later
+T4 declaration and diagnostic position must not drift to T3.
 Coverage IDs identify the refused line, not the diagnostic token: inserting an
 earlier word must not invent a newly refused requirement. The whole function
 refusal keeps its legacy aggregate verifier identity when only its locations

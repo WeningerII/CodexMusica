@@ -507,6 +507,35 @@ class PronunciationChoices(unittest.TestCase):
         lex = self.lex([choice(line, 1, "That's", ['DH', 'AE1', 'T', 'S'], 'declared')])
         self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ("'s", None, G.rime_cmudict(self.base)("'s")))
 
+    def test_function_uses_original_unicode_line_for_declaration_positions(self):
+        from quality import grid as G
+        import unicodedata
+        line = 'Read cafe\u0301s record'
+        composed = unicodedata.normalize('NFC', line)
+        self.assertEqual(lh.line_tokens(line), ['Read', 'cafe', 's', 'record'])
+        self.assertEqual(lh.line_tokens(composed), ['Read', 'cafés', 'record'])
+        lex = self.lex([choice(line, 4, 'record', NOUN)])
+        self.assertEqual(lex.for_line(line).for_token(3).transcribe_word('record'), (NOUN, False))
+        key = G.rime_cmudict(lex)
+        self.assertEqual(key.end_occurrence(line), ('record', 4, 'EH K ER D'))
+        self.assertEqual(key.end_occurrence(composed), ('record', 3, key('record')))
+        self.assertEqual(G.rime_cmudict(self.base).end_occurrence(line), ('record', 4, key('record')))
+        repeated = line + ' record'
+        earlier = self.lex([choice(repeated, 4, 'record', NOUN)])
+        self.assertEqual(G.rime_cmudict(earlier).end_occurrence(repeated),
+                         ('record', 5, key('record')))
+        final = self.lex([choice(repeated, 4, 'record', VERB), choice(repeated, 5, 'record', NOUN)])
+        self.assertEqual(G.rime_cmudict(final).end_occurrence(repeated),
+                         ('record', 5, 'EH K ER D'))
+        decomposed_end = 'Sing cafe\u0301s'
+        self.assertEqual(lh.line_tokens(decomposed_end), ['Sing', 'cafe', 's'])
+        self.assertEqual(key.end_occurrence(decomposed_end), ('cafés', None, key('cafés')))
+        # Diagnostic coordinates use that same exact-line token stream.
+        unknown = line.replace('record', 'streetlights')
+        result = G.compare_returns([unknown], [unknown], rhyme_key=key)
+        self.assertEqual([(f.word, f.token) for f in result.refusals[0].failed_words],
+                         [('streetlights', 4), ('streetlights', 4)])
+
     def _verify_function_change(self, before, after, repair=False, other_code=False):
         # Real function reports/coverage, controlled unrelated quality findings:
         # the verifier must neither invent a regression nor count metadata as a fix.

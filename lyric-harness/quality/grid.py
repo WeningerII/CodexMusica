@@ -1951,7 +1951,9 @@ def rime_cmudict(lex=None):
         # if that same physical span is exactly the last complete sung token.
         import lyric_harness as LH
         word = _end_word(line)
-        raw = unicodedata.normalize("NFC", line)
+        # Declaration indexes belong to the original exact line. NFC may
+        # join a combining mark and change the declaration tokenizer's count.
+        raw = line
         spans = list(re.finditer(r"(?:[^\W_]|['‘’-])+", raw))
         words = LH.line_tokens(raw, strip_parens=lex.strip_parens)
         token = None
