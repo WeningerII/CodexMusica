@@ -1913,12 +1913,22 @@ def rime_cmudict(lex=None):
         w = normalise_line(word).strip("'")
         if not w:
             return None
-        phones = reader.entries.get(w)
-        if not phones:
-            got, oov = reader.transcribe_word(w)
+        if getattr(reader, "_pronunciation_choice", None) is not None:
+            # A bound declaration keys the exact sung token, including edge
+            # apostrophes. Normalizing it to the bare dictionary headword
+            # here would bypass a homograph choice or lose a supplied OOV.
+            got, oov = reader.transcribe_word(word)
             if oov or not got:
                 return None
             phones = [got]
+        else:
+            # Keep the existing unselected whole-word/first-reading policy.
+            phones = reader.entries.get(w)
+            if not phones:
+                got, oov = reader.transcribe_word(w)
+                if oov or not got:
+                    return None
+                phones = [got]
         p = list(phones[0])
         idx = None
         for i in range(len(p) - 1, -1, -1):

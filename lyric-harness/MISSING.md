@@ -552,6 +552,13 @@ reprise comparisons and bridge inventories use the same contextual endpoint.
 Unknown words still refuse; no fallback, dictionary rows, stress policy or
 first-reading perfect-rime policy changed. Repeated tokens can carry different
 readings without borrowing from an earlier token or from changed text.
+Independent review caught edge apostrophes bypassing the selected entry key:
+`Read 'record'` T2 chose the bare verb instead of the declared noun, and
+`Sing zzyzx'` remained unreadable despite a valid supplied reading. Bound
+choices now use the exact-token transcription path before bare-headword
+normalization; unselected whole-word lookup is unchanged. Leading, trailing,
+paired and curly apostrophes, repeated quoted homographs, OOV returns and
+changed-line isolation are regression-tested.
 
 `END_WORD_UNREADABLE` retains every failed word, token and line through
 code-level aggregation. Coverage identifies concrete failures as

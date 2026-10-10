@@ -381,4 +381,45 @@ class PronunciationChoices(unittest.TestCase):
         located = G._locate_failure(song, *song.sections, result, result.refusals[0])
         self.assertTrue(all(f.line is None for f in located.failed_words))
 
+    def test_function_edge_apostrophe_homographs_honor_exact_declarations(self):
+        from quality import grid as G
+        for text in ["Read 'record'", "Read record'", "Read 'record", "Read ‘record’"]:
+            with self.subTest(text=text):
+                word = lh.line_tokens(text)[1]
+                lex = self.lex([choice(text, 2, word, NOUN, 'declared')])
+                self.assertEqual(lex.for_line(text).for_token(1).transcribe_word(word), (NOUN, False))
+                self.assertEqual(G.rime_cmudict(lex).end_occurrence(text), (word, 2, 'EH K ER D'))
+                # Neither bare-word lookup nor changed text borrows the declaration.
+                self.assertEqual(G.rime_cmudict(lex)(word), G.rime_cmudict(self.base)(word))
+                changed = text.replace('Read', 'Play')
+                self.assertEqual(G.rime_cmudict(lex).end_occurrence(changed),
+                                 G.rime_cmudict(self.base).end_occurrence(changed))
+        text = "Read 'record' 'record'"
+        lex = self.lex([choice(text, 2, "'record'", VERB, 'declared'),
+                        choice(text, 3, "'record'", NOUN, 'declared')])
+        self.assertEqual(G.rime_cmudict(lex).end_occurrence(text), ("'record'", 3, 'EH K ER D'))
+
+    def test_function_edge_apostrophe_oov_declarations_clear_only_exact_failures(self):
+        from quality import grid as G
+        from quality.revise import Reviser
+        for text in ["Sing zzyzx'", "Sing 'zzyzx", "Sing 'zzyzx'", "Sing zzyzx’"]:
+            with self.subTest(text=text):
+                word = lh.line_tokens(text)[1]
+                lex = self.lex([choice(text, 2, word, ['Z', 'IH1', 'K', 'S'], 'declared')])
+                key = G.rime_cmudict(lex)
+                self.assertEqual(key.end_occurrence(text), (word, 2, 'IH K S'))
+                self.assertIsNone(key(word))
+                changed = text.replace('Sing', 'Call')
+                self.assertIsNone(key.end_occurrence(changed)[2])
+                lines = [text, 'We sing home', text, 'We sing home']
+                coverage = []
+                findings = Reviser(lex=lex)._function_findings(lines, self.function_blueprint(lines), coverage_out=coverage)
+                self.assertFalse([f for f in findings if f.code == 'END_WORD_UNREADABLE'])
+                self.assertEqual(next(o['status'] for o in coverage if o['id'] == 'function:draft'), 'answered')
+                lines[2] = changed
+                findings = Reviser(lex=lex)._function_findings(lines, self.function_blueprint(lines))
+                failure = next(f for f in findings if f.code == 'END_WORD_UNREADABLE')
+                self.assertEqual(failure.locations, [3])
+                self.assertIn(repr(word), failure.evidence)
+
 if __name__ == '__main__': unittest.main()
