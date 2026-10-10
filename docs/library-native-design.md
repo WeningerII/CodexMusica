@@ -1329,7 +1329,7 @@ Principle: the published codex.html changes nothing user-visible until PR 6. Eve
 - server_http.js reader decoupling.
 - mcp/library_routes.js, search, hit projection over precomputed tables, the export-plan LRU, exports, zip and viewer.
 - ReaderJobStore: capabilityFor; bounded touches; intent and generation markers on every mutation; the usage counter with quiescent verification and fail-closed unknown usage; timer-driven maintenance; the record cache; retained definitions; request sidecars.
-- Phase A of storage at rest: `readPageObject` and `read_page_object`, still writing plain objects; the old-image readiness check; the workflow gate on `store-format.json`; `reader_store_inflate.mjs`.
+- Phase A of storage at rest: `readPageObject` and `read_page_object`, still writing plain objects; the external deploy/rollback compatibility gate; the workflow gate on `store-format.json`; `reader_store_inflate.mjs`.
 - CORS, rate limits as John decides them, the long-reading rule, and query redaction.
 - search_store.py in the assets stage; the cacheable library-downloads stage with package-hash corpus URLs.
 - qualify_reader additions, including `store-load` and the concurrent heavy-request scenario; mcp/test_reader_store_bounds.mjs.
