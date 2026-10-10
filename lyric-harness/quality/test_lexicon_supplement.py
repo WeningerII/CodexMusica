@@ -17,6 +17,7 @@ Sections:
   7  every reading names its source; a supplement reading is never `cmudict`
   8  every lexicon identity that reads the file moves with its bytes
   9  the CLI coordinate: declared, disclosed, refused when misspelled
+ 10  the file keys what the tokenizer keeps: edge apostrophes, accents
 """
 
 import os
@@ -250,6 +251,55 @@ def test_identities_move():
         shutil.rmtree(tmp)
 
 
+def test_tokenizer_keys():
+    print("\n10. the file keys what the tokenizer keeps: edge apostrophes, accents")
+    tokens = LH.line_tokens("wi' the lass 'neath his feäce")
+    check("the tokenizer keeps edge apostrophes and accented letters",
+          tokens == ["wi'", "the", "lass", "'neath", "his", "feäce"], str(tokens))
+    for word in ("wi'", "'neath", "thro'", "roun'", "ev'ry", "feäce"):
+        line = GOOD.replace("thirty-one", word)
+        check(f"the contract accepts {word!r}", _refusal([HEADER, line]) is None,
+              _refusal([HEADER, line]) or "")
+    nfd = "feäce"   # a + combining diaeresis
+    for bad in ("-wi", "wi-", nfd, "WI'"):
+        check(f"and refuses {bad!r}",
+              _refusal([HEADER, GOOD.replace("thirty-one", bad)]) is not None)
+    with open(S.SUPPLEMENT_PATH, encoding="utf-8") as fh:
+        lines = fh.read().splitlines()
+    planted = ["wi'\tW IH1\ttest:fixture\tplanted\treviewed:test:2026-10-10",
+               "'neath\tN IY1 TH\ttest:fixture\tplanted\treviewed:test:2026-10-10",
+               "feäce\tF IY1 AH0 S\ttest:fixture\tplanted\treviewed:test:2026-10-10",
+               "'tis\tT AH1 Z\ttest:fixture\tplanted\treviewed:test:2026-10-10"]
+    body = sorted([l for l in lines if l and not l.startswith("#") and l != HEADER]
+                  + planted, key=lambda l: l.split("\t", 1)[0])
+    path = _write([HEADER] + body)
+    S.SOURCES["test:fixture"] = "planted by this suite"
+    try:
+        fx = S.SupplementedLexicon(supplement_path=path)
+    finally:
+        del S.SOURCES["test:fixture"]
+        os.remove(path)
+    check("`wi'` reads its own row, though `Lexicon` strips it to `wi`",
+          fx.transcribe_word("wi'") == (["W", "IH1"], False)
+          and PLAIN.transcribe_word("wi'") == ([], True))
+    check("`'neath` and `thro'`-style keys read with their apostrophes",
+          fx.transcribe_word("'neath") == (["N", "IY1", "TH"], False))
+    check("a typographic apostrophe folds to the same key",
+          fx.transcribe_word("’neath") == (["N", "IY1", "TH"], False))
+    check("an accented key reads, and so does its decomposed spelling",
+          fx.transcribe_word("feäce") == fx.transcribe_word(nfd)
+          == (["F", "IY1", "AH0", "S"], False))
+    check("the exact apostrophe form's reviewed row leads its stripped twin's "
+          "CMUdict reading (`'tis` vs `tis`)",
+          fx.pronunciation_variants("'tis")[0] == ["T", "AH1", "Z"]
+          and ["T", "IH1", "Z"] in fx.pronunciation_variants("'tis"))
+    check("while the bare word keeps CMUdict's first reading",
+          fx.transcribe_word("tis") == PLAIN.transcribe_word("tis"))
+    check("and each names its source",
+          fx.reading_source("wi'", ["W", "IH1"]) == "test:fixture"
+          and fx.reading_source("tis", ["T", "IH1", "Z"]) == "cmudict")
+
+
 def _cli(*args):
     run = subprocess.run([sys.executable, os.path.join(ROOT, "lyric_harness.py"), *args],
                          capture_output=True, text=True, timeout=600)
@@ -271,7 +321,7 @@ def main():
     for fn in (test_shipped_file, test_contract_refusals,
                test_plain_lexicon_untouched, test_derivation_reads_cmudict_alone,
                test_whole_before_piece, test_witnesses, test_reading_sources,
-               test_identities_move, test_cli):
+               test_identities_move, test_tokenizer_keys, test_cli):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

@@ -7,12 +7,12 @@ Everything tracked under `lyric-harness/`, sized in tokens (bytes ÷ 3.6, rounde
 | corpus (raw verse, measured offline) | 2328 | 11,000k |
 | other files | 235 | 9,800k |
 | saved measurement results | 693 | 9,700k |
-| data tables (read at run time) | 35 | 7,500k |
+| data tables (read at run time) | 36 | 7,500k |
 | notes and records (.md) | 130 | 1,500k |
-| Python: tests | 148 | 1,300k |
+| Python: tests | 149 | 1,300k |
 | Python: song program (ran) | 53 | 1,200k |
 | Python: research and record tools (never loaded) | 139 | 920k |
-| Python: loadable by the song program, not loaded | 12 | 59k |
+| Python: loadable by the song program, not loaded | 13 | 64k |
 | Python: imported by the song program, unused | 4 | 11k |
 
 ## Data the song program opened (46 files, 0 under corpus/)
@@ -29,9 +29,9 @@ Fetched or staged, not in the repo: `cmudict.dict`, `data/concreteness.txt`, `da
 
 `quality/redteam_band.py` 9.5k, `quality/corpus.py` 1.2k, `quality/battery_pin.py` <1k, `quality/__init__.py` <1k
 
-## Python — loadable, not loaded (12)
+## Python — loadable, not loaded (13)
 
-`quality/capacity.py` 14k, `quality/cross_song.py` 8.6k, `battery.py` 6.8k, `quality/build_song_frequency.py` 4.7k, `quality/relation_index.py` 3.9k, `quality/narrative_bands.py` 3.8k, `quality/metric_complexity.py` 3.8k, `quality/song_record.py` 3.7k, `quality/senses.py` 3.4k, `quality/check_data_rows.py` 3.1k, `quality/source_identity.py` 2k, `quality/melody.py` <1k
+`quality/capacity.py` 14k, `quality/cross_song.py` 8.6k, `battery.py` 6.8k, `quality/lexicon_supplement.py` 5.2k, `quality/build_song_frequency.py` 4.7k, `quality/relation_index.py` 3.9k, `quality/narrative_bands.py` 3.8k, `quality/metric_complexity.py` 3.8k, `quality/song_record.py` 3.7k, `quality/senses.py` 3.4k, `quality/check_data_rows.py` 3.1k, `quality/source_identity.py` 2k, `quality/melody.py` <1k
 
 ## Python — never loaded by a song (139)
 

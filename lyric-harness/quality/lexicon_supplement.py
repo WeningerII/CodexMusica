@@ -38,7 +38,9 @@ INSIDE A `SupplementedLexicon`:
 THE FILE (`data/lexicon_supplement.tsv`): `#` provenance lines, then the
 header `word phones source basis review` (tab-separated), then one row per
 reading, sorted by word, readings of one word in their intended order.
-  word    lowercase; letters with internal `'` or `-` only.
+  word    the token as the tokenizer keeps it, folded: lowercase, NFC, Latin
+          letters (accented ones too: `feäce`), `'` anywhere including the
+          edges (`wi'`, `'neath`, `thro'`), `-` only inside.
   phones  CMUdict's 39-phone ARPAbet, every vowel carrying a stress digit,
           at least one primary.
   source  a key of `SOURCES` below.
@@ -53,6 +55,7 @@ import hashlib
 import os
 import re
 import sys
+import unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -76,7 +79,9 @@ CMU_VOWELS = frozenset(
     "AA AE AH AO AW AY EH ER EY IH IY OW OY UH UW".split())
 CMU_CONSONANTS = frozenset(
     "B CH D DH F G HH JH K L M N NG P R S SH T TH V W Y Z ZH".split())
-_WORD = re.compile(r"[a-z](?:[a-z'-]*[a-z'])?")
+#: The tokenizer's own letter repertoire (`lyric_harness._TOKEN_RUN`), lowercase.
+_LETTER = "a-zß-ɏḀ-ỿ"
+_WORD = re.compile(rf"'?[{_LETTER}](?:[{_LETTER}'-]*[{_LETTER}'])?")
 _REVIEW = re.compile(r"(?:reviewed:[A-Za-z0-9._-]+:\d{4}-\d{2}-\d{2}"
                      r"|rule-validated:[a-z0-9-]+)")
 
@@ -125,9 +130,12 @@ def load_rows(path=SUPPLEMENT_PATH):
             row = dict(zip(COLUMNS, (c.strip() for c in cells)))
             row["line"] = n
             word, phones = row["word"], row["phones"].split()
-            if not _WORD.fullmatch(word) or "--" in word or "''" in word:
-                raise SupplementError(f"line {n}: {word!r} is not a lowercase "
-                                      "word with internal ' or - only")
+            if (not _WORD.fullmatch(word) or "--" in word or "''" in word
+                    or word != word.lower()
+                    or word != unicodedata.normalize("NFC", word)):
+                raise SupplementError(f"line {n}: {word!r} is not a folded token "
+                                      "(lowercase NFC Latin letters, ' anywhere, "
+                                      "- only inside)")
             bad = _phones_error(phones)
             if bad:
                 raise SupplementError(f"line {n}: {word}: {bad}")
@@ -259,8 +267,16 @@ def check_rows(rows, cmu_entries):
 # ---------------------------------------------------------------------------
 
 def _key(word):
-    return (LH.fold_apostrophes(word).lower().replace("‑", "-")
-            .strip("'\"“”‘’.,;:!?()[]"))
+    """The token as the file keys it: folded, lowercase, NFC, edge
+    apostrophes KEPT (`wi'` is not `wi`)."""
+    return unicodedata.normalize(
+        "NFC", LH.fold_apostrophes(word).lower().replace("‑", "-")
+    ).strip('"“”.,;:!?()[]')
+
+
+def _bare(key):
+    """The key `Lexicon` itself looks up: edge apostrophes stripped."""
+    return key.strip("'")
 
 
 class SupplementedLexicon(LH.Lexicon):
@@ -303,9 +319,13 @@ class SupplementedLexicon(LH.Lexicon):
     def reading_source(self, word, phones):
         """-> 'cmudict', a `SOURCES` key, or None if neither holds this reading."""
         key, phones = _key(word), tuple(phones)
-        if any(tuple(p) == phones for p in self.cmu_entries.get(key, ())):
+        keys = tuple(dict.fromkeys((key, _bare(key))))
+        for k in keys:
+            if (k, phones) in self._reading_sources:
+                return self._reading_sources[(k, phones)]
+        if any(tuple(p) == phones for k in keys for p in self.cmu_entries.get(k, ())):
             return "cmudict"
-        return self._reading_sources.get((key, phones))
+        return None
 
     def _cmu_view(self):
         lex = self
@@ -330,10 +350,20 @@ class SupplementedLexicon(LH.Lexicon):
             return LH.Lexicon.pronunciation_variants(self, word)
         with self._cmu_view():
             base = LH.Lexicon.pronunciation_variants(self, word)
-        for phones in self.entries.get(_key(word), ()):
-            if phones not in base:
-                base.append(list(phones))
-        return base
+        # ONE EXCEPTION, AND IT IS THE TOKEN'S OWN SPELLING: `Lexicon` strips a
+        # token's edge apostrophes before looking it up, so `wi'` (Scots
+        # *with*) would read as whatever `wi` is. A reviewed row for the
+        # apostrophe-bearing form is about exactly this token, so it leads.
+        key = _key(word)
+        bare = _bare(key)
+        exact = ([list(p) for p in self.entries.get(key, ())
+                  if (key, tuple(p)) in self._reading_sources]
+                 if key != bare else [])
+        out = exact + [p for p in base if p not in exact]
+        for phones in self.entries.get(bare, ()):
+            if phones not in out:
+                out.append(list(phones))
+        return out
 
     def transcribe_word(self, word):
         variants = self.pronunciation_variants(word)
@@ -349,7 +379,7 @@ class SupplementedLexicon(LH.Lexicon):
         one word. Otherwise the pieces, exactly as `Lexicon` cuts them."""
         if not getattr(self, "_pronunciation_choice", None):
             key = _key(word)
-            if "-" in key and key in self.entries:
+            if "-" in key and (key in self.entries or _bare(key) in self.entries):
                 return [word]
         return LH.Lexicon.word_pieces(self, word)
 
