@@ -15,8 +15,22 @@ CONSONANTS = frozenset('B CH D DH F G HH JH K L M N NG P R S SH T TH V W Y Z ZH'
 MAX_CHOICES = 128
 
 
+def dictionary_readings(lex, word):
+    """-> the readings a `basis: dictionary` choice may name for `word`, in
+    the lexicon's own order. A `Lexicon` answers from its exact entry, as it
+    always has; a lexicon that defines `dictionary_readings` (the reviewed
+    supplement, quality/lexicon_supplement.py) answers with every whole-entry
+    reading it would itself consider, so the menu, the validator and the
+    reader cannot disagree about what is in the dictionary."""
+    own = getattr(lex, "dictionary_readings", None)
+    if own is not None:
+        return own(word)
+    from lyric_harness import fold_apostrophes
+    return [list(p) for p in lex.entries.get(fold_apostrophes(word).lower(), [])]
+
+
 def validate_choices(rows, lex):
-    from lyric_harness import line_tokens, fold_apostrophes
+    from lyric_harness import line_tokens
     if not isinstance(rows, list) or len(rows) > MAX_CHOICES:
         raise ValueError('pronunciations must be a list of at most 128 occurrence declarations')
     out, seen = [], set()
@@ -42,8 +56,7 @@ def validate_choices(rows, lex):
             raise ValueError('pronunciation basis must be dictionary or declared')
         if not isinstance(row['source'], str) or not row['source'].strip() or len(row['source']) > 1000:
             raise ValueError('pronunciation source must state who chose the reading and why, or its source')
-        key = fold_apostrophes(word).lower()
-        if row['basis'] == 'dictionary' and phones not in lex.entries.get(key, []):
+        if row['basis'] == 'dictionary' and phones not in dictionary_readings(lex, word):
             raise ValueError(f'{word!r}: chosen phones are not a CMUdict reading; use declared with an explicit source for a supplied pronunciation')
         out.append(copy.deepcopy(row))
     return out
@@ -131,7 +144,7 @@ def reading_options(lex, lines, coverage=None):
     ambiguous occurrence; `scope` says which rule chose the listed ones.
     Without `coverage` every ambiguous occurrence is eligible, as before.
     """
-    from lyric_harness import line_tokens, fold_apostrophes, syllabify
+    from lyric_harness import line_tokens, syllabify
     if coverage is None:
         wanted, scope = None, 'all'
     else:
@@ -150,7 +163,7 @@ def reading_options(lex, lines, coverage=None):
         seen.add(line)
         matching = [i+1 for i, text in enumerate(lines) if text == line]
         for index, word in enumerate(line_tokens(line, strip_parens=lex.strip_parens)):
-            prons = lex.entries.get(fold_apostrophes(word).lower(), [])
+            prons = dictionary_readings(lex, word)
             distinct = sorted({tuple(p) for p in prons})
             if len(distinct) == 1:
                 continue
@@ -161,9 +174,14 @@ def reading_options(lex, lines, coverage=None):
             if len(items) < MAX_CHOICES:
                 items.append({'line': line, 'token': index+1, 'word': word,
                     'matching_lines': matching,
-                    'dictionary_readings': [{'phones': list(p),
+                    'dictionary_readings': [dict({'phones': list(p),
                         'stress': [s['stress'] for s in syllabify(p)],
-                        'syllables': len(syllabify(p))} for p in distinct],
+                        'syllables': len(syllabify(p))},
+                        # Per-reading provenance where the lexicon keeps it
+                        # (the reviewed supplement); absent otherwise.
+                        **({'source': lex.reading_source(word, p) or 'cmudict'}
+                           if hasattr(lex, 'reading_source') else {}))
+                        for p in distinct],
                     'supplied_reading_requires_source': not bool(distinct)})
     out = {'items': items, 'total': total, 'truncated': eligible > len(items)}
     if coverage is not None:
@@ -243,17 +261,15 @@ def occurrence_readings(lex, line, words, t):
 def pin_readings(lex, occurrences, source):
     """A copy of `lex` with each (line, token, word, phones) declared as an
     occurrence reading beside the writer's own, or None if one is invalid."""
-    from lyric_harness import fold_apostrophes
     rows = [dict(r) for r in (getattr(lex, "pronunciations", ()) or ())]
     taken = {(r["line"], r["token"]) for r in rows}
     for line, tok, word, phones in occurrences:
         if (line, tok) in taken:
             continue
-        key = fold_apostrophes(word).lower()
         rows.append({"line": line, "token": tok, "word": word,
                      "phones": list(phones),
                      "basis": ("dictionary" if list(phones) in
-                               [list(e) for e in lex.entries.get(key, ())]
+                               dictionary_readings(lex, word)
                                else "declared"),
                      "source": source})
         taken.add((line, tok))

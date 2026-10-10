@@ -1118,7 +1118,10 @@ class Reviser:
     """Grades a draft, briefs a revision, and verifies the result."""
 
     def _relation_phonology(self):
-        if not getattr(self.lex, "pronunciations", ()):
+        # A supplemented lexicon is a reading coordinate too: the shared
+        # plain reader would drop it (quality/lexicon_supplement.py).
+        if (not getattr(self.lex, "pronunciations", ())
+                and not getattr(self.lex, "supplement_path", None)):
             return _relation_phonology()
         from quality.phonology.eng import English
         # Preserve the registered relation reader's fallback policy on unselected words.
@@ -3248,11 +3251,19 @@ class Reviser:
             return {}
         from quality import meter_bands as MB
         phon = MB.reader(MB.ADOPTED_READER)
-        if getattr(self.lex, "pronunciations", ()):
+        supplement = getattr(self.lex, "supplement_path", None)
+        if getattr(self.lex, "pronunciations", ()) or supplement:
             from quality.phonology.eng import English
             import copy
-            reader_lex = copy.copy(FT._english_lexicon(
-                strip_parens=self.lex.strip_parens, fallback=phon.fallback))
+            if supplement:
+                from quality.lexicon_supplement import supplemented_lexicon
+                base = supplemented_lexicon(strip_parens=self.lex.strip_parens,
+                                            fallback=phon.fallback,
+                                            supplement_path=supplement)
+            else:
+                base = FT._english_lexicon(strip_parens=self.lex.strip_parens,
+                                           fallback=phon.fallback)
+            reader_lex = copy.copy(base)
             reader_lex.pronunciations = self.lex.pronunciations
             phon = English(fallback=phon.fallback, lexicon=reader_lex)
         for i, text in enumerate(lines):
@@ -4800,7 +4811,10 @@ class Reviser:
                   None if fb is None else (type(fb).__name__,
                                            getattr(fb, "min_confidence", None)),
                   str(_cmudict_path),
-                  fingerprint(getattr(lex, "pronunciations", ())))
+                  fingerprint(getattr(lex, "pronunciations", ())),
+                  # A SupplementedLexicon reads one more file; its digest is a
+                  # coordinate of every reading (quality/lexicon_supplement.py).
+                  getattr(lex, "supplement_sha256", None))
             return (dt, lk)
         except Exception:
             return None

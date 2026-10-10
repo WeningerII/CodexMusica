@@ -515,6 +515,11 @@ def certification_identity(reviser):
                     pending.append(candidate)
     lexical = {name: hashlib.sha256(Path(path).read_bytes()).hexdigest()
                for name, path in [('cmudict', LH.CMUDICT_PATH), ('frequency', LH.FREQ_PATH)]}
+    # A grader reading the reviewed supplement grades with one more file
+    # (quality/lexicon_supplement.py); without it the record is unchanged.
+    supplement = getattr(getattr(reviser, 'lex', None), 'supplement_path', None)
+    if supplement:
+        lexical['supplement'] = hashlib.sha256(Path(supplement).read_bytes()).hexdigest()
     from dataclasses import asdict
     def canonical(value):
         if isinstance(value, dict):
