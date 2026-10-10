@@ -538,6 +538,45 @@ def test_versions():
     rc, out = _cli("--lexicon-supplement=v1", "--lexicon-supplement=v1", "declaration")
     check("two declarations refuse", rc == 2, out[-160:])
 
+    # A DEFERRED RUN KEEPS ITS SUPPLEMENT (3PO's review of #529): resuming the
+    # same state under another basis refuses instead of replaying every answer
+    # on different words; a state from before the field is CMUdict alone.
+    tmp = tempfile.mkdtemp()
+    try:
+        draft = os.path.join(tmp, "d.txt")
+        with open(draft, "w", encoding="utf-8") as fh:
+            fh.write("Copper cat\nAzure dog\n")
+
+        def defer(state, basis):
+            return _cli(f"--lexicon-supplement={basis}", "revise", draft, "AA",
+                        "--relation=type:rime riche", f"--propose=defer:{state}")
+
+        state = os.path.join(tmp, "st.json")
+        rc, out = defer(state, "v1")
+        import json as _json
+        with open(state, encoding="utf-8") as fh:
+            saved = _json.load(fh)
+        check("a suspended deferred run records its supplement",
+              rc == 4 and saved.get("lexicon") == {"supplement_id": "v1", "sha256": v1["sha256"]},
+              (rc, saved.get("lexicon")))
+        rc, out = defer(state, "none")
+        check("resuming it under another supplement refuses, never replays",
+              rc == 2 and S.UNAVAILABLE in out and "started under lexicon supplement v1" in out,
+              out[-200:])
+        rc, out = defer(state, "v1")
+        check("resuming it under its own supplement continues", rc == 4, out[-160:])
+        legacy = dict(saved)
+        legacy.pop("lexicon")
+        with open(state, "w", encoding="utf-8") as fh:
+            _json.dump(legacy, fh)
+        rc, out = defer(state, "v1")
+        check("a state from before the field is CMUdict alone: v1 refuses",
+              rc == 2 and S.UNAVAILABLE in out, out[-200:])
+        rc, out = defer(state, "none")
+        check("a state from before the field resumes under none", rc == 4, out[-160:])
+    finally:
+        shutil.rmtree(tmp)
+
 
 def main():
     for fn in (test_shipped_file, test_contract_refusals,

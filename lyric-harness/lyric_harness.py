@@ -7808,6 +7808,24 @@ def _defer_proposer(path, lines=None):
     from quality import propose as PR
     from quality.revise import draft_fingerprint as _dfp
     st = _defer_state(path)
+    # THE RUN KEEPS THE SUPPLEMENT IT WAS STARTED UNDER. A resumed state
+    # replays every recorded answer, so reading it under another supplement
+    # would re-judge the same song on different words. A state written before
+    # this field existed was read on CMUdict alone (null/null). A different
+    # basis refuses; it is never replayed (quality/lexicon_supplement.py).
+    _here_basis = dict(_LEXICON_IDENTITY or {"supplement_id": None, "sha256": None})
+    _resuming = bool(st["answered"]["propose"] or st["answered"]["propose_group"]
+                     or st.get("pending"))
+    if _resuming:
+        _run_basis = st.get("lexicon") or {"supplement_id": None, "sha256": None}
+        if _run_basis != _here_basis:
+            _refuse("LEXICON_SUPPLEMENT_UNAVAILABLE: this deferred run was started "
+                    f"under lexicon supplement {_run_basis.get('supplement_id') or 'none'} "
+                    f"(sha256 {_run_basis.get('sha256')}), and this call reads "
+                    f"{_here_basis.get('supplement_id') or 'none'} "
+                    f"(sha256 {_here_basis.get('sha256')}). Resume it under its own "
+                    "supplement, or start a new run.")
+    st["lexicon"] = _here_basis
     st.setdefault("input_draft", list(lines or ()))
     st.setdefault("accepted_lines", list(lines or ()))
     pending = st.get("pending")

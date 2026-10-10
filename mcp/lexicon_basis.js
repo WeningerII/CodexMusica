@@ -79,6 +79,15 @@ export function resolveLexiconBasis(id, sha256) {
   return row;
 }
 
+// A run, state or checkpoint recorded before this field existed was read on
+// CMUdict alone. Its declarations are compared and carried as `none`, so a
+// caller restating `none` is not refused as a moved declaration, and any
+// other version still is.
+export function withLegacyLexicon(decl) {
+  if (!decl || decl.lexicon_supplement !== undefined) return decl;
+  return { ...decl, lexicon_supplement: NONE };
+}
+
 // A state or checkpoint from another build can record a version this build
 // does not ship. Refuse it by name before the declarations are parsed, where
 // it would otherwise surface as a bare schema error.

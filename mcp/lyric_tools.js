@@ -34,6 +34,7 @@ import { assessmentCoverageValid, PLAN_FIELDS, READING_FIELDS } from './lyric_wo
 import {
   applyLexiconBasis,
   assertRecordedLexicon,
+  withLegacyLexicon,
   LEXICON_CHOICES,
   LEXICON_MANIFEST,
   lexiconGlobals,
@@ -2465,9 +2466,10 @@ export function registerLyricTools(server, tool) {
               if (runWander) throw refuse(runWander);
               const carried = { state: false, draft: false, decl: false };
               if (runRec) {
-                const moved = movedDeclarations(runRec.decl, a);
+                const recDecl = withLegacyLexicon(runRec.decl);
+                const moved = movedDeclarations(recDecl, a);
                 if (moved.length) throw refuse(movedRefusal(runRec, moved));
-                for (const [k, v] of Object.entries(runRec.decl || {}))
+                for (const [k, v] of Object.entries(recDecl || {}))
                   if (a[k] === undefined) {
                     a[k] = v;
                     carried.decl = true;
@@ -2518,8 +2520,10 @@ export function registerLyricTools(server, tool) {
                         'CONTINUATION_INVALID: interview state lacks original input and declarations; preserve it as a recovery artifact.'
                       );
                     assertRecordedLexicon(decoded.connector_declarations);
-                    const decl = declarationsOf(
-                      z.object(KITCHEN_REVISE_SCHEMA).parse(decoded.connector_declarations)
+                    const decl = withLegacyLexicon(
+                      declarationsOf(
+                        z.object(KITCHEN_REVISE_SCHEMA).parse(decoded.connector_declarations)
+                      )
                     );
                     const moved = movedDeclarations(decl, a);
                     if (moved.length)
@@ -2573,8 +2577,10 @@ export function registerLyricTools(server, tool) {
                 checkLines(checkpoint.accepted_lines);
                 if (checkpoint.connector_declarations) {
                   assertRecordedLexicon(checkpoint.connector_declarations);
-                  const decl = declarationsOf(
-                    z.object(KITCHEN_REVISE_SCHEMA).parse(checkpoint.connector_declarations)
+                  const decl = withLegacyLexicon(
+                    declarationsOf(
+                      z.object(KITCHEN_REVISE_SCHEMA).parse(checkpoint.connector_declarations)
+                    )
                   );
                   const moved = movedDeclarations(decl, a);
                   if (moved.length)

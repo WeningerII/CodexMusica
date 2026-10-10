@@ -313,9 +313,21 @@ test(
 
       // A state recorded before this field existed stays on CMUdict alone,
       // whatever the default now is, and an explicit version is a move.
-      const legacy = decodeState(first.state);
-      delete legacy.connector_declarations.lexicon_supplement;
-      delete legacy.connector_declarations.lexicon_supplement_sha256;
+      // A state whose connector declarations lost the field while the worker's
+      // own record still names v1 is not legacy: the harness refuses it.
+      const stripped = decodeState(first.state);
+      delete stripped.connector_declarations.lexicon_supplement;
+      delete stripped.connector_declarations.lexicon_supplement_sha256;
+      assert.equal(stripped.lexicon?.supplement_id, DEFAULT.id, 'the worker state records it');
+      const mismatched = await revise(c, {
+        state: encodeState(stripped),
+        answer: 'I hold you.',
+      });
+      assert.equal(verdictOf(mismatched).exit_code, 2);
+      assert.match(text(mismatched), new RegExp(`${UNAVAILABLE}: this deferred run was started`));
+      // A true legacy state carries the field in neither place.
+      const legacy = structuredClone(stripped);
+      delete legacy.lexicon;
       const legacyWire = encodeState(legacy);
       const upgraded = await revise(c, {
         state: legacyWire,
@@ -327,6 +339,36 @@ test(
       const kept = verdictOf(await revise(c, { state: legacyWire, answer: 'I hold you.' }));
       assert.deepEqual(kept.lexicon, { supplement_id: null, sha256: null });
       assert.equal(decodeState(kept.state).connector_declarations.lexicon_supplement, NONE);
+      // Restating what a legacy record means (`none`) is not a moved
+      // declaration (3PO's review of #529): absence is normalized first.
+      const restated = verdictOf(
+        await revise(c, { state: legacyWire, lexicon_supplement: NONE, answer: 'I hold you.' })
+      );
+      assert.deepEqual(restated.lexicon, { supplement_id: null, sha256: null });
+      // The same through a cached run whose record predates the field. The
+      // run is continued the way its status asks: an answer to a pending
+      // question, or a rewritten draft for a parked one.
+      const legacyRun = RUNS.byId(kept.run_id);
+      delete legacyRun.decl.lexicon_supplement;
+      delete legacyRun.decl.lexicon_supplement_sha256;
+      const next = (rev, extra) =>
+        revise(c, {
+          run_id: kept.run_id,
+          run_revision: rev,
+          ...(legacyRun.status === 'parked'
+            ? { draft: ['Copper cat', 'A copper hat'] }
+            : { answer: 'I hold you.' }),
+          ...extra,
+        });
+      const viaRun = await next(kept.run_revision, { lexicon_supplement: NONE });
+      assert.notEqual(viaRun.isError, true, text(viaRun).slice(0, 400));
+      const continued = verdictOf(viaRun);
+      assert.deepEqual(continued.lexicon, { supplement_id: null, sha256: null });
+      const movedRun = await next(continued.run_revision ?? kept.run_revision, {
+        lexicon_supplement: DEFAULT.id,
+      });
+      assert.equal(movedRun.isError, true);
+      assert.match(text(movedRun), /lexicon_supplement/);
     } finally {
       await c.close();
     }
