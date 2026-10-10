@@ -422,4 +422,37 @@ class PronunciationChoices(unittest.TestCase):
                 self.assertEqual(failure.locations, [3])
                 self.assertIn(repr(word), failure.evidence)
 
+    def test_function_mixed_expanded_failures_keep_known_draft_locations(self):
+        from quality import grid as G
+        from quality.revise import Reviser
+        lines = ['Wait for streetlights', 'Sing home',
+                 'Wait for streetlights', 'Sing home', 'Wait for streetlights, &c.']
+        bp = self.function_blueprint(lines)
+        bp['sections'][-1]['bars'] = 1
+        song, _ = G.song_from_blueprint(bp)
+        _, refusals, returns = G.return_findings(song, 'chorus', rhyme_key=G.rime_cmudict(self.base))
+        ref = next(r for r in refusals if r.code == 'END_WORD_UNREADABLE')
+        self.assertTrue(returns[-1][2].stub_resolutions, 'exercise the real pointer resolver')
+        self.assertEqual([(f.line, f.side, f.section_line, f.token, f.word) for f in ref.failed_words],
+                         [(1, 'first', 1, 3, 'streetlights'), (3, 'again', 1, 3, 'streetlights'),
+                          (None, 'first', 1, 3, 'streetlights'), (None, 'again', 1, 3, 'streetlights')])
+        coverage = []
+        findings = Reviser(lex=self.base)._function_findings(lines, bp, coverage_out=coverage)
+        failures = [o for o in coverage if o.get('code') == 'END_WORD_UNREADABLE']
+        located = [o for o in failures if 'line' in o]
+        self.assertEqual([(o['id'], o['line'], o['token'], o['word']) for o in located],
+                         [('function:END_WORD_UNREADABLE:T3:L1', 1, 3, 'streetlights'),
+                          ('function:END_WORD_UNREADABLE:T3:L3', 3, 3, 'streetlights')])
+        unlocated = [o for o in failures if 'line' not in o]
+        self.assertEqual(len(unlocated), 1)
+        self.assertEqual(unlocated[0]['location_scope'], 'section_local')
+        self.assertEqual(unlocated[0]['failed_words'], [
+            dict(side=side, section_line=1, token=3, word='streetlights', text=lines[0])
+            for side in ['first', 'again']])
+        cov = {'obligations':coverage,
+               'refused_obligations':[o['id'] for o in coverage if o['status'] == 'refused']}
+        self.assertEqual(P.refused_lines(cov), ({1, 3}, False))
+        note = next(f for f in findings if f.code == 'END_WORD_UNREADABLE')
+        self.assertEqual(note.locations, [1, 3])
+
 if __name__ == '__main__': unittest.main()

@@ -253,6 +253,8 @@ def rules_md():
                "position and exact lyric text. `function:draft` retains the aggregate "
                "refusal. A comparison without a draft coordinate remains explicitly "
                "unlocated; its section-local line is not a draft line number. "
+               "Mixed failures retain known line obligations plus a separate "
+               "`location_scope: section_local` record for unlocated words. "
                "Occurrence declarations bind exact text and sung-token position; "
                "they do not add dictionary readings or change the perfect-rime policy.")
     return "\n".join(out) + "\n"

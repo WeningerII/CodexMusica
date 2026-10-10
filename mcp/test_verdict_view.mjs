@@ -465,3 +465,46 @@ test('short and every detail view preserve supplied lexicon identity without inv
   for (const part of DETAIL_PARTS)
     assert.equal(Object.hasOwn(detailOf(verdict, part), 'lexicon'), false);
 });
+
+test('mixed expanded function failures retain known lines alongside unlocated coverage', () => {
+  const located = [1, 3].map((line) => ({
+    id: `function:END_WORD_UNREADABLE:T3:L${line}`,
+    layer: 'function',
+    status: 'refused',
+    code: 'END_WORD_UNREADABLE',
+    line,
+    token: 3,
+    word: 'streetlights',
+    text: 'Wait for streetlights',
+  }));
+  const unlocated = {
+    id: 'function:END_WORD_UNREADABLE:0',
+    layer: 'function',
+    status: 'refused',
+    code: 'END_WORD_UNREADABLE',
+    location_scope: 'section_local',
+    failed_words: ['first', 'again'].map((side) => ({
+      side,
+      section_line: 1,
+      token: 3,
+      word: 'streetlights',
+      text: 'Wait for streetlights',
+    })),
+  };
+  const v = {
+    findings: [note('END_WORD_UNREADABLE', [1, 3])],
+    coverage: {
+      refused_obligations: ['function:draft', ...located.map((o) => o.id), unlocated.id],
+      obligations: [...located, unlocated],
+    },
+  };
+  assert.deepEqual(blockingOf(v), [
+    ...[1, 3].map(
+      (n) =>
+        `L${n}: not judged — function (END_WORD_UNREADABLE); unreadable: token 3 'streetlights'`
+    ),
+    'whole draft: not judged — function:draft, function:END_WORD_UNREADABLE:0',
+  ]);
+  assert.deepEqual(detailOf(v, 'coverage').coverage.obligations.at(-1), unlocated);
+  assert.deepEqual(detailOf(v, 'coverage', [3]).coverage.obligations, [located[1]]);
+});

@@ -564,7 +564,12 @@ changed-line isolation are regression-tested.
 code-level aggregation. Coverage identifies concrete failures as
 `function:END_WORD_UNREADABLE:TN:LN`; the aggregate `function:draft` remains
 refused. Expanded pointers retain section-local evidence instead of invented
-draft positions. The session renderer distinguishes multiple dictionary
+draft positions. A mixed comparison keeps each known draft-location obligation
+and a separate `location_scope: section_local` record containing only the
+remaining unlocated failures. Independent review's three-chorus case (two
+complete returns plus an expanded pointer) previously dropped known L1/L3
+when expansion introduced an unlocated failure; the real resolver, coverage
+and renderer now have mixed-case regressions. The session renderer distinguishes multiple dictionary
 readings from zero listed readings (including `streetlights`) and preserves
 supplied supplement identity in short/detail views. The producer owns that
 identity; absent identity is not inferred.

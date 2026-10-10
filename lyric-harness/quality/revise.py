@@ -3404,19 +3404,29 @@ class Reviser:
                                  if requested else "not_requested"})
             if requested:
                 for index, refusal in enumerate(rep["refusals"]):
-                    if refusal.failed_words and all(f.line is not None for f in refusal.failed_words):
-                        for f in refusal.failed_words:
-                            coverage_out.append({
-                                "id": f"function:{refusal.code}:T{f.token}:L{f.line}",
-                                "layer": "function", "status": "refused", "code": refusal.code,
-                                "line": f.line, "token": f.token, "word": f.word,
-                                "text": f.text})
+                    located = [f for f in refusal.failed_words if f.line is not None]
+                    unlocated = [f for f in refusal.failed_words if f.line is None]
+                    for f in located:
+                        coverage_out.append({
+                            "id": f"function:{refusal.code}:T{f.token}:L{f.line}",
+                            "layer": "function", "status": "refused", "code": refusal.code,
+                            "line": f.line, "token": f.token, "word": f.word,
+                            "text": f.text})
+                    if located and not unlocated:
                         continue
-                    coverage_out.append({"id": f"function:{refusal.code}:{index}",
-                                         "layer": "function",
-                                         "status": ("not_requested" if refusal.code in unasked
-                                                    else "refused"),
-                                         "code": refusal.code})
+                    record = {"id": f"function:{refusal.code}:{index}",
+                              "layer": "function",
+                              "status": ("not_requested" if refusal.code in unasked else "refused"),
+                              "code": refusal.code}
+                    if unlocated:
+                        # Expansion has section-local evidence, not a draft
+                        # coordinate. It must not erase the known failures.
+                        record["location_scope"] = "section_local"
+                        record["failed_words"] = [
+                            {"side": f.side, "section_line": f.section_line,
+                             "token": f.token, "word": f.word, "text": f.text}
+                            for f in unlocated]
+                    coverage_out.append(record)
             coverage_out.append({"id": "shape:draft", "layer": "shape", "status": "answered"})
         whole = []
         for f in rep["findings"]:
