@@ -1,0 +1,19 @@
+{
+ "snapshot_id": "317c5afae76bfce833ed10fd06d48ddd9ffa17053fbf02d7c461e80abedf86b7",
+ "captured_by": "sites/library/scripts/capture-library-goldens.cjs",
+ "worker": "sites/library/lib/library-api.ts (shipped controller, local D1/R2)",
+ "counts": {
+  "search": 363,
+  "readings": 83,
+  "whole_readings": 5,
+  "metadata": 20,
+  "exports": 9
+ },
+ "files": {
+  "queries.json": "061eafd9c602986b9a6015e0bb872b82899c5f679cabde7026500187c245c4a5",
+  "search.jsonl.gz": "52798da2a337c52dd55d41225812a5422a8f498cf48f3bfb153946cd34431eaa",
+  "readings.jsonl.gz": "d3f5b306d74d6f044f8f46705488b1ec9548f6d0edd8fae1b2b66bb8110f4322",
+  "metadata.jsonl.gz": "918384ad15e06fa0c0ef21256716f31834d78d1100b31a6c8c7db092ca150243",
+  "exports.json": "3756c8a7555b3bf7a483472e7a2d6facae68b533bf45d5b0ae5ebbf52eeb5af2"
+ }
+}
