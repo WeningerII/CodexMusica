@@ -114,6 +114,8 @@ test('as a top-level-await module, a stalled body still settles and exits 0', as
       `console.log(JSON.stringify(health));`;
     const child = spawn(process.execPath, ['--input-type=module', '-e', source], {
       stdio: ['ignore', 'pipe', 'pipe'],
+      // Watchdog: a child that hangs fails this test in 10 s, not at the job timeout.
+      timeout: 10_000,
     });
     let out = '';
     child.stdout.on('data', (d) => (out += d));
