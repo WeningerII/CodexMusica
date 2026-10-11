@@ -12,6 +12,9 @@ import { readerPythonBridge, registerLyricTools } from './lyric_tools.js';
 import { buildServer } from './tools.js';
 import { runtimeBuildIdentity } from './job_store.js';
 import { runtimeAssets } from './runtime_assets.js';
+import { LibrarySearch } from './library_search.js';
+import { ExportStore, zipChunks } from './library_exports.js';
+import { CorpusPackages } from './library_corpus_routes.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -93,6 +96,47 @@ if (assets.releaseRequired) {
   assert.equal(retainedCatalog.counts.readable_reading_units, 20865);
   assert.match(build.commit || '', /^[a-f0-9]{40}$/);
   assert.ok(build.release_id, 'The image must carry its baked release identity.');
+}
+// The Library stores the image ships (LIBRARY_*_DIR) must serve the reader's
+// own snapshot and its whole readable set, and every corpus package must
+// match its recorded hash. They stay loaded through the cases below, so their
+// resident footprint counts in the memory proof.
+let library = null;
+// Held at module scope and read again after the last memory sample (below),
+// so the stores stay reachable, and resident, for the whole proof: block
+// scoped, they were collectable before sampling began.
+let libraryStores = null;
+if (assets.releaseRequired || process.env.LIBRARY_SEARCH_DIR) {
+  const search = new LibrarySearch(process.env.LIBRARY_SEARCH_DIR);
+  const exportStore = new ExportStore(process.env.LIBRARY_EXPORT_DIR);
+  const corpus = new CorpusPackages(process.env.LIBRARY_CORPUS_DIR);
+  libraryStores = { search, exportStore, corpus };
+  for (const loaded of [search, exportStore, corpus])
+    assert.equal(
+      loaded.snapshotId,
+      catalog.snapshot_id,
+      'A Library store serves another snapshot.'
+    );
+  if (assets.reader?.counts)
+    assert.equal(search.store.readable_count, assets.reader.counts.readable_reading_units);
+  assert.equal(exportStore.store.readable_count, search.store.readable_count);
+  assert.deepEqual(await corpus.verify(), [], 'A corpus package failed its hash.');
+  const found = search.search(new URLSearchParams({ q: 'love' }), { maxLimit: 100 });
+  assert.ok(found.total > 0, 'Library search found nothing.');
+  const layout = exportStore.layout([cases[0][1]], 'json');
+  let zipBytes = 0;
+  for (const chunk of zipChunks(exportStore.directory, layout, 'json', exportStore.snapshotId))
+    zipBytes += chunk.length;
+  assert.equal(zipBytes, layout.bytes, 'A selection export is not its planned length.');
+  library = {
+    snapshot_id: search.snapshotId,
+    readable: search.store.readable_count,
+    readable_ids_sha256: search.store.readable_ids_sha256,
+    search_total_love: found.total,
+    selection_zip_bytes: zipBytes,
+    corpus: corpus.health(),
+  };
+  console.error(JSON.stringify({ library_qualified: library.readable }));
 }
 const workspace = await mkdtemp(path.join(tmpdir(), 'reader-runtime-qualification-'));
 const store = new ReaderJobStore({ directory: workspace, maxBytes: 512 * 1024 * 1024 });
@@ -267,6 +311,12 @@ try {
     memory.peak_total_bytes < maximum,
     `Combined peak ${memory.peak_total_bytes} exceeds ${maximum}.`
   );
+  // The stores were live through the final sample: read them now.
+  if (libraryStores) {
+    assert.equal(libraryStores.search.store.readable_count, library.readable);
+    assert.equal(libraryStores.exportStore.store.readable_count, library.readable);
+    library.resident_through_final_sample = Object.keys(libraryStores.corpus.health()).length > 0;
+  }
   const fingerprint = createHash('sha256')
     .update(await readFile(path.join(root, 'lyric-harness/library/methods.json')))
     .digest('hex');
@@ -283,6 +333,7 @@ try {
     registry_sha256: fingerprint,
     provider_calls: 0,
     cases: results,
+    library,
     held_languages: ['san', 'msa'],
     ok: true,
   };
