@@ -7,6 +7,7 @@ import crypto from 'node:crypto';
 import { EventEmitter } from 'node:events';
 import fs from 'node:fs';
 import http from 'node:http';
+import https from 'node:https';
 import os from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
@@ -230,10 +231,10 @@ test('streams: 2 service-wide; a third waits and does not spend a start', async 
 });
 
 // A client reading the response at about `rate` bytes a second.
-function throttledRead(url, rate) {
+function throttledRead(url, rate, options = {}) {
   return new Promise((resolve, reject) => {
-    http
-      .get(url, (res) => {
+    (url.startsWith('https:') ? https : http)
+      .get(url, options, (res) => {
         let bytes = 0;
         res.on('data', (chunk) => {
           bytes += chunk.length;
@@ -259,7 +260,9 @@ test('the stream guard cuts a stalled client and a crawling one, and frees the s
     t,
     libraryCorpusRouter({
       corpus,
-      guard: (res) => guardStream(res, { idleMs: 300, windowMs: 60_000 }),
+      // A fast floor: the 1 MiB write the client never drains is allowed only
+      // the time a reader at the floor needs, so the idle limit decides.
+      guard: (res) => guardStream(res, { idleMs: 300, windowMs: 60_000, minBytesPerSecond: 1e9 }),
     })
   );
   const unread = await stalled(url);
@@ -300,6 +303,112 @@ test('the stream guard measures the socket: a client draining one large write st
   });
   const read = await throttledRead(`http://127.0.0.1:${server.address().port}/`, 3_000_000);
   assert.deepEqual(read, { status: 200, bytes: size });
+});
+
+// A self-signed P-256 certificate for localhost, built here with node:crypto
+// (a v1 X.509 certificate: DER by hand, so the test needs no openssl).
+function selfSigned() {
+  const der = (tag, ...parts) => {
+    const body = Buffer.concat(parts);
+    const n = body.length;
+    const len =
+      n < 0x80
+        ? Buffer.from([n])
+        : n < 0x100
+          ? Buffer.from([0x81, n])
+          : Buffer.from([0x82, n >> 8, n & 0xff]);
+    return Buffer.concat([Buffer.from([tag]), len, body]);
+  };
+  const oid = (dotted) => {
+    const [a, b, ...rest] = dotted.split('.').map(Number);
+    const bytes = [40 * a + b];
+    for (const v of rest) {
+      const group = [v & 0x7f];
+      for (let x = v >> 7; x; x >>= 7) group.unshift((x & 0x7f) | 0x80);
+      bytes.push(...group);
+    }
+    return der(0x06, Buffer.from(bytes));
+  };
+  const utc = (date) =>
+    der(0x17, Buffer.from(date.toISOString().replace(/[-:T]/g, '').slice(2, 14) + 'Z'));
+  const name = der(0x30, der(0x31, der(0x30, oid('2.5.4.3'), der(0x0c, Buffer.from('localhost')))));
+  const algorithm = der(0x30, oid('1.2.840.10045.4.3.2')); // ecdsa-with-SHA256
+  const { publicKey, privateKey } = crypto.generateKeyPairSync('ec', { namedCurve: 'P-256' });
+  const now = Date.now();
+  const tbs = der(
+    0x30,
+    der(0x02, Buffer.from([1])),
+    algorithm,
+    name,
+    der(0x30, utc(new Date(now - 3_600_000)), utc(new Date(now + 86_400_000))),
+    name,
+    publicKey.export({ type: 'spki', format: 'der' })
+  );
+  const signature = crypto.sign('sha256', tbs, privateKey);
+  const cert = der(0x30, tbs, algorithm, der(0x03, Buffer.from([0]), signature));
+  const pem = `-----BEGIN CERTIFICATE-----\n${cert.toString('base64').replace(/.{64}/g, '$&\n')}\n-----END CERTIFICATE-----\n`;
+  return { cert: pem, key: privateKey.export({ type: 'pkcs8', format: 'pem' }) };
+}
+
+// The two shapes a download takes: one large write, and a stream of 1 MiB
+// writes paced by drain (the corpus route's shape).
+function respond(res, size, shape) {
+  if (shape === 'single') return res.end(Buffer.alloc(size, 7));
+  let left = size;
+  const pump = () => {
+    while (left > 0) {
+      const n = Math.min(left, 1 << 20);
+      left -= n;
+      if (!res.write(Buffer.alloc(n, 7))) return res.once('drain', pump);
+    }
+    res.end();
+  };
+  pump();
+}
+
+test('the stream guard keeps a healthy throttled reader over TLS', async (t) => {
+  // Over TLS bytesWritten counts plaintext the moment it is queued and the
+  // handle's private queue size counts ciphertext: their difference never
+  // moved, and a guard reading it cut a client draining one large write. Here
+  // progress is bytesWritten movement or our own write callbacks, and an
+  // outstanding write is allowed the time a reader at the floor needs.
+  const size = 24_000_000; // well past the loopback socket buffers
+  const server = https.createServer(selfSigned(), (req, res) => {
+    guardStream(res, { idleMs: 800, windowMs: 1000, minBytesPerSecond: 2_000_000, tickMs: 50 });
+    respond(res, size, req.url.slice(1));
+  });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => {
+    server.closeAllConnections();
+    server.close();
+  });
+  const base = `https://127.0.0.1:${server.address().port}`;
+  for (const shape of ['single', 'chunks']) {
+    const read = await throttledRead(`${base}/${shape}`, 12_000_000, { rejectUnauthorized: false });
+    assert.deepEqual(read, { status: 200, bytes: size }, shape);
+  }
+});
+
+test('the stream guard reads no private socket state: a hidden write queue changes nothing', async (t) => {
+  // The handle's writeQueueSize reads as nothing pending, the value that made
+  // the old difference flat. Both download shapes still complete.
+  const size = 24_000_000; // well past the loopback socket buffers
+  const server = http.createServer((req, res) => {
+    const handle = res.socket._handle;
+    Object.defineProperty(handle, 'writeQueueSize', { get: () => 0, configurable: true });
+    guardStream(res, { idleMs: 800, windowMs: 1000, minBytesPerSecond: 2_000_000, tickMs: 50 });
+    respond(res, size, req.url.slice(1));
+  });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => {
+    server.closeAllConnections();
+    server.close();
+  });
+  const base = `http://127.0.0.1:${server.address().port}`;
+  for (const shape of ['single', 'chunks']) {
+    const read = await throttledRead(`${base}/${shape}`, 12_000_000);
+    assert.deepEqual(read, { status: 200, bytes: size }, shape);
+  }
 });
 
 test('a whole-corpus selection plan names the corpus package URL', async (t) => {
@@ -368,4 +477,16 @@ test('guardStream reads socket progress: movement keeps a stream; silence or a c
   await sleep(150);
   assert.equal(finished.destroyed, false);
   fast.emit('close'); // stops its timers
+
+  // An outstanding write with no signal at all: allowed the time a reader at
+  // the floor needs (1000 B at 10 kB/s = 100 ms past the 60 ms idle limit's
+  // floor), then cut, by the wall clock.
+  const quiet = fake();
+  quiet.write = () => false; // accepted, never called back
+  guardStream(quiet, { idleMs: 60, windowMs: 60_000, minBytesPerSecond: 10_000, tickMs: 10 });
+  quiet.write(Buffer.alloc(1000));
+  await sleep(80);
+  assert.equal(quiet.destroyed, false, 'not cut at the idle limit while the write may still drain');
+  await sleep(120);
+  assert.equal(quiet.destroyed, true, 'cut once a reader at the floor would have finished');
 });
