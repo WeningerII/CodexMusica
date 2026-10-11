@@ -137,9 +137,10 @@ export function libraryCorpusRouter({
     'X-Library-SHA256',
     'X-Library-Bytes',
   ];
-  const refuse = (res, error) => {
+  const refuse = (res, error, headers = {}) => {
     if (!(error instanceof ExportError)) throw error;
     for (const h of ERROR_HEADERS) res.removeHeader(h);
+    for (const [name, value] of Object.entries(headers)) res.setHeader(name, value);
     res.setHeader('Cache-Control', 'no-store');
     if (error.extra?.retryAfter)
       res.setHeader('Retry-After', String(Math.max(1, Math.ceil(error.extra.retryAfter / 1000))));
@@ -197,12 +198,19 @@ export function libraryCorpusRouter({
         return res.status(304).end();
       const ifRange = req.headers['if-range'];
       const range = ifRange && ifRange !== etag ? null : parseRange(req.headers.range, pkg.bytes);
-      if (range === 'unsatisfiable') {
-        for (const h of ['ETag', 'X-Library-SHA256', 'Cache-Control']) res.removeHeader(h);
-        res.setHeader('Cache-Control', 'no-store');
-        res.setHeader('Content-Range', `bytes */${pkg.bytes}`);
-        return res.status(416).end();
-      }
+      // Like every refusal here, an attachment (a navigation never replaces
+      // the page), and with the Content-Range a resuming client needs.
+      if (range === 'unsatisfiable')
+        return refuse(
+          res,
+          exportError(
+            'RANGE_NOT_SATISFIABLE',
+            'The requested byte range is outside this package.',
+            416,
+            'Restart the download from the beginning.'
+          ),
+          { 'Content-Range': `bytes */${pkg.bytes}` }
+        );
       const { start, end } = range || { start: 0, end: pkg.bytes - 1 };
       res.setHeader('Content-Type', 'application/zip');
       res.setHeader('Content-Length', String(end - start + 1));
@@ -238,7 +246,6 @@ export function libraryCorpusRouter({
         source.destroy();
       });
       source.on('data', (chunk) => {
-        pace.progress(chunk.length);
         if (!res.write(chunk)) {
           source.pause();
           res.once('drain', () => source.resume());

@@ -102,10 +102,15 @@ if (assets.releaseRequired) {
 // match its recorded hash. They stay loaded through the cases below, so their
 // resident footprint counts in the memory proof.
 let library = null;
+// Held at module scope and read again after the last memory sample (below),
+// so the stores stay reachable, and resident, for the whole proof: block
+// scoped, they were collectable before sampling began.
+let libraryStores = null;
 if (assets.releaseRequired || process.env.LIBRARY_SEARCH_DIR) {
   const search = new LibrarySearch(process.env.LIBRARY_SEARCH_DIR);
   const exportStore = new ExportStore(process.env.LIBRARY_EXPORT_DIR);
   const corpus = new CorpusPackages(process.env.LIBRARY_CORPUS_DIR);
+  libraryStores = { search, exportStore, corpus };
   for (const loaded of [search, exportStore, corpus])
     assert.equal(
       loaded.snapshotId,
@@ -306,6 +311,12 @@ try {
     memory.peak_total_bytes < maximum,
     `Combined peak ${memory.peak_total_bytes} exceeds ${maximum}.`
   );
+  // The stores were live through the final sample: read them now.
+  if (libraryStores) {
+    assert.equal(libraryStores.search.store.readable_count, library.readable);
+    assert.equal(libraryStores.exportStore.store.readable_count, library.readable);
+    library.resident_through_final_sample = Object.keys(libraryStores.corpus.health()).length > 0;
+  }
   const fingerprint = createHash('sha256')
     .update(await readFile(path.join(root, 'lyric-harness/library/methods.json')))
     .digest('hex');

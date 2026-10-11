@@ -180,6 +180,12 @@ test('byte ranges resume a download: 206 slices, suffixes, If-Range, and 416', a
   const beyond = await call(url, { headers: { range: `bytes=${bodies.text.length}-` } });
   assert.equal(beyond.status, 416);
   assert.equal(beyond.headers.get('content-range'), `bytes */${bodies.text.length}`);
+  assert.equal(
+    beyond.headers.get('content-disposition'),
+    'attachment; filename="library-download-error.txt"'
+  );
+  assert.equal(beyond.headers.get('cache-control'), 'no-store');
+  assert.equal(JSON.parse(await beyond.text()).error.code, 'RANGE_NOT_SATISFIABLE');
 });
 
 test('starts: 6 a day per address; HEAD and resumes are free', async (t) => {
@@ -223,8 +229,28 @@ test('streams: 2 service-wide; a third waits and does not spend a start', async 
   await after.arrayBuffer();
 });
 
+// A client reading the response at about `rate` bytes a second.
+function throttledRead(url, rate) {
+  return new Promise((resolve, reject) => {
+    http
+      .get(url, (res) => {
+        let bytes = 0;
+        res.on('data', (chunk) => {
+          bytes += chunk.length;
+          res.pause();
+          setTimeout(() => res.resume(), (chunk.length / rate) * 1000);
+        });
+        res.on('end', () => resolve({ status: res.statusCode, bytes }));
+        res.on('error', reject);
+        res.on('aborted', () => reject(new Error('cut')));
+      })
+      .on('error', reject);
+  });
+}
+
 test('the stream guard cuts a stalled client and a crawling one, and frees the slot', async (t) => {
-  const big = 6_000_000;
+  // Larger than the loopback socket buffers, so an unread response really stalls.
+  const big = 48_000_000;
   const { dir } = packagesOf(t, { sizes: { text: big, json: 10, csv: 10 } });
   const corpus = new CorpusPackages(dir);
   await corpus.verify();
@@ -233,50 +259,47 @@ test('the stream guard cuts a stalled client and a crawling one, and frees the s
     t,
     libraryCorpusRouter({
       corpus,
-      guard: (res) => guardStream(res, { idleMs: 150, windowMs: 60_000 }),
+      guard: (res) => guardStream(res, { idleMs: 300, windowMs: 60_000 }),
     })
   );
   const unread = await stalled(url);
   assert.equal(unread.status, 200);
-  await new Promise((resolve) => setTimeout(resolve, 600));
+  await new Promise((resolve) => setTimeout(resolve, 1200));
   await assert.rejects(unread.arrayBuffer(), 'cut after the idle timeout');
-  const next = await stalled(url);
-  assert.equal(next.status, 200, 'the cut stream released its slot');
+  const next = await stalled(url, { headers: { range: 'bytes=0-9' } });
+  assert.equal(next.status, 206, 'the cut stream released its slot');
   await next.arrayBuffer();
-
-  // A client that keeps reading, pausing less than the idle timeout each time,
-  // finishes however long the whole download takes.
-  // Every byte sent is reported to the guard.
-  let counted = 0;
-  const spied = await serve(
-    t,
-    libraryCorpusRouter({
-      corpus,
-      guard: (res) => {
-        const inner = guardStream(res);
-        return {
-          progress: (n) => {
-            counted += n;
-            inner.progress(n);
-          },
-          stop: inner.stop,
-        };
-      },
-    })
-  );
-  await (await spied(url)).arrayBuffer();
-  assert.equal(counted, big);
 
   const crawling = await serve(
     t,
     libraryCorpusRouter({
       corpus,
-      guard: (res) => guardStream(res, { idleMs: 60_000, windowMs: 200, minBytesPerSecond: 1e12 }),
+      guard: (res) => guardStream(res, { idleMs: 60_000, windowMs: 300, minBytesPerSecond: 1e12 }),
     })
   );
   const slow = await crawling(url);
-  await new Promise((resolve) => setTimeout(resolve, 600));
+  await new Promise((resolve) => setTimeout(resolve, 900));
   await assert.rejects(slow.arrayBuffer(), 'cut below the minimum rate');
+});
+
+test('the stream guard measures the socket: a client draining one large write steadily is never idle', async (t) => {
+  // One 12 MB write (a large selection entry) drained at about 3 MB/s takes
+  // about 4 s, longer than the 1.5 s idle limit. A guard counting application
+  // writes sees one write and then nothing, and would cut this client; the
+  // socket hands the data on in steps (on loopback the kernel takes about
+  // 1.5 MB at a time), so a guard reading the socket sees it moving.
+  const size = 12_000_000;
+  const server = http.createServer((req, res) => {
+    guardStream(res, { idleMs: 1500, windowMs: 60_000, tickMs: 100 });
+    res.end(Buffer.alloc(size, 7));
+  });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => {
+    server.closeAllConnections();
+    server.close();
+  });
+  const read = await throttledRead(`http://127.0.0.1:${server.address().port}/`, 3_000_000);
+  assert.deepEqual(read, { status: 200, bytes: size });
 });
 
 test('a whole-corpus selection plan names the corpus package URL', async (t) => {
@@ -299,9 +322,11 @@ test('a whole-corpus selection plan names the corpus package URL', async (t) => 
   assert.equal(body.error.url, corpus.urlFor('csv'));
 });
 
-test('guardStream: steady progress keeps a stream; silence or a crawl cuts it', async () => {
+test('guardStream reads socket progress: movement keeps a stream; silence or a crawl cuts it', async () => {
+  // A response whose socket reports bytesWritten, advanced by the test.
   const fake = () => {
     const res = new EventEmitter();
+    res.socket = { bytesWritten: 0 };
     res.destroyed = false;
     res.destroy = () => {
       res.destroyed = true;
@@ -311,30 +336,36 @@ test('guardStream: steady progress keeps a stream; silence or a crawl cuts it', 
   };
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   const steady = fake();
-  const kept = guardStream(steady, { idleMs: 120, windowMs: 60_000 });
+  guardStream(steady, { idleMs: 120, windowMs: 60_000, tickMs: 20 });
   for (let i = 0; i < 8; i++) {
     await sleep(40);
-    kept.progress(1);
+    steady.socket.bytesWritten += 1;
   }
-  assert.equal(steady.destroyed, false, 'progress inside the idle timeout keeps it');
+  assert.equal(steady.destroyed, false, 'socket movement inside the idle limit keeps it');
   await sleep(200);
-  assert.equal(steady.destroyed, true, 'silence past the idle timeout cuts it');
+  assert.equal(steady.destroyed, true, 'socket silence past the idle limit cuts it');
 
   const slow = fake();
-  const crawl = guardStream(slow, { idleMs: 60_000, windowMs: 100, minBytesPerSecond: 1000 });
+  guardStream(slow, { idleMs: 60_000, windowMs: 100, minBytesPerSecond: 1000, tickMs: 20 });
   for (let i = 0; i < 6 && !slow.destroyed; i++) {
     await sleep(25);
-    crawl.progress(10); // 400 B/s, under the 1000 B/s floor
+    slow.socket.bytesWritten += 10; // 400 B/s, under the 1000 B/s floor
   }
   await sleep(120);
   assert.equal(slow.destroyed, true);
 
   const fast = fake();
-  const quick = guardStream(fast, { idleMs: 60_000, windowMs: 100, minBytesPerSecond: 1000 });
+  guardStream(fast, { idleMs: 60_000, windowMs: 100, minBytesPerSecond: 1000, tickMs: 20 });
   for (let i = 0; i < 10; i++) {
     await sleep(25);
-    quick.progress(500); // 20 kB/s
+    fast.socket.bytesWritten += 500; // 20 kB/s
   }
   assert.equal(fast.destroyed, false);
+
+  const finished = fake();
+  guardStream(finished, { idleMs: 60, windowMs: 60_000, tickMs: 20 });
+  finished.emit('finish'); // everything handed to the network: no more cutting
+  await sleep(150);
+  assert.equal(finished.destroyed, false);
   fast.emit('close'); // stops its timers
 });
