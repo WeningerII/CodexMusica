@@ -47,6 +47,8 @@ COPY references ./references
 # than a failed COPY. The exact file is git-ignored and its siblings
 # (`.part`, `.bak`) are docker-ignored, so nothing ships either by accident.
 COPY mcp/*.js mcp/production-config.json mcp/capacity_verification.json* ./mcp/
+# The Library search fold table (mcp/library_search.js imports it).
+COPY mcp/library_casefold.json ./mcp/
 COPY mcp/qualify_reader.mjs ./mcp/
 COPY mcp/worker.py mcp/gemini_proposer.py ./mcp/
 # Only approved runtime assets reach a final layer; research corpora and optional
