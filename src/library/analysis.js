@@ -1,0 +1,1716 @@
+// ─── Library chunk: analysis ───────────────────────────────────────────────
+// Wrapped by the build as CMLibraryDefine('analysis', function () { … }).
+// Whole-work analyses for the reader's inspector (docs/library-native-design.md,
+// "Analysis and identity", "Lifecycle parity", "Analysis exports"): jobs over
+// the credentialed /library/v1 viewer routes (mcp/library_viewer_routes.js),
+// verified evidence hydration, the Sound / Form / Rhythm / Language lenses,
+// reading declarations, pronunciation choices and the method reference.
+//
+// Privacy rules this file keeps:
+// - credentialed responses (jobs, manifests, pages) live only in this tab's
+//   memory (MEMORY below); nothing credentialed is written to any storage;
+// - job ids never appear in a page URL, in storage or in a log; the device
+//   keeps only the declarations, under interpretation:<id>:<revision>;
+// - evidence renders only after a fresh 200 from GET /jobs/:id on every
+//   activation (mount, evidence-lens switch, return to a tab hidden > 60 s);
+//   a 404 or 410 drops that job's pages at once.
+/* global esc, icon, showToast, uiDownload, uiEmptyState, uiTabIndex */
+'use strict';
+
+// lyric-harness quality/narrative.py grammar (sites/library/lib/declaration-options.json).
+const OPTIONS = {
+  atoms: ['ESTABLISH', 'COMPLICATE', 'TURN', 'DWELL', 'ANCHOR', 'JUDGE', 'RESOLVE', 'DEPART'],
+  enter: {
+    AND_THEN: ['ANCHOR', 'COMPLICATE', 'DEPART', 'DWELL', 'ESTABLISH', 'JUDGE', 'RESOLVE'],
+    BUT: ['ANCHOR', 'DEPART', 'RESOLVE', 'TURN'],
+    ELABORATE: ['DWELL', 'JUDGE'],
+    JUXTAPOSE: ['ANCHOR', 'COMPLICATE', 'DEPART', 'DWELL', 'ESTABLISH', 'JUDGE', 'RESOLVE', 'TURN'],
+    MEANWHILE: ['DWELL', 'ESTABLISH'],
+    THEREFORE: ['ANCHOR', 'COMPLICATE', 'DEPART', 'DWELL', 'ESTABLISH', 'JUDGE', 'RESOLVE'],
+  },
+  function_atoms: {
+    breakdown: ['DWELL'],
+    bridge: ['TURN'],
+    build: ['COMPLICATE'],
+    burden: ['ANCHOR'],
+    chorus: ['ANCHOR'],
+    coda: ['DEPART', 'JUDGE', 'RESOLVE'],
+    drop: ['ANCHOR'],
+    false_ending: ['RESOLVE'],
+    hook: ['ANCHOR'],
+    interlude: [],
+    intro: ['ESTABLISH'],
+    outro: ['DEPART'],
+    patter: ['COMPLICATE', 'ESTABLISH', 'JUDGE', 'RESOLVE', 'TURN'],
+    postchorus: ['DWELL', 'JUDGE'],
+    prechorus: ['COMPLICATE', 'DWELL'],
+    refrain: ['ANCHOR'],
+    reprise: ['ANCHOR'],
+    solo: [],
+    tag: ['JUDGE'],
+    turnaround: [],
+    vamp: ['DWELL'],
+    verse: ['COMPLICATE', 'ESTABLISH', 'JUDGE', 'RESOLVE', 'TURN'],
+  },
+  junctions: ['THEREFORE', 'BUT', 'AND_THEN', 'MEANWHILE', 'ELABORATE', 'JUXTAPOSE'],
+};
+const LENSES = [
+  { id: 'summary', label: 'Summary' },
+  { id: 'sound', label: 'Sound' },
+  { id: 'form', label: 'Form' },
+  { id: 'rhythm', label: 'Rhythm' },
+  { id: 'language', label: 'Language' },
+  { id: 'sources', label: 'Sources' },
+];
+const EVIDENCE_LENSES = new Set(['sound', 'form', 'rhythm', 'language']);
+const ACTIVE = new Set(['queued', 'running', 'deferred_requeue']);
+const HASH = /^[a-f0-9]{64}$/;
+const LINE_NS = '7b347e4c-4ea7-5cbf-8387-2975a17890f3';
+const EARLIER_SESSION = 'This analysis belonged to an earlier browser session.';
+
+// ── Small helpers ──────────────────────────────────────────────────────────
+const label = (s) =>
+  String(s)
+    .replaceAll('_', ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+const randomHex = (n = 16) =>
+  Array.from(crypto.getRandomValues(new Uint8Array(n)), (b) =>
+    b.toString(16).padStart(2, '0')
+  ).join('');
+async function sha256hex(data) {
+  const bytes = typeof data === 'string' ? new TextEncoder().encode(data) : data;
+  const digest = await crypto.subtle.digest('SHA-256', bytes);
+  return Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, '0')).join('');
+}
+// mcp/reader_job_store.js canonical(): sorted keys, JSON.stringify leaves.
+function canonical(value) {
+  if (value === null || typeof value !== 'object') return JSON.stringify(value);
+  if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
+  return `{${Object.keys(value)
+    .sort()
+    .map((k) => `${JSON.stringify(k)}:${canonical(value[k])}`)
+    .join(',')}}`;
+}
+// RFC 4122 v5, as lyric-harness catalog_static_export.line_id derives line ids.
+async function uuid5(namespace, name) {
+  const ns = Uint8Array.from(namespace.replace(/-/g, '').match(/../g), (h) => parseInt(h, 16));
+  const nameBytes = new TextEncoder().encode(name);
+  const buf = new Uint8Array(ns.length + nameBytes.length);
+  buf.set(ns);
+  buf.set(nameBytes, ns.length);
+  const h = new Uint8Array(await crypto.subtle.digest('SHA-1', buf)).slice(0, 16);
+  h[6] = (h[6] & 0x0f) | 0x50;
+  h[8] = (h[8] & 0x3f) | 0x80;
+  const x = Array.from(h, (b) => b.toString(16).padStart(2, '0')).join('');
+  return `${x.slice(0, 8)}-${x.slice(8, 12)}-${x.slice(12, 16)}-${x.slice(16, 20)}-${x.slice(20)}`;
+}
+// The head's static line rows → {id, kind, text, physical_line, analysis_line}.
+async function linesOf(reading) {
+  const start = reading?.start?.row_start ?? 0;
+  const rows = Array.isArray(reading?.lines) ? reading.lines : [];
+  return Promise.all(
+    rows.map(async (row, i) =>
+      Array.isArray(row)
+        ? {
+            id: 'line_' + (await uuid5(LINE_NS, `line:${reading.reading_unit_id}:${start + i}`)),
+            kind: row[0],
+            text: row[1],
+            physical_line: row[3],
+            analysis_line: row[4],
+          }
+        : row
+    )
+  );
+}
+
+// A request error, whatever shape lib.viewer throws: {status, code, message, retryAfter, extra}.
+function problemOf(e) {
+  const body = e?.body?.error || e?.error || e?.data?.error || {};
+  return {
+    status: e?.status ?? e?.response?.status ?? 0,
+    code: e?.code ?? body.code ?? '',
+    message: body.message || e?.message || 'The analysis server could not answer.',
+    remedy: body.remedy || '',
+    retryAfter: e?.retryAfter ?? e?.retry_after ?? null,
+    extra: body,
+  };
+}
+async function failFrom(response) {
+  let body = {};
+  try {
+    body = (await response.json()).error || {};
+  } catch {
+    /* no JSON body */
+  }
+  const error = Error(body.message || `HTTP ${response.status}`);
+  Object.assign(error, {
+    status: response.status,
+    code: body.code || '',
+    body: { error: body },
+    retryAfter: response.headers.get('Retry-After'),
+  });
+  return error;
+}
+function failMessage(p) {
+  if (p.status === 404 || p.code === 'NOT_FOUND') return EARLIER_SESSION;
+  if (p.status === 410) return 'This analysis expired or was deleted.';
+  if (p.code === 'STALE_READING')
+    return 'This reading was updated. The analysis server updates within a day; retry later.';
+  if (p.status === 429) return `${p.message}${p.retryAfter ? ` Retry in ${p.retryAfter} s.` : ''}`;
+  return p.remedy ? `${p.message} ${p.remedy}` : p.message;
+}
+
+// ── The viewer API (credentialed) ──────────────────────────────────────────
+function viewerApi(lib) {
+  const json = async (path, opts = {}) => {
+    try {
+      if (typeof lib.viewer === 'function') return await lib.viewer(path, opts);
+      const r = await fetch(lib.api + path, { ...opts, credentials: 'include', cache: 'no-store' });
+      if (!r.ok) throw await failFrom(r);
+      return r.json();
+    } catch (e) {
+      throw Object.assign(Error(problemOf(e).message), { problem: problemOf(e) });
+    }
+  };
+  // Immutable objects are hashed over the exact bytes received.
+  const verified = async (path, hash) => {
+    let r;
+    try {
+      r = await fetch(lib.api + path, { credentials: 'include', cache: 'no-store' });
+    } catch (e) {
+      throw Object.assign(Error('The analysis server is unreachable.'), { problem: problemOf(e) });
+    }
+    if (!r.ok) {
+      const e = await failFrom(r);
+      throw Object.assign(Error(e.message), { problem: problemOf(e) });
+    }
+    const bytes = new Uint8Array(await r.arrayBuffer());
+    if ((await sha256hex(bytes)) !== hash)
+      throw Object.assign(Error('Evidence failed hash verification.'), {
+        problem: {
+          status: 0,
+          code: 'HASH_MISMATCH',
+          message: 'Evidence failed hash verification.',
+        },
+      });
+    return JSON.parse(new TextDecoder().decode(bytes));
+  };
+  const control = (headers = {}) => ({
+    headers: { 'Content-Type': 'application/json', 'Idempotency-Key': randomHex(16), ...headers },
+  });
+  return {
+    create(body) {
+      const c = control({ 'Idempotency-Key': body.idempotency_key });
+      return json('/analyses', { method: 'POST', ...c, body: JSON.stringify(body) });
+    },
+    job: (id) => json(`/jobs/${encodeURIComponent(id)}`),
+    act: (id, action) =>
+      json(`/jobs/${encodeURIComponent(id)}/${action}`, {
+        method: 'POST',
+        ...control(),
+        body: '{}',
+      }),
+    remove: (id) =>
+      json(`/jobs/${encodeURIComponent(id)}`, {
+        method: 'DELETE',
+        headers: { 'Idempotency-Key': randomHex(16) },
+      }),
+    manifest: (id, sha) => verified(`/jobs/${encodeURIComponent(id)}/manifests/${sha}`, sha),
+    refs: (id, sha, offset, limit = 1) =>
+      json(
+        `/jobs/${encodeURIComponent(id)}/manifests/${sha}/pages?offset=${offset}&limit=${limit}`
+      ),
+    page: (id, sha, manifest) =>
+      verified(`/jobs/${encodeURIComponent(id)}/pages/${sha}?manifest=${manifest}`, sha),
+    exportUrl: (id, sha) => `${lib.api}/jobs/${encodeURIComponent(id)}/exports/${sha}.zip`,
+  };
+}
+
+// Manifest → verified identity, then refs(offset, limit=1) → page bytes →
+// instances. The manifest names its job and the job's identity hash.
+async function loadEvidencePage(api, job, hash, offset) {
+  if (!HASH.test(hash)) throw Error('A committed manifest hash is required.');
+  const manifest = await api.manifest(job.id, hash);
+  if (
+    manifest.job_id !== job.id ||
+    manifest.identity_hash !== (await sha256hex(canonical(job.identity)))
+  )
+    throw Error('The analysis manifest names a different job or identity.');
+  const refs = await api.refs(job.id, hash, offset, 1);
+  if (refs.manifest_hash !== hash || !Array.isArray(refs.page_refs))
+    throw Error('The evidence page index does not match its manifest.');
+  const instances = [];
+  for (const ref of refs.page_refs) {
+    if (!HASH.test(ref.sha256)) throw Error('An evidence page reference is malformed.');
+    const page = await api.page(job.id, ref.sha256, hash);
+    if (!Array.isArray(page.instances)) throw Error('An evidence page has no instances.');
+    instances.push(...page.instances);
+  }
+  return {
+    manifest: { ...manifest, manifest_hash: hash },
+    instances,
+    next: refs.next_offset ?? null,
+  };
+}
+
+// ── Evidence records (port of sites/library/lib/evidence-records.ts) ───────
+async function hydrateEvidence(records) {
+  const groups = new Map();
+  const positions = new Map(records.map((r, i) => [r, i]));
+  for (const r of records) {
+    if (r.kind !== 'detail_part') continue;
+    const key = String(r.detail_id);
+    groups.set(key, [...(groups.get(key) || []), r]);
+  }
+  const hydrated = [];
+  const pending = [];
+  async function resolve(v, parent, field = '') {
+    if (Array.isArray(v)) return Promise.all(v.map((child) => resolve(child, parent, field)));
+    if (!v || typeof v !== 'object') return v;
+    if ('$detail_ref' in v) {
+      const id = String(v.$detail_ref);
+      const parts = groups.get(id) || [];
+      if (
+        v.encoding !== 'json' ||
+        !Number.isSafeInteger(v.parts) ||
+        v.parts < 1 ||
+        !Number.isSafeInteger(v.byte_length) ||
+        v.byte_length < 0 ||
+        !HASH.test(String(v.sha256))
+      )
+        throw Error(`Detail ${id} has invalid encoding or count.`);
+      if (parts.length !== v.parts)
+        throw Error(`Detail ${id} requires ${v.parts} parts; ${parts.length} loaded.`);
+      for (let i = 0; i < parts.length; i++)
+        if (
+          parts[i].part !== i ||
+          parts[i].total !== v.parts ||
+          parts[i].parent_id !== parent.id ||
+          parts[i].method_id !== parent.method_id ||
+          parts[i].field !== field ||
+          typeof parts[i].json_fragment !== 'string' ||
+          positions.get(parts[i]) <= positions.get(parent)
+        )
+          throw Error(`Detail ${id} has missing, changed or reordered parts.`);
+      const interval = records.slice(positions.get(parent) + 1, positions.get(parts.at(-1)) + 1);
+      if (interval.some((r) => r.kind !== 'detail_part' || r.parent_id !== parent.id))
+        throw Error(`Detail ${id} is interleaved with another parent.`);
+      const text = parts.map((r) => r.json_fragment).join('');
+      const bytes = new TextEncoder().encode(text);
+      if (bytes.length !== v.byte_length || (await sha256hex(bytes)) !== v.sha256)
+        throw Error(`Detail ${id} failed checksum validation.`);
+      return resolve(JSON.parse(text), parent, field);
+    }
+    const out = {};
+    for (const [k, child] of Object.entries(v)) out[k] = await resolve(child, parent, field || k);
+    return out;
+  }
+  for (const r of records) {
+    if (r.kind === 'detail_part') continue;
+    try {
+      hydrated.push(await resolve(r, r));
+    } catch (e) {
+      pending.push(e.message);
+    }
+  }
+  const byId = new Map(hydrated.map((r) => [r.id, r]));
+  const figureChunks = new Map();
+  for (const r of hydrated.filter((r) => r.kind === 'figure_edges')) {
+    const id = String(r.figure_id);
+    figureChunks.set(id, [...(figureChunks.get(id) || []), r]);
+  }
+  for (const figure of hydrated.filter((r) => r.kind === 'relation_figure')) {
+    if (figure.edge_count === undefined && Array.isArray(figure.edges)) continue;
+    let offset = 0;
+    const edges = [];
+    for (const r of figureChunks.get(figure.id) || []) {
+      if (r.offset !== offset || !Array.isArray(r.edge_ids)) {
+        pending.push(`Figure ${figure.id} has incomplete edge pages.`);
+        break;
+      }
+      for (const id of r.edge_ids) {
+        const edge = byId.get(String(id));
+        if (!edge || edge.kind !== 'relation_instance' || edge.method_id !== figure.method_id) {
+          pending.push(`Figure ${figure.id} needs verified relation ${id} for its method.`);
+          continue;
+        }
+        edges.push(edge);
+      }
+      offset += r.edge_ids.length;
+    }
+    if (offset === figure.edge_count && edges.length === offset) figure.edges = edges;
+    else {
+      figure.edges_incomplete = true;
+      pending.push(
+        `Figure ${figure.id} has ${edges.length} of ${figure.edge_count} verified edges.`
+      );
+    }
+  }
+  return { records: hydrated.filter((r) => r.kind !== 'figure_edges'), pending };
+}
+function component(records, kind) {
+  let root = {};
+  for (const r of records.filter((r) => r.kind === kind)) {
+    const path = Array.isArray(r.path) ? r.path : [];
+    const value =
+      r.result !== undefined
+        ? r.result
+        : r.container === 'array'
+          ? new Array(Number(r.length ?? 0))
+          : r.container === 'object'
+            ? Object.fromEntries((r.keys || []).map((k) => [k, undefined]))
+            : undefined;
+    if (value === undefined) continue;
+    if (!path.length) {
+      root = value;
+      continue;
+    }
+    let cursor = root;
+    for (let i = 0; i < path.length - 1; i++) {
+      const key = String(path[i]);
+      cursor[key] ??= typeof path[i + 1] === 'number' ? [] : {};
+      cursor = cursor[key];
+    }
+    cursor[String(path.at(-1))] = value;
+  }
+  return root;
+}
+function lineIDs(record) {
+  const ids = new Set(record.line_ids || []);
+  const walk = (v) => {
+    if (!v || typeof v !== 'object') return;
+    if (Array.isArray(v)) return v.forEach(walk);
+    for (const [k, c] of Object.entries(v)) {
+      if (k === 'line_id' && typeof c === 'string') ids.add(c);
+      else if ((k === 'line_ids' || k === 'member_lines') && Array.isArray(c))
+        c.forEach((x) => typeof x === 'string' && ids.add(x));
+      else walk(c);
+    }
+  };
+  walk(record);
+  walk(record.result);
+  if (
+    Array.isArray(record.path) &&
+    record.path.at(-1) === 'line_ids' &&
+    Array.isArray(record.result)
+  )
+    record.result.forEach((x) => typeof x === 'string' && ids.add(x));
+  return ids;
+}
+// The lens predicate of reader.tsx (sound / form / rhythm / language).
+function inLens(r, lens) {
+  if (lens === 'sound')
+    return !['form_result', 'language_result', 'syllable', 'token'].includes(r.kind);
+  if (lens === 'rhythm')
+    return (
+      r.kind === 'syllable' ||
+      (r.kind === 'form_result' &&
+        ((Array.isArray(r.path) ? String(r.path[0]) : '') === 'rhythm' ||
+          (r.result && typeof r.result === 'object' && 'rhythm' in r.result)))
+    );
+  if (lens === 'language') return r.kind === 'language_result';
+  if (lens === 'form') return r.kind === 'form_result';
+  return false;
+}
+
+// ── Rendering (port of components/library/evidence.tsx) ────────────────────
+const STATE_LABELS = {
+  true: 'Measured',
+  false: 'Measured · absent',
+  conditional: 'Conditional',
+  unknown: 'Cannot tell',
+  unread: 'Cannot tell',
+  refused: 'Cannot tell',
+  answered: 'Measured',
+  needs_declaration: 'Not declared',
+  not_declared: 'Not declared',
+  unsupported: 'Unsupported',
+  research_only: 'Research only',
+  not_requested: 'Not requested',
+};
+const TONE = {
+  true: 'success',
+  answered: 'success',
+  conditional: 'warning',
+  false: '',
+  refused: 'danger',
+};
+const OMIT = new Set([
+  'id',
+  'source_ranges',
+  'line_ids',
+  'method_id',
+  'reading_revision',
+  'reading_unit_id',
+  'snapshot_id',
+  'identity_hash',
+]);
+const stateOf = (r) => String(r.verdict ?? r.coverage ?? 'Evidence');
+// Values render lazily: a <details> body is built only when first opened
+// (renderValue registers the deferred value; the toggle listener fills it).
+function valueHTML(value, depth, defer) {
+  if (value === undefined) return '<span class="la-unknown">Not loaded yet</span>';
+  if (value === null) return '<span class="la-unknown">Undeclared / unread</span>';
+  if (typeof value === 'boolean')
+    return `<span class="${value ? 'la-pos' : 'la-muted'}">${value ? 'Yes' : 'No'}</span>`;
+  if (typeof value === 'string' || typeof value === 'number')
+    return `<span class="la-data">${esc(value)}</span>`;
+  const lazy = (title, v, open = false) =>
+    `<details class="la-lazy"${open ? ' open' : ''} data-defer="${defer(v, depth + 1)}"><summary>${esc(title)}</summary>${open ? valueHTML(v, depth + 1, defer) : ''}</details>`;
+  const more = (shown, total, v) =>
+    total > shown
+      ? `<button type="button" class="la-link" data-more="${defer(v, depth, shown + 100)}">Show next values · ${shown} / ${total}</button>`
+      : '';
+  if (Array.isArray(value)) {
+    const limit = value.__limit || 100;
+    const loaded = Object.keys(value).length;
+    if (loaded < value.length)
+      return `<div><p class="la-note">${loaded} / ${value.length} entries loaded. Further evidence pages are required.</p>${Object.entries(
+        value
+      )
+        .slice(0, limit)
+        .map(([i, v]) => lazy('Item ' + (Number(i) + 1), v))
+        .join('')}${more(Math.min(limit, loaded), loaded, value)}</div>`;
+    if (!value.length) return '<span class="la-muted">Explicitly empty</span>';
+    if (value.every((v) => typeof v !== 'object'))
+      return `<span>${esc(value.slice(0, limit).map(String).join(' · '))}</span>${more(Math.min(limit, value.length), value.length, value)}`;
+    return `<div class="la-items">${value
+      .slice(0, limit)
+      .map((v, i) =>
+        lazy(
+          v && typeof v === 'object'
+            ? String(v.name ?? v.word ?? v.line_id ?? v.kind ?? v.method_id ?? `Item ${i + 1}`)
+            : `Item ${i + 1}`,
+          v,
+          depth < 1 && value.length < 8
+        )
+      )
+      .join('')}${more(Math.min(limit, value.length), value.length, value)}</div>`;
+  }
+  if ('numerator' in value && 'denominator' in value)
+    return `<span>${esc(value.numerator)}/${esc(value.denominator)}</span>`;
+  return `<dl class="la-grid">${Object.entries(value)
+    .filter(([k]) => !OMIT.has(k))
+    .map(
+      ([k, v]) =>
+        `<div><dt>${esc(label(k))}</dt><dd>${
+          v && typeof v === 'object' && depth > 1
+            ? lazy('Inspect ' + label(k).toLowerCase(), v)
+            : valueHTML(v, depth + 1, defer)
+        }</dd></div>`
+    )
+    .join('')}</dl>`;
+}
+// A renderer bound to one container: defer() stores values by index.
+function valueRenderer(root) {
+  const store = [];
+  const defer = (v, depth, limit) => {
+    store.push({ v, depth, limit });
+    return store.length - 1;
+  };
+  root.addEventListener(
+    'toggle',
+    (e) => {
+      const d = e.target;
+      if (!(d instanceof HTMLDetailsElement) || !d.open || !d.dataset.defer || d.dataset.filled)
+        return;
+      const s = store[Number(d.dataset.defer)];
+      d.dataset.filled = '1';
+      if (s && d.children.length === 1)
+        d.insertAdjacentHTML('beforeend', valueHTML(s.v, s.depth, defer));
+    },
+    true
+  );
+  root.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-more]');
+    if (!b || !root.contains(b)) return;
+    const s = store[Number(b.dataset.more)];
+    const copy = Object.assign(s.v.slice(), { __limit: s.limit });
+    // Holes survive slice(); keep the sparse view honest.
+    b.parentElement.outerHTML = `<div>${valueHTML(copy, s.depth, defer)}</div>`;
+  });
+  return (v, depth = 0) => valueHTML(v, depth, defer);
+}
+function evidenceCardHTML(r, method, i) {
+  const state = stateOf(r);
+  const tone = TONE[state] ?? 'neutral';
+  return `<article class="la-card" data-verdict="${esc(state)}" data-rec="${i}">
+    <button type="button" class="la-card-head" aria-expanded="false" data-act="card" data-rec="${i}">
+      <span><strong>${esc(method?.name ?? String(r.schema_name ?? r.native_method ?? r.kind).replaceAll('_', ' '))}</strong>
+      <small>${esc(r.namespace ?? r.kind)} · ${esc(r.basis ?? 'measured')}</small></span>
+      <span class="cm-status" data-tone="${tone}">${esc(STATE_LABELS[state] ?? label(state))}</span>
+      ${icon('chevron-down', 16)}
+    </button>
+    <div class="la-card-body" hidden></div>
+  </article>`;
+}
+function methodDetailHTML(m, analyzable) {
+  const scope =
+    m.pair_local === undefined
+      ? (m.scope ?? m.language ?? 'native')
+      : m.pair_local
+        ? 'Pair-local'
+        : 'Whole figure';
+  return `<details class="cm-accordion la-method" data-method="${esc(m.id)}">
+    <summary><strong>${esc(m.name)}</strong> <small>${esc(m.namespace)} · ${esc(scope)}</small>${
+      m.normative && m.normative !== 'ordinary'
+        ? ` <span class="cm-chip">${esc(m.normative)}</span>`
+        : ''
+    }</summary>
+    <div class="la-method-body">
+      <p>${esc(m.definition || 'Definition supplied by the installed engine.')}</p>
+      ${m.aliases?.length ? `<p class="la-note">Also called ${esc(m.aliases.join(', '))}</p>` : ''}
+      ${
+        m.required_capabilities?.length
+          ? `<h4>Requires</h4>${m.required_capabilities
+              .map(
+                (c) =>
+                  `<p class="la-req">${icon('info', 14)}<span><b>${esc(label(c))}</b> <small>${esc(m.remedies?.[c] ?? '')}</small></span></p>`
+              )
+              .join('')}`
+          : ''
+      }
+      ${m.figure ? `<details class="la-lazy" data-mfig><summary>Figure shape and alignment</summary></details>` : ''}
+      ${m.provenance ? `<details class="la-lazy" data-mprov><summary>Tradition and provenance</summary></details>` : ''}
+      ${analyzable ? `<button type="button" class="cm-btn cm-btn-tonal" data-act="analyze-method" data-id="${esc(m.id)}">Analyze entire work with this method</button>` : ''}
+    </div>
+  </details>`;
+}
+// The method reference: a filtered accordion list over methods.json. Used by
+// the reader inspector here and by the Sources & rights view (rights.js).
+function methodReference(container, registry, { onAnalyze = null, language = null } = {}) {
+  const render = valueRenderer(container);
+  container.innerHTML = `<input class="cm-input la-method-search" type="search" placeholder="Find a method or requirement" aria-label="Search method reference"><div class="la-method-list"></div>`;
+  const list = container.querySelector('.la-method-list');
+  const byId = new Map(registry.methods.map((m) => [m.id, m]));
+  const draw = (q) => {
+    const query = q.toLowerCase();
+    const hits = registry.methods.filter((m) =>
+      `${m.name} ${m.aliases?.join(' ')} ${m.required_capabilities?.join(' ')}`
+        .toLowerCase()
+        .includes(query)
+    );
+    list.innerHTML = hits.length
+      ? hits
+          .slice(0, 300)
+          .map((m) =>
+            methodDetailHTML(
+              m,
+              onAnalyze &&
+                m.reader_requestable &&
+                (!m.language || !language || m.language === language)
+            )
+          )
+          .join('')
+      : uiEmptyState({ title: 'No method matches', text: 'Try a shorter word.' });
+  };
+  let timer;
+  container.querySelector('input').addEventListener('input', (e) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => draw(e.target.value), 120);
+  });
+  list.addEventListener(
+    'toggle',
+    (e) => {
+      const d = e.target;
+      if (!d.open || d.dataset.filled) return;
+      const m = byId.get(d.closest('[data-method]')?.dataset.method);
+      if (!m) return;
+      if ('mfig' in d.dataset)
+        ((d.dataset.filled = '1'),
+          d.insertAdjacentHTML('beforeend', render({ figure: m.figure, channels: m.channels })));
+      if ('mprov' in d.dataset)
+        ((d.dataset.filled = '1'), d.insertAdjacentHTML('beforeend', render(m.provenance)));
+    },
+    true
+  );
+  list.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-act="analyze-method"]');
+    if (b && onAnalyze) onAnalyze(b.dataset.id);
+  });
+  draw('');
+}
+
+// ── Device state (declarations only) ───────────────────────────────────────
+// lib.device {get,set} when core provides it, else a private IndexedDB store.
+function deviceStore(lib) {
+  if (lib.device?.get && lib.device?.set) return lib.device;
+  let db = null;
+  const open = () =>
+    (db ||= new Promise((resolve, reject) => {
+      const req = indexedDB.open('codex-musica-library-analysis-v1', 1);
+      req.onupgradeneeded = () => req.result.createObjectStore('kv');
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    }));
+  const tx = async (mode, fn) => {
+    const d = await open();
+    return new Promise((resolve, reject) => {
+      const r = fn(d.transaction('kv', mode).objectStore('kv'));
+      r.onsuccess = () => resolve(r.result);
+      r.onerror = () => reject(r.error);
+    });
+  };
+  return {
+    get: (k, fallback) => tx('readonly', (s) => s.get(k)).then((v) => v ?? fallback),
+    set: (k, v) => tx('readwrite', (s) => s.put(v, k)),
+  };
+}
+
+// ── Per-tab memory (never persisted) ───────────────────────────────────────
+// key `${unit}:${revision}` → { job, previous:[{id, declarations}], report,
+// pages:[instances…], next, offset, seen: last fresh-authorization time }.
+const MEMORY = new Map();
+const memoryFor = (reading) => {
+  const key = `${reading.reading_unit_id}:${reading.reading_revision}`;
+  if (!MEMORY.has(key))
+    MEMORY.set(key, { job: null, previous: [], report: null, records: [], next: null, offset: 0 });
+  return MEMORY.get(key);
+};
+const dropEvidence = (m) => Object.assign(m, { report: null, records: [], next: null, offset: 0 });
+
+let registryPromise = null;
+const registryOf = (lib) =>
+  (registryPromise ||= lib
+    .json('methods.json')
+    .catch((e) => ((registryPromise = null), Promise.reject(e))));
+
+// ── Styles ─────────────────────────────────────────────────────────────────
+function ensureStyles() {
+  if (document.querySelector('style[data-lib="analysis"]')) return;
+  document.head.insertAdjacentHTML(
+    'beforeend',
+    `<style data-lib="analysis">
+#surface-library .la-root{display:flex;flex-direction:column;gap:14px;font:var(--cm-text-sm) var(--cm-font);color:var(--cm-text)}
+#surface-library .la-section{display:flex;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--cm-border-subtle);border-radius:var(--cm-radius-md);background:var(--cm-surface)}
+#surface-library .la-section h3{margin:0;font:600 var(--cm-text-md) var(--cm-font)}
+#surface-library .la-section h4{margin:6px 0 2px;font:600 var(--cm-text-sm) var(--cm-font)}
+#surface-library .la-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#surface-library .la-note{margin:0;color:var(--cm-text-muted);font-size:var(--cm-text-xs)}
+#surface-library .la-error{margin:0;color:var(--cm-danger-text)}
+#surface-library .la-muted,#surface-library .la-unknown{color:var(--cm-text-muted)}
+#surface-library .la-unknown{font-style:italic}
+#surface-library .la-pos{color:var(--cm-success-text)}
+#surface-library .la-data{font-family:var(--cm-font-mono);font-size:var(--cm-text-xs);word-break:break-word}
+#surface-library .la-link{background:none;border:0;padding:2px 0;color:var(--cm-link);cursor:pointer;font:inherit;display:inline-flex;gap:4px;align-items:center;text-align:left}
+#surface-library .la-link:hover{text-decoration:underline}
+#surface-library .la-grid{display:grid;gap:4px;margin:0}
+#surface-library .la-grid>div{display:grid;grid-template-columns:minmax(80px,35%) 1fr;gap:8px}
+#surface-library .la-grid dt{color:var(--cm-text-secondary)}
+#surface-library .la-grid dd{margin:0;min-width:0}
+#surface-library .la-lazy>summary{cursor:pointer;color:var(--cm-text-secondary)}
+#surface-library .la-lazy[open]{padding-left:8px;border-left:2px solid var(--cm-border-subtle)}
+#surface-library .la-card{border:1px solid var(--cm-border-subtle);border-left:3px solid var(--cm-border-strong);border-radius:var(--cm-radius-sm);background:var(--cm-surface)}
+#surface-library .la-card[data-verdict="true"],#surface-library .la-card[data-verdict="answered"]{border-left-color:var(--cm-success)}
+#surface-library .la-card[data-verdict="conditional"],#surface-library .la-card[data-verdict="needs_declaration"],#surface-library .la-card[data-verdict="not_declared"]{border-left-color:var(--cm-warning)}
+#surface-library .la-card[data-verdict="refused"],#surface-library .la-card[data-verdict="unsupported"]{border-left-color:var(--cm-danger)}
+#surface-library .la-card.is-inspected{background:var(--cm-warning-soft)}
+#surface-library .la-card-head{display:flex;width:100%;gap:8px;align-items:center;padding:8px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+#surface-library .la-card-head>span:first-child{flex:1;display:flex;flex-direction:column;min-width:0}
+#surface-library .la-card-head small{color:var(--cm-text-muted)}
+#surface-library .la-card-head[aria-expanded="true"] svg{transform:rotate(180deg)}
+#surface-library .la-card-body{padding:0 8px 8px;display:flex;flex-direction:column;gap:6px}
+#surface-library .la-tabs{display:flex;gap:2px;overflow-x:auto;border-bottom:1px solid var(--cm-border-subtle)}
+#surface-library .la-hash{font-family:var(--cm-font-mono);font-size:var(--cm-text-xs);word-break:break-all;color:var(--cm-text-secondary)}
+#surface-library .la-root label{display:flex;flex-direction:column;gap:4px;color:var(--cm-text-secondary)}
+#surface-library .la-root textarea{font-family:var(--cm-font-mono);font-size:var(--cm-text-xs);min-height:180px;resize:vertical}
+#surface-library .la-range{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#surface-library .la-req{display:flex;gap:6px;align-items:flex-start;margin:0}
+#surface-library .la-method-list{display:flex;flex-direction:column}
+#surface-library .la-method>summary small{color:var(--cm-text-muted);font-weight:400}
+#surface-library .la-method-body{display:flex;flex-direction:column;gap:6px;padding-top:6px}
+#surface-library .la-method-body p{margin:0}
+#surface-library .la-choice{display:flex;flex-direction:column;gap:4px;padding:8px 0;border-top:1px solid var(--cm-border-subtle)}
+#surface-library .la-progress{display:flex;flex-direction:column;gap:6px}
+</style>`
+  );
+}
+
+// ── Declarations (port of components/library/declarations.tsx) ─────────────
+function declarationsView(
+  root,
+  { reading, lines, value, sections, choices, methods, unsaved, onSave }
+) {
+  const analysisLines = lines.filter((l) => l.analysis_line != null);
+  const first = analysisLines[0]?.analysis_line ?? 1;
+  const last = analysisLines.at(-1)?.analysis_line ?? 1;
+  const st = { raw: JSON.stringify(value, null, 2), targetReady: true, atoms: {}, links: {} };
+  const parsed = () => {
+    const v = JSON.parse(st.raw);
+    if (!v || typeof v !== 'object' || Array.isArray(v))
+      throw Error('Declarations must be an object.');
+    return v;
+  };
+  const functions = methods.filter((m) => m.namespace === 'function');
+  root.innerHTML = `<section class="la-section la-decl">
+    <h3>Reading interpretations</h3>
+    <p class="la-note">On this device · tied to this edition and revision. Source geometry and whole-work scope remain explicit.</p>
+    <label>Source / basis <input class="cm-input" data-f="source" placeholder="Edition note or your reading"></label>
+    <details class="cm-accordion"><summary>Add or interpret a section / line function</summary>
+      <label>Concrete occurrence <select class="cm-select" data-f="target"><option value="">New unmarked range</option>${sections
+        .map(
+          (s) => `<option value="${esc(s.id)}">${esc(s.name ?? s.function)} · ${esc(s.id)}</option>`
+        )
+        .join('')}</select></label>
+      <p class="la-note">An existing occurrence retains its ID. A new range adds a section alongside recorded source sections.</p>
+      <label>Function <select class="cm-select" data-f="kind">${functions
+        .map(
+          (m) =>
+            `<option value="${esc(m.name)}"${m.name === 'verse' ? ' selected' : ''}>${esc(m.name)}</option>`
+        )
+        .join('')}</select></label>
+      <div class="la-range"><label>From analysis line <input class="cm-input" type="number" data-f="start" min="1" max="${last}" value="${first}"></label>
+      <label>To analysis line <input class="cm-input" type="number" data-f="end" min="1" max="${last}" value="${first}"></label></div>
+      <label>Voice, if explicitly known <input class="cm-input" data-f="voice" placeholder="Leave undeclared unless supplied"></label>
+      <button type="button" class="cm-btn cm-btn-outline" data-act="add-section">${icon('plus', 16)}<span>Add range</span></button>
+    </details>
+    <details class="cm-accordion"><summary>Declare a hook fragment</summary>
+      <p class="la-note">A sourced sub-line text fragment is independent from the hook section function. Occurrences are found across the entire reading.</p>
+      <label>Exact fragment <input class="cm-input" data-f="hook"></label>
+      <button type="button" class="cm-btn cm-btn-outline" data-act="add-hook">${icon('plus', 16)}<span>Add hook fragment</span></button>
+    </details>
+    <details class="cm-accordion"><summary>Narrative interpretation</summary>
+      <p class="la-note">These labels express your reading of each concrete section. The backend checks declaration grammar; it does not detect narrative meaning.</p>
+      <div data-f="narrative"></div>
+      <button type="button" class="cm-btn cm-btn-outline" data-act="add-narrative">${icon('plus', 16)}<span>Add narrative interpretation</span></button>
+    </details>
+    <details class="cm-accordion"><summary>Musical setting and native declarations</summary>
+      <p class="la-note">Supply only what is known: concrete section IDs, explicit meter numerator/denominator, positive bars, and each participating line’s exact bar, beat and duration. Grouping, subdivision, isochrony, tempo, BeatGrid and melody are independent declarations. Text does not imply 4/4 or one bar per line.</p>
+      <p class="la-note">Native options include sourced pronunciation choices, stanza/caesura/lift boundaries, tonal templates, refrains, historical or delivered surfaces, hooks, voices, response links and narrative annotations. The backend validates each field and returns specific refusals. Exact fractions use numerator and positive denominator.</p>
+    </details>
+    ${reading.language === 'eng' || choices.length ? `<details class="cm-accordion"><summary>Choose a sourced English pronunciation</summary><div data-f="pron"></div></details>` : ''}
+    <details class="cm-accordion"><summary>Advanced sourced declarations</summary>
+      <label>Declaration bundle <textarea class="cm-input" data-f="raw" aria-label="Reading declaration bundle" rows="14" spellcheck="false"></textarea></label>
+    </details>
+    <p class="la-error" role="alert" data-f="error" hidden></p>
+    ${unsaved ? '<p class="la-error">Storage unavailable. These interpretations are unsaved; download them before leaving.</p>' : ''}
+    <div class="la-row">
+      <button type="button" class="cm-btn cm-btn-primary" data-act="save">${icon('check', 16)}<span>Apply interpretation</span></button>
+      <button type="button" class="cm-btn cm-btn-outline" data-act="download">${icon('download', 16)}<span>Download</span></button>
+    </div>
+    <p class="la-note">Applying an interpretation creates a new analysis identity. Previous evidence remains separately identified.</p>
+  </section>`;
+  const f = (name) => root.querySelector(`[data-f="${name}"]`);
+  const raw = f('raw');
+  raw.value = st.raw;
+  const setRaw = (v) => {
+    st.raw = JSON.stringify(v, null, 2);
+    raw.value = st.raw;
+    drawNarrative();
+  };
+  const error = (msg = '') => {
+    f('error').textContent = msg;
+    f('error').hidden = !msg;
+  };
+  const source = () => f('source').value.trim();
+  raw.addEventListener('input', () => {
+    st.raw = raw.value;
+    drawNarrative();
+  });
+  function narrativeSections() {
+    let declared = [];
+    try {
+      declared = JSON.parse(st.raw).form?.sections ?? [];
+    } catch {
+      /* the raw editor is mid-edit */
+    }
+    const position = (s) =>
+      lines.find((l) => l.id === s.line_ids?.[0])?.physical_line ??
+      s.source_ranges?.[0]?.physical_line ??
+      Number.MAX_SAFE_INTEGER;
+    return [...new Map([...sections, ...declared].map((s) => [s.id, s])).values()]
+      .sort((a, b) => position(a) - position(b))
+      .filter((s) => !['turnaround', 'interlude', 'solo'].includes(s.function));
+  }
+  function drawNarrative() {
+    const list = narrativeSections();
+    f('narrative').innerHTML = list.length
+      ? list
+          .map((s, i) => {
+            const atom = st.atoms[s.id] ?? '';
+            const junction =
+              i > 0
+                ? `<label>Junction before ${esc(s.name ?? s.function)} <select class="cm-select" data-link="${esc(s.id)}"><option value="">Not declared</option>${OPTIONS.junctions
+                    .filter((a) => !atom || OPTIONS.enter[a]?.includes(atom))
+                    .map(
+                      (a) =>
+                        `<option value="${a}"${st.links[s.id] === a ? ' selected' : ''}>${a.replaceAll('_', ' ')}</option>`
+                    )
+                    .join('')}</select></label>`
+                : '';
+            return `${junction}<label>${esc(s.name ?? s.function)} <select class="cm-select" data-atom="${esc(s.id)}"><option value="">Not declared</option>${OPTIONS.atoms
+              .filter((a) => OPTIONS.function_atoms[s.function]?.includes(a))
+              .map((a) => `<option value="${a}"${atom === a ? ' selected' : ''}>${a}</option>`)
+              .join('')}</select></label>`;
+          })
+          .join('')
+      : '<p class="la-note">Analyze to load recorded section occurrences, or declare their concrete ranges.</p>';
+  }
+  drawNarrative();
+  f('narrative').addEventListener('change', (e) => {
+    const t = e.target;
+    if (t.dataset.atom) st.atoms[t.dataset.atom] = t.value;
+    if (t.dataset.link) st.links[t.dataset.link] = t.value;
+    drawNarrative();
+  });
+  f('target').addEventListener('change', (e) => {
+    const id = e.target.value;
+    st.targetReady = true;
+    error();
+    root.querySelector('[data-act="add-section"]').disabled = false;
+    const section = sections.find((s) => s.id === id);
+    if (!section) return;
+    const rows = section.line_ids.map((lid) => analysisLines.find((l) => l.id === lid));
+    if (!rows.length || rows.some((l) => !l)) {
+      st.targetReady = false;
+      root.querySelector('[data-act="add-section"]').disabled = true;
+      return error('Load the section’s source rows before changing its range.');
+    }
+    f('kind').value = section.function;
+    f('voice').value = section.voice ?? '';
+    const numbers = rows.map((l) => l.analysis_line);
+    f('start').value = Math.min(...numbers);
+    f('end').value = Math.max(...numbers);
+  });
+  if (f('pron'))
+    pronunciationChoices(f('pron'), choices, (row) => {
+      try {
+        const v = parsed();
+        const existing = Array.isArray(v.pronunciations) ? v.pronunciations : [];
+        setRaw({
+          ...v,
+          pronunciations: [
+            ...existing.filter((r) => r.line !== row.line || r.token !== row.token),
+            row,
+          ],
+        });
+        error();
+      } catch (e) {
+        error(e.message);
+      }
+    });
+  const actions = {
+    'add-section'() {
+      if (!st.targetReady) throw Error('Load the chosen section’s source rows before changing it.');
+      const start = Number(f('start').value);
+      const end = Number(f('end').value);
+      if (
+        !source() ||
+        !Number.isSafeInteger(start) ||
+        !Number.isSafeInteger(end) ||
+        start > end ||
+        start < 1
+      )
+        throw Error('Choose an existing line range and provide the source or basis.');
+      const rows = analysisLines.filter((l) => l.analysis_line >= start && l.analysis_line <= end);
+      if (rows.length !== end - start + 1)
+        throw Error('Load every source row in this analysis-line range before adding it.');
+      const v = parsed();
+      const form = v.form ?? {};
+      const list = Array.isArray(form.sections) ? form.sections : [];
+      const voice = f('voice').value.trim();
+      const item = {
+        id: f('target').value || 'declared:' + crypto.randomUUID(),
+        function: f('kind').value,
+        line_ids: rows.map((l) => l.id),
+        basis: 'reader_declared',
+        source: source(),
+        ...(voice ? { voice } : {}),
+      };
+      setRaw({
+        ...v,
+        form: { ...form, sections: [...list.filter((s) => s.id !== item.id), item] },
+      });
+    },
+    'add-hook'() {
+      const hook = f('hook').value;
+      if (!source() || !hook.trim())
+        throw Error('Supply the exact fragment and its source or basis.');
+      const v = parsed();
+      setRaw({
+        ...v,
+        hooks: [...(Array.isArray(v.hooks) ? v.hooks : []), { text: hook, source: source() }],
+      });
+    },
+    'add-narrative'() {
+      const list = narrativeSections();
+      if (!source() || !list.length)
+        throw Error('Provide a basis and concrete section functions first.');
+      const selected = list.map((s) => st.atoms[s.id] ?? '');
+      const joined = list.slice(1).map((s) => st.links[s.id] ?? '');
+      if ([...selected, ...joined].some((s) => !s))
+        throw Error('Explicitly choose every section atom and intervening junction.');
+      setRaw({ ...parsed(), narrative: { source: source(), atoms: selected, junctions: joined } });
+    },
+    save() {
+      onSave(parsed());
+    },
+    download() {
+      uiDownload(
+        'reading-declarations.json',
+        JSON.stringify(
+          {
+            reading_unit_id: reading.reading_unit_id,
+            reading_revision: reading.reading_revision,
+            declarations: JSON.parse(st.raw),
+          },
+          null,
+          2
+        ),
+        'application/json'
+      );
+    },
+  };
+  root.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-act]');
+    if (!b || !actions[b.dataset.act] || !b.closest('.la-decl')) return;
+    try {
+      actions[b.dataset.act]();
+      error();
+    } catch (err) {
+      error(err.message);
+    }
+  });
+}
+
+// ── Pronunciation choices (port of pronunciation-choices.tsx) ──────────────
+function pronunciationChoices(root, choices, onAdd) {
+  let limit = 20;
+  const chosen = {};
+  root.innerHTML = `<p class="la-note">Choices come from the installed dictionary. A choice binds every verbatim occurrence of its exact lyric line. Further evidence pages may contain additional words.</p>
+    <label>Source / basis <input class="cm-input" data-p="basis"></label><div data-p="list"></div>`;
+  const basis = root.querySelector('[data-p="basis"]');
+  const list = root.querySelector('[data-p="list"]');
+  const draw = () => {
+    list.innerHTML =
+      choices
+        .slice(0, limit)
+        .map((c, i) => {
+          const key = c.line + ':' + c.token;
+          return `<div class="la-choice"><label>${esc(c.word)} · token ${esc(c.token)} <small>${esc(c.line)}</small>
+          <select class="cm-select" data-choice="${i}"><option value="">All dictionary readings</option>${c.dictionary_readings
+            .map(
+              (r, j) =>
+                `<option value="${j}"${chosen[key] === String(j) ? ' selected' : ''}>${esc(r.phones.join(' '))} · ${esc(r.syllables)} syllables</option>`
+            )
+            .join('')}</select></label>
+          <button type="button" class="cm-btn cm-btn-outline" data-use="${i}" ${!basis.value.trim() || !chosen[key] ? 'disabled' : ''}>Use this reading</button>
+          <p class="la-note">Applies to ${c.matching_line_ids.length} identical source lines.</p></div>`;
+        })
+        .join('') +
+      (limit < choices.length
+        ? `<button type="button" class="cm-btn cm-btn-outline" data-p="more">Show next dictionary choices · ${limit} / ${choices.length}</button>`
+        : '') +
+      (choices.length
+        ? ''
+        : '<p class="la-note">Analyze the work and load its token evidence to choose a dictionary reading. Supplied historical or delivered pronunciations remain available in Advanced sourced declarations.</p>');
+  };
+  draw();
+  basis.addEventListener('input', () =>
+    list.querySelectorAll('[data-use]').forEach((b) => {
+      const c = choices[Number(b.dataset.use)];
+      b.disabled = !basis.value.trim() || !chosen[c.line + ':' + c.token];
+    })
+  );
+  list.addEventListener('change', (e) => {
+    const c = choices[Number(e.target.dataset.choice)];
+    if (!c) return;
+    chosen[c.line + ':' + c.token] = e.target.value;
+    const b = list.querySelector(`[data-use="${e.target.dataset.choice}"]`);
+    b.disabled = !basis.value.trim() || !e.target.value;
+  });
+  list.addEventListener('click', (e) => {
+    if (e.target.closest('[data-p="more"]')) {
+      limit += 20;
+      return draw();
+    }
+    const b = e.target.closest('[data-use]');
+    if (!b) return;
+    const c = choices[Number(b.dataset.use)];
+    onAdd({
+      line: c.line,
+      token: c.token,
+      word: c.word,
+      phones: c.dictionary_readings[Number(chosen[c.line + ':' + c.token])].phones,
+      basis: 'dictionary',
+      source: basis.value,
+    });
+  });
+}
+
+// ── The inspector ──────────────────────────────────────────────────────────
+// mount(container, {reading, lib, lines?, lens?, selected?, onHighlight?, onLens?})
+//   reading      the head file (lib.reading(id))
+//   lines        the reader's loaded rows [{id, analysis_line, physical_line, text}]
+//                (derived from reading.lines when omitted)
+//   lens         'summary'|'sound'|'form'|'rhythm'|'language'|'sources'
+//   selected     Set of selected line ids (filters evidence)
+//   onHighlight  (lineIds:Set, record) => void — locate evidence in the paper
+//   onLens       (lens) => void — the inspector's lens tabs changed the lens
+//   tabs         false to omit the lens tabs (the reader draws its own)
+// Returns {setLens, setSelection, setLines, activate, destroy}.
+function mount(container, ctx) {
+  ensureStyles();
+  const { reading, lib } = ctx;
+  const api = viewerApi(lib);
+  const device = deviceStore(lib);
+  const mem = memoryFor(reading);
+  const deviceKey = `interpretation:${reading.reading_unit_id}:${reading.reading_revision}`;
+  const st = {
+    lens: ctx.lens || 'summary',
+    selected: ctx.selected || new Set(),
+    lines: ctx.lines || null,
+    declarations: {},
+    declOpen: false,
+    unsaved: false,
+    busy: false,
+    error: '',
+    notice: '',
+    authorized: false, // a fresh 200 for mem.job in this activation
+    lost: false, // the job answered 404/410 this activation
+    methodFilter: 'all',
+    formView: 'Structure',
+    methodsOpen: false,
+    resolved: [],
+    pending: [],
+    registry: null,
+    exportBlocked: '',
+    inspected: null,
+  };
+  let alive = true;
+  let pollTimer = null;
+  let pollStarted = 0;
+  let hiddenAt = 0;
+  container.innerHTML = `<div class="la-root" aria-busy="true">${uiEmptyState({ title: 'Loading analysis tools…' })}</div>`;
+  const root = container.firstElementChild;
+
+  const fail = (e) => {
+    const p = e?.problem || problemOf(e);
+    if (p.status === 404 || p.status === 410) lose(p.status);
+    st.error = failMessage(p);
+    draw();
+  };
+  function lose(status) {
+    // Drop the job's in-memory evidence at once; keep only declarations.
+    st.lost = status === 404 ? 'session' : 'expired';
+    st.authorized = false;
+    dropEvidence(mem);
+    st.resolved = [];
+    st.pending = [];
+    mem.job = null;
+    stopPoll();
+  }
+  async function rehydrate() {
+    const result = await hydrateEvidence(mem.records);
+    st.resolved = result.records;
+    st.pending = result.pending;
+  }
+  // Fresh authorization: GET /jobs/:id → 200 before any evidence renders.
+  async function authorize() {
+    if (!mem.job) return;
+    st.authorized = false;
+    try {
+      const data = await api.job(mem.job.id);
+      if (!alive) return;
+      mem.job = data.job;
+      st.authorized = true;
+      st.lost = false;
+      mem.seen = Date.now();
+      if (data.job.manifest_hash && !mem.report)
+        await loadEvidence(data.job.manifest_hash, 0, false);
+      else if (
+        data.job.manifest_hash &&
+        mem.report &&
+        data.job.manifest_hash !== mem.report.manifest_hash
+      )
+        st.notice =
+          'A newer evidence checkpoint is available. Load it explicitly to replace the currently pinned pages.';
+      schedulePoll();
+    } catch (e) {
+      fail(e);
+    }
+  }
+  async function loadEvidence(hash, offset, append) {
+    const job = mem.job;
+    const result = await loadEvidencePage(api, job, hash, offset);
+    if (!alive || mem.job?.id !== job.id) return;
+    if (append && mem.report?.manifest_hash !== hash) return;
+    mem.report = result.manifest;
+    mem.records = append ? [...mem.records, ...result.instances] : result.instances;
+    mem.next = result.next;
+    mem.offset = offset;
+    if (!append) st.notice = '';
+    await rehydrate();
+  }
+  // Polling: 3 s while queued/running/deferred, 15 s after 2 min, paused while hidden.
+  function schedulePoll() {
+    stopPoll();
+    if (!alive || !mem.job || !(ACTIVE.has(mem.job.state) || mem.job.deferred_requeue)) return;
+    pollStarted ||= Date.now();
+    const delay = Date.now() - pollStarted > 120_000 ? 15_000 : 3_000;
+    pollTimer = setTimeout(tick, delay);
+  }
+  function stopPoll() {
+    clearTimeout(pollTimer);
+    pollTimer = null;
+  }
+  async function tick() {
+    if (!alive || !mem.job) return;
+    if (document.hidden) return; // resumed by visibilitychange
+    const id = mem.job.id;
+    try {
+      const data = await api.job(id);
+      if (!alive || mem.job?.id !== id) return;
+      const before = mem.job;
+      mem.job = data.job;
+      if (data.job.manifest_hash && !mem.report)
+        await loadEvidence(data.job.manifest_hash, 0, false);
+      else if (data.job.manifest_hash && data.job.manifest_hash !== mem.report?.manifest_hash)
+        st.notice =
+          'A newer evidence checkpoint is available. Load it explicitly to replace the currently pinned pages.';
+      draw(
+        before.manifest_hash !== data.job.manifest_hash || !mem.report
+          ? ['status', 'main']
+          : ['status']
+      );
+      schedulePoll();
+    } catch (e) {
+      fail(e);
+    }
+  }
+  const onVisibility = () => {
+    if (document.hidden) {
+      hiddenAt = Date.now();
+      return;
+    }
+    if (hiddenAt && Date.now() - hiddenAt > 60_000 && mem.job) authorize().then(draw);
+    else schedulePoll();
+    hiddenAt = 0;
+  };
+  document.addEventListener('visibilitychange', onVisibility);
+
+  async function analyze(method) {
+    st.busy = true;
+    st.error = '';
+    draw();
+    try {
+      const previous = mem.job
+        ? [...mem.previous, { id: mem.job.id, declarations: st.declarations }]
+        : mem.previous;
+      const data = await api.create({
+        contract_version: 1,
+        reading_unit_id: reading.reading_unit_id,
+        reading_revision: reading.reading_revision,
+        declaration_set: st.declarations,
+        requested_layers: ['sound', 'form', 'rhythm', 'language'],
+        ...(method ? { requested_methods: [method] } : {}),
+        idempotency_key: randomHex(16),
+      });
+      mem.previous = previous;
+      mem.job = data.job;
+      dropEvidence(mem);
+      st.resolved = [];
+      st.pending = [];
+      st.authorized = true; // the create response is itself a fresh authorized read
+      st.lost = false;
+      st.exportBlocked = '';
+      pollStarted = 0;
+      schedulePoll();
+      showToast(method ? 'Analysis started for this method.' : 'Whole-work analysis started.');
+    } catch (e) {
+      fail(e);
+    } finally {
+      st.busy = false;
+      draw();
+    }
+  }
+  async function control(action) {
+    if (!mem.job) return;
+    st.busy = true;
+    draw();
+    try {
+      if (action === 'delete') {
+        await api.remove(mem.job.id);
+        mem.job = null;
+        dropEvidence(mem);
+        st.resolved = [];
+        st.pending = [];
+        stopPoll();
+        showToast('Analysis deleted.');
+      } else {
+        const data = await api.act(mem.job.id, action);
+        mem.job = data.job;
+        pollStarted = 0;
+        schedulePoll();
+      }
+    } catch (e) {
+      fail(e);
+    } finally {
+      st.busy = false;
+      draw();
+    }
+  }
+  async function openPrevious(index) {
+    const p = mem.previous[index];
+    if (!p) return;
+    try {
+      const data = await api.job(p.id);
+      const current = mem.job;
+      mem.previous = mem.previous.filter((_, i) => i !== index);
+      if (current) mem.previous.push({ id: current.id, declarations: st.declarations });
+      mem.job = data.job;
+      dropEvidence(mem);
+      st.resolved = [];
+      st.authorized = true;
+      if (data.job.manifest_hash) await loadEvidence(data.job.manifest_hash, 0, false);
+      pollStarted = 0;
+      schedulePoll();
+    } catch (e) {
+      const prob = e?.problem || problemOf(e);
+      if (prob.status === 404 || prob.status === 410)
+        mem.previous = mem.previous.filter((_, i) => i !== index);
+      st.error = failMessage(prob);
+    }
+    draw();
+  }
+  // Validate with a credentialed HEAD, then navigate (an attachment never replaces the page).
+  async function exportAnalysis() {
+    const job = mem.job;
+    const hash = mem.report?.manifest_hash ?? job?.manifest_hash;
+    if (!job || !hash) return;
+    st.busy = true;
+    st.exportBlocked = '';
+    draw();
+    const url = api.exportUrl(job.id, hash);
+    try {
+      const r = await fetch(url, { method: 'HEAD', credentials: 'include', cache: 'no-store' });
+      if (r.status === 200) {
+        const a = document.createElement('a');
+        a.href = url;
+        a.rel = 'noopener';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        showToast(
+          mem.report?.partial
+            ? 'Exporting the partial checkpoint.'
+            : 'Exporting the complete analysis.',
+          'success'
+        );
+      } else if (r.status === 409) {
+        st.exportBlocked =
+          'This analysis ran on a reading or definitions that are no longer installed. Its evidence stays viewable here.';
+      } else if (r.status === 404) {
+        st.error = EARLIER_SESSION;
+      } else if (r.status === 429) {
+        const after = r.headers.get('Retry-After');
+        st.error = `Too many downloads right now.${after ? ` Retry in ${after} s.` : ''}`;
+      } else st.error = `The analysis export is unavailable (HTTP ${r.status}).`;
+    } catch {
+      st.error = 'The analysis server is unreachable.';
+    } finally {
+      st.busy = false;
+      draw();
+    }
+  }
+  function inspect(record) {
+    const ids = lineIDs(record);
+    st.inspected = record;
+    if (ctx.onHighlight) ctx.onHighlight(ids, record);
+    const known = (st.lines || []).some((l) => ids.has(l.id));
+    if (ids.size && !known)
+      showToast(
+        'This evidence is elsewhere in the work. Load the next source lines to locate its spans.'
+      );
+  }
+
+  // ── Drawing ──────────────────────────────────────────────────────────────
+  const render = valueRenderer(root);
+  const job = () => mem.job;
+  const evidenceVisible = () => st.authorized && !!mem.job;
+  function statusHTML() {
+    const j = job();
+    const report = evidenceVisible() ? mem.report : null;
+    const badge = j
+      ? `<span class="cm-status" data-tone="${report?.partial ? 'warning' : report ? 'success' : ''}">${report?.partial ? 'Partial evidence' : report ? 'Complete report' : 'Waiting for evidence'}</span>`
+      : '';
+    const lost = st.lost
+      ? `<p class="la-error" role="alert">${st.lost === 'session' ? EARLIER_SESSION : 'This analysis expired or was deleted.'} Run it again on the current reading.</p>`
+      : '';
+    const engine =
+      j?.identity &&
+      j.identity.reading_revision &&
+      j.identity.reading_revision !== reading.reading_revision
+        ? `<p class="la-note">Generated by engine <code>${esc(String(j.identity.engine_commit || '').slice(0, 8))}</code> on revision <code>${esc(String(j.identity.reading_revision).slice(0, 8))}</code>.</p>`
+        : '';
+    return `<section class="la-section" aria-live="polite">
+      <div class="la-row"><strong>${j ? esc(j.state.replaceAll('_', ' ')) : 'Interpret the entire work'}</strong>${badge}</div>
+      <p class="la-note">${j ? 'Complete reading unit · selection only filters evidence' : 'Native sound, form, rhythm and language · deterministic analysis'}</p>
+      ${lost}${engine}
+      ${j?.progress ? `<div class="la-progress">${render(j.progress)}</div>` : ''}
+      <button type="button" class="cm-btn cm-btn-primary" data-act="analyze" ${st.busy ? 'disabled' : ''}>${icon('play', 16)}<span>${
+        st.busy
+          ? 'Working…'
+          : j
+            ? 'New whole-work analysis'
+            : st.lost
+              ? 'Run again on the current reading'
+              : 'Analyze entire work'
+      }</span></button>
+      ${
+        j
+          ? `<div class="la-row">
+          ${['paused', 'cancelled', 'failed'].includes(j.state) ? `<button type="button" class="cm-btn cm-btn-outline" data-act="resume" ${st.busy || j.deferred_requeue ? 'disabled' : ''}>Resume</button>` : ''}
+          ${['running', 'queued'].includes(j.state) ? `<button type="button" class="cm-btn cm-btn-outline" data-act="cancel" ${st.busy ? 'disabled' : ''}>Cancel</button>` : ''}
+          <button type="button" class="la-link" data-act="delete" ${st.busy ? 'disabled' : ''}>Delete analysis</button></div>`
+          : ''
+      }
+      ${j?.reason ? render(j.reason) : ''}
+      ${
+        evidenceVisible() &&
+        j.manifest_hash &&
+        mem.report &&
+        j.manifest_hash !== mem.report.manifest_hash
+          ? `<button type="button" class="cm-btn cm-btn-tonal" data-act="latest">Load latest evidence checkpoint</button>`
+          : ''
+      }
+      ${st.notice ? `<p class="la-note" role="status">${esc(st.notice)}</p>` : ''}
+      ${st.error ? `<p class="la-error" role="alert">${esc(st.error)}</p>` : ''}
+      <button type="button" class="la-link" data-act="decl" aria-expanded="${st.declOpen}">${icon('sliders', 15)}<span>Reading interpretations</span></button>
+    </section>`;
+  }
+  function summaryHTML() {
+    const report = evidenceVisible() ? mem.report : null;
+    let html = '';
+    if (report)
+      html += `<section class="la-section"><h3>Coverage of the entire unit</h3>${render(report.summary ?? report.coverage)}
+        <p class="la-note">Unknown readings and refused obligations remain separate from measured results.</p>
+        <button type="button" class="cm-btn cm-btn-outline" data-act="export" ${st.busy ? 'disabled' : ''}>${icon('download', 15)}<span>${report.partial ? 'Export partial checkpoint' : 'Export complete analysis'}</span></button>
+        ${st.exportBlocked ? `<p class="la-error" role="alert">${esc(st.exportBlocked)}</p><button type="button" class="cm-btn cm-btn-tonal" data-act="analyze">Run again on the current reading</button>` : ''}
+      </section>`;
+    if (mem.previous.length)
+      html += `<details class="la-section cm-accordion"><summary>Earlier analyses (${mem.previous.length})</summary>${mem.previous
+        .map(
+          (p, i) =>
+            `<button type="button" class="la-link" data-act="previous" data-i="${i}">Open earlier analysis ${i + 1}</button>`
+        )
+        .join('')}</details>`;
+    return html;
+  }
+  function sourcesHTML() {
+    const j = job();
+    if (!j || !evidenceVisible()) return '';
+    return `<section class="la-section"><details class="cm-accordion"><summary>Analysis engine and resource identity</summary>${render(j.identity)}${
+      mem.report?.identity ? render(mem.report.identity) : ''
+    }</details></section>`;
+  }
+  function lensHTML() {
+    const lens = st.lens;
+    const visible = evidenceVisible();
+    const form = visible ? component(st.resolved, 'form_result') : {};
+    const language = visible ? component(st.resolved, 'language_result') : {};
+    let html = '';
+    if (lens === 'form') {
+      html += `<div class="la-tabs" role="tablist" aria-label="Form views">${[
+        'Structure',
+        'Returns',
+        'Voices',
+        'Narrative',
+      ]
+        .map(
+          (x) =>
+            `<button type="button" class="cm-tab" role="tab" aria-selected="${st.formView === x}" tabindex="${st.formView === x ? 0 : -1}" data-form="${x}">${x}</button>`
+        )
+        .join('')}</div>`;
+      if (Object.keys(form).length)
+        html += `<section class="la-section"><h3>${esc(st.formView)}</h3>${render(
+          st.formView === 'Structure'
+            ? {
+                sections: form.sections,
+                stanzas: form.stanzas,
+                profile: form.profile,
+                shape: form.shape,
+                hooks: form.hooks,
+              }
+            : form[st.formView.toLowerCase()]
+        )}</section>`;
+    }
+    if (lens === 'rhythm' && Object.keys(form).length)
+      html += `<section class="la-section"><h3>Native rhythm and setting</h3>${render(form.rhythm)}
+        <p class="la-note">Meter, bars, duration, grouping and performance timing remain undeclared unless supplied.</p></section>`;
+    if (lens === 'language' && Object.keys(language).length)
+      html += `<section class="la-section"><h3>Language measurements</h3>${render(language)}</section>`;
+    const records = visible
+      ? st.resolved.filter((r) => {
+          if (st.methodFilter !== 'all' && r.method_id !== st.methodFilter) return false;
+          if (st.selected.size) {
+            const ids = lineIDs(r);
+            if (ids.size && ![...ids].some((i) => st.selected.has(i))) return false;
+          }
+          return inLens(r, lens);
+        })
+      : [];
+    st.visible = records;
+    const methods = st.registry?.methods || [];
+    const byId = new Map(methods.map((m) => [m.id, m]));
+    html += `<section class="la-section"><h3>Evidence${st.selected.size ? ' in selected passage' : ''}</h3>
+      ${st.pending.length && visible ? `<p class="la-note">${st.pending.length} records require further verified detail pages. They remain incomplete until every referenced part is loaded.</p>` : ''}
+      <label>Method <select class="cm-select" data-f="method"><option value="all">All available methods</option>${methods
+        .filter((m) => m.reader_requestable && (!m.language || m.language === reading.language))
+        .map(
+          (m) =>
+            `<option value="${esc(m.id)}"${st.methodFilter === m.id ? ' selected' : ''}>${esc(m.name)}</option>`
+        )
+        .join('')}</select></label>
+      <div class="la-cards">${records
+        .slice(0, 200)
+        .map((r, i) => evidenceCardHTML(r, byId.get(r.method_id ?? ''), i))
+        .join('')}</div>
+      ${records.length > 200 ? `<p class="la-note">Showing 200 of ${records.length} records. Choose a method or select a passage to narrow them.</p>` : ''}
+      ${
+        records.length
+          ? ''
+          : `<p class="la-note">${
+              mem.job
+                ? visible
+                  ? 'No evidence in the loaded pages for this lens. Further pages and committed generations remain addressable.'
+                  : 'Checking this analysis with the server…'
+                : 'Analyze the entire work to inspect backend evidence.'
+            }</p>`
+      }
+      ${visible && mem.next != null ? `<button type="button" class="cm-btn cm-btn-outline" data-act="more" ${st.busy ? 'disabled' : ''}>Load more evidence · page ${mem.next + 1}</button>` : ''}
+      ${
+        visible && mem.report
+          ? `<p class="la-note">${esc(mem.report.evidence_count)} committed records across ${esc(mem.report.page_count)} pages · ${
+              mem.report.partial ? 'partial' : 'complete'
+            }. Loaded through page ${mem.offset + 1}.</p>`
+          : ''
+      }
+    </section>`;
+    return html;
+  }
+  function referenceHTML() {
+    const c = st.registry?.counts;
+    return `<section class="la-section"><button type="button" class="la-link" data-act="methods" aria-expanded="${st.methodsOpen}">${icon('search', 15)}<span>Method reference${
+      c ? ` · ${c.schemas} schemas / ${c.functions} functions` : ''
+    }</span></button><div data-f="reference"></div></section>`;
+  }
+  function tabsHTML() {
+    return ctx.tabs === false
+      ? ''
+      : `<div class="la-tabs" role="tablist" aria-label="Interpretation lenses">${LENSES.map(
+          (l) =>
+            `<button type="button" class="cm-tab" role="tab" aria-selected="${st.lens === l.id}" tabindex="${st.lens === l.id ? 0 : -1}" data-lens="${l.id}">${l.label}</button>`
+        ).join('')}</div>`;
+  }
+  function mainHTML() {
+    return (
+      (st.lens === 'summary' ? summaryHTML() : '') +
+      (st.lens === 'sources' ? sourcesHTML() : '') +
+      (EVIDENCE_LENSES.has(st.lens) ? lensHTML() : '')
+    );
+  }
+  // Slots redraw independently: a poll redraws status (and main when the
+  // evidence changed) without touching an open declarations editor.
+  root.innerHTML =
+    '<div data-slot="tabs"></div><div data-slot="status"></div><div data-slot="decl"></div><div data-slot="main"></div><div data-slot="ref"></div>';
+  root.removeAttribute('aria-busy');
+  const slot = (name) => root.querySelector(`[data-slot="${name}"]`);
+  function draw(which = ['tabs', 'status', 'main']) {
+    if (!alive) return;
+    root.setAttribute('aria-busy', String(st.busy));
+    if (which.includes('tabs')) slot('tabs').innerHTML = tabsHTML();
+    if (which.includes('status')) slot('status').innerHTML = statusHTML();
+    if (which.includes('main')) slot('main').innerHTML = mainHTML();
+    if (which.includes('decl')) {
+      slot('decl').innerHTML = '';
+      if (st.declOpen) drawDeclarations(slot('decl'));
+    }
+    if (which.includes('ref')) {
+      slot('ref').innerHTML = referenceHTML();
+      if (st.methodsOpen && st.registry)
+        methodReference(slot('ref').querySelector('[data-f="reference"]'), st.registry, {
+          onAnalyze: (id) => analyze(id),
+          language: reading.language,
+        });
+    }
+  }
+  async function drawDeclarations(host) {
+    const lines = st.lines || (st.lines = await linesOf(reading));
+    const form = component(evidenceVisible() ? st.resolved : [], 'form_result');
+    const choices = [
+      ...new Map(
+        (evidenceVisible() ? st.resolved : [])
+          .filter((r) => r.kind === 'token' && r.reading_choices)
+          .map((r) => [r.reading_choices.line + ':' + r.reading_choices.token, r.reading_choices])
+      ).values(),
+    ];
+    const el = document.createElement('div');
+    host.replaceChildren(el);
+    declarationsView(el, {
+      reading,
+      lines,
+      value: st.declarations,
+      sections: Array.isArray(form.sections) ? form.sections : [],
+      choices,
+      methods: st.registry?.methods || [],
+      unsaved: st.unsaved,
+      onSave: async (v) => {
+        st.declarations = v;
+        st.declOpen = false;
+        st.notice =
+          'Interpretation saved on this device. Run a new whole-work analysis to apply it.';
+        try {
+          await device.set(deviceKey, { declarations: v });
+          st.unsaved = false;
+        } catch {
+          st.unsaved = true;
+        }
+        draw(['status', 'decl']);
+      },
+    });
+  }
+  bind(root);
+  function bind(el) {
+    el.addEventListener('click', (e) => {
+      const lensBtn = e.target.closest('[data-lens]');
+      if (lensBtn) return setLens(lensBtn.dataset.lens, true);
+      const formBtn = e.target.closest('[data-form]');
+      if (formBtn) return ((st.formView = formBtn.dataset.form), draw());
+      const card = e.target.closest('[data-act="card"]');
+      if (card) {
+        const r = st.visible[Number(card.dataset.rec)];
+        const body = card.nextElementSibling;
+        const open = card.getAttribute('aria-expanded') !== 'true';
+        card.setAttribute('aria-expanded', String(open));
+        body.hidden = !open;
+        el.querySelectorAll('.la-card.is-inspected').forEach((c) =>
+          c.classList.remove('is-inspected')
+        );
+        card.parentElement.classList.add('is-inspected');
+        if (open && !body.childElementCount) {
+          const n = lineIDs(r).size;
+          body.innerHTML =
+            render(r) +
+            (n
+              ? `<button type="button" class="la-link" data-act="locate" data-rec="${card.dataset.rec}">${icon('link', 15)}<span>Locate ${n} participating lines</span></button>`
+              : '') +
+            (r.source_ranges?.length
+              ? `<details class="la-lazy"><summary>Source coordinates</summary>${render(r.source_ranges, 1)}</details>`
+              : '');
+        }
+        return inspect(r);
+      }
+      const b = e.target.closest('[data-act]');
+      if (!b || b.closest('.la-decl') || b.closest('[data-f="reference"]')) return;
+      const act = b.dataset.act;
+      if (act === 'analyze') analyze();
+      else if (['cancel', 'resume', 'delete'].includes(act)) control(act);
+      else if (act === 'export') exportAnalysis();
+      else if (act === 'previous') openPrevious(Number(b.dataset.i));
+      else if (act === 'locate') inspect(st.visible[Number(b.dataset.rec)]);
+      else if (act === 'decl') ((st.declOpen = !st.declOpen), draw(['status', 'decl']));
+      else if (act === 'methods') ((st.methodsOpen = !st.methodsOpen), draw(['ref']));
+      else if (act === 'latest' || act === 'more') {
+        const latest = act === 'latest';
+        const hash = latest ? mem.job.manifest_hash : mem.report.manifest_hash;
+        st.busy = true;
+        draw();
+        loadEvidence(hash, latest ? 0 : mem.next, !latest)
+          .catch(fail)
+          .finally(() => ((st.busy = false), draw()));
+      }
+    });
+    el.addEventListener('change', (e) => {
+      if (e.target.dataset.f === 'method') ((st.methodFilter = e.target.value), draw());
+    });
+    el.addEventListener('keydown', (e) => {
+      const tab = e.target.closest('[role="tab"]');
+      if (!tab) return;
+      const all = [...tab.parentElement.querySelectorAll('[role="tab"]')];
+      const next = uiTabIndex(e.key, all.indexOf(tab), all.length);
+      if (next < 0) return;
+      e.preventDefault();
+      all[next].click();
+      root
+        .querySelector(
+          `[role="tab"][aria-selected="true"]${tab.dataset.lens ? '[data-lens]' : '[data-form]'}`
+        )
+        ?.focus();
+    });
+  }
+  function setLens(lens, fromTabs = false) {
+    if (!LENSES.some((l) => l.id === lens) || lens === st.lens) return;
+    st.lens = lens;
+    if (fromTabs && ctx.onLens) ctx.onLens(lens);
+    // Switching to an evidence lens is an activation: re-authorize first.
+    if (EVIDENCE_LENSES.has(lens) && mem.job) {
+      st.authorized = false;
+      draw();
+      authorize().then(draw);
+    } else draw();
+  }
+
+  // ── Activation ───────────────────────────────────────────────────────────
+  async function activate() {
+    st.authorized = false;
+    draw();
+    await authorize();
+    draw();
+  }
+  (async () => {
+    try {
+      st.registry = await registryOf(lib);
+    } catch {
+      st.error = 'The method reference could not be loaded.';
+    }
+    try {
+      const stored = await device.get(deviceKey, { declarations: {} });
+      st.declarations =
+        stored?.declarations && typeof stored.declarations === 'object' ? stored.declarations : {};
+    } catch {
+      st.unsaved = true;
+    }
+    if (!alive) return;
+    draw(['tabs', 'status', 'decl', 'main', 'ref']);
+    await activate();
+  })();
+
+  return {
+    setLens: (lens) => setLens(lens),
+    setSelection(ids) {
+      st.selected = ids instanceof Set ? ids : new Set(ids || []);
+      if (EVIDENCE_LENSES.has(st.lens)) draw();
+    },
+    setLines(lines) {
+      st.lines = lines;
+    },
+    activate,
+    get declarations() {
+      return st.declarations;
+    },
+    destroy() {
+      alive = false;
+      stopPoll();
+      document.removeEventListener('visibilitychange', onVisibility);
+      container.innerHTML = '';
+    },
+  };
+}
+
+return {
+  mount,
+  LENSES,
+  methodReference,
+  // exposed for tests and for other chunks
+  hydrateEvidence,
+  component,
+  lineIDs,
+  inLens,
+  canonical,
+  sha256hex,
+  linesOf,
+  loadEvidencePage,
+  viewerApi,
+  _memory: MEMORY,
+};
