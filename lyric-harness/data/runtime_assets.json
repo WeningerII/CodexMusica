@@ -178,6 +178,24 @@
       "url": "https://raw.githubusercontent.com/ArtsEngine/concreteness/master/Concreteness_ratings_Brysbaert_et_al_BRM.txt"
     },
     {
+      "id": "moby_mpron",
+      "base": "staged",
+      "runtime": false,
+      "decision": "approved",
+      "reason": "Moby Pronunciator II, public domain by Grady Ward's January 2001 grant (PG #3205). Research input only: quality/moby_convert.py converts it into candidate readings, and only reviewed rows ship, inside a frozen lexicon supplement version. No runtime consumer.",
+      "source_ids": [
+        "moby:3205:attested"
+      ],
+      "files": [
+        {
+          "path": "moby/mpron.txt",
+          "bytes": 5493251,
+          "sha256": "55580c3b258873723fed33497fe3a438b26167370bbe016431b3fc65fea67f2d"
+        }
+      ],
+      "url": "https://raw.githubusercontent.com/GITenberg/Moby-Pronunciation-List_3205/2153f3193c25787070d97715ee0e4f54f72f4a0f/files/mpron.txt"
+    },
+    {
       "id": "runtime_tables",
       "base": "root",
       "runtime": true,
@@ -188,6 +206,7 @@
         "data/g2p_letter_rules.tsv",
         "data/kalevala_alliteration_pairs.tsv",
         "data/lexicon_supplement.tsv",
+        "data/lexicon_supplement_v2.tsv",
         "data/lexicon_supplement_versions.json",
         "data/ltc_rhyme_standards.tsv",
         "data/opensubtitles_en_50k.tsv",
@@ -224,9 +243,14 @@
           "sha256": "452d7aae056ed67f6bff94b76bf6f5df66516ce9e1c95d31796d45a8a92957f7"
         },
         {
+          "path": "data/lexicon_supplement_v2.tsv",
+          "bytes": 54108,
+          "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+        },
+        {
           "path": "data/lexicon_supplement_versions.json",
-          "bytes": 764,
-          "sha256": "e622f13be767c00c51d083d0db12872d35bfddab157fdf13804c474f46c95aec"
+          "bytes": 1189,
+          "sha256": "fe1f2362a80f213d973f4ef05267aeccd26efa0183ea22cbe8666e4999f8a209"
         },
         {
           "path": "data/ltc_rhyme_standards.tsv",
@@ -270,8 +294,8 @@
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1661475,
-          "sha256": "abd5983b5125d657f613951a6c8a197578bc785e9cb7f5491a7d8ccdd96d3b1f"
+          "bytes": 1663982,
+          "sha256": "d00e79c4d19d18220c422b9757fc3405878bc84b79eaeaa1a23f494ccc84ae0f"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",

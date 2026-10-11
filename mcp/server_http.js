@@ -21,6 +21,7 @@ import { CONNECTOR_VERSION } from './contract_version.js';
 import compression from 'compression';
 import express from 'express';
 import path from 'node:path';
+import { readFileSync } from 'node:fs';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
@@ -40,6 +41,13 @@ import { lyricCapacity, lyricWorkerState, readerPythonBridge } from './lyric_too
 import { ReaderJobStore } from './reader_job_store.js';
 import { ReaderScheduler, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter } from './reader_routes.js';
+import { LibrarySearch } from './library_search.js';
+import { libraryPublicRouter, redactLibraryUrl } from './library_routes.js';
+import { libraryViewerRouter, isViewerPath, libraryErrorHandler } from './library_viewer_routes.js';
+import { ExportStore } from './library_exports.js';
+import { libraryExportRouter, createStreamLimiter } from './library_export_routes.js';
+import { CorpusPackages, libraryCorpusRouter } from './library_corpus_routes.js';
+import { createAdmission } from './library_admission.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
@@ -140,7 +148,7 @@ app.use((req, res, next) => {
           ev: 'http',
           t: new Date().toISOString(),
           method: req.method,
-          url: redactJobCapability(req.originalUrl),
+          url: redactLibraryUrl(redactJobCapability(req.originalUrl)),
           status: res.statusCode,
           ms: Number(ms.toFixed(1)),
           ua: logHeader(req, 'user-agent'),
@@ -236,10 +244,23 @@ app.use((req, res, next) => {
   if (origin) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Vary', 'Origin');
+    // Only the Library viewer routes are credentialed (their HttpOnly cookie);
+    // search, metadata and everything else stay uncredentialed.
+    if (isViewerPath(req.originalUrl)) res.setHeader('Access-Control-Allow-Credentials', 'true');
   }
   res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, mcp-session-id, mcp-protocol-version');
-  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Content-Type, mcp-session-id, mcp-protocol-version, Idempotency-Key'
+  );
+  res.header(
+    'Access-Control-Expose-Headers',
+    'Retry-After, Content-Disposition, X-Library-Bytes, X-Library-SHA256'
+  );
+  if (req.method === 'OPTIONS') {
+    res.header('Access-Control-Max-Age', '600');
+    return res.sendStatus(204);
+  }
   next();
 });
 
@@ -254,51 +275,76 @@ app.use((req, res, next) => {
 const buildIdentity = runtimeBuildIdentity();
 const runtimeDir = (name) =>
   process.env.LYRIC_RUNTIME_DIR ? path.join(process.env.LYRIC_RUNTIME_DIR, name) : null;
+// The resources every new job is pinned to (its identity's resource_fingerprint).
+const readerResourceFingerprint =
+  process.env.READER_RESOURCE_FINGERPRINT ||
+  runtimeAssets().assets_sha256 ||
+  buildIdentity.commit ||
+  'unidentified';
 let readerScheduler;
+let readerStore;
+// One admission state for every path that queues an analysis (the private
+// bridge and the public viewer routes), so the long-reading rule is one
+// service-wide rule (library_admission.js). Created on first use, once the
+// store exists; it reads the search store's line counts when one is loaded.
+let admissionState = null;
+const libraryAdmission = () =>
+  (admissionState ||= createAdmission({
+    store: readerStore,
+    unitOf: (id) => librarySearch?.unit(id) ?? null,
+    fail: (code, message, status, extra) =>
+      Object.assign(new Error(message), { code, status, extra }),
+  }));
+let readerResolver;
 let readerFailure;
+// The reader (store, catalog resolver, scheduler) runs whenever it has a
+// pinned catalog and durable storage. Its two browser families mount on their
+// own conditions: /internal/reader (the Site bridge) only while the bridge
+// secret and Site identity are set, and the /library/v1 viewer routes only
+// with public analysis on (below; LIBRARY_PUBLIC=0 turns it off). Removing the bridge secrets therefore never
+// silently disables public analysis.
 try {
-  const readerStore = new ReaderJobStore({
+  readerStore = new ReaderJobStore({
     directory: process.env.READER_RUNTIME_DIR || runtimeDir('reader-jobs'),
     maxBytes: Number(process.env.READER_STORAGE_MAX_BYTES) || 256 * 1024 * 1024,
   });
-  if (
-    !process.env.READER_BRIDGE_SECRET ||
-    Buffer.byteLength(process.env.READER_BRIDGE_SECRET) < 32 ||
-    !process.env.READER_SITE_ID ||
-    !process.env.READER_CATALOG_DIR
-  )
-    throw new Error(
-      'Reader requires its private bridge secret, Site identity, pinned catalog and durable directory.'
-    );
-  const resolver = createCatalogResolver({
+  if (!process.env.READER_CATALOG_DIR)
+    throw new Error('Reader requires a pinned catalog and a durable directory.');
+  readerResolver = createCatalogResolver({
     directory: process.env.READER_CATALOG_DIR,
     engineCommit: buildIdentity.commit,
-    resourceFingerprint:
-      process.env.READER_RESOURCE_FINGERPRINT ||
-      runtimeAssets().assets_sha256 ||
-      buildIdentity.commit ||
-      'unidentified',
+    resourceFingerprint: readerResourceFingerprint,
   });
-  const readerCatalog = await resolver.probe();
+  const readerCatalog = await readerResolver.probe();
   readerScheduler = new ReaderScheduler({
     store: readerStore,
     bridge: readerPythonBridge,
-    ...resolver,
+    ...readerResolver,
   });
   readerScheduler.catalog = readerCatalog;
+  readerScheduler.kick();
+  readerStore.startMaintenance();
+} catch (error) {
+  readerFailure = error.message;
+  readerScheduler = undefined;
+}
+const bridgeConfigured =
+  process.env.READER_BRIDGE_SECRET &&
+  Buffer.byteLength(process.env.READER_BRIDGE_SECRET) >= 32 &&
+  process.env.READER_SITE_ID;
+if (readerScheduler && bridgeConfigured) {
   app.use(
     createReaderRouter({
+      admission: libraryAdmission(),
       store: readerStore,
       scheduler: readerScheduler,
       secret: process.env.READER_BRIDGE_SECRET,
       site: process.env.READER_SITE_ID,
-      resolveIdentity: resolver.resolveIdentity,
-      prepareRequest: resolver.prepareRequest,
+      resolveIdentity: readerResolver.resolveIdentity,
+      prepareRequest: readerResolver.prepareRequest,
     })
   );
-  readerScheduler.kick();
-} catch (error) {
-  readerFailure = error.message;
+} else {
   app.use('/internal/reader', (_req, res) =>
     res.status(503).json({
       error: {
@@ -317,6 +363,111 @@ const readerReadiness = () => {
   }
   return { ready: false, durable: false, enabled: false, reason: readerFailure, provider_calls: 0 };
 };
+// The public Library browser API (docs/library-native-design.md). Search and
+// metadata are read-only and uncredentialed, served from the store the image
+// builds (LIBRARY_SEARCH_DIR); without one they answer 503. Public analysis is
+// reported available only while public analysis mounts the viewer routes.
+let librarySearch = null;
+if (process.env.LIBRARY_SEARCH_DIR) {
+  try {
+    librarySearch = new LibrarySearch(process.env.LIBRARY_SEARCH_DIR);
+  } catch (error) {
+    console.error('[library] the search store is unusable; search answers 503:', error.message);
+  }
+}
+// Public selection exports (uncredentialed), from the export store the image
+// builds (LIBRARY_EXPORT_DIR); without one they answer 503.
+let libraryExports = null;
+if (process.env.LIBRARY_EXPORT_DIR) {
+  try {
+    libraryExports = new ExportStore(process.env.LIBRARY_EXPORT_DIR);
+  } catch (error) {
+    console.error('[library] the export store is unusable; exports answer 503:', error.message);
+  }
+}
+// Whole-corpus packages (LIBRARY_CORPUS_DIR), installed only when they were
+// built from the same snapshot the search and export stores serve; each is
+// re-hashed in the background and answers 503 until it verifies.
+let libraryCorpus = null;
+if (process.env.LIBRARY_CORPUS_DIR) {
+  try {
+    const corpus = new CorpusPackages(process.env.LIBRARY_CORPUS_DIR);
+    const served = [librarySearch, libraryExports].filter(Boolean).map((s) => s.snapshotId);
+    if (served.some((id) => id !== corpus.snapshotId))
+      throw new Error('the packages were built from a different snapshot');
+    libraryCorpus = corpus;
+    corpus.verify().then(
+      (failures) => {
+        if (failures.length)
+          console.error('[library] corpus packages failed verification:', failures.join(', '));
+      },
+      (error) => console.error('[library] corpus verification failed:', error.message)
+    );
+  } catch (error) {
+    console.error('[library] the corpus packages are unusable; corpus answers 503:', error.message);
+  }
+}
+// One download limiter for selection and analysis exports (decision 4).
+const libraryStreams = createStreamLimiter();
+app.use(
+  '/library/v1',
+  libraryExportRouter({ exports: libraryExports, corpus: libraryCorpus, streams: libraryStreams })
+);
+app.use('/library/v1', libraryCorpusRouter({ corpus: libraryCorpus }));
+// Retained definitions: the exact methods and result-schema bytes this image
+// analyses with, copied into each new job so its export never borrows a later
+// image's.
+let libraryDefinitions = null;
+try {
+  const root = new URL('../lyric-harness/library/', import.meta.url);
+  libraryDefinitions = {
+    methods: readFileSync(new URL('methods.json', root)),
+    result_schema: readFileSync(new URL('schema.json', root)),
+  };
+} catch (error) {
+  console.error('[library] retained definitions are unavailable:', error.message);
+}
+// Public analysis: on since the native Library tab shipped (LIBRARY_PUBLIC=0
+// turns it off), with a running reader and the search store, whose snapshot
+// is the one every request is filled with. Mounted before the public router,
+// whose refusals would otherwise answer.
+const LIBRARY_PUBLIC = process.env.LIBRARY_PUBLIC !== '0';
+if (LIBRARY_PUBLIC) {
+  if (readerScheduler && librarySearch) {
+    app.use(
+      '/library/v1',
+      libraryViewerRouter({
+        admission: libraryAdmission(),
+        store: readerStore,
+        scheduler: readerScheduler,
+        prepareRequest: readerResolver.prepareRequest,
+        resolveIdentity: readerResolver.resolveIdentity,
+        unitOf: (id) => librarySearch.unit(id),
+        snapshotId: () => librarySearch.snapshotId,
+        exports: libraryExports,
+        streams: libraryStreams,
+        definitions: () => libraryDefinitions,
+        resourceFingerprint: () => readerResourceFingerprint,
+      })
+    );
+  } else {
+    console.error(
+      '[library] public analysis is on but the reader or the search store is unavailable; analysis is not mounted.'
+    );
+  }
+}
+app.use(
+  '/library/v1',
+  libraryPublicRouter({
+    search: librarySearch,
+    corpus: libraryCorpus,
+    analysisAvailable: () =>
+      LIBRARY_PUBLIC && Boolean(librarySearch) && readerReadiness().ready === true,
+  })
+);
+// After every /library/v1 router: errors raised before routing (a body that
+// does not parse) answer JSON, not Express's HTML page.
+app.use('/library/v1', libraryErrorHandler);
 let jobStore;
 try {
   jobStore = new JobStore(runtimeDir('jobs'));

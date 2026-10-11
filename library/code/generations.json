@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "retain_days": 30,
+  "generations": [
+    {
+      "id": "712128f3fbb7b5c2",
+      "files": [
+        "analysis.71b110b249.js",
+        "compare.e48e7feb47.js",
+        "core.0dcc6ec3f7.js",
+        "reader.4d0287465c.js",
+        "rights.8a94ca24b7.js",
+        "works.fd3dfc5815.js"
+      ],
+      "first_published": "2026-10-11",
+      "retired": null
+    }
+  ]
+}
