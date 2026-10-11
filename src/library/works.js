@@ -57,8 +57,10 @@ const STYLE = `
 #surface-library .lw-top .cm-search{flex:1 1 280px;height:44px}
 #surface-library .lw-search-clear{display:none}
 #surface-library .lw-top.has-q .lw-search-clear{display:inline-flex}
-#surface-library .lw-top kbd{font:12px var(--cm-font);color:var(--cm-text-muted);border:1px solid var(--cm-border);border-radius:6px;padding:1px 6px}
+#surface-library .lw-top kbd{white-space:nowrap;font:12px var(--cm-font);color:var(--cm-text-muted);border:1px solid var(--cm-border);border-radius:6px;padding:1px 6px}
 #surface-library .lw-top.has-q kbd{display:none}
+#surface-library .lw-count[hidden]{display:none}
+#surface-library .lw-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 #surface-library .lw-count{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--cm-accent);color:var(--cm-on-accent);font-size:12px}
 #surface-library .lw-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
 #surface-library .lw-head h2{margin:0;font-size:22px;font-weight:600}
@@ -108,6 +110,7 @@ const STYLE = `
 #surface-library .lw-value .lw-kv>span:nth-child(odd){color:var(--cm-text-muted)}
 #surface-library .lw-value .lw-kv>*{overflow-wrap:anywhere;min-width:0}
 @media (max-width:720px){
+#surface-library .lw-top kbd{display:none}
 #surface-library .lw-table thead{display:none}
 #surface-library .lw-table,#surface-library .lw-table tbody,#surface-library .lw-table tr,#surface-library .lw-table td{display:block;width:auto}
 #surface-library .lw-table tr{position:relative;padding:8px 0;border-bottom:1px solid var(--cm-border-subtle)}
@@ -252,8 +255,8 @@ function rowHTML(r, lib) {
       : '';
   return (
     `<tr data-id="${esc(id)}">` +
-    `<td><button type="button" class="lw-title" data-lw="open" data-id="${esc(id)}" aria-label="${esc((readable ? 'Read ' : 'Show the record of ') + title)}">${ic(lib, readable ? 'book-open' : 'info', 18)}<span><strong>${esc(title)}</strong><small>${esc(r.snippet || r.source_path || '')}</small></span></button>${ids}</td>` +
-    `<td>${esc(who)}</td>` +
+    `<td><button type="button" class="lw-title" data-lw="open" data-id="${esc(id)}" aria-label="${esc((readable ? 'Read ' : 'Show the record of ') + title)}">${ic(lib, readable ? 'book-open' : 'info', 18)}<span dir="auto"><strong>${esc(title)}</strong><small dir="auto">${esc(r.snippet || r.source_path || '')}</small></span></button>${ids}</td>` +
+    `<td dir="auto">${esc(who)}</td>` +
     `<td>${esc(languageName(r.language))}</td>` +
     `<td><span class="lw-badge" data-a="${esc(r.availability)}">${esc(words(r.availability))}</span><small>${esc(words(r.completeness))}</small></td>` +
     `<td class="lw-actions"><button type="button" class="cm-btn" data-lw="meta" data-id="${esc(id)}" aria-label="${esc('Record of ' + title)}" title="Source record">${ic(lib, 'info', 18)}</button>` +
@@ -352,9 +355,9 @@ class WorksView {
     }
     this.slot('title').textContent = title;
     const chips = [];
-    if (s.collection && s.base === '/works')
-      chips.push(['collection', 'In one collection']);
-    if (s.availability !== 'readable') chips.push(['availability', 'Availability: ' + words(s.availability)]);
+    if (s.collection && s.base === '/works') chips.push(['collection', 'In one collection']);
+    if (s.availability !== 'readable')
+      chips.push(['availability', 'Availability: ' + words(s.availability)]);
     if (s.language !== 'all') chips.push(['language', languageName(s.language)]);
     if (s.completeness !== 'all') chips.push(['completeness', words(s.completeness)]);
     if (s.contributor) chips.push(['contributor', 'Contributor: ' + s.contributor]);
@@ -375,8 +378,7 @@ class WorksView {
     const seq = ++this.seq;
     const results = this.slot('results');
     results.setAttribute('aria-busy', 'true');
-    if (!this.rows.length)
-      results.innerHTML = uiEmptyState({ title: 'Loading works…' });
+    if (!this.rows.length) results.innerHTML = uiEmptyState({ title: 'Loading works…' });
     this.paintHead();
     let page;
     try {
@@ -421,7 +423,7 @@ class WorksView {
     const last = Math.min(offset + page.rows.length, page.total);
     const hasNext = page.next !== undefined ? page.next !== null : last < page.total;
     results.innerHTML =
-      `<div class="lw-scroll"><table class="lw-table"><thead><tr><th scope="col">Work / reading</th><th scope="col">Contributor</th><th scope="col">Language</th><th scope="col">Scope / availability</th><th scope="col"><span class="sr-only">Record and export selection</span></th></tr></thead><tbody>` +
+      `<div class="lw-scroll"><table class="lw-table"><thead><tr><th scope="col">Work / reading</th><th scope="col">Contributor</th><th scope="col">Language</th><th scope="col">Scope / availability</th><th scope="col"><span class="lw-sr">Record and export selection</span></th></tr></thead><tbody>` +
       page.rows.map((r) => rowHTML(r, this.lib)).join('') +
       `</tbody></table></div>` +
       `<nav class="lw-pager" aria-label="Works pages"><button type="button" class="cm-btn cm-btn-outline" data-lw="page" data-to="${Math.max(0, offset - PAGE)}" ${offset === 0 ? 'disabled' : ''}>Previous</button>` +
@@ -435,7 +437,10 @@ class WorksView {
       const row = this.rows.find((r) => r.reading_unit_id === b.dataset.id);
       const title = row?.title || 'this reading';
       b.setAttribute('aria-pressed', String(on));
-      b.setAttribute('aria-label', `${on ? 'Remove' : 'Add'} ${title} ${on ? 'from' : 'to'} export selection`);
+      b.setAttribute(
+        'aria-label',
+        `${on ? 'Remove' : 'Add'} ${title} ${on ? 'from' : 'to'} export selection`
+      );
       b.title = on ? 'Remove from selection' : 'Add to selection';
       b.innerHTML = ic(this.lib, on ? 'check' : 'plus', 18);
     }
@@ -471,7 +476,8 @@ class WorksView {
       const r = row();
       if (!r) return;
       if (r.availability === 'readable') this.openReading(r);
-      else openMetadata(this.lib, r.reading_unit_id, { opener: t, row: r, layer: this.slot('layer') });
+      else
+        openMetadata(this.lib, r.reading_unit_id, { opener: t, row: r, layer: this.slot('layer') });
     } else if (act === 'meta') {
       const r = row();
       openMetadata(this.lib, t.dataset.id, { opener: t, row: r, layer: this.slot('layer') });
@@ -485,7 +491,10 @@ class WorksView {
       for (const id of ids) this.lib.selection.add(id);
       this.paintSelection();
       if (typeof showToast === 'function')
-        showToast(`${ids.length.toLocaleString()} readable units added to the selection`, 'success');
+        showToast(
+          `${ids.length.toLocaleString()} readable units added to the selection`,
+          'success'
+        );
     } else if (act === 'page') {
       s.offset = String(Math.max(0, Number(t.dataset.to) || 0));
       this.commit(true);
@@ -612,7 +621,9 @@ function openSheet(layer, { title, text, body, opener, lib, kind }) {
   sheet.querySelector('[data-lw-close]').addEventListener('click', () => closeSheet(sheet));
   sheet.addEventListener('keydown', (e) => {
     if (e.key !== 'Tab') return;
-    const f = [...sheet.querySelectorAll('button:not([disabled]),select,input,summary,[tabindex="0"]')];
+    const f = [
+      ...sheet.querySelectorAll('button:not([disabled]),select,input,summary,[tabindex="0"]'),
+    ];
     if (!f.length) return;
     if (e.shiftKey && document.activeElement === f[0]) {
       e.preventDefault();
@@ -635,10 +646,12 @@ function closeSheet(sheet, refocus = true) {
 function valueHTML(v, depth = 0) {
   if (v === undefined) return '<span class="lw-unknown">Not loaded yet</span>';
   if (v === null) return '<span class="lw-unknown">Undeclared / unread</span>';
-  if (typeof v === 'boolean') return `<span class="${v ? 'lw-yes' : 'lw-unknown'}">${v ? 'Yes' : 'No'}</span>`;
+  if (typeof v === 'boolean')
+    return `<span class="${v ? 'lw-yes' : 'lw-unknown'}">${v ? 'Yes' : 'No'}</span>`;
   if (typeof v !== 'object') return `<span>${esc(String(v))}</span>`;
   const entries = Array.isArray(v) ? v.map((x, i) => ['Item ' + (i + 1), x]) : Object.entries(v);
-  if (!entries.length) return `<span class="lw-unknown">${Array.isArray(v) ? 'None recorded' : 'Empty'}</span>`;
+  if (!entries.length)
+    return `<span class="lw-unknown">${Array.isArray(v) ? 'None recorded' : 'Empty'}</span>`;
   const shown = entries.slice(0, 100);
   const more =
     entries.length > shown.length
@@ -659,7 +672,9 @@ function valueHTML(v, depth = 0) {
 }
 
 function metadataBody(m, state) {
-  const who = (m.contributors || []).map((c) => (c.role ? `${c.name} (${c.role})` : c.name)).join('; ');
+  const who = (m.contributors || [])
+    .map((c) => (c.role ? `${c.name} (${c.role})` : c.name))
+    .join('; ');
   const dl = [
     ['Contributors', who || m.contributor_search || 'Source contributor unknown'],
     ['Language', languageName(m.language)],
