@@ -25,9 +25,11 @@
 //   READY MEANS USABLE, detected identically for both sides by an init script.
 //   A milestone (for example shelves-ready: first shelf heading and first card
 //   title) counts at the first animation frame after ALL of these hold:
-//     1. every configured selector matches an element that is painted inside
-//        the viewport (non-zero box, intersecting the viewport, computed
-//        visibility visible, not display:none);
+//     1. every configured selector matches at least one element that is
+//        painted inside the viewport (non-zero box, intersecting the viewport,
+//        computed visibility visible, not display:none). Any match counts, not
+//        only the first in document order: a shelf's first card in DOM order
+//        can sit beyond the edge of a horizontal scroller;
 //     2. fonts have settled (document.fonts.status 'loaded'), or 100 ms have
 //        passed since condition 1 first held;
 //     3. no busy indicator (aria-busy=true, or the side's configured skeleton
@@ -219,8 +221,8 @@ function detectorSource(spec) {
     for (const [name, m] of Object.entries(SPEC.milestones)) {
       if (out.milestones[name] != null) continue;
       pending = true;
-      const els = m.selectors.map((s) => document.querySelector(s));
-      if (!els.every(painted)) { delete firstHeld[name]; continue; }
+      const shown = m.selectors.every((s) => Array.prototype.some.call(document.querySelectorAll(s), painted));
+      if (!shown) { delete firstHeld[name]; continue; }
       const now = performance.now();
       if (firstHeld[name] == null) firstHeld[name] = now;
       const fontsOk = !document.fonts || document.fonts.status === 'loaded' || now - firstHeld[name] >= 100;
@@ -292,16 +294,51 @@ async function runOnce(browser, side, profileName, milestoneNames) {
     if (milestoneNames.some((n) => !state || state.milestones[n] == null)) {
       const shown = await page
         .evaluate((spec) => {
-          const seen = (sel) => {
-            const el = document.querySelector(sel);
-            if (!el) return 'absent';
+          // The same tests the detector applies: visible, sized, and inside
+          // the viewport (a sized element below the fold is not painted).
+          // Any match counts, so the best match is reported, with the count.
+          const status = (el) => {
+            const cs = window.getComputedStyle(el);
+            if (cs.visibility !== 'visible' || cs.display === 'none') return 'hidden';
             const r = el.getBoundingClientRect();
-            return r.width && r.height ? 'painted' : 'unpainted';
+            if (!(r.width > 0 && r.height > 0)) return 'unsized';
+            const inView =
+              r.bottom > 0 &&
+              r.right > 0 &&
+              r.top < window.innerHeight &&
+              r.left < window.innerWidth;
+            return inView
+              ? 'painted'
+              : `outside the viewport (box ${Math.round(r.left)},${Math.round(r.top)} to ` +
+                  `${Math.round(r.right)},${Math.round(r.bottom)}; viewport ` +
+                  `${window.innerWidth}x${window.innerHeight})`;
           };
+          const seen = (sel) => {
+            const all = [...document.querySelectorAll(sel)];
+            if (!all.length) return 'absent';
+            const statuses = all.map(status);
+            const best =
+              statuses.find((x) => x === 'painted') ||
+              statuses.find((x) => x.startsWith('outside')) ||
+              statuses[0];
+            return `${best} (${all.length} match${all.length === 1 ? '' : 'es'})`;
+          };
+          const ariaBusy = [...document.querySelectorAll('[aria-busy="true"]')]
+            .filter((el) => {
+              const r = el.getBoundingClientRect();
+              return r.width > 0 && r.height > 0 && r.top < window.innerHeight && r.bottom > 0;
+            })
+            .slice(0, 3)
+            .map(
+              (el) =>
+                `${el.tagName.toLowerCase()}.${String(el.className).split(' ').slice(0, 2).join('.')}`
+            );
           return {
             url: window.location.href,
             title: document.title,
             busy: spec.busy ? seen(spec.busy) : null,
+            aria_busy: ariaBusy,
+            fonts: document.fonts ? document.fonts.status : null,
             selectors: Object.fromEntries(
               Object.values(spec.milestones).flatMap((m) => m.selectors.map((s) => [s, seen(s)]))
             ),
@@ -585,6 +622,25 @@ async function selfTest() {
   if (!r.comparisons.length || !r.comparisons[0].diff_ci95) problems.push('no comparison or CI');
   if (r.failures.length) problems.push(`unexpected failures: ${r.failures.join('; ')}`);
 
+  // A shelf whose first card in document order sits beyond the scroller's
+  // edge is still ready once a later card is painted: any match counts.
+  fs.writeFileSync(
+    path.join(dir, 'scroller.html'),
+    page(
+      `<h2 class="shelf">English</h2><div class="card" style="position:absolute;left:-5000px"><span class="title">Off</span></div>${card}`
+    )
+  );
+  const scrolled = await measure({
+    ...base,
+    runs: 1,
+    sides: {
+      old: { mode: 'synthetic', root: dir, path: '/scroller.html', busy: '.skeleton', milestones },
+      new: { mode: 'synthetic', root: dir, path: '/new.html', busy: '.skeleton', milestones },
+    },
+  });
+  if (scrolled.sides.old.milestones['shelves-ready'].missed)
+    problems.push('a painted later match was ignored because the first match is off-screen');
+
   // A fixture run that sees a request it does not hold must be refused.
   const fixture = path.join(dir, 'fixture.json');
   fs.writeFileSync(
@@ -644,7 +700,7 @@ async function selfTest() {
     return 1;
   }
   console.log(
-    'SELF-TEST PASS — milestones, busy state, probes, labels, CI, fixture refusal and mode refusal behave.'
+    'SELF-TEST PASS — milestones, any-match readiness, busy state, probes, labels, CI, fixture refusal and mode refusal behave.'
   );
   return 0;
 }
