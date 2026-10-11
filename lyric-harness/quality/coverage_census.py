@@ -39,15 +39,24 @@ THE COORDINATES ARE DECLARED, NEVER DEFAULTED SILENTLY: the population, the
 supplement version (`none` or a manifest id, quality/lexicon_supplement.py)
 and the fallback (`none`, `high`, `low`), all printed with the result.
 
-"SONGS UNLOCKED": for each unread type, the number of items in which it is
-the ONLY unread type -- the songs that adding that one reading would finish.
-It is the ranking a review queue should read beside raw frequency.
+COMPLETION POTENTIAL: for each unread type, the items in which it is the
+SOLE lookup blocker (interior pieces and the grader's end anchor together),
+and a fractional credit 1/k for each item it shares with k-1 other blockers.
+Both are POTENTIAL: an unlock is claimed only after the reading lands and
+this census is re-run. A queue ranks by marginal completion over jointly
+completable sets, never by sole-blocker counts alone.
+
+EVERY RECORD NAMES ITS INPUTS: the population's file digest
+(`inputs_sha256`), the supplement version and its sha256, the fallback and
+the census commit, so figures from different populations cannot be mixed.
 """
 import argparse
 import collections
 import glob
+import hashlib
 import json
 import os
+import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -100,6 +109,12 @@ def census(paths, lex, top=0):
     items = clear_items = 0
     only_blocker = collections.Counter()
     blocking_items = collections.Counter()
+    # Blockers of LOOKUP READINESS: interior pieces and the grader's anchor
+    # together. A type's completion potential counts an item only when it is
+    # the item's sole blocker across BOTH, and the fractional credit 1/k
+    # shares each k-blocker item, so a word that only ever appears beside
+    # another unknown is not scored zero forever (3PO, #527, point 5).
+    sole_lookup, credit = collections.Counter(), collections.Counter()
     for path in paths:
         for _title, lines in items_of(path):
             if not lines:
@@ -154,8 +169,13 @@ def census(paths, lex, top=0):
                         e["only"][next(iter(here[k]))] += 1
                 else:
                     e["clear"] += 1
-            if not unread_here and not here["end_anchor"]:
+            blockers = unread_here | here["end_anchor"]
+            if not blockers:
                 ready_items += 1
+            elif len(blockers) == 1:
+                sole_lookup[next(iter(blockers))] += 1
+            for t in blockers:
+                credit[t] += 1 / len(blockers)
     rec = {
         "words": words, "unread_words": unread_words,
         "unread_word_share": round(unread_words / words, 6) if words else None,
@@ -165,18 +185,24 @@ def census(paths, lex, top=0):
         "items": items, "items_fully_read": clear_items,
         "items_fully_read_share": round(clear_items / items, 6) if items else None,
         "items_blocked_by_exactly_one_type": sum(only_blocker.values()),
-        # Every word read AND every line end anchored by the grader's own
-        # reader: the whole songs the dictionary would not stop. The grid
-        # reader is reported apart, not folded in: it judges only repeated
-        # sections, so requiring it on every line would overstate the gap.
-        "items_read_and_end_keyed": ready_items,
-        "items_read_and_end_keyed_share": (round(ready_items / items, 6)
-                                           if items else None),
+        # WORD-AND-ANCHOR LOOKUP READINESS: every word's pieces read AND every
+        # line end anchored by the grader's own reader. It is not workflow
+        # readiness (that also needs the return-grid obligations a declared
+        # return carries, on its returns only), not pronunciation
+        # correctness, and not a passing song. The grid reader is reported
+        # apart, not folded in, because it judges repeated sections only.
+        "items_lookup_ready": ready_items,
+        "items_lookup_ready_share": (round(ready_items / items, 6)
+                                     if items else None),
+        "items_with_one_lookup_blocker": sum(sole_lookup.values()),
     }
     if top:
         rec["top_unread_types"] = [
             {"type": k, "unread_words": n, "items_blocked": blocking_items[k],
-             "items_unlocked_alone": only_blocker[k]}
+             # Potential, not a measured unlock: a claimed unlock is replayed
+             # through this census after the reading lands.
+             "word_lookup_completion_potential": sole_lookup[k],
+             "fractional_item_credit": round(credit[k], 3)}
             for k, n in type_unread.most_common(top)]
     for k in readers:
         e = E[k]
@@ -192,9 +218,40 @@ def census(paths, lex, top=0):
             rec[k]["top_unread_types"] = [
                 {"type": t, "unread_end_words": n,
                  "items_blocked": e["blocking"][t],
-                 "items_unlocked_alone": e["only"][t]}
+                 "items_where_sole_unread_end_type": e["only"][t]}
                 for t, n in e["types"].most_common(top)]
     return rec
+
+
+def inputs_sha256(paths):
+    """One digest naming the exact population: each file's path relative to
+    the harness root and its own sha256, in sorted order. Two figures with
+    different digests were measured on different texts."""
+    h = hashlib.sha256()
+    for p in sorted(paths):
+        with open(p, "rb") as fh:
+            h.update(f"{os.path.relpath(p, ROOT)}\t"
+                     f"{hashlib.sha256(fh.read()).hexdigest()}\n".encode())
+    return h.hexdigest()
+
+
+def _lexicon_sha256(lex):
+    from quality import lexicon_supplement as S
+    return S.lexicon_identity(lex)["sha256"]
+
+
+def _commit():
+    """-> the HEAD commit, suffixed `+dirty` when this census's own source
+    differs from it (a figure from an uncommitted census names no commit)."""
+    def git(*args):
+        return subprocess.run(["git", *args], cwd=ROOT, capture_output=True,
+                              text=True, check=True).stdout.strip()
+    try:
+        head = git("rev-parse", "HEAD")
+        dirty = git("status", "--porcelain", "--", os.path.relpath(__file__, ROOT))
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return head + ("+dirty" if dirty else "") if head else None
 
 
 def main(argv=None):
@@ -215,8 +272,10 @@ def main(argv=None):
         return 2
     lex = build_lexicon(a.lexicon_supplement, a.fallback)
     rec = {"population": a.population, "globs": POPULATIONS[a.population],
-           "files": len(paths), "lexicon_supplement": a.lexicon_supplement,
-           "fallback": a.fallback}
+           "files": len(paths), "inputs_sha256": inputs_sha256(paths),
+           "lexicon_supplement": a.lexicon_supplement,
+           "lexicon_supplement_sha256": _lexicon_sha256(lex),
+           "fallback": a.fallback, "census_commit": _commit()}
     rec.update(census(paths, lex, a.top))
     text = json.dumps(rec, indent=1, ensure_ascii=False)
     print(text)
