@@ -96,17 +96,15 @@ export function guardStream(
     minBytesPerSecond = LIBRARY_LIMITS.streamMinBytesPerSecond,
     windowMs = LIBRARY_LIMITS.streamRateWindowMs,
     tickMs = Math.min(1000, idleMs / 4),
+    maxIdleMs = LIBRARY_LIMITS.streamMaxIdleMs,
   } = {}
 ) {
   const queued = () => {
     const written = res.socket?.bytesWritten;
     return Number.isFinite(written) ? written : 0;
   };
-  let lastQueued = queued();
   let lastMoved = Date.now();
-  let pending = 0; // bytes of this response's writes not yet called back
   let completed = 0; // bytes of this response's writes called back
-  let stopped = false;
   const moved = () => {
     lastMoved = Date.now();
   };
@@ -121,11 +119,8 @@ export function guardStream(
     res.write = function guardedWrite(chunk, encoding, callback) {
       if (typeof encoding === 'function') [encoding, callback] = [undefined, encoding];
       const bytes = sizeOf(chunk, encoding);
-      pending += bytes;
       const done = (error) => {
-        pending -= bytes;
         completed += bytes;
-        if (!stopped) moved();
         if (callback) callback(error);
       };
       return encoding === undefined
@@ -133,37 +128,77 @@ export function guardStream(
         : write.call(this, chunk, encoding, done);
     };
   }
-  // end()'s data is outstanding until 'finish', which stops the guard.
-  const end = typeof res.end === 'function' ? res.end : null;
-  if (end) {
-    res.end = function guardedEnd(chunk, encoding, ...rest) {
-      if (typeof chunk !== 'function') pending += sizeOf(chunk, encoding);
-      return end.call(this, chunk, encoding, ...rest);
-    };
-  }
-  // The rate counts bytes the socket has taken: completed writes where they
-  // are observed, else bytesWritten.
-  const progress = () => (write ? completed : queued());
-  // The crawl check's wall-clock allowance while an outstanding write hides
-  // its progress. Never consulted by the idle check.
-  const waiting = () =>
-    pending > 0 && Date.now() - lastMoved < (pending * 1000) / minBytesPerSecond;
+  // One progress counter from both public signals.
+  const signal = () => queued() + completed;
   const cut = () => res.destroy();
-  let windowStart = progress();
+  // The kernel takes a response in steps: the first burst fills its buffers,
+  // and after that a reading client's window reopens only in steps of up to
+  // megabytes, so a healthy reader at the floor can show no progress for
+  // minutes. A client is PROVEN once progress resumes after a pause (it read
+  // something: a zero-byte reader never reopens its window).
+  //
+  // Idle: until proven, no progress for idleMs cuts. Once proven, a pause may
+  // last idleMs plus the time the largest step seen needs at the floor, and
+  // never more than maxIdleMs (600 s by default): a client that reads and
+  // then stops is cut within maxIdleMs plus a tick.
+  //
+  // Crawl: until proven, fewer than minBytesPerSecond over a windowMs window
+  // cuts. Once proven the horizon holds two whole steps at the floor (at
+  // least windowMs, at most maxIdleMs), and the client must have moved the
+  // floor over that horizon less one step (a step that has not landed yet is
+  // not held against it): a reader at the floor always passes, one below
+  // about half the floor does not.
+  let lastSignal = signal();
+  let proven = false;
+  let provenAt = 0;
+  let step = 0; // bytes over the current run of consecutive moving ticks
+  let largestStep = 0;
+  let windowStart = lastSignal;
+  const history = []; // [time, signal] at each movement since proven
+  const allowedIdle = () =>
+    proven ? Math.min(maxIdleMs, idleMs + (largestStep * 1000) / minBytesPerSecond) : idleMs;
+  const horizon = () =>
+    Math.min(maxIdleMs, Math.max(windowMs, (2 * largestStep * 1000) / minBytesPerSecond));
+  const crawling = (at, now) => {
+    const span = horizon();
+    if (at - provenAt < span) return false;
+    // Kept for the longest horizon, which can grow as larger steps land.
+    while (history.length > 1 && history[1][0] <= at - maxIdleMs) history.shift();
+    let base = history[0][1];
+    for (const [time, value] of history) {
+      if (time > at - span) break;
+      base = value;
+    }
+    const moved = now - base;
+    return moved < (minBytesPerSecond * span) / 1000 - largestStep;
+  };
   const idle = setInterval(() => {
-    const now = queued();
-    if (now !== lastQueued) {
-      lastQueued = now;
+    const at = Date.now();
+    const now = signal();
+    const paused = at - lastMoved;
+    if (now !== lastSignal) {
+      if (paused >= tickMs + tickMs / 2) step = 0; // the run broke on a still tick
+      if (!proven && paused >= 2 * tickMs) {
+        proven = true;
+        provenAt = at;
+        history.push([at, lastSignal]);
+      }
+      step += now - lastSignal;
+      if (proven) {
+        largestStep = Math.max(largestStep, step);
+        history.push([at, now]);
+      }
+      lastSignal = now;
       moved();
-    } else if (Date.now() - lastMoved >= idleMs) cut();
+    } else if (paused >= allowedIdle()) return cut();
+    if (proven && crawling(at, now)) cut();
   }, tickMs);
   const rate = setInterval(() => {
-    const now = progress();
-    if (now - windowStart < (minBytesPerSecond * windowMs) / 1000 && !waiting()) cut();
+    const now = signal();
+    if (!proven && now - windowStart < (minBytesPerSecond * windowMs) / 1000) cut();
     windowStart = now;
   }, windowMs);
   const stop = () => {
-    stopped = true;
     clearInterval(idle);
     clearInterval(rate);
   };

@@ -100,11 +100,22 @@ server's own snapshot (the client never sends one):
   byte 0; HEAD and resumes are free) and 2 streams service-wide. The upload
   `*.part-*` files the builder writes are never read.
 
-Every download stream (selection, analysis, corpus) is cut after 60 s without
-progress, or when fewer than 4 KiB/s moved over a 120 s window
-(`guardStream`; `LIBRARY_LIMITS.streamIdleMs`, `streamMinBytesPerSecond`,
-`streamRateWindowMs`), so a stalled or crawling client cannot hold one of the
-few stream slots.
+Every download stream (selection, analysis, corpus) is guarded
+(`guardStream`; `LIBRARY_LIMITS.streamIdleMs` 60 s, `streamMinBytesPerSecond`
+4 KiB/s, `streamRateWindowMs` 120 s, `streamMaxIdleMs` 600 s), so a stalled or
+crawling client cannot hold one of the few stream slots. Progress is socket
+`bytesWritten` movement or the response's own write callbacks (each write is
+at most 64 KiB); nothing private is read. The kernel passes a slow reader's
+progress on in steps of up to megabytes, so a client is held to two rules:
+
+- Until it is proven (progress resumes after a pause, i.e. it read
+  something), 60 s without progress cuts it, and so does under 4 KiB/s over a
+  120 s window. A client that reads nothing goes at 60 s.
+- Once proven, a pause may last 60 s plus the time its largest step needs at
+  4 KiB/s, and never more than 600 s (`streamMaxIdleMs`); and over a horizon of
+  two steps at the floor (120 s to 600 s) it must have moved 4 KiB/s less one
+  step. A reader that read and then stopped is cut within 600 s; one below
+  about half the floor is cut by the horizon check.
 
 Search and metadata are `Cache-Control: public, max-age=300` with an ETag;
 errors are `no-store`. Search has a per-address abuse ceiling of 600 a minute

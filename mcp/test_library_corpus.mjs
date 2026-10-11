@@ -272,16 +272,32 @@ test('the stream guard cuts a stalled client and a crawling one, and frees the s
   assert.equal(next.status, 206, 'the cut stream released its slot');
   await next.arrayBuffer();
 
-  const crawling = await serve(
-    t,
+  // A client that truly reads nothing after its first burst (a paused
+  // response; fetch would read ahead into its own buffer), so the crawl check
+  // that cuts it is the unproven one. Observed at the server.
+  let crawlCut = false;
+  const crawlApp = express();
+  crawlApp.use(
+    '/library/v1',
     libraryCorpusRouter({
       corpus,
-      guard: (res) => guardStream(res, { idleMs: 60_000, windowMs: 300, minBytesPerSecond: 1e12 }),
+      guard: (res) => {
+        res.on('close', () => (crawlCut = true));
+        return guardStream(res, { idleMs: 60_000, windowMs: 300, minBytesPerSecond: 1e12 });
+      },
     })
   );
-  const slow = await crawling(url);
+  const crawlServer = http.createServer(crawlApp);
+  await new Promise((resolve) => crawlServer.listen(0, '127.0.0.1', resolve));
+  t.after(() => {
+    crawlServer.closeAllConnections();
+    crawlServer.close();
+  });
+  http
+    .get(`http://127.0.0.1:${crawlServer.address().port}${url}`, (res) => res.pause())
+    .on('error', () => {});
   await new Promise((resolve) => setTimeout(resolve, 900));
-  await assert.rejects(slow.arrayBuffer(), 'cut below the minimum rate');
+  assert.equal(crawlCut, true, 'cut below the minimum rate');
 });
 
 test('the stream guard measures the socket: a client draining bounded writes steadily is never idle', async (t) => {
@@ -433,6 +449,67 @@ test('the stream guard reads no private socket state: a hidden write queue chang
   assert.deepEqual(read, { status: 200, bytes: size });
 });
 
+test('at the production limits a zero-byte reader is cut at idleMs while a 10 KB/s reader is kept, over HTTP and TLS', async (t) => {
+  // 3PO's pair, together, on both transports. The kernel hands a slow
+  // reader's progress on in megabyte steps, so a healthy 10.2 KB/s reader
+  // shows no progress for well over 60 s; it is kept because it reopened its
+  // window after the first burst (proven). A reader that reads nothing never
+  // does, and goes at idleMs.
+  const closed = new Map();
+  const handler = (req, res) => {
+    res.on('close', () =>
+      closed.set(`${req.socket.encrypted ? 'tls' : 'tcp'}${req.url}`, Date.now())
+    );
+    guardStream(res);
+    respond(res, 200_000_000);
+  };
+  const servers = {
+    tcp: http.createServer(handler),
+    tls: https.createServer(selfSigned(), handler),
+  };
+  for (const server of Object.values(servers)) {
+    await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+    t.after(() => {
+      server.closeAllConnections();
+      server.close();
+    });
+  }
+  const start = Date.now();
+  const bytes = { tcp: 0, tls: 0 };
+  for (const [kind, server] of Object.entries(servers)) {
+    const client = kind === 'tls' ? https : http;
+    const options = { host: '127.0.0.1', port: server.address().port, rejectUnauthorized: false };
+    client.get({ ...options, path: '/zero' }, (res) => res.pause()).on('error', () => {});
+    client
+      .get({ ...options, path: '/healthy' }, (res) => {
+        res.on('data', (chunk) => {
+          bytes[kind] += chunk.length;
+          res.pause();
+          setTimeout(() => res.resume(), (chunk.length / 10_240) * 1000);
+        });
+      })
+      .on('error', () => {});
+  }
+  await new Promise((resolve) => setTimeout(resolve, 150_000));
+  const { streamIdleMs } = LIBRARY_LIMITS;
+  for (const kind of ['tcp', 'tls']) {
+    const zero = closed.get(`${kind}/zero`) - start;
+    assert.ok(
+      zero >= streamIdleMs && zero <= streamIdleMs + 1500,
+      `${kind}: zero-byte reader cut at ${zero} ms`
+    );
+    assert.equal(
+      closed.has(`${kind}/healthy`),
+      false,
+      `${kind}: the healthy reader is connected at 150 s`
+    );
+    assert.ok(
+      bytes[kind] > 1_000_000,
+      `${kind}: the healthy reader kept reading (${bytes[kind]} bytes)`
+    );
+  }
+});
+
 test('a whole-corpus selection plan names the corpus package URL', async (t) => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'library-corpus-plan-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
@@ -499,6 +576,32 @@ test('guardStream reads socket progress: movement keeps a stream; silence or a c
   await sleep(150);
   assert.equal(finished.destroyed, false);
   fast.emit('close'); // stops its timers
+
+  // A proven client (progress resumed after a pause) is held to the floor
+  // over a horizon long enough for one whole step, less one step: small
+  // steps below the floor are cut; whole steps at or above it are kept.
+  const proven = () => {
+    const res = fake();
+    guardStream(res, {
+      idleMs: 60_000,
+      windowMs: 200,
+      minBytesPerSecond: 1000,
+      tickMs: 20,
+      maxIdleMs: 60_000,
+    });
+    return res;
+  };
+  const crawler = proven();
+  const stepper = proven();
+  await sleep(80); // a pause, then movement: both proven
+  for (let i = 0; i < 40; i++) {
+    crawler.socket.bytesWritten += 10; // 10 B every 25 ms = 400 B/s, under the floor
+    if (i % 10 === 0) stepper.socket.bytesWritten += 400; // 400 B steps every 250 ms = 1600 B/s
+    await sleep(25);
+  }
+  assert.equal(crawler.destroyed, true, 'a proven crawler below the floor is cut');
+  assert.equal(stepper.destroyed, false, 'a proven reader stepping above the floor is kept');
+  stepper.emit('close');
 
   // An outstanding write never extends the idle deadline: no movement for
   // idleMs cuts, however much is outstanding (1 MB at 10 kB/s would be 100 s).
