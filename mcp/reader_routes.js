@@ -251,6 +251,9 @@ export function createReaderRouter({
   site,
   resolveIdentity,
   prepareRequest = async (request) => request,
+  // The service-wide long-reading rule (library_admission.js), shared with the
+  // public routes; absent, the bridge admits as it always has.
+  admission = null,
 }) {
   const router = express.Router();
   router.use('/internal/reader', createReaderAuthenticator({ secret, site }));
@@ -278,15 +281,23 @@ export function createReaderRouter({
       let request = validateRequest(req.body);
       if (request.idempotency_key && request.idempotency_key !== req.readerAuth.idempotency)
         throw fail('IDEMPOTENCY_CONFLICT', 'The body and signed idempotency keys disagree.', 409);
-      const result = await createAnalysisJob({
-        store,
-        scheduler,
-        prepareRequest,
-        resolveIdentity,
-        viewer: req.readerAuth.viewer,
-        idempotencyKey: req.readerAuth.idempotency,
-        request,
-      });
+      const replay = store.hasCreate(req.readerAuth.viewer, req.readerAuth.idempotency);
+      const held = replay ? null : admission?.reserve({ unitId: request.reading_unit_id });
+      let result;
+      try {
+        result = await createAnalysisJob({
+          store,
+          scheduler,
+          prepareRequest,
+          resolveIdentity,
+          viewer: req.readerAuth.viewer,
+          idempotencyKey: req.readerAuth.idempotency,
+          request,
+        });
+        if (result.created) held?.commit(result.record.id);
+      } finally {
+        held?.release();
+      }
       res.status(result.created ? 202 : 200).json({
         contract_version: 1,
         job: publicReaderJob(result.record),
@@ -307,14 +318,24 @@ export function createReaderRouter({
     '/internal/reader/jobs/:id/resume',
     handler(async (req, res) => {
       const record = authorized(req);
-      const identity = await resolveIdentity(record.request);
-      const result = store.resume(
-        record.id,
-        req.readerAuth.capability,
-        req.readerAuth.viewer,
-        identity,
-        controlOptions(req)
-      );
+      const held = admission?.reserve({
+        unitId: record.request?.reading_unit_id,
+        except: record.id,
+      });
+      let result;
+      try {
+        const identity = await resolveIdentity(record.request);
+        result = store.resume(
+          record.id,
+          req.readerAuth.capability,
+          req.readerAuth.viewer,
+          identity,
+          controlOptions(req)
+        );
+        held?.commit(record.id);
+      } finally {
+        held?.release();
+      }
       scheduler.kick();
       res.status(202).json({ contract_version: 1, job: publicReaderJob(result) });
     })
@@ -427,8 +448,10 @@ export function createReaderRouter({
   router.use('/internal/reader', (_req, _res, next) =>
     next(fail('NOT_FOUND', 'This reader route is not available.', 404))
   );
-  router.use('/internal/reader', (error, _req, res, _next) =>
-    res
+  router.use('/internal/reader', (error, _req, res, _next) => {
+    if (error.extra?.retryAfter)
+      res.setHeader('Retry-After', String(Math.max(1, Math.ceil(error.extra.retryAfter / 1000))));
+    return res
       .status(error.status || (['RESOURCE_LIMIT', 'QUEUE_FULL'].includes(error.code) ? 429 : 400))
       .json({
         error: {
@@ -439,7 +462,7 @@ export function createReaderRouter({
               ? 'Free storage or retry after capacity is available.'
               : 'Check the request and retry explicitly.',
         },
-      })
-  );
+      });
+  });
   return router;
 }

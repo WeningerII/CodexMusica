@@ -42,7 +42,8 @@ import { ReaderScheduler, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter } from './reader_routes.js';
 import { LibrarySearch } from './library_search.js';
 import { libraryPublicRouter, redactLibraryUrl } from './library_routes.js';
-import { libraryViewerRouter, isViewerPath } from './library_viewer_routes.js';
+import { libraryViewerRouter, isViewerPath, libraryErrorHandler } from './library_viewer_routes.js';
+import { createAdmission } from './library_admission.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
@@ -272,6 +273,18 @@ const runtimeDir = (name) =>
   process.env.LYRIC_RUNTIME_DIR ? path.join(process.env.LYRIC_RUNTIME_DIR, name) : null;
 let readerScheduler;
 let readerStore;
+// One admission state for every path that queues an analysis (the private
+// bridge and the public viewer routes), so the long-reading rule is one
+// service-wide rule (library_admission.js). Created on first use, once the
+// store exists; it reads the search store's line counts when one is loaded.
+let admissionState = null;
+const libraryAdmission = () =>
+  (admissionState ||= createAdmission({
+    store: readerStore,
+    unitOf: (id) => librarySearch?.unit(id) ?? null,
+    fail: (code, message, status, extra) =>
+      Object.assign(new Error(message), { code, status, extra }),
+  }));
 let readerResolver;
 let readerFailure;
 // The reader (store, catalog resolver, scheduler) runs whenever it has a
@@ -316,6 +329,7 @@ const bridgeConfigured =
 if (readerScheduler && bridgeConfigured) {
   app.use(
     createReaderRouter({
+      admission: libraryAdmission(),
       store: readerStore,
       scheduler: readerScheduler,
       secret: process.env.READER_BRIDGE_SECRET,
@@ -363,6 +377,7 @@ if (process.env.LIBRARY_PUBLIC === '1') {
     app.use(
       '/library/v1',
       libraryViewerRouter({
+        admission: libraryAdmission(),
         store: readerStore,
         scheduler: readerScheduler,
         prepareRequest: readerResolver.prepareRequest,
@@ -387,6 +402,9 @@ app.use(
       readerReadiness().ready === true,
   })
 );
+// After every /library/v1 router: errors raised before routing (a body that
+// does not parse) answer JSON, not Express's HTML page.
+app.use('/library/v1', libraryErrorHandler);
 let jobStore;
 try {
   jobStore = new JobStore(runtimeDir('jobs'));
