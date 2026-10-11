@@ -461,7 +461,7 @@ const SECTIONS = {
     );
     check(
       `${tag} rights: export panel counts the selection`,
-      /\b1\b.*(selected|unit|reading)|(selected|unit|reading).*\b1\b/i.test(after),
+      /\b1 (pinned |selected )?reading unit\b/i.test(after) && !/Nothing selected yet/.test(after),
       short(after, 300)
     );
     await page.evaluate(async () => (await libraryChunk('core')).lib.selection?.clear?.());
@@ -612,6 +612,9 @@ const SECTIONS = {
   async analysis({ page, base, tag, log }) {
     await go(page, base, `/read/${EPI_A}?lens=sound`);
     await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    // Narrow screens keep the inspector in a sheet: open it.
+    if (await page.isVisible('#surface-library [data-rd="sheet"]').catch(() => false))
+      await page.click('#surface-library [data-rd="sheet"]');
     const analyze = await page
       .waitForSelector('#surface-library [data-act="analyze"]', { timeout: 15000 })
       .catch(() => null);
@@ -637,9 +640,7 @@ const SECTIONS = {
     );
     check(`${tag} analysis: job state shown`, /running/i.test(state), short(state, 300));
     for (const lens of ['form', 'rhythm', 'language', 'summary', 'sources']) {
-      const tab = await page.$(
-        `#surface-library [data-rd="lens"][data-lens="${lens}"], #surface-library [data-lens="${lens}"]`
-      );
+      const tab = await page.$(`#surface-library [data-rd="lens"][data-id="${lens}"]`);
       if (!tab) {
         check(`${tag} analysis: ${lens} lens tab present`, false);
         continue;
