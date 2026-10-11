@@ -172,6 +172,8 @@ const LIBRARY_BUDGETS = {
   'library-analysis': 24576,
   'library-compare': 6144,
   'library-inflate': 4096,
+  'library-works': 12288,
+  'library-rights': 12288,
   'library-shelves-path': 393216,
   'library-growth': 6144,
 };
