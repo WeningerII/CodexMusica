@@ -1439,7 +1439,7 @@ export class ReaderJobStore {
   // depends on a sweep having run.
   // Tombstones at most `limit` due records. A finite `examine` looks at that
   // many records per call, resuming where the last call stopped.
-  _pruneExpired(limit, examine = Infinity) {
+  _pruneExpired(limit, examine = Infinity, deadline = Infinity) {
     let changed = 0;
     const due = (record) =>
       record && !['expired', 'deleted'].includes(record.state) && record.expires_at <= this.now();
@@ -1455,6 +1455,8 @@ export class ReaderJobStore {
     }
     let looked = 0;
     for (; looked < examine && changed < limit; looked++) {
+      // The time bound is checked between operations; the position is kept.
+      if (Date.now() >= deadline) break;
       if (!this._expiryScan || this._expiryScan.at >= this._expiryScan.ids.length) {
         if (this._expiryScan) {
           this._expiryScan = null;
@@ -1473,13 +1475,30 @@ export class ReaderJobStore {
   // One object of the mark: read it, mark what it references, and queue the
   // chains it continues. An object is marked live only after it has been
   // read, so a failure never leaves a node marked whose references were not.
-  _markStep(stack, live, budget) {
-    const [kind, hash] = stack.pop();
-    if (!hash || live[kind].has(hash)) return;
+  // With `bounds`, the object's size is checked BEFORE it is read: an object
+  // that would take the slice past its object or byte bound stays on the
+  // stack for the next slice, and false is returned.
+  _markStep(stack, live, budget, bounds = null) {
+    const [kind, hash] = stack[stack.length - 1];
+    if (!hash || live[kind].has(hash)) {
+      stack.pop();
+      return true;
+    }
     const file = path.join(this.directory, kind, `${hash}.json`);
+    let size;
+    try {
+      size = fs.statSync(file).size;
+    } catch (error) {
+      if (error.code === 'ENOENT')
+        throw problem('STORAGE_CORRUPT', 'Committed reader object is missing.', 503);
+      throw error;
+    }
+    if (bounds && (budget.objects + 1 > bounds.objects || budget.bytes + size > bounds.bytes))
+      return false;
+    stack.pop();
     const node = this._object(kind, hash);
     budget.objects++;
-    budget.bytes += fs.statSync(file).size;
+    budget.bytes += size;
     if (kind === 'checkpoints') {
       live.manifests.add(node.manifest_hash);
       stack.push(['checkpoints', node.previous_hash], ['indexes', node.page_index_hash]);
@@ -1488,6 +1507,7 @@ export class ReaderJobStore {
       stack.push(['indexes', node.previous_hash]);
     }
     live[kind].add(hash);
+    return true;
   }
   _markRecord(record, live, budget) {
     const stack = [['checkpoints', record.checkpoint_hash]];
@@ -1553,13 +1573,26 @@ export class ReaderJobStore {
   // and the sweep waits until that re-mark is complete. A failed read
   // abandons the whole collection, so a partial mark never sweeps.
   maintain(bounds = MAINTENANCE_BOUNDS) {
+    // Every stored object is at most objectBytes, so a slice whose byte bound
+    // is at least that can always make progress while never exceeding it.
+    if (
+      !(bounds.bytes >= READER_LIMITS.objectBytes) ||
+      !(bounds.objects >= 1) ||
+      !(bounds.records >= 0) ||
+      !(bounds.ms > 0)
+    )
+      throw new RangeError(
+        `maintenance bounds need bytes >= ${READER_LIMITS.objectBytes}, objects >= 1, records >= 0, ms > 0`
+      );
     const started = Date.now();
     const budget = { objects: 0, bytes: 0 };
     const spent = () =>
       budget.objects >= bounds.objects ||
       budget.bytes >= bounds.bytes ||
       Date.now() - started >= bounds.ms;
-    const expired = this._open(() => this._pruneExpired(bounds.records, bounds.records));
+    const expired = this._open(() =>
+      this._pruneExpired(bounds.records, bounds.records, started + bounds.ms)
+    );
     if (!this._gc) {
       this._gc = {
         phase: 'mark',
@@ -1572,6 +1605,7 @@ export class ReaderJobStore {
         kinds: [...OBJECT_KINDS, 'records'],
         kind: null,
         dir: null,
+        pending: null,
       };
     }
     const gc = this._gc;
@@ -1579,7 +1613,7 @@ export class ReaderJobStore {
     try {
       while (gc.phase === 'mark' && !spent()) {
         if (gc.stack.length) {
-          this._markStep(gc.stack, gc.live, budget);
+          if (!this._markStep(gc.stack, gc.live, budget, bounds)) break;
           continue;
         }
         if (gc.at >= gc.ids.length) {
@@ -1609,7 +1643,8 @@ export class ReaderJobStore {
             if (record) gc.stack.push(['checkpoints', record.checkpoint_hash]);
           }
           gc.dirty.clear();
-          while (gc.stack.length && !spent()) this._markStep(gc.stack, gc.live, budget);
+          while (gc.stack.length && !spent())
+            if (!this._markStep(gc.stack, gc.live, budget, bounds)) break;
         } catch (error) {
           this._abandonGc();
           throw error;
@@ -1625,15 +1660,20 @@ export class ReaderJobStore {
             gc.kind = gc.kinds.shift();
             gc.dir = fs.opendirSync(path.join(this.directory, gc.kind));
           }
-          const entry = gc.dir.readSync();
-          if (!entry) {
-            gc.dir.closeSync();
-            gc.dir = null;
-            continue;
+          // An entry deferred by the byte bound is retried first, uncounted.
+          let file = gc.pending;
+          gc.pending = null;
+          if (file == null) {
+            const entry = gc.dir.readSync();
+            if (!entry) {
+              gc.dir.closeSync();
+              gc.dir = null;
+              continue;
+            }
+            budget.objects++;
+            file = entry.name;
           }
-          budget.objects++;
           const { kind } = gc;
-          const file = entry.name;
           if (kind === 'records' && !file.endsWith('.tmp')) continue;
           const full = path.join(this.directory, kind, file);
           let stat;
@@ -1645,6 +1685,10 @@ export class ReaderJobStore {
           const unreferenced =
             kind === 'records' || !file.endsWith('.json') || !gc.live[kind].has(file.slice(0, -5));
           if (unreferenced && stat.mtimeMs < gc.startedAt) {
+            if (budget.bytes + stat.size > bounds.bytes) {
+              gc.pending = file; // deleting it would pass the byte bound
+              break;
+            }
             this._unlinkCounted(full);
             budget.bytes += stat.size;
             swept++;
@@ -1658,6 +1702,7 @@ export class ReaderJobStore {
       marked,
       swept,
       read: budget.objects,
+      bytes: budget.bytes,
       examined: this.lastExpiryExamined,
       phase: this._gc ? this._gc.phase : 'idle',
     };

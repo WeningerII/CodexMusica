@@ -259,7 +259,7 @@ test('a maintenance slice is bounded, and the sweep spares objects re-referenced
   const page = store.workerPayload(revived.record.id).page_paths[0];
   fs.utimesSync(page, old, old);
   store.delete(revived.record.id, revived.capability, 'viewer-z');
-  store.maintain({ records: 1000, objects: 0, bytes: 1 << 30, ms: 10_000 }); // mark only
+  store.maintain({ records: 0, objects: 1000, bytes: 1 << 30, ms: 10_000 }); // opens a collection: its mark has begun
   run(store, 'viewer-y', 'k-y', 'z'); // same evidence: re-references the page, refreshing its mtime
   while (store.maintain(bounds).phase !== 'idle');
   assert.equal(fs.existsSync(page), true, 'a page re-referenced after the mark began survives');
@@ -644,4 +644,87 @@ test('the dirty re-mark stays inside the slice bound and withholds the sweep unt
   for (const p of store.workerPayload(job.record.id).page_paths)
     assert.equal(fs.existsSync(p), true);
   assert.equal(store.usage, scan(store));
+});
+
+// ── #528 verdict at 728247238: strict time and byte bounds ─────────────────
+test('expiry checks the time bound between tombstones and resumes where it stopped', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  for (let i = 0; i < 12; i++) create(store, `v${i}`, `k${i}`);
+  now += READER_LIMITS.retentionMs + 1;
+  const tombstone = store._tombstone.bind(store);
+  store._tombstone = (...args) => {
+    const until = Date.now() + 20;
+    while (Date.now() < until); // a slow durable write
+    return tombstone(...args);
+  };
+  const bounds = { records: 1000, objects: 1000, bytes: 1 << 30, ms: 50 };
+  let total = 0;
+  for (let i = 0; i < 50 && total < 12; i++) {
+    const started = Date.now();
+    const result = store.maintain(bounds);
+    const elapsed = Date.now() - started;
+    assert.ok(result.expired <= 3, `one slice tombstoned ${result.expired} jobs`);
+    assert.ok(elapsed < bounds.ms + 40, `one slice took ${elapsed} ms`);
+    total += result.expired;
+  }
+  assert.equal(total, 12, 'later slices continued the same pass');
+});
+
+test('the byte bound is checked before an object is read or deleted', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const big = 'x'.repeat(700_000); // three of these pages exceed one 2 MiB slice
+  const job = create(store, 'viewer-a', 'k-a');
+  const lease = store.lease(job.record.id);
+  for (let i = 0; i < 3; i++)
+    store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+      cursor: { phase: 'p', at: i },
+      pages: [{ instances: [{ id: `b${i}`, text: big }] }],
+      progress: { candidates: i + 1 },
+      coverage,
+    });
+  assert.throws(
+    () => store.maintain({ records: 10, objects: 10, bytes: 1, ms: 10_000 }),
+    RangeError
+  );
+  const bounds = { records: 1000, objects: 1000, bytes: READER_LIMITS.objectBytes, ms: 10_000 };
+  for (let r = store.maintain(bounds); ; r = store.maintain(bounds)) {
+    assert.ok(r.bytes <= bounds.bytes, `a slice read ${r.bytes} bytes`);
+    if (r.phase === 'idle') break;
+  }
+  // The same bound holds while sweeping: delete the job, age its objects and collect.
+  store.delete(job.record.id, job.capability, 'viewer-a');
+  age(store);
+  let sweptTotal = 0;
+  for (let i = 0; i < 100; i++) {
+    const r = store.maintain(bounds);
+    assert.ok(r.bytes <= bounds.bytes, `a sweep slice counted ${r.bytes} bytes`);
+    sweptTotal += r.swept;
+    if (r.phase === 'idle' && i > 0) break;
+  }
+  assert.ok(sweptTotal >= 3, 'the big pages were reclaimed across slices');
+  assert.equal(store.usage, scan(store));
+});
+
+test('a mark step defers, unread, an object that would pass the byte bound', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const job = run(store, 'viewer-a', 'k-a', 'a');
+  const hash = store.inspect(job.record.id).checkpoint_hash;
+  const live = Object.fromEntries(
+    ['pages', 'indexes', 'checkpoints', 'manifests'].map((k) => [k, new Set()])
+  );
+  let reads = 0;
+  const real = store._object.bind(store);
+  store._object = (...args) => (reads++, real(...args));
+  const stack = [['checkpoints', hash]];
+  const budget = { objects: 0, bytes: 0 };
+  assert.equal(store._markStep(stack, live, budget, { objects: 10, bytes: 1 }), false);
+  assert.equal(reads, 0, 'nothing was read');
+  assert.deepEqual(budget, { objects: 0, bytes: 0 });
+  assert.equal(stack.length, 1, 'the object stays queued for the next slice');
+  assert.equal(store._markStep(stack, live, budget, { objects: 10, bytes: 1 << 30 }), true);
+  assert.equal(reads, 1);
+  assert.ok(budget.bytes > 1);
 });
