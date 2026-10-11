@@ -114,3 +114,56 @@ test('--check refuses drift', () => {
   );
   assert.throws(() => G.apply({ repo, dist: build(V1), today: '' }), /--today/);
 });
+
+// sync-pages' staging step (scripts/stage_library_code.sh) over the trees a
+// publish can meet: one that never held library/code (every build before the
+// Library ships), the first generation, and the last generation expiring.
+test('sync-pages stages library/code only when there is something to stage', () => {
+  const { execFileSync } = require('node:child_process');
+  const STAGE = path.join(__dirname, 'stage_library_code.sh');
+  const dir = tmp();
+  const git = (...args) =>
+    execFileSync('git', args, {
+      cwd: dir,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        GIT_AUTHOR_NAME: 'T',
+        GIT_AUTHOR_EMAIL: 't@e',
+        GIT_COMMITTER_NAME: 'T',
+        GIT_COMMITTER_EMAIL: 't@e',
+        GIT_CONFIG_GLOBAL: '/dev/null',
+        GIT_CONFIG_SYSTEM: '/dev/null',
+      },
+    });
+  const stage = () => execFileSync('bash', [STAGE], { cwd: dir, encoding: 'utf8' });
+  const repo = path.join(dir, 'library', 'code');
+  git('init', '-q', '-b', 'main');
+  fs.writeFileSync(path.join(dir, 'codex.html'), 'page\n');
+  git('add', '-A');
+  git('commit', '-q', '-m', 'base');
+  // Never held library/code: the old unconditional pathspec is refused…
+  G.apply({ repo, dist: build({}), today: '2026-11-01' });
+  assert.throws(() => git('add', '-A', 'codex.html', 'library/code'), /did not match any files/);
+  // …and the staging step stages nothing, without failing.
+  stage();
+  assert.equal(git('diff', '--cached', '--name-only'), '');
+  // The first generation is staged whole.
+  G.apply({ repo, dist: build(V1), today: '2026-11-01' });
+  stage();
+  assert.deepEqual(git('diff', '--cached', '--name-only').trim().split('\n'), [
+    'library/code/core.aaaaaaaaaa.js',
+    'library/code/generations.json',
+    'library/code/reader.bbbbbbbbbb.js',
+  ]);
+  git('commit', '-q', '-m', 'publish');
+  // The last generation expiring deletes the directory; the deletions stage.
+  G.apply({ repo, dist: build({}), today: '2026-11-02' });
+  G.apply({ repo, dist: build({}), today: '2026-12-03' });
+  assert.equal(fs.existsSync(repo), false);
+  stage();
+  assert.equal(
+    git('diff', '--cached', '--name-only', '--diff-filter=D').trim().split('\n').length,
+    3
+  );
+});

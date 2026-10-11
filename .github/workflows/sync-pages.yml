@@ -189,7 +189,8 @@ jobs:
           # for 30 days after they stop being current (a build without the
           # Library emits none, and this then only ages out what is there).
           node scripts/library_chunk_generations.js --repo=library/code --dist=_dist/library/code --today="$(date -u +%F)"
-          git add -A codex.html index.html AGENTS.md llms.txt sitemap.xml robots.txt server.json api library/code
+          git add -A codex.html index.html AGENTS.md llms.txt sitemap.xml robots.txt server.json api
+          bash scripts/stage_library_code.sh
           if git diff --cached --quiet; then
             echo "Site unchanged — nothing to publish."
             exit 0

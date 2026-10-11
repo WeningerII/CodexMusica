@@ -1,5 +1,5 @@
 /* exported CMLibraryDefine */
-/* global $ui, UI, esc, uiButton, uiEmptyState, uiEnsureWorkspace, uiRegisterPage, uiSubroute */
+/* global $ui, UI, esc, uiButton, uiEmptyState, uiEnsureWorkspace, uiRegisterPage, uiSubroute, uiTabIndex */
 'use strict';
 // ─── Library page: the inline stub (docs/library-native-design.md) ───────────
 // Ships only in a CODEX_LIBRARY build until cutover. It registers the page,
@@ -54,7 +54,30 @@ function libraryChunk(name) {
 
 const libraryMain = () => $ui('library-main');
 
+// The section tabs follow the route: the selected tab is the sub-route's
+// first segment ('' Explore, '/works', '/rights'), and only it is in the tab
+// order (WAI-ARIA tabs; arrows, Home and End move between them).
+function librarySelectTab() {
+  const section = /^\/[^/?]*/.exec(LIBRARY.sub)?.[0] || '';
+  document.querySelectorAll('#surface-library [data-ui="lib-section"]').forEach((b) => {
+    const on = b.dataset.id === section;
+    b.setAttribute('aria-selected', String(on));
+    b.tabIndex = on ? 0 : -1;
+  });
+}
+function libraryTabKeys(e) {
+  const tab = e.target.closest?.('#surface-library [role="tab"]');
+  if (!tab) return;
+  const tabs = [...tab.parentElement.querySelectorAll('[role="tab"]')];
+  const i = uiTabIndex(e.key, tabs.indexOf(tab), tabs.length);
+  if (i < 0) return;
+  e.preventDefault();
+  tabs[i].click();
+  tabs[i].focus();
+}
+
 async function libraryShow() {
+  librarySelectTab();
   const main = libraryMain();
   if (!main) return;
   if (!/^https?:$/.test(location.protocol) && !LIBRARY_CODE.defined.core) {
@@ -110,6 +133,7 @@ uiRegisterPage({
       .join(
         ''
       )}</div><div id="library-main" class="lib-main" aria-live="polite"><div class="lib-skeleton" aria-hidden="true"></div><div class="lib-skeleton" aria-hidden="true"></div></div></div>`;
+    surface.querySelector('.lib-bar').addEventListener('keydown', libraryTabKeys);
   },
   route(sub, { pop }) {
     LIBRARY.sub = sub;

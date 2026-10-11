@@ -85,6 +85,8 @@ function apply({ repo, dist, today }) {
   if (manifest.generations.length)
     fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n');
   else if (fs.existsSync(manifestPath)) fs.unlinkSync(manifestPath);
+  if (!manifest.generations.length && fs.existsSync(repo) && !fs.readdirSync(repo).length)
+    fs.rmdirSync(repo);
   return { current: id, kept: manifest.generations.length, dropped: dropped.length, deleted };
 }
 

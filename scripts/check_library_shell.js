@@ -437,6 +437,53 @@ function chromiumPath() {
     await s.close();
   }
 
+  // The section tabs: keyboard-operable (arrows, Home, End; only the selected
+  // tab in the tab order) and selected by the route, on a deep link and on
+  // Back/Forward as well as on a click.
+  {
+    const s = await open(dirs.lazy, '#library/rights');
+    const { page } = s;
+    await shown(page, 'Sources & rights');
+    const tabs = () =>
+      page.evaluate(() =>
+        [...document.querySelectorAll('#surface-library [role="tab"]')]
+          .map(
+            (b) => `${b.dataset.id || 'explore'}:${b.getAttribute('aria-selected')}:${b.tabIndex}`
+          )
+          .join(' ')
+      );
+    const want = (sel) =>
+      ['explore', '/works', '/rights']
+        .map((id) => `${id}:${id === sel}:${id === sel ? 0 : -1}`)
+        .join(' ');
+    assert.equal(await tabs(), want('/rights'), 'a deep link selects its tab');
+    await page.focus('#surface-library [role="tab"][aria-selected="true"]');
+    await page.keyboard.press('Home');
+    await shown(page, 'Explore');
+    assert.equal(await tabs(), want('explore'));
+    assert.equal(await page.evaluate(() => document.activeElement.textContent), 'Explore');
+    await page.keyboard.press('ArrowRight');
+    await shown(page, 'Works');
+    assert.equal(await tabs(), want('/works'));
+    assert.equal(await page.evaluate(() => location.hash), '#library/works');
+    await page.keyboard.press('End');
+    await shown(page, 'Sources & rights');
+    await page.keyboard.press('ArrowRight');
+    await shown(page, 'Explore');
+    assert.equal(await tabs(), want('explore'), 'ArrowRight wraps');
+    await page.keyboard.press('ArrowLeft');
+    await shown(page, 'Sources & rights');
+    await page.goBack();
+    await shown(page, 'Explore');
+    assert.equal(await tabs(), want('explore'), 'Back moves the selection');
+    await page.goBack();
+    await page.goBack();
+    await shown(page, 'Works');
+    assert.equal(await tabs(), want('/works'));
+    assert.deepEqual(s.errors, []);
+    await s.close();
+  }
+
   // A chunk whose bytes do not match its integrity is refused.
   {
     const s = await open(dirs.lazy, '#library/works', async (route) => {
@@ -472,7 +519,7 @@ function chromiumPath() {
   await browser.close();
   fs.rmSync(temp, { recursive: true, force: true });
   console.log(
-    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover prefetches core and catalog once, deferred boot (Library before the workspace, no engine or prose while shown, a held control acts once it is in, the saved session kept and restored, Genre waits as a skeleton and draws once it is in), the Lyrics handoff (opens the text pushed, Back returns, a tampered envelope refused, the recipe untouched), a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
+    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover prefetches core and catalog once, deferred boot (Library before the workspace, no engine or prose while shown, a held control acts once it is in, the saved session kept and restored, Genre waits as a skeleton and draws once it is in), the Lyrics handoff (opens the text pushed, Back returns, a tampered envelope refused, the recipe untouched), section tabs keyboard-operable and route-selected (deep link, click, Back), a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
   );
 })().catch((error) => {
   console.error('LIBRARY SHELL: FAIL —', error.stack || error);
