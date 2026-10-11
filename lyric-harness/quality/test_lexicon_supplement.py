@@ -20,7 +20,7 @@ Sections:
  10  the file keys what the tokenizer keeps: edge apostrophes, accents
  11  the coordinate survives the consumers that build their own readers
  12  versions: a run names a frozen file, keeps its bytes, and never moves
- 13  v2: exactly two reviewed additions; v1/default and derivation unchanged
+ 13  v2: exactly two reviewed additions; v1 and derivation unchanged; v2 is the default
 """
 
 import os
@@ -596,8 +596,11 @@ def test_reviewed_v2():
     check("all 203 v1 rows survive unchanged; only the two approved words are added",
           len(rows2) == 205 and len(added) == 2
           and keys([r for r in rows2 if r not in added]) == keys(rows1))
-    check("v1 remains the active default and the legacy bare flag",
-          S.load_versions()["default"] == "v1" and S.canonical_version(True) == "v1")
+    # The DEFAULT is what new connector work reads (owner decision
+    # 2026-10-11: v2). The bare CLI flag is #522's spelling and keeps meaning
+    # v1, so a saved command line never changes what it reads.
+    check("v2 is the default for new work; the legacy bare flag still means v1",
+          S.load_versions()["default"] == "v2" and S.canonical_version(True) == "v1")
     new = S.SupplementedLexicon(version="v2", expected_sha256=v2["sha256"])
     old = S.SupplementedLexicon(version="v1", expected_sha256=v1["sha256"])
     phones = "S T R IY1 T L AY2 T".split()
