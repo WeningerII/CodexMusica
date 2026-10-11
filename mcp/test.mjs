@@ -972,6 +972,7 @@ await check('validation: actionable errors', () => {
   // ── M-189: the CLI's globals and the missing fields reach the tools ─────
   {
     const { LYRIC_TOOL_SCHEMAS: S, _argvInternals: AV } = await import('./lyric_tools.js');
+    const LB = await import('./lexicon_basis.js');
     await check(
       'every grading tool can declare --voices and --fallback; screen takes a relation; verify takes structures',
       () => {
@@ -996,16 +997,24 @@ await check('validation: actionable errors', () => {
       }
     );
     await check('the globals stand AHEAD of the verb and only when declared', () => {
-      assert.deepEqual(AV.globalsFor({}), []);
-      assert.deepEqual(AV.globalsFor({ voices: false, fallback: undefined }), []);
-      assert.deepEqual(AV.globalsFor({ voices: true }), ['--voices']);
-      assert.deepEqual(AV.globalsFor({ fallback: 'low' }), ['--fallback=low']);
+      // The supplement is resolved first and always spelled (lexicon_basis.js):
+      // new work reads the default version, `none` emits nothing.
+      const { LEXICON_MANIFEST } = LB;
+      const d = LEXICON_MANIFEST.versions.find((v) => v.id === LEXICON_MANIFEST.default);
+      const SUP = [`--lexicon-supplement=${d.id}`, `--lexicon-supplement-sha256=${d.sha256}`];
+      const none = { lexicon_supplement: 'none' };
+      assert.deepEqual(AV.globalsFor({}), SUP);
+      assert.deepEqual(AV.globalsFor({ ...none }), []);
+      assert.deepEqual(AV.globalsFor({ ...none, voices: false, fallback: undefined }), []);
+      assert.deepEqual(AV.globalsFor({ ...none, voices: true }), ['--voices']);
+      assert.deepEqual(AV.globalsFor({ ...none, fallback: 'low' }), ['--fallback=low']);
       assert.deepEqual(AV.globalsFor({ voices: true, fallback: 'high' }), [
+        ...SUP,
         '--voices',
         '--fallback=high',
       ]);
       assert.deepEqual(
-        AV.globalsFor({ fallback: 'bogus' }),
+        AV.globalsFor({ ...none, fallback: 'bogus' }),
         [],
         'an undeclared value is not passed through'
       );
@@ -5124,6 +5133,8 @@ await check('validation: actionable errors', () => {
       'mcp/test_chat_production.mjs': 'offline authoritative delivery and task routing regressions',
       'mcp/test_connector_contracts.mjs': 'offline connector and release contract regressions',
       'mcp/test_verdict_view.mjs': 'offline regressions for the session short verdict',
+      'mcp/test_lexicon_basis.mjs':
+        'offline and live-harness regressions for the lexicon supplement version a run reads',
       'mcp/test_connector_http.mjs': 'offline public HTTP and Origin regressions',
       'mcp/test_chatgpt.mjs': 'offline ChatGPT session adapter regressions',
       'mcp/test_chatgpt_harness.mjs':

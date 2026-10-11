@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
+import { LEXICON_MANIFEST } from './lexicon_basis.js';
 import { createHash } from 'node:crypto';
 import { creationRefusal, recordCreation, creationQualified } from './lyric_workflow.js';
 import { runTurn, LIMITS, declarationsFor } from './gemini_agent.js';
@@ -53,6 +54,7 @@ function assessmentCoverage(refused = false, zeroPairs = false) {
     refused_obligations: refused ? [zeroPairs ? 'floor:draft' : 'rhyme:1:2:A'] : [],
   };
 }
+const V1 = LEXICON_MANIFEST.versions.find((v) => v.id === 'v1');
 function gradeReceipt(p, lines = draft, { code = 3, coverage = assessmentCoverage() } = {}) {
   return {
     ..._verdictInternals.verdictOf({
@@ -66,6 +68,7 @@ function gradeReceipt(p, lines = draft, { code = 3, coverage = assessmentCoverag
         coverage,
         final_draft: lines,
         findings: [],
+        lexicon: { supplement_id: V1.id, sha256: V1.sha256 },
       },
     }),
     plan_sha256: p.plan_sha256,

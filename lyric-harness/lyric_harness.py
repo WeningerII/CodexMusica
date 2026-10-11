@@ -6945,6 +6945,22 @@ def _ban_bindings(found, findings):
     return {"asked": len(verdicts) - len(not_asked), "not_asked": not_asked}
 
 
+#: The supplement the CLI's lexicon reads ({"supplement_id", "sha256"}, both
+#: null for CMUdict alone), set once the lexicon is built. Each verb's record
+#: carries it through `_lexicon_kw()`, so a run's reading basis is in its
+#: record. Deliberately NOT added inside `_lyric_result`: `_refuse` reaches
+#: that function, `_refuse` is in the comparator's definition closure
+#: (quality/song_profile_calibration.py), and moving the comparator discards
+#: the predictability memo (standing rule 4). A refusal carries no basis.
+_LEXICON_IDENTITY = None
+
+
+def _lexicon_kw():
+    """-> {"lexicon": ...} once the lexicon is built, else {}."""
+    return ({} if _LEXICON_IDENTITY is None
+            else {"lexicon": dict(_LEXICON_IDENTITY)})
+
+
 def _lyric_result(**record):
     """Emit one authenticated machine record; report prose is never status."""
     import json
@@ -7682,7 +7698,7 @@ def _journal_stop(error, machine=None, plan=None):
              "not certified. Keep the journal. This run cannot resume; an "
              "identical restart can reach the same limit. Reduce the requested "
              "scope explicitly before starting independent work.]")
-    _lyric_result(status="journal_capacity", exit=3, stop_reason=error.code,
+    _lyric_result(**_lexicon_kw(), status="journal_capacity", exit=3, stop_reason=error.code,
                   code=error.code, input_draft=st.get("input_draft", error.lines),
                   accepted_lines=error.lines, final_draft=error.lines,
                   certified=False, resumable=False, new_run_required=True,
@@ -7800,6 +7816,24 @@ def _defer_proposer(path, lines=None):
     from quality import propose as PR
     from quality.revise import draft_fingerprint as _dfp
     st = _defer_state(path)
+    # THE RUN KEEPS THE SUPPLEMENT IT WAS STARTED UNDER. A resumed state
+    # replays every recorded answer, so reading it under another supplement
+    # would re-judge the same song on different words. A state written before
+    # this field existed was read on CMUdict alone (null/null). A different
+    # basis refuses; it is never replayed (quality/lexicon_supplement.py).
+    _here_basis = dict(_LEXICON_IDENTITY or {"supplement_id": None, "sha256": None})
+    _resuming = bool(st["answered"]["propose"] or st["answered"]["propose_group"]
+                     or st.get("pending"))
+    if _resuming:
+        _run_basis = st.get("lexicon") or {"supplement_id": None, "sha256": None}
+        if _run_basis != _here_basis:
+            _refuse("LEXICON_SUPPLEMENT_UNAVAILABLE: this deferred run was started "
+                    f"under lexicon supplement {_run_basis.get('supplement_id') or 'none'} "
+                    f"(sha256 {_run_basis.get('sha256')}), and this call reads "
+                    f"{_here_basis.get('supplement_id') or 'none'} "
+                    f"(sha256 {_here_basis.get('sha256')}). Resume it under its own "
+                    "supplement, or start a new run.")
+    st["lexicon"] = _here_basis
     st.setdefault("input_draft", list(lines or ()))
     st.setdefault("accepted_lines", list(lines or ()))
     pending = st.get("pending")
@@ -7834,7 +7868,7 @@ def _defer_proposer(path, lines=None):
         if pend.get("answer") in (None, "", {}):
             # Repeating a question executes no replay or grading. Preserve the
             # artifact and say which counters belong to this no-work call.
-            _lyric_result(status="suspended", exit=4,
+            _lyric_result(**_lexicon_kw(), status="suspended", exit=4,
                           final_draft=list(st["accepted_lines"]),
                           stale_answers=0, memo_state="no run key")
             print(f"  SUSPENDED — a {pend['kind']} proposal is required and "
@@ -9050,6 +9084,10 @@ def _parse_narrative_flag(raw):
 
 
 def main():
+    # One worker process serves many requests: a record emitted before this
+    # request's lexicon is built must not carry the previous request's basis.
+    global _LEXICON_IDENTITY
+    _LEXICON_IDENTITY = None
     decl = Declaration()
     args = sys.argv[1:]
     # Normalize these declared value flags before individual verbs read or
@@ -9118,18 +9156,29 @@ def main():
     if voices:
         args = [a for a in args if a != "--voices"]
 
-    # --lexicon-supplement is a GLOBAL, bare-presence reading coordinate, the
-    # same shape as --voices and for the same reason: the lexicon is built
-    # once, here. It adds the reviewed rows of data/lexicon_supplement.tsv
-    # (quality/lexicon_supplement.py names what they are and what they never
-    # touch). Omitted, `Lexicon` is built exactly as before and that file is
-    # never opened.
-    supplement = _bare_flag_or_refuse(
-        args, "--lexicon-supplement",
-        "that the reviewed lexicon supplement (data/lexicon_supplement.tsv) "
-        "is read beside CMUdict")
-    if supplement:
-        args = [a for a in args if a != "--lexicon-supplement"]
+    # --lexicon-supplement=<id|none> is a GLOBAL reading coordinate, built
+    # once, here, like --voices. It names a FROZEN version of the reviewed
+    # supplement (data/lexicon_supplement_versions.json; quality/
+    # lexicon_supplement.py names what the rows are and what they never
+    # touch). `--lexicon-supplement-sha256=<hex>` is a saved run's record of
+    # that version's bytes: when given, a file that is not those bytes
+    # REFUSES, so a run is never re-read under a different supplement. The
+    # bare flag is #522's spelling of v1. Omitted or `none`, `Lexicon` is
+    # built exactly as before and no supplement file is opened.
+    supplement = None
+    supplement_sha = None
+    for a in args:
+        if a == "--lexicon-supplement" or a.startswith("--lexicon-supplement="):
+            if supplement is not None:
+                _refuse("declare one --lexicon-supplement")
+            supplement = True if a == "--lexicon-supplement" else a.split("=", 1)[1]
+        elif a.startswith("--lexicon-supplement-sha256"):
+            if supplement_sha is not None or not a.startswith("--lexicon-supplement-sha256="):
+                _refuse("declare one --lexicon-supplement-sha256=<64 hex>")
+            supplement_sha = a.split("=", 1)[1]
+    args = [a for a in args if not (a == "--lexicon-supplement"
+                                    or a.startswith("--lexicon-supplement="))
+            and not a.startswith("--lexicon-supplement-sha256")]
 
     if not args or args[0] in ("-h", "--help"):
         print(__doc__)
@@ -9141,12 +9190,23 @@ def main():
     args = [a for a in args if not a.startswith("--pronunciations=")]
     try:
         choices = json.loads(pronunciation_json) if pronunciation_json is not None else []
-        if supplement:
-            from quality.lexicon_supplement import SupplementedLexicon
-            lex = SupplementedLexicon(fallback=fallback, strip_parens=not voices,
-                                      pronunciations=choices)
-        else:
+        if supplement in (None, False, "none"):
+            if supplement_sha is not None:
+                _refuse("LEXICON_SUPPLEMENT_UNAVAILABLE: --lexicon-supplement-sha256 "
+                        "names a supplement's bytes, and no supplement version is "
+                        "declared; declare the version it belongs to")
             lex = Lexicon(fallback=fallback, strip_parens=not voices, pronunciations=choices)
+            _LEXICON_IDENTITY = {"supplement_id": None, "sha256": None}
+        else:
+            from quality import lexicon_supplement as _LS
+            try:
+                lex = _LS.SupplementedLexicon(fallback=fallback, strip_parens=not voices,
+                                              pronunciations=choices,
+                                              version=_LS.canonical_version(supplement),
+                                              expected_sha256=supplement_sha)
+            except (_LS.SupplementUnavailable, OSError) as e:
+                _refuse(str(e))
+            _LEXICON_IDENTITY = _LS.lexicon_identity(lex)
     except (ValueError, TypeError) as e:
         _refuse(f"invalid pronunciation declaration: {e}")
 
@@ -10029,7 +10089,7 @@ def main():
         # its reason. The render above names two refused keys only in its
         # closing list, so a reader of the report alone gets no reason for
         # them; the record carries all of them, read off `rec.how`.
-        _lyric_result(status="recovered", exit=3 if _refs else 0,
+        _lyric_result(**_lexicon_kw(), status="recovered", exit=3 if _refs else 0,
                       input_format=input_format,
                       lines=list(getattr(rec, "sung_lines", []) or []),
                       set_aside=list(getattr(rec, "set_aside", []) or []),
@@ -10217,7 +10277,7 @@ def main():
         # read by the connector off the authenticated record rather than
         # parsed out of the table above. Printed before the bank block so
         # the un-flagged output stays a prefix of the flagged one.
-        _lyric_result(status="screened", pairs=[
+        _lyric_result(**_lexicon_kw(), status="screened", pairs=[
             {"a": r["a"], "b": r["b"], "relations": list(r["relations"]),
              "coarse_relations": list(r["coarse_relations"]),
              "schema_relations": list(r["schema_relations"]),
@@ -10622,7 +10682,7 @@ def main():
             print(f"  WROTE {what} -> {out_path}")
         else:
             print(json.dumps(payload, indent=1, sort_keys=True))
-        _lyric_result(status="planned", exit=0,
+        _lyric_result(**_lexicon_kw(), status="planned", exit=0,
                       plan_lines=the_plan["total_lines"],
                       plan_version=the_plan["plan_version"])
         print()
@@ -12379,7 +12439,8 @@ def main():
                         "pronunciations": lex.pronunciations,
                         "pronunciation_options": reading_options(lex, lines, found["coverage"]),
                         "findings": _machine_findings,
-                        "ban_scope": _ban_scope}
+                        "ban_scope": _ban_scope,
+                        "lexicon": dict(_LEXICON_IDENTITY)}
             print("  lyric result: " + json.dumps(_machine, ensure_ascii=False,
                                                   separators=(",", ":")), flush=True)
             # Rhyme groups and full-line returns are distinct obligations.
@@ -13049,6 +13110,7 @@ def main():
                 print("  lyric result: " + json.dumps({
                     "version": 1, "status": "verified", "command": "verify",
                     "pronunciations": lex.pronunciations,
+                    "lexicon": dict(_LEXICON_IDENTITY),
                     "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
                     "before_draft": list(before), "final_draft": list(after),
                     "accepted": bool(v.get("accepted")), "reasons": v.get("reasons", []),
@@ -13469,7 +13531,7 @@ def main():
                           + ("" if not _cr else "  " + ", ".join(map(str, _cr))
                              + "  (previously JUDGED, now REFUSED — not a "
                                "new finding and not a fix)"))
-                    _lyric_result(version=1, status="tryline",
+                    _lyric_result(**_lexicon_kw(), version=1, status="tryline",
                                   command="tryline", line=_target,
                                   moves=sorted(_targets), candidate=_cand,
                                   accepted=_ok,
@@ -13613,7 +13675,7 @@ def main():
                     print(f"  Written to {path}. Fill `pending.answer`, then "
                           f"run the SAME command again.\n")
                     print(need.prompt)
-                    _lyric_result(status="suspended", exit=4,
+                    _lyric_result(**_lexicon_kw(), status="suspended", exit=4,
                                   **_lyric_run_record(say_memo, say_proposer,
                                                      finish_plan if cmd == "finish" else None))
                     sys.exit(4)
@@ -13637,7 +13699,7 @@ def main():
                     print(say_memo())
                     print(f"  Run the SAME command again with no answer to "
                           f"continue.\n")
-                    _lyric_result(status="stopped", exit=5,
+                    _lyric_result(**_lexicon_kw(), status="stopped", exit=5,
                                   stopped_before=stop.step,
                                   final_draft=list(say_proposer.state.get(
                                       "accepted_lines") or ()),
@@ -13746,6 +13808,7 @@ def main():
                 print("  lyric result: " + json.dumps({
                     "version": 1, "status": "finished", "input_draft": list(lines),
                     "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
+                    "lexicon": dict(_LEXICON_IDENTITY),
                     "accepted_lines": list(result.lines),
                     "final_draft": list(result.lines), "coverage": _coverage,
                     "pronunciations": lex.pronunciations,
@@ -13849,7 +13912,7 @@ def main():
                 print("  REFUSED — the mandate was not accepted.")
             for ln in str(e).splitlines():
                 print(f"  {ln}")
-            _lyric_result(status="refused", exit=2, refusal=str(e))
+            _lyric_result(**_lexicon_kw(), status="refused", exit=2, refusal=str(e))
             sys.exit(2)
         except ValueError as e:
             # THE SAME REFUSAL, FOR ALL FOUR VERBS — FIXED 2026-08-13. A

@@ -13,9 +13,6 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | JOURNAL_BYTES | 1,114,112 (1,088 KB) | `lyric_harness.py` |
 | JOURNAL_LINE_CHARS | 200 | `lyric_harness.py` |
 | MATTR_WINDOW | 50 | `quality/features.py` |
-| BIN_MIN_TAIL | 200 | `quality/length_curve_calibration.py` |
-| NOMINAL | 0.05 | `quality/length_curve_calibration.py` |
-| IRLS_MAX | 200 | `quality/length_curve_calibration.py` |
 | MAX_EXPANDED_POSITIONS | 100,000 | `quality/meter.py` |
 | MAX_FIT_DP_CELLS | 1,000,000 | `quality/meter.py` |
 | MAX_BLUEPRINT_ITEMS | 10,000 | `quality/meter.py` |
