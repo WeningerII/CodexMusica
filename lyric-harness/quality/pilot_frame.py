@@ -76,13 +76,30 @@ def _file_sha(path):
         return _sha(fh.read())
 
 
-def _source_commit():
+def behavior_sources():
+    """-> {path relative to the harness root: sha256} for every harness
+    module loaded so far -- after build(), exactly the code the frame was
+    computed by (lyric_harness.py, the corpus reader, the converter, the
+    census, split and queue, and their helpers), found rather than listed so
+    a new helper cannot fall outside the binding (3PO's #541 review)."""
+    out = {}
+    for m in list(sys.modules.values()):
+        f = getattr(m, "__file__", None)
+        if not f or not f.endswith(".py"):
+            continue
+        f = os.path.abspath(f)
+        if f.startswith(os.path.abspath(ROOT) + os.sep):
+            out[os.path.relpath(f, ROOT)] = _file_sha(f)
+    return dict(sorted(out.items()))
+
+
+def _source_commit(paths=SOURCES):
     def git(*args):
         return subprocess.run(["git", *args], cwd=ROOT, capture_output=True,
                               text=True, check=True).stdout.strip()
     try:
         head = git("rev-parse", "HEAD")
-        dirty = git("status", "--porcelain", "--", *SOURCES)
+        dirty = git("status", "--porcelain", "--", *paths)
     except (OSError, subprocess.CalledProcessError):
         return None
     return head + ("+dirty" if dirty else "") if head else None
@@ -122,6 +139,7 @@ def build():
     keep = {u for u, side in assignment.items() if side == "dev"}
     files = sorted({os.path.join(ROOT, u.split("#")[0]) for u in assignment})
     sizes = collections.Counter(f["stratum"] for f in frame)
+    behavior = behavior_sources()
     return {
         "version": 1, "protocol": "PR #527 (BB8 proposal 6104847635; 3PO "
                                   "amendments 6104984736, adopted 6105384997)",
@@ -135,8 +153,11 @@ def build():
             "mpron_sha256": M.MPRON_SHA256,
             "cmudict_sha256": _file_sha(LH.CMUDICT_PATH),
             "lexicon": "none (CMUdict alone)",
-            "source_commit": _source_commit(),
         },
+        # Enforced at --draw by content, not by HEAD: later frame- or
+        # map-only commits may advance HEAD without moving any of these.
+        "behavior_sources": behavior,
+        "source_commit": _source_commit(tuple(behavior)),
         "strata": [{"name": n, "spellings": sizes[n],
                     "treatment": ("random %d" % SAMPLE if sizes[n] >= SAMPLE
                                   else "full audit")}
@@ -163,9 +184,16 @@ def authenticated(frozen, rec):
         return "the stored frame's own digest is not its header's"
     if frozen["frame_sha256"] != rec["frame_sha256"]:
         return "the frame re-derived now is not the frozen one"
-    for key in ("split", "converter_output_sha256", "corpus_inputs_sha256"):
+    for key in ("split", "converter_output_sha256", "corpus_inputs_sha256",
+                "mpron_sha256", "cmudict_sha256"):
         if frozen["bindings"][key] != rec["bindings"][key]:
             return f"the frozen binding {key} moved"
+    if frozen.get("behavior_sources") != rec.get("behavior_sources"):
+        moved = sorted(k for k in set(frozen.get("behavior_sources") or {})
+                       | set(rec.get("behavior_sources") or {})
+                       if (frozen.get("behavior_sources") or {}).get(k)
+                       != (rec.get("behavior_sources") or {}).get(k))
+        return "behaviour sources moved: " + ", ".join(moved)
     return None
 
 

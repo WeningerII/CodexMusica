@@ -42,7 +42,10 @@ def _rec(n_large=80, n_small=10):
     return {"frame": frame, "frame_sha256": P.frame_digest(frame),
             "bindings": {"split": {"split_file_sha256": "s"},
                          "converter_output_sha256": "c",
-                         "corpus_inputs_sha256": "i"}}
+                         "corpus_inputs_sha256": "i",
+                         "mpron_sha256": "m", "cmudict_sha256": "d"},
+            "behavior_sources": {"lyric_harness.py": "h1",
+                                 "quality/audit_corpus.py": "h2"}}
 
 
 def test_authentication():
@@ -50,20 +53,39 @@ def test_authentication():
     rec = _rec()
     check("an untouched frozen frame may be drawn from",
           P.authenticated(copy.deepcopy(rec), rec) is None)
-    tampered = copy.deepcopy(rec)
-    tampered["frame"][0]["readings"][0]["phones"] = "W AA1"
-    check("an edited stored reading under the old header is refused "
-          "(3PO's #541 finding)", P.authenticated(tampered, rec) is not None,
-          P.authenticated(tampered, rec))
+    # 3PO's four tamper cases, each under the OLD header digest.
+    def under_old_header(edit):
+        t = copy.deepcopy(rec)
+        edit(t["frame"])
+        return P.authenticated(t, rec)
+    cases = {
+        "membership (a spelling added)": lambda f: f.append(
+            {"spelling": "zzz", "stratum": "hw merger",
+             "readings": [{"moby": "z", "phones": "Z IY1", "logs": []}]}),
+        "phones": lambda f: f[0]["readings"][0].__setitem__("phones", "W AA1"),
+        "logs": lambda f: f[0]["readings"][0].__setitem__("logs", ["ext:ju"]),
+        "stratum": lambda f: f[-1].__setitem__("stratum", "hw merger"),
+    }
+    for name, edit in cases.items():
+        why = under_old_header(edit)
+        check(f"a stored {name} edit under the old header is refused "
+              f"(3PO's #541 finding)", why is not None, why)
     moved = copy.deepcopy(rec)
     moved["frame"][-1]["stratum"] = "hw merger"
     moved["frame_sha256"] = P.frame_digest(moved["frame"])
     check("a consistent but different stored frame is refused against the "
           "re-derived one", P.authenticated(moved, rec) is not None)
-    for key in ("split", "converter_output_sha256", "corpus_inputs_sha256"):
+    for key in ("split", "converter_output_sha256", "corpus_inputs_sha256",
+                "mpron_sha256", "cmudict_sha256"):
         b = copy.deepcopy(rec)
         b["bindings"][key] = "other"
         check(f"a moved {key} binding is refused", P.authenticated(b, rec) is not None)
+    b = copy.deepcopy(rec)
+    b["behavior_sources"]["quality/audit_corpus.py"] = "edited"
+    why = P.authenticated(b, rec)
+    check("a moved behaviour source (a helper such as audit_corpus.py) is "
+          "refused, by content rather than by HEAD",
+          why is not None and "audit_corpus" in why, why)
 
 
 def test_draw():
