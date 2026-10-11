@@ -123,6 +123,13 @@ module.exports = [
     },
   },
   {
+    // The native Library tab's chunks (src/library/*.js): each file is a
+    // function body the build wraps as CMLibraryDefine('<name>', function () {
+    // … }), so it ends in a top-level `return` of its exports.
+    files: ['src/library/**/*.js'],
+    languageOptions: { parserOptions: { ecmaFeatures: { globalReturn: true } } },
+  },
+  {
     // The MCP server (mcp/) — Node, ESM. Imports the CommonJS engine under
     // scripts/ via createRequire. Its own deps live in mcp/node_modules.
     files: ['mcp/**/*.js', 'mcp/**/*.mjs'],

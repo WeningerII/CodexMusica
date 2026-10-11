@@ -57,6 +57,7 @@
 //   6  an emitted <script> is all comment, a runtime block became strict-mode
 //      code, or a block exceeds the hard byte ceiling (--check)
 
+const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
@@ -226,7 +227,12 @@ const workbenchCss = fs.readFileSync(path.join(SRC, 'workbench.css'), 'utf8');
 // The four pages, in navigation order. Each registers itself with the shell
 // (src/workbench.js) and owns only its own surface; docs/ui-foundation.md
 // names the owner of every file. Page styles load after the shell's.
-const PAGES = ['genre', 'instrument', 'map', 'lyrics'];
+// The native Library tab (docs/library-native-design.md) ships dark: only a
+// build with CODEX_LIBRARY=1 (CI's flagged build) registers its route, inlines
+// its stub page and emits its chunks. A default build is byte-identical to one
+// without any of it.
+const LIBRARY = process.env.CODEX_LIBRARY === '1' || !!flags.library;
+const PAGES = ['genre', 'instrument', 'map', 'lyrics', ...(LIBRARY ? ['library'] : [])];
 const pageFile = (name, ext) => fs.readFileSync(path.join(SRC, 'pages', name + ext), 'utf8');
 const pagesCss = PAGES.map((p) => pageFile(p, '.css')).join('\n');
 const layoutJs = fs.readFileSync(path.join(SRC, 'layout.js'), 'utf8');
@@ -560,6 +566,40 @@ function _cardDescriptorSet(card) {
 // hooks, which `uiRegisterPage` only stores. Keep it that way: a new load-time call
 // into a later module throws a ReferenceError that the browser gates report as
 // a page error.
+// The Library's chunks (src/library/*.js), flagged builds only. Each is wrapped
+// as CMLibraryDefine('<name>', function () { … }) (the stub, src/pages/library.js,
+// defines it) and squeezed. The lazy build writes it to
+// library/code/<name>.<sha256-10>.js beside the page and gives the stub its URL
+// and sha384 integrity in LIBRARY_CHUNKS; the embedded build inlines the same
+// text after the pages as passive blocks, which the loader prefers.
+const LIBRARY_CHUNK_FILES = [];
+let libraryStub = '';
+if (LIBRARY) {
+  const table = {};
+  const inline = [];
+  for (const file of fs
+    .readdirSync(path.join(SRC, 'library'))
+    .filter((f) => f.endsWith('.js'))
+    .sort()) {
+    const name = file.slice(0, -3);
+    const code = squeeze(
+      `CMLibraryDefine(${JSON.stringify(name)}, function () {\n${fs.readFileSync(path.join(SRC, 'library', file), 'utf8')}\n});`,
+      `library chunk: src/library/${file}`
+    );
+    const bytes = Buffer.from(code, 'utf8');
+    const out = `library/code/${name}.${crypto.createHash('sha256').update(bytes).digest('hex').slice(0, 10)}.js`;
+    table[name] = [out, 'sha384-' + crypto.createHash('sha384').update(bytes).digest('base64')];
+    LIBRARY_CHUNK_FILES.push({ out, bytes });
+    inline.push(code);
+  }
+  const stub = pageFile('library', '.js');
+  if (stub.split("'LIBRARY_CHUNKS'").length !== 2) {
+    console.error("build_html: src/pages/library.js must name 'LIBRARY_CHUNKS' exactly once");
+    process.exit(5);
+  }
+  libraryStub = stub.replace("'LIBRARY_CHUNKS'", () => JSON.stringify(LAZY ? table : {}));
+  if (!LAZY) libraryStub += '\n' + inline.join('\n');
+}
 const RUNTIME_MODULES = [
   {
     label: 'runtime: scripts/_merge.js + scripts/_card_descriptors.js',
@@ -572,7 +612,19 @@ const RUNTIME_MODULES = [
   },
   { label: 'runtime: src/app.js', code: appJs },
   { label: 'runtime: src/workbench.js', code: workbenchJs },
-  ...PAGES.map((p) => ({ label: `runtime: src/pages/${p}.js`, code: pageFile(p, '.js') })),
+  ...(LIBRARY
+    ? [
+        {
+          // Before any page registers: the route set is the shell's.
+          label: 'runtime: the Library route (CODEX_LIBRARY build)',
+          code: "UI_ROUTES.push(['library', 'Library', 'library']);",
+        },
+      ]
+    : []),
+  ...PAGES.map((p) => ({
+    label: `runtime: src/pages/${p}.js`,
+    code: p === 'library' ? libraryStub : pageFile(p, '.js'),
+  })),
 ];
 
 // EVERY RUNTIME BLOCK RUNS AS SLOPPY-MODE CODE, exactly as the single block did.
@@ -657,6 +709,14 @@ const html = template
 const outDir = path.dirname(outputPath);
 if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(outputPath, html);
+// The lazy flagged build's chunks, beside the page (a stale generation from an
+// earlier build is removed, so the directory holds exactly this build's).
+if (LIBRARY && LAZY) {
+  const codeDir = path.join(outDir, 'library', 'code');
+  fs.rmSync(codeDir, { recursive: true, force: true });
+  fs.mkdirSync(codeDir, { recursive: true });
+  for (const { out, bytes } of LIBRARY_CHUNK_FILES) fs.writeFileSync(path.join(outDir, out), bytes);
+}
 
 console.error(`Built ${outputPath} (${html.length.toLocaleString()} bytes)`);
 
