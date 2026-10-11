@@ -19,6 +19,8 @@ For every readable unit:
     the rights equals the site export's (catalog_site_export.source_basis).
   - the rights object rebuilt from rights/r-, rights/rows- and notices/
     equals the canonical one exactly, as does the metadata from meta/;
+  - every retained directory (manifest `retained`) resolves its whole
+    reference closure (rights, rows, notices, metadata) from the shards;
   - every retained directory (manifest `retained`) is a superseded reading
     directory of a still-readable unit, at most 30 days old, with its
     embedded identity; nothing else but current and retained directories;
@@ -189,6 +191,28 @@ def main(argv=None):
         used["notices"].update(n["sha256"] for n in interned["notices"])
         used["rights"].add(ref)
         return rights
+
+    # A retained head resolves its whole reference closure, exactly as a
+    # current one does: its rights object rebuilds (every sources.tsv row and
+    # notice present) to the rights_ref it names, its metadata header is in
+    # meta/, and its inline notices exist. Whatever a retained head needs
+    # counts as referenced.
+    for directory in sorted(retained):
+        head_path = data / directory / "head.json.gz"
+        if not head_path.is_file():
+            continue
+        head, _ = load(head_path)
+        rights = rebuilt_rights(head.get("rights_ref"))
+        gate.check(rights is not None
+                   and None not in rights["sources"] and None not in rights["file_sources"]
+                   and all(n["text"] is not None for n in rights["notices"])
+                   and sha(rights) == head["rights_ref"],
+                   f"a retained head's rights do not rebuild from the shards: {directory}")
+        gate.check(head.get("metadata_ref") in shards["metadata"],
+                   f"a retained head's metadata is missing from meta/: {directory}")
+        used["metadata"].add(head.get("metadata_ref"))
+        gate.check(all(d in notices for d in head["rights"]["notices"]),
+                   f"a retained head's inline notices are missing: {directory}")
 
     # u/ shards: exactly the readable units, each once.
     units = {}

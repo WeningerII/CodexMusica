@@ -15,18 +15,29 @@ from library.catalog_static_export import PAGE_ROWS, build_static
 GATE = Path(__file__).resolve().parents[2] / "scripts/check_library_data.py"
 
 
-def harness(temp, labels=()):
+def harness(temp, labels=(), author="Fixture Author", evidence="recorded", terms=None, whitman=True):
     """A harness root with one long multi-page reading (astral characters,
-    apparatus rows), two editions of one reviewed work and a held item."""
+    apparatus rows), two editions of one reviewed work and a held item. With
+    `terms`, also a small Gutenberg witness (corpus/whitman.txt) whose terms
+    text after its END marker is a notice: changing `terms`, `author` or
+    `evidence` changes the readings' notices, metadata and sources.tsv rows.
+    whitman=False leaves the witness without a sources.tsv row (held)."""
     root = Path(temp) / "harness"
     (root / "corpus/song").mkdir(parents=True)
     (root / "data").mkdir()
     long_body = "\n".join(f"Line {i} of the long one 😀 آ" for i in range(PAGE_ROWS * 2 + 17))
     (root / "corpus/song/eng_fixture.txt").write_text(
-        "# author: Fixture Author\n--- TITLE: Long\n# APPARATUS: a note\n" + long_body +
+        f"# author: {author}\n--- TITLE: Long\n# APPARATUS: a note\n" + long_body +
         "\n--- TITLE: A\nOne witness.\n--- TITLE: B\nSecond witness.\n--- TITLE: Held\n--- SOURCE: PG9\nHELD_BODY\n")
-    (root / "data/sources.tsv").write_text(
-        "source_id\tlicence\tpd_affirmed\tevidence\nlocal:corpus/song/eng_fixture.txt\tpublic domain\ttrue\trecorded\n")
+    rows = f"source_id\tlicence\tpd_affirmed\tevidence\nlocal:corpus/song/eng_fixture.txt\tpublic domain\ttrue\t{evidence}\n"
+    if terms is not None:
+        (root / "corpus/whitman.txt").write_text(
+            "*** START OF THE PROJECT GUTENBERG EBOOK LEAVES ***\n\nSong One\n  The first verse line\n"
+            "  The second verse line\n\nSong Two\n  The third verse line\n"
+            f"*** END OF THE PROJECT GUTENBERG EBOOK LEAVES ***\n{terms}\n")
+        if whitman:
+            rows += f"local:corpus/whitman.txt\tpublic domain\ttrue\t{evidence}\n"
+    (root / "data/sources.tsv").write_text(rows)
     (root / "data/calibration_work_editions.json").write_text(json.dumps({"works": [{
         "file": "corpus/song/eng_fixture.txt", "work_id": "reviewed-group", "editions": [
             {"title_line": len(long_body.splitlines()) + 4, "title": "A", "body_sha256": sha(b"One witness.")},
@@ -39,8 +50,8 @@ def harness(temp, labels=()):
 
 
 class StaticExportTests(unittest.TestCase):
-    def build(self, temp, labels=()):
-        root = harness(temp, labels)
+    def build(self, temp, labels=(), **fixture):
+        root = harness(temp, labels, **fixture)
         snapshot = root / "library/snapshot"
         build(root, snapshot, "a" * 40)
         export = Path(temp) / "export"
@@ -161,3 +172,89 @@ class StaticExportTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RetainedClosureTests(StaticExportTests):
+    """3PO's #538 regression: a retained generation keeps every object its
+    head names (rights, sources.tsv rows, notices, metadata), across changes
+    to all of them, through expiry and loss of readability."""
+
+    def builder(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("build_library_data", GATE.parent / "build_library_data.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    @staticmethod
+    def heads(out):
+        return {h.parent.relative_to(out).as_posix(): json.loads(gzip.decompress(h.read_bytes()))
+                for h in out.glob("r/*/*/*/head.json.gz")}
+
+    def test_retained_heads_keep_their_whole_reference_closure(self):
+        builder = self.builder()
+        with tempfile.TemporaryDirectory() as one, tempfile.TemporaryDirectory() as two:
+            _, old, _ = self.build(one, terms="Terms of use, first printing.")
+            snapshot, new, _ = self.build(two, terms="Terms of use, revised.",
+                                          author="Fixture Author II", evidence="re-recorded")
+            before, after = self.heads(old), self.heads(new)
+            # The fixture really moves all three: rights rows, notices, metadata.
+            self.assertFalse(set(before) & set(after), "every reading has a new directory")
+            self.assertFalse({h["rights_ref"] for h in before.values()} & {h["rights_ref"] for h in after.values()})
+            # The fixture file's header changed; the witness has none, so only some metadata moves.
+            self.assertTrue({h["metadata_ref"] for h in before.values()} - {h["metadata_ref"] for h in after.values()})
+            old_notices = {n for h in before.values() for n in h["rights"]["notices"]}
+            new_notices = {n for h in after.values() for n in h["rights"]["notices"]}
+            self.assertTrue(old_notices and new_notices and not old_notices & new_notices)
+
+            kept = builder.retain(new, old, "2026-10-11")
+            self.assertEqual(set(kept), set(before), "every superseded readable directory is retained")
+            gate = self.gate(new, snapshot)
+            self.assertEqual(gate.returncode, 0, gate.stdout + gate.stderr)
+            # Each retained head's closure is in the new tree, byte for byte as it was.
+            for directory, head in before.items():
+                ref = head["rights_ref"]
+                rights = json.loads(gzip.decompress((new / f"rights/r-{ref[:2]}.json.gz").read_bytes()))["rights"]
+                self.assertEqual(rights[ref], json.loads(gzip.decompress(
+                    (old / f"rights/r-{ref[:2]}.json.gz").read_bytes()))["rights"][ref])
+                for digest in head["rights"]["notices"]:
+                    self.assertEqual((new / f"notices/{digest}.json").read_bytes(),
+                                     (old / f"notices/{digest}.json").read_bytes())
+
+            # Expiry: 31 days on, nothing is retained and the carried objects go.
+            with tempfile.TemporaryDirectory() as later:
+                again = Path(later) / "static"
+                build_static(Path(two) / "export", again)
+                self.assertEqual(builder.retain(again, new, "2026-11-11"), {})
+                self.assertFalse(any((again / f"notices/{d}.json").exists() for d in old_notices))
+                gate = self.gate(again, snapshot)
+                self.assertEqual(gate.returncode, 0, gate.stdout + gate.stderr)
+
+    def test_a_retained_generation_that_loses_readability_is_dropped_with_its_objects(self):
+        builder = self.builder()
+        with tempfile.TemporaryDirectory() as one, tempfile.TemporaryDirectory() as two:
+            _, old, _ = self.build(one, terms="Terms of use, first printing.")
+            snapshot, new, _ = self.build(two, terms="Terms of use, revised.", whitman=False)
+            witness = {d for d, h in self.heads(old).items() if h["source_path"] == "corpus/whitman.txt"}
+            self.assertTrue(witness)
+            kept = builder.retain(new, old, "2026-10-11")
+            self.assertFalse(set(kept) & witness, "an unreadable unit's directory is not retained")
+            old_notices = {n for d in witness for n in self.heads(old)[d]["rights"]["notices"]}
+            self.assertFalse(any((new / f"notices/{d}.json").exists() for d in old_notices))
+            gate = self.gate(new, snapshot)
+            self.assertEqual(gate.returncode, 0, gate.stdout + gate.stderr)
+
+    def test_the_gate_refuses_a_retained_head_whose_objects_are_gone(self):
+        builder = self.builder()
+        with tempfile.TemporaryDirectory() as one, tempfile.TemporaryDirectory() as two:
+            _, old, _ = self.build(one, terms="Terms of use, first printing.")
+            snapshot, new, _ = self.build(two, terms="Terms of use, revised.",
+                                          author="Fixture Author II", evidence="re-recorded")
+            builder.retain(new, old, "2026-10-11")
+            head = next(h for h in self.heads(old).values() if h["rights"]["notices"])
+            notice = new / f"notices/{head['rights']['notices'][0]}.json"
+            notice.unlink()
+            manifest = json.loads((new / "manifest.json").read_bytes())
+            del manifest["files"][notice.relative_to(new).as_posix()]
+            (new / "manifest.json").write_bytes(canonical(manifest))
+            self.assertIn("a retained head's", self.gate(new, snapshot).stdout)

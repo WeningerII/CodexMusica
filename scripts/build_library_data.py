@@ -37,6 +37,9 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 HARNESS = ROOT / "lyric-harness"
 SNAPSHOT = HARNESS / "library/snapshot"
+sys.path.insert(0, str(HARNESS))
+from library.catalog import canonical  # noqa: E402
+from library.catalog_static_export import FORMAT, gz, rows_shard  # noqa: E402
 
 
 def run(args, **kwargs):
@@ -78,12 +81,64 @@ def retain(static: Path, committed: Path, built_on: str):
             data = f.read_bytes()
             manifest["files"][f.relative_to(static).as_posix()] = {
                 "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+        carry_references(static, committed, head, manifest)
     manifest["built_on"] = built_on
     manifest["retained"] = retained
     manifest["files"] = dict(sorted(manifest["files"].items()))
     manifest_path.write_bytes(json.dumps(manifest, ensure_ascii=False, sort_keys=True,
                                          separators=(",", ":")).encode("utf-8"))
     return retained
+
+
+def carry_references(static: Path, committed: Path, head_path: Path, manifest: dict):
+    """A retained head still names its rights object, that object's
+    sources.tsv rows and notices, and its metadata header (rights_ref,
+    metadata_ref). The new build writes those content-addressed shards from
+    the current readings only, so whatever the retained head needs and the
+    new tree lacks is carried forward from the committed tree: merged into
+    the new shard files, or (a notice) copied. A retained reading then
+    reconstructs exactly as it did when it was current."""
+    head = json.loads(gzip.decompress(head_path.read_bytes()))
+
+    def objects(root: Path, path: str, family: str) -> dict:
+        file = root / path
+        return json.loads(gzip.decompress(file.read_bytes()))[family] if file.is_file() else {}
+
+    wanted = {}  # shard path -> (family, {ref: object})
+
+    def want(path: str, family: str, ref: str):
+        found = objects(committed, path, family)
+        if ref not in found:
+            raise SystemExit(f"retention: the committed tree lacks {family} {ref} ({path})")
+        wanted.setdefault(path, (family, {}))[1][ref] = found[ref]
+
+    rights_ref, metadata_ref = head["rights_ref"], head["metadata_ref"]
+    want(f"rights/r-{rights_ref[:2]}.json.gz", "rights", rights_ref)
+    interned = wanted[f"rights/r-{rights_ref[:2]}.json.gz"][1][rights_ref]
+    for key in ("sources", "file_sources"):
+        for digest in interned[key]:
+            want(f"rights/rows-{rows_shard(digest)}.json.gz", "rows", digest)
+    want(f"meta/{rows_shard(metadata_ref)}.json.gz", "metadata", metadata_ref)
+    for notice in interned["notices"]:
+        path = f"notices/{notice['sha256']}.json"
+        if not (static / path).is_file():
+            if not (committed / path).is_file():
+                raise SystemExit(f"retention: the committed tree lacks notice {notice['sha256']}")
+            shutil.copyfile(committed / path, static / path)
+            data = (static / path).read_bytes()
+            manifest["files"][path] = {"sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+    for path, (family, carried) in sorted(wanted.items()):
+        current = objects(static, path, family)
+        if all(ref in current for ref in carried):
+            continue
+        raw = canonical({"format": FORMAT, family: {**current, **carried}})
+        old = committed / path
+        # The committed bytes when they already hold exactly this content
+        # (a rebuild never rewrites a published file over zlib differences).
+        data = old.read_bytes() if old.is_file() and gzip.decompress(old.read_bytes()) == raw else gz(raw)
+        (static / path).parent.mkdir(parents=True, exist_ok=True)
+        (static / path).write_bytes(data)
+        manifest["files"][path] = {"sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
 
 
 def compare(built: Path, committed: Path):
