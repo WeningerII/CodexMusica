@@ -13,8 +13,10 @@
 // LIBRARY_CHUNKS; the embedded build inlines the same text as passive blocks,
 // which the loader prefers. A factory runs once, on first use.
 
-// Replaced by the build: { name: [url, 'sha384-…'] }.
+// Replaced by the build: { name: [url, 'sha384-…'] }, and the static data
+// base (never CODEX_LAZY_API).
 const LIBRARY_CHUNKS = 'LIBRARY_CHUNKS';
+const LIBRARY_DATA_BASE = 'LIBRARY_DATA_BASE';
 const LIBRARY_CODE = { defined: {}, pending: {}, loaded: {} };
 const LIBRARY = { sub: '', failure: null };
 
@@ -112,14 +114,23 @@ uiRegisterPage({
   },
 });
 
-// A pointer resting on (or focus reaching) the Library nav entry starts the
-// core chunk, so the click finds it loaded. Once; a failure is left for the
-// visit to retry and report.
-function libraryWarm(event) {
-  if (!event.target.closest?.('button[data-view="library"]')) return;
-  document.removeEventListener('pointerover', libraryWarm);
-  document.removeEventListener('focusin', libraryWarm);
-  if (/^https?:$/.test(location.protocol)) libraryChunk('core').catch(() => {});
+// A pointer entering the Library nav entry (pointerenter only, not focus)
+// asks the browser to prefetch the core chunk and catalog.json, so the click
+// finds them cached; nothing runs until the click. Once, over http(s) only,
+// and not after the tab has loaded the Library.
+function libraryHover(event) {
+  if (!event.target.matches?.('button[data-view="library"]')) return;
+  document.removeEventListener('pointerenter', libraryHover, true);
+  // A tab that has already visited has both; asking again would refetch.
+  if (!/^https?:$/.test(location.protocol) || LIBRARY_CODE.pending.core) return;
+  for (const href of [LIBRARY_CHUNKS.core?.[0], LIBRARY_DATA_BASE + 'catalog.json']) {
+    if (!href) continue;
+    const link = document.createElement('link');
+    link.setAttribute('rel', 'prefetch');
+    link.setAttribute('href', href);
+    link.setAttribute('crossorigin', 'anonymous');
+    document.head.append(link);
+  }
 }
-document.addEventListener('pointerover', libraryWarm);
-document.addEventListener('focusin', libraryWarm);
+// pointerenter does not bubble; a capturing listener on the document sees it.
+document.addEventListener('pointerenter', libraryHover, true);

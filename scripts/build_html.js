@@ -283,6 +283,18 @@ if (enginePreloadJs.split("'ENGINE_URL'").length !== 2) {
 // preload's line, so a default build, which replaces it with nothing, is byte
 // for byte what it was.
 const LIBRARY_PRELOAD_MARKER = '<!--@LIBRARY_PRELOAD-->';
+// The flagged build's engine preload skips #library routes, which draw no
+// cards before the Library (src/engine_preload.js says so). Inserted here so
+// the default build's script stays byte for byte as it is.
+const ENGINE_TRY = '  try {\n    var text =';
+function libraryRouteTest(js) {
+  if (js.split(ENGINE_TRY).length !== 2)
+    throw new Error('build_html: src/engine_preload.js no longer opens its try block as expected');
+  return js.replace(
+    ENGINE_TRY,
+    () => '  try {\n    if (/^#library(\\/|\\?|$)/.test(location.hash)) return;\n    var text ='
+  );
+}
 const bootPreloadJs = fs.readFileSync(path.join(SRC, 'boot_preload.js'), 'utf8');
 const libraryPreloadJs = fs.readFileSync(path.join(SRC, 'library_preload.js'), 'utf8');
 if (!template.includes(LIBRARY_PRELOAD_MARKER)) {
@@ -623,7 +635,13 @@ if (LIBRARY) {
     console.error("build_html: src/pages/library.js must name 'LIBRARY_CHUNKS' exactly once");
     process.exit(5);
   }
-  libraryStub = stub.replace("'LIBRARY_CHUNKS'", () => JSON.stringify(LAZY ? table : {}));
+  if (stub.split("'LIBRARY_DATA_BASE'").length !== 2) {
+    console.error("build_html: src/pages/library.js must name 'LIBRARY_DATA_BASE' exactly once");
+    process.exit(5);
+  }
+  libraryStub = stub
+    .replace("'LIBRARY_CHUNKS'", () => JSON.stringify(LAZY ? table : {}))
+    .replace("'LIBRARY_DATA_BASE'", () => JSON.stringify(LIBRARY_DATA_BASE));
   if (!LAZY) libraryStub += '\n' + inline.join('\n');
 }
 const RUNTIME_MODULES = [
@@ -743,7 +761,10 @@ const html = template
     LAZY
       ? '<script>' +
         squeeze(
-          enginePreloadJs.replace("'ENGINE_URL'", () => JSON.stringify(ENGINE_URL)),
+          (LIBRARY ? libraryRouteTest(enginePreloadJs) : enginePreloadJs).replace(
+            "'ENGINE_URL'",
+            () => JSON.stringify(ENGINE_URL)
+          ),
           'engine preload'
         ) +
         '</script>'
@@ -1076,51 +1097,59 @@ if (flags.check) {
       ];
       const want = { rel: 'preload', as: 'fetch', crossorigin: 'anonymous', href: ENGINE_URL };
       const stray = new Set();
-      for (const [stored, n] of STATES) {
-        const links = [];
-        const store = (where) => ({
-          getItem(k) {
-            if (stored === 'throw') throw new Error('storage refused');
-            if (!KEYS.some(([s, key]) => s === where && key === k)) {
-              stray.add(`${where}.getItem(${JSON.stringify(k)})`);
-              return null;
-            }
-            return k in stored ? stored[k] : null;
-          },
-        });
-        const doc = {
-          head: { appendChild: (el) => links.push(el.attrs) },
-          createElement: (tag) => {
-            const el = { tag, attrs: {} };
-            el.setAttribute = (k, v) => (el.attrs[k] = String(v));
-            return el;
-          },
-        };
-        try {
-          vm.runInContext(
-            m[1],
-            vm.createContext({
-              document: doc,
-              sessionStorage: store('sessionStorage'),
-              localStorage: store('localStorage'),
-            }),
-            { timeout: 1000 }
-          );
-        } catch (e) {
-          fail(`the engine preload threw on stored state ${JSON.stringify(stored)}: ${e.message}`);
+      // A flagged Library build's script also reads the route: on #library it
+      // asks for nothing whatever is stored; elsewhere it answers as above.
+      const ROUTES = LIBRARY ? ['', '#genre', '#library', '#library/read/x'] : [''];
+      for (const [stored, stateN] of STATES)
+        for (const hash of ROUTES) {
+          const n = /^#library(\/|\?|$)/.test(hash) ? 0 : stateN;
+          const links = [];
+          const store = (where) => ({
+            getItem(k) {
+              if (stored === 'throw') throw new Error('storage refused');
+              if (!KEYS.some(([s, key]) => s === where && key === k)) {
+                stray.add(`${where}.getItem(${JSON.stringify(k)})`);
+                return null;
+              }
+              return k in stored ? stored[k] : null;
+            },
+          });
+          const doc = {
+            head: { appendChild: (el) => links.push(el.attrs) },
+            createElement: (tag) => {
+              const el = { tag, attrs: {} };
+              el.setAttribute = (k, v) => (el.attrs[k] = String(v));
+              return el;
+            },
+          };
+          try {
+            vm.runInContext(
+              m[1],
+              vm.createContext({
+                document: doc,
+                sessionStorage: store('sessionStorage'),
+                localStorage: store('localStorage'),
+                location: { hash },
+              }),
+              { timeout: 1000 }
+            );
+          } catch (e) {
+            fail(
+              `the engine preload threw on stored state ${JSON.stringify(stored)}: ${e.message}`
+            );
+          }
+          const canon = (a) =>
+            JSON.stringify(
+              Object.keys(a)
+                .sort()
+                .map((k) => [k, a[k]])
+            );
+          const bad = links.filter((a) => canon(a) !== canon(want));
+          if (links.length !== n || bad.length)
+            fail(
+              `the engine preload added ${JSON.stringify(links)} for stored state ${JSON.stringify(stored).slice(0, 120)}${hash ? ` on ${hash}` : ''}; want ${n ? JSON.stringify(want) : 'nothing'}`
+            );
         }
-        const canon = (a) =>
-          JSON.stringify(
-            Object.keys(a)
-              .sort()
-              .map((k) => [k, a[k]])
-          );
-        const bad = links.filter((a) => canon(a) !== canon(want));
-        if (links.length !== n || bad.length)
-          fail(
-            `the engine preload added ${JSON.stringify(links)} for stored state ${JSON.stringify(stored).slice(0, 120)}; want ${n ? JSON.stringify(want) : 'nothing'}`
-          );
-      }
       if (stray.size)
         fail(
           `the engine preload reads ${[...stray].join(', ')}, which storedSessionText (src/app.js) does not; it may read only ${KEYS.map(([w, k]) => `${w} ${k}`).join(', ')}`

@@ -12,8 +12,9 @@
 //                    integrity is refused and the tab says the site was updated
 //                    head preloads: on #library the core chunk is asked for from
 //                    <head> and the loader reuses it (one request), and
-//                    catalog.json is requested; off-route, hovering the nav
-//                    entry fetches the core chunk before the click
+//                    catalog.json is requested; off-route, a pointer entering
+//                    the nav entry prefetches core and catalog.json (once,
+//                    nothing executed) and focus prefetches nothing
 //   flagged embedded the same chunk inlined: no library/ request at all
 //
 // Usage: node scripts/check_library_shell.js
@@ -203,28 +204,49 @@ function chromiumPath() {
     await s.close();
   }
 
-  // Off-route: no Library preload; hovering the nav entry fetches the core
-  // chunk before any click.
+  // Off-route: no Library preload; a pointer entering the nav entry prefetches
+  // the core chunk and catalog.json (link rel=prefetch, nothing executed), and
+  // keyboard focus prefetches nothing.
   {
     const s = await open(dirs.lazy, '#genre');
     const { page } = s;
-    assert.deepEqual(
-      s.requests.filter((p) => p.includes('/library/')),
-      [],
-      'nothing under library/ is asked for off-route'
-    );
+    const libraryRequests = () => s.requests.filter((p) => p.includes('/library/'));
+    assert.deepEqual(libraryRequests(), [], 'nothing under library/ is asked for off-route');
+    await page.focus('button.cm-tab[data-view="library"]');
+    await page.waitForTimeout(300);
+    assert.deepEqual(libraryRequests(), [], 'focus prefetches nothing');
     await page.hover('button.cm-tab[data-view="library"]');
-    await page.waitForFunction(() => document.querySelector('script[src*="library/code/"]'), null, {
-      timeout: 30000,
-    });
-    await page.waitForFunction(() => UI.view === 'genre');
+    await page.waitForFunction(
+      (core) =>
+        ['library/code/' + core, 'library/data/catalog.json'].every((href) =>
+          document.head.querySelector(`link[rel="prefetch"][href="${href}"]`)
+        ),
+      chunks[0],
+      { timeout: 30000 }
+    );
+    assert.equal(
+      await page.evaluate(() => document.querySelectorAll('script[src*="library/code/"]').length),
+      0,
+      'a hover runs no chunk'
+    );
+    await page.waitForFunction(
+      (core) =>
+        performance
+          .getEntriesByType('resource')
+          .some((e) => e.name.endsWith('/library/code/' + core)),
+      chunks[0],
+      { timeout: 30000 }
+    );
+    await page.mouse.move(0, 0);
+    await page.hover('button.cm-tab[data-view="library"]');
+    await page.waitForTimeout(300);
+    assert.equal(
+      await page.evaluate(() => document.head.querySelectorAll('link[rel="prefetch"]').length),
+      2,
+      'the prefetch is added once'
+    );
     await page.click('button.cm-tab[data-view="library"]');
     await shown(page, 'Explore');
-    assert.equal(
-      s.requests.filter((p) => p.startsWith('/library/code/')).length,
-      1,
-      'the hover fetch is the only one'
-    );
     assert.deepEqual(s.errors, []);
     await s.close();
   }
@@ -264,7 +286,7 @@ function chromiumPath() {
   await browser.close();
   fs.rmSync(temp, { recursive: true, force: true });
   console.log(
-    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover warms the chunk, a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
+    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover prefetches core and catalog once, a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
   );
 })().catch((error) => {
   console.error('LIBRARY SHELL: FAIL —', error.stack || error);
