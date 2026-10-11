@@ -32,6 +32,9 @@ def harness(temp, labels=()):
             {"title_line": len(long_body.splitlines()) + 4, "title": "A", "body_sha256": sha(b"One witness.")},
             {"title_line": len(long_body.splitlines()) + 6, "title": "B", "body_sha256": sha(b"Second witness.")}]}]}))
     (root / "data/lyric_label_prefixes.json").write_bytes(canonical({"version": 1, "prefixes": list(labels)}))
+    (root / "library").mkdir()
+    (root / "library/methods.json").write_text('{"methods":[],"registry_hash":"fixture-registry"}\n')
+    (root / "library/schema.json").write_text('{"title":"fixture result schema"}\n')
     return root
 
 
