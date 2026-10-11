@@ -743,6 +743,7 @@ function stop() {
     /* no speech */
   }
   S.observer?.disconnect();
+  clearTimeout(S.posTimer);
   S.ana?.destroy?.();
   if (S.onKey) document.removeEventListener('keydown', S.onKey);
 }
@@ -880,24 +881,25 @@ ${S.window[1] < R.pageCount - 1 ? btn('next', `Load next source rows · ${last ?
 // Reading position: the topmost visible line, saved 800 ms after it settles.
 function observe() {
   S.observer?.disconnect();
+  clearTimeout(S.posTimer);
   if (!('IntersectionObserver' in window)) return;
-  let timer;
+  const mine = S,
+    R = S.R;
   S.observer = new IntersectionObserver(
     (entries) => {
       const top = entries
         .filter((e) => e.isIntersecting)
         .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0]?.target;
       if (!top) return;
-      clearTimeout(timer);
-      timer = setTimeout(
-        () =>
-          store('position:' + S.R.id, {
-            line_id: top.id,
-            offset: Math.max(0, Number(top.dataset.row) - 30),
-            revision: S.R.revision,
-          }),
-        800
-      );
+      clearTimeout(mine.posTimer);
+      mine.posTimer = setTimeout(() => {
+        if (S !== mine || S.R !== R || !top.isConnected) return;
+        store('position:' + R.id, {
+          line_id: top.id,
+          offset: Math.max(0, Number(top.dataset.row) - 30),
+          revision: R.revision,
+        });
+      }, 800);
     },
     { rootMargin: '-120px 0px -55% 0px' }
   );
@@ -917,8 +919,10 @@ async function page(direction) {
   const target = direction === 'next' ? S.window[1] + 1 : S.window[0] - 1;
   if (target < 0 || target >= R.pageCount) return;
   S.busy = true;
+  const mine = S;
   try {
     await loadPage(S.lib, R, target);
+    if (S !== mine || !S.root?.isConnected) return;
     const lines = S.root.querySelector('.rd-lines');
     const before = lines?.scrollHeight || 0;
     const y = window.scrollY;
@@ -939,9 +943,9 @@ async function page(direction) {
     else window.scrollTo(0, y + ((S.root.querySelector('.rd-lines')?.scrollHeight || 0) - before));
     replaceRoute();
   } catch (e) {
-    fail(e);
+    if (S === mine) fail(e);
   } finally {
-    S.busy = false;
+    mine.busy = false;
   }
 }
 
