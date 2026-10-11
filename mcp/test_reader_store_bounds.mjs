@@ -649,23 +649,25 @@ test('the dirty re-mark stays inside the slice bound and withholds the sweep unt
 // ── #528 verdict at 728247238: strict time and byte bounds ─────────────────
 test('expiry checks the time bound between tombstones and resumes where it stopped', (t) => {
   let now = 1000;
-  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  // The maintenance clock is driven by the test, so the bound is checked
+  // exactly and a loaded runner cannot fail it: each tombstone is a 20 ms
+  // durable write, and a 50 ms slice has time to start three (0, 20, 40).
+  let clock = 0;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now, clock: () => clock });
   for (let i = 0; i < 12; i++) create(store, `v${i}`, `k${i}`);
   now += READER_LIMITS.retentionMs + 1;
   const tombstone = store._tombstone.bind(store);
   store._tombstone = (...args) => {
-    const until = Date.now() + 20;
-    while (Date.now() < until); // a slow durable write
+    clock += 20; // a slow durable write
     return tombstone(...args);
   };
   const bounds = { records: 1000, objects: 1000, bytes: 1 << 30, ms: 50 };
   let total = 0;
   for (let i = 0; i < 50 && total < 12; i++) {
-    const started = Date.now();
+    const started = clock;
     const result = store.maintain(bounds);
-    const elapsed = Date.now() - started;
-    assert.ok(result.expired <= 3, `one slice tombstoned ${result.expired} jobs`);
-    assert.ok(elapsed < bounds.ms + 40, `one slice took ${elapsed} ms`);
+    assert.equal(result.expired, 3, `one slice tombstoned ${result.expired} jobs`);
+    assert.ok(clock - started <= bounds.ms + 20, `one slice ran ${clock - started} ms`);
     total += result.expired;
   }
   assert.equal(total, 12, 'later slices continued the same pass');
