@@ -43,6 +43,8 @@ import { createReaderRouter } from './reader_routes.js';
 import { LibrarySearch } from './library_search.js';
 import { libraryPublicRouter, redactLibraryUrl } from './library_routes.js';
 import { libraryViewerRouter, isViewerPath } from './library_viewer_routes.js';
+import { ExportStore } from './library_exports.js';
+import { libraryExportRouter } from './library_export_routes.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
@@ -355,6 +357,17 @@ if (process.env.LIBRARY_SEARCH_DIR) {
     console.error('[library] the search store is unusable; search answers 503:', error.message);
   }
 }
+// Public selection exports (uncredentialed), from the export store the image
+// builds (LIBRARY_EXPORT_DIR); without one they answer 503.
+let libraryExports = null;
+if (process.env.LIBRARY_EXPORT_DIR) {
+  try {
+    libraryExports = new ExportStore(process.env.LIBRARY_EXPORT_DIR);
+  } catch (error) {
+    console.error('[library] the export store is unusable; exports answer 503:', error.message);
+  }
+}
+app.use('/library/v1', libraryExportRouter({ exports: libraryExports }));
 // Public analysis: only with LIBRARY_PUBLIC=1, a running reader and the
 // search store, whose snapshot is the one every request is filled with.
 // Mounted before the public router, whose refusals would otherwise answer.

@@ -18,6 +18,7 @@ reader adds no resident Python process and yields when writing work queues.
 | `READER_RESOURCE_FINGERPRINT` | Optional explicit qualified resource fingerprint; otherwise use the checked runtime asset inventory hash.                                    |
 | `READER_REQUIRED`             | Set to `1` for a release that requires reader readiness; otherwise missing reader configuration leaves existing writing readiness unchanged. |
 | `LIBRARY_SEARCH_DIR`          | The search store `lyric-harness/library/search_store.py` builds from the verified site export. Without it, `/library/v1/search` and `/metadata` answer 503. |
+| `LIBRARY_EXPORT_DIR`          | The export store `node mcp/library_exports.js build EXPORT OUT` builds from the verified site export. Without it, selection exports answer 503. |
 | `LIBRARY_PUBLIC`              | `1` mounts the credentialed `/library/v1` viewer routes (analysis). Unset or `0` until the native Library tab ships.                          |
 
 Use the existing immutable image assembly, qualification and promotion pipeline.
@@ -58,6 +59,24 @@ server's own snapshot (the client never sends one):
   only the compressed projection chunks it intersects.
 - `GET /library/v1/metadata/:id`: one unit's recorded metadata, any
   availability (held units carry no body, snippet or labels).
+
+- `POST /library/v1/exports/plan` (`{reading_unit_ids, format}`, text, json
+  or csv) and `HEAD`/`GET /library/v1/exports/p/<content_id>.zip`: a selection
+  export, byte-identical to the approved Worker's ZIP (every one of its nine
+  export goldens replays exactly: `mcp/test_library_exports_parity.mjs`, run by
+  `library-site.yml`). The plan names the exact inputs (`content_id`: exporter
+  version, format, snapshot, rights registry and each reading's revision) and
+  is held in a process-local LRU (2,000 plans, one hour), so no id list ever
+  appears in a URL or log. A download recomputes `content_id` (409
+  `PLAN_STALE`) or finds the plan evicted (409 `PLAN_EXPIRED`); either way the
+  client re-plans from its stored ids. The ZIP streams with an exact
+  Content-Length from sizes and CRCs the export store recorded at build time,
+  generated in a worker thread (a long reading never blocks the event loop) and
+  checked entry by entry against that record. Every error on the download path
+  is an attachment (`library-download-error.txt`), so a navigation can never
+  swap the page for an error. Limits: plans 120/h per address; 2 concurrent
+  streams per address and 4 service-wide; a 60 s idle timeout. A selection of
+  every readable unit answers 409 `USE_CORPUS_PACKAGE`.
 
 Search and metadata are `Cache-Control: public, max-age=300` with an ETag;
 errors are `no-store`. Search has a per-address abuse ceiling of 600 a minute
