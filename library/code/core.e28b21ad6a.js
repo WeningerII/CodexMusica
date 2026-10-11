@@ -1,1 +1,0 @@
-CMLibraryDefine("core",function(){"use strict";const SECTIONS={"":"Explore","/works":"Works","/rights":"Sources & rights"};return{show(main,sub){const section=SECTIONS[sub.split("?")[0]]||"Explore";main.innerHTML=uiEmptyState({title:section,text:"The native Library is being built behind a flag."});main.dataset.libraryChunk="core"}}});
