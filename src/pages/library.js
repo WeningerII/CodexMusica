@@ -111,3 +111,15 @@ uiRegisterPage({
     'lib-reload': () => location.reload(),
   },
 });
+
+// A pointer resting on (or focus reaching) the Library nav entry starts the
+// core chunk, so the click finds it loaded. Once; a failure is left for the
+// visit to retry and report.
+function libraryWarm(event) {
+  if (!event.target.closest?.('button[data-view="library"]')) return;
+  document.removeEventListener('pointerover', libraryWarm);
+  document.removeEventListener('focusin', libraryWarm);
+  if (/^https?:$/.test(location.protocol)) libraryChunk('core').catch(() => {});
+}
+document.addEventListener('pointerover', libraryWarm);
+document.addEventListener('focusin', libraryWarm);

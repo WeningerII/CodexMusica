@@ -276,6 +276,30 @@ if (enginePreloadJs.split("'ENGINE_URL'").length !== 2) {
   console.error("build_html: src/engine_preload.js must name 'ENGINE_URL' exactly once");
   process.exit(5);
 }
+// Flagged Library builds only (CODEX_LIBRARY=1). The boot index's preload
+// becomes src/boot_preload.js (the same element, except on a #library route),
+// and src/library_preload.js follows the engine preload, asking from <head> for
+// what the tab draws first on a #library route. The marker shares the engine
+// preload's line, so a default build, which replaces it with nothing, is byte
+// for byte what it was.
+const LIBRARY_PRELOAD_MARKER = '<!--@LIBRARY_PRELOAD-->';
+const bootPreloadJs = fs.readFileSync(path.join(SRC, 'boot_preload.js'), 'utf8');
+const libraryPreloadJs = fs.readFileSync(path.join(SRC, 'library_preload.js'), 'utf8');
+if (!template.includes(LIBRARY_PRELOAD_MARKER)) {
+  console.error(
+    `build_html: template is missing the ${LIBRARY_PRELOAD_MARKER} marker — ${TEMPLATE}`
+  );
+  process.exit(5);
+}
+if (
+  bootPreloadJs.split("'BOOT_URL'").length !== 2 ||
+  libraryPreloadJs.split("'LIBRARY_PRELOAD'").length !== 2
+) {
+  console.error(
+    'build_html: src/boot_preload.js and src/library_preload.js must each name their placeholder exactly once'
+  );
+  process.exit(5);
+}
 if (!template.includes(THEME_BOOT_MARKER)) {
   console.error(`build_html: template is missing the ${THEME_BOOT_MARKER} marker — ${TEMPLATE}`);
   process.exit(5);
@@ -573,9 +597,11 @@ function _cardDescriptorSet(card) {
 // and sha384 integrity in LIBRARY_CHUNKS; the embedded build inlines the same
 // text after the pages as passive blocks, which the loader prefers.
 const LIBRARY_CHUNK_FILES = [];
+const LIBRARY_CHUNK_TABLE = {};
+const LIBRARY_DATA_BASE = 'library/data/';
 let libraryStub = '';
 if (LIBRARY) {
-  const table = {};
+  const table = LIBRARY_CHUNK_TABLE;
   const inline = [];
   for (const file of fs
     .readdirSync(path.join(SRC, 'library'))
@@ -684,7 +710,34 @@ const html = template
       : '<style>' + squeezeCss(css, 'src/index.template.html <style>') + '</style>'
   )
   .replace(BOOT_PRELOAD_MARKER, () =>
-    LAZY ? `<link rel="preload" href="${LAZY_API}browse_boot.json" as="fetch" crossorigin>` : ''
+    !LAZY
+      ? ''
+      : LIBRARY
+        ? '<script>' +
+          squeeze(
+            bootPreloadJs.replace("'BOOT_URL'", () =>
+              JSON.stringify(LAZY_API + 'browse_boot.json')
+            ),
+            'boot preload'
+          ) +
+          '</script>'
+        : `<link rel="preload" href="${LAZY_API}browse_boot.json" as="fetch" crossorigin>`
+  )
+  .replace(LIBRARY_PRELOAD_MARKER, () =>
+    LIBRARY && LAZY
+      ? '<script>' +
+        squeeze(
+          libraryPreloadJs.replace("'LIBRARY_PRELOAD'", () =>
+            JSON.stringify({
+              core: LIBRARY_CHUNK_TABLE.core || null,
+              reader: LIBRARY_CHUNK_TABLE.reader || null,
+              data: LIBRARY_DATA_BASE,
+            })
+          ),
+          'library preload'
+        ) +
+        '</script>'
+      : ''
   )
   .replace(ENGINE_PRELOAD_MARKER, () =>
     LAZY
@@ -814,7 +867,8 @@ if (flags.check) {
     const preloads = [...html.matchAll(/<link rel="preload" href="([^"]*)"[^>]*>/g)].map(
       (m) => m[1]
     );
-    const want = LAZY ? [LAZY_API + 'browse_boot.json'] : [];
+    // (A flagged Library build asks for it by script instead: src/boot_preload.js.)
+    const want = LAZY && !LIBRARY ? [LAZY_API + 'browse_boot.json'] : [];
     if (JSON.stringify(preloads) !== JSON.stringify(want)) {
       console.error(
         `check: FAIL — preloads ${JSON.stringify(preloads)} in a ${LAZY ? 'lazy' : 'embedded'} page; expected ${JSON.stringify(want)} (only the boot index: the genre prose and api/browse.json are read after the first paint)`
@@ -840,16 +894,158 @@ if (flags.check) {
     };
     const all = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
     const naming = all.filter((m) => /(["'`])preload\1/.test(m[1]));
-    if (naming.length !== (LAZY ? 1 : 0))
+    // A flagged Library build has three, in this order in <head>, each right
+    // after the one before: the boot index's (src/boot_preload.js), the
+    // engine's, the Library's (src/library_preload.js).
+    const wantScripts = LAZY ? (LIBRARY ? 3 : 1) : 0;
+    if (naming.length !== wantScripts)
       fail(
-        `${naming.length} <script> block(s) in a ${LAZY ? 'lazy' : 'embedded'} page name "preload"; want ${LAZY ? '1 (src/engine_preload.js)' : '0'}`
+        `${naming.length} <script> block(s) in a ${LAZY ? 'lazy' : 'embedded'} page name "preload"; want ${wantScripts}`
       );
+    if (LAZY && LIBRARY) {
+      const head = html.indexOf('</head>');
+      for (let i = 0; i < naming.length; i++) {
+        if (naming[i].index > head) fail('a preload <script> is outside <head>');
+        if (
+          i &&
+          /<(script|link)\b/i.test(
+            html.slice(naming[i - 1].index + naming[i - 1][0].length, naming[i].index)
+          )
+        )
+          fail("the flagged build's preload scripts are not consecutive (boot, engine, library)");
+      }
+      // Each, run against hashes: the boot index everywhere but #library; the
+      // Library's links only on #library over http(s).
+      // The viewport answers a min-width query as a 1280 px (wide) or 800 px
+      // screen would.
+      const runLinks = (code, hash, { protocol = 'https:', wide = false } = {}) => {
+        const links = [];
+        const media = (q) => {
+          const m = /^\(min-width:\s*(\d+)px\)$/.exec(q);
+          return { matches: !!m && (wide ? 1280 : 800) >= Number(m[1]) };
+        };
+        const doc = {
+          head: { appendChild: (el) => links.push(el.attrs) },
+          createElement: (tag) => {
+            const el = { tag, attrs: {} };
+            el.setAttribute = (k, v) => (el.attrs[k] = String(v));
+            return el;
+          },
+        };
+        vm.runInContext(
+          code,
+          vm.createContext({
+            document: doc,
+            location: { hash, protocol },
+            window: { matchMedia: media },
+            matchMedia: media,
+          }),
+          { timeout: 1000 }
+        );
+        return links;
+      };
+      const boot = {
+        rel: 'preload',
+        href: LAZY_API + 'browse_boot.json',
+        as: 'fetch',
+        crossorigin: 'anonymous',
+      };
+      for (const [hash, n] of [
+        ['', 1],
+        ['#genre', 1],
+        ['#lyrics', 1],
+        ['#librarian', 1],
+        ['#library', 0],
+        ['#library/works', 0],
+        ['#library?q=a', 0],
+      ]) {
+        const links = runLinks(naming[0][1], hash);
+        if (links.length !== n || (n && JSON.stringify(links[0]) !== JSON.stringify(boot)))
+          fail(
+            `the boot preload added ${JSON.stringify(links)} on ${JSON.stringify(hash)}; want ${n ? 'the boot index' : 'nothing'}`
+          );
+      }
+      // The built script, and the source with a table that also has a reader
+      // chunk (this build may not have one yet), so the read route's chunk
+      // preload is exercised either way.
+      const withReader = {
+        core: LIBRARY_CHUNK_TABLE.core,
+        reader: ['library/code/reader.0123456789.js', 'sha384-reader'],
+        data: LIBRARY_DATA_BASE,
+      };
+      const sourceWithReader = libraryPreloadJs.replace("'LIBRARY_PRELOAD'", () =>
+        JSON.stringify(withReader)
+      );
+      const core = LIBRARY_CHUNK_TABLE.core;
+      const lib = (hash, opts, code = naming[2][1]) =>
+        runLinks(code, hash, opts).map(
+          (a) =>
+            `${a.as} ${a.href}${a.integrity ? ' ' + a.integrity : ''}${a.fetchpriority ? ' ' + a.fetchpriority : ''}`
+        );
+      const coreLink = `script ${core[0]} ${core[1]}`;
+      const cat = `fetch ${LIBRARY_DATA_BASE}catalog.json`;
+      const id = 'reading_3c5bf756-d01e-5900-b806-c98f94741e2f';
+      const reader = LIBRARY_CHUNK_TABLE.reader
+        ? [`script ${LIBRARY_CHUNK_TABLE.reader[0]} ${LIBRARY_CHUNK_TABLE.reader[1]}`]
+        : [];
+      const cases = [
+        ['#genre', {}, []],
+        ['#library', { protocol: 'file:' }, []],
+        ['#library', {}, [coreLink, cat]],
+        [
+          '#library/works?q=x',
+          { wide: true },
+          [coreLink, cat, `fetch ${LIBRARY_DATA_BASE}collections.json low`],
+        ],
+        [
+          `#library/read/${id}`,
+          {},
+          [coreLink, cat, ...reader, `fetch ${LIBRARY_DATA_BASE}u/3c.json.gz`],
+        ],
+        [
+          `#library/read/${id}?line=4&revision=0123456789abcdef-0123456789ab`,
+          {},
+          [
+            coreLink,
+            cat,
+            ...reader,
+            `fetch ${LIBRARY_DATA_BASE}r/3c/${id}/0123456789abcdef-0123456789ab/head.json.gz`,
+          ],
+        ],
+      ];
+      for (const [hash, opts, want] of cases) {
+        const got = lib(hash, opts);
+        if (JSON.stringify(got) !== JSON.stringify(want))
+          fail(
+            `the library preload added ${JSON.stringify(got)} on ${hash}; want ${JSON.stringify(want)}`
+          );
+      }
+      {
+        const hash = `#library/read/${id}`;
+        const got = lib(hash, { wide: true }, sourceWithReader);
+        const want = [
+          coreLink,
+          cat,
+          `script ${withReader.reader[0]} ${withReader.reader[1]}`,
+          `fetch ${LIBRARY_DATA_BASE}u/3c.json.gz`,
+          `fetch ${LIBRARY_DATA_BASE}collections.json low`,
+        ];
+        if (JSON.stringify(got) !== JSON.stringify(want))
+          fail(
+            `src/library_preload.js with a reader chunk added ${JSON.stringify(got)} on ${hash}; want ${JSON.stringify(want)}`
+          );
+      }
+    }
     if (LAZY) {
-      const m = naming[0];
-      const bootLink = html.indexOf(`<link rel="preload" href="${LAZY_API}browse_boot.json"`);
-      const between = html.slice(bootLink, m.index).replace(/^<link[^>]*>/, '');
-      if (bootLink < 0 || m.index > html.indexOf('</head>') || /<(script|link)\b/i.test(between))
-        fail("the engine preload is not the <script> right after the boot index's link in <head>");
+      const m = naming[LIBRARY ? 1 : 0];
+      if (!LIBRARY) {
+        const bootLink = html.indexOf(`<link rel="preload" href="${LAZY_API}browse_boot.json"`);
+        const between = html.slice(bootLink, m.index).replace(/^<link[^>]*>/, '');
+        if (bootLink < 0 || m.index > html.indexOf('</head>') || /<(script|link)\b/i.test(between))
+          fail(
+            "the engine preload is not the <script> right after the boot index's link in <head>"
+          );
+      }
       // storedSessionText's keys, in its order: the recovery copy in
       // sessionStorage, the rest in localStorage. The script may read no other:
       // a key app.js does not read would preload the engine for a session the

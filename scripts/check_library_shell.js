@@ -10,6 +10,10 @@
 //                    sub-routes, Back is the page's own pop, a nav click resumes
 //                    where the reader was; a chunk whose bytes do not match its
 //                    integrity is refused and the tab says the site was updated
+//                    head preloads: on #library the core chunk is asked for from
+//                    <head> and the loader reuses it (one request), and
+//                    catalog.json is requested; off-route, hovering the nav
+//                    entry fetches the core chunk before the click
 //   flagged embedded the same chunk inlined: no library/ request at all
 //
 // Usage: node scripts/check_library_shell.js
@@ -162,6 +166,17 @@ function chromiumPath() {
     assert.ok(await page.$('button.cm-tab[data-view="library"]'), 'the Library nav entry');
     const core = s.requests.filter((p) => p.startsWith('/library/code/'));
     assert.deepEqual(core, ['/library/code/' + chunks[0]], 'core is fetched once');
+    assert.ok(
+      await page.$(`head link[rel="preload"][as="script"][href="library/code/${chunks[0]}"]`),
+      'the core chunk is preloaded from <head>'
+    );
+    assert.ok(s.requests.includes('/library/data/catalog.json'), 'catalog.json is preloaded');
+    assert.ok(
+      !s.requests.includes('/api/browse_boot.json') ||
+        s.requests.indexOf('/library/data/catalog.json') <
+          s.requests.indexOf('/api/browse_boot.json'),
+      'the boot index is not asked for ahead of the Library on #library'
+    );
     assert.match(
       await page.evaluate(() => document.querySelector('script[src*="library/code/"]').integrity),
       /^sha384-/
@@ -183,6 +198,32 @@ function chromiumPath() {
       s.requests.filter((p) => p.startsWith('/library/code/')).length,
       1,
       'a loaded chunk is never fetched again'
+    );
+    assert.deepEqual(s.errors, []);
+    await s.close();
+  }
+
+  // Off-route: no Library preload; hovering the nav entry fetches the core
+  // chunk before any click.
+  {
+    const s = await open(dirs.lazy, '#genre');
+    const { page } = s;
+    assert.deepEqual(
+      s.requests.filter((p) => p.includes('/library/')),
+      [],
+      'nothing under library/ is asked for off-route'
+    );
+    await page.hover('button.cm-tab[data-view="library"]');
+    await page.waitForFunction(() => document.querySelector('script[src*="library/code/"]'), null, {
+      timeout: 30000,
+    });
+    await page.waitForFunction(() => UI.view === 'genre');
+    await page.click('button.cm-tab[data-view="library"]');
+    await shown(page, 'Explore');
+    assert.equal(
+      s.requests.filter((p) => p.startsWith('/library/code/')).length,
+      1,
+      'the hover fetch is the only one'
     );
     assert.deepEqual(s.errors, []);
     await s.close();
@@ -223,7 +264,7 @@ function chromiumPath() {
   await browser.close();
   fs.rmSync(temp, { recursive: true, force: true });
   console.log(
-    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
+    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover warms the chunk, a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
   );
 })().catch((error) => {
   console.error('LIBRARY SHELL: FAIL —', error.stack || error);
