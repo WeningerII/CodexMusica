@@ -17,6 +17,18 @@ questions, never summed into one (doctrine 79):
   * ITEMS   whole songs (a corpus item: one `--- TITLE:`), and how many
             have NO unread word anywhere. A song is what a writer finishes;
             one rare word blocks it however small the token share is.
+  * END WORDS, read by the TWO end-word readers the harness has, reported
+            apart because they disagree:
+      - `end_anchor`: the grader's own reader, `line_anchors` (an end word
+            is unreadable exactly when it yields no anchor, the invariant
+            `line_readability` states). It takes the last run with a letter
+            (`raw_final_token`), so a trailing ` --` is skipped, and a
+            compound reads when its LAST piece reads.
+      - `end_grid`: the repeated-section check, `quality/grid.py`
+            `_end_word` keyed by `rime_cmudict(lex)`, which refuses with
+            END_WORD_UNREADABLE. It reads the last whitespace token WHOLE:
+            `sixty-six` has no key until the lexicon carries it whole, and a
+            line ending ` --` keys on `--`.
 
 WHAT "UNREAD" MEANS HERE: a word any of whose pieces `Lexicon.transcribe`
 reports as OOV, the same piece path the grader reads a line by. It is a
@@ -76,6 +88,13 @@ def build_lexicon(supplement, fallback):
 def census(paths, lex, top=0):
     """-> the census record for these files under this lexicon."""
     import lyric_harness as LH
+    from quality import grid as G
+    rhyme_key = G.rime_cmudict(lex)
+    readers = ("end_anchor", "end_grid")
+    E = {k: {"n": 0, "unread": 0, "seen": set(), "types": collections.Counter(),
+             "clear": 0, "only": collections.Counter(),
+             "blocking": collections.Counter()} for k in readers}
+    ready_items = 0
     words = unread_words = 0
     type_seen, type_unread = set(), collections.Counter()
     items = clear_items = 0
@@ -87,7 +106,24 @@ def census(paths, lex, top=0):
                 continue
             items += 1
             unread_here = set()
+            here = {k: set() for k in readers}
             for line in lines:
+                ends = {"end_anchor": LH.raw_final_token(line,
+                                                         strip_parens=lex.strip_parens),
+                        "end_grid": G._end_word(line) or None}
+                for k, ew in ends.items():
+                    if not ew:
+                        continue
+                    ekey = LH.fold_apostrophes(ew).lower()
+                    e = E[k]
+                    e["n"] += 1
+                    e["seen"].add(ekey)
+                    bad = (not LH.line_anchors(lex, line)[0] if k == "end_anchor"
+                           else rhyme_key(ew) is None)
+                    if bad:
+                        e["unread"] += 1
+                        e["types"][ekey] += 1
+                        here[k].add(ekey)
                 # The words `transcribe` itself reads (enclitics joined,
                 # parentheticals stripped, Latin-script tokens only), then
                 # each word's own pieces through `transcribe_word`: exactly
@@ -109,6 +145,17 @@ def census(paths, lex, top=0):
                     only_blocker[next(iter(unread_here))] += 1
             else:
                 clear_items += 1
+            for k in readers:
+                e = E[k]
+                if here[k]:
+                    for t in here[k]:
+                        e["blocking"][t] += 1
+                    if len(here[k]) == 1:
+                        e["only"][next(iter(here[k]))] += 1
+                else:
+                    e["clear"] += 1
+            if not unread_here and not here["end_anchor"]:
+                ready_items += 1
     rec = {
         "words": words, "unread_words": unread_words,
         "unread_word_share": round(unread_words / words, 6) if words else None,
@@ -118,12 +165,35 @@ def census(paths, lex, top=0):
         "items": items, "items_fully_read": clear_items,
         "items_fully_read_share": round(clear_items / items, 6) if items else None,
         "items_blocked_by_exactly_one_type": sum(only_blocker.values()),
+        # Every word read AND every line end anchored by the grader's own
+        # reader: the whole songs the dictionary would not stop. The grid
+        # reader is reported apart, not folded in: it judges only repeated
+        # sections, so requiring it on every line would overstate the gap.
+        "items_read_and_end_keyed": ready_items,
+        "items_read_and_end_keyed_share": (round(ready_items / items, 6)
+                                           if items else None),
     }
     if top:
         rec["top_unread_types"] = [
             {"type": k, "unread_words": n, "items_blocked": blocking_items[k],
              "items_unlocked_alone": only_blocker[k]}
             for k, n in type_unread.most_common(top)]
+    for k in readers:
+        e = E[k]
+        rec[k] = {
+            "end_words": e["n"], "unread_end_words": e["unread"],
+            "unread_end_word_share": (round(e["unread"] / e["n"], 6)
+                                      if e["n"] else None),
+            "end_types": len(e["seen"]), "unread_end_types": len(e["types"]),
+            "items_end_words_all_read": e["clear"],
+            "items_blocked_by_exactly_one_type": sum(e["only"].values()),
+        }
+        if top:
+            rec[k]["top_unread_types"] = [
+                {"type": t, "unread_end_words": n,
+                 "items_blocked": e["blocking"][t],
+                 "items_unlocked_alone": e["only"][t]}
+                for t, n in e["types"].most_common(top)]
     return rec
 
 
