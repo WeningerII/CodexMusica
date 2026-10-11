@@ -83,7 +83,7 @@ import os
 import re
 import unicodedata
 from collections import Counter
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from fractions import Fraction
 
 from quality.tempo import TempoMap
@@ -1651,10 +1651,26 @@ def phrase_profile(song):
 
 
 @dataclass(frozen=True)
+class EndWordFailure:
+    side: str
+    section_line: int
+    text: str
+    token: int
+    word: str
+    line: int = None
+
+    def describe(self):
+        where = f"L{self.line}" if self.line is not None else f"{self.side} line {self.section_line}"
+        position = f"token {self.token}" if self.token is not None else "endpoint (no sung-token position)"
+        return f"{where} {position} {self.word!r} in {self.text!r}"
+
+
+@dataclass(frozen=True)
 class Refusal:
     code: str
     message: str
     evidence: str = ""
+    failed_words: tuple = ()
 
     def __str__(self):
         return f"[REFUSED {self.code}] {self.message}\n    {self.evidence}"
@@ -1891,16 +1907,29 @@ def rime_cmudict(lex=None):
         import lyric_harness as LH
         lex = LH.Lexicon()
 
-    def key(word):
+    def key(word, *, line=None, token=None):
+        reader = lex
+        if line is not None and token is not None:
+            reader = lex.for_line(line).for_token(token - 1)
         w = normalise_line(word).strip("'")
         if not w:
             return None
-        phones = lex.entries.get(w)
-        if not phones:
-            got, oov = lex.transcribe_word(w)
+        if getattr(reader, "_pronunciation_choice", None) is not None:
+            # A bound declaration keys the exact sung token, including edge
+            # apostrophes. Normalizing it to the bare dictionary headword
+            # here would bypass a homograph choice or lose a supplied OOV.
+            got, oov = reader.transcribe_word(word)
             if oov or not got:
                 return None
             phones = [got]
+        else:
+            # Keep the existing unselected whole-word/first-reading policy.
+            phones = reader.entries.get(w)
+            if not phones:
+                got, oov = reader.transcribe_word(w)
+                if oov or not got:
+                    return None
+                phones = [got]
         p = list(phones[0])
         idx = None
         for i in range(len(p) - 1, -1, -1):
@@ -1916,6 +1945,28 @@ def rime_cmudict(lex=None):
             return None
         return " ".join(re.sub(r"[012]$", "", ph) for ph in p[idx:])
 
+    def end_occurrence(line):
+        # Preserve the legacy endpoint even when the declaration tokenizer
+        # omits it (digits, non-Latin text, unsung parentheticals). Bind only
+        # if that same physical span is exactly the last complete sung token.
+        import lyric_harness as LH
+        word = _end_word(line)
+        # Declaration indexes belong to the original exact line. NFC may
+        # join a combining mark and change the declaration tokenizer's count.
+        raw = line
+        spans = list(re.finditer(r"(?:[^\W_]|['‘’-])+", raw))
+        words = LH.line_tokens(raw, strip_parens=lex.strip_parens)
+        token = None
+        if spans and words:
+            span = spans[-1]
+            without = raw[:span.start()] + " " * len(span.group()) + raw[span.end():]
+            if (normalise_line(span.group()) == word == normalise_line(words[-1])
+                    and LH.line_tokens(span.group(), strip_parens=False) == [words[-1]]
+                    and LH.line_tokens(without, strip_parens=lex.strip_parens) == words[:-1]):
+                token = len(words)
+        return word, token, key(word, line=line, token=token)
+
+    key.end_occurrence = end_occurrence
     key.declared_name = ("CMUdict General American; phones from the last "
                          "stressed vowel of the end word, stress dropped. "
                          "IDENTITY key -- perfect rhyme only, stricter than "
@@ -1928,7 +1979,16 @@ def _end_word(line):
     return ts[-1] if ts else ""
 
 
-def _rhyme_code(lines, rhyme_key):
+def _end_occurrence(line, rhyme_key):
+    """Read the exact endpoint when supported; keep one-argument keys valid."""
+    read = getattr(rhyme_key, "end_occurrence", None)
+    if read is not None:
+        return read(line)
+    word = _end_word(line)
+    return word, None, rhyme_key(word)
+
+
+def _rhyme_code(lines, rhyme_key, *, failures=None, side=""):
     """-> canonical partition of the end words, or None if any is unreadable.
 
     None is a refusal, not a scheme. A partition built with one class missing
@@ -1937,12 +1997,12 @@ def _rhyme_code(lines, rhyme_key):
     """
     from quality import schemes as S
     keys = []
-    for l in lines:
-        k = rhyme_key(_end_word(l))
-        if k is None:
-            return None
+    for index, line in enumerate(lines, 1):
+        word, token, k = _end_occurrence(line, rhyme_key)
+        if k is None and failures is not None:
+            failures.append(EndWordFailure(side, index, line, token, word))
         keys.append(k)
-    return S.canonical(keys)
+    return None if any(k is None for k in keys) else S.canonical(keys)
 
 
 @dataclass
@@ -2196,8 +2256,9 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
             "A silent default here would make a claim about a language "
             "nobody named (doctrine 45)."))
     else:
-        ca = _rhyme_code(a, rhyme_key)
-        cb = _rhyme_code(b, rhyme_key)
+        failed = []
+        ca = _rhyme_code(a, rhyme_key, failures=failed, side="first")
+        cb = _rhyme_code(b, rhyme_key, failures=failed, side="again")
         if ca is None or cb is None:
             refusals.append(Refusal(
                 "END_WORD_UNREADABLE",
@@ -2205,7 +2266,8 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
                 "the declared phonology",
                 f"first={'readable' if ca else 'UNREADABLE'} "
                 f"again={'readable' if cb else 'UNREADABLE'}. A False here "
-                f"would charge the dictionary's gap to the writer."))
+                f"would charge the dictionary's gap to the writer. "
+                + "; ".join(f.describe() for f in failed), tuple(failed)))
         else:
             rhyme_ok = (ca == cb)
 
@@ -2697,6 +2759,22 @@ def profile_functions():
                         if spec.kind == "section"))
 
 
+def _locate_failure(song, first, again, result, refusal):
+    # Keep every failed occurrence when deduplicating the code. Expanded
+    # pointers have no one-to-one printed line coordinate; leave those
+    # explicitly section-local rather than inventing a draft location.
+    located = []
+    for failure in refusal.failed_words:
+        sec = first if failure.side == "first" else again
+        source = [l for l in song.lines_in(sec) if normalise_line(l.text)]
+        n = failure.section_line - 1
+        line = None
+        if not result.stub_resolutions and n < len(source) and source[n].text == failure.text:
+            line = next(i for i, l in enumerate(song.lines, 1) if l is source[n])
+        located.append(replace(failure, line=line))
+    return replace(refusal, failed_words=tuple(located))
+
+
 def return_findings(song, function="chorus", convention=POPULAR_SONG,
                     rhyme_key=None, decl=None):
     """Does this function land in the same place, and the same shape, each
@@ -2836,13 +2914,16 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
         for ref in r.refusals:
             if ref.code == "NO_RHYME_KEY":
                 continue
-            by_code.setdefault(ref.code, []).append(ref)
+            by_code.setdefault(ref.code, []).append(
+                _locate_failure(song, _first, _again, r, ref))
     for code in sorted(by_code):
         group = by_code[code]
+        failed = tuple(dict.fromkeys(f for ref in group for f in ref.failed_words))
+        evidence = "; ".join(f.describe() for f in failed) if failed else group[0].evidence
         refusals.append(Refusal(
             code, group[0].message,
-            f"{group[0].evidence} [refused on {len(group)} of {len(rets)} "
-            f"return comparison(s) for {fn!r}]"))
+            f"{evidence} [refused on {len(group)} of {len(rets)} "
+            f"return comparison(s) for {fn!r}]", failed))
 
     # THE SAME OBJECT'S THIRD STATE, COLLECTED 2026-08-14. The block above
     # collects the return's CANNOT TELL. This collects its NO.
@@ -3164,13 +3245,16 @@ def reprise_findings(song, later="outro", earlier="intro",
         for ref in r.refusals:
             if ref.code in ("STUB_RETURN", "NO_RHYME_KEY"):
                 continue
-            rby.setdefault(ref.code, []).append(ref)
+            rby.setdefault(ref.code, []).append(
+                _locate_failure(song, _src, _dst, r, ref))
     for code in sorted(rby):
         group = rby[code]
+        failed = tuple(dict.fromkeys(f for ref in group for f in ref.failed_words))
+        evidence = "; ".join(f.describe() for f in failed) if failed else group[0].evidence
         refusals.append(Refusal(
             code, group[0].message,
-            f"{group[0].evidence} [refused on {len(group)} of {len(out)} "
-            f"cross-function reprise comparison(s)]"))
+            f"{evidence} [refused on {len(group)} of {len(out)} "
+            f"cross-function reprise comparison(s)]", failed))
     return findings, refusals, out
 
 
@@ -3180,7 +3264,7 @@ def _channel_values(song, sections, rhyme_key=None):
     if rhyme_key is None:
         ends = None            # CANNOT TELL: no phonology was declared
     else:
-        ends = {rhyme_key(_end_word(l.text)) for l in lines
+        ends = {_end_occurrence(l.text, rhyme_key)[2] for l in lines
                 if _end_word(l.text)}
         ends.discard(None)
     dur = [float(l.duration) for l in lines]
