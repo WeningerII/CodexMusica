@@ -22,7 +22,7 @@ import { publicReaderJob, validateRequest, createAnalysisJob } from './reader_ro
 import { LIBRARY_LIMITS, Windows, clientIp } from './ratelimit.js';
 import { Worker } from 'node:worker_threads';
 import { analysisLayout, analysisTail, canonical } from './library_exports.js';
-import { createStreamLimiter, guardStream } from './library_export_routes.js';
+import { STREAM_WRITE_BYTES, createStreamLimiter, guardStream } from './library_export_routes.js';
 import { createAdmission } from './library_admission.js';
 
 export const VIEWER_COOKIE = '__Host-cm_library';
@@ -457,20 +457,22 @@ export function libraryViewerRouter({
       // entry yields the event loop to other requests. The stream guard
       // (guardStream) watches the socket's own progress.
       const writeTail = async () => {
-        for (const chunk of analysisTail(layout, readPage)) {
-          if (res.destroyed) return;
-          if (!res.write(chunk))
-            await new Promise((resolve) => {
-              const go = () => {
-                res.off('drain', go);
-                res.off('close', go);
-                resolve();
-              };
-              res.on('drain', go);
-              res.on('close', go);
-            });
-          else await new Promise((resolve) => setImmediate(resolve));
-        }
+        for (const entry of analysisTail(layout, readPage))
+          for (let at = 0; at < entry.length; at += STREAM_WRITE_BYTES) {
+            const chunk = entry.subarray(at, at + STREAM_WRITE_BYTES);
+            if (res.destroyed) return;
+            if (!res.write(chunk))
+              await new Promise((resolve) => {
+                const go = () => {
+                  res.off('drain', go);
+                  res.off('close', go);
+                  resolve();
+                };
+                res.on('drain', go);
+                res.on('close', go);
+              });
+            else await new Promise((resolve) => setImmediate(resolve));
+          }
         if (!res.destroyed) res.end();
       };
       res.on('close', () => {
