@@ -40,6 +40,10 @@ COMPUTE logs are banked beside this file in shards/ (memos are not banked, as on
    11/12  1270   70a3d3bb62da4e37   3906  claude/bb8-near-repin-shards-c
    12/12   686   1465edd9747f4d6b   4161  claude/bb8-near-repin-shards-c
    total 8597 items, 34,701 CPU-s, three cloud workers, no restarts.
+Shard 2's log counts 112 files and its rows name 111: one file in that shard
+yields no calibrated item, so it contributes no row. The 2026-10-01 rebuild
+shows the same shape in its shard 3 (108 logged, 107 in rows); it is the
+population rule, not a lost file. (Flagged by the shards-a worker.)
 The population is 8,597 items against 2026-10-01's 8,536 (112 files per shard
 against 109): the corpus grew on main between the two pins. The check below
 re-fits against the corpus as it stands, so that growth is inside what HOLDS.
