@@ -20,10 +20,14 @@ OW before an intervocalic r, a polysyllable with no primary mark) is held
 as `review:*`, not converted. Monosyllables, which Moby leaves unmarked, take
 primary stress by a counted `convention:*`.
 
-THE CONVERSION LOGIC BELOW IS THE REVIEWED v2 CONVERTER, kept verbatim
-(recovered byte-exact, sha256 22e9d165...4de8, 2026-10-11). Its pinned output
-on the pinned input is the regression `--check` and
-quality/test_moby_convert.py hold it to.
+THE CONVERSION LOGIC BELOW IS THE REVIEWED v2 CONVERTER (recovered
+byte-exact, sha256 22e9d165...4de8, 2026-10-11) with three repairs from 3PO's
+#534 review: slash parity keeps the foreign bare N from becoming NG (it is
+rejected, as the other foreign sounds are), the hw->W merger is logged, and
+unbalanced slashes reject. Its pinned output on the pinned input -- the
+counts AND a digest of every converted reading -- is the regression
+`--check` and quality/test_moby_convert.py hold it to: counts alone did not
+freeze phonemes (an AE->AA corruption passed them).
 
 THE INPUT IS STAGED, NOT COMMITTED. mpron.txt is read from the staged data
 directory (`quality/features.DATA`, overridable by LYRIC_STAGED_DATA) at
@@ -46,10 +50,15 @@ MPRON_SHA256 = "55580c3b258873723fed33497fe3a438b26167370bbe016431b3fc65fea67f2d
 
 #: The converter's pinned output on the pinned mpron.txt (policy owr=review,
 #: schwa=all). A change to any rule moves these, and must be argued as one.
+#: 87,449 / 86,785 / 59,300 before the #534 repairs; the 48 rows they hold
+#: are 47 bare-N foreign nasals (blanc, beton, ...) and one malformed row
+#: (zinnwaldite, unbalanced slashes), and no other reading changed.
 PINNED_COUNTS = {
-    "converted rows": 87449,
-    "distinct converted headwords": 86785,
-    "headwords absent from CMUdict": 59300,
+    "converted rows": 87401,
+    "distinct converted headwords": 86737,
+    "headwords absent from CMUdict": 59264,
+    "converted output sha256":
+        "a9b154146579408346f34069d4659936644ee72aed9efe4c4bf895691765fd4c",
 }
 
 LEGEND_V={'&':'AE','(@)':'EH','A':'AA','eI':'EY','@':'AH','-':'AH','E':'EH','i':'IY','I':'IH','aI':'AY',
@@ -61,8 +70,15 @@ LEGEND_C={'b':'B','tS':'CH','d':'D','f':'F','g':'G','h':'HH','hw':'W','dZ':'JH',
 FOREIGN={'x','y','Y','R'}                 # legend's non-English sounds -> reject (foreign words go to review)
 def tokens(p, log):
     out=[]; pend=None
-    for piece in p.split('/'):
+    parts=p.split('/')
+    # Slash parity is the legend's own distinction: an odd-indexed piece sits
+    # BETWEEN slashes. English ng is always slashed (/N/, as in long
+    # l/O//N/); a bare N outside slashes is the legend's foreign nasal
+    # (blanc bl/A/N) and must not become NG (#534 review, 3PO).
+    if len(parts)%2==0: log.add('reject:unbalanced slashes'); return None
+    for idx,piece in enumerate(parts):
         if not piece: continue
+        inside=idx%2==1
         sym=piece.strip("',")
         if sym in LEGEND_V or sym in EXT_V:
             if piece!=sym and piece[0] in "',": pend='1' if piece[0]=="'" else '2'; out.append(['|',None])
@@ -80,7 +96,9 @@ def tokens(p, log):
             if c=='_': out.append(['|',None]); i+=1; continue   # hyphen joint: a boundary, no stress
             if c in FOREIGN: log.add('reject:foreign'); return None
             two=piece[i:i+2]
+            if two=='hw': log.add('convention:hw->W (wine/whine merger; CMUdict has no HW)')
             if two in ('tS','dZ','hw'): out.append([LEGEND_C[two],None]); i+=2; continue
+            if c=='N' and not inside: log.add('reject:foreign nasal (bare N; English ng is slashed /N/)'); return None
             if c in LEGEND_C: out.append([LEGEND_C[c],None]); i+=1; continue
             log.add('reject:non-legend char'); return None
     return out
@@ -140,6 +158,17 @@ def load(path, owr='review', keep_logs=False, schwa='all'):
     return (E,C,L) if keep_logs else E
 
 
+def converted_digest(E):
+    """sha256 of the canonical converted output: one `headword<TAB>phones`
+    line per reading, headwords sorted, readings in source order. Any change
+    to any emitted phone moves it."""
+    h = hashlib.sha256()
+    for w in sorted(E):
+        for phones in E[w]:
+            h.update(f"{w}\t{' '.join(phones)}\n".encode("utf-8"))
+    return h.hexdigest()
+
+
 def staged_mpron():
     from quality.features import DATA
     return os.path.join(DATA, "moby", "mpron.txt")
@@ -158,7 +187,8 @@ def check(path):
     cmu = LH.Lexicon().entries
     measured = {"converted rows": C["converted rows"],
                 "distinct converted headwords": len(E),
-                "headwords absent from CMUdict": sum(1 for w in E if w not in cmu)}
+                "headwords absent from CMUdict": sum(1 for w in E if w not in cmu),
+                "converted output sha256": converted_digest(E)}
     lines = [f"mpron.txt sha256 {got}"]
     ok = True
     for k, want in PINNED_COUNTS.items():

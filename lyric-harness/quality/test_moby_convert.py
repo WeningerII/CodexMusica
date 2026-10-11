@@ -6,11 +6,12 @@ the legend, and that everything the legend does not settle is held or
 rejected by name rather than guessed. Each section would fail if that broke.
 
 Sections:
-  1  legend rows convert exactly (including the reading PR #531 shipped)
+  1  legend rows convert exactly (including the reading PR #531 shipped),
+     and the legend table itself is pinned symbol by symbol
   2  what the legend does not settle is held or rejected, never guessed
   3  the counted extensions and conventions are logged, so each can be vetoed
   4  the --check CLI: missing input is CANNOT TELL, a different file refuses
-  5  the pinned counts on the pinned mpron.txt (needs it staged)
+  5  the pinned counts AND output digest on the pinned mpron.txt (staged)
 
 Exit 0 all pass; 1 a failure; 2 CANNOT TELL (section 5's input not staged).
 """
@@ -54,6 +55,22 @@ def test_legend_rows():
     got, _ = conv("thorough", "'T/@r//oU/")
     check("@r is the legend's ER, stressed by the preceding apostrophe",
           got is not None and got[:2] == ("TH", "ER1"), got)
+    got, _ = conv("long", "l/O//N/")
+    check("the SLASHED /N/ is English ng (long, mpron.txt)",
+          got == ("L", "AO1", "NG"), got)
+    # The legend, pinned literally: a symbol remapped in the table (an
+    # AE->AA slip passed every count pin, #534 review) fails here by name.
+    check("the vowel legend is aaREADME's, symbol by symbol",
+          M.LEGEND_V == {'&': 'AE', '(@)': 'EH', 'A': 'AA', 'eI': 'EY', '@': 'AH',
+                         '-': 'AH', 'E': 'EH', 'i': 'IY', 'I': 'IH', 'aI': 'AY',
+                         'Oi': 'OY', 'AU': 'AW', 'O': 'AO', 'oU': 'OW', 'u': 'UW',
+                         'U': 'UH', '@r': 'ER'})
+    check("the consonant legend is aaREADME's, symbol by symbol",
+          M.LEGEND_C == {'b': 'B', 'tS': 'CH', 'd': 'D', 'f': 'F', 'g': 'G',
+                         'h': 'HH', 'hw': 'W', 'dZ': 'JH', 'k': 'K', 'l': 'L',
+                         'm': 'M', 'N': 'NG', 'n': 'N', 'p': 'P', 'r': 'R',
+                         'S': 'SH', 's': 'S', 'T': 'TH', 'D': 'DH', 't': 'T',
+                         'v': 'V', 'w': 'W', 'j': 'Y', 'Z': 'ZH', 'z': 'Z'})
 
 
 def test_unsettled_is_not_guessed():
@@ -69,6 +86,14 @@ def test_unsettled_is_not_guessed():
     got, log = conv("lemon", "l/E/m/@/n")
     check("a polysyllable with no stress mark is held, not given a stress",
           got is None and "review:no primary mark (unmarked)" in log, log)
+    got, log = conv("blanc", "bl/A/N")
+    check("a BARE N (outside slashes) is the foreign nasal and is rejected, "
+          "never read as NG (real row: mpron.txt L18248, #534 review)",
+          got is None
+          and "reject:foreign nasal (bare N; English ng is slashed /N/)" in log, log)
+    got, log = conv("zinnwaldite", "'/z/I/nv/A/l,t/aI/t")
+    check("unbalanced slashes reject the row (real malformed row)",
+          got is None and "reject:unbalanced slashes" in log, log)
     got, log = conv("ice_cream", "aIs_kr/i/m")
     check("a phrase with no hyphen in its headword is rejected",
           got is None and "reject:phrase" in log, log)
@@ -83,6 +108,10 @@ def test_extensions_are_counted():
     check("an unmarked monosyllable takes primary stress by a counted convention",
           got == ("L", "AY1", "T")
           and "convention:monosyllable stress 1 (unmarked in source)" in log, log)
+    got, log = conv("white", "hw/aI/t")
+    check("the hw->W merger is a logged convention, not a silent mapping",
+          got == ("W", "AY1", "T")
+          and "convention:hw->W (wine/whine merger; CMUdict has no HW)" in log, log)
 
 
 def test_cli():
@@ -108,8 +137,8 @@ def test_pinned_counts():
     if code == 2:
         print("  CANNOT TELL  " + lines[0])
         return False
-    check("--check reproduces 87,449 rows / 86,785 headwords / 59,300 absent "
-          "from CMUdict", code == 0, "; ".join(lines))
+    check("--check reproduces the pinned counts and the digest of every "
+          "converted reading", code == 0, "; ".join(lines))
     return True
 
 
