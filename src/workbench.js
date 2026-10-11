@@ -1,4 +1,4 @@
-/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload */
+/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf */
 /* global UILayout, CMLibraryImport */
 /* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
@@ -90,6 +90,10 @@ const UI_SHELL_ACTIONS = new Set([
 ]);
 // Page interface (docs/ui-foundation.md has the full contract):
 //   id            one of UI_ROUTES
+//   route?(sub, { pop })  show the sub-route after '#<id>' ('/…' or '?…',
+//                 '' for none); pop is true for Back/Forward within the page
+//   currentRoute?()  the sub-route to resume at when the nav button returns
+//                 to this page (a page without one always opens at '#<id>')
 //   recipe?       'sidebar' (default, left), 'sidebar-right' or 'dock': how
 //                 Your recipe is presented on this route (UI_RECIPE_MODES)
 //   mount(surface)  build the page once inside <section id="surface-<id>">
@@ -151,16 +155,39 @@ const listenHref = (name, instrument = false) =>
   `https://www.youtube.com/results?search_query=${encodeURIComponent(name + (instrument ? ' musical instrument solo demonstration' : ' music'))}`;
 const listenLink = (name, instrument = false) =>
   `<a class="listen" href="${listenHref(name, instrument)}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${esc(name)} on YouTube">${icon('play', 16)}<span>Listen</span></a>`;
+// A route hash, '#<view>' optionally followed by a sub-route that starts at
+// the first '/' or '?': '#library/read/x?line=4' -> { view: 'library',
+// sub: '/read/x?line=4' }. A page without route() has no sub-routes.
+const uiRouteOf = (hash) => {
+  const raw = String(hash || '').replace(/^#/, '');
+  const at = raw.search(/[/?]/);
+  return at < 0 ? { view: raw, sub: '' } : { view: raw.slice(0, at), sub: raw.slice(at) };
+};
+// A page changes its own sub-route without a re-render (it has already shown
+// it): push for a step the user would go Back from, replace otherwise.
+// `state` travels in history.state (for example a scroll position).
+function uiSubroute(sub, { push = false, state = null } = {}) {
+  if (!/^https?:$/.test(location.protocol)) return;
+  const hash = '#' + UI.view + sub;
+  if (push) history.pushState(state, '', hash);
+  else if (location.hash !== hash || state !== null) history.replaceState(state, '', hash);
+}
 // `push` is set only for a user's own navigation, so Back and Forward step
-// between sections; boot and deep links replace the entry instead.
-function uiNavigate(view, { push = false } = {}) {
-  if (!UI_PAGES[view]) return;
+// between sections; boot and deep links replace the entry instead. `sub` is
+// the sub-route to show; left out (a nav click), the page's currentRoute()
+// resumes where it was. Pages without route() always show '#<view>'.
+function uiNavigate(view, { push = false, sub } = {}) {
+  const page = UI_PAGES[view];
+  if (!page) return;
+  if (!page.route) sub = '';
+  else if (sub === undefined) sub = page.currentRoute?.() || '';
   UI.view = view;
   document.body.dataset.view = view;
-  if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view) {
-    if (push) history.pushState(null, '', '#' + view);
-    else history.replaceState(null, '', '#' + view);
+  if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view + sub) {
+    if (push) history.pushState(null, '', '#' + view + sub);
+    else history.replaceState(null, '', '#' + view + sub);
   }
+  page.route?.(sub, { pop: false });
   uiApplyRecipeMode();
   document.querySelectorAll('button[data-view]').forEach((b) => {
     b.classList.toggle('active', b.dataset.view === view);
@@ -1009,8 +1036,12 @@ function uiStart() {
     true
   );
   window.addEventListener('hashchange', () => {
-    const view = location.hash.slice(1);
-    if (UI_PAGES[view] && view !== UI.view) uiNavigate(view);
+    const { view, sub } = uiRouteOf(location.hash);
+    if (!UI_PAGES[view]) return;
+    if (view !== UI.view) uiNavigate(view, { sub });
+    // Back/Forward within one page: its own route, without refocusing the
+    // nav button or re-applying the recipe presentation.
+    else UI_PAGES[view].route?.(sub, { pop: true });
   });
   $ui('ui-file').addEventListener('change', (e) => {
     if (e.target.files[0]) uiImport(e.target.files[0]);
@@ -1051,16 +1082,17 @@ function uiStart() {
   // reopen that genre on every reload, whatever page the user had moved to.
   const query = new URLSearchParams(location.search);
   const deep = query.get('trad');
-  const route = location.hash.slice(1);
+  const route = uiRouteOf(location.hash);
   if (deep !== null && /^https?:$/.test(location.protocol)) {
     query.delete('trad');
     const rest = query.toString();
     history.replaceState(null, '', location.pathname + (rest ? '?' + rest : '') + location.hash);
   }
-  if (deep && !UI_PAGES[route] && Tradition(deep)) {
+  if (deep && !UI_PAGES[route.view] && Tradition(deep)) {
     UI.genre = Tradition(deep).id; // an old link to a merged tradition opens the survivor
     uiNavigate('genre');
-  } else uiNavigate(route || 'genre');
+  } else if (UI_PAGES[route.view]) uiNavigate(route.view, { sub: route.sub });
+  else uiNavigate('genre');
 }
 
 // ── Layers ── Escape closes the topmost open layer only and returns focus to

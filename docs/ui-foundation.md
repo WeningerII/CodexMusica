@@ -47,6 +47,8 @@ uiRegisterPage({
   recipe: 'sidebar', // 'sidebar-right' or 'dock': how Your recipe is presented on this route
   mount(surface) {}, // build the page once inside <section id="surface-genre">
   render() {}, // show current state; called on every visit and refresh
+  route(sub, { pop }) {}, // optional: show the sub-route after '#genre' ('/…' or '?…', '' for none)
+  currentRoute() {}, // optional: the sub-route a nav click resumes at
   layout() {}, // page-specific UILayout panes, once, after the shell's
   resetLayout() {}, // extra work for Reset layout
   escape() {}, // close what this page opened (last in the Escape order)
@@ -61,11 +63,19 @@ are the shell's (`UI_ROUTES`); deep links are `codex.html#genre|instrument|map|l
 and `codex.html?trad=<id>` (opens that tradition's Genre detail once and leaves the
 URL; adds nothing; an explicit `#section` wins).
 
+A route hash is `#<view>` optionally followed by a sub-route that starts at the first
+`/` or `?` (`uiRouteOf`). Only a page with `route()` has sub-routes: navigation hands
+it the sub-route, a hashchange within the page calls `route(sub, { pop: true })`
+without re-navigating, and a nav click resumes at `currentRoute()`. A page without
+`route()` always shows a bare `#<view>`.
+
 ## Shell APIs pages may use
 
 | API | Contract |
 |---|---|
-| `uiNavigate(view, { push })` | Show a section. `push: true` for a user's own navigation, so Back/Forward step between sections. |
+| `uiNavigate(view, { push, sub })` | Show a section. `push: true` for a user's own navigation, so Back/Forward step between sections. `sub` is the sub-route for a page with `route()`; left out, its `currentRoute()` is used. |
+| `uiSubroute(sub, { push, state })` | A page records its own sub-route without a re-render: `push` for a step the user would go Back from, replace otherwise; `state` travels in `history.state`. |
+| `uiRouteOf(hash)` | `{ view, sub }` of a route hash. |
 | `uiAddGenre(id)` | Add a genre's configured ensemble to the shared recipe through the canonical import. Resolves `{ added, expected }`; refuses a second concurrent addition; the toast offers Undo (refused if later changes followed) or Retry. |
 | `uiAddInstrument(id, { configure, message, destination })` | Add one instrument through the canonical picker path, to `destination` (a genre id, or `''` for an independent instrument; left out, the Instrument page's "Add to"). Resolves to the added card, or `null` when nothing was added. `configure(card)` runs on the new card before its history entry (one Undo removes the configured addition); `message(card)` words the success toast. |
 | `uiOpenEditor(cardId)` | Open the shared editor on a card. |
