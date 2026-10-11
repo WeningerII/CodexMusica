@@ -94,6 +94,28 @@ def build_lexicon(supplement, fallback):
     return S.SupplementedLexicon(fallback=fb, version=supplement)
 
 
+def item_lookup_blockers(lex, lines):
+    """-> (lexical blockers, no-endpoint lines) for one item: the spellings
+    whose pieces do not read or whose line end the grader cannot anchor, and
+    the count of lines with no endpoint at all. The item is lookup-ready
+    exactly when both are empty -- the definition `census` counts, given here
+    once for consumers such as quality/coverage_queue.py."""
+    import lyric_harness as LH
+    found, no_endpoint = set(), 0
+    for line in lines:
+        if LH.raw_final_token(line, strip_parens=lex.strip_parens) is None:
+            no_endpoint += 1
+        _ph, toks, _oov = lex.transcribe(line)
+        for t in toks:
+            if any(lex.transcribe_word(p)[1] for p in lex.word_pieces(t) if p):
+                found.add(LH.fold_apostrophes(t).lower())
+        if not LH.line_anchors(lex, line)[0]:
+            f = LH.raw_final_token(line, strip_parens=lex.strip_parens)
+            if f:
+                found.add(LH.fold_apostrophes(f).lower())
+    return found, no_endpoint
+
+
 def census(paths, lex, top=0, keep=None):
     """-> the census record for these files under this lexicon."""
     import lyric_harness as LH
@@ -115,6 +137,14 @@ def census(paths, lex, top=0, keep=None):
     # shares each k-blocker item, so a word that only ever appears beside
     # another unknown is not scored zero forever (3PO, #527, point 5).
     sole_lookup, credit = collections.Counter(), collections.Counter()
+    # A line with NO ENDPOINT (`!!!`, `(cat)`: no word the grader can end on)
+    # is unreadable by the grader's own `line_readability` (`no_endpoint`),
+    # and no reading of any word can fix it. It blocks lookup readiness as a
+    # NON-LEXICAL blocker, counted apart and never invented as a word type
+    # (3PO's C1 review, #537); an item that has one is never completable by a
+    # reading, so it earns no type completion credit either.
+    no_endpoint_lines = items_no_endpoint = 0
+    anchor_unread = collections.Counter()
     for path in paths:
         rel = os.path.relpath(path, ROOT)
         ordinal = -1
@@ -130,7 +160,10 @@ def census(paths, lex, top=0, keep=None):
             items += 1
             unread_here = set()
             here = {k: set() for k in readers}
+            no_endpoint_here = 0
             for line in lines:
+                if LH.raw_final_token(line, strip_parens=lex.strip_parens) is None:
+                    no_endpoint_here += 1
                 ends = {"end_anchor": LH.raw_final_token(line,
                                                          strip_parens=lex.strip_parens),
                         "end_grid": G._end_word(line) or None}
@@ -147,6 +180,8 @@ def census(paths, lex, top=0, keep=None):
                         e["unread"] += 1
                         e["types"][ekey] += 1
                         here[k].add(ekey)
+                        if k == "end_anchor":
+                            anchor_unread[ekey] += 1
                 # The words `transcribe` itself reads (enclitics joined,
                 # parentheticals stripped, Latin-script tokens only), then
                 # each word's own pieces through `transcribe_word`: exactly
@@ -178,6 +213,10 @@ def census(paths, lex, top=0, keep=None):
                 else:
                     e["clear"] += 1
             blockers = unread_here | here["end_anchor"]
+            no_endpoint_lines += no_endpoint_here
+            if no_endpoint_here:
+                items_no_endpoint += 1
+                continue
             if not blockers:
                 ready_items += 1
             elif len(blockers) == 1:
@@ -203,6 +242,8 @@ def census(paths, lex, top=0, keep=None):
         "items_lookup_ready_share": (round(ready_items / items, 6)
                                      if items else None),
         "items_with_one_lookup_blocker": sum(sole_lookup.values()),
+        "no_endpoint_lines": no_endpoint_lines,
+        "items_blocked_by_no_endpoint_line": items_no_endpoint,
     }
     if top:
         rec["top_unread_types"] = [
@@ -212,6 +253,16 @@ def census(paths, lex, top=0, keep=None):
              "word_lookup_completion_potential": sole_lookup[k],
              "fractional_item_credit": round(credit[k], 3)}
             for k, n in type_unread.most_common(top)]
+    if top:
+        # Every LOOKUP blocker -- interior-unread or anchor-only alike -- with
+        # the fields a queue reads, so an anchor-only blocker (`sh`) keeps its
+        # completion potential (3PO's C1 review, point 4).
+        rec["top_lookup_blockers"] = [
+            {"type": t, "unread_words": type_unread[t],
+             "unread_end_anchors": anchor_unread[t],
+             "word_lookup_completion_potential": sole_lookup[t],
+             "fractional_item_credit": round(c, 3)}
+            for t, c in sorted(credit.items(), key=lambda kv: (-kv[1], kv[0]))[:top]]
     for k in readers:
         e = E[k]
         rec[k] = {
@@ -229,6 +280,31 @@ def census(paths, lex, top=0, keep=None):
                  "items_where_sole_unread_end_type": e["only"][t]}
                 for t, n in e["types"].most_common(top)]
     return rec
+
+
+def split_record(side, keep, meta):
+    """The split a record read: side, salt, the split's own population, and
+    the ASSIGNMENT itself -- the frozen file's sha256 and the digest of the
+    exact units selected -- so a changed assignment changes the record's
+    identity even when the corpus, salt and side are the same."""
+    from quality import coverage_split as CS
+    with open(CS.SPLIT_PATH, "rb") as fh:
+        split_sha = hashlib.sha256(fh.read()).hexdigest()
+    return {"side": side, "salt": meta["salt"],
+            "split_inputs_sha256": meta["inputs_sha256"],
+            "split_file_sha256": split_sha, "selected_units": len(keep),
+            "selected_units_sha256": hashlib.sha256(
+                "".join(u + "\n" for u in sorted(keep)).encode()).hexdigest()}
+
+
+def population_manifest(paths):
+    """-> [[path relative to the harness root, sha256], ...]: the exact files
+    a record measured, so the record identifies its own population."""
+    out = []
+    for p in sorted(paths):
+        with open(p, "rb") as fh:
+            out.append([os.path.relpath(p, ROOT), hashlib.sha256(fh.read()).hexdigest()])
+    return out
 
 
 def inputs_sha256(paths):
@@ -293,12 +369,12 @@ def main(argv=None):
     lex = build_lexicon(a.lexicon_supplement, a.fallback)
     rec = {"population": a.population, "globs": POPULATIONS[a.population],
            "files": len(paths), "inputs_sha256": inputs_sha256(paths),
+           "population_manifest": population_manifest(paths),
            "lexicon_supplement": a.lexicon_supplement,
            "lexicon_supplement_sha256": _lexicon_sha256(lex),
            "fallback": a.fallback, "census_commit": _commit()}
     if keep is not None:
-        rec["split"] = {"side": a.split, "salt": split_meta["salt"],
-                        "split_inputs_sha256": split_meta["inputs_sha256"]}
+        rec["split"] = split_record(a.split, keep, split_meta)
         if split_meta["inputs_sha256"] != rec["inputs_sha256"]:
             print("REFUSED: the population is not the one the frozen split was "
                   "drawn from (inputs_sha256 differs); a moved population needs "
