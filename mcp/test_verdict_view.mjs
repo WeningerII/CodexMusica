@@ -84,7 +84,13 @@ const verdict = {
   pronunciations: [],
   pronunciation_options: {
     items: [
-      { line: 'Two line there', token: 1, word: 'Two', matching_lines: [2] },
+      {
+        line: 'Two line there',
+        token: 1,
+        word: 'Two',
+        matching_lines: [2],
+        dictionary_readings: [{ phones: ['T', 'UW1'] }, { phones: ['T', 'UW0'] }],
+      },
       { line: 'One line here', token: 1, word: 'One', matching_lines: [1] },
     ],
     total: 9,
@@ -374,4 +380,160 @@ test('a stopped revise names the session continuation, not run_id or state', () 
   assert.doesNotMatch(out.meaning, /run_id|under the same declarations/);
   assert.match(out.meaning, /lyric_revise, the latest session_id and no answer/);
   assert.match(out.meaning, /^subprocess failure \(-1\): verb killed at the shared tool deadline/);
+});
+
+test('unknown words are not mislabeled as having multiple readings', () => {
+  const v = {
+    findings: [note('UNREADABLE_INTERIOR_WORD', [12, 25])],
+    coverage: {
+      refused_obligations: ['meter:COUNT_IS_A_LOWER_BOUND:L12', 'meter:COUNT_IS_A_LOWER_BOUND:L25'],
+    },
+    pronunciation_options: {
+      items: [
+        { word: 'streetlights', matching_lines: [12, 25], dictionary_readings: [] },
+        {
+          word: 'the',
+          matching_lines: [12, 25],
+          dictionary_readings: [{ phones: ['DH', 'AH0'] }, { phones: ['DH', 'IY1'] }],
+        },
+        {
+          word: 'quick',
+          matching_lines: [12],
+          dictionary_readings: [{ phones: ['K', 'W', 'IH1', 'K'] }],
+        },
+      ],
+    },
+  };
+  assert.deepEqual(
+    blockingOf(v),
+    [12, 25].map(
+      (n) =>
+        `L${n}: not judged — meter (UNREADABLE_INTERIOR_WORD); words with more than one reading: L${n} the; no dictionary reading listed: L${n} streetlights`
+    )
+  );
+});
+
+test('function failures name each failed word and sung token at its draft line', () => {
+  const ids = [15, 28].map((n) => `function:END_WORD_UNREADABLE:L${n}`);
+  const v = {
+    findings: [note('END_WORD_UNREADABLE', [15, 28])],
+    coverage: {
+      refused_obligations: ['function:draft', ...ids],
+      obligations: ids.map((id, i) => ({
+        id,
+        status: 'refused',
+        line: [15, 28][i],
+        token: 7,
+        word: 'sixty-six',
+        code: 'END_WORD_UNREADABLE',
+      })),
+    },
+  };
+  assert.deepEqual(
+    blockingOf(v),
+    [15, 28].map(
+      (n) => `L${n}: not judged — function (END_WORD_UNREADABLE); unreadable: token 7 'sixty-six'`
+    )
+  );
+  assert.deepEqual(obligationLines(ids[0]), [15]);
+  assert.equal(detailOf(v, 'coverage', [28]).coverage.obligations[0].line, 28);
+  assert.equal(detailOf(v, 'findings', [28]).findings.length, 1);
+  v.coverage.refused_obligations.push('function:UNLOCATED:0');
+  assert.equal(
+    blockingOf(v).at(-1),
+    'whole draft: not judged — function:draft, function:UNLOCATED:0'
+  );
+});
+
+test('short and every detail view preserve supplied lexicon identity without inventing one', () => {
+  for (const lexicon of [
+    { supplement_id: 'reviewed-v1', sha256: 'a'.repeat(64) },
+    { supplement_id: null, sha256: null },
+  ]) {
+    const v = { ...verdict, lexicon };
+    const content = blocks(v);
+    assert.deepEqual(JSON.parse(sessionView('lyric_grade', content)[1].text).lexicon, lexicon);
+    for (const detail of DETAIL_PARTS) {
+      const out = sessionView('lyric_grade', content, { detail, lines: [2] });
+      assert.deepEqual(JSON.parse(out[detail === 'full' ? 1 : 0].text).lexicon, lexicon);
+    }
+  }
+  assert.equal(
+    Object.hasOwn(JSON.parse(sessionView('lyric_grade', blocks())[1].text), 'lexicon'),
+    false
+  );
+  for (const part of DETAIL_PARTS)
+    assert.equal(Object.hasOwn(detailOf(verdict, part), 'lexicon'), false);
+});
+
+test('mixed expanded function failures retain known lines alongside unlocated coverage', () => {
+  const located = [1, 3].map((line) => ({
+    id: `function:END_WORD_UNREADABLE:T3:L${line}`,
+    layer: 'function',
+    status: 'refused',
+    code: 'END_WORD_UNREADABLE',
+    line,
+    token: 3,
+    word: 'streetlights',
+    text: 'Wait for streetlights',
+  }));
+  const unlocated = {
+    id: 'function:END_WORD_UNREADABLE:0',
+    layer: 'function',
+    status: 'refused',
+    code: 'END_WORD_UNREADABLE',
+    location_scope: 'section_local',
+    failed_words: ['first', 'again'].map((side) => ({
+      side,
+      section_line: 1,
+      token: 3,
+      word: 'streetlights',
+      text: 'Wait for streetlights',
+    })),
+  };
+  const v = {
+    findings: [note('END_WORD_UNREADABLE', [1, 3])],
+    coverage: {
+      refused_obligations: ['function:draft', ...located.map((o) => o.id), unlocated.id],
+      obligations: [...located, unlocated],
+    },
+  };
+  assert.deepEqual(blockingOf(v), [
+    ...[1, 3].map(
+      (n) =>
+        `L${n}: not judged — function (END_WORD_UNREADABLE); unreadable: token 3 'streetlights'`
+    ),
+    'whole draft: not judged — function:draft, function:END_WORD_UNREADABLE:0',
+  ]);
+  assert.deepEqual(detailOf(v, 'coverage').coverage.obligations.at(-1), unlocated);
+  assert.deepEqual(detailOf(v, 'coverage', [3]).coverage.obligations, [located[1]]);
+});
+
+test('unmapped physical endpoints name the word and line without inventing a sung token', () => {
+  const v = {
+    findings: [note('END_WORD_UNREADABLE', [1, 2])],
+    coverage: {
+      refused_obligations: [
+        'function:draft',
+        'function:END_WORD_UNREADABLE:L1',
+        'function:END_WORD_UNREADABLE:L2',
+      ],
+      obligations: ['我', '1966'].map((word, i) => ({
+        id: `function:END_WORD_UNREADABLE:L${i + 1}`,
+        status: 'refused',
+        code: 'END_WORD_UNREADABLE',
+        line: i + 1,
+        token: null,
+        word,
+      })),
+    },
+  };
+  assert.deepEqual(
+    blockingOf(v),
+    ['我', '1966'].map(
+      (word, i) =>
+        `L${i + 1}: not judged — function (END_WORD_UNREADABLE); unreadable: endpoint '${word}' (no sung-token position)`
+    )
+  );
+  assert.equal(detailOf(v, 'coverage', [1]).coverage.obligations[0].token, null);
 });
