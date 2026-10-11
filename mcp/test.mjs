@@ -5108,6 +5108,10 @@ await check('validation: actionable errors', () => {
       'mcp/test_library_search.mjs': 'offline Library search store, engine and route regressions',
       'mcp/test_library_search_parity.mjs':
         'replays the Worker search goldens against a built store (library-site.yml)',
+      'mcp/test_reader_store_bounds.mjs':
+        'offline bounded reader-store maintenance and quiescent usage regressions',
+      'mcp/test_library_viewer_routes.mjs':
+        'offline Library viewer route, cookie, isolation and limit regressions',
       'mcp/test_reader_client.mjs': 'offline signed Library reader route and scheduler regressions',
       'mcp/test_reader_integration.mjs':
         'local catalog Library reader interruption/resume regressions',
