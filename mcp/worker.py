@@ -22,11 +22,13 @@ admission deadline. Uncaught CLI exceptions remain code 1 plus traceback,
 matching the cold entrance.
 """
 
+import hashlib
 import io
 import json
 import os
 import sys
 import time
+import zlib
 
 HARNESS = os.path.normpath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)),
@@ -58,6 +60,38 @@ REQUEST_ENV = ("LYRIC_CONTROL_TOKEN", "LYRIC_REQUEST_DEADLINE_MS", "LYRIC_CHECKP
                "LYRIC_PROPOSER_BUDGET_USD", "LYRIC_BUDGET_URL", "LYRIC_BUDGET_TOKEN")
 
 
+READER_OBJECT_BYTES = 2 * 1024 * 1024  # READER_LIMITS.objectBytes in reader_job_store.js
+
+
+def read_page_object(page_path):
+    """Read one content-addressed evidence page, plain or gzip (phase A).
+
+    The store may hold either encoding; the bytes the filename stem hashes are
+    always the uncompressed JSON, inflation is bounded by the object limit, and
+    anything else is refused rather than parsed.
+    """
+    with open(page_path, "rb") as source_file:
+        raw = source_file.read(READER_OBJECT_BYTES + 1)
+    if len(raw) > READER_OBJECT_BYTES:
+        raise ValueError("reader page object exceeds its bound")
+    if raw[:2] == b"\x1f\x8b":
+        inflater = zlib.decompressobj(16 + zlib.MAX_WBITS)
+        try:
+            body = inflater.decompress(raw, READER_OBJECT_BYTES + 1)
+        except zlib.error as error:
+            raise ValueError("reader page object is corrupt") from error
+        # Exactly one member and no trailing bytes, as the Node reader requires.
+        if (len(body) > READER_OBJECT_BYTES or inflater.unconsumed_tail
+                or not inflater.eof or inflater.unused_data):
+            raise ValueError("reader page object exceeds its bound, is truncated or has trailing data")
+    else:
+        body = raw
+    stem = os.path.splitext(os.path.basename(page_path))[0]
+    if hashlib.sha256(body).hexdigest() != stem:
+        raise ValueError("reader page object does not match its address")
+    return json.loads(body.decode("utf-8"))
+
+
 def run_reader(payload, request_id):
     """Typed deterministic leases; acknowledge durable state before continuing.
 
@@ -77,8 +111,7 @@ def run_reader(payload, request_id):
 
     def load_records(schema_id):
         for page_path in paths:
-            with open(page_path, encoding="utf-8") as source_file:
-                page = json.load(source_file)
+            page = read_page_object(page_path)
             for row in page.get("instances", []):
                 engine = row.get("engine_payload") or {}
                 if schema_id in (row.get("schema_id"), row.get("method_id"),

@@ -297,6 +297,7 @@ try {
     })
   );
   readerScheduler.kick();
+  readerStore.startMaintenance();
 } catch (error) {
   readerFailure = error.message;
   app.use('/internal/reader', (_req, res) =>
