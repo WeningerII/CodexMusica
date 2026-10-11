@@ -1,0 +1,256 @@
+{
+ "whole_readings": [
+  {
+   "id": "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62",
+   "status": 200,
+   "bytes": 37216,
+   "sha256": "fb2584e4d5ae824e5f653caec470352cb9da1a151dbe589c4516c6579fbc2331"
+  },
+  {
+   "id": "reading_06813f26-89f8-5d53-b0b1-fcf8abad42a8",
+   "status": 200,
+   "bytes": 68896,
+   "sha256": "5c14b932dcf7145aeba0d383eb0eef2484d97d3f37365b448ae525067d5da8ba"
+  },
+  {
+   "id": "reading_0c81c704-f34f-50e1-93a4-d850afd1d4ad",
+   "status": 200,
+   "bytes": 80763,
+   "sha256": "5a89119f5bd31e99dd53684c4d3d36414c83787dd2ebf21e2f03f0f96f5aaf73"
+  },
+  {
+   "id": "reading_12d07371-18db-53b8-8416-e5f02e0c4646",
+   "status": 200,
+   "bytes": 19858,
+   "sha256": "87a9fc0e4523ed0063198b2b444419a2b55a2d7c0f79ce34be50b6349b9ffda6"
+  },
+  {
+   "id": "reading_188d7f3b-da6d-5f40-bb47-b3d6f71ff7f9",
+   "status": 200,
+   "bytes": 174265,
+   "sha256": "aa1ea534ad0582afc210b918ef193029484e46960281e981f3f86cf133c6b5c4"
+  }
+ ],
+ "exports": [
+  {
+   "label": "single",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62"
+   ],
+   "format": "text",
+   "bytes": 19342,
+   "sha256": "fff97b38067c35c5d046184bd90f304fbd2b7b16579e2dca67351731d06b41d6",
+   "entries": [
+    "READINGS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "TRANSCRIPTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "ATTRIBUTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE.json",
+    "ATTRIBUTION.txt"
+   ]
+  },
+  {
+   "label": "single",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62"
+   ],
+   "format": "json",
+   "bytes": 804150,
+   "sha256": "bde6ec3597660ea07e5dcc5e450cae7aaf0c757bbc7988b7e1a72e0e83e996dd",
+   "entries": [
+    "READINGS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "TRANSCRIPTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "ATTRIBUTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "SOURCES/374325b552f0884350fc43808247ec66a956880007caa54f6a02ab6ffd265fa1.bin",
+    "PROVENANCE.json",
+    "ATTRIBUTION.txt"
+   ]
+  },
+  {
+   "label": "single",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62"
+   ],
+   "format": "csv",
+   "bytes": 40305,
+   "sha256": "381b17b8c50db780782934da40eb1016c73d8349278cb6a62ccab94d90abca48",
+   "entries": [
+    "READINGS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.csv",
+    "TRANSCRIPTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "ATTRIBUTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE.json",
+    "ATTRIBUTION.txt"
+   ]
+  },
+  {
+   "label": "five-stride",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62",
+    "reading_3179c4cc-1cdf-5b5f-8518-219affeea600",
+    "reading_6594770c-7c5c-5481-8aa8-f072440697b5",
+    "reading_98ca3a08-1092-51e4-bee1-12e2c9183940",
+    "reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b"
+   ],
+   "format": "text",
+   "bytes": 143982,
+   "sha256": "ca8f3b2c5cf64010b754811c1ee7b3398bbda3bf1d4603a03ddd569b0bf32366",
+   "entries": [
+    "READINGS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "TRANSCRIPTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "ATTRIBUTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "READINGS/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.txt",
+    "TRANSCRIPTIONS/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.txt",
+    "PROVENANCE/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.json",
+    "ATTRIBUTIONS/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.txt",
+    "READINGS/reading_6594770c-7c5c-5481-8aa8-f072440697b5.txt",
+    "TRANSCRIPTIONS/reading_6594770c-7c5c-5481-8aa8-f072440697b5.txt",
+    "PROVENANCE/reading_6594770c-7c5c-5481-8aa8-f072440697b5.json",
+    "ATTRIBUTIONS/reading_6594770c-7c5c-5481-8aa8-f072440697b5.txt",
+    "READINGS/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.txt",
+    "TRANSCRIPTIONS/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.txt",
+    "PROVENANCE/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.json",
+    "ATTRIBUTIONS/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.txt",
+    "READINGS/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.txt",
+    "TRANSCRIPTIONS/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.txt",
+    "PROVENANCE/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.json",
+    "ATTRIBUTIONS/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.txt",
+    "PROVENANCE.json",
+    "ATTRIBUTION.txt"
+   ]
+  },
+  {
+   "label": "five-stride",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62",
+    "reading_3179c4cc-1cdf-5b5f-8518-219affeea600",
+    "reading_6594770c-7c5c-5481-8aa8-f072440697b5",
+    "reading_98ca3a08-1092-51e4-bee1-12e2c9183940",
+    "reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b"
+   ],
+   "format": "json",
+   "bytes": 3092686,
+   "sha256": "ecc8c4956ef9b88c687a50bd4e29c87af4a3ae876d834ee411b07b09dfcc7a26",
+   "entries": [
+    "READINGS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "TRANSCRIPTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "ATTRIBUTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "SOURCES/374325b552f0884350fc43808247ec66a956880007caa54f6a02ab6ffd265fa1.bin",
+    "READINGS/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.json",
+    "TRANSCRIPTIONS/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.txt",
+    "PROVENANCE/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.json",
+    "ATTRIBUTIONS/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.txt",
+    "SOURCES/3163a897a3be741004e6f6f072431afd8c3d21211412e96aab425b9f40dcaeea.bin",
+    "READINGS/reading_6594770c-7c5c-5481-8aa8-f072440697b5.json",
+    "TRANSCRIPTIONS/reading_6594770c-7c5c-5481-8aa8-f072440697b5.txt",
+    "PROVENANCE/reading_6594770c-7c5c-5481-8aa8-f072440697b5.json",
+    "ATTRIBUTIONS/reading_6594770c-7c5c-5481-8aa8-f072440697b5.txt",
+    "SOURCES/622c0a0a95e5c894bbde5a8c3731410801e5199665b52b375b02ce3574c83064.bin",
+    "READINGS/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.json",
+    "TRANSCRIPTIONS/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.txt",
+    "PROVENANCE/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.json",
+    "ATTRIBUTIONS/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.txt",
+    "SOURCES/ab569884ac82be938dde86b20e2b9c18f97d5607f3524fa827bd5e4469e154c7.bin",
+    "READINGS/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.json",
+    "TRANSCRIPTIONS/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.txt",
+    "PROVENANCE/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.json",
+    "ATTRIBUTIONS/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.txt",
+    "SOURCES/b6eacb440d0adf35d6c1d632b2754ed80751382e6c848aa156320dfde97e15fa.bin",
+    "PROVENANCE.json",
+    "ATTRIBUTION.txt"
+   ]
+  },
+  {
+   "label": "five-stride",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62",
+    "reading_3179c4cc-1cdf-5b5f-8518-219affeea600",
+    "reading_6594770c-7c5c-5481-8aa8-f072440697b5",
+    "reading_98ca3a08-1092-51e4-bee1-12e2c9183940",
+    "reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b"
+   ],
+   "format": "csv",
+   "bytes": 250326,
+   "sha256": "91d49fe985f1df15f85ba8b85f79c4fd1dd6904ac7b96ed582492e28cfec9578",
+   "entries": [
+    "READINGS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.csv",
+    "TRANSCRIPTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "ATTRIBUTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "READINGS/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.csv",
+    "TRANSCRIPTIONS/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.txt",
+    "PROVENANCE/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.json",
+    "ATTRIBUTIONS/reading_3179c4cc-1cdf-5b5f-8518-219affeea600.txt",
+    "READINGS/reading_6594770c-7c5c-5481-8aa8-f072440697b5.csv",
+    "TRANSCRIPTIONS/reading_6594770c-7c5c-5481-8aa8-f072440697b5.txt",
+    "PROVENANCE/reading_6594770c-7c5c-5481-8aa8-f072440697b5.json",
+    "ATTRIBUTIONS/reading_6594770c-7c5c-5481-8aa8-f072440697b5.txt",
+    "READINGS/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.csv",
+    "TRANSCRIPTIONS/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.txt",
+    "PROVENANCE/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.json",
+    "ATTRIBUTIONS/reading_98ca3a08-1092-51e4-bee1-12e2c9183940.txt",
+    "READINGS/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.csv",
+    "TRANSCRIPTIONS/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.txt",
+    "PROVENANCE/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.json",
+    "ATTRIBUTIONS/reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b.txt",
+    "PROVENANCE.json",
+    "ATTRIBUTION.txt"
+   ]
+  },
+  {
+   "label": "whole-source",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62"
+   ],
+   "format": "text",
+   "bytes": 19342,
+   "sha256": "fff97b38067c35c5d046184bd90f304fbd2b7b16579e2dca67351731d06b41d6",
+   "entries": [
+    "READINGS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "TRANSCRIPTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "ATTRIBUTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE.json",
+    "ATTRIBUTION.txt"
+   ]
+  },
+  {
+   "label": "whole-source",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62"
+   ],
+   "format": "json",
+   "bytes": 804150,
+   "sha256": "bde6ec3597660ea07e5dcc5e450cae7aaf0c757bbc7988b7e1a72e0e83e996dd",
+   "entries": [
+    "READINGS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "TRANSCRIPTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "ATTRIBUTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "SOURCES/374325b552f0884350fc43808247ec66a956880007caa54f6a02ab6ffd265fa1.bin",
+    "PROVENANCE.json",
+    "ATTRIBUTION.txt"
+   ]
+  },
+  {
+   "label": "whole-source",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62"
+   ],
+   "format": "csv",
+   "bytes": 40305,
+   "sha256": "381b17b8c50db780782934da40eb1016c73d8349278cb6a62ccab94d90abca48",
+   "entries": [
+    "READINGS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.csv",
+    "TRANSCRIPTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.json",
+    "ATTRIBUTIONS/reading_0003c2e4-49aa-50c2-9a01-ca1201375e62.txt",
+    "PROVENANCE.json",
+    "ATTRIBUTION.txt"
+   ]
+  }
+ ]
+}

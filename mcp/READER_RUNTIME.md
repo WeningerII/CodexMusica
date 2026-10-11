@@ -13,10 +13,14 @@ reader adds no resident Python process and yields when writing work queues.
 | `READER_CATALOG_DIR`          | Installed immutable catalog directory containing the pinned canonical manifest, index and approved readable units. No remote source fetch.   |
 | `READER_RUNTIME_DIR`          | Durable directory; defaults to `LYRIC_RUNTIME_DIR/reader-jobs`. Analysis fails closed without durable storage.                               |
 | `READER_STORAGE_MAX_BYTES`    | Quota for the reader namespace; defaults to 256 MiB. Reserve metadata space and pause with `RESOURCE_LIMIT` before exhausting it.            |
-| `READER_BRIDGE_SECRET`        | Server-only shared HMAC secret of at least 32 UTF-8 bytes.                                                                                   |
-| `READER_SITE_ID`              | Exact trusted Site instance identifier.                                                                                                      |
+| `READER_BRIDGE_SECRET`        | Optional. Server-only shared HMAC secret of at least 32 UTF-8 bytes; with `READER_SITE_ID` it mounts only `/internal/reader`, while the Site exists. |
+| `READER_SITE_ID`              | Optional. Exact trusted Site instance identifier (see above).                                                                                |
 | `READER_RESOURCE_FINGERPRINT` | Optional explicit qualified resource fingerprint; otherwise use the checked runtime asset inventory hash.                                    |
 | `READER_REQUIRED`             | Set to `1` for a release that requires reader readiness; otherwise missing reader configuration leaves existing writing readiness unchanged. |
+| `LIBRARY_SEARCH_DIR`          | The search store `lyric-harness/library/search_store.py` builds from the verified site export. Without it, `/library/v1/search` and `/metadata` answer 503. |
+| `LIBRARY_EXPORT_DIR`          | The export store `node mcp/library_exports.js build EXPORT OUT` builds from the verified site export. Without it, selection exports answer 503. |
+| `LIBRARY_CORPUS_DIR`          | The whole-corpus packages `python -m library.catalog_downloads SNAPSHOT OUT` builds (run from lyric-harness). Installed only when built from the snapshot the search and export stores serve; without it, corpus downloads answer 503. |
+| `LIBRARY_PUBLIC`              | On by default since the native Library tab shipped: mounts the credentialed `/library/v1` viewer routes (analysis). `0` turns them off. |
 
 Use the existing immutable image assembly, qualification and promotion pipeline.
 Install the same canonical catalog snapshot on the Site and Render. A separate
@@ -33,15 +37,152 @@ baked release identity, approved asset hash, method registry and pinned snapshot
 It warms the existing writer, traverses admitted English, Welsh, Old Norse,
 Finnish, Persian and Middle Chinese units, and overlaps the independent type
 lookup with reader checkpoints. The memory sampler includes all descendant
-processes; a result without overlapping workers cannot pass. These deterministic
+processes; a result without overlapping workers cannot pass. In the image it
+also loads the Library stores (`LIBRARY_SEARCH_DIR`, `LIBRARY_EXPORT_DIR`,
+`LIBRARY_CORPUS_DIR`, built by the Dockerfile's `library-stores` stage from the
+same canonical catalog) and keeps them resident through the cases: each must
+serve the pinned snapshot, the search and export stores must count every
+readable unit, every corpus package must match its recorded sha256 (the
+build's `catalog_downloads --verify-existing` checked the upload parts before
+they were deleted), a search must find results, and a selection export must
+stream exactly its planned length. These deterministic
 calls spend no model budget. Local receipts identify their scope as
 `local-runtime`; they do not replace the image gate.
+
+## Public Library browser API (`/library/v1`)
+
+The native Library tab on codexmusica.com reads three public, uncredentialed
+routes. They are CORS simple GETs with no cookie, and every response names the
+server's own snapshot (the client never sends one):
+
+- `GET /library/v1/health`: passive (no cookie, no writes). Reports the
+  snapshot, `readable_ids_sha256`, unit counts, `search_ready`, and
+  `analysis_available` (true only with public analysis on and a ready reader),
+  and `corpus`: each installed package's `bytes`, `sha256` and `url`.
+- `GET /library/v1/search?q&language&availability&completeness&work&collection&contributor&sort&offset&limit<=100`:
+  a line-for-line port of the approved Worker's search over the store at
+  `LIBRARY_SEARCH_DIR`. It reproduces SQLite's `instr`, `substr`, ASCII
+  `lower()` and BINARY ordering. Every one of the Worker's 363 search goldens
+  replays byte-identically (`mcp/test_library_search_parity.mjs`, run by
+  `library-site.yml`); the only intended difference is the page cap of 100
+  instead of 250. No canonical reading is parsed on a request: a hit reads
+  only the compressed projection chunks it intersects.
+- `GET /library/v1/metadata/:id`: one unit's recorded metadata, any
+  availability (held units carry no body, snippet or labels).
+
+- `POST /library/v1/exports/plan` (`{reading_unit_ids, format}`, text, json
+  or csv) and `HEAD`/`GET /library/v1/exports/p/<content_id>.zip`: a selection
+  export, byte-identical to the approved Worker's ZIP (every one of its nine
+  export goldens replays exactly: `mcp/test_library_exports_parity.mjs`, run by
+  `library-site.yml`). The plan names the exact inputs (`content_id`: exporter
+  version, format, snapshot, rights registry and each reading's revision) and
+  is held in a process-local LRU (2,000 plans, one hour), so no id list ever
+  appears in a URL or log. A download recomputes `content_id` (409
+  `PLAN_STALE`) or finds the plan evicted (409 `PLAN_EXPIRED`); either way the
+  client re-plans from its stored ids. The ZIP streams with an exact
+  Content-Length from sizes and CRCs the export store recorded at build time,
+  generated in a worker thread (a long reading never blocks the event loop) and
+  checked entry by entry against that record. Every error on the download path
+  is an attachment (`library-download-error.txt`), so a navigation can never
+  swap the page for an error. Limits: plans 120/h per address; 2 concurrent
+  streams per address and 4 service-wide; the stream guard below. A selection of
+  every readable unit answers 409 `USE_CORPUS_PACKAGE`, naming the corpus
+  package `url` for that format.
+- `HEAD`/`GET /library/v1/corpus/<package_sha16>/<format>.zip`: a whole-corpus
+  package from `LIBRARY_CORPUS_DIR`, addressed by the first 16 hex of its own
+  sha256. The server re-hashes every package at boot and answers 503
+  `CORPUS_VERIFYING` until it matches (never, for a corrupt one). Served with
+  Content-Length, `Accept-Ranges: bytes` (one range per request, `If-Range` on
+  the ETag, 416 outside the file), a strong ETag of the sha256,
+  `X-Library-SHA256`, and `public, max-age=31536000, immutable`. An old
+  package URL answers 404 `CORPUS_PACKAGE_MOVED` with the current `url`.
+  Limits: 6 starts a day per address (a request without Range, or a range from
+  byte 0; HEAD and resumes are free) and 2 streams service-wide. The upload
+  `*.part-*` files the builder writes are never read.
+
+Every download stream (selection, analysis, corpus) is cut after 60 s without
+progress, or when fewer than 4 KiB/s moved over a 120 s window
+(`guardStream`; `LIBRARY_LIMITS.streamIdleMs`, `streamMinBytesPerSecond`,
+`streamRateWindowMs`), so a stalled or crawling client cannot hold one of the
+few stream slots.
+
+Search and metadata are `Cache-Control: public, max-age=300` with an ETag;
+errors are `no-store`. Search has a per-address abuse ceiling of 600 a minute
+(owner decision 4; `LIBRARY_LIMITS` in `ratelimit.js`), refused with 429 and
+Retry-After. The application's request log drops the search query string;
+Render's platform logs may still hold it (see `PRIVACY.md`).
+
+### Viewer routes (on unless `LIBRARY_PUBLIC=0`)
+
+The Library tab's analyses. Jobs share the reader-jobs-v1 store, admission and
+scheduler with the Site bridge, and create runs the same pipeline
+(`createAnalysisJob` in `reader_routes.js`). The store and scheduler run
+whenever `READER_CATALOG_DIR` and durable storage exist; the bridge secrets
+mount only `/internal/reader`, and these routes mount only with
+public analysis on (`LIBRARY_PUBLIC` not `0`), the search store installed and the reader running.
+
+- **Identity.** `__Host-cm_library`: 32 random bytes, base64url, `Path=/;
+  Secure; HttpOnly; SameSite=Strict; Max-Age=2592000`. Minted only by `POST
+  /library/v1/analyses` when no valid cookie is present, so a GET never creates
+  state; Max-Age slides on every viewer response. The store viewer is
+  `lv1:` + sha256 of the value. Cookie and Set-Cookie are never logged.
+- **No canonical reading is parsed on the event loop at create.** Create
+  verifies the reading (manifest hash, identity, revision, availability) in a
+  worker thread (`reader_source_worker.js`, at most two at a time) that returns
+  only the identity fields create needs, plus the lyric lines of a
+  pronunciation-bound collection reading. The parsed tree never reaches the
+  main thread, so a long reading (Kalevala's is 33 MB) cannot stall `/mcp` or
+  `/chat`.
+- **Capabilities never leave the process.** Each call re-derives the job's
+  capability from its id and the cookie's viewer (`store.capabilityFor`). It
+  is never in a response, URL, client persistence, analytics or log.
+- **Routes.** `POST /library/v1/analyses` (body: `contract_version`,
+  `reading_unit_id`, `reading_revision`, optional `declaration_set`,
+  `requested_layers`, `requested_methods`, and `idempotency_key`; the server
+  fills its own snapshot and refuses a client-sent one); `GET /jobs/:id`;
+  `POST /jobs/:id/cancel` and `/resume` with an `Idempotency-Key` header;
+  `DELETE /jobs/:id`; `GET /jobs/:id/manifests/:sha`,
+  `/manifests/:sha/pages?offset&limit<=250` and `/pages/:sha?manifest=`, each
+  re-hashed with `X-Library-SHA256`. Create answers 202 (new) or 200 (exact
+  retry), 409 `STALE_READING` with `current_revision`, 403
+  `READING_UNAVAILABLE`, and 503 `STORE_RECOUNTING` while usage is unknown.
+- **Every response is `Cache-Control: private, no-store`.** Another viewer's
+  job is 404. Methods route strictly (no `GET …/cancel` read). Every non-GET
+  body must be `application/json`, which forces a CORS preflight.
+- **CORS.** `Access-Control-Allow-Credentials: true` only on
+  `/library/v1/analyses*` and `/library/v1/jobs*`, for the exact allowed
+  origins; `Idempotency-Key` is an allowed header; `Retry-After`,
+  `Content-Disposition`, `X-Library-Bytes` and `X-Library-SHA256` are exposed;
+  preflights are cached 600 s.
+- **Limits** (owner decision 4; `LIBRARY_LIMITS`): 2 outstanding per viewer
+  (the store's rule, as on the old Site) and 16 waiting globally; a 12
+  outstanding per-address ceiling; creates 30/h per viewer and 120/h per
+  address; job reads 600/min per address; cancel, resume and delete 120/h per
+  viewer; cookie mints 30/h per address; and at most one long-reading job
+  (more than 5,000 lines) queued or running service-wide (429
+  `LONG_READING_BUSY`). Every refusal is 429 with `Retry-After`.
+- **Analysis exports.** `HEAD`/`GET /jobs/:id/exports/:manifest_sha.zip`
+  (`codex-musica-library-analysis-<sha12>.zip`): the reading's own entries,
+  byte-identical to a JSON selection of that unit, then `PROVENANCE.json`
+  (scope `whole_reading_unit_analysis`, the job's snapshot and manifest hash),
+  `ATTRIBUTION.txt` and `ANALYSIS/` (`MANIFEST.json`, `REQUEST.json`,
+  `METHODS.json`, `RESULT_SCHEMA.json` and every evidence page, each
+  re-hashed). The methods and result schema are the ones the job ran with: a
+  create retains them in the store (object kind `definitions`, kept live by
+  maintenance like any page). A job created before retention falls back to the
+  image's current definitions only when its `resource_fingerprint` equals the
+  running one, else 409 `EXPORT_DEFINITIONS_UNAVAILABLE`; a reading whose
+  export-store revision differs from the job's is 409 `EXPORT_READING_CHANGED`.
+  Errors are attachments, and the stream shares the selection exports' limiter
+  (2 per address, 4 service-wide) and the stall and crawl guard.
 
 ## Private pull API
 
 All routes are under `/internal/reader`. Only the Site server calls them. The
 browser receives Site reference IDs; raw backend capabilities stay in the Site's
-server binding and never appear in URLs, client persistence, analytics or logs.
+server binding and the in-process /library/v1 router, and never appear in URLs,
+client persistence, analytics or logs. The viewer cookie is an HttpOnly session
+credential, not a capability.
 
 | Method and suffix                                       | Result                                                                                                                                                             |
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -116,5 +257,60 @@ before its completed pointer. Resource exhaustion preserves the preceding
 cursor. A process interruption never automatically replays writing or paid work.
 
 Private results retain 30 days without authorized access; access refreshes their
-advertised expiry. Expired and deleted jobs never silently redispatch. Resume
-after incompatible source/resource changes requires a separate analysis.
+advertised expiry. The refresh slides in memory on every authorized read and is
+persisted at most once an hour, so a restart can shorten a result's retention by
+up to one hour, never lengthen it. Expiry binds at read time: a result past its
+expiry is refused with `RESULT_EXPIRED` before any sweep has marked it, and a
+job past its expiry is tombstoned the moment dispatch, deferred promotion or
+its running lease touches it, so expired work never runs. Expired
+and deleted jobs never silently redispatch. Resume after incompatible
+source/resource changes requires a separate analysis.
+
+## Storage accounting and maintenance
+
+Reads never scan the store. Usage is an exact byte counter (the capability key,
+records, pages, indexes, checkpoints and manifests) kept by deltas under the
+writer lock. Every mutation first writes a `pending` marker, then bumps the
+store `generation` and removes the marker when it leaves the lock. On taking the
+lock, an instance that finds a marker (a crashed writer) or a generation it did
+not write (another instance) reloads its records and treats its counter as
+unknown.
+
+Every job holds a 16 KiB reservation for its own record. The quota invariant is
+usage plus slack at most `READER_STORAGE_MAX_BYTES`, where slack sums each
+record's unused reservation, so one job's growth can never consume another's
+room and any record can always grow to 16 KiB. While usage is unknown, a write
+that would raise usage plus slack (a new job, a new object, or a record
+outgrowing its reservation) is refused with 503 `STORE_RECOUNTING`; a record
+transition inside its reservation still commits, a paused lease requeues as for
+`RESOURCE_LIMIT`, and deletes and reads proceed.
+
+A verification scan runs in slices outside the lock and is accepted only if
+every measurement succeeded, no marker appeared and the generation did not move
+across it. Anything else, including a failed `stat` or lock contention at
+acceptance, is a failed attempt, logged as `READER_RECOUNT_FAILED` and retried
+with backoff; it never marks the store unavailable. A drift found by an accepted
+scan is logged as `READER_USAGE_DRIFT` and corrected.
+
+Collection runs off the request path. Each timer slice examines at most 100
+records for expiry and at most 500 objects or 64 MiB across marking and
+sweeping, and stops at 50 ms. Every bound is checked before the work it limits:
+an object's size before it is read or deleted, and the clock between operations.
+Work that would cross a bound waits for the next slice, where expiry, the mark
+(mid-chain) and the sweep's directory enumeration all resume. A slice's byte
+bound may not be below the 2 MiB object limit, so an empty slice can always take
+the largest object. An object is marked live only after it is read, and a failed
+read abandons the whole collection, so a partial mark never sweeps. Every record
+saved while a collection is open is re-marked under the lock within the same
+slice budget, and the sweep is withheld until that re-mark completes inside one
+hold of the lock, so under sustained writes reclamation waits rather than the
+bound; another writer's commit abandons the collection. The sweep also deletes
+only unreferenced objects last written before its mark began; rewriting an
+object or referencing a page by hash refreshes its time. A full verification
+scan runs every 15 minutes.
+
+Object readers in Node and in the Python worker accept a stored file of at most
+2 MiB holding a plain object or exactly one gzip member with no trailing bytes,
+bound inflation by the same 2 MiB, and verify the address against the
+uncompressed bytes. The store writes plain objects until gzip writes are
+separately approved.

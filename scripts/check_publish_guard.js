@@ -135,6 +135,20 @@ const check = (name, got, want, detail) => {
   check('tip is an auto-publish commit -> publish', res.code, PUBLISH, res.out);
 }
 
+// ── 3b. main keeps older Library chunk generations: still publish. ──────────
+// sync-pages merges chunks into library/code/ and keeps each generation for
+// 30 days, so main holds files a built ref never has. They are outputs.
+{
+  const r = makeRepo();
+  const built = r.base;
+  r.write('library/code/core.0123456789.js', 'an older generation\n');
+  r.write('library/code/generations.json', '{"version":1,"generations":[]}\n');
+  r.commit('Auto-publish site (codex.html + static API)');
+  r.setOrigin();
+  const res = runGuard(r.dir, built);
+  check('older chunk generations on main -> publish', res.code, PUBLISH, res.out);
+}
+
 // ── 4. A newer merge AND an auto-publish on top: stand down. ────────────────
 // The generated outputs must not mask a real source change underneath them.
 {

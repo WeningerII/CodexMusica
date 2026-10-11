@@ -1,5 +1,5 @@
-/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload */
-/* global UILayout, CMLibraryImport */
+/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf, uiOpenInLyrics */
+/* global UILayout, CMLibraryImport, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError */
 /* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
@@ -90,6 +90,10 @@ const UI_SHELL_ACTIONS = new Set([
 ]);
 // Page interface (docs/ui-foundation.md has the full contract):
 //   id            one of UI_ROUTES
+//   route?(sub, { pop })  show the sub-route after '#<id>' ('/…' or '?…',
+//                 '' for none); pop is true for Back/Forward within the page
+//   currentRoute?()  the sub-route to resume at when the nav button returns
+//                 to this page (a page without one always opens at '#<id>')
 //   recipe?       'sidebar' (default, left), 'sidebar-right' or 'dock': how
 //                 Your recipe is presented on this route (UI_RECIPE_MODES)
 //   mount(surface)  build the page once inside <section id="surface-<id>">
@@ -98,6 +102,11 @@ const UI_SHELL_ACTIONS = new Set([
 //   resetLayout?()  extra work for Reset layout (the Map tells its iframe)
 //   escape?()     close what this page opened (last in the Escape order)
 //   actions?      { [data-ui name]: (id, button, event) => void | Promise }
+//   imports?      { [source]: (payload) => Promise }: what the page accepts
+//                 from another page (uiOpenInLyrics calls lyrics.imports.library)
+//   holdsEngine?  true: on a deferred boot (src/app.js _BOOT_DEFER) this page
+//                 draws before the workspace, and keeps the instrument engine
+//                 back while shown; any other page releases it
 function uiRegisterPage(page) {
   if (!UI_ROUTES.some(([id]) => id === page.id)) throw Error('Unknown route: ' + page.id);
   if (UI_PAGES[page.id]) throw Error('Route registered twice: ' + page.id);
@@ -111,6 +120,17 @@ function uiRegisterPage(page) {
   UI_PAGES[page.id] = page;
 }
 const $ui = (id) => document.getElementById(id);
+// The Library's in-page handoff: one codex-musica.library-import envelope to
+// Lyrics, through the importer Lyrics registered (imports.library), once the
+// workspace is in. Lyrics validates it, commits a durable draft and opens it,
+// pushed so Back returns to the reading. Text only: nothing reads or writes
+// the recipe. Rejects when the import fails, for the caller's fallback.
+async function uiOpenInLyrics(envelope) {
+  await uiEnsureWorkspace();
+  const importer = UI_PAGES.lyrics?.imports?.library;
+  if (!importer) throw Error('Lyrics cannot import from the Library.');
+  return importer(envelope);
+}
 // The Library is its own site (sites/library, hosted apart from this static
 // build), so its entry in Main sections is a link that opens it in a new tab
 // rather than a route: this page's unsaved work stays where it is. Its address
@@ -151,16 +171,46 @@ const listenHref = (name, instrument = false) =>
   `https://www.youtube.com/results?search_query=${encodeURIComponent(name + (instrument ? ' musical instrument solo demonstration' : ' music'))}`;
 const listenLink = (name, instrument = false) =>
   `<a class="listen" href="${listenHref(name, instrument)}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${esc(name)} on YouTube">${icon('play', 16)}<span>Listen</span></a>`;
+// A route hash, '#<view>' optionally followed by a sub-route that starts at
+// the first '/' or '?': '#library/read/x?line=4' -> { view: 'library',
+// sub: '/read/x?line=4' }. A page without route() has no sub-routes.
+const uiRouteOf = (hash) => {
+  const raw = String(hash || '').replace(/^#/, '');
+  const at = raw.search(/[/?]/);
+  return at < 0 ? { view: raw, sub: '' } : { view: raw.slice(0, at), sub: raw.slice(at) };
+};
+// A page changes its own sub-route without a re-render (it has already shown
+// it): push for a step the user would go Back from, replace otherwise.
+// `state` travels in history.state (for example a scroll position).
+function uiSubroute(sub, { push = false, state = null } = {}) {
+  if (!/^https?:$/.test(location.protocol)) return;
+  const hash = '#' + UI.view + sub;
+  if (push) history.pushState(state, '', hash);
+  else if (location.hash !== hash || state !== null) history.replaceState(state, '', hash);
+}
 // `push` is set only for a user's own navigation, so Back and Forward step
-// between sections; boot and deep links replace the entry instead.
-function uiNavigate(view, { push = false } = {}) {
-  if (!UI_PAGES[view]) return;
+// between sections; boot and deep links replace the entry instead. `sub` is
+// the sub-route to show; left out (a nav click), the page's currentRoute()
+// resumes where it was. Pages without route() always show '#<view>'.
+function uiNavigate(view, { push = false, sub } = {}) {
+  const page = UI_PAGES[view];
+  if (!page) return;
+  // A deferred boot (src/app.js _BOOT_DEFER): any page but one that holds the
+  // engine back releases it, and before the workspace is in, a page shows its
+  // mounted skeleton and draws once it is.
+  if (!page.holdsEngine) _releaseEngine();
+  const waiting = !_workspaceReady && !page.holdsEngine;
+  if (waiting)
+    uiEnsureWorkspace().then(() => UI.view === view && UI_PAGES[view].render?.(), _renderBootError);
+  if (!page.route) sub = '';
+  else if (sub === undefined) sub = page.currentRoute?.() || '';
   UI.view = view;
   document.body.dataset.view = view;
-  if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view) {
-    if (push) history.pushState(null, '', '#' + view);
-    else history.replaceState(null, '', '#' + view);
+  if (/^https?:$/.test(location.protocol) && location.hash !== '#' + view + sub) {
+    if (push) history.pushState(null, '', '#' + view + sub);
+    else history.replaceState(null, '', '#' + view + sub);
   }
+  page.route?.(sub, { pop: false });
   uiApplyRecipeMode();
   document.querySelectorAll('button[data-view]').forEach((b) => {
     b.classList.toggle('active', b.dataset.view === view);
@@ -169,7 +219,7 @@ function uiNavigate(view, { push = false } = {}) {
   document.querySelectorAll('.ui-surface').forEach((el) => {
     el.hidden = el.id !== 'surface-' + view;
   });
-  UI_PAGES[view].render?.();
+  if (!waiting) UI_PAGES[view].render?.();
   const dock = $ui('chat-dock');
   if (view === 'lyrics') {
     if (uiSwitchChat('lyrics')) {
@@ -741,14 +791,15 @@ function uiStart() {
   oldHeader.classList.add('native-header');
   const header = document.createElement('header');
   header.className = 'app-bar ui-header';
-  // One brand asset: the approved mark (assets/icon-192.png, pinned by
-  // scripts/build_favicon.js) beside the wordmark, in both themes.
-  header.innerHTML = `<a class="ui-brand" href="codex.html" aria-label="Codex Musica"><img class="ui-brand-mark" src="assets/icon-192.png" alt="" width="28" height="28"><span class="ui-brand-name">Codex Musica</span></a><nav aria-label="Main sections">${UI_ROUTES.map(
+  // One brand asset: the approved mark beside the wordmark, in both themes.
+  // assets/brand-mark-56.png is derived from the pinned master by
+  // scripts/build_favicon.js, sized for the 28px slot on a 2x screen.
+  header.innerHTML = `<a class="ui-brand" href="codex.html" aria-label="Codex Musica"><img class="ui-brand-mark" src="assets/brand-mark-56.png" alt="" width="28" height="28"><span class="ui-brand-name">Codex Musica</span></a><nav aria-label="Main sections">${UI_ROUTES.map(
     ([v, l, i]) =>
       `<button class="cm-tab" data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`
   ).join(
     ''
-  )}${uiLibraryLink()}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button><span id="ui-autosave" class="cm-status" role="status" aria-live="polite"></span>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved sessions', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
+  )}${UI_ROUTES.some(([id]) => id === 'library') ? '' : uiLibraryLink()}</nav><div class="ui-tools"><button id="ui-undo" data-ui="undo" aria-label="Undo">${icon('undo', 18)}</button><button id="ui-redo" data-ui="redo" aria-label="Redo">${icon('redo', 18)}</button><span id="ui-autosave" class="cm-status" role="status" aria-live="polite"></span>${uiButton('save', 'Save', 'save')}${uiButton('saved', 'Saved sessions', 'folder')}${uiButton('session', 'Recipe', 'layers', 'aria-expanded="false" aria-controls="workspace-sidebar"')}<span id="ui-count">0</span>${uiButton('menu', 'More', 'more-horizontal')}</div>`;
   document.body.prepend(header);
   const more = document.createElement('div');
   more.id = 'ui-menu';
@@ -832,6 +883,39 @@ function uiStart() {
       uiSync();
     }
   });
+  // Before a deferred boot's workspace is in (src/app.js _BOOT_DEFER), a
+  // workspace control (Save, Undo, Saved sessions, Recipe, AI recipe, …) is
+  // held, shown busy, and clicked again once the workspace is ready. The nav
+  // (uiNavigate waits itself), the controls of a page that holds the engine
+  // (the Library's), the More menu and the theme need nothing.
+  document.addEventListener(
+    'click',
+    (e) => {
+      if (_workspaceReady) return;
+      const b = e.target.closest('button');
+      // Only the workspace's own controls wait: the header bars, Your recipe,
+      // the shell's modals and the pages. A page's sheet or panel appended
+      // elsewhere (the Library's) is not a workspace control.
+      if (
+        !b ||
+        !b.closest('.app-bar, #workspace-sidebar, .modal-bg, .ui-surface') ||
+        UI_PAGES[b.closest('.ui-surface')?.id.slice('surface-'.length)]?.holdsEngine ||
+        b.matches('[data-view],[data-ui^="lib-"],[data-ui="menu"],[data-ui="theme"]')
+      )
+        return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if (b.hasAttribute('aria-busy')) return;
+      b.setAttribute('aria-busy', 'true');
+      uiEnsureWorkspace()
+        .then(() => {
+          b.removeAttribute('aria-busy');
+          b.click();
+        }, _renderBootError)
+        .finally(() => b.removeAttribute('aria-busy'));
+    },
+    true
+  );
   document.addEventListener('click', async (e) => {
     const nav = e.target.closest('button[data-view]');
     if (nav) {
@@ -1009,14 +1093,18 @@ function uiStart() {
     true
   );
   window.addEventListener('hashchange', () => {
-    const view = location.hash.slice(1);
-    if (UI_PAGES[view] && view !== UI.view) uiNavigate(view);
+    const { view, sub } = uiRouteOf(location.hash);
+    if (!UI_PAGES[view]) return;
+    if (view !== UI.view) uiNavigate(view, { sub });
+    // Back/Forward within one page: its own route, without refocusing the
+    // nav button or re-applying the recipe presentation.
+    else UI_PAGES[view].route?.(sub, { pop: true });
   });
   $ui('ui-file').addEventListener('change', (e) => {
     if (e.target.files[0]) uiImport(e.target.files[0]);
     e.target.value = '';
   });
-  uiRestoreSession();
+  _whenWorkspace(uiRestoreSession);
   window.addEventListener('storage', (e) => {
     if (e.key === 'codex-workbench-v1' && e.newValue !== UI.lastSaved) {
       UI.storageConflict = true;
@@ -1034,7 +1122,7 @@ function uiStart() {
   // After the first paint: a cross-origin status check started during boot
   // competes with the genre page's first render for the network and is
   // counted on the path to the largest paint. 'Connecting…' stays until then.
-  uiAfterPaint(uiCheckAI);
+  _whenWorkspace(() => uiAfterPaint(uiCheckAI));
 
   const domain = $ui('chat-domain');
   domain.addEventListener('change', uiUpdatePrompt);
@@ -1043,7 +1131,7 @@ function uiStart() {
   uiLayoutControls();
   uiMenuControls();
   uiRowsControls();
-  renderAll();
+  _whenWorkspace(renderAll);
   // codex.html?trad=<id> (the standalone atlas links here) opens that
   // tradition's Genre detail. It adds nothing by itself: Add stays explicit,
   // so a reload or a shared link can never duplicate an ensemble. An explicit
@@ -1051,16 +1139,17 @@ function uiStart() {
   // reopen that genre on every reload, whatever page the user had moved to.
   const query = new URLSearchParams(location.search);
   const deep = query.get('trad');
-  const route = location.hash.slice(1);
+  const route = uiRouteOf(location.hash);
   if (deep !== null && /^https?:$/.test(location.protocol)) {
     query.delete('trad');
     const rest = query.toString();
     history.replaceState(null, '', location.pathname + (rest ? '?' + rest : '') + location.hash);
   }
-  if (deep && !UI_PAGES[route] && Tradition(deep)) {
+  if (deep && !UI_PAGES[route.view] && Tradition(deep)) {
     UI.genre = Tradition(deep).id; // an old link to a merged tradition opens the survivor
     uiNavigate('genre');
-  } else uiNavigate(route || 'genre');
+  } else if (UI_PAGES[route.view]) uiNavigate(route.view, { sub: route.sub });
+  else uiNavigate('genre');
 }
 
 // ── Layers ── Escape closes the topmost open layer only and returns focus to
@@ -2001,7 +2090,9 @@ function uiRestoreSession() {
   }
 }
 function uiAutosave() {
-  if (!UI.ready) return;
+  // Before a deferred boot's workspace is in, the empty workspace is not the
+  // user's: writing it would replace the saved session.
+  if (!UI.ready || !_workspaceReady) return;
   const data = JSON.stringify({
     version: 1,
     name: app.workspaceName,

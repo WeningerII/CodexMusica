@@ -102,6 +102,36 @@
 // one engine element each, for engine; and all of those together for
 // add-path.
 //
+// THE LIBRARY ROWS (docs/library-native-design.md, "Byte budgets"). A page
+// built with CODEX_LIBRARY=1 carries the Library's stub, and is held to these
+// too. The five above are not raised for it:
+//
+//   library-stub         the stub: the `runtime: src/pages/library.js` block, <=   4,096
+//                        the head's Library preload (the unlabelled block
+//                        that names library/code/) and every
+//                        #surface-library rule of the styles, concatenated
+//   library-<chunk>      each code chunk LIBRARY_CHUNKS names, read beside
+//                        the page: core and reader 20,480, analysis 24,576,
+//                        compare 6,144, inflate 4,096. A chunk with no row
+//                        here fails: a new chunk cannot ship unbudgeted
+//   library-shelves-path codex.html + core + library/data/catalog.json  <= 393,216
+//                        — what the Library's first view waits for. Reported
+//                        absent, not failed, while library/data/ is not
+//                        beside the page (PR 2 publishes it)
+//   library-growth       with --base=FILE (the same tree built without the  <=   6,144
+//                        flag): the flagged page's gzip minus the base's —
+//                        what every existing route pays for the Library
+//
+// MEASURED when the rows arrived (PR 3, over a base that already carried the
+// derived 56px brand mark): stub 2,390 (library.js 1,885 of it), core 260 (the
+// placeholder PR 4 replaces), growth 2,176. The design's ceilings stand; PR 4
+// lowers each chunk's to its measured port +15%.
+//
+// library-reader-path (codex.html + core + reader + the largest r/ head file,
+// <= 425,984) arrives with the reader chunk in PR 4. A flagged page whose stub
+// names no chunk, whose head has no Library preload, or whose chunk file is
+// missing is refused with exit 2, like any other wrong shape.
+//
 // No promise is registered for this budget, so this gate carries no coverage
 // tag (check_promises.js holds those to a bijection). It runs in test:serial
 // after test:lazy, on the committed pair, and in CI's freshness job on the
@@ -111,6 +141,7 @@
 //   node scripts/check_payload_budget.js                     # codex.html + api/ of this tree
 //   node scripts/check_payload_budget.js --html=FILE         # api/ beside FILE, as the page fetches it
 //   node scripts/check_payload_budget.js --html=FILE --api=DIR
+//   node scripts/check_payload_budget.js --html=FLAGGED --api=DIR --base=DEFAULT
 // Relative paths resolve against the repository root.
 // Exit 0 within every budget; 1 if any budget is over; 2 if the page is not the
 // lazy shell carrying the engine block, or a file the budgets read is missing;
@@ -132,9 +163,24 @@ const BUDGETS = {
   'add-path': 1399808,
 };
 const TOP = 5;
+// The Library's rows (see THE LIBRARY ROWS above). Lowering needs nothing;
+// raising one needs the same cited run as the five above.
+const LIBRARY_BUDGETS = {
+  'library-stub': 4096,
+  'library-core': 20480,
+  'library-reader': 20480,
+  'library-analysis': 24576,
+  'library-compare': 6144,
+  'library-inflate': 4096,
+  'library-works': 12288,
+  'library-rights': 12288,
+  'library-readertools': 12288,
+  'library-shelves-path': 393216,
+  'library-growth': 6144,
+};
 
 // ──────────────────────────── argv ────────────────────────────
-const KNOWN_FLAGS = new Set(['html', 'api']);
+const KNOWN_FLAGS = new Set(['html', 'api', 'base']);
 const flags = {};
 const refused = [];
 for (const a of process.argv.slice(2)) {
@@ -145,7 +191,7 @@ for (const a of process.argv.slice(2)) {
 if (refused.length) {
   for (const a of refused)
     console.error(`check_payload_budget: "${a}" is not a flag of this script`);
-  console.error('  flags: --html=FILE --api=DIR (see the header)');
+  console.error('  flags: --html=FILE --api=DIR --base=FILE (see the header)');
   process.exit(3);
 }
 
@@ -272,6 +318,79 @@ const measured = [
   },
 ];
 
+// ──────────────────────────── the Library's rows ────────────────────────────
+const shape = [];
+const libraryBlock = blocks.find((b) => b.name === 'runtime: src/pages/library.js');
+if (libraryBlock) {
+  // The head's preload names the chunks' paths; only it does among the
+  // unlabelled blocks (the stub's own LIBRARY_CHUNKS table is labelled).
+  const preloads = blocks.filter((b) => !b.labeled && b.body.includes('library/code/'));
+  const styles = [...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)].map((m) => m[1]);
+  const libraryCss = styles
+    .flatMap((css) => css.match(/[^{}]*#surface-library[^{}]*\{[^{}]*\}/g) || [])
+    .join('');
+  if (!preloads.length) shape.push('a Library page with no Library preload in <head>');
+  const stubText = libraryBlock.body + preloads.map((b) => b.body).join('') + libraryCss;
+  measured.push({
+    id: 'library-stub',
+    gzip: gz(Buffer.from(stubText, 'utf8')),
+    what: `src/pages/library.js + ${preloads.length} head preload + ${n(libraryCss.length)} B of #surface-library CSS`,
+    pieces: () => [
+      piece('runtime: src/pages/library.js', libraryBlock.body),
+      ...preloads.map((b) => piece(b.name, b.body)),
+      piece('#surface-library CSS', libraryCss),
+    ],
+  });
+  const chunks = new Map(
+    [...libraryBlock.body.matchAll(/"(library\/code\/([a-z][a-z0-9_-]*)\.[0-9a-f]{10}\.js)"/g)].map(
+      (m) => [m[2], m[1]]
+    )
+  );
+  if (!chunks.size) shape.push('a Library page whose stub names no chunk (an embedded build?)');
+  const chunkGzip = {};
+  for (const [name, rel] of chunks) {
+    const file = path.join(path.dirname(htmlPath), rel);
+    if (!fs.existsSync(file)) {
+      shape.push(`${shown(file)} (the ${name} chunk) is absent`);
+      continue;
+    }
+    const bytes = fs.readFileSync(file);
+    chunkGzip[name] = gz(bytes);
+    const id = 'library-' + name;
+    if (!(id in LIBRARY_BUDGETS)) LIBRARY_BUDGETS[id] = 0; // no row: fails, and says so
+    measured.push({
+      id,
+      gzip: chunkGzip[name],
+      what: shown(file) + (LIBRARY_BUDGETS[id] ? '' : ' — a chunk with no budget row'),
+      pieces: () => [piece(shown(file), bytes.toString('utf8'))],
+    });
+  }
+  const catalogPath = path.join(path.dirname(htmlPath), 'library', 'data', 'catalog.json');
+  const catalogBuf = fs.existsSync(catalogPath) ? fs.readFileSync(catalogPath) : null;
+  measured.push({
+    id: 'library-shelves-path',
+    gzip: catalogBuf && chunkGzip.core ? pageGzip + chunkGzip.core + gz(catalogBuf) : null,
+    what: catalogBuf
+      ? `${shown(htmlPath)} + core + ${shown(catalogPath)}`
+      : `not measured: no ${shown(catalogPath)} beside the page`,
+    pieces: pagePieces,
+  });
+  if (flags.base) {
+    const basePath = path.resolve(ROOT, flags.base);
+    if (!fs.existsSync(basePath)) shape.push(`--base ${shown(basePath)} is absent`);
+    else
+      measured.push({
+        id: 'library-growth',
+        gzip: pageGzip - gz(fs.readFileSync(basePath)),
+        what: `${shown(htmlPath)} minus ${shown(basePath)}`,
+        pieces: pagePieces,
+      });
+  }
+  Object.assign(BUDGETS, LIBRARY_BUDGETS);
+} else if (flags.base) {
+  shape.push("--base measures the Library's growth, but this page has no Library stub");
+}
+
 // ──────────────────────────── report ────────────────────────────
 console.log(`check_payload_budget — bytes after gzip -6 (Node zlib level 6)`);
 console.log(`  ${'budget'.padEnd(12)} ${'gzip'.padStart(11)}  ${'limit'.padStart(9)}`);
@@ -288,7 +407,6 @@ for (const m of measured) {
   );
 }
 
-const shape = [];
 if (!lazySwitch)
   shape.push(
     "no `const CODEX_LAZY_API = '…'` in a runtime block: this is not the lazy shell (an embedded build?)"
@@ -307,7 +425,7 @@ if (shape.length) {
   process.exit(2);
 }
 
-const over = measured.filter((m) => m.gzip > BUDGETS[m.id]);
+const over = measured.filter((m) => m.gzip !== null && m.gzip > BUDGETS[m.id]);
 if (over.length) {
   console.error(
     `check_payload_budget: FAIL — ${over.length} budget(s) over. Raising one needs a cited Lighthouse run (see the header).`
@@ -326,4 +444,13 @@ if (over.length) {
   }
   process.exit(1);
 }
-console.log(`check_payload_budget: PASS — all ${measured.length} budgets hold`);
+const held = measured.filter((m) => m.gzip !== null);
+console.log(
+  `check_payload_budget: PASS — all ${held.length} budgets hold` +
+    (held.length < measured.length
+      ? ` (${measured.length - held.length} not measured: ${measured
+          .filter((m) => m.gzip === null)
+          .map((m) => m.id)
+          .join(', ')})`
+      : '')
+);

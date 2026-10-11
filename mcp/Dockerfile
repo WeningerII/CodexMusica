@@ -36,6 +36,31 @@ RUN cd lyric-harness \
  && python3 quality/release_assets.py --root /runtime/lyric-harness \
       --staged-data /runtime/lyric-harness/data --check
 
+# The Library browser API's read-only stores (docs/library-native-design.md),
+# all from the canonical catalog this image's reader serves: the exact-search
+# store (/library/v1/search, /metadata), the selection-export store and the
+# whole-corpus packages. Their own stage, so they cache apart from the final
+# layers. verify_downloads checks the upload parts before they are deleted;
+# the server re-hashes each package before it serves one.
+#
+# The exporter finds the label registry at <source>/../../data and the
+# engine references at <source>/.., and silently attaches nothing when they
+# are absent, so it reads the catalog through library/snapshot (a link to
+# the built catalog), and the attachment is asserted as library-site.yml
+# asserts it.
+FROM assets AS library-stores
+COPY mcp/library_exports.js /source/mcp/
+RUN cd /source/lyric-harness \
+ && ln -s /build/library-canonical library/snapshot \
+ && python3 -m library.catalog_site_export \
+      --source library/snapshot --output /build/library-site-export \
+ && python3 -c "import hashlib, json; m = json.load(open('/build/library-site-export/import_manifest.json')); want = hashlib.sha256(open('data/lyric_label_prefixes.json', 'rb').read()).hexdigest(); assert m['derived_metadata']['label_registry_sha256'] == want, 'label registry not attached'; assert {'methods', 'result_schema', 'label_prefixes', 'source_records'} <= set(m['references']), 'references not attached'" \
+ && python3 -m library.search_store /build/library-site-export /library/search \
+ && node /source/mcp/library_exports.js build /build/library-site-export /library/exports \
+ && python3 -m library.catalog_downloads /build/library-canonical /library/corpus \
+ && python3 -m library.catalog_downloads /build/library-canonical /library/corpus --verify-existing \
+ && rm -f /library/corpus/*.part-*
+
 FROM runtime-base AS production
 WORKDIR /app
 COPY scripts ./scripts
@@ -47,11 +72,15 @@ COPY references ./references
 # than a failed COPY. The exact file is git-ignored and its siblings
 # (`.part`, `.bak`) are docker-ignored, so nothing ships either by accident.
 COPY mcp/*.js mcp/production-config.json mcp/capacity_verification.json* ./mcp/
+# The Library search fold table (mcp/library_search.js imports it).
+COPY mcp/library_casefold.json ./mcp/
 COPY mcp/qualify_reader.mjs ./mcp/
 COPY mcp/worker.py mcp/gemini_proposer.py ./mcp/
 # Only approved runtime assets reach a final layer; research corpora and optional
 # uncleared norms remain outside the deployed image.
 COPY --from=assets /runtime/lyric-harness ./lyric-harness
+# The Library stores (built above); without them the routes answer 503.
+COPY --from=library-stores /library ./library-data
 ARG RENDER_GIT_COMMIT=""
 ARG BUILD_RELEASE_ID=""
 RUN node -e 'const fs=require("fs"); const commit=process.env.RENDER_GIT_COMMIT, release_id=process.env.BUILD_RELEASE_ID; if(!/^[a-f0-9]{40}$/.test(commit||"") || !/^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$/.test(release_id||"")) throw new Error("A full commit and unique CI release ID are required"); fs.writeFileSync("/app/mcp/build_identity.json",JSON.stringify({version:1,commit,release_id})+"\n",{mode:0o444});'
@@ -105,6 +134,9 @@ ENV BUILD_GIT_COMMIT=$RENDER_GIT_COMMIT
 ENV RENDER_GIT_COMMIT=$RENDER_GIT_COMMIT
 ENV LYRIC_RELEASE_ASSETS_REQUIRED=1
 ENV READER_CATALOG_DIR=/app/lyric-harness/library/snapshot
+ENV LIBRARY_SEARCH_DIR=/app/library-data/search
+ENV LIBRARY_EXPORT_DIR=/app/library-data/exports
+ENV LIBRARY_CORPUS_DIR=/app/library-data/corpus
 ENV PORT=8080
 EXPOSE 8080
 WORKDIR /app/mcp

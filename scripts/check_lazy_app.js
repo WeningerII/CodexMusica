@@ -1605,8 +1605,11 @@ async function enginePreloadAgrees(lazyHtml) {
     const GET = /\b(sessionStorage|localStorage)\.getItem\((["'])([^"']+)\2\)/g;
     const keysIn = (text) => [...text.matchAll(GET)].map((m) => `${m[1]} ${m[3]}`);
     const app = keysIn(dom.window.eval('storedSessionText.toString()'));
-    const heads = [...dom.window.document.head.querySelectorAll('script')].filter((x) =>
-      /(["'`])preload\1/.test(x.textContent)
+    // The Library build's head also carries the boot-index and Library
+    // preloads (src/boot_preload.js, src/library_preload.js); the engine's is
+    // the one that names api/engine.json.
+    const heads = [...dom.window.document.head.querySelectorAll('script')].filter(
+      (x) => /(["'`])preload\1/.test(x.textContent) && /engine\.json/.test(x.textContent)
     );
     const head = heads.length === 1 ? keysIn(heads[0].textContent) : [];
     dom.window.close();
@@ -1614,7 +1617,7 @@ async function enginePreloadAgrees(lazyHtml) {
       fail(`${tag}: read ${app.length} key(s) from storedSessionText; want its 4 or more`);
     if (heads.length !== 1 || head.length < 4)
       fail(
-        `${tag}: read ${head.length} key(s) from ${heads.length} <head> script(s) naming "preload"; want one script, reading 4 or more`
+        `${tag}: read ${head.length} key(s) from ${heads.length} <head> script(s) naming "preload" and api/engine.json; want one script, reading 4 or more`
       );
     for (const k of [...new Set([...app, ...head])]) {
       const [where, key] = k.split(' ');

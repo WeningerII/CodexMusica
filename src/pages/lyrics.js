@@ -1821,6 +1821,7 @@ function lyMetaSaved() {
 // Imported Library readings are separate draft records. Preserve the exact
 // singleton and its private continuation before activating another record.
 let lyLibraryReceiver = null;
+let lyLibraryPush = false;
 let lyLibraryStore = null;
 let lyLibrarySaveTimer = 0;
 let lyLibraryRecord = null;
@@ -1960,7 +1961,8 @@ async function lyLibraryActivate(record, { restored = false, preservedDraftId } 
   UI.lyricRequest = null;
   pushHistory();
   uiAutosave();
-  uiNavigate('lyrics');
+  // An in-page handoff (uiOpenInLyrics) pushes, so Back returns to the reading.
+  uiNavigate('lyrics', { push: lyLibraryPush });
   if (restored && record.writerInput && $ui('chat-input')) {
     $ui('chat-input').value = record.writerInput;
     _chatSyncCount();
@@ -1974,6 +1976,19 @@ async function lyLibraryActivate(record, { restored = false, preservedDraftId } 
     'success'
   );
   return { persisted: !UI.saveFailed && !UI.storageConflict };
+}
+// One Library envelope through the receiver's no-binding path: validated,
+// committed as a durable draft with its receipt, then activated. The JSON file
+// import and the in-page handoff (imports.library below) both come here.
+async function lyLibraryImport(envelope, { push = false } = {}) {
+  if (!lyLibraryReceiver) await lyLibraryStart();
+  if (!lyLibraryReceiver) throw new Error('The Library import receiver is unavailable.');
+  lyLibraryPush = push;
+  try {
+    return await lyLibraryReceiver.importEnvelope(envelope);
+  } finally {
+    lyLibraryPush = false;
+  }
 }
 async function lyLibraryStart() {
   if (lyLibraryReceiver || typeof CMLibraryImport === 'undefined') return;
@@ -5088,10 +5103,7 @@ function lyWire(surface) {
     try {
       const raw = await file.text();
       if (/\.json$/i.test(file.name) || file.type === 'application/json') {
-        const envelope = JSON.parse(raw);
-        if (!lyLibraryReceiver) await lyLibraryStart();
-        if (!lyLibraryReceiver) throw new Error('The Library import receiver is unavailable.');
-        await lyLibraryReceiver.importEnvelope(envelope);
+        await lyLibraryImport(JSON.parse(raw));
         return;
       }
       const text = raw.replace(/\r\n?/g, '\n');
@@ -5264,6 +5276,8 @@ function lyRenderPendingOnly(tool) {
 }
 uiRegisterPage({
   id: 'lyrics',
+  // The Library's in-page handoff (uiOpenInLyrics): text only, no binding.
+  imports: { library: (envelope) => lyLibraryImport(envelope, { push: true }) },
   mount(surface) {
     LY.prefs = {
       size: UILayout.remember('lyrics-text-size', '0'),
