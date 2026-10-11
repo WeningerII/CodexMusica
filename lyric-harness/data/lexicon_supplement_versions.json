@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "about": "The shipped versions of the reviewed lexicon supplement (quality/lexicon_supplement.py). A version is FROZEN: its file is never edited, and a new batch is a new row with a new file. `default` is the version a NEW run declares; a saved run keeps the id and sha256 it was graded under, and an id or file that no longer matches refuses (LEXICON_SUPPLEMENT_UNAVAILABLE) rather than reading another version.",
+  "default": "v1",
+  "versions": [
+    {
+      "id": "v1",
+      "path": "data/lexicon_supplement.tsv",
+      "sha256": "452d7aae056ed67f6bff94b76bf6f5df66516ce9e1c95d31796d45a8a92957f7",
+      "rows": 203,
+      "shipped": "PR #522, 2026-10-10: 203 readings of 135 tens-unit number compounds (rule:number-compound)"
+    }
+  ]
+}

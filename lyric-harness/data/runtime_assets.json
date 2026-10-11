@@ -188,6 +188,7 @@
         "data/g2p_letter_rules.tsv",
         "data/kalevala_alliteration_pairs.tsv",
         "data/lexicon_supplement.tsv",
+        "data/lexicon_supplement_versions.json",
         "data/ltc_rhyme_standards.tsv",
         "data/opensubtitles_en_50k.tsv",
         "data/qieyun_mc.tsv",
@@ -221,6 +222,11 @@
           "path": "data/lexicon_supplement.tsv",
           "bytes": 53393,
           "sha256": "452d7aae056ed67f6bff94b76bf6f5df66516ce9e1c95d31796d45a8a92957f7"
+        },
+        {
+          "path": "data/lexicon_supplement_versions.json",
+          "bytes": 764,
+          "sha256": "e622f13be767c00c51d083d0db12872d35bfddab157fdf13804c474f46c95aec"
         },
         {
           "path": "data/ltc_rhyme_standards.tsv",
@@ -264,8 +270,8 @@
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1660506,
-          "sha256": "c6e91913baa14127d9722acb7759f7e02837668979068656abe11c48937b526d"
+          "bytes": 1661475,
+          "sha256": "abd5983b5125d657f613951a6c8a197578bc785e9cb7f5491a7d8ccdd96d3b1f"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",

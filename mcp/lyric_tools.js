@@ -31,6 +31,15 @@ import { requestContext } from './execution_context.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 export { draftFromText } from './lyric_text.js';
 import { assessmentCoverageValid, PLAN_FIELDS, READING_FIELDS } from './lyric_workflow.js';
+import {
+  applyLexiconBasis,
+  assertRecordedLexicon,
+  withLegacyLexicon,
+  LEXICON_CHOICES,
+  LEXICON_MANIFEST,
+  lexiconGlobals,
+  lexiconIdentityOf,
+} from './lexicon_basis.js';
 import { openKitchenBudget } from './paid_budget.js';
 import { createHash } from 'node:crypto';
 import { AsyncLocalStorage } from 'node:async_hooks';
@@ -992,6 +1001,10 @@ function verdictOf(r) {
     return v;
   }
   v.measurement_status = record.status;
+  // The supplement this verdict was read under ({supplement_id, sha256}, both
+  // null for CMUdict alone), from the authenticated record only.
+  const lexicon = lexiconIdentityOf(record);
+  if (lexicon) v.lexicon = lexicon;
   if (Array.isArray(record.pronunciations)) v.pronunciations = record.pronunciations;
   if (record.pronunciation_options) v.pronunciation_options = record.pronunciation_options;
   if (r.code === 2 && ['graded', 'finished'].includes(record.status))
@@ -1255,7 +1268,11 @@ function recoverContinuationOnly(args) {
 // they cannot ride `planArgs` (which lands after the verb). Every handler
 // that grades a draft spreads this in front of its verb.
 function globalsFor(a) {
-  const out = [];
+  // The basis is resolved before the verb is spelled. lyric_revise resolves
+  // it itself, after carrying its run's record in (`continuing`); every other
+  // reading tool is new work, so an omission reads the current default.
+  if (a) applyLexiconBasis(a);
+  const out = [...lexiconGlobals(a)];
   if (a && a.voices === true) out.push('--voices');
   if (a && (a.fallback === 'high' || a.fallback === 'low')) out.push(`--fallback=${a.fallback}`);
   if (a?.pronunciations !== undefined)
@@ -1445,6 +1462,22 @@ const fallbackField = z
   .optional()
   .describe(
     "How far the pronunciation fallback may reach for a word the lexicon (CMUdict) lacks. Omit: dictionary only — an unknown end word REFUSES the pair (UNREADABLE_END_WORD / SCHEME_UNREADABLE: not judged, never passed). 'high': dictionary-derived readings (morphology, elision, compounds) — the confident layer. 'low': also the letter-to-sound guess, which the harness's own measurement finds net harmful on the refusals only it can read; use it to get an ANSWER on a coinage and read the answer with that in mind."
+  );
+// THE REVIEWED SUPPLEMENT, BY FROZEN VERSION (lexicon_basis.js). New work
+// reads the manifest's default; a run keeps the version and bytes it was
+// graded under, and a version this build cannot serve exactly refuses.
+const lexiconSupplementField = z
+  .enum(LEXICON_CHOICES)
+  .optional()
+  .describe(
+    `Which reviewed lexicon supplement is read beside CMUdict: a frozen version id, or '${LEXICON_CHOICES[0]}' for CMUdict alone. Omit it: new work reads the current default (${LEXICON_MANIFEST.default}), and a continued run keeps the version it was graded under — a run recorded before this field existed stays on '${LEXICON_CHOICES[0]}'. The supplement adds reviewed pronunciations CMUdict lacks (e.g. hyphenated number words like sixty-six). A version this build does not ship refuses (LEXICON_SUPPLEMENT_UNAVAILABLE); no other version is substituted.`
+  );
+const lexiconSupplementShaField = z
+  .string()
+  .regex(/^[0-9a-f]{64}$/)
+  .optional()
+  .describe(
+    "The sha256 of the supplement version's file that a saved grade or run recorded (its verdict's `lexicon.sha256`). Omit it: the run and the session carry it. When given, a file that is not those bytes refuses rather than re-reading the song under a different supplement."
   );
 const pronunciationField = z
   .array(
@@ -1689,6 +1722,8 @@ export const LYRIC_TOOL_SCHEMAS = {
     // one, every pair is listed with every relation it stands in.
     relation: relationField,
     fallback: fallbackField,
+    lexicon_supplement: lexiconSupplementField,
+    lexicon_supplement_sha256: lexiconSupplementShaField,
   },
   lyric_plan: {
     wants: z
@@ -1727,6 +1762,8 @@ export const LYRIC_TOOL_SCHEMAS = {
     draft_text: textTwinOf('draft').optional(),
     voices: voicesField,
     fallback: fallbackField,
+    lexicon_supplement: lexiconSupplementField,
+    lexicon_supplement_sha256: lexiconSupplementShaField,
     pronunciations: pronunciationField,
   },
   lyric_revise: {
@@ -1793,6 +1830,8 @@ export const LYRIC_TOOL_SCHEMAS = {
     draft_text: draftTextField.optional(),
     voices: voicesField,
     fallback: fallbackField,
+    lexicon_supplement: lexiconSupplementField,
+    lexicon_supplement_sha256: lexiconSupplementShaField,
     pronunciations: pronunciationField,
     state: z
       .string()
@@ -1962,6 +2001,8 @@ export const LYRIC_TOOL_SCHEMAS = {
       ),
     voices: voicesField,
     fallback: fallbackField,
+    lexicon_supplement: lexiconSupplementField,
+    lexicon_supplement_sha256: lexiconSupplementShaField,
     pronunciations: pronunciationField,
     targeted: z
       .array(z.number().int().min(1).max(MAX_LINES))
@@ -1997,6 +2038,8 @@ export const LYRIC_TOOL_SCHEMAS = {
         "Which places in a line the recovered web searches, comma-separated (end, endword, head, headrime, T<n>); omit for the module's default set, which the report names."
       ),
     fallback: fallbackField,
+    lexicon_supplement: lexiconSupplementField,
+    lexicon_supplement_sha256: lexiconSupplementShaField,
     pronunciations: pronunciationField,
     voices: voicesField,
   },
@@ -2040,6 +2083,8 @@ export const LYRIC_TOOL_SCHEMAS = {
       ),
     voices: voicesField,
     fallback: fallbackField,
+    lexicon_supplement: lexiconSupplementField,
+    lexicon_supplement_sha256: lexiconSupplementShaField,
     pronunciations: pronunciationField,
     blueprint: blueprintField,
     subdivision: subdivisionField,
@@ -2421,9 +2466,10 @@ export function registerLyricTools(server, tool) {
               if (runWander) throw refuse(runWander);
               const carried = { state: false, draft: false, decl: false };
               if (runRec) {
-                const moved = movedDeclarations(runRec.decl, a);
+                const recDecl = withLegacyLexicon(runRec.decl);
+                const moved = movedDeclarations(recDecl, a);
                 if (moved.length) throw refuse(movedRefusal(runRec, moved));
-                for (const [k, v] of Object.entries(runRec.decl || {}))
+                for (const [k, v] of Object.entries(recDecl || {}))
                   if (a[k] === undefined) {
                     a[k] = v;
                     carried.decl = true;
@@ -2473,8 +2519,11 @@ export function registerLyricTools(server, tool) {
                       throw refuse(
                         'CONTINUATION_INVALID: interview state lacks original input and declarations; preserve it as a recovery artifact.'
                       );
-                    const decl = declarationsOf(
-                      z.object(KITCHEN_REVISE_SCHEMA).parse(decoded.connector_declarations)
+                    assertRecordedLexicon(decoded.connector_declarations);
+                    const decl = withLegacyLexicon(
+                      declarationsOf(
+                        z.object(KITCHEN_REVISE_SCHEMA).parse(decoded.connector_declarations)
+                      )
                     );
                     const moved = movedDeclarations(decl, a);
                     if (moved.length)
@@ -2527,8 +2576,11 @@ export function registerLyricTools(server, tool) {
                 checkLines(checkpoint.input_draft);
                 checkLines(checkpoint.accepted_lines);
                 if (checkpoint.connector_declarations) {
-                  const decl = declarationsOf(
-                    z.object(KITCHEN_REVISE_SCHEMA).parse(checkpoint.connector_declarations)
+                  assertRecordedLexicon(checkpoint.connector_declarations);
+                  const decl = withLegacyLexicon(
+                    declarationsOf(
+                      z.object(KITCHEN_REVISE_SCHEMA).parse(checkpoint.connector_declarations)
+                    )
                   );
                   const moved = movedDeclarations(decl, a);
                   if (moved.length)
@@ -2554,6 +2606,13 @@ export function registerLyricTools(server, tool) {
                 delete checkpoint.connector_declarations;
                 delete checkpoint.connector_semantic_identity;
               }
+              // Every recorded declaration is carried in by now, so an omitted
+              // supplement means NEW work (the current default) only when
+              // nothing was resumed; a resumed record without one predates the
+              // field and stays on CMUdict alone (lexicon_basis.js).
+              applyLexiconBasis(a, {
+                continuing: !!runRec || a.state != null || a.checkpoint != null,
+              });
               runKey = runKeyOf(a);
               if (!Array.isArray(a.draft))
                 throw refuse(
@@ -2931,6 +2990,7 @@ export function registerLyricTools(server, tool) {
                             'stale_answers',
                             'plan_lines',
                             'cursor_stripped',
+                            'lexicon',
                           ]
                             .filter((key) => suspendedVerdict[key] !== undefined)
                             .map((key) => [key, suspendedVerdict[key]])

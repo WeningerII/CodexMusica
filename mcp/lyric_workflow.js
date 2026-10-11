@@ -24,9 +24,38 @@ export const PLAN_FIELDS = [
   'melody',
   'wants',
 ];
-export const READING_FIELDS = ['pronunciations', 'fallback', 'voices'];
+export const READING_FIELDS = [
+  'pronunciations',
+  'fallback',
+  'voices',
+  'lexicon_supplement',
+  'lexicon_supplement_sha256',
+];
+// A grade receipt without a supplement predates the field: it was read on
+// CMUdict alone, and a revision it starts stays there (lexicon_basis.js).
 const readingValue = (key, value) =>
-  value ?? (key === 'pronunciations' ? [] : key === 'voices' ? false : null);
+  value ??
+  (key === 'pronunciations'
+    ? []
+    : key === 'voices'
+      ? false
+      : key === 'lexicon_supplement'
+        ? 'none'
+        : null);
+// -> the reading basis the grade's AUTHENTICATED record names, or null when it
+// names none. The default a grade read under is the tool's to apply, so the
+// receipt takes it from the verdict, never from the call's arguments.
+const gradedLexicon = (verdict) => {
+  const l = verdict?.lexicon;
+  if (!l || typeof l !== 'object') return null;
+  if (l.supplement_id === null && l.sha256 === null)
+    return { lexicon_supplement: 'none', lexicon_supplement_sha256: null };
+  return typeof l.supplement_id === 'string' &&
+    typeof l.sha256 === 'string' &&
+    /^[0-9a-f]{64}$/.test(l.sha256)
+    ? { lexicon_supplement: l.supplement_id, lexicon_supplement_sha256: l.sha256 }
+    : null;
+};
 const UNPLANNED_FIELDS = ['scheme', 'groups', 'returns', 'structures', 'blueprint', 'subdivision'];
 // plan.request carries the Python parser's structured story declaration;
 // MCP carries the same declaration as ATOM,ATOM/JUNCTION cells.
@@ -298,15 +327,19 @@ export function recordCreation(task, name, args, verdict, isError = false) {
       verdict.plan_sha256 === w.plan.sha256 &&
       Array.isArray(verdict.final_draft) &&
       same(verdict.final_draft, args.draft) &&
-      verdict.final_draft_sha256 === hash(args.draft)
+      verdict.final_draft_sha256 === hash(args.draft) &&
+      gradedLexicon(verdict)
     )
       w.grade = {
         plan_sha256: w.plan.sha256,
         draft_sha256: verdict.final_draft_sha256,
         coverage_certified: verdict.coverage.certified,
-        readings: Object.fromEntries(
-          READING_FIELDS.map((key) => [key, structuredClone(readingValue(key, args[key]))])
-        ),
+        readings: {
+          ...Object.fromEntries(
+            READING_FIELDS.map((key) => [key, structuredClone(readingValue(key, args[key]))])
+          ),
+          ...gradedLexicon(verdict),
+        },
       };
   } else if (name === 'lyric_revise' && w.plan && [0, 3, 4].includes(verdict.exit_code)) {
     w.started = { plan_sha256: w.plan.sha256 };
