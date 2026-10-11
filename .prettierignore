@@ -87,6 +87,10 @@ lyric-harness/quality/results/production_data_2026-09-08
 # Same class: the computational audit's artifact-index.json names every file in
 # the directory by its SHA256, so a reflow would falsify the index it ships with.
 lyric-harness/quality/results/computational_audit_2026-09-14
+# Same class: the Moby pilot's frozen frame is written by
+# quality/pilot_frame.py --freeze, announced on #527 by its digest and bound
+# into every draw; its bytes are the tool's, never a formatter's.
+lyric-harness/quality/results/pilot_frame_2026-10-11.json
 
 # Raw audit regression receipts/logs: SHA-indexed evidence, not authored inputs.
 docs/production-audit-evidence
