@@ -115,6 +115,18 @@ function chromiumPath() {
   assert.equal(chunks.length, 1);
   assert.match(chunks[0], /^core\.[0-9a-f]{10}\.js$/);
   assert.ok(!fs.existsSync(path.join(dirs.embedded, 'library')), 'the embedded build inlines');
+  // The Library's byte budgets on the flagged lazy page, and what it adds to
+  // every route over the default build (scripts/check_payload_budget.js).
+  execFileSync(
+    process.execPath,
+    [
+      path.join(ROOT, 'scripts', 'check_payload_budget.js'),
+      `--html=${path.join(dirs.lazy, 'codex.html')}`,
+      `--api=${path.join(ROOT, 'api')}`,
+      `--base=${path.join(dirs.plain, 'codex.html')}`,
+    ],
+    { stdio: ['ignore', 'ignore', 'inherit'] }
+  );
 
   const browser = await chromium.launch({
     headless: true,
@@ -519,7 +531,7 @@ function chromiumPath() {
   await browser.close();
   fs.rmSync(temp, { recursive: true, force: true });
   console.log(
-    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover prefetches core and catalog once, deferred boot (Library before the workspace, no engine or prose while shown, a held control acts once it is in, the saved session kept and restored, Genre waits as a skeleton and draws once it is in), the Lyrics handoff (opens the text pushed, Back returns, a tampered envelope refused, the recipe untouched), section tabs keyboard-operable and route-selected (deep link, click, Back), a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
+    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: within the Library byte budgets (stub, chunks, growth over the default build), route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover prefetches core and catalog once, deferred boot (Library before the workspace, no engine or prose while shown, a held control acts once it is in, the saved session kept and restored, Genre waits as a skeleton and draws once it is in), the Lyrics handoff (opens the text pushed, Back returns, a tampered envelope refused, the recipe untouched), section tabs keyboard-operable and route-selected (deep link, click, Back), a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
   );
 })().catch((error) => {
   console.error('LIBRARY SHELL: FAIL —', error.stack || error);
