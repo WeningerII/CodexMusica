@@ -122,5 +122,10 @@ export const LIBRARY_LIMITS = Object.freeze({
   exportStreamsGlobal: 4,
   corpusStartsPerIpPerDay: 6,
   corpusStreamsGlobal: 2,
+  // Every download stream (selection, analysis, corpus): cut after 60 s with
+  // no progress, or when fewer than 4 KiB/s moved over a 120 s window.
+  streamIdleMs: 60_000,
+  streamMinBytesPerSecond: 4096,
+  streamRateWindowMs: 120_000,
   longReadingLines: 5000,
 });

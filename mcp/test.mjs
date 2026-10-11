@@ -5117,6 +5117,8 @@ await check('validation: actionable errors', () => {
       'mcp/test_library_exports_parity.mjs':
         'replays the Worker export goldens against a built export store (library-site.yml)',
       'mcp/test_library_fixtures.mjs': 'shared offline Library export test fixtures',
+      'mcp/test_library_corpus.mjs':
+        'offline Library corpus-package route, range, limit and stream-guard regressions',
       'mcp/test_reader_client.mjs': 'offline signed Library reader route and scheduler regressions',
       'mcp/test_reader_integration.mjs':
         'local catalog Library reader interruption/resume regressions',

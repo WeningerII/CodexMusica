@@ -36,6 +36,8 @@ function fail(res, error) {
  * @param {import('./library_search.js').LibrarySearch | null} options.search
  *   the loaded store, or null when this service has none installed
  * @param {() => boolean} [options.analysisAvailable] public analysis is live
+ * @param {import('./library_corpus_routes.js').CorpusPackages | null} [options.corpus]
+ *   the installed whole-corpus packages, listed by health
  * @param {Windows} [options.windows] rate-limit counters (shared per process)
  * @param {(req) => string} [options.ipOf] the caller's address (ratelimit.clientIp)
  * @param {() => number} [options.now]
@@ -43,6 +45,7 @@ function fail(res, error) {
 export function libraryPublicRouter({
   search,
   analysisAvailable = () => false,
+  corpus = null,
   windows = new Windows(),
   ipOf = clientIp,
   now = Date.now,
@@ -99,7 +102,7 @@ export function libraryPublicRouter({
         : null,
       search_ready: Boolean(search),
       analysis_available: Boolean(analysisAvailable()),
-      corpus: {},
+      corpus: corpus ? corpus.health() : {},
     });
   });
   router.get('/search', (req, res) => {

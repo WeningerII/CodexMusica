@@ -22,7 +22,7 @@ import { publicReaderJob, validateRequest, createAnalysisJob } from './reader_ro
 import { LIBRARY_LIMITS, Windows, clientIp } from './ratelimit.js';
 import { Worker } from 'node:worker_threads';
 import { analysisLayout, analysisTail, canonical } from './library_exports.js';
-import { createStreamLimiter } from './library_export_routes.js';
+import { createStreamLimiter, guardStream } from './library_export_routes.js';
 
 export const VIEWER_COOKIE = '__Host-cm_library';
 const COOKIE_VALUE = /^[A-Za-z0-9_-]{43}$/;
@@ -87,6 +87,7 @@ export function libraryViewerRouter({
   definitions = () => null,
   resourceFingerprint = () => null,
   streams = createStreamLimiter(),
+  guard = guardStream,
   windows = new Windows(),
   ipOf = clientIp,
   now = Date.now,
@@ -459,22 +460,24 @@ export function libraryViewerRouter({
         },
       });
       const done = release;
-      let idle = setTimeout(() => res.destroy(), 60_000);
+      const pace = guard(res);
       res.on('close', () => {
-        clearTimeout(idle);
+        pace.stop();
         done();
         worker.terminate().catch(() => {});
       });
       worker.on('message', (message) => {
         if (message.chunk) {
-          clearTimeout(idle);
-          idle = setTimeout(() => res.destroy(), 60_000);
+          pace.progress(message.chunk.byteLength);
           const flowing = res.write(Buffer.from(message.chunk));
           if (flowing) worker.postMessage('more');
           else res.once('drain', () => worker.postMessage('more'));
         } else if (message.done) {
           try {
-            for (const chunk of analysisTail(layout, readPage)) res.write(chunk);
+            for (const chunk of analysisTail(layout, readPage)) {
+              pace.progress(chunk.length);
+              res.write(chunk);
+            }
             res.end();
           } catch (error) {
             console.error('[library] analysis export refused:', error.code, error.message);

@@ -13,29 +13,29 @@ import { ExportError, FORMATS, contentId, exportError } from './library_exports.
 // hour); no id list ever appears in a URL or log. The download recomputes
 // content_id against the installed store (409 PLAN_STALE on a difference,
 // 409 PLAN_EXPIRED for an evicted plan) and streams with an exact
-// Content-Length. Every error on the download path is an attachment, so a
+// Content-Length, cut when it stalls or crawls (guardStream). Every error on the download path is an attachment, so a
 // navigation can never replace the page with an error.
 
 const PLAN_TTL_MS = 3_600_000;
 const PLAN_CAP = 2000;
-const IDLE_MS = 60_000;
 const ID = /^reading_[A-Za-z0-9_-]+$/;
 const CONTENT = /^[a-f0-9]{64}$/;
 
 /**
- * Concurrent download streams, shared by selection and analysis exports:
- * at most 2 per address and 4 service-wide (decision 4). acquire() throws a
- * 429 ExportError or returns an idempotent release.
+ * Concurrent download streams. The default, shared by selection and analysis
+ * exports, allows 2 per address and 4 service-wide; corpus packages use their
+ * own limiter (2 service-wide, no per-address cap) (decision 4). acquire()
+ * throws a 429 ExportError or returns an idempotent release.
  */
-export function createStreamLimiter() {
+export function createStreamLimiter({
+  perIp = LIBRARY_LIMITS.exportStreamsPerIp,
+  global = LIBRARY_LIMITS.exportStreamsGlobal,
+} = {}) {
   const counts = { global: 0, byIp: new Map() };
   return {
     acquire(ip) {
       const mine = counts.byIp.get(ip) || 0;
-      if (
-        mine >= LIBRARY_LIMITS.exportStreamsPerIp ||
-        counts.global >= LIBRARY_LIMITS.exportStreamsGlobal
-      )
+      if (mine >= perIp || counts.global >= global)
         throw exportError(
           'RATE_LIMITED',
           'Too many downloads are running; retry shortly.',
@@ -58,9 +58,49 @@ export function createStreamLimiter() {
   };
 }
 
+/**
+ * Cuts a download that stalls (no progress for idleMs) or crawls (fewer than
+ * minBytesPerSecond averaged over a windowMs window), so a slow or abandoned
+ * client cannot hold one of the few stream slots. Writers respect
+ * backpressure, so bytes counted at write time track what the client takes.
+ * progress(n) after each write; the guard stops itself when the response
+ * closes.
+ */
+export function guardStream(
+  res,
+  {
+    idleMs = LIBRARY_LIMITS.streamIdleMs,
+    minBytesPerSecond = LIBRARY_LIMITS.streamMinBytesPerSecond,
+    windowMs = LIBRARY_LIMITS.streamRateWindowMs,
+  } = {}
+) {
+  const cut = () => res.destroy();
+  let idle = setTimeout(cut, idleMs);
+  let moved = 0;
+  const rate = setInterval(() => {
+    if (moved < (minBytesPerSecond * windowMs) / 1000) cut();
+    moved = 0;
+  }, windowMs);
+  const stop = () => {
+    clearTimeout(idle);
+    clearInterval(rate);
+  };
+  res.on('close', stop);
+  return {
+    progress(n) {
+      moved += n;
+      clearTimeout(idle);
+      idle = setTimeout(cut, idleMs);
+    },
+    stop,
+  };
+}
+
 export function libraryExportRouter({
   exports: store,
+  corpus = null,
   streams = createStreamLimiter(),
+  guard = guardStream,
   windows = new Windows(),
   ipOf = clientIp,
   now = Date.now,
@@ -145,7 +185,8 @@ export function libraryExportRouter({
           'USE_CORPUS_PACKAGE',
           'The whole readable corpus is exported as a prebuilt package.',
           409,
-          'Download the readable corpus package instead.'
+          'Download the readable corpus package instead.',
+          corpus?.urlFor(format) ? { url: corpus.urlFor(format) } : {}
         );
       const cid = contentId(s, ids, format);
       const layout = s.layout(ids, format);
@@ -213,17 +254,16 @@ export function libraryExportRouter({
       const worker = new Worker(new URL('./library_export_worker.js', import.meta.url), {
         workerData: { directory: s.directory, layout, format: plan.format, snapshot: s.snapshotId },
       });
-      let idle = setTimeout(() => res.destroy(), IDLE_MS);
+      const pace = guard(res);
       const finish = () => {
-        clearTimeout(idle);
+        pace.stop();
         release();
         worker.terminate().catch(() => {});
       };
       res.on('close', finish);
       worker.on('message', (message) => {
         if (message.chunk) {
-          clearTimeout(idle);
-          idle = setTimeout(() => res.destroy(), IDLE_MS);
+          pace.progress(message.chunk.byteLength);
           const flowing = res.write(Buffer.from(message.chunk));
           if (flowing) worker.postMessage('more');
           else res.once('drain', () => worker.postMessage('more'));

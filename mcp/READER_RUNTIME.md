@@ -19,6 +19,7 @@ reader adds no resident Python process and yields when writing work queues.
 | `READER_REQUIRED`             | Set to `1` for a release that requires reader readiness; otherwise missing reader configuration leaves existing writing readiness unchanged. |
 | `LIBRARY_SEARCH_DIR`          | The search store `lyric-harness/library/search_store.py` builds from the verified site export. Without it, `/library/v1/search` and `/metadata` answer 503. |
 | `LIBRARY_EXPORT_DIR`          | The export store `node mcp/library_exports.js build EXPORT OUT` builds from the verified site export. Without it, selection exports answer 503. |
+| `LIBRARY_CORPUS_DIR`          | The whole-corpus packages `python -m library.catalog_downloads SNAPSHOT OUT` builds (run from lyric-harness). Installed only when built from the snapshot the search and export stores serve; without it, corpus downloads answer 503. |
 | `LIBRARY_PUBLIC`              | `1` mounts the credentialed `/library/v1` viewer routes (analysis). Unset or `0` until the native Library tab ships.                          |
 
 Use the existing immutable image assembly, qualification and promotion pipeline.
@@ -48,7 +49,8 @@ server's own snapshot (the client never sends one):
 
 - `GET /library/v1/health`: passive (no cookie, no writes). Reports the
   snapshot, `readable_ids_sha256`, unit counts, `search_ready`, and
-  `analysis_available` (true only with `LIBRARY_PUBLIC=1` and a ready reader).
+  `analysis_available` (true only with `LIBRARY_PUBLIC=1` and a ready reader),
+  and `corpus`: each installed package's `bytes`, `sha256` and `url`.
 - `GET /library/v1/search?q&language&availability&completeness&work&collection&contributor&sort&offset&limit<=100`:
   a line-for-line port of the approved Worker's search over the store at
   `LIBRARY_SEARCH_DIR`. It reproduces SQLite's `instr`, `substr`, ASCII
@@ -75,8 +77,26 @@ server's own snapshot (the client never sends one):
   checked entry by entry against that record. Every error on the download path
   is an attachment (`library-download-error.txt`), so a navigation can never
   swap the page for an error. Limits: plans 120/h per address; 2 concurrent
-  streams per address and 4 service-wide; a 60 s idle timeout. A selection of
-  every readable unit answers 409 `USE_CORPUS_PACKAGE`.
+  streams per address and 4 service-wide; the stream guard below. A selection of
+  every readable unit answers 409 `USE_CORPUS_PACKAGE`, naming the corpus
+  package `url` for that format.
+- `HEAD`/`GET /library/v1/corpus/<package_sha16>/<format>.zip`: a whole-corpus
+  package from `LIBRARY_CORPUS_DIR`, addressed by the first 16 hex of its own
+  sha256. The server re-hashes every package at boot and answers 503
+  `CORPUS_VERIFYING` until it matches (never, for a corrupt one). Served with
+  Content-Length, `Accept-Ranges: bytes` (one range per request, `If-Range` on
+  the ETag, 416 outside the file), a strong ETag of the sha256,
+  `X-Library-SHA256`, and `public, max-age=31536000, immutable`. An old
+  package URL answers 404 `CORPUS_PACKAGE_MOVED` with the current `url`.
+  Limits: 6 starts a day per address (a request without Range, or a range from
+  byte 0; HEAD and resumes are free) and 2 streams service-wide. The upload
+  `*.part-*` files the builder writes are never read.
+
+Every download stream (selection, analysis, corpus) is cut after 60 s without
+progress, or when fewer than 4 KiB/s moved over a 120 s window
+(`guardStream`; `LIBRARY_LIMITS.streamIdleMs`, `streamMinBytesPerSecond`,
+`streamRateWindowMs`), so a stalled or crawling client cannot hold one of the
+few stream slots.
 
 Search and metadata are `Cache-Control: public, max-age=300` with an ETag;
 errors are `no-store`. Search has a per-address abuse ceiling of 600 a minute
@@ -139,7 +159,7 @@ mount only `/internal/reader`, and these routes mount only with
   running one, else 409 `EXPORT_DEFINITIONS_UNAVAILABLE`; a reading whose
   export-store revision differs from the job's is 409 `EXPORT_READING_CHANGED`.
   Errors are attachments, and the stream shares the selection exports' limiter
-  (2 per address, 4 service-wide) and 60 s idle timeout.
+  (2 per address, 4 service-wide) and the stall and crawl guard.
 
 ## Private pull API
 

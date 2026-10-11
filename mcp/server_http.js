@@ -46,6 +46,7 @@ import { libraryPublicRouter, redactLibraryUrl } from './library_routes.js';
 import { libraryViewerRouter, isViewerPath } from './library_viewer_routes.js';
 import { ExportStore } from './library_exports.js';
 import { libraryExportRouter, createStreamLimiter } from './library_export_routes.js';
+import { CorpusPackages, libraryCorpusRouter } from './library_corpus_routes.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
@@ -370,9 +371,35 @@ if (process.env.LIBRARY_EXPORT_DIR) {
     console.error('[library] the export store is unusable; exports answer 503:', error.message);
   }
 }
+// Whole-corpus packages (LIBRARY_CORPUS_DIR), installed only when they were
+// built from the same snapshot the search and export stores serve; each is
+// re-hashed in the background and answers 503 until it verifies.
+let libraryCorpus = null;
+if (process.env.LIBRARY_CORPUS_DIR) {
+  try {
+    const corpus = new CorpusPackages(process.env.LIBRARY_CORPUS_DIR);
+    const served = [librarySearch, libraryExports].filter(Boolean).map((s) => s.snapshotId);
+    if (served.some((id) => id !== corpus.snapshotId))
+      throw new Error('the packages were built from a different snapshot');
+    libraryCorpus = corpus;
+    corpus.verify().then(
+      (failures) => {
+        if (failures.length)
+          console.error('[library] corpus packages failed verification:', failures.join(', '));
+      },
+      (error) => console.error('[library] corpus verification failed:', error.message)
+    );
+  } catch (error) {
+    console.error('[library] the corpus packages are unusable; corpus answers 503:', error.message);
+  }
+}
 // One download limiter for selection and analysis exports (decision 4).
 const libraryStreams = createStreamLimiter();
-app.use('/library/v1', libraryExportRouter({ exports: libraryExports, streams: libraryStreams }));
+app.use(
+  '/library/v1',
+  libraryExportRouter({ exports: libraryExports, corpus: libraryCorpus, streams: libraryStreams })
+);
+app.use('/library/v1', libraryCorpusRouter({ corpus: libraryCorpus }));
 // Retained definitions: the exact methods and result-schema bytes this image
 // analyses with, copied into each new job so its export never borrows a later
 // image's.
@@ -416,6 +443,7 @@ app.use(
   '/library/v1',
   libraryPublicRouter({
     search: librarySearch,
+    corpus: libraryCorpus,
     analysisAvailable: () =>
       process.env.LIBRARY_PUBLIC === '1' &&
       Boolean(librarySearch) &&
