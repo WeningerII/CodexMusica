@@ -27,6 +27,13 @@ The browser keeps recovery identifiers and may keep a fallback envelope locally.
 Clearing browser data removes those local copies; it does not delete retained
 server receipts.
 
+The Library tab's analyses use one HttpOnly cookie, `__Host-cm_library`, which
+the service sets only when you start an analysis. It holds a random value, is sent
+only to this service, cannot be read by page script, and expires 30 days after its
+last use. Its hash identifies your analyses, which are kept for 30 days after you
+last open them and which you can delete; nobody else can open them. Clearing it
+loses access to those analyses, which can be re-run.
+
 The service also persists its conversation signing key and shared model-spend
 ledger. These files allow recovery after restart and prevent accounting from
 resetting after deployment. `/health` and `/ready` disclose whether recovery is

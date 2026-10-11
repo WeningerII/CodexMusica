@@ -99,7 +99,7 @@
     "test:chatgpt": "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_chatgpt.mjs mcp/test_chatgpt_harness.mjs mcp/test_chatgpt_revise.mjs && node --test mcp/test_chatgpt_parked.mjs",
     "test:lyrics:math": "python3 lyric-harness/quality/test_computational_audit.py",
     "test:everynoise": "node scripts/check_everynoise_pilot.js",
-    "test:library": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 -m unittest discover -s lyric-harness/library -p test_*.py && node --test mcp/test_reader_job_store.mjs mcp/test_reader_store_bounds.mjs mcp/test_reader_client.mjs mcp/test_reader_integration.mjs mcp/test_library_search.mjs && python3 scripts/test_worker_page_object.py && python3 lyric-harness/quality/test_gutenberg_import.py && python3 lyric-harness/quality/test_gutenberg_next_import.py && python3 lyric-harness/quality/test_gutenberg_third_import.py && python3 lyric-harness/quality/test_retained_reader_catalog.py"
+    "test:library": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 -m unittest discover -s lyric-harness/library -p test_*.py && node --test mcp/test_reader_job_store.mjs mcp/test_reader_store_bounds.mjs mcp/test_reader_client.mjs mcp/test_reader_integration.mjs mcp/test_library_search.mjs mcp/test_library_viewer_routes.mjs && python3 scripts/test_worker_page_object.py && python3 lyric-harness/quality/test_gutenberg_import.py && python3 lyric-harness/quality/test_gutenberg_next_import.py && python3 lyric-harness/quality/test_gutenberg_third_import.py && python3 lyric-harness/quality/test_retained_reader_catalog.py"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",

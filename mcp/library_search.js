@@ -104,6 +104,16 @@ export class LibrarySearch {
       throw new LibraryError('NOT_FOUND', 'This record is not in the snapshot.', 404);
     return this.metadata(i);
   }
+  /** What analysis admission needs about a unit, or null if it is not in the snapshot. */
+  unit(id) {
+    const i = this.index.get(id);
+    if (i === undefined) return null;
+    return {
+      availability: this.units.availability[i],
+      revision: this.units.revision[i],
+      lines: this.metadata(i).lines,
+    };
+  }
   // Units whose column contains the needle, each with its first match's byte
   // offset inside that unit (SQLite instr: the first occurrence).
   _matches(name, needle, into) {

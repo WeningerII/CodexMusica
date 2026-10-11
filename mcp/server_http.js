@@ -42,6 +42,7 @@ import { ReaderScheduler, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter } from './reader_routes.js';
 import { LibrarySearch } from './library_search.js';
 import { libraryPublicRouter, redactLibraryUrl } from './library_routes.js';
+import { libraryViewerRouter, isViewerPath } from './library_viewer_routes.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
@@ -238,10 +239,23 @@ app.use((req, res, next) => {
   if (origin) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Vary', 'Origin');
+    // Only the Library viewer routes are credentialed (their HttpOnly cookie);
+    // search, metadata and everything else stay uncredentialed.
+    if (isViewerPath(req.originalUrl)) res.setHeader('Access-Control-Allow-Credentials', 'true');
   }
   res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, mcp-session-id, mcp-protocol-version');
-  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Content-Type, mcp-session-id, mcp-protocol-version, Idempotency-Key'
+  );
+  res.header(
+    'Access-Control-Expose-Headers',
+    'Retry-After, Content-Disposition, X-Library-Bytes, X-Library-SHA256'
+  );
+  if (req.method === 'OPTIONS') {
+    res.header('Access-Control-Max-Age', '600');
+    return res.sendStatus(204);
+  }
   next();
 });
 
@@ -257,22 +271,23 @@ const buildIdentity = runtimeBuildIdentity();
 const runtimeDir = (name) =>
   process.env.LYRIC_RUNTIME_DIR ? path.join(process.env.LYRIC_RUNTIME_DIR, name) : null;
 let readerScheduler;
+let readerStore;
+let readerResolver;
 let readerFailure;
+// The reader (store, catalog resolver, scheduler) runs whenever it has a
+// pinned catalog and durable storage. Its two browser families mount on their
+// own conditions: /internal/reader (the Site bridge) only while the bridge
+// secret and Site identity are set, and the /library/v1 viewer routes only
+// with LIBRARY_PUBLIC=1 (below). Removing the bridge secrets therefore never
+// silently disables public analysis.
 try {
-  const readerStore = new ReaderJobStore({
+  readerStore = new ReaderJobStore({
     directory: process.env.READER_RUNTIME_DIR || runtimeDir('reader-jobs'),
     maxBytes: Number(process.env.READER_STORAGE_MAX_BYTES) || 256 * 1024 * 1024,
   });
-  if (
-    !process.env.READER_BRIDGE_SECRET ||
-    Buffer.byteLength(process.env.READER_BRIDGE_SECRET) < 32 ||
-    !process.env.READER_SITE_ID ||
-    !process.env.READER_CATALOG_DIR
-  )
-    throw new Error(
-      'Reader requires its private bridge secret, Site identity, pinned catalog and durable directory.'
-    );
-  const resolver = createCatalogResolver({
+  if (!process.env.READER_CATALOG_DIR)
+    throw new Error('Reader requires a pinned catalog and a durable directory.');
+  readerResolver = createCatalogResolver({
     directory: process.env.READER_CATALOG_DIR,
     engineCommit: buildIdentity.commit,
     resourceFingerprint:
@@ -281,27 +296,35 @@ try {
       buildIdentity.commit ||
       'unidentified',
   });
-  const readerCatalog = await resolver.probe();
+  const readerCatalog = await readerResolver.probe();
   readerScheduler = new ReaderScheduler({
     store: readerStore,
     bridge: readerPythonBridge,
-    ...resolver,
+    ...readerResolver,
   });
   readerScheduler.catalog = readerCatalog;
+  readerScheduler.kick();
+  readerStore.startMaintenance();
+} catch (error) {
+  readerFailure = error.message;
+  readerScheduler = undefined;
+}
+const bridgeConfigured =
+  process.env.READER_BRIDGE_SECRET &&
+  Buffer.byteLength(process.env.READER_BRIDGE_SECRET) >= 32 &&
+  process.env.READER_SITE_ID;
+if (readerScheduler && bridgeConfigured) {
   app.use(
     createReaderRouter({
       store: readerStore,
       scheduler: readerScheduler,
       secret: process.env.READER_BRIDGE_SECRET,
       site: process.env.READER_SITE_ID,
-      resolveIdentity: resolver.resolveIdentity,
-      prepareRequest: resolver.prepareRequest,
+      resolveIdentity: readerResolver.resolveIdentity,
+      prepareRequest: readerResolver.prepareRequest,
     })
   );
-  readerScheduler.kick();
-  readerStore.startMaintenance();
-} catch (error) {
-  readerFailure = error.message;
+} else {
   app.use('/internal/reader', (_req, res) =>
     res.status(503).json({
       error: {
@@ -332,11 +355,36 @@ if (process.env.LIBRARY_SEARCH_DIR) {
     console.error('[library] the search store is unusable; search answers 503:', error.message);
   }
 }
+// Public analysis: only with LIBRARY_PUBLIC=1, a running reader and the
+// search store, whose snapshot is the one every request is filled with.
+// Mounted before the public router, whose refusals would otherwise answer.
+if (process.env.LIBRARY_PUBLIC === '1') {
+  if (readerScheduler && librarySearch) {
+    app.use(
+      '/library/v1',
+      libraryViewerRouter({
+        store: readerStore,
+        scheduler: readerScheduler,
+        prepareRequest: readerResolver.prepareRequest,
+        resolveIdentity: readerResolver.resolveIdentity,
+        unitOf: (id) => librarySearch.unit(id),
+        snapshotId: () => librarySearch.snapshotId,
+      })
+    );
+  } else {
+    console.error(
+      '[library] LIBRARY_PUBLIC=1 but the reader or the search store is unavailable; analysis is not mounted.'
+    );
+  }
+}
 app.use(
   '/library/v1',
   libraryPublicRouter({
     search: librarySearch,
-    analysisAvailable: () => process.env.LIBRARY_PUBLIC === '1' && readerReadiness().ready === true,
+    analysisAvailable: () =>
+      process.env.LIBRARY_PUBLIC === '1' &&
+      Boolean(librarySearch) &&
+      readerReadiness().ready === true,
   })
 );
 let jobStore;

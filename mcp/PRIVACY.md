@@ -47,6 +47,13 @@ interpret messages, drive the tools, write lyrics and propose repairs.
   shared chat/kitchen spending ledger across restarts. These files are separate
   from the 24-hour receipt policy. Accounting records contain usage, cost and
   outstanding reservations rather than full lyric prompts.
+- **Library analyses.** The Library tab's analysis routes (`/library/v1/analyses`
+  and `/library/v1/jobs`) set one HttpOnly, Secure, SameSite=Strict cookie,
+  `__Host-cm_library`, only when an analysis is started. Its random value never
+  leaves the browser except to this service, and only its hash is stored, as the
+  owner of that browser's analyses. Analyses are retained 30 days after their last
+  access and can be deleted at any time. Library search and metadata routes use no
+  cookie.
 - **Operational logs.** The hosting provider and application may record timestamps,
   IP/forwarded addresses, HTTP method and URL, user-agent/referrer headers, tool
   names, status, duration, disconnect information and error traces for reliability,
