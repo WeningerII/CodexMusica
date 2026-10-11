@@ -696,7 +696,7 @@ async function show(main, sub, lib) {
     const row = params.has('offset') ? offset : null;
     requestAnimationFrame(() => scrollToLine(anchor, row));
     if (params.get('compare')) openCompare(null, params.get('compare'));
-    if (params.get('autoplay') === '1') {
+    if (params.get('autoplay') === '1' || params.get('play') === '1') {
       replaceRoute();
       setTimeout(() => speak(true), 300);
     }
@@ -896,7 +896,7 @@ function observe() {
 }
 
 function scrollToLine(id, row) {
-  let el = id && document.getElementById(id);
+  let el = id ? document.getElementById(id) : null;
   if (!el && row != null)
     el = [...S.root.querySelectorAll('.rd-line')].find((x) => Number(x.dataset.row) >= row);
   el?.scrollIntoView({ block: id ? 'center' : 'start' });
