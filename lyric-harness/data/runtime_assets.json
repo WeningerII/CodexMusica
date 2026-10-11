@@ -231,8 +231,8 @@
         },
         {
           "path": "data/lexicon_supplement_versions.json",
-          "bytes": 1104,
-          "sha256": "421914ffc3c8a143967e5b8c6036710923649ecd0df46d2aef30075fca54ba9c"
+          "bytes": 1189,
+          "sha256": "fe1f2362a80f213d973f4ef05267aeccd26efa0183ea22cbe8666e4999f8a209"
         },
         {
           "path": "data/ltc_rhyme_standards.tsv",
@@ -276,8 +276,8 @@
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1663909,
-          "sha256": "7601554ffad6b4f7b02aaa4de129e2d191367fb30602dae5821944f27fe5c110"
+          "bytes": 1663982,
+          "sha256": "d00e79c4d19d18220c422b9757fc3405878bc84b79eaeaa1a23f494ccc84ae0f"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",
