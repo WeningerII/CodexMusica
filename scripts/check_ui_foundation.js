@@ -320,6 +320,26 @@ async function loadDelta(page) {
         atlasAt === theme,
         `A. atlas.html did not apply stored "${theme}" before first paint (got ${atlasAt})`
       );
+      // The header mark is the derived 56px file (scripts/build_favicon.js), on
+      // the app and the atlas alike, and it loads: not the 192px icon.
+      for (const [p, sel, where] of [
+        [page, '.ui-brand-mark', 'the app header'],
+        [frameProbe, '.brand-mark', 'the atlas header'],
+      ]) {
+        const mark = await p
+          .waitForFunction((s) => document.querySelector(s)?.complete, sel, { timeout: 10000 })
+          .then(() =>
+            p.evaluate((s) => {
+              const img = document.querySelector(s);
+              return { src: img.getAttribute('src'), w: img.naturalWidth };
+            }, sel)
+          )
+          .catch(() => null);
+        check(
+          mark && mark.src === 'assets/brand-mark-56.png' && mark.w === 56,
+          `A. ${where} does not show the loaded 56px brand mark (got ${JSON.stringify(mark)})`
+        );
+      }
       await ctx.close();
     }
 
@@ -1885,7 +1905,7 @@ async function loadDelta(page) {
     process.exit(1);
   }
   console.log(
-    `UI FOUNDATION: PASS — ${checks} assertions: theme before first paint (app + atlas), ` +
+    `UI FOUNDATION: PASS — ${checks} assertions: theme before first paint (app + atlas), the 56px brand mark on both, ` +
       'persisted across reload and routes, System live, atlas follows, neutral dark surfaces; ' +
       'one recipe panel and editor on Genre, Instrument and Map, Map add reports what arrived, ' +
       'reload restores, Undo/Redo, truthful autosave, layered Escape with focus return, ' +

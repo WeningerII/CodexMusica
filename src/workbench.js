@@ -791,9 +791,10 @@ function uiStart() {
   oldHeader.classList.add('native-header');
   const header = document.createElement('header');
   header.className = 'app-bar ui-header';
-  // One brand asset: the approved mark (assets/icon-192.png, pinned by
-  // scripts/build_favicon.js) beside the wordmark, in both themes.
-  header.innerHTML = `<a class="ui-brand" href="codex.html" aria-label="Codex Musica"><img class="ui-brand-mark" src="assets/icon-192.png" alt="" width="28" height="28"><span class="ui-brand-name">Codex Musica</span></a><nav aria-label="Main sections">${UI_ROUTES.map(
+  // One brand asset: the approved mark beside the wordmark, in both themes.
+  // assets/brand-mark-56.png is derived from the pinned master by
+  // scripts/build_favicon.js, sized for the 28px slot on a 2x screen.
+  header.innerHTML = `<a class="ui-brand" href="codex.html" aria-label="Codex Musica"><img class="ui-brand-mark" src="assets/brand-mark-56.png" alt="" width="28" height="28"><span class="ui-brand-name">Codex Musica</span></a><nav aria-label="Main sections">${UI_ROUTES.map(
     ([v, l, i]) =>
       `<button class="cm-tab" data-view="${v}">${icon(i, 20)}<span>${l}</span></button>`
   ).join(
