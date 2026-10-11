@@ -3,13 +3,13 @@
   "retain_days": 30,
   "generations": [
     {
-      "id": "75a846e05b38c4db",
+      "id": "16c2658461478417",
       "files": [
-        "analysis.997f5de9d8.js",
-        "compare.e635514b0f.js",
+        "analysis.ea34732e69.js",
+        "compare.e48e7feb47.js",
         "core.6534f61171.js",
-        "reader.1712a9cdf5.js",
-        "rights.c4ad2d9515.js",
+        "reader.5e6d592d92.js",
+        "rights.8a94ca24b7.js",
         "works.fd3dfc5815.js"
       ],
       "first_published": "2026-10-11",
