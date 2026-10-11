@@ -192,6 +192,9 @@ function injectStyles() {
 #surface-library .lib-cmp-scrim{position:fixed;inset:0;z-index:60}
 #surface-library .lib-cmp-sheet{position:fixed;left:0;right:0;bottom:0;z-index:61;max-height:88vh;overflow:auto;
   border-radius:var(--cm-radius-lg) var(--cm-radius-lg) 0 0;padding:20px 24px 28px;color:var(--cm-text);font-family:var(--cm-font)}
+#surface-library .lib-cmp-sheet,#surface-library .lib-cmp-sheet *{box-sizing:border-box}
+#surface-library .lib-cmp-picker input{width:100%}
+#surface-library .lib-cmp-pick small{overflow-wrap:anywhere}
 #surface-library .lib-cmp-top{display:flex;align-items:flex-start;gap:12px}
 #surface-library .lib-cmp-top h2{margin:0;font:600 20px var(--cm-font)}
 #surface-library .lib-cmp-top p{margin:4px 0 0;color:var(--cm-text-muted);font-size:var(--cm-text-sm)}
@@ -266,7 +269,7 @@ function mount(container, opts) {
   sheet.dataset.libraryChunk = 'compare';
   sheet.innerHTML = `<div class="lib-cmp-top"><div><h2 id="lib-cmp-title">Text comparison</h2>
 <p>Compare complete units or a selected passage. Edition equivalence requires a reviewed work identity.</p></div>
-<button type="button" class="cm-btn cm-btn-icon" data-close aria-label="Close comparison">${icon('close', 20)}</button></div>
+<button type="button" class="cm-btn cm-btn-icon" data-close aria-label="Close comparison">${icon('x', 20)}</button></div>
 <div class="lib-cmp-picker"></div><div class="lib-cmp-body"></div>`;
   host.append(scrim, sheet);
   const pickerEl = sheet.querySelector('.lib-cmp-picker');
