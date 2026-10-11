@@ -417,3 +417,36 @@ test(
 test.after(async () => {
   for (const p of peers) await p.close().catch(() => {});
 });
+
+test('v2 is explicitly selectable while new and saved v1 work keeps v1', () => {
+  const v2 = LEXICON_MANIFEST.versions.find((v) => v.id === 'v2');
+  assert.equal(v2.sha256, 'bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51');
+  assert.equal(LEXICON_MANIFEST.default, 'v1');
+  assert.equal(applyLexiconBasis({}).lexicon_supplement, 'v1');
+  for (const name of READERS)
+    assert.equal(LYRIC_TOOL_SCHEMAS[name].lexicon_supplement.parse('v2'), 'v2');
+  const explicit = applyLexiconBasis({ lexicon_supplement: 'v2' });
+  assert.deepEqual(lexiconGlobals(explicit), [
+    '--lexicon-supplement=v2',
+    `--lexicon-supplement-sha256=${v2.sha256}`,
+  ]);
+  const task = plannedTask();
+  recordCreation(
+    task,
+    'lyric_grade',
+    { seed: 3, draft },
+    gradeVerdict({ supplement_id: 'v2', sha256: v2.sha256 })
+  );
+  const next = { seed: 3, draft };
+  assert.equal(creationRefusal(task, 'lyric_revise', next), null);
+  assert.equal(next.lexicon_supplement, 'v2');
+  assert.equal(next.lexicon_supplement_sha256, v2.sha256);
+  assert.match(
+    creationRefusal(task, 'lyric_revise', { seed: 3, draft, lexicon_supplement: 'v1' }),
+    /CREATION_GRADE/
+  );
+  assert.throws(
+    () => applyLexiconBasis({ lexicon_supplement: 'v2', lexicon_supplement_sha256: V1.sha256 }),
+    new RegExp(UNAVAILABLE)
+  );
+});

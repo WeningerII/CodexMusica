@@ -9,6 +9,13 @@
       "sha256": "452d7aae056ed67f6bff94b76bf6f5df66516ce9e1c95d31796d45a8a92957f7",
       "rows": 203,
       "shipped": "PR #522, 2026-10-10: 203 readings of 135 tens-unit number compounds (rule:number-compound)"
+    },
+    {
+      "id": "v2",
+      "path": "data/lexicon_supplement_v2.tsv",
+      "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+      "rows": 205,
+      "shipped": "2026-10-10: frozen v1 plus reviewed streetlight (Moby attestation) and streetlights (finite plural derivation); opt-in, default remains v1"
     }
   ]
 }
