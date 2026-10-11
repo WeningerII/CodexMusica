@@ -184,7 +184,12 @@ jobs:
           # and a version that had both been wrong for releases.
           cp _dist/server.json server.json
           rm -rf api && cp -r _dist/api api
-          git add -A codex.html index.html AGENTS.md llms.txt sitemap.xml robots.txt server.json api
+          # The Library's code chunks are merged, never replaced: a tab opened
+          # before this publish still loads the chunks its codex.html names,
+          # for 30 days after they stop being current (a build without the
+          # Library emits none, and this then only ages out what is there).
+          node scripts/library_chunk_generations.js --repo=library/code --dist=_dist/library/code --today="$(date -u +%F)"
+          git add -A codex.html index.html AGENTS.md llms.txt sitemap.xml robots.txt server.json api library/code
           if git diff --cached --quiet; then
             echo "Site unchanged — nothing to publish."
             exit 0
