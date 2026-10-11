@@ -130,6 +130,9 @@ lyric-harness/map/*.json
 # byte-compared by the library-data job; formatting it would change every hash.
 /library/data/
 
+# The Library's built code chunks (scripts/build_html.js), minified and content-hashed.
+/library/code/
+
 # A byte-identical copy of sites/library/lib/unicode-casefold.json (the Worker's
 # fold table), compared by sha256 in mcp/test_library_search.mjs until PR 7.
 mcp/library_casefold.json

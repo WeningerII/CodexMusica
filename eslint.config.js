@@ -177,6 +177,9 @@ module.exports = [
       'docs/production-audit-evidence/**',
       // The standalone TypeScript/Cloudflare application has its own checks.
       'sites/library/**',
+      // The Library's built code chunks: minified build output (scripts/build_html.js).
+      'library/code/**',
+      'library/data/**',
     ],
   },
 ];
