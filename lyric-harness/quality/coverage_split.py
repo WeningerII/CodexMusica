@@ -25,7 +25,10 @@ Items are joined into one group by any of:
      files;
   4. near-duplicates: two items sharing at least half of the smaller item's
      distinct normalized lines (lines under 12 letters, and lines found in
-     more than 25 items, carry no evidence and are ignored).
+     more than 25 items, carry no evidence and are ignored);
+  5. reworded versions: two items sharing at least a fifth of the smaller
+     item's word 5-grams (5-grams found in more than 25 items ignored) --
+     R2's rule, added after the first freeze leaked five same-work pairs.
 Over-grouping is harmless and under-grouping leaks, so every rule only joins.
 
 THE SPLIT IS A PURE FUNCTION OF THE GROUP KEY: a group's key is its smallest
@@ -54,11 +57,18 @@ if ROOT not in sys.path:
 SALT = "codexmusica-coverage-split-2026-10-11"
 MODULUS = 5
 POPULATION = "corpus/song/eng_*.txt"
-SPLIT_PATH = os.path.join(HERE, "results", "coverage_split_2026-10-11.tsv")
+#: The second freeze. The first (coverage_split_2026-10-11.tsv) let five
+#: reworded versions of one work fall on opposite sides (R2's C2 verdict on
+#: #537); rule 5 joins them, and the same salt is re-frozen here before any
+#: batch result was read against either file.
+SPLIT_PATH = os.path.join(HERE, "results", "coverage_split_2026-10-11-r2.tsv")
 EDITIONS_PATH = os.path.join(ROOT, "data", "calibration_work_editions.json")
 NEAR_DUP_SHARE = 0.5
 MIN_LINE_LETTERS = 12
 MAX_LINE_ITEMS = 25
+NGRAM = 5
+NGRAM_SHARE = 0.2
+MAX_NGRAM_ITEMS = 25
 
 
 def norm(text):
@@ -193,6 +203,31 @@ def group(us, catalog_dir):
         small = min(len(linesets[a]), len(linesets[b]))
         if small and k / small >= NEAR_DUP_SHARE:
             g.join(a, b, "near-duplicate lines")
+
+    # 5. Reworded versions: word 5-grams of the whole item. Rule 4 matches
+    #    lines exactly, so a printing that changes a word in most lines falls
+    #    under its share; R2's leak probe (#537) found five such same-work
+    #    pairs across the first split. A 5-gram found in more than 25 items is
+    #    a commonplace and carries no evidence.
+    grams = {}
+    holders = collections.defaultdict(set)
+    for u in us:
+        words = " ".join(norm(l) for l in u[3]).split()
+        s5 = {tuple(words[i:i + NGRAM]) for i in range(len(words) - NGRAM + 1)}
+        grams[u[0]] = s5
+        for x in s5:
+            holders[x].add(u[0])
+    shared = collections.Counter()
+    for x, ids in holders.items():
+        if 1 < len(ids) <= MAX_NGRAM_ITEMS:
+            ids = sorted(ids)
+            for i, a in enumerate(ids):
+                for b in ids[i + 1:]:
+                    shared[(a, b)] += 1
+    for (a, b), k in shared.items():
+        small = min(len(grams[a]), len(grams[b]))
+        if small and k / small >= NGRAM_SHARE:
+            g.join(a, b, "shared word 5-grams")
     return g, evidence
 
 
@@ -248,7 +283,12 @@ def read_split(path=None):
     with open(path or SPLIT_PATH, encoding="utf-8") as fh:
         lines = fh.read().splitlines()
     meta = json.loads(lines[1][2:])
-    return {l.split("\t")[0]: l.split("\t")[2] for l in lines[3:] if l}, meta
+    rows = {l.split("\t")[0]: l.split("\t")[2] for l in lines[3:] if l}
+    sides = collections.Counter(rows.values())
+    if (len(rows), sides["dev"], sides["validation"]) != (
+            meta["items"], meta["dev_items"], meta["validation_items"]):
+        raise SplitMoved("the split file's rows disagree with its own header")
+    return rows, meta
 
 
 class SplitMoved(Exception):

@@ -103,6 +103,16 @@ def test_grouping_rules():
           same("x.txt#0", "z.txt#0"))
     check("an item sharing nothing stays alone", not same("w.txt#0", "x.txt#0")
           and not same("w.txt#0", "v.txt#0"))
+    words = ["word%d" % i for i in range(40)]
+    a_lines = [" ".join(words[i:i + 8]) for i in range(0, 40, 8)]
+    b_lines = [" ".join(words[i:i + 8]) + " changed" for i in range(0, 40, 8)]
+    us5 = [("p.txt#0", "p.txt", "First", a_lines, None),
+           ("q.txt#0", "q.txt", "Second", b_lines, None),
+           ("r.txt#0", "r.txt", "Third", ["nothing in common with the others at all"], None)]
+    g5, _ = CS.group(us5, _fake_catalog([]))
+    check("rule 5: a reworded version sharing a fifth of its word 5-grams joins, "
+          "though no line matches exactly (R2's leak probe, #537)",
+          g5.find("p.txt#0") == g5.find("q.txt#0") != g5.find("r.txt#0"))
     check("the catalog's work map is digested into the evidence",
           len(evidence.get("catalog_work_map_sha256", "")) == 64)
 
@@ -130,6 +140,18 @@ def test_frozen_file():
           (meta["dev_items"], meta["validation_items"], meta["groups"])
           == (count["dev"], count["validation"], len(sides)))
     check("the salt is the published one", meta["salt"] == CS.SALT)
+    with open(CS.SPLIT_PATH, encoding="utf-8") as fh:
+        text = fh.read().splitlines()
+    tmp = os.path.join(tempfile.mkdtemp(), "bad.tsv")
+    with open(tmp, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(text[:-1]) + "\n")
+    try:
+        CS.read_split(tmp)
+        refused = False
+    except CS.SplitMoved:
+        refused = True
+    check("a split file whose rows disagree with its header is refused at read",
+          refused)
 
 
 def test_guard_refuses_a_moved_population():
@@ -223,8 +245,14 @@ def test_census_readiness_and_identity():
         with open(CS.SPLIT_PATH, encoding="utf-8") as fh:
             lines = fh.read().splitlines()
         if flip:
-            u, g, side = lines[3].split("\t")
-            lines[3] = "\t".join((u, g, "validation" if side == "dev" else "dev"))
+            # Swap one dev row with one validation row: the assignment
+            # changes, the header's counts still hold.
+            i = next(n for n in range(3, len(lines)) if lines[n].endswith("\tdev"))
+            j = next(n for n in range(3, len(lines))
+                     if lines[n].endswith("\tvalidation"))
+            for n, side in ((i, "validation"), (j, "dev")):
+                u, g, _old = lines[n].split("\t")
+                lines[n] = "\t".join((u, g, side))
         tmp = os.path.join(tempfile.mkdtemp(), "split.tsv")
         with open(tmp, "w", encoding="utf-8") as fh:
             fh.write("\n".join(lines) + "\n")
