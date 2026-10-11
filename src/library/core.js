@@ -173,19 +173,23 @@ const selection = (() => {
     });
     return save;
   }
-  sel.ready = (async () => {
+  // Started after the factory has defined `lib` (json() reads lib.base).
+  sel.ready = Promise.resolve().then(async () => {
     try {
       const catalog = await json('catalog.json');
       key = 'export-selection:' + (catalog.projected_from?.snapshot_id || catalog.data_id);
       const stored = await device.read(key, []);
+      const early = ids.size;
       stored.forEach((x) => ids.add(x));
+      // Picks made before the stored set arrived are kept and saved with it.
+      if (early) await changed();
     } catch (e) {
       sel.unsaved = true;
       console.warn('[library] selection', e);
     }
     listeners.forEach((fn) => fn(sel));
     return sel;
-  })();
+  });
   return sel;
 })();
 
@@ -253,8 +257,8 @@ const CSS = `
 #surface-library .lib-topline{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;color:var(--cm-text-secondary);font-size:var(--cm-text-sm,13px)}
 #surface-library .lib-topline span{display:inline-flex;align-items:center;gap:6px}
 #surface-library .lib-snapshot{font-family:var(--cm-font-mono,ui-monospace,monospace);color:var(--cm-text-muted)}
-#surface-library .lib-icon-btn,#surface-library .lib-core button.lib-btn{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 10px;border:1px solid var(--cm-border);border-radius:var(--cm-radius-md,8px);background:var(--cm-surface);color:var(--cm-text);cursor:pointer;font:inherit}
-#surface-library .lib-icon-btn:hover,#surface-library .lib-core button.lib-btn:hover{background:var(--cm-hover)}
+#surface-library .lib-icon-btn,#surface-library .lib-core button.lib-btn,#surface-library .lib-coll-actions button,#surface-library .lib-core .cm-empty-actions button{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 10px;border:1px solid var(--cm-border);border-radius:var(--cm-radius-md,8px);background:var(--cm-surface);color:var(--cm-text);cursor:pointer;font:inherit}
+#surface-library .lib-icon-btn:hover,#surface-library .lib-core button.lib-btn:hover,#surface-library .lib-coll-actions button:hover,#surface-library .lib-core .cm-empty-actions button:hover{background:var(--cm-hover)}
 #surface-library .lib-icon-btn:focus-visible,#surface-library .lib-core button:focus-visible,#surface-library .lib-core a:focus-visible{outline:2px solid var(--cm-focus,var(--cm-accent));outline-offset:2px}
 #surface-library .lib-rail{flex:0 0 272px;position:sticky;top:8px;display:flex;flex-direction:column;max-height:calc(100vh - 140px);border:1px solid var(--cm-border);border-radius:var(--cm-radius-lg,12px);background:var(--cm-surface);overflow:hidden}
 #surface-library .lib-rail[hidden]{display:none}
@@ -285,7 +289,7 @@ const CSS = `
 #surface-library .lib-art-open{all:unset;display:block;width:100%;height:100%;cursor:pointer}
 #surface-library .lib-art-open:focus-visible{outline:2px solid var(--cm-focus,var(--cm-accent));outline-offset:-2px}
 #surface-library .lib-art img{width:100%;height:100%;object-fit:cover;display:block}
-#surface-library .lib-cover{display:flex;flex-direction:column;justify-content:space-between;height:100%;box-sizing:border-box;padding:12px;background:var(--lib-tone);color:var(--cm-text)}
+#surface-library .lib-cover{display:flex;flex-direction:column;justify-content:space-between;height:100%;box-sizing:border-box;padding:12px 12px 50px;background:var(--lib-tone);color:var(--cm-text)}
 #surface-library .lib-cover small{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--cm-text-secondary)}
 #surface-library .lib-cover strong{font-size:14px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;font-family:var(--cm-font-serif,Georgia,serif)}
 #surface-library .lib-cover span{font-size:11px;color:var(--cm-text-secondary)}
@@ -310,6 +314,9 @@ const CSS = `
 #surface-library .lib-foot a{color:var(--cm-accent-text)}
 #surface-library .lib-coll-head{display:flex;gap:16px;align-items:flex-start}
 #surface-library .lib-coll-head .lib-art{flex:0 0 120px}
+#surface-library .lib-coll-head .lib-cover{justify-content:center;align-items:center}
+#surface-library .lib-coll-head .lib-cover>:not(svg){display:none}
+#surface-library .lib-core button[disabled]{opacity:.5;cursor:default}
 #surface-library .lib-coll-head h1{margin:0 0 4px;font-size:22px;line-height:1.25;color:var(--cm-text);white-space:pre-line}
 #surface-library .lib-coll-head p{margin:0 0 10px;color:var(--cm-text-secondary)}
 #surface-library .lib-coll-actions{display:flex;flex-wrap:wrap;gap:8px}
