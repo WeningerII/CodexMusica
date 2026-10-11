@@ -13,8 +13,8 @@ reader adds no resident Python process and yields when writing work queues.
 | `READER_CATALOG_DIR`          | Installed immutable catalog directory containing the pinned canonical manifest, index and approved readable units. No remote source fetch.   |
 | `READER_RUNTIME_DIR`          | Durable directory; defaults to `LYRIC_RUNTIME_DIR/reader-jobs`. Analysis fails closed without durable storage.                               |
 | `READER_STORAGE_MAX_BYTES`    | Quota for the reader namespace; defaults to 256 MiB. Reserve metadata space and pause with `RESOURCE_LIMIT` before exhausting it.            |
-| `READER_BRIDGE_SECRET`        | Server-only shared HMAC secret of at least 32 UTF-8 bytes.                                                                                   |
-| `READER_SITE_ID`              | Exact trusted Site instance identifier.                                                                                                      |
+| `READER_BRIDGE_SECRET`        | Optional. Server-only shared HMAC secret of at least 32 UTF-8 bytes; with `READER_SITE_ID` it mounts only `/internal/reader`, while the Site exists. |
+| `READER_SITE_ID`              | Optional. Exact trusted Site instance identifier (see above).                                                                                |
 | `READER_RESOURCE_FINGERPRINT` | Optional explicit qualified resource fingerprint; otherwise use the checked runtime asset inventory hash.                                    |
 | `READER_REQUIRED`             | Set to `1` for a release that requires reader readiness; otherwise missing reader configuration leaves existing writing readiness unchanged. |
 | `LIBRARY_SEARCH_DIR`          | The search store `lyric-harness/library/search_store.py` builds from the verified site export. Without it, `/library/v1/search` and `/metadata` answer 503. |
@@ -65,11 +65,56 @@ errors are `no-store`. Search has a per-address abuse ceiling of 600 a minute
 Retry-After. The application's request log drops the search query string;
 Render's platform logs may still hold it (see `PRIVACY.md`).
 
+### Viewer routes (`LIBRARY_PUBLIC=1`)
+
+The Library tab's analyses. Jobs share the reader-jobs-v1 store, admission and
+scheduler with the Site bridge, and create runs the same pipeline
+(`createAnalysisJob` in `reader_routes.js`). The store and scheduler run
+whenever `READER_CATALOG_DIR` and durable storage exist; the bridge secrets
+mount only `/internal/reader`, and these routes mount only with
+`LIBRARY_PUBLIC=1`, the search store installed and the reader running.
+
+- **Identity.** `__Host-cm_library`: 32 random bytes, base64url, `Path=/;
+  Secure; HttpOnly; SameSite=Strict; Max-Age=2592000`. Minted only by `POST
+  /library/v1/analyses` when no valid cookie is present, so a GET never creates
+  state; Max-Age slides on every viewer response. The store viewer is
+  `lv1:` + sha256 of the value. Cookie and Set-Cookie are never logged.
+- **Capabilities never leave the process.** Each call re-derives the job's
+  capability from its id and the cookie's viewer (`store.capabilityFor`). It
+  is never in a response, URL, client persistence, analytics or log.
+- **Routes.** `POST /library/v1/analyses` (body: `contract_version`,
+  `reading_unit_id`, `reading_revision`, optional `declaration_set`,
+  `requested_layers`, `requested_methods`, and `idempotency_key`; the server
+  fills its own snapshot and refuses a client-sent one); `GET /jobs/:id`;
+  `POST /jobs/:id/cancel` and `/resume` with an `Idempotency-Key` header;
+  `DELETE /jobs/:id`; `GET /jobs/:id/manifests/:sha`,
+  `/manifests/:sha/pages?offset&limit<=250` and `/pages/:sha?manifest=`, each
+  re-hashed with `X-Library-SHA256`. Create answers 202 (new) or 200 (exact
+  retry), 409 `STALE_READING` with `current_revision`, 403
+  `READING_UNAVAILABLE`, and 503 `STORE_RECOUNTING` while usage is unknown.
+- **Every response is `Cache-Control: private, no-store`.** Another viewer's
+  job is 404. Methods route strictly (no `GET …/cancel` read). Every non-GET
+  body must be `application/json`, which forces a CORS preflight.
+- **CORS.** `Access-Control-Allow-Credentials: true` only on
+  `/library/v1/analyses*` and `/library/v1/jobs*`, for the exact allowed
+  origins; `Idempotency-Key` is an allowed header; `Retry-After`,
+  `Content-Disposition`, `X-Library-Bytes` and `X-Library-SHA256` are exposed;
+  preflights are cached 600 s.
+- **Limits** (owner decision 4; `LIBRARY_LIMITS`): 2 outstanding per viewer
+  (the store's rule, as on the old Site) and 16 waiting globally; a 12
+  outstanding per-address ceiling; creates 30/h per viewer and 120/h per
+  address; job reads 600/min per address; cancel, resume and delete 120/h per
+  viewer; cookie mints 30/h per address; and at most one long-reading job
+  (more than 5,000 lines) queued or running service-wide (429
+  `LONG_READING_BUSY`). Every refusal is 429 with `Retry-After`.
+
 ## Private pull API
 
 All routes are under `/internal/reader`. Only the Site server calls them. The
 browser receives Site reference IDs; raw backend capabilities stay in the Site's
-server binding and never appear in URLs, client persistence, analytics or logs.
+server binding and the in-process /library/v1 router, and never appear in URLs,
+client persistence, analytics or logs. The viewer cookie is an HttpOnly session
+credential, not a capability.
 
 | Method and suffix                                       | Result                                                                                                                                                             |
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -144,5 +189,60 @@ before its completed pointer. Resource exhaustion preserves the preceding
 cursor. A process interruption never automatically replays writing or paid work.
 
 Private results retain 30 days without authorized access; access refreshes their
-advertised expiry. Expired and deleted jobs never silently redispatch. Resume
-after incompatible source/resource changes requires a separate analysis.
+advertised expiry. The refresh slides in memory on every authorized read and is
+persisted at most once an hour, so a restart can shorten a result's retention by
+up to one hour, never lengthen it. Expiry binds at read time: a result past its
+expiry is refused with `RESULT_EXPIRED` before any sweep has marked it, and a
+job past its expiry is tombstoned the moment dispatch, deferred promotion or
+its running lease touches it, so expired work never runs. Expired
+and deleted jobs never silently redispatch. Resume after incompatible
+source/resource changes requires a separate analysis.
+
+## Storage accounting and maintenance
+
+Reads never scan the store. Usage is an exact byte counter (the capability key,
+records, pages, indexes, checkpoints and manifests) kept by deltas under the
+writer lock. Every mutation first writes a `pending` marker, then bumps the
+store `generation` and removes the marker when it leaves the lock. On taking the
+lock, an instance that finds a marker (a crashed writer) or a generation it did
+not write (another instance) reloads its records and treats its counter as
+unknown.
+
+Every job holds a 16 KiB reservation for its own record. The quota invariant is
+usage plus slack at most `READER_STORAGE_MAX_BYTES`, where slack sums each
+record's unused reservation, so one job's growth can never consume another's
+room and any record can always grow to 16 KiB. While usage is unknown, a write
+that would raise usage plus slack (a new job, a new object, or a record
+outgrowing its reservation) is refused with 503 `STORE_RECOUNTING`; a record
+transition inside its reservation still commits, a paused lease requeues as for
+`RESOURCE_LIMIT`, and deletes and reads proceed.
+
+A verification scan runs in slices outside the lock and is accepted only if
+every measurement succeeded, no marker appeared and the generation did not move
+across it. Anything else, including a failed `stat` or lock contention at
+acceptance, is a failed attempt, logged as `READER_RECOUNT_FAILED` and retried
+with backoff; it never marks the store unavailable. A drift found by an accepted
+scan is logged as `READER_USAGE_DRIFT` and corrected.
+
+Collection runs off the request path. Each timer slice examines at most 100
+records for expiry and at most 500 objects or 64 MiB across marking and
+sweeping, and stops at 50 ms. Every bound is checked before the work it limits:
+an object's size before it is read or deleted, and the clock between operations.
+Work that would cross a bound waits for the next slice, where expiry, the mark
+(mid-chain) and the sweep's directory enumeration all resume. A slice's byte
+bound may not be below the 2 MiB object limit, so an empty slice can always take
+the largest object. An object is marked live only after it is read, and a failed
+read abandons the whole collection, so a partial mark never sweeps. Every record
+saved while a collection is open is re-marked under the lock within the same
+slice budget, and the sweep is withheld until that re-mark completes inside one
+hold of the lock, so under sustained writes reclamation waits rather than the
+bound; another writer's commit abandons the collection. The sweep also deletes
+only unreferenced objects last written before its mark began; rewriting an
+object or referencing a page by hash refreshes its time. A full verification
+scan runs every 15 minutes.
+
+Object readers in Node and in the Python worker accept a stored file of at most
+2 MiB holding a plain object or exactly one gzip member with no trailing bytes,
+bound inflation by the same 2 MiB, and verify the address against the
+uncompressed bytes. The store writes plain objects until gzip writes are
+separately approved.

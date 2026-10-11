@@ -166,7 +166,7 @@ export function publicReaderJob(record) {
   );
 }
 
-function validateRequest(input) {
+export function validateRequest(input) {
   if (!input || typeof input !== 'object' || Array.isArray(input) || input.contract_version !== 1)
     throw fail('CONTRACT_MISMATCH', 'Reader contract_version must be 1.');
   for (const field of ['snapshot_id', 'reading_unit_id', 'reading_revision'])
@@ -218,6 +218,32 @@ function validateRequest(input) {
   };
 }
 
+/**
+ * The one create pipeline both browser families run (the Site bridge here and
+ * /library/v1 in library_viewer_routes.js): resolve collection defaults, pin
+ * the identity, create (or replay) the job, wake the scheduler.
+ */
+export async function createAnalysisJob({
+  store,
+  scheduler,
+  prepareRequest,
+  resolveIdentity,
+  viewer,
+  idempotencyKey,
+  request,
+}) {
+  const prepared = await prepareRequest(request);
+  const identity = await resolveIdentity(prepared);
+  const result = store.create({
+    viewer,
+    idempotency_key: idempotencyKey,
+    identity,
+    request: prepared,
+  });
+  scheduler.kick();
+  return result;
+}
+
 export function createReaderRouter({
   store,
   scheduler,
@@ -252,15 +278,15 @@ export function createReaderRouter({
       let request = validateRequest(req.body);
       if (request.idempotency_key && request.idempotency_key !== req.readerAuth.idempotency)
         throw fail('IDEMPOTENCY_CONFLICT', 'The body and signed idempotency keys disagree.', 409);
-      request = await prepareRequest(request);
-      const identity = await resolveIdentity(request);
-      const result = store.create({
+      const result = await createAnalysisJob({
+        store,
+        scheduler,
+        prepareRequest,
+        resolveIdentity,
         viewer: req.readerAuth.viewer,
-        idempotency_key: req.readerAuth.idempotency,
-        identity,
+        idempotencyKey: req.readerAuth.idempotency,
         request,
       });
-      scheduler.kick();
       res.status(result.created ? 202 : 200).json({
         contract_version: 1,
         job: publicReaderJob(result.record),
