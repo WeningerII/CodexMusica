@@ -95,25 +95,31 @@ def build_lexicon(supplement, fallback):
 
 
 def item_lookup_blockers(lex, lines):
-    """-> (lexical blockers, no-endpoint lines) for one item: the spellings
-    whose pieces do not read or whose line end the grader cannot anchor, and
-    the count of lines with no endpoint at all. The item is lookup-ready
-    exactly when both are empty -- the definition `census` counts, given here
-    once for consumers such as quality/coverage_queue.py."""
+    """-> (lexical blockers, non-lexical blocked lines) for one item. LEXICAL:
+    the spellings whose pieces do not read, or whose line end the grader
+    cannot anchor -- a reviewed reading could fix those. NON-LEXICAL: lines
+    no reading can fix -- a line with no endpoint at all (`!!!`), or an end
+    word the tokenizer drops before any lookup (`cat 我`: the anchor fails,
+    but `我` never reaches the lexicon). The item is lookup-ready exactly
+    when both are empty -- the definition `census` counts, given here once
+    for consumers such as quality/coverage_queue.py."""
     import lyric_harness as LH
-    found, no_endpoint = set(), 0
+    found, nonlexical = set(), 0
     for line in lines:
-        if LH.raw_final_token(line, strip_parens=lex.strip_parens) is None:
-            no_endpoint += 1
+        f = LH.raw_final_token(line, strip_parens=lex.strip_parens)
+        if f is None:
+            nonlexical += 1
         _ph, toks, _oov = lex.transcribe(line)
         for t in toks:
             if any(lex.transcribe_word(p)[1] for p in lex.word_pieces(t) if p):
                 found.add(LH.fold_apostrophes(t).lower())
-        if not LH.line_anchors(lex, line)[0]:
-            f = LH.raw_final_token(line, strip_parens=lex.strip_parens)
-            if f:
-                found.add(LH.fold_apostrophes(f).lower())
-    return found, no_endpoint
+        if f and not LH.line_anchors(lex, line)[0]:
+            key = LH.fold_apostrophes(f).lower()
+            if key in {LH.fold_apostrophes(t).lower() for t in toks}:
+                found.add(key)
+            else:
+                nonlexical += 1
+    return found, nonlexical
 
 
 def census(paths, lex, top=0, keep=None):
@@ -144,6 +150,7 @@ def census(paths, lex, top=0, keep=None):
     # (3PO's C1 review, #537); an item that has one is never completable by a
     # reading, so it earns no type completion credit either.
     no_endpoint_lines = items_no_endpoint = 0
+    unlookupable_end_lines = items_unlookupable_end = items_nonlexical = 0
     anchor_unread = collections.Counter()
     for path in paths:
         rel = os.path.relpath(path, ROOT)
@@ -160,10 +167,11 @@ def census(paths, lex, top=0, keep=None):
             items += 1
             unread_here = set()
             here = {k: set() for k in readers}
-            no_endpoint_here = 0
+            no_endpoint_here = unlookupable_here = 0
             for line in lines:
                 if LH.raw_final_token(line, strip_parens=lex.strip_parens) is None:
                     no_endpoint_here += 1
+                line_toks = None
                 ends = {"end_anchor": LH.raw_final_token(line,
                                                          strip_parens=lex.strip_parens),
                         "end_grid": G._end_word(line) or None}
@@ -179,9 +187,17 @@ def census(paths, lex, top=0, keep=None):
                     if bad:
                         e["unread"] += 1
                         e["types"][ekey] += 1
-                        here[k].add(ekey)
                         if k == "end_anchor":
+                            # An end word the tokenizer drops is read by no
+                            # lexicon: a NON-LEXICAL blocker, not a type.
+                            if line_toks is None:
+                                line_toks = {LH.fold_apostrophes(t).lower()
+                                             for t in lex.transcribe(line)[1]}
+                            if ekey not in line_toks:
+                                unlookupable_here += 1
+                                continue
                             anchor_unread[ekey] += 1
+                        here[k].add(ekey)
                 # The words `transcribe` itself reads (enclitics joined,
                 # parentheticals stripped, Latin-script tokens only), then
                 # each word's own pieces through `transcribe_word`: exactly
@@ -214,8 +230,13 @@ def census(paths, lex, top=0, keep=None):
                     e["clear"] += 1
             blockers = unread_here | here["end_anchor"]
             no_endpoint_lines += no_endpoint_here
+            unlookupable_end_lines += unlookupable_here
             if no_endpoint_here:
                 items_no_endpoint += 1
+            if unlookupable_here:
+                items_unlookupable_end += 1
+            if no_endpoint_here or unlookupable_here:
+                items_nonlexical += 1
                 continue
             if not blockers:
                 ready_items += 1
@@ -244,6 +265,11 @@ def census(paths, lex, top=0, keep=None):
         "items_with_one_lookup_blocker": sum(sole_lookup.values()),
         "no_endpoint_lines": no_endpoint_lines,
         "items_blocked_by_no_endpoint_line": items_no_endpoint,
+        # An end word the tokenizer drops before lookup (non-Latin script):
+        # unanchorable, and fixable by no reading.
+        "unlookupable_end_lines": unlookupable_end_lines,
+        "items_blocked_by_unlookupable_end": items_unlookupable_end,
+        "items_blocked_nonlexically": items_nonlexical,
     }
     if top:
         rec["top_unread_types"] = [
@@ -363,8 +389,13 @@ def main(argv=None):
         if a.population != "song":
             print("REFUSED: the frozen split covers the song population only")
             return 2
-        from quality.coverage_split import read_split
-        assignment, split_meta = read_split()
+        from quality.coverage_split import SplitMoved, checked_assignment
+        try:
+            assignment, split_meta = checked_assignment()
+        except SplitMoved as why:
+            print(f"REFUSED: {why}; a moved population needs a new split, "
+                  f"never a reused one")
+            return 2
         keep = {u for u, side in assignment.items() if side == a.split}
     lex = build_lexicon(a.lexicon_supplement, a.fallback)
     rec = {"population": a.population, "globs": POPULATIONS[a.population],

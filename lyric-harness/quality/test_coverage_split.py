@@ -132,6 +132,32 @@ def test_frozen_file():
     check("the salt is the published one", meta["salt"] == CS.SALT)
 
 
+def test_guard_refuses_a_moved_population():
+    print("\n3b. a moved population is refused before any ordinal id is used")
+    real = CS.read_split
+    assignment, meta = real()
+    cases = {
+        "a changed corpus digest": (assignment, dict(meta, inputs_sha256="0" * 64)),
+        "an assignment missing a current unit":
+            ({k: v for i, (k, v) in enumerate(assignment.items()) if i}, meta),
+        "an assignment naming a unit that no longer exists":
+            (dict(assignment, **{"corpus/song/eng_gone.txt#0": "dev"}), meta),
+    }
+    try:
+        for name, value in cases.items():
+            CS.read_split = lambda path=None, v=value: v
+            try:
+                CS.checked_assignment()
+                refused = False
+            except CS.SplitMoved:
+                refused = True
+            check(f"refused: {name}", refused)
+    finally:
+        CS.read_split = real
+    check("the current corpus passes the guard",
+          CS.checked_assignment()[1]["salt"] == CS.SALT)
+
+
 def test_census_reads_one_side():
     print("\n4. the census reads one side only")
     script = os.path.join(HERE, "coverage_census.py")
@@ -166,7 +192,8 @@ def test_census_readiness_and_identity():
     path = _corpus("--- TITLE: Bare\nthe night is long\n!!!\n"
                    "--- TITLE: Plain\nthe night is long\nand cold\n"
                    "--- TITLE: Unknown\nthe night is zorbleflax\n"
-                   "--- TITLE: Hush\nand then she whispered sh\n")
+                   "--- TITLE: Hush\nand then she whispered sh\n"
+                   "--- TITLE: Script\nthe night is long\ncat 我\n")
     rec = C.census([path], lex, top=10)
     check("a line with no endpoint blocks readiness (production `no_endpoint`)",
           rec["items_lookup_ready"] == 1
@@ -174,6 +201,12 @@ def test_census_readiness_and_identity():
           and rec["no_endpoint_lines"] == 1, rec["items_lookup_ready"])
     check("and is never counted as a word type",
           all(b["type"] not in ("!!!", "") for b in rec["top_lookup_blockers"]))
+    check("an end word the tokenizer drops (`cat 我`) is non-lexical too: no "
+          "reading reaches it, so it is never a type and never credited",
+          rec["items_blocked_by_unlookupable_end"] == 1
+          and rec["items_blocked_nonlexically"] == 2
+          and all(b["type"] != "我" for b in rec["top_lookup_blockers"]),
+          (rec["items_blocked_by_unlookupable_end"], rec["items_blocked_nonlexically"]))
     union = {b["type"]: b for b in rec["top_lookup_blockers"]}
     sh = union.get("sh", {})
     check("every lookup blocker carries the queue's fields, anchor-only ones too "
@@ -219,6 +252,7 @@ if __name__ == "__main__":
     test_assignment_is_pure()
     test_grouping_rules()
     test_frozen_file()
+    test_guard_refuses_a_moved_population()
     test_census_reads_one_side()
     test_census_readiness_and_identity()
     print()
