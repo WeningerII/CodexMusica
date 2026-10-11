@@ -42,11 +42,19 @@ RUN cd lyric-harness \
 # whole-corpus packages. Their own stage, so they cache apart from the final
 # layers. verify_downloads checks the upload parts before they are deleted;
 # the server re-hashes each package before it serves one.
+#
+# The exporter finds the label registry at <source>/../../data and the
+# engine references at <source>/.., and silently attaches nothing when they
+# are absent, so it reads the catalog through library/snapshot (a link to
+# the built catalog), and the attachment is asserted as library-site.yml
+# asserts it.
 FROM assets AS library-stores
 COPY mcp/library_exports.js /source/mcp/
 RUN cd /source/lyric-harness \
+ && ln -s /build/library-canonical library/snapshot \
  && python3 -m library.catalog_site_export \
-      --source /build/library-canonical --output /build/library-site-export \
+      --source library/snapshot --output /build/library-site-export \
+ && python3 -c "import hashlib, json; m = json.load(open('/build/library-site-export/import_manifest.json')); want = hashlib.sha256(open('data/lyric_label_prefixes.json', 'rb').read()).hexdigest(); assert m['derived_metadata']['label_registry_sha256'] == want, 'label registry not attached'; assert {'methods', 'result_schema', 'label_prefixes', 'source_records'} <= set(m['references']), 'references not attached'" \
  && python3 -m library.search_store /build/library-site-export /library/search \
  && node /source/mcp/library_exports.js build /build/library-site-export /library/exports \
  && python3 -m library.catalog_downloads /build/library-canonical /library/corpus \
