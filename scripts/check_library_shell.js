@@ -100,20 +100,35 @@ function chromiumPath() {
     lazy: path.join(temp, 'lazy'),
     embedded: path.join(temp, 'embedded'),
   };
-  build(dirs.plain, { CODEX_LIBRARY: '' });
-  build(dirs.lazy, { CODEX_LIBRARY: '1' });
-  build(dirs.embedded, { CODEX_LIBRARY: '1' }, ['--embedded']);
+  // The Library is on by default; CODEX_LIBRARY=0 is the base without it.
+  build(dirs.plain, { CODEX_LIBRARY: '0' });
+  build(dirs.lazy, { CODEX_LIBRARY: '' });
+  build(dirs.embedded, { CODEX_LIBRARY: '' }, ['--embedded']);
   const plainHtml = fs.readFileSync(path.join(dirs.plain, 'codex.html'));
   assert.ok(
-    plainHtml.equals(fs.readFileSync(path.join(ROOT, 'codex.html'))),
+    fs
+      .readFileSync(path.join(dirs.lazy, 'codex.html'))
+      .equals(fs.readFileSync(path.join(ROOT, 'codex.html'))),
     'a default build must be byte-identical to the committed codex.html'
   );
   for (const marker of ['CMLibraryDefine', 'library/code/', 'surface-library', 'LIBRARY_CHUNKS'])
-    assert.ok(!plainHtml.includes(marker), `the default build carries Library code: ${marker}`);
-  assert.ok(!fs.existsSync(path.join(dirs.plain, 'library')), 'the default build emits no chunks');
+    assert.ok(
+      !plainHtml.includes(marker),
+      `the build without the Library carries Library code: ${marker}`
+    );
+  assert.ok(
+    !fs.existsSync(path.join(dirs.plain, 'library')),
+    'the build without the Library emits no chunks'
+  );
   const chunks = fs.readdirSync(path.join(dirs.lazy, 'library/code'));
-  assert.equal(chunks.length, 1);
-  assert.match(chunks[0], /^core\.[0-9a-f]{10}\.js$/);
+  assert.ok(
+    chunks.every((c) => /^[a-z][a-z0-9_-]*\.[0-9a-f]{10}\.js$/.test(c)),
+    chunks.join(' ')
+  );
+  assert.ok(
+    chunks.some((c) => /^core\./.test(c)),
+    'the core chunk is emitted'
+  );
   assert.ok(!fs.existsSync(path.join(dirs.embedded, 'library')), 'the embedded build inlines');
   // The Library's byte budgets on the flagged lazy page, and what it adds to
   // every route over the default build (scripts/check_payload_budget.js).
