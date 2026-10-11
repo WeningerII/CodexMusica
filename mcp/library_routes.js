@@ -128,10 +128,37 @@ export function libraryPublicRouter({
   router.use((_req, res) =>
     fail(res, new LibraryError('NOT_FOUND', 'No such Library route.', 404))
   );
+  // A request Express refuses before a handler runs (a path parameter that
+  // does not decode, a body that does not parse) answers the same JSON,
+  // uncached refusal as every other, never Express's default HTML page.
+  router.use((error, _req, res, _next) => {
+    const status = error.status ?? error.statusCode;
+    fail(
+      res,
+      error instanceof LibraryError
+        ? error
+        : status >= 400 && status < 500
+          ? new LibraryError('BAD_REQUEST', 'Malformed request.', 400)
+          : new LibraryError(
+              'LIBRARY_ERROR',
+              'The Library could not answer.',
+              500,
+              'Retry explicitly.'
+            )
+    );
+  });
   return router;
 }
 
-/** The request log never records search terms (the query string). */
+/**
+ * The request log never records a Library query string. Express routes are
+ * case-insensitive and ignore a trailing slash, so /LIBRARY/v1/search/?q=…
+ * reaches the search route too: every path under /library/, in any case,
+ * loses its query (health and metadata carry nothing there to keep).
+ */
 export function redactLibraryUrl(url) {
-  return /^\/library\/v1\/search(?:\?|$)/.test(url) ? url.replace(/\?.*$/, '?<redacted>') : url;
+  const at = url.indexOf('?');
+  return at >= 0 && /(?:^|\/)library(?:\/|$)/i.test(url.slice(0, at))
+    ? url.slice(0, at) + '?<redacted>'
+    : url;
 }

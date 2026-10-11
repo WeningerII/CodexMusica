@@ -11,6 +11,7 @@ import express from 'express';
 import { ReaderJobStore } from './reader_job_store.js';
 import {
   libraryViewerRouter,
+  libraryErrorHandler,
   isViewerPath,
   viewerOf,
   VIEWER_COOKIE,
@@ -18,6 +19,8 @@ import {
 import { LIBRARY_LIMITS } from './ratelimit.js';
 import { ExportStore, buildExportStore, zipChunks } from './library_exports.js';
 import { reading, writeExport, readZip, sha } from './test_library_fixtures.mjs';
+import { createAdmission } from './library_admission.js';
+import { createReaderRouter, signReaderRequest } from './reader_routes.js';
 
 const coverage = {
   partial: false,
@@ -37,38 +40,72 @@ const UNITS = {
   held: { availability: 'held', revision: 'rev_held', lines: 10 },
 };
 
-async function setup(t, { now: clock, router = {} } = {}) {
+async function setup(t, { now: clock, router = {}, identityDelay = 0, bridge = false } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'library-viewer-'));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
   let now = clock ?? 1_000_000;
   const store = new ReaderJobStore({ directory: dir, now: () => now });
   const kicks = [];
   const app = express();
-  app.use(express.json());
+  app.use(
+    express.json({
+      verify: (req, _res, bytes) => {
+        req.readerRawBody = Buffer.from(bytes);
+      },
+    })
+  );
+  // A real await before store.create, as production's filesystem reads are,
+  // so concurrent requests interleave there.
+  const resolveIdentity = async (r) => {
+    if (identityDelay) await new Promise((resolve) => setTimeout(resolve, identityDelay));
+    // The production identity's fields (reader_scheduler.resolveIdentity).
+    return {
+      contract_version: 1,
+      snapshot_id: r.snapshot_id,
+      reading_unit_id: r.reading_unit_id,
+      reading_revision: r.reading_revision,
+      engine_commit: 'engine-1',
+      resource_fingerprint: 'fp-1',
+      declaration_hash: 'none',
+      requested_layers: r.requested_layers,
+    };
+  };
+  const unitOf = (id) => UNITS[id] ?? null;
+  // One admission state shared with the private bridge, as server_http.js wires it.
+  const admission = createAdmission({
+    store,
+    unitOf,
+    now: () => now,
+    fail: (code, message, status, extra) =>
+      Object.assign(new Error(message), { code, status, extra }),
+  });
   app.use(
     '/library/v1',
     libraryViewerRouter({
       store,
       scheduler: { kick: () => kicks.push(1) },
       prepareRequest: async (request) => request,
-      // The production identity's fields (reader_scheduler.resolveIdentity).
-      resolveIdentity: async (r) => ({
-        contract_version: 1,
-        snapshot_id: r.snapshot_id,
-        reading_unit_id: r.reading_unit_id,
-        reading_revision: r.reading_revision,
-        engine_commit: 'engine-1',
-        resource_fingerprint: 'fp-1',
-        declaration_hash: 'none',
-        requested_layers: r.requested_layers,
-      }),
-      unitOf: (id) => UNITS[id] ?? null,
+      resolveIdentity,
+      unitOf,
       snapshotId: () => 'a'.repeat(64),
       ipOf: (req) => req.headers['x-test-ip'] || 'ip-1',
       now: () => now,
+      admission,
       ...router,
     })
   );
+  app.use('/library/v1', libraryErrorHandler);
+  if (bridge)
+    app.use(
+      createReaderRouter({
+        store,
+        scheduler: { kick: () => kicks.push(1) },
+        secret: BRIDGE_SECRET,
+        site: 'library-test',
+        resolveIdentity,
+        admission,
+      })
+    );
   const server = http.createServer(app);
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   t.after(() => server.close());
@@ -114,13 +151,68 @@ async function setup(t, { now: clock, router = {} } = {}) {
         }),
     };
   };
+  // The old Site's signed private bridge.
+  const bridgeCall = async (
+    method,
+    route,
+    {
+      input,
+      viewer = 'site-viewer',
+      idempotency = '',
+      job = '',
+      capability = '',
+      attempt = '',
+      generation = '',
+    } = {}
+  ) => {
+    const body = input === undefined ? '' : JSON.stringify(input);
+    const res = await fetch(base.replace(/\/library\/v1$/, '') + route, {
+      method,
+      headers: {
+        ...signReaderRequest({
+          secret: BRIDGE_SECRET,
+          method,
+          path: route,
+          body,
+          site: 'library-test',
+          viewer,
+          job,
+          capability,
+          attempt: String(attempt),
+          generation: String(generation),
+          idempotency,
+        }),
+        ...(body ? { 'content-type': 'application/json' } : {}),
+      },
+      ...(body ? { body } : {}),
+    });
+    return { status: res.status, body: await res.json() };
+  };
+  const bridgeCreate = (unit, viewer, key) =>
+    bridgeCall('POST', '/internal/reader/jobs', {
+      viewer,
+      idempotency: key,
+      input: {
+        contract_version: 1,
+        snapshot_id: 'a'.repeat(64),
+        reading_unit_id: unit,
+        reading_revision: UNITS[unit].revision,
+        declaration_set: {},
+        requested_layers: ['sound'],
+      },
+    });
   return {
     store,
     kicks,
     browser,
+    bridgeCreate,
+    bridgeCall,
+    admission,
+    base,
     advance: (ms) => (now += ms),
   };
 }
+const BRIDGE_SECRET = 'b'.repeat(48);
 
 test('POST mints the HttpOnly cookie, the job carries no capability, reads slide the cookie', async (t) => {
   const { browser, kicks } = await setup(t);
@@ -361,6 +453,137 @@ test('job reads: 600 a minute per address', async (t) => {
   assert.equal((await a.call('GET', `/jobs/${id}`)).status, 200);
 });
 
+// Admission is checked and held where a job enters the queue
+// (library_admission.js): concurrent requests cannot share a slot, a resume
+// is admitted like a create, and the private bridge shares the long rule.
+test('two concurrent creates cannot both take the last per-address slot', async (t) => {
+  const { browser } = await setup(t, { identityDelay: 30 });
+  for (let i = 0; i < 11; i++)
+    assert.equal((await browser('nat').analyse()).status, 202, `job ${i}`);
+  const [a, b] = await Promise.all([browser('nat').analyse(), browser('nat').analyse()]);
+  assert.deepEqual([a.status, b.status].sort(), [202, 429]);
+  assert.equal([a, b].find((r) => r.status === 429).body.error.code, 'RATE_LIMITED');
+});
+
+test('two concurrent long creates from different addresses: one runs, one waits', async (t) => {
+  const { browser } = await setup(t, { identityDelay: 30 });
+  const [a, b] = await Promise.all([browser('a').analyse('long'), browser('b').analyse('long2')]);
+  assert.deepEqual([a.status, b.status].sort(), [202, 429]);
+  assert.equal([a, b].find((r) => r.status === 429).body.error.code, 'LONG_READING_BUSY');
+});
+
+test('a resume is admitted like a create: the per-address ceiling', async (t) => {
+  const { browser } = await setup(t);
+  const owner = browser('nat');
+  const a = await owner.analyse();
+  const id = a.body.job.id;
+  await owner.call('POST', `/jobs/${id}/cancel`, { headers: { 'Idempotency-Key': 'c' } });
+  for (let i = 0; i < 12; i++)
+    assert.equal((await browser('nat').analyse()).status, 202, `fill ${i}`);
+  const resumed = await owner.call('POST', `/jobs/${id}/resume`, {
+    headers: { 'Idempotency-Key': 'r' },
+  });
+  assert.equal(resumed.status, 429);
+  assert.equal(resumed.body.error.code, 'RATE_LIMITED');
+  assert.ok(Number(resumed.res.headers.get('retry-after')) >= 1);
+});
+
+test('a resume is admitted like a create: one long reading service-wide', async (t) => {
+  const { browser } = await setup(t);
+  const a = browser('a');
+  const first = await a.analyse('long');
+  const id = first.body.job.id;
+  await a.call('POST', `/jobs/${id}/cancel`, { headers: { 'Idempotency-Key': 'c' } });
+  assert.equal((await browser('b').analyse('long2')).status, 202);
+  const resumed = await a.call('POST', `/jobs/${id}/resume`, {
+    headers: { 'Idempotency-Key': 'r' },
+  });
+  assert.equal(resumed.status, 429);
+  assert.equal(resumed.body.error.code, 'LONG_READING_BUSY');
+});
+
+test('the private bridge shares the long-reading rule, in both orders', async (t) => {
+  {
+    const { browser, bridgeCreate } = await setup(t, { bridge: true });
+    assert.equal((await browser('a').analyse('long')).status, 202);
+    const refused = await bridgeCreate('long2', 'site-viewer', 'k1');
+    assert.equal(refused.status, 429);
+    assert.equal(refused.body.error.code, 'LONG_READING_BUSY');
+    assert.equal((await bridgeCreate('short', 'site-viewer', 'k2')).status, 202);
+  }
+  {
+    const { browser, bridgeCreate } = await setup(t, { bridge: true });
+    assert.equal((await bridgeCreate('long', 'site-viewer', 'k1')).status, 202);
+    const refused = await browser('a').analyse('long2');
+    assert.equal(refused.status, 429);
+    assert.equal(refused.body.error.code, 'LONG_READING_BUSY');
+  }
+});
+
+test('departed addresses are forgotten, not kept forever', async (t) => {
+  const { browser, admission, store } = await setup(t);
+  const a = browser('passing-through');
+  const r = await a.analyse();
+  assert.ok(admission.jobsByIp.has('passing-through'));
+  await a.call('DELETE', `/jobs/${r.body.job.id}`, { headers: { 'Idempotency-Key': 'd' } });
+  assert.equal(store.inspect(r.body.job.id).state, 'deleted');
+  await browser('someone-else').analyse();
+  assert.equal(admission.jobsByIp.has('passing-through'), false);
+  assert.equal(admission.reservations.size, 0, 'no reservation outlives its request');
+});
+
+test('a body that does not parse answers the JSON, uncached refusal', async (t) => {
+  const { base } = await setup(t);
+  const res = await fetch(base + '/analyses', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: '{"contract_version": 1,',
+  });
+  assert.equal(res.status, 400);
+  assert.match(res.headers.get('content-type'), /application\/json/);
+  assert.equal(res.headers.get('cache-control'), 'private, no-store');
+  assert.ok((await res.json()).error.code);
+});
+
+test('a private-bridge resume shares the long-reading rule, in both orders', async (t) => {
+  {
+    // Bridge long A cancelled; public long B runs; the bridge resumes A: refused.
+    const { browser, bridgeCreate, bridgeCall } = await setup(t, { bridge: true });
+    const a = await bridgeCreate('long', 'site-viewer', 'k1');
+    assert.equal(a.status, 202);
+    const binding = {
+      job: a.body.job.id,
+      capability: a.body.capability,
+      attempt: 0,
+      generation: 0,
+    };
+    const route = `/internal/reader/jobs/${a.body.job.id}`;
+    assert.equal(
+      (await bridgeCall('POST', `${route}/cancel`, { ...binding, idempotency: 'c' })).status,
+      200
+    );
+    assert.equal((await browser('x').analyse('long2')).status, 202);
+    const resumed = await bridgeCall('POST', `${route}/resume`, { ...binding, idempotency: 'r' });
+    assert.equal(resumed.status, 429);
+    assert.equal(resumed.body.error.code, 'LONG_READING_BUSY');
+  }
+  {
+    // Public long A cancelled; bridge long B runs; the public route resumes A: refused.
+    const { browser, bridgeCreate } = await setup(t, { bridge: true });
+    const owner = browser('x');
+    const a = await owner.analyse('long');
+    await owner.call('POST', `/jobs/${a.body.job.id}/cancel`, {
+      headers: { 'Idempotency-Key': 'c' },
+    });
+    assert.equal((await bridgeCreate('long2', 'site-viewer', 'k1')).status, 202);
+    const resumed = await owner.call('POST', `/jobs/${a.body.job.id}/resume`, {
+      headers: { 'Idempotency-Key': 'r' },
+    });
+    assert.equal(resumed.status, 429);
+    assert.equal(resumed.body.error.code, 'LONG_READING_BUSY');
+  }
+});
+
 // ── analysis exports ──────────────────────────────────────────────────────
 function exportStoreOf(t, revision = 'rev_short') {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'library-analysis-export-'));
@@ -374,12 +597,27 @@ function exportStoreOf(t, revision = 'rev_short') {
 }
 const METHODS = Buffer.from('{"methods":"as analysed"}\n');
 const SCHEMA = Buffer.from('{"schema":"as analysed"}\n');
-async function completedJob(env, browser, unit = 'short') {
+async function completedJob(env, browser, unit = 'short', pages = null, earlier = []) {
   const id = (await browser.analyse(unit)).body.job.id;
   const lease = env.store.lease(id);
+  // Earlier checkpoints: page batches before the final one (a checkpoint
+  // is at most 2 MiB encoded).
+  earlier.forEach((batch, i) =>
+    env.store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+      cursor: { phase: 'scan', done: false, batch: i },
+      pages: batch,
+      progress: { candidates: i },
+      coverage,
+    })
+  );
+  pages ??= [
+    { instances: [{ id: 'e1', verdict: true }] },
+    { instances: [{ id: 'e2', verdict: false }] },
+  ];
+  const evidence = [...earlier.flat(), ...pages].reduce((n, p) => n + p.instances.length, 0);
   env.store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
     cursor: { phase: 'done', done: true },
-    pages: [
+    pages: pages ?? [
       { instances: [{ id: 'e1', verdict: true }] },
       { instances: [{ id: 'e2', verdict: false }] },
     ],
@@ -392,7 +630,7 @@ async function completedJob(env, browser, unit = 'short') {
     coverage,
     summary: {
       coverage,
-      counters: { evidence_records: 2 },
+      counters: { evidence_records: evidence },
       methods: [{ method_id: 'sound', coverage: 'answered' }],
     },
     provider_calls: 0,
@@ -508,5 +746,61 @@ test('analysis export refusals are attachments: changed reading, missing definit
   assert.equal(
     other.res.headers.get('content-disposition'),
     'attachment; filename="library-download-error.txt"'
+  );
+});
+
+test('an analysis export respects backpressure: a paused client stops page reads; others are served', async (t) => {
+  const exports = exportStoreOf(t);
+  const env = await setup(t, {
+    router: {
+      exports,
+      definitions: () => ({ methods: METHODS, result_schema: SCHEMA }),
+      resourceFingerprint: () => 'fp-1',
+    },
+  });
+  const a = env.browser();
+  // 6 checkpoints of 40 evidence pages of about 24 KiB: about 5.6 MiB of
+  // ANALYSIS/, far more than the socket buffers between server and client.
+  const batch = (b) =>
+    Array.from({ length: 40 }, (_, p) => ({
+      instances: Array.from({ length: 60 }, (_, i) => ({
+        id: `e${b}-${p}-${i}`,
+        verdict: i % 2 === 0,
+        note: 'x'.repeat(360),
+      })),
+    }));
+  const earlier = Array.from({ length: 5 }, (_, b) => batch(b));
+  const last = batch(5);
+  const pages = [...earlier.flat(), ...last];
+  const job = await completedJob(env, a, 'short', last, earlier);
+  const realRead = env.store.readPage.bind(env.store);
+  let reads = 0;
+  env.store.readPage = (...args) => (reads++, realRead(...args));
+  const url = new URL(a.base + `/jobs/${job.id}/exports/${job.manifest_hash}.zip`);
+  const paused = await new Promise((resolve, reject) => {
+    const req = http.get(url, { headers: a.headers() }, (res) => {
+      res.pause();
+      resolve({ req, res });
+    });
+    req.on('error', reject);
+  });
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  assert.ok(
+    reads < pages.length,
+    `a paused client stopped page reads at ${reads} of ${pages.length}`
+  );
+  const t0 = Date.now();
+  assert.equal((await a.call('GET', `/jobs/${job.id}`)).status, 200);
+  assert.ok(Date.now() - t0 < 1000, 'an unrelated request is served meanwhile');
+  const chunks = [];
+  paused.res.on('data', (c) => chunks.push(c));
+  paused.res.resume();
+  await new Promise((resolve) => paused.res.on('end', resolve));
+  const bytes = Buffer.concat(chunks);
+  assert.equal(bytes.length, Number(paused.res.headers['content-length']));
+  assert.equal(reads, pages.length, 'every page is read once the client drains');
+  assert.equal(
+    readZip(bytes).filter((e) => e.name.includes('ANALYSIS/')).length >= pages.length,
+    true
   );
 });

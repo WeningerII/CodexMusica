@@ -10,7 +10,9 @@ import { ExportError, FORMATS, contentId, exportError } from './library_exports.
 //   POST /library/v1/exports/plan   {reading_unit_ids, format}
 //   HEAD|GET /library/v1/exports/p/<content_id>.zip
 // Uncredentialed. A plan is held in a process-local LRU (2,000 plans, one
-// hour); no id list ever appears in a URL or log. The download recomputes
+// hour, and at most PLAN_BYTES of selections, counted exactly: a plan keeps
+// its readings as 4-byte indices into the installed store's sorted id list);
+// no id list ever appears in a URL or log. The download recomputes
 // content_id against the installed store (409 PLAN_STALE on a difference,
 // 409 PLAN_EXPIRED for an evicted plan) and streams with an exact
 // Content-Length, cut when it stalls or crawls (guardStream). Every error on the download path is an attachment, so a
@@ -18,6 +20,11 @@ import { ExportError, FORMATS, contentId, exportError } from './library_exports.
 
 const PLAN_TTL_MS = 3_600_000;
 const PLAN_CAP = 2000;
+// The plan cache's memory budget (the design's "about 9 MB"). A near-corpus
+// selection costs about 100 KB, so about 90 such plans fit; the newest plan
+// is always kept, so no selection is ever refused for its size.
+const PLAN_BYTES = 9 * 1024 * 1024;
+const PLAN_OVERHEAD = 128;
 const ID = /^reading_[A-Za-z0-9_-]+$/;
 const CONTENT = /^[a-f0-9]{64}$/;
 
@@ -59,12 +66,15 @@ export function createStreamLimiter({
 }
 
 /**
- * Cuts a download that stalls (no progress for idleMs) or crawls (fewer than
- * minBytesPerSecond averaged over a windowMs window), so a slow or abandoned
- * client cannot hold one of the few stream slots. Writers respect
- * backpressure, so bytes counted at write time track what the client takes.
- * progress(n) after each write; the guard stops itself when the response
- * closes.
+ * Cuts a download that stalls (the socket sends nothing for idleMs) or crawls
+ * (fewer than minBytesPerSecond leave over a windowMs window), so a slow or
+ * abandoned client cannot hold one of the few stream slots.
+ *
+ * It measures the SOCKET, not the application: it samples the bytes the
+ * connection has actually handed to the network (below). A writer that calls write() with a 1 MiB chunk has done one
+ * write, but a client draining that chunk steadily is making progress the
+ * whole time; counting writes would call that client idle. The guard stops
+ * when the response finishes (everything handed to the network) or closes.
  */
 export function guardStream(
   res,
@@ -72,30 +82,45 @@ export function guardStream(
     idleMs = LIBRARY_LIMITS.streamIdleMs,
     minBytesPerSecond = LIBRARY_LIMITS.streamMinBytesPerSecond,
     windowMs = LIBRARY_LIMITS.streamRateWindowMs,
+    tickMs = Math.min(1000, idleMs / 4),
   } = {}
 ) {
+  // Bytes handed to the kernel: bytesWritten counts a write the moment it is
+  // queued, and libuv's writeQueueSize is what of that the kernel has not yet
+  // taken. Their difference rises as the client actually drains. (Measured on
+  // a throttled loopback reader: writableLength stays flat until the write
+  // completes, so only writeQueueSize tracks a large write's progress.)
+  const sent = () => {
+    const socket = res.socket;
+    if (!socket) return 0;
+    return socket.bytesWritten - (socket._handle?.writeQueueSize ?? 0);
+  };
+  let last = sent();
+  let lastMoved = Date.now();
+  let windowStart = last;
   const cut = () => res.destroy();
-  let idle = setTimeout(cut, idleMs);
-  let moved = 0;
+  const idle = setInterval(() => {
+    const now = sent();
+    if (now > last) {
+      last = now;
+      lastMoved = Date.now();
+    } else if (Date.now() - lastMoved >= idleMs) cut();
+  }, tickMs);
   const rate = setInterval(() => {
-    if (moved < (minBytesPerSecond * windowMs) / 1000) cut();
-    moved = 0;
+    const now = sent();
+    if (now - windowStart < (minBytesPerSecond * windowMs) / 1000) cut();
+    windowStart = now;
   }, windowMs);
   const stop = () => {
-    clearTimeout(idle);
+    clearInterval(idle);
     clearInterval(rate);
   };
+  res.on('finish', stop);
   res.on('close', stop);
-  return {
-    progress(n) {
-      moved += n;
-      clearTimeout(idle);
-      idle = setTimeout(cut, idleMs);
-    },
-    stop,
-  };
+  return { stop };
 }
 
+export { PLAN_BYTES };
 export function libraryExportRouter({
   exports: store,
   corpus = null,
@@ -104,14 +129,30 @@ export function libraryExportRouter({
   windows = new Windows(),
   ipOf = clientIp,
   now = Date.now,
+  planBytes = PLAN_BYTES,
 }) {
   const router = express.Router();
-  const plans = new Map(); // content_id -> {ids, format, at}; insertion order = LRU
-  const remember = (cid, plan) => {
+  // content_id -> {store, indices, format, at, bytes}; insertion order = LRU
+  const plans = new Map();
+  let held = 0;
+  const forget = (cid) => {
+    const plan = plans.get(cid);
+    if (!plan) return;
+    held -= plan.bytes;
     plans.delete(cid);
-    plans.set(cid, plan);
-    while (plans.size > PLAN_CAP) plans.delete(plans.keys().next().value);
   };
+  const remember = (cid, plan) => {
+    forget(cid);
+    plans.set(cid, plan);
+    held += plan.bytes;
+    while (plans.size > 1 && (plans.size > PLAN_CAP || held > planBytes))
+      forget(plans.keys().next().value);
+  };
+  const planOf = (s, ids, format) => {
+    const indices = Uint32Array.from(ids, (id) => s.indexOf.get(id));
+    return { store: s, indices, format, at: now(), bytes: indices.byteLength + PLAN_OVERHEAD };
+  };
+  const idsOf = (plan) => Array.from(plan.indices, (i) => plan.store.ids[i]);
   const json = (res, status, body, attachment = false) => {
     res.setHeader('Cache-Control', 'no-store');
     if (attachment) {
@@ -190,7 +231,7 @@ export function libraryExportRouter({
         );
       const cid = contentId(s, ids, format);
       const layout = s.layout(ids, format);
-      remember(cid, { ids, format, at: now() });
+      remember(cid, planOf(s, ids, format));
       res.setHeader('Cache-Control', 'no-store');
       res.json({
         content_id: cid,
@@ -211,7 +252,7 @@ export function libraryExportRouter({
       if (!CONTENT.test(cid)) throw exportError('NOT_FOUND', 'No such export.', 404);
       const plan = plans.get(cid);
       if (!plan || now() - plan.at > PLAN_TTL_MS) {
-        plans.delete(cid);
+        forget(cid);
         throw exportError(
           'PLAN_EXPIRED',
           'This export plan expired; plan it again.',
@@ -219,8 +260,9 @@ export function libraryExportRouter({
           'Plan the export again from the same selection.'
         );
       }
-      if (plan.ids.some((id) => !s.units.has(id)) || contentId(s, plan.ids, plan.format) !== cid) {
-        plans.delete(cid);
+      const ids = plan.store === s ? idsOf(plan) : null;
+      if (!ids || ids.some((id) => !s.units.has(id)) || contentId(s, ids, plan.format) !== cid) {
+        forget(cid);
         throw exportError(
           'PLAN_STALE',
           'The readings changed since this export was planned.',
@@ -228,8 +270,8 @@ export function libraryExportRouter({
           'Plan the export again from the same selection.'
         );
       }
-      remember(cid, { ...plan, at: plan.at });
-      const layout = s.layout(plan.ids, plan.format);
+      remember(cid, plan);
+      const layout = s.layout(ids, plan.format);
       res.setHeader('Content-Type', 'application/zip');
       res.setHeader('Content-Length', String(layout.bytes));
       res.setHeader('X-Library-Bytes', String(layout.bytes));
@@ -263,7 +305,6 @@ export function libraryExportRouter({
       res.on('close', finish);
       worker.on('message', (message) => {
         if (message.chunk) {
-          pace.progress(message.chunk.byteLength);
           const flowing = res.write(Buffer.from(message.chunk));
           if (flowing) worker.postMessage('more');
           else res.once('drain', () => worker.postMessage('more'));
