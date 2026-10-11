@@ -597,12 +597,27 @@ function exportStoreOf(t, revision = 'rev_short') {
 }
 const METHODS = Buffer.from('{"methods":"as analysed"}\n');
 const SCHEMA = Buffer.from('{"schema":"as analysed"}\n');
-async function completedJob(env, browser, unit = 'short') {
+async function completedJob(env, browser, unit = 'short', pages = null, earlier = []) {
   const id = (await browser.analyse(unit)).body.job.id;
   const lease = env.store.lease(id);
+  // Earlier checkpoints: page batches before the final one (a checkpoint
+  // is at most 2 MiB encoded).
+  earlier.forEach((batch, i) =>
+    env.store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+      cursor: { phase: 'scan', done: false, batch: i },
+      pages: batch,
+      progress: { candidates: i },
+      coverage,
+    })
+  );
+  pages ??= [
+    { instances: [{ id: 'e1', verdict: true }] },
+    { instances: [{ id: 'e2', verdict: false }] },
+  ];
+  const evidence = [...earlier.flat(), ...pages].reduce((n, p) => n + p.instances.length, 0);
   env.store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
     cursor: { phase: 'done', done: true },
-    pages: [
+    pages: pages ?? [
       { instances: [{ id: 'e1', verdict: true }] },
       { instances: [{ id: 'e2', verdict: false }] },
     ],
@@ -615,7 +630,7 @@ async function completedJob(env, browser, unit = 'short') {
     coverage,
     summary: {
       coverage,
-      counters: { evidence_records: 2 },
+      counters: { evidence_records: evidence },
       methods: [{ method_id: 'sound', coverage: 'answered' }],
     },
     provider_calls: 0,
@@ -731,5 +746,61 @@ test('analysis export refusals are attachments: changed reading, missing definit
   assert.equal(
     other.res.headers.get('content-disposition'),
     'attachment; filename="library-download-error.txt"'
+  );
+});
+
+test('an analysis export respects backpressure: a paused client stops page reads; others are served', async (t) => {
+  const exports = exportStoreOf(t);
+  const env = await setup(t, {
+    router: {
+      exports,
+      definitions: () => ({ methods: METHODS, result_schema: SCHEMA }),
+      resourceFingerprint: () => 'fp-1',
+    },
+  });
+  const a = env.browser();
+  // 6 checkpoints of 40 evidence pages of about 24 KiB: about 5.6 MiB of
+  // ANALYSIS/, far more than the socket buffers between server and client.
+  const batch = (b) =>
+    Array.from({ length: 40 }, (_, p) => ({
+      instances: Array.from({ length: 60 }, (_, i) => ({
+        id: `e${b}-${p}-${i}`,
+        verdict: i % 2 === 0,
+        note: 'x'.repeat(360),
+      })),
+    }));
+  const earlier = Array.from({ length: 5 }, (_, b) => batch(b));
+  const last = batch(5);
+  const pages = [...earlier.flat(), ...last];
+  const job = await completedJob(env, a, 'short', last, earlier);
+  const realRead = env.store.readPage.bind(env.store);
+  let reads = 0;
+  env.store.readPage = (...args) => (reads++, realRead(...args));
+  const url = new URL(a.base + `/jobs/${job.id}/exports/${job.manifest_hash}.zip`);
+  const paused = await new Promise((resolve, reject) => {
+    const req = http.get(url, { headers: a.headers() }, (res) => {
+      res.pause();
+      resolve({ req, res });
+    });
+    req.on('error', reject);
+  });
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  assert.ok(
+    reads < pages.length,
+    `a paused client stopped page reads at ${reads} of ${pages.length}`
+  );
+  const t0 = Date.now();
+  assert.equal((await a.call('GET', `/jobs/${job.id}`)).status, 200);
+  assert.ok(Date.now() - t0 < 1000, 'an unrelated request is served meanwhile');
+  const chunks = [];
+  paused.res.on('data', (c) => chunks.push(c));
+  paused.res.resume();
+  await new Promise((resolve) => paused.res.on('end', resolve));
+  const bytes = Buffer.concat(chunks);
+  assert.equal(bytes.length, Number(paused.res.headers['content-length']));
+  assert.equal(reads, pages.length, 'every page is read once the client drains');
+  assert.equal(
+    readZip(bytes).filter((e) => e.name.includes('ANALYSIS/')).length >= pages.length,
+    true
   );
 });

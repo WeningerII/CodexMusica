@@ -38,6 +38,20 @@ export function canonical(value) {
   );
 }
 const sha256 = (data) => crypto.createHash('sha256').update(data).digest('hex');
+// A file's sha256 in 1 MiB reads: the export tables run to hundreds of MB,
+// and the image's peak-memory qualification counts every byte held at once.
+function sha256File(file) {
+  const hash = crypto.createHash('sha256');
+  const fd = fs.openSync(file, 'r');
+  try {
+    const chunk = Buffer.allocUnsafe(1 << 20);
+    for (let n; (n = fs.readSync(fd, chunk, 0, chunk.length, null)) > 0; )
+      hash.update(chunk.subarray(0, n));
+  } finally {
+    fs.closeSync(fd);
+  }
+  return hash.digest('hex');
+}
 
 // ── zip-stream.ts, verbatim ───────────────────────────────────────────────
 function block(size) {
@@ -425,6 +439,17 @@ export class ExportStore {
     this.directory = directory;
     this.store = JSON.parse(fs.readFileSync(path.join(directory, 'export-store.json'), 'utf8'));
     if (this.store.format !== 1) throw new Error('Unsupported export store format');
+    // Fail closed: every table is the one the build recorded, by sha256,
+    // before anything in it is trusted. A misassembled export-units.json
+    // (a NOTICES entry dropped, a revision changed) is refused here; the
+    // per-entry CRCs checked while streaming cannot see an omission.
+    const recorded = this.store.files || {};
+    for (const name of ['export-units.json', 'items.bin', 'sources.bin']) {
+      if (!/^[a-f0-9]{64}$/.test(recorded[name] || ''))
+        throw new Error(`Export store records no sha256 for ${name}`);
+      if (sha256File(path.join(directory, name)) !== recorded[name])
+        throw new Error(`Export store table ${name} differs from its recorded sha256`);
+    }
     const { units, sources } = JSON.parse(
       fs.readFileSync(path.join(directory, 'export-units.json'), 'utf8')
     );
@@ -432,6 +457,10 @@ export class ExportStore {
     this.sources = sources;
     if (this.units.size !== this.store.readable_count)
       throw new Error('Export store unit count mismatch');
+    // A plan holds its selection as indices into this one sorted list (4 bytes
+    // a reading), not as parsed id strings.
+    this.ids = [...this.units.keys()].sort();
+    this.indexOf = new Map(this.ids.map((id, i) => [id, i]));
   }
   get snapshotId() {
     return this.store.snapshot_id;

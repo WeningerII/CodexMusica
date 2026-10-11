@@ -450,6 +450,29 @@ export function libraryViewerRouter({
       });
       const done = release;
       let idle = setTimeout(() => res.destroy(), 60_000);
+      // The ANALYSIS/ entries and the central directory, read, hashed and
+      // written one entry at a time: a full socket buffer waits for 'drain'
+      // (a slow client never makes the server buffer the rest), and every
+      // entry yields the event loop to other requests.
+      const writeTail = async () => {
+        for (const chunk of analysisTail(layout, readPage)) {
+          if (res.destroyed) return;
+          clearTimeout(idle);
+          idle = setTimeout(() => res.destroy(), 60_000);
+          if (!res.write(chunk))
+            await new Promise((resolve) => {
+              const go = () => {
+                res.off('drain', go);
+                res.off('close', go);
+                resolve();
+              };
+              res.on('drain', go);
+              res.on('close', go);
+            });
+          else await new Promise((resolve) => setImmediate(resolve));
+        }
+        if (!res.destroyed) res.end();
+      };
       res.on('close', () => {
         clearTimeout(idle);
         done();
@@ -463,13 +486,10 @@ export function libraryViewerRouter({
           if (flowing) worker.postMessage('more');
           else res.once('drain', () => worker.postMessage('more'));
         } else if (message.done) {
-          try {
-            for (const chunk of analysisTail(layout, readPage)) res.write(chunk);
-            res.end();
-          } catch (error) {
+          writeTail().catch((error) => {
             console.error('[library] analysis export refused:', error.code, error.message);
             res.destroy();
-          }
+          });
         } else if (message.error) {
           console.error(
             '[library] analysis export refused:',

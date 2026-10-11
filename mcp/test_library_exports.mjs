@@ -211,3 +211,51 @@ test('without an installed store, planning answers 503', async (t) => {
   const { plan } = await serve(t, libraryExportRouter({ exports: null }));
   assert.equal((await plan(['reading_a'])).status, 503);
 });
+
+test('the plan cache keeps to its byte budget and always keeps the newest plan', async (t) => {
+  const ids = Array.from({ length: 50 }, (_, i) => `reading_${String(i).padStart(2, '0')}`);
+  const store = storeOf(
+    t,
+    ids.map((id) => reading(id))
+  );
+  // 3 readings cost 12 + 128 bytes; a 300-byte budget holds two such plans.
+  const router = libraryExportRouter({ exports: store, planBytes: 300 });
+  const { call, plan } = await serve(t, router);
+  const p1 = await (await plan(ids.slice(0, 3))).json();
+  const p2 = await (await plan(ids.slice(3, 6))).json();
+  const p3 = await (await plan(ids.slice(6, 9))).json();
+  const expired = await call(p1.url);
+  assert.equal(expired.status, 409);
+  assert.equal(JSON.parse(await expired.text()).error.code, 'PLAN_EXPIRED');
+  for (const p of [p2, p3]) assert.equal((await call(p.url)).status, 200);
+  // A selection larger than the whole budget (49 readings: 196 + 128 bytes)
+  // is still served, never refused.
+  const big = await (await plan(ids.slice(0, 49))).json();
+  const res = await call(big.url);
+  assert.equal(res.status, 200);
+  assert.equal(Buffer.from(await res.arrayBuffer()).length, big.bytes);
+});
+
+test('an export store whose tables differ from their recorded sha256 refuses to load', (t) => {
+  const store = storeOf(t, [reading('reading_a'), reading('reading_b')]);
+  const dir = store.directory;
+  const units = path.join(dir, 'export-units.json');
+  const original = fs.readFileSync(units, 'utf8');
+  // A misassembled table: one reading's revision changed, the record not.
+  fs.writeFileSync(units, original.replace(/"revision":"[^"]*"/, '"revision":"rev_other"'));
+  assert.throws(() => new ExportStore(dir), /export-units\.json differs/);
+  fs.writeFileSync(units, original);
+  assert.ok(new ExportStore(dir));
+  const items = path.join(dir, 'items.bin');
+  const bytes = fs.readFileSync(items);
+  bytes[0] ^= 1;
+  fs.writeFileSync(items, bytes);
+  assert.throws(() => new ExportStore(dir), /items\.bin differs/);
+  bytes[0] ^= 1;
+  fs.writeFileSync(items, bytes);
+  const meta = path.join(dir, 'export-store.json');
+  const record = JSON.parse(fs.readFileSync(meta, 'utf8'));
+  delete record.files['sources.bin'];
+  fs.writeFileSync(meta, JSON.stringify(record));
+  assert.throws(() => new ExportStore(dir), /records no sha256 for sources\.bin/);
+});
