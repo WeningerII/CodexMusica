@@ -44,6 +44,9 @@ const SNAPSHOT = 'snapshot-check-library-page';
 // Epithalamion: two readings of one reviewed work, two pages each.
 const EPI_A = 'reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81';
 const EPI_B = 'reading_2c8cde38-7ea1-5dda-a413-98e3c4b0fb5f';
+// Hafez: two Persian (right-to-left) ghazals.
+const FAS_A = 'reading_001e1786-f68f-580f-94b0-fbea01a67323';
+const FAS_B = 'reading_00c8f2f0-303e-50be-a653-406c0fc2cf8c';
 
 const gz = (p) => JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(DATA, p))));
 const shardOf = (id) => id.replace(/^[a-z]+_/, '').slice(0, 2);
@@ -461,7 +464,7 @@ const SECTIONS = {
     );
     check(
       `${tag} rights: export panel counts the selection`,
-      /\b1\b.*(selected|unit|reading)|(selected|unit|reading).*\b1\b/i.test(after),
+      /\b1 (pinned |selected )?reading unit\b/i.test(after) && !/Nothing selected yet/.test(after),
       short(after, 300)
     );
     await page.evaluate(async () => (await libraryChunk('core')).lib.selection?.clear?.());
@@ -607,11 +610,49 @@ const SECTIONS = {
       !after.open && !/compare=/.test(after.hash),
       JSON.stringify(after)
     );
+    // Compare passage: five selected lines → only their aligned rows.
+    const toggles = await page.$$('#surface-library [data-rd="toggle"]');
+    for (const t of toggles.slice(3, 8)) await t.click();
+    await page.click('#surface-library [data-rd="p-compare"]');
+    await page.click(`#surface-library .lib-cmp-pick[data-pick="${EPI_B}"]`);
+    await page.waitForSelector('#surface-library .lib-cmp-rows > div', { timeout: 15000 });
+    const passage = await page.evaluate(() => ({
+      bar:
+        document.querySelector('#surface-library .lib-cmp-bar')?.textContent.replace(/\s+/g, ' ') ||
+        '',
+      rows: document.querySelectorAll('#surface-library .lib-cmp-rows > div').length,
+    }));
+    check(
+      `${tag} compare: Compare passage restricts to the selected lines`,
+      /Selected earlier passage · 5 lines/.test(passage.bar) && passage.rows === 5,
+      `${passage.rows} rows · ${passage.bar}`
+    );
+    await page.keyboard.press('Escape');
+    // Right-to-left: two Persian readings (no RTL work has a second reading,
+    // so a cross-work text comparison).
+    await go(page, base, `/read/${FAS_A}?compare=${FAS_B}`);
+    await page.waitForSelector('#surface-library .lib-cmp-rows > div', { timeout: 20000 });
+    const rtl = await page.evaluate(() => {
+      const cells = [...document.querySelectorAll('#surface-library .lib-cmp-rows > div > div')];
+      return {
+        dirs: [...new Set(cells.map((c) => c.getAttribute('dir')))],
+        lang: [...new Set(cells.map((c) => c.querySelector('span')?.getAttribute('lang')))],
+        badge: document.querySelector('#surface-library .lib-cmp-badge')?.textContent || '',
+      };
+    });
+    check(
+      `${tag} compare: Persian pair renders right-to-left, lang fas, as a text comparison`,
+      rtl.dirs.join() === 'rtl' && rtl.lang.join() === 'fas' && rtl.badge === 'Text comparison',
+      JSON.stringify(rtl)
+    );
   },
 
   async analysis({ page, base, tag, log }) {
     await go(page, base, `/read/${EPI_A}?lens=sound`);
     await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    // Narrow screens keep the inspector in a sheet: open it.
+    if (await page.isVisible('#surface-library [data-rd="sheet"]').catch(() => false))
+      await page.click('#surface-library [data-rd="sheet"]');
     const analyze = await page
       .waitForSelector('#surface-library [data-act="analyze"]', { timeout: 15000 })
       .catch(() => null);
@@ -619,10 +660,7 @@ const SECTIONS = {
     await analyze.click();
     await page
       .waitForFunction(
-        () =>
-          /running|queued|progress|analys/i.test(
-            document.querySelector('#surface-library')?.innerText || ''
-          ),
+        () => /running/i.test(document.querySelector('#surface-library')?.innerText || ''),
         null,
         { timeout: 10000 }
       )
@@ -637,9 +675,7 @@ const SECTIONS = {
     );
     check(`${tag} analysis: job state shown`, /running/i.test(state), short(state, 300));
     for (const lens of ['form', 'rhythm', 'language', 'summary', 'sources']) {
-      const tab = await page.$(
-        `#surface-library [data-rd="lens"][data-lens="${lens}"], #surface-library [data-lens="${lens}"]`
-      );
+      const tab = await page.$(`#surface-library [data-rd="lens"][data-id="${lens}"]`);
       if (!tab) {
         check(`${tag} analysis: ${lens} lens tab present`, false);
         continue;
