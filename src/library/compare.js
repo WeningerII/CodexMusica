@@ -146,7 +146,7 @@ async function loadWhole(lib, idOrHead) {
       throw new Error('This reading could not be verified; no text is shown.');
     const lines = head.lines.slice(0, PAGE_ROWS);
     if (head.pages && head.pages.length) {
-      const dir = await headDir(lib, id);
+      const dir = head._dir || (await headDir(lib, id));
       const pages = await Promise.all(
         head.pages.map(async (digest, k) => {
           const res = await fetch(lib.base + dir + `${k + 1}-${digest.slice(0, 12)}.json.gz`);
