@@ -126,7 +126,9 @@ function injectStyle() {
 }
 
 const ic = (lib, name, size = 18) => (lib && lib.icon && lib.icon(name, size)) || icon(name, size);
-const languageName = (id) => LANGUAGE_NAMES[id] || id || 'Unknown';
+let LIB = null;
+const languageName = (id) =>
+  (LIB && LIB.languageName && LIB.languageName(id)) || LANGUAGE_NAMES[id] || id || 'Unknown';
 const words = (s) => String(s || '').replace(/_/g, ' ');
 
 // ─── Route ↔ state ──────────────────────────────────────────────────────────
@@ -190,12 +192,12 @@ async function staticPage(s, lib) {
   if (s.collection) {
     const head = await lib.collection(s.collection);
     const k = Math.floor(offset / 250);
-    const page = k === 0 ? head : await lib.json(`c/${s.collection}.p${k}.json.gz`);
+    const page = k === 0 ? head : await lib.collection(s.collection, k);
     const start = offset - k * 250;
     let rows = page.rows.slice(start, start + PAGE);
     // A page boundary inside the 50: the rest comes from the next file.
     if (rows.length < PAGE && start + PAGE > 250 && k + 1 < (head.page_count || 1)) {
-      const next = await lib.json(`c/${s.collection}.p${k + 1}.json.gz`);
+      const next = await lib.collection(s.collection, k + 1);
       rows = rows.concat(next.rows.slice(0, PAGE - rows.length));
     }
     return { rows: rows.map(fromStatic), total: head.total, readableIds: head.readable_ids };
@@ -758,6 +760,7 @@ return {
   // '/collections/<id>?…' if core hands a collection over); lib: the shared
   // service (docs/library-ui-contract.md).
   show(main, sub, lib) {
+    LIB = lib;
     let view = VIEWS.get(main);
     if (!view || !view.root.isConnected || view.lib !== lib) {
       view?.dispose();
