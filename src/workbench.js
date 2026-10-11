@@ -893,8 +893,12 @@ function uiStart() {
     (e) => {
       if (_workspaceReady) return;
       const b = e.target.closest('button');
+      // Only the workspace's own controls wait: the header bars, Your recipe,
+      // the shell's modals and the pages. A page's sheet or panel appended
+      // elsewhere (the Library's) is not a workspace control.
       if (
         !b ||
+        !b.closest('.app-bar, #workspace-sidebar, .modal-bg, .ui-surface') ||
         UI_PAGES[b.closest('.ui-surface')?.id.slice('surface-'.length)]?.holdsEngine ||
         b.matches('[data-view],[data-ui^="lib-"],[data-ui="menu"],[data-ui="theme"]')
       )
