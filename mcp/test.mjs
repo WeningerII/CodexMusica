@@ -5105,6 +5105,8 @@ await check('validation: actionable errors', () => {
       'mcp/test_paid_budget.mjs': 'offline shared spending admission regressions',
       'mcp/test_python_bridge.mjs': 'offline worker lifecycle regressions',
       'mcp/test_reader_job_store.mjs': 'offline durable Library reader job regressions',
+      'mcp/test_reader_store_bounds.mjs':
+        'offline bounded reader-store maintenance and quiescent usage regressions',
       'mcp/test_reader_client.mjs': 'offline signed Library reader route and scheduler regressions',
       'mcp/test_reader_integration.mjs':
         'local catalog Library reader interruption/resume regressions',
