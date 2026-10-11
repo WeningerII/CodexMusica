@@ -121,7 +121,6 @@ def build():
     assignment, meta = checked_assignment()
     keep = {u for u, side in assignment.items() if side == "dev"}
     files = sorted({os.path.join(ROOT, u.split("#")[0]) for u in assignment})
-    canon = json.dumps(frame, sort_keys=True, ensure_ascii=False).encode()
     sizes = collections.Counter(f["stratum"] for f in frame)
     return {
         "version": 1, "protocol": "PR #527 (BB8 proposal 6104847635; 3PO "
@@ -144,9 +143,30 @@ def build():
                    for n, _hit in STRATA],
         "spellings": len(frame),
         "readings": sum(len(f["readings"]) for f in frame),
-        "frame_sha256": _sha(canon),
+        "frame_sha256": frame_digest(frame),
         "frame": frame,
     }
+
+
+def frame_digest(frame):
+    return _sha(json.dumps(frame, sort_keys=True, ensure_ascii=False).encode())
+
+
+def authenticated(frozen, rec):
+    """-> None when the stored frame may be drawn from, else the reason.
+
+    The stored PAYLOAD is hashed itself -- not only the stored header -- and
+    both must equal the frame re-derived now, as must the split and converter
+    bindings (3PO's #541 review: comparing headers alone let an edited
+    stored reading or stratum be sampled under the old digest)."""
+    if frame_digest(frozen["frame"]) != frozen["frame_sha256"]:
+        return "the stored frame's own digest is not its header's"
+    if frozen["frame_sha256"] != rec["frame_sha256"]:
+        return "the frame re-derived now is not the frozen one"
+    for key in ("split", "converter_output_sha256", "corpus_inputs_sha256"):
+        if frozen["bindings"][key] != rec["bindings"][key]:
+            return f"the frozen binding {key} moved"
+    return None
 
 
 def draw(rec):
@@ -183,16 +203,15 @@ def main(argv=None):
         return 0
     with open(FRAME_PATH, encoding="utf-8") as fh:
         frozen = json.load(fh)
-    same = (frozen["frame_sha256"] == rec["frame_sha256"]
-            and frozen["bindings"]["split"] == rec["bindings"]["split"]
-            and frozen["bindings"]["converter_output_sha256"]
-            == rec["bindings"]["converter_output_sha256"])
-    if not same:
-        print("REFUSED: the frame re-derived now is not the frozen one; a moved "
-              "frame is re-frozen and re-announced before any draw")
+    why = authenticated(frozen, rec)
+    if why:
+        print(f"REFUSED: {why}; a moved frame is re-frozen and re-announced "
+              f"before any draw")
         return 1
     rows = ["stratum\tspelling\treadings"]
-    for name, w, readings in draw(frozen):
+    # Drawn from the frame RE-DERIVED now, which the checks above prove equal
+    # to the frozen one -- never from stored rows alone.
+    for name, w, readings in draw(rec):
         rows.append(f"{name}\t{w}\t" + " | ".join(
             f"{r['phones']} [{r['moby']}]" for r in readings))
     text = (f"# pilot draw -- frame {frozen['frame_sha256']}, seed {SEED}; "
