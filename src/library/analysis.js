@@ -581,7 +581,9 @@ function methodDetailHTML(m, analyzable) {
 }
 // The method reference: a filtered accordion list over methods.json. Used by
 // the reader inspector here and by the Sources & rights view (rights.js).
-function methodReference(container, registry, { onAnalyze = null, language = null } = {}) {
+// The second argument is the methods.json registry, or a `lib` to load it through.
+async function methodReference(container, source, { onAnalyze = null, language = null } = {}) {
+  const registry = source?.methods ? source : await registryOf(source);
   const render = valueRenderer(container);
   container.innerHTML = `<input class="cm-input la-method-search" type="search" placeholder="Find a method or requirement" aria-label="Search method reference"><div class="la-method-list"></div>`;
   const list = container.querySelector('.la-method-list');
@@ -737,10 +739,12 @@ function ensureStyles() {
 // ── Declarations (port of components/library/declarations.tsx) ─────────────
 function declarationsView(
   root,
-  { reading, lines, value, sections, choices, methods, unsaved, onSave }
+  { reading, lines, value, sections, choices, methods, unsaved, onSave, annotate = [] }
 ) {
   const analysisLines = lines.filter((l) => l.analysis_line != null);
-  const first = analysisLines[0]?.analysis_line ?? 1;
+  const picked = analysisLines.filter((l) => annotate.includes(l.id)).map((l) => l.analysis_line);
+  const first = picked.length ? Math.min(...picked) : (analysisLines[0]?.analysis_line ?? 1);
+  const pickedEnd = picked.length ? Math.max(...picked) : first;
   const last = analysisLines.at(-1)?.analysis_line ?? 1;
   const st = { raw: JSON.stringify(value, null, 2), targetReady: true, atoms: {}, links: {} };
   const parsed = () => {
@@ -754,7 +758,7 @@ function declarationsView(
     <h3>Reading interpretations</h3>
     <p class="la-note">On this device · tied to this edition and revision. Source geometry and whole-work scope remain explicit.</p>
     <label>Source / basis <input class="cm-input" data-f="source" placeholder="Edition note or your reading"></label>
-    <details class="cm-accordion"><summary>Add or interpret a section / line function</summary>
+    <details class="cm-accordion"${annotate.length ? ' open' : ''}><summary>Add or interpret a section / line function</summary>
       <label>Concrete occurrence <select class="cm-select" data-f="target"><option value="">New unmarked range</option>${sections
         .map(
           (s) => `<option value="${esc(s.id)}">${esc(s.name ?? s.function)} · ${esc(s.id)}</option>`
@@ -768,7 +772,7 @@ function declarationsView(
         )
         .join('')}</select></label>
       <div class="la-range"><label>From analysis line <input class="cm-input" type="number" data-f="start" min="1" max="${last}" value="${first}"></label>
-      <label>To analysis line <input class="cm-input" type="number" data-f="end" min="1" max="${last}" value="${first}"></label></div>
+      <label>To analysis line <input class="cm-input" type="number" data-f="end" min="1" max="${last}" value="${pickedEnd}"></label></div>
       <label>Voice, if explicitly known <input class="cm-input" data-f="voice" placeholder="Leave undeclared unless supplied"></label>
       <button type="button" class="cm-btn cm-btn-outline" data-act="add-section">${icon('plus', 16)}<span>Add range</span></button>
     </details>
@@ -1057,8 +1061,65 @@ function pronunciationChoices(root, choices, onAdd) {
 //   onLens       (lens) => void — the inspector's lens tabs changed the lens
 //   tabs         false to omit the lens tabs (the reader draws its own)
 // Returns {setLens, setSelection, setLines, activate, destroy}.
-function mount(container, ctx) {
+// The reader (src/library/reader.js readingContext()) passes {id, revision,
+// head, lines(), allLines(), selection(), highlight(record, ids)}; a bare head
+// file works too. Both normalize to {reading: head-shaped, lines, highlight}.
+function contextOf(input) {
+  const r = input.reading || {};
+  const head = r.head || r;
+  // lines: row objects, or (from the reader's Annotate action) line ids to declare.
+  const rows =
+    Array.isArray(input.lines) && input.lines.every((l) => l && typeof l === 'object')
+      ? input.lines
+      : null;
+  const annotate = Array.isArray(input.lines) && !rows ? input.lines.map(String) : [];
+  return {
+    ...input,
+    reading: {
+      ...head,
+      reading_unit_id: r.id ?? head.reading_unit_id,
+      reading_revision: r.revision ?? head.reading_revision,
+    },
+    selected: new Set(
+      input.selected || input.selection || (typeof r.selection === 'function' ? r.selection() : [])
+    ),
+    annotate,
+    loadLines: rows
+      ? async () => rows
+      : typeof r.allLines === 'function'
+        ? () =>
+            r.allLines().catch(() => (typeof r.lines === 'function' ? r.lines() : linesOf(head)))
+        : () => linesOf(head),
+    knownLines: () => rows || (typeof r.lines === 'function' ? r.lines() : []),
+    onHighlight:
+      input.onHighlight ||
+      (typeof r.highlight === 'function' ? (ids, record) => r.highlight(record, [...ids]) : null),
+  };
+}
+// One live inspector at a time: the reader remounts on every lens switch and
+// never calls destroy(), so a new mount retires the previous one's timers.
+let LIVE = null;
+// Saved declarations for a reading (the reader's Lyrics handoff asks for them).
+async function declarations(readingInput, lib = LIVE?.lib) {
+  const { reading } = contextOf({ reading: readingInput });
+  if (!lib) return {};
+  try {
+    const stored = await deviceStore(lib).get(
+      `interpretation:${reading.reading_unit_id}:${reading.reading_revision}`,
+      null
+    );
+    return stored?.declarations && typeof stored.declarations === 'object'
+      ? stored.declarations
+      : {};
+  } catch {
+    return {};
+  }
+}
+
+function mount(container, input) {
   ensureStyles();
+  LIVE?.destroy();
+  const ctx = contextOf(input);
   const { reading, lib } = ctx;
   const api = viewerApi(lib);
   const device = deviceStore(lib);
@@ -1066,10 +1127,10 @@ function mount(container, ctx) {
   const deviceKey = `interpretation:${reading.reading_unit_id}:${reading.reading_revision}`;
   const st = {
     lens: ctx.lens || 'summary',
-    selected: ctx.selected || new Set(),
-    lines: ctx.lines || null,
+    selected: ctx.selected,
+    lines: null,
     declarations: {},
-    declOpen: false,
+    declOpen: input.open === 'declarations',
     unsaved: false,
     busy: false,
     error: '',
@@ -1164,6 +1225,7 @@ function mount(container, ctx) {
     pollTimer = null;
   }
   async function tick() {
+    if (!root.isConnected) return handle.destroy();
     if (!alive || !mem.job) return;
     if (document.hidden) return; // resumed by visibilitychange
     const id = mem.job.id;
@@ -1327,7 +1389,7 @@ function mount(container, ctx) {
     const ids = lineIDs(record);
     st.inspected = record;
     if (ctx.onHighlight) ctx.onHighlight(ids, record);
-    const known = (st.lines || []).some((l) => ids.has(l.id));
+    const known = (st.lines || ctx.knownLines()).some((l) => ids.has(l.id));
     if (ids.size && !known)
       showToast(
         'This evidence is elsewhere in the work. Load the next source lines to locate its spans.'
@@ -1506,7 +1568,7 @@ function mount(container, ctx) {
     }</span></button><div data-f="reference"></div></section>`;
   }
   function tabsHTML() {
-    return ctx.tabs === false
+    return ctx.tabs !== true
       ? ''
       : `<div class="la-tabs" role="tablist" aria-label="Interpretation lenses">${LENSES.map(
           (l) =>
@@ -1546,7 +1608,7 @@ function mount(container, ctx) {
     }
   }
   async function drawDeclarations(host) {
-    const lines = st.lines || (st.lines = await linesOf(reading));
+    const lines = st.lines || (st.lines = await ctx.loadLines());
     const form = component(evidenceVisible() ? st.resolved : [], 'form_result');
     const choices = [
       ...new Map(
@@ -1565,6 +1627,7 @@ function mount(container, ctx) {
       choices,
       methods: st.registry?.methods || [],
       unsaved: st.unsaved,
+      annotate: ctx.annotate,
       onSave: async (v) => {
         st.declarations = v;
         st.declOpen = false;
@@ -1686,7 +1749,8 @@ function mount(container, ctx) {
     await activate();
   })();
 
-  return {
+  const handle = {
+    lib,
     setLens: (lens) => setLens(lens),
     setSelection(ids) {
       st.selected = ids instanceof Set ? ids : new Set(ids || []);
@@ -1703,13 +1767,17 @@ function mount(container, ctx) {
       alive = false;
       stopPoll();
       document.removeEventListener('visibilitychange', onVisibility);
-      container.innerHTML = '';
+      if (LIVE === handle) LIVE = null;
+      if (container.isConnected) container.innerHTML = '';
     },
   };
+  LIVE = handle;
+  return handle;
 }
 
 return {
   mount,
+  declarations,
   LENSES,
   methodReference,
   // exposed for tests and for other chunks
