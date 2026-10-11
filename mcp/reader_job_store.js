@@ -716,6 +716,12 @@ export class ReaderJobStore {
     );
   }
 
+  /** Whether a create with this viewer and key would replay (or refuse as
+   * expired) an earlier one, rather than queue a new job. */
+  hasCreate(viewer, idempotency_key) {
+    const idempotency_hash = sha(`${viewer}\0${idempotency_key}`);
+    return [...this.records.values()].some((r) => r.idempotency_hash === idempotency_hash);
+  }
   create({ viewer, idempotency_key, identity, request, definitions = null }) {
     text(viewer, 'Viewer');
     text(idempotency_key, 'Idempotency key');

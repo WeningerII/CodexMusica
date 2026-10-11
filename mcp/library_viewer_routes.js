@@ -23,6 +23,7 @@ import { LIBRARY_LIMITS, Windows, clientIp } from './ratelimit.js';
 import { Worker } from 'node:worker_threads';
 import { analysisLayout, analysisTail, canonical } from './library_exports.js';
 import { createStreamLimiter } from './library_export_routes.js';
+import { createAdmission } from './library_admission.js';
 
 export const VIEWER_COOKIE = '__Host-cm_library';
 const COOKIE_VALUE = /^[A-Za-z0-9_-]{43}$/;
@@ -90,9 +91,9 @@ export function libraryViewerRouter({
   windows = new Windows(),
   ipOf = clientIp,
   now = Date.now,
+  admission = createAdmission({ store, unitOf, fail, now }),
 }) {
   const router = express.Router();
-  const jobsByIp = new Map(); // ip -> Set(job id): the per-address outstanding ceiling
 
   const limit = (key, windowMs, max) => {
     const hit = windows.hit(key, windowMs, max, now());
@@ -118,22 +119,6 @@ export function libraryViewerRouter({
     const viewer = viewerFor(req, res);
     const capability = store.capabilityFor(req.params.id, viewer);
     return { viewer, capability, record: store.get(req.params.id, capability, viewer) };
-  };
-  const outstanding = (id) => {
-    try {
-      return ['queued', 'running', 'paused'].includes(store.inspect(id).state);
-    } catch {
-      return false;
-    }
-  };
-  const longJobBusy = () => {
-    for (const record of store.records.values()) {
-      if (!['queued', 'running'].includes(record.state)) continue;
-      if (record.expires_at <= now()) continue;
-      const unit = unitOf(record.request?.reading_unit_id);
-      if (unit && unit.lines > LIBRARY_LIMITS.longReadingLines) return true;
-    }
-    return false;
   };
   const control = (req) => {
     const key = req.get('Idempotency-Key');
@@ -193,36 +178,26 @@ export function libraryViewerRouter({
           HOUR,
           LIBRARY_LIMITS.createsPerViewerPerHour
         );
-        const mine = jobsByIp.get(ip) || new Set();
-        for (const id of mine) if (!outstanding(id)) mine.delete(id);
-        if (mine.size >= LIBRARY_LIMITS.outstandingPerIp)
-          throw fail(
-            'RATE_LIMITED',
-            'Too many analyses are running from this network address.',
-            429,
-            {
-              retryAfter: 60_000,
-            }
-          );
-        if (unit.lines > LIBRARY_LIMITS.longReadingLines && longJobBusy())
-          throw fail('LONG_READING_BUSY', 'Another long reading is being analysed.', 429, {
-            retryAfter: 60_000,
-          });
       }
+      // Checked and held now, across the identity awaits, so two creates
+      // cannot both take the last slot (library_admission.js).
+      const held = existing ? null : admission.reserve({ ip, unitId: request.reading_unit_id });
       res.setHeader('Set-Cookie', cookieHeader(value));
-      const result = await createAnalysisJob({
-        store,
-        scheduler,
-        prepareRequest,
-        resolveIdentity,
-        viewer: viewerOf(value),
-        idempotencyKey: key,
-        request,
-        definitions: definitions(),
-      });
-      if (result.created) {
-        if (!jobsByIp.has(ip)) jobsByIp.set(ip, new Set());
-        jobsByIp.get(ip).add(result.record.id);
+      let result;
+      try {
+        result = await createAnalysisJob({
+          store,
+          scheduler,
+          prepareRequest,
+          resolveIdentity,
+          viewer: viewerOf(value),
+          idempotencyKey: key,
+          request,
+          definitions: definitions(),
+        });
+        if (result.created) held?.commit(result.record.id);
+      } finally {
+        held?.release(); // a no-op once committed
       }
       res
         .status(result.created ? 202 : 200)
@@ -266,8 +241,23 @@ export function libraryViewerRouter({
     '/jobs/:id/resume',
     act(async (req, res) => {
       const { viewer, capability, record } = jobFor(req, res);
-      const identity = await resolveIdentity(record.request);
-      const result = store.resume(record.id, capability, viewer, identity, control(req));
+      const options = control(req);
+      // A resume re-enters the queue: the same rules as a create, held across
+      // the identity await, with this job excluded from its own counts.
+      const held = admission.reserve({
+        ip: ipOf(req),
+        unitId: record.request?.reading_unit_id,
+        except: record.id,
+      });
+      let result;
+      try {
+        const identity = await resolveIdentity(record.request);
+        result = store.resume(record.id, capability, viewer, identity, options);
+      } catch (error) {
+        held.release();
+        throw error;
+      }
+      held.commit(record.id);
       scheduler.kick();
       res.status(202).json({ contract_version: 1, job: publicReaderJob(result) });
     })
@@ -527,6 +517,27 @@ export function libraryViewerRouter({
 }
 
 /** Paths whose CORS responses carry Access-Control-Allow-Credentials. */
+/**
+ * The app-level error handler for /library/v1, mounted after its routers. An
+ * error raised before routing (express.json() refusing a body that does not
+ * parse) never reaches a mounted router's own handlers, so without this it
+ * would get Express's default HTML page. It answers the same JSON, uncached
+ * refusal the routers do; viewer paths stay private.
+ */
+export function libraryErrorHandler(error, req, res, next) {
+  if (res.headersSent) return next(error);
+  const status = error.status ?? error.statusCode;
+  const client = status >= 400 && status < 500;
+  res.setHeader('Cache-Control', isViewerPath(req.originalUrl) ? 'private, no-store' : 'no-store');
+  res.status(client ? status : 500).json({
+    error: {
+      code: client ? 'BAD_REQUEST' : 'LIBRARY_ERROR',
+      message: client ? 'Malformed request.' : 'The Library could not answer.',
+      remedy: client ? 'Check the request and retry explicitly.' : 'Retry explicitly.',
+    },
+  });
+}
+
 export function isViewerPath(url) {
   return /^\/library\/v1\/(?:analyses|jobs)(?:[/?]|$)/.test(url);
 }

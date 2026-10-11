@@ -337,10 +337,55 @@ test('without an installed store, search answers 503 and health says so', async 
   assert.equal(health.snapshot_id, null);
 });
 
-test('the request log never records search terms', () => {
+test('the request log never records search terms', async (t) => {
   assert.equal(redactLibraryUrl('/library/v1/search?q=my+secret'), '/library/v1/search?<redacted>');
   assert.equal(redactLibraryUrl('/library/v1/search'), '/library/v1/search');
   assert.equal(redactLibraryUrl('/library/v1/metadata/u1'), '/library/v1/metadata/u1');
+  assert.equal(redactLibraryUrl('/mcp?x=1'), '/mcp?x=1');
+  // Every spelling Express routes to search, through a real app logging the
+  // way server_http.js does: each answers 200 and none logs its query.
+  const { store } = build(t, [item('u1', { title_search: 'sea song' }, 'the secret sea')]);
+  const app = express();
+  const logged = [];
+  app.use((req, _res, next) => (logged.push(redactLibraryUrl(req.originalUrl)), next()));
+  app.use('/library/v1', libraryPublicRouter({ search: store }));
+  const server = http.createServer(app);
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => server.close());
+  const origin = `http://127.0.0.1:${server.address().port}`;
+  for (const p of [
+    '/library/v1/search?q=secret',
+    '/LIBRARY/v1/search?q=secret',
+    '/library/V1/Search?q=secret',
+    '/library/v1/search/?q=secret',
+  ]) {
+    const res = await fetch(origin + p);
+    assert.equal(res.status, 200, p);
+    assert.equal((await res.json()).total, 1, p);
+  }
+  assert.equal(logged.length, 4);
+  for (const url of logged) assert.doesNotMatch(url, /secret/, url);
+});
+
+test('a malformed request answers the JSON, uncached refusal, never an HTML page', async (t) => {
+  const { store } = build(t, [item('u1', {}, 'x')]);
+  const get = await serve(t, libraryPublicRouter({ search: store }));
+  for (const p of ['/metadata/%E0%A4%A', '/metadata/%']) {
+    const res = await get(p);
+    assert.equal(res.status, 400, p);
+    assert.match(res.headers.get('content-type'), /application\/json/, p);
+    assert.equal(res.headers.get('cache-control'), 'no-store', p);
+    assert.equal((await res.json()).error.code, 'BAD_REQUEST', p);
+  }
+});
+
+test('the store refuses U+0000, where SQLite and the port would disagree', (t) => {
+  for (const [fields, text] of [
+    [{}, 'abc\u0000def'],
+    [{ title_search: 'a\u0000b' }, 'x'],
+    [{ contributor_search: 'a\u0000b' }, 'x'],
+  ])
+    assert.throws(() => build(t, [item('u1', fields, text)]), /U\+0000/);
 });
 
 test("the fold table is the Worker's own, until the old Site is retired", () => {
