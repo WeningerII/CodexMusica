@@ -1,4 +1,21 @@
 {
+ "behavior_sources": {
+  "lyric_harness.py": "ccf456027b38508cc4ca52b45ede33aab4a2a7560df492af6a12f3d2a5b35d4e",
+  "quality/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "quality/audit_corpus.py": "0ca55a3c9dbf9d54720ab82241339974c84d6a270b326a3ad0d0b0155d28bb64",
+  "quality/coverage_census.py": "80fda3a9f8dbd88e254fc1d6fc98d5956e814743fe998c8eb07c171119e50ef4",
+  "quality/coverage_queue.py": "2033519bbe1932ba4d3ed05df172d6a8b64fed82175e97aedf35512558bc6dd1",
+  "quality/coverage_split.py": "185d3c2579db1b530cc0934403e527edd63cb1daee9579b43a4b448fb09f4f69",
+  "quality/declared_inputs.py": "94ae12c0b04ec1528d6378912f2f1f16c59d373a473a34f3e501911a629bc9fa",
+  "quality/features.py": "de8f73d9ec3247b52ab40caedf6619f4c6c08b95014728053c19a4536f6de341",
+  "quality/grid.py": "4d4bb34802f3e2a0dde0bd4ba935d696785dd82a0e6b0142aa5670a8d42f9368",
+  "quality/meter.py": "39b48bc3397157618f9a536a062d998329da19ec63a905f06ffc1e1cefe507bf",
+  "quality/moby_convert.py": "b75cd0dc32273271972b668dfcc5a90b601001671c604d9542890899c1db9efe",
+  "quality/pilot_frame.py": "20c93c3d6467ef627c72cd4e620364ca933adc4663c283b7553723e007619538",
+  "quality/release_assets.py": "460171d518818cbb65c1c739b08a881c5295b4ab093ec4322fc5f94ed2552909",
+  "quality/rhyme_types.py": "36e69c267e304245ab4319862e2e32afd977fdda90ff63b590ea3cf6cee1fd7a",
+  "quality/tempo.py": "4fd83ebb4ff98c93d886ff023ebaf2c4c22843743c967073603e899aa017f802"
+ },
  "bindings": {
   "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
   "converter_output_sha256": "a9b154146579408346f34069d4659936644ee72aed9efe4c4bf895691765fd4c",
@@ -7,7 +24,6 @@
   "dev_items_blocked_nonlexically": 264,
   "lexicon": "none (CMUdict alone)",
   "mpron_sha256": "55580c3b258873723fed33497fe3a438b26167370bbe016431b3fc65fea67f2d",
-  "source_commit": "b46db1dbf42318c024f1d982bb66ebc0796ac18c",
   "split": {
    "salt": "codexmusica-coverage-split-2026-10-11",
    "selected_units": 6991,
@@ -29901,6 +29917,7 @@
  "readings": 2545,
  "sample_per_large_stratum": 59,
  "seed": "20261011",
+ "source_commit": "5154c4385cc5cc9e64b7ec45ab25b7e647542147",
  "spellings": 2538,
  "strata": [
   {
