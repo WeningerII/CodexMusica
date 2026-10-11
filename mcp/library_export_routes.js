@@ -66,15 +66,22 @@ export function createStreamLimiter({
 }
 
 /**
- * Cuts a download that stalls (the socket sends nothing for idleMs) or crawls
- * (fewer than minBytesPerSecond leave over a windowMs window), so a slow or
- * abandoned client cannot hold one of the few stream slots.
+ * Cuts a download that stalls (no progress for idleMs) or crawls (fewer than
+ * minBytesPerSecond leave over a windowMs window), so a slow or abandoned
+ * client cannot hold one of the few stream slots.
  *
- * It measures the SOCKET, not the application: it samples the bytes the
- * connection has actually handed to the network (below). A writer that calls write() with a 1 MiB chunk has done one
- * write, but a client draining that chunk steadily is making progress the
- * whole time; counting writes would call that client idle. The guard stops
- * when the response finishes (everything handed to the network) or closes.
+ * Progress is read from two public signals: movement of socket.bytesWritten,
+ * and the completion of this response's own write callbacks (a write's
+ * callback runs once the socket has handed that write on, so a client draining
+ * a stream of chunks completes them steadily). A write that is still
+ * outstanding gives neither signal while the client drains it: one large
+ * write, or any write over TLS, whose bytesWritten counts plaintext the moment
+ * it is queued. The guard cannot tell that client from a stalled one, so while
+ * a write is outstanding it falls back to wall clock and allows the
+ * outstanding bytes the time a reader at minBytesPerSecond would need, never
+ * cutting a reader at the floor early. Nothing private (the socket handle's
+ * writeQueueSize) is read. The guard stops when the response finishes or
+ * closes.
  */
 export function guardStream(
   res,
@@ -85,33 +92,71 @@ export function guardStream(
     tickMs = Math.min(1000, idleMs / 4),
   } = {}
 ) {
-  // Bytes handed to the kernel: bytesWritten counts a write the moment it is
-  // queued, and libuv's writeQueueSize is what of that the kernel has not yet
-  // taken. Their difference rises as the client actually drains. (Measured on
-  // a throttled loopback reader: writableLength stays flat until the write
-  // completes, so only writeQueueSize tracks a large write's progress.)
-  const sent = () => {
-    const socket = res.socket;
-    if (!socket) return 0;
-    return socket.bytesWritten - (socket._handle?.writeQueueSize ?? 0);
+  const queued = () => {
+    const written = res.socket?.bytesWritten;
+    return Number.isFinite(written) ? written : 0;
   };
-  let last = sent();
+  let lastQueued = queued();
   let lastMoved = Date.now();
-  let windowStart = last;
+  let pending = 0; // bytes of this response's writes not yet called back
+  let completed = 0; // bytes of this response's writes called back
+  let stopped = false;
+  const moved = () => {
+    lastMoved = Date.now();
+  };
+  const sizeOf = (chunk, encoding) =>
+    chunk == null
+      ? 0
+      : typeof chunk === 'string'
+        ? Buffer.byteLength(chunk, typeof encoding === 'string' ? encoding : 'utf8')
+        : chunk.byteLength || chunk.length || 0;
+  const write = typeof res.write === 'function' ? res.write : null;
+  if (write) {
+    res.write = function guardedWrite(chunk, encoding, callback) {
+      if (typeof encoding === 'function') [encoding, callback] = [undefined, encoding];
+      const bytes = sizeOf(chunk, encoding);
+      pending += bytes;
+      const done = (error) => {
+        pending -= bytes;
+        completed += bytes;
+        if (!stopped) moved();
+        if (callback) callback(error);
+      };
+      return encoding === undefined
+        ? write.call(this, chunk, done)
+        : write.call(this, chunk, encoding, done);
+    };
+  }
+  // end()'s data is outstanding until 'finish', which stops the guard.
+  const end = typeof res.end === 'function' ? res.end : null;
+  if (end) {
+    res.end = function guardedEnd(chunk, encoding, ...rest) {
+      if (typeof chunk !== 'function') pending += sizeOf(chunk, encoding);
+      return end.call(this, chunk, encoding, ...rest);
+    };
+  }
+  // The rate counts bytes the socket has taken: completed writes where they
+  // are observed, else bytesWritten.
+  const progress = () => (write ? completed : queued());
+  // Wall-clock allowance while an outstanding write hides its progress.
+  const waiting = (floorMs) =>
+    pending > 0 && Date.now() - lastMoved < Math.max(floorMs, (pending * 1000) / minBytesPerSecond);
   const cut = () => res.destroy();
+  let windowStart = progress();
   const idle = setInterval(() => {
-    const now = sent();
-    if (now > last) {
-      last = now;
-      lastMoved = Date.now();
-    } else if (Date.now() - lastMoved >= idleMs) cut();
+    const now = queued();
+    if (now !== lastQueued) {
+      lastQueued = now;
+      moved();
+    } else if (Date.now() - lastMoved >= idleMs && !waiting(idleMs)) cut();
   }, tickMs);
   const rate = setInterval(() => {
-    const now = sent();
-    if (now - windowStart < (minBytesPerSecond * windowMs) / 1000) cut();
+    const now = progress();
+    if (now - windowStart < (minBytesPerSecond * windowMs) / 1000 && !waiting(0)) cut();
     windowStart = now;
   }, windowMs);
   const stop = () => {
+    stopped = true;
     clearInterval(idle);
     clearInterval(rate);
   };
