@@ -40,6 +40,8 @@ import { lyricCapacity, lyricWorkerState, readerPythonBridge } from './lyric_too
 import { ReaderJobStore } from './reader_job_store.js';
 import { ReaderScheduler, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter } from './reader_routes.js';
+import { LibrarySearch } from './library_search.js';
+import { libraryPublicRouter, redactLibraryUrl } from './library_routes.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
@@ -140,7 +142,7 @@ app.use((req, res, next) => {
           ev: 'http',
           t: new Date().toISOString(),
           method: req.method,
-          url: redactJobCapability(req.originalUrl),
+          url: redactLibraryUrl(redactJobCapability(req.originalUrl)),
           status: res.statusCode,
           ms: Number(ms.toFixed(1)),
           ua: logHeader(req, 'user-agent'),
@@ -317,6 +319,25 @@ const readerReadiness = () => {
   }
   return { ready: false, durable: false, enabled: false, reason: readerFailure, provider_calls: 0 };
 };
+// The public Library browser API (docs/library-native-design.md). Search and
+// metadata are read-only and uncredentialed, served from the store the image
+// builds (LIBRARY_SEARCH_DIR); without one they answer 503. Public analysis is
+// reported available only once LIBRARY_PUBLIC=1 mounts the viewer routes.
+let librarySearch = null;
+if (process.env.LIBRARY_SEARCH_DIR) {
+  try {
+    librarySearch = new LibrarySearch(process.env.LIBRARY_SEARCH_DIR);
+  } catch (error) {
+    console.error('[library] the search store is unusable; search answers 503:', error.message);
+  }
+}
+app.use(
+  '/library/v1',
+  libraryPublicRouter({
+    search: librarySearch,
+    analysisAvailable: () => process.env.LIBRARY_PUBLIC === '1' && readerReadiness().ready === true,
+  })
+);
 let jobStore;
 try {
   jobStore = new JobStore(runtimeDir('jobs'));

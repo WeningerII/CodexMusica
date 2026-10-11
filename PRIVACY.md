@@ -45,7 +45,10 @@ Your connecting AI host may independently process the information you give it.
 
 The server logs request time, method, path, status, duration, user-agent, referer,
 proxy-reported IP address and whether the connection ended prematurely. Request
-capabilities in receipt paths are redacted. Avoid placing private content in URL
+capabilities in receipt paths are redacted, and the query string of a Library search
+(`/library/v1/search`) is dropped from this log, so search terms are not recorded
+here. The hosting provider's own platform logs can still contain the full URL,
+search terms included. Avoid placing private content in URL
 query parameters or custom referer headers. Request bodies and response bodies are
 not included in this HTTP access log; lyric content is retained separately in the
 recovery files described above. The hosting provider can also retain its own

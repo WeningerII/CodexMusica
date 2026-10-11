@@ -51,7 +51,9 @@ interpret messages, drive the tools, write lyrics and propose repairs.
   IP/forwarded addresses, HTTP method and URL, user-agent/referrer headers, tool
   names, status, duration, disconnect information and error traces for reliability,
   security and abuse prevention. The application's inbound HTTP logger does not
-  log request bodies and redacts receipt capabilities in recovery URLs. These
+  log request bodies, redacts receipt capabilities in recovery URLs and drops the
+  query string (the search terms) of Library searches; the hosting provider's
+  platform logs can still contain the full URL. These
   logs are not used to build user profiles and are not sold or shared for
   advertising.
 

@@ -17,6 +17,8 @@ reader adds no resident Python process and yields when writing work queues.
 | `READER_SITE_ID`              | Exact trusted Site instance identifier.                                                                                                      |
 | `READER_RESOURCE_FINGERPRINT` | Optional explicit qualified resource fingerprint; otherwise use the checked runtime asset inventory hash.                                    |
 | `READER_REQUIRED`             | Set to `1` for a release that requires reader readiness; otherwise missing reader configuration leaves existing writing readiness unchanged. |
+| `LIBRARY_SEARCH_DIR`          | The search store `lyric-harness/library/search_store.py` builds from the verified site export. Without it, `/library/v1/search` and `/metadata` answer 503. |
+| `LIBRARY_PUBLIC`              | `1` mounts the credentialed `/library/v1` viewer routes (analysis). Unset or `0` until the native Library tab ships.                          |
 
 Use the existing immutable image assembly, qualification and promotion pipeline.
 Install the same canonical catalog snapshot on the Site and Render. A separate
@@ -36,6 +38,32 @@ lookup with reader checkpoints. The memory sampler includes all descendant
 processes; a result without overlapping workers cannot pass. These deterministic
 calls spend no model budget. Local receipts identify their scope as
 `local-runtime`; they do not replace the image gate.
+
+## Public Library browser API (`/library/v1`)
+
+The native Library tab on codexmusica.com reads three public, uncredentialed
+routes. They are CORS simple GETs with no cookie, and every response names the
+server's own snapshot (the client never sends one):
+
+- `GET /library/v1/health`: passive (no cookie, no writes). Reports the
+  snapshot, `readable_ids_sha256`, unit counts, `search_ready`, and
+  `analysis_available` (true only with `LIBRARY_PUBLIC=1` and a ready reader).
+- `GET /library/v1/search?q&language&availability&completeness&work&collection&contributor&sort&offset&limit<=100`:
+  a line-for-line port of the approved Worker's search over the store at
+  `LIBRARY_SEARCH_DIR`. It reproduces SQLite's `instr`, `substr`, ASCII
+  `lower()` and BINARY ordering. Every one of the Worker's 363 search goldens
+  replays byte-identically (`mcp/test_library_search_parity.mjs`, run by
+  `library-site.yml`); the only intended difference is the page cap of 100
+  instead of 250. No canonical reading is parsed on a request: a hit reads
+  only the compressed projection chunks it intersects.
+- `GET /library/v1/metadata/:id`: one unit's recorded metadata, any
+  availability (held units carry no body, snippet or labels).
+
+Search and metadata are `Cache-Control: public, max-age=300` with an ETag;
+errors are `no-store`. Search has a per-address abuse ceiling of 600 a minute
+(owner decision 4; `LIBRARY_LIMITS` in `ratelimit.js`), refused with 429 and
+Retry-After. The application's request log drops the search query string;
+Render's platform logs may still hold it (see `PRIVACY.md`).
 
 ## Private pull API
 
