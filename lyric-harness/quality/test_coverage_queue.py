@@ -6,7 +6,10 @@ Sections:
   2  --attested never lets a step add a spelling the source does not attest
   3  the heuristic classes sort what they say
   4  the queue reads the dev side of the frozen split and nothing else, and
-     its readiness is the census's own (no-endpoint items never ranked)
+     its readiness is the census's own (non-lexical items never ranked)
+  5  a moved population is refused before any unit id is used
+  6  the record's identity moves with its attested file and names its sources
+  7  a blocker no reading reaches (`cat 我`) is never offered to the queue
 """
 import collections
 import os
@@ -75,11 +78,11 @@ def test_dev_only():
     from quality.coverage_census import build_lexicon
     assignment, _meta = read_split()
     lex = build_lexicon("none", "none")
-    items, no_endpoint, _tokens, _case = Q.blockers(lex)
+    items, nonlexical, _tokens, _case = Q.blockers(lex)
     dev = sum(1 for side in assignment.values() if side == "dev")
     check("it reads exactly the dev items of the frozen split",
-          len(items) + no_endpoint == dev,
-          f"{len(items)} + {no_endpoint} read, {dev} dev")
+          len(items) + nonlexical == dev,
+          f"{len(items)} + {nonlexical} read, {dev} dev")
     from quality import coverage_census as C
     keep = {u for u, side in assignment.items() if side == "dev"}
     paths = sorted({os.path.join(ROOT, u.split("#")[0]) for u in keep})
@@ -87,8 +90,56 @@ def test_dev_only():
     ready = sum(1 for s in items if not s)
     check("its ready count is the census's dev lookup readiness, and its "
           "no-endpoint items the census's", ready == rec["items_lookup_ready"]
-          and no_endpoint == rec["items_blocked_by_no_endpoint_line"],
+          and nonlexical == rec["items_blocked_nonlexically"],
           f"{ready} vs {rec['items_lookup_ready']}")
+
+
+def test_guard():
+    print("\n5. a moved population is refused before any unit id is used")
+    from quality import coverage_split as CS
+    from quality.coverage_census import build_lexicon
+    real = CS.read_split
+    assignment, meta = real()
+    try:
+        CS.read_split = lambda path=None: (assignment, dict(meta, inputs_sha256="0" * 64))
+        try:
+            Q.blockers(build_lexicon("none", "none"))
+            refused = False
+        except CS.SplitMoved:
+            refused = True
+    finally:
+        CS.read_split = real
+    check("the queue refuses a split whose population moved", refused)
+
+
+def test_identity():
+    print("\n6. the record's identity")
+    import tempfile
+    d = tempfile.mkdtemp()
+    p = os.path.join(d, "attested.txt")
+    ids = []
+    for body in ("alpha\nbeta\n", "alpha\ngamma\n"):
+        with open(p, "w", encoding="utf-8") as fh:
+            fh.write(body)
+        ids.append(Q.attested_identity(p)[1])
+    check("replacing the attested file at the same path changes its identity",
+          ids[0]["sha256"] != ids[1]["sha256"]
+          and ids[0]["headwords_sha256"] != ids[1]["headwords_sha256"]
+          and ids[0]["path"] == ids[1]["path"])
+    check("the dirtiness check names every source the numbers come from",
+          set(Q.QUEUE_SOURCES) == {"quality/coverage_queue.py",
+                                   "quality/coverage_census.py",
+                                   "quality/coverage_split.py"}
+          and all(os.path.exists(os.path.join(ROOT, f)) for f in Q.QUEUE_SOURCES))
+
+
+def test_unreachable_blocker():
+    print("\n7. a blocker no reading reaches is never offered")
+    from quality.coverage_census import build_lexicon, item_lookup_blockers
+    found, nonlexical = item_lookup_blockers(build_lexicon("none", "none"),
+                                             ["the night is long", "cat 我"])
+    check("`cat 我` is non-lexical, and `我` is no candidate",
+          nonlexical == 1 and "我" not in found, (found, nonlexical))
 
 
 if __name__ == "__main__":
@@ -96,6 +147,9 @@ if __name__ == "__main__":
     test_attested_restriction()
     test_classes()
     test_dev_only()
+    test_guard()
+    test_identity()
+    test_unreachable_blocker()
     print()
     if FAILURES:
         print(f"{len(FAILURES)} FAILED")

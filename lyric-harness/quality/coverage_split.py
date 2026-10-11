@@ -251,6 +251,31 @@ def read_split(path=None):
     return {l.split("\t")[0]: l.split("\t")[2] for l in lines[3:] if l}, meta
 
 
+class SplitMoved(Exception):
+    """The corpus is not the one the frozen split was drawn from."""
+
+
+def checked_assignment():
+    """-> ({unit id: side}, meta), only after proving the frozen split still
+    describes the CURRENT corpus: the population digest matches, and the
+    current unit ids are exactly the assigned ones. Unit ids are ordinals, so
+    a reordered or edited file would otherwise hand a former validation item
+    a stale dev id (3PO's C4 review, #539). Raises SplitMoved; a moved
+    population needs a new split, never a reused one."""
+    from quality.coverage_census import inputs_sha256
+    assignment, meta = read_split()
+    us = units()
+    files = sorted({os.path.join(ROOT, u[1]) for u in us})
+    if inputs_sha256(files) != meta["inputs_sha256"]:
+        raise SplitMoved("the corpus bytes differ from the split's "
+                         "inputs_sha256")
+    ids = [u[0] for u in us]
+    if len(ids) != len(assignment) or set(ids) != set(assignment):
+        raise SplitMoved("the current unit ids are not exactly the assigned "
+                         "ones")
+    return assignment, meta
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)

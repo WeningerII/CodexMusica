@@ -13,7 +13,8 @@ at it. There is no flag to change that.
 WHAT IT RANKS. An item's BLOCKERS are its unread spellings: every word with an
 unread piece, plus an end word the grader's own reader cannot anchor, from
 quality/coverage_census.item_lookup_blockers -- the census's own definition.
-An item with a line that has no endpoint is completable by no reading; it is
+An item with a non-lexical blocker -- a line with no endpoint, or an end word
+the tokenizer drops before any lookup -- is completable by no reading; it is
 counted apart and never ranked. A queue
 STEP adds the set of spellings that completes the most further items per
 spelling added, choosing among single spellings and the whole remaining
@@ -35,6 +36,7 @@ what a spelling is.
 """
 import argparse
 import collections
+import hashlib
 import itertools
 import json
 import os
@@ -50,23 +52,33 @@ MAX_SET = 3
 
 
 def blockers(lex):
-    """-> (items, no_endpoint_items, tokens, case) over the DEV side of the
+    """-> (items, nonlexical_items, tokens, case) over the DEV side of the
     frozen split. `items` holds each completable item's set of lexical
     blockers, from quality/coverage_census.item_lookup_blockers -- the
-    census's own definition; an item with a line that has no endpoint can be
-    completed by no reading, so it is counted in `no_endpoint_items` and
-    never ranked. `tokens` counts unread word occurrences, and `case` records
-    how each spelling was capitalised, for the name-like class."""
+    census's own definition. An item with a NON-LEXICAL blocker (a line with
+    no endpoint, or an end word the tokenizer drops before lookup) can be
+    completed by no reading: it is counted in `nonlexical_items` and never
+    ranked. `tokens` counts UNREAD WORD OCCURRENCES only -- an anchor-only
+    blocker (`sh`) is a blocker with zero of them -- and `case` records how
+    each spelling was capitalised, for the name-like class."""
     import lyric_harness as LH
     from quality.coverage_census import item_lookup_blockers
-    from quality.coverage_split import read_split, units
-    assignment, _meta = read_split()
-    items, no_endpoint_items, tokens = [], 0, collections.Counter()
+    from quality.coverage_split import checked_assignment, units
+    # Proven against the CURRENT corpus before any ordinal id is used: a
+    # moved population raises SplitMoved instead of handing a former
+    # validation item a stale dev id (3PO's C4 review, #539).
+    assignment, _meta = checked_assignment()
+    items, nonlexical_items, tokens = [], 0, collections.Counter()
     seen_lower, seen_mid_cap = set(), set()
     for uid, _rel, _title, lines, _at in units():
         if assignment.get(uid) != "dev":
             continue
-        found, no_endpoint = item_lookup_blockers(lex, lines)
+        found, nonlexical = item_lookup_blockers(lex, lines)
+        if nonlexical:
+            # Never ranked, so it contributes no counts either: every figure
+            # below describes the same completable dev items.
+            nonlexical_items += 1
+            continue
         for line in lines:
             _ph, toks, _oov = lex.transcribe(line)
             for i, t in enumerate(toks):
@@ -78,13 +90,10 @@ def blockers(lex):
                         seen_lower.add(key)
                     elif i > 0:
                         seen_mid_cap.add(key)
-        if no_endpoint:
-            no_endpoint_items += 1
-        else:
-            items.append(found)
+        items.append(found)
     case = {k: {"lower": k in seen_lower, "mid_cap": k in seen_mid_cap}
             for k in tokens}
-    return items, no_endpoint_items, tokens, case
+    return items, nonlexical_items, tokens, case
 
 
 def classify(t, case, cmu):
@@ -148,6 +157,43 @@ def rank(items, tokens, allowed=None, top=500):
     return steps
 
 
+def attested_identity(path):
+    """-> (headword set, identity): the file's bytes AND its headword
+    population, so replacing the file at the same path changes the queue's
+    recorded identity, not only its selections."""
+    with open(path, "rb") as fh:
+        raw = fh.read()
+    allowed = {l.strip().lower() for l in raw.decode("utf-8").splitlines()
+               if l.strip()}
+    return allowed, {
+        "path": path, "sha256": hashlib.sha256(raw).hexdigest(),
+        "headwords": len(allowed),
+        "headwords_sha256": hashlib.sha256(
+            "".join(w + "\n" for w in sorted(allowed)).encode()).hexdigest()}
+
+
+QUEUE_SOURCES = ("quality/coverage_queue.py", "quality/coverage_census.py",
+                 "quality/coverage_split.py")
+
+
+def _source_commit():
+    """-> HEAD, suffixed `+dirty` when ANY source this queue's numbers come
+    from -- the queue, the census definition it reuses, or the split guard
+    -- differs from it (3PO's C4 review: checking only the census let changed
+    queue code claim a clean commit)."""
+    import subprocess
+
+    def git(*args):
+        return subprocess.run(["git", *args], cwd=ROOT, capture_output=True,
+                              text=True, check=True).stdout.strip()
+    try:
+        head = git("rev-parse", "HEAD")
+        dirty = git("status", "--porcelain", "--", *QUEUE_SOURCES)
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return head + ("+dirty" if dirty else "") if head else None
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -158,30 +204,43 @@ def main(argv=None):
     ap.add_argument("--lexicon-supplement", default="none")
     ap.add_argument("--out", help="write the queue TSV here")
     a = ap.parse_args(argv)
-    from quality.coverage_census import build_lexicon, _commit
-    from quality.coverage_split import read_split
+    from quality.coverage_census import (build_lexicon, inputs_sha256,
+                                         split_record)
+    from quality.coverage_split import checked_assignment
+    from quality import lexicon_supplement as S
     import lyric_harness as LH
     lex = build_lexicon(a.lexicon_supplement, "none")
-    items, no_endpoint_items, tokens, case = blockers(lex)
-    allowed = None
-    if a.attested:
-        with open(a.attested, encoding="utf-8") as fh:
-            allowed = {l.strip().lower() for l in fh if l.strip()}
+    items, nonlexical_items, tokens, case = blockers(lex)
+    allowed, attested = (attested_identity(a.attested) if a.attested
+                         else (None, None))
     steps = rank(items, tokens, allowed, a.top)
     cmu = LH.Lexicon().entries
-    _assignment, meta = read_split()
+    assignment, meta = checked_assignment()
+    keep = {u for u, side in assignment.items() if side == "dev"}
+    files = sorted({os.path.join(ROOT, u.split("#")[0]) for u in assignment})
+    blocker_types = set().union(*items) if items else set()
     summary = {
-        "population": "song corpus, dev side only", "split_salt": meta["salt"],
-        "split_inputs_sha256": meta["inputs_sha256"],
-        "lexicon_supplement": a.lexicon_supplement, "census_commit": _commit(),
-        "attested_file": a.attested, "dev_items": len(items) + no_endpoint_items,
-        "dev_items_blocked_by_no_endpoint_line": no_endpoint_items,
+        "population": "song corpus, dev side only",
+        "inputs_sha256": inputs_sha256(files),
+        "split": split_record("dev", keep, meta),
+        "lexicon": S.lexicon_identity(lex),
+        "attested": attested,
+        "source_commit": _source_commit(),
+        "dev_items": len(items) + nonlexical_items,
+        "dev_items_blocked_nonlexically": nonlexical_items,
         "dev_items_lookup_ready_before": sum(1 for s in items if not s),
         "dev_items_lookup_ready_after_queue": steps[-1]["items_lookup_ready"] if steps else None,
         "steps": len(steps), "types_chosen": steps[-1]["types_chosen"] if steps else 0,
-        "unread_types": len(tokens), "potential_not_measured": True,
+        # Two populations over the same completable dev items, named apart
+        # (3PO's C4 review): spellings with an unread word occurrence, and
+        # every lexical lookup blocker, which also holds the anchor-only ones.
+        "unread_word_types": len(tokens),
+        "lookup_blocker_types": len(blocker_types),
+        "anchor_only_blocker_types": len(blocker_types - set(tokens)),
+        "potential_not_measured": True,
     }
-    rows = ["step\tspelling\tclass\ttokens\tcompletes_with_step\tready_after_step"]
+    rows = ["step\tspelling\tclass\tunread_word_tokens\tcompletes_with_step\t"
+            "ready_after_step"]
     for i, s in enumerate(steps, 1):
         for t in s["add"]:
             rows.append(f"{i}\t{t}\t{classify(t, case, cmu)}\t{tokens[t]}\t"
