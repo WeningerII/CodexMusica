@@ -37,7 +37,15 @@ baked release identity, approved asset hash, method registry and pinned snapshot
 It warms the existing writer, traverses admitted English, Welsh, Old Norse,
 Finnish, Persian and Middle Chinese units, and overlaps the independent type
 lookup with reader checkpoints. The memory sampler includes all descendant
-processes; a result without overlapping workers cannot pass. These deterministic
+processes; a result without overlapping workers cannot pass. In the image it
+also loads the Library stores (`LIBRARY_SEARCH_DIR`, `LIBRARY_EXPORT_DIR`,
+`LIBRARY_CORPUS_DIR`, built by the Dockerfile's `library-stores` stage from the
+same canonical catalog) and keeps them resident through the cases: each must
+serve the pinned snapshot, the search and export stores must count every
+readable unit, every corpus package must match its recorded sha256 (the
+build's `catalog_downloads --verify-existing` checked the upload parts before
+they were deleted), a search must find results, and a selection export must
+stream exactly its planned length. These deterministic
 calls spend no model budget. Local receipts identify their scope as
 `local-runtime`; they do not replace the image gate.
 
@@ -118,6 +126,13 @@ mount only `/internal/reader`, and these routes mount only with
   /library/v1/analyses` when no valid cookie is present, so a GET never creates
   state; Max-Age slides on every viewer response. The store viewer is
   `lv1:` + sha256 of the value. Cookie and Set-Cookie are never logged.
+- **No canonical reading is parsed on the event loop at create.** Create
+  verifies the reading (manifest hash, identity, revision, availability) in a
+  worker thread (`reader_source_worker.js`, at most two at a time) that returns
+  only the identity fields create needs, plus the lyric lines of a
+  pronunciation-bound collection reading. The parsed tree never reaches the
+  main thread, so a long reading (Kalevala's is 33 MB) cannot stall `/mcp` or
+  `/chat`.
 - **Capabilities never leave the process.** Each call re-derives the job's
   capability from its id and the cookie's viewer (`store.capabilityFor`). It
   is never in a response, URL, client persistence, analytics or log.
