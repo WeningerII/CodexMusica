@@ -203,6 +203,9 @@ export class ReaderJobStore {
     directory,
     maxBytes = 256 * 1024 * 1024,
     now = () => Date.now(),
+    // Maintenance's time budget only (a slice stops after bounds.ms). The
+    // mark-and-sweep's start stays on the wall clock, which file mtimes share.
+    clock = () => Date.now(),
     ttlMs = READER_LIMITS.retentionMs,
     leaseMs = READER_LIMITS.leaseMs,
     faultInjector = null,
@@ -230,6 +233,7 @@ export class ReaderJobStore {
     this.directory = path.join(path.resolve(directory), 'reader-jobs-v1');
     this.maxBytes = maxBytes;
     this.now = now;
+    this.clock = clock;
     this.ttlMs = ttlMs;
     this.leaseMs = leaseMs;
     this.fault = faultInjector || (() => {});
@@ -1456,7 +1460,7 @@ export class ReaderJobStore {
     let looked = 0;
     for (; looked < examine && changed < limit; looked++) {
       // The time bound is checked between operations; the position is kept.
-      if (Date.now() >= deadline) break;
+      if (this.clock() >= deadline) break;
       if (!this._expiryScan || this._expiryScan.at >= this._expiryScan.ids.length) {
         if (this._expiryScan) {
           this._expiryScan = null;
@@ -1584,12 +1588,12 @@ export class ReaderJobStore {
       throw new RangeError(
         `maintenance bounds need bytes >= ${READER_LIMITS.objectBytes}, objects >= 1, records >= 0, ms > 0`
       );
-    const started = Date.now();
+    const started = this.clock();
     const budget = { objects: 0, bytes: 0 };
     const spent = () =>
       budget.objects >= bounds.objects ||
       budget.bytes >= bounds.bytes ||
-      Date.now() - started >= bounds.ms;
+      this.clock() - started >= bounds.ms;
     const expired = this._open(() =>
       this._pruneExpired(bounds.records, bounds.records, started + bounds.ms)
     );
