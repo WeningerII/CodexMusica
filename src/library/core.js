@@ -24,7 +24,8 @@ const cache = new Map();
 
 const isGzip = (bytes) => bytes.length > 1 && bytes[0] === 0x1f && bytes[1] === 0x8b;
 async function inflate(bytes) {
-  if (typeof DecompressionStream === 'undefined') throw Error('This browser cannot read the Library data');
+  if (typeof DecompressionStream === 'undefined')
+    throw Error('This browser cannot read the Library data');
   const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
   return new Uint8Array(await new Response(stream).arrayBuffer());
 }
@@ -64,11 +65,20 @@ function json(path, opts = {}) {
   return p;
 }
 
-const shardOf = (id) => String(id).replace(/^[a-z]+_/, '').slice(0, 2).toLowerCase();
+const shardOf = (id) =>
+  String(id)
+    .replace(/^[a-z]+_/, '')
+    .slice(0, 2)
+    .toLowerCase();
 
 async function api(path, opts = {}, credentials = 'omit') {
   const { body, method, headers, raw, signal } = opts;
-  const init = { method: method || (body !== undefined ? 'POST' : 'GET'), credentials, signal, headers: { ...(headers || {}) } };
+  const init = {
+    method: method || (body !== undefined ? 'POST' : 'GET'),
+    credentials,
+    signal,
+    headers: { ...(headers || {}) },
+  };
   if (body !== undefined) {
     init.body = typeof body === 'string' ? body : JSON.stringify(body);
     if (typeof body !== 'string') init.headers['content-type'] = 'application/json';
@@ -83,7 +93,10 @@ async function api(path, opts = {}, credentials = 'omit') {
     data = { error: text };
   }
   if (!res.ok) {
-    const error = Error((data && (data.error?.message || data.message || data.error)) || `Library service ${res.status}`);
+    const error = Error(
+      (data && (data.error?.message || data.message || data.error)) ||
+        `Library service ${res.status}`
+    );
     error.status = res.status;
     error.body = data;
     throw error;
@@ -115,7 +128,8 @@ function idb(mode, fn) {
   });
 }
 const device = {
-  read: (key, fallback) => idb('readonly', (s) => s.get(key)).then((v) => (v === undefined ? fallback : v)),
+  read: (key, fallback) =>
+    idb('readonly', (s) => s.get(key)).then((v) => (v === undefined ? fallback : v)),
   write: (key, value) => idb('readwrite', (s) => s.put(value, key)),
 };
 
@@ -307,6 +321,22 @@ const CSS = `
 #surface-library .lib-caption button{all:unset;cursor:pointer;font-size:13px;font-weight:600;color:var(--cm-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 #surface-library .lib-caption button:hover{text-decoration:underline}
 #surface-library .lib-caption button:focus-visible{outline:2px solid var(--cm-focus,var(--cm-accent))}
+#surface-library .lib-caption-row{position:relative;display:flex;align-items:flex-start;gap:4px}
+#surface-library .lib-caption-row>button:first-child{flex:1}
+#surface-library .lib-caption .lib-menu-btn{all:unset;flex:0 0 28px;height:28px;display:grid;place-items:center;border-radius:var(--cm-radius-md,8px);color:var(--cm-text-secondary);cursor:pointer}
+#surface-library .lib-caption .lib-menu-btn:hover{background:var(--cm-hover);color:var(--cm-text)}
+#surface-library .lib-caption .lib-menu-btn:focus-visible{outline:2px solid var(--cm-focus,var(--cm-accent))}
+#surface-library .lib-menu{position:fixed;z-index:40;min-width:220px;display:flex;flex-direction:column;padding:4px;border:1px solid var(--cm-border);border-radius:var(--cm-radius-md,8px);background:var(--cm-surface-overlay,var(--cm-surface));box-shadow:var(--cm-shadow-3)}
+#surface-library .lib-menu button{display:flex;align-items:center;gap:8px;min-height:36px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--cm-text);font:inherit;font-size:13px;text-align:left;cursor:pointer}
+#surface-library .lib-menu button:hover,#surface-library .lib-menu button:focus{background:var(--cm-hover);outline:none}
+#surface-library .lib-credit{position:fixed;inset:0;margin:auto;height:fit-content;max-height:calc(100vh - 32px);overflow:auto;max-width:min(560px,calc(100vw - 32px));padding:20px;border:1px solid var(--cm-border);border-radius:var(--cm-radius-lg,12px);background:var(--cm-surface);color:var(--cm-text);box-shadow:var(--cm-shadow-3)}
+#surface-library .lib-credit::backdrop{background:var(--cm-scrim,rgba(0,0,0,.5))}
+#surface-library .lib-credit form{display:flex;justify-content:flex-end;margin:0 0 8px}
+#surface-library .lib-credit img{display:block;max-width:100%;max-height:60vh;margin:0 auto 12px;border-radius:var(--cm-radius-md,8px)}
+#surface-library .lib-credit h2{margin:0 0 4px;font-size:18px}
+#surface-library .lib-credit p{margin:0 0 8px;color:var(--cm-text-secondary);font-size:14px}
+#surface-library .lib-credit .lib-credit-note{font-size:12px;color:var(--cm-text-muted)}
+#surface-library .lib-credit a{color:var(--cm-accent-text);display:inline-flex;align-items:center;gap:4px}
 #surface-library .lib-caption small{font-size:12px;color:var(--cm-text-secondary)}
 #surface-library .lib-more{flex:0 0 172px;display:grid;place-items:center;aspect-ratio:3/4;border:1px dashed var(--cm-border);border-radius:var(--cm-radius-md,8px);background:transparent;color:var(--cm-text-secondary);cursor:pointer;font:inherit}
 #surface-library .lib-more:hover{background:var(--cm-hover);color:var(--cm-text)}
@@ -348,6 +378,8 @@ const state = {
   rail: typeof window !== 'undefined' && window.innerWidth >= 1100,
   railLang: 'all',
   shelfShown: {},
+  shelfUnsaved: {},
+  shelfTimers: {},
   page: 0,
   token: 0,
 };
@@ -355,9 +387,28 @@ const num = (n) => Number(n || 0).toLocaleString('en-US');
 const plural = (n, one, many = one + 's') => `${num(n)} ${n === 1 ? one : many}`;
 // Card row from catalog.json shelves: [cid, title, readable, recorded, art, first]
 // or a collections.json row: [cid, title, language, readable, recorded, art].
-const fromShelf = (c, language) => ({ id: c[0], title: c[1], language, readable: c[2], recorded: c[3], art: c[4], first: c[5] });
-const fromRow = (c) => ({ id: c[0], title: c[1], language: c[2], readable: c[3], recorded: c[4], art: c[5], first: null });
-const shortTitle = (t) => String(t || '').split('\n')[0].slice(0, 160);
+const fromShelf = (c, language) => ({
+  id: c[0],
+  title: c[1],
+  language,
+  readable: c[2],
+  recorded: c[3],
+  art: c[4],
+  first: c[5],
+});
+const fromRow = (c) => ({
+  id: c[0],
+  title: c[1],
+  language: c[2],
+  readable: c[3],
+  recorded: c[4],
+  art: c[5],
+  first: null,
+});
+const shortTitle = (t) =>
+  String(t || '')
+    .split('\n')[0]
+    .slice(0, 160);
 
 function artHtml(c, i, label) {
   const a = lib.art(c.art);
@@ -377,11 +428,11 @@ const selectedFor = new Map();
 function cardHtml(c, i) {
   const title = shortTitle(c.title);
   const pressed = selectionState(c.id);
-  return `<article class="lib-card" data-cid="${esc(c.id)}">
+  return `<article class="lib-card" data-cid="${esc(c.id)}"${c.art ? ` data-art="${esc(c.art)}"` : ''}>
 <div class="lib-art"><button type="button" class="lib-art-open" data-lib-act="open" aria-label="Open ${esc(title)}">${artHtml(c, i, title)}</button>
 <div class="lib-quick"><button type="button" data-lib-act="play" aria-label="Read first work of ${esc(title)}">${icon('play', 16)}</button>
 <button type="button" data-lib-act="select" aria-pressed="${pressed}" aria-label="${pressed === 'true' ? 'Remove' : 'Add'} ${esc(title)} ${pressed === 'true' ? 'from' : 'to'} export selection">${icon(pressed === 'true' ? 'check' : 'plus', 17)}</button></div></div>
-<div class="lib-caption"><button type="button" data-lib-act="open">${esc(title)}</button><small>${plural(c.readable, 'reading')}${c.recorded > c.readable ? ` · ${num(c.recorded)} recorded` : ''}</small></div></article>`;
+<div class="lib-caption"><div class="lib-caption-row"><button type="button" data-lib-act="open">${esc(title)}</button><button type="button" class="lib-menu-btn" data-lib-act="menu" aria-haspopup="menu" aria-expanded="false" aria-label="Actions for ${esc(title)}">${icon('ellipsis', 18)}</button></div><small>${plural(c.readable, 'reading')}${c.recorded > c.readable ? ` · ${num(c.recorded)} recorded` : ''}</small></div></article>`;
 }
 
 function toplineHtml(catalog) {
@@ -425,7 +476,11 @@ function drawRail(root, activeId) {
   paint();
   if (activeId) {
     const at = railRows.findIndex((c) => c.id === activeId);
-    if (at >= 0 && (at * RAIL_ROW < scroll.scrollTop || at * RAIL_ROW > scroll.scrollTop + scroll.clientHeight - RAIL_ROW))
+    if (
+      at >= 0 &&
+      (at * RAIL_ROW < scroll.scrollTop ||
+        at * RAIL_ROW > scroll.scrollTop + scroll.clientHeight - RAIL_ROW)
+    )
       scroll.scrollTop = Math.max(0, at * RAIL_ROW - 2 * RAIL_ROW);
   }
 }
@@ -434,10 +489,17 @@ async function fillRail(root, activeId) {
   if (!scroll) return;
   try {
     const { collections } = await lib.collections();
-    railRows = collections.map(fromRow).filter((c) => c.readable > 0 && (state.railLang === 'all' || c.language === state.railLang));
+    railRows = collections
+      .map(fromRow)
+      .filter((c) => c.readable > 0 && (state.railLang === 'all' || c.language === state.railLang));
     drawRail(root, activeId);
   } catch (e) {
-    scroll.innerHTML = uiEmptyState({ title: 'Collections did not load', text: String(e.message || e), actions: libButton('rail-retry', 'Retry', 'refresh-cw', ''), tone: 'danger' });
+    scroll.innerHTML = uiEmptyState({
+      title: 'Collections did not load',
+      text: String(e.message || e),
+      actions: libButton('rail-retry', 'Retry', 'refresh-cw', ''),
+      tone: 'danger',
+    });
   }
 }
 
@@ -446,24 +508,78 @@ function shelfHtml(shelf, rows) {
   const cards = rows ? rows.slice(0, shown) : shelf.cards.map((c) => fromShelf(c, shelf.language));
   const more = shelf.total - cards.length;
   return `<section class="lib-shelf" data-lang="${esc(shelf.language)}" aria-labelledby="lib-shelf-${esc(shelf.language)}">
-<div class="lib-shelf-head"><h2 id="lib-shelf-${esc(shelf.language)}">${esc(lib.languageName(shelf.language))}</h2><span>${plural(shelf.total, 'collection')}</span></div>
+<div class="lib-shelf-head"><h2 id="lib-shelf-${esc(shelf.language)}">${esc(lib.languageName(shelf.language))}</h2><span>${plural(shelf.total, 'collection')}<span data-lib="shelf-note">${state.shelfUnsaved[shelf.language] ? ' · position unsaved' : ''}</span></span></div>
 <div class="lib-shelf-scroll" tabindex="0" aria-label="${esc(lib.languageName(shelf.language))} collections, scroll horizontally">${cards.map((c, i) => cardHtml(c, i)).join('')}${more > 0 ? `<button type="button" class="lib-more" data-lib-act="more" data-lang="${esc(shelf.language)}">Show ${num(Math.min(more, SHELF_BATCH))} more<br>of ${num(more)}</button>` : ''}</div></section>`;
 }
 
 async function showExplore(main, token) {
   const catalog = await lib.catalog();
   if (token !== state.token) return;
+  // Stored shelf positions; one past the cards in catalog.json widens that
+  // shelf (collections.json joins the critical path for this boot only).
+  const positions = {};
+  await Promise.all(
+    catalog.shelves.map(async (s) => {
+      const at = await device.read('shelf-position:' + s.language, 0).catch(() => {
+        state.shelfUnsaved[s.language] = true;
+        return 0;
+      });
+      const pos = Number.isFinite(at) ? Math.max(0, Math.min(s.total - 1, Math.floor(at))) : 0;
+      positions[s.language] = pos;
+      const shown = state.shelfShown[s.language] || s.cards.length;
+      if (pos >= shown - 1) state.shelfShown[s.language] = Math.min(s.total, pos + SHELF_BATCH);
+    })
+  );
+  if (token !== state.token) return;
   // Shelves the user has widened need collections.json for their rows.
   const widened = Object.keys(state.shelfShown).length;
   const all = widened ? await lib.collections().catch(() => null) : null;
   if (token !== state.token) return;
   const byLang = {};
-  if (all) for (const c of all.collections.map(fromRow)) if (c.readable > 0) (byLang[c.language] ||= []).push(c);
+  if (all)
+    for (const c of all.collections.map(fromRow))
+      if (c.readable > 0) (byLang[c.language] ||= []).push(c);
   main.innerHTML = `<div class="lib-core">${railHtml(catalog)}<div class="lib-core-main">${toplineHtml(catalog)}
 ${catalog.shelves.map((s) => shelfHtml(s, all ? withFirst(byLang[s.language] || [], s) : null)).join('')}
 <footer class="lib-foot">${icon('library', 14)}<span>${num(catalog.census?.readable_reading_units)} readable units from a fully reconciled source snapshot</span>${catalog.projected_from?.repository_commit ? `<a href="https://github.com/WeningerII/CodexMusica/tree/${esc(catalog.projected_from.repository_commit)}/lyric-harness/corpus" target="_blank" rel="noopener noreferrer">Corpus source ${icon('link', 12)}</a>` : ''}</footer></div></div>`;
   fillRail(main);
   for (const s of catalog.shelves) for (const c of s.cards) firstOf.set(c[0], c[5]);
+  main
+    .querySelectorAll('.lib-shelf')
+    .forEach((section) => restoreShelf(section, positions[section.dataset.lang] || 0));
+}
+const shelfStride = (scroller) => {
+  const card = scroller.querySelector('.lib-card');
+  if (!card) return 0;
+  return (
+    card.getBoundingClientRect().width + (parseFloat(getComputedStyle(scroller).columnGap) || 14)
+  );
+};
+function restoreShelf(section, pos) {
+  const scroller = section.querySelector('.lib-shelf-scroll');
+  const stride = scroller && shelfStride(scroller);
+  if (stride && pos) scroller.scrollLeft = pos * stride;
+  if (scroller) scroller.addEventListener('scroll', () => saveShelf(section), { passive: true });
+}
+// The leftmost card's index, saved 500 ms after scrolling stops.
+function saveShelf(section) {
+  const lang = section.dataset.lang;
+  clearTimeout(state.shelfTimers[lang]);
+  state.shelfTimers[lang] = setTimeout(() => {
+    const scroller = section.querySelector('.lib-shelf-scroll');
+    const stride = shelfStride(scroller);
+    if (!stride) return;
+    const pos = Math.round(scroller.scrollLeft / stride);
+    device.write('shelf-position:' + lang, pos).then(
+      () => markShelf(section, false),
+      () => markShelf(section, true)
+    );
+  }, 500);
+}
+function markShelf(section, unsaved) {
+  state.shelfUnsaved[section.dataset.lang] = unsaved;
+  const note = section.querySelector('[data-lib="shelf-note"]');
+  if (note) note.textContent = unsaved ? ' · position unsaved' : '';
 }
 const firstOf = new Map();
 function withFirst(rows, shelf) {
@@ -480,16 +596,28 @@ async function showCollection(main, id, token) {
   const frame = (body) =>
     `<div class="lib-core">${railHtml(catalog)}<div class="lib-core-main">${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${body}</div></div>`;
   if (!c) {
-    main.innerHTML = frame(uiEmptyState({ title: 'No such collection', text: 'It may have been merged or withdrawn in this snapshot.', actions: libButton('go', 'Explore', 'library', ' data-sub=""') }));
+    main.innerHTML = frame(
+      uiEmptyState({
+        title: 'No such collection',
+        text: 'It may have been merged or withdrawn in this snapshot.',
+        actions: libButton('go', 'Explore', 'library', ' data-sub=""'),
+      })
+    );
     fillRail(main);
     return;
   }
   const title = shortTitle(c.title);
-  const header = (extra) => `<header class="lib-coll-head"><div class="lib-art">${artHtml(c, 0, title)}</div><div><h1>${esc(title)}</h1><p>${esc(lib.languageName(c.language))} · ${plural(c.readable, 'readable unit')}${c.recorded > c.readable ? ` of ${num(c.recorded)} recorded` : ''}</p>${extra}</div></header>`;
+  const header = (extra) =>
+    `<header class="lib-coll-head"><div class="lib-art">${artHtml(c, 0, title)}</div><div><h1>${esc(title)}</h1><p>${esc(lib.languageName(c.language))} · ${plural(c.readable, 'readable unit')}${c.recorded > c.readable ? ` of ${num(c.recorded)} recorded` : ''}</p>${extra}</div></header>`;
   if (!c.readable) {
     main.innerHTML = frame(
-      header(`<div class="lib-coll-actions">${libButton('go', 'Search its works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`) +
-        uiEmptyState({ title: 'Nothing here is readable', text: 'Every unit in this collection is held. Its metadata is searchable in Works.' })
+      header(
+        `<div class="lib-coll-actions">${libButton('go', 'Search its works', 'search', ` data-sub="/works?collection=${encodeURIComponent(id)}"`)}</div>`
+      ) +
+        uiEmptyState({
+          title: 'Nothing here is readable',
+          text: 'Every unit in this collection is held. Its metadata is searchable in Works.',
+        })
     );
     fillRail(main, id);
     return;
@@ -513,7 +641,79 @@ async function showCollection(main, id, token) {
       return `<li><input type="checkbox" data-lib-act="pick" data-id="${esc(r[0])}" aria-label="Select ${esc(r[2])}"${selection.has(r[0]) ? ' checked' : ''}><a href="#library/read/${esc(r[0])}" data-lib-act="read" data-id="${esc(r[0])}" data-key="${esc(r[1])}"><strong>${esc(r[2])}</strong><small>${esc([who, r[10]].filter(Boolean).join(' — '))}</small></a></li>`;
     })
     .join('')}</ul>`;
-  main.querySelector('.lib-core-main').innerHTML = `${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${header(actions)}${pager}${list}${pager}`;
+  main.querySelector('.lib-core-main').innerHTML =
+    `${toplineHtml(catalog)}<div><button type="button" class="lib-btn" data-lib-act="go" data-sub="">${icon('library', 16)}<span>Explore</span></button></div>${header(actions)}${pager}${list}${pager}`;
+}
+
+// ─── Card menu and artwork credit ───────────────────────────────────────────
+function closeMenu(main, focus) {
+  const menu = main.querySelector('.lib-menu');
+  if (!menu) return;
+  const owner = main.querySelector('[data-lib-act="menu"][aria-expanded="true"]');
+  menu.remove();
+  if (owner) {
+    owner.setAttribute('aria-expanded', 'false');
+    if (focus) owner.focus();
+  }
+}
+function openMenu(main, btn) {
+  const was = btn.getAttribute('aria-expanded') === 'true';
+  closeMenu(main);
+  if (was) return;
+  const card = btn.closest('.lib-card');
+  const cid = card.dataset.cid;
+  const chosen = selectionState(cid) === 'true';
+  const hasArt = card.dataset.art;
+  const item = (act, ic, label) =>
+    `<button type="button" role="menuitem" tabindex="-1" data-lib-act="${act}" data-cid="${esc(cid)}">${icon(ic, 16)}<span>${esc(label)}</span></button>`;
+  btn.setAttribute('aria-expanded', 'true');
+  btn.insertAdjacentHTML(
+    'afterend',
+    `<div class="lib-menu" role="menu" aria-label="${esc(btn.getAttribute('aria-label'))}">${item('open', 'book-open', 'Open collection')}${item('select', chosen ? 'check' : 'plus', chosen ? 'Remove selection' : 'Select readable units')}${hasArt ? item('credit', 'link', 'Artwork source & credit') : ''}</div>`
+  );
+  // Fixed to the viewport: the shelf scroller would clip it.
+  const menu = main.querySelector('.lib-menu');
+  const r = btn.getBoundingClientRect();
+  const w = menu.offsetWidth,
+    h = menu.offsetHeight;
+  menu.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.right - w)) + 'px';
+  menu.style.top =
+    (r.bottom + h + 8 > innerHeight ? Math.max(8, r.top - h - 4) : r.bottom + 4) + 'px';
+  menu.querySelector('[role="menuitem"]')?.focus();
+}
+function menuKeys(main, e) {
+  const menu = e.target.closest?.('.lib-menu');
+  if (!menu) return false;
+  const items = [...menu.querySelectorAll('[role="menuitem"]')];
+  const i = items.indexOf(e.target);
+  if (e.key === 'Escape') closeMenu(main, true);
+  else if (e.key === 'ArrowDown' || e.key === 'ArrowUp')
+    items[(i + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length].focus();
+  else if (e.key === 'Home') items[0].focus();
+  else if (e.key === 'End') items[items.length - 1].focus();
+  else if (e.key === 'Tab') closeMenu(main);
+  else return false;
+  if (e.key !== 'Tab') e.preventDefault();
+  return true;
+}
+async function showCredit(artId, opener) {
+  const { artwork } = await lib.artwork();
+  const a = artwork.find((x) => x.id === artId);
+  if (!a) return;
+  const r = lib.art(artId);
+  const dialog = document.createElement('dialog');
+  dialog.className = 'lib-credit';
+  dialog.setAttribute('aria-labelledby', 'lib-credit-title');
+  dialog.innerHTML = `<form method="dialog"><button class="lib-icon-btn lib-credit-close" aria-label="Close">${icon('x', 18)}</button></form>
+<picture><source type="image/avif" srcset="${r.avif}" sizes="(max-width:600px) 90vw, 480px"><source type="image/webp" srcset="${r.webp}" sizes="(max-width:600px) 90vw, 480px"><img src="${r.src}" alt="${esc(a.title)} — ${esc(a.author)}"></picture>
+<div><h2 id="lib-credit-title">${esc(a.title)}</h2><p>${esc(a.author)}</p><p>${esc(a.credit)}</p>${a.note ? `<p class="lib-credit-note">${esc(a.note)}</p>` : ''}<a href="${esc(a.source)}" target="_blank" rel="noopener noreferrer">Artwork source ${icon('link', 14)}</a></div>`;
+  document.getElementById('surface-library').append(dialog);
+  dialog.addEventListener('close', () => {
+    dialog.remove();
+    opener?.focus?.();
+  });
+  dialog.addEventListener('click', (e) => e.target === dialog && dialog.close());
+  dialog.showModal();
 }
 
 // ─── Events ──────────────────────────────────────────────────────────────────
@@ -527,15 +727,21 @@ function refreshSelection(root) {
     const s = selectionState(card.dataset.cid);
     const title = card.querySelector('.lib-caption button')?.textContent || '';
     b.setAttribute('aria-pressed', s);
-    b.setAttribute('aria-label', `${s === 'true' ? 'Remove' : 'Add'} ${title} ${s === 'true' ? 'from' : 'to'} export selection`);
+    b.setAttribute(
+      'aria-label',
+      `${s === 'true' ? 'Remove' : 'Add'} ${title} ${s === 'true' ? 'from' : 'to'} export selection`
+    );
     b.innerHTML = icon(s === 'true' ? 'check' : 'plus', 17);
   });
-  root.querySelectorAll('.lib-coll-list input[data-id]').forEach((i) => (i.checked = selection.has(i.dataset.id)));
+  root
+    .querySelectorAll('.lib-coll-list input[data-id]')
+    .forEach((i) => (i.checked = selection.has(i.dataset.id)));
   const head = root.querySelector('.lib-coll-actions [data-lib-act="select"]');
   if (head) {
     const s = selectionState(head.dataset.cid);
     head.setAttribute('aria-pressed', s);
-    head.querySelector('span').textContent = s === 'true' ? 'Remove all from selection' : 'Add all to selection';
+    head.querySelector('span').textContent =
+      s === 'true' ? 'Remove all from selection' : 'Add all to selection';
   }
   const count = root.querySelector('[data-lib="sel-count"]');
   if (count) count.textContent = num(selection.size);
@@ -556,20 +762,34 @@ function bind(main) {
       t.checked ? selection.add(t.dataset.id) : selection.remove(t.dataset.id);
     }
   });
+  document.addEventListener('click', (e) => !main.contains(e.target) && closeMenu(main));
+  addEventListener('scroll', () => closeMenu(main), { capture: true, passive: true });
+  addEventListener('resize', () => closeMenu(main));
   main.addEventListener('keydown', (e) => {
+    if (menuKeys(main, e)) return;
     const s = e.target;
-    if (s.classList?.contains('lib-shelf-scroll') && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+    if (
+      s.classList?.contains('lib-shelf-scroll') &&
+      (e.key === 'ArrowLeft' || e.key === 'ArrowRight')
+    ) {
       e.preventDefault();
       s.scrollBy({ left: (e.key === 'ArrowLeft' ? -1 : 1) * 186 });
     }
   });
   main.addEventListener('click', async (e) => {
     const el = e.target.closest('[data-lib-act]');
-    if (!el || !main.contains(el) || el.matches('select,input')) return;
+    const inside = el && main.contains(el);
+    if (el?.dataset.libAct !== 'menu') closeMenu(main);
+    if (!inside || el.matches('select,input')) return;
     const act = el.dataset.libAct;
     const cid = el.dataset.cid || el.closest('[data-cid]')?.dataset.cid;
     try {
-      if (act === 'open') {
+      if (act === 'menu') {
+        openMenu(main, el);
+      } else if (act === 'credit') {
+        const card = main.querySelector(`.lib-card[data-cid="${CSS_ESC(cid)}"]`);
+        await showCredit(card?.dataset.art, card?.querySelector('[data-lib-act="menu"]'));
+      } else if (act === 'open') {
         state.page = 0;
         lib.go('/collections/' + cid);
       } else if (act === 'play') {
@@ -605,8 +825,10 @@ function bind(main) {
         const section = el.closest('.lib-shelf');
         const scrollLeft = section.querySelector('.lib-shelf-scroll').scrollLeft;
         section.outerHTML = shelfHtml(shelf, rows);
-        const next = main.querySelector(`.lib-shelf[data-lang="${CSS_ESC(lang)}"] .lib-shelf-scroll`);
-        if (next) next.scrollLeft = scrollLeft;
+        const next = main.querySelector(
+          `.lib-shelf[data-lang="${CSS_ESC(lang)}"] .lib-shelf-scroll`
+        );
+        if (next) (restoreShelf(next.closest('.lib-shelf'), 0), (next.scrollLeft = scrollLeft));
       } else if (act === 'page') {
         state.page = Number(el.dataset.page) || 0;
         render(main, LIBRARY.sub);
@@ -643,7 +865,12 @@ async function render(main, sub) {
     if (token !== state.token) return;
     console.error('[library]', error);
     main.innerHTML = error.stale
-      ? uiEmptyState({ title: 'The Library was just updated', text: 'Reload to read the current catalog.', actions: uiButton('lib-reload', 'Reload', 'refresh-cw'), tone: 'danger' })
+      ? uiEmptyState({
+          title: 'The Library was just updated',
+          text: 'Reload to read the current catalog.',
+          actions: uiButton('lib-reload', 'Reload', 'refresh-cw'),
+          tone: 'danger',
+        })
       : uiEmptyState({
           title: 'The Library catalog did not load',
           text: String(error.message || error),
@@ -656,7 +883,13 @@ async function render(main, sub) {
 // ─── Router ──────────────────────────────────────────────────────────────────
 async function show(main, sub = '') {
   const path = sub.split('?')[0];
-  const chunk = /^\/works(\/|$)/.test(path) ? 'works' : /^\/rights(\/|$)/.test(path) ? 'rights' : /^\/read\//.test(path) ? 'reader' : null;
+  const chunk = /^\/works(\/|$)/.test(path)
+    ? 'works'
+    : /^\/rights(\/|$)/.test(path)
+      ? 'rights'
+      : /^\/read\//.test(path)
+        ? 'reader'
+        : null;
   if (!chunk) {
     if (main.dataset.libraryChunk !== 'core') main.innerHTML = '';
     return render(main, path);

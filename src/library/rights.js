@@ -64,6 +64,7 @@ if (!document.querySelector('style[data-lib="rights"]'))
 #surface-library .lr-thumb{width:36px;height:36px;border-radius:6px;object-fit:cover;display:block;background:var(--cm-surface-sunken)}
 #surface-library .lr-thumb.cover{border-top:3px solid var(--cm-blue)}
 #surface-library .lr-detail{border-left:3px solid var(--cm-accent)}
+#surface-library .lr-card[hidden]{display:none}
 #surface-library .lr-detail dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 12px;margin:0;font-size:13px}
 #surface-library .lr-detail dt{color:var(--cm-text-muted)}
 #surface-library .lr-detail dd{margin:0;color:var(--cm-text);overflow-wrap:anywhere}

@@ -5,7 +5,8 @@
 // side-by-side comparison with intra-line differences. alignLines/intraLine are
 // an exact port of sites/library/lib/compare-text.ts.
 //
-// mount(container, { left, rightId, lib, passage, onClose }) → { close, choose }
+// mount(container, { left, rightId, lib, passage, onClose }) → { close, choose, escape }
+// (the reader's { reading, compare, close } shape is accepted too: see mount)
 //   left     the open reading: its head (reading_unit_id, title, …) or its id;
 //            every page is (re)fetched here, so a windowed reader is fine.
 //   rightId  optional second reading; when set the comparison renders at once.
@@ -146,7 +147,7 @@ async function loadWhole(lib, idOrHead) {
       throw new Error('This reading could not be verified; no text is shown.');
     const lines = head.lines.slice(0, PAGE_ROWS);
     if (head.pages && head.pages.length) {
-      const dir = await headDir(lib, id);
+      const dir = head._dir || (await headDir(lib, id));
       const pages = await Promise.all(
         head.pages.map(async (digest, k) => {
           const res = await fetch(lib.base + dir + `${k + 1}-${digest.slice(0, 12)}.json.gz`);
@@ -251,10 +252,38 @@ const pickButton = (r, chosen) =>
   `<button type="button" class="cm-btn cm-btn-outline lib-cmp-pick" data-pick="${esc(r.reading_unit_id)}" aria-pressed="${r.reading_unit_id === chosen}">${esc(r.title || r.reading_unit_id)}<small>${esc(r.source_path || '')}</small></button>`;
 
 // ── mount ────────────────────────────────────────────────────────────────────
-function mount(container, opts) {
+let current = null;
+
+// Accepts the reader's call shape too: { reading: readingContext(), lib,
+// passage: [line ids], compare: '<id>'|'', close() }.
+function mount(container, input) {
   injectStyles();
+  if (current) current.close({ silent: true });
+  const reading = input.reading || null;
+  const opts = {
+    ...input,
+    left: input.left || (reading && (reading.head || reading.id)),
+    rightId: input.rightId || input.compare || '',
+    onClose: input.onClose || input.close,
+  };
   const { lib } = opts;
-  const leftId = typeof opts.left === 'string' ? opts.left : opts.left.reading_unit_id;
+  const leftId =
+    (reading && reading.id) ||
+    (typeof opts.left === 'string' ? opts.left : opts.left.reading_unit_id);
+  // The reader's own verified lines (with derived line ids) when it gives them.
+  const loadLeft = () =>
+    reading && typeof reading.allLines === 'function'
+      ? Promise.resolve(reading.allLines()).then((lines) => ({
+          ...(reading.head || {}),
+          rows: lines.map((l, i) => ({
+            row: l.row ?? i,
+            id: l.id,
+            text: l.text,
+            analysis_line: l.analysis_line ?? null,
+            source_text: l.source_text ?? l.text,
+          })),
+        }))
+      : loadWhole(lib, opts.left || leftId);
   const opener = document.activeElement;
   const host = container.closest('#surface-library')
     ? container
@@ -347,12 +376,11 @@ function mount(container, opts) {
 
   // Comparison.
   let view = null; // { data:[L,R], source, mode, limit }
-  const passageRows = () => {
+  const passageRows = (L) => {
     const p = opts.passage || [];
     if (!p.length) return null;
-    const ids = opts.left && opts.left.lineIds;
-    const set = new Set(p.map((x) => (typeof x === 'number' ? x : ids ? ids.indexOf(x) : -1)));
-    return set;
+    const ids = (opts.left && opts.left.lineIds) || L.rows.map((r) => r.id);
+    return new Set(p.map((x) => (typeof x === 'number' ? x : ids.indexOf(x))));
   };
   const aligned = () => {
     const { data, source } = view;
@@ -363,7 +391,7 @@ function mount(container, opts) {
       la.map((l) => (source ? l.source_text : l.text)),
       lb.map((l) => (source ? l.source_text : l.text))
     );
-    const rows = passageRows();
+    const rows = passageRows(data[0]);
     if (!rows || !rows.size) return result;
     const chosenIdx = new Set(la.map((l, i) => (rows.has(l.row) ? i + 1 : 0)).filter(Boolean));
     if (!chosenIdx.size) return result;
@@ -452,7 +480,7 @@ ${limit < rows.length ? `<button type="button" class="cm-btn cm-btn-outline lib-
     view = null;
     bodyEl.innerHTML =
       '<p class="lib-cmp-note" role="status">Loading both complete reading units…</p>';
-    Promise.all([loadWhole(lib, leftId), loadWhole(lib, id)])
+    Promise.all([loadLeft(), loadWhole(lib, id)])
       .then((data) => {
         if (!alive || mine !== token) return;
         view = { data, source: false, mode: 'Differences', limit: 250 };
@@ -464,29 +492,32 @@ ${limit < rows.length ? `<button type="button" class="cm-btn cm-btn-outline lib-
       });
   }
 
-  function close() {
+  function close({ silent = false } = {}) {
     if (!alive) return;
     alive = false;
+    if (current === handle) current = null;
     clearTimeout(timer);
     document.removeEventListener('keydown', onKey, true);
     scrim.remove();
     sheet.remove();
+    if (silent) return;
     setCompareParam(null);
     if (opener && opener.isConnected && opener.focus) opener.focus();
     if (opts.onClose) opts.onClose();
   }
   const onKey = (e) => {
+    if (!sheet.isConnected) return close({ silent: true }); // host was cleared
     if (e.key !== 'Escape' || !alive) return;
     e.preventDefault();
     e.stopPropagation();
     close();
   };
   document.addEventListener('keydown', onKey, true);
-  scrim.addEventListener('click', close);
-  sheet.querySelector('[data-close]').addEventListener('click', close);
+  scrim.addEventListener('click', () => close());
+  sheet.querySelector('[data-close]').addEventListener('click', () => close());
   if (chosen) choose(chosen);
   setTimeout(() => alive && (sheet.querySelector('.lib-cmp-pick, input') || sheet).focus(), 0);
-  return {
+  const handle = {
     close,
     choose,
     escape: () => (alive ? (close(), true) : false),
@@ -494,6 +525,8 @@ ${limit < rows.length ? `<button type="button" class="cm-btn cm-btn-outline lib-
       return alive;
     },
   };
+  current = handle;
+  return handle;
 }
 
 return { mount, alignLines, intraLine, loadWhole };
