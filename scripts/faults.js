@@ -561,10 +561,13 @@ if (want('9h', 'prose-preloaded')) {
   const f = path.join(d, 'scripts/build_html.js');
   const src = fs.readFileSync(f, 'utf8');
   const lit = '<link rel="preload" href="${LAZY_API}browse_boot.json" as="fetch" crossorigin>';
-  const patched = src.replace(
-    lit,
-    lit + '<link rel="preload" href="${LAZY_API}browse_prose.json" as="fetch" crossorigin>'
-  );
+  const prose = '<link rel="preload" href="${LAZY_API}browse_prose.json" as="fetch" crossorigin>';
+  // Without the Library the boot index is that link; with it (the default) a
+  // <script> asks for it, and the plant follows the script.
+  const script = "'boot preload'\n          ) +\n          '</script>'";
+  const patched = src
+    .replace(lit, lit + prose)
+    .replace(script, script + ' +\n          `' + prose + '`');
   if (patched === src) throw new Error('faults: could not plant the prose preload');
   fs.writeFileSync(f, patched);
   record(
@@ -851,10 +854,21 @@ function budgetEnv(items) {
   const d = mkenv(items);
   const html = path.join(d, 'codex.html');
   const api = path.join(d, 'api');
-  fs.copyFileSync(FRESH_HTML || path.join(ROOT, 'codex.html'), html);
+  const page = FRESH_HTML || path.join(ROOT, 'codex.html');
+  fs.copyFileSync(page, html);
   fs.mkdirSync(api);
   for (const f of ['browse_boot.json', 'engine.json'])
     fs.copyFileSync(path.join(FRESH_API || path.join(ROOT, 'api'), f), path.join(api, f));
+  // The Library's budgets (on by default) read its chunks beside the page, as
+  // the build wrote them, and the catalog its shelves path adds.
+  const chunks = path.join(path.dirname(page), 'library', 'code');
+  if (fs.existsSync(chunks))
+    fs.cpSync(chunks, path.join(d, 'library', 'code'), { recursive: true });
+  const catalog = path.join(ROOT, 'library', 'data', 'catalog.json');
+  if (fs.existsSync(catalog)) {
+    fs.mkdirSync(path.join(d, 'library', 'data'), { recursive: true });
+    fs.copyFileSync(catalog, path.join(d, 'library', 'data', 'catalog.json'));
+  }
   const args = ['scripts/check_payload_budget.js', `--html=${html}`, `--api=${api}`];
   const baseline = gate(d, args);
   if (baseline.code !== 0) return { d, over: baseline };
@@ -892,6 +906,10 @@ function incompressible(tag, n) {
   return Buffer.concat(chunks).subarray(0, n).toString('base64');
 }
 const OVER = 32 * 1024;
+// The lazy page's preload scripts, as build_html.js --check counts them: the
+// engine's alone, or with the Library (on unless CODEX_LIBRARY=0) the boot
+// index's, the engine's and the Library's.
+const PRELOAD_SCRIPTS = process.env.CODEX_LIBRARY === '0' ? 1 : 3;
 
 // 9t. page-over-budget: the lazy page growing back — a table inline again, a
 //     runtime module, a comment. The plant is a comment before the last
@@ -1075,7 +1093,9 @@ if (want('9z', 'preload-by-script')) {
   record(
     'preload-by-script -> build_html.js --check',
     gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
-    /2 <script> block\(s\) in a lazy page name "preload"/
+    new RegExp(
+      `${PRELOAD_SCRIPTS + 1} <script> block\\(s\\) in a lazy page name "preload"; want ${PRELOAD_SCRIPTS}`
+    )
   );
 }
 
@@ -1270,7 +1290,9 @@ if (want('9zi', 'engine-preload-dropped')) {
   record(
     'engine-preload-dropped -> build_html.js --check',
     gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
-    /0 <script> block\(s\) in a lazy page name "preload"; want 1/
+    new RegExp(
+      `${PRELOAD_SCRIPTS - 1} <script> block\\(s\\) in a lazy page name "preload"; want ${PRELOAD_SCRIPTS}`
+    )
   );
 }
 
