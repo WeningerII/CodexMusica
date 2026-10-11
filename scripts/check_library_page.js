@@ -660,10 +660,7 @@ const SECTIONS = {
     await analyze.click();
     await page
       .waitForFunction(
-        () =>
-          /running|queued|progress|analys/i.test(
-            document.querySelector('#surface-library')?.innerText || ''
-          ),
+        () => /running/i.test(document.querySelector('#surface-library')?.innerText || ''),
         null,
         { timeout: 10000 }
       )
