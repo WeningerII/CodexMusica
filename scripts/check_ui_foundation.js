@@ -92,7 +92,7 @@
 
 'use strict';
 /* global document, window, openPrefaceModal, renderPrefaceModalBody, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync, Catalog, INSTRUMENTS, normalizeSearch, renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery, computeDistance */
-/* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES, uiAddGenre, Engine, CMLibraryImport */
+/* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES, uiAddGenre, Engine */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -359,39 +359,49 @@ async function loadDelta(page) {
       });
       check(empty >= 2, 'J. a new session shows no empty recipe state with its actions');
 
-      // K. the Library link. The Library is its own site; Main sections links
-      // to the one origin the Library-to-Lyrics import trusts, in a new tab,
-      // so the session here is never navigated away.
-      stage = 'K. the Library link.';
+      // K. the Library route. The Library is a section of the site like the
+      // others: a Main sections button, no link to another website, and its
+      // page draws inside this document under the site's own header.
+      stage = 'K. the Library route.';
+      const links = await page.evaluate(() =>
+        [...document.querySelectorAll('.ui-header nav a')].map((a) => a.href)
+      );
+      check(!links.length, `K. Main sections links away: ${links.join(', ')}`);
+      await page.click('.ui-header nav button[data-view="library"]');
+      await page
+        .waitForFunction(
+          () => UI.view === 'library' && !!document.querySelector('#surface-library .lib-shell'),
+          null,
+          { timeout: 10000 }
+        )
+        .catch(() => {});
       const library = await page.evaluate(() => {
-        const a = document.querySelector('.ui-header nav a.ui-nav-link');
-        return (
-          a && {
-            href: a.href,
-            target: a.target,
-            rel: a.rel,
-            name: a.getAttribute('aria-label'),
-            label: a.textContent.trim(),
-            shown: a.getClientRects().length > 0,
-            origin: CMLibraryImport.SITE_ORIGIN,
-          }
-        );
+        const b = document.querySelector('.ui-header nav button[data-view="library"]');
+        const surface = document.getElementById('surface-library');
+        return {
+          view: UI.view,
+          hash: location.hash,
+          label: b && b.textContent.trim(),
+          frames: surface ? surface.querySelectorAll('iframe').length : -1,
+          shown: !!surface && !surface.hidden && surface.getClientRects().length > 0,
+        };
       });
-      check(library, 'K. Main sections has no Library link');
-      if (library) {
-        check(
-          library.href === library.origin + '/',
-          `K. the Library link goes to ${library.href}, not ${library.origin}/`
-        );
-        check(
-          library.target === '_blank' && /\bnoopener\b/.test(library.rel),
-          `K. the Library link must open a new tab with noopener (target ${library.target}, rel ${library.rel})`
-        );
-        check(
-          library.label === 'Library' && /new tab/.test(library.name || '') && library.shown,
-          `K. the Library link is not a visible, named Library entry (${library.label} / ${library.name})`
-        );
-      }
+      check(
+        library.view === 'library' &&
+          /^#library/.test(library.hash) &&
+          library.label === 'Library' &&
+          library.shown &&
+          library.frames === 0,
+        `K. the Library button did not open the in-page Library route (${JSON.stringify(library)})`
+      );
+      await page.click('.ui-header nav button[data-view="genre"]');
+      await page
+        .waitForFunction(() => UI.view === 'genre', null, { timeout: 10000 })
+        .catch(() => {});
+      check(
+        (await page.evaluate(() => UI.view)) === 'genre',
+        'K. leaving the Library for Genre did not return to Genre'
+      );
 
       // B. the setting.
       stage = 'B. the setting.';
