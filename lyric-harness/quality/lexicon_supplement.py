@@ -171,6 +171,130 @@ def file_sha256(path=SUPPLEMENT_PATH):
 
 
 # ---------------------------------------------------------------------------
+# Versions: what a run declares, and what a saved run keeps.
+# ---------------------------------------------------------------------------
+#
+# A VERSION IS A FROZEN FILE NAMED IN data/lexicon_supplement_versions.json.
+# A run declares one by id (`--lexicon-supplement=v1`) or declares `none`
+# (CMUdict alone), and its record keeps the id AND the file's sha256. A new
+# batch is a new version with a new file; an old version's file is never
+# edited, so a saved run reads tomorrow exactly what it read today. When the
+# declared id is unknown, its file is missing, or its bytes are not the ones
+# the manifest (or the saved run) names, the run is REFUSED: no version is
+# ever substituted for another, the newest least of all.
+
+VERSIONS_PATH = os.path.join(ROOT, "data", "lexicon_supplement_versions.json")
+#: What the bare `--lexicon-supplement` flag (#522's spelling) names.
+BARE_FLAG_VERSION = "v1"
+#: The declared absence of a supplement: CMUdict alone, as `Lexicon()` reads.
+NONE = "none"
+UNAVAILABLE = "LEXICON_SUPPLEMENT_UNAVAILABLE"
+_VERSION_ID = re.compile(r"v[1-9][0-9]*")
+_SHA256 = re.compile(r"[0-9a-f]{64}")
+
+
+class SupplementUnavailable(SupplementError):
+    """A declared version this build cannot serve byte for byte."""
+
+
+def load_versions(path=VERSIONS_PATH):
+    """-> the validated manifest: {"default": id, "versions": [row, ...]}.
+
+    Raises `SupplementError` naming the broken field. Checks the manifest
+    only; `resolve_version` checks a version's file against it."""
+    import json
+    with open(path, encoding="utf-8") as fh:
+        manifest = json.load(fh)
+    if not isinstance(manifest, dict) or manifest.get("version") != 1:
+        raise SupplementError(f"{path}: manifest version must be 1")
+    rows = manifest.get("versions")
+    if not isinstance(rows, list) or not rows:
+        raise SupplementError(f"{path}: `versions` must be a non-empty list")
+    ids, paths = set(), set()
+    for row in rows:
+        vid = row.get("id") if isinstance(row, dict) else None
+        if not isinstance(vid, str) or not _VERSION_ID.fullmatch(vid):
+            raise SupplementError(f"{path}: version id {vid!r} is not v<N>")
+        rel = row.get("path")
+        if (not isinstance(rel, str) or not rel.startswith("data/")
+                or ".." in rel.split("/") or not rel.endswith(".tsv")):
+            raise SupplementError(f"{path}: {vid}: path {rel!r} is not a data/*.tsv file")
+        if not isinstance(row.get("sha256"), str) or not _SHA256.fullmatch(row["sha256"]):
+            raise SupplementError(f"{path}: {vid}: sha256 is not 64 lowercase hex")
+        if not isinstance(row.get("rows"), int) or row["rows"] < 1:
+            raise SupplementError(f"{path}: {vid}: rows must be a positive count")
+        if vid in ids or rel in paths:
+            raise SupplementError(f"{path}: {vid}: id or path listed twice")
+        ids.add(vid)
+        paths.add(rel)
+    if manifest.get("default") not in ids:
+        raise SupplementError(f"{path}: default {manifest.get('default')!r} "
+                              "is not a listed version")
+    return manifest
+
+
+def canonical_version(spec):
+    """-> the declared version as the record keeps it: `none` for no
+    supplement, `BARE_FLAG_VERSION` for the bare flag (True), else the id."""
+    if spec is None or spec is False or spec == NONE:
+        return NONE
+    if spec is True:
+        return BARE_FLAG_VERSION
+    return spec
+
+
+def resolve_version(spec, expected_sha256=None, versions_path=VERSIONS_PATH):
+    """-> None for `none` (CMUdict alone), else the manifest row of the
+    declared version, with `abspath` added, once its file is proved to be
+    the bytes the manifest -- and `expected_sha256`, a saved run's record,
+    when given -- names. Anything else raises `SupplementUnavailable`."""
+    vid = canonical_version(spec)
+    if vid == NONE:
+        if expected_sha256 is not None:
+            raise SupplementUnavailable(
+                f"{UNAVAILABLE}: a supplement sha256 was declared with no "
+                "supplement version; declare the version it belongs to")
+        return None
+    manifest = load_versions(versions_path)
+    shipped = [r["id"] for r in manifest["versions"]]
+    row = next((r for r in manifest["versions"] if r["id"] == vid), None)
+    if row is None:
+        raise SupplementUnavailable(
+            f"{UNAVAILABLE}: supplement version {vid!r} is not one this build "
+            f"ships (it ships: {', '.join(shipped)}; or `{NONE}`). A saved run "
+            "is never moved to another version: keep its draft and start a new "
+            "run under a shipped one.")
+    if expected_sha256 is not None and expected_sha256 != row["sha256"]:
+        raise SupplementUnavailable(
+            f"{UNAVAILABLE}: the run was graded under supplement {vid} with "
+            f"sha256 {expected_sha256}, and this build's {vid} is "
+            f"{row['sha256']}. The run's basis cannot be served; keep its draft "
+            "and start a new run.")
+    abspath = os.path.join(os.path.dirname(os.path.abspath(versions_path)), "..",
+                           row["path"])
+    abspath = os.path.normpath(abspath)
+    try:
+        actual = file_sha256(abspath)
+    except OSError as error:
+        raise SupplementUnavailable(
+            f"{UNAVAILABLE}: supplement {vid}'s file {row['path']} cannot be "
+            f"read ({error.strerror or error})") from error
+    if actual != row["sha256"]:
+        raise SupplementUnavailable(
+            f"{UNAVAILABLE}: supplement {vid}'s file {row['path']} hashes to "
+            f"{actual}, not the {row['sha256']} its manifest row names. A "
+            "shipped version is frozen; an edit is a new version.")
+    return dict(row, abspath=abspath)
+
+
+def lexicon_identity(lex):
+    """-> {"supplement_id", "sha256"}: the supplement a lexicon reads, or
+    null/null for CMUdict alone. What every lyric result reports."""
+    return {"supplement_id": getattr(lex, "supplement_id", None),
+            "sha256": getattr(lex, "supplement_sha256", None)}
+
+
+# ---------------------------------------------------------------------------
 # Number compounds: the one rule-generated batch.
 # ---------------------------------------------------------------------------
 
@@ -280,11 +404,39 @@ def _bare(key):
     return key.strip("'")
 
 
+def _version_of(path, sha256):
+    """-> the shipped version id whose file and bytes these are, or None."""
+    try:
+        manifest = load_versions()
+    except (OSError, ValueError):
+        return None
+    here = os.path.normpath(os.path.abspath(path))
+    for row in manifest["versions"]:
+        if (row["sha256"] == sha256
+                and os.path.normpath(os.path.join(ROOT, row["path"])) == here):
+            return row["id"]
+    return None
+
+
 class SupplementedLexicon(LH.Lexicon):
     """`Lexicon` plus the reviewed supplement. See the module docstring."""
 
     def __init__(self, fallback=None, strip_parens=True, pronunciations=None,
-                 supplement_path=SUPPLEMENT_PATH):
+                 supplement_path=None, version=None, expected_sha256=None):
+        # A declared VERSION names its frozen file and is proved against the
+        # manifest (and a saved run's sha256) before a row is read. A bare
+        # path is the test seam; the shipped default path is version v1.
+        if version is not None:
+            if supplement_path is not None:
+                raise TypeError("declare a supplement version or a path, not both")
+            vrow = resolve_version(version, expected_sha256)
+            if vrow is None:
+                raise SupplementUnavailable(
+                    f"{UNAVAILABLE}: version `{NONE}` reads no supplement; "
+                    "build `Lexicon` instead")
+            supplement_path = vrow["abspath"]
+        elif supplement_path is None:
+            supplement_path = SUPPLEMENT_PATH
         # Declared readings are validated AFTER the supplement joins, so a
         # `basis: dictionary` reading of a supplement word is recognised.
         super().__init__(fallback=fallback, strip_parens=strip_parens,
@@ -307,6 +459,8 @@ class SupplementedLexicon(LH.Lexicon):
         self.supplement_path = supplement_path
         self.supplement_sha256 = file_sha256(supplement_path)
         self.supplement_rows = len(rows)
+        self.supplement_id = (vrow["id"] if version is not None
+                              else _version_of(supplement_path, self.supplement_sha256))
         self._reading_sources = sources
         if pronunciations is not None:
             from quality.pronunciation import validate_choices
@@ -314,6 +468,7 @@ class SupplementedLexicon(LH.Lexicon):
 
     def declaration_line(self):
         return (f"lexicon: cmudict + reviewed supplement "
+                f"{self.supplement_id or 'unversioned'} "
                 f"({self.supplement_rows} readings, sha256 "
                 f"{self.supplement_sha256[:12]})")
 
@@ -478,9 +633,34 @@ def main(argv=None):
           f"{len(differ)} differ")
     for word, cmu, rule in differ:
         print(f"  {word}: CMUdict {' '.join(cmu)} | rule {' '.join(rule)}")
+    if a.path == SUPPLEMENT_PATH:
+        problems += version_problems()
     for p in problems:
         print(f"PROBLEM: {p}")
     return 1 if problems else 0
+
+
+def version_problems(versions_path=VERSIONS_PATH):
+    """-> [problem strings]: every shipped version must resolve byte for byte,
+    load under the row contract, and hold the row count its manifest names."""
+    try:
+        manifest = load_versions(versions_path)
+    except (OSError, ValueError) as error:
+        return [f"versions manifest: {error}"]
+    problems = []
+    for row in manifest["versions"]:
+        try:
+            got = resolve_version(row["id"], versions_path=versions_path)
+            n = len(load_rows(got["abspath"]))
+        except SupplementError as error:
+            problems.append(str(error))
+            continue
+        if n != row["rows"]:
+            problems.append(f"{row['id']}: manifest says {row['rows']} rows, "
+                            f"its file holds {n}")
+        print(f"version {row['id']}{' (default)' if row['id'] == manifest['default'] else ''}: "
+              f"{row['path']} sha256 {row['sha256']} -- {n} readings")
+    return problems
 
 
 if __name__ == "__main__":

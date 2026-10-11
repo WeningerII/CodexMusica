@@ -31,7 +31,8 @@ test('connector exposes the same bounded occurrence declaration on all draft rea
   }
 });
 test('argv preserves exact JSON; continuation rejects altered declarations', () => {
-  const args = { pronunciations };
+  // `none`: CMUdict alone, so no supplement flags lead (lexicon_basis.js).
+  const args = { pronunciations, lexicon_supplement: 'none' };
   assert.deepEqual(_argvInternals.globalsFor(args), [
     `--pronunciations=${JSON.stringify(pronunciations)}`,
   ]);
