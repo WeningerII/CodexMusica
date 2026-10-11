@@ -382,6 +382,7 @@ import {
   surfaceDrift,
   initializationDrift,
   readinessDrift,
+  libraryDrift,
   parseLiveArguments,
 } from './check_live.mjs';
 import { expectedRenderConfig, configDrift } from './runtime_config.js';
@@ -780,4 +781,30 @@ test('edit_recipe refuses an undeclared edit field on every server', async () =>
     await client.close();
     await shared.close();
   }
+});
+
+test('a production deploy is verified with the Library stores loaded, not merely configured', () => {
+  const library = {
+    search_ready: true,
+    snapshot_id: 'a'.repeat(64),
+    counts: { units: 3, readable: 2 },
+    _http_status: 200,
+  };
+  const health = { library: { state: 'ready', failures: [] } };
+  assert.deepEqual(libraryDrift(library, health), []);
+  for (const patch of [
+    { search_ready: false },
+    { snapshot_id: null },
+    { counts: null },
+    { counts: { units: 3, readable: 0 } },
+    { _http_status: 503 },
+  ])
+    assert.equal(libraryDrift({ ...library, ...patch }, health).length, 1, JSON.stringify(patch));
+  for (const state of [
+    { state: 'not_loaded', failures: [] },
+    { state: 'failed', failures: ['exports'] },
+    { state: 'absent', failures: [] },
+    undefined,
+  ])
+    assert.equal(libraryDrift(library, { library: state }).length, 1, JSON.stringify(state));
 });

@@ -338,8 +338,13 @@ class CapacityOracle(unittest.TestCase):
                     lazy_bridge_verified=True, errors=[], probe_count=6, replays=2, catalog_reads=2,
                     concurrent_replays=1, startup_s=3., recovery_s=11., peak_rss_mib=800.,
                     node_version='v22.23.2', receipts={'bytes':238.,'max_bytes':256.,'max_record_bytes':18.},
-                    run_store=retained_runs(),queue_pressure=queue_rows(),queue_measurements=queue_measurements())
+                    run_store=retained_runs(),queue_pressure=queue_rows(),queue_measurements=queue_measurements(),
+                    library={'configured':True,'state':'ready','failures':[],'search_ready':True,'load_s':1.},
+                    library_recovery={'configured':True,'state':'ready','failures':[],'search_ready':True,'load_s':1.})
         self.assertEqual(runtime_evidence_failures(good), [])
+        unconfigured=copy.deepcopy(good)
+        unconfigured['library']=unconfigured['library_recovery']={'configured':False,'state':'absent','failures':[],'search_ready':False,'load_s':0.}
+        self.assertEqual(runtime_evidence_failures(unconfigured), [])
         for patch in ({'lazy_bridge_verified':False},{'startup_ok':False},{'recovery_ok':False},
                       {'concurrent_replays':0},{'peak_rss_mib':None},{'peak_rss_mib':float('nan')},
                       {'startup_s':float('nan')},{'recovery_s':31.},{'signing_key_stable':False},
@@ -347,7 +352,9 @@ class CapacityOracle(unittest.TestCase):
                       {'queue_pressure':{}},{'queue_measurements':{}},
                       {'errors':['resident server died']},{'receipts':{'bytes':1,'max_bytes':256}},
                       {'receipts':{'bytes':238.,'max_bytes':256.}},
-                      {'receipts':{'bytes':220.,'max_bytes':256.,'max_record_bytes':18.}}):
+                      {'receipts':{'bytes':220.,'max_bytes':256.,'max_record_bytes':18.}},
+                      {'library':{'configured':True,'state':'failed','failures':['search'],'search_ready':False}},
+                      {'library_recovery':{'configured':True,'state':'not_loaded','failures':[],'search_ready':False}}):
             broken=copy.deepcopy(good); broken.update(patch)
             self.assertTrue(runtime_evidence_failures(broken), patch)
         self.assertTrue(runtime_evidence_failures({}))

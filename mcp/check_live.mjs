@@ -125,6 +125,31 @@ async function liveSurface(url) {
   }
 }
 
+// The Library's stores load on first use (mcp/server_http.js), never at
+// startup, so a deploy verified only against /health would pass with them
+// configured but never loaded. Asking /library/v1/health IS that first use on
+// the deployed process; /health read after it must then say every configured
+// store loaded. Checked on the production-image path (--image-manifest).
+export function libraryDrift(library, health) {
+  const drift = [];
+  if (
+    (library?._http_status != null && library._http_status !== 200) ||
+    library?.search_ready !== true ||
+    !/^[a-f0-9]{64}$/.test(library.snapshot_id || '') ||
+    !(library.counts?.readable > 0)
+  )
+    drift.push({ tool: '/library/v1/health', what: 'the Library search store is not ready' });
+  const state = health?.library;
+  if (state?.state !== 'ready' || (state.failures || []).length)
+    drift.push({
+      tool: '/health',
+      what:
+        `the Library stores are not all loaded (${state?.state ?? 'unreported'}` +
+        `${state?.failures?.length ? `: ${state.failures.join(', ')}` : ''})`,
+    });
+  return drift;
+}
+
 export function readinessDrift(ready, { expected = null, status = null } = {}) {
   const drift = [];
   if (
@@ -215,6 +240,8 @@ async function main() {
         what: `tested image build.${key} differs`,
       }))
     );
+    const library = await endpointJson(url, '/library/v1/health', { allowFailure: true });
+    drift.push(...libraryDrift(library, await endpointJson(url, '/health')));
   }
   if (requireReady || configFlag) {
     const ready = await endpointJson(url, '/ready', { allowFailure: true });

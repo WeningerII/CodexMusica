@@ -206,6 +206,10 @@ def runtime_evidence_failures(record, *, local=False, require_concurrent=True):
         failures.append('resident server may have spawned an extra Python worker')
     if record.get('errors'):
         failures.extend(record['errors'])
+    for key in ('library', 'library_recovery'):
+        library = record.get(key) or {}
+        if library.get('configured') and (library.get('state') != 'ready' or library.get('search_ready') is not True):
+            failures.append(f'the configured Library stores were not resident ({key})')
     failures.extend(run_store_evidence_failures(record.get('run_store', {})))
     if any(type(record.get(key)) is not int or record[key] < minimum for key, minimum in (('probe_count', 2), ('replays', 2), ('catalog_reads', 1))):
         failures.append('resident server HTTP traffic/recovery evidence is incomplete')
@@ -431,6 +435,26 @@ class ResidentRuntime:
         self.startup_deadline = None
         self.record['recovery_s' if recovery else 'startup_s'] = time.monotonic() - started
         self.record['recovery_ok' if recovery else 'startup_ok'] = True
+        self.load_library('library_recovery' if recovery else 'library')
+
+    def load_library(self, key):
+        # THE LIBRARY STORES LOAD ON FIRST USE (mcp/server_http.js), never before
+        # listen(), so the startup window above does not include them. This is
+        # that first use, made the moment startup is proved: every measurement
+        # after it runs with the search, export and corpus stores resident, as
+        # production does after its first Library request. Measuring only the
+        # cold process would leave their ~110 MB out of the combined runtime.
+        configured = bool(os.environ.get('LIBRARY_SEARCH_DIR'))
+        started = time.monotonic()
+        library = self.request('GET', '/library/v1/health', timeout=REPLAY_SECONDS)
+        state = self.health().get('library') or {}
+        self.record[key] = {'configured': configured, 'state': state.get('state'),
+                            'failures': state.get('failures'),
+                            'search_ready': library.get('search_ready') is True,
+                            'load_s': time.monotonic() - started}
+        if configured and (state.get('state') != 'ready' or library.get('search_ready') is not True):
+            raise RuntimeError(f"the configured Library stores did not load: {state}")
+        self.sample()
 
     def start(self):
         manifest = self.directory / 'receipts.json'
