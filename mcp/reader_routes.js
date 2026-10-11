@@ -231,6 +231,7 @@ export async function createAnalysisJob({
   viewer,
   idempotencyKey,
   request,
+  definitions = null,
 }) {
   const prepared = await prepareRequest(request);
   const identity = await resolveIdentity(prepared);
@@ -239,6 +240,7 @@ export async function createAnalysisJob({
     idempotency_key: idempotencyKey,
     identity,
     request: prepared,
+    definitions,
   });
   scheduler.kick();
   return result;

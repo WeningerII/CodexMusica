@@ -48,7 +48,7 @@ function dir(t) {
 function scan(store) {
   // The ground truth the counter must equal: every byte the quota covers.
   let total = fs.statSync(path.join(store.directory, 'capability-key')).size;
-  for (const sub of ['records', 'pages', 'indexes', 'checkpoints', 'manifests'])
+  for (const sub of ['records', 'pages', 'indexes', 'checkpoints', 'manifests', 'definitions'])
     for (const name of fs.readdirSync(path.join(store.directory, sub)))
       total += fs.statSync(path.join(store.directory, sub, name)).size;
   return total;
@@ -306,7 +306,7 @@ test('capabilityFor derives the same capability the store authorizes, and never 
 // ── #528 review: interleavings that must never lose live evidence ─────────
 function age(store) {
   const old = new Date(Date.now() - 60_000);
-  for (const sub of ['pages', 'indexes', 'checkpoints', 'manifests'])
+  for (const sub of ['pages', 'indexes', 'checkpoints', 'manifests', 'definitions'])
     for (const f of fs.readdirSync(path.join(store.directory, sub)))
       fs.utimesSync(path.join(store.directory, sub, f), old, old);
   return old;
@@ -727,4 +727,53 @@ test('a mark step defers, unread, an object that would pass the byte bound', (t)
   assert.equal(store._markStep(stack, live, budget, { objects: 10, bytes: 1 << 30 }), true);
   assert.equal(reads, 1);
   assert.ok(budget.bytes > 1);
+});
+
+test('retained definitions: exact bytes, counted, kept while referenced, collected after deletion', (t) => {
+  let now = 1000;
+  const store = new ReaderJobStore({ directory: dir(t), now: () => now });
+  const methods = Buffer.from('{"methods":[1,2,3]}\n');
+  const schema = Buffer.from('{"type":"object"}');
+  const make = (viewer, key) =>
+    store.create({
+      viewer,
+      idempotency_key: key,
+      identity,
+      request: { layers: ['sound'] },
+      definitions: { methods, result_schema: schema },
+    });
+  const a = make('viewer-a', 'k-a');
+  const b = make('viewer-b', 'k-b'); // the same definitions are stored once
+  assert.equal(fs.readdirSync(path.join(store.directory, 'definitions')).length, 2);
+  assert.deepEqual(store.readDefinition(a.record.id, a.capability, 'viewer-a', 'methods'), methods);
+  assert.deepEqual(
+    store.readDefinition(b.record.id, b.capability, 'viewer-b', 'result_schema'),
+    schema
+  );
+  assert.equal(store.usage, scan(store), 'definitions count toward usage');
+  age(store);
+  while (store.maintain(markOnly).phase !== 'idle');
+  assert.equal(
+    fs.readdirSync(path.join(store.directory, 'definitions')).length,
+    2,
+    'kept while referenced'
+  );
+  store.delete(a.record.id, a.capability, 'viewer-a');
+  age(store);
+  while (store.maintain(markOnly).phase !== 'idle');
+  assert.equal(
+    fs.readdirSync(path.join(store.directory, 'definitions')).length,
+    2,
+    'b still holds them'
+  );
+  store.delete(b.record.id, b.capability, 'viewer-b');
+  age(store);
+  while (store.maintain(markOnly).phase !== 'idle');
+  assert.equal(fs.readdirSync(path.join(store.directory, 'definitions')).length, 0, 'collected');
+  assert.equal(store.usage, scan(store));
+  const plain = create(store, 'viewer-c', 'k-c');
+  assert.equal(
+    store.readDefinition(plain.record.id, plain.capability, 'viewer-c', 'methods'),
+    null
+  );
 });

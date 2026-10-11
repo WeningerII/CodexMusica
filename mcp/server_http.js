@@ -21,6 +21,7 @@ import { CONNECTOR_VERSION } from './contract_version.js';
 import compression from 'compression';
 import express from 'express';
 import path from 'node:path';
+import { readFileSync } from 'node:fs';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
@@ -44,7 +45,7 @@ import { LibrarySearch } from './library_search.js';
 import { libraryPublicRouter, redactLibraryUrl } from './library_routes.js';
 import { libraryViewerRouter, isViewerPath } from './library_viewer_routes.js';
 import { ExportStore } from './library_exports.js';
-import { libraryExportRouter } from './library_export_routes.js';
+import { libraryExportRouter, createStreamLimiter } from './library_export_routes.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
@@ -272,6 +273,12 @@ app.use((req, res, next) => {
 const buildIdentity = runtimeBuildIdentity();
 const runtimeDir = (name) =>
   process.env.LYRIC_RUNTIME_DIR ? path.join(process.env.LYRIC_RUNTIME_DIR, name) : null;
+// The resources every new job is pinned to (its identity's resource_fingerprint).
+const readerResourceFingerprint =
+  process.env.READER_RESOURCE_FINGERPRINT ||
+  runtimeAssets().assets_sha256 ||
+  buildIdentity.commit ||
+  'unidentified';
 let readerScheduler;
 let readerStore;
 let readerResolver;
@@ -292,11 +299,7 @@ try {
   readerResolver = createCatalogResolver({
     directory: process.env.READER_CATALOG_DIR,
     engineCommit: buildIdentity.commit,
-    resourceFingerprint:
-      process.env.READER_RESOURCE_FINGERPRINT ||
-      runtimeAssets().assets_sha256 ||
-      buildIdentity.commit ||
-      'unidentified',
+    resourceFingerprint: readerResourceFingerprint,
   });
   const readerCatalog = await readerResolver.probe();
   readerScheduler = new ReaderScheduler({
@@ -367,7 +370,22 @@ if (process.env.LIBRARY_EXPORT_DIR) {
     console.error('[library] the export store is unusable; exports answer 503:', error.message);
   }
 }
-app.use('/library/v1', libraryExportRouter({ exports: libraryExports }));
+// One download limiter for selection and analysis exports (decision 4).
+const libraryStreams = createStreamLimiter();
+app.use('/library/v1', libraryExportRouter({ exports: libraryExports, streams: libraryStreams }));
+// Retained definitions: the exact methods and result-schema bytes this image
+// analyses with, copied into each new job so its export never borrows a later
+// image's.
+let libraryDefinitions = null;
+try {
+  const root = new URL('../lyric-harness/library/', import.meta.url);
+  libraryDefinitions = {
+    methods: readFileSync(new URL('methods.json', root)),
+    result_schema: readFileSync(new URL('schema.json', root)),
+  };
+} catch (error) {
+  console.error('[library] retained definitions are unavailable:', error.message);
+}
 // Public analysis: only with LIBRARY_PUBLIC=1, a running reader and the
 // search store, whose snapshot is the one every request is filled with.
 // Mounted before the public router, whose refusals would otherwise answer.
@@ -382,6 +400,10 @@ if (process.env.LIBRARY_PUBLIC === '1') {
         resolveIdentity: readerResolver.resolveIdentity,
         unitOf: (id) => librarySearch.unit(id),
         snapshotId: () => librarySearch.snapshotId,
+        exports: libraryExports,
+        streams: libraryStreams,
+        definitions: () => libraryDefinitions,
+        resourceFingerprint: () => readerResourceFingerprint,
       })
     );
   } else {

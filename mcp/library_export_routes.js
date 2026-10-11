@@ -22,15 +22,51 @@ const IDLE_MS = 60_000;
 const ID = /^reading_[A-Za-z0-9_-]+$/;
 const CONTENT = /^[a-f0-9]{64}$/;
 
+/**
+ * Concurrent download streams, shared by selection and analysis exports:
+ * at most 2 per address and 4 service-wide (decision 4). acquire() throws a
+ * 429 ExportError or returns an idempotent release.
+ */
+export function createStreamLimiter() {
+  const counts = { global: 0, byIp: new Map() };
+  return {
+    acquire(ip) {
+      const mine = counts.byIp.get(ip) || 0;
+      if (
+        mine >= LIBRARY_LIMITS.exportStreamsPerIp ||
+        counts.global >= LIBRARY_LIMITS.exportStreamsGlobal
+      )
+        throw exportError(
+          'RATE_LIMITED',
+          'Too many downloads are running; retry shortly.',
+          429,
+          'Retry after the time in Retry-After.',
+          { retryAfter: 10_000 }
+        );
+      counts.global++;
+      counts.byIp.set(ip, mine + 1);
+      let released = false;
+      return () => {
+        if (released) return;
+        released = true;
+        counts.global--;
+        const n = (counts.byIp.get(ip) || 1) - 1;
+        if (n) counts.byIp.set(ip, n);
+        else counts.byIp.delete(ip);
+      };
+    },
+  };
+}
+
 export function libraryExportRouter({
   exports: store,
+  streams = createStreamLimiter(),
   windows = new Windows(),
   ipOf = clientIp,
   now = Date.now,
 }) {
   const router = express.Router();
   const plans = new Map(); // content_id -> {ids, format, at}; insertion order = LRU
-  const streams = { global: 0, byIp: new Map() };
   const remember = (cid, plan) => {
     plans.delete(cid);
     plans.set(cid, plan);
@@ -162,12 +198,9 @@ export function libraryExportRouter({
         `attachment; filename="codex-musica-library-${plan.format}-selection.zip"`
       );
       if (req.method === 'HEAD') return res.status(200).end();
-      const ip = ipOf(req);
-      const mine = streams.byIp.get(ip) || 0;
-      if (
-        mine >= LIBRARY_LIMITS.exportStreamsPerIp ||
-        streams.global >= LIBRARY_LIMITS.exportStreamsGlobal
-      ) {
+      try {
+        release = streams.acquire(ipOf(req));
+      } catch (error) {
         for (const h of [
           'Content-Type',
           'Content-Length',
@@ -175,25 +208,8 @@ export function libraryExportRouter({
           'Content-Disposition',
         ])
           res.removeHeader(h);
-        throw exportError(
-          'RATE_LIMITED',
-          'Too many downloads are running; retry shortly.',
-          429,
-          'Retry after the time in Retry-After.',
-          { retryAfter: 10_000 }
-        );
+        throw error;
       }
-      streams.global++;
-      streams.byIp.set(ip, mine + 1);
-      let released = false;
-      release = () => {
-        if (released) return;
-        released = true;
-        streams.global--;
-        const n = (streams.byIp.get(ip) || 1) - 1;
-        if (n) streams.byIp.set(ip, n);
-        else streams.byIp.delete(ip);
-      };
       const worker = new Worker(new URL('./library_export_worker.js', import.meta.url), {
         workerData: { directory: s.directory, layout, format: plan.format, snapshot: s.snapshotId },
       });

@@ -126,6 +126,20 @@ mount only `/internal/reader`, and these routes mount only with
   viewer; cookie mints 30/h per address; and at most one long-reading job
   (more than 5,000 lines) queued or running service-wide (429
   `LONG_READING_BUSY`). Every refusal is 429 with `Retry-After`.
+- **Analysis exports.** `HEAD`/`GET /jobs/:id/exports/:manifest_sha.zip`
+  (`codex-musica-library-analysis-<sha12>.zip`): the reading's own entries,
+  byte-identical to a JSON selection of that unit, then `PROVENANCE.json`
+  (scope `whole_reading_unit_analysis`, the job's snapshot and manifest hash),
+  `ATTRIBUTION.txt` and `ANALYSIS/` (`MANIFEST.json`, `REQUEST.json`,
+  `METHODS.json`, `RESULT_SCHEMA.json` and every evidence page, each
+  re-hashed). The methods and result schema are the ones the job ran with: a
+  create retains them in the store (object kind `definitions`, kept live by
+  maintenance like any page). A job created before retention falls back to the
+  image's current definitions only when its `resource_fingerprint` equals the
+  running one, else 409 `EXPORT_DEFINITIONS_UNAVAILABLE`; a reading whose
+  export-store revision differs from the job's is 409 `EXPORT_READING_CHANGED`.
+  Errors are attachments, and the stream shares the selection exports' limiter
+  (2 per address, 4 service-wide) and 60 s idle timeout.
 
 ## Private pull API
 

@@ -16,6 +16,8 @@ import {
   VIEWER_COOKIE,
 } from './library_viewer_routes.js';
 import { LIBRARY_LIMITS } from './ratelimit.js';
+import { ExportStore, buildExportStore, zipChunks } from './library_exports.js';
+import { reading, writeExport, readZip, sha } from './test_library_fixtures.mjs';
 
 const coverage = {
   partial: false,
@@ -35,7 +37,7 @@ const UNITS = {
   held: { availability: 'held', revision: 'rev_held', lines: 10 },
 };
 
-async function setup(t, { now: clock } = {}) {
+async function setup(t, { now: clock, router = {} } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'library-viewer-'));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
   let now = clock ?? 1_000_000;
@@ -49,16 +51,22 @@ async function setup(t, { now: clock } = {}) {
       store,
       scheduler: { kick: () => kicks.push(1) },
       prepareRequest: async (request) => request,
+      // The production identity's fields (reader_scheduler.resolveIdentity).
       resolveIdentity: async (r) => ({
-        snapshot: r.snapshot_id,
-        revision: r.reading_revision,
-        engine: 'e',
-        declarations: 'none',
+        contract_version: 1,
+        snapshot_id: r.snapshot_id,
+        reading_unit_id: r.reading_unit_id,
+        reading_revision: r.reading_revision,
+        engine_commit: 'engine-1',
+        resource_fingerprint: 'fp-1',
+        declaration_hash: 'none',
+        requested_layers: r.requested_layers,
       }),
       unitOf: (id) => UNITS[id] ?? null,
       snapshotId: () => 'a'.repeat(64),
       ipOf: (req) => req.headers['x-test-ip'] || 'ip-1',
       now: () => now,
+      ...router,
     })
   );
   const server = http.createServer(app);
@@ -86,6 +94,11 @@ async function setup(t, { now: clock } = {}) {
     };
     return {
       call,
+      base,
+      headers: () => ({
+        'x-test-ip': ip,
+        ...(cookie ? { cookie: `${VIEWER_COOKIE}=${cookie}` } : {}),
+      }),
       get cookie() {
         return cookie;
       },
@@ -122,7 +135,7 @@ test('POST mints the HttpOnly cookie, the job carries no capability, reads slide
   assert.equal('capability' in created.body, false);
   assert.equal(JSON.stringify(created.body).includes('capability'), false);
   assert.equal(
-    created.body.job.identity.snapshot,
+    created.body.job.identity.snapshot_id,
     'a'.repeat(64),
     'the server filled its snapshot'
   );
@@ -346,4 +359,154 @@ test('job reads: 600 a minute per address', async (t) => {
   assert.equal((await a.call('GET', `/jobs/${id}`)).status, 429);
   advance(60_000);
   assert.equal((await a.call('GET', `/jobs/${id}`)).status, 200);
+});
+
+// ── analysis exports ──────────────────────────────────────────────────────
+function exportStoreOf(t, revision = 'rev_short') {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'library-analysis-export-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  writeExport(path.join(root, 'export'), [
+    reading('short', { revision }),
+    reading('other', { revision: 'rev_other' }),
+  ]);
+  buildExportStore(path.join(root, 'export'), path.join(root, 'store'));
+  return new ExportStore(path.join(root, 'store'));
+}
+const METHODS = Buffer.from('{"methods":"as analysed"}\n');
+const SCHEMA = Buffer.from('{"schema":"as analysed"}\n');
+async function completedJob(env, browser, unit = 'short') {
+  const id = (await browser.analyse(unit)).body.job.id;
+  const lease = env.store.lease(id);
+  env.store.commitCheckpoint(lease.id, lease.attempt, lease.fence, {
+    cursor: { phase: 'done', done: true },
+    pages: [
+      { instances: [{ id: 'e1', verdict: true }] },
+      { instances: [{ id: 'e2', verdict: false }] },
+    ],
+    progress: { candidates: 2 },
+    coverage,
+  });
+  env.store.complete(lease.id, lease.attempt, lease.fence, {
+    exhausted: true,
+    census_reconciled: true,
+    coverage,
+    summary: {
+      coverage,
+      counters: { evidence_records: 2 },
+      methods: [{ method_id: 'sound', coverage: 'answered' }],
+    },
+    provider_calls: 0,
+  });
+  return (await browser.call('GET', `/jobs/${id}`)).body.job;
+}
+async function download(browser, job) {
+  const res = await fetch(browser.base + `/jobs/${job.id}/exports/${job.manifest_hash}.zip`, {
+    headers: browser.headers(),
+  });
+  return { res, bytes: Buffer.from(await res.arrayBuffer()) };
+}
+
+test('an analysis export: the reading byte-identical to a json selection, then provenance and ANALYSIS/', async (t) => {
+  const exports = exportStoreOf(t);
+  let definitions = { methods: METHODS, result_schema: SCHEMA };
+  const env = await setup(t, {
+    router: { exports, definitions: () => definitions, resourceFingerprint: () => 'fp-1' },
+  });
+  const a = env.browser();
+  const job = await completedJob(env, a);
+  definitions = { methods: Buffer.from('{"methods":"a later image"}'), result_schema: SCHEMA };
+  const head = await fetch(a.base + `/jobs/${job.id}/exports/${job.manifest_hash}.zip`, {
+    method: 'HEAD',
+    headers: a.headers(),
+  });
+  assert.equal(head.status, 200);
+  const { res, bytes } = await download(a, job);
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get('cache-control'), 'private, no-store');
+  assert.equal(bytes.length, Number(head.headers.get('content-length')));
+  const entries = readZip(bytes);
+  const names = entries.map((e) => e.name);
+  const selection = readZip(
+    Buffer.concat([
+      ...zipChunks(
+        exports.directory,
+        exports.layout(['short'], 'json'),
+        'json',
+        exports.snapshotId
+      ),
+    ])
+  ).filter((e) => !['PROVENANCE.json', 'ATTRIBUTION.txt'].includes(e.name));
+  assert.deepEqual(
+    entries.slice(0, selection.length).map((e) => [e.name, sha(e.data)]),
+    selection.map((e) => [e.name, sha(e.data)]),
+    "the reading entries are exactly the selection export's"
+  );
+  assert.deepEqual(names.slice(selection.length), [
+    'PROVENANCE.json',
+    'ATTRIBUTION.txt',
+    'ANALYSIS/MANIFEST.json',
+    'ANALYSIS/REQUEST.json',
+    'ANALYSIS/METHODS.json',
+    'ANALYSIS/RESULT_SCHEMA.json',
+    'ANALYSIS/EVIDENCE/00000000.json',
+    'ANALYSIS/EVIDENCE/00000001.json',
+  ]);
+  const byName = Object.fromEntries(entries.map((e) => [e.name, e.data]));
+  const provenance = JSON.parse(byName['PROVENANCE.json']);
+  assert.equal(provenance.scope, 'whole_reading_unit_analysis');
+  assert.equal(provenance.analysis_manifest_hash, job.manifest_hash);
+  assert.equal(provenance.snapshot_id, 'a'.repeat(64), "the job's own snapshot");
+  assert.equal(sha(byName['ANALYSIS/MANIFEST.json']), job.manifest_hash);
+  assert.deepEqual(
+    byName['ANALYSIS/METHODS.json'],
+    METHODS,
+    "the retained definitions, not the later image's"
+  );
+  assert.equal(JSON.parse(byName['ANALYSIS/REQUEST.json']).reading_unit_id, 'short');
+  assert.equal(JSON.parse(byName['ANALYSIS/EVIDENCE/00000001.json']).instances[0].id, 'e2');
+});
+
+test('analysis export refusals are attachments: changed reading, missing definitions, another viewer', async (t) => {
+  const changed = await setup(t, {
+    router: { exports: exportStoreOf(t, 'rev_newer'), resourceFingerprint: () => 'fp-1' },
+  });
+  const a = changed.browser();
+  const job = await completedJob(changed, a);
+  const refused = await download(a, job);
+  assert.equal(refused.res.status, 409);
+  assert.equal(
+    refused.res.headers.get('content-disposition'),
+    'attachment; filename="library-download-error.txt"'
+  );
+  assert.equal(JSON.parse(refused.bytes).error.code, 'EXPORT_READING_CHANGED');
+
+  // A job created without retained definitions: allowed only on the same fingerprint.
+  let fingerprint = 'fp-other';
+  let current = null; // none when the job is created
+  const env = await setup(t, {
+    router: {
+      exports: exportStoreOf(t),
+      definitions: () => current,
+      resourceFingerprint: () => fingerprint,
+    },
+  });
+  const b = env.browser();
+  const bare = await completedJob(env, b);
+  current = { methods: METHODS, result_schema: SCHEMA };
+  const unavailable = await download(b, bare);
+  assert.equal(unavailable.res.status, 409);
+  assert.equal(JSON.parse(unavailable.bytes).error.code, 'EXPORT_DEFINITIONS_UNAVAILABLE');
+  fingerprint = 'fp-1'; // the job's own fingerprint: the current definitions are the ones it ran with
+  const allowed = await download(b, bare);
+  assert.equal(allowed.res.status, 200);
+  assert.deepEqual(
+    readZip(allowed.bytes).find((e) => e.name === 'ANALYSIS/METHODS.json').data,
+    METHODS
+  );
+  const other = await download(env.browser(), bare);
+  assert.equal(other.res.status, 404);
+  assert.equal(
+    other.res.headers.get('content-disposition'),
+    'attachment; filename="library-download-error.txt"'
+  );
 });

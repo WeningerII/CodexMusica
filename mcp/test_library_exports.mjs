@@ -3,91 +3,17 @@
 // synthetic export. Byte parity with the Worker's own ZIPs on 317c is the
 // golden replay (test_library_exports_parity.mjs, library-site.yml).
 import assert from 'node:assert/strict';
-import crypto from 'node:crypto';
 import fs from 'node:fs';
 import http from 'node:http';
 import os from 'node:os';
 import path from 'node:path';
-import zlib from 'node:zlib';
 import { test } from 'node:test';
 import express from 'express';
 import { ExportStore, buildExportStore, contentId, zipChunks } from './library_exports.js';
 import { libraryExportRouter } from './library_export_routes.js';
 
-const sha = (b) => crypto.createHash('sha256').update(b).digest('hex');
-const NOTICE = 'A notice that must travel.';
-const SOURCE_TEXT = 'The whole original source.\n';
-const SOURCE_SHA = sha(SOURCE_TEXT);
+import { sha, NOTICE, SOURCE_SHA, reading, writeExport } from './test_library_fixtures.mjs';
 
-function reading(id, { revision = `rev_${id}`, text = 'line one\nline two' } = {}) {
-  const lines = text.split('\n').map((row, i) => ({
-    id: `line_${id}_${i}`,
-    physical_line: i + 1,
-    analysis_line: i + 1,
-    kind: 'lyric',
-    text: row,
-    source_text: row,
-  }));
-  return {
-    reading_unit_id: id,
-    reading_revision: revision,
-    work_id: `work_${id}`,
-    edition_id: `ed_${id}`,
-    title: `Title, "${id}"`,
-    language: 'eng',
-    source_path: `corpus/${id}.txt`,
-    source_sha256: SOURCE_SHA,
-    contributors: [{ role: 'author', name: 'Anon' }],
-    rights: {
-      basis: 'public domain',
-      notices: [{ sha256: sha(NOTICE), text: NOTICE, scope: 'all' }],
-    },
-    source_marks: [{ physical_line: 1, name: 'VERSE', raw: '[Verse]' }],
-    source_map: { rows: lines.map((l) => l.id) },
-    lines,
-    normalized_text: text,
-    source_text: text,
-    search: { text, spans: [] },
-  };
-}
-function writeExport(dir, readings, { snapshot = 'snap', wholeSource = true } = {}) {
-  fs.mkdirSync(path.join(dir, 'packs'), { recursive: true });
-  const packs = [];
-  const put = (name, kind, value) => {
-    const raw = Buffer.from(JSON.stringify(value));
-    fs.writeFileSync(path.join(dir, name), zlib.gzipSync(raw));
-    packs.push({ path: name, kind, raw_bytes: raw.length, raw_sha256: sha(raw) });
-  };
-  put('packs/readings-00000.json.gz', 'readings', {
-    snapshot_id: snapshot,
-    readings: readings.map((r) => ({
-      summary: {
-        reading_unit_id: r.reading_unit_id,
-        reading_revision: r.reading_revision,
-        availability: 'readable',
-        whole_source_availability: wholeSource ? 'readable' : 'held',
-        source_sha256: SOURCE_SHA,
-      },
-      reading: r,
-      reading_chunks: {},
-      reading_is_header: false,
-      reading_parts: [],
-    })),
-  });
-  put('packs/sources-00000.json.gz', 'sources', {
-    snapshot_id: snapshot,
-    sources: [{ path: `sources/${SOURCE_SHA}.bin`, sha256: SOURCE_SHA, text: SOURCE_TEXT }],
-  });
-  fs.writeFileSync(
-    path.join(dir, 'import_manifest.json'),
-    JSON.stringify({
-      snapshot_id: snapshot,
-      packs,
-      whole_sources: { [SOURCE_SHA]: { availability: wholeSource ? 'readable' : 'held' } },
-      derived_metadata: { rights_registry_sha256: 'r'.repeat(64) },
-    })
-  );
-}
 function storeOf(t, readings, options) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'library-exports-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));

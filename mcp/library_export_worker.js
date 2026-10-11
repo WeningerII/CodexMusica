@@ -9,11 +9,11 @@ import { zipChunks } from './library_exports.js';
 const BATCH = 1 << 20;
 const more = () => new Promise((resolve) => parentPort.once('message', resolve));
 
-const { directory, layout, format, snapshot } = workerData;
+const { directory, layout, format, snapshot, tail = true } = workerData;
 try {
   let pending = [];
   let size = 0;
-  for (const chunk of zipChunks(directory, layout, format, snapshot)) {
+  for (const chunk of zipChunks(directory, layout, format, snapshot, { tail })) {
     pending.push(chunk);
     size += chunk.length;
     if (size >= BATCH) {

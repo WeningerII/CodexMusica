@@ -39,7 +39,10 @@ export const MAINTENANCE_BOUNDS = Object.freeze({
   bytes: 64 * 1024 * 1024,
   ms: 50,
 });
-const OBJECT_KINDS = ['pages', 'indexes', 'checkpoints', 'manifests'];
+// `definitions` are the exact methods and result-schema bytes a job was created
+// under (retained definitions): its analysis export emits these, never the
+// current image's.
+const OBJECT_KINDS = ['pages', 'indexes', 'checkpoints', 'manifests', 'definitions'];
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const sha = (bytes) => crypto.createHash('sha256').update(bytes).digest('hex');
 const reserveGap = (size) => Math.max(0, RESERVE_BYTES - size);
@@ -534,6 +537,48 @@ export class ReaderJobStore {
     }
     return { sha256: hash, bytes: bytes.length };
   }
+  // Raw bytes, content-addressed (retained definitions keep their exact bytes).
+  _rawBlob(kind, bytes) {
+    const hash = sha(bytes);
+    const file = path.join(this.directory, kind, `${hash}.json`);
+    if (fs.existsSync(file)) {
+      if (!decodeStoredObject(this._readFile(file)).equals(bytes))
+        throw problem('STORAGE_CORRUPT', 'Immutable object hash collision.', 503);
+      const now = new Date();
+      fs.utimesSync(file, now, now);
+    } else {
+      this._capacity(bytes.length);
+      this._beginWrite();
+      this._inflight = true;
+      atomicWrite(file, bytes, this.fault, kind);
+      if (this.usage !== null) this.usage += bytes.length;
+      this._inflight = false;
+    }
+    return hash;
+  }
+  _rawObject(kind, hash) {
+    if (!HASH.test(hash || ''))
+      throw problem('INVALID_DECLARATION', 'Invalid immutable object hash.', 400);
+    let bytes;
+    try {
+      bytes = decodeStoredObject(this._readFile(path.join(this.directory, kind, `${hash}.json`)));
+    } catch (error) {
+      if (error.code === 'ENOENT')
+        throw problem('STORAGE_CORRUPT', 'Committed reader object is missing.', 503);
+      throw error;
+    }
+    if (sha(bytes) !== hash)
+      throw problem('STORAGE_CORRUPT', 'Immutable reader object failed hash verification.', 503);
+    return bytes;
+  }
+  /** A job's retained definition ('methods' | 'result_schema'), or null if it has none. */
+  readDefinition(id, capability, viewer, which) {
+    return this._cached(() => {
+      const record = this._authorized(id, capability, viewer);
+      const hash = record.definitions?.[`${which}_sha256`];
+      return hash ? this._rawObject('definitions', hash) : null;
+    });
+  }
   _object(kind, hash) {
     if (!HASH.test(hash || ''))
       throw problem('INVALID_DECLARATION', 'Invalid immutable object hash.', 400);
@@ -667,7 +712,7 @@ export class ReaderJobStore {
     );
   }
 
-  create({ viewer, idempotency_key, identity, request }) {
+  create({ viewer, idempotency_key, identity, request, definitions = null }) {
     text(viewer, 'Viewer');
     text(idempotency_key, 'Idempotency key');
     const identity_hash = identityHash(identity);
@@ -696,9 +741,20 @@ export class ReaderJobStore {
       if (this._outstanding(viewer) >= READER_LIMITS.outstandingPerViewer)
         throw problem('QUEUE_FULL', 'This viewer already has two outstanding reader jobs.', 429);
       const now = this.now();
+      // Retained definitions: the exact bytes in force at creation.
+      const retained = definitions
+        ? {
+            methods_sha256: this._rawBlob('definitions', Buffer.from(definitions.methods)),
+            result_schema_sha256: this._rawBlob(
+              'definitions',
+              Buffer.from(definitions.result_schema)
+            ),
+          }
+        : null;
       const record = this._save({
         version: 1,
         id: `reader_${crypto.randomBytes(32).toString('hex')}`,
+        ...(retained ? { definitions: retained } : {}),
         viewer,
         identity: jsonValue(identity, 'Analysis identity'),
         identity_hash,
@@ -1509,7 +1565,12 @@ export class ReaderJobStore {
     live[kind].add(hash);
     return true;
   }
+  // Retained definitions are leaves the record names directly: no read needed.
+  _markDefinitions(record, live) {
+    for (const hash of Object.values(record.definitions || {})) live.definitions.add(hash);
+  }
   _markRecord(record, live, budget) {
+    this._markDefinitions(record, live);
     const stack = [['checkpoints', record.checkpoint_hash]];
     while (stack.length) this._markStep(stack, live, budget);
   }
@@ -1622,7 +1683,10 @@ export class ReaderJobStore {
         }
         if (marked >= bounds.records) break;
         const record = this.records.get(gc.ids[gc.at++]);
-        if (record) gc.stack.push(['checkpoints', record.checkpoint_hash]);
+        if (record) {
+          this._markDefinitions(record, gc.live);
+          gc.stack.push(['checkpoints', record.checkpoint_hash]);
+        }
         marked++;
       }
     } catch (error) {
@@ -1640,7 +1704,10 @@ export class ReaderJobStore {
         try {
           for (const id of gc.dirty) {
             const record = this.records.get(id);
-            if (record) gc.stack.push(['checkpoints', record.checkpoint_hash]);
+            if (record) {
+              this._markDefinitions(record, gc.live);
+              gc.stack.push(['checkpoints', record.checkpoint_hash]);
+            }
           }
           gc.dirty.clear();
           while (gc.stack.length && !spent())

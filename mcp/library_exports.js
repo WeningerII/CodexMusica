@@ -512,7 +512,7 @@ function readAt(fd, offset, length) {
  * and CRC against the store's record as it goes. The caller already sent
  * Content-Length = layout.bytes.
  */
-export function* zipChunks(directory, layout, format, snapshot) {
+export function* zipChunks(directory, layout, format, snapshot, { tail = true } = {}) {
   const itemsFd = fs.openSync(path.join(directory, 'items.bin'), 'r');
   const sourcesFd = fs.openSync(path.join(directory, 'sources.bin'), 'r');
   try {
@@ -544,10 +544,87 @@ export function* zipChunks(directory, layout, format, snapshot) {
       yield bytes;
       yield Buffer.from(zipDescriptor(e.crc, e.size));
     }
+    if (!tail) return; // a composed ZIP (analysis export) appends its own entries and directory
     for (const e of layout.entries) yield Buffer.from(zipCentral(e.name, e.crc, e.size, e.offset));
     yield Buffer.from(zipEnd(layout.entries.length, layout.centralSize, layout.centralOffset));
   } finally {
     fs.closeSync(itemsFd);
     fs.closeSync(sourcesFd);
   }
+}
+
+// ── analysis exports ──────────────────────────────────────────────────────
+/**
+ * The layout of a job's analysis export: the reading's own entries exactly as
+ * a one-unit json selection lays them out (byte-identical bytes, from the
+ * export store), then PROVENANCE.json and ATTRIBUTION.txt naming the job's
+ * own snapshot, engine and resources, then ANALYSIS/ entries. Sizes are known
+ * up front (evidence page sizes are recorded in the manifest's page refs), so
+ * Content-Length is exact; analysis CRCs are computed while streaming.
+ */
+export function analysisLayout(
+  store,
+  { unitId, identity, manifestHash, partial, extras, pageSizes }
+) {
+  const base = store.layout([unitId], 'json');
+  const unitEntries = base.entries.filter((e) => e.kind !== 'root');
+  const provenance =
+    canonical({
+      schema_version: 1,
+      snapshot_id: identity.snapshot_id,
+      scope: 'whole_reading_unit_analysis',
+      reading_unit_ids: [unitId],
+      analysis_manifest_hash: manifestHash,
+      partial,
+      engine_commit: identity.engine_commit,
+      resource_fingerprint: identity.resource_fingerprint,
+      provenance_directory: 'PROVENANCE/',
+      required_credits_directory: 'ATTRIBUTIONS/',
+      notices_directory: 'NOTICES/',
+      artwork_included: false,
+      audio_included: false,
+    }) + '\n';
+  const attribution = rootEntries([unitId], store.snapshotId)[1][1];
+  const analysis = [
+    { kind: 'bytes', name: 'PROVENANCE.json', bytes: Buffer.from(provenance) },
+    { kind: 'bytes', name: 'ATTRIBUTION.txt', bytes: Buffer.from(attribution) },
+    ...extras.map(([name, bytes]) => ({ kind: 'bytes', name, bytes })),
+    ...pageSizes.map((size, i) => ({
+      kind: 'page',
+      index: i,
+      name: `ANALYSIS/EVIDENCE/${String(i).padStart(8, '0')}.json`,
+      size,
+    })),
+  ];
+  for (const e of analysis) if (e.kind === 'bytes') e.size = e.bytes.length;
+  const entries = [...unitEntries, ...analysis];
+  let offset = 0,
+    central = 0;
+  for (const e of entries) {
+    e.offset = offset;
+    offset += headerBytes(e.name) + e.size + 24;
+    central += centralBytes(e.name);
+  }
+  return {
+    unitLayout: { entries: unitEntries },
+    analysis,
+    entries,
+    centralOffset: offset,
+    centralSize: central,
+    bytes: offset + central + 98,
+  };
+}
+/** The analysis part of a composed ZIP: local entries, then the whole directory and end. */
+export function* analysisTail(layout, readPage) {
+  for (const e of layout.analysis) {
+    const bytes = e.kind === 'bytes' ? e.bytes : readPage(e.index);
+    if (bytes.length !== e.size)
+      throw exportError('STORAGE_CORRUPT', `An analysis entry changed size: ${e.name}`, 503);
+    e.crc = zlib.crc32(bytes);
+    yield Buffer.from(zipHeader(e.name));
+    yield bytes;
+    yield Buffer.from(zipDescriptor(e.crc, e.size));
+  }
+  for (const e of layout.entries) yield Buffer.from(zipCentral(e.name, e.crc, e.size, e.offset));
+  yield Buffer.from(zipEnd(layout.entries.length, layout.centralSize, layout.centralOffset));
 }

@@ -20,6 +20,9 @@ import crypto from 'node:crypto';
 import express from 'express';
 import { publicReaderJob, validateRequest, createAnalysisJob } from './reader_routes.js';
 import { LIBRARY_LIMITS, Windows, clientIp } from './ratelimit.js';
+import { Worker } from 'node:worker_threads';
+import { analysisLayout, analysisTail, canonical } from './library_exports.js';
+import { createStreamLimiter } from './library_export_routes.js';
 
 export const VIEWER_COOKIE = '__Host-cm_library';
 const COOKIE_VALUE = /^[A-Za-z0-9_-]{43}$/;
@@ -53,6 +56,8 @@ const cookieHeader = (value) =>
   `${VIEWER_COOKIE}=${value}; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=${MAX_AGE}`;
 
 const REMEDY = {
+  EXPORT_READING_CHANGED: 'Run the analysis again on the current reading.',
+  EXPORT_DEFINITIONS_UNAVAILABLE: 'Run the analysis again on the current reading.',
   RATE_LIMITED: 'Retry after the time in Retry-After.',
   LONG_READING_BUSY: 'Another long reading is being analysed; retry after the time in Retry-After.',
   QUEUE_FULL: 'The analysis queue is full; retry shortly.',
@@ -78,6 +83,10 @@ export function libraryViewerRouter({
   resolveIdentity,
   unitOf,
   snapshotId,
+  exports: exportStore = null,
+  definitions = () => null,
+  resourceFingerprint = () => null,
+  streams = createStreamLimiter(),
   windows = new Windows(),
   ipOf = clientIp,
   now = Date.now,
@@ -209,6 +218,7 @@ export function libraryViewerRouter({
         viewer: viewerOf(value),
         idempotencyKey: key,
         request,
+        definitions: definitions(),
       });
       if (result.created) {
         if (!jobsByIp.has(ip)) jobsByIp.set(ip, new Set());
@@ -329,6 +339,165 @@ export function libraryViewerRouter({
       );
     })
   );
+
+  // GET|HEAD /jobs/:id/exports/<manifest>.zip: the analysis export. The
+  // reading's entries are the export store's bytes for the job's exact
+  // revision (409 EXPORT_READING_CHANGED otherwise); METHODS and
+  // RESULT_SCHEMA are the job's retained definitions (409
+  // EXPORT_DEFINITIONS_UNAVAILABLE for a job without them on a different
+  // fingerprint); evidence pages are the store's, hash-verified, in manifest
+  // order. Every error on this path is an attachment.
+  const exportAnalysis = (req, res) => {
+    res.setHeader('Cache-Control', 'private, no-store');
+    let release = null;
+    const refuse = (error) => {
+      if (release) release();
+      if (!error.status) throw error;
+      const retryAfter = error.extra?.retryAfter;
+      if (retryAfter)
+        res.setHeader('Retry-After', String(Math.max(1, Math.ceil(retryAfter / 1000))));
+      const { retryAfter: _hidden, ...extra } = error.extra || {};
+      res.setHeader('Content-Disposition', 'attachment; filename="library-download-error.txt"');
+      res
+        .status(error.status)
+        .type('text/plain')
+        .send(
+          JSON.stringify(
+            {
+              error: {
+                code: error.code,
+                message: error.message,
+                remedy: REMEDY[error.code] || 'Check the request and retry explicitly.',
+                ...extra,
+              },
+            },
+            null,
+            2
+          ) + '\n'
+        );
+    };
+    try {
+      if (!exportStore)
+        throw fail('EXPORT_UNAVAILABLE', 'Library exports are not installed on this service.', 503);
+      const sha = req.params.sha;
+      if (!HASH.test(sha)) throw fail('BAD_REQUEST', 'An analysis manifest hash is required.');
+      limit(`library-reads:${ipOf(req)}`, 60_000, LIBRARY_LIMITS.jobReadsPerIpPerMinute);
+      const { viewer, capability, record } = jobFor(req, res);
+      const manifest = store.readManifest(req.params.id, capability, viewer, sha);
+      const manifestBytes = Buffer.from(JSON.stringify(manifest));
+      if (sha256(manifestBytes) !== sha)
+        throw fail('STORAGE_CORRUPT', 'The immutable manifest hash does not match.', 503);
+      const identity = record.identity;
+      const unitId = identity.reading_unit_id;
+      const unit = exportStore.units.get(unitId);
+      if (!unit || unit.revision !== identity.reading_revision)
+        throw fail(
+          'EXPORT_READING_CHANGED',
+          'The reading changed since this analysis ran; its exact text is no longer installed.',
+          409
+        );
+      let methods = store.readDefinition(req.params.id, capability, viewer, 'methods');
+      let schema = store.readDefinition(req.params.id, capability, viewer, 'result_schema');
+      if (!methods || !schema) {
+        const current = definitions();
+        if (!current || identity.resource_fingerprint !== resourceFingerprint())
+          throw fail(
+            'EXPORT_DEFINITIONS_UNAVAILABLE',
+            'This analysis predates retained definitions and ran on different resources.',
+            409
+          );
+        methods = Buffer.from(current.methods);
+        schema = Buffer.from(current.result_schema);
+      }
+      const refs = [];
+      for (let offset = 0; ; ) {
+        const page = store.readManifestPage(req.params.id, capability, viewer, sha, {
+          offset,
+          limit: 250,
+        });
+        refs.push(...page.page_refs);
+        if (page.next_offset == null || !page.page_refs.length) break;
+        offset = page.next_offset;
+      }
+      const layout = analysisLayout(exportStore, {
+        unitId,
+        identity,
+        manifestHash: sha,
+        partial: manifest.partial === true,
+        extras: [
+          ['ANALYSIS/MANIFEST.json', manifestBytes],
+          ['ANALYSIS/REQUEST.json', Buffer.from(canonical(record.request) + '\n')],
+          ['ANALYSIS/METHODS.json', methods],
+          ['ANALYSIS/RESULT_SCHEMA.json', schema],
+        ],
+        pageSizes: refs.map((ref) => ref.bytes),
+      });
+      res.setHeader('Content-Type', 'application/zip');
+      res.setHeader('Content-Length', String(layout.bytes));
+      res.setHeader('X-Library-Bytes', String(layout.bytes));
+      res.setHeader(
+        'Content-Disposition',
+        `attachment; filename="codex-musica-library-analysis-${sha.slice(0, 12)}.zip"`
+      );
+      if (req.method === 'HEAD') return res.status(200).end();
+      release = streams.acquire(ipOf(req));
+      const readPage = (i) => {
+        const bytes = Buffer.from(
+          JSON.stringify(store.readPage(req.params.id, refs[i].sha256, capability, viewer, sha))
+        );
+        if (sha256(bytes) !== refs[i].sha256)
+          throw fail('STORAGE_CORRUPT', 'An evidence page failed hash verification.', 503);
+        return bytes;
+      };
+      const worker = new Worker(new URL('./library_export_worker.js', import.meta.url), {
+        workerData: {
+          directory: exportStore.directory,
+          layout: layout.unitLayout,
+          format: 'json',
+          snapshot: exportStore.snapshotId,
+          tail: false,
+        },
+      });
+      const done = release;
+      let idle = setTimeout(() => res.destroy(), 60_000);
+      res.on('close', () => {
+        clearTimeout(idle);
+        done();
+        worker.terminate().catch(() => {});
+      });
+      worker.on('message', (message) => {
+        if (message.chunk) {
+          clearTimeout(idle);
+          idle = setTimeout(() => res.destroy(), 60_000);
+          const flowing = res.write(Buffer.from(message.chunk));
+          if (flowing) worker.postMessage('more');
+          else res.once('drain', () => worker.postMessage('more'));
+        } else if (message.done) {
+          try {
+            for (const chunk of analysisTail(layout, readPage)) res.write(chunk);
+            res.end();
+          } catch (error) {
+            console.error('[library] analysis export refused:', error.code, error.message);
+            res.destroy();
+          }
+        } else if (message.error) {
+          console.error(
+            '[library] analysis export refused:',
+            message.error.code,
+            message.error.message
+          );
+          res.destroy();
+        }
+      });
+      worker.on('error', () => res.destroy());
+    } catch (error) {
+      for (const h of ['Content-Type', 'Content-Length', 'X-Library-Bytes', 'Content-Disposition'])
+        res.removeHeader(h);
+      refuse(error);
+    }
+  };
+  router.head('/jobs/:id/exports/:sha.zip', exportAnalysis);
+  router.get('/jobs/:id/exports/:sha.zip', exportAnalysis);
 
   // Strict routing: anything else on these paths is 404, never a read.
   router.use(['/analyses', '/jobs'], (req, res, next) => {
