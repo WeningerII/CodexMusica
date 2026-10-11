@@ -158,6 +158,13 @@ function mkenv(items) {
         execSync(`cp -a ${q(path.join(ROOT, 'mcp', f))} ${q(path.join(d, 'mcp', f))}`);
       }
       fs.symlinkSync(path.join(ROOT, 'mcp', 'node_modules'), path.join(d, 'mcp', 'node_modules'));
+      // The one file outside mcp/ the connector reads at import: the lexicon
+      // supplement manifest whose ids are the reading tools' published enum
+      // (mcp/lexicon_basis.js). Without it every mcp-staging class fails on
+      // ENOENT, never on its planted defect.
+      const manifest = 'lyric-harness/data/lexicon_supplement_versions.json';
+      fs.mkdirSync(path.dirname(path.join(d, manifest)), { recursive: true });
+      fs.copyFileSync(path.join(ROOT, manifest), path.join(d, manifest));
       continue;
     }
     // An item may be a nested path (api/engine.json): its parent is made first.
