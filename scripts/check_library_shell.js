@@ -20,7 +20,7 @@
 //                    the engine or asks for the prose while it is shown; a
 //                    workspace control clicked early is held, busy, and acts
 //                    once it is in; a saved session survives and is restored
-//   flagged embedded the same chunk inlined: no library/ request at all
+//   flagged embedded the same chunks inlined: no library/code/ request at all
 //
 // Usage: node scripts/check_library_shell.js
 
@@ -125,10 +125,9 @@ function chromiumPath() {
     chunks.every((c) => /^[a-z][a-z0-9_-]*\.[0-9a-f]{10}\.js$/.test(c)),
     chunks.join(' ')
   );
-  assert.ok(
-    chunks.some((c) => /^core\./.test(c)),
-    'the core chunk is emitted'
-  );
+  const core = chunks.find((c) => /^core\./.test(c));
+  assert.ok(core, 'the core chunk is emitted');
+  const chunkOf = (p) => p.replace(/^\/library\/code\//, '').split('.')[0];
   assert.ok(!fs.existsSync(path.join(dirs.embedded, 'library')), 'the embedded build inlines');
   // The Library's byte budgets on the flagged lazy page, and what it adds to
   // every route over the default build (scripts/check_payload_budget.js).
@@ -182,12 +181,21 @@ function chromiumPath() {
       },
     };
   };
-  const shown = (page, text) =>
+  // A section is shown when the chunk that owns it has drawn its own content
+  // into #library-main (core sets the chunk name before the chunk loads, so
+  // the name alone is not enough).
+  const SECTIONS = {
+    Explore: ['core', '.lib-shelf'],
+    Works: ['works', '.lw-table tbody tr'],
+    'Sources & rights': ['rights', '.lr-view'],
+  };
+  const shown = (page, section) =>
     page.waitForFunction(
-      (t) =>
-        document.getElementById('library-main')?.dataset.libraryChunk === 'core' &&
-        document.getElementById('library-main').textContent.includes(t),
-      text,
+      ([chunk, selector]) => {
+        const main = document.getElementById('library-main');
+        return main?.dataset.libraryChunk === chunk && !!main.querySelector(selector);
+      },
+      SECTIONS[section],
       { timeout: 30000 }
     );
 
@@ -211,10 +219,14 @@ function chromiumPath() {
     const { page } = s;
     await shown(page, 'Explore');
     assert.ok(await page.$('button.cm-tab[data-view="library"]'), 'the Library nav entry');
-    const core = s.requests.filter((p) => p.startsWith('/library/code/'));
-    assert.deepEqual(core, ['/library/code/' + chunks[0]], 'core is fetched once');
+    // Explore is core's own: core alone, fetched once.
+    assert.deepEqual(
+      s.requests.filter((p) => p.startsWith('/library/code/')),
+      ['/library/code/' + core],
+      'core is fetched once'
+    );
     assert.ok(
-      await page.$(`head link[rel="preload"][as="script"][href="library/code/${chunks[0]}"]`),
+      await page.$(`head link[rel="preload"][as="script"][href="library/code/${core}"]`),
       'the core chunk is preloaded from <head>'
     );
     assert.ok(s.requests.includes('/library/data/catalog.json'), 'catalog.json is preloaded');
@@ -224,9 +236,13 @@ function chromiumPath() {
           s.requests.indexOf('/api/browse_boot.json'),
       'the boot index is not asked for ahead of the Library on #library'
     );
-    assert.match(
-      await page.evaluate(() => document.querySelector('script[src*="library/code/"]').integrity),
-      /^sha384-/
+    const integrity = () =>
+      page.evaluate(() =>
+        [...document.querySelectorAll('script[src*="library/code/"]')].map((x) => x.integrity)
+      );
+    assert.ok(
+      (await integrity()).every((i) => /^sha384-/.test(i)),
+      'every chunk has sha384 integrity'
     );
     await page.click('[data-ui="lib-section"][data-id="/works"]');
     await shown(page, 'Works');
@@ -241,10 +257,17 @@ function chromiumPath() {
     await page.click('button.cm-tab[data-view="library"]');
     await shown(page, 'Works');
     assert.equal(await page.evaluate(() => location.hash), '#library/works', 'resumes');
-    assert.equal(
-      s.requests.filter((p) => p.startsWith('/library/code/')).length,
-      1,
-      'a loaded chunk is never fetched again'
+    const loaded = s.requests.filter((p) => p.startsWith('/library/code/'));
+    assert.deepEqual(
+      loaded.map(chunkOf).sort(),
+      ['core', 'works'],
+      'Explore and Works load core and works, each once: ' + loaded.join(' ')
+    );
+    const scripts = await integrity();
+    assert.equal(scripts.length, 2, 'one script element per chunk');
+    assert.ok(
+      scripts.every((i) => /^sha384-/.test(i)),
+      'every chunk carries sha384 integrity'
     );
     assert.deepEqual(s.errors, []);
     await s.close();
@@ -267,7 +290,7 @@ function chromiumPath() {
         ['library/code/' + core, 'library/data/catalog.json'].every((href) =>
           document.head.querySelector(`link[rel="prefetch"][href="${href}"]`)
         ),
-      chunks[0],
+      core,
       { timeout: 30000 }
     );
     assert.equal(
@@ -280,7 +303,7 @@ function chromiumPath() {
         performance
           .getEntriesByType('resource')
           .some((e) => e.name.endsWith('/library/code/' + core)),
-      chunks[0],
+      core,
       { timeout: 30000 }
     );
     await page.mouse.move(0, 0);
@@ -531,13 +554,15 @@ function chromiumPath() {
     await s.close();
   }
 
-  // The flagged embedded build: the same chunk inlined, nothing fetched.
+  // The flagged embedded build: the same chunks inlined, no chunk fetched.
   {
     const s = await open(dirs.embedded, '#library/rights');
     await shown(s.page, 'Sources & rights');
+    // Data and artwork are fetched as on the lazy page; no chunk file is.
     assert.deepEqual(
-      s.requests.filter((p) => p.includes('/library/')),
-      []
+      s.requests.filter((p) => p.includes('/library/code/')),
+      [],
+      'the embedded build fetches no chunk'
     );
     assert.deepEqual(s.errors, []);
     await s.close();
@@ -546,7 +571,7 @@ function chromiumPath() {
   await browser.close();
   fs.rmSync(temp, { recursive: true, force: true });
   console.log(
-    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: within the Library byte budgets (stub, chunks, growth over the default build), route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover prefetches core and catalog once, deferred boot (Library before the workspace, no engine or prose while shown, a held control acts once it is in, the saved session kept and restored, Genre waits as a skeleton and draws once it is in), the Lyrics handoff (opens the text pushed, Back returns, a tampered envelope refused, the recipe untouched), section tabs keyboard-operable and route-selected (deep link, click, Back), a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
+    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: within the Library byte budgets (stub, chunks, growth over the default build), route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover prefetches core and catalog once, deferred boot (Library before the workspace, no engine or prose while shown, a held control acts once it is in, the saved session kept and restored, Genre waits as a skeleton and draws once it is in), the Lyrics handoff (opens the text pushed, Back returns, a tampered envelope refused, the recipe untouched), section tabs keyboard-operable and route-selected (deep link, click, Back), a tampered chunk refused with Reload; flagged embedded: inlined, no chunk fetched'
   );
 })().catch((error) => {
   console.error('LIBRARY SHELL: FAIL —', error.stack || error);
