@@ -26,7 +26,7 @@
     "test:recipes": "node scripts/regression_recipes.js",
     "test:prefaces": "node scripts/regression_prefaces.js",
     "test:slots": "node scripts/check_slot_picks.js",
-    "test:app": "node scripts/check_layout_geometry.js && node scripts/check_workbench.js && node scripts/check_chat_counter.js && node scripts/app_recipe_regression.js && node scripts/check_mobile_layout.js && node scripts/check_layout_usability.js && node scripts/check_ui_foundation.js && node scripts/check_lyrics_page.js && node --test scripts/test_library_import.js && node scripts/test_library_import_browser.js && node scripts/test_library_import_shipped.js",
+    "test:app": "node scripts/check_layout_geometry.js && node scripts/check_workbench.js && node scripts/check_chat_counter.js && node scripts/app_recipe_regression.js && node scripts/check_mobile_layout.js && node scripts/check_layout_usability.js && node scripts/check_ui_foundation.js && node scripts/check_lyrics_page.js && node --test scripts/test_library_import.js && node scripts/test_library_import_browser.js && node scripts/test_library_import_shipped.js && node --test scripts/test_library_chunk_generations.js && node scripts/check_library_shell.js && node scripts/check_library_page.js",
     "test:equiv": "node scripts/equivalence.js",
     "test:lazy": "node scripts/check_lazy_app.js",
     "test:minified": "node scripts/check_minified_equivalence.js",
@@ -63,6 +63,8 @@
     "check:publish": "node scripts/check_publish_guard.js",
     "check:fresh": "node scripts/check_artifact_fresh.js",
     "check:budget": "node scripts/check_payload_budget.js",
+    "check:library-regression": "node scripts/check_library_regression.js",
+    "check:library-perf": "node scripts/check_library_perf.js",
     "check:df": "node scripts/build_descriptor_df.js --check",
     "check:glyphs": "node scripts/check_glyph_skin.js && node scripts/build_nav_glyphs.js --check",
     "check:dupes": "node scripts/check_duplicates.js",
@@ -97,7 +99,7 @@
     "test:chatgpt": "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_chatgpt.mjs mcp/test_chatgpt_harness.mjs mcp/test_chatgpt_revise.mjs && node --test mcp/test_chatgpt_parked.mjs",
     "test:lyrics:math": "python3 lyric-harness/quality/test_computational_audit.py",
     "test:everynoise": "node scripts/check_everynoise_pilot.js",
-    "test:library": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 -m unittest discover -s lyric-harness/library -p test_*.py && node --test mcp/test_reader_job_store.mjs mcp/test_reader_client.mjs mcp/test_reader_integration.mjs && python3 lyric-harness/quality/test_gutenberg_import.py && python3 lyric-harness/quality/test_gutenberg_next_import.py && python3 lyric-harness/quality/test_gutenberg_third_import.py && python3 lyric-harness/quality/test_retained_reader_catalog.py"
+    "test:library": "PYTHONPATH=lyric-harness${PYTHONPATH:+:$PYTHONPATH} python3 -m unittest discover -s lyric-harness/library -p test_*.py && node --test mcp/test_reader_job_store.mjs mcp/test_reader_store_bounds.mjs mcp/test_reader_client.mjs mcp/test_reader_integration.mjs mcp/test_library_search.mjs mcp/test_library_viewer_routes.mjs mcp/test_library_exports.mjs mcp/test_library_corpus.mjs && python3 scripts/test_worker_page_object.py && python3 lyric-harness/quality/test_gutenberg_import.py && python3 lyric-harness/quality/test_gutenberg_next_import.py && python3 lyric-harness/quality/test_gutenberg_third_import.py && python3 lyric-harness/quality/test_retained_reader_catalog.py"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",

@@ -8,6 +8,10 @@ data/nltk/
 # the lesson the label-cache block below had already written down.
 data/nltk
 data/feature_cache.json
+# Moby Pronunciator II (PG #3205) is STAGED by hand for quality/moby_convert.py
+# --check and is never committed: only reviewed rows ship, in a frozen
+# lexicon supplement version.
+data/moby/
 cmudict.dict
 # REFUSED 2026-08-22 under doctrine 85 (MISSING.md, the frequency
 # ruling): its upstream LICENSE.md says 'I DO NOT RECOMMEND USING THIS

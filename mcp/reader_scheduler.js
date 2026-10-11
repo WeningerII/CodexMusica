@@ -4,6 +4,7 @@ import { readFile, realpath } from 'node:fs/promises';
 import { createReadStream } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { Worker } from 'node:worker_threads';
 
 const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const error = (code, message) => Object.assign(new Error(message), { code });
@@ -15,6 +16,57 @@ export function canonicalJSON(value) {
       .map((key) => `${JSON.stringify(key)}:${canonicalJSON(value[key])}`)
       .join(',')}}`;
   return JSON.stringify(value);
+}
+
+const GUTENBERG_COLLECTION = /^corpus\/library\/gutenberg-next-ten\/(\d+)\//;
+
+/**
+ * Verifies one complete canonical reading's bytes against its manifest hash
+ * and the request's identity and revision, and returns the parsed reading.
+ * Shared by resolveSource (the scheduler, which hands the whole reading to the
+ * worker) and reader_source_worker.js (the create path, off the event loop).
+ */
+export function verifyReading(bytes, expected, request) {
+  if (!expected || sha256(bytes) !== expected)
+    throw error('SNAPSHOT_CHANGED', 'A pinned artifact hash does not match.');
+  const source = JSON.parse(bytes);
+  if (
+    source.reading_unit_id !== request.reading_unit_id ||
+    source.reading_revision !== request.reading_revision ||
+    sha256(
+      canonicalJSON(
+        Object.fromEntries(Object.entries(source).filter(([key]) => key !== 'reading_revision'))
+      )
+    ) !== request.reading_revision
+  )
+    throw error('STALE_READING', 'The complete reading identity or revision hash does not match.');
+  if (source.availability !== 'readable')
+    throw error('SOURCE_UNAVAILABLE', 'This source is not available for reading.');
+  return source;
+}
+
+/**
+ * What the create path needs from a verified reading: its identity fields,
+ * and, for a pronunciation-bound collection reading only, its lyric lines.
+ */
+export function readingSummary(source) {
+  const collection = GUTENBERG_COLLECTION.test(source.source_path || '');
+  return {
+    reading_unit_id: source.reading_unit_id,
+    reading_revision: source.reading_revision,
+    work_id: source.work_id,
+    edition_id: source.edition_id,
+    source_sha256: source.source_sha256,
+    normalized_sha256: source.normalized_sha256,
+    language: source.language,
+    source_path: source.source_path,
+    title: source.title,
+    lyric_lines: collection
+      ? (source.lines || [])
+          .filter((line) => line.kind === 'lyric')
+          .map((line) => line.analysis_text ?? line.text)
+      : null,
+  };
 }
 
 // Keep this recursive semantic shape in sync with library.contracts. Private
@@ -46,8 +98,42 @@ export function createCatalogResolver({
   resourceFingerprint = 'reader-v1',
   pronunciationRoot = fileURLToPath(new URL('../lyric-harness/', import.meta.url)),
   methodsPath = fileURLToPath(new URL('../lyric-harness/library/methods.json', import.meta.url)),
+  // The create path verifies and parses a canonical reading in a worker
+  // thread (Kalevala's is 33 MB: about 0.5 s and +131 MB of heap), at most
+  // `summaryWorkers` at a time, so it never blocks /mcp or /chat.
+  summaryWorkers = 2,
 }) {
   const snapshots = new Map();
+  const waiting = [];
+  let running = 0;
+  const offThread = (data) =>
+    new Promise((resolve, reject) => {
+      const start = () => {
+        running++;
+        const worker = new Worker(new URL('./reader_source_worker.js', import.meta.url), {
+          workerData: data,
+        });
+        let settled = false;
+        const settle = (fn, value) => {
+          if (settled) return;
+          settled = true;
+          running--;
+          waiting.shift()?.();
+          fn(value);
+        };
+        worker.once('message', (message) =>
+          message.error
+            ? settle(reject, error(message.error.code, message.error.message))
+            : settle(resolve, message.summary)
+        );
+        worker.once('error', (failure) => settle(reject, failure));
+        worker.once('exit', () =>
+          settle(reject, error('READER_UNAVAILABLE', 'The reading verifier stopped.'))
+        );
+      };
+      if (running < summaryWorkers) start();
+      else waiting.push(start);
+    });
   const load = async (snapshotId) => {
     if (!directory)
       throw error('READER_UNAVAILABLE', 'A pinned local reader catalog is not configured.');
@@ -80,7 +166,7 @@ export function createCatalogResolver({
     )
       throw error('SNAPSHOT_CHANGED', 'The pinned snapshot manifest hash does not match.');
     root = await realpath(root);
-    const readArtifact = async (registeredPath) => {
+    const locateArtifact = async (registeredPath) => {
       if (
         typeof registeredPath !== 'string' ||
         path.isAbsolute(registeredPath) ||
@@ -90,12 +176,8 @@ export function createCatalogResolver({
       const file = await realpath(path.join(root, registeredPath));
       if (!file.startsWith(`${root}${path.sep}`))
         throw error('SNAPSHOT_CHANGED', 'An artifact escaped its snapshot.');
-      const bytes = await readFile(file);
       const declared = manifest.artifacts?.[registeredPath];
-      const expected = typeof declared === 'string' ? declared : declared?.sha256;
-      if (!expected || sha256(bytes) !== expected)
-        throw error('SNAPSHOT_CHANGED', 'A pinned artifact hash does not match.');
-      return bytes;
+      return { file, expected: typeof declared === 'string' ? declared : declared?.sha256 };
     };
     // Verify the ~101 MiB index without retaining its entire parsed tree.
     // Publication reconciles joins; each registered complete reading is hashed.
@@ -110,19 +192,18 @@ export function createCatalogResolver({
       (typeof expectedIndex === 'string' ? expectedIndex : expectedIndex?.sha256)
     )
       throw error('SNAPSHOT_CHANGED', 'The pinned catalog index hash does not match.');
-    const loaded = { manifest, readArtifact };
+    const loaded = { manifest, locateArtifact };
     snapshots.set(snapshotId, loaded);
     while (snapshots.size > 2) snapshots.delete(snapshots.keys().next().value);
     return loaded;
   };
-  const resolveSource = async (request) => {
-    const { manifest, readArtifact } = await load(request.snapshot_id);
+  const locateReading = async (request) => {
+    const { manifest, locateArtifact } = await load(request.snapshot_id);
     const expectedPath = `readings/${request.reading_unit_id}.json`;
     if (!Object.hasOwn(manifest.artifacts || {}, expectedPath))
       throw error('STALE_READING', 'The reading unit is absent from the pinned snapshot.');
-    let source;
     try {
-      source = JSON.parse(await readArtifact(expectedPath));
+      return { manifest, ...(await locateArtifact(expectedPath)) };
     } catch (failure) {
       if (failure.code === 'ENOENT')
         throw error(
@@ -131,29 +212,32 @@ export function createCatalogResolver({
         );
       throw failure;
     }
-    if (
-      source.reading_unit_id !== request.reading_unit_id ||
-      source.reading_revision !== request.reading_revision ||
-      sha256(
-        canonicalJSON(
-          Object.fromEntries(Object.entries(source).filter(([key]) => key !== 'reading_revision'))
-        )
-      ) !== request.reading_revision
-    )
-      throw error(
-        'STALE_READING',
-        'The complete reading identity or revision hash does not match.'
-      );
-    if (source.availability !== 'readable')
-      throw error('SOURCE_UNAVAILABLE', 'This source is not available for reading.');
+  };
+  const resolveSource = async (request) => {
+    const { manifest, file, expected } = await locateReading(request);
+    const source = verifyReading(await readFile(file), expected, request);
     const entry = source;
     source.snapshot_id = request.snapshot_id;
     return { source, entry, manifest };
   };
+  // The create path's view of a reading: verified exactly as resolveSource
+  // verifies it, in a worker thread, returning only readingSummary's fields.
+  const resolveEntry = async (request) => {
+    const { manifest, file, expected } = await locateReading(request);
+    const entry = await offThread({
+      file,
+      expected,
+      request: {
+        reading_unit_id: request.reading_unit_id,
+        reading_revision: request.reading_revision,
+      },
+    });
+    return { entry, manifest };
+  };
   // Resolve collection defaults once, before identity creation. Stored requests
   // retain these choices on resume; an explicit caller set (even []) is final.
   const prepareRequest = async (request) => {
-    const { source } = await resolveSource(request);
+    const { entry: source } = await resolveEntry(request);
     const declarations = request.declaration_set;
     if (
       declarations !== undefined &&
@@ -166,9 +250,7 @@ export function createCatalogResolver({
         (declarations.language !== undefined && declarations.language !== 'eng'))
     )
       return request;
-    const collection = /^corpus\/library\/gutenberg-next-ten\/(\d+)\//.exec(
-      source.source_path || ''
-    )?.[1];
+    const collection = GUTENBERG_COLLECTION.exec(source.source_path || '')?.[1];
     if (!collection) return request;
     const candidate = /\[item: PG(\d+)-([^\]]+)\]/.exec(source.title || '');
     if (!candidate || candidate[1] !== collection)
@@ -235,11 +317,7 @@ export function createCatalogResolver({
     const defaults = assets.get(`${prefix}${collection}.json`)[candidate[2]]?.pronunciations;
     if (!Array.isArray(defaults) || !defaults.length)
       throw error('READER_UNAVAILABLE', 'The bound pronunciation set is missing.');
-    const lines = new Set(
-      (source.lines || [])
-        .filter((line) => line.kind === 'lyric')
-        .map((line) => line.analysis_text ?? line.text)
-    );
+    const lines = new Set(source.lyric_lines || []);
     if (defaults.some((choice) => !lines.has(choice.line)))
       throw error(
         'STALE_READING',
@@ -251,7 +329,7 @@ export function createCatalogResolver({
     };
   };
   const resolveIdentity = async (request) => {
-    const { entry, manifest } = await resolveSource(request);
+    const { entry, manifest } = await resolveEntry(request);
     if (request.requested_methods !== undefined) {
       let registry;
       try {
@@ -315,7 +393,7 @@ export function createCatalogResolver({
           .length,
     };
   };
-  return { resolveSource, resolveIdentity, prepareRequest, probe };
+  return { resolveSource, resolveEntry, resolveIdentity, prepareRequest, probe };
 }
 
 export function packReaderPages(records) {

@@ -27,6 +27,13 @@ The browser keeps recovery identifiers and may keep a fallback envelope locally.
 Clearing browser data removes those local copies; it does not delete retained
 server receipts.
 
+The Library tab's analyses use one HttpOnly cookie, `__Host-cm_library`, which
+the service sets only when you start an analysis. It holds a random value, is sent
+only to this service, cannot be read by page script, and expires 30 days after its
+last use. Its hash identifies your analyses, which are kept for 30 days after you
+last open them and which you can delete; nobody else can open them. Clearing it
+loses access to those analyses, which can be re-run.
+
 The service also persists its conversation signing key and shared model-spend
 ledger. These files allow recovery after restart and prevent accounting from
 resetting after deployment. `/health` and `/ready` disclose whether recovery is
@@ -45,7 +52,10 @@ Your connecting AI host may independently process the information you give it.
 
 The server logs request time, method, path, status, duration, user-agent, referer,
 proxy-reported IP address and whether the connection ended prematurely. Request
-capabilities in receipt paths are redacted. Avoid placing private content in URL
+capabilities in receipt paths are redacted, and the query string of a Library search
+(`/library/v1/search`) is dropped from this log, so search terms are not recorded
+here. The hosting provider's own platform logs can still contain the full URL,
+search terms included. Avoid placing private content in URL
 query parameters or custom referer headers. Request bodies and response bodies are
 not included in this HTTP access log; lyric content is retained separately in the
 recovery files described above. The hosting provider can also retain its own

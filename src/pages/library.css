@@ -1,0 +1,19 @@
+/* Library page stub (src/pages/library.js): the static skeleton the chunks
+   replace. Everything is scoped to the Library's own surface. */
+#surface-library .lib-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+#surface-library .lib-bar {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+#surface-library .lib-skeleton {
+  height: 236px;
+  border-radius: 8px;
+  background: var(--cm-surface-subtle);
+  margin-bottom: 16px;
+}

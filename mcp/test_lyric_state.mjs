@@ -487,10 +487,15 @@ try {
       // The checkpoint keeps the supplement its run read (lexicon_basis.js):
       // an explicit other version is a move, and a recorded sha256 that is
       // not the shipped file's refuses before any replay or provider request.
-      const basis = { supplement_id: 'v1', sha256: LEXICON_MANIFEST.versions[0].sha256 };
+      // New work read the manifest's default; the checkpoint keeps it.
+      const shipped = LEXICON_MANIFEST.versions.find((v) => v.id === LEXICON_MANIFEST.default);
+      const basis = { supplement_id: shipped.id, sha256: shipped.sha256 };
       assert.deepEqual(first.lexicon, basis);
       assert.deepEqual(resumed.lexicon, basis);
-      assert.equal(decodeState(first.checkpoint).connector_declarations.lexicon_supplement, 'v1');
+      assert.equal(
+        decodeState(first.checkpoint).connector_declarations.lexicon_supplement,
+        shipped.id
+      );
       const movedBasis = await a.callTool({
         name: 'lyric_revise',
         arguments: { checkpoint: first.checkpoint, lexicon_supplement: 'none' },

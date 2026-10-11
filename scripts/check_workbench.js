@@ -99,6 +99,48 @@ const run = (code) => dom.window.eval(code);
   click('#instrument-body [data-ui="instrument-back"]');
   assert.equal(run('UI.instrumentFamily'), '');
   run("uiNavigate('genre')");
+  // Route grammar: '#<view>' plus a sub-route at the first '/' or '?'. A page
+  // without route() keeps a bare '#<view>'; one with route() receives its
+  // sub-route on navigation, its own Back/Forward as {pop:true} without a
+  // re-navigation, and resumes at currentRoute() from a nav click.
+  assert.deepEqual(
+    JSON.parse(
+      run(`JSON.stringify([
+    uiRouteOf('#library/read/r_1?line=4'), uiRouteOf('#lyrics'), uiRouteOf('#works?q=a/b'),
+    uiRouteOf(''), uiRouteOf('genre')])`)
+    ),
+    [
+      { view: 'library', sub: '/read/r_1?line=4' },
+      { view: 'lyrics', sub: '' },
+      { view: 'works', sub: '?q=a/b' },
+      { view: '', sub: '' },
+      { view: 'genre', sub: '' },
+    ]
+  );
+  run("uiNavigate('lyrics', { sub: '/ignored' })");
+  assert.equal(dom.window.location.hash, '#lyrics', 'a page without route() shows a bare hash');
+  run(`window.__routes = [];
+    UI_PAGES.instrument.route = (sub, o) => window.__routes.push([sub, o.pop]);
+    UI_PAGES.instrument.currentRoute = () => '/remembered';`);
+  run("uiNavigate('instrument', { sub: '/a?b=1' })");
+  assert.equal(dom.window.location.hash, '#instrument/a?b=1');
+  dom.window.location.hash = '#instrument/c';
+  await new Promise((r) => setTimeout(r, 20));
+  assert.equal(run('UI.view'), 'instrument');
+  run("uiSubroute('/d', { push: true, state: { libScroll: 7 } })");
+  assert.equal(dom.window.location.hash, '#instrument/d');
+  assert.equal(run('history.state.libScroll'), 7);
+  run("uiNavigate('genre', { push: true }); uiNavigate('instrument', { push: true })");
+  assert.equal(dom.window.location.hash, '#instrument/remembered', 'a nav click resumes the page');
+  assert.deepEqual(JSON.parse(run('JSON.stringify(window.__routes)')), [
+    ['/a?b=1', false],
+    ['/c', true],
+    ['/remembered', false],
+  ]);
+  run(
+    "delete UI_PAGES.instrument.route; delete UI_PAGES.instrument.currentRoute; uiNavigate('genre')"
+  );
+  assert.equal(dom.window.location.hash, '#genre');
   // Exports with intentionally unselected parts remain valid. Transfers own their data.
   run("app.cards=[];app.lyrics='';app.history=[];app.historyIndex=-1;pushHistory();");
   for (const id of ['drum_kit', 'didgeridoo', 'bajo_sexto']) {
@@ -295,7 +337,7 @@ const run = (code) => dom.window.eval(code);
   );
 
   console.log(
-    'PASS workbench integration: boot, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, late lyrics, conflict protection, preface Enter flush'
+    'PASS workbench integration: boot, route grammar and sub-routes, partial import, isolated transfers, Undo, full sessions, concurrent save recovery, chat routing, late lyrics, conflict protection, preface Enter flush'
   );
   dom.window.close();
 })().catch((e) => {
