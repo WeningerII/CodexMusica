@@ -414,3 +414,81 @@ test('search has a per-address abuse ceiling of 600 a minute, with Retry-After',
   now += 60_000;
   assert.equal((await from('a')).status, 200, 'the next minute is open again');
 });
+
+// server_http.js loads the Library stores on FIRST USE, never before listen():
+// built at startup they pushed the resident server past the capacity matrix's
+// 30 s startup gate (Production qualification runs 86 and 87). /health reports
+// the load state without causing a load; the first /library/v1 request loads
+// every configured store once; an unusable store is `failed` and named, and
+// its routes answer 503.
+async function spawnServer(t, env) {
+  const { spawn } = await import('node:child_process');
+  const net = await import('node:net');
+  const listener = net.createServer();
+  await new Promise((r) => listener.listen(0, '127.0.0.1', r));
+  const port = listener.address().port;
+  await new Promise((r) => listener.close(r));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'library-lazy-'));
+  const child = spawn(process.execPath, [path.join(here, 'server_http.js')], {
+    cwd: path.join(here, '..'),
+    env: {
+      ...process.env,
+      PORT: String(port),
+      GEMINI_API_KEY: '',
+      LYRIC_RUNTIME_DIR: root,
+      LIBRARY_SEARCH_DIR: '',
+      LIBRARY_EXPORT_DIR: '',
+      LIBRARY_CORPUS_DIR: '',
+      READER_CATALOG_DIR: '',
+      ...env,
+    },
+  });
+  let log = '';
+  child.stdout.on('data', (c) => (log += c));
+  child.stderr.on('data', (c) => (log += c));
+  t.after(() => {
+    child.kill('SIGKILL');
+    fs.rmSync(root, { recursive: true, force: true });
+  });
+  const base = `http://127.0.0.1:${port}`;
+  const deadline = Date.now() + 60_000;
+  for (;;) {
+    try {
+      if ((await fetch(`${base}/health`)).ok) break;
+    } catch {}
+    if (child.exitCode != null) assert.fail(`the HTTP server exited: ${log}`);
+    if (Date.now() > deadline) assert.fail(`/health never answered: ${log}`);
+    await new Promise((r) => setTimeout(r, 50));
+  }
+  const library = async () => (await (await fetch(`${base}/health`)).json()).library;
+  return { base, library, log: () => log };
+}
+
+test('server_http loads a configured search store on first use, not at startup', async (t) => {
+  const { dir } = build(t, [item('u1', {}, 'love and more')]);
+  const server = await spawnServer(t, { LIBRARY_SEARCH_DIR: dir });
+  assert.deepEqual(await server.library(), { state: 'not_loaded', failures: [] });
+  assert.deepEqual(await server.library(), { state: 'not_loaded', failures: [] }, 'twice');
+  const res = await fetch(`${server.base}/library/v1/search?q=love`);
+  assert.equal(res.status, 200);
+  assert.deepEqual(ids(await res.json()), ['u1']);
+  assert.deepEqual(await server.library(), { state: 'ready', failures: [] });
+});
+
+test('an unusable store is reported failed, by name, and its routes answer 503', async (t) => {
+  const missing = path.join(os.tmpdir(), `library-lazy-missing-${process.pid}`);
+  const server = await spawnServer(t, { LIBRARY_SEARCH_DIR: missing });
+  assert.deepEqual(await server.library(), { state: 'not_loaded', failures: [] });
+  assert.doesNotMatch(server.log(), /search store is unusable/, 'nothing loaded at startup');
+  const res = await fetch(`${server.base}/library/v1/search?q=love`);
+  assert.equal(res.status, 503);
+  assert.equal((await res.json()).error.code, 'SEARCH_UNAVAILABLE');
+  assert.deepEqual(await server.library(), { state: 'failed', failures: ['search'] });
+  assert.match(server.log(), /search store is unusable/);
+});
+
+test('with no Library store configured the state is absent after first use', async (t) => {
+  const server = await spawnServer(t, {});
+  assert.equal((await fetch(`${server.base}/library/v1/search?q=love`)).status, 503);
+  assert.deepEqual(await server.library(), { state: 'absent', failures: [] });
+});

@@ -291,7 +291,10 @@ let admissionState = null;
 const libraryAdmission = () =>
   (admissionState ||= createAdmission({
     store: readerStore,
-    unitOf: (id) => librarySearch?.unit(id) ?? null,
+    unitOf: (id) => {
+      loadLibraryStores();
+      return librarySearch?.unit(id) ?? null;
+    },
     fail: (code, message, status, extra) =>
       Object.assign(new Error(message), { code, status, extra }),
   }));
@@ -367,53 +370,77 @@ const readerReadiness = () => {
 // metadata are read-only and uncredentialed, served from the store the image
 // builds (LIBRARY_SEARCH_DIR); without one they answer 503. Public analysis is
 // reported available only while public analysis mounts the viewer routes.
+//
+// THE STORES LOAD ON FIRST USE, NOT AT STARTUP. Built before listen(), the
+// search and export stores (about 0.8 s of synchronous parsing and ~110 MB of
+// heap on one CPU, measured 2026-10-11) pushed the resident server past the
+// capacity matrix's 30 s startup gate: Production qualification runs 86 and 87
+// failed 4/4 and 3/4 cells with "Connection refused" while run 85, before the
+// Library merge, passed. Nothing on the startup path reads them, so the first
+// /library/v1 request (or the private bridge's admission) loads them, once,
+// synchronously: no request ever sees a half-loaded store. `libraryState`
+// reports `not_loaded`, then `ready` (every configured store loaded), `failed`
+// (a configured store is unusable; its routes answer 503, as when it is not
+// installed, and `libraryState.failures` names it) or `absent` (none
+// configured). GET /health reports it without loading anything.
 let librarySearch = null;
-if (process.env.LIBRARY_SEARCH_DIR) {
-  try {
-    librarySearch = new LibrarySearch(process.env.LIBRARY_SEARCH_DIR);
-  } catch (error) {
-    console.error('[library] the search store is unusable; search answers 503:', error.message);
-  }
-}
-// Public selection exports (uncredentialed), from the export store the image
-// builds (LIBRARY_EXPORT_DIR); without one they answer 503.
 let libraryExports = null;
-if (process.env.LIBRARY_EXPORT_DIR) {
-  try {
-    libraryExports = new ExportStore(process.env.LIBRARY_EXPORT_DIR);
-  } catch (error) {
-    console.error('[library] the export store is unusable; exports answer 503:', error.message);
-  }
-}
-// Whole-corpus packages (LIBRARY_CORPUS_DIR), installed only when they were
-// built from the same snapshot the search and export stores serve; each is
-// re-hashed in the background and answers 503 until it verifies.
 let libraryCorpus = null;
-if (process.env.LIBRARY_CORPUS_DIR) {
-  try {
-    const corpus = new CorpusPackages(process.env.LIBRARY_CORPUS_DIR);
-    const served = [librarySearch, libraryExports].filter(Boolean).map((s) => s.snapshotId);
-    if (served.some((id) => id !== corpus.snapshotId))
-      throw new Error('the packages were built from a different snapshot');
-    libraryCorpus = corpus;
-    corpus.verify().then(
-      (failures) => {
-        if (failures.length)
-          console.error('[library] corpus packages failed verification:', failures.join(', '));
-      },
-      (error) => console.error('[library] corpus verification failed:', error.message)
-    );
-  } catch (error) {
-    console.error('[library] the corpus packages are unusable; corpus answers 503:', error.message);
+const libraryState = { state: 'not_loaded', failures: [] };
+function loadLibraryStores() {
+  if (libraryState.state !== 'not_loaded') return;
+  const failures = [];
+  const configured = ['LIBRARY_SEARCH_DIR', 'LIBRARY_EXPORT_DIR', 'LIBRARY_CORPUS_DIR'].some(
+    (name) => process.env[name]
+  );
+  if (process.env.LIBRARY_SEARCH_DIR) {
+    try {
+      librarySearch = new LibrarySearch(process.env.LIBRARY_SEARCH_DIR);
+    } catch (error) {
+      failures.push('search');
+      console.error('[library] the search store is unusable; search answers 503:', error.message);
+    }
   }
+  // Public selection exports (uncredentialed), from the export store the
+  // image builds (LIBRARY_EXPORT_DIR); without one they answer 503.
+  if (process.env.LIBRARY_EXPORT_DIR) {
+    try {
+      libraryExports = new ExportStore(process.env.LIBRARY_EXPORT_DIR);
+    } catch (error) {
+      failures.push('exports');
+      console.error('[library] the export store is unusable; exports answer 503:', error.message);
+    }
+  }
+  // Whole-corpus packages (LIBRARY_CORPUS_DIR), installed only when they were
+  // built from the same snapshot the search and export stores serve; each is
+  // re-hashed in the background and answers 503 until it verifies.
+  if (process.env.LIBRARY_CORPUS_DIR) {
+    try {
+      const corpus = new CorpusPackages(process.env.LIBRARY_CORPUS_DIR);
+      const served = [librarySearch, libraryExports].filter(Boolean).map((s) => s.snapshotId);
+      if (served.some((id) => id !== corpus.snapshotId))
+        throw new Error('the packages were built from a different snapshot');
+      libraryCorpus = corpus;
+      corpus.verify().then(
+        (bad) => {
+          if (bad.length)
+            console.error('[library] corpus packages failed verification:', bad.join(', '));
+        },
+        (error) => console.error('[library] corpus verification failed:', error.message)
+      );
+    } catch (error) {
+      failures.push('corpus');
+      console.error(
+        '[library] the corpus packages are unusable; corpus answers 503:',
+        error.message
+      );
+    }
+  }
+  libraryState.failures = failures;
+  libraryState.state = failures.length ? 'failed' : configured ? 'ready' : 'absent';
 }
 // One download limiter for selection and analysis exports (decision 4).
 const libraryStreams = createStreamLimiter();
-app.use(
-  '/library/v1',
-  libraryExportRouter({ exports: libraryExports, corpus: libraryCorpus, streams: libraryStreams })
-);
-app.use('/library/v1', libraryCorpusRouter({ corpus: libraryCorpus }));
 // Retained definitions: the exact methods and result-schema bytes this image
 // analyses with, copied into each new job so its export never borrows a later
 // image's.
@@ -432,39 +459,54 @@ try {
 // is the one every request is filled with. Mounted before the public router,
 // whose refusals would otherwise answer.
 const LIBRARY_PUBLIC = process.env.LIBRARY_PUBLIC !== '0';
-if (LIBRARY_PUBLIC) {
-  if (readerScheduler && librarySearch) {
-    app.use(
-      '/library/v1',
-      libraryViewerRouter({
-        admission: libraryAdmission(),
-        store: readerStore,
-        scheduler: readerScheduler,
-        prepareRequest: readerResolver.prepareRequest,
-        resolveIdentity: readerResolver.resolveIdentity,
-        unitOf: (id) => librarySearch.unit(id),
-        snapshotId: () => librarySearch.snapshotId,
-        exports: libraryExports,
-        streams: libraryStreams,
-        definitions: () => libraryDefinitions,
-        resourceFingerprint: () => readerResourceFingerprint,
-      })
-    );
-  } else {
-    console.error(
-      '[library] public analysis is on but the reader or the search store is unavailable; analysis is not mounted.'
-    );
+// Every /library/v1 router, built once the stores have loaded (above), in the
+// order they always had: exports, corpus, the viewer routes, then the public
+// router.
+function buildLibraryRouter() {
+  const router = express.Router();
+  router.use(
+    libraryExportRouter({ exports: libraryExports, corpus: libraryCorpus, streams: libraryStreams })
+  );
+  router.use(libraryCorpusRouter({ corpus: libraryCorpus }));
+  if (LIBRARY_PUBLIC) {
+    if (readerScheduler && librarySearch) {
+      router.use(
+        libraryViewerRouter({
+          admission: libraryAdmission(),
+          store: readerStore,
+          scheduler: readerScheduler,
+          prepareRequest: readerResolver.prepareRequest,
+          resolveIdentity: readerResolver.resolveIdentity,
+          unitOf: (id) => librarySearch.unit(id),
+          snapshotId: () => librarySearch.snapshotId,
+          exports: libraryExports,
+          streams: libraryStreams,
+          definitions: () => libraryDefinitions,
+          resourceFingerprint: () => readerResourceFingerprint,
+        })
+      );
+    } else {
+      console.error(
+        '[library] public analysis is on but the reader or the search store is unavailable; analysis is not mounted.'
+      );
+    }
   }
+  router.use(
+    libraryPublicRouter({
+      search: librarySearch,
+      corpus: libraryCorpus,
+      analysisAvailable: () =>
+        LIBRARY_PUBLIC && Boolean(librarySearch) && readerReadiness().ready === true,
+    })
+  );
+  return router;
 }
-app.use(
-  '/library/v1',
-  libraryPublicRouter({
-    search: librarySearch,
-    corpus: libraryCorpus,
-    analysisAvailable: () =>
-      LIBRARY_PUBLIC && Boolean(librarySearch) && readerReadiness().ready === true,
-  })
-);
+let libraryRouter = null;
+app.use('/library/v1', (req, res, next) => {
+  loadLibraryStores();
+  libraryRouter ||= buildLibraryRouter();
+  libraryRouter(req, res, next);
+});
 // After every /library/v1 router: errors raised before routing (a body that
 // does not parse) answer JSON, not Express's HTML page.
 app.use('/library/v1', libraryErrorHandler);
@@ -530,6 +572,9 @@ app.get('/health', (_req, res) =>
     lyrics: chatRouter.readiness(),
     queue: lyricCapacity(),
     reader: readerReadiness(),
+    // The Library stores' load state (loadLibraryStores above). Reading it
+    // never loads them: `not_loaded` until the first /library/v1 request.
+    library: { state: libraryState.state, failures: [...libraryState.failures] },
     // WHY THIS FIELD EXISTS (M-187(a)). Nothing measured whether the warm
     // worker is ENGAGED on the deployed box. check_live.mjs compares the
     // ADVERTISED surface, not the process answering it, and a warm answer and
