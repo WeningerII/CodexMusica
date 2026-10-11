@@ -17,6 +17,8 @@ For every readable unit:
   - head descriptive fields equal the canonical reading's; rights_ref and
     metadata_ref are the canonical objects' hashes; source_basis composed from
     the rights equals the site export's (catalog_site_export.source_basis).
+  - the rights object rebuilt from rights/r-, rights/rows- and notices/
+    equals the canonical one exactly, as does the metadata from meta/;
 Across the set:
   - the readable set and readable_ids_sha256 equal the canonical index's;
   - c/ partitions the readable units; each head file lists its collection's
@@ -27,6 +29,10 @@ Across the set:
     card's Play target is its collection's first readable id;
   - every list file embeds the manifest's data_id, which recomputes;
   - manifest.json lists exactly the files present, with their sha256 and size;
+  - every interned rights object, row, notice and metadata header is in the
+    shard its hash names, hashes to its key, and is referenced by some head;
+  - methods.json and reader-result.schema.json are the library references'
+    exact bytes; artwork.json projects the artwork credits;
   - budgets: catalog.json <= 4,096 B gz, collections.json <= 98,304 B gz, every
     head <= 24,576 B gz.
 
@@ -47,8 +53,8 @@ sys.path.insert(0, str(ROOT / "lyric-harness"))
 from library.catalog import canonical, sha  # noqa: E402
 from library.catalog_site_export import source_basis  # noqa: E402
 from library.catalog_static_export import (  # noqa: E402
-    LIST_ROWS, PAGE_ROWS, SHELF_CARDS, SNIPPET_CODEPOINTS, WORKS_ROWS, compose_source_basis, line_id,
-    replay, shard, short,
+    ARTWORK, LIST_ROWS, PAGE_ROWS, SHELF_CARDS, SNIPPET_CODEPOINTS, WORKS_ROWS, compose_source_basis, line_id,
+    rows_shard, replay, shard, short,
 )
 
 BUDGETS = {"catalog.json": 4096, "collections.json": 98304}
@@ -114,13 +120,50 @@ def main(argv=None):
                        f"manifest sha256 or size: {path}")
 
     lists, bodies = {}, {}
-    for path in sorted(present):
-        if path.startswith("r/"):
-            continue
+    list_paths = [p for p in present if p in ("catalog.json", "collections.json") or p.split("/")[0] in ("c", "w", "u")]
+    for path in sorted(list_paths):
         value, raw = load(data / path)
         lists[path] = value
         gate.check(value.get("data_id") == data_id, f"data_id: {path}")
         bodies[path] = {k: v for k, v in value.items() if k != "data_id"}
+
+    # Content-addressed shards, each object in the shard its hash names.
+    shards = {"rights": {}, "rows": {}, "metadata": {}}
+    for path in sorted(present):
+        family = ("rights" if path.startswith("rights/r-") else "rows" if path.startswith("rights/rows-")
+                  else "metadata" if path.startswith("meta/") else None)
+        if family is None:
+            continue
+        value, _ = load(data / path)
+        for ref, obj in value[family].items():
+            expected = f"rights/r-{ref[:2]}.json.gz" if family == "rights" else (
+                f"rights/rows-{rows_shard(ref)}.json.gz" if family == "rows" else f"meta/{rows_shard(ref)}.json.gz")
+            gate.check(path == expected and ref not in shards[family], f"{family} object in the wrong shard: {ref}")
+            shards[family][ref] = obj
+    for ref, row in shards["rows"].items():
+        gate.check(sha(row) == ref, f"rights row hash: {ref}")
+    for ref, obj in shards["metadata"].items():
+        gate.check(sha(obj) == ref, f"metadata hash: {ref}")
+    notices = {}
+    for path in sorted(p for p in present if p.startswith("notices/")):
+        value, raw = load(data / path)
+        notices[value["sha256"]] = value["text"]
+        gate.check(path == f"notices/{value['sha256']}.json"
+                   and hashlib.sha256(value["text"].encode("utf-8")).hexdigest() == value["sha256"], f"notice: {path}")
+    used = {"rights": set(), "rows": set(), "metadata": set(), "notices": set()}
+
+    def rebuilt_rights(ref):
+        interned = shards["rights"].get(ref)
+        if interned is None:
+            return None
+        rights = dict(interned)
+        for key in ("sources", "file_sources"):
+            rights[key] = [shards["rows"].get(d) for d in interned[key]]
+            used["rows"].update(interned[key])
+        rights["notices"] = [{**n, "text": notices.get(n["sha256"])} for n in interned["notices"]]
+        used["notices"].update(n["sha256"] for n in interned["notices"])
+        used["rights"].add(ref)
+        return rights
 
     # u/ shards: exactly the readable units, each once.
     units = {}
@@ -203,6 +246,9 @@ def main(argv=None):
         gate.check(head["source_map"] == {k: v for k, v in reading["source_map"].items() if k != "rows"}, f"source_map: {unit}")
         gate.check(head["rights_ref"] == sha(reading["rights"]) and head["metadata_ref"] == sha(reading["metadata"]),
                    f"rights or metadata ref: {unit}")
+        gate.check(rebuilt_rights(head["rights_ref"]) == reading["rights"], f"rights do not rebuild from the shards: {unit}")
+        gate.check(shards["metadata"].get(head["metadata_ref"]) == reading["metadata"], f"metadata shard: {unit}")
+        used["metadata"].add(head["metadata_ref"])
         gate.check(head["rights"] == {"required_attribution": reading["rights"]["required_attribution"],
                                       "notices": [n["sha256"] for n in reading["rights"]["notices"]]}, f"inline rights: {unit}")
         gate.check(compose_source_basis(head["canonical_reading_sha256"], reading["rights"])
@@ -282,6 +328,19 @@ def main(argv=None):
         for card, c in zip(shelf["cards"], members):
             gate.check(card[0] == c["collection_id"] and card[5] == by_id[card[0]]["readable_reading_unit_ids"][0],
                        f"card or Play target: {card[0]}")
+
+    for family in ("rights", "rows", "metadata"):
+        gate.check(set(shards[family]) == used[family], f"unreferenced or missing {family} objects")
+    gate.check(set(notices) == used["notices"], "unreferenced or missing notices")
+    library_dir = snap.parent
+    for target, source in (("methods.json", "methods.json"), ("reader-result.schema.json", "schema.json")):
+        gate.check((data / target).read_bytes() == (library_dir / source).read_bytes(), f"{target} differs from {source}")
+    gate.check(json.loads((data / "methods.json").read_bytes()).get("registry_hash")
+               == json.loads((library_dir / "methods.json").read_bytes()).get("registry_hash"), "methods registry_hash")
+    artwork, _ = load(data / "artwork.json")
+    gate.check(artwork["artwork"] == [{"id": a["id"], "title": a["title"], "author": a["author"], "credit": a["imageCredit"],
+                                       "source": a["imageSource"], "note": a["imageNote"]}
+                                      for a in json.loads(ARTWORK.read_bytes())], "artwork.json")
 
     content = {p: sha(b) for p, b in bodies.items() if p != "catalog.json"}
     content["catalog.json"] = sha({k: v for k, v in bodies.get("catalog.json", {}).items() if k != "projected_from"})

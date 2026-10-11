@@ -16,6 +16,14 @@ sources.tsv edit that leaves the readable units unchanged changes nothing here.
     r/<hh>/<id>/<rev16>-<proj12>/
                             head.json.gz (lines 0-249) and <k>-<sha12>.json.gz
                             pages; a published directory never changes
+    rights/r-<hh>.json.gz   rights objects by rights_ref, sources.tsv rows and
+                            notice texts replaced by their hashes
+    rights/rows-<hh>.json.gz  the sources.tsv rows by hash (64 shards)
+    notices/<sha>.json      each notice text, named by its sha256
+    meta/<hh>.json.gz       metadata headers by metadata_ref (64 shards)
+    methods.json, reader-result.schema.json
+                            the engine references the export attached
+    artwork.json            artwork credits
     manifest.json           every file's sha256 and bytes, and data_id
 
 hh is the first two hex digits of the unit's uuid. rev16 is the first 16 hex of
@@ -133,6 +141,45 @@ def art_id(collection, artwork):
         if hit:
             return item["id"]
     return None
+
+
+def rows_shard(digest: str) -> str:
+    """64 shards for the sources.tsv rows: the top six bits of the hash."""
+    return f"{int(digest[:2], 16) >> 2:02x}"
+
+
+def intern_rights(rights):
+    """The rights object with its sources.tsv rows replaced by their hashes and
+    its notice texts by the notice's own sha256 (notices/<sha>.json holds the
+    text): (interned, {row hash: row}, {notice sha256: text})."""
+    rows, texts = {}, {}
+    interned = dict(rights)
+    for key in ("sources", "file_sources"):
+        refs = []
+        for row in rights[key]:
+            if not isinstance(row, dict):
+                raise CatalogError(f"a rights {key} entry is not a row")
+            digest = sha(row)
+            rows[digest] = row
+            refs.append(digest)
+        interned[key] = refs
+    notices = []
+    for notice in rights["notices"]:
+        if hashlib.sha256(notice["text"].encode("utf-8")).hexdigest() != notice["sha256"]:
+            raise CatalogError("a notice's sha256 is not its text's")
+        texts[notice["sha256"]] = notice["text"]
+        notices.append({k: v for k, v in notice.items() if k != "text"})
+    interned["notices"] = notices
+    return interned, rows, texts
+
+
+def rebuild_rights(interned, rows, texts):
+    """The client's rebuild of the exact canonical rights object."""
+    rights = dict(interned)
+    for key in ("sources", "file_sources"):
+        rights[key] = [rows[digest] for digest in interned[key]]
+    rights["notices"] = [{**notice, "text": texts[notice["sha256"]]} for notice in interned["notices"]]
+    return rights
 
 
 class _Out:
@@ -256,6 +303,7 @@ def build_static(export, out, artwork_path=ARTWORK):
 
     writer = _Out(out)
     path_keys, snippets, seen = {}, {}, set()
+    rights_objects, rights_rows, notice_texts, metadata_objects = {}, {}, {}, {}
     for pack_path in packs.readings:
         for item in packs.load(pack_path)["readings"]:
             summary = item["summary"]
@@ -273,9 +321,56 @@ def build_static(export, out, artwork_path=ARTWORK):
             for path, raw in files:
                 writer.write(path, raw)
             path_keys[unit] = path_key
+            rights_ref = sha(reading["rights"])
+            if rights_ref not in rights_objects:
+                interned, rows, texts = intern_rights(reading["rights"])
+                if sha(rebuild_rights(interned, rows, texts)) != rights_ref:
+                    raise CatalogError(f"rights do not rebuild exactly: {unit}")
+                rights_objects[rights_ref] = interned
+                rights_rows.update(rows)
+                notice_texts.update(texts)
+            metadata_objects[sha(reading["metadata"])] = reading["metadata"]
             snippets[unit] = text[:SNIPPET_CODEPOINTS]
     if sorted(seen) != readable:
         raise CatalogError("the export's readable texts differ from its index")
+
+    # Content-addressed shards: rights objects (rights_ref), their sources.tsv
+    # rows, notice texts and metadata headers (metadata_ref). Keyed by hash,
+    # so they need no data_id: a changed object is a new key.
+    grouped = {}
+    for ref, obj in rights_objects.items():
+        grouped.setdefault(f"rights/r-{ref[:2]}.json.gz", {})[ref] = obj
+    for path, objects in sorted(grouped.items()):
+        writer.write(path, canonical({"format": FORMAT, "rights": objects}))
+    grouped = {}
+    for ref, row in rights_rows.items():
+        grouped.setdefault(f"rights/rows-{rows_shard(ref)}.json.gz", {})[ref] = row
+    for path, objects in sorted(grouped.items()):
+        writer.write(path, canonical({"format": FORMAT, "rows": objects}))
+    for digest, text in sorted(notice_texts.items()):
+        writer.write(f"notices/{digest}.json", canonical({"format": FORMAT, "sha256": digest, "text": text}),
+                     compress=False)
+    grouped = {}
+    for ref, obj in metadata_objects.items():
+        grouped.setdefault(f"meta/{rows_shard(ref)}.json.gz", {})[ref] = obj
+    for path, objects in sorted(grouped.items()):
+        writer.write(path, canonical({"format": FORMAT, "metadata": objects}))
+
+    # The engine references, byte for byte as the export attached them.
+    for name, target in (("methods", "methods.json"), ("result_schema", "reader-result.schema.json")):
+        info = references.get(name)
+        if not info:
+            raise CatalogError(f"the export carries no {name} reference")
+        raw = gzip.decompress((export / info["path"]).read_bytes())
+        if hashlib.sha256(raw).hexdigest() != info["raw_sha256"]:
+            raise CatalogError(f"export reference hash: {name}")
+        writer.write(target, raw, compress=False)
+
+    # Artwork credits, fetched by Sources & rights, the card menu or the lightbox.
+    writer.write("artwork.json", canonical({"format": FORMAT, "artwork": [
+        {"id": a["id"], "title": a["title"], "author": a["author"], "credit": a["imageCredit"],
+         "source": a["imageSource"], "note": a["imageNote"]}
+        for a in json.loads(Path(artwork_path).read_bytes())]}), compress=False)
 
     def row(i):
         r = readings[i]
