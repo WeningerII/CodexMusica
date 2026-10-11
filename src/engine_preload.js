@@ -23,7 +23,12 @@
    the mode and credentials of fetch()'s defaults; a mismatch would show as a
    second request. Attributes are set, not IDL properties, so every host reads
    the same element. build_html.js --check runs this script against stored
-   states and refuses a page whose dynamic preload is anything else. */
+   states and refuses a page whose dynamic preload is anything else.
+
+   A flagged Library build (CODEX_LIBRARY=1) inserts a route test at the top
+   of the try block: a #library route draws no cards first, so it asks for
+   nothing (docs/library-native-design.md, "Cold #library boot"). The default
+   build keeps this script exactly as written. */
 (function () {
   try {
     var text =

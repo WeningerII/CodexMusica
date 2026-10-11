@@ -1,0 +1,78 @@
+name: Library data
+
+# The native Library tab's static data (library/data) and card art
+# (assets/library/art) are derived files: this job rebuilds both from their
+# sources and fails if the committed copies are stale
+# (docs/library-native-design.md, "Static builder").
+#
+#   scripts/build_library_data.py --check   catalog -> verified export (labels
+#       asserted) -> projection -> scripts/check_library_data.py against the
+#       canonical snapshot -> compare with library/data (content; catalog.json's
+#       projected_from label excepted, as the design excludes it from freshness)
+#   node scripts/build_library_art.js --check
+#
+# Until library/data is first committed, the job builds and gates the tree,
+# prints its data_id and uploads its manifest, so the committed tree can be
+# matched to a CI build before it lands.
+
+on:
+  pull_request:
+    paths:
+      - 'lyric-harness/library/**'
+      - 'lyric-harness/corpus/**'
+      - 'lyric-harness/data/sources.tsv'
+      - 'lyric-harness/data/authority.tsv'
+      - 'lyric-harness/data/library_identity_registry.json*'
+      - 'lyric-harness/data/calibration_work_editions.json'
+      - 'lyric-harness/data/lyric_label_prefixes.json'
+      - 'lyric-harness/quality/lyric_reader.py'
+      - 'lyric-harness/quality/provenance.py'
+      - 'library/data/**'
+      - 'assets/library/**'
+      - 'sites/library/lib/artwork.json'
+      - 'sites/library/public/art/**'
+      - 'scripts/build_library_data.py'
+      - 'scripts/check_library_data.py'
+      - 'scripts/build_library_art.js'
+      - '.github/workflows/library-data.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Static data unit tests
+        working-directory: lyric-harness
+        run: python3 -m unittest library.test_catalog_static_export -v
+      - name: Card art renditions are current
+        run: node scripts/build_library_art.js --check
+      - name: Library data rebuilds, passes its gate and is current
+        run: |
+          if [ -d library/data ]; then
+            python3 scripts/build_library_data.py --check
+          else
+            python3 scripts/build_library_data.py --out "$RUNNER_TEMP/library-data"
+            python3 -c "import json, sys; m = json.load(open(sys.argv[1])); print('data_id', m['data_id'], 'files', len(m['files']), 'bytes', sum(f['bytes'] for f in m['files'].values()))" "$RUNNER_TEMP/library-data/manifest.json"
+            cp "$RUNNER_TEMP/library-data/manifest.json" library-data-manifest.json
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: library-data-manifest
+          path: library-data-manifest.json
+          if-no-files-found: ignore

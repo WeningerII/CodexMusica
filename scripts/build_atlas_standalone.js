@@ -127,9 +127,9 @@ const styleBlock = between('<style>', '</style>') + '\n<style>' + mapCss + '</st
 // it, so it travels inline.
 const brandSrc =
   'data:image/png;base64,' +
-  fs.readFileSync(path.join(ROOT, 'assets', 'icon-192.png')).toString('base64');
+  fs.readFileSync(path.join(ROOT, 'assets', 'brand-mark-56.png')).toString('base64');
 const inlineBrand = (s) =>
-  s.replace(/src="assets\/icon-192\.png"/g, () => 'src="' + brandSrc + '"');
+  s.replace(/src="assets\/brand-mark-56\.png"/g, () => 'src="' + brandSrc + '"');
 let bodyInner = inlineBrand(
   html
     .slice(html.indexOf('<div class="shell">'), html.indexOf('<script src="src/layout.js">'))

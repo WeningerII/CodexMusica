@@ -418,11 +418,36 @@ test.after(async () => {
   for (const p of peers) await p.close().catch(() => {});
 });
 
-test('v2 is explicitly selectable while new and saved v1 work keeps v1', () => {
+test('v2 is the default for new work, and saved v1 work keeps v1', () => {
   const v2 = LEXICON_MANIFEST.versions.find((v) => v.id === 'v2');
   assert.equal(v2.sha256, 'bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51');
-  assert.equal(LEXICON_MANIFEST.default, 'v1');
-  assert.equal(applyLexiconBasis({}).lexicon_supplement, 'v1');
+  // Owner decision 2026-10-11: new work reads v2.
+  assert.equal(LEXICON_MANIFEST.default, 'v2');
+  assert.equal(applyLexiconBasis({}).lexicon_supplement, 'v2');
+  assert.equal(applyLexiconBasis({}).lexicon_supplement_sha256, v2.sha256);
+  // A run graded on v1 before the default moved stays on v1: the receipt's
+  // basis is inherited before the default is read, and asking for the new
+  // default on it is a moved declaration, not an upgrade.
+  const older = plannedTask();
+  recordCreation(
+    older,
+    'lyric_grade',
+    { seed: 3, draft },
+    gradeVerdict({ supplement_id: 'v1', sha256: V1.sha256 })
+  );
+  const kept = { seed: 3, draft };
+  assert.equal(creationRefusal(older, 'lyric_revise', kept), null);
+  assert.equal(kept.lexicon_supplement, 'v1');
+  assert.equal(kept.lexicon_supplement_sha256, V1.sha256);
+  assert.match(
+    creationRefusal(older, 'lyric_revise', { seed: 3, draft, lexicon_supplement: 'v2' }),
+    /CREATION_GRADE/
+  );
+  const carried = applyLexiconBasis(
+    { lexicon_supplement: 'v1', lexicon_supplement_sha256: V1.sha256 },
+    { continuing: true }
+  );
+  assert.equal(carried.lexicon_supplement, 'v1');
   for (const name of READERS)
     assert.equal(LYRIC_TOOL_SCHEMAS[name].lexicon_supplement.parse('v2'), 'v2');
   const explicit = applyLexiconBasis({ lexicon_supplement: 'v2' });

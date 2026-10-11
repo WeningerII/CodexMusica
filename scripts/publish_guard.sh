@@ -57,6 +57,9 @@ GENERATED=(
   ':(exclude)sitemap.xml'
   ':(exclude)robots.txt'
   ':(exclude)api'
+  # The Library's chunk generations (scripts/library_chunk_generations.js):
+  # main keeps older generations a built ref never has.
+  ':(exclude)library/code'
 )
 
 if git diff --quiet "$BUILT_SHA" origin/main -- . "${GENERATED[@]}"; then
