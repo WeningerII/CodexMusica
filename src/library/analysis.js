@@ -176,7 +176,10 @@ function viewerApi(lib) {
   const verified = async (path, hash) => {
     let r;
     try {
-      r = await fetch(lib.api + path, { credentials: 'include', cache: 'no-store' });
+      r =
+        typeof lib.viewer === 'function'
+          ? await lib.viewer(path, { raw: true })
+          : await fetch(lib.api + path, { credentials: 'include', cache: 'no-store' });
     } catch (e) {
       throw Object.assign(Error('The analysis server is unreachable.'), { problem: problemOf(e) });
     }
@@ -554,7 +557,7 @@ function methodDetailHTML(m, analyzable) {
   return `<details class="cm-accordion la-method" data-method="${esc(m.id)}">
     <summary><strong>${esc(m.name)}</strong> <small>${esc(m.namespace)} · ${esc(scope)}</small>${
       m.normative && m.normative !== 'ordinary'
-        ? ` <span class="cm-chip">${esc(m.normative)}</span>`
+        ? ` <span class="la-badge">${esc(m.normative)}</span>`
         : ''
     }</summary>
     <div class="la-method-body">
@@ -632,9 +635,13 @@ function methodReference(container, registry, { onAnalyze = null, language = nul
 }
 
 // ── Device state (declarations only) ───────────────────────────────────────
-// lib.device {get,set} when core provides it, else a private IndexedDB store.
+// lib.device {read,write} (core's IndexedDB 'codex-musica-library-v1'), else a private store.
 function deviceStore(lib) {
-  if (lib.device?.get && lib.device?.set) return lib.device;
+  if (lib.device?.read && lib.device?.write)
+    return {
+      get: (k, fallback) => lib.device.read(k, fallback),
+      set: (k, v) => lib.device.write(k, v),
+    };
   let db = null;
   const open = () =>
     (db ||= new Promise((resolve, reject) => {
@@ -721,6 +728,7 @@ function ensureStyles() {
 #surface-library .la-method-body{display:flex;flex-direction:column;gap:6px;padding-top:6px}
 #surface-library .la-method-body p{margin:0}
 #surface-library .la-choice{display:flex;flex-direction:column;gap:4px;padding:8px 0;border-top:1px solid var(--cm-border-subtle)}
+#surface-library .la-badge{display:inline-block;padding:0 6px;border:1px solid var(--cm-border);border-radius:var(--cm-radius-pill);font:500 var(--cm-text-xs) var(--cm-font);color:var(--cm-text-secondary)}
 #surface-library .la-progress{display:flex;flex-direction:column;gap:6px}
 </style>`
   );
@@ -1087,7 +1095,7 @@ function mount(container, ctx) {
   const fail = (e) => {
     const p = e?.problem || problemOf(e);
     if (p.status === 404 || p.status === 410) lose(p.status);
-    st.error = failMessage(p);
+    else st.error = failMessage(p);
     draw();
   };
   function lose(status) {
@@ -1115,6 +1123,7 @@ function mount(container, ctx) {
       mem.job = data.job;
       st.authorized = true;
       st.lost = false;
+      st.error = '';
       mem.seen = Date.now();
       if (data.job.manifest_hash && !mem.report)
         await loadEvidence(data.job.manifest_hash, 0, false);
@@ -1227,6 +1236,7 @@ function mount(container, ctx) {
   async function control(action) {
     if (!mem.job) return;
     st.busy = true;
+    st.error = '';
     draw();
     try {
       if (action === 'delete') {
@@ -1376,7 +1386,7 @@ function mount(container, ctx) {
       }
       ${st.notice ? `<p class="la-note" role="status">${esc(st.notice)}</p>` : ''}
       ${st.error ? `<p class="la-error" role="alert">${esc(st.error)}</p>` : ''}
-      <button type="button" class="la-link" data-act="decl" aria-expanded="${st.declOpen}">${icon('sliders', 15)}<span>Reading interpretations</span></button>
+      <button type="button" class="la-link" data-act="decl" aria-expanded="${st.declOpen}">${icon('sliders-horizontal', 15)}<span>Reading interpretations</span></button>
     </section>`;
   }
   function summaryHTML() {

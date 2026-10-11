@@ -301,10 +301,17 @@ async function snapshotOf(lib) {
     return '';
   }
 }
+// Canonical (sorted-key) order, as the Worker's wholeReading spread emits it.
+const sorted = (o) =>
+  Object.fromEntries(
+    Object.keys(o)
+      .sort()
+      .map((k) => [k, o[k]])
+  );
 const sourceBasis = (R, rights) => {
   const out = { canonical_reading_sha256: R.head.canonical_reading_sha256 };
   for (const k of SOURCE_BASIS_FIELDS) if (k in rights) out[k] = rights[k];
-  return out;
+  return sorted(out);
 };
 
 async function provenance(lib, R) {
@@ -319,7 +326,7 @@ async function provenance(lib, R) {
     reading_unit_id: R.id,
     reading_revision: R.revision,
     rights,
-    source_map: { ...R.head.source_map, rows: lines.map((l) => l.id) },
+    source_map: sorted({ ...R.head.source_map, rows: lines.map((l) => l.id) }),
     source_marks: R.head.source_marks,
     source_labels: R.head.source_labels,
     source_basis: sourceBasis(R, rights),
@@ -366,7 +373,7 @@ async function buildEnvelope(lib, R, excerptIds, declarations) {
         contributors: h.contributors,
         completeness: h.completeness,
         metadata,
-        source_map: { ...h.source_map, rows: lines.map((l) => l.id) },
+        source_map: sorted({ ...h.source_map, rows: lines.map((l) => l.id) }),
         source_marks: h.source_marks,
         source_labels: h.source_labels,
         source_basis: sourceBasis(R, rights),
