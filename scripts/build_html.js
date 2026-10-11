@@ -231,7 +231,9 @@ const workbenchCss = fs.readFileSync(path.join(SRC, 'workbench.css'), 'utf8');
 // build with CODEX_LIBRARY=1 (CI's flagged build) registers its route, inlines
 // its stub page and emits its chunks. A default build is byte-identical to one
 // without any of it.
-const LIBRARY = process.env.CODEX_LIBRARY === '1' || !!flags.library;
+// On by default since the cutover; CODEX_LIBRARY=0 builds the page without it
+// (the base the Library's growth and boot-equality gates compare against).
+const LIBRARY = process.env.CODEX_LIBRARY !== '0' || !!flags.library;
 const PAGES = ['genre', 'instrument', 'map', 'lyrics', ...(LIBRARY ? ['library'] : [])];
 const pageFile = (name, ext) => fs.readFileSync(path.join(SRC, 'pages', name + ext), 'utf8');
 const pagesCss = PAGES.map((p) => pageFile(p, '.css')).join('\n');

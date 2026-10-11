@@ -124,6 +124,7 @@ def carry_references(static: Path, committed: Path, head_path: Path, manifest: d
         if not (static / path).is_file():
             if not (committed / path).is_file():
                 raise SystemExit(f"retention: the committed tree lacks notice {notice['sha256']}")
+            (static / path).parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(committed / path, static / path)
             data = (static / path).read_bytes()
             manifest["files"][path] = {"sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}

@@ -15,13 +15,15 @@ from library.catalog_static_export import PAGE_ROWS, build_static
 GATE = Path(__file__).resolve().parents[2] / "scripts/check_library_data.py"
 
 
-def harness(temp, labels=(), author="Fixture Author", evidence="recorded", terms=None, whitman=True):
+def harness(temp, labels=(), author="Fixture Author", evidence="recorded", terms=None, whitman=True,
+            end_marker=True):
     """A harness root with one long multi-page reading (astral characters,
     apparatus rows), two editions of one reviewed work and a held item. With
     `terms`, also a small Gutenberg witness (corpus/whitman.txt) whose terms
     text after its END marker is a notice: changing `terms`, `author` or
     `evidence` changes the readings' notices, metadata and sources.tsv rows.
-    whitman=False leaves the witness without a sources.tsv row (held)."""
+    whitman=False leaves the witness without a sources.tsv row (held);
+    end_marker=False drops its END marker, so it carries no notice at all."""
     root = Path(temp) / "harness"
     (root / "corpus/song").mkdir(parents=True)
     (root / "data").mkdir()
@@ -34,7 +36,7 @@ def harness(temp, labels=(), author="Fixture Author", evidence="recorded", terms
         (root / "corpus/whitman.txt").write_text(
             "*** START OF THE PROJECT GUTENBERG EBOOK LEAVES ***\n\nSong One\n  The first verse line\n"
             "  The second verse line\n\nSong Two\n  The third verse line\n"
-            f"*** END OF THE PROJECT GUTENBERG EBOOK LEAVES ***\n{terms}\n")
+            + ("*** END OF THE PROJECT GUTENBERG EBOOK LEAVES ***\n" if end_marker else "") + f"{terms}\n")
         if whitman:
             rows += f"local:corpus/whitman.txt\tpublic domain\ttrue\t{evidence}\n"
     (root / "data/sources.tsv").write_text(rows)
@@ -241,6 +243,28 @@ class RetainedClosureTests(StaticExportTests):
             self.assertFalse(set(kept) & witness, "an unreadable unit's directory is not retained")
             old_notices = {n for d in witness for n in self.heads(old)[d]["rights"]["notices"]}
             self.assertFalse(any((new / f"notices/{d}.json").exists() for d in old_notices))
+            gate = self.gate(new, snapshot)
+            self.assertEqual(gate.returncode, 0, gate.stdout + gate.stderr)
+
+    def test_a_retained_notice_is_carried_into_a_generation_that_has_none(self):
+        """3PO's second #538 finding: the current generation writes no notices/
+        directory at all, and a retained head still needs its notice."""
+        builder = self.builder()
+        with tempfile.TemporaryDirectory() as one, tempfile.TemporaryDirectory() as two:
+            _, old, _ = self.build(one, terms="Terms of use, first printing.")
+            snapshot, new, _ = self.build(two, terms="", end_marker=False)
+            self.assertFalse(any(h["rights"]["notices"] for h in self.heads(new).values()))
+            self.assertFalse((new / "notices").exists(), "the current generation has no notices/ directory")
+            wanted = {n for h in self.heads(old).values() for n in h["rights"]["notices"]}
+            self.assertTrue(wanted)
+            kept = builder.retain(new, old, "2026-10-11")
+            retained = {n for d in kept for n in self.heads(old)[d]["rights"]["notices"]}
+            self.assertTrue(retained, "a retained head names a notice")
+            manifest = json.loads((new / "manifest.json").read_bytes())
+            for digest in retained:
+                self.assertEqual((new / f"notices/{digest}.json").read_bytes(),
+                                 (old / f"notices/{digest}.json").read_bytes())
+                self.assertIn(f"notices/{digest}.json", manifest["files"])
             gate = self.gate(new, snapshot)
             self.assertEqual(gate.returncode, 0, gate.stdout + gate.stderr)
 
