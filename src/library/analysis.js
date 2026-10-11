@@ -581,7 +581,9 @@ function methodDetailHTML(m, analyzable) {
 }
 // The method reference: a filtered accordion list over methods.json. Used by
 // the reader inspector here and by the Sources & rights view (rights.js).
-function methodReference(container, registry, { onAnalyze = null, language = null } = {}) {
+// The second argument is the methods.json registry, or a `lib` to load it through.
+async function methodReference(container, source, { onAnalyze = null, language = null } = {}) {
+  const registry = source?.methods ? source : await registryOf(source);
   const render = valueRenderer(container);
   container.innerHTML = `<input class="cm-input la-method-search" type="search" placeholder="Find a method or requirement" aria-label="Search method reference"><div class="la-method-list"></div>`;
   const list = container.querySelector('.la-method-list');
@@ -737,10 +739,12 @@ function ensureStyles() {
 // ── Declarations (port of components/library/declarations.tsx) ─────────────
 function declarationsView(
   root,
-  { reading, lines, value, sections, choices, methods, unsaved, onSave }
+  { reading, lines, value, sections, choices, methods, unsaved, onSave, annotate = [] }
 ) {
   const analysisLines = lines.filter((l) => l.analysis_line != null);
-  const first = analysisLines[0]?.analysis_line ?? 1;
+  const picked = analysisLines.filter((l) => annotate.includes(l.id)).map((l) => l.analysis_line);
+  const first = picked.length ? Math.min(...picked) : (analysisLines[0]?.analysis_line ?? 1);
+  const pickedEnd = picked.length ? Math.max(...picked) : first;
   const last = analysisLines.at(-1)?.analysis_line ?? 1;
   const st = { raw: JSON.stringify(value, null, 2), targetReady: true, atoms: {}, links: {} };
   const parsed = () => {
@@ -754,7 +758,7 @@ function declarationsView(
     <h3>Reading interpretations</h3>
     <p class="la-note">On this device · tied to this edition and revision. Source geometry and whole-work scope remain explicit.</p>
     <label>Source / basis <input class="cm-input" data-f="source" placeholder="Edition note or your reading"></label>
-    <details class="cm-accordion"><summary>Add or interpret a section / line function</summary>
+    <details class="cm-accordion"${annotate.length ? ' open' : ''}><summary>Add or interpret a section / line function</summary>
       <label>Concrete occurrence <select class="cm-select" data-f="target"><option value="">New unmarked range</option>${sections
         .map(
           (s) => `<option value="${esc(s.id)}">${esc(s.name ?? s.function)} · ${esc(s.id)}</option>`
@@ -768,7 +772,7 @@ function declarationsView(
         )
         .join('')}</select></label>
       <div class="la-range"><label>From analysis line <input class="cm-input" type="number" data-f="start" min="1" max="${last}" value="${first}"></label>
-      <label>To analysis line <input class="cm-input" type="number" data-f="end" min="1" max="${last}" value="${first}"></label></div>
+      <label>To analysis line <input class="cm-input" type="number" data-f="end" min="1" max="${last}" value="${pickedEnd}"></label></div>
       <label>Voice, if explicitly known <input class="cm-input" data-f="voice" placeholder="Leave undeclared unless supplied"></label>
       <button type="button" class="cm-btn cm-btn-outline" data-act="add-section">${icon('plus', 16)}<span>Add range</span></button>
     </details>
@@ -1063,6 +1067,12 @@ function pronunciationChoices(root, choices, onAdd) {
 function contextOf(input) {
   const r = input.reading || {};
   const head = r.head || r;
+  // lines: row objects, or (from the reader's Annotate action) line ids to declare.
+  const rows =
+    Array.isArray(input.lines) && input.lines.every((l) => l && typeof l === 'object')
+      ? input.lines
+      : null;
+  const annotate = Array.isArray(input.lines) && !rows ? input.lines.map(String) : [];
   return {
     ...input,
     reading: {
@@ -1073,13 +1083,14 @@ function contextOf(input) {
     selected: new Set(
       input.selected || input.selection || (typeof r.selection === 'function' ? r.selection() : [])
     ),
-    loadLines: input.lines
-      ? async () => input.lines
+    annotate,
+    loadLines: rows
+      ? async () => rows
       : typeof r.allLines === 'function'
         ? () =>
             r.allLines().catch(() => (typeof r.lines === 'function' ? r.lines() : linesOf(head)))
         : () => linesOf(head),
-    knownLines: () => input.lines || (typeof r.lines === 'function' ? r.lines() : []),
+    knownLines: () => rows || (typeof r.lines === 'function' ? r.lines() : []),
     onHighlight:
       input.onHighlight ||
       (typeof r.highlight === 'function' ? (ids, record) => r.highlight(record, [...ids]) : null),
@@ -1119,7 +1130,7 @@ function mount(container, input) {
     selected: ctx.selected,
     lines: null,
     declarations: {},
-    declOpen: false,
+    declOpen: input.open === 'declarations',
     unsaved: false,
     busy: false,
     error: '',
@@ -1616,6 +1627,7 @@ function mount(container, input) {
       choices,
       methods: st.registry?.methods || [],
       unsaved: st.unsaved,
+      annotate: ctx.annotate,
       onSave: async (v) => {
         st.declarations = v;
         st.declOpen = false;
