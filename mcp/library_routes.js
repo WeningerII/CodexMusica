@@ -9,7 +9,7 @@
 // never sends a snapshot: every response names the server's own. Search and
 // metadata are cacheable (public, max-age=300, ETag); errors never are. The
 // credentialed viewer routes (analyses, jobs) mount separately, only when
-// LIBRARY_PUBLIC=1.
+// public analysis is on (the default; LIBRARY_PUBLIC=0 turns it off).
 import crypto from 'node:crypto';
 import express from 'express';
 import { LibraryError, errorBody } from './library_search.js';

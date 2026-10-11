@@ -301,7 +301,7 @@ let readerFailure;
 // pinned catalog and durable storage. Its two browser families mount on their
 // own conditions: /internal/reader (the Site bridge) only while the bridge
 // secret and Site identity are set, and the /library/v1 viewer routes only
-// with LIBRARY_PUBLIC=1 (below). Removing the bridge secrets therefore never
+// with public analysis on (below; LIBRARY_PUBLIC=0 turns it off). Removing the bridge secrets therefore never
 // silently disables public analysis.
 try {
   readerStore = new ReaderJobStore({
@@ -366,7 +366,7 @@ const readerReadiness = () => {
 // The public Library browser API (docs/library-native-design.md). Search and
 // metadata are read-only and uncredentialed, served from the store the image
 // builds (LIBRARY_SEARCH_DIR); without one they answer 503. Public analysis is
-// reported available only once LIBRARY_PUBLIC=1 mounts the viewer routes.
+// reported available only while public analysis mounts the viewer routes.
 let librarySearch = null;
 if (process.env.LIBRARY_SEARCH_DIR) {
   try {
@@ -427,10 +427,12 @@ try {
 } catch (error) {
   console.error('[library] retained definitions are unavailable:', error.message);
 }
-// Public analysis: only with LIBRARY_PUBLIC=1, a running reader and the
-// search store, whose snapshot is the one every request is filled with.
-// Mounted before the public router, whose refusals would otherwise answer.
-if (process.env.LIBRARY_PUBLIC === '1') {
+// Public analysis: on since the native Library tab shipped (LIBRARY_PUBLIC=0
+// turns it off), with a running reader and the search store, whose snapshot
+// is the one every request is filled with. Mounted before the public router,
+// whose refusals would otherwise answer.
+const LIBRARY_PUBLIC = process.env.LIBRARY_PUBLIC !== '0';
+if (LIBRARY_PUBLIC) {
   if (readerScheduler && librarySearch) {
     app.use(
       '/library/v1',
@@ -450,7 +452,7 @@ if (process.env.LIBRARY_PUBLIC === '1') {
     );
   } else {
     console.error(
-      '[library] LIBRARY_PUBLIC=1 but the reader or the search store is unavailable; analysis is not mounted.'
+      '[library] public analysis is on but the reader or the search store is unavailable; analysis is not mounted.'
     );
   }
 }
@@ -460,9 +462,7 @@ app.use(
     search: librarySearch,
     corpus: libraryCorpus,
     analysisAvailable: () =>
-      process.env.LIBRARY_PUBLIC === '1' &&
-      Boolean(librarySearch) &&
-      readerReadiness().ready === true,
+      LIBRARY_PUBLIC && Boolean(librarySearch) && readerReadiness().ready === true,
   })
 );
 // After every /library/v1 router: errors raised before routing (a body that

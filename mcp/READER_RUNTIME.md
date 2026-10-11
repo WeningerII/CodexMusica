@@ -20,7 +20,7 @@ reader adds no resident Python process and yields when writing work queues.
 | `LIBRARY_SEARCH_DIR`          | The search store `lyric-harness/library/search_store.py` builds from the verified site export. Without it, `/library/v1/search` and `/metadata` answer 503. |
 | `LIBRARY_EXPORT_DIR`          | The export store `node mcp/library_exports.js build EXPORT OUT` builds from the verified site export. Without it, selection exports answer 503. |
 | `LIBRARY_CORPUS_DIR`          | The whole-corpus packages `python -m library.catalog_downloads SNAPSHOT OUT` builds (run from lyric-harness). Installed only when built from the snapshot the search and export stores serve; without it, corpus downloads answer 503. |
-| `LIBRARY_PUBLIC`              | `1` mounts the credentialed `/library/v1` viewer routes (analysis). Unset or `0` until the native Library tab ships.                          |
+| `LIBRARY_PUBLIC`              | On by default since the native Library tab shipped: mounts the credentialed `/library/v1` viewer routes (analysis). `0` turns them off. |
 
 Use the existing immutable image assembly, qualification and promotion pipeline.
 Install the same canonical catalog snapshot on the Site and Render. A separate
@@ -57,7 +57,7 @@ server's own snapshot (the client never sends one):
 
 - `GET /library/v1/health`: passive (no cookie, no writes). Reports the
   snapshot, `readable_ids_sha256`, unit counts, `search_ready`, and
-  `analysis_available` (true only with `LIBRARY_PUBLIC=1` and a ready reader),
+  `analysis_available` (true only with public analysis on and a ready reader),
   and `corpus`: each installed package's `bytes`, `sha256` and `url`.
 - `GET /library/v1/search?q&language&availability&completeness&work&collection&contributor&sort&offset&limit<=100`:
   a line-for-line port of the approved Worker's search over the store at
@@ -112,14 +112,14 @@ errors are `no-store`. Search has a per-address abuse ceiling of 600 a minute
 Retry-After. The application's request log drops the search query string;
 Render's platform logs may still hold it (see `PRIVACY.md`).
 
-### Viewer routes (`LIBRARY_PUBLIC=1`)
+### Viewer routes (on unless `LIBRARY_PUBLIC=0`)
 
 The Library tab's analyses. Jobs share the reader-jobs-v1 store, admission and
 scheduler with the Site bridge, and create runs the same pipeline
 (`createAnalysisJob` in `reader_routes.js`). The store and scheduler run
 whenever `READER_CATALOG_DIR` and durable storage exist; the bridge secrets
 mount only `/internal/reader`, and these routes mount only with
-`LIBRARY_PUBLIC=1`, the search store installed and the reader running.
+public analysis on (`LIBRARY_PUBLIC` not `0`), the search store installed and the reader running.
 
 - **Identity.** `__Host-cm_library`: 32 random bytes, base64url, `Path=/;
   Secure; HttpOnly; SameSite=Strict; Max-Age=2592000`. Minted only by `POST

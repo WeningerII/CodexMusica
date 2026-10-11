@@ -1,7 +1,7 @@
 // Credentialed /library/v1 viewer routes: the native Library tab's analyses
 // (docs/library-native-design.md, "Analysis and identity").
 //
-// Mounted only when LIBRARY_PUBLIC=1. Jobs share the reader-jobs-v1 store,
+// Mounted unless LIBRARY_PUBLIC=0 (on since the native Library tab shipped). Jobs share the reader-jobs-v1 store,
 // admission and scheduler with the Site bridge (/internal/reader), and create
 // runs the same pipeline (reader_routes.createAnalysisJob).
 //
