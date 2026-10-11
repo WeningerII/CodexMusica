@@ -90,26 +90,13 @@ if (!document.querySelector('style[data-lib="rights"]'))
 </style>`
   );
 
-// ── device state: lib.device if core offers one, else localStorage ─────────
+// ── device state: lib.device (IndexedDB 'codex-musica-library-v1') ───────
 function device(lib) {
-  if (lib.device && typeof lib.device.get === 'function') return lib.device;
+  const d = lib.device;
   return {
-    async get(key, fallback) {
-      try {
-        const raw = localStorage.getItem('cm-library:' + key);
-        return raw == null ? fallback : JSON.parse(raw);
-      } catch {
-        return fallback;
-      }
-    },
-    async set(key, value) {
-      try {
-        if (value == null) localStorage.removeItem('cm-library:' + key);
-        else localStorage.setItem('cm-library:' + key, JSON.stringify(value));
-      } catch {
-        /* storage blocked: the export still runs; only Resume is lost */
-      }
-    },
+    get: (key, fallback) =>
+      d ? d.read(key, fallback).catch(() => fallback) : Promise.resolve(fallback),
+    set: (key, value) => (d ? d.write(key, value).catch(() => {}) : Promise.resolve()),
   };
 }
 
@@ -146,7 +133,8 @@ async function metadataObject(lib, ref) {
   return shard.metadata?.[ref] || null;
 }
 
-const artSrc = (id, size = 240) => `assets/library/art/${id}-${size}.webp`;
+const artSrc = (id, size = 240) => `${LIB.artBase || 'assets/library/art/'}${id}-${size}.webp`;
+const LIB = {};
 const fmtBytes = (n) =>
   !Number.isFinite(n)
     ? ''
@@ -244,6 +232,7 @@ async function corpusInfo(lib, fresh = false) {
 // ── export: the panel ─────────────────────────────────────────────────────
 function exportPanel(container, lib) {
   const store = device(lib);
+  LIB.artBase = lib.artBase;
   const state = {
     format: 'text',
     busy: false,
@@ -448,7 +437,7 @@ ${
       state.showAll = true;
       draw();
     } else if (act === 'drop') {
-      for (const id of state.lastFailure?.detail?.reading_unit_ids || []) sel.remove(id);
+      sel.remove(state.lastFailure?.detail?.reading_unit_ids || []);
       state.error = '';
       draw();
       if (
@@ -463,12 +452,20 @@ ${
         'application/json'
       );
   });
-  const off = sel.onChange?.((info) => {
-    if (info && typeof info === 'object' && 'unsaved' in info) state.unsaved = !!info.unsaved;
-    if (sel.unsaved !== undefined) state.unsaved = !!sel.unsaved;
-    if (container.isConnected) draw();
+  // The selection saves after its listeners run, so `unsaved` is read again
+  // a moment later; a panel no longer in the page unsubscribes itself.
+  let off = null;
+  const sync = () => {
+    if (!container.isConnected && state.drawn) return typeof off === 'function' && off();
+    state.unsaved = !!sel.unsaved;
+    draw();
+  };
+  off = sel.onChange?.(() => {
+    sync();
+    setTimeout(sync, 250);
   });
-  if (sel.unsaved !== undefined) state.unsaved = !!sel.unsaved;
+  sel.ready?.then(sync, sync);
+  state.unsaved = !!sel.unsaved;
   draw();
   Promise.all([store.get(PENDING, null), store.get(FORMAT_KEY, 'text')]).then(([p, f]) => {
     if (p && Array.isArray(p.ids) && p.ids.length) state.pending = p;
@@ -656,7 +653,7 @@ ${hits.length > page.length ? uiButton('lr-more', 'Show more sources', 'chevron-
           text: 'Its records stay searchable as metadata; the source body is excluded from reading and export.',
         });
       } else {
-        const h = await lib.reading(unit);
+        const h = await lib.reading(unit, (col.rows || []).find((r) => r[0] === unit)?.[1]);
         if (view.current !== id) return;
         const [rights, meta] = await Promise.all([
           rightsObject(lib, h.rights_ref),
@@ -784,7 +781,7 @@ ${body}
             .forEach((t) => t.setAttribute('aria-selected', 'false'));
         } else if (a === 'lr-select-src') {
           const all = col.readable_ids || readable.map((r) => r[0]);
-          for (const u of all) lib.selection.add(u);
+          lib.selection.add(all);
           showToast(
             `Added ${all.length.toLocaleString()} readable unit${all.length === 1 ? '' : 's'} to the export selection.`,
             'success'
