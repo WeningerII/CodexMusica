@@ -281,6 +281,23 @@ async function openPage(browser, url, combo) {
     colorScheme: combo.theme,
   });
   const log = [];
+  // Every other call the page makes to the backend host (the shell's
+  // /chat/status probe and the like) is answered too, as check_library_shell.js
+  // does: nothing in this gate may reach the network, and a real response
+  // without CORS headers would be a console error the page did not cause.
+  await context.route(/^https:\/\/mcp\.codexmusica\.com\//, (route) => {
+    const origin = route.request().headers().origin || '*';
+    return route.fulfill({
+      status: 200,
+      headers: {
+        'content-type': 'application/json',
+        'access-control-allow-origin': origin,
+        'access-control-allow-credentials': 'true',
+      },
+      body: '{"ok":true,"enabled":true}',
+    });
+  });
+  // Registered last, so it is matched first for the Library's own routes.
   await context.route(`${API}/**`, makeStub(log));
   const page = await context.newPage();
   const errors = [];
