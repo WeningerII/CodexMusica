@@ -24,7 +24,7 @@
 //
 // Usage: node scripts/check_library_shell.js
 
-/* global _workspaceReady, app, document, localStorage, location, UI -- inside page.evaluate callbacks */
+/* global _workspaceReady, app, CMLibraryImport, document, localStorage, location, UI, uiOpenInLyrics -- inside page.evaluate callbacks */
 'use strict';
 const assert = require('assert');
 const fs = require('fs');
@@ -373,6 +373,70 @@ function chromiumPath() {
     await s.close();
   }
 
+  // The in-page Lyrics handoff: uiOpenInLyrics hands one envelope to the
+  // importer Lyrics registered. A valid envelope opens Lyrics on that text,
+  // pushed so Back returns to the reading; a tampered one is refused and the
+  // Library stays where it was; the recipe is untouched either way.
+  {
+    const s = await open(dirs.lazy, '#library/works');
+    const { page } = s;
+    await shown(page, 'Works');
+    const handoff = (tamper) =>
+      page.evaluate(async (tamper) => {
+        const envelope = {
+          protocol: CMLibraryImport.PROTOCOL,
+          version: 1,
+          handoffId: crypto.randomUUID(),
+          draftId: crypto.randomUUID(),
+          createdAt: new Date().toISOString(),
+          payload: {
+            text: 'The evening wind\nReturns the song',
+            title: 'Handoff test',
+            language: 'eng',
+            scope: 'whole',
+            provenance: {
+              snapshotId: 'snapshot:one',
+              unitId: 'unit:one',
+              workId: 'work:one',
+              editionId: 'edition:one',
+              revisionId: 'revision:one',
+              rights: { attribution: 'Source credit', notices: ['A notice'] },
+            },
+            lineage: [],
+            declarations: [],
+          },
+        };
+        envelope.digest = await CMLibraryImport.envelopeDigest(envelope);
+        if (tamper) envelope.payload.text += ' (changed)';
+        try {
+          await uiOpenInLyrics(envelope);
+          return { ok: true };
+        } catch (e) {
+          return { ok: false, message: e.message };
+        }
+      }, tamper);
+    const refused = await handoff(true);
+    assert.equal(refused.ok, false, 'a tampered envelope is refused');
+    assert.equal(await page.evaluate(() => UI.view + location.hash), 'library#library/works');
+    const opened = await handoff(false);
+    assert.deepEqual(opened, { ok: true });
+    await page.waitForFunction(() => UI.view === 'lyrics' && location.hash === '#lyrics');
+    assert.equal(
+      await page.evaluate(() => document.getElementById('lyrics-draft').value),
+      'The evening wind\nReturns the song'
+    );
+    assert.equal(await page.evaluate(() => app.cards.length), 0, 'the recipe is untouched');
+    await page.goBack();
+    await shown(page, 'Works');
+    assert.equal(
+      await page.evaluate(() => location.hash),
+      '#library/works',
+      'Back returns to the reading'
+    );
+    assert.deepEqual(s.errors, []);
+    await s.close();
+  }
+
   // A chunk whose bytes do not match its integrity is refused.
   {
     const s = await open(dirs.lazy, '#library/works', async (route) => {
@@ -408,7 +472,7 @@ function chromiumPath() {
   await browser.close();
   fs.rmSync(temp, { recursive: true, force: true });
   console.log(
-    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover prefetches core and catalog once, deferred boot (Library before the workspace, no engine or prose while shown, a held control acts once it is in, the saved session kept and restored, Genre waits as a skeleton and draws once it is in), a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
+    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover prefetches core and catalog once, deferred boot (Library before the workspace, no engine or prose while shown, a held control acts once it is in, the saved session kept and restored, Genre waits as a skeleton and draws once it is in), the Lyrics handoff (opens the text pushed, Back returns, a tampered envelope refused, the recipe untouched), a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
   );
 })().catch((error) => {
   console.error('LIBRARY SHELL: FAIL —', error.stack || error);

@@ -1,4 +1,4 @@
-/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf */
+/* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf, uiOpenInLyrics */
 /* global UILayout, CMLibraryImport, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError */
 /* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
@@ -102,6 +102,8 @@ const UI_SHELL_ACTIONS = new Set([
 //   resetLayout?()  extra work for Reset layout (the Map tells its iframe)
 //   escape?()     close what this page opened (last in the Escape order)
 //   actions?      { [data-ui name]: (id, button, event) => void | Promise }
+//   imports?      { [source]: (payload) => Promise }: what the page accepts
+//                 from another page (uiOpenInLyrics calls lyrics.imports.library)
 //   holdsEngine?  true: on a deferred boot (src/app.js _BOOT_DEFER) this page
 //                 draws before the workspace, and keeps the instrument engine
 //                 back while shown; any other page releases it
@@ -118,6 +120,17 @@ function uiRegisterPage(page) {
   UI_PAGES[page.id] = page;
 }
 const $ui = (id) => document.getElementById(id);
+// The Library's in-page handoff: one codex-musica.library-import envelope to
+// Lyrics, through the importer Lyrics registered (imports.library), once the
+// workspace is in. Lyrics validates it, commits a durable draft and opens it,
+// pushed so Back returns to the reading. Text only: nothing reads or writes
+// the recipe. Rejects when the import fails, for the caller's fallback.
+async function uiOpenInLyrics(envelope) {
+  await uiEnsureWorkspace();
+  const importer = UI_PAGES.lyrics?.imports?.library;
+  if (!importer) throw Error('Lyrics cannot import from the Library.');
+  return importer(envelope);
+}
 // The Library is its own site (sites/library, hosted apart from this static
 // build), so its entry in Main sections is a link that opens it in a new tab
 // rather than a route: this page's unsaved work stays where it is. Its address

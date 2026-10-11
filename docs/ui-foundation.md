@@ -53,6 +53,7 @@ uiRegisterPage({
   resetLayout() {}, // extra work for Reset layout
   escape() {}, // close what this page opened (last in the Escape order)
   actions: { 'genre-branch': (id, button, event) => {} }, // data-ui="…" handlers
+  imports: { library: (envelope) => {} }, // optional: what the page accepts from another page
   holdsEngine: false, // optional: true for a page that draws before the workspace (below)
 });
 ```
@@ -93,6 +94,7 @@ any other page starts it. Every other route boots exactly as before.
 | `uiNavigate(view, { push, sub })` | Show a section. `push: true` for a user's own navigation, so Back/Forward step between sections. `sub` is the sub-route for a page with `route()`; left out, its `currentRoute()` is used. |
 | `uiSubroute(sub, { push, state })` | A page records its own sub-route without a re-render: `push` for a step the user would go Back from, replace otherwise; `state` travels in `history.state`. |
 | `uiRouteOf(hash)` | `{ view, sub }` of a route hash. |
+| `uiOpenInLyrics(envelope)` | The Library's in-page handoff: awaits `uiEnsureWorkspace()`, then hands one `codex-musica.library-import` envelope to the importer Lyrics registered (`imports.library`). Lyrics validates it, commits a durable draft with its receipt and opens it, pushed so Back returns to the reading. Text only; nothing reads or writes the recipe. Rejects when the import fails, so the caller can offer the file download instead. |
 | `uiEnsureWorkspace()` | Resolves once the workspace is booted, starting a deferred boot's workspace on first call (see "Deferred workspace boot"); a failure is forgotten, so the next call asks again. Resolves at once on any other boot. |
 | `uiAddGenre(id)` | Add a genre's configured ensemble to the shared recipe through the canonical import. Resolves `{ added, expected }`; refuses a second concurrent addition; the toast offers Undo (refused if later changes followed) or Retry. |
 | `uiAddInstrument(id, { configure, message, destination })` | Add one instrument through the canonical picker path, to `destination` (a genre id, or `''` for an independent instrument; left out, the Instrument page's "Add to"). Resolves to the added card, or `null` when nothing was added. `configure(card)` runs on the new card before its history entry (one Undo removes the configured addition); `message(card)` words the success toast. |
