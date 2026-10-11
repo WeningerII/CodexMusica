@@ -179,6 +179,11 @@ def build(export: Path, out: Path) -> dict:
                 for name, text in (("title", title), ("contributor", contributor),
                                    ("contributor_lower", _ascii_lower(contributor)),
                                    ("body", body)):
+                    # SQLite's text functions stop at U+0000 (length, substr),
+                    # where the port slices by code point: the store refuses
+                    # the one input on which they would disagree.
+                    if "\x00" in text:
+                        raise ValueError(f"{name} holds U+0000: {s['reading_unit_id']}")
                     put(name, text.encode("utf-8"))
                     offsets[name].append(size[name])
                 put("metadata", _deflate(_js_json(s)))
