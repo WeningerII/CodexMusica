@@ -5,7 +5,8 @@ Sections:
   1  a step credits jointly completable spellings, not single words alone
   2  --attested never lets a step add a spelling the source does not attest
   3  the heuristic classes sort what they say
-  4  the queue reads the dev side of the frozen split and nothing else
+  4  the queue reads the dev side of the frozen split and nothing else, and
+     its readiness is the census's own (no-endpoint items never ranked)
 """
 import collections
 import os
@@ -73,10 +74,21 @@ def test_dev_only():
     from quality.coverage_split import read_split
     from quality.coverage_census import build_lexicon
     assignment, _meta = read_split()
-    items, _tokens, _case = Q.blockers(build_lexicon("none", "none"))
+    lex = build_lexicon("none", "none")
+    items, no_endpoint, _tokens, _case = Q.blockers(lex)
     dev = sum(1 for side in assignment.values() if side == "dev")
     check("it reads exactly the dev items of the frozen split",
-          len(items) == dev, f"{len(items)} read, {dev} dev")
+          len(items) + no_endpoint == dev,
+          f"{len(items)} + {no_endpoint} read, {dev} dev")
+    from quality import coverage_census as C
+    keep = {u for u, side in assignment.items() if side == "dev"}
+    paths = sorted({os.path.join(ROOT, u.split("#")[0]) for u in keep})
+    rec = C.census(paths, lex, keep=keep)
+    ready = sum(1 for s in items if not s)
+    check("its ready count is the census's dev lookup readiness, and its "
+          "no-endpoint items the census's", ready == rec["items_lookup_ready"]
+          and no_endpoint == rec["items_blocked_by_no_endpoint_line"],
+          f"{ready} vs {rec['items_lookup_ready']}")
 
 
 if __name__ == "__main__":

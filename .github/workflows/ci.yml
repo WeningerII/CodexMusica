@@ -2714,7 +2714,7 @@ jobs:
       #   lane's ranked review queue), added in the same commit as the module it gates: a step
       #   credits jointly completable spellings, --attested never adds an unattested one, the
       #   heuristic classes sort what they say, and the queue reads the dev side of the frozen
-      #   split and nothing else; about 60 s, nearly all of it one pass over the dev items;
+      #   split and nothing else, with the census's own readiness; about 120 s, two passes over dev;
       #   label 105 to 106
       - name: The 106 cheap suites (their history is the comment above)
         working-directory: lyric-harness

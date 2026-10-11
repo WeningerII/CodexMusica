@@ -242,9 +242,10 @@ def render(meta, rows):
     return "\n".join(out) + "\n"
 
 
-def read_split(path=SPLIT_PATH):
-    """-> ({unit id: split}, meta) from the frozen file."""
-    with open(path, encoding="utf-8") as fh:
+def read_split(path=None):
+    """-> ({unit id: split}, meta) from the frozen file (SPLIT_PATH, read at
+    call time)."""
+    with open(path or SPLIT_PATH, encoding="utf-8") as fh:
         lines = fh.read().splitlines()
     meta = json.loads(lines[1][2:])
     return {l.split("\t")[0]: l.split("\t")[2] for l in lines[3:] if l}, meta

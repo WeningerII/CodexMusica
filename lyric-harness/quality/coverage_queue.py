@@ -11,8 +11,10 @@ never read here, so nothing selected from this queue was selected by looking
 at it. There is no flag to change that.
 
 WHAT IT RANKS. An item's BLOCKERS are its unread spellings: every word with an
-unread piece, plus an end word the grader's own reader cannot anchor -- the
-same definition as quality/coverage_census.py's `items_lookup_ready`. A queue
+unread piece, plus an end word the grader's own reader cannot anchor, from
+quality/coverage_census.item_lookup_blockers -- the census's own definition.
+An item with a line that has no endpoint is completable by no reading; it is
+counted apart and never ranked. A queue
 STEP adds the set of spellings that completes the most further items per
 spelling added, choosing among single spellings and the whole remaining
 blocker sets of items (up to three spellings), so a word that only ever
@@ -48,36 +50,41 @@ MAX_SET = 3
 
 
 def blockers(lex):
-    """-> (items: [set of spellings], tokens: Counter, case: {spelling: flags})
-    over the DEV side of the frozen split."""
+    """-> (items, no_endpoint_items, tokens, case) over the DEV side of the
+    frozen split. `items` holds each completable item's set of lexical
+    blockers, from quality/coverage_census.item_lookup_blockers -- the
+    census's own definition; an item with a line that has no endpoint can be
+    completed by no reading, so it is counted in `no_endpoint_items` and
+    never ranked. `tokens` counts unread word occurrences, and `case` records
+    how each spelling was capitalised, for the name-like class."""
     import lyric_harness as LH
+    from quality.coverage_census import item_lookup_blockers
     from quality.coverage_split import read_split, units
     assignment, _meta = read_split()
-    items, tokens = [], collections.Counter()
+    items, no_endpoint_items, tokens = [], 0, collections.Counter()
     seen_lower, seen_mid_cap = set(), set()
-    for uid, rel, _title, lines, _at in units():
+    for uid, _rel, _title, lines, _at in units():
         if assignment.get(uid) != "dev":
             continue
-        here = set()
+        found, no_endpoint = item_lookup_blockers(lex, lines)
         for line in lines:
             _ph, toks, _oov = lex.transcribe(line)
             for i, t in enumerate(toks):
                 key = LH.fold_apostrophes(t).lower()
-                if any(lex.transcribe_word(p)[1] for p in lex.word_pieces(t) if p):
-                    here.add(key)
+                if key in found and any(
+                        lex.transcribe_word(p)[1] for p in lex.word_pieces(t) if p):
                     tokens[key] += 1
                     if t[:1].islower():
                         seen_lower.add(key)
                     elif i > 0:
                         seen_mid_cap.add(key)
-            if not LH.line_anchors(lex, line)[0]:
-                f = LH.raw_final_token(line, strip_parens=lex.strip_parens)
-                if f:
-                    here.add(LH.fold_apostrophes(f).lower())
-        items.append(here)
+        if no_endpoint:
+            no_endpoint_items += 1
+        else:
+            items.append(found)
     case = {k: {"lower": k in seen_lower, "mid_cap": k in seen_mid_cap}
             for k in tokens}
-    return items, tokens, case
+    return items, no_endpoint_items, tokens, case
 
 
 def classify(t, case, cmu):
@@ -155,7 +162,7 @@ def main(argv=None):
     from quality.coverage_split import read_split
     import lyric_harness as LH
     lex = build_lexicon(a.lexicon_supplement, "none")
-    items, tokens, case = blockers(lex)
+    items, no_endpoint_items, tokens, case = blockers(lex)
     allowed = None
     if a.attested:
         with open(a.attested, encoding="utf-8") as fh:
@@ -167,7 +174,8 @@ def main(argv=None):
         "population": "song corpus, dev side only", "split_salt": meta["salt"],
         "split_inputs_sha256": meta["inputs_sha256"],
         "lexicon_supplement": a.lexicon_supplement, "census_commit": _commit(),
-        "attested_file": a.attested, "dev_items": len(items),
+        "attested_file": a.attested, "dev_items": len(items) + no_endpoint_items,
+        "dev_items_blocked_by_no_endpoint_line": no_endpoint_items,
         "dev_items_lookup_ready_before": sum(1 for s in items if not s),
         "dev_items_lookup_ready_after_queue": steps[-1]["items_lookup_ready"] if steps else None,
         "steps": len(steps), "types_chosen": steps[-1]["types_chosen"] if steps else 0,
