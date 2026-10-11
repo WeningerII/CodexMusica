@@ -74,15 +74,21 @@ export function createStreamLimiter({
  * and the completion of this response's own write callbacks (a write's
  * callback runs once the socket has handed that write on, so a client draining
  * a stream of chunks completes them steadily). A write that is still
- * outstanding gives neither signal while the client drains it: one large
- * write, or any write over TLS, whose bytesWritten counts plaintext the moment
- * it is queued. The guard cannot tell that client from a stalled one, so while
- * a write is outstanding it falls back to wall clock and allows the
- * outstanding bytes the time a reader at minBytesPerSecond would need, never
- * cutting a reader at the floor early. Nothing private (the socket handle's
- * writeQueueSize) is read. The guard stops when the response finishes or
- * closes.
+ * outstanding gives neither signal while the client drains it (over TLS
+ * bytesWritten counts plaintext the moment it is queued), and the guard cannot
+ * tell that client from a stalled one. So the idle limit is absolute: no
+ * movement for idleMs cuts, whatever is outstanding. Writers keep each write
+ * to STREAM_WRITE_BYTES, which a reader at the floor drains well inside the
+ * idle window. Only the crawl check falls back to wall clock while a write is
+ * outstanding: the outstanding bytes get the time a reader at
+ * minBytesPerSecond needs before a window can count against them. Nothing
+ * private (the socket handle's writeQueueSize) is read. The guard stops when
+ * the response finishes or closes.
  */
+// The largest single write a guarded download makes: at the default floor
+// (4096 B/s) it drains in 16 s, inside the 60 s idle window.
+export const STREAM_WRITE_BYTES = 1 << 16;
+
 export function guardStream(
   res,
   {
@@ -138,9 +144,10 @@ export function guardStream(
   // The rate counts bytes the socket has taken: completed writes where they
   // are observed, else bytesWritten.
   const progress = () => (write ? completed : queued());
-  // Wall-clock allowance while an outstanding write hides its progress.
-  const waiting = (floorMs) =>
-    pending > 0 && Date.now() - lastMoved < Math.max(floorMs, (pending * 1000) / minBytesPerSecond);
+  // The crawl check's wall-clock allowance while an outstanding write hides
+  // its progress. Never consulted by the idle check.
+  const waiting = () =>
+    pending > 0 && Date.now() - lastMoved < (pending * 1000) / minBytesPerSecond;
   const cut = () => res.destroy();
   let windowStart = progress();
   const idle = setInterval(() => {
@@ -148,11 +155,11 @@ export function guardStream(
     if (now !== lastQueued) {
       lastQueued = now;
       moved();
-    } else if (Date.now() - lastMoved >= idleMs && !waiting(idleMs)) cut();
+    } else if (Date.now() - lastMoved >= idleMs) cut();
   }, tickMs);
   const rate = setInterval(() => {
     const now = progress();
-    if (now - windowStart < (minBytesPerSecond * windowMs) / 1000 && !waiting(0)) cut();
+    if (now - windowStart < (minBytesPerSecond * windowMs) / 1000 && !waiting()) cut();
     windowStart = now;
   }, windowMs);
   const stop = () => {

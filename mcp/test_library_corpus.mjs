@@ -13,8 +13,9 @@ import path from 'node:path';
 import { test } from 'node:test';
 import express from 'express';
 import { CorpusPackages, libraryCorpusRouter, parseRange } from './library_corpus_routes.js';
-import { guardStream, libraryExportRouter } from './library_export_routes.js';
+import { STREAM_WRITE_BYTES, guardStream, libraryExportRouter } from './library_export_routes.js';
 import { libraryPublicRouter } from './library_routes.js';
+import { LIBRARY_LIMITS } from './ratelimit.js';
 import { ExportStore, buildExportStore } from './library_exports.js';
 import { reading, writeExport } from './test_library_fixtures.mjs';
 
@@ -260,9 +261,7 @@ test('the stream guard cuts a stalled client and a crawling one, and frees the s
     t,
     libraryCorpusRouter({
       corpus,
-      // A fast floor: the 1 MiB write the client never drains is allowed only
-      // the time a reader at the floor needs, so the idle limit decides.
-      guard: (res) => guardStream(res, { idleMs: 300, windowMs: 60_000, minBytesPerSecond: 1e9 }),
+      guard: (res) => guardStream(res, { idleMs: 300, windowMs: 60_000 }),
     })
   );
   const unread = await stalled(url);
@@ -285,16 +284,14 @@ test('the stream guard cuts a stalled client and a crawling one, and frees the s
   await assert.rejects(slow.arrayBuffer(), 'cut below the minimum rate');
 });
 
-test('the stream guard measures the socket: a client draining one large write steadily is never idle', async (t) => {
-  // One 12 MB write (a large selection entry) drained at about 3 MB/s takes
-  // about 4 s, longer than the 1.5 s idle limit. A guard counting application
-  // writes sees one write and then nothing, and would cut this client; the
-  // socket hands the data on in steps (on loopback the kernel takes about
-  // 1.5 MB at a time), so a guard reading the socket sees it moving.
+test('the stream guard measures the socket: a client draining bounded writes steadily is never idle', async (t) => {
+  // 12 MB written as STREAM_WRITE_BYTES writes paced by drain, read at about
+  // 3 MB/s: about 4 s, longer than the 1.5 s idle limit. Each write's
+  // completion is progress, so the steady reader is never idle.
   const size = 12_000_000;
   const server = http.createServer((req, res) => {
     guardStream(res, { idleMs: 1500, windowMs: 60_000, tickMs: 100 });
-    res.end(Buffer.alloc(size, 7));
+    respond(res, size);
   });
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   t.after(() => {
@@ -303,6 +300,38 @@ test('the stream guard measures the socket: a client draining one large write st
   });
   const read = await throttledRead(`http://127.0.0.1:${server.address().port}/`, 3_000_000);
   assert.deepEqual(read, { status: 200, bytes: size });
+});
+
+test('at the production limits a client that reads nothing is cut at the idle deadline', async (t) => {
+  // No overrides: idleMs 60 s, a 1 s tick, the 4 KiB/s floor. Outstanding
+  // bytes never extend the idle deadline.
+  const big = 48_000_000;
+  const { dir } = packagesOf(t, { sizes: { text: big, json: 10, csv: 10 } });
+  const corpus = new CorpusPackages(dir);
+  await corpus.verify();
+  let started = 0;
+  let cutAt = 0;
+  const call = await serve(
+    t,
+    libraryCorpusRouter({
+      corpus,
+      guard: (res) => {
+        started = Date.now();
+        res.on('close', () => (cutAt ||= Date.now()));
+        return guardStream(res);
+      },
+    })
+  );
+  const unread = await call(corpus.urlFor('text'));
+  assert.equal(unread.status, 200);
+  const { streamIdleMs } = LIBRARY_LIMITS;
+  while (!cutAt && Date.now() - started < streamIdleMs + 5000)
+    await new Promise((resolve) => setTimeout(resolve, 250));
+  assert.ok(cutAt, 'the stalled client was cut');
+  const after = cutAt - started;
+  assert.ok(after >= streamIdleMs, `not before the idle deadline (${after} ms)`);
+  assert.ok(after <= streamIdleMs + 1000 + 250, `within idleMs + one tick (${after} ms)`);
+  await assert.rejects(unread.arrayBuffer());
 });
 
 // A self-signed P-256 certificate for localhost, built here with node:crypto
@@ -350,14 +379,12 @@ function selfSigned() {
   return { cert: pem, key: privateKey.export({ type: 'pkcs8', format: 'pem' }) };
 }
 
-// The two shapes a download takes: one large write, and a stream of 1 MiB
-// writes paced by drain (the corpus route's shape).
-function respond(res, size, shape) {
-  if (shape === 'single') return res.end(Buffer.alloc(size, 7));
+// A download's shape: STREAM_WRITE_BYTES writes paced by drain.
+function respond(res, size) {
   let left = size;
   const pump = () => {
     while (left > 0) {
-      const n = Math.min(left, 1 << 20);
+      const n = Math.min(left, STREAM_WRITE_BYTES);
       left -= n;
       if (!res.write(Buffer.alloc(n, 7))) return res.once('drain', pump);
     }
@@ -369,13 +396,12 @@ function respond(res, size, shape) {
 test('the stream guard keeps a healthy throttled reader over TLS', async (t) => {
   // Over TLS bytesWritten counts plaintext the moment it is queued and the
   // handle's private queue size counts ciphertext: their difference never
-  // moved, and a guard reading it cut a client draining one large write. Here
-  // progress is bytesWritten movement or our own write callbacks, and an
-  // outstanding write is allowed the time a reader at the floor needs.
+  // moved, and a guard reading it cut a healthy reader. Here progress is
+  // bytesWritten movement or our own write callbacks.
   const size = 24_000_000; // well past the loopback socket buffers
   const server = https.createServer(selfSigned(), (req, res) => {
     guardStream(res, { idleMs: 800, windowMs: 1000, minBytesPerSecond: 2_000_000, tickMs: 50 });
-    respond(res, size, req.url.slice(1));
+    respond(res, size);
   });
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   t.after(() => {
@@ -383,21 +409,19 @@ test('the stream guard keeps a healthy throttled reader over TLS', async (t) => 
     server.close();
   });
   const base = `https://127.0.0.1:${server.address().port}`;
-  for (const shape of ['single', 'chunks']) {
-    const read = await throttledRead(`${base}/${shape}`, 12_000_000, { rejectUnauthorized: false });
-    assert.deepEqual(read, { status: 200, bytes: size }, shape);
-  }
+  const read = await throttledRead(`${base}/`, 12_000_000, { rejectUnauthorized: false });
+  assert.deepEqual(read, { status: 200, bytes: size });
 });
 
 test('the stream guard reads no private socket state: a hidden write queue changes nothing', async (t) => {
   // The handle's writeQueueSize reads as nothing pending, the value that made
-  // the old difference flat. Both download shapes still complete.
+  // the old difference flat. The download still completes.
   const size = 24_000_000; // well past the loopback socket buffers
   const server = http.createServer((req, res) => {
     const handle = res.socket._handle;
     Object.defineProperty(handle, 'writeQueueSize', { get: () => 0, configurable: true });
     guardStream(res, { idleMs: 800, windowMs: 1000, minBytesPerSecond: 2_000_000, tickMs: 50 });
-    respond(res, size, req.url.slice(1));
+    respond(res, size);
   });
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   t.after(() => {
@@ -405,10 +429,8 @@ test('the stream guard reads no private socket state: a hidden write queue chang
     server.close();
   });
   const base = `http://127.0.0.1:${server.address().port}`;
-  for (const shape of ['single', 'chunks']) {
-    const read = await throttledRead(`${base}/${shape}`, 12_000_000);
-    assert.deepEqual(read, { status: 200, bytes: size }, shape);
-  }
+  const read = await throttledRead(`${base}/`, 12_000_000);
+  assert.deepEqual(read, { status: 200, bytes: size });
 });
 
 test('a whole-corpus selection plan names the corpus package URL', async (t) => {
@@ -478,15 +500,14 @@ test('guardStream reads socket progress: movement keeps a stream; silence or a c
   assert.equal(finished.destroyed, false);
   fast.emit('close'); // stops its timers
 
-  // An outstanding write with no signal at all: allowed the time a reader at
-  // the floor needs (1000 B at 10 kB/s = 100 ms past the 60 ms idle limit's
-  // floor), then cut, by the wall clock.
+  // An outstanding write never extends the idle deadline: no movement for
+  // idleMs cuts, however much is outstanding (1 MB at 10 kB/s would be 100 s).
   const quiet = fake();
   quiet.write = () => false; // accepted, never called back
   guardStream(quiet, { idleMs: 60, windowMs: 60_000, minBytesPerSecond: 10_000, tickMs: 10 });
-  quiet.write(Buffer.alloc(1000));
-  await sleep(80);
-  assert.equal(quiet.destroyed, false, 'not cut at the idle limit while the write may still drain');
-  await sleep(120);
-  assert.equal(quiet.destroyed, true, 'cut once a reader at the floor would have finished');
+  quiet.write(Buffer.alloc(1_000_000));
+  await sleep(40);
+  assert.equal(quiet.destroyed, false, 'not before the idle limit');
+  await sleep(60);
+  assert.equal(quiet.destroyed, true, 'cut at the idle limit despite the outstanding write');
 });

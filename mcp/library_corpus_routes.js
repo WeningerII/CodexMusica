@@ -19,7 +19,7 @@ import path from 'node:path';
 import express from 'express';
 import { LIBRARY_LIMITS, Windows, clientIp } from './ratelimit.js';
 import { ExportError, FORMATS, exportError } from './library_exports.js';
-import { createStreamLimiter, guardStream } from './library_export_routes.js';
+import { STREAM_WRITE_BYTES, createStreamLimiter, guardStream } from './library_export_routes.js';
 
 const DAY_MS = 86_400_000;
 const FILENAME = /^[A-Za-z0-9._-]+\.zip$/;
@@ -238,7 +238,11 @@ export function libraryCorpusRouter({
           );
       }
       const pace = guard(res);
-      const source = fs.createReadStream(pkg.file, { start, end, highWaterMark: 1 << 20 });
+      const source = fs.createReadStream(pkg.file, {
+        start,
+        end,
+        highWaterMark: STREAM_WRITE_BYTES,
+      });
       const done = release;
       res.on('close', () => {
         pace.stop();
