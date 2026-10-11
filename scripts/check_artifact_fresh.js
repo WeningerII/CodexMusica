@@ -135,6 +135,17 @@ else if (!fh) diffs.push('codex.html: fresh build missing');
 else if (!ch.equals(fh))
   diffs.push(`codex.html: committed (${ch.length}B) != fresh build (${fh.length}B) — stale`);
 
+// ---- library/code : the Library's chunk generations ----
+// A build with the Library writes its chunks beside codex.html; the committed
+// library/code/ must publish them (and every older generation it records), as
+// sync-pages leaves it. A build without the Library writes none, and then only
+// the record's own consistency is checked.
+for (const p of require('./library_chunk_generations.js').check({
+  repo: path.join(ROOT, 'library', 'code'),
+  dist: path.join(path.dirname(fresh.htmlFile), 'library', 'code'),
+}))
+  diffs.push('library/code/' + p);
+
 // ---- sitemap.xml / llms.txt / robots.txt : deterministic, byte-for-byte ----
 // These are derived from the api/ indexes, so they are regenerated from whichever
 // api/ we just proved fresh. sitemap.xml carries no build timestamp any more, so

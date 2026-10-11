@@ -22,8 +22,8 @@
 //             point of this half is that it is exactly what was delivered. They
 //             are pinned by SHA-256 below, so a silent edit still fails here.
 //
-//   DERIVED   What the package does not contain: the 1024 listing icon and the
-//             mark inside the social card. Rendered from the master by sharp,
+//   DERIVED   What the package does not contain: the 1024 listing icon, the
+//             56px header mark and the mark inside the social card. Rendered from the master by sharp,
 //             and byte-compared the way every raster used to be.
 //
 // `assets/icon-master.png` is the source of record for the artwork. Recutting a
@@ -72,7 +72,14 @@ const SUPPLIED = [
 // A high density before downscaling mattered when the source was a vector. The
 // master is a raster, so this only governs how sharp reads it; the area-average
 // downscale below is what preserves the flag on the eighth note at small sizes.
-const RASTERS = [['assets/icon-1024.png', 1024, null]];
+//
+// assets/brand-mark-56.png is the header mark: drawn at 28 CSS px, so 56 covers
+// a 2x screen. It replaced icon-192.png in the header, which every route loaded
+// at about 29.6 KB to show 28 px (docs/library-native-design.md, decision 14).
+const RASTERS = [
+  ['assets/icon-1024.png', 1024, null],
+  ['assets/brand-mark-56.png', 56, null],
+];
 
 // The social card is 1200x630 and carries the wordmark as PIXELS — there is no
 // text source for it, and re-rendering type here would make this script depend

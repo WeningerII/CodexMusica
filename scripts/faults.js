@@ -93,6 +93,9 @@
 //   input outside closure -> check_build_closure.js  (CI would skip a rebuild it needed)
 //   false cultural claim  -> check_signature_tokens.js (a pair ruled false is back in the table)
 //   unruled cultural pair -> check_signature_tokens.js (a cultural token lands with no verdict)
+//   library work lost   -> check_library_regression.js (a later build drops a unit the old Site made readable)
+//   library id-map collision / wrong hash, readable unadmitted, revision content mismatch, unreasoned ledger
+//                       -> check_library_regression.js (the gate refuses evidence it cannot bind)
 //   restated ceiling    -> check_chat_counter.js    (ask-bar counter names a bound the field no longer enforces)
 //   theme after paint   -> check_ui_foundation.js   (the stored theme lands only once the page has painted)
 //   map loses recipe    -> check_ui_foundation.js   (the Map view hides Your recipe again)
@@ -158,6 +161,13 @@ function mkenv(items) {
         execSync(`cp -a ${q(path.join(ROOT, 'mcp', f))} ${q(path.join(d, 'mcp', f))}`);
       }
       fs.symlinkSync(path.join(ROOT, 'mcp', 'node_modules'), path.join(d, 'mcp', 'node_modules'));
+      // The one file outside mcp/ the connector reads at import: the lexicon
+      // supplement manifest whose ids are the reading tools' published enum
+      // (mcp/lexicon_basis.js). Without it every mcp-staging class fails on
+      // ENOENT, never on its planted defect.
+      const manifest = 'lyric-harness/data/lexicon_supplement_versions.json';
+      fs.mkdirSync(path.dirname(path.join(d, manifest)), { recursive: true });
+      fs.copyFileSync(path.join(ROOT, manifest), path.join(d, manifest));
       continue;
     }
     // An item may be a nested path (api/engine.json): its parent is made first.
@@ -551,10 +561,13 @@ if (want('9h', 'prose-preloaded')) {
   const f = path.join(d, 'scripts/build_html.js');
   const src = fs.readFileSync(f, 'utf8');
   const lit = '<link rel="preload" href="${LAZY_API}browse_boot.json" as="fetch" crossorigin>';
-  const patched = src.replace(
-    lit,
-    lit + '<link rel="preload" href="${LAZY_API}browse_prose.json" as="fetch" crossorigin>'
-  );
+  const prose = '<link rel="preload" href="${LAZY_API}browse_prose.json" as="fetch" crossorigin>';
+  // Without the Library the boot index is that link; with it (the default) a
+  // <script> asks for it, and the plant follows the script.
+  const script = "'boot preload'\n          ) +\n          '</script>'";
+  const patched = src
+    .replace(lit, lit + prose)
+    .replace(script, script + ' +\n          `' + prose + '`');
   if (patched === src) throw new Error('faults: could not plant the prose preload');
   fs.writeFileSync(f, patched);
   record(
@@ -841,10 +854,21 @@ function budgetEnv(items) {
   const d = mkenv(items);
   const html = path.join(d, 'codex.html');
   const api = path.join(d, 'api');
-  fs.copyFileSync(FRESH_HTML || path.join(ROOT, 'codex.html'), html);
+  const page = FRESH_HTML || path.join(ROOT, 'codex.html');
+  fs.copyFileSync(page, html);
   fs.mkdirSync(api);
   for (const f of ['browse_boot.json', 'engine.json'])
     fs.copyFileSync(path.join(FRESH_API || path.join(ROOT, 'api'), f), path.join(api, f));
+  // The Library's budgets (on by default) read its chunks beside the page, as
+  // the build wrote them, and the catalog its shelves path adds.
+  const chunks = path.join(path.dirname(page), 'library', 'code');
+  if (fs.existsSync(chunks))
+    fs.cpSync(chunks, path.join(d, 'library', 'code'), { recursive: true });
+  const catalog = path.join(ROOT, 'library', 'data', 'catalog.json');
+  if (fs.existsSync(catalog)) {
+    fs.mkdirSync(path.join(d, 'library', 'data'), { recursive: true });
+    fs.copyFileSync(catalog, path.join(d, 'library', 'data', 'catalog.json'));
+  }
   const args = ['scripts/check_payload_budget.js', `--html=${html}`, `--api=${api}`];
   const baseline = gate(d, args);
   if (baseline.code !== 0) return { d, over: baseline };
@@ -882,6 +906,10 @@ function incompressible(tag, n) {
   return Buffer.concat(chunks).subarray(0, n).toString('base64');
 }
 const OVER = 32 * 1024;
+// The lazy page's preload scripts, as build_html.js --check counts them: the
+// engine's alone, or with the Library (on unless CODEX_LIBRARY=0) the boot
+// index's, the engine's and the Library's.
+const PRELOAD_SCRIPTS = process.env.CODEX_LIBRARY === '0' ? 1 : 3;
 
 // 9t. page-over-budget: the lazy page growing back — a table inline again, a
 //     runtime module, a comment. The plant is a comment before the last
@@ -1065,7 +1093,9 @@ if (want('9z', 'preload-by-script')) {
   record(
     'preload-by-script -> build_html.js --check',
     gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
-    /2 <script> block\(s\) in a lazy page name "preload"/
+    new RegExp(
+      `${PRELOAD_SCRIPTS + 1} <script> block\\(s\\) in a lazy page name "preload"; want ${PRELOAD_SCRIPTS}`
+    )
   );
 }
 
@@ -1260,7 +1290,9 @@ if (want('9zi', 'engine-preload-dropped')) {
   record(
     'engine-preload-dropped -> build_html.js --check',
     gate(d, ['scripts/build_html.js', '--check', '--quiet', `--out=${path.join(d, 'x.html')}`]),
-    /0 <script> block\(s\) in a lazy page name "preload"; want 1/
+    new RegExp(
+      `${PRELOAD_SCRIPTS - 1} <script> block\\(s\\) in a lazy page name "preload"; want ${PRELOAD_SCRIPTS}`
+    )
   );
 }
 
@@ -2796,6 +2828,113 @@ if (want('38', 'toast-action-lingers')) {
     'toast-action-lingers -> check_ui_foundation.js',
     gate(d, ['scripts/check_ui_foundation.js']),
     /Undo of a faded toast still takes a click/
+  );
+}
+// 39, 39b-39f. THE LIBRARY LOSES A WORK -> check_library_regression.js. The
+//     native Library tab must keep every work the old Site made readable. Each
+//     plant arrives the way a real defect would, as the build under test (or
+//     its ledgers); the committed baselines stay pinned.
+function libraryRegressionEnv() {
+  const d = mkenv(['scripts', 'tests/library']);
+  const zlib = require('zlib');
+  const read = (f) =>
+    zlib.gunzipSync(fs.readFileSync(path.join(d, 'tests/library', f))).toString('utf8');
+  const cur = read('units-317c5afa.tsv.gz').split('\n');
+  const oldReadable = read('units-5226b4fb.tsv.gz')
+    .split('\n')
+    .filter((l) => l.includes('\treadable\t'));
+  const write = (lines) => {
+    const units = lines.filter((l) => /^reading_[0-9a-f-]{36}\t/.test(l)).length;
+    const out = lines.join('\n').replace(/^# units: \d+$/m, `# units: ${units}`);
+    fs.writeFileSync(path.join(d, 'planted.tsv.gz'), zlib.gzipSync(out));
+  };
+  const ledger = (name, value) =>
+    fs.writeFileSync(path.join(d, 'tests/library', name), JSON.stringify(value));
+  const at = (id) => cur.findIndex((l) => l.startsWith(id + '\t'));
+  return { d, cur, oldReadable, write, ledger, at };
+}
+const regressionGate = (d) =>
+  gate(d, ['scripts/check_library_regression.js', '--current=planted.tsv.gz']);
+//   (a) a later build no longer lists one 5226-readable unit.
+if (want('39', 'library-readable-regression')) {
+  const { d, cur, oldReadable, write, at } = libraryRegressionEnv();
+  cur.splice(at(oldReadable[0].split('\t')[0]), 1);
+  write(cur);
+  record(
+    'library-readable-regression -> check_library_regression.js',
+    regressionGate(d),
+    /missing: reading_.* is absent and not id-mapped/
+  );
+}
+//   (b) an id map points a lost unit at another unit the baseline already
+//       holds, so one current row would stand in for two works.
+if (want('39b', 'library-idmap-collision')) {
+  const { d, cur, oldReadable, write, ledger, at } = libraryRegressionEnv();
+  const [lost, kept] = [oldReadable[0].split('\t'), oldReadable[1].split('\t')];
+  cur.splice(at(lost[0]), 1);
+  write(cur);
+  ledger('id-map.json', [{ from: lost[0], to: kept[0], normalized_sha256: lost[4] }]);
+  record(
+    'library-idmap-collision -> check_library_regression.js',
+    regressionGate(d),
+    /is itself a baseline unit/
+  );
+}
+//   (c) an id map whose declared text hash matches neither row.
+if (want('39c', 'library-idmap-wrong-hash')) {
+  const { d, cur, oldReadable, write, ledger, at } = libraryRegressionEnv();
+  const lost = oldReadable[0].split('\t');
+  const renamed = 'reading_00000000-0000-5000-8000-000000000000';
+  cur.splice(at(lost[0]), 1, [renamed, ...lost.slice(1)].join('\t'));
+  write(cur);
+  ledger('id-map.json', [{ from: lost[0], to: renamed, normalized_sha256: 'f'.repeat(64) }]);
+  record(
+    'library-idmap-wrong-hash -> check_library_regression.js',
+    regressionGate(d),
+    /declares a text hash neither row confirms/
+  );
+}
+//   (d) the build marks a unit readable with no admitting verdict behind it.
+if (want('39d', 'library-readable-unadmitted')) {
+  const { d, cur, write } = libraryRegressionEnv();
+  const i = cur.findIndex((l) => l.includes('\theld\t') && l.endsWith('REJECT_NO_EVIDENCE'));
+  if (i < 0) throw new Error('faults: no held REJECT_NO_EVIDENCE row to plant');
+  const cells = cur[i].split('\t');
+  cells[1] = 'readable';
+  cur[i] = cells.join('\t');
+  write(cur);
+  record(
+    'library-readable-unadmitted -> check_library_regression.js',
+    regressionGate(d),
+    /readable without an admitting verdict/
+  );
+}
+//   (e) the same revision with different stored text: a stale or forged row.
+if (want('39e', 'library-revision-content-mismatch')) {
+  const { d, cur, oldReadable, write, at } = libraryRegressionEnv();
+  const i = at(oldReadable[0].split('\t')[0]);
+  const cells = cur[i].split('\t');
+  cells[4] = (cells[4][0] === '0' ? '1' : '0') + cells[4].slice(1);
+  cur[i] = cells.join('\t');
+  write(cur);
+  record(
+    'library-revision-content-mismatch -> check_library_regression.js',
+    regressionGate(d),
+    /keeps revision .* with different content hashes/
+  );
+}
+//   (f) a revision ledger entry with no reason is refused, not trusted.
+if (want('39f', 'library-ledger-unreasoned')) {
+  const { d, cur, oldReadable, write, ledger } = libraryRegressionEnv();
+  write(cur);
+  const r = oldReadable[0].split('\t');
+  ledger('revisions.json', [
+    { id: r[0], from_revision: r[2], to_revision: 'a'.repeat(64), reason: '  ' },
+  ]);
+  record(
+    'library-ledger-unreasoned -> check_library_regression.js',
+    regressionGate(d),
+    /revisions\.json: .* gives no reason/
   );
 }
 

@@ -19,6 +19,8 @@ Sections:
   9  the CLI coordinate: declared, disclosed, refused when misspelled
  10  the file keys what the tokenizer keeps: edge apostrophes, accents
  11  the coordinate survives the consumers that build their own readers
+ 12  versions: a run names a frozen file, keeps its bytes, and never moves
+ 13  v2: exactly two reviewed additions; v1 and derivation unchanged; v2 is the default
 """
 
 import os
@@ -452,7 +454,211 @@ def test_cli():
     rc, out = _cli("declaration")
     check("omitted, nothing about it is printed", rc == 0 and "supplement" not in out)
     rc, out = _cli("--lexicon-supplement=1", "declaration")
-    check("a value on the presence flag is refused, not ignored", rc == 2, out[-160:])
+    check("a version this build does not ship is refused, not ignored",
+          rc == 2 and S.UNAVAILABLE in out, out[-160:])
+
+
+def test_versions():
+    print("\n12. versions: a run names a frozen file, and keeps it")
+    manifest = S.load_versions()
+    v1 = next(r for r in manifest["versions"] if r["id"] == "v1")
+    # THE PIN. v1 is frozen: editing its file AND its manifest row together
+    # would pass every runtime check (they agree with each other), and would
+    # re-read every saved v1 run under new rows. This literal is the guard
+    # against that edit; a new batch is a new version, never a new v1.
+    check("v1 is frozen at the bytes #522 shipped",
+          v1["sha256"] == "452d7aae056ed67f6bff94b76bf6f5df66516ce9e1c95d31796d45a8a92957f7"
+          and v1["path"] == "data/lexicon_supplement.tsv" and v1["rows"] == 203,
+          v1)
+    check("every shipped version resolves byte for byte", S.version_problems() == [])
+    check("`none`, the bare flag and an id canonicalise as the record keeps them",
+          (S.canonical_version(None), S.canonical_version("none"),
+           S.canonical_version(True), S.canonical_version("v1"))
+          == ("none", "none", "v1", "v1"))
+    check("`none` resolves to no supplement", S.resolve_version("none") is None)
+    lex = S.SupplementedLexicon(version="v1")
+    check("a declared version reads its own file and names itself",
+          lex.supplement_id == "v1" and lex.supplement_sha256 == v1["sha256"]
+          and S.lexicon_identity(lex) == {"supplement_id": "v1", "sha256": v1["sha256"]})
+    check("CMUdict alone is null/null",
+          S.lexicon_identity(PLAIN) == {"supplement_id": None, "sha256": None})
+    check("the shipped default path is recognised as v1", SUPP.supplement_id == "v1")
+
+    def refused(fn):
+        try:
+            fn()
+        except S.SupplementUnavailable as error:
+            return str(error)
+        return None
+
+    msg = refused(lambda: S.resolve_version("v9"))
+    check("an unknown version refuses and names what ships",
+          msg and S.UNAVAILABLE in msg and "v1" in msg, msg)
+    msg = refused(lambda: S.resolve_version("v1", "0" * 64))
+    check("a saved run's sha256 that is not the shipped file's refuses",
+          msg and v1["sha256"] in msg and "0" * 64 in msg, msg)
+    msg = refused(lambda: S.resolve_version("none", v1["sha256"]))
+    check("a sha256 with no version refuses", msg and S.UNAVAILABLE in msg, msg)
+
+    # A version whose file is missing, or whose bytes moved under an
+    # unchanged manifest row, refuses: planted in a copy of the data dir.
+    tmp = tempfile.mkdtemp()
+    try:
+        data = os.path.join(tmp, "data")
+        os.makedirs(data)
+        shutil.copy(S.SUPPLEMENT_PATH, os.path.join(data, "lexicon_supplement.tsv"))
+        manifest_path = os.path.join(data, "lexicon_supplement_versions.json")
+        shutil.copy(S.VERSIONS_PATH, manifest_path)
+        check("the copied manifest resolves",
+              S.resolve_version("v1", versions_path=manifest_path)["sha256"] == v1["sha256"])
+        with open(os.path.join(data, "lexicon_supplement.tsv"), "a", encoding="utf-8") as fh:
+            fh.write("# an edit\n")
+        msg = refused(lambda: S.resolve_version("v1", versions_path=manifest_path))
+        check("a changed file under an unchanged manifest row refuses",
+              msg and "hashes to" in msg, msg)
+        os.remove(os.path.join(data, "lexicon_supplement.tsv"))
+        msg = refused(lambda: S.resolve_version("v1", versions_path=manifest_path))
+        check("a missing file refuses", msg and "cannot be read" in msg, msg)
+    finally:
+        shutil.rmtree(tmp)
+
+    # The CLI: the record names the version on every lyric result; the
+    # declared sha256 is checked; `none` is CMUdict alone.
+    rc, out = _cli("--lexicon-supplement=v1", "declaration")
+    check("--lexicon-supplement=v1 is declared and disclosed",
+          rc == 0 and "supplement v1" in out, out.strip().splitlines()[-1:])
+    rc, out = _cli("--lexicon-supplement=v1", f"--lexicon-supplement-sha256={'0' * 64}",
+                   "declaration")
+    check("a declared sha256 the file does not have refuses at the CLI",
+          rc == 2 and S.UNAVAILABLE in out, out[-200:])
+    rc, out = _cli("--lexicon-supplement=none", "declaration")
+    check("--lexicon-supplement=none reads CMUdict alone",
+          rc == 0 and "supplement" not in out, out[-160:])
+    rc, out = _cli("--lexicon-supplement-sha256=" + v1["sha256"], "declaration")
+    check("a sha256 without a version refuses", rc == 2 and S.UNAVAILABLE in out, out[-160:])
+    rc, out = _cli("--lexicon-supplement=v1", "--lexicon-supplement=v1", "declaration")
+    check("two declarations refuse", rc == 2, out[-160:])
+
+    # A DEFERRED RUN KEEPS ITS SUPPLEMENT (3PO's review of #529): resuming the
+    # same state under another basis refuses instead of replaying every answer
+    # on different words; a state from before the field is CMUdict alone.
+    tmp = tempfile.mkdtemp()
+    try:
+        draft = os.path.join(tmp, "d.txt")
+        with open(draft, "w", encoding="utf-8") as fh:
+            fh.write("Copper cat\nAzure dog\n")
+
+        def defer(state, basis):
+            return _cli(f"--lexicon-supplement={basis}", "revise", draft, "AA",
+                        "--relation=type:rime riche", f"--propose=defer:{state}")
+
+        state = os.path.join(tmp, "st.json")
+        rc, out = defer(state, "v1")
+        import json as _json
+        with open(state, encoding="utf-8") as fh:
+            saved = _json.load(fh)
+        check("a suspended deferred run records its supplement",
+              rc == 4 and saved.get("lexicon") == {"supplement_id": "v1", "sha256": v1["sha256"]},
+              (rc, saved.get("lexicon")))
+        rc, out = defer(state, "none")
+        check("resuming it under another supplement refuses, never replays",
+              rc == 2 and S.UNAVAILABLE in out and "started under lexicon supplement v1" in out,
+              out[-200:])
+        rc, out = defer(state, "v1")
+        check("resuming it under its own supplement continues", rc == 4, out[-160:])
+        legacy = dict(saved)
+        legacy.pop("lexicon")
+        with open(state, "w", encoding="utf-8") as fh:
+            _json.dump(legacy, fh)
+        rc, out = defer(state, "v1")
+        check("a state from before the field is CMUdict alone: v1 refuses",
+              rc == 2 and S.UNAVAILABLE in out, out[-200:])
+        rc, out = defer(state, "none")
+        check("a state from before the field resumes under none", rc == 4, out[-160:])
+    finally:
+        shutil.rmtree(tmp)
+
+
+def test_reviewed_v2():
+    print("\n13. v2 adds exactly two reviewed rows, isolated from v1 and derivation")
+    import csv
+    import json
+    import hashlib
+    from pathlib import Path
+    v1, v2 = S.resolve_version("v1"), S.resolve_version("v2")
+    check("v2 is frozen at its reviewed bytes",
+          v2["sha256"] == "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+          and v2["rows"] == 205)
+    rows1, rows2 = S.load_rows(v1["abspath"]), S.load_rows(v2["abspath"])
+    added = [r for r in rows2 if r["word"] in {"streetlight", "streetlights"}]
+    keys = lambda rows: [tuple(tuple(r[c]) if isinstance(r[c], list) else r[c]
+                              for c in S.COLUMNS) for r in rows]
+    check("all 203 v1 rows survive unchanged; only the two approved words are added",
+          len(rows2) == 205 and len(added) == 2
+          and keys([r for r in rows2 if r not in added]) == keys(rows1))
+    # The DEFAULT is what new connector work reads (owner decision
+    # 2026-10-11: v2). The bare CLI flag is #522's spelling and keeps meaning
+    # v1, so a saved command line never changes what it reads.
+    check("v2 is the default for new work; the legacy bare flag still means v1",
+          S.load_versions()["default"] == "v2" and S.canonical_version(True) == "v1")
+    new = S.SupplementedLexicon(version="v2", expected_sha256=v2["sha256"])
+    old = S.SupplementedLexicon(version="v1", expected_sha256=v1["sha256"])
+    phones = "S T R IY1 T L AY2 T".split()
+    for word, reading, source in [
+            ("streetlight", phones, "moby:3205:attested"),
+            ("streetlights", phones + ["S"], "reviewed:moby-3205:plural")]:
+        check(f"{word} reads exactly the reviewed phones and stress under v2",
+              new.transcribe_word(word) == (reading, False)
+              and new.dictionary_readings(word) == [reading])
+        check(f"{word} retains its own attested/derived provenance",
+              new.reading_source(word, reading) == source)
+        check(f"{word} stays absent and unread in v1 and plain CMUdict",
+              all(word not in lex.entries and lex.transcribe_word(word)[1]
+                  for lex in (old, PLAIN)))
+    check("v2 identifies its own immutable basis",
+          S.lexicon_identity(new) == {"supplement_id": "v2", "sha256": v2["sha256"]})
+    try:
+        S.resolve_version("v2", v1["sha256"])
+        refused = False
+    except S.SupplementUnavailable:
+        refused = True
+    check("a v1 saved hash cannot silently select v2", refused)
+    # Remove only the finite plural row: the singular must not become a stem
+    # for the engine's productive plural reduction or fallback.
+    text = Path(v2["abspath"]).read_text()
+    path = _write([line for line in text.splitlines() if not line.startswith("streetlights\t")])
+    try:
+        singular_only = S.SupplementedLexicon(supplement_path=path)
+        check("the positive control still reads the retained singular",
+              singular_only.transcribe_word("streetlight") == (phones, False))
+        check("without its explicit row, the plural is not derived from the supplement",
+              singular_only.transcribe_word("streetlights")[1]
+              and singular_only.dictionary_readings("streetlights") == [])
+    finally:
+        os.remove(path)
+    check("v2 adds no productive plural of its plural",
+          new.transcribe_word("streetlightss")[1]
+          and "streetlightss" not in new.entries)
+    sources = {row["source_id"]: row for row in csv.DictReader(
+        open(os.path.join(ROOT, "data", "sources.tsv"), encoding="utf-8"), delimiter="\t")}
+    check("both source registrations have separate provenance rows",
+          all(r["source"] in S.SOURCES and r["source"] in sources for r in added)
+          and len({r["source"] for r in added}) == 2)
+    plural = next(r for r in added if r["word"] == "streetlights")
+    check("the plural is explicitly a reviewed finite derivation, not attested or rule-generated",
+          "NOT directly attested" in plural["basis"]
+          and plural["review"].startswith("reviewed:")
+          and "no productive" in plural["basis"])
+    assets = json.loads(Path(ROOT, "data", "runtime_assets.json").read_text())
+    files = {f["path"]: f for a in assets["assets"] for f in a.get("files", [])}
+    for rel in ["data/lexicon_supplement_v2.tsv", "data/lexicon_supplement_versions.json", "data/sources.tsv"]:
+        content = Path(ROOT, rel).read_bytes()
+        record = files.get(rel, {})
+        check(f"runtime inventory matches combined-tree {rel}",
+              (record.get("bytes"), record.get("sha256")) ==
+              (len(content), hashlib.sha256(content).hexdigest()))
+    rc, out = _cli("--lexicon-supplement=v2", "declaration")
+    check("the actual CLI resolves and discloses v2", rc == 0 and "supplement v2" in out, out[-160:])
 
 
 def main():
@@ -460,7 +666,7 @@ def main():
                test_plain_lexicon_untouched, test_derivation_reads_cmudict_alone,
                test_whole_before_piece, test_witnesses, test_reading_sources,
                test_identities_move, test_tokenizer_keys, test_consumer_paths,
-               test_cli):
+               test_cli, test_versions, test_reviewed_v2):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

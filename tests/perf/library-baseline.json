@@ -1,0 +1,112 @@
+{
+  "format": 1,
+  "about": "The old Library Site's live load times, measured by scripts/check_library_perf.js (four-condition ready detection, 9 fresh contexts per profile, mode live) from a GitHub runner. The native tab is judged against these. Bytes and requests are those completed before the milestone.",
+  "source": {
+    "workflow": ".github/workflows/library-perf-baseline.yml",
+    "run": "https://github.com/WeningerII/CodexMusica/actions/runs/38102804786",
+    "date": "2026-10-11",
+    "commit": "4a60d6a8225fe391dac72a3259edcb300e4f8d66",
+    "head": "380ae25af3849f9ae8b5a108c932c2a4fe5e6082",
+    "runner": "GitHub Actions 1000075831",
+    "runs_per_profile": 9,
+    "mode": "live"
+  },
+  "baselines": {
+    "shelves-mobile": {
+      "profile": "mobile",
+      "target": "https://codex-musica-corpus.tonybolognamacaroni.chatgpt.site/",
+      "milestone": "shelves-ready",
+      "median": 12653,
+      "p90": 12823.479999999987,
+      "mad": 50.40000000000873,
+      "missed": 0,
+      "samples": [
+        12674.299999999988,
+        12612.400000000009,
+        12653,
+        12703.400000000009,
+        12527.100000000006,
+        12617.100000000006,
+        13058.199999999983,
+        12517.399999999994,
+        12764.799999999988
+      ],
+      "bytes": 1295129,
+      "requests": 17,
+      "fcp": 1716,
+      "lcp": 1716
+    },
+    "shelves-desktop": {
+      "profile": "desktop",
+      "target": "https://codex-musica-corpus.tonybolognamacaroni.chatgpt.site/",
+      "milestone": "shelves-ready",
+      "median": 4590.299999999988,
+      "p90": 5154.859999999998,
+      "mad": 235.90000000002328,
+      "missed": 0,
+      "samples": [
+        4481.600000000006,
+        5124.200000000012,
+        4826.200000000012,
+        4293.299999999988,
+        4590.299999999988,
+        5260.700000000012,
+        5128.399999999994,
+        4568,
+        4543.100000000006
+      ],
+      "bytes": 1295113,
+      "requests": 17,
+      "fcp": 288,
+      "lcp": 4592
+    },
+    "reader-mobile": {
+      "profile": "mobile",
+      "target": "https://codex-musica-corpus.tonybolognamacaroni.chatgpt.site/read/reading_3c5bf756-d01e-5900-b806-c98f94741e2f",
+      "milestone": "reader-ready",
+      "median": 12695.5,
+      "p90": 13333.32000000003,
+      "mad": 107.20000000001164,
+      "missed": 0,
+      "samples": [
+        12588.299999999988,
+        12562.100000000006,
+        12687.50000000003,
+        13318.300000000047,
+        12790.200000000012,
+        12752.399999999965,
+        12695.5,
+        13393.399999999965,
+        12558.599999999977
+      ],
+      "bytes": 1242276,
+      "requests": 17,
+      "fcp": 1872,
+      "lcp": 12592
+    },
+    "reader-desktop": {
+      "profile": "desktop",
+      "target": "https://codex-musica-corpus.tonybolognamacaroni.chatgpt.site/read/reading_3c5bf756-d01e-5900-b806-c98f94741e2f",
+      "milestone": "reader-ready",
+      "median": 5204.599999999977,
+      "p90": 5740.720000000007,
+      "mad": 185.30000000004657,
+      "missed": 0,
+      "samples": [
+        5268.5,
+        5204.599999999977,
+        5092.700000000012,
+        5007,
+        5121.799999999988,
+        5389.900000000023,
+        5681,
+        4827.599999999977,
+        5979.600000000035
+      ],
+      "bytes": 1242284,
+      "requests": 17,
+      "fcp": 280,
+      "lcp": 5128
+    }
+  }
+}

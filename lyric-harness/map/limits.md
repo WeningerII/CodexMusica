@@ -13,9 +13,6 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | JOURNAL_BYTES | 1,114,112 (1,088 KB) | `lyric_harness.py` |
 | JOURNAL_LINE_CHARS | 200 | `lyric_harness.py` |
 | MATTR_WINDOW | 50 | `quality/features.py` |
-| BIN_MIN_TAIL | 200 | `quality/length_curve_calibration.py` |
-| NOMINAL | 0.05 | `quality/length_curve_calibration.py` |
-| IRLS_MAX | 200 | `quality/length_curve_calibration.py` |
 | MAX_EXPANDED_POSITIONS | 100,000 | `quality/meter.py` |
 | MAX_FIT_DP_CELLS | 1,000,000 | `quality/meter.py` |
 | MAX_BLUEPRINT_ITEMS | 10,000 | `quality/meter.py` |
@@ -66,6 +63,13 @@ Connector:
 | PROGRESS_BYTES | 2,097,152 (2,048 KB) | `../mcp/job_store.js` |
 | RESPONSE_BYTES | 9,437,184 (9,216 KB) | `../mcp/job_store.js` |
 | DEFAULT_MAX_BYTES | 268,435,456 (262,144 KB) | `../mcp/job_store.js` |
+| DAY_MS | 86,400,000 | `../mcp/library_corpus_routes.js` |
+| PLAN_TTL_MS | 3,600,000 | `../mcp/library_export_routes.js` |
+| PLAN_CAP | 2,000 | `../mcp/library_export_routes.js` |
+| PLAN_BYTES | 9,437,184 (9,216 KB) | `../mcp/library_export_routes.js` |
+| PAGE_BYTES | 2,097,152 (2,048 KB) | `../mcp/library_search.js` |
+| SEARCH_LIMIT | 100 | `../mcp/library_search.js` |
+| MAX_AGE | 2,592,000 | `../mcp/library_viewer_routes.js` |
 | MAX_WORDS | 12 | `../mcp/lyric_tools.js` |
 | MAX_WORD_CHARS | 40 | `../mcp/lyric_tools.js` |
 | MAX_LINES | 463 | `../mcp/lyric_tools.js` |
@@ -86,6 +90,7 @@ Connector:
 | CONTROL_CAP | 18,874,368 | `../mcp/python_bridge.js` |
 | READER_FRAME_CAP | 2,113,536 | `../mcp/python_bridge.js` |
 | RESERVE_BYTES | 16,384 (16 KB) | `../mcp/reader_job_store.js` |
+| TOUCH_INTERVAL_MS | 3,600,000 | `../mcp/reader_job_store.js` |
 | READER_BODY_BYTES | 2,097,152 (2,048 KB) | `../mcp/reader_protocol.js` |
 | RUN_TTL_MS | 21,600,000 | `../mcp/run_store.js` |
 | RUN_CAP | 64 | `../mcp/run_store.js` |

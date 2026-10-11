@@ -375,6 +375,87 @@ test('local catalog resolution verifies snapshot, registered paths, full revisio
   }
 });
 
+test('the create path verifies a large reading off the event loop, with the same refusals', async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), 'reader-large-catalog-'));
+  try {
+    await mkdir(path.join(directory, 'readings'));
+    // About 30 MB of lines, as Kalevala's canonical reading is.
+    const lines = Array.from({ length: 200_000 }, (_, i) => ({
+      kind: 'lyric',
+      text: `Line ${i} of a long reading, mieleni minun tekevi, aivoni ajattelevi`,
+      row: i,
+      ranges: [i, i + 64],
+    }));
+    const source = {
+      reading_unit_id: 'unit_long',
+      language: 'fin',
+      availability: 'readable',
+      source_path: 'corpus/library/long.txt',
+      source_sha256: sha('original'),
+      normalized_sha256: sha('long'),
+      work_id: 'work_long',
+      edition_id: 'edition_long',
+      lines,
+    };
+    source.reading_revision = sha(canonicalJSON(source));
+    const sourceBytes = JSON.stringify(source);
+    assert.ok(sourceBytes.length > 20_000_000);
+    const readingPath = 'readings/unit_long.json';
+    const indexBytes = JSON.stringify({ readings: [] });
+    await writeFile(path.join(directory, readingPath), sourceBytes);
+    await writeFile(path.join(directory, 'index.json'), indexBytes);
+    const manifest = {
+      parser_version: 'fixture1',
+      normalizer_version: 'fixture1',
+      artifacts: { 'index.json': sha(indexBytes), [readingPath]: sha(sourceBytes) },
+    };
+    manifest.snapshot_id = sha(canonicalJSON(manifest));
+    await writeFile(path.join(directory, 'manifest.json'), JSON.stringify(manifest));
+    const resolver = createCatalogResolver({ directory, engineCommit: 'fixture' });
+    const input = {
+      contract_version: 1,
+      snapshot_id: manifest.snapshot_id,
+      reading_unit_id: 'unit_long',
+      reading_revision: source.reading_revision,
+      requested_layers: ['sound'],
+    };
+    await resolver.probe(); // the snapshot's index hash, outside the measurement
+    // The longest gap between 5 ms ticks while each call runs.
+    const lagDuring = async (fn) => {
+      let last = performance.now();
+      let worst = 0;
+      const timer = setInterval(() => {
+        const now = performance.now();
+        worst = Math.max(worst, now - last);
+        last = now;
+      }, 5);
+      const value = await fn();
+      clearInterval(timer);
+      return { value, worst: Math.max(worst, performance.now() - last) };
+    };
+    const onLoop = await lagDuring(() => resolver.resolveSource(input));
+    const offLoop = await lagDuring(() => resolver.resolveIdentity(input));
+    assert.equal(offLoop.value.normalized_sha256, source.normalized_sha256);
+    assert.equal(offLoop.value.native_profile, 'fin');
+    assert.deepEqual(await resolver.prepareRequest(input), input);
+    assert.ok(
+      offLoop.worst < onLoop.worst / 2 && offLoop.worst < 150,
+      `create-path verification blocked the loop ${Math.round(offLoop.worst)} ms ` +
+        `(the in-thread parse blocks ${Math.round(onLoop.worst)} ms)`
+    );
+    const { entry } = await resolver.resolveEntry(input);
+    assert.equal(entry.lyric_lines, null, 'lines cross only for a pronunciation-bound reading');
+    assert.equal(entry.lines, undefined);
+    await assert.rejects(resolver.resolveIdentity({ ...input, reading_revision: 'changed' }), {
+      code: 'STALE_READING',
+    });
+    await writeFile(path.join(directory, readingPath), sourceBytes.replace('Line 0', 'Line O'));
+    await assert.rejects(resolver.resolveIdentity(input), { code: 'SNAPSHOT_CHANGED' });
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 async function bridgeFixture() {
   const directory = await mkdtemp(path.join(tmpdir(), 'reader-shared-worker-'));
   const harnessDir = path.join(directory, 'lyric-harness');

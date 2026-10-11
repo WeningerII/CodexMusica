@@ -1,5 +1,5 @@
-/* global UI, UI_ICONS, UILayout, uiAddGenre, uiAfterPaint, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
-/* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend */
+/* global CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend, uiEnsureWorkspace, _whenWorkspace, _releaseEngine */
 
 
 // ============================================================
@@ -655,25 +655,84 @@ function _bootNeedsEngine() {
 // too (ENGINE_AT_BOOT). The embedded build takes the other branch (null):
 // bootFromGlobals already ran synchronously above, so its init path keeps
 // today's fully synchronous timing, byte-identical behavior.
-const ENGINE_AT_BOOT = (typeof CODEX_LAZY_API !== 'undefined' && !_engineLive && _bootNeedsEngine()) ? Engine.ensure() : null;
-const CATALOG_READY = (typeof CODEX_LAZY_API !== 'undefined' && !Catalog.all().length)
-  ? Promise.all([ENGINE_AT_BOOT, fetch(CODEX_LAZY_API + 'browse_boot.json')
-      .then((res) => {
-        if (!res.ok) throw new Error('boot index fetch failed (' + res.status + ')');
-        return res.json();
-      })
-      .then((boot) => {
-        if (!Catalog.bootFromIndex(boot, CODEX_LAZY_API)) {
-          throw new Error('boot index is empty');
-        }
-        // codex.html?trad=<id> opens that genre first (src/workbench.js). The
-        // boot index carries prose for the starters only; for any other genre,
-        // ask for the rest now. The page does not wait: its description shows
-        // as loading, then fills in.
-        const deep = new URLSearchParams(location.search).get('trad');
-        if (deep && Catalog.get(deep) && !Catalog.hasProse(deep)) Catalog.needProse();
-      })])
+//
+// A deferred boot (CODEX_DEFER_BOOT, injected only by a flagged Library build,
+// docs/library-native-design.md "Cold #library boot"): a route whose page
+// draws before the catalog asks for neither at boot. The workspace (boot
+// index, the engine if a session needs it, then _initWorkspace) follows when
+// uiEnsureWorkspace() is first called. Every other route boots as above.
+const _BOOT_DEFER = typeof CODEX_DEFER_BOOT !== 'undefined' && CODEX_DEFER_BOOT.test(location.hash);
+const ENGINE_AT_BOOT = (typeof CODEX_LAZY_API !== 'undefined' && !_BOOT_DEFER && !_engineLive && _bootNeedsEngine()) ? Engine.ensure() : null;
+const CATALOG_READY = (typeof CODEX_LAZY_API !== 'undefined' && !_BOOT_DEFER && !Catalog.all().length)
+  ? Promise.all([ENGINE_AT_BOOT, _fetchBootIndex()])
   : null;
+function _fetchBootIndex(init) {
+  return fetch(CODEX_LAZY_API + 'browse_boot.json', init)
+    .then((res) => {
+      if (!res.ok) throw new Error('boot index fetch failed (' + res.status + ')');
+      return res.json();
+    })
+    .then((boot) => {
+      if (!Catalog.bootFromIndex(boot, CODEX_LAZY_API)) {
+        throw new Error('boot index is empty');
+      }
+      // codex.html?trad=<id> opens that genre first (src/workbench.js). The
+      // boot index carries prose for the starters only; for any other genre,
+      // ask for the rest now. The page does not wait: its description shows
+      // as loading, then fills in.
+      const deep = new URLSearchParams(location.search).get('trad');
+      if (deep && Catalog.get(deep) && !Catalog.hasProse(deep)) Catalog.needProse();
+    });
+}
+// The workspace steps a deferred boot holds back, in their boot order; run at
+// once (and so exactly as before) on every other boot. Each is replayed under
+// the UI.ready it was held at: the steps _initApp holds ran before the shell
+// was ready, so their renderAll must not sync (and autosave) the empty
+// workspace over the saved session uiRestoreSession is about to restore.
+let _workspaceReady = !_BOOT_DEFER;
+const _workspaceQueue = [];
+let _workspaceBoot = null;
+function _whenWorkspace(fn) {
+  if (_workspaceReady) fn();
+  else _workspaceQueue.push([fn, typeof UI !== 'undefined' && UI.ready]);
+}
+function _initWorkspace() {
+  _workspaceReady = true;
+  const ready = UI.ready;
+  try {
+    while (_workspaceQueue.length) {
+      const [fn, heldReady] = _workspaceQueue.shift();
+      UI.ready = heldReady;
+      fn();
+    }
+  } finally {
+    UI.ready = ready;
+  }
+}
+// Resolves once the workspace is booted, starting it on first call. A failure
+// is forgotten, so the next call asks again.
+function uiEnsureWorkspace() {
+  if (_workspaceReady) return Promise.resolve();
+  return (_workspaceBoot ||= _fetchBootIndex({ priority: 'low' })
+    .then(() => (!_engineLive && _bootNeedsEngine() ? Engine.ensure() : null))
+    .then(_initWorkspace)
+    .catch((e) => {
+      _workspaceBoot = null;
+      throw e;
+    }));
+}
+// A deferred boot that reaches its workspace while a page that holds the
+// engine back is shown (the Library) starts the engine on the first visit to
+// any other page instead (uiNavigate), or on any Engine.ensure.
+let _engineHeld = false;
+function _startEngineAfterPaint() {
+  if (typeof uiAfterPaint === 'function') uiAfterPaint(() => { Engine.start(); Engine.fetched().then(() => Catalog.loadProse().catch(() => {})); });
+}
+function _releaseEngine() {
+  if (!_engineHeld) return;
+  _engineHeld = false;
+  _startEngineAfterPaint();
+}
 // Handled from the start. The boot's own handlers attach at DOMContentLoaded,
 // and a failure can land before it: a saved session's engine request goes out
 // from <head>, while the rest of the page is still arriving. Unhandled until
@@ -17658,13 +17717,16 @@ function _initApp() {
   // Costs nothing if the user never searches; the callback is dropped on the
   // next boot, and typing early just builds it on demand instead (lazy shell:
   // after the prose lands).
-  Catalog.warmSearchIndex();
+  _whenWorkspace(() => Catalog.warmSearchIndex());
   // Lazy shell: once the first view has painted, the instrument engine is
   // asked for, and the genres' prose (api/browse_prose.json) once the engine's
   // bytes are in; requested before, either would share the network with the
   // view, and count on the path to the largest paint (the prose would also
   // share it with the engine an early action waits for). Embedded: a no-op.
-  if (typeof uiAfterPaint === 'function') uiAfterPaint(() => { Engine.start(); Engine.fetched().then(() => Catalog.loadProse().catch(() => {})); });
+  _whenWorkspace(() => {
+    if (_BOOT_DEFER && typeof UI !== 'undefined' && UI_PAGES[UI.view]?.holdsEngine) _engineHeld = true;
+    else _startEngineAfterPaint();
+  });
   Engine.onSettle(_pickerEngineSettled);
   Catalog.onProse(_pickerProseSettled);
 
@@ -17692,7 +17754,7 @@ function _initApp() {
   window.addEventListener('resize', () => {
     syncAppBarHeight();
     const nowMobile = isMobileLayout();
-    if (nowMobile !== wasMobile) { wasMobile = nowMobile; renderAll(); }
+    if (nowMobile !== wasMobile) { wasMobile = nowMobile; if (_workspaceReady) renderAll(); }
     _syncRecipeBarHeight();
   });
   // Escape closes any currently-open modal. Backdrop click closes are wired
@@ -17821,7 +17883,7 @@ function _initApp() {
   });
   // Seed an initial empty-state snapshot so undo can return to "nothing in
   // the workspace" — without this, the first action's pre-state is unreachable.
-  pushHistory();
+  _whenWorkspace(pushHistory);
 
   // Modal close
   document.querySelectorAll('.modal-bg').forEach(m => {
@@ -17834,7 +17896,7 @@ function _initApp() {
     if (e.key === 'Escape') document.querySelectorAll('.modal-bg.open').forEach(m => m.classList.remove('open'));
   });
 
-  renderAll();
+  _whenWorkspace(renderAll);
   if (typeof uiStart === 'function') uiStart();
 }
 
