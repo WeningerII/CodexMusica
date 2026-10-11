@@ -1,0 +1,2622 @@
+{
+ "format": 1,
+ "snapshot_id": "317c5afae76bfce833ed10fd06d48ddd9ffa17053fbf02d7c461e80abedf86b7",
+ "search": [
+  {
+   "label": "default",
+   "params": {}
+  },
+  {
+   "label": "default-offset-50",
+   "params": {
+    "offset": "50"
+   }
+  },
+  {
+   "label": "default-offset-25000",
+   "params": {
+    "offset": "25000",
+    "limit": "50"
+   }
+  },
+  {
+   "label": "sort-contributor",
+   "params": {
+    "sort": "contributor"
+   }
+  },
+  {
+   "label": "sort-contributor-offset",
+   "params": {
+    "sort": "contributor",
+    "offset": "1000"
+   }
+  },
+  {
+   "label": "availability-all",
+   "params": {
+    "availability": "all"
+   }
+  },
+  {
+   "label": "availability-held",
+   "params": {
+    "availability": "held"
+   }
+  },
+  {
+   "label": "availability-research_only",
+   "params": {
+    "availability": "research_only"
+   }
+  },
+  {
+   "label": "availability-readable",
+   "params": {
+    "availability": "readable"
+   }
+  },
+  {
+   "label": "availability-metadata_only",
+   "params": {
+    "availability": "metadata_only"
+   }
+  },
+  {
+   "label": "availability-rejected",
+   "params": {
+    "availability": "rejected"
+   }
+  },
+  {
+   "label": "completeness-contiguous_source_segment",
+   "params": {
+    "completeness": "contiguous_source_segment"
+   }
+  },
+  {
+   "label": "completeness-documented_excerpt",
+   "params": {
+    "completeness": "documented_excerpt"
+   }
+  },
+  {
+   "label": "completeness-source_item",
+   "params": {
+    "completeness": "source_item"
+   }
+  },
+  {
+   "label": "language-cym",
+   "params": {
+    "language": "cym"
+   }
+  },
+  {
+   "label": "language-cym-all",
+   "params": {
+    "language": "cym",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "language-eng",
+   "params": {
+    "language": "eng"
+   }
+  },
+  {
+   "label": "language-eng-all",
+   "params": {
+    "language": "eng",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "language-fas",
+   "params": {
+    "language": "fas"
+   }
+  },
+  {
+   "label": "language-fas-all",
+   "params": {
+    "language": "fas",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "language-fin",
+   "params": {
+    "language": "fin"
+   }
+  },
+  {
+   "label": "language-fin-all",
+   "params": {
+    "language": "fin",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "language-ltc",
+   "params": {
+    "language": "ltc"
+   }
+  },
+  {
+   "label": "language-ltc-all",
+   "params": {
+    "language": "ltc",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "language-msa",
+   "params": {
+    "language": "msa"
+   }
+  },
+  {
+   "label": "language-msa-all",
+   "params": {
+    "language": "msa",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "language-non",
+   "params": {
+    "language": "non"
+   }
+  },
+  {
+   "label": "language-non-all",
+   "params": {
+    "language": "non",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "language-san",
+   "params": {
+    "language": "san"
+   }
+  },
+  {
+   "label": "language-san-all",
+   "params": {
+    "language": "san",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "CCXXVII.  CEFFYL JOHN BA"
+   }
+  },
+  {
+   "label": "contributor-q-cym",
+   "params": {
+    "q": "traditional / anonym"
+   }
+  },
+  {
+   "label": "contributor-filter-cym",
+   "params": {
+    "contributor": "traditional "
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "LII.  SIAN A SION"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "XXIV.  AR GARLAM"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "OWEN TUDUR"
+   }
+  },
+  {
+   "label": "contributor-q-cym",
+   "params": {
+    "q": "richard davies, \"myn"
+   }
+  },
+  {
+   "label": "contributor-filter-cym",
+   "params": {
+    "contributor": "richard davi"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "YR HWN FU FARW AR Y PREN"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "LXIII.  BYW DETHEU"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "LXLVIII.  CARIO CEILIOG"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "OS DU YW'R CWMWL"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "CLXVII.  CARIAD ARALL"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "CCL.  ENWAU"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "LXLVI.  LLE RHYFEDD"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "LXVI.  CYNFFON"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "\"IDDO EF.\""
+   }
+  },
+  {
+   "label": "contributor-q-cym",
+   "params": {
+    "q": "john blackwell, \"alu"
+   }
+  },
+  {
+   "label": "contributor-filter-cym",
+   "params": {
+    "contributor": "john blackwe"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "ANWYL GYFAILL  [air: Y G"
+   }
+  },
+  {
+   "label": "contributor-q-cym",
+   "params": {
+    "q": "thomas edwards, \"twm"
+   }
+  },
+  {
+   "label": "contributor-filter-cym",
+   "params": {
+    "contributor": "thomas edwar"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "CXXII.  DAMWAIN"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "CXXIX.  LLAWER O HONYNT"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "Y GENNAD,--"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "CCLXXI.  LLIFIO"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "PURDEB"
+   }
+  },
+  {
+   "label": "title-cym",
+   "params": {
+    "q": "DYCHYMYG HEDA"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "THE GHOST OF DEACON BROW"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "james weldon johnson"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "james weldon"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "[v.5] The FRENCH KING in"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "thomas d'urfey"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "thomas d'urf"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "THE OLD COVE"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "henry howard brownel"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "henry howard"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "Thy voice is heard throu"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "alfred tennyson, lor"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "alfred tenny"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "Upon Mrs. Elizabeth Whee"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "robert herrick"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "robert herri"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "Evening Song Of The Tyro"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "felicia hemans"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "felicia hema"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "Epigram On The Said Occa"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "robert burns"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "robert burns"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "OH, THE HAPPY TIME DEPAR"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "charles mackay, ll.d"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "charles mack"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "He who walks in virtue's"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "bowring"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "bowring"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "Comin’ thro’ the Rye. [i"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "anonymous / unattrib"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "anonymous / "
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "CRADLE SONG."
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "william cox bennett"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "william cox "
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "The Tiger"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "william blake"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "william blak"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "Love in the Valley"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "george meredith"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "george mered"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "THE FEDERAL CONSTITUTION"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "william milns"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "william miln"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "Christ is born! go tell "
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "anonymous"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "anonymous"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "ACCEPTATION"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "margaret junkin pres"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "margaret jun"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "THE WIDOW'S DAUGHTER"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "colin rae brown"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "colin rae br"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "To a Child of Fancy"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "lewis morris"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "lewis morris"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "THROUGH BALTIMORE"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "bayard taylor"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "bayard taylo"
+   }
+  },
+  {
+   "label": "title-eng",
+   "params": {
+    "q": "Of all the gifts thine h"
+   }
+  },
+  {
+   "label": "contributor-q-eng",
+   "params": {
+    "q": "william cowper"
+   }
+  },
+  {
+   "label": "contributor-filter-eng",
+   "params": {
+    "contributor": "william cowp"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 347"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 155"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 490"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 134"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 440"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 411"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 409"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 152"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 153"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 121"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 35"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 101"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 201"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 63"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 40"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 288"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 138"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 38"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 254"
+   }
+  },
+  {
+   "label": "title-fas",
+   "params": {
+    "q": "Hafez — ghazal 61"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "87. Nouse lempi liehumah"
+   }
+  },
+  {
+   "label": "contributor-q-fin",
+   "params": {
+    "q": "anonymous finnish an"
+   }
+  },
+  {
+   "label": "contributor-filter-fin",
+   "params": {
+    "contributor": "anonymous fi"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "114. Kiitos emännälle."
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "11. Luonenko, lopettanen"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "69. Sanoissa kuluva."
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "232. Ei nyt paista palmi"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "130. Elä ihastu ensi-ill"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "261. Jo on maattu marjas"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "239. Täm' on iltoja iloi"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "28. Toista tänne toivott"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "198. Itse hullu hukkasim"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "59. Minä musta, pikkarai"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "72. Moni moitti muotoani"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "56. Kosissa käynyt."
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "127. Kolminaiset huolet."
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "167. Maata menentä."
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "12. Ei runo rahatta laul"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "140. Ei minusta miniäksi"
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "332. Rakenteleminen."
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "29. Tie on tehty tuhman "
+   }
+  },
+  {
+   "label": "title-fin",
+   "params": {
+    "q": "225. Tuomisia."
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "最高樓 其5  [air: 最高樓]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "蝶戀花 其14  [air: 蝶戀花]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "鷓鴣天 其5  [air: 鷓鴣天]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "眼兒媚 其2  [air: 眼兒媚]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "巫山一段雲 其59  [air: 巫山一段雲]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "青玉案  [air: 青玉案]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "長相思 其19  [air: 長相思]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "減字木蘭花 其39  [air: 減字木蘭花]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "惜春郎  [air: 惜春郎]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "清平樂 其3  [air: 清平樂]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "浣溪沙 其5  [air: 浣溪沙]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "河瀆神 其3  [air: 河瀆神]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "虞美人 其23  [air: 虞美人]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "青玉案 其31  [air: 青玉案]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "八聲甘州 其2  [air: 八聲甘州]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "惜春令 其2  [air: 惜春令]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "西江月 其6  [air: 西江月]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "採桑子 其2  [air: 採桑子]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "河滿子 其2  [air: 河滿子]"
+   }
+  },
+  {
+   "label": "title-ltc",
+   "params": {
+    "q": "惜分飛 其2  [air: 惜分飛]"
+   }
+  },
+  {
+   "label": "title-non",
+   "params": {
+    "q": "Sonatorrek ok Arinbjarna"
+   }
+  },
+  {
+   "label": "title-non",
+   "params": {
+    "q": "Egils saga Skalla-Grímss"
+   }
+  },
+  {
+   "label": "title-non",
+   "params": {
+    "q": "Gunnlaugs saga ormstungu"
+   }
+  },
+  {
+   "label": "title-non",
+   "params": {
+    "q": "Höfuðlausn ch 60 vísa 13"
+   }
+  },
+  {
+   "label": "title-non",
+   "params": {
+    "q": "Höfuðlausn ch 60 vísa 1"
+   }
+  },
+  {
+   "label": "title-non",
+   "params": {
+    "q": "Höfuðlausn ch 60 vísa 7"
+   }
+  },
+  {
+   "label": "title-non",
+   "params": {
+    "q": "Höfuðlausn ch 60 vísa 17"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "問華屋高貲誰不戀。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Thee, holy Father, we confess;"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "更盡一盃酒，"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "金屋無人風竹亂，"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "已不勝愁絶。"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "鴛鴦機綜，"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Tom went down to de river, an' he couldn"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "春態淺，"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "緣底事，"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "憐深定是心腸小。"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "載取白雲歸去，"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "眉山淺拂青螺黛。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Peace, prosperity, and health,"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "聽細語琵琶幽怨，"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "For we know the Lord of glory"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "The Lord of life expire!"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Of th' hardned, sooty, and the snowy han"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "清潤玉簫閒久。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Let us for each other care;"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "“Three mo’ roads I want to ride.”"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "帽壓半簷朝雪，"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "I sprang the proffered life to clasp;--"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "遼陽月，"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "I 'll wed my dear lassie, and gie her my"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Content so I but shared his twilight the"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "宫妝玉指無人識。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Even Cupid is her slave;"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "月華依舊當時節。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Not to the scourge, the thorn, the cross"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "解鞍君到冬雖暮。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "She died in beauty! like the snow"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Astonished angels stoop to gaze,"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "I courted her a fortnight, in hopes her "
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "As the saints in heaven adore thee,"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Glows with mute poesy."
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "人間信有風波惡。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "For I fain would borrow"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "解意芳姿偏作劇。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Attend at the call of the fifer and drum"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "There is the little lawyer! who is of no"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "雨脚半収簷㫁綫，"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Shall hear thy messages of love,"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "向花隂，"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "field;\""
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "As though the heart of all things"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Actæons fleeing, into antlers branched"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "To kill the balance of them deer, I thou"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "De ole 'oman lived to be dried up an' cu"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "雪暗繡盤鵰。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "I ran up the street, with nimblest feet,"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "白屋山腰烟内市，"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "A tree that may in summer wear"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "The graves of all his saints he bless'd,"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "4. Two sheets of the additional twelve l"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "参差漸辨西池樹。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "John Henry said to his woman,"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Never or now! cries the blood of a natio"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "驚起却回頭，"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "美人爭勸棃花盞。"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "驚楚夢，"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "That grace, on Zion’s sacred mount,"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Nor flower sae fair and lovely pure,"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "I'm feared ye'd spoil the lacing o't."
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "人老歡情宜減，"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "His righteous government and power"
+   }
+  },
+  {
+   "label": "body-fin",
+   "params": {
+    "q": "Kunne luome luotu lapsi,"
+   }
+  },
+  {
+   "label": "body-fin",
+   "params": {
+    "q": "Eikä laavat lankiaisi,"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "幸有旗亭沽酒，"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "水雲際。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "We hail the Church, built high o’er all"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Our sport today is scarce begun,"
+   }
+  },
+  {
+   "label": "body-cym",
+   "params": {
+    "q": "Os na ddaw rhyw atalfa,"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "To him be praise"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "At the Midsummer, when the hay was down,"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "毒手傷人，"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Our ruler boasts no titled rank,"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "髙歌誰和余，"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "My wife and I, feel always dry,"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "芳菲遶徧。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "But now we mun all hev a glass t' wor se"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "_Cupid_ he smiles, and _Chloe_ she weeps"
+   }
+  },
+  {
+   "label": "body-cym",
+   "params": {
+    "q": "Yn meddu cwrs o arian,"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "And huge stones and rafters, driven"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "春光漫漫人千里，"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "山城無物為君歡，"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "渺渺雙鴻飛去。"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "石橋斜渡小溪東。"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "And take me up; or else prevent the fall"
+   }
+  },
+  {
+   "label": "body-eng",
+   "params": {
+    "q": "Here then, our God, be pleased to stay,"
+   }
+  },
+  {
+   "label": "body-ltc",
+   "params": {
+    "q": "事何限。"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۲۷۵  [ganjoor",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "Kirātārjunīya — Kirātārj",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۸۷  [ganjoor:",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۴۱۵  [ganjoor",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۱۷۸  [ganjoor",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "شمارهٔ ۱۶۷  [ganjoor: po",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۱۵۳  [ganjoor",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۱۰۳  [ganjoor",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۱۵  [ganjoor:",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۶۵  [ganjoor:",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۱۵۴۰  [ganjoo",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۹۷  [ganjoor:",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۲۷۳  [ganjoor",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۱۰۶  [ganjoor",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۴۵۳  [ganjoor",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "KULTAANSA SUREWA",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۱۱۰  [ganjoor",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "دوبیتی شمارهٔ ۶۵  [ganjo",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۱۱۱  [ganjoor",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۱۱۸۹  [ganjoo",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۱۱۷۷  [ganjoo",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۱۰۱۸  [ganjoo",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "held-title",
+   "params": {
+    "q": "غزل شمارهٔ ۴۲۸  [ganjoor",
+    "availability": "held"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_00006de6-2bc6-5a95-8775-c46be721f285"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_00006de6-2bc6-5a95-8775-c46be721f285",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_0e841133-6bac-53e0-8bc7-c6ad4896ccba"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_0e841133-6bac-53e0-8bc7-c6ad4896ccba",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_1f8f34e3-5a57-5ef0-b0bd-b47998bf3b4f"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_1f8f34e3-5a57-5ef0-b0bd-b47998bf3b4f",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_2dd733b3-a864-54fa-b4d0-a3718e391125"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_2dd733b3-a864-54fa-b4d0-a3718e391125",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_4010aee6-e698-551b-a5c6-69b63ccc76c6"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_4010aee6-e698-551b-a5c6-69b63ccc76c6",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_5127efb5-4caa-55f4-8349-3792db95f179"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_5127efb5-4caa-55f4-8349-3792db95f179",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_665e3224-7a0f-5684-9985-20429089a60c"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_665e3224-7a0f-5684-9985-20429089a60c",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_75dfa45b-3c5d-5ce8-a71c-64fe2e7068db"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_75dfa45b-3c5d-5ce8-a71c-64fe2e7068db",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_866c2212-3c4d-5889-931d-8e46f9d5bbc2"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_866c2212-3c4d-5889-931d-8e46f9d5bbc2",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_98be0447-4852-5d86-ba96-ff82bff802cb"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_98be0447-4852-5d86-ba96-ff82bff802cb",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_aa4b65cb-4564-599b-b551-2d2d2684dac3"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_aa4b65cb-4564-599b-b551-2d2d2684dac3",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_bd2248a4-537b-5234-b6e2-ad01d23a5f33"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_bd2248a4-537b-5234-b6e2-ad01d23a5f33",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_cd582ed5-5bd8-5d85-af90-6b6f7b6882be"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_cd582ed5-5bd8-5d85-af90-6b6f7b6882be",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_df202134-d4af-57e8-bee9-9df1e0d579b0"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_df202134-d4af-57e8-bee9-9df1e0d579b0",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection",
+   "params": {
+    "collection": "collection_ee76529f-22be-5a5c-a1a4-74a9a1cc856c"
+   }
+  },
+  {
+   "label": "collection-offset",
+   "params": {
+    "collection": "collection_ee76529f-22be-5a5c-a1a4-74a9a1cc856c",
+    "offset": "50"
+   }
+  },
+  {
+   "label": "collection-held",
+   "params": {
+    "collection": "collection_0904cf6f-ab3f-585d-8e14-7be60343d0a9",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "collection-held",
+   "params": {
+    "collection": "collection_367d42c2-b715-5cad-9f20-7898ba87e811",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "collection-held",
+   "params": {
+    "collection": "collection_64c0791b-cda7-5691-ab4d-cfbfe0cb0d9f",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "collection-held",
+   "params": {
+    "collection": "collection_8cdaa2a9-487f-559e-a6d2-6d5ae7a31ba2",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "collection-held",
+   "params": {
+    "collection": "collection_bc9392d3-e510-5fa0-969e-d7534e49c1c5",
+    "availability": "all"
+   }
+  },
+  {
+   "label": "work",
+   "params": {
+    "work": "work_08782208-5b5a-5b3a-b8bd-27d51ba74c15"
+   }
+  },
+  {
+   "label": "work",
+   "params": {
+    "work": "work_2362e0a7-ecc1-5ac9-878e-d51c329fbbb0"
+   }
+  },
+  {
+   "label": "work",
+   "params": {
+    "work": "work_3d686252-b6ce-50d3-8ae4-5bf40d15d6ff"
+   }
+  },
+  {
+   "label": "work",
+   "params": {
+    "work": "work_4c1332cb-5612-56ff-baa0-71f7a972215c"
+   }
+  },
+  {
+   "label": "work",
+   "params": {
+    "work": "work_6a28937a-8cf7-537d-ac48-c21a213fd5e7"
+   }
+  },
+  {
+   "label": "work",
+   "params": {
+    "work": "work_7afcbb42-1bd7-53d7-ac7b-3e2a0b96b63e"
+   }
+  },
+  {
+   "label": "work",
+   "params": {
+    "work": "work_a58e8c6a-4171-54e9-9619-a3f3b5734f61"
+   }
+  },
+  {
+   "label": "work",
+   "params": {
+    "work": "work_b9fa189f-d343-568c-ab56-351b74a9c069"
+   }
+  },
+  {
+   "label": "work",
+   "params": {
+    "work": "work_c683d99d-1c38-5e26-b2b3-72b1ffe3a156"
+   }
+  },
+  {
+   "label": "work",
+   "params": {
+    "work": "work_dad24986-3b5b-5796-977c-1a1df1e97f4d"
+   }
+  },
+  {
+   "label": "edge-sharp-s",
+   "params": {
+    "q": "Straße"
+   }
+  },
+  {
+   "label": "edge-capital-sharp-s",
+   "params": {
+    "q": "STRASSE"
+   }
+  },
+  {
+   "label": "edge-whitespace",
+   "params": {
+    "q": "  the   sea  "
+   }
+  },
+  {
+   "label": "edge-astral",
+   "params": {
+    "q": "𝄞"
+   }
+  },
+  {
+   "label": "edge-cap-500",
+   "params": {
+    "q": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   }
+  },
+  {
+   "label": "edge-over-cap",
+   "params": {
+    "q": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+   }
+  },
+  {
+   "label": "edge-empty-q",
+   "params": {
+    "q": ""
+   }
+  },
+  {
+   "label": "edge-limit-250",
+   "params": {
+    "limit": "250"
+   }
+  },
+  {
+   "label": "edge-limit-0",
+   "params": {
+    "limit": "0"
+   }
+  },
+  {
+   "label": "edge-negative-offset",
+   "params": {
+    "offset": "-1"
+   }
+  },
+  {
+   "label": "edge-contributor-ascii-lower",
+   "params": {
+    "contributor": "WHITMAN"
+   }
+  },
+  {
+   "label": "edge-contributor-nonascii",
+   "params": {
+    "contributor": "ḤĀFEẒ"
+   }
+  },
+  {
+   "label": "edge-script-fas",
+   "params": {
+    "q": "hafez — "
+   }
+  },
+  {
+   "label": "edge-script-ltc",
+   "params": {
+    "q": "最高樓 其5 ["
+   }
+  },
+  {
+   "label": "edge-script-ltc",
+   "params": {
+    "q": "巫山一段雲 其2"
+   }
+  },
+  {
+   "label": "edge-script-ltc",
+   "params": {
+    "q": "踏莎行 其79 "
+   }
+  },
+  {
+   "label": "edge-script-ltc",
+   "params": {
+    "q": "拜星月慢 其4 "
+   }
+  },
+  {
+   "label": "edge-script-ltc",
+   "params": {
+    "q": "眼兒媚 其2 ["
+   }
+  }
+ ],
+ "readings": [
+  {
+   "id": "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62",
+   "offset": 0
+  },
+  {
+   "id": "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62",
+   "offset": 250
+  },
+  {
+   "id": "reading_06813f26-89f8-5d53-b0b1-fcf8abad42a8",
+   "offset": 0
+  },
+  {
+   "id": "reading_06813f26-89f8-5d53-b0b1-fcf8abad42a8",
+   "offset": 250
+  },
+  {
+   "id": "reading_0c81c704-f34f-50e1-93a4-d850afd1d4ad",
+   "offset": 0
+  },
+  {
+   "id": "reading_0c81c704-f34f-50e1-93a4-d850afd1d4ad",
+   "offset": 250
+  },
+  {
+   "id": "reading_12d07371-18db-53b8-8416-e5f02e0c4646",
+   "offset": 0
+  },
+  {
+   "id": "reading_12d07371-18db-53b8-8416-e5f02e0c4646",
+   "offset": 250
+  },
+  {
+   "id": "reading_188d7f3b-da6d-5f40-bb47-b3d6f71ff7f9",
+   "offset": 0
+  },
+  {
+   "id": "reading_188d7f3b-da6d-5f40-bb47-b3d6f71ff7f9",
+   "offset": 250
+  },
+  {
+   "id": "reading_1e79ceb5-7681-54b3-8667-16d7a7a6e082",
+   "offset": 0
+  },
+  {
+   "id": "reading_1e79ceb5-7681-54b3-8667-16d7a7a6e082",
+   "offset": 250
+  },
+  {
+   "id": "reading_24d42770-75cb-57a4-808d-7052037dd546",
+   "offset": 0
+  },
+  {
+   "id": "reading_24d42770-75cb-57a4-808d-7052037dd546",
+   "offset": 250
+  },
+  {
+   "id": "reading_2b456b7e-50e2-5dc3-a686-8bb7b1fbb7a7",
+   "offset": 0
+  },
+  {
+   "id": "reading_2b456b7e-50e2-5dc3-a686-8bb7b1fbb7a7",
+   "offset": 250
+  },
+  {
+   "id": "reading_3178056e-3711-504e-9aa1-bea1d687d300",
+   "offset": 0
+  },
+  {
+   "id": "reading_3178056e-3711-504e-9aa1-bea1d687d300",
+   "offset": 250
+  },
+  {
+   "id": "reading_3820cbc0-f4e9-50b8-9208-46d97452360f",
+   "offset": 0
+  },
+  {
+   "id": "reading_3820cbc0-f4e9-50b8-9208-46d97452360f",
+   "offset": 250
+  },
+  {
+   "id": "reading_3e7d38d9-b0ed-519b-95c5-9647c831c5bd",
+   "offset": 0
+  },
+  {
+   "id": "reading_3e7d38d9-b0ed-519b-95c5-9647c831c5bd",
+   "offset": 250
+  },
+  {
+   "id": "reading_44b30b85-fcd1-5705-b6a8-07dcabef9483",
+   "offset": 0
+  },
+  {
+   "id": "reading_44b30b85-fcd1-5705-b6a8-07dcabef9483",
+   "offset": 250
+  },
+  {
+   "id": "reading_4b5b410d-2948-571f-9f43-5900572ffd89",
+   "offset": 0
+  },
+  {
+   "id": "reading_4b5b410d-2948-571f-9f43-5900572ffd89",
+   "offset": 250
+  },
+  {
+   "id": "reading_5185dc4e-1d71-5712-9d8d-6eca8b6dfa16",
+   "offset": 0
+  },
+  {
+   "id": "reading_5185dc4e-1d71-5712-9d8d-6eca8b6dfa16",
+   "offset": 250
+  },
+  {
+   "id": "reading_57dbd621-9eba-5d1d-839e-960882c48995",
+   "offset": 0
+  },
+  {
+   "id": "reading_57dbd621-9eba-5d1d-839e-960882c48995",
+   "offset": 250
+  },
+  {
+   "id": "reading_5e991ec1-2100-57ec-a26c-42a189f0f05a",
+   "offset": 0
+  },
+  {
+   "id": "reading_5e991ec1-2100-57ec-a26c-42a189f0f05a",
+   "offset": 250
+  },
+  {
+   "id": "reading_65928da2-8571-59e2-98df-13a2c2ff8913",
+   "offset": 0
+  },
+  {
+   "id": "reading_65928da2-8571-59e2-98df-13a2c2ff8913",
+   "offset": 250
+  },
+  {
+   "id": "reading_6c0217f6-2688-537d-9b22-2bb35c01d14e",
+   "offset": 0
+  },
+  {
+   "id": "reading_6c0217f6-2688-537d-9b22-2bb35c01d14e",
+   "offset": 250
+  },
+  {
+   "id": "reading_72e7441e-b2da-5960-b6ca-2d5f3ee83417",
+   "offset": 0
+  },
+  {
+   "id": "reading_72e7441e-b2da-5960-b6ca-2d5f3ee83417",
+   "offset": 250
+  },
+  {
+   "id": "reading_78cf9620-a50c-5d40-b375-76bab6a331a3",
+   "offset": 0
+  },
+  {
+   "id": "reading_78cf9620-a50c-5d40-b375-76bab6a331a3",
+   "offset": 250
+  },
+  {
+   "id": "reading_7f1cc948-a3aa-575a-b3be-75f2de12f437",
+   "offset": 0
+  },
+  {
+   "id": "reading_7f1cc948-a3aa-575a-b3be-75f2de12f437",
+   "offset": 250
+  },
+  {
+   "id": "reading_85865aea-69f2-5651-90b5-a9a3cd3ac783",
+   "offset": 0
+  },
+  {
+   "id": "reading_85865aea-69f2-5651-90b5-a9a3cd3ac783",
+   "offset": 250
+  },
+  {
+   "id": "reading_8c0821a0-c64c-5b7a-a038-1b64b124a86c",
+   "offset": 0
+  },
+  {
+   "id": "reading_8c0821a0-c64c-5b7a-a038-1b64b124a86c",
+   "offset": 250
+  },
+  {
+   "id": "reading_92802f66-4211-55dc-98c0-db0cf60ebd44",
+   "offset": 0
+  },
+  {
+   "id": "reading_92802f66-4211-55dc-98c0-db0cf60ebd44",
+   "offset": 250
+  },
+  {
+   "id": "reading_98c4a672-7578-5830-95ec-fbeb52dee687",
+   "offset": 0
+  },
+  {
+   "id": "reading_98c4a672-7578-5830-95ec-fbeb52dee687",
+   "offset": 250
+  },
+  {
+   "id": "reading_9f42d073-8def-5313-a061-bf05c38e7967",
+   "offset": 0
+  },
+  {
+   "id": "reading_9f42d073-8def-5313-a061-bf05c38e7967",
+   "offset": 250
+  },
+  {
+   "id": "reading_a5853ed8-c8a7-5430-925b-be15b3d9406f",
+   "offset": 0
+  },
+  {
+   "id": "reading_a5853ed8-c8a7-5430-925b-be15b3d9406f",
+   "offset": 250
+  },
+  {
+   "id": "reading_abeba972-2bb4-5a7d-8f49-29ac1c3a5aa3",
+   "offset": 0
+  },
+  {
+   "id": "reading_abeba972-2bb4-5a7d-8f49-29ac1c3a5aa3",
+   "offset": 250
+  },
+  {
+   "id": "reading_b20c857f-ced7-5456-9883-029265bf8921",
+   "offset": 0
+  },
+  {
+   "id": "reading_b20c857f-ced7-5456-9883-029265bf8921",
+   "offset": 250
+  },
+  {
+   "id": "reading_b88d7d5f-b172-5895-af4f-6c7125dfe6b7",
+   "offset": 0
+  },
+  {
+   "id": "reading_b88d7d5f-b172-5895-af4f-6c7125dfe6b7",
+   "offset": 250
+  },
+  {
+   "id": "reading_bee0ec41-64bf-5001-82a7-ccd4c38d2dab",
+   "offset": 0
+  },
+  {
+   "id": "reading_bee0ec41-64bf-5001-82a7-ccd4c38d2dab",
+   "offset": 250
+  },
+  {
+   "id": "reading_c513ca8e-6fce-5f26-b373-48c92f204fe4",
+   "offset": 0
+  },
+  {
+   "id": "reading_c513ca8e-6fce-5f26-b373-48c92f204fe4",
+   "offset": 250
+  },
+  {
+   "id": "reading_cba7dabb-5c8f-5db3-a963-74dd8ff56340",
+   "offset": 0
+  },
+  {
+   "id": "reading_cba7dabb-5c8f-5db3-a963-74dd8ff56340",
+   "offset": 250
+  },
+  {
+   "id": "reading_d1dde27f-6d0c-59d3-b909-dc3ecf38577c",
+   "offset": 0
+  },
+  {
+   "id": "reading_d1dde27f-6d0c-59d3-b909-dc3ecf38577c",
+   "offset": 250
+  },
+  {
+   "id": "reading_d90ca1de-8a83-570d-ba03-7a2f61bb2fad",
+   "offset": 0
+  },
+  {
+   "id": "reading_d90ca1de-8a83-570d-ba03-7a2f61bb2fad",
+   "offset": 250
+  },
+  {
+   "id": "reading_df7dac76-ed10-5820-9077-b194447eb640",
+   "offset": 0
+  },
+  {
+   "id": "reading_df7dac76-ed10-5820-9077-b194447eb640",
+   "offset": 250
+  },
+  {
+   "id": "reading_e62e400a-ccd7-5368-ad23-12910e68cccd",
+   "offset": 0
+  },
+  {
+   "id": "reading_e62e400a-ccd7-5368-ad23-12910e68cccd",
+   "offset": 250
+  },
+  {
+   "id": "reading_ec6979aa-4836-5ae0-a7ce-2331ab4523c2",
+   "offset": 0
+  },
+  {
+   "id": "reading_ec6979aa-4836-5ae0-a7ce-2331ab4523c2",
+   "offset": 250
+  },
+  {
+   "id": "reading_f31b99dc-1a23-5571-9d88-cee20c7079ad",
+   "offset": 0
+  },
+  {
+   "id": "reading_f31b99dc-1a23-5571-9d88-cee20c7079ad",
+   "offset": 250
+  },
+  {
+   "id": "reading_f9b8787b-ad7a-5988-83f0-fb7ddd7581e1",
+   "offset": 0
+  },
+  {
+   "id": "reading_f9b8787b-ad7a-5988-83f0-fb7ddd7581e1",
+   "offset": 250
+  },
+  {
+   "id": "reading_e08cee8e-f284-5eff-b7ec-111fef4060a9",
+   "offset": 0
+  },
+  {
+   "id": "reading_e08cee8e-f284-5eff-b7ec-111fef4060a9",
+   "offset": 250
+  },
+  {
+   "id": "reading_e08cee8e-f284-5eff-b7ec-111fef4060a9",
+   "offset": 22500
+  }
+ ],
+ "whole_readings": [
+  "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62",
+  "reading_06813f26-89f8-5d53-b0b1-fcf8abad42a8",
+  "reading_0c81c704-f34f-50e1-93a4-d850afd1d4ad",
+  "reading_12d07371-18db-53b8-8416-e5f02e0c4646",
+  "reading_188d7f3b-da6d-5f40-bb47-b3d6f71ff7f9"
+ ],
+ "metadata": [
+  "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62",
+  "reading_188d7f3b-da6d-5f40-bb47-b3d6f71ff7f9",
+  "reading_3178056e-3711-504e-9aa1-bea1d687d300",
+  "reading_4b5b410d-2948-571f-9f43-5900572ffd89",
+  "reading_65928da2-8571-59e2-98df-13a2c2ff8913",
+  "reading_7f1cc948-a3aa-575a-b3be-75f2de12f437",
+  "reading_98c4a672-7578-5830-95ec-fbeb52dee687",
+  "reading_b20c857f-ced7-5456-9883-029265bf8921",
+  "reading_cba7dabb-5c8f-5db3-a963-74dd8ff56340",
+  "reading_e62e400a-ccd7-5368-ad23-12910e68cccd",
+  "reading_0001edb1-d226-5022-b466-2cb8d9fe4763",
+  "reading_18ea37bc-4299-57f6-8ef7-1479686bd110",
+  "reading_317885ae-a188-5504-9ad8-5e0ede630546",
+  "reading_4b6a9e9f-fe12-5791-8a30-072320ed520e",
+  "reading_65891482-3bea-5b9a-ae63-d4e924665cf0",
+  "reading_7f6f7f3b-0fc2-5244-ba8a-4569b9bd5c7c",
+  "reading_98f411a9-64a5-5329-baa2-855ea9d14492",
+  "reading_b2f7f466-8827-5af3-a833-b1ff4bd06aee",
+  "reading_cd19177b-e25e-5461-ad9b-6bd56838ccdb",
+  "reading_e6e4a7cd-b2f5-5ded-b189-6a66a7d16af7"
+ ],
+ "exports": [
+  {
+   "label": "single",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62"
+   ]
+  },
+  {
+   "label": "five-stride",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62",
+    "reading_3179c4cc-1cdf-5b5f-8518-219affeea600",
+    "reading_6594770c-7c5c-5481-8aa8-f072440697b5",
+    "reading_98ca3a08-1092-51e4-bee1-12e2c9183940",
+    "reading_cbaeecd4-6b2d-5175-9f31-dbc9586d572b"
+   ]
+  },
+  {
+   "label": "whole-source",
+   "ids": [
+    "reading_0003c2e4-49aa-50c2-9a01-ca1201375e62"
+   ]
+  }
+ ]
+}
