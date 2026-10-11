@@ -292,16 +292,40 @@ async function runOnce(browser, side, profileName, milestoneNames) {
     if (milestoneNames.some((n) => !state || state.milestones[n] == null)) {
       const shown = await page
         .evaluate((spec) => {
+          // The same tests the detector applies: visible, sized, and inside
+          // the viewport (a sized element below the fold is not painted).
           const seen = (sel) => {
             const el = document.querySelector(sel);
             if (!el) return 'absent';
+            const cs = window.getComputedStyle(el);
+            if (cs.visibility !== 'visible' || cs.display === 'none') return 'hidden';
             const r = el.getBoundingClientRect();
-            return r.width && r.height ? 'painted' : 'unpainted';
+            if (!(r.width > 0 && r.height > 0)) return 'unsized';
+            const inView =
+              r.bottom > 0 &&
+              r.right > 0 &&
+              r.top < window.innerHeight &&
+              r.left < window.innerWidth;
+            return inView
+              ? 'painted'
+              : `outside the viewport (top ${Math.round(r.top)}, viewport ${window.innerHeight})`;
           };
+          const ariaBusy = [...document.querySelectorAll('[aria-busy="true"]')]
+            .filter((el) => {
+              const r = el.getBoundingClientRect();
+              return r.width > 0 && r.height > 0 && r.top < window.innerHeight && r.bottom > 0;
+            })
+            .slice(0, 3)
+            .map(
+              (el) =>
+                `${el.tagName.toLowerCase()}.${String(el.className).split(' ').slice(0, 2).join('.')}`
+            );
           return {
             url: window.location.href,
             title: document.title,
             busy: spec.busy ? seen(spec.busy) : null,
+            aria_busy: ariaBusy,
+            fonts: document.fonts ? document.fonts.status : null,
             selectors: Object.fromEntries(
               Object.values(spec.milestones).flatMap((m) => m.selectors.map((s) => [s, seen(s)]))
             ),
