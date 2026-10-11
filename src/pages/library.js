@@ -1,5 +1,5 @@
 /* exported CMLibraryDefine */
-/* global $ui, UI, esc, uiButton, uiEmptyState, uiRegisterPage, uiSubroute */
+/* global $ui, UI, esc, uiButton, uiEmptyState, uiEnsureWorkspace, uiRegisterPage, uiSubroute */
 'use strict';
 // ─── Library page: the inline stub (docs/library-native-design.md) ───────────
 // Ships only in a CODEX_LIBRARY build until cutover. It registers the page,
@@ -69,6 +69,7 @@ async function libraryShow() {
     if (UI.view !== 'library') return;
     LIBRARY.failure = null;
     core.show(main, LIBRARY.sub);
+    libraryWorkspaceAtIdle();
   } catch (error) {
     LIBRARY.failure = error;
     console.error('[library]', error);
@@ -81,9 +82,21 @@ async function libraryShow() {
   }
 }
 
+// The workspace (boot index, then the engine only if a session needs it) is
+// booted at idle after the Library has drawn, never before it (src/app.js
+// uiEnsureWorkspace). A background failure is left for the first workspace
+// control or page that needs it, which asks again and reports.
+function libraryWorkspaceAtIdle() {
+  const boot = () => uiEnsureWorkspace().catch((e) => console.warn('[library] workspace', e));
+  if (window.requestIdleCallback) requestIdleCallback(boot, { timeout: 5000 });
+  else setTimeout(boot, 1);
+}
+
 uiRegisterPage({
   id: 'library',
   recipe: 'sidebar',
+  // A deferred boot keeps the engine back while this page is shown.
+  holdsEngine: true,
   mount(surface) {
     surface.innerHTML = `<div class="lib-shell"><div class="lib-bar" role="tablist" aria-label="Library sections">${[
       ['', 'Explore'],

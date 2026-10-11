@@ -709,6 +709,9 @@ RUNTIME_MODULES.forEach(({ label, code }, i) => {
     // builder the only thing that spells it means no minifier setting can rewrite
     // the detector out from under that gate.
     runtimeParts.push(`const CODEX_LAZY_API = '${LAZY_API}';`);
+    // A flagged Library build defers the workspace boot on #library routes
+    // (src/app.js _BOOT_DEFER); the default build declares nothing.
+    if (LIBRARY) runtimeParts.push('const CODEX_DEFER_BOOT = /^#library(\\/|\\?|$)/;');
   }
   runtimeParts.push(squeeze(code, label));
 });

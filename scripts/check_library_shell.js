@@ -15,11 +15,16 @@
 //                    catalog.json is requested; off-route, a pointer entering
 //                    the nav entry prefetches core and catalog.json (once,
 //                    nothing executed) and focus prefetches nothing
+//                    deferred boot: on #library the Library draws before the
+//                    boot index; the workspace follows at idle; nothing starts
+//                    the engine or asks for the prose while it is shown; a
+//                    workspace control clicked early is held, busy, and acts
+//                    once it is in; a saved session survives and is restored
 //   flagged embedded the same chunk inlined: no library/ request at all
 //
 // Usage: node scripts/check_library_shell.js
 
-/* global document, location, UI -- inside page.evaluate callbacks */
+/* global _workspaceReady, app, document, localStorage, location, UI -- inside page.evaluate callbacks */
 'use strict';
 const assert = require('assert');
 const fs = require('fs');
@@ -69,6 +74,13 @@ function serve(dir) {
   });
 }
 
+// A saved session with one card, in the shape uiRestoreSession reads.
+const SESSION = {
+  version: 1,
+  name: 'T',
+  cards: [{ id: 'c1', instrumentId: 'voice', traditionId: 'dub', parts: {} }],
+};
+
 function chromiumPath() {
   const base = process.env.PLAYWRIGHT_BROWSERS_PATH;
   if (!base || !fs.existsSync(base)) return undefined;
@@ -109,7 +121,7 @@ function chromiumPath() {
     executablePath: chromiumPath(),
     args: ['--no-sandbox', '--disable-dev-shm-usage'],
   });
-  const open = async (dir, hash, intercept) => {
+  const open = async (dir, hash, intercept, { session, holdBoot } = {}) => {
     const server = serve(dir);
     await new Promise((r) => server.listen(0, '127.0.0.1', r));
     const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
@@ -117,6 +129,13 @@ function chromiumPath() {
       r.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' })
     );
     if (intercept) await ctx.route(/library\/code\//, intercept);
+    if (session)
+      await ctx.addInitScript(
+        (text) => localStorage.setItem('codex-workbench-v1', text),
+        JSON.stringify(session)
+      );
+    if (holdBoot)
+      await ctx.route(/api\/browse_boot\.json/, async (r) => r.continue(await holdBoot));
     const page = await ctx.newPage();
     const errors = [];
     const requests = [];
@@ -251,6 +270,109 @@ function chromiumPath() {
     await s.close();
   }
 
+  // The deferred boot. On #library the page draws without the boot index or
+  // the engine: the Library first, then the workspace at idle. While the
+  // Library is shown nothing starts the engine or asks for the prose, a
+  // workspace control waits (busy) for the workspace and then acts, and a
+  // page that needs the catalog draws once it is in.
+  for (const session of [null, SESSION]) {
+    let release;
+    const holdBoot = new Promise((r) => (release = r));
+    const s = await open(dirs.lazy, '#library', null, { session, holdBoot });
+    const { page } = s;
+    await shown(page, 'Explore');
+    const api = () => s.requests.filter((p) => p.startsWith('/api/'));
+    const first = s.requests.findIndex((p) => p.startsWith('/api/'));
+    assert.ok(
+      first < 0 || s.requests.indexOf('/library/data/catalog.json') < first,
+      'the Library asks before the workspace: ' + s.requests.join(' ')
+    );
+    await page.waitForTimeout(800);
+    assert.ok(
+      !api().some((p) => /engine\.json|browse_prose/.test(p)),
+      `nothing asks for the engine or the prose before the workspace: ${api().join(' ')}`
+    );
+    // A workspace control clicked now waits for the workspace, then acts.
+    const control = '#btn-saved';
+    await page.click(control, { noWaitAfter: true });
+    await page.waitForFunction(
+      (c) => document.querySelector(c)?.getAttribute('aria-busy') === 'true',
+      control
+    );
+    assert.equal(
+      await page.evaluate(() => _workspaceReady),
+      false,
+      'the workspace waits on the held boot index'
+    );
+    release();
+    await page.waitForFunction(
+      (c) =>
+        _workspaceReady &&
+        !document.querySelector(c).hasAttribute('aria-busy') &&
+        !!document.querySelector('#modal-saved.open'),
+      control,
+      { timeout: 30000 }
+    );
+    await page.waitForTimeout(1500);
+    const onLibrary = api();
+    assert.ok(
+      !onLibrary.some((p) => /browse_prose/.test(p)) &&
+        (session ? true : !onLibrary.some((p) => /engine\.json/.test(p))),
+      `while the Library is shown the engine is not started and the prose not asked for: ${onLibrary.join(' ')}`
+    );
+    assert.equal(
+      onLibrary.filter((p) => /browse_boot/.test(p)).length,
+      1,
+      'the boot index is asked for once'
+    );
+    if (session)
+      assert.equal(await page.evaluate(() => app.cards.length), 1, 'the saved session is restored');
+    await page.keyboard.press('Escape');
+    await page.click('button.cm-tab[data-view="genre"]');
+    await page.waitForFunction(
+      () =>
+        UI.view === 'genre' &&
+        document.querySelector('#surface-genre')?.textContent.trim().length > 50
+    );
+    await page.waitForFunction(
+      () => performance.getEntriesByType('resource').some((e) => /engine\.json/.test(e.name)),
+      null,
+      { timeout: 30000 }
+    );
+    assert.deepEqual(s.errors, []);
+    await s.close();
+  }
+
+  // A page that needs the catalog, opened before the workspace is in, shows
+  // its skeleton (it is not drawn against an empty catalog) and draws once
+  // the workspace is in.
+  {
+    let release;
+    const holdBoot = new Promise((r) => (release = r));
+    const s = await open(dirs.lazy, '#library', null, { holdBoot });
+    const { page } = s;
+    await shown(page, 'Explore');
+    const genreText = () =>
+      page.evaluate(() => document.getElementById('surface-genre').textContent.trim());
+    const skeleton = await genreText();
+    await page.click('button.cm-tab[data-view="genre"]');
+    await page.waitForFunction(
+      () => UI.view === 'genre' && !document.getElementById('surface-genre').hidden
+    );
+    await page.waitForTimeout(500);
+    assert.equal(await page.evaluate(() => _workspaceReady), false);
+    assert.equal(await genreText(), skeleton, 'Genre is not drawn before the catalog is in');
+    release();
+    await page.waitForFunction(
+      (before) =>
+        _workspaceReady && document.getElementById('surface-genre').textContent.trim() !== before,
+      skeleton,
+      { timeout: 30000 }
+    );
+    assert.deepEqual(s.errors, []);
+    await s.close();
+  }
+
   // A chunk whose bytes do not match its integrity is refused.
   {
     const s = await open(dirs.lazy, '#library/works', async (route) => {
@@ -286,7 +408,7 @@ function chromiumPath() {
   await browser.close();
   fs.rmSync(temp, { recursive: true, force: true });
   console.log(
-    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover prefetches core and catalog once, a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
+    'LIBRARY SHELL: PASS — default build byte-identical with no Library code; flagged lazy: route, core chunk once with sha384 integrity, sub-routes push, Back/Forward pop, nav resumes, head preloads reused, hover prefetches core and catalog once, deferred boot (Library before the workspace, no engine or prose while shown, a held control acts once it is in, the saved session kept and restored, Genre waits as a skeleton and draws once it is in), a tampered chunk refused with Reload; flagged embedded: inlined, no fetch'
   );
 })().catch((error) => {
   console.error('LIBRARY SHELL: FAIL —', error.stack || error);

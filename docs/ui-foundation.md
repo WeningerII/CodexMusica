@@ -53,6 +53,7 @@ uiRegisterPage({
   resetLayout() {}, // extra work for Reset layout
   escape() {}, // close what this page opened (last in the Escape order)
   actions: { 'genre-branch': (id, button, event) => {} }, // data-ui="…" handlers
+  holdsEngine: false, // optional: true for a page that draws before the workspace (below)
 });
 ```
 
@@ -69,6 +70,22 @@ it the sub-route, a hashchange within the page calls `route(sub, { pop: true })`
 without re-navigating, and a nav click resumes at `currentRoute()`. A page without
 `route()` always shows a bare `#<view>`.
 
+**Deferred workspace boot.** A build may defer the workspace on some routes
+(`CODEX_DEFER_BOOT`, which only the flagged Library build declares, for `#library`).
+On such a boot the page draws before the boot index and the instrument engine are
+fetched. The workspace boot (the boot index, the engine only if a saved session has
+cards, then the held boot steps in their original order) starts on the first
+`uiEnsureWorkspace()`. Until it has finished:
+- a page without `holdsEngine` shows its mounted skeleton and draws once the
+  workspace is in;
+- a workspace control (any button outside the nav, a `holdsEngine` page, the More
+  menu and the theme) is held with `aria-busy` and clicked again once the workspace
+  is ready;
+- autosave writes nothing.
+
+While a `holdsEngine` page is shown, the engine is not started; the first visit to
+any other page starts it. Every other route boots exactly as before.
+
 ## Shell APIs pages may use
 
 | API | Contract |
@@ -76,6 +93,7 @@ without re-navigating, and a nav click resumes at `currentRoute()`. A page witho
 | `uiNavigate(view, { push, sub })` | Show a section. `push: true` for a user's own navigation, so Back/Forward step between sections. `sub` is the sub-route for a page with `route()`; left out, its `currentRoute()` is used. |
 | `uiSubroute(sub, { push, state })` | A page records its own sub-route without a re-render: `push` for a step the user would go Back from, replace otherwise; `state` travels in `history.state`. |
 | `uiRouteOf(hash)` | `{ view, sub }` of a route hash. |
+| `uiEnsureWorkspace()` | Resolves once the workspace is booted, starting a deferred boot's workspace on first call (see "Deferred workspace boot"); a failure is forgotten, so the next call asks again. Resolves at once on any other boot. |
 | `uiAddGenre(id)` | Add a genre's configured ensemble to the shared recipe through the canonical import. Resolves `{ added, expected }`; refuses a second concurrent addition; the toast offers Undo (refused if later changes followed) or Retry. |
 | `uiAddInstrument(id, { configure, message, destination })` | Add one instrument through the canonical picker path, to `destination` (a genre id, or `''` for an independent instrument; left out, the Instrument page's "Add to"). Resolves to the added card, or `null` when nothing was added. `configure(card)` runs on the new card before its history entry (one Undo removes the configured addition); `message(card)` words the success toast. |
 | `uiOpenEditor(cardId)` | Open the shared editor on a card. |

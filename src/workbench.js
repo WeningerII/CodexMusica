@@ -1,5 +1,5 @@
 /* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf */
-/* global UILayout, CMLibraryImport */
+/* global UILayout, CMLibraryImport, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError */
 /* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
@@ -102,6 +102,9 @@ const UI_SHELL_ACTIONS = new Set([
 //   resetLayout?()  extra work for Reset layout (the Map tells its iframe)
 //   escape?()     close what this page opened (last in the Escape order)
 //   actions?      { [data-ui name]: (id, button, event) => void | Promise }
+//   holdsEngine?  true: on a deferred boot (src/app.js _BOOT_DEFER) this page
+//                 draws before the workspace, and keeps the instrument engine
+//                 back while shown; any other page releases it
 function uiRegisterPage(page) {
   if (!UI_ROUTES.some(([id]) => id === page.id)) throw Error('Unknown route: ' + page.id);
   if (UI_PAGES[page.id]) throw Error('Route registered twice: ' + page.id);
@@ -179,6 +182,13 @@ function uiSubroute(sub, { push = false, state = null } = {}) {
 function uiNavigate(view, { push = false, sub } = {}) {
   const page = UI_PAGES[view];
   if (!page) return;
+  // A deferred boot (src/app.js _BOOT_DEFER): any page but one that holds the
+  // engine back releases it, and before the workspace is in, a page shows its
+  // mounted skeleton and draws once it is.
+  if (!page.holdsEngine) _releaseEngine();
+  const waiting = !_workspaceReady && !page.holdsEngine;
+  if (waiting)
+    uiEnsureWorkspace().then(() => UI.view === view && UI_PAGES[view].render?.(), _renderBootError);
   if (!page.route) sub = '';
   else if (sub === undefined) sub = page.currentRoute?.() || '';
   UI.view = view;
@@ -196,7 +206,7 @@ function uiNavigate(view, { push = false, sub } = {}) {
   document.querySelectorAll('.ui-surface').forEach((el) => {
     el.hidden = el.id !== 'surface-' + view;
   });
-  UI_PAGES[view].render?.();
+  if (!waiting) UI_PAGES[view].render?.();
   const dock = $ui('chat-dock');
   if (view === 'lyrics') {
     if (uiSwitchChat('lyrics')) {
@@ -859,6 +869,35 @@ function uiStart() {
       uiSync();
     }
   });
+  // Before a deferred boot's workspace is in (src/app.js _BOOT_DEFER), a
+  // workspace control (Save, Undo, Saved sessions, Recipe, AI recipe, …) is
+  // held, shown busy, and clicked again once the workspace is ready. The nav
+  // (uiNavigate waits itself), the controls of a page that holds the engine
+  // (the Library's), the More menu and the theme need nothing.
+  document.addEventListener(
+    'click',
+    (e) => {
+      if (_workspaceReady) return;
+      const b = e.target.closest('button');
+      if (
+        !b ||
+        UI_PAGES[b.closest('.ui-surface')?.id.slice('surface-'.length)]?.holdsEngine ||
+        b.matches('[data-view],[data-ui^="lib-"],[data-ui="menu"],[data-ui="theme"]')
+      )
+        return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if (b.hasAttribute('aria-busy')) return;
+      b.setAttribute('aria-busy', 'true');
+      uiEnsureWorkspace()
+        .then(() => {
+          b.removeAttribute('aria-busy');
+          b.click();
+        }, _renderBootError)
+        .finally(() => b.removeAttribute('aria-busy'));
+    },
+    true
+  );
   document.addEventListener('click', async (e) => {
     const nav = e.target.closest('button[data-view]');
     if (nav) {
@@ -1047,7 +1086,7 @@ function uiStart() {
     if (e.target.files[0]) uiImport(e.target.files[0]);
     e.target.value = '';
   });
-  uiRestoreSession();
+  _whenWorkspace(uiRestoreSession);
   window.addEventListener('storage', (e) => {
     if (e.key === 'codex-workbench-v1' && e.newValue !== UI.lastSaved) {
       UI.storageConflict = true;
@@ -1065,7 +1104,7 @@ function uiStart() {
   // After the first paint: a cross-origin status check started during boot
   // competes with the genre page's first render for the network and is
   // counted on the path to the largest paint. 'Connecting…' stays until then.
-  uiAfterPaint(uiCheckAI);
+  _whenWorkspace(() => uiAfterPaint(uiCheckAI));
 
   const domain = $ui('chat-domain');
   domain.addEventListener('change', uiUpdatePrompt);
@@ -1074,7 +1113,7 @@ function uiStart() {
   uiLayoutControls();
   uiMenuControls();
   uiRowsControls();
-  renderAll();
+  _whenWorkspace(renderAll);
   // codex.html?trad=<id> (the standalone atlas links here) opens that
   // tradition's Genre detail. It adds nothing by itself: Add stays explicit,
   // so a reload or a shared link can never duplicate an ensemble. An explicit
@@ -2033,7 +2072,9 @@ function uiRestoreSession() {
   }
 }
 function uiAutosave() {
-  if (!UI.ready) return;
+  // Before a deferred boot's workspace is in, the empty workspace is not the
+  // user's: writing it would replace the saved session.
+  if (!UI.ready || !_workspaceReady) return;
   const data = JSON.stringify({
     version: 1,
     name: app.workspaceName,
