@@ -117,6 +117,37 @@ class StaticExportTests(unittest.TestCase):
             result = self.gate(out, snapshot)
             self.assertIn("data_id: catalog.json", result.stdout)
 
+    def test_retention_keeps_a_superseded_directory_for_30_days(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("build_library_data", GATE.parent / "build_library_data.py")
+        builder = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(builder)
+        label = {"file": "eng_fixture.txt", "line": 5, "prefix": "Line", "kind": "speaker-or-stage-direction"}
+        with tempfile.TemporaryDirectory() as plain, tempfile.TemporaryDirectory() as labelled:
+            _, old, _ = self.build(plain)
+            snapshot, new, _ = self.build(labelled, labels=[label])
+            kept = builder.retain(new, old, "2026-10-11")
+            self.assertEqual(len(kept), 1, "the labelled reading's previous directory is retained")
+            (directory, since), = kept.items()
+            self.assertEqual(since, "2026-10-11")
+            self.assertTrue((new / directory / "head.json.gz").is_file())
+            gate = self.gate(new, snapshot)
+            self.assertEqual(gate.returncode, 0, gate.stdout + gate.stderr)
+            # A later build keeps the recorded day, and drops it after 30 days.
+            with tempfile.TemporaryDirectory() as later:
+                again = Path(later) / "static"
+                build_static(Path(labelled) / "export", again)
+                self.assertEqual(builder.retain(again, new, "2026-11-10"), {directory: "2026-10-11"})
+            with tempfile.TemporaryDirectory() as later:
+                again = Path(later) / "static"
+                build_static(Path(labelled) / "export", again)
+                self.assertEqual(builder.retain(again, new, "2026-11-11"), {})
+            # A tampered ledger date beyond 30 days is refused by the gate.
+            manifest = json.loads((new / "manifest.json").read_bytes())
+            manifest["retained"][directory] = "2026-09-01"
+            (new / "manifest.json").write_bytes(canonical(manifest))
+            self.assertIn("retained beyond 30 days", self.gate(new, snapshot).stdout)
+
     def test_an_export_without_its_label_registry_is_refused(self):
         with tempfile.TemporaryDirectory() as temp:
             root = harness(temp)

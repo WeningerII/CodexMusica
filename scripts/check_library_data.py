@@ -19,6 +19,9 @@ For every readable unit:
     the rights equals the site export's (catalog_site_export.source_basis).
   - the rights object rebuilt from rights/r-, rights/rows- and notices/
     equals the canonical one exactly, as does the metadata from meta/;
+  - every retained directory (manifest `retained`) is a superseded reading
+    directory of a still-readable unit, at most 30 days old, with its
+    embedded identity; nothing else but current and retained directories;
 Across the set:
   - the readable set and readable_ids_sha256 equal the canonical index's;
   - c/ partitions the readable units; each head file lists its collection's
@@ -41,6 +44,7 @@ Run: python3 scripts/check_library_data.py DATA_DIR [--snapshot DIR]
 from __future__ import annotations
 
 import argparse
+from datetime import date
 import gzip
 import hashlib
 import json
@@ -111,6 +115,7 @@ def main(argv=None):
 
     manifest, _ = load(data / "manifest.json")
     data_id = manifest["data_id"]
+    retained = manifest.get("retained", {})
     present = {p.relative_to(data).as_posix() for p in data.rglob("*") if p.is_file()} - {"manifest.json"}
     gate.check(present == set(manifest["files"]), f"manifest lists {len(manifest['files'])} files, {len(present)} present")
     for path, info in manifest["files"].items():
@@ -126,6 +131,26 @@ def main(argv=None):
         lists[path] = value
         gate.check(value.get("data_id") == data_id, f"data_id: {path}")
         bodies[path] = {k: v for k, v in value.items() if k != "data_id"}
+
+    # Retained generations: superseded reading directories kept for 30 days.
+    # Eligibility wins over retention, and a retained directory is never the
+    # current one; each still embeds the identity its path names.
+    built_on = manifest.get("built_on")
+    for directory, since in retained.items():
+        parts = directory.split("/")
+        ok = len(parts) == 4 and parts[0] == "r" and (data / directory / "head.json.gz").is_file()
+        if not gate.check(ok, f"retained entry is not a reading directory: {directory}"):
+            continue
+        unit, key = parts[2], parts[3]
+        gate.check(unit in readings and readings[unit]["availability"] == "readable",
+                   f"a retained directory outlived its unit's eligibility: {directory}")
+        gate.check(built_on is not None and 0 <= (date.fromisoformat(built_on) - date.fromisoformat(since)).days <= 30,
+                   f"retained beyond 30 days: {directory} since {since}")
+        head, head_raw = load(data / directory / "head.json.gz")
+        gate.check(head["reading_unit_id"] == unit and key.startswith(head["reading_revision"][:16] + "-")
+                   and key.endswith(hashlib.sha256(gzip.decompress(head_raw)).hexdigest()[:12]),
+                   f"retained head identity: {directory}")
+    on_disk = {p.parent.relative_to(data).as_posix() for p in data.glob("r/*/*/*/head.json.gz")}
 
     # Content-addressed shards, each object in the shard its hash names.
     shards = {"rights": {}, "rows": {}, "metadata": {}}
@@ -174,6 +199,9 @@ def main(argv=None):
                 gate.check(shard(unit) == value["shard"] and unit not in units, f"shard membership: {unit}")
                 units[unit] = (path_key, collection)
     gate.check(sorted(units) == readable, f"u/ holds {len(units)} units, the snapshot {len(readable)} readable")
+    current = {f"r/{shard(u)}/{u}/{k}" for u, (k, _c) in units.items()}
+    gate.check(on_disk == current | set(retained), "reading directories other than the current and retained ones")
+    gate.check(not (current & set(retained)), "a current directory is listed as retained")
 
     by_work = {}
     for i in readable:

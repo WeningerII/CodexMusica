@@ -10,9 +10,12 @@ Four steps (docs/library-native-design.md, "Static builder"):
      nothing when it cannot find them);
   3. the static projection from the verified packs
      (lyric-harness/library/catalog_static_export.py);
-  4. scripts/check_library_data.py over the result, against the snapshot.
+  4. retention: superseded reading directories of the committed tree are kept
+     for 30 days (manifest.json `retained`), dropped at once when their unit
+     stops being readable;
+  5. scripts/check_library_data.py over the result, against the snapshot.
 
-The output replaces library/data only after all four pass; unchanged files keep
+The output replaces library/data only after all five pass; unchanged files keep
 their committed bytes (catalog_static_export --reuse). --check rebuilds and
 compares instead (CI's library-data job).
 
@@ -21,6 +24,8 @@ Run: python3 scripts/build_library_data.py [--out library/data] [--rebuild-snaps
 from __future__ import annotations
 
 import argparse
+from datetime import date, datetime, timezone
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -37,6 +42,48 @@ SNAPSHOT = HARNESS / "library/snapshot"
 def run(args, **kwargs):
     print("$", " ".join(str(a) for a in args), flush=True)
     subprocess.run(args, check=True, **kwargs)
+
+
+RETENTION_DAYS = 30
+
+
+def retain(static: Path, committed: Path, built_on: str):
+    """Keep superseded reading directories for RETENTION_DAYS (design:
+    "Retention and eligibility"): every r/<hh>/<id>/<key> directory of the
+    committed tree that the new build no longer produces is copied forward,
+    with the day it was first superseded recorded in manifest.json's
+    `retained`, until that day is more than RETENTION_DAYS before built_on.
+    Eligibility wins: a directory whose unit is no longer readable is dropped
+    at once. The manifest is rewritten to list the retained files."""
+    manifest_path = static / "manifest.json"
+    manifest = json.loads(manifest_path.read_text())
+    readable = {u for p in static.glob("u/*.json.gz")
+                for u, _k, _c in json.loads(gzip.decompress(p.read_bytes()))["units"]}
+    previous = {}
+    if (committed / "manifest.json").exists():
+        previous = json.loads((committed / "manifest.json").read_text()).get("retained", {})
+    today = date.fromisoformat(built_on)
+    retained = {}
+    for head in sorted(committed.glob("r/*/*/*/head.json.gz")) if committed.exists() else []:
+        directory = head.parent.relative_to(committed).as_posix()
+        unit = head.parent.parent.name
+        if (static / directory).exists() or unit not in readable:
+            continue
+        since = previous.get(directory, built_on)
+        if (today - date.fromisoformat(since)).days > RETENTION_DAYS:
+            continue
+        shutil.copytree(head.parent, static / directory)
+        retained[directory] = since
+        for f in sorted((static / directory).iterdir()):
+            data = f.read_bytes()
+            manifest["files"][f.relative_to(static).as_posix()] = {
+                "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+    manifest["built_on"] = built_on
+    manifest["retained"] = retained
+    manifest["files"] = dict(sorted(manifest["files"].items()))
+    manifest_path.write_bytes(json.dumps(manifest, ensure_ascii=False, sort_keys=True,
+                                         separators=(",", ":")).encode("utf-8"))
+    return retained
 
 
 def compare(built: Path, committed: Path):
@@ -75,7 +122,13 @@ def main(argv=None):
     parser.add_argument("--rebuild-snapshot", action="store_true")
     parser.add_argument("--check", action="store_true",
                         help="rebuild and compare with the committed tree instead of replacing it")
+    parser.add_argument("--built-on", help="the build day (YYYY-MM-DD) retention counts from; "
+                        "default: today, or the committed tree's own day with --check")
     args = parser.parse_args(argv)
+    built_on = args.built_on
+    if built_on is None and args.check and (args.out / "manifest.json").exists():
+        built_on = json.loads((args.out / "manifest.json").read_text()).get("built_on")
+    built_on = built_on or datetime.now(timezone.utc).date().isoformat()
 
     if args.rebuild_snapshot or not (SNAPSHOT / "manifest.json").exists():
         pin = json.loads((HARNESS / "library/catalog_sources.json").read_text())["repository_commit"]
@@ -95,6 +148,8 @@ def main(argv=None):
             sys.exit("the source records or label prefixes were not attached to the export")
         reuse = ["--reuse", str(args.out)] if args.out.exists() else []
         run([sys.executable, "-m", "library.catalog_static_export", str(export), str(static), *reuse], cwd=HARNESS)
+        retained = retain(static, args.out, built_on)
+        print(f"retained {len(retained)} superseded reading directories (built_on {built_on})")
         run([sys.executable, str(ROOT / "scripts/check_library_data.py"), str(static), "--snapshot", str(SNAPSHOT)])
         if args.check:
             problems = compare(static, args.out)
