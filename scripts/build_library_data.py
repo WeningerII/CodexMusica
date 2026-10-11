@@ -12,9 +12,11 @@ Four steps (docs/library-native-design.md, "Static builder"):
      (lyric-harness/library/catalog_static_export.py);
   4. scripts/check_library_data.py over the result, against the snapshot.
 
-The output replaces library/data only after all four pass.
+The output replaces library/data only after all four pass; unchanged files keep
+their committed bytes (catalog_static_export --reuse). --check rebuilds and
+compares instead (CI's library-data job).
 
-Run: python3 scripts/build_library_data.py [--out library/data] [--rebuild-snapshot]
+Run: python3 scripts/build_library_data.py [--out library/data] [--rebuild-snapshot] [--check]
 """
 from __future__ import annotations
 
@@ -37,10 +39,42 @@ def run(args, **kwargs):
     subprocess.run(args, check=True, **kwargs)
 
 
+def compare(built: Path, committed: Path):
+    """Differences between a fresh build and the committed tree. Every file is
+    byte-compared (the build reused committed bytes wherever content matched),
+    except catalog.json's projected_from, a provenance label that names the
+    snapshot it was projected from and is excluded from freshness: a catalog
+    input change that leaves the readable units unchanged moves only it, and
+    so the manifest's entry for catalog.json."""
+    def files(root):
+        return {p.relative_to(root).as_posix() for p in root.rglob("*") if p.is_file()} if root.exists() else set()
+    a, b = files(built), files(committed)
+    problems = [f"missing: {p}" for p in sorted(a - b)] + [f"unexpected: {p}" for p in sorted(b - a)]
+    for path in sorted(a & b):
+        new, old = (built / path).read_bytes(), (committed / path).read_bytes()
+        if path == "catalog.json":
+            strip = lambda raw: {k: v for k, v in json.loads(raw).items() if k != "projected_from"}  # noqa: E731
+            same = strip(new) == strip(old)
+        elif path == "manifest.json":
+            def strip(raw):
+                value = json.loads(raw)
+                value.pop("projected_from", None)
+                value["files"] = {k: v for k, v in value["files"].items() if k != "catalog.json"}
+                return value
+            same = strip(new) == strip(old)
+        else:
+            same = new == old
+        if not same:
+            problems.append(f"differs: {path}")
+    return problems
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--out", type=Path, default=ROOT / "library/data")
     parser.add_argument("--rebuild-snapshot", action="store_true")
+    parser.add_argument("--check", action="store_true",
+                        help="rebuild and compare with the committed tree instead of replacing it")
     args = parser.parse_args(argv)
 
     if args.rebuild_snapshot or not (SNAPSHOT / "manifest.json").exists():
@@ -59,8 +93,18 @@ def main(argv=None):
             sys.exit("the label registry was not attached to the export")
         if not {"label_prefixes", "source_records"} <= set(descriptor.get("references", {})):
             sys.exit("the source records or label prefixes were not attached to the export")
-        run([sys.executable, "-m", "library.catalog_static_export", str(export), str(static)], cwd=HARNESS)
+        reuse = ["--reuse", str(args.out)] if args.out.exists() else []
+        run([sys.executable, "-m", "library.catalog_static_export", str(export), str(static), *reuse], cwd=HARNESS)
         run([sys.executable, str(ROOT / "scripts/check_library_data.py"), str(static), "--snapshot", str(SNAPSHOT)])
+        if args.check:
+            problems = compare(static, args.out)
+            for problem in problems[:50]:
+                print("STALE", problem)
+            if problems:
+                print(f"library/data is stale: {len(problems)} difference(s). Run: python3 scripts/build_library_data.py")
+                return 1
+            print("library/data is current")
+            return 0
         shutil.rmtree(args.out, ignore_errors=True)
         args.out.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(static, args.out)

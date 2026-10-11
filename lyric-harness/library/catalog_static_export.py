@@ -183,12 +183,28 @@ def rebuild_rights(interned, rows, texts):
 
 
 class _Out:
-    def __init__(self, root: Path):
+    """Writes the tree. With `reuse` (the committed tree), a file whose content
+    is unchanged keeps its committed bytes, so a rebuild where zlib compresses
+    differently never rewrites a published file."""
+
+    def __init__(self, root: Path, reuse: Path | None = None):
         self.root = root
+        self.reuse = reuse
         self.files = {}
 
     def write(self, path: str, raw: bytes, compress: bool = True):
-        data = gz(raw) if compress else raw
+        data = None
+        previous = self.reuse / path if self.reuse else None
+        if previous is not None and previous.is_file():
+            old = previous.read_bytes()
+            try:
+                same = (gzip.decompress(old) if compress else old) == raw
+            except (OSError, EOFError):
+                same = False
+            if same:
+                data = old
+        if data is None:
+            data = gz(raw) if compress else raw
         target = self.root / path
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
@@ -268,7 +284,7 @@ def project_reading(item, lines, work_readings):
     return path_key, files
 
 
-def build_static(export, out, artwork_path=ARTWORK):
+def build_static(export, out, artwork_path=ARTWORK, reuse=None):
     export, out = Path(export), Path(out)
     if out.exists() and any(out.iterdir()):
         raise CatalogError("static output must be empty")
@@ -301,7 +317,7 @@ def build_static(export, out, artwork_path=ARTWORK):
     for ids in by_work.values():
         ids.sort(key=lambda i: title_key[i])
 
-    writer = _Out(out)
+    writer = _Out(out, Path(reuse) if reuse else None)
     path_keys, snippets, seen = {}, {}, set()
     rights_objects, rights_rows, notice_texts, metadata_objects = {}, {}, {}, {}
     for pack_path in packs.readings:
@@ -453,8 +469,9 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("export", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--reuse", type=Path, help="the committed tree, whose bytes unchanged files keep")
     args = parser.parse_args(argv)
-    print(json.dumps(build_static(args.export, args.output)))
+    print(json.dumps(build_static(args.export, args.output, reuse=args.reuse)))
 
 
 if __name__ == "__main__":
