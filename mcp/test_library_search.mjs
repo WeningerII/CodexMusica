@@ -351,3 +351,21 @@ test("the fold table is the Worker's own, until the old Site is retired", () => 
     sha(fs.readFileSync(worker))
   );
 });
+
+test('search has a per-address abuse ceiling of 600 a minute, with Retry-After', async (t) => {
+  const { store } = build(t, [item('u1', {}, 'x')]);
+  let now = 1_000_000;
+  const get = await serve(
+    t,
+    libraryPublicRouter({ search: store, ipOf: (req) => req.headers['x-test-ip'], now: () => now })
+  );
+  const from = (ip) => get('/search', { headers: { 'x-test-ip': ip } });
+  for (let i = 0; i < 600; i++) assert.equal((await from('a')).status, 200);
+  const refused = await from('a');
+  assert.equal(refused.status, 429);
+  assert.ok(Number(refused.headers.get('retry-after')) >= 1);
+  assert.equal((await refused.json()).error.code, 'RATE_LIMITED');
+  assert.equal((await from('b')).status, 200, 'another address is unaffected');
+  now += 60_000;
+  assert.equal((await from('a')).status, 200, 'the next minute is open again');
+});

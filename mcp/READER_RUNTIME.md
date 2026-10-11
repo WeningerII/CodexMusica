@@ -60,8 +60,10 @@ server's own snapshot (the client never sends one):
   availability (held units carry no body, snippet or labels).
 
 Search and metadata are `Cache-Control: public, max-age=300` with an ETag;
-errors are `no-store`. The application's request log drops the search query
-string; Render's platform logs may still hold it (see `PRIVACY.md`).
+errors are `no-store`. Search has a per-address abuse ceiling of 600 a minute
+(owner decision 4; `LIBRARY_LIMITS` in `ratelimit.js`), refused with 429 and
+Retry-After. The application's request log drops the search query string;
+Render's platform logs may still hold it (see `PRIVACY.md`).
 
 ## Private pull API
 

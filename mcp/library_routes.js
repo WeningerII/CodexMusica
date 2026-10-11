@@ -13,6 +13,7 @@
 import crypto from 'node:crypto';
 import express from 'express';
 import { LibraryError, errorBody } from './library_search.js';
+import { LIBRARY_LIMITS, Windows, clientIp } from './ratelimit.js';
 
 const ID = /^[A-Za-z0-9_.:-]{1,200}$/;
 
@@ -35,9 +36,40 @@ function fail(res, error) {
  * @param {import('./library_search.js').LibrarySearch | null} options.search
  *   the loaded store, or null when this service has none installed
  * @param {() => boolean} [options.analysisAvailable] public analysis is live
+ * @param {Windows} [options.windows] rate-limit counters (shared per process)
+ * @param {(req) => string} [options.ipOf] the caller's address (ratelimit.clientIp)
+ * @param {() => number} [options.now]
  */
-export function libraryPublicRouter({ search, analysisAvailable = () => false }) {
+export function libraryPublicRouter({
+  search,
+  analysisAvailable = () => false,
+  windows = new Windows(),
+  ipOf = clientIp,
+  now = Date.now,
+}) {
   const router = express.Router();
+  // Decision 4: search's abuse ceiling. Ordinary use never meets it; the
+  // refusal says when to retry.
+  const searchCeiling = (req, res) => {
+    const hit = windows.hit(
+      `library-search:${ipOf(req)}`,
+      60_000,
+      LIBRARY_LIMITS.searchPerIpPerMinute,
+      now()
+    );
+    if (hit.ok) return true;
+    res.setHeader('Retry-After', String(Math.max(1, Math.ceil(hit.retryAfter / 1000))));
+    fail(
+      res,
+      new LibraryError(
+        'RATE_LIMITED',
+        'Too many searches from this network address; retry shortly.',
+        429,
+        'Retry after the time in Retry-After.'
+      )
+    );
+    return false;
+  };
   router.use((req, res, next) => {
     if (req.method !== 'GET' && req.method !== 'HEAD')
       return fail(
@@ -71,6 +103,7 @@ export function libraryPublicRouter({ search, analysisAvailable = () => false })
     });
   });
   router.get('/search', (req, res) => {
+    if (!searchCeiling(req, res)) return;
     try {
       // The raw query string, read as the Worker read url.searchParams (first
       // value wins), never Express's parsed req.query.
