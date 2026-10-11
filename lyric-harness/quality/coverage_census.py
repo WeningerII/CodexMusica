@@ -94,7 +94,7 @@ def build_lexicon(supplement, fallback):
     return S.SupplementedLexicon(fallback=fb, version=supplement)
 
 
-def census(paths, lex, top=0):
+def census(paths, lex, top=0, keep=None):
     """-> the census record for these files under this lexicon."""
     import lyric_harness as LH
     from quality import grid as G
@@ -116,8 +116,16 @@ def census(paths, lex, top=0):
     # another unknown is not scored zero forever (3PO, #527, point 5).
     sole_lookup, credit = collections.Counter(), collections.Counter()
     for path in paths:
+        rel = os.path.relpath(path, ROOT)
+        ordinal = -1
         for _title, lines in items_of(path):
             if not lines:
+                continue
+            # The unit id quality/coverage_split.py assigns: the file and the
+            # ordinal of its non-empty items. `keep` restricts the census to
+            # one side of the frozen split.
+            ordinal += 1
+            if keep is not None and f"{rel}#{ordinal}" not in keep:
                 continue
             items += 1
             unread_here = set()
@@ -264,19 +272,39 @@ def main(argv=None):
     ap.add_argument("--top", type=int, default=0,
                     help="list the N most frequent unread types")
     ap.add_argument("--out", help="write the JSON record here as well")
+    ap.add_argument("--split", choices=("all", "dev", "validation"), default="all",
+                    help="restrict the song population to one side of the frozen "
+                         "split (quality/coverage_split.py). Ranking reads dev; "
+                         "validation is only ever reported")
     a = ap.parse_args(argv)
     paths = sorted({p for g in POPULATIONS[a.population]
                     for p in glob.glob(os.path.join(ROOT, g), recursive=True)})
     if not paths:
         print(f"CANNOT TELL: population {a.population!r} matched no files")
         return 2
+    keep, split_meta = None, None
+    if a.split != "all":
+        if a.population != "song":
+            print("REFUSED: the frozen split covers the song population only")
+            return 2
+        from quality.coverage_split import read_split
+        assignment, split_meta = read_split()
+        keep = {u for u, side in assignment.items() if side == a.split}
     lex = build_lexicon(a.lexicon_supplement, a.fallback)
     rec = {"population": a.population, "globs": POPULATIONS[a.population],
            "files": len(paths), "inputs_sha256": inputs_sha256(paths),
            "lexicon_supplement": a.lexicon_supplement,
            "lexicon_supplement_sha256": _lexicon_sha256(lex),
            "fallback": a.fallback, "census_commit": _commit()}
-    rec.update(census(paths, lex, a.top))
+    if keep is not None:
+        rec["split"] = {"side": a.split, "salt": split_meta["salt"],
+                        "split_inputs_sha256": split_meta["inputs_sha256"]}
+        if split_meta["inputs_sha256"] != rec["inputs_sha256"]:
+            print("REFUSED: the population is not the one the frozen split was "
+                  "drawn from (inputs_sha256 differs); a moved population needs "
+                  "a new split, never a reused one")
+            return 2
+    rec.update(census(paths, lex, a.top, keep))
     text = json.dumps(rec, indent=1, ensure_ascii=False)
     print(text)
     if a.out:

@@ -2704,7 +2704,13 @@ jobs:
       #   definition refuses, and section 1 grades those dropped words through the exact judge
       #   for every declarable name on both routes, section 2 proving the check catches an index
       #   that drops too much; label 102 to 103
-      - name: The 104 cheap suites (their history is the comment above)
+      #   coverage_split joined 2026-10-11 with quality/coverage_split.py (the dictionary lane's
+      #   frozen, work-grouped dev / validation split), added in the same commit as the module
+      #   it gates: the assignment is a pure salted function of a work group, each grouping
+      #   rule joins what it says, the frozen file names exactly the current population with no
+      #   group straddling the split, and the census's --split reads one side only; about 80 s,
+      #   nearly all of it two census passes; label 104 to 105
+      - name: The 105 cheap suites (their history is the comment above)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2799,7 +2805,7 @@ jobs:
                    controls data_row_claims english_text stub_resolution melody meter tempo verify_figures expected_drift \
                    songs ban_convergence cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
-                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon song_shape backlog_status source_identity figure_exhibits relation_index lexicon_supplement; do
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon song_shape backlog_status source_identity figure_exhibits relation_index lexicon_supplement coverage_split; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured
