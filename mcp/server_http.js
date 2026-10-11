@@ -272,6 +272,14 @@ app.use((req, res, next) => {
 //
 // Awaited before listen() so the in-memory MCP client it drives is connected
 // before the first request can arrive.
+// STARTUP_TRACE=1 logs when each startup phase ends, in milliseconds since the
+// process started, so a slow start can be located on the machine that has it
+// (the capacity harness sets it; production does not).
+const startupTrace = (phase) => {
+  if (process.env.STARTUP_TRACE === '1')
+    console.error(`[startup] ${phase} +${Math.round(performance.now())}ms`);
+};
+startupTrace('modules loaded');
 const buildIdentity = runtimeBuildIdentity();
 const runtimeDir = (name) =>
   process.env.LYRIC_RUNTIME_DIR ? path.join(process.env.LYRIC_RUNTIME_DIR, name) : null;
@@ -281,6 +289,7 @@ const readerResourceFingerprint =
   runtimeAssets().assets_sha256 ||
   buildIdentity.commit ||
   'unidentified';
+startupTrace('runtime assets read');
 let readerScheduler;
 let readerStore;
 // One admission state for every path that queues an analysis (the private
@@ -331,6 +340,7 @@ try {
   readerFailure = error.message;
   readerScheduler = undefined;
 }
+startupTrace('reader ready');
 const bridgeConfigured =
   process.env.READER_BRIDGE_SECRET &&
   Buffer.byteLength(process.env.READER_BRIDGE_SECRET) >= 32 &&
@@ -556,6 +566,7 @@ chatRouter = await createChatRouter({
   Client,
   InMemoryTransport,
 });
+startupTrace('chat ready');
 app.use(chatRouter);
 
 // M-230: the process says WHICH BUILD it is. mcp/check_live.mjs compares the
@@ -823,6 +834,7 @@ const httpServer = app.listen(PORT, () => {
   console.error(
     `codex-musica MCP server (stateless Streamable HTTP) listening on :${PORT}${MCP_PATH}`
   );
+  startupTrace('listening');
 });
 
 let shuttingDown = false;

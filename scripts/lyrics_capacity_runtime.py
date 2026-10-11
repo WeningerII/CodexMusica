@@ -25,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STARTUP_SECONDS = 30
 HEALTH_SECONDS = 5
 REPLAY_SECONDS = 10
+LIBRARY_LOAD_SECONDS = 60
 STOP_SECONDS = 5
 
 
@@ -409,7 +410,7 @@ class ResidentRuntime:
         started = time.monotonic()
         self.startup_deadline = started + STARTUP_SECONDS
         self.log = open(self.directory / ('restart.stderr' if recovery else 'server.stderr'), 'w')
-        env = {**os.environ, 'PORT': str(self.port), 'LYRIC_RUNTIME_DIR': str(self.directory / 'runtime'),
+        env = {**os.environ, 'STARTUP_TRACE': '1', 'PORT': str(self.port), 'LYRIC_RUNTIME_DIR': str(self.directory / 'runtime'),
                'GEMINI_API_KEY': 'offline-capacity-placeholder', 'LYRIC_PYTHON': os.sys.executable,
                'HTTP_PROXY': '', 'HTTPS_PROXY': '', 'ALL_PROXY': '', 'NO_PROXY': '127.0.0.1,localhost'}
         self.child = subprocess.Popen([self.node, str(ROOT / 'scripts/lyrics_capacity_server.mjs'),
@@ -431,11 +432,25 @@ class ResidentRuntime:
                 last_error = error
                 time.sleep(.1)
         else:
+            self.report_startup_trace(recovery, started)
             raise RuntimeError(f'actual server startup/recovery deadline: {last_error}')
+        self.report_startup_trace(recovery, started)
         self.startup_deadline = None
         self.record['recovery_s' if recovery else 'startup_s'] = time.monotonic() - started
         self.record['recovery_ok' if recovery else 'startup_ok'] = True
         self.load_library('library_recovery' if recovery else 'library')
+
+    def report_startup_trace(self, recovery, started):
+        # The server's own phase marks (STARTUP_TRACE=1, mcp/server_http.js),
+        # printed to the shard log so a slow start is located on the runner
+        # that had it, pass or fail; the launcher's clock closes the line.
+        try:
+            lines = [line.strip() for line in (self.directory / ('restart.stderr' if recovery else 'server.stderr')).read_text(errors='replace').splitlines() if line.startswith('[startup]')]
+        except OSError:
+            lines = []
+        self.record['recovery_trace' if recovery else 'startup_trace'] = lines
+        label = 'recovery' if recovery else 'startup'
+        print(f"Capacity {label} trace: {' | '.join(lines) or 'no phase marks'} | probe window closed +{time.monotonic() - started:.1f}s after launch", flush=True)
 
     def load_library(self, key):
         # THE LIBRARY STORES LOAD ON FIRST USE (mcp/server_http.js), never before
@@ -446,7 +461,9 @@ class ResidentRuntime:
         # cold process would leave their ~110 MB out of the combined runtime.
         configured = bool(os.environ.get('LIBRARY_SEARCH_DIR'))
         started = time.monotonic()
-        library = self.request('GET', '/library/v1/health', timeout=REPLAY_SECONDS)
+        # Outside the startup gate, so a cold read of the stores (hundreds of MB)
+        # gets a minute rather than a replay's ten seconds.
+        library = self.request('GET', '/library/v1/health', timeout=LIBRARY_LOAD_SECONDS)
         state = self.health().get('library') or {}
         self.record[key] = {'configured': configured, 'state': state.get('state'),
                             'failures': state.get('failures'),
