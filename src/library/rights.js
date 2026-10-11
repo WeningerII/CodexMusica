@@ -81,6 +81,8 @@ if (!document.querySelector('style[data-lib="rights"]'))
 #surface-library .lr-sel{list-style:none;margin:0;padding:0;max-height:240px;overflow:auto;font-size:12px}
 #surface-library .lr-sel li{display:flex;gap:6px;align-items:center;justify-content:space-between;padding:3px 0;border-bottom:1px solid var(--cm-border-subtle);color:var(--cm-text-secondary)}
 #surface-library .lr-sel code{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#surface-library .lr-sel li>span{display:flex;gap:2px;flex:none}
+#surface-library [data-lr-status]:empty{display:none}
 #surface-library .lr-sel button{background:none;border:0;color:var(--cm-text-muted);cursor:pointer;padding:2px}
 #surface-library .lr-filter{display:flex;gap:8px;flex-wrap:wrap}
 #surface-library .lr-filter .cm-input{flex:1 1 200px}
@@ -265,7 +267,7 @@ function exportPanel(container, lib) {
 <p class="lr-note" data-lr-count>${n.toLocaleString()} pinned reading unit${n === 1 ? '' : 's'} · On this device${state.unsaved ? ' · unsaved' : ''}</p>
 <label class="lr-note" for="lr-format">Format</label>
 <select id="lr-format" class="cm-select" data-lr-format>${FORMATS.map(([v, l]) => `<option value="${v}"${v === state.format ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select>
-<p class="lr-credit">${icon('scale', 16)}<span>Every ZIP includes PROVENANCE.json, ATTRIBUTION.txt and applicable notices. Credits are required and must accompany reuse.</span></p>
+<p class="lr-credit">${icon('info', 16)}<span>Every ZIP includes PROVENANCE.json, ATTRIBUTION.txt and applicable notices. Credits are required and must accompany reuse.</span></p>
 <p class="lr-note">Source artwork and device speech are excluded: artwork is credited on Sources &amp; rights and is in no package. Snapshot updates do not add items to this selection.</p>
 ${uiButton('lr-export', state.busy === 'selection' ? 'Preparing package…' : 'Export selected readings', 'download', `class="cm-btn cm-btn-primary"${!n || state.busy ? ' disabled' : ''}`)}
 ${uiButton('lr-corpus', state.busy === 'corpus' ? 'Starting download…' : 'Export readable corpus' + (corpus?.bytes ? ` (${fmtBytes(corpus.bytes)})` : ''), 'download', `class="cm-btn cm-btn-outline"${state.busy ? ' disabled' : ''}`)}
@@ -802,7 +804,7 @@ ${body}
     try {
       const a = (await lib.artwork()).artwork || [];
       arts = Object.fromEntries(a.map((x) => [x.id, x]));
-      el.innerHTML = `<h3>${icon('image', 18)}Artwork credits</h3>
+      el.innerHTML = `<h3>${icon('file-text', 18)}Artwork credits</h3>
 <p class="lr-note">Collection artwork is historical and credited here; it is in no export package.</p>
 ${a
   .map(
