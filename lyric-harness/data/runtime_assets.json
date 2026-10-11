@@ -178,6 +178,24 @@
       "url": "https://raw.githubusercontent.com/ArtsEngine/concreteness/master/Concreteness_ratings_Brysbaert_et_al_BRM.txt"
     },
     {
+      "id": "moby_mpron",
+      "base": "staged",
+      "runtime": false,
+      "decision": "approved",
+      "reason": "Moby Pronunciator II, public domain by Grady Ward's January 2001 grant (PG #3205). Research input only: quality/moby_convert.py converts it into candidate readings, and only reviewed rows ship, inside a frozen lexicon supplement version. No runtime consumer.",
+      "source_ids": [
+        "moby:3205:attested"
+      ],
+      "files": [
+        {
+          "path": "moby/mpron.txt",
+          "bytes": 5493251,
+          "sha256": "55580c3b258873723fed33497fe3a438b26167370bbe016431b3fc65fea67f2d"
+        }
+      ],
+      "url": "https://raw.githubusercontent.com/GITenberg/Moby-Pronunciation-List_3205/2153f3193c25787070d97715ee0e4f54f72f4a0f/files/mpron.txt"
+    },
+    {
       "id": "runtime_tables",
       "base": "root",
       "runtime": true,
