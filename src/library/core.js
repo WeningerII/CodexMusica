@@ -291,7 +291,7 @@ const CSS = `
 #surface-library .lib-art img{width:100%;height:100%;object-fit:cover;display:block}
 #surface-library .lib-cover{display:flex;flex-direction:column;justify-content:space-between;height:100%;box-sizing:border-box;padding:12px 12px 50px;background:var(--lib-tone);color:var(--cm-text)}
 #surface-library .lib-cover small{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--cm-text-secondary)}
-#surface-library .lib-cover strong{font-size:14px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;font-family:var(--cm-font-serif,Georgia,serif)}
+#surface-library .lib-cover strong{font-size:14px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;word-break:break-word;font-family:var(--cm-font-serif,Georgia,serif)}
 #surface-library .lib-cover span{font-size:11px;color:var(--cm-text-secondary)}
 #surface-library .lib-cover .icon-svg{color:var(--cm-text-muted)}
 #surface-library .lib-tone-0{--lib-tone:color-mix(in srgb,var(--cm-blue,#3b82f6) 12%,var(--cm-surface))}
