@@ -3017,3 +3017,14 @@ html.cm-lightbox-open body {
     transform: none;
   }
 }
+/* Five sections from 900px: the narrowest two-column header keeps every
+   control inside the bar by tightening the section tabs. */
+@media (min-width: 900px) and (max-width: 1023px) {
+  .workbench .ui-header nav button,
+  .workbench .ui-header nav .ui-nav-link {
+    padding: 0 6px;
+  }
+  .workbench .ui-header nav {
+    gap: 0;
+  }
+}

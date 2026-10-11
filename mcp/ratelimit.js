@@ -104,3 +104,28 @@ export function clientIp(req) {
   }
   return req.ip || req.socket?.remoteAddress || 'unknown';
 }
+
+// The native Library tab's limits (docs/library-native-design.md, owner
+// decision 4, approved as recommended). The old Site had no limiter: its only
+// bounds were 2 outstanding analyses per viewer and 16 waiting globally, and
+// those stay the binding analysis limits. Per-IP values are abuse ceilings.
+export const LIBRARY_LIMITS = Object.freeze({
+  searchPerIpPerMinute: 600,
+  outstandingPerIp: 12,
+  createsPerViewerPerHour: 30,
+  createsPerIpPerHour: 120,
+  jobReadsPerIpPerMinute: 600,
+  controlsPerViewerPerHour: 120,
+  mintsPerIpPerHour: 30,
+  exportPlansPerIpPerHour: 120,
+  exportStreamsPerIp: 2,
+  exportStreamsGlobal: 4,
+  corpusStartsPerIpPerDay: 6,
+  corpusStreamsGlobal: 2,
+  // Every download stream (selection, analysis, corpus): cut after 60 s with
+  // no progress, or when fewer than 4 KiB/s moved over a 120 s window.
+  streamIdleMs: 60_000,
+  streamMinBytesPerSecond: 4096,
+  streamRateWindowMs: 120_000,
+  longReadingLines: 5000,
+});

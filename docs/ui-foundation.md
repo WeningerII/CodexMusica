@@ -47,10 +47,14 @@ uiRegisterPage({
   recipe: 'sidebar', // 'sidebar-right' or 'dock': how Your recipe is presented on this route
   mount(surface) {}, // build the page once inside <section id="surface-genre">
   render() {}, // show current state; called on every visit and refresh
+  route(sub, { pop }) {}, // optional: show the sub-route after '#genre' ('/…' or '?…', '' for none)
+  currentRoute() {}, // optional: the sub-route a nav click resumes at
   layout() {}, // page-specific UILayout panes, once, after the shell's
   resetLayout() {}, // extra work for Reset layout
   escape() {}, // close what this page opened (last in the Escape order)
   actions: { 'genre-branch': (id, button, event) => {} }, // data-ui="…" handlers
+  imports: { library: (envelope) => {} }, // optional: what the page accepts from another page
+  holdsEngine: false, // optional: true for a page that draws before the workspace (below)
 });
 ```
 
@@ -61,11 +65,37 @@ are the shell's (`UI_ROUTES`); deep links are `codex.html#genre|instrument|map|l
 and `codex.html?trad=<id>` (opens that tradition's Genre detail once and leaves the
 URL; adds nothing; an explicit `#section` wins).
 
+A route hash is `#<view>` optionally followed by a sub-route that starts at the first
+`/` or `?` (`uiRouteOf`). Only a page with `route()` has sub-routes: navigation hands
+it the sub-route, a hashchange within the page calls `route(sub, { pop: true })`
+without re-navigating, and a nav click resumes at `currentRoute()`. A page without
+`route()` always shows a bare `#<view>`.
+
+**Deferred workspace boot.** A build may defer the workspace on some routes
+(`CODEX_DEFER_BOOT`, which only the flagged Library build declares, for `#library`).
+On such a boot the page draws before the boot index and the instrument engine are
+fetched. The workspace boot (the boot index, the engine only if a saved session has
+cards, then the held boot steps in their original order) starts on the first
+`uiEnsureWorkspace()`. Until it has finished:
+- a page without `holdsEngine` shows its mounted skeleton and draws once the
+  workspace is in;
+- a workspace control (any button outside the nav, a `holdsEngine` page, the More
+  menu and the theme) is held with `aria-busy` and clicked again once the workspace
+  is ready;
+- autosave writes nothing.
+
+While a `holdsEngine` page is shown, the engine is not started; the first visit to
+any other page starts it. Every other route boots exactly as before.
+
 ## Shell APIs pages may use
 
 | API | Contract |
 |---|---|
-| `uiNavigate(view, { push })` | Show a section. `push: true` for a user's own navigation, so Back/Forward step between sections. |
+| `uiNavigate(view, { push, sub })` | Show a section. `push: true` for a user's own navigation, so Back/Forward step between sections. `sub` is the sub-route for a page with `route()`; left out, its `currentRoute()` is used. |
+| `uiSubroute(sub, { push, state })` | A page records its own sub-route without a re-render: `push` for a step the user would go Back from, replace otherwise; `state` travels in `history.state`. |
+| `uiRouteOf(hash)` | `{ view, sub }` of a route hash. |
+| `uiOpenInLyrics(envelope)` | The Library's in-page handoff: awaits `uiEnsureWorkspace()`, then hands one `codex-musica.library-import` envelope to the importer Lyrics registered (`imports.library`). Lyrics validates it, commits a durable draft with its receipt and opens it, pushed so Back returns to the reading. Text only; nothing reads or writes the recipe. Rejects when the import fails, so the caller can offer the file download instead. |
+| `uiEnsureWorkspace()` | Resolves once the workspace is booted, starting a deferred boot's workspace on first call (see "Deferred workspace boot"); a failure is forgotten, so the next call asks again. Resolves at once on any other boot. |
 | `uiAddGenre(id)` | Add a genre's configured ensemble to the shared recipe through the canonical import. Resolves `{ added, expected }`; refuses a second concurrent addition; the toast offers Undo (refused if later changes followed) or Retry. |
 | `uiAddInstrument(id, { configure, message, destination })` | Add one instrument through the canonical picker path, to `destination` (a genre id, or `''` for an independent instrument; left out, the Instrument page's "Add to"). Resolves to the added card, or `null` when nothing was added. `configure(card)` runs on the new card before its history entry (one Undo removes the configured addition); `message(card)` words the success toast. |
 | `uiOpenEditor(cardId)` | Open the shared editor on a card. |
