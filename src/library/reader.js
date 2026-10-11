@@ -56,7 +56,6 @@ const LENSES = [
   ['language', 'Language'],
   ['sources', 'Sources'],
 ];
-const ANALYSIS_LENSES = new Set(['sound', 'form', 'rhythm', 'language']);
 const SHOWN_KINDS = new Set(['lyric', 'blank', 'structure']);
 const TRANSFER_BYTES =
   (typeof CMLibraryImport !== 'undefined' && CMLibraryImport.TRANSFER_BYTES) || 8 * 1024 * 1024;
@@ -744,6 +743,7 @@ function stop() {
     /* no speech */
   }
   S.observer?.disconnect();
+  S.ana?.destroy?.();
   if (S.onKey) document.removeEventListener('keydown', S.onKey);
 }
 
@@ -789,7 +789,7 @@ function render() {
       <div data-rd-body></div>
       <footer class="rd-foot">${icon('book-open', 15)}<span>Every interpretation uses the complete identified reading unit. Apparatus is preserved in Source transcription.</span></footer>
     </article>
-    <aside class="rd-insp" aria-label="Interpretation inspector" data-rd-insp></aside>
+    <aside class="rd-insp" aria-label="Interpretation inspector"><div data-rd-insp></div><div data-rd-ana></div><div data-rd-speech></div></aside>
   </div>
 </div>`;
   S.root = S.main.firstElementChild;
@@ -801,6 +801,7 @@ function render() {
     if (S.root.classList.contains('rd-sheet')) S.root.classList.remove('rd-sheet');
     else if (S.sel.size) {
       S.sel.clear();
+      syncSelection();
       renderBody();
     }
   };
@@ -872,6 +873,7 @@ function renderBody() {
   body.innerHTML = `${S.window[0] > 0 ? btn('prev', `Load preceding source rows · from row ${S.window[0] * PAGE_ROWS}`, 'chevron-up', '', 'cm-btn rd-more') : ''}
 <div class="rd-lines" dir="${esc(R.head.direction || 'ltr')}" style="font-size:${S.size}px">${lines.map((l) => lineHTML(l, repeated)).join('')}</div>
 ${S.window[1] < R.pageCount - 1 ? btn('next', `Load next source rows · ${last ? last.row + 1 : 0} / ${R.pageCount > 1 ? '~' + total : total}+`, 'chevron-down', '', 'cm-btn rd-more') : ''}`;
+  S.ana?.setLines(windowLines());
   observe();
 }
 
@@ -990,7 +992,7 @@ function renderInspector() {
 <div class="rd-measure"><div><b>${esc(c.physical_source_rows ?? '—')}</b>physical rows</div><div><b>${esc(words_(h.completeness))}</b>documented scope</div>
 <div><b>${esc(c.normalized_lines ?? '—')}</b>analysis lines</div><div><b>${esc(R.pageCount)}</b>page${R.pageCount === 1 ? '' : 's'} of ${PAGE_ROWS} rows</div></div>
 <p class="rd-note">${esc(h.source_path)}</p><p class="rd-note">${esc(h.notation || '')} · ${esc(h.direction === 'rtl' ? 'right to left' : 'left to right')}</p></section>
-<section class="rd-sec" data-rd-analysis-summary></section>`;
+`;
   } else if (S.lens === 'sources') {
     body = `<section class="rd-sec"><h3>Text, edition and digital witness</h3>${valueTree({
       work_id: h.work_id,
@@ -1003,9 +1005,18 @@ function renderInspector() {
 <section class="rd-sec"><h3>Recorded source labels</h3>${valueTree(h.source_labels)}
 <h3 style="margin-top:12px">Exact source identity</h3><p class="rd-hash" data-rd-ident>Readings: snapshot …<br>Revision ${esc(R.revision)}<br>Source SHA256 ${esc(h.source_sha256)}<br>Normalized SHA256 ${esc(h.normalized_sha256)}</p>
 ${btn('provenance', 'Source details', 'download')}</section>`;
-  } else {
-    body = `<section class="rd-sec" data-rd-analysis><p class="rd-note">Loading ${esc(S.lens)} analysis…</p></section>`;
   }
+  el.innerHTML = tabs + body;
+  if (S.lens === 'sources') fillSources(el);
+  ensureAnalysis().then((ana) => ana?.setLens(S.lens));
+  renderSpeech();
+}
+
+function renderSpeech() {
+  const el = S.root?.querySelector('[data-rd-speech]');
+  if (!el) return;
+  const h = S.R.head;
+  let body = '';
   const voices = window.speechSynthesis?.getVoices?.() || [];
   body += `<section class="rd-sec rd-speech"><h3>Read aloud</h3>
 <label>Device voice<select class="cm-select" data-rd="voice"><option value="">Match language</option>${voices
@@ -1017,10 +1028,7 @@ ${btn('provenance', 'Source details', 'download')}</section>`;
 <label>Speed <span data-rd-speed-out>${S.speed.toFixed(1)}×</span><input type="range" data-rd="speed" min="0.5" max="2" step="0.1" value="${S.speed}"></label>
 <div>${btn('speak', S.speaking ? 'Stop' : 'Read this work', S.speaking ? 'square' : 'play', `aria-pressed="${S.speaking}"`)}</div>
 <p class="rd-note">${h.language === 'ltc' ? 'Modern Chinese device speech · independent from Middle Chinese analysis' : 'Device speech · independent from phonology evidence'}</p></section>`;
-  el.innerHTML = tabs + body;
-  if (S.lens === 'sources') fillSources(el);
-  if (ANALYSIS_LENSES.has(S.lens)) mountAnalysis(el.querySelector('[data-rd-analysis]'));
-  if (S.lens === 'summary') mountAnalysis(el.querySelector('[data-rd-analysis-summary]'), true);
+  el.innerHTML = body;
 }
 
 async function fillSources(el) {
@@ -1089,26 +1097,42 @@ function highlight(record, lineIds) {
     say('This evidence is elsewhere in the work. Load the next source rows to locate its spans.');
 }
 
-async function mountAnalysis(host, summary = false, extra = {}) {
-  if (!host) return;
+// One analysis controller per open reading (src/library/analysis.js mount):
+// it follows the reader's lens, selection and loaded rows; the reader draws
+// the lens tabs.
+function ensureAnalysis() {
+  if (S.anaP) return S.anaP;
   const mine = S;
-  try {
-    const analysis = await libraryChunk('analysis');
-    if (S !== mine || !host.isConnected) return;
-    if (typeof analysis.mount !== 'function') throw Error('no mount');
-    await analysis.mount(host, {
-      reading: readingContext(),
-      lib: S.lib,
-      lens: S.lens,
-      selection: [...S.sel],
-      ...extra,
+  const host = S.root?.querySelector('[data-rd-ana]');
+  S.anaP = libraryChunk('analysis')
+    .then((analysis) => {
+      if (S !== mine || !host?.isConnected) return null;
+      S.ana = analysis.mount(host, {
+        reading: S.R.head,
+        lib: S.lib,
+        lens: S.lens,
+        selected: new Set(S.sel),
+        lines: windowLines(),
+        tabs: false,
+        onHighlight: (ids, record) => highlight(record, [...(ids || [])]),
+        onLens: (lens) => {
+          S.lens = lens;
+          renderInspector();
+          replaceRoute();
+        },
+      });
+      return S.ana;
+    })
+    .catch((e) => {
+      console.warn('[library reader] analysis', e);
+      if (host?.isConnected)
+        host.innerHTML = `<p class="rd-note">Analysis is not available right now.</p>`;
+      if (S === mine) S.anaP = null;
+      return null;
     });
-  } catch (e) {
-    if (S !== mine || !host.isConnected) return;
-    host.innerHTML = summary ? '' : `<p class="rd-note">Analysis is not available right now.</p>`;
-    if (!summary) console.warn('[library reader] analysis', e);
-  }
+  return S.anaP;
 }
+const syncSelection = () => S.ana?.setSelection(new Set(S.sel));
 
 async function openCompare(passage, other) {
   const host = S.root?.querySelector('[data-rd-compare]');
@@ -1133,14 +1157,9 @@ async function openCompare(passage, other) {
 }
 
 async function declarationsFor() {
-  try {
-    const analysis = await libraryChunk('analysis');
-    if (typeof analysis.declarations === 'function')
-      return (await analysis.declarations(readingContext())) || {};
-  } catch {
-    /* none recorded */
-  }
-  return {};
+  const ana = await ensureAnalysis();
+  const d = ana?.declarations;
+  return d && typeof d === 'object' ? d : {};
 }
 
 async function handoff(excerpt) {
@@ -1195,7 +1214,7 @@ function speak(auto) {
     synth?.cancel();
     S.speaking = false;
     if (!synth) say('Device speech is not available in this browser.');
-    return renderInspector();
+    return renderSpeech();
   }
   const voices = synth.getVoices();
   const tag = SPEECH_TAGS[S.R.head.language] ?? '!';
@@ -1213,7 +1232,7 @@ function speak(auto) {
   const gen = ++S.gen;
   const mine = S;
   S.speaking = true;
-  renderInspector();
+  renderSpeech();
   allLines(S.lib, S.R)
     .then((lines) => {
       const chunks = lines
@@ -1225,7 +1244,7 @@ function speak(auto) {
         if (S !== mine || gen !== S.gen) return;
         if (i >= chunks.length) {
           S.speaking = false;
-          return renderInspector();
+          return renderSpeech();
         }
         const u = new SpeechSynthesisUtterance(chunks[i++]);
         u.voice = chosen;
@@ -1235,7 +1254,7 @@ function speak(auto) {
         u.onerror = () => {
           if (S !== mine || gen !== S.gen) return;
           S.speaking = false;
-          renderInspector();
+          renderSpeech();
         };
         synth.speak(u);
       };
@@ -1244,7 +1263,7 @@ function speak(auto) {
     .catch((e) => {
       S.speaking = false;
       fail(e);
-      renderInspector();
+      renderSpeech();
     });
 }
 
@@ -1265,6 +1284,7 @@ function toggleLine(id) {
     );
   }
   renderBar();
+  syncSelection();
   store('position:' + S.R.id, {
     line_id: id,
     offset: Math.max(0, l.row - 30),
@@ -1360,13 +1380,24 @@ function onClick(e) {
       return openCompare([...S.sel], '');
     case 'p-annotate': {
       openSheet(true);
-      const host = S.root.querySelector('[data-rd-analysis],[data-rd-analysis-summary]');
-      return mountAnalysis(host, false, { open: 'declarations', lines: [...S.sel] });
+      return ensureAnalysis().then((ana) => {
+        if (!ana) return;
+        const host = S.root.querySelector('[data-rd-ana]');
+        if (!host.querySelector('.la-decl')) host.querySelector('[data-act="decl"]')?.click();
+        setTimeout(
+          () =>
+            host
+              .querySelector('[data-slot="decl"]')
+              ?.scrollIntoView({ block: 'start', behavior: 'smooth' }),
+          100
+        );
+      });
     }
     case 'p-lyrics':
       return handoff(true);
     case 'p-clear':
       S.sel.clear();
+      syncSelection();
       return renderBody();
   }
 }
@@ -1400,7 +1431,7 @@ if (typeof window !== 'undefined' && window.speechSynthesis)
   window.speechSynthesis.addEventListener?.('voiceschanged', () => {
     if (S?.root?.isConnected) {
       const sel = S.root.querySelector('[data-rd="voice"]');
-      if (sel && sel.options.length <= 1) renderInspector();
+      if (sel && sel.options.length <= 1) renderSpeech();
     }
   });
 
