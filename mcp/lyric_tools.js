@@ -2110,6 +2110,11 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         "Where in a line the two words sit (default end: two line-final words, as a mandate group's members are). Traditional names are judged at this position, and many exist only at one, so the names returned depend on it."
       ),
+    // THE SAME READING BASIS AS THE SCREEN (MISSING.md M-321): a lookup is
+    // new work, so an omission reads the current default, and a word the
+    // supplement reads is readable here exactly where lyric_screen reads it.
+    lexicon_supplement: lexiconSupplementField,
+    lexicon_supplement_sha256: lexiconSupplementShaField,
   },
 };
 // The website chat's full revise shape. Stored run declarations are parsed with
@@ -3479,6 +3484,7 @@ export function registerLyricTools(server, tool) {
         'EVERY traditional name the pair satisfies at the declared `position` (default end: two line-final words; ' +
         'names are judged at their own coordinate there, and a pair has many), every relation it answers side by ' +
         'side, and — in English — every coarse relation and registry schema the two words stand in as line ends. ' +
+        'The words are read under the same lexicon supplement lyric_screen reads (the verdict names it as `lexicon`). ' +
         'Taxonomy, not judgement — for bans use lyric_screen. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_types,
@@ -3487,15 +3493,24 @@ export function registerLyricTools(server, tool) {
       checkWords([a.word_a, a.word_b]);
       // The position completes the coordinate; without one the harness names
       // nothing, because most names are defined at a place in the line.
-      // Its own queue: see `lookupBridge`.
+      // Its own queue: see `lookupBridge`. The reading basis goes ahead of
+      // the verb exactly as lyric_screen's does (M-321): resolved here, an
+      // unshipped id refused before the harness runs.
       const r = await lookupBridge.runVerb([
+        ...globalsFor(a),
         'types',
         a.word_a,
         '--',
         a.word_b,
         `--position=${a.position || 'end'}`,
       ]);
-      return verdictOf(r);
+      const v = verdictOf(r);
+      // A lookup grades nothing: an unreadable pair is a refusal to classify,
+      // never "no flag stands".
+      if (r.code === 0 && r.lyric_result?.status === 'unreadable')
+        v.meaning =
+          'answered — UNREADABLE under the reported lexicon: the phonology refuses one or both words (a refusal, not a non-rhyme)';
+      return v;
     }
   );
 }

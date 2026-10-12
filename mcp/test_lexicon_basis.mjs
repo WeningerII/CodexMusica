@@ -36,6 +36,8 @@ const READERS = [
   'lyric_check',
   'lyric_verify',
   'lyric_recover',
+  // M-321: the lookup reads the same basis the screen does.
+  'lyric_types',
 ];
 
 const verdictOf = (result) => {
@@ -410,6 +412,61 @@ test(
       assert.deepEqual(revised.lexicon, { supplement_id: DEFAULT.id, sha256: DEFAULT.sha256 });
     } finally {
       await c.close();
+    }
+  }
+);
+
+test(
+  'lyric_types reads the basis lyric_screen reads: default, none, and refusals (M-321)',
+  { timeout: 300000 },
+  async () => {
+    const types = (c, extra) =>
+      c.callTool(
+        { name: 'lyric_types', arguments: { word_a: 'streetlights', word_b: 'nights', ...extra } },
+        undefined,
+        { timeout: 120000 }
+      );
+    const raw = await connect('lexicon-types');
+    const server = buildServer({ task: { domain: 'lyrics' } });
+    const [a, b] = InMemoryTransport.createLinkedPair();
+    await server.connect(a);
+    const session = await connectConnector({ task: 'lyrics', transport: b });
+    try {
+      for (const [label, c] of [
+        ['raw', raw],
+        ['session', { callTool: (req) => session.call(req.name, req.arguments) }],
+      ]) {
+        // Omitted: new work reads the default, so the supplement-only word reads.
+        const dflt = verdictOf(await types(c));
+        assert.equal(dflt.exit_code, 0, label);
+        assert.deepEqual(dflt.lexicon, { supplement_id: DEFAULT.id, sha256: DEFAULT.sha256 });
+        assert.equal(dflt.measurement_status, 'typed', label);
+        assert.doesNotMatch(dflt.report, /UNREADABLE/, label);
+        assert.match(dflt.report, /registry schemas: [^\n]*perfect rhyme/, label);
+        // Explicit none: CMUdict alone, unreadable as before.
+        const none = verdictOf(await types(c, { lexicon_supplement: NONE }));
+        assert.deepEqual(none.lexicon, { supplement_id: null, sha256: null }, label);
+        assert.equal(none.measurement_status, 'unreadable', label);
+        assert.match(none.report, /UNREADABLE in eng/, label);
+        assert.match(none.meaning, /UNREADABLE/, label);
+        // A saved sha256 that is not the shipped file's refuses by name.
+        const forged = await types(c, {
+          lexicon_supplement: DEFAULT.id,
+          lexicon_supplement_sha256: ZERO,
+        }).catch((e) => ({ isError: true, content: [{ text: String(e?.message || e) }] }));
+        assert.equal(forged.isError, true, label);
+        assert.match(text(forged), new RegExp(UNAVAILABLE), label);
+        // An id this build does not ship is refused at the published schema.
+        const unknown = await types(c, { lexicon_supplement: 'v9' }).catch((e) => ({
+          isError: true,
+          content: [{ text: String(e?.message || e) }],
+        }));
+        assert.equal(unknown.isError, true, label);
+        assert.match(text(unknown), /lexicon_supplement/, label);
+      }
+    } finally {
+      await session.close();
+      await server.close();
     }
   }
 );

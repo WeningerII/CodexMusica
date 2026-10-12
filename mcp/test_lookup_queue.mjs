@@ -13,8 +13,8 @@ const fake = path.join(dir, 'python');
 await writeFile(
   fake,
   '#!/bin/sh\n' +
-    '# argv: -u lyric_harness.py VERB ...\n' +
-    'if [ "$3" = "types" ]; then echo "  types answered"; exit 0; fi\n' +
+    '# argv: -u lyric_harness.py [GLOBALS...] VERB ... (the lexicon basis rides ahead of the verb)\n' +
+    'case " $* " in *" types "*) echo "  types answered"; exit 0;; esac\n' +
     'sleep 3; echo "  slow verb answered"; exit 0\n'
 );
 await chmod(fake, 0o755);
