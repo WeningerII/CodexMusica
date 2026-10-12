@@ -144,7 +144,15 @@ LIVE_GROUPS = [[1, 2], [2, 3], [3, 4]]
 #: under `schema:perfect rhyme`: `brief(target_lines={2})` offers 0 words and
 #: calls `_widen_pool` once and a limited `declared_offer` once. It is what
 #: makes 1(a)'s "no offer search inside verify" able to fail.
-SILVER = ["the river ran beneath the silver",
+#: ~~"the river ran beneath the silver"~~ REPINNED 2026-10-12 (`MISSING.md`
+#: M-319, owner ruling 2026-10-11): a declared perfect rhyme now admits the
+#: promoted final, so `silver`'s unstressed -er answers `remember`,
+#: `together`, `under` ... — 17 verified offers, the field is no longer
+#: empty and the premise this fixture exists for was gone. `ninth` has no
+#: perfect rhyme under either anchoring (a monosyllable, nothing to
+#: promote; MEASURED: 0 offered), so the line now ends there. The name
+#: SILVER is kept so the sections citing it still read.
+SILVER = ["the river ran beneath the ninth",
           "we waited there for half a month"]
 
 
