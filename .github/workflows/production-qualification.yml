@@ -440,3 +440,113 @@ jobs:
           name: production-qualification-${{ github.run_attempt }}
           path: qualification.json
           if-no-files-found: error
+
+  # THE DEPLOY HANDOFF A BOT-DISPATCHED QUALIFICATION CANNOT MAKE BY FINISHING
+  # (2026-10-12). `deploy-connector.yml` promotes on this workflow's
+  # `workflow_run: completed`, and GitHub raises no `workflow_run` for a run
+  # that `GITHUB_TOKEN` started. `qualification-backstop.yml`'s
+  # `dispatch-after-ci` starts this workflow with exactly that token, so its
+  # qualification could pass and promote nothing. MEASURED: runs 98 (323cfd2c,
+  # 14:09Z) and 99 (401fe95d, 15:15Z) both succeeded and neither produced a
+  # deploy run; the deploy was dispatched by hand (run 38270332557, MATCH).
+  #
+  # `workflow_dispatch` IS one of the events `GITHUB_TOKEN` may raise -- it is
+  # how the backstop started run 98 at all -- so the qualification hands the
+  # deploy off itself. Only for the case that needs it: a schedule or a person's
+  # dispatch already reaches the deploy through `workflow_run`, and dispatching
+  # there too would buy a second run that only stands down at the guard.
+  #
+  # WHAT THE DISPATCHED DEPLOY DECIDES IS UNCHANGED. A manual deploy checks out
+  # main's HEAD and requires CI AND qualification evidence at that exact sha,
+  # then the ordering guard -- the same gate every promotion passes. This run is
+  # still finishing when that deploy starts, so its evidence step waits out
+  # `QUALIFICATION_PENDING` on a manual dispatch (`deploy-connector.yml`). If
+  # main has advanced past this run, this job stands down instead: the newer
+  # head's own qualification makes its own handoff.
+  #
+  # IT NEVER FAILS THE RUN. `verify_ci.mjs` refuses a qualification containing
+  # any failed job, so a handoff that threw would turn a passed qualification
+  # into a red one and take its evidence with it -- for every later deploy at
+  # this sha, not just this one. A handoff that cannot complete says so as an
+  # error annotation and leaves the evidence standing: the deploy is then one
+  # manual dispatch, or the next nightly, away -- exactly where it was before
+  # this job existed.
+  #
+  # PERMISSION. `actions: write` for this one job only; everything else in the
+  # workflow keeps `contents: read`. No checkout: it runs no repository code.
+  deploy-after-dispatch:
+    needs: qualification-result
+    if: >-
+      ${{ needs.qualification-result.result == 'success' &&
+          github.event_name == 'workflow_dispatch' &&
+          github.actor == 'github-actions[bot]' &&
+          github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Dispatch the deploy this run's completion cannot trigger
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const sha = context.sha;
+            const handoff = async () => {
+              if (!/^[a-f0-9]{40}$/.test(sha || '')) {
+                throw new Error('the qualified commit is not an exact sha');
+              }
+              const { data: deploy } = await github.rest.actions.getWorkflow({
+                owner, repo, workflow_id: 'deploy-connector.yml'
+              });
+              if (deploy.name !== 'Deploy connector to Render' ||
+                  deploy.path !== '.github/workflows/deploy-connector.yml') {
+                throw new Error('the deploy workflow identity is invalid');
+              }
+              const { data: main } = await github.rest.repos.getBranch({
+                owner, repo, branch: 'main'
+              });
+              if (main.commit.sha !== sha) {
+                core.info(`Main advanced past ${sha}; its newer head's qualification hands off its own deploy.`);
+                return;
+              }
+              const before = Math.floor(Date.now() / 1000) * 1000;
+              const dispatched = async () => {
+                const { data } = await github.rest.actions.listWorkflowRuns({
+                  owner, repo, workflow_id: deploy.id, branch: 'main',
+                  event: 'workflow_dispatch', per_page: 20
+                });
+                return data.workflow_runs.find(run =>
+                  run.workflow_id === deploy.id && run.event === 'workflow_dispatch' &&
+                  Date.parse(run.created_at) >= before);
+              };
+              // A 5xx on the dispatch POST does not mean it was refused: the
+              // backstop's dispatch for 323cfd2c answered 500 and still created
+              // run 98. Look for the run before calling the handoff failed.
+              let refusal = null;
+              try {
+                await github.rest.actions.createWorkflowDispatch({
+                  owner, repo, workflow_id: deploy.id, ref: 'main'
+                });
+              } catch (error) {
+                refusal = error;
+                core.warning(`Deploy dispatch answered ${error.status || error.message}; checking whether it took effect.`);
+              }
+              for (let attempt = 0; attempt < 12; attempt++) {
+                const run = await dispatched();
+                if (run) {
+                  core.info(`Deploy run ${run.id} dispatched for ${sha}.`);
+                  return;
+                }
+                await new Promise(resolve => setTimeout(resolve, 5000));
+              }
+              throw refusal || new Error('the dispatch was accepted but no deploy run appeared');
+            };
+            try {
+              await handoff();
+            } catch (error) {
+              core.error(`Deploy handoff for ${sha} did not complete (${error.message}). ` +
+                'This qualification stands; dispatch deploy-connector.yml on main by hand, ' +
+                'or the next nightly qualification will deploy.');
+            }
