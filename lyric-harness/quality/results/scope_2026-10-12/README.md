@@ -20,7 +20,7 @@ Run every command below from `lyric-harness/`. The Moby file is the staged, git-
 
 The records are `census_dev_none.json`, `census_dev_v2.json` and `census_dev_v2high.json`. Every `top_*` list is cut to its first 500 rows here, and the command above regenerates the full lists. They took 66 s, 136 s and 140 s to run.
 
-| basis | unread words (of 1,491,865) | unread types (of 60,446) | songs fully read (of 6,991) |
+| basis | unread words (of 1,491,865 tokenizer-produced occurrences; tokens the tokenizer drops, such as digits, are not in this denominator) | unread types (of 60,446) | songs fully read (of 6,991) |
 |---|---|---|---|
 | CMUdict only | 70,571 | 20,467 | 857 |
 | + v2 | 70,571 | 20,467 | 857 |
@@ -57,12 +57,12 @@ All of these are **disagreements to adjudicate**. None of the counts is an error
 
 It reads with `SupplementedLexicon(v2)` and no fallback. The output is in `reader_disagree_dev.json`.
 
-227,538 end lines: 202,488 read by both readers, 13,995 by neither, and **11,055 where the two disagree**. By mechanism, the rule being in `reader_disagree.py`:
+227,538 end lines: 202,488 read by both readers, 13,995 by neither, and **11,055 where one reads and the other refuses**. This is read/refuse disagreement, not pronunciation disagreement: lines both readers read are not compared, and the output saves aggregates and example spellings, not occurrence contexts. By the classifier in `reader_disagree.py`:
 
 | mechanism | lines |
 |---|---|
-| anchor reads, grid refuses: a trailing `--` is glued to the grid's last token | 3,811 |
-| anchor reads, grid refuses: the grid's last token is punctuation or digits only | 3,656 |
+| anchor reads, grid refuses: the two readers chose different end words (generic; its most frequent examples carry a trailing `--`, which is not shown for every member) | 3,811 |
+| anchor reads, grid refuses: the grid's last token has no letter (punctuation and digits together, not separated) | 3,656 |
 | anchor reads, grid refuses: hyphenated, where the grid reads the whole token and the anchor reads the last piece | 3,206 |
 | grid reads, anchor refuses: same word | 370 |
 | other | 12 |
