@@ -6281,6 +6281,11 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
             from quality import relations as _RL
             _schema = _RL.REGISTRY[_canon]
     rv = Reviser(lex=lex, decl=decl) if (lex or decl) else Reviser()
+    if _schema is not None:
+        # The DECLARED row, as the grade judges a declared relation: the
+        # promoted final where this declaration promotes it (`MISSING.md`
+        # M-319, `relations.declared_token_schema`).
+        _schema = _RL.declared_token_schema(_schema, promote=rv._promote())
     out = []
     for i in range(len(words)):
         for j in range(i + 1, len(words)):

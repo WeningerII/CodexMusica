@@ -35,6 +35,9 @@ Sections:
   9  identity is the schema's own ruling (M-124)
   10 the M-148 gate — every drawable name accepts its canonical answer
      through the grade route, at default AND at declared slots
+  16 M-319 — a DECLARED perfect rhyme admits the promoted final (owner
+     ruling 2026-10-11, option (b)) at the line end, where the declaration
+     promotes, and nowhere else
 """
 
 import sys
@@ -1270,6 +1273,123 @@ def test_the_edge_label_carries_two_relations_over_one_pair():
         check("declaring a relation by BOTH routes REFUSES rather than "
               "resolving by precedence (doctrine 1)", True)
 
+
+def test_m319_declared_perfect_rhyme_admits_the_promoted_final():
+    """`MISSING.md` M-319, owner ruling 2026-10-11, option (b) "Looser".
+
+    `cmudict.dict` writes the unstressed final -y of company/reality/liberty
+    as IY2 and of harmony/memory/money as IY0; `eng.py` reads stress 2 as
+    prominence 1. Before the ruling a declared `schema:perfect rhyme`
+    passed sea~company and failed sea~harmony — one sung shape, two
+    verdicts. The ruling: a DECLARED perfect rhyme also anchors a
+    line-final word on its unstressed final syllable, read at prominence 1,
+    the syllable `Declaration.final_promotion` promotes. The pair stands if
+    either anchoring works.
+
+    THE DESIGN THIS PINS, stated because it is narrower than "every IY
+    final passes": the promoted final behaves EXACTLY as an IY2 final
+    already did, so every other perfect-rhyme channel still binds. Above
+    all the onset at the anchor must still DIFFER, so company~harmony and
+    harmony~symphony (both finals `N IY`) violate — as the IY2 pair
+    company~britney (`N IY2` / `N IY2`) always has — while harmony~memory
+    (`N IY` / `R IY`) satisfies on the promoted finals alone.
+    """
+    print("\n16. M-319 — a DECLARED perfect rhyme admits the promoted final")
+    from quality import relations as RL
+    from quality.revise import ReviseDeclaration
+    rel = "schema:perfect rhyme"
+    words = ["sea", "company", "reality", "harmony", "memory", "money",
+             "degree"]
+    rows = LH.screen_pairs(words, relation=rel)
+    got = {(r["a"], r["b"]): r["named"] for r in rows}
+    # The three that still VIOLATE: identical anchor onsets (N~N).
+    violate = {("company", "harmony"), ("company", "money"),
+               ("harmony", "money")}
+    want = {k: k not in violate for k in got}
+    check("the screen, measured: the IY0 finals now satisfy with `sea` as "
+          "the IY2 finals always did; 18 satisfies, 3 violates, 0 refused "
+          "(was 6 / 15 / 0)", got == want,
+          sorted(k for k in got if got[k] != want[k]))
+    check("sea~harmony, sea~memory, sea~money SATISFY (M-319's defect)",
+          all(got[("sea", w)] is True for w in ("harmony", "memory", "money")))
+    check("sea~company, sea~reality, sea~degree are UNCHANGED (satisfy): "
+          "option (a), the stricter repair, was rejected",
+          all(got[("sea", w)] is True
+              for w in ("company", "reality", "degree")))
+    check("the dictionary reading stands and the REGISTRY row is unchanged: "
+          "the screen's own relation list (the undeclared default's reading) "
+          "still does not list perfect rhyme for sea~harmony",
+          RL.REGISTRY["perfect rhyme"].spans == (RL.END_ANCHOR, RL.END_ANCHOR)
+          and all("perfect rhyme" not in r["schema_relations"]
+                  for r in rows if (r["a"], r["b"]) == ("sea", "harmony"))
+          and all("perfect rhyme" in r["schema_relations"]
+                  for r in rows if (r["a"], r["b"]) == ("sea", "company")))
+
+    rv = Reviser()
+    rv_off = Reviser(rdecl=ReviseDeclaration(promote=False))
+
+    def g(r, lines, grp=(1, 2)):
+        x = r.grade(lines, mandate([list(grp)], n_lines=2,
+                                   default_relation=rel))
+        return len(x["violations"]), len(x["refusals"])
+
+    def pair(a, b):
+        return [f"we walked down to the {a}", f"and all we found was {b}"]
+
+    check("grade, default end slots: sea~harmony and sea~memory hold",
+          g(rv, pair("sea", "harmony")) == (0, 0)
+          and g(rv, pair("sea", "memory")) == (0, 0))
+    check("grade, declared end TOKENS (the slotted route): sea~harmony "
+          "holds there too — same judge, same coordinate",
+          g(rv, pair("sea", "harmony"), ("1.T6", "2.T6")) == (0, 0))
+    check("grade: harmony~memory holds on the promoted finals alone "
+          "(N IY / R IY, onsets differ)",
+          g(rv, pair("harmony", "memory")) == (0, 0))
+    check("final_promotion OFF: no promoted anchor — sea~harmony violates "
+          "again, at the default slots and at the declared tokens, while "
+          "sea~company (a lexical IY2) still holds",
+          g(rv_off, pair("sea", "harmony")) == (1, 0)
+          and g(rv_off, pair("sea", "harmony"), ("1.T6", "2.T6")) == (1, 0)
+          and g(rv_off, pair("sea", "company")) == (0, 0))
+    check("NOT LINE-FINAL: a declared token mid-line is not promoted — "
+          "`harmony` bound at L2.T1 violates against `sea`, while `company` "
+          "there holds on its lexical IY2",
+          g(rv, ["we walked down to the sea", "harmony was all we found"],
+            ("1.T6", "2.T1")) == (1, 0)
+          and g(rv, ["we walked down to the sea", "company was all we found"],
+                ("1.T6", "2.T1")) == (0, 0))
+    check("STILL FAILS: sea~hit (vowel), sea~harmonize (its final AY2 is "
+          "lexically stressed, so nothing is promoted), harmony~symphony "
+          "and company~harmony (anchor onsets identical, N~N)",
+          g(rv, pair("sea", "hit")) == (1, 0)
+          and g(rv, pair("sea", "harmonize")) == (1, 0)
+          and g(rv, pair("harmony", "symphony")) == (1, 0)
+          and g(rv, pair("company", "harmony")) == (1, 0))
+
+    # THE MECHANISM, at the span builder: a promoted span is offered only
+    # by the declared row, only on a line-final token, and only when the
+    # declaration promotes.
+    phon = rv._relation_phonology()
+    st = RL.build_stream(["harmony was all we found",
+                          "we sang of harmony"], phon)
+    decl_row = RL.declared_token_schema(RL.REGISTRY["perfect rhyme"])
+    off_row = RL.declared_token_schema(RL.REGISTRY["perfect rhyme"],
+                                       promote=False)
+    rule = decl_row.spans[0]
+    mid = list(RL._spans_at(rule, st, st.tokens[(0, 0)], "L0.T0"))
+    end = list(RL._spans_at(rule, st, st.tokens[(1, 3)], "L1.T3"))
+    check("the span builder: mid-line `harmony` gets ONE (lexical) span, "
+          "line-final `harmony` gets the lexical span AND the promoted final",
+          [s.promoted for s in mid] == [False]
+          and [s.promoted for s in end] == [False, True]
+          and len(end[1].idx) == 1, ([s.idx for s in mid],
+                                     [s.idx for s in end]))
+    check("promote=False and every other schema keep the REGISTRY row "
+          "itself (no promoted rule anywhere else)",
+          off_row is RL.REGISTRY["perfect rhyme"]
+          and all(RL.declared_token_schema(s) is s
+                  for n, s in RL.REGISTRY.items() if n != "perfect rhyme"))
+
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
                test_grade_routing, test_position_is_declared,
@@ -1282,7 +1402,8 @@ if __name__ == "__main__":
                test_the_default_door_reads_normative,
                test_every_drawable_schema_answers_its_own_example,
                test_e2_default_grade_reaches_the_registry,
-               test_the_edge_label_carries_two_relations_over_one_pair):
+               test_the_edge_label_carries_two_relations_over_one_pair,
+               test_m319_declared_perfect_rhyme_admits_the_promoted_final):
         fn()
     print("=" * 62)
     if FAILURES:
