@@ -69,3 +69,27 @@ It reads with `SupplementedLexicon(v2)` and no fallback. The output is in `reade
 - **The hyphen row needs a semantic decision:** which reading of a hyphenated end word is the right one. Making the two readers agree does not answer that.
 - **"Anchor reads" on a digit line can itself be wrong.** The digits are dropped, so the anchor lands on the word before them (R2's finding, reproduced on #527).
 - **The 370 row is unverified.** It still needs checking in line context.
+
+## Item 2b: the readings actually selected in dev occurrences
+
+    python3 quality/results/scope_2026-10-12/selected_vs_moby.py PATH/TO/mpron.txt OUT.json
+
+Each dev word is looked up through `SupplementedLexicon(v2)` with no fallback, the reading `transcribe_word` selects is compared with Moby, and the counts are weighted by occurrence. The output is in `selected_vs_moby.json`. It ran in 31 s.
+
+| class | all occurrences (1,491,865) | line-end occurrences (227,098) |
+|---|---|---|
+| exact | 63.7% | 71.3% |
+| not in Moby | 12.7% | 16.3% |
+| unread | 4.7% | 6.2% |
+| sounds differ in the rhyme tail | 9.6% | 3.5% |
+| stress only | 7.8% | 0.8% |
+| reduced vowel only | 1.1% | 1.2% |
+| sounds differ before the rhyme tail | 0.3% | 0.6% |
+
+The line-end disagreements with the most occurrences fall into four groups:
+- **Conventions.** NEAR `IH`~`IY` (*dear, fear, near, year, clear*), which M-320's licence already agrees before R, and `AW ER`~`AW R` (*hour, ours*).
+- **Valid homographs.** *read, lives, content*.
+- **Moby carrying only a rare sense.** For *said* it has only `'s/A//I/d` (sayyid), for *rose* only `r/oU/'z/eI/` (rosé), for *none* only `n/oU/n`, and for *comes* only the Latin plural.
+- **A real silent error.** Scots *a'* ("all") is read `AH0` as the article *a*. This is the apostrophe-stripping mechanism R2 found.
+
+So disagreeing with Moby is a weak signal of error, and some of Moby's own entries are wrong for the common sense. That is more evidence that Moby cannot judge a reading.
