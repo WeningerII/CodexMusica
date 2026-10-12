@@ -166,9 +166,20 @@ jobs:
               return;
             }
             const before = Math.floor(Date.now() / 1000) * 1000;
-            await github.rest.actions.createWorkflowDispatch({
-              owner, repo, workflow_id: qualification.id, ref: 'main'
-            });
+            // A 5xx on the dispatch POST does not mean it was refused: for
+            // 323cfd2c (2026-10-12) it answered 500 and still created run 98,
+            // and this job went red over a dispatch that had happened. Look for
+            // the run before calling it failed; never re-POST, because a second
+            // accepted dispatch would be a second qualification.
+            let refusal = null;
+            try {
+              await github.rest.actions.createWorkflowDispatch({
+                owner, repo, workflow_id: qualification.id, ref: 'main'
+              });
+            } catch (error) {
+              refusal = error;
+              core.warning(`Qualification dispatch answered ${error.status || error.message}; checking whether it took effect.`);
+            }
             for (let attempt = 0; attempt < 12; attempt++) {
               const created = (await matchingRuns()).find(run =>
                 run.event === 'workflow_dispatch' && Date.parse(run.created_at) >= before);
@@ -178,7 +189,7 @@ jobs:
               }
               await new Promise(resolve => setTimeout(resolve, 5000));
             }
-            throw new Error('Dispatch was accepted but no exact-head qualification run appeared.');
+            throw refusal || new Error('Dispatch was accepted but no exact-head qualification run appeared.');
 
   backstop:
     if: github.event_name != 'workflow_run'

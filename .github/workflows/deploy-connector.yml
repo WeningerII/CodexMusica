@@ -125,10 +125,30 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TESTED_SHA: ${{ steps.sha.outputs.sha }}
         id: evidence
+        # A MANUAL DISPATCH WAITS OUT A QUALIFICATION THAT IS STILL FINISHING
+        # (2026-10-12). `production-qualification.yml`'s `deploy-after-dispatch`
+        # hands a bot-dispatched qualification's deploy off from INSIDE that
+        # run, so the run is still `in_progress` when this deploy asks -- and
+        # `QUALIFICATION_PENDING` would stand it down a few seconds before the
+        # evidence exists. Up to 5 minutes, re-asked every 15 s, then the same
+        # stand-down as before; only on `workflow_dispatch` and only for that
+        # one reason. A `workflow_run` deploy fires on a COMPLETED run and
+        # never sees its own qualification pending. The comparison reads the
+        # constant `verify_ci.mjs` exports rather than a second copy of it.
         run: |
           set +e
-          node scripts/verify_ci.mjs "$TESTED_SHA" --production > verified-ci.json
-          rc=$?
+          for attempt in $(seq 1 20); do
+            node scripts/verify_ci.mjs "$TESTED_SHA" --production > verified-ci.json
+            rc=$?
+            [ "$rc" = 10 ] && [ "${{ github.event_name }}" = workflow_dispatch ] && [ "$attempt" -lt 20 ] || break
+            node --input-type=module -e "
+              import { readFileSync } from 'node:fs';
+              import { QUALIFICATION_PENDING } from './scripts/verify_ci.mjs';
+              process.exit(JSON.parse(readFileSync('verified-ci.json')).stand_down === QUALIFICATION_PENDING ? 0 : 1);
+            " || break
+            echo "qualification at $TESTED_SHA is still finishing; asking again in 15 s ($attempt/20)"
+            sleep 15
+          done
           set -e
           case $rc in
             0)
