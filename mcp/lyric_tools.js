@@ -3505,11 +3505,19 @@ export function registerLyricTools(server, tool) {
         `--position=${a.position || 'end'}`,
       ]);
       const v = verdictOf(r);
-      // A lookup grades nothing: an unreadable pair is a refusal to classify,
-      // never "no flag stands".
-      if (r.code === 0 && r.lyric_result?.status === 'unreadable')
-        v.meaning =
-          'answered — UNREADABLE under the reported lexicon: the phonology refuses one or both words (a refusal, not a non-rhyme)';
+      // A lookup grades nothing, so it never says "no flag stands": a typed
+      // pair is a classification, an indeterminate one is undecided, and an
+      // unreadable pair is a refusal to classify.
+      const lookupMeaning = {
+        typed:
+          'answered — a classification of the pair under the reported lexicon; nothing was graded',
+        indeterminate:
+          'answered — INDETERMINATE under the reported lexicon: the classification could not be decided (not a non-rhyme); nothing was graded',
+        unreadable:
+          'answered — UNREADABLE under the reported lexicon: the phonology refuses one or both words (a refusal, not a non-rhyme)',
+      };
+      if (r.code === 0 && lookupMeaning[r.lyric_result?.status])
+        v.meaning = lookupMeaning[r.lyric_result.status];
       return v;
     }
   );

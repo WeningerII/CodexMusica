@@ -441,6 +441,8 @@ test(
         assert.equal(dflt.exit_code, 0, label);
         assert.deepEqual(dflt.lexicon, { supplement_id: DEFAULT.id, sha256: DEFAULT.sha256 });
         assert.equal(dflt.measurement_status, 'typed', label);
+        assert.match(dflt.meaning, /^answered — a classification/, label);
+        assert.doesNotMatch(dflt.meaning, /no flag stands/, label);
         assert.doesNotMatch(dflt.report, /UNREADABLE/, label);
         assert.match(dflt.report, /registry schemas: [^\n]*perfect rhyme/, label);
         // Explicit none: CMUdict alone, unreadable as before.
