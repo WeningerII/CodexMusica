@@ -5,7 +5,7 @@
 // separate golden replay (test_library_search_parity.mjs, library-site.yml).
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
+import { createHash, randomBytes } from 'node:crypto';
 import fs from 'node:fs';
 import http from 'node:http';
 import os from 'node:os';
@@ -467,28 +467,99 @@ async function spawnServer(t, env) {
 test('server_http loads a configured search store on first use, not at startup', async (t) => {
   const { dir } = build(t, [item('u1', {}, 'love and more')]);
   const server = await spawnServer(t, { LIBRARY_SEARCH_DIR: dir });
-  assert.deepEqual(await server.library(), { state: 'not_loaded', failures: [] });
-  assert.deepEqual(await server.library(), { state: 'not_loaded', failures: [] }, 'twice');
+  assert.deepEqual(await server.library(), { state: 'not_loaded', failures: [], corpus: 'absent' });
+  assert.deepEqual(
+    await server.library(),
+    { state: 'not_loaded', failures: [], corpus: 'absent' },
+    'twice'
+  );
   const res = await fetch(`${server.base}/library/v1/search?q=love`);
   assert.equal(res.status, 200);
   assert.deepEqual(ids(await res.json()), ['u1']);
-  assert.deepEqual(await server.library(), { state: 'ready', failures: [] });
+  assert.deepEqual(await server.library(), { state: 'ready', failures: [], corpus: 'absent' });
 });
 
 test('an unusable store is reported failed, by name, and its routes answer 503', async (t) => {
   const missing = path.join(os.tmpdir(), `library-lazy-missing-${process.pid}`);
   const server = await spawnServer(t, { LIBRARY_SEARCH_DIR: missing });
-  assert.deepEqual(await server.library(), { state: 'not_loaded', failures: [] });
+  assert.deepEqual(await server.library(), { state: 'not_loaded', failures: [], corpus: 'absent' });
   assert.doesNotMatch(server.log(), /search store is unusable/, 'nothing loaded at startup');
   const res = await fetch(`${server.base}/library/v1/search?q=love`);
   assert.equal(res.status, 503);
   assert.equal((await res.json()).error.code, 'SEARCH_UNAVAILABLE');
-  assert.deepEqual(await server.library(), { state: 'failed', failures: ['search'] });
+  assert.deepEqual(await server.library(), {
+    state: 'failed',
+    failures: ['search'],
+    corpus: 'absent',
+  });
   assert.match(server.log(), /search store is unusable/);
 });
 
 test('with no Library store configured the state is absent after first use', async (t) => {
   const server = await spawnServer(t, {});
   assert.equal((await fetch(`${server.base}/library/v1/search?q=love`)).status, 503);
-  assert.deepEqual(await server.library(), { state: 'absent', failures: [] });
+  assert.deepEqual(await server.library(), { state: 'absent', failures: [], corpus: 'absent' });
+});
+
+// The corpus packages are hashed in the background once the stores load. A
+// package that fails its hash must not leave the Library reported ready
+// (3PO's #544 review: a same-size corrupted package passed as healthy).
+function corpusPackages(t, { corrupt = false } = {}) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'library-lazy-corpus-'));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  const snapshot = 'a'.repeat(64);
+  const packages = {};
+  for (const [format, size] of Object.entries({ text: 3000, json: 5000, csv: 4000 })) {
+    const bytes = randomBytes(size);
+    const filename = `codex-musica-library-${format}-${snapshot.slice(0, 12)}.zip`;
+    // Same size, different bytes: only the hash can tell.
+    fs.writeFileSync(
+      path.join(dir, filename),
+      corrupt && format === 'json' ? randomBytes(size) : bytes
+    );
+    packages[format] = {
+      format,
+      filename,
+      sha256: sha(bytes),
+      bytes: size,
+      entry_count: 1,
+      content_type: 'application/zip',
+      parts: [],
+    };
+  }
+  fs.writeFileSync(
+    path.join(dir, 'package-manifest.json'),
+    JSON.stringify({ schema_version: 1, snapshot_id: snapshot, scope: 'all_readable', packages })
+  );
+  return dir;
+}
+async function settledCorpus(server) {
+  const deadline = Date.now() + 30_000;
+  for (;;) {
+    const library = await server.library();
+    if (library.corpus !== 'verifying') return library;
+    if (Date.now() > deadline) assert.fail('corpus verification never finished');
+    await new Promise((r) => setTimeout(r, 50));
+  }
+}
+
+test('verified corpus packages leave the Library ready', async (t) => {
+  const server = await spawnServer(t, { LIBRARY_CORPUS_DIR: corpusPackages(t) });
+  assert.equal((await fetch(`${server.base}/library/v1/health`)).status, 200);
+  assert.deepEqual(await settledCorpus(server), {
+    state: 'ready',
+    failures: [],
+    corpus: 'verified',
+  });
+});
+
+test('a corpus package that fails its hash marks the Library failed, by name', async (t) => {
+  const server = await spawnServer(t, { LIBRARY_CORPUS_DIR: corpusPackages(t, { corrupt: true }) });
+  assert.equal((await fetch(`${server.base}/library/v1/health`)).status, 200);
+  assert.deepEqual(await settledCorpus(server), {
+    state: 'failed',
+    failures: ['corpus'],
+    corpus: 'failed',
+  });
+  assert.match(server.log(), /corpus packages failed verification/);
 });

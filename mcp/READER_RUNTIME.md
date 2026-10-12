@@ -28,8 +28,11 @@ startup they pushed the resident server past the capacity matrix's 30 s startup
 gate on one CPU (Production qualification runs 86 and 87). `GET /health` reports
 `library.state` without loading anything: `not_loaded`, then `ready` (every
 configured store loaded), `failed` (`library.failures` names each unusable store;
-its routes answer 503) or `absent` (none configured). `GET /library/v1/health`
-loads them and reports `search_ready` and the corpus packages' verification.
+its routes answer 503) or `absent` (none configured); `library.corpus` is the
+packages' background hash check (`absent`, `verifying`, `verified`, or `failed`,
+which also fails the state). `GET /library/v1/health` loads them and reports
+`search_ready`. Deploy verification (`check_live.mjs --image-manifest`) requires
+`ready`, no failures and a `verified` corpus.
 
 Use the existing immutable image assembly, qualification and promotion pipeline.
 Install the same canonical catalog snapshot on the Site and Render. A separate

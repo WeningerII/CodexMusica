@@ -3,7 +3,7 @@
 import copy
 import hashlib
 from pathlib import Path
-from lyrics_capacity_runtime import runtime_evidence_failures, run_store_evidence_failures, queue_pressure_failures, ResidentRuntime
+from lyrics_capacity_runtime import library_evidence_failures, runtime_evidence_failures, run_store_evidence_failures, queue_pressure_failures, ResidentRuntime
 import re
 import unittest
 from unittest.mock import patch
@@ -55,6 +55,13 @@ def queue_rows():
 
 def queue_measurements():
     return {'24/20260908/cold': {'server_pid':123,'instrument_pid':456}}
+
+
+def library_record(stores=None, state='ready', failures=None, search_ready=True, corpus='verified'):
+    stores = {'search': True, 'export': True, 'corpus': True} if stores is None else stores
+    return {'configured': any(stores.values()), 'stores': stores, 'state': state,
+            'failures': [] if failures is None else failures, 'corpus': corpus,
+            'search_ready': search_ready, 'load_s': 1.}
 
 
 class CapacityOracle(unittest.TestCase):
@@ -339,12 +346,23 @@ class CapacityOracle(unittest.TestCase):
                     concurrent_replays=1, startup_s=3., recovery_s=11., peak_rss_mib=800.,
                     node_version='v22.23.2', receipts={'bytes':238.,'max_bytes':256.,'max_record_bytes':18.},
                     run_store=retained_runs(),queue_pressure=queue_rows(),queue_measurements=queue_measurements(),
-                    library={'configured':True,'state':'ready','failures':[],'search_ready':True,'load_s':1.},
-                    library_recovery={'configured':True,'state':'ready','failures':[],'search_ready':True,'load_s':1.})
+                    library=library_record(), library_recovery=library_record())
         self.assertEqual(runtime_evidence_failures(good), [])
         unconfigured=copy.deepcopy(good)
-        unconfigured['library']=unconfigured['library_recovery']={'configured':False,'state':'absent','failures':[],'search_ready':False,'load_s':0.}
+        unconfigured['library']=unconfigured['library_recovery']=library_record(stores={'search':False,'export':False,'corpus':False}, state='absent', search_ready=False, corpus='absent')
         self.assertEqual(runtime_evidence_failures(unconfigured), [])
+        # 3PO's #544 review: absent evidence is a failure, not a pass, and an
+        # exports-only Library is configured.
+        for key in ('library', 'library_recovery'):
+            missing=copy.deepcopy(good); del missing[key]
+            self.assertTrue(runtime_evidence_failures(missing), key)
+        exports_only=library_record(stores={'search':False,'export':True,'corpus':False}, state='failed', failures=['exports'], search_ready=False, corpus='absent')
+        self.assertTrue(library_evidence_failures(exports_only, 'library'))
+        self.assertEqual(library_evidence_failures(dict(exports_only, state='ready', failures=[]), 'library'), [])
+        for patch in ({'configured':False}, {'stores':{'search':True}}, {'corpus':'failed'}, {'corpus':None},
+                      {'failures':['corpus']}, {'state':'not_loaded'}, {'search_ready':False}):
+            self.assertTrue(library_evidence_failures(dict(library_record(), **patch), 'library'), patch)
+        self.assertTrue(library_evidence_failures(dict(unconfigured['library'], state='ready'), 'library'))
         for patch in ({'lazy_bridge_verified':False},{'startup_ok':False},{'recovery_ok':False},
                       {'concurrent_replays':0},{'peak_rss_mib':None},{'peak_rss_mib':float('nan')},
                       {'startup_s':float('nan')},{'recovery_s':31.},{'signing_key_stable':False},
@@ -353,8 +371,9 @@ class CapacityOracle(unittest.TestCase):
                       {'errors':['resident server died']},{'receipts':{'bytes':1,'max_bytes':256}},
                       {'receipts':{'bytes':238.,'max_bytes':256.}},
                       {'receipts':{'bytes':220.,'max_bytes':256.,'max_record_bytes':18.}},
-                      {'library':{'configured':True,'state':'failed','failures':['search'],'search_ready':False}},
-                      {'library_recovery':{'configured':True,'state':'not_loaded','failures':[],'search_ready':False}}):
+                      {'library':library_record(state='failed', failures=['search'], search_ready=False)},
+                      {'library_recovery':library_record(state='not_loaded')},
+                      {'library':None}, {'library_recovery':{}}):
             broken=copy.deepcopy(good); broken.update(patch)
             self.assertTrue(runtime_evidence_failures(broken), patch)
         self.assertTrue(runtime_evidence_failures({}))

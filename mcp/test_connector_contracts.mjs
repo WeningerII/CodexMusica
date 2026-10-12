@@ -790,7 +790,7 @@ test('a production deploy is verified with the Library stores loaded, not merely
     counts: { units: 3, readable: 2 },
     _http_status: 200,
   };
-  const health = { library: { state: 'ready', failures: [] } };
+  const health = { library: { state: 'ready', failures: [], corpus: 'verified' } };
   assert.deepEqual(libraryDrift(library, health), []);
   for (const patch of [
     { search_ready: false },
@@ -801,10 +801,23 @@ test('a production deploy is verified with the Library stores loaded, not merely
   ])
     assert.equal(libraryDrift({ ...library, ...patch }, health).length, 1, JSON.stringify(patch));
   for (const state of [
-    { state: 'not_loaded', failures: [] },
-    { state: 'failed', failures: ['exports'] },
-    { state: 'absent', failures: [] },
-    undefined,
+    { state: 'not_loaded', failures: [], corpus: 'verified' },
+    { state: 'failed', failures: ['exports'], corpus: 'verified' },
+    { state: 'absent', failures: [], corpus: 'verified' },
   ])
     assert.equal(libraryDrift(library, { library: state }).length, 1, JSON.stringify(state));
+  // A corrupt or still-hashing corpus is not a verified deploy, even when
+  // every store loaded (3PO's #544 finding 1: a same-size corrupted package).
+  for (const corpus of ['verifying', 'failed', 'absent', undefined])
+    assert.equal(
+      libraryDrift(library, { library: { state: 'ready', failures: [], corpus } }).length,
+      1,
+      String(corpus)
+    );
+  assert.equal(
+    libraryDrift(library, { library: { state: 'failed', failures: ['corpus'], corpus: 'failed' } })
+      .length,
+    2
+  );
+  assert.ok(libraryDrift(library, {}).length >= 2, 'an unreported state refuses');
 });

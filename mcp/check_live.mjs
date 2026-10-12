@@ -129,7 +129,8 @@ async function liveSurface(url) {
 // startup, so a deploy verified only against /health would pass with them
 // configured but never loaded. Asking /library/v1/health IS that first use on
 // the deployed process; /health read after it must then say every configured
-// store loaded. Checked on the production-image path (--image-manifest).
+// store loaded and every corpus package verified. Checked on the
+// production-image path (--image-manifest).
 export function libraryDrift(library, health) {
   const drift = [];
   if (
@@ -146,6 +147,14 @@ export function libraryDrift(library, health) {
       what:
         `the Library stores are not all loaded (${state?.state ?? 'unreported'}` +
         `${state?.failures?.length ? `: ${state.failures.join(', ')}` : ''})`,
+    });
+  // The corpus packages are hashed in the background after the stores load;
+  // a deploy is verified only once every package has matched its recorded
+  // hash (`verifying` retries, `failed` and anything unreported refuse).
+  if (state?.corpus !== 'verified')
+    drift.push({
+      tool: '/health',
+      what: `the Library corpus packages are not verified (${state?.corpus ?? 'unreported'})`,
     });
   return drift;
 }

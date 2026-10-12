@@ -396,7 +396,13 @@ const readerReadiness = () => {
 let librarySearch = null;
 let libraryExports = null;
 let libraryCorpus = null;
-const libraryState = { state: 'not_loaded', failures: [] };
+// `corpus` is the packages' background hash check: `absent` (not configured),
+// `verifying`, `verified`, or `failed` (which also fails the whole state).
+const libraryState = { state: 'not_loaded', failures: [], corpus: 'absent' };
+const libraryFailed = (store) => {
+  if (!libraryState.failures.includes(store)) libraryState.failures.push(store);
+  libraryState.state = 'failed';
+};
 function loadLibraryStores() {
   if (libraryState.state !== 'not_loaded') return;
   const failures = [];
@@ -431,14 +437,25 @@ function loadLibraryStores() {
       if (served.some((id) => id !== corpus.snapshotId))
         throw new Error('the packages were built from a different snapshot');
       libraryCorpus = corpus;
+      libraryState.corpus = 'verifying';
+      // A package that fails its hash is never served (it answers 503), and
+      // the Library is reported failed rather than ready: deploy verification
+      // reads this state, so a corrupt package cannot pass as healthy.
       corpus.verify().then(
         (bad) => {
-          if (bad.length)
-            console.error('[library] corpus packages failed verification:', bad.join(', '));
+          if (!bad.length) return void (libraryState.corpus = 'verified');
+          libraryState.corpus = 'failed';
+          libraryFailed('corpus');
+          console.error('[library] corpus packages failed verification:', bad.join(', '));
         },
-        (error) => console.error('[library] corpus verification failed:', error.message)
+        (error) => {
+          libraryState.corpus = 'failed';
+          libraryFailed('corpus');
+          console.error('[library] corpus verification failed:', error.message);
+        }
       );
     } catch (error) {
+      libraryState.corpus = 'failed';
       failures.push('corpus');
       console.error(
         '[library] the corpus packages are unusable; corpus answers 503:',
@@ -446,8 +463,10 @@ function loadLibraryStores() {
       );
     }
   }
-  libraryState.failures = failures;
-  libraryState.state = failures.length ? 'failed' : configured ? 'ready' : 'absent';
+  for (const store of failures) libraryFailed(store);
+  // A verification that already failed (it cannot finish this early, but the
+  // order is not assumed) keeps the state failed.
+  if (libraryState.state !== 'failed') libraryState.state = configured ? 'ready' : 'absent';
 }
 // One download limiter for selection and analysis exports (decision 4).
 const libraryStreams = createStreamLimiter();
@@ -585,7 +604,11 @@ app.get('/health', (_req, res) =>
     reader: readerReadiness(),
     // The Library stores' load state (loadLibraryStores above). Reading it
     // never loads them: `not_loaded` until the first /library/v1 request.
-    library: { state: libraryState.state, failures: [...libraryState.failures] },
+    library: {
+      state: libraryState.state,
+      failures: [...libraryState.failures],
+      corpus: libraryState.corpus,
+    },
     // WHY THIS FIELD EXISTS (M-187(a)). Nothing measured whether the warm
     // worker is ENGAGED on the deployed box. check_live.mjs compares the
     // ADVERTISED surface, not the process answering it, and a warm answer and
