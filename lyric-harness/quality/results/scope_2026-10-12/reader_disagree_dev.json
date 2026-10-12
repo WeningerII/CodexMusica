@@ -1,0 +1,94 @@
+{
+ "lines": 227538,
+ "both_read": 202488,
+ "both_unread": 13995,
+ "disagree": 11055,
+ "by_cause": [
+  [
+   "anchor reads, grid refuses | different word chosen as end word",
+   3811,
+   1715,
+   [
+    "me--",
+    "day--",
+    "sea--",
+    "be--",
+    "heart--",
+    "away--",
+    "thee--",
+    "die--"
+   ]
+  ],
+  [
+   "anchor reads, grid refuses | grid ends on punctuation-only token (e.g. \"--\")",
+   3656,
+   176,
+   [
+    "--",
+    "-",
+    "'",
+    "10",
+    "20",
+    "30",
+    "5",
+    "15"
+   ]
+  ],
+  [
+   "anchor reads, grid refuses | hyphenated: grid reads whole token, anchor reads last piece",
+   3206,
+   2105,
+   [
+    "to-day",
+    "to-night",
+    "to-morrow",
+    "good-night",
+    "apple-tree",
+    "kirk-yard",
+    "battle-cry",
+    "rat-tat-too"
+   ]
+  ],
+  [
+   "grid reads, anchor refuses | same word, readers disagree",
+   370,
+   269,
+   [
+    "i",
+    "cheese",
+    "trilling",
+    "be",
+    "me",
+    "true",
+    "tree",
+    "it"
+   ]
+  ],
+  [
+   "grid reads, anchor refuses | different word chosen as end word",
+   8,
+   8,
+   [
+    "murmuring",
+    "inaudibly",
+    "maid",
+    "lied",
+    "require",
+    "behind",
+    "wights",
+    "bright"
+   ]
+  ],
+  [
+   "grid reads, anchor refuses | apostrophe form",
+   4,
+   4,
+   [
+    "flee'",
+    "a'",
+    "die'",
+    "sicken'd"
+   ]
+  ]
+ ]
+}
