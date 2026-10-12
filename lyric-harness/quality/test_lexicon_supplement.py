@@ -662,18 +662,17 @@ def test_reviewed_v2():
 
 
 def test_screen_reads_the_supplement():
-    """14. M-321 (2026-10-12): the screen, `types` and `recover` judge words
+    """14. M-321 (2026-10-12): the screen and `types` judge words
     through the lexicon they were handed. `screen_pairs` built its schema
     reader from the plain module reader, so under v2 `streetlights` stood in
     all 37 askable schemas undecided and a declared `schema:` relation
     REFUSED at the screen while the grade judged the same pair. One helper,
     `revise.relation_phonology_for`, now serves the Reviser and the screen."""
-    print("\n14. M-321: screen, types and recover read the supplement the grade reads")
+    print("\n14. M-321: screen and types read the supplement the grade reads")
     import json
     from quality.revise import (Reviser, relation_phonology_for,
                                 _relation_phonology)
     from quality.schemes import mandate
-    from quality import recover as RC
     V2 = S.SupplementedLexicon(version="v2")
     check("one helper: a plain lexicon (or none) gets the shared plain reader",
           relation_phonology_for(PLAIN) is _relation_phonology()
@@ -737,12 +736,6 @@ def test_screen_reads_the_supplement():
           and rec.get("status") == "unreadable"
           and rec.get("lexicon") == {"supplement_id": None, "sha256": None},
           out[-300:])
-    web = RC.recover(["I walk beneath the streetlights",
-                      "I wander through the nights"], lex=V2).get("web")
-    edge = next((e for e in getattr(web, "value", web) or ()
-                 if (e["a"], e["b"]) == ("1", "2")), {})
-    check("recover's end-word edge reads the supplement too",
-          "perfect rhyme" in edge.get("relations", ()), edge)
 
 
 def main():

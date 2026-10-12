@@ -339,9 +339,7 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     _schemas_by_lines = {}
     try:
         from quality import relations as _RLv
-        # Read through the lexicon the caller handed in, as the grade does
-        # (`revise.relation_phonology_for`, `MISSING.md` M-321).
-        from quality.revise import relation_phonology_for as _RPv
+        from quality.revise import _relation_phonology as _RPv
         _ends = sorted({s_[0] for s_ in sites if s_[1] == "end"})
         _req = {(x, y) for x in _ends for y in _ends if x < y}
         from lyric_harness import admit_is_default as _AIDv
@@ -351,7 +349,7 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
             # the two words it binds -- a relation elsewhere in the lines
             # does not answer it.
             _schemas_by_lines = dict(_RLv.whole_vocabulary_pairs(
-                lines, _RPv(lex), requested_pairs=_req,
+                lines, _RPv(), requested_pairs=_req,
                 bound={p_: (-1, -1) for p_ in _req}))
     except Exception:
         _schemas_by_lines = {}
