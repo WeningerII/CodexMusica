@@ -76,6 +76,8 @@ It reads with `SupplementedLexicon(v2)` and no fallback. The output is in `reade
 
     python3 quality/results/scope_2026-10-12/selected_vs_moby.py data/moby/mpron.txt quality/results/scope_2026-10-12/selected_vs_moby.json
 
+`selected_vs_moby.json` records `commit` `6bfbb726`, this PR's first commit, which it ran from. `4b14ff5b..6bfbb726` adds only this directory, `.prettierignore` and `map/files.md`. A rerun at a later head reproduces every field except `commit`.
+
 Each dev word is looked up through `SupplementedLexicon(v2)` with no fallback, the reading `transcribe_word` selects is compared with Moby, and the counts are weighted by occurrence. The output is in `selected_vs_moby.json`. It ran in 31 s.
 
 | class | all occurrences (1,491,865) | line-end occurrences (227,098) |
