@@ -91,6 +91,10 @@ lyric-harness/quality/results/computational_audit_2026-09-14
 # quality/pilot_frame.py --freeze, announced on #527 by its digest and bound
 # into every draw; its bytes are the tool's, never a formatter's.
 lyric-harness/quality/results/pilot_frame_2026-10-11.json
+# Same class: the validation census receipt's JSON is written by
+# quality/coverage_census.py --out and the directory's compare.py, and its
+# README promises compare_output.json reproduces byte for byte.
+lyric-harness/quality/results/census_validation_2026-10-12
 
 # Raw audit regression receipts/logs: SHA-indexed evidence, not authored inputs.
 docs/production-audit-evidence
