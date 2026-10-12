@@ -22,6 +22,18 @@ reader adds no resident Python process and yields when writing work queues.
 | `LIBRARY_CORPUS_DIR`          | The whole-corpus packages `python -m library.catalog_downloads SNAPSHOT OUT` builds (run from lyric-harness). Installed only when built from the snapshot the search and export stores serve; without it, corpus downloads answer 503. |
 | `LIBRARY_PUBLIC`              | On by default since the native Library tab shipped: mounts the credentialed `/library/v1` viewer routes (analysis). `0` turns them off. |
 
+The server loads the three Library stores on first use (the first `/library/v1`
+request, or the private bridge's admission), never before `listen()`: built at
+startup they pushed the resident server past the capacity matrix's 30 s startup
+gate on one CPU (Production qualification runs 86 and 87). `GET /health` reports
+`library.state` without loading anything: `not_loaded`, then `ready` (every
+configured store loaded), `failed` (`library.failures` names each unusable store;
+its routes answer 503) or `absent` (none configured); `library.corpus` is the
+packages' background hash check (`absent`, `verifying`, `verified`, or `failed`,
+which also fails the state). `GET /library/v1/health` loads them and reports
+`search_ready`. Deploy verification (`check_live.mjs --image-manifest`) requires
+`ready`, no failures and a `verified` corpus.
+
 Use the existing immutable image assembly, qualification and promotion pipeline.
 Install the same canonical catalog snapshot on the Site and Render. A separate
 export descriptor lists physically installed artifacts and reviewed omissions;

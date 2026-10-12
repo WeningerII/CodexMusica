@@ -400,7 +400,10 @@ def _patched_battery(mode, extra=None, decl=None, *, with_refusal_details=False)
 # rhyme now starts on the lexically stressed syllable (`wantonness`/less,
 # `vassalage`/`embassage`, age/`equipage`), none of which the rhyme family
 # admits. The comparison §10 exists for still holds and is still asserted
-# below as a ratio: letter 7/10 against derived 4/39.
+# below as a ratio: letter 7/10 against derived ~~4/39~~ 3/39.
+# AMENDED 2026-10-11 (M-320): here/`uprear` RHYMES again -- IY~IH is the
+# one NEAR vowel before a coda R and `nucleus_licence_before_r` licenses
+# it -- so it left the pinned set; the other three stand.
 _HIGH_LEXICAL_REFUSALS = {
     (10, 5, 7), (26, 1, 3), (32, 10, 12), (38, 10, 12),
     (41, 9, 11), (52, 6, 8), (57, 9, 11), (66, 1, 3),
@@ -414,7 +417,11 @@ _LOW_LEXICAL_REFUSALS = {(113, 9, 11)}
 # nucleus_agreement="scalar" declared reproduce the old two and five exactly,
 # so the added pairs are near-vowel rhymes the licensed nucleus refuses; the
 # derived layers' readings did not change.
-_DERIVED_WRONG = {(45, 9, 11), (46, 9, 11), (49, 9, 11), (96, 1, 3)}
+#: REPINNED 2026-10-11 (M-320, the NEAR licence): ~~(49, 9, 11)~~ left the
+#: set. Sonnet 49 rhymes `here` (HH IY1 R) with `uprear`, whose derived
+#: reading takes `rear`'s R IH1 R; the two spellings of one NEAR vowel now
+#: agree before a coda R, so the true rhyme is no longer a violation.
+_DERIVED_WRONG = {(45, 9, 11), (46, 9, 11), (96, 1, 3)}
 _LETTER_WRONG = {(10, 5, 7), (26, 1, 3), (32, 10, 12), (41, 9, 11),
                  (52, 6, 8), (66, 1, 3), (66, 6, 8)}
 
@@ -605,8 +612,9 @@ def test_letter_layer_costs_more_than_it_buys():
           and r2 == uncertainty | _LOW_LEXICAL_REFUSALS
           and only_letter == _HIGH_LEXICAL_REFUSALS - _LOW_LEXICAL_REFUSALS,
           f"{len(uncertainty)} unresolved known readings; total refused {len(r1)} -> {len(r2)}")
-    # Renamed 2026-09-24 with the repin: ~~two~~ four, ~~five~~ seven.
-    check("the exact four derived-layer residues and seven wrong letter guesses remain",
+    # Renamed 2026-09-24 with the repin: ~~two~~ four, ~~five~~ seven;
+    # 2026-10-11 ~~four~~ three (M-320: here/uprear now rhymes).
+    check("the exact three derived-layer residues and seven wrong letter guesses remain",
           set(derived_wrong) == _DERIVED_WRONG and set(lv) == _LETTER_WRONG,
           f"derived {sorted(derived_wrong)}; letter {sorted(lv)}")
     check("and about half of what it alone judges does NOT rhyme",
