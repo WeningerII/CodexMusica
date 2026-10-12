@@ -32,11 +32,11 @@ from quality.coverage_census import build_lexicon  # noqa: E402
 from quality import moby_convert as M  # noqa: E402
 
 
-def strip(t):
+def _strip(t):
     return tuple(re.sub(r"\d", "", x) for x in t)
 
 
-def reduced(t):
+def _reduced(t):
     """Stress ignored; unstressed AH/IH/IY/EH/UW collapse; IY~IH before NG."""
     out = []
     for i, x in enumerate(t):
@@ -49,7 +49,7 @@ def reduced(t):
     return tuple(out)
 
 
-def main(argv=None):
+def _main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--census-top", required=True)
     ap.add_argument("--census-top-high", required=True)
@@ -91,8 +91,8 @@ def main(argv=None):
     for w, ph in inm:
         m = set(E[w])
         k = ("exact" if ph in m else
-             "stress_only" if strip(ph) in {strip(x) for x in m} else
-             "reduced_vowel_only" if reduced(ph) in {reduced(x) for x in m} else
+             "stress_only" if _strip(ph) in {_strip(x) for x in m} else
+             "reduced_vowel_only" if _reduced(ph) in {_reduced(x) for x in m} else
              "sounds_differ")
         rows[k].append({"word": w, "fallback": " ".join(ph), "moby": [" ".join(x) for x in E[w]]})
     out = {
@@ -116,4 +116,4 @@ def main(argv=None):
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(_main())
