@@ -97,3 +97,23 @@ The line-end disagreements with the most occurrences fall into four groups:
 - **A real silent error.** Scots *a'* ("all") is read `AH0` as the article *a*. This is the apostrophe-stripping mechanism R2 found.
 
 So disagreeing with Moby is a weak signal of error, and some of Moby's own entries are wrong for the common sense. That is more evidence that Moby cannot judge a reading.
+
+## Occurrence sidecar for the M1/M2 context ledger (3PO)
+
+    python3 quality/results/scope_2026-10-12/occurrence_sidecar.py quality/results/scope_2026-10-12/occurrence_sidecar.jsonl.gz
+
+The output is `occurrence_sidecar.jsonl.gz`: gzip JSON lines, a header record first, about 1.4 MB, 16 s to run.
+
+It holds every dev raw token, at every line position, that carries a digit, or that starts or ends with an apostrophe once outer punctuation other than apostrophes is removed. Each record has:
+- the path, item ordinal, line index and line text;
+- the raw token, its span and position;
+- the tokens the tokenizer keeps from it, and whether it dropped the token;
+- the pieces, with each piece's selected phones and `reading_source` provenance (fallback `none`);
+- the tokens kept for the whole line;
+- each end reader's end token and whether it reads.
+
+A field this pass cannot observe is `"UNAVAILABLE"`. No verdict is recorded.
+
+**Counts.** 24,965 edge-apostrophe tokens (7 dropped by the tokenizer) and 746 digit tokens (640 dropped).
+
+**The selection is by spelling.** It includes tokens that are not elisions, for example quotation marks (`'Reveille.'`) and editorial line numbers (`heart.    10`). Telling these apart is left to the adjudicator.
