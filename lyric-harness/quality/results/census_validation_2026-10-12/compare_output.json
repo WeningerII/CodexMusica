@@ -1,0 +1,1440 @@
+{
+ "census_record": {
+  "census_commit": "4b14ff5b0017f5f8b9e33cbbc6f00b1cf612bb80",
+  "inputs_sha256": "9c7125765015df8d170468173171db7b985c883a1f84a9351be5ef6420e251ce",
+  "lexicon_supplement": "v2",
+  "lexicon_supplement_sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+  "fallback": "none",
+  "split": {
+   "side": "validation",
+   "salt": "codexmusica-coverage-split-2026-10-11",
+   "split_inputs_sha256": "9c7125765015df8d170468173171db7b985c883a1f84a9351be5ef6420e251ce",
+   "split_file_sha256": "604d309f7eac48c006f1b51a66076ec5a8aec1aed837e7795e402613e46ee087",
+   "selected_units": 1723,
+   "selected_units_sha256": "1d42fadb457cee314914d5378fb1bab26913aa4bb3a976e7b200744691c8fb15"
+  }
+ },
+ "mpron_sha256": "55580c3b258873723fed33497fe3a438b26167370bbe016431b3fc65fea67f2d",
+ "unread_types_v2": 7198,
+ "spelling_groups": {
+  "apostrophe": {
+   "types": 1206,
+   "occurrences": 3931
+  },
+  "hyphen": {
+   "types": 580,
+   "occurrences": 714
+  },
+  "other": {
+   "types": 5412,
+   "occurrences": 12373
+  }
+ },
+ "fallback_high_reads": 2007,
+ "fallback_high_still_unread": 5191,
+ "moby_carries": 368,
+ "moby_comparison_counts": {
+  "exact": 170,
+  "stress_only": 38,
+  "reduced_vowel_only": 65,
+  "sounds_differ": 95
+ },
+ "moby_comparison_rows": {
+  "stress_only": [
+   {
+    "word": "inmost",
+    "fallback": "IH0 N M OW1 S T",
+    "moby": [
+     "IH1 N M OW2 S T"
+    ]
+   },
+   {
+    "word": "inly",
+    "fallback": "IH0 N L IY0",
+    "moby": [
+     "IH1 N L IY0"
+    ]
+   },
+   {
+    "word": "outspread",
+    "fallback": "AW1 T S P R EH1 D",
+    "moby": [
+     "AW1 T S P R EH2 D",
+     "AW1 T S P R EH2 D",
+     "AW2 T S P R EH1 D"
+    ]
+   },
+   {
+    "word": "sanctified",
+    "fallback": "S AE1 NG K T AH0 F AY0 D",
+    "moby": [
+     "S AE1 NG K T AH0 F AY2 D"
+    ]
+   },
+   {
+    "word": "unbelief",
+    "fallback": "AH0 N B IH0 L IY1 F",
+    "moby": [
+     "AH2 N B IH0 L IY1 F"
+    ]
+   },
+   {
+    "word": "overspread",
+    "fallback": "OW1 V ER0 S P R EH1 D",
+    "moby": [
+     "OW2 V ER0 S P R EH1 D"
+    ]
+   },
+   {
+    "word": "overgrow",
+    "fallback": "OW1 V ER0 G R OW1",
+    "moby": [
+     "OW2 V ER0 G R OW1"
+    ]
+   },
+   {
+    "word": "foreland",
+    "fallback": "F AO1 R L AE1 N D",
+    "moby": [
+     "F AO1 R L AE2 N D"
+    ]
+   },
+   {
+    "word": "red-fruited",
+    "fallback": "R EH1 D F R UW1 T IH0 D",
+    "moby": [
+     "R EH0 D F R UW1 T IH0 D"
+    ]
+   },
+   {
+    "word": "undeceive",
+    "fallback": "AH0 N D IH0 S IY1 V",
+    "moby": [
+     "AH2 N D IH0 S IY1 V"
+    ]
+   },
+   {
+    "word": "forelock",
+    "fallback": "F AO1 R L AA1 K",
+    "moby": [
+     "F AO1 R L AA2 K"
+    ]
+   },
+   {
+    "word": "short-waisted",
+    "fallback": "SH AO1 R T W EY1 S T IH0 D",
+    "moby": [
+     "SH AO0 R T W EY1 S T IH0 D"
+    ]
+   },
+   {
+    "word": "upraise",
+    "fallback": "AH1 P R EY1 Z",
+    "moby": [
+     "AH0 P R EY1 Z"
+    ]
+   },
+   {
+    "word": "countermarch",
+    "fallback": "K AW1 N T ER0 M AA1 R CH",
+    "moby": [
+     "K AW1 N T AH0 M AA2 R T SH",
+     "K AW1 N T ER0 M AA2 R CH",
+     "K AW2 N T ER0 M AA1 R CH"
+    ]
+   },
+   {
+    "word": "uncreate",
+    "fallback": "AH0 N K R IY0 EY1 T",
+    "moby": [
+     "AH2 N K R IY0 EY1 T"
+    ]
+   },
+   {
+    "word": "unpolluted",
+    "fallback": "AH0 N P AH0 L UW1 T IH0 D",
+    "moby": [
+     "AH2 N P AH0 L UW1 T IH0 D"
+    ]
+   },
+   {
+    "word": "influent",
+    "fallback": "IH0 N F L UW1 AH0 N T",
+    "moby": [
+     "IH1 N F L UW0 AH0 N T"
+    ]
+   },
+   {
+    "word": "outbrave",
+    "fallback": "AW1 T B R EY1 V",
+    "moby": [
+     "AW2 T B R EY1 V"
+    ]
+   },
+   {
+    "word": "underbred",
+    "fallback": "AH1 N D ER0 B R EH1 D",
+    "moby": [
+     "AH2 N D ER0 B R EH1 D"
+    ]
+   },
+   {
+    "word": "unlamented",
+    "fallback": "AH0 N L AH0 M EH1 N T IH0 D",
+    "moby": [
+     "AH2 N L AH0 M EH1 N T IH0 D"
+    ]
+   },
+   {
+    "word": "unbeloved",
+    "fallback": "AH0 N B IH0 L AH1 V D",
+    "moby": [
+     "AH2 N B IH0 L AH1 V D"
+    ]
+   },
+   {
+    "word": "uptorn",
+    "fallback": "AH1 P T AO1 R N",
+    "moby": [
+     "AH0 P T AO1 R N"
+    ]
+   },
+   {
+    "word": "unblest",
+    "fallback": "AH0 N B L EH1 S T",
+    "moby": [
+     "AH1 N B L EH1 S T"
+    ]
+   },
+   {
+    "word": "unbeholden",
+    "fallback": "AH0 N B IH0 HH OW1 L D AH0 N",
+    "moby": [
+     "AH2 N B IH0 HH OW1 L D AH0 N"
+    ]
+   },
+   {
+    "word": "counterpane",
+    "fallback": "K AW1 N T ER0 P EY1 N",
+    "moby": [
+     "K AW1 N T ER0 P EY2 N"
+    ]
+   },
+   {
+    "word": "foreknow",
+    "fallback": "F AO1 R N OW1",
+    "moby": [
+     "F AO0 R N OW1"
+    ]
+   },
+   {
+    "word": "unsuspicious",
+    "fallback": "AH0 N S AH0 S P IH1 SH AH0 S",
+    "moby": [
+     "AH2 N S AH0 S P IH1 SH AH0 S"
+    ]
+   },
+   {
+    "word": "instep",
+    "fallback": "IH0 N S T EH1 P",
+    "moby": [
+     "IH1 N S T EH2 P"
+    ]
+   },
+   {
+    "word": "insultingly",
+    "fallback": "IH2 N S AH1 L T IH0 NG L IY0",
+    "moby": [
+     "IH0 N S AH1 L T IH0 NG L IY0"
+    ]
+   },
+   {
+    "word": "whipper-in",
+    "fallback": "W IH1 P ER0 IH0 N",
+    "moby": [
+     "W IH1 P ER0 IH1 N"
+    ]
+   },
+   {
+    "word": "impost",
+    "fallback": "IH0 M P OW1 S T",
+    "moby": [
+     "IH1 M P OW0 S T"
+    ]
+   },
+   {
+    "word": "selfsame",
+    "fallback": "S EH1 L F S EY1 M",
+    "moby": [
+     "S EH1 L F S EY2 M"
+    ]
+   },
+   {
+    "word": "undismayed",
+    "fallback": "AH0 N D IH0 S M EY1 D",
+    "moby": [
+     "AH2 N D IH0 S M EY1 D"
+    ]
+   },
+   {
+    "word": "self-abased",
+    "fallback": "S EH1 L F AH0 B EY1 S T",
+    "moby": [
+     "S EH0 L F AH0 B EY1 S T"
+    ]
+   },
+   {
+    "word": "discompose",
+    "fallback": "D IH0 S K AH0 M P OW1 Z",
+    "moby": [
+     "D IH2 S K AH0 M P OW1 Z"
+    ]
+   },
+   {
+    "word": "pure-bosomed",
+    "fallback": "P Y UH1 R B UH1 Z AH0 M D",
+    "moby": [
+     "P Y UH0 R B UH1 Z AH0 M D"
+    ]
+   },
+   {
+    "word": "foregather",
+    "fallback": "F AO1 R G AE1 DH ER0",
+    "moby": [
+     "F AO0 R G AE1 DH ER0"
+    ]
+   },
+   {
+    "word": "ingrate",
+    "fallback": "IH0 N G R EY1 T",
+    "moby": [
+     "IH1 N G R EY2 T"
+    ]
+   }
+  ],
+  "reduced_vowel_only": [
+   {
+    "word": "repine",
+    "fallback": "R IY0 P AY1 N",
+    "moby": [
+     "R IH0 P AY1 N"
+    ]
+   },
+   {
+    "word": "matchless",
+    "fallback": "M AE1 CH L AH0 S",
+    "moby": [
+     "M AE1 CH L IH0 S"
+    ]
+   },
+   {
+    "word": "dauntless",
+    "fallback": "D AO1 N T L AH0 S",
+    "moby": [
+     "D AO1 N T L IH0 S"
+    ]
+   },
+   {
+    "word": "deathless",
+    "fallback": "D EH1 TH L AH0 S",
+    "moby": [
+     "D EH1 TH L IH0 S"
+    ]
+   },
+   {
+    "word": "heedless",
+    "fallback": "HH IY1 D L AH0 S",
+    "moby": [
+     "HH IY1 D L IH0 S"
+    ]
+   },
+   {
+    "word": "faithless",
+    "fallback": "F EY1 TH L AH0 S",
+    "moby": [
+     "F EY1 TH L IH0 S"
+    ]
+   },
+   {
+    "word": "artless",
+    "fallback": "AA1 R T L AH0 S",
+    "moby": [
+     "AA1 R T L IH0 S"
+    ]
+   },
+   {
+    "word": "pretence",
+    "fallback": "P R IY0 T EH1 N S",
+    "moby": [
+     "P R IH0 T EH1 N S"
+    ]
+   },
+   {
+    "word": "joyless",
+    "fallback": "JH OY1 L AH0 S",
+    "moby": [
+     "JH OY1 L IH0 S"
+    ]
+   },
+   {
+    "word": "reprove",
+    "fallback": "R IY0 P R UW1 V",
+    "moby": [
+     "R IH0 P R UW1 V"
+    ]
+   },
+   {
+    "word": "pathless",
+    "fallback": "P AE1 TH L AH0 S",
+    "moby": [
+     "P AE1 TH L IH0 S"
+    ]
+   },
+   {
+    "word": "fulness",
+    "fallback": "F UH1 L N AH0 S",
+    "moby": [
+     "F UH1 L N IH0 S"
+    ]
+   },
+   {
+    "word": "roofless",
+    "fallback": "R UW1 F L AH0 S",
+    "moby": [
+     "R UW1 F L IH0 S"
+    ]
+   },
+   {
+    "word": "trackless",
+    "fallback": "T R AE1 K L AH0 S",
+    "moby": [
+     "T R AE1 K L IH0 S"
+    ]
+   },
+   {
+    "word": "tuneless",
+    "fallback": "T UW1 N L AH0 S",
+    "moby": [
+     "T UW1 N L IH0 S"
+    ]
+   },
+   {
+    "word": "unquiet",
+    "fallback": "AH0 N K W AY1 AH0 T",
+    "moby": [
+     "AH0 N K W AY1 IH0 T"
+    ]
+   },
+   {
+    "word": "repast",
+    "fallback": "R IY0 P AE1 S T",
+    "moby": [
+     "R IH0 P AE1 S T"
+    ]
+   },
+   {
+    "word": "unbidden",
+    "fallback": "AH0 N B IH1 D IH0 N",
+    "moby": [
+     "AH0 N B IH1 D AH0 N"
+    ]
+   },
+   {
+    "word": "numberless",
+    "fallback": "N AH1 M B ER0 L AH0 S",
+    "moby": [
+     "N AH1 M B ER0 L IH0 S"
+    ]
+   },
+   {
+    "word": "faultless",
+    "fallback": "F AO1 L T L AH0 S",
+    "moby": [
+     "F AO1 L T L IH0 S"
+    ]
+   },
+   {
+    "word": "ingratitude",
+    "fallback": "IH0 N G R AE1 T AH0 T UW2 D",
+    "moby": [
+     "IH0 N G R AE1 T IH0 T UW2 D"
+    ]
+   },
+   {
+    "word": "tearless",
+    "fallback": "T IY1 R L AH0 S",
+    "moby": [
+     "T IY1 R L IH0 S"
+    ]
+   },
+   {
+    "word": "noiseless",
+    "fallback": "N OY1 Z L AH0 S",
+    "moby": [
+     "N OY1 Z L IH0 S"
+    ]
+   },
+   {
+    "word": "sightless",
+    "fallback": "S AY1 T L AH0 S",
+    "moby": [
+     "S AY1 T L IH0 S"
+    ]
+   },
+   {
+    "word": "requite",
+    "fallback": "R IY0 K W AY1 T",
+    "moby": [
+     "R IH0 K W AY1 T"
+    ]
+   },
+   {
+    "word": "sapless",
+    "fallback": "S AE1 P L AH0 S",
+    "moby": [
+     "S AE1 P L IH0 S"
+    ]
+   },
+   {
+    "word": "passionless",
+    "fallback": "P AE1 SH AH0 N L AH0 S",
+    "moby": [
+     "P AE1 SH AH0 N L IH0 S"
+    ]
+   },
+   {
+    "word": "unfitting",
+    "fallback": "AH0 N F IH1 T IH0 NG",
+    "moby": [
+     "AH0 N F IH1 T IY0 NG"
+    ]
+   },
+   {
+    "word": "viewless",
+    "fallback": "V Y UW1 L AH0 S",
+    "moby": [
+     "V Y UW1 L IH0 S"
+    ]
+   },
+   {
+    "word": "watchfulness",
+    "fallback": "W AA1 CH F AH0 L N AH0 S",
+    "moby": [
+     "W AA1 CH F AH0 L N EH0 S"
+    ]
+   },
+   {
+    "word": "dateless",
+    "fallback": "D EY1 T L AH0 S",
+    "moby": [
+     "D EY1 T L IH0 S"
+    ]
+   },
+   {
+    "word": "resistless",
+    "fallback": "R IH0 Z IH1 S T L AH0 S",
+    "moby": [
+     "R IH0 Z IH1 S T L IH0 S"
+    ]
+   },
+   {
+    "word": "thriftless",
+    "fallback": "TH R IH1 F T L AH0 S",
+    "moby": [
+     "TH R IH1 F T L IH0 S"
+    ]
+   },
+   {
+    "word": "sunless",
+    "fallback": "S AH1 N L AH0 S",
+    "moby": [
+     "S AH1 N L IH0 S"
+    ]
+   },
+   {
+    "word": "redan",
+    "fallback": "R IY0 D AE1 N",
+    "moby": [
+     "R IH0 D AE1 N"
+    ]
+   },
+   {
+    "word": "unheeding",
+    "fallback": "AH0 N HH IY1 D IH0 NG",
+    "moby": [
+     "AH0 N HH IY1 D IY0 NG"
+    ]
+   },
+   {
+    "word": "prepense",
+    "fallback": "P R IY0 P EH1 N S",
+    "moby": [
+     "P R IH0 P EH1 N S"
+    ]
+   },
+   {
+    "word": "moveless",
+    "fallback": "M UW1 V L AH0 S",
+    "moby": [
+     "M UW1 V L EH0 S"
+    ]
+   },
+   {
+    "word": "rayless",
+    "fallback": "R EY1 L AH0 S",
+    "moby": [
+     "R EY1 L IH0 S"
+    ]
+   },
+   {
+    "word": "unshrinking",
+    "fallback": "AH0 N SH R IH1 NG K IH0 NG",
+    "moby": [
+     "AH0 N SH R IY1 NG K IY0 NG"
+    ]
+   },
+   {
+    "word": "quenchless",
+    "fallback": "K W EH1 N CH L AH0 S",
+    "moby": [
+     "K W EH1 N CH L IH0 S"
+    ]
+   },
+   {
+    "word": "doubleness",
+    "fallback": "D AH1 B AH0 L N AH0 S",
+    "moby": [
+     "D AH1 B AH0 L N IH0 S"
+    ]
+   },
+   {
+    "word": "tameless",
+    "fallback": "T EY1 M L AH0 S",
+    "moby": [
+     "T EY1 M L IH0 S"
+    ]
+   },
+   {
+    "word": "everlastingness",
+    "fallback": "EH2 V ER0 L AE1 S T IH0 NG N AH0 S",
+    "moby": [
+     "EH2 V ER0 L AE1 S T IH0 NG N EH0 S"
+    ]
+   },
+   {
+    "word": "comeliness",
+    "fallback": "K AH1 M L IY0 N AH0 S",
+    "moby": [
+     "K AH1 M L IH0 N EH0 S"
+    ]
+   },
+   {
+    "word": "dreadfulness",
+    "fallback": "D R EH1 D F AH0 L N AH0 S",
+    "moby": [
+     "D R EH1 D F AH0 L N EH0 S"
+    ]
+   },
+   {
+    "word": "churlishness",
+    "fallback": "CH ER1 L IH0 SH N AH0 S",
+    "moby": [
+     "CH ER1 L IH0 SH N EH0 S"
+    ]
+   },
+   {
+    "word": "submissiveness",
+    "fallback": "S AH0 B M IH1 S IH0 V N AH0 S",
+    "moby": [
+     "S AH0 B M IH1 S IH0 V N EH0 S"
+    ]
+   },
+   {
+    "word": "shieling",
+    "fallback": "SH IY1 L IH0 NG",
+    "moby": [
+     "SH IY1 L IY0 NG"
+    ]
+   },
+   {
+    "word": "unmeaning",
+    "fallback": "AH0 N M IY1 N IH0 NG",
+    "moby": [
+     "AH0 N M IY1 N IY0 NG"
+    ]
+   },
+   {
+    "word": "fetterless",
+    "fallback": "F EH1 T ER0 L AH0 S",
+    "moby": [
+     "F EH1 T ER0 L IH0 S"
+    ]
+   },
+   {
+    "word": "reproachful",
+    "fallback": "R IY0 P R OW1 CH F AH0 L",
+    "moby": [
+     "R IH0 P R OW1 CH F AH0 L"
+    ]
+   },
+   {
+    "word": "unfading",
+    "fallback": "AH0 N F EY1 D IH0 NG",
+    "moby": [
+     "AH0 N F EY1 D IY0 NG"
+    ]
+   },
+   {
+    "word": "revengeful",
+    "fallback": "R IY0 V EH1 N JH F AH0 L",
+    "moby": [
+     "R IH0 V EH1 N JH F AH0 L"
+    ]
+   },
+   {
+    "word": "handiness",
+    "fallback": "HH AE1 N D IY0 N AH0 S",
+    "moby": [
+     "HH AE1 N D IY0 N IH0 S"
+    ]
+   },
+   {
+    "word": "taintless",
+    "fallback": "T EY1 N T L AH0 S",
+    "moby": [
+     "T EY1 N T L IH0 S"
+    ]
+   },
+   {
+    "word": "lightless",
+    "fallback": "L AY1 T L AH0 S",
+    "moby": [
+     "L AY1 T L IH0 S"
+    ]
+   },
+   {
+    "word": "fretfulness",
+    "fallback": "F R EH1 T F AH0 L N AH0 S",
+    "moby": [
+     "F R EH1 T F AH0 L N EH0 S"
+    ]
+   },
+   {
+    "word": "printless",
+    "fallback": "P R IH1 N T L AH0 S",
+    "moby": [
+     "P R IH1 N T L IH0 S"
+    ]
+   },
+   {
+    "word": "bootless",
+    "fallback": "B UW1 T L AH0 S",
+    "moby": [
+     "B UW1 T L IH0 S"
+    ]
+   },
+   {
+    "word": "unresting",
+    "fallback": "AH0 N R EH1 S T IH0 NG",
+    "moby": [
+     "AH0 N R EH1 S T IY0 NG"
+    ]
+   },
+   {
+    "word": "gorgeousness",
+    "fallback": "G AO1 R JH AH0 S N AH0 S",
+    "moby": [
+     "G AO1 R JH AH0 S N EH0 S"
+    ]
+   },
+   {
+    "word": "changeless",
+    "fallback": "CH EY1 N JH L AH0 S",
+    "moby": [
+     "CH EY1 N JH L IH0 S"
+    ]
+   },
+   {
+    "word": "unpitying",
+    "fallback": "AH0 N P IH1 T IY0 IH0 NG",
+    "moby": [
+     "AH0 N P IH1 T IH0 IY0 NG"
+    ]
+   },
+   {
+    "word": "cottager",
+    "fallback": "K AA1 T AH0 JH ER0",
+    "moby": [
+     "K AA1 T IH0 JH ER0"
+    ]
+   }
+  ],
+  "sounds_differ": [
+   {
+    "word": "didst",
+    "fallback": "D IH1 D IH0 S T",
+    "moby": [
+     "D IH1 D S T"
+    ]
+   },
+   {
+    "word": "baith",
+    "fallback": "B AY1 IY0 IH0 TH",
+    "moby": [
+     "B EY1 TH"
+    ]
+   },
+   {
+    "word": "saith",
+    "fallback": "S AY1 IH0 TH",
+    "moby": [
+     "S EH1 TH"
+    ]
+   },
+   {
+    "word": "drest",
+    "fallback": "D R AY1 V IH0 S T",
+    "moby": [
+     "D R EH1 S T"
+    ]
+   },
+   {
+    "word": "wouldst",
+    "fallback": "W UH1 D IH0 S T",
+    "moby": [
+     "W UH1 D S T"
+    ]
+   },
+   {
+    "word": "couldst",
+    "fallback": "K UH1 D IH0 S T",
+    "moby": [
+     "K UH1 D S T"
+    ]
+   },
+   {
+    "word": "hadst",
+    "fallback": "HH AE1 D IH0 S T",
+    "moby": [
+     "HH AE1 D S T"
+    ]
+   },
+   {
+    "word": "shouldst",
+    "fallback": "SH UH1 D IH0 S T",
+    "moby": [
+     "SH UH1 D S T"
+    ]
+   },
+   {
+    "word": "stilly",
+    "fallback": "S T IH1 L L IY0",
+    "moby": [
+     "S T IH1 L IY0"
+    ]
+   },
+   {
+    "word": "sooth",
+    "fallback": "S UW1 IH0 TH",
+    "moby": [
+     "S UW1 TH"
+    ]
+   },
+   {
+    "word": "tother",
+    "fallback": "T AA1 TH ER0",
+    "moby": [
+     "T AH1 DH ER0"
+    ]
+   },
+   {
+    "word": "erst",
+    "fallback": "EH1 R S T",
+    "moby": [
+     "ER1 S T"
+    ]
+   },
+   {
+    "word": "mantling",
+    "fallback": "M AE1 N T AH0 L IH0 NG",
+    "moby": [
+     "M AE1 N T L IH0 NG"
+    ]
+   },
+   {
+    "word": "kith",
+    "fallback": "K IY1 IH0 TH",
+    "moby": [
+     "K IH1 TH"
+    ]
+   },
+   {
+    "word": "comfortless",
+    "fallback": "K AH1 M F ER0 T L AH0 S",
+    "moby": [
+     "K AH1 M F AH0 T L EH0 S"
+    ]
+   },
+   {
+    "word": "maist",
+    "fallback": "M AY1 S T",
+    "moby": [
+     "M EY1 S T"
+    ]
+   },
+   {
+    "word": "oe",
+    "fallback": "IY1",
+    "moby": [
+     "OY1"
+    ]
+   },
+   {
+    "word": "fearfully",
+    "fallback": "F IH1 R F AH0 L L IY0",
+    "moby": [
+     "F IY1 R F AH0 L IY0"
+    ]
+   },
+   {
+    "word": "ravening",
+    "fallback": "R EY1 V AH0 N IH0 NG",
+    "moby": [
+     "R AE1 V AH0 N IH0 NG"
+    ]
+   },
+   {
+    "word": "unforgotten",
+    "fallback": "AH0 N F ER0 G AA1 T AH0 N",
+    "moby": [
+     "AH2 N F AH0 G AA1 T AH0 N"
+    ]
+   },
+   {
+    "word": "trustful",
+    "fallback": "T R AH1 S T F AH0 L",
+    "moby": [
+     "T R AH1 S T F UH0 L"
+    ]
+   },
+   {
+    "word": "unremembered",
+    "fallback": "AH0 N R IH0 M EH1 M B ER0 D",
+    "moby": [
+     "AH2 N R IY0 M EH1 M B AH0 D"
+    ]
+   },
+   {
+    "word": "unerring",
+    "fallback": "AH0 N EH1 R IH0 NG",
+    "moby": [
+     "AH0 N ER1 IH0 NG"
+    ]
+   },
+   {
+    "word": "uncreated",
+    "fallback": "AH0 N K R IY0 EY1 T AH0 D",
+    "moby": [
+     "AH2 N K R IY0 EY1 T IH0 D"
+    ]
+   },
+   {
+    "word": "curst",
+    "fallback": "K Y UH1 R S T",
+    "moby": [
+     "K ER1 S T"
+    ]
+   },
+   {
+    "word": "forgetfulness",
+    "fallback": "F AO0 R G EH1 T F AH0 L N AH0 S",
+    "moby": [
+     "F ER0 G EH1 T F AH0 L N EH0 S"
+    ]
+   },
+   {
+    "word": "paling",
+    "fallback": "P AA1 L IH0 NG",
+    "moby": [
+     "P EY1 L IH0 NG"
+    ]
+   },
+   {
+    "word": "instanter",
+    "fallback": "IH1 N S T AH0 N T ER0",
+    "moby": [
+     "IH0 N S T AE1 N T ER0"
+    ]
+   },
+   {
+    "word": "unquenched",
+    "fallback": "AH0 N K W EH1 N CH T",
+    "moby": [
+     "AH0 N K W EH1 N T SH T"
+    ]
+   },
+   {
+    "word": "rigour",
+    "fallback": "R IH1 G ER0",
+    "moby": [
+     "R IY1 G ER0"
+    ]
+   },
+   {
+    "word": "unwithered",
+    "fallback": "AH0 N W IH1 DH ER0 D",
+    "moby": [
+     "AH0 N W IH1 DH AH0 D"
+    ]
+   },
+   {
+    "word": "toper",
+    "fallback": "T AA1 P ER0",
+    "moby": [
+     "T OW1 P ER0"
+    ]
+   },
+   {
+    "word": "cheerless",
+    "fallback": "CH IH1 R L AH0 S",
+    "moby": [
+     "CH IY1 R L IH0 S"
+    ]
+   },
+   {
+    "word": "unpitied",
+    "fallback": "AH0 N P IH1 T IY2 D",
+    "moby": [
+     "AH0 N P IH1 T IH0 D"
+    ]
+   },
+   {
+    "word": "cyder",
+    "fallback": "S IH1 D ER0",
+    "moby": [
+     "S AY1 D ER0"
+    ]
+   },
+   {
+    "word": "unwearied",
+    "fallback": "AH0 N W IH1 R IY0 D",
+    "moby": [
+     "AH0 N W IY1 R IY0 D"
+    ]
+   },
+   {
+    "word": "direful",
+    "fallback": "D AY1 R F AH0 L",
+    "moby": [
+     "D AY1 ER0 F AH0 L"
+    ]
+   },
+   {
+    "word": "bodiless",
+    "fallback": "B OW1 D IY0 L AH0 S",
+    "moby": [
+     "B AA1 D IY0 L IH0 S"
+    ]
+   },
+   {
+    "word": "fringing",
+    "fallback": "F R IH1 N JH IH0 NG",
+    "moby": [
+     "F R IY1 N JH IY0 NG"
+    ]
+   },
+   {
+    "word": "unrewarded",
+    "fallback": "AH0 N R IH0 W AO1 R D IH0 D",
+    "moby": [
+     "AH2 N R IY0 W AO1 R D IH0 D"
+    ]
+   },
+   {
+    "word": "airth",
+    "fallback": "EH1 R IH0 TH",
+    "moby": [
+     "EH1 R TH"
+    ]
+   },
+   {
+    "word": "fatness",
+    "fallback": "F EY1 T N AH0 S",
+    "moby": [
+     "F AE1 T N IH0 S"
+    ]
+   },
+   {
+    "word": "lidless",
+    "fallback": "L AY1 D L AH0 S",
+    "moby": [
+     "L IH1 D L IH0 S"
+    ]
+   },
+   {
+    "word": "countersign",
+    "fallback": "K AW1 N T ER0 S AY1 N",
+    "moby": [
+     "K AW1 N T AH0 S AY2 N"
+    ]
+   },
+   {
+    "word": "privateer",
+    "fallback": "P R AY1 V AH0 T ER0",
+    "moby": [
+     "P R AY2 V AH0 T IY1 ER0"
+    ]
+   },
+   {
+    "word": "untaught",
+    "fallback": "AH0 N T AO1 T",
+    "moby": [
+     "AH0 N T AA1 T"
+    ]
+   },
+   {
+    "word": "unshared",
+    "fallback": "AH0 N SH EH1 R D",
+    "moby": [
+     "AH0 N SH EH1 D"
+    ]
+   },
+   {
+    "word": "unuttered",
+    "fallback": "AH0 N AH1 T ER0 D",
+    "moby": [
+     "AH0 N AH1 T AH0 D"
+    ]
+   },
+   {
+    "word": "doest",
+    "fallback": "D OW1 IH0 S T",
+    "moby": [
+     "D UW1 IH0 S T"
+    ]
+   },
+   {
+    "word": "shingly",
+    "fallback": "SH IH1 NG L IY0",
+    "moby": [
+     "SH IH1 NG G L IY0"
+    ]
+   },
+   {
+    "word": "unbegotten",
+    "fallback": "AH0 N B IY0 G AO1 T IH0 N",
+    "moby": [
+     "AH2 N B IH0 G AA1 T AH0 N"
+    ]
+   },
+   {
+    "word": "heaviness",
+    "fallback": "HH IY1 V IH0 N AH0 S",
+    "moby": [
+     "HH EH1 V IY0 N IH0 S"
+    ]
+   },
+   {
+    "word": "tunefully",
+    "fallback": "T UW1 N F AH0 L L IY0",
+    "moby": [
+     "T UW1 N F AH0 L IY0"
+    ]
+   },
+   {
+    "word": "fearfulness",
+    "fallback": "F IH1 R F AH0 L N AH0 S",
+    "moby": [
+     "F IY1 R F AH0 L N EH0 S"
+    ]
+   },
+   {
+    "word": "trembler",
+    "fallback": "T R EH1 M B AH0 L ER0",
+    "moby": [
+     "T R EH1 M B L ER0"
+    ]
+   },
+   {
+    "word": "hist",
+    "fallback": "HH AY1 S T",
+    "moby": [
+     "HH IH1 S T"
+    ]
+   },
+   {
+    "word": "outwatch",
+    "fallback": "AW1 T W AA1 CH",
+    "moby": [
+     "AW0 T W AA1 T SH"
+    ]
+   },
+   {
+    "word": "anear",
+    "fallback": "AH0 N IH1 R",
+    "moby": [
+     "AH0 N IY1 R"
+    ]
+   },
+   {
+    "word": "impetuously",
+    "fallback": "IH2 M P EH1 CH W AH0 S L IY0",
+    "moby": [
+     "IH0 M P EH1 CH UW0 AH0 S L IY0"
+    ]
+   },
+   {
+    "word": "unpremeditated",
+    "fallback": "AH0 N P R IY0 M EH1 D AH0 T EY2 T IH0 D",
+    "moby": [
+     "AH2 N P R IY0 M EH1 D IH0 T EY2 T IH0 D"
+    ]
+   },
+   {
+    "word": "fineness",
+    "fallback": "F AY1 N N AH0 S",
+    "moby": [
+     "F AY1 N IH0 S"
+    ]
+   },
+   {
+    "word": "liber",
+    "fallback": "L IH1 B ER0",
+    "moby": [
+     "L AY1 B ER0"
+    ]
+   },
+   {
+    "word": "bating",
+    "fallback": "B AE1 T IH0 NG",
+    "moby": [
+     "B EY1 T IH0 NG"
+    ]
+   },
+   {
+    "word": "overawe",
+    "fallback": "OW1 V ER0 AA1",
+    "moby": [
+     "OW2 V ER0 AO1"
+    ]
+   },
+   {
+    "word": "blither",
+    "fallback": "B L AY1 DH ER0",
+    "moby": [
+     "B L IH1 DH ER0"
+    ]
+   },
+   {
+    "word": "beamy",
+    "fallback": "B IH0 EY1 M IY0",
+    "moby": [
+     "B IY1 M IY0"
+    ]
+   },
+   {
+    "word": "carbineer",
+    "fallback": "K AA1 R B AY2 N ER0",
+    "moby": [
+     "K AA2 R B AH0 N IY1 R"
+    ]
+   },
+   {
+    "word": "preferment",
+    "fallback": "P R IY0 F ER0 M EH1 N T",
+    "moby": [
+     "P R IH0 F ER1 M AH0 N T"
+    ]
+   },
+   {
+    "word": "bashfully",
+    "fallback": "B AE1 SH F AH0 L L IY0",
+    "moby": [
+     "B AE1 SH F AH0 L IY0"
+    ]
+   },
+   {
+    "word": "beeves",
+    "fallback": "B IH0 IY1 V Z",
+    "moby": [
+     "B IY1 V Z"
+    ]
+   },
+   {
+    "word": "besom",
+    "fallback": "B IH0 S AA1 M",
+    "moby": [
+     "B IY1 Z AH0 M"
+    ]
+   },
+   {
+    "word": "aweary",
+    "fallback": "AH0 W IH1 R IY0",
+    "moby": [
+     "AH0 W IY1 ER0 IY0"
+    ]
+   },
+   {
+    "word": "laith",
+    "fallback": "L AY1 IH0 TH",
+    "moby": [
+     "L EY1 TH"
+    ]
+   },
+   {
+    "word": "certes",
+    "fallback": "S ER1 T S",
+    "moby": [
+     "S ER1 T IY0 Z"
+    ]
+   },
+   {
+    "word": "incog",
+    "fallback": "IH0 N K AO1 G",
+    "moby": [
+     "IH0 N K AA1 G"
+    ]
+   },
+   {
+    "word": "fother",
+    "fallback": "F AA1 TH ER0",
+    "moby": [
+     "F AA1 DH ER0"
+    ]
+   },
+   {
+    "word": "paly",
+    "fallback": "P AY1 L IY0",
+    "moby": [
+     "P EY1 L IY0"
+    ]
+   },
+   {
+    "word": "lith",
+    "fallback": "L AY1 IH0 TH",
+    "moby": [
+     "L IH1 TH"
+    ]
+   },
+   {
+    "word": "unperfected",
+    "fallback": "AH0 N P ER0 F EH1 K T IH0 D",
+    "moby": [
+     "AH2 N P AH0 F EH1 K T IH0 D"
+    ]
+   },
+   {
+    "word": "armful",
+    "fallback": "AA1 R M F AH0 L",
+    "moby": [
+     "AA1 R M F UH2 L"
+    ]
+   },
+   {
+    "word": "fearlessness",
+    "fallback": "F IH1 R L AH0 S N AH0 S",
+    "moby": [
+     "F IY1 R L IH0 S N EH0 S"
+    ]
+   },
+   {
+    "word": "unskilful",
+    "fallback": "AH0 N S K IH1 L F AH0 L",
+    "moby": [
+     "AH0 N S K IH1 L F UH0 L"
+    ]
+   },
+   {
+    "word": "uninstructed",
+    "fallback": "AH0 N IH2 N S T R AH1 K T AH0 D",
+    "moby": [
+     "AH2 N IH0 N S T R AH1 K T IH0 D"
+    ]
+   },
+   {
+    "word": "unresisting",
+    "fallback": "AH0 N R IH0 Z IH1 S T IH0 NG",
+    "moby": [
+     "AH2 N R IY0 Z IH1 S T IY0 NG"
+    ]
+   },
+   {
+    "word": "uncensured",
+    "fallback": "AH0 N S EH1 N SH ER0 D",
+    "moby": [
+     "AH0 N S EH1 N S Y AH0 D"
+    ]
+   },
+   {
+    "word": "bellyful",
+    "fallback": "B EH1 L IY0 F AH0 L",
+    "moby": [
+     "B EH1 L IY0 F UH2 L"
+    ]
+   },
+   {
+    "word": "luxuriously",
+    "fallback": "L AH0 G ZH ER1 IY0 AH0 S L IY0",
+    "moby": [
+     "L AH0 G ZH UH1 R IY0 AH0 S L IY0"
+    ]
+   },
+   {
+    "word": "diversely",
+    "fallback": "D AY0 V ER1 S L IY0",
+    "moby": [
+     "D IH0 V ER1 S L IY0"
+    ]
+   },
+   {
+    "word": "unregarded",
+    "fallback": "AH0 N R IH0 G AA1 R D IH0 D",
+    "moby": [
+     "AH2 N R IY0 G AA1 R D IH0 D"
+    ]
+   },
+   {
+    "word": "abatis",
+    "fallback": "AH0 B EY1 T IY0 Z",
+    "moby": [
+     "AE1 B AH0 T IY2"
+    ]
+   },
+   {
+    "word": "unsubdued",
+    "fallback": "AH0 N S AH0 B D UW1 D",
+    "moby": [
+     "AH2 N S AH0 B D Y UW1 D"
+    ]
+   },
+   {
+    "word": "unexampled",
+    "fallback": "AH0 N IH0 G Z AE1 M P AH0 L D",
+    "moby": [
+     "AH2 N IH0 G Z AA1 M P AH0 L D"
+    ]
+   },
+   {
+    "word": "loathly",
+    "fallback": "L OW1 DH L IY0",
+    "moby": [
+     "L OW1 TH L IY0"
+    ]
+   },
+   {
+    "word": "leer",
+    "fallback": "L IY1 ER0",
+    "moby": [
+     "L IY1 R"
+    ]
+   },
+   {
+    "word": "unconquered",
+    "fallback": "AH0 N K AA1 NG K ER0 D",
+    "moby": [
+     "AH0 N K AA1 NG K AH0 D"
+    ]
+   }
+  ]
+ }
+}
