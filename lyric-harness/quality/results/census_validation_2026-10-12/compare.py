@@ -9,6 +9,9 @@
         --census-top /tmp/v2_top.json --census-top-high /tmp/v2high_top.json \
         --mpron PATH/TO/mpron.txt
 
+The two `census_commit` fields record the checkout each census ran at; the
+committed output's two differ (README, Provenance).
+
 Read-only. Three things, all printed as JSON:
   0. The SET DIFFERENCE between the two census records: the spellings unread
      under v2 that `fallback: high` answers, and any it newly fails to read
