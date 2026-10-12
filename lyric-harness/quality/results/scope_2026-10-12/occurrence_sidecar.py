@@ -58,7 +58,7 @@ def _main():
                             cands.append((pos, raw, s, e, core, kinds))
                     if not cands:
                         continue
-                    toks = lex.transcribe(line)[1]
+                    line_phones, toks, _oov = lex.transcribe(line)
                     anchor_tok = LH.raw_final_token(line, strip_parens=lex.strip_parens)
                     anchor_ok = bool(anchor_tok) and bool(LH.line_anchors(lex, line)[0])
                     grid_tok = G._end_word(line) or None
@@ -78,7 +78,7 @@ def _main():
                                "raw_token": raw, "span": [s, e], "position": pos, "is_last_raw_token": pos == len(raws) - 1,
                                "kinds": kinds, "tokenizer_tokens": tk, "dropped_by_tokenizer": not tk,
                                "pieces": pieces, "readings": readings, "fallback": "none",
-                               "line_tokens_kept": toks,
+                               "line_tokens_kept": toks, "line_phones_contextual": " ".join(line_phones),
                                "anchor_reader": {"end_token": anchor_tok, "reads": anchor_ok},
                                "grid_reader": {"end_token": grid_tok, "reads": grid_ok}}
                         fh.write(json.dumps(rec, ensure_ascii=False) + "\n")

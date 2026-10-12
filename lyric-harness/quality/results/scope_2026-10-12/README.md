@@ -78,9 +78,9 @@ It reads with `SupplementedLexicon(v2)` and no fallback. The output is in `reade
 
 `selected_vs_moby.json` records `commit` `6bfbb726`, this PR's first commit, which it ran from. `4b14ff5b..6bfbb726` adds only this directory, `.prettierignore` and `map/files.md`. A rerun at a later head reproduces every field except `commit`.
 
-Each dev word is looked up through `SupplementedLexicon(v2)` with no fallback, the reading `transcribe_word` selects is compared with Moby, and the counts are weighted by occurrence. The output is in `selected_vs_moby.json`. It ran in 31 s.
+**Isolated readings, not contextual ones.** Each distinct dev spelling is read once, in isolation, by `transcribe_word` (`SupplementedLexicon(v2)`, no fallback), and that one reading is weighted by the spelling's occurrence count. It is not the sequence `transcribe(line)` returns in context: per-position weak-token stress demotion is not applied, and a spelling with several contextual readings gets one. The contextual line sequence is kept in the occurrence sidecar below for the occurrences it covers. **Denominators.** "Line-end" here is the last token `transcribe` keeps on lines where it keeps any (227,098 lines). That is a different population from item 3's 227,538 lines with an anchor or grid endpoint, and a kept last token can already have lost a raw digit endpoint. **Exposure, not errors.** Counts per spelling are exposure counts, not adjudicated errors. The output is in `selected_vs_moby.json`. It ran in 31 s.
 
-| class | all occurrences (1,491,865) | line-end occurrences (227,098) |
+| class | all occurrences (1,491,865) | last kept token on lines with one (227,098) |
 |---|---|---|
 | exact | 63.7% | 71.3% |
 | not in Moby | 12.7% | 16.3% |
@@ -109,7 +109,7 @@ It holds every dev raw token, at every line position, that carries a digit, or t
 - the raw token, its span and position;
 - the tokens the tokenizer keeps from it, and whether it dropped the token;
 - the pieces, with each piece's selected phones and `reading_source` provenance (fallback `none`);
-- the tokens kept for the whole line;
+- the tokens kept for the whole line, and the contextual phone sequence `transcribe(line)` returns for it (`line_phones_contextual`);
 - each end reader's end token and whether it reads.
 
 A field this pass cannot observe is `"UNAVAILABLE"`. No verdict is recorded.
