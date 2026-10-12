@@ -405,12 +405,75 @@ def test_the_sonnets_cannot_price_this_channel():
           f"difference lives in.")
 
 
+# ---------------------------------------------------------------------------
+# 6. THE BEFORE-R LICENCE — the NEAR vowel CMUdict writes two ways (PR #527)
+# ---------------------------------------------------------------------------
+
+def test_the_near_licence_before_a_coda_r():
+    print("\n6. `nucleus_licence_before_r` — IY~IH agree before a CODA R, "
+          "nowhere else (owner's ruling, PR #527: 'go with A, coda first')")
+    d = Declaration()
+    check("it defaults to exactly one pair, IH~IY",
+          tuple(map(tuple, d.nucleus_licence_before_r)) == (("IH", "IY"),),
+          repr(d.nucleus_licence_before_r))
+    check("...and it prints in the declaration",
+          "nucleus_licence_before_r" in d.show())
+    # The ingestion fact, asked of the dictionary with no poem: ONE vowel, two
+    # spellings, and the everyday words sit on both sides of the split.
+    coda = {"IY": 0, "IH": 0}
+    for prs in LEX.entries.values():
+        for p in prs:
+            for s in syllabify(p):
+                if s["nucleus"] in coda and s["stress"] == 1 \
+                        and s["coda"][:1] == ["R"]:
+                    coda[s["nucleus"]] += 1
+    spelled = {w: LEX.entries[w][0] for w in ("here", "hear", "fear", "near")}
+    check("CMUdict writes the stressed vowel before a coda R both ways",
+          coda["IY"] > 0 and coda["IH"] > coda["IY"]
+          and "IY1" in spelled["here"] and "IY1" in spelled["hear"]
+          and "IH1" in spelled["fear"] and "IH1" in spelled["near"],
+          f"stressed syllables with a coda R: IY {coda['IY']}, IH "
+          f"{coda['IH']}; {spelled}. The same General American vowel, so "
+          f"charging the comparator for the symbol is an ingestion error.")
+    for a, b in (("here", "fear"), ("hear", "near"), ("bier", "beer"),
+                 ("hears", "fears")):
+        check(f"`{a}`/`{b}` stands in RHYME under the shipped default",
+              "RHYME" in rel(a, b), f"{rel(a, b)}")
+    check("`here`/`beard` agrees on the vowel only: ASSONANCE, not RHYME "
+          "(the codas are R against R D)",
+          "ASSONANCE" in rel("here", "beard")
+          and "RHYME" not in rel("here", "beard"), f"{rel('here', 'beard')}")
+    for a, b, why in (("fee", "fit", "no R at all"),
+                      ("peel", "pill", "a coda, but not R"),
+                      ("heat", "hit", "a coda, but not R"),
+                      ("here", "hair", "IY~EH is not licensed")):
+        check(f"`{a}`/`{b}` is NOT moved into RHYME ({why})",
+              "RHYME" not in rel(a, b), f"{rel(a, b)}")
+    check("an R that BEGINS the next syllable is not licensed: "
+          "`hearing`/`steering` keeps a disagreeing nucleus",
+          not channel_agreement(anchor_of("hearing"), anchor_of("steering"),
+                                d)[0],
+          "coda first: merging before an onset R varies by dialect "
+          "(mirror/nearer) and is a separate ruling")
+    off = Declaration(nucleus_licence_before_r=())
+    check("emptying the licence restores the identity answer",
+          "RHYME" not in rel("here", "fear", off), f"{rel('here', 'fear', off)}")
+    check("`identity` is unaffected by the licence",
+          "RHYME" not in rel("here", "fear",
+                             Declaration(nucleus_agreement="identity")))
+    check("`scalar` is unaffected by the licence (IH~IY already clears 0.60)",
+          rel("here", "fear", SCALAR) == rel(
+              "here", "fear", Declaration(nucleus_agreement="scalar",
+                                          nucleus_licence_before_r=())))
+
+
 if __name__ == "__main__":
     for fn in (test_the_threshold_is_a_list_not_an_intuition,
                test_the_priced_cost_of_leaving_it_at_060,
                test_the_shape_is_declared,
                test_the_licence_is_a_fact_about_the_dictionary,
-               test_the_sonnets_cannot_price_this_channel):
+               test_the_sonnets_cannot_price_this_channel,
+               test_the_near_licence_before_a_coda_r):
         fn()
     print("=" * 70)
     if FAILURES:

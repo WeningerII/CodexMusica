@@ -1,0 +1,99 @@
+RECEIPT — comparator re-pin for the owner's NEAR ruling, 2026-10-11
+("go with A, coda first", PR #527; MISSING.md M-320). One fingerprint move, one
+cold memo, every calibration HOLDS, and three items' predictability moved — each
+by exactly the rhyme the ruling restores.
+
+WHAT MOVED THE COMPARATOR.  On claude/bb8-near-coda (e8f2551e):
+  1. `Declaration.nucleus_licence_before_r = (("IH", "IY"),)` — a new field, so
+     `repr(Declaration())` moves.
+  2. `nucleus_agrees` reads it: under the `licensed` shape an IH~IY pair agrees
+     when BOTH aligned syllables' codas begin with R, at any stress.
+`check_comparator_pin.py` reported "THE COMPARATOR MOVED": `Declaration()` and
+`lyric_harness.py closure`. `features.py`, `cmudict.dict`,
+`opensubtitles_en_50k.tsv`, `predictability_frac` and `_couplet_pairs` are
+byte-identical to the 2026-10-01 pin. Fingerprint
+  d8f5a5b15e172aa574eb4a1f5b830ec61b22771a6cfdf9c8bf691103de4aba8f  (2026-10-01 pin,
+      quality/results/comparator_repin_2026-10-01/curve-check.txt)
+  -> 9d5d81461aec2c94c8997431b3211727f7db56686712c1678cd1348966dc0df8
+Later commits on the branch (cd39b393, tests only; the receipt and pin; the
+merge of main's #526, which touches grid/revise/pronunciation, outside the
+closure) do not move it; the gate re-measures before the pin is written.
+
+HOW THE MEMO WAS REBUILT — FROM NOTHING.  `quality/length_curve_calibration.py
+compute --shard I/12 --cache-path memo-I-of-12.tsv`, each shard to its own memo,
+at commit e8f2551e. No prior memo was read or merged. Every log's CACHE header
+reads `fingerprint 9d5d81461aec | new (no file yet) | hits 0, misses 0`. Rows and
+COMPUTE logs are banked beside this file in shards/ (memos are not banked, as on
+2026-10-01).
+
+   shard  items  row_sha256        CPU-s  worker branch
+    1/12  1175   d6574675b199f0ce   2498  claude/bb8-near-repin-shards-a
+    2/12   920   4f972229ac69be24   3051  claude/bb8-near-repin-shards-a
+    3/12   467   7b59b2b5bbb44ec6   1780  claude/bb8-near-repin-shards-a
+    4/12   929   0662ac2f60a478bf   2639  claude/bb8-near-repin-shards-a
+    5/12   508   5eb7ccaf7f48238f   2581  claude/bb8-near-repin-shards-b
+    6/12   592   f1b52a8b491fca90   2437  claude/bb8-near-repin-shards-b
+    7/12   465   eec17fda38bda576   2404  claude/bb8-near-repin-shards-b
+    8/12   573   63878bf75d7cc870   2334  claude/bb8-near-repin-shards-b
+    9/12   389   00cc460fe5a6c455   3387  claude/bb8-near-repin-shards-c
+   10/12   623   ab308b51941008e1   3523  claude/bb8-near-repin-shards-c
+   11/12  1270   70a3d3bb62da4e37   3906  claude/bb8-near-repin-shards-c
+   12/12   686   1465edd9747f4d6b   4161  claude/bb8-near-repin-shards-c
+   total 8597 items, 34,701 CPU-s, three cloud workers, no restarts.
+Shard 2's log counts 112 files and its rows name 111: one file in that shard
+yields no calibrated item, so it contributes no row. The 2026-10-01 rebuild
+shows the same shape in its shard 3 (108 logged, 107 in rows); it is the
+population rule, not a lost file. (Flagged by the shards-a worker.)
+The population is 8,597 items against 2026-10-01's 8,536 (112 files per shard
+against 109): the corpus grew on main between the two pins. The check below
+re-fits against the corpus as it stands, so that growth is inside what HOLDS.
+
+THE CHECK THE PIN NAMES, VERBATIM:
+    python3 quality/length_curve_calibration.py check --rows shards/rows-{1..12}-of-12.tsv
+    ROWS  from 12 file(s): 8597 items
+    MATTR/TTR  539 of 8597 items degenerate at calibration window 50 -> HOLDS
+      mattr          C1  shipped [0.484557154852502, 0.039839813654046846]  re-derived [0.484557154852502, 0.039839813654046846]  -> HOLDS
+      fwr            C1  shipped [0.5660254841469382, -0.015085723609257548]  re-derived [0.5660254841469382, -0.015085723609257548]  -> HOLDS
+      anaphora       C2  shipped [1.358532082896845, -0.3231885305783643, 0.02371141257915031]  re-derived [1.358532082896845, -0.3231885305783643, 0.02371141257915031]  -> HOLDS
+      cv             C2  shipped [-0.12582974859921897, 0.07110897812570145, -0.005096247133600222]  re-derived [-0.12582974859889096, 0.07110897812546713, -0.0050962471335645985]  -> HOLDS
+      predictability CK  shipped 21 knots, re-derived 21  -> HOLDS
+    RESULT: HOLDS — the lyric row's 5 curves re-derive from the corpus
+    exit=0
+
+ITEM BY ITEM, against 2026-10-01's banked rows (comparator d8f5a5b15e17).
+7,327 (file, title, n_lines) keys are common and unambiguous to both. Their
+non-pronunciation columns moved on 100-odd items (n_tokens 102, mattr 118), all
+corpus edits on main since 2026-10-01, not this change: MATTR, FWR, the token
+count, CV and anaphora read no pronunciation. PREDICTABILITY moved on 7 common
+items; 4 of them also changed text, and the 3 whose text is unchanged are this
+change and nothing else, each a NEAR rhyme the licence now admits:
+    eng_british_felicia_hemans.txt  The Trumpet           0.6667 -> 0.75    fear / hear
+    eng_oxford_robert_stephen_hawker.txt  Ministering ... 0.3333 -> 0.5     hear / near
+    eng_pah_clinton_scollard.txt  AD PATRIAM               0.625  -> 0.5     fears / years
+The first two are pairs that now RHYME. Scollard's fears/years rhymed before
+(both IH1 R Z); what moved is the pair's FIELD: IY-spelled NEAR words (here,
+hear, bier...) now admit to it, so the attested partner is less predictable
+among more candidates -- the mechanism, read from the item's end words, not
+isolated by a separate run.
+
+THE OTHER CALIBRATIONS THIS COMPARATOR FEEDS, warm on a memo merged from the
+twelve shard memos with the module's own `merge-cache` (8,597 entries, every one
+carrying 9d5d81461aec):
+  * `song_profile_calibration.py --check` (profile `song`): "asked 21, answered
+    21, refused 0 ... every shipped constant reproduces." 8,597 hits, 0 misses,
+    exit 0.
+  * `song_profile_calibration.py --check --profile short`: "asked 21, answered
+    21, refused 0 ... every shipped constant reproduces." 5,519 hits, 0 misses,
+    exit 0.
+  * `expected_drift.py song_profile_calibration-fast`: "observed 0 drifted
+    value(s), declared 0" -> PASS.
+
+ALSO MOVED BY THIS CHANGE, and repinned on the branch with its cause:
+  * `quality/test_g2p.py` `_DERIVED_WRONG`: sonnet 49's here / `uprear` left the
+    set (four -> three) — the true rhyme the licensed nucleus had charged since
+    2026-09-24 (cd39b393). Every other CI suite passes unchanged on the branch.
+
+VERDICT.  HOLDS: every coefficient and knot count re-derives exactly, and both
+band rows reproduce every shipped constant. Nothing is re-adopted and nothing
+was tuned (doctrine 16/58); only the fingerprint the pin records advances.
+Still open and not touched here: held-out E2 on `short` (RESULTS_LENGTH_CURVE.md §9).

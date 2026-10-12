@@ -851,6 +851,19 @@ class Declaration:
     # (394 of 545). Set False to license the pair everywhere and watch the
     # difference, which is the point of it being a coordinate.
     nucleus_licence_unstressed_only: bool = True
+    # Unordered vowel pairs that AGREE only where BOTH aligned syllables have
+    # a coda whose first phone is R, at any stress. ADDED 2026-10-11 on the
+    # owner's ruling ("go with A, coda first", PR #527): CMUdict writes the
+    # General American NEAR vowel two ways before a coda R -- `here`/`hear`
+    # HH IY1 R against `fear`/`near` F/N IH1 R (113 IY1 against 550 IH1 in the
+    # coda) -- so `here`/`fear` stood in no RHYME, and 1,127 line endings in
+    # the song corpus (here 643, hear 358) could rhyme with none of the 4,565
+    # IH-spelled ones (dear, fear, tears, near, years). An ingestion fact like
+    # AH~IH above, and scoped the same way: the coda is `syllabify`'s, so an R
+    # that begins the next syllable (weary, hearing, spirit) is NOT licensed --
+    # merging there varies by dialect (mirror/nearer) and is a separate ruling.
+    # Set () to restore the identity answer before R.
+    nucleus_licence_before_r: tuple = (("IH", "IY"),)
     # --- WHICH END THE SCALAR ALIGNS FROM (doctrine 1, 84, 95) --------------
     # DECLARED 2026-08-11. It was not, and that is the whole point of this
     # coordinate existing: `channel_agreement` was fixed to align flush RIGHT
@@ -3642,12 +3655,19 @@ def nucleus_agrees(ta, tb, decl):
             f"Declaration.nucleus_agreement must be 'scalar', 'identity' or "
             f"'licensed', got {decl.nucleus_agreement!r}")
     lic = {tuple(sorted(p)) for p in decl.nucleus_licence}
+    lic_r = {tuple(sorted(p)) for p in decl.nucleus_licence_before_r}
     for x, y in zip(ta, tb):
         if x["nucleus"] == y["nucleus"]:
             continue
         if decl.nucleus_agreement != "licensed":
             return False
-        if tuple(sorted((x["nucleus"], y["nucleus"]))) not in lic:
+        pair = tuple(sorted((x["nucleus"], y["nucleus"])))
+        # The before-R licence (the NEAR vowel, CMUdict's IY~IH before a coda
+        # R): both codas must BEGIN with R, at any stress -- see the field.
+        if (pair in lic_r and x["coda"][:1] == ["R"]
+                and y["coda"][:1] == ["R"]):
+            continue
+        if pair not in lic:
             return False
         if decl.nucleus_licence_unstressed_only and not (
                 x["stress"] == 0 and y["stress"] == 0):

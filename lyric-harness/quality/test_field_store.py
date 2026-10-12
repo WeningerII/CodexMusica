@@ -312,6 +312,7 @@ NAMED = {
     "trailing_syllable_penalty": 0.90,
     "coda_licence": (("T", "D"),),
     "nucleus_licence": (("AA", "AE"), ("IY", "IH")),
+    "nucleus_licence_before_r": (),
 }
 
 

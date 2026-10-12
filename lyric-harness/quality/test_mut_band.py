@@ -167,13 +167,20 @@ def band_reference(anc_a, anc_b, decl, align="tail"):
         # identity per aligned syllable; "licensed" also admits a declared
         # licence pair (AH~IH), unstressed on both sides when so declared.
         # Written out, not imported from `nucleus_agrees` (a twin).
+        # The before-R licence (IY~IH, PR #527) admits its pair at any
+        # stress when both codas begin with R.
         lic = {frozenset(p) for p in decl.nucleus_licence}
+        lic_r = {frozenset(p) for p in decl.nucleus_licence_before_r}
         def _ok(x, y):
             if x["nucleus"] == y["nucleus"]:
                 return True
             if decl.nucleus_agreement != "licensed":
                 return False
-            if frozenset((x["nucleus"], y["nucleus"])) not in lic:
+            pair = frozenset((x["nucleus"], y["nucleus"]))
+            if pair in lic_r and list(x["coda"])[:1] == ["R"] \
+                    and list(y["coda"])[:1] == ["R"]:
+                return True
+            if pair not in lic:
                 return False
             return not decl.nucleus_licence_unstressed_only or (
                 x["stress"] == 0 and y["stress"] == 0)
@@ -519,6 +526,10 @@ def test_declaration_defaults_are_pinned():
         ("nucleus_licence_unstressed_only", True,
          "what keeps the AH0~IH0 licence an INGESTION fact rather than a "
          "claim about vowels. Mutation M33."),
+        ("nucleus_licence_before_r", (("IH", "IY"),),
+         "CMUdict's two spellings of the General American NEAR vowel before "
+         "a coda R (here HH IY1 R, fear F IH1 R), added 2026-10-11 on the "
+         "owner's ruling (PR #527). quality/test_nucleus.py section 6."),
     ]:
         got = getattr(d, field)
         check(f"Declaration.{field} == {want!r}", got == want,
