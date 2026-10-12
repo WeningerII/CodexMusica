@@ -6192,10 +6192,7 @@ def _screen_not_applicable():
     return _SCREEN_NA
 
 
-_PAIR_PHON = None
-
-
-def end_pair_relations(a, b, lex, decl):
+def end_pair_relations(a, b, lex, decl, phon=None):
     """-> {'score', 'coarse', 'schemas', 'undecided'}: EVERY relation two
     words stand in as the end words of two lines.
 
@@ -6206,8 +6203,13 @@ def end_pair_relations(a, b, lex, decl):
     not decide at the pair. Schemas that cannot hold between two line-final
     words (`_screen_not_applicable`) and disowned ones are not asked.
     `score` is the best_score dict, or None when an end word is unreadable.
+
+    The schemas are read through `lex` (`revise.relation_phonology_for`), the
+    reader the grade's judge uses: a supplement-only word stands in what its
+    supplemented reading supports instead of every schema reading it as
+    unknown (`MISSING.md` M-321). `phon` is that reader when the caller
+    already holds it (`screen_pairs`, once per screen).
     """
-    global _PAIR_PHON
     from quality import relations as _RLall
     la = _SCREEN_CARRIERS[0].format(w=a)
     lb = _SCREEN_CARRIERS[1].format(w=b)
@@ -6220,14 +6222,14 @@ def end_pair_relations(a, b, lex, decl):
         decl.theta_by_relation)) if sc else []
     if sc and "REPEAT" in sc["relations"]:
         coarse.append("REPEAT")
-    if _PAIR_PHON is None:
-        from quality.revise import _relation_phonology as _RPh
-        _PAIR_PHON = _RPh()
+    if phon is None:
+        from quality.revise import relation_phonology_for as _RPh
+        phon = _RPh(lex)
     schemas, undecided, readings = [], [], {}
     # The stream is built from the two carrier lines, which are readable by
     # construction; an unreadable END word reaches the judge as a Refusal
     # per schema (listed as undecided below), never as an exception.
-    pst = _RLall.build_stream([la, lb], _PAIR_PHON)
+    pst = _RLall.build_stream([la, lb], phon)
     # THE ANY-READING RULE (owner, 2026-10-01): a schema the two end words'
     # several readings leave undecided is asked again under each whole
     # reading; it holds if one does, and the reading is reported.
@@ -6282,8 +6284,6 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
     _schema = None
     if relation is not None:
         from quality import rhyme_types as _RT
-        from quality.revise import _relation_phonology as _RP
-        _phon = _RP()
         # A SCHEMA IS JUDGED AT THE TWO DECLARED END TOKENS (M-189,
         # 2026-09-01). The screen refused every `schema:` name on the
         # argument that a schema is judged over LINES — true of the
@@ -6301,6 +6301,13 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
             from quality import relations as _RL
             _schema = _RL.REGISTRY[_canon]
     rv = Reviser(lex=lex, decl=decl) if (lex or decl) else Reviser()
+    # THE GRADE'S READER, THROUGH THE LEXICON THIS SCREEN WAS HANDED
+    # (`MISSING.md` M-321): the broad schema column and the declared-relation
+    # verdict both read the words exactly as `Reviser` judges a declared
+    # relation, supplement included. The plain module reader dropped a
+    # supplement, so a supplement-only word stood in every schema undecided
+    # here while the grade judged it.
+    _phon = rv._relation_phonology()
     if _schema is not None:
         # The DECLARED row, as the grade judges a declared relation: the
         # promoted final where this declaration promotes it (`MISSING.md`
@@ -6310,7 +6317,7 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
     for i in range(len(words)):
         for j in range(i + 1, len(words)):
             a, b = words[i], words[j]
-            _er = end_pair_relations(a, b, rv.lex, rv.decl)
+            _er = end_pair_relations(a, b, rv.lex, rv.decl, phon=_phon)
             _sc, _coarse = _er["score"], _er["coarse"]
             _schemas, _undecided = _er["schemas"], _er["undecided"]
             found = rv.inspect(
@@ -9970,10 +9977,12 @@ def main():
             t = RT.classify_pair(w1, w2, phon, **kw)
         except RT.Indeterminate as e:
             print(f"  INDETERMINATE: {e}")
+            _lyric_result(**_lexicon_kw(), status="indeterminate", exit=0)
             return
         if t is None:
             print(f"  UNREADABLE in {lang}: the phonology refuses one or both "
                   f"members. That is a refusal, not a non-rhyme.")
+            _lyric_result(**_lexicon_kw(), status="unreadable", exit=0)
             return
         print(f"  phonology: {lang} — {phon.name}")
         print(f"  agreement (onset,nucleus,coda) per syllable: {t.agreement}")
@@ -10059,6 +10068,10 @@ def main():
             print(f"  route: {route}   "
                   f"(doctrine 84 — 'declared_relation' means the phonology "
                   f"answered, not the channels)")
+        # THE READING BASIS, ON THE RECORD (`MISSING.md` M-321): which
+        # supplement this lookup read the pair under, as `screen` reports it,
+        # so a caller comparing the two answers sees they share a basis.
+        _lyric_result(**_lexicon_kw(), status="typed", exit=0)
 
     elif cmd == "recover":
         from quality import recover as RC

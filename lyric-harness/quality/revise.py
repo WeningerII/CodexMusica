@@ -955,6 +955,27 @@ def _relation_phonology():
     return _PH.get("eng")
 
 
+def relation_phonology_for(lex):
+    """-> the phonology the declared-relation judge reads THROUGH `lex`.
+
+    A supplemented lexicon (or one carrying declared pronunciations) is a
+    reading coordinate too: the shared plain reader `_relation_phonology()`
+    would drop it (quality/lexicon_supplement.py), and a supplement-only word
+    would then stand in no schema at all. ONE helper for every judge handed a
+    lexicon -- `Reviser` (grade, revise) and the `screen`/`types` verbs'
+    schema column and declared-relation verdict (`MISSING.md` M-321) -- so the
+    screen and the grade read a word through the same coordinate and cannot
+    drift. A plain lexicon (or none) answers with the shared plain reader,
+    unchanged.
+    """
+    if lex is None or (not getattr(lex, "pronunciations", ())
+                       and not getattr(lex, "supplement_path", None)):
+        return _relation_phonology()
+    from quality.phonology.eng import English
+    # Preserve the registered relation reader's fallback policy on unselected words.
+    return English(fallback=_relation_phonology().fallback, lexicon=lex)
+
+
 def _schema_name_of(_RT, want):
     """-> the canonical schema name `want` declares, or "" if it declares a
     class or a named type.
@@ -1118,14 +1139,7 @@ class Reviser:
     """Grades a draft, briefs a revision, and verifies the result."""
 
     def _relation_phonology(self):
-        # A supplemented lexicon is a reading coordinate too: the shared
-        # plain reader would drop it (quality/lexicon_supplement.py).
-        if (not getattr(self.lex, "pronunciations", ())
-                and not getattr(self.lex, "supplement_path", None)):
-            return _relation_phonology()
-        from quality.phonology.eng import English
-        # Preserve the registered relation reader's fallback policy on unselected words.
-        return English(fallback=_relation_phonology().fallback, lexicon=self.lex)
+        return relation_phonology_for(self.lex)
 
     def __init__(self, lex=None, decl=None, rdecl=None, floor=None):
         self.lex = lex or Lexicon()

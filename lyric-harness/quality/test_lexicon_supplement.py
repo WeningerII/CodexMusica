@@ -661,12 +661,90 @@ def test_reviewed_v2():
     check("the actual CLI resolves and discloses v2", rc == 0 and "supplement v2" in out, out[-160:])
 
 
+def test_screen_reads_the_supplement():
+    """14. M-321 (2026-10-12): the screen and `types` judge words
+    through the lexicon they were handed. `screen_pairs` built its schema
+    reader from the plain module reader, so under v2 `streetlights` stood in
+    all 37 askable schemas undecided and a declared `schema:` relation
+    REFUSED at the screen while the grade judged the same pair. One helper,
+    `revise.relation_phonology_for`, now serves the Reviser and the screen."""
+    print("\n14. M-321: screen and types read the supplement the grade reads")
+    import json
+    from quality.revise import (Reviser, relation_phonology_for,
+                                _relation_phonology)
+    from quality.schemes import mandate
+    V2 = S.SupplementedLexicon(version="v2")
+    check("one helper: a plain lexicon (or none) gets the shared plain reader",
+          relation_phonology_for(PLAIN) is _relation_phonology()
+          and relation_phonology_for(None) is _relation_phonology())
+    check("...a supplemented one gets a reader carrying it, and the Reviser "
+          "answers through the same helper",
+          relation_phonology_for(V2).lexicon is V2
+          and Reviser(lex=V2)._relation_phonology().lexicon is V2)
+    rel = "schema:perfect rhyme"
+    rows = {}
+    for a, b in [("streetlights", "nights"), ("streetlights", "seat")]:
+        row = LH.screen_pairs([a, b], lex=V2, relation=rel)[0]
+        lines = [c.format(w=w) for c, w in zip(LH._SCREEN_CARRIERS, (a, b))]
+        g = Reviser(lex=V2).grade(lines, mandate([[1, 2]], n_lines=2,
+                                                 default_relation=rel))
+        graded = (None if g["refusals"] else not g["violations"])
+        rows[b] = (row, graded)
+        check(f"{a} ~ {b}: the screen's declared verdict is the grade's "
+              f"({row['named']} vs {graded})",
+              row["named"] is not None and row["named"] == graded,
+              (row["named"], row["named_reason"], g["refusals"][:1]))
+    row = rows["nights"][0]
+    check("streetlights ~ nights stands in `perfect rhyme` under v2, and no "
+          "longer in all 37 schemas undecided",
+          "perfect rhyme" in row["schema_relations"]
+          and len(row["undecided"]) < 37,
+          (row["schema_relations"], len(row["undecided"])))
+    six = LH.screen_pairs(["sixty-six", "tricks"], lex=SUPP, relation=rel)[0]
+    check("a v1 rule row reads the same way: sixty-six ~ tricks satisfies",
+          six["named"] is True and "perfect rhyme" in six["schema_relations"],
+          (six["named"], six["schema_relations"]))
+    plain = LH.screen_pairs(["streetlights", "nights"], lex=PLAIN, relation=rel)[0]
+    check("CMUdict alone: streetlights still REFUSES, judged on nothing",
+          plain["refused"] and plain["named"] is None
+          and plain["schema_relations"] == [], plain)
+    ctl_p = LH.screen_pairs(["night", "light"], lex=PLAIN)[0]
+    ctl_s = LH.screen_pairs(["night", "light"], lex=V2)[0]
+    check("CONTROL: a pair CMUdict reads answers identically with and "
+          "without the supplement",
+          all(ctl_p[k] == ctl_s[k] for k in
+              ("schema_relations", "undecided", "coarse_relations", "codes")),
+          (ctl_p["schema_relations"], ctl_s["schema_relations"]))
+
+    def _record(out):
+        line = [x for x in out.splitlines() if "lyric result: " in x]
+        return json.loads(line[-1].split("lyric result: ", 1)[1]) if line else {}
+    rc, out = _cli("--lexicon-supplement=v2", "types", "streetlights", "--",
+                   "nights", "--position=end")
+    rec = _record(out)
+    check("`types` under v2 names the registry schemas the screen names, and "
+          "its record carries the basis",
+          rc == 0 and "registry schemas: none" not in out
+          and "perfect rhyme" in out.split("as two line-final words", 1)[-1]
+          and rec.get("status") == "typed"
+          and (rec.get("lexicon") or {}).get("supplement_id") == "v2",
+          out[-400:])
+    rc, out = _cli("types", "streetlights", "--", "nights", "--position=end")
+    rec = _record(out)
+    check("`types` on CMUdict alone stays UNREADABLE, with a null basis",
+          rc == 0 and "UNREADABLE in eng" in out
+          and rec.get("status") == "unreadable"
+          and rec.get("lexicon") == {"supplement_id": None, "sha256": None},
+          out[-300:])
+
+
 def main():
     for fn in (test_shipped_file, test_contract_refusals,
                test_plain_lexicon_untouched, test_derivation_reads_cmudict_alone,
                test_whole_before_piece, test_witnesses, test_reading_sources,
                test_identities_move, test_tokenizer_keys, test_consumer_paths,
-               test_cli, test_versions, test_reviewed_v2):
+               test_cli, test_versions, test_reviewed_v2,
+               test_screen_reads_the_supplement):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0
