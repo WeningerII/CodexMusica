@@ -20,16 +20,22 @@ by 3PO 6133908534). It changes no code path and no data the program reads.
 
 - `census_cmudict_only.json`, `census_v2.json`, `census_v2_fallback_high.json`:
   the census records, one per basis, as `quality/coverage_census.py --out`
-  wrote them. About 35 seconds per basis.
+  wrote them. About 35 seconds per basis. The `--top 100000` records
+  `compare.py` reads are not committed (2 to 3 MB each); its docstring regenerates them.
 - `compare.py`: spelling groups of the types unread under v2, and the
   `fallback: high` readings of those types compared with Moby. Its docstring
-  gives the two commands that reproduce `compare_output.json` byte for byte.
+  gives the three commands that reproduce `compare_output.json` byte for byte.
 - `compare_output.json`: its output, with every row that is not an exact match.
 
 ## What the figures are, and what they are not
 
 - **Answer rates, not verified coverage.** "Read" means the lookup returned a
   reading. Whether the reading is right is a separate question.
+- **"Songs fully read" means no unread token piece.** It does not mean the
+  song passes the workflow or that its pronunciations are verified.
+- **2,007 is a set difference, not only a net change.** 2,007 spellings unread
+  under v2 are answered under `fallback: high`. None that v2 reads goes unread
+  under `fallback: high` (`set_difference` in `compare_output.json`).
 - **Spelling groups are not a linguistic classification.** `other` includes
   closed compounds, so these groups do not measure the share of compounds.
 - **Moby is a reference, not a judge.** It carries 368 of the 2,007 types that

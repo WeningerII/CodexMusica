@@ -3,10 +3,16 @@
 
     python3 quality/coverage_census.py --population song --split validation \
         --lexicon-supplement=v2 --top 100000 --out /tmp/v2_top.json
+    python3 quality/coverage_census.py --population song --split validation \
+        --lexicon-supplement=v2 --fallback=high --top 100000 --out /tmp/v2high_top.json
     python3 quality/results/census_validation_2026-10-12/compare.py \
-        --census-top /tmp/v2_top.json --mpron PATH/TO/mpron.txt
+        --census-top /tmp/v2_top.json --census-top-high /tmp/v2high_top.json \
+        --mpron PATH/TO/mpron.txt
 
-Read-only. Two things, both printed as JSON:
+Read-only. Three things, all printed as JSON:
+  0. The SET DIFFERENCE between the two census records: the spellings unread
+     under v2 that `fallback: high` answers, and any it newly fails to read
+     (a regression). A census count difference alone is only a net change.
   1. SPELLING GROUPS of the types unread under v2 (hyphen / apostrophe /
      other), by occurrence. A spelling group is not a linguistic class:
      `other` includes closed compounds, so it does not measure compound share.
@@ -43,10 +49,14 @@ def reduced(t):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--census-top", required=True)
+    ap.add_argument("--census-top-high", required=True)
     ap.add_argument("--mpron", required=True)
     a = ap.parse_args(argv)
     rec = json.load(open(a.census_top))
     T = rec["top_unread_types"]
+    high = json.load(open(a.census_top_high))
+    unread_v2 = {t["type"] for t in T}
+    unread_high = {t["type"] for t in high["top_unread_types"]}
     groups = collections.Counter(); occ = collections.Counter()
     for t in T:
         w = t["type"]
@@ -88,6 +98,10 @@ def main(argv=None):
         "mpron_sha256": digest,
         "unread_types_v2": len(T),
         "spelling_groups": {k: {"types": groups[k], "occurrences": occ[k]} for k in sorted(groups)},
+        "census_record_high": {k: high[k] for k in ("census_commit", "lexicon_supplement_sha256",
+                                                     "fallback")},
+        "set_difference": {"answered_by_high_not_v2": len(unread_v2 - unread_high),
+                           "unread_by_high_read_by_v2": len(unread_high - unread_v2)},
         "fallback_high_reads": len(newly),
         "fallback_high_still_unread": still,
         "moby_carries": len(inm),

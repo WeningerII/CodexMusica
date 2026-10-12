@@ -30,6 +30,15 @@
    "occurrences": 12373
   }
  },
+ "census_record_high": {
+  "census_commit": "8ff62a12f39677b877f53f029ba3dfe991a52acc",
+  "lexicon_supplement_sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+  "fallback": "high"
+ },
+ "set_difference": {
+  "answered_by_high_not_v2": 2007,
+  "unread_by_high_read_by_v2": 0
+ },
  "fallback_high_reads": 2007,
  "fallback_high_still_unread": 5191,
  "moby_carries": 368,
