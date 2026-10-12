@@ -29166,3 +29166,27 @@ Either one changes verdicts on every song that holds such a pair, and neither is
 **THE RE-PIN** (CLAUDE.md standing rule 4; no other comparator change was pending to batch with it, and M-319 still waits on its own ruling): `comparator_fingerprint()` d8f5a5b15e17 -> **9d5d81461aec**, moving `Declaration()` and the `lyric_harness.py` closure. The predictability memo was rebuilt from nothing over twelve shards (8,597 items, 34,701 CPU-s); `length_curve_calibration.py check --rows` HOLDS on all five curves, both band profiles reproduce every shipped constant, `expected_drift` PASS. Three items' predictability moved, each by a NEAR rhyme (Hemans fear/hear, Hawker hear/near, Scollard fears/years' field). One suite pin moved with its cause: `quality/test_g2p.py` `_DERIVED_WRONG`, where sonnet 49's here/`uprear` is a rhyme again. Receipt: `quality/results/comparator_repin_2026-10-11/curve-check.txt`.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` 374 -> **375**.
+
+### M-321 · the reviewed lexicon supplement does not reach two read-only answers: `lyric_types` is never given a supplement, and `screen`'s registry-schema column and declared-schema verdict read CMUdict alone, so a supplement-only word (`streetlights`, `sixty-six`) stands in all 37 schemas as *undecided* there, and a declared `schema:` relation REFUSES at the screen while the same pair is judged in grade and revise `OPEN` 2026-10-12 — found by BB8's hosted acceptance probe of the live deploy bf5f0b47c (#519 6117773666, narrowed by 3PO 6117809428, correction 6117841345 on #527)
+
+**FOUND** on the live connector, 2026-10-12, 04:27–04:29 UTC. `lyric_types {word_a: "streetlights", word_b: "nights"}` answered `UNREADABLE in eng: the phonology refuses one or both members`, while `lyric_screen` in a session read the same pair under supplement v2 (`lexicon {supplement_id: "v2", sha256: "bec6e6dd…4c52fc51"}`) as ASSONANCE, CONSONANCE, PROMOTED_RHYME and RHYME, with `schema_relations []` and all 37 registry schemas undecided. Pairs of CMUdict words in the same screen had 14–15 undecided.
+
+**MEASURED on `main` at 323cfd2c** (`--lexicon-supplement=v2` throughout):
+
+| call | answer |
+|---|---|
+| `types streetlights -- nights` | reads it: agreement `((False, True, True),)`, cells include `perfect rhyme` |
+| `screen streetlights nights` | coarse ASSONANCE, CONSONANCE, PROMOTED_RHYME, RHYME; `schema_relations []`; 37 undecided |
+| `screen streetlights nights "--relation=schema:perfect rhyme"` | `NAMED COUNTS: 0 satisfies, 0 violates, 1 refused` |
+
+So the harness's `types` verb reads the supplement when it is declared. The gap there is the connector's. In `mcp/lyric_tools.js`, `lexicon_supplement` is declared on `lyric_screen`, `lyric_grade`, `lyric_revise`, `lyric_verify`, `lyric_recover` and `lyric_check`, and not on `lyric_types`, so a hosted `lyric_types` always reads CMUdict alone.
+
+The screen's gap is the harness's own. `screen_pairs` (`lyric_harness.py`) builds its schema reader as `quality.revise._relation_phonology()`, the plain module reader. `Reviser._relation_phonology` (`quality/revise.py`) builds `English(..., lexicon=self.lex)` whenever the lexicon carries a supplement path, and grade and revise judge declared schemas through it.
+
+**WHAT IT DOES NOT REACH** (3PO's correction, 6117809428): declared-schema grading inside grade and revise reads the supplemented lexicon. This entry does not claim that a song declaring a schema refuses a supplement-only word; the screen result does not establish that, and it was not tested here. The hosted preserved-song acceptance (#527 6117837509: grade and revise exit 0, certified, under v2) is unaffected; that song declares no relation.
+
+**IMPACT.** (1) The screen is the step a writer uses before writing to test rhyme words against a declared relation. On a supplement-only end word it answers *refused* where the grade will answer *satisfies* or *violates*. That is honest under standing rule 5, not a wrong pass, but it disagrees with the grade's judge, which the screen's own NAMED line says it shares ("same judge, same coordinate, so screen and grade cannot drift"). (2) `lyric_types` and `lyric_screen` give different readability answers for the same word on the same connection.
+
+**NOT DONE.** No fix is proposed or authorized here (3PO, 6117809428). The two halves are independent: the connector's is a schema field and threading the basis through to `types`; the harness's is the screen reading through the lexicon it was given.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` 375 -> **376**.
