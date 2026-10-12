@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { gzipSync } from 'node:zlib';
-import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync, symlinkSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { REQUIRED_JOBS, validateCI, verifyCI } from '../scripts/verify_ci.mjs';
@@ -41,6 +42,7 @@ test('CI completion dispatches only an exact trusted head and preserves existing
     main = sha,
     created = true,
     createdPatch = {},
+    dispatchError = null,
   } = {}) => {
     const source = { ...run, name: 'CI', workflow_id: 101, ...patch };
     let dispatches = 0;
@@ -60,7 +62,7 @@ test('CI completion dispatches only an exact trusted head and preserves existing
         repo: { owner: 'owner', repo: 'repo' },
         payload: { workflow_run: source },
       },
-      core: { info() {} },
+      core: { info() {}, warning() {} },
       setTimeout: (fn) => fn(),
       github: {
         rest: {
@@ -83,6 +85,7 @@ test('CI completion dispatches only an exact trusted head and preserves existing
               assert.equal(ref, 'main');
               assert.equal(workflow_id, 202);
               dispatches++;
+              if (dispatchError) throw dispatchError;
             },
           },
         },
@@ -126,6 +129,222 @@ test('CI completion dispatches only an exact trusted head and preserves existing
     invoke({ createdPatch: { head_sha: 'b'.repeat(40) } }),
     /no exact-head qualification/
   );
+  // A 5xx that still created the run (323cfd2c, 2026-10-12) is a dispatch;
+  // one that created nothing surfaces the API's own refusal, and neither
+  // re-POSTs -- a second accepted dispatch would be a second qualification.
+  const serverError = Object.assign(new Error('Server Error'), { status: 500 });
+  assert.equal(await invoke({ dispatchError: serverError }), 1);
+  await assert.rejects(invoke({ dispatchError: serverError, created: false }), /Server Error/);
+});
+
+test('a bot-dispatched qualification hands its deploy off itself, only at main, and never fails its own evidence', async () => {
+  const yml = readFileSync(
+    join(import.meta.dirname, '..', '.github', 'workflows', 'production-qualification.yml'),
+    'utf8'
+  );
+  const start = yml.indexOf('\n  deploy-after-dispatch:\n');
+  assert(start > 0, 'the deploy handoff job must exist');
+  const section = yml.slice(start);
+  // The gap it closes is GITHUB_TOKEN's: a schedule or a person's dispatch
+  // already reaches the deploy through workflow_run, so the job must not run
+  // for them, and must not run for an unsuccessful or non-main qualification.
+  const condition = section.match(/ {4}if: >-\n((?: {6}.*\n)+)/)?.[1] ?? '';
+  for (const clause of [
+    "needs.qualification-result.result == 'success'",
+    "github.event_name == 'workflow_dispatch'",
+    "github.actor == 'github-actions[bot]'",
+    "github.ref == 'refs/heads/main'",
+  ])
+    assert(condition.includes(clause), `handoff condition must require ${clause}`);
+  assert.match(section, /^ {4}needs: qualification-result$/m);
+  assert.match(section, /^ {4}permissions:\n {6}contents: read\n {6}actions: write\n/m);
+  assert(!section.includes('actions/checkout'), 'the handoff must execute no repository checkout');
+  assert(!section.includes('continue-on-error'), 'a failed job would still void the evidence');
+  const top = yml.slice(0, yml.indexOf('\njobs:\n'));
+  assert(!/actions: write/.test(top), 'actions: write stays scoped to the handoff job');
+
+  const script = section.match(/ {10}script: \|\n((?: {12}.*\n|\n)+)/)?.[1];
+  assert(script, 'the actual handoff script must be present');
+  const code = `(async () => {\n${script.replace(/^ {12}/gm, '')}\n})()`;
+  const invoke = async ({
+    main = sha,
+    head = sha,
+    deploy = {},
+    created = true,
+    createdPatch = {},
+    dispatchError = null,
+  } = {}) => {
+    let dispatches = 0;
+    const errors = [];
+    const deployRun = {
+      id: 77,
+      workflow_id: 303,
+      event: 'workflow_dispatch',
+      created_at: new Date().toISOString(),
+      ...createdPatch,
+    };
+    // The script itself must never reject: verify_ci.mjs refuses a
+    // qualification holding any failed job, so a throw here would void the
+    // evidence this run just produced.
+    await runInNewContext(code, {
+      context: { repo: { owner: 'owner', repo: 'repo' }, sha: head },
+      core: { info() {}, warning() {}, error: (message) => errors.push(message) },
+      setTimeout: (fn) => fn(),
+      github: {
+        rest: {
+          repos: { getBranch: async () => ({ data: { commit: { sha: main } } }) },
+          actions: {
+            getWorkflow: async ({ workflow_id }) => {
+              assert.equal(workflow_id, 'deploy-connector.yml');
+              return {
+                data: {
+                  id: 303,
+                  name: 'Deploy connector to Render',
+                  path: '.github/workflows/deploy-connector.yml',
+                  ...deploy,
+                },
+              };
+            },
+            listWorkflowRuns: async ({ workflow_id, event }) => {
+              assert.equal(workflow_id, 303);
+              assert.equal(event, 'workflow_dispatch');
+              return { data: { workflow_runs: dispatches && created ? [deployRun] : [] } };
+            },
+            createWorkflowDispatch: async ({ ref, workflow_id }) => {
+              assert.equal(ref, 'main');
+              assert.equal(workflow_id, 303);
+              dispatches++;
+              if (dispatchError) throw dispatchError;
+            },
+          },
+        },
+      },
+    });
+    return { dispatches, errors };
+  };
+  const clean = (result, dispatches) => {
+    assert.deepEqual(result, { dispatches, errors: [] });
+  };
+  const failed = (result, dispatches, pattern) => {
+    assert.equal(result.dispatches, dispatches);
+    assert.equal(result.errors.length, 1);
+    assert.match(result.errors[0], pattern);
+    assert.match(result.errors[0], /This qualification stands/);
+  };
+  clean(await invoke(), 1);
+  clean(await invoke({ main: 'b'.repeat(40) }), 0);
+  failed(await invoke({ head: 'invalid' }), 0, /exact sha/);
+  for (const deploy of [{ name: 'Other' }, { path: '.github/workflows/other.yml' }])
+    failed(await invoke({ deploy }), 0, /identity/);
+  failed(await invoke({ created: false }), 1, /no deploy run appeared/);
+  // An older manual deploy is not this handoff.
+  failed(
+    await invoke({ createdPatch: { created_at: '2000-01-01T00:00:00Z' } }),
+    1,
+    /no deploy run appeared/
+  );
+  // A 5xx that still created the run is a handoff; one that created nothing
+  // reports the API's own refusal, and neither re-POSTs.
+  const serverError = Object.assign(new Error('Server Error'), { status: 500 });
+  clean(await invoke({ dispatchError: serverError }), 1);
+  failed(await invoke({ dispatchError: serverError, created: false }), 1, /Server Error/);
+});
+
+test('a manual deploy waits out only a qualification still finishing, and only for so long', () => {
+  const yml = readFileSync(
+    join(import.meta.dirname, '..', '.github', 'workflows', 'deploy-connector.yml'),
+    'utf8'
+  );
+  const step = yml.slice(yml.indexOf('id: evidence'));
+  const body = step.match(/\n {8}run: \|\n((?: {10}.*\n|\n)+)/)?.[1];
+  assert(body, 'the evidence step body must be present');
+  assert.equal(
+    (
+      body.match(/node scripts\/verify_ci\.mjs "\$TESTED_SHA" --production > verified-ci\.json/g) ||
+      []
+    ).length,
+    1
+  );
+  const root = join(import.meta.dirname, '..');
+  const pending = JSON.parse(
+    spawnSync(
+      process.execPath,
+      [
+        '--input-type=module',
+        '-e',
+        "import { QUALIFICATION_PENDING as p, QUALIFICATION_ABSENT as a } from './scripts/verify_ci.mjs'; console.log(JSON.stringify([p, a]))",
+      ],
+      { cwd: root, encoding: 'utf8' }
+    ).stdout
+  );
+  const run = (event, answers) => {
+    const dir = mkdtempSync(join(tmpdir(), 'deploy-evidence-'));
+    try {
+      symlinkSync(join(root, 'scripts'), join(dir, 'scripts'));
+      writeFileSync(join(dir, 'answers.json'), JSON.stringify(answers));
+      writeFileSync(
+        join(dir, 'stub.mjs'),
+        `
+        import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+        const answers = JSON.parse(readFileSync('answers.json'));
+        const n = existsSync('calls') ? Number(readFileSync('calls', 'utf8')) : 0;
+        writeFileSync('calls', String(n + 1));
+        const [rc, doc] = answers[Math.min(n, answers.length - 1)];
+        console.log(JSON.stringify(doc));
+        process.exitCode = rc;
+      `
+      );
+      const script = body
+        .replace(/^ {10}/gm, '')
+        .replace(
+          'node scripts/verify_ci.mjs "$TESTED_SHA" --production > verified-ci.json',
+          'node stub.mjs > verified-ci.json'
+        )
+        .replaceAll('${{ github.event_name }}', event)
+        .replaceAll('${{ github.repository_id }}', '1')
+        .replace('sleep 15', ':');
+      const out = join(dir, 'out');
+      writeFileSync(out, '');
+      const result = spawnSync('bash', ['-e', '-c', script], {
+        cwd: dir,
+        encoding: 'utf8',
+        env: { ...process.env, TESTED_SHA: sha, GITHUB_OUTPUT: out },
+      });
+      return {
+        status: result.status,
+        calls: Number(readFileSync(join(dir, 'calls'), 'utf8')),
+        output: readFileSync(out, 'utf8'),
+      };
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  };
+  const ok = [0, { run_id: 12, run_attempt: 2, qualification: { run_id: 98, run_attempt: 1 } }];
+  const waiting = [10, { stand_down: pending[0] }];
+  const absent = [10, { stand_down: pending[1] }];
+  // The handoff case: two answers of "still finishing", then the evidence.
+  let r = run('workflow_dispatch', [waiting, waiting, ok]);
+  assert.equal(r.status, 0);
+  assert.equal(r.calls, 3);
+  assert.match(r.output, /qualified=yes/);
+  assert.match(r.output, /qualification_run_id=98/);
+  // A workflow_run deploy never waits: it fired on a completed run.
+  r = run('workflow_run', [waiting, ok]);
+  assert.equal(r.calls, 1);
+  assert.match(r.output, /qualified=no/);
+  // Absent is not "finishing": no wait, the old stand-down.
+  r = run('workflow_dispatch', [absent, ok]);
+  assert.equal(r.calls, 1);
+  assert.match(r.output, /qualified=no/);
+  // Bounded: twenty asks, then the same stand-down as before.
+  r = run('workflow_dispatch', [waiting]);
+  assert.equal(r.status, 0);
+  assert.equal(r.calls, 20);
+  assert.match(r.output, /qualified=no/);
+  // A real error is never waited on and still fails the step.
+  r = run('workflow_dispatch', [[1, {}], ok]);
+  assert.equal(r.calls, 1);
+  assert.notEqual(r.status, 0);
 });
 
 test('release CI requires actual successful jobs at the exact trusted main push', () => {
