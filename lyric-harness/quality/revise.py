@@ -1922,7 +1922,8 @@ class Reviser:
                     # answer a two-line question (`chain rhyme (rap)`). The
                     # whole-vocabulary default below reads REGISTRY unchanged.
                     _sch_pairs[w] = _R_mod.line_pairs_for(
-                        _R_mod.declared_pair_schema(_R_mod.REGISTRY[_canon]),
+                        _R_mod.declared_pair_schema(_R_mod.REGISTRY[_canon],
+                                                    promote=self._promote()),
                         _stream, requested_pairs=_requested)
         # THE SLOT PATH, and it is entered only by a mandate that declares
         # one. `slots_declared()` is False for every mandate written before
@@ -2109,8 +2110,13 @@ class Reviser:
                             unknown.add((j, k))
                             _refused_here = True
                             break
+                        # The declared row at the declared tokens: the
+                        # promoted final where the declaration promotes it
+                        # (`relations.declared_token_schema`, M-319).
                         _out, _rwit = _R_ref.pair_satisfies_any(
-                            _R_ref.REGISTRY[_sch_name], _stream,
+                            _R_ref.declared_token_schema(
+                                _R_ref.REGISTRY[_sch_name],
+                                promote=self._promote()), _stream,
                             (i - 1, _ti), (j - 1, _tj),
                             _reading_build(_R_ref))
                         if isinstance(_out, _R_ref.Refusal):
@@ -2141,7 +2147,8 @@ class Reviser:
                                     and hasattr(_sch_pairs.get(want), "verdict")):
                                 ok, _rwit = _R_ref.resolve_line_pair(
                                     _R_ref.declared_pair_schema(
-                                        _R_ref.REGISTRY[_sch_name]),
+                                        _R_ref.REGISTRY[_sch_name],
+                                        promote=self._promote()),
                                     _stream, (i, j), _reading_build(_R_ref))
                         except _RT.RelationRefused as e:
                             refusals.append({
@@ -4687,8 +4694,13 @@ class Reviser:
                         # schema, a declared slot through `pair_satisfies`
                         # over the registry row itself.
                         route = "default" if both_default else "token"
-                        sch = (_RL.declared_pair_schema(_RL.REGISTRY[canon])
-                               if both_default else _RL.REGISTRY[canon])
+                        sch = (_RL.declared_pair_schema(
+                                   _RL.REGISTRY[canon],
+                                   promote=self._promote())
+                               if both_default else
+                               _RL.declared_token_schema(
+                                   _RL.REGISTRY[canon],
+                                   promote=self._promote()))
                         cells = RI.schema_requirement(sch, route)
                         sp = unit_sets(x - 1, token_at(x - 1, sl_p))
                         if cells is not None and sp is not None:
@@ -5514,6 +5526,10 @@ class Reviser:
             # its own declaration must not silently empty the offer — that
             # would read as "the lexicon has no answer" (doctrine 20).
             return list(offered), []
+        # The DECLARED row, as `grade()` judges it at a declared token: the
+        # offered word ends its carrier line, so it gets the promoted final
+        # where the declaration promotes (`MISSING.md` M-319).
+        sch = _RL.declared_token_schema(sch, promote=self._promote())
         lex = _ph("eng")
         kept, refused = [], []
         for w in offered:

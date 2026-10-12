@@ -1727,6 +1727,12 @@ class Span:
     unit: str = "syllable"
     origin: str = ""          # provenance: which SpanRule produced it
     search_k: int = 1         # how many hypotheses the rule tried at this locus
+    # THE PROMOTED FINAL (`MISSING.md` M-319, owner ruling 2026-10-11): a
+    # one-syllable span on a line-final word's unstressed final syllable,
+    # read at prominence 1 as sung verse promotes it. Only a
+    # `PromotedFinalRule` makes one (`_spans_at`), and `_span_read` is the
+    # one place its prominence is read.
+    promoted: bool = False
 
     def __len__(self):
         return len(self.idx)
@@ -1979,7 +1985,33 @@ def _spans_at(rule, stream, ids, origin):
         if isinstance(rule.magnitude, int):
             sel = sel[:rule.magnitude]
     if sel:
-        yield Span(sel, 0, rule.direction, "syllable", origin)
+        sp = Span(sel, 0, rule.direction, "syllable", origin)
+        yield sp
+        if (getattr(rule, "promote_final", False)
+                and _promotable_final(stream, ids, ap, rule)):
+            # A SECOND reading of the same member, not a replacement: the
+            # pair stands if either anchoring works (`MISSING.md` M-319).
+            yield replace(sp, idx=ids[-1:], promoted=True)
+
+
+def _promotable_final(stream, ids, ap, rule):
+    """Is the last syllable of `ids` the one `Declaration.final_promotion`
+    promotes? (`MISSING.md` M-319.) The same three conditions
+    `lyric_harness.line_anchors` applies to its own anchors: the token ends
+    its LINE, its last-stressed anchor (`ap`) is a definitely stressed
+    syllable BEFORE the last one, and the last syllable is definitely
+    unstressed. An uncertain prominence offers nothing here; the
+    any-reading rule pins each reading and asks again."""
+    if rule.direction <= 0 or len(ids) < 2 or ap >= len(ids) - 1:
+        return False
+    last = stream.units[ids[-1]]
+    line = stream.lines[last.line] if 0 <= last.line < len(stream.lines) else ()
+    if not line or line[-1] != ids[-1]:
+        return False
+    head = stream.units[ids[ap]].syl.prominence
+    tail = last.syl.prominence
+    return (not uncertain(head) and not uncertain(tail)
+            and head == 1 and tail == 0)
 
 
 # ---------------------------------------------------------------------------
@@ -2510,6 +2542,21 @@ def _seq(span, stream, channel, chans, surface, rule=None):
     return tuple(out)
 
 
+def _span_read(span, pos, channel, stream, chans, surface):
+    """One channel of the unit at `pos` in `span`, as the judge reads it.
+
+    The single exception to `chans.read` is the PROMOTED FINAL (`MISSING.md`
+    M-319): a span `_spans_at` built from a `PromotedFinalRule` on an
+    unstressed line-final syllable reads that syllable's phonemic prominence
+    as 1, which is what `Declaration.final_promotion` asserts of sung
+    verse. Every other channel, and every other span, reads the dictionary.
+    """
+    if (span.promoted and channel == "prominence" and surface == "phonemic"
+            and pos == span.anchor_pos):
+        return 1
+    return chans.read(stream.units[span.idx[pos]], channel, stream, surface)
+
+
 def _positions(scope, span, align, side):
     n = len(span)
     if scope == "each":
@@ -2608,10 +2655,8 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
             pa = _positions(cr.scope, a, align, 0)
             pb = _positions(cr.scope, b, align, 1)
             for qa, qb in zip(pa, pb):
-                xa = chans.read(stream.units[a.idx[qa]], cr.channel, stream,
-                                cr.surface)
-                xb = chans.read(stream.units[b.idx[qb]], cr.channel, stream,
-                                cr.surface)
+                xa = _span_read(a, qa, cr.channel, stream, chans, cr.surface)
+                xb = _span_read(b, qb, cr.channel, stream, chans, cr.surface)
                 mine.append((cr.channel, qa, pred(xa, xb)))
         reads.extend(mine)
         if cr.required:
@@ -2756,8 +2801,7 @@ def _bucket_key(schema, span, stream, chans, rule=None):
                 (len(span) - 1 if cr.scope == "last" else 0)
             if pos >= len(span):
                 return None
-            v = chans.read(stream.units[span.idx[pos]], cr.channel, stream,
-                           cr.surface)
+            v = _span_read(span, pos, cr.channel, stream, chans, cr.surface)
         if v is None or uncertain(v):
             # WILDCARD: never prune an unknown, and an UNCERTAIN read is an
             # unknown for indexing purposes.  Bucketing a homograph on one of
@@ -5301,11 +5345,61 @@ DECLARED_PAIR_FIGURES = {
 }
 
 
-def declared_pair_schema(schema):
+@dataclass(frozen=True)
+class PromotedFinalRule(SpanRule):
+    """`END_ANCHOR` that ALSO offers the promoted final (`MISSING.md` M-319).
+
+    On a line-final token whose last syllable is unstressed after a stressed
+    one, `_spans_at` yields the ordinary last-stressed span AND a
+    one-syllable span on that final syllable read at prominence 1
+    (`Span.promoted`, `_span_read`) — the syllable
+    `Declaration.final_promotion` promotes because sung verse does
+    (harmony, memory, money). The pair stands if either anchoring works:
+    the any-reading rule, applied to the anchor. A subclass rather than a
+    new field on `SpanRule`, so every registry rule keeps its value and its
+    repr; only the declared-pair rows below carry it."""
+    promote_final: bool = True
+
+
+END_ANCHOR_PROMOTED = PromotedFinalRule(
+    END_ANCHOR.locus, END_ANCHOR.anchor, END_ANCHOR.direction,
+    END_ANCHOR.magnitude)
+
+#: THE DECLARED PROMOTED FINAL — `MISSING.md` M-319, owner ruling
+#: 2026-10-11, option (b). `cmudict.dict` writes the unstressed final -y of
+#: company, reality and liberty as IY2 and of harmony, memory and money as
+#: IY0, and `quality/phonology/eng.py` reads stress 2 as prominence 1, so a
+#: declared perfect rhyme passed sea~company and failed sea~harmony: one
+#: sung shape, two verdicts, decided by a digit the writer cannot see. The
+#: owner ruled the LOOSER repair: a mandate's DECLARED perfect rhyme admits
+#: the promoted final, so the IY0 words pass as the IY2 words already do.
+#: The dictionary reading stands (standing rule 5), the coarse relations
+#: keep PROMOTED_RHYME apart from RHYME, and the REGISTRY row — which the
+#: whole-vocabulary default, the screen's relation list and the bound-token
+#: route read — is unchanged. Readers: every route that judges a DECLARED
+#: `schema:` relation (`declared_token_schema`, `declared_pair_schema`).
+DECLARED_PROMOTED_FINAL = frozenset({"perfect rhyme"})
+
+
+def declared_token_schema(schema, promote=True):
+    """-> the schema a DECLARED relation is judged under at two declared
+    tokens (`pair_satisfies`): `schema` itself, unless
+    `DECLARED_PROMOTED_FINAL` names it AND `promote` (the declaration's
+    `final_promotion`) is true, in which case every `END_ANCHOR` member
+    becomes `END_ANCHOR_PROMOTED`. The figure is left as declared."""
+    if not promote or schema.name not in DECLARED_PROMOTED_FINAL:
+        return schema
+    return replace(schema, spans=tuple(
+        END_ANCHOR_PROMOTED if r == END_ANCHOR else r for r in schema.spans))
+
+
+def declared_pair_schema(schema, promote=True):
     """-> the schema a DECLARED mandate pair is judged under: `schema`
     itself, unless `DECLARED_PAIR_FIGURES` names it, in which case the same
-    row with that figure (spans, channels, placement and identity kept).
+    row with that figure (spans, channels, placement and identity kept),
+    and with `declared_token_schema`'s promoted final where that applies.
     Never read by the whole-vocabulary default (`whole_vocabulary_pairs`)."""
+    schema = declared_token_schema(schema, promote=promote)
     fig = DECLARED_PAIR_FIGURES.get(schema.name)
     return schema if fig is None else replace(schema, figure=fig)
 
