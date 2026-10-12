@@ -25,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STARTUP_SECONDS = 30
 HEALTH_SECONDS = 5
 REPLAY_SECONDS = 10
+LIBRARY_LOAD_SECONDS = 60
 STOP_SECONDS = 5
 
 
@@ -194,6 +195,32 @@ def queue_pressure_failures(record, expected, *, local=False, isolated=False):
     return failures
 
 
+LIBRARY_STORES = ('search', 'export', 'corpus')
+
+
+def library_evidence_failures(library, key):
+    # The Library load after startup and after recovery (load_library) is
+    # required evidence, not optional: an absent record is a failure, never a
+    # pass (3PO's #544 review). Any configured store counts, exports alone
+    # included, and a configured Library must be ready with nothing failed.
+    if (not isinstance(library, dict) or type(library.get('configured')) is not bool
+            or not isinstance(library.get('stores'), dict)
+            or set(library['stores']) != set(LIBRARY_STORES)
+            or any(type(v) is not bool for v in library['stores'].values())
+            or library['configured'] != any(library['stores'].values())):
+        return [f'the Library load evidence is missing or malformed ({key})']
+    if not library['configured']:
+        return [] if library.get('state') == 'absent' else [f'an unconfigured Library reported {library.get("state")!r} ({key})']
+    failures = []
+    if library.get('state') != 'ready' or library.get('failures') != []:
+        failures.append(f'the configured Library stores were not resident ({key}): {library.get("state")!r} {library.get("failures")!r}')
+    if library['stores']['search'] and library.get('search_ready') is not True:
+        failures.append(f'the configured Library search store was not ready ({key})')
+    if library['stores']['corpus'] and library.get('corpus') not in ('verifying', 'verified'):
+        failures.append(f'the configured Library corpus packages were {library.get("corpus")!r} ({key})')
+    return failures
+
+
 def runtime_evidence_failures(record, *, local=False, require_concurrent=True):
     def number(value):
         return type(value) in (int, float) and math.isfinite(value)
@@ -206,6 +233,8 @@ def runtime_evidence_failures(record, *, local=False, require_concurrent=True):
         failures.append('resident server may have spawned an extra Python worker')
     if record.get('errors'):
         failures.extend(record['errors'])
+    for key in ('library', 'library_recovery'):
+        failures.extend(library_evidence_failures(record.get(key), key))
     failures.extend(run_store_evidence_failures(record.get('run_store', {})))
     if any(type(record.get(key)) is not int or record[key] < minimum for key, minimum in (('probe_count', 2), ('replays', 2), ('catalog_reads', 1))):
         failures.append('resident server HTTP traffic/recovery evidence is incomplete')
@@ -405,7 +434,7 @@ class ResidentRuntime:
         started = time.monotonic()
         self.startup_deadline = started + STARTUP_SECONDS
         self.log = open(self.directory / ('restart.stderr' if recovery else 'server.stderr'), 'w')
-        env = {**os.environ, 'PORT': str(self.port), 'LYRIC_RUNTIME_DIR': str(self.directory / 'runtime'),
+        env = {**os.environ, 'STARTUP_TRACE': '1', 'PORT': str(self.port), 'LYRIC_RUNTIME_DIR': str(self.directory / 'runtime'),
                'GEMINI_API_KEY': 'offline-capacity-placeholder', 'LYRIC_PYTHON': os.sys.executable,
                'HTTP_PROXY': '', 'HTTPS_PROXY': '', 'ALL_PROXY': '', 'NO_PROXY': '127.0.0.1,localhost'}
         self.child = subprocess.Popen([self.node, str(ROOT / 'scripts/lyrics_capacity_server.mjs'),
@@ -427,10 +456,48 @@ class ResidentRuntime:
                 last_error = error
                 time.sleep(.1)
         else:
+            self.report_startup_trace(recovery, started)
             raise RuntimeError(f'actual server startup/recovery deadline: {last_error}')
+        self.report_startup_trace(recovery, started)
         self.startup_deadline = None
         self.record['recovery_s' if recovery else 'startup_s'] = time.monotonic() - started
         self.record['recovery_ok' if recovery else 'startup_ok'] = True
+        self.load_library('library_recovery' if recovery else 'library')
+
+    def report_startup_trace(self, recovery, started):
+        # The server's own phase marks (STARTUP_TRACE=1, mcp/server_http.js),
+        # printed to the shard log so a slow start is located on the runner
+        # that had it, pass or fail; the launcher's clock closes the line.
+        try:
+            lines = [line.strip() for line in (self.directory / ('restart.stderr' if recovery else 'server.stderr')).read_text(errors='replace').splitlines() if line.startswith('[startup]')]
+        except OSError:
+            lines = []
+        self.record['recovery_trace' if recovery else 'startup_trace'] = lines
+        label = 'recovery' if recovery else 'startup'
+        print(f"Capacity {label} trace: {' | '.join(lines) or 'no phase marks'} | probe window closed +{time.monotonic() - started:.1f}s after launch", flush=True)
+
+    def load_library(self, key):
+        # THE LIBRARY STORES LOAD ON FIRST USE (mcp/server_http.js), never before
+        # listen(), so the startup window above does not include them. This is
+        # that first use, made the moment startup is proved: every measurement
+        # after it runs with the search, export and corpus stores resident, as
+        # production does after its first Library request. Measuring only the
+        # cold process would leave their ~110 MB out of the combined runtime.
+        stores = {name: bool(os.environ.get(f'LIBRARY_{name.upper()}_DIR')) for name in LIBRARY_STORES}
+        started = time.monotonic()
+        # Outside the startup gate, so a cold read of the stores (hundreds of MB)
+        # gets a minute rather than a replay's ten seconds.
+        library = self.request('GET', '/library/v1/health', timeout=LIBRARY_LOAD_SECONDS)
+        state = self.health().get('library') or {}
+        self.record[key] = {'configured': any(stores.values()), 'stores': stores,
+                            'state': state.get('state'), 'failures': state.get('failures'),
+                            'corpus': state.get('corpus'),
+                            'search_ready': library.get('search_ready') is True,
+                            'load_s': time.monotonic() - started}
+        failures = library_evidence_failures(self.record[key], key)
+        if failures:
+            raise RuntimeError('; '.join(failures))
+        self.sample()
 
     def start(self):
         manifest = self.directory / 'receipts.json'

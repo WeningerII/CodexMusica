@@ -99,17 +99,25 @@ if (mode === '--prepare') {
 
   // Random/gzip fixture generation is bounded preparation, not production
   // startup. The actual server only loads these prepared bytes into RUNS.
+  const preparedOut = JSON.stringify({
+    version: 1,
+    maxLines,
+    maxChars,
+    workerMin,
+    workerMax,
+    declarationMin,
+    records: [...RUNS.map.values()],
+  });
+  fs.writeFileSync(preparedPath, preparedOut, { mode: 0o600 });
+  // The hash of exactly the bytes this step validated (every draft against
+  // the schema, every journal through assertContinuationCapacity and a codec
+  // roundtrip, above). The load below requires it rather than repeating that
+  // validation inside the resident server's startup window, which it once did:
+  // about 7 s of fixture checks on one CPU locally and roughly twice that on a
+  // CI runner, timed as "server startup" though production never runs them.
   fs.writeFileSync(
-    preparedPath,
-    JSON.stringify({
-      version: 1,
-      maxLines,
-      maxChars,
-      workerMin,
-      workerMax,
-      declarationMin,
-      records: [...RUNS.map.values()],
-    }),
+    `${preparedPath}.sha256`,
+    crypto.createHash('sha256').update(preparedOut).digest('hex') + '\n',
     { mode: 0o600 }
   );
   process.exit(0);
@@ -125,24 +133,18 @@ if (
   prepared.records.length !== RUNS.cap
 )
   throw new Error('Prepared RunStore load has drifted');
-workerMin = Infinity;
-workerMax = 0;
-declarationMin = Infinity;
-for (const row of prepared.records) {
-  draftSchema.parse(row.draft);
-  draftSchema.parse(row.replay_draft);
-  declarationMin = Math.min(declarationMin, bytes(row.decl));
-  for (const wire of [row.state, row.checkpoint]) {
-    const state = decodeState(wire);
-    assertContinuationCapacity(state);
-    const worker = { ...state };
-    delete worker.connector_declarations;
-    delete worker.connector_semantic_identity;
-    workerMin = Math.min(workerMin, bytes(worker));
-    workerMax = Math.max(workerMax, bytes(worker));
-  }
-  RUNS.put(row.key, row);
-}
+// Only the bytes --prepare validated may load: their hash must match the one
+// it wrote, and the worker and declaration bounds are the ones it measured.
+const validatedSha256 = fs.readFileSync(`${preparedPath}.sha256`, 'utf8').trim();
+if (validatedSha256 !== preparedSha256)
+  throw new Error('Prepared RunStore bytes differ from the ones --prepare validated');
+({ workerMin, workerMax, declarationMin } = prepared);
+if (
+  ![workerMin, workerMax, declarationMin].every((n) => Number.isSafeInteger(n) && n > 0) ||
+  workerMin > workerMax
+)
+  throw new Error('Prepared RunStore bounds are missing');
+for (const row of prepared.records) RUNS.put(row.key, row);
 // The records are held only by the actual singleton after loading. Discard
 // the preparer's parsed container and raw bytes before the heavy workload.
 prepared.records = null;
