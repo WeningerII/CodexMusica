@@ -4,6 +4,8 @@ These are read-only measurements of the whole problem rather than one word pair 
 
 ## Inputs
 
+Run every command below from `lyric-harness/`. The Moby file is the staged, git-ignored `data/moby/mpron.txt` (`quality/fetch_data.py --research`).
+
 | input | value |
 |---|---|
 | commit | `4b14ff5b0017f5f8b9e33cbbc6f00b1cf612bb80` |
@@ -29,7 +31,7 @@ The records are `census_dev_none.json`, `census_dev_v2.json` and `census_dev_v2h
 
 ## Item 2: CMUdict + v2 against Moby
 
-    python3 quality/results/scope_2026-10-12/lex_vs_moby.py PATH/TO/mpron.txt OUT.json
+    python3 quality/results/scope_2026-10-12/lex_vs_moby.py data/moby/mpron.txt quality/results/scope_2026-10-12/lex_vs_moby.json
 
 This compares the **whole dictionary inventory**: every word that has a reading in `cmudict.dict` or in the v2 supplement, 126,189 words. That is a different population from the readings actually selected for corpus occurrences, which this item does not measure. Moby is converted by `quality/moby_convert.py`.
 
@@ -51,7 +53,7 @@ All of these are **disagreements to adjudicate**. None of the counts is an error
 
 ## Item 3: anchor reader vs grid reader, every dev end line
 
-    python3 quality/results/scope_2026-10-12/reader_disagree.py OUT.json
+    python3 quality/results/scope_2026-10-12/reader_disagree.py quality/results/scope_2026-10-12/reader_disagree_dev.json
 
 It reads with `SupplementedLexicon(v2)` and no fallback. The output is in `reader_disagree_dev.json`.
 
@@ -72,7 +74,7 @@ It reads with `SupplementedLexicon(v2)` and no fallback. The output is in `reade
 
 ## Item 2b: the readings actually selected in dev occurrences
 
-    python3 quality/results/scope_2026-10-12/selected_vs_moby.py PATH/TO/mpron.txt OUT.json
+    python3 quality/results/scope_2026-10-12/selected_vs_moby.py data/moby/mpron.txt quality/results/scope_2026-10-12/selected_vs_moby.json
 
 Each dev word is looked up through `SupplementedLexicon(v2)` with no fallback, the reading `transcribe_word` selects is compared with Moby, and the counts are weighted by occurrence. The output is in `selected_vs_moby.json`. It ran in 31 s.
 
