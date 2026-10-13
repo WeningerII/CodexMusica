@@ -156,6 +156,33 @@ V2_REGRESSIONS = [
 ]
 
 
+#: Codepoints where a character class the mirror spells out has differed, or
+#: could differ, from Python's -- enumerated over every codepoint both Unicode
+#: versions assign, not chosen by example. U+0345 is the one character a
+#: case-insensitive `[\p{L}\p{N}_]` matches and Python's `\w` does not (it
+#: case-folds to Greek iota); U+017F is the one non-ASCII letter `re.I`
+#: matches for an enclitic letter (`s`); U+FEFF is in JavaScript's `\s` and
+#: not Python's, U+001C-U+001F and U+0085 the reverse; U+180E was whitespace
+#: in older Unicode. `scripts/test_lyric_tokens.js` re-enumerates the
+#: case-fold difference in the engine it runs on and checks every codepoint it
+#: finds is here.
+CLASS_BOUNDARY_CODEPOINTS = ["\u0345", "\u017f", "\ufeff", "\u001c", "\u001d",
+                             "\u001e", "\u001f", "\u0085", "\u180e"]
+
+
+def class_boundary_lines():
+    """-> lines putting each `CLASS_BOUNDARY_CODEPOINTS` character where a
+    class decides the cut: after a spaced enclitic (the `\\b`), before the
+    space a join removes (the `\\w`), as that space, as an enclitic letter's
+    neighbour, and inside a word."""
+    out = []
+    for c in CLASS_BOUNDARY_CODEPOINTS:
+        out += [f"dog 's{c} bone", f"dog{c} 's bone", f"dog{c}'s bone",
+                f"dog {c}'s bone", f"dog '{c} bone", f"dog 'm{c}e x",
+                f"a{c}b night", f"night{c}"]
+    return out
+
+
 MIRROR_FIXTURE = "quality/fixtures/reader_v2_mirror.json"
 
 
@@ -171,7 +198,8 @@ def mirror_fixture():
     def rows(seq):
         return [[t.text, [list(p) for p in t.pieces], t.numeral, t.aside] for t in seq]
     out = []
-    for text in generated_lines(1000, seed=7) + REGRESSIONS + V2_REGRESSIONS:
+    for text in (generated_lines(1000, seed=7) + REGRESSIONS + V2_REGRESSIONS
+                 + class_boundary_lines()):
         row = {"text": text}
         for sp, key in ((True, "strip"), (False, "keep")):
             rl = LH.reader_line(text, strip_parens=sp, scheme="v2")

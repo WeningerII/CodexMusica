@@ -16,7 +16,10 @@
    Python's \w, \b and \s are not JavaScript's, so they are spelled out here:
    \w as [\p{L}\p{N}_], \b after a word character as a negative lookahead, and
    \s as the exact str.isspace() set (JavaScript's \s adds U+FEFF and lacks
-   U+001C-U+001F and U+0085). scripts/test_lyric_tokens.js checks this file
+   U+001C-U+001F and U+0085). No regex here takes the `i` flag: it case-folds
+   a class (U+0345 becomes a word character). Enumerated over every codepoint
+   both Unicode versions assign, these classes then match Python's exactly;
+   the agreement fixture carries the codepoints where they once differed. scripts/test_lyric_tokens.js checks this file
    against the harness on a generated fixture.
 
    Residual, disclosed: \p{L}, \p{M} and \p{N} are the engine's Unicode
@@ -36,9 +39,14 @@
   const M_ONE = /^\p{M}$/u;
   const N_ONE = /^\p{N}$/u;
   const L_ONE = /^\p{L}$/u;
+  // NO `i` FLAG: under /iu a character class matches whatever case-folds
+  // into it, so U+0345 (a combining mark that folds to Greek iota) would be
+  // a word character here and not in the grader. Python's re.I folds only
+  // the enclitic letters, so they are spelled out, U+017F (long s, which
+  // re.I matches for `s`) included.
   const ENCLITIC = new RegExp(
-    `([\\p{L}\\p{N}_])([${WS}]+)('s|'ll|'re|'ve|'d|'m)(?![\\p{L}\\p{N}_])`,
-    'giu'
+    `([\\p{L}\\p{N}_])([${WS}]+)('[sS\u017f]|'[lL][lL]|'[rR][eE]|'[vV][eE]|'[dD]|'[mM])(?![\\p{L}\\p{N}_])`,
+    'gu'
   );
   const ASIDE = /\([^)]*\)/g;
 

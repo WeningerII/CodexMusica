@@ -122,3 +122,35 @@ test("the page's word spans number exactly the tokens it declares against", () =
     }
   }
 });
+
+test('no class in the mirror case-folds: every such codepoint is in the fixture', () => {
+  // Under the `i` flag a Unicode class matches whatever case-folds into it,
+  // which Python's re.I does not do for \w. Enumerate, in the engine this runs
+  // on, every codepoint where the mirror's word class differs with and without
+  // `i`; each must be a fixture case (reader_cases.CLASS_BOUNDARY_CODEPOINTS),
+  // so the agreement test above reads it in the positions a class decides.
+  const plain = /^[\p{L}\p{N}_]$/u;
+  const folded = /^[\p{L}\p{N}_]$/iu;
+  const differ = [];
+  for (let c = 0; c <= 0x10ffff; c++) {
+    if (c >= 0xd800 && c <= 0xdfff) continue;
+    const s = String.fromCodePoint(c);
+    if (plain.test(s) !== folded.test(s)) differ.push(s);
+  }
+  assert.ok(differ.includes('ͅ'));
+  const texts = FIXTURE.cases.map((c) => c.text);
+  for (const s of differ) {
+    const hex = s.codePointAt(0).toString(16);
+    assert.ok(
+      texts.some((t) => t.includes(`dog 's${s} bone`)),
+      `U+${hex} is not a fixture case`
+    );
+  }
+  const source = fs.readFileSync(path.join(ROOT, 'src/lyric-tokens.js'), 'utf8');
+  const flags = [
+    ...[...source.matchAll(/new RegExp\([^;]*?,\s*'([a-z]+)'\s*\)/g)].map((m) => m[1]),
+    ...[...source.matchAll(/\/([dgimsuvy]+)\s*[;,)]/g)].map((m) => m[1]),
+  ];
+  assert.ok(flags.length >= 4, `found flags ${flags}`);
+  for (const f of flags) assert.ok(!f.includes('i'), `a regex in the mirror takes flags '${f}'`);
+});
