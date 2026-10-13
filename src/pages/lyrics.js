@@ -4092,6 +4092,8 @@ const LY_ACTION_TEXT = {
     `Check the committed document in the page context and list the dictionary pronunciation options (pronunciation_options) for “${word}”, word ${token} of line ${n}. Do not choose a reading and do not rewrite anything.`,
   recheck: ({ n, proposal }) =>
     `Check this replacement for line ${n} against the committed document in the page context and its declarations. If it fails, keep the original line and say why.\nReplacement: ${proposal}`,
+  'recheck-whole': ({ proposal }) =>
+    `Check this proposed whole-draft replacement against the committed document in the page context and its declarations. If it fails, keep the current draft and say why.\nProposed replacement:\n${proposal}`,
   lines: ({ ns }) =>
     `Rewrite ${lyLineRef(ns)} of the committed document in the page context together, so they keep their rhyme link and every other declaration. Change no other line.`,
 };
@@ -4148,6 +4150,7 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
   uiUpdatePrompt();
   const message = LY_ACTION_TEXT[kind](args);
   const context = lyContext(model);
+  const previousRun = LY.run;
   const sent = _chatSend(message, { choice: 'lyrics-edit', context });
   // _chatSend records the request synchronously before it awaits the POST.
   const requestId = chatState.pending?.request_id || null;
@@ -4157,18 +4160,34 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
   lyRefresh(true);
   const r = await sent;
   if (!r.ok && r.reason) showToast('Nothing was sent.', 'error');
+  // Send's ok also covers recovery/errors; only announce an actual new reply.
+  if (
+    kind === 'recheck-whole' &&
+    r.ok &&
+    !chatState.pending &&
+    LY.run !== previousRun &&
+    LY.run?.generation === chatState.generation &&
+    !LY.run.error
+  )
+    showToast('Recheck reply is in Writer.');
   lyRefresh(true);
   return r.ok;
 }
 // A new conversation the person will type into: the same conflict rule.
-async function lyStartConversation(choice, prefill = '') {
+async function lyStartConversation(choice, prefill = '', { force = false } = {}) {
   lyCloseMenus();
   if (chatState.busy) {
     showToast('Writer is working. You can keep editing.', 'error');
     return false;
   }
-  if (lyLiveWork()) {
+  if (lyLiveWork() && !force) {
     LY.conflict = { kind: 'conversation', args: { choice, prefill } };
+    lyShowTab('writer');
+    return false;
+  }
+  // Explicit independent work may set aside a known run, never an unknown outcome.
+  if (chatState.pending) {
+    showToast('Retrieve the saved result before starting another request.', 'error');
     lyShowTab('writer');
     return false;
   }
@@ -4178,10 +4197,11 @@ async function lyStartConversation(choice, prefill = '') {
   }
   LY.conflict = null;
   _chatReset();
-  $ui('chat-domain').value = choice;
-  uiUpdatePrompt();
   lyShowTab('writer');
   uiChatOpen();
+  // Opening the shared dock selects the lyrics domain; retain the requested phase.
+  $ui('chat-domain').value = choice;
+  uiUpdatePrompt();
   if (prefill) {
     $ui('chat-input').value = prefill;
     _chatSyncCount();
@@ -4883,6 +4903,10 @@ const LY_ACTIONS = {
   },
   'ly-recheck'(id) {
     const item = lyItem(id);
+    if (item?.decision?.whole)
+      return lySubmitLyricsAction('recheck-whole', {
+        proposal: lyWriterText(LY.run.wholeText || item.whole.join('\n')),
+      });
     if (!item?.decision?.n) return;
     return lySubmitLyricsAction('recheck', { n: item.decision.n, proposal: item.proposal });
   },
