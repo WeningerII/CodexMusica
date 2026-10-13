@@ -1211,6 +1211,10 @@ async function browserChecks(chromium) {
           !/Nothing was applied/.test(state.feedback),
         'partial Apply feedback concealed a successful commit'
       );
+      check(
+        /Use toolbar Undo to reverse applied changes one form at a time\./.test(state.feedback),
+        'partial Apply feedback omitted toolbar Undo guidance and its per-form scope'
+      );
       check(q.calls.length === 0, 'Apply sent a writer request');
       await page.evaluate(() => $ui('btn-undo').click());
       const undone = await page.evaluate(() => $ui('lyrics-draft').value);

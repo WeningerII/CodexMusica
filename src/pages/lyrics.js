@@ -2203,7 +2203,7 @@ function lyDraftApplyTools(tools, { stopOnFailure = false } = {}) {
   }
   if (failed)
     showToast(
-      `${applied ? 'Some changes were applied.' : 'Nothing was applied.'} Remaining changes are still pending. Review their fields and targets.`,
+      `${applied ? 'Some changes were applied.' : 'Nothing was applied.'} Remaining changes are still pending. Review their fields and targets.${applied ? ' Use toolbar Undo to reverse applied changes one form at a time.' : ''}`,
       'error'
     );
   return { applied, failed };
