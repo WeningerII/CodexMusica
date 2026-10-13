@@ -137,13 +137,17 @@ The same review found that the scope README's statement that no v2 form occurs o
 
 Token numbers follow `voices`. A declaration numbered under one voices setting and sent unmarked to a run with the other can therefore pass the token/word check and bind a different physical word. On main, in `(oh) love, love me do`, token 2 is the second *love* with voices off and the first with voices on. The agreed design (PR #527, comment 6148531804) fixes this for marked declarations only. For unmarked ones it keeps today's behaviour, because guarding it would refuse callers who are correct today. The technical contract documents it as a residual.
 
-This counts that residual, at main `fce4bf0f`, on every row of `corpus/song/eng_*` the source reader treats as a sung line:
-- **281,413** lines;
-- **986** of them are cut differently by voices;
-- on those, **6 positions on 6 lines** have the same (token, word) under both settings but name a different word, for example token 2 in `For (I said) I will bear me by thee, sweetheart,`;
-- **0** lines are unmapped.
+This counts that residual at main `fce4bf0f`, over three populations of `corpus/song/eng_*` reported side by side (3PO, PR #527, comments 6148890765 and 6148925490). Every row is counted, so a repeated identical line counts each time.
 
-Physical identity is each token's character span in the harness's own tokenizer. A line whose rebuilt tokens don't match `line_tokens` exactly would be counted as unmapped, never guessed. Pass a `HARNESS_ROOT` to count at another head.
+| population | what it is | lines | cut differently by voices | same (token, word), different word | unmapped |
+|---|---|---:|---:|---:|---:|
+| `reader` | the harness's own sung lines, `load_lyric_lines`: apparatus filtering, bracket edits, stripping and declared label prefixes | 281,069 | 973 | 6 positions on 6 lines | 0 |
+| `raw_non_header` | a raw filter: non-blank rows not beginning `#` or `[` (R2's population for the v1/v2 count) | 294,648 | 1,124 | 8 positions on 8 lines | 0 |
+| `raw_sung` | a raw filter: as above, also excluding rows beginning `---` | 281,413 | 986 | 6 positions on 6 lines | 0 |
+
+The `reader` and `raw_sung` populations find the same six lines. One example is token 2 in `For (I said) I will bear me by thee, sweetheart,`. The two extra positions in `raw_non_header` are both in `---` title and author rows.
+
+Physical identity is each token's character span in the harness's own tokenizer, not its occurrence rank. A line whose rebuilt tokens don't match `line_tokens` exactly is counted as unmapped, never guessed. **The spans are offsets in the enclitic-joined, apostrophe-folded text, not in the original source.** A declaration-binding oracle built on them has to keep that distinction. Pass a `HARNESS_ROOT` to count at another head.
 
 **What it doesn't measure.** This corpus mostly uses parentheses for printed asides, so voices-off is its own reading. Modern lyrics that put backing vocals in parentheses use them far more, often around repeated words, so real drafts may well show more. This is a count on this corpus, not an estimate for real use.
 

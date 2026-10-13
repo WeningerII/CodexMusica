@@ -1,94 +1,314 @@
 {
  "files": 1344,
- "lines": 281413,
- "lines_cut_differently_by_voices": 986,
- "unmapped_lines": 0,
- "ambiguous_positions": 6,
- "ambiguous_lines": 6,
- "positions": [
-  {
-   "file": "eng_british_jean_ingelow.txt",
-   "line": "For (I said) I will bear me by thee, sweetheart,",
-   "token": 2,
-   "word": "I",
-   "span_voices_on": [
-    5,
-    6
-   ],
-   "span_voices_off": [
-    13,
-    14
-   ]
+ "populations": {
+  "reader": {
+   "lines": 281069,
+   "lines_cut_differently_by_voices": 973,
+   "unmapped_lines": 0,
+   "ambiguous_positions": 6,
+   "ambiguous_lines": 6
   },
-  {
-   "file": "eng_british_jean_ingelow.txt",
-   "line": "_Mrs. Jillifer (aside)._ Bless you, that makes for nothing, nothing at",
-   "token": 9,
-   "word": "nothing",
-   "span_voices_on": [
-    51,
-    58
-   ],
-   "span_voices_off": [
-    60,
-    67
-   ]
+  "raw_non_header": {
+   "lines": 294648,
+   "lines_cut_differently_by_voices": 1124,
+   "unmapped_lines": 0,
+   "ambiguous_positions": 8,
+   "ambiguous_lines": 8
   },
-  {
-   "file": "eng_british_jean_ingelow.txt",
-   "line": "(Loveliest of birds) possession of the place;",
-   "token": 2,
-   "word": "of",
-   "span_voices_on": [
-    11,
-    13
-   ],
-   "span_voices_off": [
-    32,
-    34
-   ]
-  },
-  {
-   "file": "eng_british_robert_browning.txt",
-   "line": "\"And moreover,\" (the sonnet goes rhyming), \"the skirts of St. Paul has reached,",
-   "token": 3,
-   "word": "the",
-   "span_voices_on": [
-    17,
-    20
-   ],
-   "span_voices_off": [
-    44,
-    47
-   ]
-  },
-  {
-   "file": "eng_british_sir_john_suckling.txt",
-   "line": "The king (God bless him!) 'twould undo him",
-   "token": 5,
-   "word": "him",
-   "span_voices_on": [
-    20,
-    23
-   ],
-   "span_voices_off": [
-    39,
-    42
-   ]
-  },
-  {
-   "file": "eng_oxford_edmund_spenser.txt",
-   "line": "Yet Leda was (they say) as white as he,",
-   "token": 6,
-   "word": "as",
-   "span_voices_on": [
-    24,
-    26
-   ],
-   "span_voices_off": [
-    33,
-    35
-   ]
+  "raw_sung": {
+   "lines": 281413,
+   "lines_cut_differently_by_voices": 986,
+   "unmapped_lines": 0,
+   "ambiguous_positions": 6,
+   "ambiguous_lines": 6
   }
- ]
+ },
+ "positions": {
+  "reader": [
+   {
+    "file": "eng_british_jean_ingelow.txt",
+    "line": "For (I said) I will bear me by thee, sweetheart,",
+    "token": 2,
+    "word": "I",
+    "span_voices_on": [
+     5,
+     6
+    ],
+    "span_voices_off": [
+     13,
+     14
+    ]
+   },
+   {
+    "file": "eng_british_jean_ingelow.txt",
+    "line": "_Mrs. Jillifer (aside)._ Bless you, that makes for nothing, nothing at",
+    "token": 9,
+    "word": "nothing",
+    "span_voices_on": [
+     51,
+     58
+    ],
+    "span_voices_off": [
+     60,
+     67
+    ]
+   },
+   {
+    "file": "eng_british_jean_ingelow.txt",
+    "line": "(Loveliest of birds) possession of the place;",
+    "token": 2,
+    "word": "of",
+    "span_voices_on": [
+     11,
+     13
+    ],
+    "span_voices_off": [
+     32,
+     34
+    ]
+   },
+   {
+    "file": "eng_british_robert_browning.txt",
+    "line": "\"And moreover,\" (the sonnet goes rhyming), \"the skirts of St. Paul has reached,",
+    "token": 3,
+    "word": "the",
+    "span_voices_on": [
+     17,
+     20
+    ],
+    "span_voices_off": [
+     44,
+     47
+    ]
+   },
+   {
+    "file": "eng_british_sir_john_suckling.txt",
+    "line": "The king (God bless him!) 'twould undo him",
+    "token": 5,
+    "word": "him",
+    "span_voices_on": [
+     20,
+     23
+    ],
+    "span_voices_off": [
+     39,
+     42
+    ]
+   },
+   {
+    "file": "eng_oxford_edmund_spenser.txt",
+    "line": "Yet Leda was (they say) as white as he,",
+    "token": 6,
+    "word": "as",
+    "span_voices_on": [
+     24,
+     26
+    ],
+    "span_voices_off": [
+     33,
+     35
+    ]
+   }
+  ],
+  "raw_non_header": [
+   {
+    "file": "eng_british_jean_ingelow.txt",
+    "line": "For (I said) I will bear me by thee, sweetheart,",
+    "token": 2,
+    "word": "I",
+    "span_voices_on": [
+     5,
+     6
+    ],
+    "span_voices_off": [
+     13,
+     14
+    ]
+   },
+   {
+    "file": "eng_british_jean_ingelow.txt",
+    "line": "_Mrs. Jillifer (aside)._ Bless you, that makes for nothing, nothing at",
+    "token": 9,
+    "word": "nothing",
+    "span_voices_on": [
+     51,
+     58
+    ],
+    "span_voices_off": [
+     60,
+     67
+    ]
+   },
+   {
+    "file": "eng_british_jean_ingelow.txt",
+    "line": "(Loveliest of birds) possession of the place;",
+    "token": 2,
+    "word": "of",
+    "span_voices_on": [
+     11,
+     13
+    ],
+    "span_voices_off": [
+     32,
+     34
+    ]
+   },
+   {
+    "file": "eng_british_robert_browning.txt",
+    "line": "\"And moreover,\" (the sonnet goes rhyming), \"the skirts of St. Paul has reached,",
+    "token": 3,
+    "word": "the",
+    "span_voices_on": [
+     17,
+     20
+    ],
+    "span_voices_off": [
+     44,
+     47
+    ]
+   },
+   {
+    "file": "eng_british_sir_john_suckling.txt",
+    "line": "The king (God bless him!) 'twould undo him",
+    "token": 5,
+    "word": "him",
+    "span_voices_on": [
+     20,
+     23
+    ],
+    "span_voices_off": [
+     39,
+     42
+    ]
+   },
+   {
+    "file": "eng_celtic_thomas_moore.txt",
+    "line": "--- TITLE: Song of the Battle Eve  [air: <line>(Time - the Ninth Century)</line> <line>Air - Cruiskeen Lawn</line>]",
+    "token": 14,
+    "word": "line",
+    "span_voices_on": [
+     82,
+     86
+    ],
+    "span_voices_off": [
+     109,
+     113
+    ]
+   },
+   {
+    "file": "eng_oxford_edmund_spenser.txt",
+    "line": "Yet Leda was (they say) as white as he,",
+    "token": 6,
+    "word": "as",
+    "span_voices_on": [
+     24,
+     26
+    ],
+    "span_voices_off": [
+     33,
+     35
+    ]
+   },
+   {
+    "file": "eng_parlour_henry_russell.txt",
+    "line": "--- AUTHOR: NOT NAMED BY THE SOURCE. PG 50878 prints this song's title and, under it, 'Copied by permission of OLIVER DITSON & CO. 227 Washington St., Boston, owners of the copyright.' -- a music publisher's permission line, not an authorship claim. The book names no author for any of its songs (`words by` occurs 0 times in it). Nothing else on disk closes it, so it is left open rather than attributed by elimination from Morris, Mackay, Cook and Dickens.",
+    "token": 53,
+    "word": "it",
+    "span_voices_on": [
+     326,
+     328
+    ],
+    "span_voices_off": [
+     359,
+     361
+    ]
+   }
+  ],
+  "raw_sung": [
+   {
+    "file": "eng_british_jean_ingelow.txt",
+    "line": "For (I said) I will bear me by thee, sweetheart,",
+    "token": 2,
+    "word": "I",
+    "span_voices_on": [
+     5,
+     6
+    ],
+    "span_voices_off": [
+     13,
+     14
+    ]
+   },
+   {
+    "file": "eng_british_jean_ingelow.txt",
+    "line": "_Mrs. Jillifer (aside)._ Bless you, that makes for nothing, nothing at",
+    "token": 9,
+    "word": "nothing",
+    "span_voices_on": [
+     51,
+     58
+    ],
+    "span_voices_off": [
+     60,
+     67
+    ]
+   },
+   {
+    "file": "eng_british_jean_ingelow.txt",
+    "line": "(Loveliest of birds) possession of the place;",
+    "token": 2,
+    "word": "of",
+    "span_voices_on": [
+     11,
+     13
+    ],
+    "span_voices_off": [
+     32,
+     34
+    ]
+   },
+   {
+    "file": "eng_british_robert_browning.txt",
+    "line": "\"And moreover,\" (the sonnet goes rhyming), \"the skirts of St. Paul has reached,",
+    "token": 3,
+    "word": "the",
+    "span_voices_on": [
+     17,
+     20
+    ],
+    "span_voices_off": [
+     44,
+     47
+    ]
+   },
+   {
+    "file": "eng_british_sir_john_suckling.txt",
+    "line": "The king (God bless him!) 'twould undo him",
+    "token": 5,
+    "word": "him",
+    "span_voices_on": [
+     20,
+     23
+    ],
+    "span_voices_off": [
+     39,
+     42
+    ]
+   },
+   {
+    "file": "eng_oxford_edmund_spenser.txt",
+    "line": "Yet Leda was (they say) as white as he,",
+    "token": 6,
+    "word": "as",
+    "span_voices_on": [
+     24,
+     26
+    ],
+    "span_voices_off": [
+     33,
+     35
+    ]
+   }
+  ]
+ }
 }
