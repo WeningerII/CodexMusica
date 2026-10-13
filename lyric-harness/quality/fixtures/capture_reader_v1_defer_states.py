@@ -19,6 +19,9 @@ and NO completion marker, as the pre-batch harness wrote them:
     `lyric checkpoint:` (the second carries a saved position, `cursor`),
     with the transport token taken off, as a caller holds them;
 
+and `suspended+answer`, the state the verb wrote when the loop suspended on a
+question, with that question answered (an ordinary continuation);
+
 and, for each, what the pre-batch harness printed and wrote when it resumed
 that state with no answer (`resume_*`), and when it resumed it without its
 saved position (`replay_*`: a position is trusted only under the scorer that
@@ -39,6 +42,7 @@ DRAFT = ["My kettle whistles by the qzzxv", "Your fingers brush my heavy coat 4"
 VERB = ["revise", "<WORK>/draft.txt", "--groups=1,2", "--relation=class:ASSONANCE",
         "--max-rounds=1", "--attempts=1", "--backtrack=0", "--propose=defer:<WORK>/state.json"]
 WORK = "<WORK>"
+ANSWER = "My kettle whistles by the stove"
 
 
 def _run(harness, work, deadline=None):
@@ -67,6 +71,11 @@ def main(harness, out):
     os.unlink(state)
     code, stdout = _run(harness, work)
     assert code == 4, code
+    # The suspended state, its pending question answered by the writer.
+    with open(state, encoding="utf-8") as fh:
+        answered = json.load(fh)
+    answered["pending"]["answer"] = ANSWER
+    states["suspended+answer"] = json.dumps(answered, indent=2) + "\n"
     for line in stdout.splitlines():
         if line.startswith("  lyric checkpoint: "):
             st = json.loads(line[len("  lyric checkpoint: "):])
@@ -76,9 +85,10 @@ def main(harness, out):
     os.unlink(state)
     assert {"stopped", "started", "grading+cursor"} <= set(states), sorted(states)
     records = []
-    for name in ("stopped", "started", "grading+cursor"):
+    for name in ("stopped", "started", "grading+cursor", "suspended+answer"):
         for k in ("pending", "complete", "reader_scheme"):
-            assert not json.loads(states[name]).get(k), (name, k)
+            assert k == "pending" and name == "suspended+answer" \
+                or not json.loads(states[name]).get(k), (name, k)
         rec = {"name": name, "state": states[name]}
         # A saved position is trusted only under the scorer that took it, so
         # a post-batch resume replays from round 1: record the pre-batch

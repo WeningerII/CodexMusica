@@ -38,6 +38,15 @@ No test here is a list of named words the reader must accept.
      pre-batch key under v1; a request's scheme does not outlive it in a warm
      process; the Gutenberg rows rebind by raw span.
  10. The website mirror's fixture is fresh (`reader_cases.py --check`).
+ 11. Evidence asked for by the review: real pre-batch deferred states of every
+     status resume as v1 through the CLI (`fixtures/reader_v1_defer_states.json`);
+     one warm worker (`mcp/worker.py` run_one + run_reader) serves both schemes
+     in either order with per-scheme lexicon caches and the Library's rebind;
+     a lexicon whose scheme differs from the process's is followed by every
+     consumer, and no production cut omits its scheme; the grid refuses a
+     numeral end and binds a declared end after a dash run; an appended printed
+     endpoint is never read (stream and Library); a declaration never changes
+     the token cut; no token or raw run piece crosses whitespace under NFC.
 
 Run: python3 quality/test_reader.py
 """
@@ -389,6 +398,36 @@ class RawSpans(unittest.TestCase):
         self.assertEqual(swap_end_word("we go \u0308\u0327b", "night"), "we go night")
 
 
+class NfcAcrossWhitespace(unittest.TestCase):
+    """8f. A whitespace starter followed by misordered combining marks: NFC
+    reorders the marks but the space composes with nothing, so no token and no
+    raw run piece may reach across it."""
+
+    def test_no_token_or_run_piece_crosses_whitespace(self):
+        marks = ["\u0301", "\u0327", "\u0323", "\u0308", "\u0345", "\u031b"]
+        spaces = [" ", "\u00a0", "\t", "\u2003", "\u0085", "\u3000"]
+        lines = []
+        for sp in spaces:
+            for a in marks:
+                for b in marks:
+                    if a == b:
+                        continue
+                    lines += [f"cafe{sp}{a}{b}night", f"we{sp}{a}{b}'s go",
+                              f"love{sp}{b}{a}x{a} sing", f"(oh{sp}{a}{b}) heart 4{sp}{b}{a}ever"]
+        self.assertGreater(sum(not unicodedata.is_normalized("NFC", t) for t in lines), 300)
+        checked = 0
+        for text in lines:
+            for sp_rule in (True, False):
+                rl = LH.reader_line(text, sp_rule)
+                for t in list(rl.tokens) + list(rl.runs):
+                    for a, b in t.pieces:
+                        self.assertFalse(any(text[x].isspace() for x in range(a, b)),
+                                         (text, sp_rule, t))
+                        checked += 1
+                    self.assertFalse(any(c.isspace() for c in t.text), (text, t))
+        self.assertGreater(checked, 1000)
+
+
 class HangulSegments(unittest.TestCase):
     """6b. A Hangul composition maps as its own segment, not a whole chunk."""
 
@@ -669,6 +708,80 @@ class Declarations(unittest.TestCase):
         self.assertEqual(rk.end_occurrence("we sing it to\u2011night"),
                          rk.end_occurrence("we sing it to-night"))
 
+    def test_the_grid_refuses_a_numeral_end_and_binds_after_a_dash_run(self):
+        # 8c. `rime_cmudict.end_occurrence`: an undeclared numeral end token
+        # is located (its word and token) and keys nothing; a writer's
+        # declared reading of the end token after an ASCII dash run binds that
+        # token at its v2 position and keys the declared phones -- the v1
+        # position never validates.
+        import quality.grid as G
+        from quality.pronunciation import validate_choices
+        base = LH.Lexicon()
+        rk = G.rime_cmudict(base)
+        for text, word, token in (("the year 1999", "1999", 3), ("heart.    10", "10", 2),
+                                  ("we sing ½", "½", 3)):
+            self.assertEqual(rk.end_occurrence(text), (word, token, None), text)
+        lawdy = "U--h, u--h, Lawdy"
+        self.assertEqual(LH.line_tokens(lawdy), ["U", "h", "u", "h", "Lawdy"])
+        row = {"line": lawdy, "token": 5, "word": "Lawdy", "phones": ["L", "AO1", "D", "IY0"],
+               "basis": "declared", "source": "the singer"}
+        lex = copy.copy(base)
+        lex.pronunciations = validate_choices([row], lex)
+        self.assertEqual(G.rime_cmudict(lex).end_occurrence(lawdy), ("lawdy", 5, "AO D IY"))
+        with self.assertRaisesRegex(ValueError, "token 3 there is 'u'"):
+            validate_choices([dict(row, token=3)], base)
+        # A declared numeral end binds the same way.
+        year = {"line": "the year 1999", "token": 3, "word": "1999", "basis": "declared",
+                "phones": ["N", "AY1", "N", "T", "IY1", "N", "N", "AY1", "N", "T", "IY0"],
+                "source": "the singer"}
+        lex = copy.copy(base)
+        lex.pronunciations = validate_choices([year], lex)
+        self.assertEqual(G.rime_cmudict(lex).end_occurrence("the year 1999"),
+                         ("1999", 3, "AY N T IY"))
+
+    def test_a_declaration_never_changes_the_token_cut(self):
+        # 8e. The same `--voices` line read with and without a pronunciation
+        # declaration is cut into the same tokens on every surface the grader
+        # reads it through: a declaration narrows one token's reading, never
+        # the coordinate it is bound in.
+        import quality.fit as FT
+        import quality.relations as RL
+        from quality.phonology.eng import English
+        from quality.pronunciation import validate_choices
+        from quality.revise import relation_phonology_for   # what Reviser reads
+        plain = LH.Lexicon(strip_parens=False)
+
+        def cut(lex, text):
+            eng = English(lexicon=lex)
+            words = LH.line_tokens(text, lex.strip_parens, LH._scheme_of(lex))
+            # The declared token gains syllables (that is the point of it);
+            # every syllable still sits on its own token of the same cut.
+            for s in LH.word_syllable_map(lex, text):
+                self.assertEqual(words[s["widx"]], s["word"], text)
+            return {"line_tokens": words,
+                    "transcribe": lex.for_line(text).transcribe(text)[1],
+                    "anchor_end": LH.line_anchors(lex, text)[1],
+                    "stream": list(RL.build_stream([text], eng).lexical_tokens[0]),
+                    "fit": list(FT.read_line(text, phon=eng, strip_parens=False).tokens),
+                    "relations": relation_phonology_for(lex).tokens_for_line(text)}
+        checked = 0
+        for text in [t for t in GENERATED if "(" in t][:150] + [
+                "I love you (yeah, 4ever--more)", "we go (oh) 's the night (U--h)"]:
+            if len(text) > 4000 or any(c in text for c in "\r\n") or not text.strip():
+                continue
+            toks = LH.line_tokens(text, False)
+            if not toks:
+                continue
+            want = cut(plain, text)
+            for k in sorted({0, len(toks) // 2, len(toks) - 1}):
+                row = {"line": text, "token": k + 1, "word": toks[k], "basis": "declared",
+                       "phones": ["N", "AY1", "N"], "source": "test"}
+                lex = copy.copy(plain)
+                lex.pronunciations = validate_choices([row], plain)
+                self.assertEqual(cut(lex, text), want, (text, k))
+                checked += 1
+        self.assertGreater(checked, 200)
+
     def test_an_undeclared_numeral_is_refused_on_every_surface(self):
         import quality.fit as FT
         import quality.relations as RL
@@ -834,13 +947,14 @@ class LegacyReplay(unittest.TestCase):
             else:
                 os.environ["LYRIC_CHECKPOINT_PATH"] = old
 
-    def test_pre_batch_states_without_an_answer_resume_as_v1(self):
+    def test_pre_batch_states_resume_as_v1_through_the_cli(self):
         # Real states the PRE-BATCH harness wrote (fixtures/
         # reader_v1_defer_states.json, captured on fce4bf0f by
         # capture_reader_v1_defer_states.py): the safe-point stop a call with
         # a deadline writes (`stopped`), and the mid-run saves (`started`,
-        # and `grading` with a saved position). None holds an answer, a
-        # pending question or a completion marker. Resumed through the CLI
+        # and `grading` with a saved position) -- none holds an answer, a
+        # pending question or a completion marker -- and a suspended state
+        # whose question is answered, which runs to the end. Resumed through the CLI
         # with no flag, each reads as v1, keeps v1 in the state it writes
         # back, and reproduces what the pre-batch harness printed resuming
         # the same state -- up to the scheme field and the saved position,
@@ -868,7 +982,7 @@ class LegacyReplay(unittest.TestCase):
                     out.append(line)
             return out
         self.assertEqual([r["name"] for r in fx["states"]],
-                         ["stopped", "started", "grading+cursor"])
+                         ["stopped", "started", "grading+cursor", "suspended+answer"])
         for rec in fx["states"]:
             work = Path(tempfile.mkdtemp())
             self.addCleanup(__import__("shutil").rmtree, work, True)
@@ -876,6 +990,10 @@ class LegacyReplay(unittest.TestCase):
             state = work / "state.json"
             state.write_text(rec["state"], encoding="utf-8")
             self.assertNotIn("reader_scheme", json.loads(rec["state"]))
+            # The last is an ordinary continuation: a suspended state with its
+            # question answered, resumed to the end of the run (8b).
+            self.assertEqual(rec["name"] == "suspended+answer",
+                             bool(json.loads(rec["state"]).get("pending")))
             self.assertEqual(LH._recorded_reader_scheme(
                 [a.replace("<WORK>", str(work)) for a in fx["verb"]]), "v1")
             r = subprocess.run([sys.executable, str(ROOT / "lyric_harness.py"),
@@ -1109,6 +1227,119 @@ class LegacyReplay(unittest.TestCase):
                 else:
                     with self.assertRaises(ValueError):
                         rebind_occurrences([row], "v1", "v2")
+
+
+class WarmWorker(unittest.TestCase):
+    """8a. One warm worker process (`mcp/worker.py`: `run_one` for lyrics,
+    `run_reader` for the Library) serves both schemes in either order: each
+    request reads under its own scheme, the Library rebinds the v1-bound
+    Gutenberg set, and every module-level lexicon cache holds lexicons of the
+    scheme it is keyed by."""
+
+    @classmethod
+    def setUpClass(cls):
+        import importlib.util
+        cwd = os.getcwd()
+        spec = importlib.util.spec_from_file_location(
+            "lyric_worker_under_test", ROOT.parent / "mcp" / "worker.py")
+        cls.W = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.W)          # chdirs to lyric-harness
+        os.chdir(cwd)
+        cls.fx = json.loads((HERE / "fixtures" / "reader_v1_defer_states.json")
+                            .read_text(encoding="utf-8"))
+        batch = ROOT / "imports" / "gutenberg-next-ten" / "pronunciations" / "69378.json"
+        payloads = json.loads(batch.read_text(encoding="utf-8"))
+        cls.rows = next(p["pronunciations"] for p in payloads.values()
+                        if any(r["line"].startswith("U--h") for r in p["pronunciations"]))
+
+    def _lyrics(self, state_text):
+        """-> the `lyric result` of one revise request through `run_one`,
+        resuming `state_text` (None: a new run)."""
+        work = Path(tempfile.mkdtemp())
+        self.addCleanup(__import__("shutil").rmtree, work, True)
+        (work / "draft.txt").write_text("\n".join(self.fx["draft"]) + "\n", encoding="utf-8")
+        if state_text is not None:
+            (work / "state.json").write_text(state_text, encoding="utf-8")
+        argv = [a.replace("<WORK>", str(work)) for a in self.fx["verb"]]
+        code, out, _ = self.W.run_one(argv)
+        self.assertEqual(code, 4, out[-600:])
+        line = next(l for l in out.splitlines() if l.startswith("  lyric result: "))
+        written = json.loads((work / "state.json").read_text(encoding="utf-8"))
+        return json.loads(line[len("  lyric result: "):]), written
+
+    def _library(self):
+        """-> (result, rows the analysis bound) of one Library request
+        through `run_reader`, acknowledging every checkpoint."""
+        import io
+        from unittest.mock import patch
+        import library.analysis as LA
+        made = []
+
+        class Recording(LA.AnalysisSession):
+            def __init__(self, *a, **kw):
+                super().__init__(*a, **kw)
+                made.append(self)
+        lines = list(dict.fromkeys(r["line"] for r in self.rows))
+        payload = {"source": {"reading_unit_id": "caller-owned-fixture:eng",
+                              "reading_revision": "fixture-v1", "language": "eng",
+                              "text": "\n".join(lines)},
+                   "declarations": {"pronunciations": self.rows}, "requested": ["sound"]}
+        ack = json.dumps({"id": "r", "event": "reader_ack", "continue": True}) + "\n"
+        saved = sys.stdin, sys.stdout
+        sys.stdin, sys.stdout = io.StringIO(ack * 5000), io.StringIO()
+        try:
+            with patch.object(LA, "AnalysisSession", Recording):
+                result = self.W.run_reader(payload, "r")
+        finally:
+            sys.stdin, sys.stdout = saved
+        self.assertEqual(result["status"], "complete")
+        return made[0].phon.lexicon.pronunciations
+
+    def _caches_agree(self):
+        import quality.fit as FT
+        import quality.lexicon_supplement as LS
+        from quality.phonology import eng
+        from quality.phonology import get as phonology
+        self.assertEqual(LH.resolve_reader_scheme(None), "v2")
+        self.assertFalse(LH._READER_SCHEME_DECLARED)
+        for scheme, lex in eng._LEX.items():
+            self.assertEqual(lex.reader_scheme, scheme)
+        for key, lex in FT._LEX.items():
+            if len(key) == 3:
+                self.assertEqual(lex.reader_scheme, key[2])
+        for key, lex in LS._SUPPLEMENTED.items():
+            self.assertEqual(lex.reader_scheme, key[-1])
+        for scheme in LH.READER_SCHEMES:
+            self.assertEqual(FT._english_lexicon(True, None, scheme).reader_scheme, scheme)
+            with LH.reader_scheme_scope(scheme):
+                self.assertEqual(eng._lexicon().reader_scheme, scheme)
+                self.assertEqual(phonology("eng").reader_scheme, scheme)
+        self.assertEqual(eng._lexicon().reader_scheme, "v2")
+
+    def _rebound(self, bound):
+        from quality.pronunciation import rebind_occurrences
+        want = rebind_occurrences(self.rows, "v1", "v2", strip_parens=False)
+        self.assertEqual([b["token"] for b in bound], [w["token"] for w in want])
+        return sum(b["token"] != r["token"] for b, r in zip(bound, self.rows))
+
+    def test_a_legacy_lyrics_request_then_a_library_analysis(self):
+        legacy = self.fx["states"][0]["state"]
+        rec, written = self._lyrics(legacy)
+        self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v1", "v1"))
+        self._caches_agree()
+        moved = self._rebound(self._library())
+        self.assertGreater(moved, 0)
+        self._caches_agree()
+
+    def test_a_new_lyrics_request_then_a_legacy_one(self):
+        rec, written = self._lyrics(None)
+        self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v2", "v2"))
+        self._caches_agree()
+        rec, written = self._lyrics(self.fx["states"][1]["state"])
+        self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v1", "v1"))
+        self._caches_agree()
+        self.assertGreater(self._rebound(self._library()), 0)
+        self._caches_agree()
 
 
 class MirrorFixture(unittest.TestCase):
