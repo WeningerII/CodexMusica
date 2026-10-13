@@ -1,0 +1,38 @@
+diff --git a/lyric-harness/lyric_harness.py b/lyric-harness/lyric_harness.py
+index 83b6c7366..6f2da466b 100644
+--- a/lyric-harness/lyric_harness.py
++++ b/lyric-harness/lyric_harness.py
+@@ -1099,7 +1099,21 @@ class Lexicon:
+ 
+     def word_pieces(self, word):
+         choice = getattr(self, '_pronunciation_choice', None)
+-        return [word] if choice and choice['word'] == word else re.split(r"[-\u2011]", word)
++        if choice and choice['word'] == word:
++            return [word]
++        # POSITIVE-CONTROL SIMULATION of item 6's strict rule (review scratch,
++        # not shipped): split at internal `--`, strip edge hyphens; a word
++        # with a true hyphen (letter-bearing pieces on both sides) is ONE
++        # piece, read whole by `transcribe_word` or not at all.
++        out = []
++        for w in re.split(r"[-\u2011]{2,}", word):
++            w = w.strip("-\u2011")
++            parts = re.split(r"[-\u2011]", w)
++            if sum(1 for q in parts if LATIN_SCRIPT.search(q)) >= 2:
++                out.append(w)
++            else:
++                out.extend(parts)
++        return out
+ 
+ 
+     def pronunciation_variants(self, word):
+@@ -2624,8 +2638,8 @@ def unread_final_piece(lex, token):
+     """
+     if not token or not HYPHEN_SPLIT.search(token):
+         return None, None
+-    pieces = [p for p in HYPHEN_SPLIT.split(token)
+-              if p and LATIN_SCRIPT.search(p)]
++    pieces = [p for p in (lex.word_pieces(token) if hasattr(lex, "word_pieces") else HYPHEN_SPLIT.split(token))
++              if p and LATIN_SCRIPT.search(p)]  # SIMULATION: the word pieces, not hyphen pieces
+     if len(pieces) < 2:
+         return None, None
+     read, unread = token_pieces(lex, token)

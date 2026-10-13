@@ -43,7 +43,8 @@ Sections of the output:
            under the plan as worded: item 6, M1 (a digit-bearing end chunk),
            M2b (end token, no declared reading), and their union; and the ids
            of lines with an interior word each rule would refuse (join-only,
-           M1, M2b), which the acceptance diff reads as the projection.
+           M1, M2b), and of lines where M2a switches a reading, which the
+           acceptance diff reads as the projection.
 Example ids are reproductions, not acceptance lists.
 """
 import collections, glob, gzip, json, os, re, subprocess, sys, unicodedata
@@ -233,6 +234,7 @@ def _main():
     refuse = {"item6": set(), "M1": set(), "M2b": set()}
     inner = {k: collections.Counter() for k in ("M1", "M2b")}
     inner_ids = {"join_only": set(), "M1": set(), "M2b": set(), "M1_after_strip": set()}
+    m2a_switch = set()
     m1_after_strip = set(); join_tokens = collections.Counter()
     frag = collections.Counter(); frag_ex = collections.defaultdict(list)
     has_words = set(); has_end = set()
@@ -298,6 +300,8 @@ def _main():
                     k = _apostrophe_class(lex, alpha, tok)
                     if k:
                         apo_all[k] += 1
+                        if k.startswith("M2a: exact entry, reading changes"):
+                            m2a_switch.add(lid)
                         if i == len(ws) - 1:
                             apo_end_cls = k
                         elif k.startswith("M2b"):
@@ -380,7 +384,8 @@ def _main():
                        "item6_and_M2b": len(refuse["item6"] & refuse["M2b"]),
                        "M1_and_M2b": len(refuse["M1"] & refuse["M2b"])},
             "ids": {k: sorted(v) for k, v in refuse.items()},
-            "interior_ids": {k: sorted(inner_ids[k]) for k in ("join_only", "M1", "M2b")}},
+            "interior_ids": {k: sorted(inner_ids[k]) for k in ("join_only", "M1", "M2b")},
+            "m2a_switch_ids": sorted(m2a_switch)},
         "interior_refusals": {k: dict(v) for k, v in inner.items()},
         "interior_join_only": {"tokens": dict(join_tokens), "lines": len(inner_ids["join_only"]),
                                "lines_beyond_item6_end_set": len(inner_ids["join_only"] - refuse["item6"])},

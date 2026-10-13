@@ -27,7 +27,7 @@ The records are `census_dev_none.json`, `census_dev_v2.json` and `census_dev_v2h
 | + v2 | 70,571 | 20,467 | 857 |
 | + v2 + `fallback: high` | 51,231 | 15,041 | 2,185 |
 
-- **v2 changes no dev count.** Its 205 rows are 203 hyphenated number readings plus *streetlight* and *streetlights*, and none of those forms occurs in these dev songs. That means no measured gain on dev. It says nothing about any other population.
+- **v2 changes no dev count.** Its 205 rows are 203 hyphenated number readings plus *streetlight* and *streetlights*. ~~None of those forms occurs in these dev songs~~ (corrected 2026-10-13, found by the acceptance review): its headwords occur 62 times as dev tokens (`line_tokens`), led by *fifty-one* (5) and *forty-two* (4), and every one of those occurrences already reads today by joining its pieces. That is why no census count moves, and why it means no measured gain on dev. It says nothing about any other population.
 - **Spelling groups of unread occurrences under v2:** 73.0% have no hyphen and no apostrophe, 22.9% have an apostrophe and 4.1% a hyphen. A hyphen takes precedence: the 484 occurrences carrying both count as hyphen, so the split depends on that order. Spelling groups are **not** a linguistic classification. They do not establish what share is dialect, archaic or a closed compound.
 
 ## Item 2: CMUdict + v2 against Moby
