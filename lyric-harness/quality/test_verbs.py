@@ -2860,6 +2860,14 @@ def test_the_loop_suspends_instead_of_guessing():
     rc4, out4, _ = run("revise", draft, *mand, f"--propose=replay:{rep}")
     check("the answered journal independently replays the same change without any writer",
           rc4 == 0 and "* L2: " + answer in out4 and "* L1:" not in out4)
+    # The journal names the reader scheme its answers were asked under, and
+    # the replay reads under it; another declared scheme refuses.
+    check("the answered journal carries its reader scheme",
+          st["answered"].get("reader_scheme") == "v2" == st.get("reader_scheme"))
+    rc7, out7, _ = run("revise", draft, *mand, f"--propose=replay:{rep}",
+                       "--reader-scheme=v1", expect_rc=2)
+    check("a replay under a contrary declared reader scheme refuses",
+          rc7 == 2 and "READER_SCHEME_MISMATCH" in out7, f"rc {rc7}")
     rc5, out5, _ = run("revise", draft, *mand, "--propose=defer", expect_rc=2)
     check("defer without a PATH refuses as an invalid flag", rc5 == 2 and "REFUSED" in out5)
 

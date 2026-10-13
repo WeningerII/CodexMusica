@@ -69,8 +69,14 @@
         while (end < cps.length && (M_ONE.test(cps[end]) || (hangul && isHangul(cps[end])))) end++;
         const seg = cps.slice(start, end).join('');
         const nfc = seg.normalize('NFC');
+        const nfcCps = Array.from(nfc);
         if (nfc === seg) for (let k = start; k < end; k++) out.push([cps[k], k, k + 1]);
-        else for (const ch of Array.from(nfc)) out.push([ch, start, end]);
+        else if (nfcCps[0] === cps[start]) {
+          // The starter composed with nothing (a space before reordered
+          // marks): it keeps its own codepoint.
+          out.push([nfcCps[0], start, start + 1]);
+          for (const ch of nfcCps.slice(1)) out.push([ch, start + 1, end]);
+        } else for (const ch of nfcCps) out.push([ch, start, end]);
         start = end;
       }
       if (out.map((x) => x[0]).join('') !== text.normalize('NFC')) {

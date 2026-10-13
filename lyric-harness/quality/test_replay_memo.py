@@ -243,7 +243,8 @@ with tempfile.TemporaryDirectory(prefix="rm_unknown_") as unknown_dir:
           and journal["accepted_lines"] == HISTORICAL_LINES
           and (journal["pending"] or {}).get("record", {}).get("line") == 3
           and "L2 ('four') — VIOLATED" in out
-          and not any(journal["answered"].values()), err)
+          and not journal["answered"]["propose"]
+          and not journal["answered"]["propose_group"], err)
 
 # ── 4. key separation ────────────────────────────────────────────────────
 print("\n4. one changed input is a different run")

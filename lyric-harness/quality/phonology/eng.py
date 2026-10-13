@@ -177,7 +177,7 @@ class English(Phonology):
               "Mellon University), NOT public domain; see data/sources.tsv")
 
     def __init__(self, fallback=None, readings="all", lexicon=None,
-                 reader_scheme=None):
+                 reader_scheme=None, strip_parens=None):
         """`fallback` is a DECLARED coordinate, defaulting to the refusal.
 
         It is not a boolean, because "did you guess" has three answers here and
@@ -186,7 +186,15 @@ class English(Phonology):
         `reader_scheme` (`lyric_harness.READER_SCHEMES`) is how this phonology
         cuts a line into words; None reads the lexicon's, or with no lexicon
         this process's (`v2` unless declared otherwise).
+
+        `strip_parens` (`lyric_harness.line_tokens`) is the aside rule the
+        stream's English words are cut under; None reads the lexicon's (the
+        shared lexicon's `True` when there is none). A judge handed a plain
+        `--voices` lexicon passes `False` without the lexicon itself
+        (`quality.revise.relation_phonology_for`), so the relation stream
+        reads the same end word as `line_anchors`. Scheme `v1` ignores it.
         """
+        self._strip_parens = strip_parens
         if reader_scheme is not None:
             import lyric_harness as _lh
             reader_scheme = _lh.resolve_reader_scheme(reader_scheme)
@@ -249,12 +257,23 @@ class English(Phonology):
         # scheme (`v1`) is the declaration that carried no such key.
         if self.reader_scheme != "v1":
             d["reader_scheme"] = self.reader_scheme
+            # Under v2 the aside rule cuts the stream's words, so a reader
+            # keeping `(...)` as sung is a different declaration (v1's stream
+            # read no aside rule without a lexicon, and declared none).
+            if not self._aside_rule():
+                d["strip_parens"] = False
         d["fallback"] = self.fallback
         d["fallback_licenses"] = FALLBACK_MODES[self.fallback]
         return d
 
     def _lexicon(self):
         return self.lexicon if self.lexicon is not None else _lexicon()
+
+    def _aside_rule(self):
+        """-> the `strip_parens` this phonology's stream cuts under."""
+        if self._strip_parens is not None:
+            return self._strip_parens
+        return self._lexicon().strip_parens
 
     @property
     def reader_scheme(self):
@@ -270,14 +289,16 @@ class English(Phonology):
             return self
         return English(fallback=self.fallback, readings=self.readings,
                        lexicon=self.lexicon.for_line(text),
-                       reader_scheme=self._reader_scheme)
+                       reader_scheme=self._reader_scheme,
+                       strip_parens=self._strip_parens)
 
     def for_token(self, index):
         if self.lexicon is None or not self.lexicon.pronunciations:
             return self
         return English(fallback=self.fallback, readings=self.readings,
                        lexicon=self.lexicon.for_token(index),
-                       reader_scheme=self._reader_scheme)
+                       reader_scheme=self._reader_scheme,
+                       strip_parens=self._strip_parens)
 
     def tokens_for_line(self, text):
         """-> the line's `line_tokens`, the relations stream's English words.
@@ -301,7 +322,7 @@ class English(Phonology):
                 return None
             return lh.line_tokens(text, strip_parens=self.lexicon.strip_parens,
                                   scheme="v1")
-        rl = lh.reader_line(text, strip_parens=self._lexicon().strip_parens,
+        rl = lh.reader_line(text, strip_parens=self._aside_rule(),
                             scheme="v2")
         words = [t.text for t in rl.tokens]
         endpoint = lh.printed_endpoint(rl)
@@ -465,7 +486,7 @@ class English(Phonology):
         made available to any caller before it computes a rate.
         """
         return [t for t in self._tokens(text, self.reader_scheme,
-                                        self._lexicon().strip_parens)
+                                        self._aside_rule())
                 if not self.syllabify(t)]
 
     def derived(self, text):
@@ -477,7 +498,7 @@ class English(Phonology):
         verdict over `text` needs both lists or neither.
         """
         out = []
-        for t in self._tokens(text, self.reader_scheme, self._lexicon().strip_parens):
+        for t in self._tokens(text, self.reader_scheme, self._aside_rule()):
             lay = self.layer_of(t)
             if lay is not None and lay != "dictionary":
                 out.append((t, lay))

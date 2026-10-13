@@ -566,13 +566,20 @@ class AnalysisSession:
             # the printed endpoint the stream appends when it is not an
             # English token (`English.tokens_for_line`).
             located = list(rl.tokens)
-            if LH.printed_endpoint(rl) is not None:
-                located.append(rl.runs[-1])
+            endpoint = LH.printed_endpoint(rl)
+            if endpoint is not None:
+                located.append(endpoint)
             # A token whose pieces do not rebuild its text (a line the reader
             # had to map in whitespace chunks) has no exact span: it falls
             # back to the row's range rather than claim a chunk as `exact`.
+            # Neither does an endpoint sharing characters with a token before
+            # it (`go кот5`), so no two exact ranges overlap.
+            claimed = {i for t in rl.tokens for a, b in t.pieces for i in range(a, b)}
             positions = ([list(t.pieces) if LH.normalise_word(
-                              "".join(raw[a:b] for a, b in t.pieces)) == t.text else []
+                              "".join(raw[a:b] for a, b in t.pieces)) == t.text
+                          and not (t is endpoint and any(
+                              i in claimed for a, b in t.pieces for i in range(a, b)))
+                          else []
                           for t in located]
                          if tuple(t.text for t in located) == tuple(words) else None)
         elif self.language == "eng":

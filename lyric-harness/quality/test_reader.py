@@ -203,11 +203,17 @@ class Numerals(unittest.TestCase):
         self.assertGreater(checked, 1000)
 
     def test_the_end_word_never_skips_a_trailing_numeral(self):
+        # The tails are generated too: numeral strings drawn from the
+        # generator's own numeral alphabet, bare or after Latin letters.
+        import random
+        rng = random.Random(20261013)
         for text in GENERATED:
-            for tail in ("7", "1999", "\u00bd", "4ever", "\u0663"):
-                line = text + " " + tail
-                self.assertEqual(LH.raw_final_token(line), tail, line)
-                self.assertEqual(LH.line_tokens(line)[-1], tail, line)
+            tail = "".join(rng.choice(RC.NUMERALS) for _ in range(rng.randint(1, 4)))
+            if rng.random() < 0.4:
+                tail = "".join(rng.choice("abcxyz") for _ in range(rng.randint(1, 3))) + tail
+            line = text + " " + tail
+            self.assertEqual(LH.raw_final_token(line), tail, line)
+            self.assertEqual(LH.line_tokens(line)[-1], tail, line)
 
     def test_no_numeral_reaches_g2p_or_a_piece_reader(self):
         from quality import g2p
@@ -363,6 +369,25 @@ class RawSpans(unittest.TestCase):
                     if not overlap and unicodedata.is_normalized("NFC", text):
                         self.assertEqual(LH.normalise_word(raw), t.text, (text, t))
 
+    def test_raw_runs_never_cross_whitespace(self):
+        # Regression: a space followed by marks in non-canonical order is a
+        # segment NFC changes, and every output character mapped to the whole
+        # segment, so a run built from the marks took the space into its piece
+        # (and the v2 end-word swap deleted it). Marks are inserted after every
+        # space of generated lines in both orders.
+        marks = ("\u0308\u0327", "\u0327\u0308", "\u0301")
+        checked = 0
+        for k, text in enumerate(GENERATED[:1500]):
+            line = text.replace(" ", " " + marks[k % len(marks)], 1)
+            for sp in (True, False):
+                for t in LH.reader_line(line, sp).runs + LH.reader_line(line, sp).tokens:
+                    for a, b in t.pieces:
+                        self.assertFalse(any(c.isspace() for c in line[a:b]), (line, t))
+                        checked += 1
+        self.assertGreater(checked, 1000)
+        from quality.loop import swap_end_word
+        self.assertEqual(swap_end_word("we go \u0308\u0327b", "night"), "we go night")
+
 
 class HangulSegments(unittest.TestCase):
     """6b. A Hangul composition maps as its own segment, not a whole chunk."""
@@ -382,9 +407,13 @@ class HangulSegments(unittest.TestCase):
     def test_the_library_claims_exact_only_for_spans_that_rebuild(self):
         sys.path.insert(0, str(ROOT / "library"))
         import library.test_analysis as TA
-        for text in ["love,night \u1100\u1161 sing", "\u1100\u1161\u11a8 cafe\u0301, night"]:
+        # The last two are regressions: a printed endpoint sharing characters
+        # with the token before it gave two overlapping exact ranges.
+        for text in ["love,night \u1100\u1161 sing", "\u1100\u1161\u11a8 cafe\u0301, night",
+                     "go \u043a\u043e\u04425", "love q\u0303uiet"]:
             _, records, _ = TA.complete(TA.source(text), schemas=[])
             spans = []
+            covered = set()
             for r in records:
                 if r["kind"] != "token":
                     continue
@@ -393,6 +422,8 @@ class HangulSegments(unittest.TestCase):
                         a, b = rng["codepoint_range"]
                         self.assertEqual(LH.normalise_word(text[a:b]), r["text"], (text, r))
                         spans.append((a, b))
+                        self.assertFalse(covered & set(range(a, b)), (text, r))
+                        covered |= set(range(a, b))
             self.assertEqual(len(spans), len(set(spans)), text)
 
 
@@ -427,6 +458,47 @@ class OneCoordinate(unittest.TestCase):
             self.assertEqual(list(st.lexical_tokens[0]), words + endpoint, text)
             self.assertEqual(list(FT.read_line(text).tokens), words, text)
 
+    def test_the_printed_endpoint_never_precedes_the_last_token(self):
+        # Regression: `I said ×` (U+00D7 is in the token repertoire, not a
+        # letter run) appended `said` again as the stream's boundary, so the
+        # stream judged a readable end word line_anchors refuses.
+        checked = 0
+        for text in GENERATED + ["I said \u00d7", "x \u00d72"]:
+            rl = LH.reader_line(text)
+            end = LH.printed_endpoint(rl)
+            if end is None or not rl.tokens:
+                continue
+            checked += 1
+            self.assertGreaterEqual(end.pieces[-1][1], rl.tokens[-1].pieces[-1][1], text)
+        self.assertGreater(checked, 20)
+        self.assertEqual(self.eng_plain.tokens_for_line("I said \u00d7"), ["I", "said", "\u00d7"])
+        self.assertEqual(LH.line_anchors(self.lex, "I said \u00d7")[0], [])
+
+    def test_the_relation_stream_keeps_the_lexicons_aside_rule(self):
+        # Regression: under v2 the declared-relation judge's stream stripped
+        # `(...)` even for a `--voices` lexicon (relation_phonology_for handed
+        # a plain lexicon the shared reader), so it read another end word than
+        # line_anchors. Under v1 the stream reads no aside rule, as before.
+        import quality.relations as RL
+        from quality.revise import Reviser
+        for sp in (True, False):
+            lex = LH.Lexicon(strip_parens=sp)
+            phon = Reviser(lex)._relation_phonology()
+            checked = 0
+            for text in GENERATED[:700]:
+                rl = LH.reader_line(text, sp)
+                end = LH.printed_endpoint(rl)
+                want = LH.line_tokens(text, sp) + ([end.text] if end else [])
+                self.assertEqual(phon.tokens_for_line(text), want, (sp, text))
+                checked += "(" in text
+            self.assertGreater(checked, 50)
+            st = RL.build_stream(["I love you (yeah)", "and I need you (oh)"], phon)
+            self.assertEqual([t[-1] for t in st.lexical_tokens],
+                             ["you", "you"] if sp else ["yeah", "oh"])
+        with LH.reader_scheme_scope("v1"):
+            phon = Reviser(LH.Lexicon(strip_parens=False))._relation_phonology()
+            self.assertIsNone(phon.tokens_for_line("I love you (yeah)"))
+
     def test_the_enclitic_after_an_aside_keeps_its_position(self):
         # Regression: under v1 `" ".join(words[:-1])` re-cut the prefix as
         # `go's`, its phones no longer matched the tokens' and the anchor lost
@@ -455,7 +527,12 @@ class Declarations(unittest.TestCase):
             if len(text) > 4000 or any(c in text for c in "\r\n") or not text.strip():
                 continue
             rl = LH.reader_line(text)
-            if not rl.tokens or LH.printed_endpoint(rl) is not None:
+            # A line whose last letter run is not its last token (a final
+            # `×`, which the token repertoire reads and no letter run does)
+            # is refused by line_anchors whatever is declared, as before the
+            # batch.
+            if (not rl.tokens or LH.printed_endpoint(rl) is not None
+                    or LH.raw_final_token(text) != rl.tokens[-1].text):
                 continue
             k = len(rl.tokens)
             row = {"line": text, "token": k, "word": rl.tokens[-1].text,
@@ -469,6 +546,9 @@ class Declarations(unittest.TestCase):
             self.assertTrue(rec["readable"], text)
             self.assertEqual(rec["numeral_tokens"],
                              [t.text for t in rl.tokens[:-1] if t.numeral], text)
+            # The declaration reads the token whole: none of its pieces is an
+            # unread piece of the end word.
+            self.assertEqual(rec["final_unread_pieces"], [], text)
             lu = FT.read_line(text, English(lexicon=lex))
             self.assertNotIn(rl.tokens[-1].text,
                              [r.token for r in lu.refused if r.cause == "NUMERAL"], text)
@@ -567,6 +647,18 @@ class LegacyReplay(unittest.TestCase):
         self.assertIsNone(LH._recorded_reader_scheme(["revise", "--propose=defer:" + bogus]))
         broken = self._state([1, 2])
         self.assertIsNone(LH._recorded_reader_scheme(["revise", "--propose=defer:" + broken]))
+        # A finished run that converged without asking anything records only
+        # its completion marker; it is a record, not new work.
+        finished = self._state({"version": 1, "answered": {"propose": [], "propose_group": []},
+                                "pending": None, "complete": {"stop": "success", "exit": 0}})
+        self.assertEqual(LH._recorded_reader_scheme(["revise", "--propose=defer:" + finished]), "v1")
+        # A replay file is a finished state's `answered` block: without the
+        # field it predates it.
+        for payload, want in (({"propose": [], "propose_group": []}, "v1"),
+                              ({"propose": [], "propose_group": [], "reader_scheme": "v2"}, "v2"),
+                              ({"propose": [], "reader_scheme": "v9"}, None)):
+            rp = self._state(payload)
+            self.assertEqual(LH._recorded_reader_scheme(["revise", "--propose=replay:" + rp]), want)
         import contextlib
         import io
         with contextlib.redirect_stdout(io.StringIO()) as out, self.assertRaises(SystemExit):
@@ -690,6 +782,86 @@ class LegacyReplay(unittest.TestCase):
             self.assertEqual(eng._lexicon().reader_scheme, "v2")
         finally:
             sys.argv = saved_argv
+
+    def test_process_memos_tell_the_schemes_apart(self):
+        # The grader's process-level memos (`Reviser._decl_lex_key`) carry the
+        # lexicon's scheme and the process's, so a warm worker never serves a
+        # v2 answer to a v1 replay or the reverse.
+        from quality.revise import Reviser
+        keys = {}
+        for scheme in LH.READER_SCHEMES:
+            r = Reviser(lex=LH.Lexicon(reader_scheme=scheme))
+            keys[scheme] = (r._decl_lex_key(), r._score_memo_key(None))
+            with LH.reader_scheme_scope(scheme):
+                keys["process-" + scheme] = Reviser(lex=LH.Lexicon())._decl_lex_key()
+        self.assertNotEqual(keys["v1"][0], keys["v2"][0])
+        self.assertNotEqual(keys["v1"][1], keys["v2"][1])
+        self.assertNotEqual(keys["process-v1"], keys["process-v2"])
+
+    def test_a_legacy_resume_reads_alike_cold_and_after_v2_work(self):
+        # worker.py's shape: two requests through `cli` in one process. A
+        # pre-batch-shaped state (a v1 state without the field) resumed after
+        # v2 work in the same process must give the cold resume's verdict.
+        import contextlib
+        import io
+        work = Path(tempfile.mkdtemp())
+        self.addCleanup(__import__("shutil").rmtree, work, True)
+        draft = work / "d.txt"
+        draft.write_text("My kettle whistles by the qzzxv\n"
+                         "Your fingers brush my heavy coat 4\n", encoding="utf-8")
+        verb = ["revise", str(draft), "--groups=1,2", "--relation=class:ASSONANCE",
+                "--max-rounds=1", "--attempts=1", "--backtrack=0"]
+        answer = "My kettle whistles by the stove"
+
+        def cold(propose, *globals_):
+            return subprocess.run([sys.executable, str(ROOT / "lyric_harness.py"), *globals_,
+                                   *verb, propose], capture_output=True, text=True, cwd=ROOT,
+                                  timeout=900)
+
+        def warm(*flags):
+            out = io.StringIO()
+            saved = sys.argv
+            sys.argv = ["lyric_harness.py", *verb, *flags]
+            try:
+                with contextlib.redirect_stdout(out), contextlib.redirect_stderr(io.StringIO()):
+                    try:
+                        LH.cli()
+                    except SystemExit:
+                        pass
+            finally:
+                sys.argv = saved
+            return out.getvalue()
+
+        def answered(path, legacy):
+            # The pre-batch shape: no scheme field, and no saved position this
+            # build's scorer trusts (a cursor taken by other code replays from
+            # round 1, which is what reaches the memo).
+            st = json.loads(path.read_text(encoding="utf-8"))
+            if legacy:
+                st.pop("reader_scheme", None)
+                st.pop("cursor", None)
+            st["pending"]["answer"] = answer
+            path.write_text(json.dumps(st), encoding="utf-8")
+
+        def verdict(stdout):
+            for line in stdout.splitlines():
+                if line.startswith("  lyric result: "):
+                    rec = json.loads(line[len("  lyric result: "):])
+                    return {k: v for k, v in rec.items()
+                            if not k.startswith(("memo_", "cursor_"))}
+            self.fail(stdout[-600:])
+        legacy = work / "legacy.json"
+        cold("--propose=defer:" + str(legacy), "--reader-scheme=v1")
+        answered(legacy, True)
+        saved = legacy.read_text(encoding="utf-8")
+        want = verdict(cold("--propose=defer:" + str(legacy)).stdout)
+        self.assertEqual(want["reader_scheme"], "v1")
+        fresh = work / "fresh.json"
+        warm("--propose=defer:" + str(fresh))
+        answered(fresh, False)
+        self.assertEqual(verdict(warm("--propose=defer:" + str(fresh)))["reader_scheme"], "v2")
+        legacy.write_text(saved, encoding="utf-8")
+        self.assertEqual(verdict(warm("--propose=defer:" + str(legacy))), want)
 
     def test_the_flag_refuses_an_undeclared_scheme(self):
         r = subprocess.run([sys.executable, str(ROOT / "lyric_harness.py"),

@@ -971,13 +971,22 @@ def relation_phonology_for(lex):
     import lyric_harness as _LH
     if lex is None or (not getattr(lex, "pronunciations", ())
                        and not getattr(lex, "supplement_path", None)):
-        if lex is None or _LH._scheme_of(lex) == _LH.resolve_reader_scheme(None):
+        if lex is None:
+            return _relation_phonology()
+        scheme = _LH._scheme_of(lex)
+        aside = getattr(lex, "strip_parens", True)
+        # Under v1 the plain reader's stream read no aside rule (it fell back
+        # to `relations.tokenise`), so only the scheme can differ there.
+        if scheme == _LH.resolve_reader_scheme(None) and (
+                scheme == "v1" or aside == _relation_phonology()._aside_rule()):
             return _relation_phonology()
         # A plain lexicon cut under another reader scheme than this
-        # process's: the plain reader, cutting lines the lexicon's way.
+        # process's, or under the other aside rule (`--voices`): the plain
+        # reader, cutting lines the lexicon's way -- so the relation stream
+        # reads the end word `line_anchors` reads through `lex`.
         from quality.phonology.eng import English
         return English(fallback=_relation_phonology().fallback,
-                       reader_scheme=lex.reader_scheme)
+                       reader_scheme=scheme, strip_parens=aside)
     from quality.phonology.eng import English
     # Preserve the registered relation reader's fallback policy on unselected words.
     return English(fallback=_relation_phonology().fallback, lexicon=lex)
@@ -4849,7 +4858,8 @@ class Reviser:
         profile, theta, admit), every declared field of `Declaration`
         (`discriminate.declaration_tuple` — the same spelling the feature
         cache uses), and the lexicon's identity (its dictionary file, its
-        aside rule, its G2P fallback and that fallback's floor). A lexicon
+        aside rule, its G2P fallback and that fallback's floor, its reader
+        scheme and the process's). A lexicon
         this cannot describe returns None and the process memo is bypassed
         for it — a miss, never a wrong hit.
         """
@@ -4864,6 +4874,7 @@ class Reviser:
             from quality.discriminate import declaration_tuple
             from quality.pronunciation import fingerprint
             from lyric_harness import CMUDICT_PATH as _cmudict_path
+            import lyric_harness as _LH
             dt = tuple(sorted(declaration_tuple(self.decl).items()))
             lex = self.lex
             fb = getattr(lex, "g2p_fallback", None)
@@ -4875,7 +4886,13 @@ class Reviser:
                   fingerprint(getattr(lex, "pronunciations", ())),
                   # A SupplementedLexicon reads one more file; its digest is a
                   # coordinate of every reading (quality/lexicon_supplement.py).
-                  getattr(lex, "supplement_sha256", None))
+                  getattr(lex, "supplement_sha256", None),
+                  # The reader scheme cuts every line these answers read, on
+                  # the supplement's rule; with the process's scheme beside
+                  # it, because the shared relation reader (no lexicon) cuts
+                  # under that one. A warm worker serves v1 replays and v2
+                  # work from one memo.
+                  _LH._scheme_of(lex), _LH.resolve_reader_scheme(None))
             return (dt, lk)
         except Exception:
             return None

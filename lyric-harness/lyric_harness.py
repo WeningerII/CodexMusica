@@ -2437,7 +2437,8 @@ def _reader_stream(text):
 
     NFC runs per canonical segment (a starter and the marks after it), so an
     unchanged segment maps character for character and a recomposed one maps
-    every output character to the whole segment -- the many-codepoints-to-one
+    every output character to the whole segment (to the segment after its
+    starter, when the starter itself survives) -- the many-codepoints-to-one
     map that keeps a raw span from ever losing a character. Hangul composes
     across starters (jamo into a syllable), so a run of Hangul characters and
     their marks is one segment. Any other composition across starters falls
@@ -2457,6 +2458,12 @@ def _reader_stream(text):
             nfc = unicodedata.normalize("NFC", seg)
             if nfc == seg:
                 out.extend((ch, start + k, start + k + 1) for k, ch in enumerate(seg))
+            elif nfc[0] == seg[0]:
+                # The starter composed with nothing (a space before reordered
+                # marks): it keeps its own codepoint, so no piece built from
+                # the marks reaches across it.
+                out.append((nfc[0], start, start + 1))
+                out.extend((ch, start + 1, end) for ch in nfc[1:])
             else:
                 out.extend((ch, start, end) for ch in nfc)
             start = end
@@ -2472,12 +2479,24 @@ def printed_endpoint(rl):
     """-> the line's last raw run when it is NOT its last English token (a
     final `我`, a letter run with a mark NFC could not compose), else None.
     Compared by text and pieces: a line read in whitespace chunks (a Hangul
-    composition) can give a token and a run the same chunk-wide piece."""
+    composition) can give a token and a run the same chunk-wide piece.
+
+    A run that ends BEFORE the last token is not the line's end: `I said ×`
+    has no run after `said` (`×` is no letter, though the token repertoire
+    reads it), and its endpoint is the token `×`, not a second `said`. A run
+    reaching the last token's end may share characters with it (`go кот5`
+    gives the token `5` and the run `кот5`); it is still the printed end
+    word, so it is returned, and a consumer projecting source ranges must
+    not claim both spans exact (`library.analysis`)."""
     if not rl.runs:
         return None
     last = rl.runs[-1]
-    if rl.tokens and rl.tokens[-1].pieces == last.pieces and rl.tokens[-1].text == last.text:
-        return None
+    if rl.tokens:
+        tok = rl.tokens[-1]
+        if tok.pieces == last.pieces and tok.text == last.text:
+            return None
+        if last.pieces[-1][1] < tok.pieces[-1][1]:
+            return None
     return last
 
 
@@ -2818,12 +2837,21 @@ def line_readability(lex, text, anchors=None):
     # That invariant is why the hyphen refusal was put in `line_anchors` and
     # only its CAUSE is re-derived here.
     final_unreadable = not anchors
-    fin_read, fin_unread = token_pieces(lex, final)
+    # Under v2 a token a declared reading binds is read whole by that reading
+    # (`line_anchors`, `transcribe`), so none of its pieces is an unread piece
+    # here either -- a declared `4ever` or `Catch-22` is not a label that
+    # overstates. v1 keeps the pre-batch record, which read the pieces bare.
+    def _pieces_of(index, token):
+        if scheme == "v2" and index is not None and _declared_token(lex, index, token):
+            return [token], []
+        return token_pieces(lex, token)
+    fin_read, fin_unread = _pieces_of(
+        len(toks) - 1 if toks and toks[-1] == final else None, final)
     # Interior means BEFORE THE LAST TOKEN, by position -- not "spelled
     # differently from the last token".
     interior = []
-    for t in toks[:-1]:
-        interior.extend(token_pieces(lex, t)[1])
+    for k, t in enumerate(toks[:-1]):
+        interior.extend(_pieces_of(k, t)[1])
     interior = list(dict.fromkeys(interior))
     cause = None
     # A NUMERAL END WORD (scheme v2, M1) is its own cause: the token is read
@@ -8021,6 +8049,20 @@ def _replay_proposer(path):
         _refuse(f"--propose=replay:{path} — the top level is "
                 f"{type(rec).__name__}, not an object",
                 detail=['expected {"propose": [...], "propose_group": [...]}'])
+    # THE RECORD'S READER SCHEME (a finished state's `answered` block carries
+    # it under v2; a record without it predates the field and was cut under
+    # v1). `main` inherits it when no `--reader-scheme` is declared
+    # (`_recorded_reader_scheme`); a declared other one refuses, as a
+    # deferred run's does.
+    _rs = rec.get("reader_scheme", "v1")
+    if _rs not in READER_SCHEMES:
+        _refuse(f"--propose=replay:{path} — recorded reader scheme {_rs!r} "
+                f"is not one this build reads ({', '.join(READER_SCHEMES)})")
+    if _rs != resolve_reader_scheme(None) and _READER_SCHEME_DECLARED:
+        _refuse("READER_SCHEME_MISMATCH: this replay file was recorded under "
+                f"reader scheme {_rs}, and this call declares "
+                f"{resolve_reader_scheme(None)}. Replay it under "
+                f"--reader-scheme={_rs} (or with no --reader-scheme).")
     ones, groups = {}, {}
     try:
         for r in rec.get("propose", []):
@@ -8278,6 +8320,10 @@ def _recorded_reader_scheme(args):
     (`--propose=defer:PATH`) and a kitchen run's checkpoint
     (`--propose=call:` with `LYRIC_CHECKPOINT_PATH`).
 
+    A third is a replay file (`--propose=replay:PATH`): a finished state's
+    `answered` block carries the scheme its answers were asked under
+    (`_defer_proposer`), so a recorded run replays on its own cut.
+
     It NEVER refuses. A record it cannot read answers None here, and the
     proposer that owns the record refuses later, at the point in the verb's
     output it always did (`_defer_state`, `_checkpoint_proposer`); an
@@ -8286,7 +8332,7 @@ def _recorded_reader_scheme(args):
     spec = _flag_value(args, "--propose")
     if not spec:
         return None
-    if spec.startswith("defer:"):
+    if spec.startswith(("defer:", "replay:")):
         path = spec.split(":", 1)[1]
     elif spec.startswith("call:"):
         path = os.environ.get("LYRIC_CHECKPOINT_PATH")
@@ -8302,14 +8348,29 @@ def _recorded_reader_scheme(args):
     if not isinstance(st, dict):
         return None
     if spec.startswith("defer:"):
-        answered = st.get("answered")
-        if not isinstance(answered, dict):
+        if not isinstance(st.get("answered"), dict):
             return None
-        if not (answered.get("propose") or answered.get("propose_group")
-                or st.get("pending")):
-            return None
-    scheme = st.get("reader_scheme", "v1")
+        scheme = _defer_record_scheme(st)
+    else:
+        # A checkpoint, or a replay file (a finished state's `answered`
+        # block): one without the field predates it.
+        scheme = st.get("reader_scheme", "v1")
     return scheme if scheme in READER_SCHEMES else None
+
+
+def _defer_record_scheme(st):
+    """-> the reader scheme a deferred-run state records, or None when the
+    state records no run (the empty template `_defer_state` answers for a
+    missing file). A state is a record when it holds an answer, a pending
+    question, a completion marker (a finished run -- one that converged
+    without asking anything holds only that) or the scheme itself; a record
+    without the field predates it and was cut under `v1`. The value is not
+    checked here (`_defer_proposer` refuses an unknown one)."""
+    answered = st.get("answered") or {}
+    if (answered.get("propose") or answered.get("propose_group")
+            or st.get("pending") or "complete" in st or "reader_scheme" in st):
+        return st.get("reader_scheme", "v1")
+    return None
 
 
 def _defer_proposer(path, lines=None):
@@ -8377,7 +8438,7 @@ def _defer_proposer(path, lines=None):
     # mismatch is an explicit `--reader-scheme` naming the other one, and it
     # refuses. The state keeps the scheme the run started under.
     _here_scheme = resolve_reader_scheme(None)
-    _run_scheme = st.get("reader_scheme", "v1") if _resuming else None
+    _run_scheme = _defer_record_scheme(st)
     if _run_scheme not in (None,) + READER_SCHEMES:
         _refuse(f"--propose=defer:{path} — recorded reader scheme {_run_scheme!r} "
                 f"is not one this build reads ({', '.join(READER_SCHEMES)})")
@@ -8387,6 +8448,13 @@ def _defer_proposer(path, lines=None):
                 f"{_here_scheme}. Resume it under --reader-scheme={_run_scheme} "
                 "(or with no --reader-scheme), or start a new run.")
     st["reader_scheme"] = _run_scheme or _here_scheme
+    # The `answered` block is a replay file (below), so it carries the scheme
+    # too -- under v2 only: the pre-batch block carried no such key, and a
+    # replay file without one replays as v1 (`_replay_proposer`).
+    if st["reader_scheme"] == "v1":
+        st["answered"].pop("reader_scheme", None)
+    else:
+        st["answered"]["reader_scheme"] = st["reader_scheme"]
     st.setdefault("input_draft", list(lines or ()))
     st.setdefault("accepted_lines", list(lines or ()))
     pending = st.get("pending")
@@ -11457,6 +11525,13 @@ def main():
         raw = ground.lines
         lines = ground.verse_lines
         phon = _phonology_or_refuse(lang)
+        # `--voices` is the aside rule this run declared; under reader scheme
+        # v2 the English stream cuts its words under it, as `line_anchors`
+        # does (v1's stream read no aside rule here, and still does not).
+        if lang == "eng" and voices:
+            from quality.phonology.eng import English
+            phon = English(fallback=phon.fallback, readings=phon.readings,
+                           strip_parens=False)
         # `stanzas=` IS THE PAGE'S OWN GROUND WHERE THE PAGE HAS ONE (M-39,
         # 2026-08-22), and `stanzas=None` -- NOT the pre-computed derivation --
         # where it does not.  Until this entry the line read
