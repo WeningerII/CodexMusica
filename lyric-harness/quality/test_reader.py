@@ -407,11 +407,29 @@ class HangulSegments(unittest.TestCase):
     def test_the_library_claims_exact_only_for_spans_that_rebuild(self):
         sys.path.insert(0, str(ROOT / "library"))
         import library.test_analysis as TA
-        # The last two are regressions: a printed endpoint sharing characters
-        # with the token before it gave two overlapping exact ranges.
+        # The last three are regressions: a printed endpoint sharing
+        # characters with the token before it gave two overlapping exact
+        # ranges, and the analysis read that endpoint (duplicated material)
+        # as a word: a readable token, a type for its pair, a reading to
+        # declare. It is an unread boundary (D14).
         for text in ["love,night \u1100\u1161 sing", "\u1100\u1161\u11a8 cafe\u0301, night",
-                     "go \u043a\u043e\u04425", "love q\u0303uiet"]:
-            _, records, _ = TA.complete(TA.source(text), schemas=[])
+                     "go \u043a\u043e\u04425", "love q\u0303uiet", "love \u00d7night"]:
+            full = text + "\nthe light"
+            _, records, _ = TA.complete(TA.source(full), schemas=[])
+            rl = LH.reader_line(text, False)
+            if LH.printed_endpoint(rl) is not None:
+                end = [r for r in records if r["kind"] == "token"
+                       and r["line_id"] == "line:0" and r["token"] == len(rl.tokens)]
+                self.assertEqual(len(end), 1, text)
+                self.assertEqual(end[0]["text"], LH.printed_endpoint(rl).text, text)
+                self.assertFalse(end[0]["readable"], text)
+                self.assertEqual(end[0]["reading_status"], "unreadable", text)
+                self.assertNotIn("reading_choices", end[0], text)
+                pairs = [r for r in records if r["kind"] == "native_pair"]
+                self.assertTrue(pairs, text)
+                for r in pairs:
+                    self.assertNotIn("type_coordinate", r, text)
+                    self.assertIn("unread boundary", r["reason"], text)
             spans = []
             covered = set()
             for r in records:
@@ -420,7 +438,7 @@ class HangulSegments(unittest.TestCase):
                 for rng in r["source_ranges"]:
                     if rng.get("precision") == "exact":
                         a, b = rng["codepoint_range"]
-                        self.assertEqual(LH.normalise_word(text[a:b]), r["text"], (text, r))
+                        self.assertEqual(LH.normalise_word(full[a:b]), r["text"], (text, r))
                         spans.append((a, b))
                         self.assertFalse(covered & set(range(a, b)), (text, r))
                         covered |= set(range(a, b))
@@ -473,6 +491,60 @@ class OneCoordinate(unittest.TestCase):
         self.assertGreater(checked, 20)
         self.assertEqual(self.eng_plain.tokens_for_line("I said \u00d7"), ["I", "said", "\u00d7"])
         self.assertEqual(LH.line_anchors(self.lex, "I said \u00d7")[0], [])
+
+    def test_the_stream_never_judges_an_end_word_line_anchors_does_not(self):
+        # Regression: U+00D7/U+00F7 are inside the token repertoire and are no
+        # letters, so in `\u00d7night` the token is `\u00d7night` and the last
+        # raw run only `night`. The stream appended that run as its boundary
+        # and READ it, judging `night` where line_anchors refuses the line.
+        # An appended printed endpoint is always an unread boundary (D14).
+        # Property, on every generated line under each fallback and aside
+        # rule: the word the stream judges at the line end is line_anchors'
+        # end word, which line_anchors reads too, or the stream refuses; and
+        # a line line_anchors refuses for its end word (the last raw run is
+        # not the last token) the stream refuses as well. (The stream may
+        # refuse a same-word end line_anchors reads -- an unalignable
+        # homograph, a hyphen piece -- and that is a readability question,
+        # not which word is the end.)
+        import quality.relations as RL
+        from quality.phonology.eng import English
+        lines = GENERATED + RC.V2_REGRESSIONS + [
+            "\u00d7night", "love \u00d7night", "we go \u00f7love", "I said \u00d7"]
+        judged_ends = refused_by_identity = 0
+        for fb in (None, "high"):
+            for sp in (True, False):
+                lex = LH.Lexicon(fallback=fb, strip_parens=sp)
+                for phon in (English(fallback=fb, lexicon=lex),) + (
+                        (English(),) if fb is None and sp else ()):
+                    for text in lines:
+                        st = RL.build_stream([text], phon)
+                        words = st.lexical_tokens[0]
+                        end = len(words) - 1
+                        judged = words[end] if words and st.tokens.get((0, end)) else None
+                        anchors, last, _ = LH.line_anchors(lex, text)
+                        toks = LH.line_tokens(text, sp)
+                        by_identity = not toks or toks[-1] != LH.raw_final_token(text, sp)
+                        key = (fb, sp, text, judged, last)
+                        if judged is not None:
+                            judged_ends += 1
+                            self.assertEqual(judged, last, key)
+                            self.assertTrue(anchors, key)
+                        if by_identity:
+                            refused_by_identity += 1
+                            self.assertIsNone(judged, key)
+                            self.assertEqual(anchors, [], key)
+                        boundary = phon.printed_boundary(text)
+                        if boundary is not None:
+                            self.assertEqual(boundary, len(toks))
+                            self.assertIn((0, boundary, words[boundary]), st.unreadable, key)
+                            self.assertNotIn((0, boundary), st.tokens, key)
+        self.assertGreater(judged_ends, 1000)
+        self.assertGreater(refused_by_identity, 100)
+        st = RL.build_stream(["love \u00d7night", "the light"], English())
+        self.assertEqual(st.lexical_tokens[0], ("love", "\u00d7night", "night"))
+        self.assertEqual({(li, ti) for li, ti, _ in st.unreadable}, {(0, 1), (0, 2)})
+        with LH.reader_scheme_scope("v1"):
+            self.assertIsNone(English(lexicon=LH.Lexicon()).printed_boundary("love \u00d7night"))
 
     def test_the_relation_stream_keeps_the_lexicons_aside_rule(self):
         # Regression: under v2 the declared-relation judge's stream stripped

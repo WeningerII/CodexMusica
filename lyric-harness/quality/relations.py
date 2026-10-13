@@ -907,6 +907,12 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
                            if tokeniser is tokenise and hasattr(line_phon, "tokens_for_line") else None)
         words = (list(analysis.tokens) if analysis else
                  declared_tokens if declared_tokens is not None else tokeniser(raw))
+        # A PRINTED BOUNDARY IS NEVER READ (D14): the phonology appended the
+        # line's printed endpoint as a boundary token (`English.tokens_for_line`),
+        # which is not a word of its token cut, so it is refused unread.
+        boundary = (line_phon.printed_boundary(raw)
+                    if declared_tokens is not None and not analysis
+                    and hasattr(line_phon, "printed_boundary") else None)
         lexical.append(tuple(words))
         cut = bool(re.search(r"[\w’'](-)\s*$", raw)) and hyphen_continues
         read = []
@@ -929,7 +935,7 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
                 miss = []
                 for ti, w in enumerate(words):
                     token_phon = line_phon.for_token(ti) if hasattr(line_phon, "for_token") else line_phon
-                    sy = token_phon.syllabify(w)
+                    sy = token_phon.syllabify(w) if ti != boundary else []
                     if sy:
                         read.append((ti, w, sy))
                     else:

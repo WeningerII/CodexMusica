@@ -315,6 +315,12 @@ class English(Phonology):
         as one more, unreadable, token. The stream's boundary is lexical
         (`relations.build_stream`), so without it `cat 我 / hat` would be
         judged on `cat`; every `line_tokens` index is unchanged.
+
+        The appended run is ALWAYS UNREADABLE (D14), whatever its letters:
+        `printed_boundary` names its index and the stream refuses it without
+        reading it. It is not a word of the line's token cut -- in `×night`
+        the token is `×night` and the run only `night` -- so reading it
+        would judge a readable fragment where `line_anchors` refuses the line.
         """
         import lyric_harness as lh
         if self.reader_scheme == "v1":
@@ -329,6 +335,17 @@ class English(Phonology):
         if endpoint is not None:
             words.append(endpoint.text)
         return words
+
+    def printed_boundary(self, text):
+        """-> the index in `tokens_for_line(text)` of the appended printed
+        endpoint, or None when nothing was appended (and always under `v1`).
+        `relations.build_stream` records that token unreadable without
+        reading it: a boundary, never a word the stream judges."""
+        import lyric_harness as lh
+        if self.reader_scheme == "v1":
+            return None
+        rl = lh.reader_line(text, strip_parens=self._aside_rule(), scheme="v2")
+        return len(rl.tokens) if lh.printed_endpoint(rl) is not None else None
 
     def _fallback(self):
         if self._fb is None and self.fallback is not None:

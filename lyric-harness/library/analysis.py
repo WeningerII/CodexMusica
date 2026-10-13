@@ -616,6 +616,14 @@ class AnalysisSession:
         self._token_projection_cache[li] = positions
         return positions
 
+    def _is_printed_boundary(self, li, ti):
+        """True when token `ti` of line `li` is the printed endpoint the
+        phonology appended as an unread boundary (`English.printed_boundary`)."""
+        raw = self.stream.text_lines[li]
+        ph = self.phon.for_line(raw) if hasattr(self.phon, "for_line") else self.phon
+        find = getattr(ph, "printed_boundary", None)
+        return find is not None and find(raw) == ti
+
     def _token_ranges(self, li, ti):
         row = self._row(li)
         raw = self.stream.text_lines[li]
@@ -819,6 +827,15 @@ class AnalysisSession:
                                line_id=self._line_id(li), token=ti, text=word,
                                source_ranges=ranges, normalized_range=normalized,
                                unit_ids=[f"syllable:{i}" for i in ids], readable=bool(ids))
+            if self._is_printed_boundary(li, ti):
+                # The printed endpoint the stream appended as a boundary is no
+                # token of the line's cut (D14): never read, and no reading can
+                # be declared for it.
+                from quality.phonology import UNREADABLE
+                out["reading_status"] = UNREADABLE
+                out["reading_note"] = ("the line's printed end is not one of its English "
+                                       "tokens; it stays an unread boundary")
+                return out
             if hasattr(self.phon, "reading_status"):
                 ph = self.phon.for_line(self.stream.text_lines[li]) if hasattr(self.phon, "for_line") else self.phon
                 ph = ph.for_token(ti) if hasattr(ph, "for_token") else ph
@@ -857,18 +874,26 @@ class AnalysisSession:
         pb = pb.for_token(len(self.stream.lexical_tokens[lb]) - 1) if hasattr(pb, "for_token") else pb
         # Occurrence choices are carried through the two scoped phonologies.
         # Native modules currently have no per-occurrence override adapter.
+        boundary = [li for li in (la, lb)
+                    if self._is_printed_boundary(li, len(self.stream.lexical_tokens[li]) - 1)]
         result = self.phon.relations(a, b)
         coord = None
         reason = None
-        try:
-            coord = RT.classify_pair(a, b, self.phon, member_phons=(pa, pb))
-        except (ValueError, RT.Indeterminate, self.RL.NoReferent) as exc:
-            reason = str(exc)
+        if boundary:
+            # A printed boundary is never read (D14): no predicate, no type.
+            result = {k: None for k in result}
+            reason = ("the printed end of line(s) " + ", ".join(str(li + 1) for li in boundary)
+                      + " is not one of its English tokens; it stays an unread boundary")
+        else:
+            try:
+                coord = RT.classify_pair(a, b, self.phon, member_phons=(pa, pb))
+            except (ValueError, RT.Indeterminate, self.RL.NoReferent) as exc:
+                reason = str(exc)
         out = self._record("native_pair", mid, [la, lb], namespace="native",
                            language=self.language, line_ids=[self._line_id(la), self._line_id(lb)],
                            words=[a, b], predicates={k: verdict(v) for k, v in result.items()},
                            coverage="answered" if result and all(v is not None for v in result.values()) else "refused",
-                           reason=reason if result else "No native rhyme predicate is supplied by this profile.")
+                           reason=reason if result or boundary else "No native rhyme predicate is supplied by this profile.")
         if coord is not None:
             out["type_coordinate"] = json_safe(coord)
             out["type_names"] = list(coord.names())
