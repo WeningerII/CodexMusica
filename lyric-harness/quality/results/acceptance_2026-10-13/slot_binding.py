@@ -25,11 +25,9 @@ bracket-edited), NOT necessarily the untouched corpus file:
   `headrime` answer's bound word holds the FIRST syllable. A `T<n>` answer
   must lie inside one word. Every reading must name the same word, and its
   syllables must spell that token. Otherwise the case is `resolver_mismatch`:
-  the oracle cannot place it, and the gate is CANNOT TELL. ONE EXCEPTION, and
-  it is disclosed: when `line_anchors` returns an `end` answer with no word
-  tags, its contract (anchor on `raw_final_token` or refuse) places the bound
-  word on the last token. That holds only if the label and the final token
-  both spell it, and each such case is counted in `end_bound_by_contract`;
+  the oracle cannot place it. A syllable with no `widx`, in any reading, is
+  `resolver_mismatch` too. Nothing is ever placed by spelling or by contract
+  (3PO, 6152225454);
 - **edited**: the span `swap_at_slot` actually replaced. It is found by EXACT
   RECONSTRUCTION, never by diffing: the line with one candidate span replaced
   by the marker, cased as the loop cases it, must equal the returned line. The
@@ -57,7 +55,10 @@ Outcomes:
   loop can edit aside lines. `agree` counts are reported so that's visible;
 - `resolver_mismatch`: see above.
 
-THE GATE (exit status 0 PASS, 1 FAIL, 2 CANNOT TELL, 3 ERROR):
+THE GATE (exit status 0 PASS, 1 FAIL, 2 CANNOT TELL, 3 ERROR). FAIL
+DOMINATES: an established wrong edit is never hidden behind an unresolved
+case, and the output always lists both `failures` and `unresolved`. CANNOT
+TELL is the verdict only when nothing has failed.
 - PASS needs 0 `wrong_word`, 0 `grader_elsewhere`, 0 `no_op_edit` and 0
   `resolver_mismatch` in both modes, and every REQUIRED CONTROL edit agreeing.
   The controls are no-aside lines, including a capitalised head, an all-caps
@@ -66,8 +67,10 @@ THE GATE (exit status 0 PASS, 1 FAIL, 2 CANNOT TELL, 3 ERROR):
 - CANNOT TELL is returned when the oracle cannot vouch for itself:
   - a resolver mismatch;
   - a NEGATIVE CONTROL not caught. A resolver rigged to bind the first
-    occurrence of a repeated word must come out `grader_elsewhere`, which
-    proves the binding is checked by position, not spelling;
+    occurrence of a repeated word must come out `grader_elsewhere`. The same
+    rig with a second, untagged reading must come out `resolver_mismatch`.
+    Together they show the binding is checked by position, not spelling, and
+    that a missing tag cannot hide a wrong one;
   - an unexpected exclusion: a line whose token spans could not be rebuilt
     exactly (`spans_not_reproduced`), or admitted line-modes not adding up to
     the intended population;
@@ -126,8 +129,15 @@ CONTROLS = [
 #: NEGATIVE CONTROLS: lines with a repeated word, read with a resolver
 #: rigged to bind the word's FIRST occurrence. The oracle must call each one
 #: `grader_elsewhere`.
-NEGATIVE_CONTROLS = [("love, love me do", "T2"), ("do me a favour, do", "end")]
-BY_CONTRACT = []
+NEGATIVE_CONTROLS = [
+    # (line, slot, rig, the kind the oracle must report)
+    ("love, love me do", "T2", "first_occurrence", "grader_elsewhere"),
+    ("do me a favour, do", "end", "first_occurrence", "grader_elsewhere"),
+    # one reading tagged with the WRONG occurrence, one with its tags removed:
+    # the untagged reading must not let the wrong one through
+    ("do me a favour, do", "end", "mixed_tags", "resolver_mismatch"),
+    ("love, love me do", "T2", "mixed_tags", "resolver_mismatch"),
+]
 SLOTS = ["end", "endword", "head", "headrime"] + [f"T{n}" for n in range(1, 9)]
 MARKS = ("zqzq", "qxqx", "vzvz", "xjxj")
 PRODUCTION_FILES = ("quality/revise.py", "quality/loop.py", "lyric_harness.py")
@@ -198,16 +208,6 @@ def _bound(lex, line, slot, spans):
     anchors, label, _ = SL.resolve(lex, line, SL.parse_slot(f"1.{slot}"))
     if not anchors:
         return None
-    if slot == "end" and any(syl.get("widx") is None for a in anchors for syl in a):
-        # `line_anchors` built this answer without word tags. Its contract is
-        # to anchor on `raw_final_token` (the line's actual last word) or
-        # refuse, so the bound word is placed BY CONTRACT, not physically.
-        # Counted in `end_bound_by_contract` so it stays visible.
-        final = LH.raw_final_token(line, strip_parens=lex.strip_parens)
-        if not spans or not (_fold(spans[-1][0]) == _fold(final) == _fold(label)):
-            return "mismatch"
-        BY_CONTRACT.append({"line": line, "strip_parens": lex.strip_parens})
-        return spans[-1][1]
     picks = set()
     for reading in anchors:
         w = [syl.get("widx") for syl in reading]
@@ -336,26 +336,32 @@ def main():
             spans = _spans(line, lex.strip_parens)
             kind = _classify(line, slot, lex, spans)[0] if spans else "unmapped"
             controls.append({"line": line, "slot": slot, "mode": mode, "kind": kind})
-    # NEGATIVE CONTROLS: a resolver that binds ANOTHER OCCURRENCE OF THE SAME
-    # WORD must not read as agreement. If the oracle calls either one `agree`,
-    # it is matching by spelling, not position, and the gate is CANNOT TELL.
+    # NEGATIVE CONTROLS: rigged resolvers that bind ANOTHER OCCURRENCE OF THE
+    # SAME WORD, fully tagged or mixed with an untagged reading, must never
+    # read as agreement. If the oracle reports anything other than the
+    # expected kind, it cannot vouch for itself, and the gate is CANNOT TELL.
     real = SL.resolve
 
-    def first_occurrence(lex_, line_, member, promote=False):
-        anchors, label, oov = real(lex_, line_, member, promote=promote)
-        toks = LH.line_tokens(line_, strip_parens=lex_.strip_parens)
-        first = {t: toks.index(t) for t in toks}
-        return ([[dict(syl, widx=first.get(toks[syl["widx"]], syl["widx"])) for syl in a] for a in anchors],
-                label, oov)
+    def rigged(rig):
+        def resolve(lex_, line_, member, promote=False):
+            anchors, label, oov = real(lex_, line_, member, promote=promote)
+            toks = LH.line_tokens(line_, strip_parens=lex_.strip_parens)
+            first = {t: toks.index(t) for t in toks}
+            wrong = [[dict(syl, widx=first.get(toks[syl["widx"]], syl["widx"])) for syl in a] for a in anchors]
+            if rig == "mixed_tags":
+                untagged = [{k: v for k, v in syl.items() if k != "widx"} for syl in anchors[0]]
+                wrong = wrong[:1] + [untagged]
+            return wrong, label, oov
+        return resolve
     negatives = []
-    SL.resolve = first_occurrence
     try:
-        for line, slot in NEGATIVE_CONTROLS:
+        for line, slot, rig, want in NEGATIVE_CONTROLS:
+            SL.resolve = rigged(rig)
             kind = _classify(line, slot, base, _spans(line, True))[0]
-            negatives.append({"line": line, "slot": slot, "kind": kind})
+            negatives.append({"line": line, "slot": slot, "rig": rig, "expected": want, "kind": kind})
     finally:
         SL.resolve = real
-    negatives_failed = [n for n in negatives if n["kind"] != "grader_elsewhere"]
+    negatives_failed = [n for n in negatives if n["kind"] != n["expected"]]
     intended = len(lines) * len(lexes)
     admitted = intended - excluded["spaced_enclitic_or_folded"] - excluded["spans_not_reproduced"]
     population = {"intended_line_modes": intended, "admitted_line_modes": admitted,
@@ -366,16 +372,27 @@ def main():
     failing = {m: {k: tally[m].get(k, 0) for k in FAILING} for m in lexes}
     controls_failed = [c for c in controls if c["kind"] != "agree"]
     unmapped_controls = [c for c in controls if c["kind"] == "unmapped"]
-    if (odd or other or any(failing[m]["resolver_mismatch"] for m in lexes) or negatives_failed
-            or population["unexpected_excluded"] or not population["accounted"] or unmapped_controls):
-        gate = "CANNOT TELL"
-    elif any(failing[m][k] for m in lexes for k in FAILING) or controls_failed:
-        gate = "FAIL"
-    else:
-        gate = "PASS"
+    # ESTABLISHED FAILURES are never hidden by an unresolved case: any wrong
+    # edit makes the gate FAIL, and the unresolved reasons are listed beside
+    # it. CANNOT TELL is the verdict only when nothing has failed.
+    failures = {f"{m}:{k}": failing[m][k] for m in lexes for k in ("wrong_word", "grader_elsewhere", "no_op_edit")
+                if failing[m][k]}
+    if controls_failed and not unmapped_controls:
+        failures["controls_failed"] = len(controls_failed)
+    unresolved = {f"{m}:resolver_mismatch": failing[m]["resolver_mismatch"] for m in lexes
+                  if failing[m]["resolver_mismatch"]}
+    if negatives_failed:
+        unresolved["negative_controls_failed"] = len(negatives_failed)
+    if population["unexpected_excluded"] or not population["accounted"]:
+        unresolved["coverage_lost"] = population["unexpected_excluded"]
+    if unmapped_controls:
+        unresolved["controls_unmapped"] = len(unmapped_controls)
+    if odd or other:
+        unresolved["production_use_not_replicated"] = len(odd) + len(other)
+    gate = "FAIL" if failures else "CANNOT TELL" if unresolved else "PASS"
     supp = getattr(base, "supplement_path", None)
     rec = {
-        "gate": gate,
+        "gate": gate, "failures": failures, "unresolved": unresolved,
         "pins": {
             "commit": commit, "tracked_changes": dirty, "harness_root": ROOT,
             "tool_sha256": _sha(os.path.abspath(__file__)),
@@ -400,7 +417,6 @@ def main():
         "excluded_line_modes": excluded, "evaluated_slots": evaluated,
         "outcomes": tally, "failing": failing,
         "population": population,
-        "end_bound_by_contract": {"count": len(BY_CONTRACT), "cases": BY_CONTRACT[:50]},
         "controls": controls, "controls_failed": controls_failed,
         "negative_controls": negatives, "negative_controls_failed": negatives_failed,
         "cases": cases[:200],
@@ -408,7 +424,7 @@ def main():
     with open(out, "w", encoding="utf-8") as fh:
         json.dump(rec, fh, indent=1, ensure_ascii=False)
         fh.write("\n")
-    print(json.dumps({k: rec[k] for k in ("gate", "excluded_line_modes", "evaluated_slots", "outcomes",
+    print(json.dumps({k: rec[k] for k in ("gate", "failures", "unresolved", "excluded_line_modes", "evaluated_slots", "outcomes",
                                           "production_uses_not_replicated")}
                      | {"population": population, "negative_controls_failed": len(negatives_failed),
                         "controls_failed": len(controls_failed),

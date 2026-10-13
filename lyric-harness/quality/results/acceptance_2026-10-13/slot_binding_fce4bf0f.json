@@ -1,10 +1,17 @@
 {
  "gate": "FAIL",
+ "failures": {
+  "asides_stripped:wrong_word": 5
+ },
+ "unresolved": {
+  "asides_stripped:resolver_mismatch": 1,
+  "asides_sung:resolver_mismatch": 1
+ },
  "pins": {
   "commit": "fce4bf0f1b4b274d1c44c67831a6e40b22a8802c",
   "tracked_changes": false,
   "harness_root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness",
-  "tool_sha256": "2fa40220c03316af0d8e80d6453ce9c39a519c4e4887e757d4bfc210474a0df7",
+  "tool_sha256": "e369abb52da3ed85e166dc2aedf24b2c320cc49e7629a5897cdc4444eae30f9d",
   "loop_sha256": "1b8ebc8d0a6ff7eb72f3afe5961a36184b0f839e5c7cfbbae8321b2cf30e90d7",
   "loop_word_re": true,
   "lexicon": {
@@ -95,20 +102,22 @@
  },
  "outcomes": {
   "asides_stripped": {
-   "agree": 168,
+   "agree": 167,
    "refused": 3255,
    "no_word_refused": 7803,
    "wrong_word": 5,
    "refused_grader_elsewhere": 29,
    "refused_unbound": 76,
+   "resolver_mismatch": 1,
    "agree_unbound": 4
   },
   "asides_sung": {
-   "agree": 173,
+   "agree": 172,
    "refused": 9488,
    "no_word_refused": 1312,
    "refused_unbound": 285,
    "refused_grader_elsewhere": 78,
+   "resolver_mismatch": 1,
    "agree_unbound": 4
   }
  },
@@ -117,13 +126,13 @@
    "wrong_word": 5,
    "grader_elsewhere": 0,
    "no_op_edit": 0,
-   "resolver_mismatch": 0
+   "resolver_mismatch": 1
   },
   "asides_sung": {
    "wrong_word": 0,
    "grader_elsewhere": 0,
    "no_op_edit": 0,
-   "resolver_mismatch": 0
+   "resolver_mismatch": 1
   }
  },
  "population": {
@@ -132,19 +141,6 @@
   "transformed_excluded": 78,
   "unexpected_excluded": 0,
   "accounted": true
- },
- "end_bound_by_contract": {
-  "count": 2,
-  "cases": [
-   {
-    "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
-    "strip_parens": true
-   },
-   {
-    "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
-    "strip_parens": false
-   }
-  ]
  },
  "controls": [
   {
@@ -297,12 +293,30 @@
   {
    "line": "love, love me do",
    "slot": "T2",
+   "rig": "first_occurrence",
+   "expected": "grader_elsewhere",
    "kind": "grader_elsewhere"
   },
   {
    "line": "do me a favour, do",
    "slot": "end",
+   "rig": "first_occurrence",
+   "expected": "grader_elsewhere",
    "kind": "grader_elsewhere"
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "end",
+   "rig": "mixed_tags",
+   "expected": "resolver_mismatch",
+   "kind": "resolver_mismatch"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "rig": "mixed_tags",
+   "expected": "resolver_mismatch",
+   "kind": "resolver_mismatch"
   }
  ],
  "negative_controls_failed": [],
@@ -346,6 +360,34 @@
     16
    ],
    "result": "hold on (hold zqzq)"
+  },
+  {
+   "kind": "resolver_mismatch",
+   "source": "corpus",
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "mode": "asides_stripped",
+   "slot": "end",
+   "named": [
+    50,
+    54
+   ],
+   "bound": null,
+   "edited": null,
+   "result": "An' your fact'ry gals (soon ez we split) 'll make zqzq,"
+  },
+  {
+   "kind": "resolver_mismatch",
+   "source": "corpus",
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "mode": "asides_sung",
+   "slot": "end",
+   "named": [
+    50,
+    54
+   ],
+   "bound": null,
+   "edited": null,
+   "result": "An' your fact'ry gals (soon ez we split) 'll make zqzq,"
   },
   {
    "kind": "wrong_word",

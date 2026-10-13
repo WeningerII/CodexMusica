@@ -159,15 +159,15 @@ This is R2's 1b v2 blocker (PR #519, comment 6151243417): under `--voices`, the 
 
 **What it compares.** The check covers every line with a parenthesised aside, in both aside modes, for every slot: `end`, `endword`, `head`, `headrime` and `T1` to `T8`. The spans are in the line **as the reader returns it**, which is not necessarily the untouched corpus file:
 - **the word the slot names**;
-- **the word the grader binds,** read **physically** from the `widx` that `slots.resolve` itself puts on the syllables it returns, never matched by spelling. An `end` or `endword` answer can span words, so its bound word is the one holding the last syllable. A `head` or `headrime` answer's bound word holds the first syllable, and a `T<n>` answer must lie inside one word. Every reading must agree, or the case is `resolver_mismatch` and the result is CANNOT TELL. There is one disclosed exception: when `line_anchors` returns an `end` answer with no word tags, its contract (anchor on the line's last word or refuse) places it, and those cases are counted in `end_bound_by_contract`. At main that is 2, one line in both modes;
+- **the word the grader binds,** read **physically** from the `widx` that `slots.resolve` itself puts on the syllables it returns. It is never matched by spelling, and never placed by contract. An `end` or `endword` answer can span words, so its bound word is the one holding the last syllable. A `head` or `headrime` answer's bound word holds the first syllable, and a `T<n>` answer must lie inside one word. Every reading must agree, and a syllable with no `widx` in any reading counts as a disagreement. Any disagreement is `resolver_mismatch`, an unresolved case;
 - **the span the loop replaced.** It is found by **exact reconstruction**: the line with one candidate span replaced by a marker, cased as the loop cases it, must equal what the loop returned. The marker is chosen per line so that it occurs nowhere in that line. A returned line no single-span replacement explains is `wrong_word`, and one identical to the input is `no_op_edit`.
 
-**The gate, enforced by exit status.** Exit 0 is PASS, 1 is FAIL, 2 is CANNOT TELL and 3 is ERROR (no verdict).
+**The gate, enforced by exit status.** Exit 0 is PASS, 1 is FAIL, 2 is CANNOT TELL and 3 is ERROR (no verdict). **FAIL dominates:** an established wrong edit is never hidden behind an unresolved case. The output always lists both `failures` and `unresolved`, and CANNOT TELL is the verdict only when nothing has failed.
 - **PASS** needs 0 `wrong_word`, 0 `grader_elsewhere` (the loop edits the named word but the grader binds another), 0 `no_op_edit` and 0 `resolver_mismatch` in both modes.
 - **PASS also needs all 12 required control edits to agree in both modes.** These are no-aside lines covering `end`, `endword`, `head`, `headrime`, `T2` to `T5`, a capitalised head and an all-caps line. A loop that refuses everything fails them.
 - **Refusals never fail the gate.** A loop that refuses on every aside line passes, because the gate tests that edits land on the right word, not that the loop can edit aside lines. The `agree` counts show which one a head does.
 - **CANNOT TELL** is returned when the check can't vouch for itself:
-  - **a negative control isn't caught.** A resolver rigged to bind the first occurrence of a repeated word (`love, love me do` `T2`, and `do me a favour, do` `end`) must come out `grader_elsewhere`;
+  - **a negative control isn't caught.** A resolver rigged to bind the first occurrence of a repeated word (`love, love me do` `T2`, and `do me a favour, do` `end`) must come out `grader_elsewhere`. The same rig with a second, untagged reading must come out `resolver_mismatch`, so a missing tag can't hide a wrong one;
   - **coverage is lost.** That means an unexpected exclusion, a line whose spans can't be rebuilt exactly, or admitted line-modes not adding up to the intended population. At main, 1,968 line-modes are intended and 1,890 admitted, with 78 transformed and 0 unexpected;
   - **a required control can't be evaluated.**
 - **CANNOT TELL** is also returned if production uses `swap_at_slot` in a way the tool doesn't replicate: other arguments, an alias, or any other reference (read with `ast` from `revise.py`, `loop.py` and `lyric_harness.py`). At main there are 4 call sites, all passing `(text, slot, word)`, and no other use.
@@ -188,7 +188,11 @@ Lines that `join_spaced_enclitics` changes are excluded and counted (78 line-mod
 | asides stripped (default) | 168 | 4 | 3,255 | 76 | 29 | 7,803 | **5** |
 | asides sung (`--voices`) | 173 | 4 | 9,488 | 285 | 78 | 1,312 | 0 |
 
-All 24 control cases agree and both negative controls are caught. The physical binding check changed no outcome compared with the label check, so nothing at main had agreed by spelling alone. The gate is **FAIL** because of the 5 wrong words.
+All 24 control cases agree and all 4 negative controls are caught. The gate is **FAIL**, with:
+- **failures:** 5 wrong words, all in the default mode;
+- **unresolved:** 2 `resolver_mismatch`. That's one line, `An' your fact'ry gals (soon ez we split) 'll make head,`, whose `end` answer from `line_anchors` carries no word tags, in either mode.
+
+Apart from that line, every outcome count is identical to the label-based version. At `55ef9fb5` that line's two cases were placed by contract, which is still an inference from spelling. They are now unresolved instead.
 - **With voices on, main never edits a wrong word.** Every `head`, `headrime`, `endword` and `T<n>` slot on an aside line refuses (`quality/loop.py:400-402`), so R2's bug is new in the 1b branch.
 - **Main's own wrong-word edit, in the default mode.** `swap_end_word` (`quality/loop.py:356-358`) checks that the last raw word has the same TEXT as the end word, but not the same POSITION. When a trailing aside repeats the end word, the copy inside the parentheses is edited, while the grader still reads the unchanged word:
   - `I love you (love you)` becomes `I love you (love zqzq)`;
@@ -206,7 +210,7 @@ All 24 control cases agree and both negative controls are caught. The physical b
   - a non-git root pinned as clean.
 
   - **3PO's review of that version** found two more gaps, both fixed:
-    - the binding was matched by label text rather than by the resolver's own word index;
+    - the binding was matched by label text rather than by the resolver's own word index. A follow-up review also removed the end-word contract fallback, and added the mixed-tag negative controls;
     - unexpected exclusions didn't stop the gate.
 
   Two "a broken loop passes" findings were refuted as defects, because those loops are correct on everything the gate covers. They led to the extra controls.
