@@ -90,6 +90,7 @@
   "end_newly_refused": 3111,
   "meter_refused_gained": 10690,
   "meter_refused_lost": 261,
+  "meter_stress_changed": 12792,
   "reading_switched": 13,
   "reason_changed": 8982,
   "voices_changed": 55,
@@ -98,7 +99,7 @@
  },
  "unexplained_field_counts": {},
  "secondary_reader_attribution": {
-  "meter:item6": 10690,
+  "meter:item6": 10704,
   "respell:item6": 2402
  },
  "M3_raw_deltas": null,
@@ -120,6 +121,9 @@
   "word_refusal_respelled": {
    "item6/interior": 1909,
    "item6/end": 561
+  },
+  "meter_refused_lost": {
+   "item6/UNRESOLVED_READING": 261
   },
   "reading_switched": {
    "item6": 13

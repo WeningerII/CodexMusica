@@ -65,6 +65,14 @@ def _fold(w):
     return w.lower().strip("\"“”.,;:!?()[]-‐‑")
 
 
+def _raw(t):
+    """A token's coordinate identity: apostrophes folded and case folded, edge
+    hyphens KEPT, so a cut that only drops them (`shore--` -> `shore`) shows."""
+    for ch in _APOS:
+        t = t.replace(ch, "'")
+    return t.lower()
+
+
 def _parts(w):
     f = _fold(w)
     return {f, f.strip("'")} | {p.strip("'") for p in re.split(r"-+|[‐‑]", f) if p.strip("'")}
@@ -255,13 +263,13 @@ def _main():
             hit("extra_changed", "extra")
         # token coordinate: what cut the line's tokens differently
         tb, ta = b.get("tokens") or [], a.get("tokens") or []
-        if [_fold(t) for t in tb] != [_fold(t) for t in ta]:
-            cut = [_fold(w[1]) for w in _words(b)]
-            plain = [_fold(t) for t in ta if not re.search(r"\d", t)]
-            if [_fold(t) for t in ta] == cut:
+        if [_raw(t) for t in tb] != [_raw(t) for t in ta]:
+            cut = [_raw(w[1]) for w in _words(b)]
+            plain = [_raw(t) for t in ta if not re.search(r"\d", t)]
+            if [_raw(t) for t in ta] == cut:
                 kind, mech = "tokens_dash_cut", "dash"
             elif plain == cut:
-                kind, mech = ("tokens_numeral_added", "M1") if cut == [_fold(t) for t in tb] else ("tokens_numeral_and_dash", "M1")
+                kind, mech = ("tokens_numeral_added", "M1") if cut == [_raw(t) for t in tb] else ("tokens_numeral_and_dash", "M1")
             else:
                 kind, mech = "tokens_other", "other"
             hit(kind, "tokens", "tok", "words_ne_tokens", "phones", "oov", "unreadable", "interior_unreadable",
@@ -291,7 +299,7 @@ def _main():
                     tally(f"stream_{kind}", f"{mech}/{pos}")
                     attribute("stream:", mech, i)
                     explained_stream = True
-            if not explained_stream and [_fold(t) for t in tb] != [_fold(t) for t in ta]:
+            if not explained_stream and [_raw(t) for t in tb] != [_raw(t) for t in ta]:
                 explained.add("stream_unread")      # re-indexed by the token cut only
         if b.get("stream_tokens") != a.get("stream_tokens"):
             hit("stream_tokens_changed", "stream_tokens")
@@ -304,9 +312,12 @@ def _main():
             gm = _mech(ga[0] or "", gb[0])
             tally(name, gm)
             attribute("grid:", "M2b" if gm == "M2" else gm, i)
-        if b.get("meter_stress") != a.get("meter_stress") and "meter_stress" not in explained:
+        if b.get("meter_stress") != a.get("meter_stress"):
+            # the raw delta is always recorded; it is only UNEXPLAINED when no
+            # word, token or switch class on the line already accounts for it
+            if "meter_stress" not in explained:
+                attribute("meter:", "other", i)
             hit("meter_stress_changed", "meter_stress")
-            attribute("meter:", "other", i)
         mb = {tuple(x) for x in b.get("meter_refused") or []}
         ma = {tuple(x) for x in a.get("meter_refused") or []}
         if mb != ma:
@@ -318,6 +329,10 @@ def _main():
                     attribute("meter:", "M2b" if mm == "M2" else mm, i)
             if mb - ma:
                 hit("meter_refused_lost", "meter_refused")
+                for t, c in mb - ma:
+                    mm = _mech(t, None)
+                    tally("meter_refused_lost", f"{mm}/{c}")
+                    attribute("meter:", "M2b" if mm == "M2" else mm, i)
         db, da = b.get("declared"), a.get("declared")
         ub, ua = db is not None and not _resolved(db), da is not None and not _resolved(da)
         unresolved["before"] += ub; unresolved["after"] += ua
@@ -358,11 +373,12 @@ def _main():
     if "dash" not in scope:
         loose |= {"dash", "respell:dash"} | {p + "dash" for p in secondary}
     if "M3" in scope:     # under M3 the secondary readers' deltas are raw, not shape-attributed
-        loose -= {p + "other" for p in secondary}
+        loose -= {p + "other" for p in secondary} | {p + "dash" for p in secondary}
     unpredicted = sorted(set().union(*(v for k, v in by_mech.items() if k in loose)) | cls.get("unexplained_fields", set()))
     out_of_scope = sorted(set().union(*(v for k, v in by_mech.items()
                                         if k.split(":")[-1] in _ALL and k.split(":")[-1] not in scope
-                                        and not k.startswith("switch:"))))
+                                        and not k.startswith("switch:")
+                                        and not ("M3" in scope and k.startswith(secondary)))))
     m3_raw = ({k: len(v) for k, v in sorted(cls.items()) if k.startswith(("stream_", "meter_", "grid_"))}
               if "M3" in scope else None)
     rec = {

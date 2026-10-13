@@ -14,6 +14,15 @@ property. Exit status 1 if any case fails.
                    in scope, unattributed when not
   dash_switch      a reading switch on a word cut from a `--` token counts as
                    observed for `dash` (folded before the counts)
+  dash_switch_fixed  the same with the token coordinate unchanged: counted as
+                   a reading switch, not a token cut
+  edge_hyphen_cut  `shore--` -> `shore` is a token cut (edge hyphens are part
+                   of the coordinate)
+  meter_raw_and_loss  a stress change beside an expected refusal is still
+                   recorded, and a lost meter refusal on a plain word is
+                   unattributed
+  m3_raw_only      under M3, stream and grid changes are raw deltas: neither
+                   out of scope nor unattributed
   respelled        a refusal reported as a piece before and whole after is
                    neither new nor unattributed
 """
@@ -86,6 +95,35 @@ def _cases():
     r = _run([sb], [sa], "--mechanisms=dash")
     out["dash_switch"] = (r["projection_cross_tab"]["dash"]["observed"] == 1 and r["unattributed_changes"]["count"] == 0,
                           f'dash observed {r["projection_cross_tab"]["dash"]["observed"]}, unattributed {r["unattributed_changes"]["count"]}')
+
+    fb = _line(4, "home--again", ["home--again"], [["HH OW1 M AH0 G EH1 N", []]])
+    fa = copy.deepcopy(fb); fa["tok"][0] = ["HH OW1 M AH0 G EY1 N", []]
+    r = _run([fb], [fa], "--mechanisms=dash")
+    c = r["projection_cross_tab"]["dash"]
+    out["dash_switch_fixed"] = (r["counts"].get("reading_switched") == 1 and c["observed_refusal_or_switch"] == 1
+                                and c["observed_token_cut"] == 0 and r["unattributed_changes"]["count"] == 0,
+                                f'switched {r["counts"].get("reading_switched")}, refusal_or_switch {c["observed_refusal_or_switch"]}, '
+                                f'cut {c["observed_token_cut"]}, unattributed {r["unattributed_changes"]["count"]}')
+
+    eb = _line(5, "the shore--", ["the", "shore--"], [["DH AH0", []], ["SH AO1 R", []]])
+    ea = _line(5, "the shore--", ["the", "shore"], [["DH AH0", []], ["SH AO1 R", []]])
+    r = _run([eb], [ea], "--mechanisms=dash")
+    out["edge_hyphen_cut"] = (r["counts"].get("tokens_dash_cut") == 1 and r["projection_cross_tab"]["dash"]["observed_token_cut"] == 1,
+                              f'tokens_dash_cut {r["counts"].get("tokens_dash_cut")}')
+
+    a = copy.deepcopy(base); a["tok"][1] = ["", ["war-cry"]]; a["meter_stress"] = "//"
+    a["meter_refused"] = [["war-cry", "OUT_OF_LEXICON"]]
+    mb = copy.deepcopy(base); mb["meter_refused"] = [["rang", "OUT_OF_LEXICON"]]
+    r = _run([mb], [a], "--mechanisms=item6")
+    out["meter_raw_and_loss"] = (r["counts"].get("meter_stress_changed") == 1 and r["counts"].get("meter_refused_lost") == 1
+                                 and r["unattributed_changes"]["count"] == 1,
+                                 f'stress {r["counts"].get("meter_stress_changed")}, lost {r["counts"].get("meter_refused_lost")}, '
+                                 f'unattributed {r["unattributed_changes"]["count"]} (the lost `rang` refusal is unexplained)')
+
+    gb = copy.deepcopy(base); ga = copy.deepcopy(base); ga["grid"] = ["home", "Z"]; ga["stream_unread"] = [[1, "war-cry"]]
+    r = _run([gb], [ga], "--mechanisms=M3")
+    out["m3_raw_only"] = (r["M3_raw_deltas"] and r["out_of_scope_changes"]["count"] == 0 and r["unattributed_changes"]["count"] == 0,
+                          f'raw {r["M3_raw_deltas"]}, out_of_scope {r["out_of_scope_changes"]["count"]}, unattributed {r["unattributed_changes"]["count"]}')
 
     rb = _line(3, "Tra-la-la", ["Tra-la-la"], [["L AA1 L AA1", ["Tra"]]])
     ra = _line(3, "Tra-la-la", ["Tra-la-la"], [["", ["Tra-la-la"]]])

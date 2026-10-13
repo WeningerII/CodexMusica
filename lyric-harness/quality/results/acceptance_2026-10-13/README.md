@@ -90,13 +90,16 @@ There is one standing measure, the same on both sides: **27,712** dev lines of *
 - Refusals respelled from a piece to the whole word: **1,909** interior and **561** at the line end. These match the projection's some-piece-unread count, and its 413 last-piece-unread plus 148 earlier-piece-unread end lines.
 - There are no unexplained fields. The only configuration change is the comparator fingerprint, which the simulation's patch to `lyric_harness.py` moves.
 
-**Self-test (`selftest.py`).** It runs seven synthetic cases that the corpus runs cannot show:
+**Self-test (`selftest.py`).** It runs eleven synthetic cases that the corpus runs cannot show:
 - an expected item-6 refusal and an unexplained grid change on one line;
 - a stream-only refusal;
 - a meter-only change;
 - a field no class explains;
 - a `--` cut with `dash` in scope and out of it;
-- a reading switch on a `--`-cut word;
+- a reading switch on a `--`-cut word, with the token coordinate changed and with it fixed;
+- an edge-hyphen-only cut (`shore--` → `shore`);
+- a meter stress change beside an expected refusal, plus a lost meter refusal;
+- secondary-reader changes under `M3`, which are raw deltas, neither out of scope nor unattributed;
 - a respelled refusal.
 
 All pass.
