@@ -1,0 +1,372 @@
+{
+ "before": {
+  "commit": "fce4bf0f1b4b274d1c44c67831a6e40b22a8802c",
+  "tracked_changes": false,
+  "fallback": "none"
+ },
+ "after": {
+  "commit": "fce4bf0f1b4b274d1c44c67831a6e40b22a8802c",
+  "tracked_changes": true,
+  "fallback": "none"
+ },
+ "config_changes": {
+  "comparator_fingerprint_parts": {
+   "before": [
+    [
+     "lyric_harness.py closure",
+     "lyric_harness.py:ADMITTABLE_RELATIONS,APOSTROPHES,CLICHE_PAIRS,CMUDICT_PATH,CMUDICT_URL,CODA_EMPTY_EVIDENCE,CONSONANTS,DECLARATION_CHANNELS,DOWNLOAD_ATTEMPTS,DOWNLOAD_BACKOFF_S,DOWNLOAD_TIMEOUT_S,Declaration,DownloadFailed,ENCLITICS,FREQ_PATH,HERE,HYPHEN_SPLIT,LATIN_SCRIPT,LEGAL_ONSETS,LexicalAssetUnavailable,Lexicon,MANNER_DIST,NEAR_RELATIONS,NO_ANCHOR,PLURAL_S_SIBILANT,PLURAL_S_VOICELESS,PROFILES,RHYME_RELATIONS,SPELLING_ALIASES,SUFFIXES,UnknownProfile,VOWELS,WEAK_ALWAYS,WEAK_NONFINAL,_DeclarationChannels,_DictionaryOnlyLexicon,_KNOWN_WORDS,_SPACED_ENCLITIC,_TOKEN_RUN,_download_retryable,_lyric_result,_own_onset,_phone_owners,_refuse,_tag_span_words,admits,admits_decl,admitted_relations,anchor,channel_agreement,channel_profile,cluster_sim,coda_agrees,cons_sim,download_to,fetch_data,fold_apostrophes,join_spaced_enclitics,line_anchors,line_tokens,nucleus_agrees,plural_s_tail,raw_final_token,relation_totals,score,shared_ending,split_phone,syllabify,token_pieces,unread_final_piece,vowel_sim,weak_token:039682b3508d8546bf2c2e3e1d08affc28f48b106debd7b06041858b62b05e5c"
+    ],
+    [
+     "features.py",
+     "features.py:de8f73d9ec3247b52ab40caedf6619f4c6c08b95014728053c19a4536f6de341"
+    ],
+    [
+     "cmudict.dict",
+     "cmudict.dict:81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22"
+    ],
+    [
+     "opensubtitles_en_50k.tsv",
+     "opensubtitles_en_50k.tsv:c0519dbd5b0fc30e192ea323faf946d05c658f7f647c8490278594fbf490b008"
+    ],
+    [
+     "Declaration()",
+     "Declaration(dialect='cmudict (General American citation forms)', anchor='last primary stress to end of unit', admit=('ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'), channel_weights={'nucleus': 0.5, 'coda': 0.35, 'stress': 0.15}, channel_weights_interior={'nucleus': 0.4, 'coda': 0.25, 'onset': 0.2, 'stress': 0.15}, trailing_syllable_penalty=0.15, theta_rhyme=0.75, theta_by_relation={'ASSONANCE': 0.75, 'CONSONANCE': 0.75}, conjunctive_band=True, theta_coda=0.8, coda_empty_evidence='cannot_tell', coda_agreement='identity', coda_licence=(), coda_licence_final_only=True, theta_nucleus=0.6, nucleus_agreement='licensed', nucleus_licence=(('AH', 'IH'),), nucleus_licence_unstressed_only=True, nucleus_licence_before_r=(('IH', 'IY'),), scalar_alignment='head', final_promotion=True, fitted=False, search='max over every pronunciation span pair; k = candidates_a x candidates_b, recorded per pair as spans.search_k; uncorrected')"
+    ],
+    [
+     "predictability_frac",
+     "def predictability_frac(qf, lines, obvious_cutoff=0.90):\n    \"\"\"floor.py's own PREDICTABLE_RHYME computation, verbatim: the fraction\n    of an item's pairs whose answer sits above `obvious_cutoff` in its own\n    frequency-ranked candidate field.\n\n    Returns NaN, not 0.0, when no pair resolves (every end word OOV, or the\n    item is one line). NaN is the honest value: 0.0 would claim \"this item's\n    rhyme was measured and found unpredictable,\" when what actually happened\n    is nothing here could be scored at all. `thresholds()` filters NaN out of\n    the percentile it computes FROM (a non-measurement cannot inform what a\n    normal value looks like); `fpr()` needs no filter at all, because a NaN\n    comparison is False either direction in Python, which is exactly \"this\n    check does not fire on an item it cannot read\" -- the same behaviour\n    `floor.py`'s live `if preds:` guard gives a real draft.\n    \"\"\"\n    preds = [v for _i, _j, v\n             in qf._predictability(lines, _couplet_pairs(lines))]\n    if not preds:\n        return float(\"nan\")\n    obvious = [p for p in preds if p > obvious_cutoff]\n    return len(obvious) / len(preds)\n"
+    ],
+    [
+     "_couplet_pairs",
+     "def _couplet_pairs(lines):\n    return [(i, i + 1) for i in range(0, len(lines) - 1, 2)]\n"
+    ]
+   ],
+   "after": [
+    [
+     "lyric_harness.py closure",
+     "lyric_harness.py:ADMITTABLE_RELATIONS,APOSTROPHES,CLICHE_PAIRS,CMUDICT_PATH,CMUDICT_URL,CODA_EMPTY_EVIDENCE,CONSONANTS,DECLARATION_CHANNELS,DOWNLOAD_ATTEMPTS,DOWNLOAD_BACKOFF_S,DOWNLOAD_TIMEOUT_S,Declaration,DownloadFailed,ENCLITICS,FREQ_PATH,HERE,HYPHEN_SPLIT,LATIN_SCRIPT,LEGAL_ONSETS,LexicalAssetUnavailable,Lexicon,MANNER_DIST,NEAR_RELATIONS,NO_ANCHOR,PLURAL_S_SIBILANT,PLURAL_S_VOICELESS,PROFILES,RHYME_RELATIONS,SPELLING_ALIASES,SUFFIXES,UnknownProfile,VOWELS,WEAK_ALWAYS,WEAK_NONFINAL,_DeclarationChannels,_DictionaryOnlyLexicon,_KNOWN_WORDS,_SPACED_ENCLITIC,_TOKEN_RUN,_download_retryable,_lyric_result,_own_onset,_phone_owners,_refuse,_tag_span_words,admits,admits_decl,admitted_relations,anchor,channel_agreement,channel_profile,cluster_sim,coda_agrees,cons_sim,download_to,fetch_data,fold_apostrophes,join_spaced_enclitics,line_anchors,line_tokens,nucleus_agrees,plural_s_tail,raw_final_token,relation_totals,score,shared_ending,split_phone,syllabify,token_pieces,unread_final_piece,vowel_sim,weak_token:2243c7f315ff89cc2126d7243d3c3f804872441872e085b05db412f9ef1a946c"
+    ],
+    [
+     "features.py",
+     "features.py:de8f73d9ec3247b52ab40caedf6619f4c6c08b95014728053c19a4536f6de341"
+    ],
+    [
+     "cmudict.dict",
+     "cmudict.dict:81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22"
+    ],
+    [
+     "opensubtitles_en_50k.tsv",
+     "opensubtitles_en_50k.tsv:c0519dbd5b0fc30e192ea323faf946d05c658f7f647c8490278594fbf490b008"
+    ],
+    [
+     "Declaration()",
+     "Declaration(dialect='cmudict (General American citation forms)', anchor='last primary stress to end of unit', admit=('ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'), channel_weights={'nucleus': 0.5, 'coda': 0.35, 'stress': 0.15}, channel_weights_interior={'nucleus': 0.4, 'coda': 0.25, 'onset': 0.2, 'stress': 0.15}, trailing_syllable_penalty=0.15, theta_rhyme=0.75, theta_by_relation={'ASSONANCE': 0.75, 'CONSONANCE': 0.75}, conjunctive_band=True, theta_coda=0.8, coda_empty_evidence='cannot_tell', coda_agreement='identity', coda_licence=(), coda_licence_final_only=True, theta_nucleus=0.6, nucleus_agreement='licensed', nucleus_licence=(('AH', 'IH'),), nucleus_licence_unstressed_only=True, nucleus_licence_before_r=(('IH', 'IY'),), scalar_alignment='head', final_promotion=True, fitted=False, search='max over every pronunciation span pair; k = candidates_a x candidates_b, recorded per pair as spans.search_k; uncorrected')"
+    ],
+    [
+     "predictability_frac",
+     "def predictability_frac(qf, lines, obvious_cutoff=0.90):\n    \"\"\"floor.py's own PREDICTABLE_RHYME computation, verbatim: the fraction\n    of an item's pairs whose answer sits above `obvious_cutoff` in its own\n    frequency-ranked candidate field.\n\n    Returns NaN, not 0.0, when no pair resolves (every end word OOV, or the\n    item is one line). NaN is the honest value: 0.0 would claim \"this item's\n    rhyme was measured and found unpredictable,\" when what actually happened\n    is nothing here could be scored at all. `thresholds()` filters NaN out of\n    the percentile it computes FROM (a non-measurement cannot inform what a\n    normal value looks like); `fpr()` needs no filter at all, because a NaN\n    comparison is False either direction in Python, which is exactly \"this\n    check does not fire on an item it cannot read\" -- the same behaviour\n    `floor.py`'s live `if preds:` guard gives a real draft.\n    \"\"\"\n    preds = [v for _i, _j, v\n             in qf._predictability(lines, _couplet_pairs(lines))]\n    if not preds:\n        return float(\"nan\")\n    obvious = [p for p in preds if p > obvious_cutoff]\n    return len(obvious) / len(preds)\n"
+    ],
+    [
+     "_couplet_pairs",
+     "def _couplet_pairs(lines):\n    return [(i, i + 1) for i in range(0, len(lines) - 1, 2)]\n"
+    ]
+   ]
+  }
+ },
+ "mechanisms_in_scope": [
+  "item6"
+ ],
+ "projection": "results/scope_2026-10-12/shape_sweep.json",
+ "lines": {
+  "joined": 227540,
+  "only_before": 0,
+  "only_after": 0
+ },
+ "counts": {
+  "anchors_changed": 4227,
+  "cause_changed": 347,
+  "declared_changed": 12956,
+  "declared_newly_unresolved": 8512,
+  "end_newly_refused": 3111,
+  "meter_refused_gained": 10690,
+  "meter_refused_lost": 261,
+  "meter_stress_changed": 12792,
+  "reading_switched": 13,
+  "reason_changed": 8982,
+  "voices_changed": 55,
+  "word_newly_refused": 10687
+ },
+ "declared_probe_unresolved_lines": {
+  "before": 27712,
+  "after": 36224
+ },
+ "by_shape": {
+  "word_newly_refused": {
+   "item6/interior": 8115,
+   "item6/end": 2963
+  },
+  "meter_refused_gained": {
+   "item6/OUT_OF_LEXICON": 11056
+  },
+  "end_newly_refused": {
+   "item6": 3111
+  },
+  "reading_switched": {
+   "item6": 13
+  }
+ },
+ "projection_cross_tab": {
+  "item6": {
+   "in_scope": true,
+   "projected": 10825,
+   "observed": 10825,
+   "projected_and_observed": 10825,
+   "projected_not_observed": 0,
+   "observed_not_projected": 0
+  },
+  "M1": {
+   "in_scope": false,
+   "projected": 604,
+   "observed": 0,
+   "projected_and_observed": 0,
+   "projected_not_observed": 604,
+   "observed_not_projected": 0
+  },
+  "M2a": {
+   "in_scope": false,
+   "projected": 243,
+   "observed": 0,
+   "projected_and_observed": 0,
+   "projected_not_observed": 243,
+   "observed_not_projected": 0
+  },
+  "M2b": {
+   "in_scope": false,
+   "projected": 2020,
+   "observed": 0,
+   "projected_and_observed": 0,
+   "projected_not_observed": 2020,
+   "observed_not_projected": 0
+  }
+ },
+ "fixtures": [
+  {
+   "id": "fixture:22",
+   "before": {
+    "text": "to-day and to-morrow",
+    "tokens": [
+     "to-day",
+     "and",
+     "to-morrow"
+    ],
+    "final": "to-morrow",
+    "readable": true,
+    "cause": null,
+    "reason": null,
+    "oov": [],
+    "tok": [
+     [
+      "T UW0 D EY1",
+      []
+     ],
+     [
+      "AH0 N D",
+      []
+     ],
+     [
+      "T UW1 M AA1 R OW0",
+      []
+     ]
+    ],
+    "stream_unread": [
+     [
+      0,
+      "to-day"
+     ],
+     [
+      2,
+      "to-morrow"
+     ]
+    ],
+    "grid": [
+     "to-morrow",
+     null
+    ],
+    "meter_refused": []
+   },
+   "after": {
+    "text": "to-day and to-morrow",
+    "tokens": [
+     "to-day",
+     "and",
+     "to-morrow"
+    ],
+    "final": "to-morrow",
+    "readable": false,
+    "cause": "token",
+    "reason": "CMUdict has no pronunciation for the end word 'to-morrow'; the harness refuses rather than guessing one (no G2P fallback). This line's end-rhyme is UNKNOWN, not absent.",
+    "oov": [
+     "to-day",
+     "to-morrow"
+    ],
+    "tok": [
+     [
+      "",
+      [
+       "to-day"
+      ]
+     ],
+     [
+      "AH0 N D",
+      []
+     ],
+     [
+      "",
+      [
+       "to-morrow"
+      ]
+     ]
+    ],
+    "stream_unread": [
+     [
+      0,
+      "to-day"
+     ],
+     [
+      2,
+      "to-morrow"
+     ]
+    ],
+    "grid": [
+     "to-morrow",
+     null
+    ],
+    "meter_refused": [
+     [
+      "to-day",
+      "OUT_OF_LEXICON"
+     ],
+     [
+      "to-morrow",
+      "OUT_OF_LEXICON"
+     ]
+    ],
+    "declared": {
+     "rejected": false,
+     "final_lr": "to-morrow",
+     "readable": true,
+     "cause": null,
+     "final_unread_pieces": [
+      "to-morrow"
+     ],
+     "unreadable": [],
+     "interior_unreadable": [
+      "to-day"
+     ],
+     "reason": "end word 'to-morrow' reads on its LAST piece (?), which is the rhyme word, but 1 earlier piece(s) of the same token are not in the lexicon (to-morrow); the anchor is right and the LABEL overstates what was read."
+    }
+   }
+  },
+  {
+   "id": "fixture:23",
+   "before": {
+    "text": "the war-cry rang",
+    "tokens": [
+     "the",
+     "war-cry",
+     "rang"
+    ],
+    "final": "rang",
+    "readable": true,
+    "cause": null,
+    "reason": null,
+    "oov": [],
+    "tok": [
+     [
+      "DH AH0",
+      []
+     ],
+     [
+      "W AO1 R K R AY1",
+      []
+     ],
+     [
+      "R AE1 NG",
+      []
+     ]
+    ],
+    "stream_unread": [
+     [
+      1,
+      "war-cry"
+     ]
+    ],
+    "grid": [
+     "rang",
+     "AE NG"
+    ],
+    "meter_refused": []
+   },
+   "after": {
+    "text": "the war-cry rang",
+    "tokens": [
+     "the",
+     "war-cry",
+     "rang"
+    ],
+    "final": "rang",
+    "readable": true,
+    "cause": null,
+    "reason": "end word 'rang' is readable, but 1 interior token(s) are not (war-cry); a multi-syllable anchor reaching back past one of them is reading a line with a hole in it.",
+    "oov": [
+     "war-cry"
+    ],
+    "tok": [
+     [
+      "DH AH0",
+      []
+     ],
+     [
+      "",
+      [
+       "war-cry"
+      ]
+     ],
+     [
+      "R AE1 NG",
+      []
+     ]
+    ],
+    "stream_unread": [
+     [
+      1,
+      "war-cry"
+     ]
+    ],
+    "grid": [
+     "rang",
+     "AE NG"
+    ],
+    "meter_refused": [
+     [
+      "war-cry",
+      "OUT_OF_LEXICON"
+     ]
+    ],
+    "declared": {
+     "rejected": false,
+     "final_lr": "rang",
+     "readable": true,
+     "cause": null,
+     "final_unread_pieces": [],
+     "unreadable": [],
+     "interior_unreadable": [
+      "war-cry"
+     ],
+     "reason": "end word 'rang' is readable, but 1 interior token(s) are not (war-cry); a multi-syllable anchor reaching back past one of them is reading a line with a hole in it."
+    }
+   }
+  }
+ ],
+ "unattributed_changes": 0
+}

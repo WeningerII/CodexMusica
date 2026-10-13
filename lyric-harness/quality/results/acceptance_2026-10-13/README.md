@@ -74,7 +74,7 @@ This runs the Lyrics page's own `lyTokens`, taken from `src/pages/lyrics.js` at 
 
 ## Validation of the tools
 
-**Null test (`diff_null.json`).** This compares main at `fce4bf0f` with this branch, which has the same harness code. Every class is 0 and nothing is unattributed.
+**Null test (`diff_null.json`).** This compares main at `fce4bf0f` with `d6e63623` on this branch, which has the same harness code. Its header says `tracked_changes: true` only because this receipt's own output files were being regenerated in that tree. Every class is 0 and nothing is unattributed.
 
 There is one standing measure, the same on both sides: **27,712** dev lines on which declaring every refused token still leaves `line_readability` reporting unread words or stale reason text. That is a defect in today's code, not in these tools. `line_readability` reads `token_pieces(lex, t)` on the line view and never `lex.for_token(i)` (`lyric_harness.py:2428, 2433`). A writer's declared reading therefore clears `transcribe` but not the readability report. The batch's refusal-wording commit should take it to 0.
 
