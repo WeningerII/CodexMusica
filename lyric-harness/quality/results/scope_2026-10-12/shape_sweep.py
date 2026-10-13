@@ -28,6 +28,15 @@ Sections of the output:
            or unchanged.
   interior_refusals  M1 and M2b before the end word: lines that would gain a
            refused interior token, and how many of them read in full today.
+  interior_join_only  R2's interior count (#527, 6136092217) re-derived here by
+           line id: non-final words under the dash rule that read today only
+           by joining pieces.
+  one_letter_fragments  single letters produced by a `--` split or a hyphen
+           split (R2's G3), by letter class and position.
+  denominators  the receipt's anchor-end lines (`raw_final_token` present)
+           against R2's lines with a dash-rule word, with the ids that differ.
+  combined_lines  end and interior sets joined by line id, with M1 as worded
+           and with the first-cut apparatus strip (`_APPARATUS`).
   projected_refusals  ids of dev end lines that anchor today and would refuse
            under the plan as worded: item 6, M1 (a digit-bearing end chunk),
            M2b (end token, no declared reading), and their union.
@@ -43,6 +52,11 @@ from quality.coverage_split import SPLIT_PATH, checked_assignment  # noqa: E402
 
 _OUTER = "\"“”«»()[]{}.,;:!?*_"
 _EXAMPLES = 3
+_DASH2 = re.compile(r"-{2,}")
+_HY = re.compile(r"[-‑]")
+#: the first-cut print-apparatus strip tested for M1 (bracketed numerals, and a
+#: number set off by 2+ spaces or `_` at line end); a projection, not a rule
+_APPARATUS = re.compile(r"\[\d+\]|(?:\s{2,}|_)\d+\s*$")
 
 
 def _treatment(ch):
@@ -124,6 +138,23 @@ def _chunks(cut):
     return out
 
 
+def _dash_words(line, strip_parens):
+    """R2's `words()` (PR #527, 6136092217): `line_tokens`, each split at `-{2,}`,
+    edge hyphens stripped, pieces with no Latin letter dropped."""
+    out = []
+    for t in LH.line_tokens(line, strip_parens=strip_parens):
+        for p in _DASH2.split(t):
+            p = p.strip("-")
+            if p and LH.LATIN_SCRIPT.search(p):
+                out.append(p)
+    return out
+
+
+def _reads(lex, w):
+    ph, oov = lex.transcribe_word(w)
+    return bool(ph) and not oov
+
+
 def _digit_kind(line, m):
     before, after = line[:m.start()], line[m.end():]
     if re.search(r"\[\s*$", before) or re.match(r"\s*\]", after):
@@ -195,6 +226,10 @@ def _main():
     apo_all = collections.Counter(); apo_end = collections.Counter(); apo_ex = collections.defaultdict(list)
     refuse = {"item6": set(), "M1": set(), "M2b": set()}
     inner = {k: collections.Counter() for k in ("M1", "M2b")}
+    inner_ids = {"join_only": set(), "M1": set(), "M2b": set(), "M1_after_strip": set()}
+    m1_after_strip = set(); join_tokens = collections.Counter()
+    frag = collections.Counter(); frag_ex = collections.defaultdict(list)
+    has_words = set(); has_end = set()
     lines = end_lines = 0
     for path in paths:
         rel = os.path.relpath(path, ROOT); ordinal = -1
@@ -222,6 +257,36 @@ def _main():
                         shape_all[t] += 1
                 at = LH.raw_final_token(line, strip_parens=lex.strip_parens)
                 toks = LH.line_tokens(line, strip_parens=lex.strip_parens)
+                if at:
+                    has_end.add(lid)
+                ws = _dash_words(line, lex.strip_parens)
+                if ws:
+                    has_words.add(lid)
+                for w in ws[:-1]:
+                    if "-" not in w:
+                        continue
+                    if _reads(lex, w):
+                        join_tokens["whole"] += 1
+                        continue
+                    ps = [q for q in _HY.split(w) if q and LH.LATIN_SCRIPT.search(q)]
+                    if ps and all(_reads(lex, q) for q in ps):
+                        join_tokens["join_only"] += 1; inner_ids["join_only"].add(lid)
+                    else:
+                        join_tokens["some_piece_unread"] += 1
+                for i, tok in enumerate(toks):
+                    if "-" not in tok:
+                        continue
+                    sides = [q.strip("-") for q in _DASH2.split(tok)]
+                    found = [("split at --", q) for q in sides if len(sides) > 1 and len(q) == 1 and q.isalpha()]
+                    for q in sides:
+                        pieces = _HY.split(q)
+                        if len(pieces) > 1:
+                            found += [("hyphen piece", x) for x in pieces if len(x) == 1 and x.isalpha()]
+                    for via, piece in found:
+                        kind = "a/I/O (also a word)" if piece.lower() in "aio" else "other letter"
+                        frag[(via, kind, "end" if i == len(toks) - 1 else "interior")] += 1
+                        if len(frag_ex[(via, kind)]) < _EXAMPLES:
+                            frag_ex[(via, kind)].append({"id": lid, "token": tok})
                 apo_end_cls = None; m2b_inside = False
                 for i, tok in enumerate(toks):
                     k = _apostrophe_class(lex, alpha, tok)
@@ -232,10 +297,13 @@ def _main():
                         elif k.startswith("M2b"):
                             m2b_inside = True
                 m1_inside = any(re.search(r"\d", c) for c in chunks[:-1])
+                if m1_inside and any(re.search(r"\d", c) for c in _chunks(_norm(_APPARATUS.sub(" ", line), lex.strip_parens))[:-1]):
+                    inner_ids["M1_after_strip"].add(lid)
                 if m1_inside or m2b_inside:
                     read_today = all(not lex.transcribe_word(t)[1] for t in toks)
                     for k, hit in (("M1", m1_inside), ("M2b", m2b_inside)):
                         if hit:
+                            inner_ids[k].add(lid)
                             inner[k]["lines"] += 1
                             inner[k]["lines_fully_read_today"] += read_today
                 if not chunks:
@@ -262,6 +330,9 @@ def _main():
                     dig_end[k] += 1; dig_anch[k] += anchored
                     if anchored:
                         refuse["M1"].add(lid)
+                        left = _chunks(_norm(_APPARATUS.sub(" ", line), lex.strip_parens))
+                        if left and re.search(r"\d", left[-1]):
+                            m1_after_strip.add(lid)
                     if len(dig_ex[k]) < _EXAMPLES:
                         dig_ex[k].append({"id": lid, "line_tail": line[-60:], "end_word_today": at, "anchored": anchored})
                 else:
@@ -275,6 +346,12 @@ def _main():
                         apo_ex[apo_end_cls].append({"id": lid, "token": at, "today": " ".join(lex.transcribe_word(at)[0]),
                                                     "anchored": anchored})
     union = refuse["item6"] | refuse["M1"] | refuse["M2b"]
+    end_strip = refuse["item6"] | m1_after_strip | refuse["M2b"]
+    all_strict = union | inner_ids["join_only"] | inner_ids["M1"] | inner_ids["M2b"]
+    all_strip = end_strip | inner_ids["join_only"] | inner_ids["M1_after_strip"] | inner_ids["M2b"]
+    denominators = {"dev_lines": lines, "raw_final_token_present (receipt's 227,115)": len(has_end),
+                    "dash_words_present (R2's 227,098)": len(has_words),
+                    "end_only": sorted(has_end - has_words), "words_only": sorted(has_words - has_end)}
     rec = {
         "commit": commit, "split": os.path.relpath(SPLIT_PATH, ROOT),
         "lexicon": {"supplement": "v2", "fallback": "none"},
@@ -298,6 +375,19 @@ def _main():
                        "M1_and_M2b": len(refuse["M1"] & refuse["M2b"])},
             "ids": {k: sorted(v) for k, v in refuse.items()}},
         "interior_refusals": {k: dict(v) for k, v in inner.items()},
+        "interior_join_only": {"tokens": dict(join_tokens), "lines": len(inner_ids["join_only"]),
+                               "lines_beyond_item6_end_set": len(inner_ids["join_only"] - refuse["item6"])},
+        "one_letter_fragments": {"counts": [{"via": v, "letter": k, "position": p, "tokens": n}
+                                            for (v, k, p), n in sorted(frag.items())],
+                                 "examples": {f"{v} / {k}": e for (v, k), e in sorted(frag_ex.items())}},
+        "denominators": denominators,
+        "combined_lines": {
+            "end_union_as_worded": len(union), "end_union_with_apparatus_strip": len(end_strip),
+            "M1_end_after_strip": len(m1_after_strip),
+            "interior_join_only": len(inner_ids["join_only"]), "interior_M1": len(inner_ids["M1"]),
+            "interior_M1_after_strip": len(inner_ids["M1_after_strip"]), "interior_M2b": len(inner_ids["M2b"]),
+            "all_as_worded": len(all_strict), "all_with_apparatus_strip": len(all_strip),
+            "all_as_worded_outside_receipt_denominator": len(all_strict - has_end)},
     }
     with open(out, "w", encoding="utf-8") as fh:
         json.dump(rec, fh, ensure_ascii=False, indent=1)
@@ -307,7 +397,11 @@ def _main():
                       "digit_runs_before_end": rec["digits"]["runs_before_the_end_chunk_by_kind"],
                       "apostrophe_tokens": rec["apostrophes"]["tokens_all_positions"],
                       "apostrophe_end_tokens": rec["apostrophes"]["end_tokens"],
-                      "interior_refusals": rec["interior_refusals"]}, indent=1))
+                      "interior_refusals": rec["interior_refusals"],
+                      "interior_join_only": rec["interior_join_only"],
+                      "one_letter_fragments": rec["one_letter_fragments"]["counts"],
+                      "denominators": {k: (v if isinstance(v, int) else len(v)) for k, v in denominators.items()},
+                      "combined_lines": rec["combined_lines"]}, indent=1))
 
 
 if __name__ == "__main__":

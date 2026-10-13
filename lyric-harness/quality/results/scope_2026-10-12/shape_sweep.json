@@ -1,5 +1,5 @@
 {
- "commit": "6771510b3498b6703aecca31b9032404cee36acb",
+ "commit": "eb193f030eaeba17cb618ea4b901b305d1f16de2",
  "split": "quality/results/coverage_split_2026-10-11-r2.tsv",
  "lexicon": {
   "supplement": "v2",
@@ -6670,5 +6670,161 @@
    "lines": 924,
    "lines_fully_read_today": 516
   }
+ },
+ "interior_join_only": {
+  "tokens": {
+   "join_only": 8115,
+   "some_piece_unread": 1909,
+   "whole": 166
+  },
+  "lines": 7911,
+  "lines_beyond_item6_end_set": 7714
+ },
+ "one_letter_fragments": {
+  "counts": [
+   {
+    "via": "hyphen piece",
+    "letter": "a/I/O (also a word)",
+    "position": "end",
+    "tokens": 542
+   },
+   {
+    "via": "hyphen piece",
+    "letter": "a/I/O (also a word)",
+    "position": "interior",
+    "tokens": 1447
+   },
+   {
+    "via": "hyphen piece",
+    "letter": "other letter",
+    "position": "end",
+    "tokens": 8
+   },
+   {
+    "via": "hyphen piece",
+    "letter": "other letter",
+    "position": "interior",
+    "tokens": 6
+   },
+   {
+    "via": "split at --",
+    "letter": "a/I/O (also a word)",
+    "position": "end",
+    "tokens": 26
+   },
+   {
+    "via": "split at --",
+    "letter": "a/I/O (also a word)",
+    "position": "interior",
+    "tokens": 318
+   },
+   {
+    "via": "split at --",
+    "letter": "other letter",
+    "position": "end",
+    "tokens": 25
+   },
+   {
+    "via": "split at --",
+    "letter": "other letter",
+    "position": "interior",
+    "tokens": 42
+   }
+  ],
+  "examples": {
+   "hyphen piece / a/I/O (also a word)": [
+    {
+     "id": "corpus/song/eng_american_annie_adams_fields.txt#1:15",
+     "token": "A-sheathèd"
+    },
+    {
+     "id": "corpus/song/eng_american_bayard_taylor.txt#1:3",
+     "token": "a-roaring"
+    },
+    {
+     "id": "corpus/song/eng_american_bliss_carman.txt#2:14",
+     "token": "a-cold"
+    }
+   ],
+   "hyphen piece / other letter": [
+    {
+     "id": "corpus/song/eng_british_william_makepeace_thackeray.txt#7:41",
+     "token": "desire-t-il"
+    },
+    {
+     "id": "corpus/song/eng_celtic_msm_james_m_laggan.txt#0:3",
+     "token": "eil-e"
+    },
+    {
+     "id": "corpus/song/eng_celtic_msm_robert_chambers.txt#1:13",
+     "token": "y-wove"
+    }
+   ],
+   "split at -- / a/I/O (also a word)": [
+    {
+     "id": "corpus/song/eng_american_a_g_knight.txt#0:6",
+     "token": "Up--i--de--i--de--i--di"
+    },
+    {
+     "id": "corpus/song/eng_american_a_g_knight.txt#0:6",
+     "token": "Up--i--de--i--de--i--di"
+    },
+    {
+     "id": "corpus/song/eng_american_a_g_knight.txt#0:6",
+     "token": "Up--i--de--i--de--i--di"
+    }
+   ],
+   "split at -- / other letter": [
+    {
+     "id": "corpus/song/eng_american_a_g_knight.txt#0:7",
+     "token": "U--pi--de"
+    },
+    {
+     "id": "corpus/song/eng_american_a_g_knight.txt#0:7",
+     "token": "u--pi--de"
+    },
+    {
+     "id": "corpus/song/eng_american_a_g_knight.txt#0:8",
+     "token": "U--pi--de--i--de--i--di"
+    }
+   ]
+  }
+ },
+ "denominators": {
+  "dev_lines": 227540,
+  "raw_final_token_present (receipt's 227,115)": 227115,
+  "dash_words_present (R2's 227,098)": 227098,
+  "end_only": [
+   "corpus/song/eng_british_lord_byron.txt#6:11",
+   "corpus/song/eng_british_lord_byron.txt#6:17",
+   "corpus/song/eng_british_lord_byron.txt#6:23",
+   "corpus/song/eng_british_lord_byron.txt#7:34",
+   "corpus/song/eng_british_lord_byron.txt#7:35",
+   "corpus/song/eng_british_robert_herrick.txt#243:0",
+   "corpus/song/eng_british_robert_herrick.txt#243:1",
+   "corpus/song/eng_british_robert_herrick.txt#243:2",
+   "corpus/song/eng_british_robert_herrick.txt#243:3",
+   "corpus/song/eng_british_robert_herrick.txt#243:4",
+   "corpus/song/eng_british_robert_herrick.txt#243:5",
+   "corpus/song/eng_british_robert_herrick.txt#243:6",
+   "corpus/song/eng_british_robert_herrick.txt#469:1",
+   "corpus/song/eng_british_robert_herrick.txt#470:10",
+   "corpus/song/eng_british_robert_herrick.txt#470:11",
+   "corpus/song/eng_british_robert_herrick.txt#470:12",
+   "corpus/song/eng_british_robert_herrick.txt#470:9"
+  ],
+  "words_only": []
+ },
+ "combined_lines": {
+  "end_union_as_worded": 3636,
+  "end_union_with_apparatus_strip": 3210,
+  "M1_end_after_strip": 70,
+  "interior_join_only": 7911,
+  "interior_M1": 110,
+  "interior_M1_after_strip": 91,
+  "interior_M2b": 924,
+  "all_as_worded": 12300,
+  "all_with_apparatus_strip": 11876,
+  "all_as_worded_outside_receipt_denominator": 0
  }
 }
