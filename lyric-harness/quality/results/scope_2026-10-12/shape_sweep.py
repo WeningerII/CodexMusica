@@ -41,7 +41,9 @@ Sections of the output:
            and with the first-cut apparatus strip (`_APPARATUS`).
   projected_refusals  ids of dev end lines that anchor today and would refuse
            under the plan as worded: item 6, M1 (a digit-bearing end chunk),
-           M2b (end token, no declared reading), and their union.
+           M2b (end token, no declared reading), and their union; and the ids
+           of lines with an interior word each rule would refuse (join-only,
+           M1, M2b), which the acceptance diff reads as the projection.
 Example ids are reproductions, not acceptance lists.
 """
 import collections, glob, gzip, json, os, re, subprocess, sys, unicodedata
@@ -377,7 +379,8 @@ def _main():
                        "item6_and_M1": len(refuse["item6"] & refuse["M1"]),
                        "item6_and_M2b": len(refuse["item6"] & refuse["M2b"]),
                        "M1_and_M2b": len(refuse["M1"] & refuse["M2b"])},
-            "ids": {k: sorted(v) for k, v in refuse.items()}},
+            "ids": {k: sorted(v) for k, v in refuse.items()},
+            "interior_ids": {k: sorted(inner_ids[k]) for k in ("join_only", "M1", "M2b")}},
         "interior_refusals": {k: dict(v) for k, v in inner.items()},
         "interior_join_only": {"tokens": dict(join_tokens), "lines": len(inner_ids["join_only"]),
                                "lines_beyond_item6_end_set": len(inner_ids["join_only"] - refuse["item6"])},

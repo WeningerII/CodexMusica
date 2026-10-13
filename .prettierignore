@@ -98,6 +98,9 @@ lyric-harness/quality/results/census_validation_2026-10-12
 # Same class: the scope receipt JSON is written by coverage_census.py --out and
 # the directory's own scripts; its bytes are the tools'.
 lyric-harness/quality/results/scope_2026-10-12
+# Same class: the acceptance receipt's JSON is written by its own scripts
+# (record.py, diff.py, disputed_rows.py); its bytes are the tools'.
+lyric-harness/quality/results/acceptance_2026-10-13
 
 # Raw audit regression receipts/logs: SHA-indexed evidence, not authored inputs.
 docs/production-audit-evidence
