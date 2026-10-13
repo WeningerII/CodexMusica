@@ -125,7 +125,7 @@ A field this pass cannot observe is `"UNAVAILABLE"`. No verdict is recorded.
 
 The script reads `raw_final_token` on every dev line (227,115 anchor end lines) with `SupplementedLexicon(v2)` and no fallback. It records one JSON line per hyphenated end token, carrying a stable id `path#item:line`, under three selection definitions. Its docstring states each definition exactly.
 
-| definition | whole entry (read whole today / not) | every piece reads | an earlier piece unread | last piece unread | total |
+| definition | whole-token lookup succeeds (read whole today / not) | every piece reads | an earlier piece unread | last piece unread | total |
 |---|---|---|---|---|---|
 | `bb8` (BB8's first count) | 86 (82 / 4) | 2,962 | 147 | 411 | 3,606 |
 | `r2` (R2's third row) | 86 (82 / 4) | 2,960 | 148 | 413 | 3,607 |
@@ -144,5 +144,7 @@ The script reads `raw_final_token` on every dev line (227,115 anchor end lines) 
 | whole entry, not read whole today | 5 | → read whole |
 | whole entry, read whole today | 82 | unchanged |
 | last piece unread | 413 | refused today and after |
+
+"Whole-token lookup succeeds" is `transcribe_word` on the whole spelling. That includes its always-on `-s`/`'s`, `'d` and `in'` rules, so it is not an exact-entry test. One `policy` line, `corpus/song/eng_british_edwin_arnold.txt#4:70` (`grand-daughters`), is read through the plural rule on CMUdict's `grand-daughter` entry. Counting exact entries only would give 2,964 lines that every piece reads, so 3,112 newly refused lines. R2's independent check on #527 measured with `line_anchors` that every line in the first three classes anchors today and every last-piece-unread line refuses. The three "every piece reads"/"earlier piece unread" transitions above are therefore measured current outcomes and projected post-change behaviour.
 
 These are anchor end-line counts only. Per-word, meter and schema before/after counts belong to the test family.
