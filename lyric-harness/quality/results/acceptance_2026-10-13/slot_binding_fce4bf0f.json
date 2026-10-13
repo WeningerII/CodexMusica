@@ -11,7 +11,7 @@
   "commit": "fce4bf0f1b4b274d1c44c67831a6e40b22a8802c",
   "tracked_changes": false,
   "harness_root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness",
-  "tool_sha256": "e369abb52da3ed85e166dc2aedf24b2c320cc49e7629a5897cdc4444eae30f9d",
+  "tool_sha256": "e23a08393cd345ac7f3234d9b5942bfbe273261e7e4fa9aef92168f2e4f8bf61",
   "loop_sha256": "1b8ebc8d0a6ff7eb72f3afe5961a36184b0f839e5c7cfbbae8321b2cf30e90d7",
   "loop_word_re": true,
   "lexicon": {
@@ -289,6 +289,7 @@
   }
  ],
  "controls_failed": [],
+ "controls_unresolved": [],
  "negative_controls": [
   {
    "line": "love, love me do",

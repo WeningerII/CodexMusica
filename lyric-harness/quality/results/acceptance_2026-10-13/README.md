@@ -169,7 +169,7 @@ This is R2's 1b v2 blocker (PR #519, comment 6151243417): under `--voices`, the 
 - **CANNOT TELL** is returned when the check can't vouch for itself:
   - **a negative control isn't caught.** A resolver rigged to bind the first occurrence of a repeated word (`love, love me do` `T2`, and `do me a favour, do` `end`) must come out `grader_elsewhere`. The same rig with a second, untagged reading must come out `resolver_mismatch`, so a missing tag can't hide a wrong one;
   - **coverage is lost.** That means an unexpected exclusion, a line whose spans can't be rebuilt exactly, or admitted line-modes not adding up to the intended population. At main, 1,968 line-modes are intended and 1,890 admitted, with 78 transformed and 0 unexpected;
-  - **a required control can't be evaluated.**
+  - **a required control can't be placed** (unmapped or `resolver_mismatch`). Each control is partitioned on its own. Any other outcome short of `agree` is an established failure, so one unresolved control never hides another's failure.
 - **CANNOT TELL** is also returned if production uses `swap_at_slot` in a way the tool doesn't replicate: other arguments, an alias, or any other reference (read with `ast` from `revise.py`, `loop.py` and `lyric_harness.py`). At main there are 4 call sites, all passing `(text, slot, word)`, and no other use.
 
 **Pins.** The output pins:

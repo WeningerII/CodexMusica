@@ -74,7 +74,10 @@ TELL is the verdict only when nothing has failed.
   - an unexpected exclusion: a line whose token spans could not be rebuilt
     exactly (`spans_not_reproduced`), or admitted line-modes not adding up to
     the intended population;
-  - a required control that cannot be evaluated;
+  - a required control the oracle cannot place (unmapped or
+    `resolver_mismatch`). Each control is partitioned on its own: any other
+    outcome short of `agree` is an established FAILURE, and one unresolved
+    control never hides another's failure;
   - production using `swap_at_slot` in a way this tool does not replicate.
   The transformed-text exclusions are separate. They are disclosed, counted
   and not a CANNOT TELL;
@@ -370,14 +373,18 @@ def main():
                   "accounted": admitted == evaluated_line_modes}
     calls, odd, other = _production_uses()
     failing = {m: {k: tally[m].get(k, 0) for k in FAILING} for m in lexes}
-    controls_failed = [c for c in controls if c["kind"] != "agree"]
-    unmapped_controls = [c for c in controls if c["kind"] == "unmapped"]
+    # EACH CONTROL IS PARTITIONED ON ITS OWN (3PO, 6152296864): a control the
+    # oracle could not place (unmapped, resolver_mismatch) is UNRESOLVED; any
+    # other outcome short of `agree` (a refusal, a wrong edit, grader
+    # elsewhere, unbound) is an ESTABLISHED failure, whatever the others did.
+    controls_unresolved = [c for c in controls if c["kind"] in ("unmapped", "resolver_mismatch")]
+    controls_failed = [c for c in controls if c["kind"] != "agree" and c not in controls_unresolved]
     # ESTABLISHED FAILURES are never hidden by an unresolved case: any wrong
     # edit makes the gate FAIL, and the unresolved reasons are listed beside
     # it. CANNOT TELL is the verdict only when nothing has failed.
     failures = {f"{m}:{k}": failing[m][k] for m in lexes for k in ("wrong_word", "grader_elsewhere", "no_op_edit")
                 if failing[m][k]}
-    if controls_failed and not unmapped_controls:
+    if controls_failed:
         failures["controls_failed"] = len(controls_failed)
     unresolved = {f"{m}:resolver_mismatch": failing[m]["resolver_mismatch"] for m in lexes
                   if failing[m]["resolver_mismatch"]}
@@ -385,8 +392,8 @@ def main():
         unresolved["negative_controls_failed"] = len(negatives_failed)
     if population["unexpected_excluded"] or not population["accounted"]:
         unresolved["coverage_lost"] = population["unexpected_excluded"]
-    if unmapped_controls:
-        unresolved["controls_unmapped"] = len(unmapped_controls)
+    if controls_unresolved:
+        unresolved["controls_unresolved"] = len(controls_unresolved)
     if odd or other:
         unresolved["production_use_not_replicated"] = len(odd) + len(other)
     gate = "FAIL" if failures else "CANNOT TELL" if unresolved else "PASS"
@@ -417,7 +424,7 @@ def main():
         "excluded_line_modes": excluded, "evaluated_slots": evaluated,
         "outcomes": tally, "failing": failing,
         "population": population,
-        "controls": controls, "controls_failed": controls_failed,
+        "controls": controls, "controls_failed": controls_failed, "controls_unresolved": controls_unresolved,
         "negative_controls": negatives, "negative_controls_failed": negatives_failed,
         "cases": cases[:200],
     }
