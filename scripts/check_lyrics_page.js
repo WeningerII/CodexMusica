@@ -42,7 +42,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global document, localStorage, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, pushHistory, uiNewTask, uiSaveLyrics */
+/* global document, localStorage, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -900,6 +900,151 @@ async function browserChecks(chromium) {
         `a reply without its request reads as a review of this version: ${btn.badge}`
       );
       await shot(page, 'b2-whole-no-base-replace');
+      await ctx.close();
+    });
+
+    // J3: whole-draft suggestions must recheck against today's committed context.
+    await step('J3. whole-draft recheck', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      const proposal = '[VERSE]\nA different first line\nA different second line';
+      await sendReview(
+        page,
+        q,
+        {
+          ...unfinished(),
+          artifact: {
+            text: proposal,
+            final_draft: proposal.split('\n').slice(1),
+            status: 'unfinished',
+          },
+        },
+        () => edit(page, 'The rain has blurred', 'The rain had blurred')
+      );
+      await pane(page, 'review');
+      const before = await page.inputValue('#lyrics-draft');
+      check(
+        (await page.locator('#ly-panel-review [data-ui="ly-recheck"]').count()) === 1,
+        'no Recheck action for the stale whole-draft suggestion'
+      );
+      q.replies.push({
+        reply: 'Fixture: replacement checked, no draft returned.',
+        history: [],
+        sig: 'rechecked',
+      });
+      await page.evaluate(async () => {
+        const button = document.querySelector('#ly-panel-review [data-ui="ly-recheck"]');
+        await LY_ACTIONS['ly-recheck'](button.dataset.id);
+      });
+      await page.waitForFunction(() => !chatState.busy);
+      check(q.calls.length === 2, 'whole-draft Recheck sent no request');
+      const request = q.calls[1];
+      check(
+        request?.task?.domain === 'lyrics' &&
+          request?.task?.phase === 'edit' &&
+          request?.message.includes(proposal),
+        'whole-draft Recheck lost the proposal or edit phase'
+      );
+      check(
+        request?.lyric_context?.document.includes('The rain had blurred') &&
+          !request?.lyric_context?.document.includes('[SETUP') &&
+          !!request?.lyric_context?.declarations &&
+          !!request?.lyric_context?.binding,
+        'whole-draft Recheck did not carry current committed context and declarations'
+      );
+      check(
+        (await page.inputValue('#lyrics-draft')) === before,
+        'whole-draft Recheck changed the document without a returned draft'
+      );
+      await ctx.close();
+    });
+
+    // J2: the explicit conversation choice must work, without bypassing recovery.
+    await step('J2. independent conversation', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      await sendReview(page, q, waiting());
+      await page.evaluate(() => LY_ACTIONS['edit-lyrics']());
+      await page.locator('[data-ui="ly-conflict-new"]').click();
+      const state = await page.evaluate(() => ({
+        conflict: LY.conflict,
+        waiting: !!chatState.lyric?.state,
+        archives: chatState.archives.length,
+        choice: $ui('chat-domain').value,
+        input: $ui('chat-input').value,
+        text: $ui('lyrics-draft').value,
+      }));
+      check(
+        !state.conflict && !state.waiting,
+        'explicit independent conversation reopened the warning'
+      );
+      check(state.archives === 1, 'independent conversation did not archive the waiting run');
+      check(
+        state.choice === 'lyrics-edit' && state.input === 'Edit this draft: ',
+        'independent conversation lost its phase or prefill'
+      );
+      check(
+        state.text === DRAFT && q.calls.length === 1,
+        'opening an independent conversation changed lyrics or sent a request'
+      );
+      await ctx.close();
+    });
+    await step('J2. new work from interrupted parked run', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      await sendReview(page, q, waiting());
+      await page.evaluate(() => {
+        chatState.lyric = { parked: true, open: [3] };
+        chatState.disconnected = 'fixture-disconnection';
+        lyRefresh(true);
+        LY_ACTIONS['ly-tab']('writer');
+      });
+      await page.locator('[data-ui="ly-new-work"]').click();
+      check(
+        await page.evaluate(
+          () =>
+            !LY.conflict &&
+            !chatState.lyric &&
+            chatState.archives.length === 1 &&
+            $ui('chat-domain').value === 'lyrics-edit' &&
+            $ui('chat-input').value === 'Continue from the current draft: '
+        ),
+        'Start new work looped instead of opening an independent edit conversation'
+      );
+      check(
+        q.calls.length === 1 && (await page.inputValue('#lyrics-draft')) === DRAFT,
+        'Start new work sent a request or changed the draft'
+      );
+      await ctx.close();
+    });
+    await step('J2. forced conversation keeps unknown and busy guards', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      const state = await page.evaluate(async () => {
+        chatState.task = { domain: 'lyrics' };
+        chatState.pending = { request_id: 'fixture-unknown', domain: 'lyrics' };
+        const unknown = await lyStartConversation('lyrics', '', { force: true });
+        const kept = chatState.pending?.request_id;
+        chatState.busy = true;
+        const busy = await lyStartConversation('lyrics', '', { force: true });
+        chatState.busy = false;
+        return {
+          unknown,
+          busy,
+          kept,
+          pending: chatState.pending?.request_id,
+          archives: chatState.archives.length,
+        };
+      });
+      check(
+        state.unknown === false &&
+          state.busy === false &&
+          state.kept === 'fixture-unknown' &&
+          state.pending === 'fixture-unknown' &&
+          state.archives === 0,
+        'force bypassed the unknown-outcome or busy guard'
+      );
+      check(q.calls.length === 0, 'blocked conversation sent a request');
       await ctx.close();
     });
 
