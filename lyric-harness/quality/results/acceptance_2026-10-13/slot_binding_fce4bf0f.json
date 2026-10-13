@@ -4,7 +4,7 @@
   "commit": "fce4bf0f1b4b274d1c44c67831a6e40b22a8802c",
   "tracked_changes": false,
   "harness_root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness",
-  "tool_sha256": "deb55766618befb81a237fbd2e92385f346ba48e0478314ed2ac2bf6ac2a3d58",
+  "tool_sha256": "2fa40220c03316af0d8e80d6453ce9c39a519c4e4887e757d4bfc210474a0df7",
   "loop_sha256": "1b8ebc8d0a6ff7eb72f3afe5961a36184b0f839e5c7cfbbae8321b2cf30e90d7",
   "loop_word_re": true,
   "lexicon": {
@@ -125,6 +125,26 @@
    "no_op_edit": 0,
    "resolver_mismatch": 0
   }
+ },
+ "population": {
+  "intended_line_modes": 1968,
+  "admitted_line_modes": 1890,
+  "transformed_excluded": 78,
+  "unexpected_excluded": 0,
+  "accounted": true
+ },
+ "end_bound_by_contract": {
+  "count": 2,
+  "cases": [
+   {
+    "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+    "strip_parens": true
+   },
+   {
+    "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+    "strip_parens": false
+   }
+  ]
  },
  "controls": [
   {
@@ -273,6 +293,19 @@
   }
  ],
  "controls_failed": [],
+ "negative_controls": [
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "kind": "grader_elsewhere"
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "end",
+   "kind": "grader_elsewhere"
+  }
+ ],
+ "negative_controls_failed": [],
  "cases": [
   {
    "kind": "wrong_word",
