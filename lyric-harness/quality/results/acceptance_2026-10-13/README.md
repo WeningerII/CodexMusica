@@ -30,7 +30,7 @@ Per line it records what each reader returns, in that head's own token coordinat
 - **A declared-reading probe:** every refused token on such a line is declared through `pronunciation.pin_readings`, and the line is read again.
 - **The voices reading** (`strip_parens` off), for lines with `(`.
 
-A line that raises is recorded with its error. The 29 fixtures cover shapes the dev corpus doesn't contain: U+2010 and U+2011 hyphens, a soft hyphen, NFD accents, digits, apostrophes and `--`. A recording takes about 8 minutes and is about 28 MB, so recordings aren't committed. Rerun the recorder at the named head to reproduce one.
+A line that raises is recorded with its error. The 35 fixtures cover shapes the dev corpus doesn't contain: U+2010 and U+2011 hyphens, a soft hyphen, NFD accents, digits, apostrophes and `--`. Fixtures 29–34 were added from R2's verifier report: a soft hyphen beside a spaced enclitic, a numeral joined by a hyphen, and U+2011 inside a word. A recording takes about 8 minutes and is about 28 MB, so recordings aren't committed. Rerun the recorder at the named head to reproduce one.
 
 To measure another head, check it out in a worktree, copy the pinned `cmudict.dict` into its `lyric-harness/`, set `LYRIC_STAGED_DATA` to the staged data directory, and pass that `lyric-harness/` as `HARNESS_ROOT`. M3 is invisible with no fallback, so it needs a before/after pair recorded with `--fallback=high`.
 
@@ -79,7 +79,7 @@ This runs the Lyrics page's own `lyTokens`, taken from `src/pages/lyrics.js` at 
 
 ## Validation of the tools
 
-**Null test (`diff_null.json`).** This compares main at `fce4bf0f` with `fcd2ad95` on this branch, which has the same harness code, both recorded by the same recorder. The second header says `tracked_changes: true` because this README was being edited during the run; no code was. Every class is 0 and nothing is unattributed.
+**Null test (`diff_null.json`).** This compares main at `fce4bf0f` with `3777ac3e` on this branch, which has the same harness code, both recorded by the same recorder. Every class is 0 and nothing is unattributed.
 
 There is one standing measure, the same on both sides: **27,712** dev lines of *synthetic-declaration probe exposure*. On these lines the recorder's own probe declares every refused token, and `line_readability` still reports unread words or stale reason text. They are not user declarations and not confirmed production incidents. That is a defect in today's code, not in these tools. `line_readability` reads `token_pieces(lex, t)` on the line view and never `lex.for_token(i)` (`lyric_harness.py:2428, 2433`). A writer's declared reading therefore clears `transcribe` but not the readability report. The batch's refusal-wording commit should take it to 0.
 
