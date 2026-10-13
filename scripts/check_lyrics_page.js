@@ -42,7 +42,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global document, localStorage, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, pushHistory, uiNewTask, uiSaveLyrics */
+/* global document, localStorage, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lyDraftSet, lyDrafts, lyPendingAll, pushHistory, uiNewTask, uiSaveLyrics */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -1171,6 +1171,183 @@ async function browserChecks(chromium) {
       }));
       check(tools.rows === 6 && tools.doc === 'none', `phone Tools view: ${JSON.stringify(tools)}`);
       await shot(page, 'b7-phone-tools');
+      await ctx.close();
+    });
+
+    // N1/N2: Rhythm has three independently applied forms. A failure must
+    // not conceal successful commits, and review must account for all three.
+    await step('N1. partial Rhythm Apply', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => {
+        LY.picks.rhythmSec = 3;
+        LY_ACTIONS['ly-tool']('rhythm');
+        lyDraftSet('rhythm', '3', 'meter', '6/8');
+        lyDraftSet('placement', '3', 'bar.13', '1'); // incomplete row
+        for (const [field, value] of Object.entries({
+          meter: '4/4',
+          groups: '2+2',
+          bars: '1',
+          events: '440:8',
+        }))
+          lyDraftSet('melody', 'song', field, value);
+        LY_ACTIONS['ly-draft-apply']('rhythm');
+      });
+      const state = await page.evaluate(() => ({
+        text: $ui('lyrics-draft').value,
+        pending: ['rhythm', 'placement', 'melody'].map((t) => lyDrafts(t).length),
+        error: lyDrafts('placement')[0]?.errors['bar.13'],
+        feedback: document.body.innerText,
+      }));
+      check(state.text.includes('[BRIDGE — 4 lines — 6/8]'), 'valid header was not applied');
+      check(state.text.includes('[SETUP — melody'), 'valid later melody was not applied');
+      check(!state.text.includes('[SETUP — placement'), 'invalid placement reached the document');
+      check(
+        state.pending.join() === '0,1,0' && !!state.error,
+        'failed placement was not retained with its error'
+      );
+      check(
+        /Some changes were applied/.test(state.feedback) &&
+          !/Nothing was applied/.test(state.feedback),
+        'partial Apply feedback concealed a successful commit'
+      );
+      check(q.calls.length === 0, 'Apply sent a writer request');
+      await page.evaluate(() => $ui('btn-undo').click());
+      const undone = await page.evaluate(() => $ui('lyrics-draft').value);
+      check(
+        !undone.includes('[SETUP — melody') && undone.includes('[BRIDGE — 4 lines — 6/8]'),
+        'Undo no longer reverses one form commit at a time'
+      );
+      await page.evaluate(() => $ui('btn-undo').click());
+      check(
+        (await page.evaluate(() => $ui('lyrics-draft').value)) === DRAFT,
+        'second Undo did not restore the original'
+      );
+      await ctx.close();
+    });
+    for (const tool of ['placement', 'melody']) {
+      await step(`N2. review with only pending ${tool}`, async () => {
+        const { ctx, page, q } = await boot({ theme: 'light' });
+        await setDraft(page, DRAFT);
+        await page.evaluate((t) => {
+          LY.picks.rhythmSec = 3;
+          LY_ACTIONS['ly-tool']('rhythm');
+          if (t === 'placement') lyDraftSet(t, '3', 'bar.13', '1');
+          else {
+            lyDraftSet(t, 'song', 'meter', '4/4');
+            lyDraftSet(t, 'song', 'events', 'invalid');
+          }
+          lyRefresh(true);
+        }, tool);
+        check(
+          await page.evaluate(() =>
+            [...document.querySelectorAll('.ly-toolrow[data-id="rhythm"] .ly-count')].some(
+              (c) => Number(c.textContent) === lyPendingAll() && !c.hidden
+            )
+          ),
+          'Rhythm badge omitted pending subforms'
+        );
+        await page.evaluate(() => LY_ACTIONS['ly-run-review']());
+        check(
+          await page.evaluate(() => !!LY.gate && lyPendingAll() > 0),
+          'subform-only changes did not open review gate'
+        );
+        check(q.calls.length === 0, 'review bypassed pending subform');
+        // The explicit saved-version choice still sends only committed data.
+        await page.evaluate(() => LY_ACTIONS['ly-gate-saved']());
+        await page.waitForFunction(() => !chatState.busy);
+        check(
+          q.calls.length === 1 &&
+            !q.calls[0].lyric_context?.declarations?.[
+              tool === 'placement' ? 'line_placement' : 'melody'
+            ],
+          'Review saved version included a pending declaration'
+        );
+        check(
+          await page.evaluate((t) => lyDrafts(t).length === 1, tool),
+          'Review saved version discarded pending work'
+        );
+        await page.evaluate(() => LY_ACTIONS['ly-run-review']());
+        await page.evaluate(() => LY_ACTIONS['ly-gate-apply']());
+        check(
+          q.calls.length === 1 && (await page.evaluate(() => !!LY.gate)),
+          'invalid Apply all dispatched or closed the gate'
+        );
+        check(
+          (await page.evaluate(() => $ui('lyrics-draft').value)) === DRAFT,
+          'invalid subform changed the saved draft'
+        );
+        await page.evaluate((t) => {
+          if (t === 'placement') {
+            lyDraftSet(t, '3', 'beat.13', '1');
+            lyDraftSet(t, '3', 'duration.13', '4');
+          } else {
+            lyDraftSet(t, 'song', 'groups', '2+2');
+            lyDraftSet(t, 'song', 'bars', '1');
+            lyDraftSet(t, 'song', 'events', '440:8');
+          }
+        }, tool);
+        await page.evaluate(() => LY_ACTIONS['ly-gate-apply']());
+        await page.waitForFunction(() => !chatState.busy);
+        check(q.calls.length === 2, 'valid Apply all did not send exactly one new review');
+        check(
+          !!q.calls[1]?.lyric_context?.declarations?.[
+            tool === 'placement' ? 'line_placement' : 'melody'
+          ],
+          'review payload omitted the applied subform'
+        );
+        check(
+          await page.evaluate(() => !LY.gate && lyPendingAll() === 0),
+          'applied subform remained pending'
+        );
+        await ctx.close();
+      });
+    }
+    await step('N2. selective save and partial review Apply all', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => {
+        LY.picks.rhythmSec = 3;
+        LY_ACTIONS['ly-tool']('rhythm');
+        lyDraftSet('rhythm', '3', 'meter', '6/8');
+        lyDraftSet('placement', '3', 'bar.13', '1');
+        lyDraftSet('melody', 'song', 'events', 'invalid');
+        LY_ACTIONS['ly-rhythm-save']('3');
+      });
+      check(
+        await page.evaluate(
+          () =>
+            !lyDrafts('rhythm').length &&
+            lyDrafts('placement').length === 1 &&
+            lyDrafts('melody').length === 1
+        ),
+        'Save rhythm no longer applies only the selected rhythm form'
+      );
+      await page.evaluate(() => {
+        lyDraftSet('rhythm', '3', 'bars', '8');
+        LY_ACTIONS['ly-run-review']();
+      });
+      await page.evaluate(() => LY_ACTIONS['ly-gate-apply']());
+      check(
+        q.calls.length === 0 && (await page.evaluate(() => !!LY.gate)),
+        'partial Apply all sent a review'
+      );
+      check(
+        await page.evaluate(() =>
+          $ui('lyrics-draft').value.includes('[BRIDGE — 4 lines — 8 bars of 6/8]')
+        ),
+        'valid first form was not selectively applied'
+      );
+      check(
+        /Some changes were applied/.test(await page.locator('body').innerText()),
+        'review gate hid partial application'
+      );
+      check(
+        await page.evaluate(
+          () => lyDrafts('placement').length === 1 && lyDrafts('melody').length === 1
+        ),
+        'review gate discarded invalid or unattempted subforms'
+      );
       await ctx.close();
     });
 
