@@ -24,7 +24,7 @@ by 3PO 6133908534). It changes no code path and no data the program reads.
 | + v2 | 17,018 | 7,198 | 211 |
 | + v2 + `fallback: high` | 12,365 | 5,191 | 547 |
 
-- **Unread under v2, by occurrence:** 72.7% plain spelling, 23.1% apostrophe,
+- **Unread under v2, by occurrence:** 72.7% other (no hyphen or apostrophe), 23.1% apostrophe,
   4.2% hyphen.
 - **`fallback: high`:** answers 2,007 of v2's unread types, and 0 regress.
   Moby carries 368 of the 2,007. Of those 368: 170 exact, 38 differing only in
@@ -34,6 +34,7 @@ by 3PO 6133908534). It changes no code path and no data the program reads.
 
 Each census record (run from `lyric-harness/`). At a checkout of `4b14ff5b` the output is byte for byte. At any later checkout only `census_commit` differs; it records the checkout, as Provenance below explains:
 
+    mkdir -p quality/results/census_validation_2026-10-12/
     python3 quality/coverage_census.py --population song --split validation --out quality/results/census_validation_2026-10-12/census_cmudict_only.json
     python3 quality/coverage_census.py --population song --split validation --lexicon-supplement=v2 --out quality/results/census_validation_2026-10-12/census_v2.json
     python3 quality/coverage_census.py --population song --split validation --lexicon-supplement=v2 --fallback=high --out quality/results/census_validation_2026-10-12/census_v2_fallback_high.json

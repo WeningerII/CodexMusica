@@ -7,7 +7,7 @@
         --lexicon-supplement=v2 --fallback=high --top 100000 --out /tmp/v2high_top.json
     python3 quality/results/census_validation_2026-10-12/compare.py \
         --census-top /tmp/v2_top.json --census-top-high /tmp/v2high_top.json \
-        --mpron PATH/TO/mpron.txt
+        --mpron PATH/TO/mpron.txt > quality/results/census_validation_2026-10-12/compare_output.json
 
 The two `census_commit` fields record the checkout each census ran at; the
 committed output's two differ (README, Provenance).
