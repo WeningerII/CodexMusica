@@ -68,6 +68,10 @@ FIXTURES = [
     "our fathers' graves", "thee--Arise", "the shore--", "U--h, u--h, Lawdy,", "d---- the man",
     "to-day and to-morrow", "the war-cry rang", "fifty-one days", "There 's high", "I don′t know",
     "(ad lib) the whole night long", "the 'record spins",
+    # appended 2026-10-13 from R2's verifier findings (#519 6141450779); keep
+    # the list append-only so earlier fixture ids stay stable
+    "There\u00ad 's high", "There \u00ad's high", "we sing 4\u2011ever", "we sing 4-ever",
+    "co\u2011operate", "to\u2011night and to-night",
 ]
 _KNOWN = {"text", "final_token", "readable", "final_unreadable", "final_unreadable_cause",
           "final_unread_pieces", "unreadable", "interior_unreadable", "reason"}
