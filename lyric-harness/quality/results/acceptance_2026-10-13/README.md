@@ -155,31 +155,34 @@ Physical identity is each token's character span in the harness's own tokenizer,
 
     python3 quality/results/acceptance_2026-10-13/slot_binding.py quality/results/acceptance_2026-10-13/slot_binding_fce4bf0f.json [HARNESS_ROOT]
 
-This is R2's 1b v2 blocker (PR #519, comment 6151243417): under `--voices`, the loop's `swap_at_slot` cut the line with asides stripped, while the grader binds the slot through the lexicon's aside rule. 3PO asked for it to be measured at the pinned head (PR #527, comment 6151284267).
+This is R2's 1b v2 blocker (PR #519, comment 6151243417): under `--voices`, the loop's `swap_at_slot` cut the line with asides stripped, while the grader binds the slot through the lexicon's aside rule. 3PO asked for it to be measured at the pinned head (PR #527, comment 6151284267). This version addresses 3PO's source review of the first one (comment 6151468403).
 
-The check covers every line with a parenthesised aside, in both aside modes, for the slots `end`, `head` and `T1` to `T8`. In each case it compares, as spans in the **original** line:
-- the word the slot names;
-- the word the grader binds (`word_syllable_map`'s `widx`, the index `slots.resolve` reads);
-- the characters the loop actually replaces.
+**What it compares.** The check covers every line with a parenthesised aside, in both aside modes, for the slots `end`, `head` and `T1` to `T8`. The spans are in the line **as the reader returns it**, which is not necessarily the untouched corpus file:
+- **the word the slot names**;
+- **the word the grader binds.** `slots.resolve` is called, and its label is checked against the `word_syllable_map` token. A disagreement is `resolver_mismatch`, which makes the result CANNOT TELL;
+- **the span the loop replaced.** It is found by **exact reconstruction**: the line with one candidate span replaced by the marker, cased as the loop cases it, must equal what the loop returned. It is never found by a character diff, which would mislabel an edit like `zoom` → `zqzq`.
 
-A `wrong_word` is an edit anywhere other than the named word. **Acceptance requires 0 in both modes.** A refusal never counts as wrong. It calls the loop the way production does (`revise.py`, `loop.py`), and passes an aside argument only if a head's `swap_at_slot` has one, recording which.
+**The gate, enforced by exit status.** Exit 0 is PASS, 1 is FAIL and 2 is CANNOT TELL.
+- **PASS** needs 0 `wrong_word`, 0 `grader_elsewhere` (the loop edits the named word but the grader binds another) and 0 `resolver_mismatch` in both modes. It also needs all 7 **required control edits** to agree. Those are no-aside lines where the loop must replace the bound word, so a loop that refuses everything cannot pass.
+- **Refusals never fail the gate,** and each kind is counted.
+- **CANNOT TELL** is returned if any production call of `swap_at_slot` (in `revise.py`, `loop.py` or `lyric_harness.py`, read with `ast`) passes arguments other than the three the tool uses. At main, all 4 call sites pass exactly `(text, slot, word)`.
 
-The population is 973 corpus lines (the reader's sung lines that voices cuts differently) and 10 synthetic lines. Lines that `join_spaced_enclitics` changes are excluded and counted (78 line-modes), because their offsets would be in transformed text.
+The output pins the tested commit and its tracked changes, the tool's and `loop.py`'s sha256, the lexicon (class, supplement version, path and sha256, CMUdict sha256, fallback), the population digests and the evaluated slot counts. Lines that `join_spaced_enclitics` changes are excluded and counted (78 line-modes), and those transformed inputs stay **untested** here.
 
-**Baseline at main `fce4bf0f`:**
+**Baseline at main.** The harness code is identical to `fce4bf0f`. There are 984 selected lines: 973 corpus lines and 11 synthetic.
 
-| mode | agree | refused | no word, refused | wrong word |
-|---|---:|---:|---:|---:|
-| asides stripped (the default) | 171 | 2,494 | 1,028 | **5** |
-| asides sung (`--voices`) | 176 | 7,956 | 0 | 0 |
+| mode | evaluated | agree | agree, unbound | refused | refused, unbound | refused, grader elsewhere | no word, refused | wrong word |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| asides stripped (default) | 3,703 | 168 | 4 | 2,420 | 71 | 7 | 1,028 | **5** |
+| asides sung (`--voices`) | 8,138 | 173 | 4 | 7,675 | 270 | 16 | 0 | 0 |
 
-With voices on, main never edits a wrong word: every `head` and `T<n>` slot on an aside line refuses (`quality/loop.py:400-402`). The bug R2 found is therefore new in the 1b branch, not inherited from main.
+The controls all pass, and the gate is **FAIL** because of the 5 wrong words.
+- **With voices on, main never edits a wrong word.** Every `head` and `T<n>` slot on an aside line refuses (`quality/loop.py:400-402`), so R2's bug is new in the 1b branch.
+- **Main's own wrong-word edit, in the default mode.** `swap_end_word` (`quality/loop.py:356-358`) checks that the last raw word has the same TEXT as the end word, but not the same POSITION. When a trailing aside repeats the end word, the copy inside the parentheses is edited, while the grader still reads the unchanged word:
+  - `I love you (love you)` becomes `I love you (love zqzq)`;
+  - `You said (Oh not in vain you said),` becomes `You said (Oh not in vain you zqzq),`.
 
-**Main does have a wrong-word edit of its own, in the default mode.** `swap_end_word` (`quality/loop.py:356-358`) checks that the last raw word has the same TEXT as the line's real end word, but not the same POSITION. When a trailing aside repeats the end word, the check passes and the copy inside the parentheses is edited, while the grader still reads the unchanged word:
-- `I love you (love you)` becomes `I love you (love zqzq)`;
-- `You said (Oh not in vain you said),` becomes `You said (Oh not in vain you zqzq),`.
-
-That is 3 corpus lines and 2 synthetic echo lines. Echoes in parentheses are common in modern lyrics, so this corpus count is not an estimate of real use.
+  That is 3 corpus lines and 2 synthetic echo lines. Echoes in parentheses are common in modern lyrics, so this corpus count is not an estimate of real use.
 
 ## The disputed dictionary rows
 

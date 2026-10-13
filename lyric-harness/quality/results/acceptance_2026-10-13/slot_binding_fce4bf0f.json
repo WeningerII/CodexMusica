@@ -1,41 +1,195 @@
 {
- "harness_root": "/home/user/CodexMusica/lyric-harness",
- "swap_at_slot_mode_argument": null,
- "loop_sha256": "1b8ebc8d0a6ff7eb72f3afe5961a36184b0f839e5c7cfbbae8321b2cf30e90d7",
- "lines": {
-  "synthetic": 10,
-  "corpus": 973
+ "gate": "FAIL",
+ "pins": {
+  "commit": "773f8ee998df38084e2f8cac7c6d32ec519a2f90",
+  "tracked_changes": true,
+  "harness_root": "/home/user/CodexMusica/lyric-harness",
+  "tool_sha256": "f419d853f71f78f2a006d864c41d853efafbf40914a5d124a7d498fad7f17a80",
+  "loop_sha256": "1b8ebc8d0a6ff7eb72f3afe5961a36184b0f839e5c7cfbbae8321b2cf30e90d7",
+  "lexicon": {
+   "class": "SupplementedLexicon",
+   "supplement": {
+    "version": "v2",
+    "path": "data/lexicon_supplement_v2.tsv",
+    "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+   },
+   "reader_scheme": null,
+   "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+   "fallback": "none"
+  },
+  "population": {
+   "corpus_lines": 973,
+   "synthetic_lines": 11,
+   "selected_lines": 984,
+   "corpus_sha256": "0b3edaa9934a50137ca5b029ae3b83df82ca3a7a5470ef974481192384a804a6",
+   "synthetic_sha256": "d633071066177a58c717e2812a0099dc576fddbb43a43d163138d6040c7a3931",
+   "controls": 7
+  },
+  "slots": [
+   "end",
+   "head",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8"
+  ]
  },
- "slots": [
-  "end",
-  "head",
-  "T1",
-  "T2",
-  "T3",
-  "T4",
-  "T5",
-  "T6",
-  "T7",
-  "T8"
+ "production_calls": [
+  {
+   "file": "quality/revise.py",
+   "line": 4479,
+   "positional": 3,
+   "keywords": []
+  },
+  {
+   "file": "quality/revise.py",
+   "line": 4522,
+   "positional": 3,
+   "keywords": []
+  },
+  {
+   "file": "quality/loop.py",
+   "line": 573,
+   "positional": 3,
+   "keywords": []
+  },
+  {
+   "file": "quality/loop.py",
+   "line": 608,
+   "positional": 3,
+   "keywords": []
+  }
  ],
+ "production_calls_not_replicated": [],
  "excluded_line_modes": {
   "spaced_enclitic_or_folded": 78,
   "spans_not_reproduced": 0
  },
+ "evaluated_slots": {
+  "asides_stripped": 3703,
+  "asides_sung": 8138
+ },
  "outcomes": {
   "asides_stripped": {
-   "agree": 171,
-   "refused": 2494,
+   "agree": 168,
+   "refused": 2420,
    "wrong_word": 5,
-   "no_word_refused": 1028
+   "no_word_refused": 1028,
+   "refused_grader_elsewhere": 7,
+   "refused_unbound": 71,
+   "agree_unbound": 4
   },
   "asides_sung": {
-   "agree": 176,
-   "refused": 7956
+   "agree": 173,
+   "refused": 7675,
+   "refused_unbound": 270,
+   "refused_grader_elsewhere": 16,
+   "agree_unbound": 4
   }
  },
- "wrong_word": 5,
- "grader_elsewhere": 0,
+ "failing": {
+  "asides_stripped": {
+   "wrong_word": 5,
+   "grader_elsewhere": 0,
+   "resolver_mismatch": 0
+  },
+  "asides_sung": {
+   "wrong_word": 0,
+   "grader_elsewhere": 0,
+   "resolver_mismatch": 0
+  }
+ },
+ "controls": [
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "asides_sung",
+   "kind": "agree"
+  }
+ ],
+ "controls_failed": [],
  "cases": [
   {
    "kind": "wrong_word",
