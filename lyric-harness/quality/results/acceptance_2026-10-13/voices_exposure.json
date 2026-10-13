@@ -1,0 +1,94 @@
+{
+ "files": 1344,
+ "lines": 281413,
+ "lines_cut_differently_by_voices": 986,
+ "unmapped_lines": 0,
+ "ambiguous_positions": 6,
+ "ambiguous_lines": 6,
+ "positions": [
+  {
+   "file": "eng_british_jean_ingelow.txt",
+   "line": "For (I said) I will bear me by thee, sweetheart,",
+   "token": 2,
+   "word": "I",
+   "span_voices_on": [
+    5,
+    6
+   ],
+   "span_voices_off": [
+    13,
+    14
+   ]
+  },
+  {
+   "file": "eng_british_jean_ingelow.txt",
+   "line": "_Mrs. Jillifer (aside)._ Bless you, that makes for nothing, nothing at",
+   "token": 9,
+   "word": "nothing",
+   "span_voices_on": [
+    51,
+    58
+   ],
+   "span_voices_off": [
+    60,
+    67
+   ]
+  },
+  {
+   "file": "eng_british_jean_ingelow.txt",
+   "line": "(Loveliest of birds) possession of the place;",
+   "token": 2,
+   "word": "of",
+   "span_voices_on": [
+    11,
+    13
+   ],
+   "span_voices_off": [
+    32,
+    34
+   ]
+  },
+  {
+   "file": "eng_british_robert_browning.txt",
+   "line": "\"And moreover,\" (the sonnet goes rhyming), \"the skirts of St. Paul has reached,",
+   "token": 3,
+   "word": "the",
+   "span_voices_on": [
+    17,
+    20
+   ],
+   "span_voices_off": [
+    44,
+    47
+   ]
+  },
+  {
+   "file": "eng_british_sir_john_suckling.txt",
+   "line": "The king (God bless him!) 'twould undo him",
+   "token": 5,
+   "word": "him",
+   "span_voices_on": [
+    20,
+    23
+   ],
+   "span_voices_off": [
+    39,
+    42
+   ]
+  },
+  {
+   "file": "eng_oxford_edmund_spenser.txt",
+   "line": "Yet Leda was (they say) as white as he,",
+   "token": 6,
+   "word": "as",
+   "span_voices_on": [
+    24,
+    26
+   ],
+   "span_voices_off": [
+    33,
+    35
+   ]
+  }
+ ]
+}

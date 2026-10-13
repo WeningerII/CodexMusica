@@ -131,6 +131,22 @@ All pass.
 
 The same review found that the scope README's statement that no v2 form occurs on dev was wrong. That README now says so.
 
+## The unmarked-voices residual
+
+    python3 quality/results/acceptance_2026-10-13/voices_exposure.py quality/results/acceptance_2026-10-13/voices_exposure.json
+
+Token numbers follow `voices`. A declaration numbered under one voices setting and sent unmarked to a run with the other can therefore pass the token/word check and bind a different physical word. On main, in `(oh) love, love me do`, token 2 is the second *love* with voices off and the first with voices on. The agreed design (PR #527, comment 6148531804) fixes this for marked declarations only. For unmarked ones it keeps today's behaviour, because guarding it would refuse callers who are correct today. The technical contract documents it as a residual.
+
+This counts that residual, at main `fce4bf0f`, on every row of `corpus/song/eng_*` the source reader treats as a sung line:
+- **281,413** lines;
+- **986** of them are cut differently by voices;
+- on those, **6 positions on 6 lines** have the same (token, word) under both settings but name a different word, for example token 2 in `For (I said) I will bear me by thee, sweetheart,`;
+- **0** lines are unmapped.
+
+Physical identity is each token's character span in the harness's own tokenizer. A line whose rebuilt tokens don't match `line_tokens` exactly would be counted as unmapped, never guessed. Pass a `HARNESS_ROOT` to count at another head.
+
+**What it doesn't measure.** This corpus mostly uses parentheses for printed asides, so voices-off is its own reading. Modern lyrics that put backing vocals in parentheses use them far more, often around repeated words, so real drafts may well show more. This is a count on this corpus, not an estimate for real use.
+
 ## The disputed dictionary rows
 
     python3 quality/results/acceptance_2026-10-13/disputed_rows.py quality/results/acceptance_2026-10-13/disputed_rows.json MPRON
