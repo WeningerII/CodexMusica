@@ -117,6 +117,12 @@ def _normal_request(requested):
     return {"layers": sorted(set(layers)), "schemas": sorted(set(schemas)) if schemas is not None else None}
 
 
+def _reader_scheme_of(phon):
+    """-> the reader scheme an English phonology cuts lines under."""
+    import lyric_harness as LH
+    return LH.resolve_reader_scheme(getattr(phon, "reader_scheme", None))
+
+
 def _public_declarations(value):
     if isinstance(value, dict):
         if any(k in ("source", "provenance", "citation") and not isinstance(v, str) for k, v in value.items()):
@@ -263,6 +269,22 @@ class AnalysisSession:
             if any(catalog[m].get("language", self.language) != self.language for m in requested_methods):
                 raise ValueError("UNSUPPORTED_METHOD: native method belongs to another phonology")
         clear_reader_resources_if_language_changed(self.language)
+        if self.language == "eng" and private_declarations.get("pronunciations"):
+            # A declaration set from the v1-bound Gutenberg asset, read by a
+            # v2 reader, moves to the same physical tokens (raw-span identity;
+            # a row with no identical span refuses rather than re-attaching).
+            # The asset's approved bytes stay as they are.
+            import lyric_harness as LH
+            from quality.pronunciation import rebind_occurrences, v1_bound_declarations
+            rows = private_declarations["pronunciations"]
+            if LH.resolve_reader_scheme(None) == "v2" and v1_bound_declarations(rows):
+                try:
+                    private_declarations["pronunciations"] = rebind_occurrences(
+                        rows, "v1", "v2", strip_parens=False)
+                    self.declarations["pronunciations"] = rebind_occurrences(
+                        self.declarations["pronunciations"], "v1", "v2", strip_parens=False)
+                except ValueError as exc:
+                    raise ValueError(f"STALE_READING: {exc}") from None
         settings = self.declarations.get("phonology", {})
         if not isinstance(settings, dict):
             raise ValueError("INVALID_DECLARATION: phonology settings must be an object")
@@ -536,7 +558,20 @@ class AnalysisSession:
             return self._token_projection_cache[li]
         raw, words = self.stream.text_lines[li], self.stream.lexical_tokens[li]
         positions = []
-        if self.language == "eng":
+        if self.language == "eng" and _reader_scheme_of(self.phon) == "v2":
+            import lyric_harness as LH
+            rl = LH.reader_line(raw, strip_parens=False, scheme="v2")
+            # The reader's own raw pieces (codepoint offsets into the analysis
+            # text), guarded so they are the tokens the stream read -- with
+            # the printed endpoint the stream appends when it is not an
+            # English token (`English.tokens_for_line`).
+            located = list(rl.tokens)
+            if LH.printed_endpoint(rl) is not None:
+                located.append(rl.runs[-1])
+            positions = ([list(t.pieces) for t in located]
+                         if tuple(t.text for t in located) == tuple(words) else None)
+        elif self.language == "eng":
+            # Reader scheme v1: the pre-batch projection, verbatim.
             import lyric_harness as LH
             folded = LH.fold_apostrophes(raw)
             removed = {i for match in LH._SPACED_ENCLITIC.finditer(folded)

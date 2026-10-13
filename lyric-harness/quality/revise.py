@@ -968,9 +968,16 @@ def relation_phonology_for(lex):
     drift. A plain lexicon (or none) answers with the shared plain reader,
     unchanged.
     """
+    import lyric_harness as _LH
     if lex is None or (not getattr(lex, "pronunciations", ())
                        and not getattr(lex, "supplement_path", None)):
-        return _relation_phonology()
+        if lex is None or _LH._scheme_of(lex) == _LH.resolve_reader_scheme(None):
+            return _relation_phonology()
+        # A plain lexicon cut under another reader scheme than this
+        # process's: the plain reader, cutting lines the lexicon's way.
+        from quality.phonology.eng import English
+        return English(fallback=_relation_phonology().fallback,
+                       reader_scheme=lex.reader_scheme)
     from quality.phonology.eng import English
     # Preserve the registered relation reader's fallback policy on unselected words.
     return English(fallback=_relation_phonology().fallback, lexicon=lex)
@@ -1167,10 +1174,11 @@ class Reviser:
         the song must have and wrong for one it must avoid, so a pair whose
         end words have several readings (or end on a small word that may be
         sung weak) is asked again with every combination required."""
-        from lyric_harness import fold_apostrophes, line_tokens, weak_token
+        from lyric_harness import fold_apostrophes, line_tokens, weak_token, _scheme_of
         ambiguous = False
         for text in (lines[i], lines[j]):
-            words = line_tokens(text, strip_parens=self.lex.strip_parens)
+            words = line_tokens(text, strip_parens=self.lex.strip_parens,
+                                scheme=_scheme_of(self.lex))
             if not words:
                 continue
             key = fold_apostrophes(words[-1]).lower().strip("'\".,;:!?()[]")
@@ -3271,6 +3279,9 @@ class Reviser:
         if runs_out is None:
             return {}
         from quality import meter_bands as MB
+        import lyric_harness as _LH
+        # The meter reader cuts lines the way the grading lexicon does.
+        _scheme = _LH._scheme_of(self.lex)
         phon = MB.reader(MB.ADOPTED_READER)
         supplement = getattr(self.lex, "supplement_path", None)
         if getattr(self.lex, "pronunciations", ()) or supplement:
@@ -3280,16 +3291,19 @@ class Reviser:
                 from quality.lexicon_supplement import supplemented_lexicon
                 base = supplemented_lexicon(strip_parens=self.lex.strip_parens,
                                             fallback=phon.fallback,
-                                            supplement_path=supplement)
+                                            supplement_path=supplement,
+                                            reader_scheme=_scheme)
             else:
                 base = FT._english_lexicon(strip_parens=self.lex.strip_parens,
-                                           fallback=phon.fallback)
+                                           fallback=phon.fallback,
+                                           reader_scheme=_scheme)
             reader_lex = copy.copy(base)
             reader_lex.pronunciations = self.lex.pronunciations
             phon = English(fallback=phon.fallback, lexicon=reader_lex)
         for i, text in enumerate(lines):
             lu = FT.read_line(text, phon=phon,
-                              strip_parens=self.lex.strip_parens)
+                              strip_parens=self.lex.strip_parens,
+                              reader_scheme=_scheme)
             runs_out[i + 1] = lu.prominence_runs
         return {}
 
@@ -4476,7 +4490,8 @@ class Reviser:
         anchor there: the test `grade()`'s `_anchorless` applies, asked of
         the line the writer would hand back."""
         from quality.loop import swap_at_slot
-        trial = swap_at_slot(text, slot, word)
+        import lyric_harness as _LH
+        trial = swap_at_slot(text, slot, word, scheme=_LH._scheme_of(self.lex))
         if trial is None:
             return False
         anc, label, _ = _SL.resolve(self.lex, trial, slot)
@@ -4519,7 +4534,8 @@ class Reviser:
         baseline_bad = baseline_unknown = moot = None
         kept, refused = [], []
         for word in dict.fromkeys(candidates):
-            text = swap_at_slot(lines[line - 1], slot, word)
+            text = swap_at_slot(lines[line - 1], slot, word,
+                                scheme=getattr(self.lex, "reader_scheme", None))
             if text is None:
                 refused.append(word)
                 continue

@@ -99,7 +99,7 @@ ROOT = os.path.join(HERE, "..")
 sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from lyric_harness import VOWELS, fold_apostrophes  # noqa: E402
+from lyric_harness import VOWELS, fold_apostrophes, has_numeral  # noqa: E402
 
 DATA = os.path.join(ROOT, "data")
 LETTER_RULES_PATH = os.path.join(DATA, "g2p_letter_rules.tsv")
@@ -900,7 +900,10 @@ class Fallback:
         refusal rather than as an absent relation (doctrine 79).
         """
         w = fold_apostrophes(word).lower().strip("\"“”.,;:!?()[]-‑—–")
-        if not w or not re.search(r"[a-z]", w):
+        # A numeral-bearing word is refused whole (M1): `4ever` passes the
+        # letter test and would otherwise reach the elision, suffix and letter
+        # layers as `ever` plus a guess. Only a declared reading reads it.
+        if not w or not re.search(r"[a-z]", w) or has_numeral(w):
             self.counts["refused"] += 1
             return None
         if re.search(r"[-‑]", w):

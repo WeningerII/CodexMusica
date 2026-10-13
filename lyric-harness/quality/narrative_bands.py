@@ -143,7 +143,8 @@ def content_types(lines, tag):
     for l in lines:
         if LH.is_apparatus_line(l):
             continue
-        toks = LH.line_tokens(l)
+        # Pinned to v1: NARRATIVE_BANDS_PREREGISTRATION.md names line_tokens at its shipped default.
+        toks = LH.line_tokens(l, scheme="v1")
         if not toks:
             continue
         for w, t in tag(toks):

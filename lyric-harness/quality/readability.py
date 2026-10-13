@@ -309,7 +309,8 @@ def substitution_report(lex, lines):
     """
     out = []
     for i, text in enumerate(lines):
-        final = raw_final_token(text, strip_parens=lex.strip_parens)
+        final = raw_final_token(text, strip_parens=lex.strip_parens,
+                                scheme=getattr(lex, "reader_scheme", None))
         if final is None:
             continue
         smap = word_syllable_map(lex, text)
@@ -420,7 +421,7 @@ def corpus_rate(lex, paths):
     """
     tot = unread = subst = 0
     subst_flagged = subst_silent = 0
-    by_token = by_piece = 0
+    by_token = by_piece = by_numeral = 0
     overstates = 0
     misfiled = misfiled_unexplained = 0
     words = {}
@@ -432,6 +433,7 @@ def corpus_rate(lex, paths):
         u = [r for r in c if r["final_unreadable"]]
         t = [r for r in u if r["final_unreadable_cause"] == "token"]
         pc = [r for r in u if r["final_unreadable_cause"] == "piece"]
+        nm = [r for r in u if r["final_unreadable_cause"] == "numeral"]
         lo = [r for r in c
               if not r["final_unreadable"] and r["final_unread_pieces"]]
         s = substitution_report(lex, lines)
@@ -439,6 +441,7 @@ def corpus_rate(lex, paths):
         unread += len(u)
         by_token += len(t)
         by_piece += len(pc)
+        by_numeral += len(nm)
         overstates += len(lo)
         subst += len(s)
         # THE SUBSET CLAIM, MEASURED IN THE PASS THAT WAS ALREADY BEING MADE.
@@ -492,8 +495,8 @@ def corpus_rate(lex, paths):
                 continue
             misfiled += 1
             earlier = set()
-            for tk in line_tokens(r["text"],
-                                  strip_parens=lex.strip_parens)[:-1]:
+            for tk in line_tokens(r["text"], strip_parens=lex.strip_parens,
+                                  scheme=getattr(lex, "reader_scheme", None))[:-1]:
                 earlier.update(token_pieces(lex, tk)[1])
             if any(pi not in earlier for pi in over):
                 misfiled_unexplained += 1
@@ -516,6 +519,11 @@ def corpus_rate(lex, paths):
             # have made their two effects inseparable (doctrine 58).
             "unreadable_final_token": by_token,
             "unreadable_final_piece": by_piece,
+            # Reader scheme v2 (2026-10-13): an end word that is a numeral
+            # token with no declared reading -- `'62`, a margin line number
+            # `heart.    10` -- is its own cause. Always 0 under v1, where
+            # the cut dropped digits and read the word before them instead.
+            "unreadable_final_numeral": by_numeral,
             # The REPORT-layer half of the same defect: the last piece reads,
             # so the anchor is right and only the printed word overstates.
             # Never a refusal, and it is deliberately NOT added to `rate`.

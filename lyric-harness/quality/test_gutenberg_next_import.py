@@ -112,9 +112,16 @@ class SectionRegressionTests(unittest.TestCase):
 
 class BatchEvidenceTests(unittest.TestCase):
     def test_optional_pronunciations_bind_only_missing_imported_occurrences(self):
+        # The approved asset was bound under reader scheme v1 (prepared
+        # 2026-10-09, before the reader batch) and its bytes stay as approved:
+        # every set validates verbatim under v1, and a v2 reader rebinds it by
+        # raw span (`pronunciation.rebind_occurrences`) without losing a row.
         import lyric_harness as LH
-        from quality.pronunciation import validate_choices
-        lex = LH.Lexicon(fallback='high', strip_parens=False)
+        from quality.pronunciation import (rebind_occurrences, v1_bound_declarations,
+                                           validate_choices)
+        lex = LH.Lexicon(fallback='high', strip_parens=False, reader_scheme='v1')
+        lex_v2 = lex.with_reader_scheme('v2')
+        moved = []
         imported = {}
         for path in sorted(IMPORT.DEST.rglob('*.txt')):
             for title, _, rows in IMPORT.lyric_items(path):
@@ -130,6 +137,12 @@ class BatchEvidenceTests(unittest.TestCase):
                     lines = imported[(book, candidate_id)]
                     choices = validate_choices(payload['pronunciations'], lex)
                     self.assertTrue(choices)
+                    self.assertTrue(v1_bound_declarations(payload['pronunciations']))
+                    rebound = rebind_occurrences(choices, 'v1', 'v2', strip_parens=False)
+                    self.assertEqual(validate_choices(rebound, lex_v2), rebound)
+                    self.assertEqual(len(rebound), len(choices))
+                    moved += [(a['line'], a['word'], a['token'], b['token'])
+                              for a, b in zip(choices, rebound) if a['token'] != b['token']]
                     for choice in choices:
                         self.assertIn(choice['line'], lines)
                         self.assertEqual(choice['basis'], 'declared')
@@ -140,9 +153,38 @@ class BatchEvidenceTests(unittest.TestCase):
                     work_count += 1
                     declaration_count += len(choices)
         self.assertEqual((work_count, declaration_count), (1030, 9638))
+        # Exactly ten rows change position, all on the six `U--h` lines whose
+        # dash run v2 reads as punctuation (`U--h, Lawdy` is three tokens).
+        self.assertEqual(len(moved), 10, moved)
+        self.assertEqual(len({line for line, *_ in moved}), 6, moved)
+        self.assertTrue(all(line.startswith('U--h') and new > old
+                            for line, word, old, new in moved), moved)
         coverage = read_json(BATCH / 'pronunciations' / 'coverage.json')
         self.assertEqual(coverage['works_with_prepared_declarations'], work_count)
         self.assertEqual(coverage['prepared_declarations'], declaration_count)
+
+    def test_a_v2_library_analysis_rebinds_the_injected_set(self):
+        # The scheduler injects one candidate's set verbatim. A v2 analysis
+        # moves each row to the token with the same raw span before it
+        # validates; the same rows refuse as declared under v2 positions.
+        import lyric_harness as LH
+        from library.analysis import AnalysisSession
+        from quality.pronunciation import validate_choices
+        payloads = read_json(BATCH / 'pronunciations' / '69378.json')
+        rows = next(p['pronunciations'] for p in payloads.values()
+                    if any(r['line'].startswith('U--h') for r in p['pronunciations']))
+        lines = list(dict.fromkeys(r['line'] for r in rows))
+        with self.assertRaises(ValueError):
+            validate_choices(rows, LH.Lexicon(strip_parens=False, reader_scheme='v2'))
+        reading = {'reading_unit_id': 'caller-owned-fixture:eng', 'reading_revision': 'fixture-v1',
+                   'language': 'eng', 'text': '\n'.join(lines)}
+        session = AnalysisSession(reading, {'pronunciations': rows},
+                                  {'layers': ['sound'], 'schemas': []})
+        bound = session.phon.lexicon.pronunciations
+        self.assertEqual(len(bound), len(rows))
+        self.assertTrue(any(b['token'] != r['token'] for b, r in zip(bound, rows)))
+        for b in bound:
+            self.assertEqual(LH.line_tokens(b['line'], strip_parens=False)[b['token'] - 1], b['word'])
 
     def test_every_imported_lyric_line_survives_the_actual_library_reader(self):
         candidates = {book + ':' + str(item['id']): item

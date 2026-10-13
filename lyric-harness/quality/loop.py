@@ -314,7 +314,8 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import (load_lyric_lines, line_tokens,
-                           raw_final_token)
+                           raw_final_token, reader_line,
+                           resolve_reader_scheme)
 from quality import slots as _SL  # noqa: E402
 from quality.revise import (ReviseDeclaration, Reviser,  # noqa: E402
                             draft_fingerprint)
@@ -324,7 +325,9 @@ __all__ = ["LineAttempt", "AnchorSlot", "GroupBrief", "RoundResult",
           "revise_loop", "swap_end_word", "default_propose",
            "default_propose_group"]
 
-#: The CRUDER reading `swap_end_word` uses to find a token's character span.
+#: The CRUDER reading `swap_end_word` uses to find a token's character span
+#: under reader scheme `v1` (kept for replay; `v2` reads `reader_line`'s raw
+#: pieces instead, so no second reading of "the last word" exists to agree).
 #: It must carry the SAME letter repertoire as `lyric_harness.line_tokens`, or
 #: the two disagree on every word with a diacritic and this function refuses a
 #: swap it could have made: with `line_tokens` widened to `LATIN_SCRIPT` on
@@ -335,7 +338,15 @@ __all__ = ["LineAttempt", "AnchorSlot", "GroupBrief", "RoundResult",
 _WORD_RE = re.compile(r"(?:[A-Za-zÀ-ɏḀ-ỿ]|['\-])+")
 
 
-def swap_end_word(text, new_word):
+def _cased(old, new_word):
+    if old.isupper():
+        return new_word.upper()
+    if old[:1].isupper():
+        return new_word.capitalize()
+    return new_word.lower()
+
+
+def swap_end_word(text, new_word, scheme=None):
     """-> `text` with its LAST token replaced by `new_word`; `None` if it
     cannot be done without guessing.
 
@@ -349,13 +360,25 @@ def swap_end_word(text, new_word):
     stripping) would disagree with the canonical one: a parenthetical after
     the rhyme word is exactly the kind of case doctrine 1 says may not be
     read twice, differently, in one codebase.
+
+    Under reader scheme `v2` (`scheme`, None = this process's) the span is
+    `reader_line`'s own: the last raw run, refused when it is a kept aside or
+    is not `raw_final_token`. A token joined across a spaced enclitic is
+    replaced from its first piece to its last.
     """
+    if resolve_reader_scheme(scheme) == "v2":
+        final = raw_final_token(text, scheme="v2")
+        runs = reader_line(text, strip_parens=False, scheme="v2").runs
+        if not runs or final is None or runs[-1].aside or runs[-1].text != final:
+            return None
+        start, end = runs[-1].pieces[0][0], runs[-1].pieces[-1][1]
+        return text[:start] + _cased(runs[-1].text, new_word) + text[end:]
     matches = list(_WORD_RE.finditer(text))
     if not matches:
         return None
     last = matches[-1]
     old = last.group(0)
-    if old != raw_final_token(text):
+    if old != raw_final_token(text, scheme="v1"):
         return None
     if old.isupper():
         cased = new_word.upper()
@@ -366,7 +389,7 @@ def swap_end_word(text, new_word):
     return text[:last.start()] + cased + text[last.end():]
 
 
-def swap_at_slot(text, slot, new_word):
+def swap_at_slot(text, slot, new_word, scheme=None):
     """-> `text` with the token the SLOT names replaced; `None` if it cannot
     be done without guessing.
 
@@ -385,10 +408,33 @@ def swap_at_slot(text, slot, new_word):
 
     A slot naming no token in this line returns None — the loop's own "no
     move here" — rather than falling back to a token nearby.
+
+    Under reader scheme `v2` the token index is `line_tokens`' and the span is
+    that token's own raw pieces (`reader_line`), so a line with an aside, a
+    numeral or a dash run is no longer refused for disagreeing with a second
+    regex.
     """
     if _SL.is_default(slot):
-        return swap_end_word(text, new_word)
+        return swap_end_word(text, new_word, scheme=scheme)
     slot = _SL.as_slot(slot)
+    if resolve_reader_scheme(scheme) == "v2":
+        tokens = reader_line(text, scheme="v2").tokens
+        locus = slot.rule.locus
+        if not tokens:
+            return None
+        if locus == "line_final_token":
+            idx = len(tokens) - 1
+        elif locus == "line_initial_token":
+            idx = 0
+        elif locus == "any_token":
+            idx = _SL._declared_token(slot.rule)
+        else:
+            return None
+        if idx is None or not 0 <= idx < len(tokens):
+            return None
+        hit = tokens[idx]
+        start, end = hit.pieces[0][0], hit.pieces[-1][1]
+        return text[:start] + _cased(hit.text, new_word) + text[end:]
     toks = list(_WORD_RE.finditer(text))
     if not toks:
         return None
@@ -397,7 +443,7 @@ def swap_at_slot(text, slot, new_word):
     # the RAW span so leading words, punctuation and whitespace stay
     # byte-identical — the property `swap_end_word` refuses rather than
     # loses. A disagreement between the two readings refuses here too.
-    words = line_tokens(text)
+    words = line_tokens(text, scheme="v1")
     if [m.group(0) for m in toks] != list(words):
         return None
     locus = slot.rule.locus

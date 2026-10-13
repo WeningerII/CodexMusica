@@ -154,3 +154,9 @@ mcp/library_casefold.json
 /lyric-harness/imports/gutenberg-third-ten/*/contents.json
 /lyric-harness/imports/gutenberg-third-ten/audit.json
 /lyric-harness/imports/gutenberg-third-ten/source_manifest.json
+# The English reader's fixtures: reader_v1_oracle.json is the pre-batch reader's
+# output captured verbatim (quality/fixtures/capture_reader_v1_oracle.py), and
+# reader_v2_mirror.json is byte-compared against a fresh build by
+# quality/test_reader.py, so a reflow would break that freshness gate.
+lyric-harness/quality/fixtures/reader_v1_oracle.json
+lyric-harness/quality/fixtures/reader_v2_mirror.json

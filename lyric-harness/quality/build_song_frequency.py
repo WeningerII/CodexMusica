@@ -160,7 +160,8 @@ _BURDEN_MARK = re.compile(r"&\s*c(?:e)?\s*\.?\s*$", re.IGNORECASE)
 
 class SongFrequencyBuilder:
     def __init__(self, lex=None):
-        self.lex = lex or Lexicon()
+        # Reader scheme v1, pinned: the shipped tables were built under it.
+        self.lex = lex or Lexicon(reader_scheme="v1")
         self._rk = {}
 
     # -- the end word --------------------------------------------------------
@@ -173,7 +174,10 @@ class SongFrequencyBuilder:
         not a zero either)."""
         if _BURDEN_MARK.search(text):
             return None, "burden_mark"
-        words = line_tokens(text)
+        # Pinned to v1 so data/song_endword_en.tsv and song_rhymepair_en.tsv
+        # rebuild byte-identically; rebuilding under v2 is a separate
+        # population decision (the reader batch measured the transitions).
+        words = line_tokens(text, scheme="v1")
         if not words:
             return None, "no_token"
         last = words[-1]

@@ -473,6 +473,11 @@ def tokeniser_for(language):
         raise NoTokeniser(
             "%s: the declared site %r resolves to a non-callable %r"
             % (language, site, type(obj).__name__))
+    if site == "lyric_harness.line_tokens":
+        # Pinned to reader scheme v1: STRUCTURE_CENSUS_PREREGISTRATION.md
+        # names `line_tokens` at its shipped default, which was v1.
+        import functools
+        return functools.partial(obj, scheme="v1")
     return obj
 COLUMNS = ("language", "phonology", "corpus_file", "family", "structure",
            "kind", "population", "constrained", "n_pairs", "n_true",

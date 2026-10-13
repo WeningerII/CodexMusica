@@ -29,6 +29,10 @@ import os
 import re
 import unicodedata
 import sys
+import contextlib
+import copy
+import functools
+from collections import namedtuple
 import textwrap
 import types
 import http.client
@@ -988,7 +992,8 @@ SPELLING_ALIASES = {
 
 
 class Lexicon:
-    def __init__(self, fallback=None, strip_parens=True, pronunciations=None):
+    def __init__(self, fallback=None, strip_parens=True, pronunciations=None,
+                 reader_scheme=None):
         """`fallback` is a DECLARED coordinate, `None` by default -- omitting
         it reproduces every transcription this class has ever returned,
         unchanged. Passing `"high"` or `"low"` (the same vocabulary
@@ -1018,11 +1023,18 @@ class Lexicon:
         than taking a parameter of its own, so this is the ONE place a
         caller declares which of the two traditions -- literary aside or
         voice attribution -- the text in front of it was written in.
+
+        `reader_scheme` -- see `READER_SCHEMES`; None is this process's
+        scheme (`v2` unless `--reader-scheme` declared otherwise). Read the
+        same way as `strip_parens`: every function here that cuts a line
+        through a lexicon cuts it under `lex.reader_scheme`, and declared
+        readings are validated under it.
         """
         fetch_data(download=False)
         self.entries = {}          # word -> list of pronunciations (phone lists)
         self.freq_rank = {}
         self.strip_parens = strip_parens
+        self.reader_scheme = resolve_reader_scheme(reader_scheme)
         self.g2p_fallback = None
         if fallback is not None:
             from quality.g2p import Fallback
@@ -1097,9 +1109,28 @@ class Lexicon:
         from quality.pronunciation import for_token
         return for_token(self, index)
 
+    def with_reader_scheme(self, scheme):
+        """-> this lexicon read under `scheme`, its declared readings validated
+        again under that scheme's token positions (raises ValueError when one
+        does not bind there; `quality.pronunciation.rebind_occurrences` moves
+        a declaration between schemes)."""
+        scheme = resolve_reader_scheme(scheme)
+        if scheme == self.reader_scheme:
+            return self
+        out = copy.copy(self)
+        out.reader_scheme = scheme
+        if getattr(self, "pronunciations", ()):
+            from quality.pronunciation import validate_choices
+            out.pronunciations = validate_choices(self.pronunciations, out)
+        return out
+
     def word_pieces(self, word):
         choice = getattr(self, '_pronunciation_choice', None)
-        return [word] if choice and choice['word'] == word else re.split(r"[-\u2011]", word)
+        # A numeral token is never read piecewise: `Catch-22` must not read as
+        # `Catch` (M1). It stays whole, and whole it is refused unless declared.
+        if (choice and choice['word'] == word) or has_numeral(word):
+            return [word]
+        return re.split(r"[-\u2011]", word)
 
 
     def pronunciation_variants(self, word):
@@ -1129,12 +1160,21 @@ class Lexicon:
 
     def transcribe_word(self, word):
         """Return (phones, oov_flag). Naive fallback for out-of-vocabulary."""
+        # Reader-entry normalisation for a bare word, so a direct caller and a
+        # `reader_line` token agree; the identity on every pre-batch token.
+        word = normalise_word(word)
         w = fold_apostrophes(word).lower().strip("'\"“”‘’.,;:!?()[]")
         if not w:
             return [], False
         variants = Lexicon.pronunciation_variants(self, word)
         if variants:
             return list(variants[0]), False
+        # THE NUMERAL GUARD (M1). A token carrying a digit or any other
+        # General_Category N character has no reading here unless a declared
+        # reading named it (answered just above): no number expansion, and no
+        # suffix, elision or g2p layer may read `4ever` as `ever` + a guess.
+        if has_numeral(w):
+            return [], True
         # OOV fallback: strip trailing s / 's and re-attach the suffix with
         # its VOICING, which is fixed by the base's last phone (see
         # PLURAL_S_SIBILANT / PLURAL_S_VOICELESS). This used to append a
@@ -1181,6 +1221,10 @@ class Lexicon:
         a second voice (kept). Demotes function-word stress so the anchor
         reaches the content word (mosaic rhyme: "spit in it")."""
         self = self.for_line(text)
+        if _scheme_of(self) == "v2":
+            return self.transcribe_tokens(
+                line_tokens(text, self.strip_parens, "v2"), phrase_final)
+        # Scheme v1: the pre-batch cut, verbatim.
         # `line_tokens`'s reading, spaced enclitics joined (2026-09-26): the
         # token INDEX here keys `for_token`, so the two must cut alike.
         text = join_spaced_enclitics(text)
@@ -1198,6 +1242,34 @@ class Lexicon:
         words = [t for t in _TOKEN_RUN.findall(text) if LATIN_SCRIPT.search(t)]
         for index, w in enumerate(words):
             reader = self.for_token(index)
+            for piece in (reader.word_pieces(w) if hasattr(reader, "word_pieces") else re.split(r"[-\u2011]", w)):
+                if not piece:
+                    continue
+                p, is_oov = reader.transcribe_word(piece)
+                if is_oov:
+                    oov.append(piece)
+                lw = piece.lower()
+                is_final = phrase_final and (index == len(words) - 1)
+                if weak_token(reader, lw, phrase_final=is_final):
+                    p = [re.sub(r"[12]$", "0", ph) for ph in p]
+                phones.extend(p)
+        return phones, words, oov
+
+    def transcribe_tokens(self, words, phrase_final=True, start=0):
+        """`transcribe` over tokens already cut -> (phones, words, oov).
+
+        `words` are `line_tokens` texts of the line this lexicon is scoped to
+        (`for_line`); `start` is the index of `words[0]` in that line, so a
+        caller reading a slice (`line_anchors`' prefix, its end word) keys
+        `for_token` on the line's own positions instead of re-cutting joined
+        text -- which was not idempotent (`we go (oh) 's the night`
+        re-cut as `go's`). A numeral token reads whole, through its declared
+        reading or not at all (`word_pieces`, `transcribe_word`).
+        """
+        words = list(words)
+        phones, oov = [], []
+        for index, w in enumerate(words):
+            reader = self.for_token(start + index)
             for piece in (reader.word_pieces(w) if hasattr(reader, "word_pieces") else re.split(r"[-\u2011]", w)):
                 if not piece:
                     continue
@@ -2248,16 +2320,250 @@ def _lyric_source(src, verb, input_format="literal"):
 #: which 5,926 are Barnes.
 LATIN_SCRIPT = re.compile(r"[A-Za-zÀ-ɏḀ-ỿ]")
 
-#: A token run: letters of the declared repertoire, with `'` and `-` free
-#: inside the run. THE JOINER DISCIPLINE IS UNCHANGED AND DELIBERATELY SO --
-#: the old class was `[A-Za-z'\-]+`, so `word--word` is ONE token and `--and`
-#: is a token beginning with two hyphens, and both remain true here. That
-#: reading is questionable (`thee--Arise` is one token today) but it is a
-#: SECOND question, and changing the repertoire and the joiner discipline in
-#: one edit would leave no way to say which one moved a number (doctrine 1).
-#: Measured cost of conflating them: 917 battery lines move under the joint
-#: change against 4 under this one.
+#: A token run under scheme `v1`: letters of the declared repertoire, with `'`
+#: and `-` free inside the run, so `word--word` is ONE token and `--and` is a
+#: token beginning with two hyphens. Kept, unchanged, as the class the frozen
+#: `v1` cutters below match; scheme `v2` (`reader_line`) reads an ASCII dash
+#: run as punctuation. The 2026-08-21 note that changing the repertoire and
+#: the joiner discipline in one edit would leave no way to say which moved a
+#: number (917 battery lines under the joint change against 4 under the
+#: repertoire alone) is why the dash run waited for its own measured batch.
 _TOKEN_RUN = re.compile(r"(?:[A-Za-zÀ-ɏḀ-ỿ]|['\-])+")
+
+
+#: THE READER SCHEME (the reader batch, owner-approved 2026-10-13; spec in
+#: `quality/results/scope_2026-10-12/README.md`'s M1/M6/M7 context). `v1` is
+#: the English reader as it shipped before the batch, kept verbatim as private
+#: implementations so a run recorded under it replays byte for byte. `v2` is
+#: `reader_line`: one cut of the line on every surface, raw-span pieces into
+#: the original text, NFC at reader entry, U+2010/U+2011 folded to `-`, U+00AD
+#: ignored in lookup, ASCII dash runs read as punctuation, and digit-bearing
+#: runs kept as ONE numeral token that is refused visibly unless a declared
+#: reading names it. New work reads `v2`; a recorded run that predates the
+#: field is `v1` (`main`, `--reader-scheme`).
+READER_SCHEMES = ("v1", "v2")
+READER_SCHEME = "v2"
+#: The scheme this process declared (`--reader-scheme`, or the one a resumed
+#: deferred run recorded), set once by `main` like `_LEXICON_IDENTITY`. None
+#: means `READER_SCHEME`. Read through `resolve_reader_scheme`, never directly.
+_ACTIVE_READER_SCHEME = None
+
+
+def resolve_reader_scheme(scheme=None):
+    """-> the declared scheme: `scheme` when given, else this process's."""
+    s = scheme if scheme is not None else (_ACTIVE_READER_SCHEME or READER_SCHEME)
+    if s not in READER_SCHEMES:
+        raise ValueError(f"reader scheme {s!r} is not declared; the schemes "
+                         f"are {', '.join(READER_SCHEMES)}")
+    return s
+
+
+@contextlib.contextmanager
+def reader_scheme_scope(scheme):
+    """Run a block under `scheme` as this process's default (a research
+    instrument pinned to the scheme its preregistration measured)."""
+    global _ACTIVE_READER_SCHEME
+    saved = _ACTIVE_READER_SCHEME
+    _ACTIVE_READER_SCHEME = resolve_reader_scheme(scheme)
+    try:
+        yield
+    finally:
+        _ACTIVE_READER_SCHEME = saved
+
+
+def _scheme_of(lex):
+    """-> the scheme a lexicon (or a stand-in without one) reads under."""
+    return resolve_reader_scheme(getattr(lex, "reader_scheme", None))
+
+
+#: One token of `reader_line`. `text` is the lookup spelling (NFC, folded,
+#: U+00AD removed, a spaced enclitic joined); `pieces` are half-open codepoint
+#: ranges into the ORIGINAL line, disjoint and ascending -- more than one only
+#: where an enclitic join removed whitespace; `numeral` is True when `text`
+#: carries a General_Category N character; `aside` when it lies in `(...)`.
+ReaderToken = namedtuple("ReaderToken", "text pieces numeral aside")
+#: `tokens` is the `line_tokens` coordinate (repertoire letters or numerals);
+#: `runs` is `raw_final_token`'s population (any letter or numeral).
+ReaderLine = namedtuple("ReaderLine", "text tokens runs")
+
+_SHY = "\u00ad"
+_ASIDE = re.compile(r"\([^)]*\)")
+
+
+def _is_numeral(ch):
+    return unicodedata.category(ch)[0] == "N"
+
+
+def has_numeral(text):
+    """-> True when `text` carries a General_Category N character."""
+    return any(_is_numeral(c) for c in text)
+
+
+def _reader_fold(ch):
+    if ch in APOSTROPHES:
+        return "'"
+    if ch in "\u2010\u2011":
+        return "-"
+    return ch
+
+
+def normalise_word(word):
+    """-> `word` under the reader's entry normalisation: NFC, the apostrophe
+    and U+2010/U+2011 folds, U+00AD removed. U+2032 (prime) is NOT folded: it
+    is a different character with its own uses, and stays a breaker."""
+    word = unicodedata.normalize("NFC", str(word))
+    return "".join(_reader_fold(c) for c in word if c != _SHY)
+
+
+def _reader_stream(text):
+    """-> [(char, a, b)]: `text` in NFC with the reader's folds applied, each
+    output character mapped to the raw codepoints [a, b) it came from.
+
+    NFC runs per canonical segment (a starter and the marks after it), so an
+    unchanged segment maps character for character and a recomposed one maps
+    every output character to the whole segment -- the many-codepoints-to-one
+    map that keeps a raw span from ever losing a character. A composition
+    across starters (Hangul jamo) cannot be segmented that way, so such a line
+    falls back to whitespace-delimited chunks, which NFC never composes across.
+    """
+    if unicodedata.is_normalized("NFC", text):
+        out = [(ch, i, i + 1) for i, ch in enumerate(text)]
+    else:
+        out, start = [], 0
+        for i in range(1, len(text) + 1):
+            if i == len(text) or unicodedata.category(text[i])[0] != "M":
+                seg = text[start:i]
+                nfc = unicodedata.normalize("NFC", seg)
+                if nfc == seg:
+                    out.extend((ch, start + k, start + k + 1) for k, ch in enumerate(seg))
+                else:
+                    out.extend((ch, start, i) for ch in nfc)
+                start = i
+        if "".join(c for c, _, _ in out) != unicodedata.normalize("NFC", text):
+            out = []
+            for m in re.finditer(r"\S+|\s+", text):
+                out.extend((ch, m.start(), m.end())
+                           for ch in unicodedata.normalize("NFC", m.group()))
+    return [(_reader_fold(c), a, b) for c, a, b in out]
+
+
+def printed_endpoint(rl):
+    """-> the line's last raw run when it is NOT its last English token (a
+    final `我`, a letter run with a mark NFC could not compose), else None.
+    Compared by text and pieces: a line read in whitespace chunks (a Hangul
+    composition) can give a token and a run the same chunk-wide piece."""
+    if not rl.runs:
+        return None
+    last = rl.runs[-1]
+    if rl.tokens and rl.tokens[-1].pieces == last.pieces and rl.tokens[-1].text == last.text:
+        return None
+    return last
+
+
+def reader_line(text, strip_parens=True, scheme=None):
+    """-> ReaderLine: the ONE reading of a line's words (scheme `v2`).
+
+    `line_tokens`, `raw_final_token`, `Lexicon.transcribe`, `line_anchors`,
+    `fit.read_line`, the relations stream's English tokens, the Library's raw
+    spans, the reviser's word swaps and the website mirror
+    (`src/lyric-tokens.js`) all read this cut, so a token index means the same
+    word everywhere. `strip_parens` is `line_tokens`'s declaration: True drops
+    `(...)` asides, False keeps them with `aside` set. Memoised per
+    (text, strip_parens). Scheme `v1` has no raw-span coordinate; its
+    callers keep the frozen pre-batch implementations.
+    """
+    if resolve_reader_scheme(scheme) != "v2":
+        raise ValueError("reader_line reads scheme v2; scheme v1 is the frozen "
+                         "pre-batch reader (line_tokens/raw_final_token with scheme='v1')")
+    return _reader_line_v2(str(text), bool(strip_parens))
+
+
+@functools.lru_cache(maxsize=1 << 16)
+def _reader_line_v2(text, strip_parens):
+    stream = _reader_stream(text)
+    norm = "".join(c for c, _, _ in stream)
+    # The spaced enclitic joins on the normalised stream (`join_spaced_enclitics`'
+    # own regex); the whitespace it removes splits the token into two pieces.
+    removed = set()
+    for m in _SPACED_ENCLITIC.finditer(norm):
+        removed.update(range(m.end(1), m.start(2)))
+    seq = [i for i in range(len(stream)) if i not in removed]
+    joined = "".join(stream[i][0] for i in seq)
+    aside = set()
+    for m in _ASIDE.finditer(joined):
+        aside.update(seq[m.start():m.end()])
+
+    def make(idx):
+        while idx and stream[idx[0]][0] == _SHY:
+            idx = idx[1:]
+        while idx and stream[idx[-1]][0] == _SHY:
+            idx = idx[:-1]
+        if not idx:
+            return None
+        chars = "".join(stream[i][0] for i in idx if stream[i][0] != _SHY)
+        pieces = []
+        for i in idx:
+            _, a, b = stream[i]
+            if pieces and pieces[-1][1] >= a:
+                pieces[-1][1] = max(pieces[-1][1], b)
+            elif pieces and all(text[x] == _SHY for x in range(pieces[-1][1], a)):
+                pieces[-1][1] = b
+            else:
+                pieces.append([a, b])
+        return ReaderToken(chars, tuple((a, b) for a, b in pieces),
+                           has_numeral(chars), any(i in aside for i in idx))
+
+    def cut(member, keep):
+        out, cur = [], []
+
+        def close():
+            if cur:
+                tok = make(list(cur))
+                if tok is not None and keep(tok):
+                    out.append(tok)
+                cur.clear()
+
+        k = 0
+        while k < len(seq):
+            i = seq[k]
+            ch = stream[i][0]
+            if strip_parens and i in aside:
+                close()
+                k += 1
+                continue
+            if ch == "-":
+                # A run of two or more hyphens (U+00AD between them ignored)
+                # is punctuation; a single hyphen joins.
+                j, dashes, last = k, 0, k
+                while j < len(seq) and not (strip_parens and seq[j] in aside):
+                    c = stream[seq[j]][0]
+                    if c == "-":
+                        dashes, last = dashes + 1, j
+                    elif c != _SHY:
+                        break
+                    j += 1
+                if dashes >= 2:
+                    close()
+                    k = last + 1
+                    continue
+                cur.append(i)
+                k += 1
+                continue
+            if member(ch):
+                cur.append(i)
+            else:
+                close()
+            k += 1
+        close()
+        return tuple(out)
+
+    tokens = cut(lambda c: bool(LATIN_SCRIPT.match(c)) or c == "'" or c == _SHY
+                 or _is_numeral(c),
+                 lambda t: bool(LATIN_SCRIPT.search(t.text)) or t.numeral)
+    runs = cut(lambda c: c.isalpha() or c == "'" or c == _SHY
+               or unicodedata.category(c)[0] in "MN",
+               lambda t: any(c.isalpha() for c in t.text) or t.numeral)
+    return ReaderLine(text, tokens, runs)
 
 
 def letters_outside_repertoire(text):
@@ -2281,7 +2587,7 @@ def letters_outside_repertoire(text):
     return out
 
 
-def line_tokens(text, strip_parens=True):
+def line_tokens(text, strip_parens=True, scheme=None):
     """The line's word tokens, in order, before any dictionary filtering.
 
     Factored out of `line_anchors` and `word_syllable_map`, which carried the
@@ -2314,14 +2620,27 @@ def line_tokens(text, strip_parens=True):
     date. `for 't` stays two words (`ENCLITICS`). Every typographic apostrophe
     folds here too, as it already did in `raw_final_token`, so the two agree
     on Watts's `` `tis `` instead of disagreeing about its first character.
+
+    `scheme` -- see `READER_SCHEMES`. Omitted, this process's scheme (`v2`
+    unless `--reader-scheme` or a resumed run declared otherwise): the tokens
+    of `reader_line`, where `4ever` and `1999` are numeral tokens, `thee--Arise`
+    is two words and `cafe\u0301` reads `café`. `v1` is the pre-batch cut,
+    verbatim (`_line_tokens_v1`).
     """
+    if resolve_reader_scheme(scheme) == "v1":
+        return _line_tokens_v1(text, strip_parens)
+    return [t.text for t in reader_line(text, strip_parens, "v2").tokens]
+
+
+def _line_tokens_v1(text, strip_parens=True):
+    # The pre-batch body of `line_tokens`, kept verbatim for scheme v1.
     norm = join_spaced_enclitics(text)
     if strip_parens:
         norm = re.sub(r"\([^)]*\)", " ", norm)
     return [t for t in _TOKEN_RUN.findall(norm) if LATIN_SCRIPT.search(t)]
 
 
-def raw_final_token(text, strip_parens=True):
+def raw_final_token(text, strip_parens=True, scheme=None):
     """The line's ACTUAL last word, before any dictionary filtering.
 
     This is the token an end-rhyme is ON, and every rhyme-word lookup in this
@@ -2334,10 +2653,21 @@ def raw_final_token(text, strip_parens=True):
     word) at 5.14% of corpus/song/ lines and 2.87% of sonnet lines before this
     was fixed. Compare against this function before trusting any end word.
 
-    `strip_parens` -- see `line_tokens`, whose declaration this one shares.
+    `strip_parens` and `scheme` -- see `line_tokens`, whose declarations
+    this one shares. Under `v2` a trailing numeral run is the end word (a
+    margin line number `heart.    10` ends on `10`, refused, rather than
+    yielding `heart` in silence).
     """
     # Locate before English repertoire filtering: a printed final 我 is
     # still the endpoint and cannot silently turn the preceding cat into it.
+    if resolve_reader_scheme(scheme) == "v1":
+        return _raw_final_token_v1(text, strip_parens)
+    runs = reader_line(text, strip_parens, "v2").runs
+    return runs[-1].text if runs else None
+
+
+def _raw_final_token_v1(text, strip_parens=True):
+    # The pre-batch body of `raw_final_token`, kept verbatim for scheme v1.
     # The enclitic join is `line_tokens`'s, so the two still agree on the
     # last word (`line_anchors` refuses a line where they do not).
     norm = join_spaced_enclitics(text)
@@ -2354,6 +2684,45 @@ def raw_final_token(text, strip_parens=True):
     if current and any(c.isalpha() for c in current):
         runs.append("".join(current))
     return runs[-1] if runs else None
+def reader_token_spans(text, strip_parens=True, scheme=None):
+    """-> [(token text, pieces)] for `line_tokens(text, strip_parens, scheme)`,
+    each token's raw codepoint pieces in `text`, or None when the scheme's cut
+    cannot be located in the raw line. What a declaration rebinds by
+    (`quality.pronunciation.rebind_occurrences`)."""
+    if resolve_reader_scheme(scheme) == "v2":
+        return [(t.text, t.pieces) for t in reader_line(text, strip_parens, "v2").tokens]
+    return _v1_token_spans(text, strip_parens)
+
+
+def _v1_token_spans(text, strip_parens=True):
+    # Scheme v1's tokens located in the raw line: the Library's pre-batch
+    # projection (fold one character for one, drop the whitespace a spaced
+    # enclitic join removes), with a stripped `(...)` blanked to the same
+    # length instead of collapsed to one space, and refused (None) unless the
+    # texts are exactly `_line_tokens_v1`'s.
+    folded = fold_apostrophes(text)
+    removed = {i for m in _SPACED_ENCLITIC.finditer(folded)
+               for i in range(m.end(1), m.start(2))}
+    mapping = [i for i in range(len(folded)) if i not in removed]
+    normalized = "".join(folded[i] for i in mapping)
+    if strip_parens:
+        normalized = re.sub(r"\([^)]*\)", lambda m: " " * len(m.group()), normalized)
+    spans = []
+    for m in _TOKEN_RUN.finditer(normalized):
+        if not LATIN_SCRIPT.search(m.group()):
+            continue
+        pieces = []
+        for index in mapping[m.start():m.end()]:
+            if pieces and pieces[-1][1] == index:
+                pieces[-1][1] = index + 1
+            else:
+                pieces.append([index, index + 1])
+        spans.append((m.group(), tuple((a, b) for a, b in pieces)))
+    if len(folded) != len(text) or [t for t, _ in spans] != _line_tokens_v1(text, strip_parens):
+        return None
+    return spans
+
+
 
 
 def line_readability(lex, text, anchors=None):
@@ -2407,8 +2776,9 @@ def line_readability(lex, text, anchors=None):
     delete a category RELABELS instead).
     """
     lex = lex.for_line(text) if hasattr(lex, "for_line") else lex
-    toks = line_tokens(text, strip_parens=lex.strip_parens)
-    final = raw_final_token(text, strip_parens=lex.strip_parens)
+    scheme = _scheme_of(lex)
+    toks = line_tokens(text, strip_parens=lex.strip_parens, scheme=scheme)
+    final = raw_final_token(text, strip_parens=lex.strip_parens, scheme=scheme)
     _, _, oov = lex.transcribe(text)
     unreadable = list(dict.fromkeys(oov))
     if final is None:
@@ -2433,11 +2803,25 @@ def line_readability(lex, text, anchors=None):
         interior.extend(token_pieces(lex, t)[1])
     interior = list(dict.fromkeys(interior))
     cause = None
-    if final_unreadable:
+    # A NUMERAL END WORD (scheme v2, M1) is its own cause: the token is read
+    # whole, and nothing here expands a number into words, so it reads only
+    # through a declared reading for that occurrence.
+    numeral_end = (scheme == "v2" and final_unreadable and has_numeral(final)
+                   and bool(toks) and toks[-1] == final
+                   and not _declared_token(lex, len(toks) - 1, final))
+    if numeral_end:
+        cause = "numeral"
+    elif final_unreadable:
         cause = ("piece" if unread_final_piece(lex, final)[0] is not None
                  else "token")
     reason = None
-    if cause == "piece":
+    if cause == "numeral":
+        reason = (f"the end word {final!r} is a numeral token; the reader does "
+                  f"not expand numbers into words and CMUdict spells none, so "
+                  f"it has no pronunciation unless a reading is declared for "
+                  f"this occurrence. This line's end-rhyme is UNKNOWN, not "
+                  f"absent.")
+    elif cause == "piece":
         reason = (f"the end word {final!r} is a compound and CMUdict has no "
                   f"pronunciation for its LAST piece "
                   f"({', '.join(fin_unread)}); the pieces that DO read "
@@ -2462,13 +2846,27 @@ def line_readability(lex, text, anchors=None):
                   f"({', '.join(sorted(interior))}); a multi-syllable anchor "
                   f"reaching back past one of them is reading a line with a "
                   f"hole in it.")
-    return {"text": text, "final_token": final,
-            "readable": not final_unreadable,
-            "final_unreadable": final_unreadable,
-            "final_unreadable_cause": cause,
-            "final_unread_pieces": fin_unread,
-            "unreadable": unreadable, "interior_unreadable": interior,
-            "reason": reason}
+    rec = {"text": text, "final_token": final,
+           "readable": not final_unreadable,
+           "final_unreadable": final_unreadable,
+           "final_unreadable_cause": cause,
+           "final_unread_pieces": fin_unread,
+           "unreadable": unreadable, "interior_unreadable": interior,
+           "reason": reason}
+    if scheme == "v2":
+        # Every numeral token the line could not read, end word or not; a
+        # v1 record has no such tokens and keeps its pre-batch shape.
+        rec["numeral_tokens"] = [t for k, t in enumerate(toks) if has_numeral(t)
+                                 and not _declared_token(lex, k, t)]
+    return rec
+
+
+def _declared_token(lex, index, word):
+    """-> True when a declared reading binds `word` at token `index` of the
+    line `lex` is scoped to (`for_line`)."""
+    reader = lex.for_token(index) if hasattr(lex, "for_token") else lex
+    choice = getattr(reader, "_pronunciation_choice", None)
+    return bool(choice) and choice["word"] == word
 
 
 def readability_records(lex, lines, anchors=None):
@@ -2593,7 +2991,9 @@ def token_pieces(lex, token):
     """
     read, unread = [], []
     for p in (lex.word_pieces(token) if hasattr(lex, "word_pieces") else token.split("-")):
-        if not p or not LATIN_SCRIPT.search(p):
+        # A numeral piece is a word that did not read, never an invisible one
+        # (M1): `token_pieces('1-2')` was `([], [])`.
+        if not p or not (LATIN_SCRIPT.search(p) or has_numeral(p)):
             continue
         ph, is_oov = lex.transcribe_word(p)
         (unread if (is_oov or not ph) else read).append(p)
@@ -2625,7 +3025,7 @@ def unread_final_piece(lex, token):
     if not token or not HYPHEN_SPLIT.search(token):
         return None, None
     pieces = [p for p in HYPHEN_SPLIT.split(token)
-              if p and LATIN_SCRIPT.search(p)]
+              if p and (LATIN_SCRIPT.search(p) or has_numeral(p))]
     if len(pieces) < 2:
         return None, None
     read, unread = token_pieces(lex, token)
@@ -2708,14 +3108,22 @@ def line_anchors(lex, text, promote=False, endpoint_pronunciations=None,
     reported under the end word `go`. See `span_provenance`.
     """
     lex = lex.for_line(text) if hasattr(lex, "for_line") else lex
-    words = line_tokens(text, strip_parens=lex.strip_parens)
-    actual_last = raw_final_token(text, strip_parens=lex.strip_parens)
+    scheme = _scheme_of(lex)
+    words = line_tokens(text, strip_parens=lex.strip_parens, scheme=scheme)
+    actual_last = raw_final_token(text, strip_parens=lex.strip_parens, scheme=scheme)
     if not words or words[-1] != actual_last:
         return [], actual_last or "", [actual_last] if actual_last else []
-    prefix = " ".join(words[:-1])
     last = actual_last
-    pre_phones, _, pre_oov = (lex.transcribe(prefix, phrase_final=False)
-                              if prefix else ([], [], []))
+    if scheme == "v2":
+        # The prefix is the line's own tokens, keyed by their own positions:
+        # re-cutting `" ".join(words[:-1])` was not idempotent.
+        prefix = words[:-1]
+        pre_phones, _, pre_oov = (lex.transcribe_tokens(prefix, phrase_final=False)
+                                  if prefix else ([], [], []))
+    else:
+        prefix = " ".join(words[:-1])
+        pre_phones, _, pre_oov = (lex.transcribe(prefix, phrase_final=False)
+                                  if prefix else ([], [], []))
     pre_owners = _phone_owners(lex, words[:-1]) if prefix else []
     if len(pre_owners) != len(pre_phones):
         pre_owners = None            # cannot attribute: refuse to guess
@@ -2728,7 +3136,9 @@ def line_anchors(lex, text, promote=False, endpoint_pronunciations=None,
                 if endpoint_pronunciations is None else endpoint_pronunciations)
     oov = list(pre_oov)
     if not variants:
-        p, _, oo = end_reader.transcribe(last)   # handles hyphenated compounds
+        p, _, oo = (end_reader.transcribe_tokens([last], start=len(words) - 1)
+                    if scheme == "v2" and hasattr(end_reader, "transcribe_tokens")
+                    else end_reader.transcribe(last))   # handles hyphenated compounds
         oov.extend(oo)
         variants = [p] if p else []
         # THE HYPHEN REFUSAL, 2026-08-11. `transcribe` splits a compound on
@@ -4934,7 +5344,10 @@ def word_syllable_map(lex, text):
     gets the documented `None` \u2014 "cannot say" \u2014 instead of a traceback.
     """
     lex = lex.for_line(text) if hasattr(lex, "for_line") else lex
-    words = line_tokens(text, strip_parens=lex.strip_parens)
+    # `widx` is the `line_tokens` coordinate of the lexicon's scheme; a
+    # numeral token without a declared reading emits no syllables (its
+    # refusal is reported by `line_readability` and `fit.read_line`).
+    words = line_tokens(text, strip_parens=lex.strip_parens, scheme=_scheme_of(lex))
     out = []
     for k, w in enumerate(words):
         reader = lex.for_token(k) if hasattr(lex, "for_token") else lex
@@ -5210,12 +5623,15 @@ _SPACED_ENCLITIC = re.compile(
 def join_spaced_enclitics(text):
     """`There 's` -> `There's`; `for 't` stays two words. Folds apostrophes.
 
-    The ONE reading of a spaced enclitic, and it is wired at every place this
-    file cuts a line into words -- `line_tokens`, `raw_final_token` and
-    `Lexicon.transcribe` -- because three tokenisers that disagree about what
-    a word is misalign `for_token(index)` and make `line_anchors` refuse a
-    line whose last token and end word no longer match. Leaves apheresis,
-    elision and the elided words `'t`/`'n` alone (see `ENCLITICS`).
+    The ONE reading of a spaced enclitic. Under reader scheme v2 the cut
+    (`reader_line`) applies `_SPACED_ENCLITIC` itself, on its normalised
+    stream, so the whitespace the join removes is known and the joined token
+    keeps two raw pieces; this helper is the frozen v1 cutters' join and a
+    public helper for callers that want the joined text. Three tokenisers
+    that disagreed about what a word is misaligned `for_token(index)` and
+    made `line_anchors` refuse a line whose last token and end word no
+    longer matched. Leaves apheresis, elision and the elided words `'t`/`'n`
+    alone (see `ENCLITICS`).
     """
     return _SPACED_ENCLITIC.sub(r"\1\2", fold_apostrophes(text))
 
@@ -6466,6 +6882,13 @@ scoring exactly as it always has been, which is the correct reading for
 this repo's own corpus/song/ (traditional literary asides, not vocal
 attribution) and for anyone not writing in this notation.
 
+--reader-scheme=v1|v2, BEFORE any verb: how the English reader cuts a line
+into words. v2 (new work): one cut on every surface; NFC; `4ever`, `1999`
+and `Catch-22` are whole numeral tokens, refused unless a pronunciation is
+declared for them; `thee--Arise` is two words. v1: the cut before 2026-10-13,
+for replaying a run recorded under it. Omitted, a resumed --propose=defer:
+run keeps the scheme it recorded (v1 when it predates the field).
+
 commands (the fifteen spine verbs):
   declaration             print the active declaration
   score  W1 -- W2         graded pair score with sub-scores
@@ -6988,9 +7411,12 @@ _LEXICON_IDENTITY = None
 
 
 def _lexicon_kw():
-    """-> {"lexicon": ...} once the lexicon is built, else {}."""
+    """-> {"lexicon": ..., "reader_scheme": ...} once the lexicon is built,
+    else {}. The reader scheme rides with the supplement: both are the run's
+    reading basis, and a continuation keeps both (`_defer_proposer`)."""
     return ({} if _LEXICON_IDENTITY is None
-            else {"lexicon": dict(_LEXICON_IDENTITY)})
+            else {"lexicon": dict(_LEXICON_IDENTITY),
+                  "reader_scheme": resolve_reader_scheme(None)})
 
 
 def _lyric_result(**record):
@@ -7808,6 +8234,28 @@ def _defer_state(path):
     return st
 
 
+def _recorded_reader_scheme(args):
+    """-> the reader scheme a resumed deferred run (`--propose=defer:PATH`)
+    recorded -- `v1` for a state that predates the field -- or None when the
+    call starts new work. Read before the lexicon is built, because the
+    scheme is a coordinate of the lexicon (`main`)."""
+    spec = _flag_value(args, "--propose")
+    if not spec or not spec.startswith("defer:"):
+        return None
+    path = spec.split(":", 1)[1]
+    if not os.path.exists(path):
+        return None
+    st = _defer_state(path)
+    if not (st["answered"]["propose"] or st["answered"]["propose_group"]
+            or st.get("pending")):
+        return None
+    scheme = st.get("reader_scheme", "v1")
+    if scheme not in READER_SCHEMES:
+        _refuse(f"--propose=defer:{path} — recorded reader scheme {scheme!r} is "
+                f"not one this build reads ({', '.join(READER_SCHEMES)})")
+    return scheme
+
+
 def _defer_proposer(path, lines=None):
     """-> (propose, propose_group, disclosure) that SUSPENDS rather than guess.
 
@@ -7866,6 +8314,19 @@ def _defer_proposer(path, lines=None):
                     f"(sha256 {_here_basis.get('sha256')}). Resume it under its own "
                     "supplement, or start a new run.")
     st["lexicon"] = _here_basis
+    # THE RUN KEEPS ITS READER SCHEME TOO, on the same rule: its recorded
+    # answers were asked against one cut of the lines. A state written before
+    # the field existed was cut under v1. `main` inherits the recorded scheme
+    # when none is declared (`_recorded_reader_scheme`), so a mismatch here is
+    # an explicit `--reader-scheme` naming the other one; it refuses.
+    _here_scheme = resolve_reader_scheme(None)
+    if _resuming and st.get("reader_scheme", "v1") != _here_scheme:
+        _refuse("READER_SCHEME_MISMATCH: this deferred run was started under "
+                f"reader scheme {st.get('reader_scheme', 'v1')}, and this call "
+                f"reads {_here_scheme}. Resume it under "
+                f"--reader-scheme={st.get('reader_scheme', 'v1')} (or with no "
+                "--reader-scheme), or start a new run.")
+    st["reader_scheme"] = _here_scheme
     st.setdefault("input_draft", list(lines or ()))
     st.setdefault("accepted_lines", list(lines or ()))
     pending = st.get("pending")
@@ -9118,8 +9579,9 @@ def _parse_narrative_flag(raw):
 def main():
     # One worker process serves many requests: a record emitted before this
     # request's lexicon is built must not carry the previous request's basis.
-    global _LEXICON_IDENTITY
+    global _LEXICON_IDENTITY, _ACTIVE_READER_SCHEME
     _LEXICON_IDENTITY = None
+    _ACTIVE_READER_SCHEME = None
     decl = Declaration()
     args = sys.argv[1:]
     # Normalize these declared value flags before individual verbs read or
@@ -9212,6 +9674,25 @@ def main():
                                     or a.startswith("--lexicon-supplement="))
             and not a.startswith("--lexicon-supplement-sha256")]
 
+    # --reader-scheme=v1|v2 is a GLOBAL reading coordinate beside the
+    # supplement (`READER_SCHEMES`): how every English surface cuts a line
+    # into words. Omitted, a resumed deferred run keeps the scheme it
+    # recorded -- `v1` when it predates the field -- and new work reads
+    # `READER_SCHEME`; an explicit value that is not one of the two refuses.
+    declared_scheme = [a for a in args if a == "--reader-scheme"
+                       or a.startswith("--reader-scheme=")]
+    if len(declared_scheme) > 1 or "--reader-scheme" in declared_scheme:
+        _refuse("declare one --reader-scheme=v1|v2")
+    if declared_scheme:
+        reader_scheme = declared_scheme[0].split("=", 1)[1]
+        if reader_scheme not in READER_SCHEMES:
+            _refuse(f"--reader-scheme wants {' or '.join(READER_SCHEMES)}, got "
+                    f"{reader_scheme!r} (not free text, not coerced)")
+        args = [a for a in args if not a.startswith("--reader-scheme=")]
+    else:
+        reader_scheme = _recorded_reader_scheme(args) or READER_SCHEME
+    _ACTIVE_READER_SCHEME = reader_scheme
+
     if not args or args[0] in ("-h", "--help"):
         print(__doc__)
         print(USAGE)
@@ -9227,7 +9708,8 @@ def main():
                 _refuse("LEXICON_SUPPLEMENT_UNAVAILABLE: --lexicon-supplement-sha256 "
                         "names a supplement's bytes, and no supplement version is "
                         "declared; declare the version it belongs to")
-            lex = Lexicon(fallback=fallback, strip_parens=not voices, pronunciations=choices)
+            lex = Lexicon(fallback=fallback, strip_parens=not voices, pronunciations=choices,
+                          reader_scheme=reader_scheme)
             _LEXICON_IDENTITY = {"supplement_id": None, "sha256": None}
         else:
             from quality import lexicon_supplement as _LS
@@ -9235,7 +9717,8 @@ def main():
                 lex = _LS.SupplementedLexicon(fallback=fallback, strip_parens=not voices,
                                               pronunciations=choices,
                                               version=_LS.canonical_version(supplement),
-                                              expected_sha256=supplement_sha)
+                                              expected_sha256=supplement_sha,
+                                              reader_scheme=reader_scheme)
             except (_LS.SupplementUnavailable, OSError) as e:
                 _refuse(str(e))
             _LEXICON_IDENTITY = _LS.lexicon_identity(lex)
@@ -12478,7 +12961,8 @@ def main():
                         "pronunciation_options": reading_options(lex, lines, found["coverage"]),
                         "findings": _machine_findings,
                         "ban_scope": _ban_scope,
-                        "lexicon": dict(_LEXICON_IDENTITY)}
+                        "lexicon": dict(_LEXICON_IDENTITY),
+                        "reader_scheme": resolve_reader_scheme(None)}
             print("  lyric result: " + json.dumps(_machine, ensure_ascii=False,
                                                   separators=(",", ":")), flush=True)
             # Rhyme groups and full-line returns are distinct obligations.
@@ -13149,6 +13633,7 @@ def main():
                     "version": 1, "status": "verified", "command": "verify",
                     "pronunciations": lex.pronunciations,
                     "lexicon": dict(_LEXICON_IDENTITY),
+                    "reader_scheme": resolve_reader_scheme(None),
                     "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
                     "before_draft": list(before), "final_draft": list(after),
                     "accepted": bool(v.get("accepted")), "reasons": v.get("reasons", []),
@@ -13847,6 +14332,7 @@ def main():
                     "version": 1, "status": "finished", "input_draft": list(lines),
                     "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
                     "lexicon": dict(_LEXICON_IDENTITY),
+                    "reader_scheme": resolve_reader_scheme(None),
                     "accepted_lines": list(result.lines),
                     "final_draft": list(result.lines), "coverage": _coverage,
                     "pronunciations": lex.pronunciations,

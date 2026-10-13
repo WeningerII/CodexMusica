@@ -176,8 +176,70 @@ class ReaderAcceptance(unittest.TestCase):
         _, rows, _ = complete(reading, schemas=[])
         self.assertEqual(next(r for r in rows if r["kind"] == "token")["source_ranges"][0]["precision"], "row")
 
-    def test_english_coordinates_follow_joined_enclitics_and_repeated_hyphens(self):
+    def test_english_coordinates_follow_joined_enclitics_and_dash_runs(self):
+        # Reader scheme v2: a run of hyphens is punctuation, so `well--known`
+        # is two tokens, each located on its own raw span.
         session, records, _ = complete(source("😀 There ’s high\nwell--known cat"), schemas=[])
+        tokens = [r for r in records if r["kind"] == "token"]
+        self.assertEqual([r["text"] for r in tokens], ["There's", "high", "well", "known", "cat"])
+        joined, high, well, known, cat = tokens
+        self.assertEqual(joined["normalized_range"]["codepoint_range"], [2, 10])
+        self.assertEqual(joined["normalized_range"]["precision"], "span")
+        self.assertEqual([r["codepoint_range"] for r in joined["normalized_range"]["parts"]], [[2, 7], [8, 10]])
+        self.assertEqual([r["codepoint_range"] for r in joined["source_ranges"]], [[2, 7], [8, 10]])
+        self.assertEqual([r["utf16_range"] for r in joined["source_ranges"]], [[3, 8], [9, 11]])
+        self.assertEqual(high["normalized_range"]["codepoint_range"], [11, 15])
+        self.assertEqual(well["normalized_range"]["codepoint_range"], [16, 20])
+        self.assertEqual(known["normalized_range"]["codepoint_range"], [22, 27])
+        self.assertEqual(cat["normalized_range"]["codepoint_range"], [28, 31])
+        self.assertEqual(session.stream.lexical_tokens, (("There's", "high"), ("well", "known", "cat")))
+
+    def test_english_token_ranges_rebuild_the_token_on_generated_lines(self):
+        # Reader scheme v2's raw pieces, projected through the reading's own
+        # ranges: on generated English lines (spaced enclitics, U+00AD, NFD,
+        # dash runs, numerals, asides) every token record's codepoint and
+        # UTF-16 ranges slice back to the token it names.
+        import sys
+        import unicodedata
+        from pathlib import Path
+        import lyric_harness as LH
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "quality"))
+        import reader_cases as RC
+        lines = [t for t in RC.generated_lines(400, seed=5)
+                 if not any(c in t for c in "\x85\x1c\x1d\x1e\u2028\u2029\x0b\x0c\r")
+                 and unicodedata.is_normalized("NFC", unicodedata.normalize("NFC", t))
+                 and LH.reader_line(t, False).tokens][:60]
+        text = "\n".join(lines)
+        session, records, _ = complete(source(text), schemas=[])
+        tokens = [r for r in records if r["kind"] == "token"]
+        self.assertEqual(len(tokens), sum(len(w) for w in session.stream.lexical_tokens))
+        checked = 0
+        for r in tokens:
+            nr = r["normalized_range"]
+            if nr is None:
+                continue
+            parts = [p["codepoint_range"] for p in nr.get("parts", [])] or [nr["codepoint_range"]]
+            raw = "".join(text[a:b] for a, b in parts)
+            line = text[:parts[0][0]].count("\n")
+            if not unicodedata.is_normalized("NFC", lines[line]):
+                continue          # a recomposed segment maps whole (RawSpans)
+            self.assertEqual(LH.normalise_word(raw), r["text"], (lines[line], r))
+            exact = [x for x in r["source_ranges"] if x.get("precision") == "exact"]
+            if len(exact) == len(parts):
+                units = text.encode("utf-16-le")
+                for x, (a, b) in zip(exact, parts):
+                    self.assertEqual(x["codepoint_range"], [a, b])
+                    ua, ub = x["utf16_range"]
+                    self.assertEqual(units[2 * ua:2 * ub].decode("utf-16-le"), text[a:b])
+            checked += 1
+        self.assertGreater(checked, 100)
+
+    def test_english_coordinates_follow_joined_enclitics_and_repeated_hyphens(self):
+        # Reader scheme v1 (legacy replay): `well--known` is ONE token and the
+        # pre-batch projection locates it.
+        import lyric_harness as LH
+        with LH.reader_scheme_scope("v1"):
+            session, records, _ = complete(source("😀 There ’s high\nwell--known cat"), schemas=[])
         tokens = [r for r in records if r["kind"] == "token"]
         self.assertEqual([r["text"] for r in tokens], ["There's", "high", "well--known", "cat"])
         joined, high, hyphenated, cat = tokens

@@ -96,6 +96,7 @@ syncopation as a measurement rather than as a declared offset) remain refused.
 Run: python3 quality/fit.py quality/fixtures/mandate_song.blueprint.json
 """
 
+import copy
 import itertools
 import json
 import math
@@ -514,7 +515,7 @@ def _probe_prominence(phon):
     return None
 
 
-def read_line(text, phon=None, strip_parens=True):
+def read_line(text, phon=None, strip_parens=True, reader_scheme=None):
     """-> LineUnits. What the line asks the bar to hold, and what it could not
     read.
 
@@ -541,6 +542,14 @@ def read_line(text, phon=None, strip_parens=True):
 
     `strip_parens` -- see `_chunks`/`lyric_harness.line_tokens`, whose
     declaration this shares.
+
+    `reader_scheme` -- the English reader's token scheme
+    (`lyric_harness.READER_SCHEMES`); None reads the lexicon's. Under `v2`
+    the English path reads `lyric_harness.reader_line` once: `tokens` IS the
+    `line_tokens` coordinate and `Unit.widx` its index, so the folded-key
+    alignment that gave `'em` and a spaced `'s` the index -1 is gone, and a
+    numeral is refused (`NUMERAL`) exactly when no declared reading names
+    that token. Under `v1` the pre-batch path below runs unchanged.
     """
     from quality import phonology as PH
     phon = phon or PH.get("eng")
@@ -549,10 +558,22 @@ def read_line(text, phon=None, strip_parens=True):
     unit_name = "mora" if str(phon.grid_unit).startswith("mora") else "syllable"
     prom_refusal = _probe_prominence(phon)
 
+    english = (not hasattr(phon, "analyse_line") and not hasattr(phon, "syllabify_line")
+               and getattr(phon, "language", "") == "eng")
+    lex = None
+    if english:
+        import lyric_harness as _lh
+        lex = getattr(phon, "lexicon", None) or _english_lexicon(
+            strip_parens=strip_parens, fallback=getattr(phon, "fallback", None),
+            reader_scheme=getattr(phon, "reader_scheme", None))
+        if reader_scheme is not None:
+            lex = lex.with_reader_scheme(reader_scheme)
+    english_v2 = english and _lh._scheme_of(lex) == "v2"
+
     sung_text = _sung_text(text, strip_parens)
     chunks = _chunks(sung_text, strip_parens=False)
     refused = []
-    for c in chunks:
+    for c in (() if english_v2 else chunks):
         if _HAS_DIGIT.search(c):
             refused.append(RefusedToken(
                 c, "NUMERAL",
@@ -563,7 +584,10 @@ def read_line(text, phon=None, strip_parens=True):
                 "raises no refusal. The count without it is a LOWER BOUND."))
 
     units, segments = [], []
-    if hasattr(phon, "analyse_line"):
+    if english_v2:
+        chunks, units, segments, refused = _read_english_v2(
+            text, phon, lex, strip_parens, unit_name)
+    elif hasattr(phon, "analyse_line"):
         analysis = phon.analyse_line(sung_text)
         chunks = list(analysis.tokens)
         for _, token in analysis.refused:
@@ -580,11 +604,10 @@ def read_line(text, phon=None, strip_parens=True):
                                                               None)),
                               getattr(s, "moras", 1) or 1))
     elif getattr(phon, "language", "") == "eng":
-        import lyric_harness as _lh
-        lex = getattr(phon, "lexicon", None) or _english_lexicon(strip_parens=strip_parens,
-                               fallback=getattr(phon, "fallback", None))
+        # Scheme v1: the pre-batch English path, unchanged but for reading
+        # the lexicon resolved above.
         mapped = _lh.word_syllable_map(lex, sung_text)
-        words = _lh.line_tokens(sung_text, strip_parens=False)
+        words = _lh.line_tokens(sung_text, strip_parens=False, scheme="v1")
         uncertain_words = set()
         undecided_stresses = {}
         alternatives, alt_pieces, unresolved = {}, {}, {}
@@ -721,10 +744,121 @@ def read_line(text, phon=None, strip_parens=True):
         prominence_refusal=prom_refusal, segments=tuple(segments))
 
 
+def _read_english_v2(text, phon, lex, strip_parens, unit_name):
+    """The English path under reader scheme `v2` -> (tokens, units, segments,
+    refused). One `reader_line` cut of the RAW line (so a declaration keyed on
+    the exact line binds, and NFC and the paren strip happen once, inside the
+    reader); `tokens` is its `line_tokens` coordinate and every `Unit.widx`
+    and `WordReadings.widx` indexes it. The per-word reading logic is the v1
+    path's own, keyed by token index instead of a folded-key chunk search."""
+    import lyric_harness as _lh
+    strip = bool(strip_parens or lex.strip_parens)
+    if strip != lex.strip_parens:
+        lex = copy.copy(lex)
+        lex.strip_parens = strip
+    rl = _lh.reader_line(text, strip, "v2")
+    words = [t.text for t in rl.tokens]
+    mapped = _lh.word_syllable_map(lex, text)
+    refused, numeral = [], set()
+    for wi, tok in enumerate(rl.tokens):
+        if tok.numeral and not _lh._declared_token(lex, wi, tok.text):
+            numeral.add(wi)
+            refused.append(RefusedToken(
+                tok.text, "NUMERAL",
+                "a numeral token reads only through a reading declared for "
+                "this occurrence: the reader does not expand numbers into "
+                "words, so it contributes no syllables here and the count "
+                "without it is a LOWER BOUND."))
+    units, segments = [], []
+    uncertain_words = set()
+    undecided_stresses = {}
+    alternatives, alt_pieces, unresolved = {}, {}, {}
+    for wi, word in enumerate(words):
+        token_phon = phon.for_token(wi) if hasattr(phon, "for_token") else phon
+        piece_readings = [token_phon.parses(piece) if hasattr(token_phon, "parses") else
+                          [token_phon.syllabify(piece)]
+                          for piece in lex.for_token(wi).word_pieces(word) if piece]
+        sung_weak = _lh.weak_token(
+            lex.for_token(wi),
+            _lh.fold_apostrophes(word).lower().strip("'\".,;:!?()[]"),
+            phrase_final=wi == len(words) - 1)
+        alt_pieces[wi] = piece_readings
+        alternatives[wi] = [
+            tuple((s.nucleus, 0 if sung_weak else _resolve_prominence(s.prominence))
+                  for reading in combo for s in reading)
+            for combo in itertools.product(*piece_readings)]
+        if any(len({len(r) for r in readings}) > 1 for readings in piece_readings):
+            uncertain_words.add(wi)
+            refused.append(RefusedToken(word, "UNRESOLVED_READING",
+                "pronunciations disagree on syllable count; no reading was selected"))
+            unresolved[wi] = refused[-1]
+            continue
+        weak = _lh.weak_token(lex.for_token(wi), word,
+                              phrase_final=wi == len(words) - 1)
+        offset = 0
+        for readings in piece_readings:
+            if not readings:
+                continue
+            if not weak:
+                for si in range(len(readings[0])):
+                    values = {_resolve_prominence(r[si].prominence) for r in readings}
+                    if len(values) != 1 or None in values:
+                        undecided_stresses[(wi, offset + si)] = None
+            offset += len(readings[0])
+    firsts = {}
+    for s in mapped:
+        wi, si = s["widx"], s.get("syl_in_word", 0)
+        firsts.setdefault(wi, []).append(
+            (s.get("nucleus", ""), 1 if s["stress"] in (1, 2) else 0))
+        if wi in uncertain_words:
+            continue
+        prominence = (None if (wi, si) in undecided_stresses else
+                      1 if s["stress"] in (1, 2) else 0)
+        units.append(Unit(len(units), s.get("nucleus", ""), s["word"], wi,
+                          prominence, 1))
+    for wi, word in enumerate(words):
+        first = tuple(firsts.get(wi, ()))
+        readings = [first]
+        seen = {tuple(p for _, p in first)}
+        for alt in alternatives.get(wi, ()) if first else ():
+            shape = tuple(p for _, p in alt)
+            if shape and shape not in seen and None not in shape \
+                    and all(all(r) for r in alt_pieces[wi]):
+                seen.add(shape)
+                readings.append(alt)
+        if first or wi in unresolved:
+            segments.append(WordReadings(word, wi, tuple(readings), unresolved.get(wi)))
+    if not any(len(s.readings) > 1 for s in segments):
+        segments = []
+    for wi, word in enumerate(words):
+        if wi in numeral:
+            continue
+        token_phon = phon.for_token(wi) if hasattr(phon, "for_token") else phon
+        pieces = [piece for piece in lex.for_token(wi).word_pieces(word) if piece]
+        if pieces and all(any(token_phon.parses(piece)) if hasattr(token_phon, "parses") else
+                          token_phon.syllabify(piece) for piece in pieces):
+            continue
+        refused.append(RefusedToken(
+            word, "OUT_OF_LEXICON",
+            f"{phon.name} could not read it, so it contributed no "
+            f"{unit_name}s. Known gap 1 (G2P for OOV)."))
+    # A printed word the English token class cannot hold (another script, a
+    # letter run with a combining mark NFC could not compose) is still
+    # refused visibly, as the v1 chunk scan refused it.
+    covered = {(tok.text, tok.pieces) for tok in rl.tokens}
+    for run in rl.runs:
+        if (run.text, run.pieces) not in covered:
+            refused.append(RefusedToken(
+                run.text, "OUT_OF_LEXICON",
+                f"{phon.name} could not read it, so it contributed no "
+                f"{unit_name}s. Known gap 1 (G2P for OOV)."))
+    return tuple(words), units, segments, refused
+
+
 _LEX = {}
 
 
-def _english_lexicon(strip_parens=True, fallback=None):
+def _english_lexicon(strip_parens=True, fallback=None, reader_scheme=None):
     """Cached per (`strip_parens`, `fallback`), not a single global -- a
     Lexicon built with the wrong `strip_parens` silently ignores
     `read_line`'s own parameter of that name, which is exactly the bug this
@@ -745,12 +879,18 @@ def _english_lexicon(strip_parens=True, fallback=None):
     a dialect word marked READ while its syllables silently vanished from
     the count — the near-miss shape `read_line`'s own docstring warns
     about, one seam down."""
+    import lyric_harness as _lh
+    scheme = _lh.resolve_reader_scheme(reader_scheme)
     key = (strip_parens, fallback)
     lex = _LEX.get(key)
     if lex is None:
-        import lyric_harness as _lh
-        lex = _lh.Lexicon(strip_parens=strip_parens, fallback=fallback)
+        lex = _lh.Lexicon(strip_parens=strip_parens, fallback=fallback,
+                          reader_scheme=scheme)
         _LEX[key] = lex
+    # One CMUdict load per (strip_parens, fallback); a second scheme is a
+    # view of it, cached beside it (`reader_scheme` joined 2026-10-13).
+    if lex.reader_scheme != scheme:
+        lex = _LEX.setdefault(key + (scheme,), lex.with_reader_scheme(scheme))
     return lex
 
 

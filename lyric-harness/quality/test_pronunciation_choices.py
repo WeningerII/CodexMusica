@@ -19,9 +19,11 @@ class PronunciationChoices(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.base = lh.Lexicon()
+        # Reader scheme v1, the pre-batch cut: the legacy-replay coordinate.
+        cls.base_v1 = cls.base.with_reader_scheme('v1')
 
-    def lex(self, rows):
-        lex = copy.copy(self.base)
+    def lex(self, rows, base=None):
+        lex = copy.copy(base or self.base)
         lex.pronunciations = P.validate_choices(rows, lex)
         return lex
 
@@ -456,8 +458,11 @@ class PronunciationChoices(unittest.TestCase):
         self.assertEqual(note.locations, [1, 3])
 
     def test_function_preserves_legacy_endpoints_without_declarations(self):
+        # Reader scheme v1 (legacy replay): `1966` and `record2` have no
+        # sung-token position, because the v1 cut drops digits. The v2 table
+        # is `test_function_reads_numeral_endpoints_as_tokens_under_v2`.
         from quality import grid as G
-        key = G.rime_cmudict(self.base)
+        key = G.rime_cmudict(self.base_v1)
         for line, word, token in [
             ('I gave my heart to you 我', '我', None),
             ('we have waited since 1966', '1966', None),
@@ -486,49 +491,114 @@ class PronunciationChoices(unittest.TestCase):
             self.assertEqual((failure.word, failure.token), (word, None))
             self.assertIn('no sung-token position', failure.describe())
 
+    def test_function_reads_numeral_endpoints_as_tokens_under_v2(self):
+        # Reader scheme v2 (M1): a digit-bearing run is ONE sung token, so
+        # `1966` and `record2` take a position -- unread (key None) until a
+        # reading is declared for it. Every other endpoint is unchanged.
+        from quality import grid as G
+        key = G.rime_cmudict(self.base)
+        for line, word, token in [
+            ('I gave my heart to you 我', '我', None),
+            ('we have waited since 1966', '1966', 5),
+            ("I'm going home (ooh)", 'ooh', None),
+            ('(Name your price and take it home)', 'home', None),
+            ('Read record (record)', 'record', None),
+            ("That 's", "'s", None),
+            ('Read record我', 'record我', None),
+            ('Read record2', 'record2', 2),
+            ('Read (quietly) record', 'record', 2),
+            ("There 's record", 'record', 2),
+            ('Read **record**!', 'record', 2),
+            ('', '', None), ('...', '', None),
+        ]:
+            with self.subTest(line=line):
+                self.assertEqual(key.end_occurrence(line), (word, token, key(word)))
+        self.assertIsNone(key('1966'))
+        line = 'We wait 1966'
+        result = G.compare_returns([line], [line], rhyme_key=key)
+        self.assertIsNone(result.rhyme_scheme_preserved)
+        failure = result.refusals[0].failed_words[0]
+        self.assertEqual((failure.word, failure.token), ('1966', 3))
+        # A declared reading on the numeral token binds it and reads it.
+        lex = self.lex([choice(line, 3, '1966', ['N', 'AY1', 'N', 'T', 'IY0', 'N'], 'declared')])
+        self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('1966', 3, 'AY N T IY N'))
+
     def test_function_only_binds_the_complete_physical_endpoint(self):
         from quality import grid as G
-        for line in ['Read (quietly) record', "There 's record"]:
-            lex = self.lex([choice(line, 2, 'record', NOUN)])
-            self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('record', 2, 'EH K ER D'))
-        for line in ['Read record (record)', 'Read record2', 'Read record我']:
-            lex = self.lex([choice(line, 2, 'record', NOUN)])
-            got = G.rime_cmudict(lex).end_occurrence(line)
-            self.assertIsNone(got[1])
-            self.assertEqual(got[2], G.rime_cmudict(self.base)(G._end_word(line)))
-        # Voices includes parentheses in its declaration stream, but still
-        # cannot bind a component of a joined enclitic as a whole token.
-        lex = copy.copy(self.base)
-        lex.strip_parens = False
-        line = 'Read record (record)'
-        lex.pronunciations = P.validate_choices([choice(line, 3, 'record', NOUN)], lex)
-        self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('record', 3, 'EH K ER D'))
-        line = "That 's"
-        lex = self.lex([choice(line, 1, "That's", ['DH', 'AE1', 'T', 'S'], 'declared')])
-        self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ("'s", None, G.rime_cmudict(self.base)("'s")))
+        for base in (self.base_v1, self.base):
+            for line in ['Read (quietly) record', "There 's record"]:
+                lex = self.lex([choice(line, 2, 'record', NOUN)], base)
+                self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('record', 2, 'EH K ER D'))
+            # `Read record2` declares `record` at token 2 only under v1, which
+            # split it; under v2 token 2 is `record2` itself (below).
+            for line in (['Read record (record)', 'Read record2', 'Read record我']
+                         if base is self.base_v1 else ['Read record (record)', 'Read record我']):
+                lex = self.lex([choice(line, 2, 'record', NOUN)], base)
+                got = G.rime_cmudict(lex).end_occurrence(line)
+                self.assertIsNone(got[1])
+                self.assertEqual(got[2], G.rime_cmudict(base)(G._end_word(line)))
+            # Voices includes parentheses in its declaration stream, but still
+            # cannot bind a component of a joined enclitic as a whole token.
+            lex = copy.copy(base)
+            lex.strip_parens = False
+            line = 'Read record (record)'
+            lex.pronunciations = P.validate_choices([choice(line, 3, 'record', NOUN)], lex)
+            self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('record', 3, 'EH K ER D'))
+            line = "That 's"
+            lex = self.lex([choice(line, 1, "That's", ['DH', 'AE1', 'T', 'S'], 'declared')], base)
+            self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ("'s", None, G.rime_cmudict(base)("'s")))
+        with self.assertRaisesRegex(ValueError, "token 2 there is 'record2'"):
+            self.lex([choice('Read record2', 2, 'record', NOUN)])
+        lex = self.lex([choice('Read record2', 2, 'record2', NOUN, 'declared')])
+        self.assertEqual(G.rime_cmudict(lex).end_occurrence('Read record2'),
+                         ('record2', 2, 'EH K ER D'))
 
-    def test_function_uses_original_unicode_line_for_declaration_positions(self):
+    def test_function_reads_the_nfc_line_for_declaration_positions_under_v2(self):
+        # Reader scheme v2 reverses MISSING.md's 2026-10 record that
+        # declaration positions use the un-NFC'd line: NFC happens at reader
+        # entry, so a decomposed `cafe\u0301s` is the one token `cafés` and a
+        # declaration counts it once. The line's identity stays its raw text.
         from quality import grid as G
         import unicodedata
         line = 'Read cafe\u0301s record'
         composed = unicodedata.normalize('NFC', line)
-        self.assertEqual(lh.line_tokens(line), ['Read', 'cafe', 's', 'record'])
+        self.assertEqual(lh.line_tokens(line), ['Read', 'cafés', 'record'])
         self.assertEqual(lh.line_tokens(composed), ['Read', 'cafés', 'record'])
-        lex = self.lex([choice(line, 4, 'record', NOUN)])
+        lex = self.lex([choice(line, 3, 'record', NOUN)])
+        self.assertEqual(lex.for_line(line).for_token(2).transcribe_word('record'), (NOUN, False))
+        key = G.rime_cmudict(lex)
+        self.assertEqual(key.end_occurrence(line), ('record', 3, 'EH K ER D'))
+        self.assertEqual(key.end_occurrence(composed), ('record', 3, key('record')))
+        with self.assertRaises(ValueError):
+            self.lex([choice(line, 4, 'record', NOUN)])
+        decomposed_end = 'Sing cafe\u0301s'
+        self.assertEqual(lh.line_tokens(decomposed_end), ['Sing', 'cafés'])
+        self.assertEqual(key.end_occurrence(decomposed_end), ('cafés', 2, key('cafés')))
+
+    def test_function_uses_original_unicode_line_for_declaration_positions(self):
+        # Reader scheme v1 (legacy replay): positions on the un-NFC'd line.
+        from quality import grid as G
+        import unicodedata
+        line = 'Read cafe\u0301s record'
+        composed = unicodedata.normalize('NFC', line)
+        self.assertEqual(lh.line_tokens(line, scheme='v1'), ['Read', 'cafe', 's', 'record'])
+        self.assertEqual(lh.line_tokens(composed, scheme='v1'), ['Read', 'cafés', 'record'])
+        lex = self.lex([choice(line, 4, 'record', NOUN)], self.base_v1)
         self.assertEqual(lex.for_line(line).for_token(3).transcribe_word('record'), (NOUN, False))
         key = G.rime_cmudict(lex)
         self.assertEqual(key.end_occurrence(line), ('record', 4, 'EH K ER D'))
         self.assertEqual(key.end_occurrence(composed), ('record', 3, key('record')))
-        self.assertEqual(G.rime_cmudict(self.base).end_occurrence(line), ('record', 4, key('record')))
+        self.assertEqual(G.rime_cmudict(self.base_v1).end_occurrence(line), ('record', 4, key('record')))
         repeated = line + ' record'
-        earlier = self.lex([choice(repeated, 4, 'record', NOUN)])
+        earlier = self.lex([choice(repeated, 4, 'record', NOUN)], self.base_v1)
         self.assertEqual(G.rime_cmudict(earlier).end_occurrence(repeated),
                          ('record', 5, key('record')))
-        final = self.lex([choice(repeated, 4, 'record', VERB), choice(repeated, 5, 'record', NOUN)])
+        final = self.lex([choice(repeated, 4, 'record', VERB), choice(repeated, 5, 'record', NOUN)],
+                         self.base_v1)
         self.assertEqual(G.rime_cmudict(final).end_occurrence(repeated),
                          ('record', 5, 'EH K ER D'))
         decomposed_end = 'Sing cafe\u0301s'
-        self.assertEqual(lh.line_tokens(decomposed_end), ['Sing', 'cafe', 's'])
+        self.assertEqual(lh.line_tokens(decomposed_end, scheme='v1'), ['Sing', 'cafe', 's'])
         self.assertEqual(key.end_occurrence(decomposed_end), ('cafés', None, key('cafés')))
         # Diagnostic coordinates use that same exact-line token stream.
         unknown = line.replace('record', 'streetlights')

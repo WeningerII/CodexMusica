@@ -365,8 +365,9 @@ def test_the_shipped_blueprint_is_declared_honestly():
           f"downbeat_locked {u['downbeat_locked']:.0%}; codes {sorted(codes)}")
     check("the numeral survives grid.py's normalisation",
           tokens("We drove down County Road 9")[-1] == "9",
-          "`lyric_harness.line_tokens` matches [A-Za-z'-]+ and drops it "
-          "silently; `quality/fit.py` REFUSES it as a NUMERAL and marks the "
+          "`lyric_harness.line_tokens` keeps it as one numeral token "
+          "(reader scheme v2; v1 dropped it silently) and `quality/fit.py` "
+          "REFUSES it as a NUMERAL unless a reading is declared, marking the "
           "count a lower bound (doctrine 79). This layer must not be the "
           "third answer — a token dropped here would make the variation "
           "measurement blind to it too")

@@ -141,9 +141,12 @@ def load_rows(path=SUPPLEMENT_PATH):
             row = dict(zip(COLUMNS, (c.strip() for c in cells)))
             row["line"] = n
             word, phones = row["word"], row["phones"].split()
+            # A headword is exactly one token of the reader that looks it up
+            # (scheme v2), or no line could ever reach its row.
             if (not _WORD.fullmatch(word) or "--" in word or "''" in word
                     or word != word.lower()
-                    or word != unicodedata.normalize("NFC", word)):
+                    or word != unicodedata.normalize("NFC", word)
+                    or LH.line_tokens(word, scheme="v2") != [word]):
                 raise SupplementError(f"line {n}: {word!r} is not a folded token "
                                       "(lowercase NFC Latin letters, ' anywhere, "
                                       "- only inside)")
@@ -432,7 +435,8 @@ class SupplementedLexicon(LH.Lexicon):
     """`Lexicon` plus the reviewed supplement. See the module docstring."""
 
     def __init__(self, fallback=None, strip_parens=True, pronunciations=None,
-                 supplement_path=None, version=None, expected_sha256=None):
+                 supplement_path=None, version=None, expected_sha256=None,
+                 reader_scheme=None):
         # A declared VERSION names its frozen file and is proved against the
         # manifest (and a saved run's sha256) before a row is read. A bare
         # path is the test seam; the shipped default path is version v1.
@@ -450,7 +454,7 @@ class SupplementedLexicon(LH.Lexicon):
         # Declared readings are validated AFTER the supplement joins, so a
         # `basis: dictionary` reading of a supplement word is recognised.
         super().__init__(fallback=fallback, strip_parens=strip_parens,
-                         pronunciations=None)
+                         pronunciations=None, reader_scheme=reader_scheme)
         rows = load_rows(supplement_path)
         cmu = self.entries
         problems = check_rows(rows, cmu)
@@ -603,15 +607,17 @@ _SUPPLEMENTED = {}
 
 
 def supplemented_lexicon(strip_parens=True, fallback=None,
-                         supplement_path=SUPPLEMENT_PATH):
+                         supplement_path=SUPPLEMENT_PATH, reader_scheme=None):
     """A cached `SupplementedLexicon`, keyed by its coordinates and the file's
     digest -- the supplemented twin of `fit._english_lexicon`, for readers
     that build their own lexicon (the meter-band reader)."""
-    key = (strip_parens, fallback, supplement_path, file_sha256(supplement_path))
+    reader_scheme = LH.resolve_reader_scheme(reader_scheme)
+    key = (strip_parens, fallback, supplement_path, file_sha256(supplement_path),
+           reader_scheme)
     if key not in _SUPPLEMENTED:
         _SUPPLEMENTED[key] = SupplementedLexicon(
             fallback=fallback, strip_parens=strip_parens,
-            supplement_path=supplement_path)
+            supplement_path=supplement_path, reader_scheme=reader_scheme)
     return _SUPPLEMENTED[key]
 
 

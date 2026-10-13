@@ -492,7 +492,8 @@ def _return_key(declarations, phon, language, sung):
     from lyric_harness import line_tokens
     endings = {}
     for line in sung:
-        ts = line_tokens(line["text"], strip_parens=False)
+        ts = line_tokens(line["text"], strip_parens=False,
+                         scheme=getattr(lex, "reader_scheme", None))
         if ts:
             endings[line["text"]] = (len(ts), ts[-1].lower())
     for choice in declarations["pronunciations"]:

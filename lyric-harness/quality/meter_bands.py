@@ -154,15 +154,19 @@ def measure_line(text, phon=None):
     CERTAIN/DERIVED split the reader registration adjudicates with.
     """
     import quality.fit as FT
-    lu = FT.read_line(text, phon=phon) if phon is not None \
-        else FT.read_line(text)
-    causes = sorted({r.cause for r in lu.refused})
-    if not lu.units and not causes:
-        causes = ["ZERO_UNITS"]
-    if any(u.prominence is None for u in lu.units):
-        causes.append("PROMINENCE_UNDECIDED")
-    derived = len(phon.derived(text)) if phon is not None \
-        and hasattr(phon, "derived") else 0
+    import lyric_harness as LH
+    # Pinned to reader scheme v1: the preregistered calibration (run one, the
+    # amendment and the reader trial) was measured with the pre-batch reader.
+    with LH.reader_scheme_scope("v1"):
+        lu = FT.read_line(text, phon=phon) if phon is not None \
+            else FT.read_line(text)
+        causes = sorted({r.cause for r in lu.refused})
+        if not lu.units and not causes:
+            causes = ["ZERO_UNITS"]
+        if any(u.prominence is None for u in lu.units):
+            causes.append("PROMINENCE_UNDECIDED")
+        derived = len(phon.derived(text)) if phon is not None \
+            and hasattr(phon, "derived") else 0
     return lu.syllables, len(lu.prominent), derived, tuple(causes)
 
 

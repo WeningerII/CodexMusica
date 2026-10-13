@@ -2602,7 +2602,8 @@ def coarse_relation_consensus(lex, line_a, line_b, decl, relation=None,
     import lyric_harness as lh
     def candidates(line, lex):
         reader = lex.for_line(line) if hasattr(lex, "for_line") else lex
-        words = lh.line_tokens(line, strip_parens=lex.strip_parens)
+        words = lh.line_tokens(line, strip_parens=lex.strip_parens,
+                               scheme=lh._scheme_of(lex))
         if not words:
             return []
         key = lh.fold_apostrophes(words[-1]).lower().strip("'\".,;:!?()[]")
