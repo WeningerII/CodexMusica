@@ -218,9 +218,11 @@ does and does not protect one built before the release.
   record, or a session it keeps across the deployment) re-reads
   `pronunciation_options` and re-declares before grading lines whose cut moved
   (a dash run, a numeral, a Unicode hyphen, a soft hyphen, combining marks).
-  The website does this for its own saved drafts: a draft without its
-  token-scheme marker is rebound by span identity, or blocked for the writer's
-  decision (`src/pages/lyrics.js`, `lyEnsureTokenScheme`).
+  The website does this for its own saved readings: every reading row the page
+  writes carries the cut it was numbered under (`— cut v2`, in the row itself,
+  so the mark survives a downloaded `.txt`, a paste, an import and a Library
+  working copy), and a row without it is rebound by span identity, or blocked
+  for the writer's decision (`src/pages/lyrics.js`, `lyEnsureTokenScheme`).
 
 ## What the money limits establish
 

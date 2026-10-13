@@ -45,7 +45,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global document, localStorage, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, pushHistory, uiNewTask, uiSaveLyrics */
+/* global document, localStorage, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -204,11 +204,12 @@ print(json.dumps([n for n, _ in (_sections_from_marks(sys.stdin.read().split('\\
 
 // ── R. readings saved before the reader's v2 cut, unit-level ──────────────
 // A draft saved before this release numbered its [SETUP — reading] rows under
-// the page's earlier cut, and carries no `tokenScheme` marker. Each reading is
-// rebound once by span identity (the old occurrence -> the current token over
-// exactly the same characters); one with no such token is flagged as needing
-// the writer's decision, shown, and stops every send; the marker is written
-// after the migration; a post-release draft is left untouched.
+// the page's earlier cut, and its rows carry no `— cut v2` mark. Each reading
+// is rebound once by span identity (the old occurrence -> the current token
+// over exactly the same characters) and gains the mark; one with no such token
+// is flagged as needing the writer's decision, shown, and stops every send. A
+// marked row (every row this page writes) is left untouched, wherever the text
+// came from, and an unmarked row is migrated wherever it came from.
 function unitSavedReadings() {
   stage = 'R. saved readings';
   const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
@@ -320,7 +321,6 @@ function unitSavedReadings() {
   );
   // The send path stops, with the message, and sends nothing.
   draft.value = got.text;
-  app.lyricMeta = { version: 1, tokenScheme: 'v2' };
   const ok = run('lySubmitLyricsAction("review")');
   check(ok === false || (ok && typeof ok.then === 'function'), 'review did not answer');
   return Promise.resolve(ok).then((value) => {
@@ -330,19 +330,22 @@ function unitSavedReadings() {
       'no message said why nothing was sent'
     );
 
-    // 4. The page migrates a marker-less draft once and writes the marker;
-    // the migration replaces the current Undo step instead of adding one.
+    // 4. The page migrates an unmarked draft once and marks its rows; the
+    // migration replaces the current Undo step instead of adding one.
     toasts.length = 0;
     draft.value = pre;
     app.lyrics = pre;
-    app.lyricMeta = { version: 1 };
     app.history = ['before'];
     app.historyIndex = 0;
     check(run('lyEnsureTokenScheme()') === true, 'the pre-release draft was not migrated');
-    check(app.lyricMeta.tokenScheme === 'v2', 'the marker was not written after the migration');
     check(
       readings(draft.value)[0].token === 5 && app.lyrics === draft.value,
       'migration not saved'
+    );
+    check(
+      draft.value.split('\n')[0].endsWith(' — source: the singer — cut v2]') &&
+        run('lySetupOf(lyParse(__t), "reading")[0].cut', { __t: draft.value }) === 'v2',
+      'the rebound row does not carry the cut it is now numbered under'
     );
     check(
       app.history.length === 1 &&
@@ -352,19 +355,49 @@ function unitSavedReadings() {
     );
     check(run('lyEnsureTokenScheme()') === false, 'a migrated draft was migrated again');
 
-    // 5. A post-release draft (marker present) is left untouched, even where
-    // the earlier cut would have numbered it differently.
-    const post = song([row(5, 'Lawdy', LAWDY), row(3, 'oh', OH)]);
+    // 5. A row the page writes is marked, and a marked row is left untouched,
+    // even where the earlier cut would have numbered it differently: token 2
+    // of OH written today is the "oh" inside "Oh--oh".
+    const written = (token, word, line) =>
+      run('`[SETUP — reading — ${lyReadingValue(__d)}]`', {
+        __d: {
+          token,
+          word,
+          line,
+          kind: 'declared',
+          phones: ['OW1'],
+          basis: 'declared',
+          source: 'the singer',
+        },
+      });
+    check(/ — cut v2\]$/.test(written(2, 'oh', OH)), 'a written reading carries no cut mark');
+    const post = song([written(5, 'Lawdy', LAWDY), written(2, 'oh', OH)]);
     draft.value = post;
-    app.lyricMeta = { version: 1, tokenScheme: 'v2' };
     check(
       run('lyEnsureTokenScheme()') === false && draft.value === post,
       'a post-release draft moved'
     );
-    // A marker-less draft with no reading rows is only marked.
+    check(
+      JSON.stringify(readings(post).map((x) => x.token)) === '[5,2]',
+      'a marked row was renumbered'
+    );
+    // Pre-release text entering a current draft (an imported .txt, a paste):
+    // its unmarked row is migrated; the marked rows beside it are not.
+    const mixed = song([written(5, 'Lawdy', LAWDY), row(2, 'oh', OH)]);
+    draft.value = mixed;
+    check(run('lyEnsureTokenScheme()') === true, 'imported pre-release rows were not migrated');
+    check(
+      JSON.stringify(readings(draft.value).map((x) => [x.token, x.undecided])) ===
+        '[[5,false],[3,false]]',
+      `the imported row was not rebound to the occurrence it named: ${draft.value}`
+    );
+    check(
+      run('lyDeclarationsOf(lyParse(__t)).pronunciations[1].token', { __t: draft.value }) === 3,
+      'the imported reading is declared on the wrong occurrence'
+    );
+    // A draft with no reading rows is untouched.
     draft.value = 'just a line';
-    app.lyricMeta = { version: 1 };
-    check(run('lyEnsureTokenScheme()') === false && app.lyricMeta.tokenScheme === 'v2', 'mark');
+    check(run('lyEnsureTokenScheme()') === false && draft.value === 'just a line', 'no rows');
   });
 }
 
@@ -1469,30 +1502,25 @@ async function browserChecks(chromium) {
       const row = (token, word) =>
         `[SETUP — reading — token ${token} ${JSON.stringify(word)} in ${JSON.stringify(LAWDY)} — L AO1 D IY0 — declared — source: the singer]`;
       const pre = `${row(3, 'Lawdy')}\n${row(1, 'U--h')}\n\n[VERSE]\n${LAWDY}\nWe sing it plain`;
-      // A draft saved before this release: no marker in the page context.
+      // A draft saved before this release: its rows carry no cut mark.
       const got = await page.evaluate((t) => {
-        app.lyricMeta = { ...app.lyricMeta };
-        delete app.lyricMeta.tokenScheme;
-        LY.metaRef = null;
         $ui('lyrics-draft').value = t;
         uiSaveLyrics();
         lyRefresh(true);
         return {
           text: $ui('lyrics-draft').value,
-          marker: app.lyricMeta.tokenScheme,
-          saved: JSON.parse(localStorage.getItem('codex-workbench-v1') || '{}').lyricMeta,
+          saved: JSON.parse(localStorage.getItem('codex-workbench-v1') || '{}').lyrics,
         };
       }, pre);
       check(
-        got.text.includes('token 5 "Lawdy"'),
-        'the saved Lawdy reading was not rebound to token 5'
+        /token 5 "Lawdy".* — cut v2\]/.test(got.text),
+        'the saved Lawdy reading was not rebound to token 5 and marked'
       );
       check(
         /token 1 "U--h".*needs a decision: numbered under the earlier word cut/.test(got.text),
         'the unmatchable saved reading was not flagged for a decision'
       );
-      check(got.marker === 'v2', 'the marker was not written after the migration');
-      check(got.saved?.tokenScheme === 'v2', 'the autosaved session does not carry the marker');
+      check(got.saved === got.text, 'the autosaved session does not hold the migrated rows');
       const review = await pane(page, 'review');
       check(
         /saved before this release needs your decision/.test(review),
@@ -1511,7 +1539,7 @@ async function browserChecks(chromium) {
         /Nothing was sent/.test(sent.log),
         'the conversation does not say why nothing was sent'
       );
-      // A post-release draft is left as it is.
+      // A post-release draft (its rows marked with the cut) is left as it is.
       const post = await page.evaluate(
         (t) => {
           $ui('lyrics-draft').value = t;
@@ -1519,13 +1547,124 @@ async function browserChecks(chromium) {
           lyRefresh(true);
           return $ui('lyrics-draft').value;
         },
-        `${row(5, 'Lawdy')}\n\n[VERSE]\n${LAWDY}`
+        `${row(5, 'Lawdy').replace(/\]$/, ' — cut v2]')}\n\n[VERSE]\n${LAWDY}`
       );
       check(
         post.includes('token 5 "Lawdy"') && !/needs a decision/.test(post),
         'post-release moved'
       );
       await ctx.close();
+    });
+
+    // ── 9b. the text paths: a pre-release .txt imported into a current page,
+    // and a current Library working copy downloaded and imported again ─────
+    await step('9b. saved readings through text', async () => {
+      const OH = 'Oh--oh, oh my love';
+      const row = (token, word, line) =>
+        `[SETUP — reading — token ${token} ${JSON.stringify(word)} in ${JSON.stringify(line)} — OW1 — declared — source: the singer]`;
+      {
+        // The page's own Download text, from before this release, imported
+        // with Import: token 2 then meant the standalone "oh" (chars 8-10).
+        const { ctx, page, q } = await boot();
+        const pre = `${row(2, 'oh', OH)}\n\n[VERSE]\n${OH}\nWe sing it plain tonight`;
+        await page.setInputFiles('#ly-file', {
+          name: 'pre-release-song.txt',
+          mimeType: 'text/plain',
+          buffer: Buffer.from(pre, 'utf8'),
+        });
+        await page.waitForFunction((line) => $ui('lyrics-draft').value.includes(line), OH, {
+          timeout: 10000,
+        });
+        await page.evaluate(() => lyRefresh(true));
+        const st = await page.evaluate((line) => {
+          const m = lyParse($ui('lyrics-draft').value);
+          const toks = CMLyricTokens.readerLine(line, { stripParens: true }).tokens;
+          const d = lyDeclarationsOf(m);
+          return {
+            row: $ui('lyrics-draft').value.split('\n')[0],
+            token: d.pronunciations?.[0]?.token,
+            pieces: toks[(d.pronunciations?.[0]?.token || 0) - 1]?.pieces,
+            need: d.readings_need_decision || null,
+          };
+        }, OH);
+        check(
+          st.token === 3 && JSON.stringify(st.pieces) === '[[8,10]]' && !st.need,
+          `the imported reading binds token ${st.token} ${JSON.stringify(st.pieces)}, not the standalone "oh"`
+        );
+        check(/ — cut v2\]$/.test(st.row), 'the imported row was not marked after rebinding');
+        const calls = q.calls.length;
+        await page.evaluate(async () => LY_ACTIONS['ly-run-review']());
+        await page.waitForTimeout(300);
+        const sent = q.calls
+          .slice(calls)
+          .map((c) => c.lyric_context?.declarations?.pronunciations?.[0]?.token);
+        check(
+          sent.length === 1 && sent[0] === 3,
+          `the review sent token ${JSON.stringify(sent)}, not 3`
+        );
+        await ctx.close();
+      }
+      {
+        // A reading chosen today, in a Library working copy downloaded with
+        // "Download text and sources" and imported again: its number is the
+        // current cut's, and it stays where it is.
+        const { ctx, page } = await boot();
+        const LINE = 'Oh--oh, oh, oh my love';
+        const r = await page.evaluate(async (line) => {
+          const reading = `[SETUP — reading — ${lyReadingValue({
+            token: 2,
+            word: 'oh',
+            line,
+            kind: 'declared',
+            phones: ['OW1'],
+            basis: 'declared',
+            source: 'the singer',
+          })}]`;
+          const text = `${reading}\n\n[VERSE]\n${line}\nWe sing it plain tonight`;
+          const meta = {
+            version: 1,
+            brief: '',
+            notes: {},
+            drafts: {},
+            ui: {},
+            libraryOrigin: {
+              version: 1,
+              handoffId: 'handoff:' + crypto.randomUUID(),
+              digest: '0'.repeat(64),
+              importedAt: Date.now(),
+              adapted: false,
+              title: 'Song',
+              language: 'eng',
+              scope: 'whole',
+              provenance: {
+                snapshotId: 'snap:1',
+                unitId: 'unit:1',
+                workId: 'work:1',
+                editionId: 'ed:1',
+                revisionId: 'rev:1',
+              },
+              lineage: [],
+              declarations: [],
+            },
+          };
+          let err = null;
+          try {
+            await lyLibraryImport(await CMLibraryImport.makeWorkingCopyEnvelope(text, meta));
+          } catch (e) {
+            err = e.message;
+          }
+          await new Promise((res) => setTimeout(res, 800));
+          lyRefresh(true);
+          const d = lyDeclarationsOf(lyParse($ui('lyrics-draft').value));
+          return { err, row: reading, text: $ui('lyrics-draft').value, decl: d.pronunciations };
+        }, LINE);
+        check(r.err === null, `the working copy did not import: ${r.err}`);
+        check(
+          r.text.includes(r.row) && r.decl?.[0]?.token === 2,
+          `the re-imported reading moved: ${JSON.stringify(r.decl)}`
+        );
+        await ctx.close();
+      }
     });
 
     // ── screenshots: a suggestion, light and dark, desktop and phone ─────

@@ -89,15 +89,19 @@ function lyWordSpans(text, voices) {
 // ── Saved readings from before the reader's v2 cut ─────────────────────────
 // A [SETUP — reading — token N …] row names a word by its number, and a draft
 // saved before this release numbered its words under the page's earlier cut.
-// The draft-level marker (`tokenScheme` in the page context, app.lyricMeta)
-// says a draft's numbers are the current cut's; a draft without it is
-// pre-release and its readings are rebound ONCE, by span identity: the old
+// Every row this page writes carries the cut it was numbered under, in the row
+// itself (`— cut v2`), so the mark travels with the text wherever the text
+// goes: a downloaded .txt, a paste, an import, a Library working copy. A row
+// without it is pre-release and is rebound ONCE, by span identity: the old
 // cut's occurrence becomes the current token covering exactly the same
-// characters. A row with no such token, or whose old number no longer names
-// its own word, is never dropped and never rebound to another occurrence: it
-// is flagged in the text as needing the writer's decision, shown as an input,
-// and the draft is not sent to the writer until it is decided.
+// characters, and the row gains the mark. A row with no such token, or whose
+// old number no longer names its own word, is never dropped and never rebound
+// to another occurrence: it is flagged in the text as needing the writer's
+// decision, shown as an input, and the draft is not sent to the writer until
+// it is decided. (A row typed by hand without the mark is read the same way,
+// as numbered under the earlier cut.)
 const LY_TOKEN_SCHEME = CMLyricTokens.SCHEME;
+const LY_READING_CUT = `cut ${LY_TOKEN_SCHEME}`;
 const LY_READING_UNDECIDED = 'needs a decision: numbered under the earlier word cut';
 // MIGRATION ONLY: the page's pre-release word cut, verbatim (its LY_TOKEN and
 // lyTokens before reader scheme v2). Nothing but the rebinding reads it.
@@ -138,44 +142,43 @@ function lyRebindReading(r, voices) {
     };
   return { token: hits[0].k + 1, word: hits[0].t.text };
 }
-// A pre-release draft's text with every reading rebound or flagged:
-// -> { text, rebound, blocked: [{ i, word, line, reason }] }. Pure.
+// A text's unmarked (pre-release) readings rebound and marked, or flagged:
+// -> { text, rebound, blocked: [{ i, word, line, reason }] }. Pure. A marked
+// row is the current cut's and is left exactly as it is.
 function lyMigrateSavedReadings(text) {
   const model = lyParse(text);
   const rows = model.text.split('\n');
   const out = { text: model.text, rebound: 0, blocked: [] };
   for (const r of lySetupOf(model, 'reading')) {
-    if (r.malformed || r.undecided) continue;
+    if (r.malformed || r.undecided || r.cut === LY_TOKEN_SCHEME) continue;
     const got = lyRebindReading(r, model.voices);
     if (got.blocked) {
       rows[r.i] = r.raw.replace(/\]$/, `${LY_DASH}${LY_READING_UNDECIDED}]`);
       out.blocked.push({ i: r.i, word: r.word, line: r.line, reason: got.blocked });
-    } else if (got.token !== r.token || got.word !== r.word) {
-      rows[r.i] = r.raw.replace(
-        /^(\[SETUP\s+—\s+reading\s+—\s+)token \d+ "(?:[^"\\]|\\.)*"/i,
-        (_, head) => `${head}token ${got.token} ${lyQuote(got.word)}`
-      );
+    } else {
+      rows[r.i] = r.raw
+        .replace(
+          /^(\[SETUP\s+—\s+reading\s+—\s+)token \d+ "(?:[^"\\]|\\.)*"/i,
+          (_, head) => `${head}token ${got.token} ${lyQuote(got.word)}`
+        )
+        .replace(/\]$/, `${LY_DASH}${LY_READING_CUT}]`);
       out.rebound++;
     }
   }
   out.text = rows.join('\n');
   return out;
 }
-// The page's readings are numbered under the current cut from here on: a
-// draft without the marker is migrated, then marked. -> true when the text
-// changed. The migration replaces the current Undo step rather than adding
-// one, so Undo never returns to numbers read under the earlier cut.
+// The draft's readings are numbered under the current cut: any unmarked row
+// (a pre-release draft, or pre-release text imported or pasted into this one)
+// is migrated. -> true when the text changed. The migration replaces the
+// current Undo step rather than adding one, so Undo never returns to numbers
+// read under the earlier cut.
 function lyEnsureTokenScheme() {
-  const meta = lyMeta();
-  if (meta.tokenScheme === LY_TOKEN_SCHEME) return false;
   const draft = lyDraft();
+  if (!draft) return false;
   const before = draft.value;
   const done = lyMigrateSavedReadings(before);
-  meta.tokenScheme = LY_TOKEN_SCHEME;
-  if (done.text === before) {
-    uiAutosave();
-    return false;
-  }
+  if (done.text === before) return false;
   draft.value = done.text;
   uiSaveLyrics();
   if (Array.isArray(app.history) && app.history[app.historyIndex] !== undefined)
@@ -309,6 +312,7 @@ function lyParseSetup(raw) {
       item.state = 'choice';
       for (const r of rest) {
         if (r.toLowerCase() === LY_READING_UNDECIDED) item.undecided = true;
+        else if (/^cut v\d+$/i.test(r)) item.cut = r.slice(4).toLowerCase();
         else if (/^needs a (dictionary )?choice$/i.test(r)) item.state = 'choice';
         else if (/^uncertain$/i.test(r)) item.state = 'uncertain';
         else if (/^(dictionary|declared)$/i.test(r)) item.basis = r.toLowerCase();
@@ -4388,8 +4392,10 @@ function lySyncDisplayMenu() {
 
 // ── Actions ───────────────────────────────────────────────────────────────
 const lyItem = (id) => (LY.items || []).find((i) => i.id === id);
+// Every reading row names the cut its number was read under (see
+// lyEnsureTokenScheme), so the text alone says how to read it.
 const lyReadingValue = ({ token, word, line, kind, phones, basis, source }) =>
-  `token ${token} ${lyQuote(word)} in ${lyQuote(line)}${LY_DASH}${kind === 'declared' ? `${phones.join(' ')}${LY_DASH}${basis}${LY_DASH}source: ${source.replace(/[\]\n]/g, ' ')}` : kind === 'uncertain' ? 'uncertain' : 'needs a choice'}`;
+  `token ${token} ${lyQuote(word)} in ${lyQuote(line)}${LY_DASH}${kind === 'declared' ? `${phones.join(' ')}${LY_DASH}${basis}${LY_DASH}source: ${source.replace(/[\]\n—]/g, ' ')}` : kind === 'uncertain' ? 'uncertain' : 'needs a choice'}${LY_DASH}${LY_READING_CUT}`;
 function lyValidPhones(phones) {
   if (!phones.length || phones.length > 128) return 'Enter at least one ARPABET phone.';
   const bad = phones.find(

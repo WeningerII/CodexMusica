@@ -16319,13 +16319,10 @@ function lyricMetaOf(v){
   // lines. Keep the complete versioned bundle through saves and exports.
   if(typeof v.draftId==='string'&&/^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$/.test(v.draftId))out.draftId=v.draftId;
   if(v.libraryOrigin?.version===1)out.libraryOrigin=plain(v.libraryOrigin,Infinity);
-  // The word cut the draft's [SETUP — reading] numbers were saved under
-  // (src/pages/lyrics.js lyEnsureTokenScheme). Absent: saved before it existed.
-  if(v.tokenScheme==='v2')out.tokenScheme=v.tokenScheme;
   return out;
 }
 // What Undo restores of it: the creative context the person edited.
-const lyricMetaHistory=(m)=>({version:1,brief:m.brief,notes:m.notes,...(m.draftId?{draftId:m.draftId}:{}),...(m.libraryOrigin?{libraryOrigin:m.libraryOrigin}:{}),...(m.tokenScheme?{tokenScheme:m.tokenScheme}:{})});
+const lyricMetaHistory=(m)=>({version:1,brief:m.brief,notes:m.notes,...(m.draftId?{draftId:m.draftId}:{}),...(m.libraryOrigin?{libraryOrigin:m.libraryOrigin}:{})});
 function sessionSnapshot() {
   const meta=lyricMetaOf(app.lyricMeta);
   return {cards:app.cards.map(c=>({...c,..._CARD_TRANSIENTS})),name:app.workspaceName||'Untitled session',lyrics:app.lyrics||'',lyricMeta:lyricMetaHistory(meta)};
@@ -16352,7 +16349,7 @@ function _restoreSnapshot(idx) {
     if(Array.isArray(snapshot))app.cards=snapshot;
     else {
       app.cards=snapshot.cards;app.workspaceName=snapshot.name;app.lyrics=snapshot.lyrics||'';
-      if(snapshot.lyricMeta){const m=lyricMetaOf(app.lyricMeta),h=lyricMetaOf({...snapshot.lyricMeta,version:1});delete m.draftId;delete m.libraryOrigin;delete m.tokenScheme;app.lyricMeta={...m,...lyricMetaHistory(h)};}
+      if(snapshot.lyricMeta){const m=lyricMetaOf(app.lyricMeta),h=lyricMetaOf({...snapshot.lyricMeta,version:1});delete m.draftId;delete m.libraryOrigin;app.lyricMeta={...m,...lyricMetaHistory(h)};}
     }
     for(const c of app.cards)if(tabs.has(c.id))c._uiTab=tabs.get(c.id);
     if(typeof UI!=='undefined')UI.lyricRevision++;
