@@ -44,9 +44,10 @@ _DETAIL = 25
 _APOS = "’‘`´ʼʻ＇՚"
 _HYPHEN = re.compile(r"[^\W\d_]['’]?[-‐‑]['’]?[^\W\d_]")
 _ALL = ("item6", "M1", "M2a", "M2b", "dash")
+_SCOPE_ONLY = ("M3",)
 _ALIAS = {"tokenizer": "dash"}
 _PIN = ("split_sha256", "population_sha256", "fixtures_sha256")
-_CONFIG = ("reader", "supplement", "cmudict_sha256", "fallback", "strip_parens", "declarations",
+_CONFIG = ("reader", "reader_scheme", "effective_fallback", "supplement", "cmudict_sha256", "fallback", "strip_parens", "declarations",
            "recorder_sha256", "comparator_fingerprint_parts")
 
 
@@ -70,7 +71,8 @@ def _parts(w):
 
 
 def _words(rec, unread_tokens=None):
-    """-> [(folded word, raw word, token index, refused)] under the dash rule.
+    """-> [(folded word, raw word, token index, refused, entries)] under the
+    dash rule, `entries` being the token's OOV entries assigned to the word.
     Each OOV entry of a token is assigned to ONE of the token's words: the word
     it spells, else the first word it is a hyphen piece of, else (an entry
     naming the whole `--` token) every word it covers. `unread_tokens` (token
@@ -82,6 +84,7 @@ def _words(rec, unread_tokens=None):
         ws = [p.strip("-\u2010\u2011") for p in re.split(r"-{2,}", t)]
         ws = [p for p in ws if p and re.search(r"[^\W_]", p)]
         flags = [False] * len(ws)
+        got = [[] for _ in ws]
         if unread_tokens is not None:
             flags = [i in unread_tokens] * len(ws)
         else:
@@ -94,7 +97,8 @@ def _words(rec, unread_tokens=None):
                     hit = [k for k, w in enumerate(ws) if _parts(w) & _parts(o)]
                 for k in hit:
                     flags[k] = True
-        out += [(_fold(w), w, i, f) for w, f in zip(ws, flags)]
+                    got[k].append(_fold(o))
+        out += [(_fold(w), w, i, f, tuple(sorted(g))) for w, f, g in zip(ws, flags, got)]
     return out
 
 
@@ -133,11 +137,15 @@ def _word_changes(b, a, unread_b=None, unread_a=None):
     last = len(wa) - 1
     out = []
     for i, j in pairs:
-        if wb[i][3] == wa[j][3]:
-            continue
         mech = _mech(wa[j][1], btoks[wb[i][2]] if wb[i][2] < len(btoks) else None)
         mech = "M2b" if mech == "M2" else mech
-        out.append(("newly_refused" if wa[j][3] else "newly_read", mech, "end" if j == last else "interior", wa[j][1]))
+        pos = "end" if j == last else "interior"
+        if wb[i][3] != wa[j][3]:
+            out.append(("newly_refused" if wa[j][3] else "newly_read", mech, pos, wa[j][1]))
+        elif wb[i][3] and unread_b is None and wb[i][4] != wa[j][4]:
+            # refused on both sides, reported in a different unit (a piece
+            # before, the whole word after): the same refusal, respelled
+            out.append(("refusal_respelled", mech, pos, wa[j][1]))
     for j in only_a:
         mech = _mech(wa[j][1], None)
         out.append(("added_refused" if wa[j][3] else "added_read", "M2b" if mech == "M2" else mech,
@@ -178,9 +186,9 @@ def _main():
     args = [x for x in sys.argv[1:] if not x.startswith("--")]
     flags = dict(x[2:].split("=", 1) for x in sys.argv[1:] if x.startswith("--") and "=" in x)
     scope = [_ALIAS.get(m, m) for m in flags.get("mechanisms", ",".join(_ALL)).split(",") if m]
-    unknown = [m for m in scope if m not in _ALL]
+    unknown = [m for m in scope if m not in _ALL + _SCOPE_ONLY]
     if unknown:
-        sys.exit(f"unknown mechanism(s) {unknown}; known: {list(_ALL)} (alias: tokenizer = dash)")
+        sys.exit(f"unknown mechanism(s) {unknown}; known: {list(_ALL + _SCOPE_ONLY)} (alias: tokenizer = dash)")
     hb, before, fb = _load(args[0])
     ha, after, fa = _load(args[1])
     out = args[2]
@@ -201,6 +209,7 @@ def _main():
     by_mech = {}
     unresolved = {"before": 0, "after": 0}
     tallies = {}
+    residual_fields = {}
 
     def put(name, i):
         cls.setdefault(name, set()).add(i)
@@ -209,68 +218,106 @@ def _main():
         tallies.setdefault(name, {}).setdefault(key, 0)
         tallies[name][key] += 1
 
+    def attribute(prefix, mech, i):
+        by_mech.setdefault(f"{prefix}{mech}", set()).add(i)
+
     ids = sorted(set(before) & set(after))
     for i in ids:
         b, a = before[i], after[i]
         if "error" in b or "error" in a:
             put("error_before" if "error" in b else "error_after", i)
             continue
-        hit = False
+        explained = set()
+
+        def hit(name, *fields):
+            put(name, i)
+            explained.update(fields)
+
         if b["readable"] != a["readable"]:
-            put("end_newly_refused" if b["readable"] else "end_newly_read", i); hit = True
+            hit("end_newly_refused" if b["readable"] else "end_newly_read", "readable", "final_lr",
+                "final_unread_pieces", "unreadable", "cause", "reason", "anchors", "oov", "phones")
             wa_ = _words(a)
             end_mech = _mech(wa_[-1][1], None) if wa_ else "other"
             end_mech = "M2b" if end_mech == "M2" else end_mech
             tally("end_newly_refused" if b["readable"] else "end_newly_read", end_mech)
             if b["readable"]:
-                by_mech.setdefault(end_mech, set()).add(i)
+                attribute("", end_mech, i)
         if _fold(b.get("final") or "") != _fold(a.get("final") or ""):
-            put("end_word_changed", i); hit = True
+            hit("end_word_changed", "final", "final_lr")
         if b["readable"] == a["readable"]:
             if b.get("cause") != a.get("cause"):
-                put("cause_changed", i); hit = True
+                hit("cause_changed", "cause")
             if b.get("reason") != a.get("reason"):
-                put("reason_changed", i); hit = True
+                hit("reason_changed", "reason")
             if b["readable"] and b.get("anchors") != a.get("anchors"):
-                put("anchors_changed", i); hit = True
+                hit("anchors_changed", "anchors")
         if b.get("extra") != a.get("extra"):
-            put("extra_changed", i); hit = True
+            hit("extra_changed", "extra")
+        # token coordinate: what cut the line's tokens differently
+        tb, ta = b.get("tokens") or [], a.get("tokens") or []
+        if [_fold(t) for t in tb] != [_fold(t) for t in ta]:
+            cut = [_fold(w[1]) for w in _words(b)]
+            plain = [_fold(t) for t in ta if not re.search(r"\d", t)]
+            if [_fold(t) for t in ta] == cut:
+                kind, mech = "tokens_dash_cut", "dash"
+            elif plain == cut:
+                kind, mech = ("tokens_numeral_added", "M1") if cut == [_fold(t) for t in tb] else ("tokens_numeral_and_dash", "M1")
+            else:
+                kind, mech = "tokens_other", "other"
+            hit(kind, "tokens", "tok", "words_ne_tokens", "phones", "oov", "unreadable", "interior_unreadable",
+                "final_unread_pieces", "meter_stress", "anchors", "reason")
+            attribute("tok:", mech, i)
+            if kind == "tokens_numeral_and_dash":
+                attribute("tok:", "dash", i)
         for kind, mech, pos, _w in _word_changes(b, a):
-            put(f"word_{kind}", i); hit = True
+            hit(f"word_{kind}", "tok", "oov", "phones", "unreadable", "interior_unreadable", "final_unread_pieces",
+                "reason", "meter_stress", "anchors")
             tally(f"word_{kind}", f"{mech}/{pos}" if pos else mech)
             if kind in ("newly_refused", "added_refused"):
-                by_mech.setdefault(mech, set()).add(i)
+                attribute("", mech, i)
+            elif kind == "refusal_respelled":
+                attribute("respell:", mech, i)
         for mech, _t in _switches(b, a):
-            put("reading_switched", i); hit = True
+            hit("reading_switched", "tok", "phones", "anchors", "meter_stress")
             tally("reading_switched", mech)
-            by_mech.setdefault(mech if mech == "M2a" else f"switch:{mech}", set()).add(i)
+            attribute("" if mech == "M2a" else "switch:", mech, i)
         sb = {e[0] for e in b.get("stream_unread", [])}
         sa = {e[0] for e in a.get("stream_unread", [])}
-        for kind, mech, pos, _w in _word_changes(b, a, sb, sa):
-            if kind in ("newly_refused", "newly_read", "added_refused"):
-                put(f"stream_{kind}", i); hit = True
-                tally(f"stream_{kind}", f"{mech}/{pos}")
+        if b.get("stream_unread") != a.get("stream_unread"):
+            explained_stream = False
+            for kind, mech, pos, _w in _word_changes(b, a, sb, sa):
+                if kind in ("newly_refused", "newly_read", "added_refused", "added_read"):
+                    hit(f"stream_{kind}", "stream_unread")
+                    tally(f"stream_{kind}", f"{mech}/{pos}")
+                    attribute("stream:", mech, i)
+                    explained_stream = True
+            if not explained_stream and [_fold(t) for t in tb] != [_fold(t) for t in ta]:
+                explained.add("stream_unread")      # re-indexed by the token cut only
         if b.get("stream_tokens") != a.get("stream_tokens"):
-            put("stream_tokens_changed", i); hit = True
+            hit("stream_tokens_changed", "stream_tokens")
         gb, ga = b.get("grid") or [None, None], a.get("grid") or [None, None]
         if gb != ga:
             name = ("grid_newly_refused" if gb[1] is not None and ga[1] is None else
                     "grid_newly_read" if gb[1] is None and ga[1] is not None else
                     "grid_key_changed" if gb[1] != ga[1] else "grid_word_changed")
-            put(name, i); hit = True
-            tally(name, _mech(ga[0] or "", gb[0]))
-        if b.get("meter_stress") != a.get("meter_stress"):
-            put("meter_stress_changed", i); hit = True
+            hit(name, "grid")
+            gm = _mech(ga[0] or "", gb[0])
+            tally(name, gm)
+            attribute("grid:", "M2b" if gm == "M2" else gm, i)
+        if b.get("meter_stress") != a.get("meter_stress") and "meter_stress" not in explained:
+            hit("meter_stress_changed", "meter_stress")
+            attribute("meter:", "other", i)
         mb = {tuple(x) for x in b.get("meter_refused") or []}
         ma = {tuple(x) for x in a.get("meter_refused") or []}
         if mb != ma:
             if ma - mb:
-                put("meter_refused_gained", i)
+                hit("meter_refused_gained", "meter_refused")
                 for t, c in ma - mb:
-                    tally("meter_refused_gained", f"{_mech(t, None)}/{c}")
+                    mm = _mech(t, None)
+                    tally("meter_refused_gained", f"{mm}/{c}")
+                    attribute("meter:", "M2b" if mm == "M2" else mm, i)
             if mb - ma:
-                put("meter_refused_lost", i)
-            hit = True
+                hit("meter_refused_lost", "meter_refused")
         db, da = b.get("declared"), a.get("declared")
         ub, ua = db is not None and not _resolved(db), da is not None and not _resolved(da)
         unresolved["before"] += ub; unresolved["after"] += ua
@@ -279,16 +326,24 @@ def _main():
         if ub and not ua:
             put("declared_newly_resolved", i)
         if db != da:
-            put("declared_changed", i); hit = True
+            hit("declared_changed", "declared")
         if b.get("voices") != a.get("voices"):
-            put("voices_changed", i); hit = True
-        if a.get("words_ne_tokens") and not b.get("words_ne_tokens"):
-            put("token_coordinate_disagreement_gained", i); hit = True
-        if not hit:
-            skip = {"id", "text", "phones", "oov", "tok", "declared"}
-            if any(b.get(k) != a.get(k) for k in set(b) | set(a) if k not in skip) or b.get("phones") != a.get("phones"):
-                put("unclassified", i)
+            hit("voices_changed", "voices")
+        if bool(a.get("words_ne_tokens")) != bool(b.get("words_ne_tokens")):
+            hit("token_coordinate_disagreement_" + ("gained" if a.get("words_ne_tokens") else "lost"), "words_ne_tokens")
+        # FIELD-LEVEL RESIDUAL: every recorded field that differs and that no
+        # class above explains, even on a line where another class did hit
+        differ = {k for k in set(b) | set(a) if k not in ("id", "text") and b.get(k) != a.get(k)}
+        left = differ - explained
+        if left:
+            put("unexplained_fields", i)
+            for k in left:
+                residual_fields[k] = residual_fields.get(k, 0) + 1
 
+    # fold the dash observations into one set BEFORE any count is taken
+    for k in ("switch:dash", "tok:dash"):
+        by_mech.setdefault("dash", set()).update(by_mech.get(k, set()))
+    by_mech.setdefault("M1", set()).update(by_mech.get("tok:M1", set()))
     cross = {}
     for m in _ALL:
         obs = by_mech.get(m, set())
@@ -296,11 +351,20 @@ def _main():
                     "projected_and_observed": len(obs & projected[m]),
                     "projected_not_observed": sorted(projected[m] - obs) if m in scope else len(projected[m] - obs),
                     "observed_not_projected": sorted(obs - projected[m])}
-    loose = ("other", "switch:other") + (() if "dash" in scope else ("dash", "switch:dash"))
-    if "dash" in scope:
-        by_mech.setdefault("dash", set()).update(by_mech.get("switch:dash", set()))
-    unpredicted = sorted(set().union(*(v for k, v in by_mech.items() if k in loose)))
-    out_of_scope = sorted(set().union(*(v for k, v in by_mech.items() if k in _ALL and k not in scope)))
+    cross["dash"]["observed_token_cut"] = len(by_mech.get("tok:dash", set()))
+    cross["dash"]["observed_refusal_or_switch"] = len(by_mech.get("dash", set()) - by_mech.get("tok:dash", set()))
+    secondary = ("stream:", "grid:", "meter:")
+    loose = {"other", "switch:other", "tok:other", "respell:other"} | {p + "other" for p in secondary}
+    if "dash" not in scope:
+        loose |= {"dash", "respell:dash"} | {p + "dash" for p in secondary}
+    if "M3" in scope:     # under M3 the secondary readers' deltas are raw, not shape-attributed
+        loose -= {p + "other" for p in secondary}
+    unpredicted = sorted(set().union(*(v for k, v in by_mech.items() if k in loose)) | cls.get("unexplained_fields", set()))
+    out_of_scope = sorted(set().union(*(v for k, v in by_mech.items()
+                                        if k.split(":")[-1] in _ALL and k.split(":")[-1] not in scope
+                                        and not k.startswith("switch:"))))
+    m3_raw = ({k: len(v) for k, v in sorted(cls.items()) if k.startswith(("stream_", "meter_", "grid_"))}
+              if "M3" in scope else None)
     rec = {
         "before": {k: hb.get(k) for k in ("commit", "tracked_changes", "fallback")},
         "after": {k: ha.get(k) for k in ("commit", "tracked_changes", "fallback")},
@@ -308,6 +372,9 @@ def _main():
         "projection": os.path.relpath(SWEEP, os.path.dirname(os.path.dirname(HERE))),
         "lines": {"joined": len(ids), "only_before": sorted(set(before) - set(after)), "only_after": sorted(set(after) - set(before))},
         "counts": {k: len(v) for k, v in sorted(cls.items())},
+        "unexplained_field_counts": residual_fields,
+        "secondary_reader_attribution": {k: len(v) for k, v in sorted(by_mech.items()) if k.startswith(("stream:", "grid:", "meter:", "tok:", "respell:"))},
+        "M3_raw_deltas": m3_raw,
         "declared_probe_unresolved_lines": unresolved,
         "by_shape": tallies,
         "projection_cross_tab": cross,

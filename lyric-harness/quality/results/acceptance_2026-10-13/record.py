@@ -142,7 +142,12 @@ def _record(ctx, lid, line):
     return rec
 
 
-def _header(lex, fallback, paths):
+def _fb(phon):
+    fb = getattr(phon, "fallback", None)
+    return getattr(fb, "min_confidence", fb)
+
+
+def _header(lex, fallback, paths, ctx):
     def git(*a):
         return subprocess.run(["git", *a], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     pop = hashlib.sha256()
@@ -159,6 +164,12 @@ def _header(lex, fallback, paths):
             "recorder_sha256": _sha(os.path.abspath(__file__)),
             "reader": type(lex).__name__, "supplement": {"version": "v2", "path": supp and os.path.relpath(supp, ROOT),
                                                          "sha256": supp and _sha(supp)},
+            # what each consumer actually reads with: the schema judge keeps its
+            # registered fallback while meter inherits the lexicon's (3PO)
+            "effective_fallback": {"anchor_and_transcribe": getattr(lex.g2p_fallback, "min_confidence", None),
+                                   "schema_stream": _fb(ctx["stream_phon"]), "meter_fit": _fb(ctx["fit_phon"])},
+            "reader_scheme": ({k: repr(v) for k, v in vars(lex).items() if "scheme" in k.lower()}
+                              | {k: repr(getattr(LH, k)) for k in dir(LH) if "READER" in k and "SCHEME" in k}) or None,
             "cmudict_sha256": _sha(LH.CMUDICT_PATH) if os.path.exists(getattr(LH, "CMUDICT_PATH", "")) else None, "fallback": fallback, "strip_parens": lex.strip_parens,
             "declarations": "none (the `declared` field pins its own, per line)",
             "split": os.path.relpath(SPLIT_PATH, ROOT), "split_sha256": _sha(SPLIT_PATH),
@@ -179,7 +190,7 @@ def _main():
     paths = sorted({p for g in POPULATIONS["song"] for p in glob.glob(os.path.join(ROOT, g), recursive=True)})
     n = errors = refused = 0
     with gzip.open(out, "wt", encoding="utf-8") as fh:
-        fh.write(json.dumps(_header(lex, fallback, paths), default=str) + "\n")
+        fh.write(json.dumps(_header(lex, fallback, paths, ctx), default=str) + "\n")
         for path in paths:
             rel = os.path.relpath(path, ROOT); ordinal = -1
             for _t, ls in items_of(path):
