@@ -77,7 +77,7 @@ It reads with `SupplementedLexicon(v2)` and no fallback. The output is in `reade
 
     python3 quality/results/scope_2026-10-12/selected_vs_moby.py data/moby/mpron.txt quality/results/scope_2026-10-12/selected_vs_moby.json
 
-`lex_vs_moby*.json` and `reader_disagree_dev.json` now record `commit` (and `mpron_sha256`, or the split file) too; they were regenerated at `dafbab2a` with only those fields added, every other field byte-for-byte as before. `selected_vs_moby.json` records `commit` `6bfbb726`, this PR's first commit, which it ran from. `4b14ff5b..6bfbb726` adds only this directory, `.prettierignore` and `map/files.md`. A rerun at a later head reproduces every field except `commit`.
+`lex_vs_moby*.json` and `reader_disagree_dev.json` now record `commit` (and `mpron_sha256`, or the split file) too; they were generated from a working tree at `dafbab2a` carrying the uncommitted script edits that write those fields, which were committed in `2ecf969f`. Only those fields were added; every other field is byte-for-byte as before. `selected_vs_moby.json` records `commit` `6bfbb726`, this PR's first commit, which it ran from. `4b14ff5b..6bfbb726` adds only this directory, `.prettierignore` and `map/files.md`. A rerun at a later head reproduces every field except `commit`.
 
 **Isolated readings, not contextual ones.** Each distinct dev spelling is read once, in isolation, by `transcribe_word` (`SupplementedLexicon(v2)`, no fallback), and that one reading is weighted by the spelling's occurrence count. It is not the sequence `transcribe(line)` returns in context: per-position weak-token stress demotion is not applied, and a spelling with several contextual readings gets one. The contextual line sequence is kept in the occurrence sidecar below for the occurrences it covers. **Denominators.** Three line populations appear in this receipt, and they differ: 227,538 lines with an anchor or grid endpoint (item 3; equal to the census's `end_grid.end_words`); 227,115 lines with an anchor endpoint (`end_anchor.end_words`); and 227,098 lines where `transcribe` keeps at least one token, whose last kept token is this table's "line end". A kept last token can already have lost a raw digit endpoint. **Exposure, not errors.** Counts per spelling are exposure counts, not adjudicated errors. The output is in `selected_vs_moby.json`. It ran in 31 s.
 
@@ -123,7 +123,7 @@ A field this pass cannot observe is `"UNAVAILABLE"`. No verdict is recorded.
 
     python3 quality/results/scope_2026-10-12/hyphen_end_classes.py quality/results/scope_2026-10-12/hyphen_end_classes.jsonl.gz
 
-The script reads `raw_final_token` on every dev line (227,115 anchor end lines) with `SupplementedLexicon(v2)` and no fallback. It records one JSON line per hyphenated end token, carrying a stable id `path#item:line`, under three selection definitions. Its docstring states each definition exactly.
+`hyphen_end_classes.jsonl.gz` records `commit` `2ecf969f`, the working tree it ran from; the script as run was committed in `cee919c6`, and a rerun at any later head reproduces every field except `commit`. The script reads `raw_final_token` on every dev line (227,115 anchor end lines) with `SupplementedLexicon(v2)` and no fallback. It records one JSON line per hyphenated end token, carrying a stable id `path#item:line`, under three selection definitions. Its docstring states each definition exactly.
 
 | definition | whole-token lookup succeeds (read whole today / not) | every piece reads | an earlier piece unread | last piece unread | total |
 |---|---|---|---|---|---|
