@@ -155,34 +155,53 @@ Physical identity is each token's character span in the harness's own tokenizer,
 
     python3 quality/results/acceptance_2026-10-13/slot_binding.py quality/results/acceptance_2026-10-13/slot_binding_fce4bf0f.json [HARNESS_ROOT]
 
-This is R2's 1b v2 blocker (PR #519, comment 6151243417): under `--voices`, the loop's `swap_at_slot` cut the line with asides stripped, while the grader binds the slot through the lexicon's aside rule. 3PO asked for it to be measured at the pinned head (PR #527, comment 6151284267). This version addresses 3PO's source review of the first one (comment 6151468403).
+This is R2's 1b v2 blocker (PR #519, comment 6151243417): under `--voices`, the loop's `swap_at_slot` cut the line with asides stripped, while the grader binds the slot through the lexicon's aside rule. 3PO asked for it to be measured at the pinned head (PR #527, comment 6151284267). This version addresses 3PO's source review (comment 6151468403) and an adversarial review, both described below.
 
-**What it compares.** The check covers every line with a parenthesised aside, in both aside modes, for the slots `end`, `head` and `T1` to `T8`. The spans are in the line **as the reader returns it**, which is not necessarily the untouched corpus file:
+**What it compares.** The check covers every line with a parenthesised aside, in both aside modes, for every slot: `end`, `endword`, `head`, `headrime` and `T1` to `T8`. The spans are in the line **as the reader returns it**, which is not necessarily the untouched corpus file:
 - **the word the slot names**;
 - **the word the grader binds.** `slots.resolve` is called, and its label is checked against the `word_syllable_map` token. A disagreement is `resolver_mismatch`, which makes the result CANNOT TELL;
-- **the span the loop replaced.** It is found by **exact reconstruction**: the line with one candidate span replaced by the marker, cased as the loop cases it, must equal what the loop returned. It is never found by a character diff, which would mislabel an edit like `zoom` → `zqzq`.
+- **the span the loop replaced.** It is found by **exact reconstruction**: the line with one candidate span replaced by a marker, cased as the loop cases it, must equal what the loop returned. The marker is chosen per line so that it occurs nowhere in that line. A returned line no single-span replacement explains is `wrong_word`, and one identical to the input is `no_op_edit`.
 
-**The gate, enforced by exit status.** Exit 0 is PASS, 1 is FAIL and 2 is CANNOT TELL.
-- **PASS** needs 0 `wrong_word`, 0 `grader_elsewhere` (the loop edits the named word but the grader binds another) and 0 `resolver_mismatch` in both modes. It also needs all 7 **required control edits** to agree. Those are no-aside lines where the loop must replace the bound word, so a loop that refuses everything cannot pass.
-- **Refusals never fail the gate,** and each kind is counted.
-- **CANNOT TELL** is returned if any production call of `swap_at_slot` (in `revise.py`, `loop.py` or `lyric_harness.py`, read with `ast`) passes arguments other than the three the tool uses. At main, all 4 call sites pass exactly `(text, slot, word)`.
+**The gate, enforced by exit status.** Exit 0 is PASS, 1 is FAIL, 2 is CANNOT TELL and 3 is ERROR (no verdict).
+- **PASS** needs 0 `wrong_word`, 0 `grader_elsewhere` (the loop edits the named word but the grader binds another), 0 `no_op_edit` and 0 `resolver_mismatch` in both modes.
+- **PASS also needs all 12 required control edits to agree in both modes.** These are no-aside lines covering `end`, `endword`, `head`, `headrime`, `T2` to `T5`, a capitalised head and an all-caps line. A loop that refuses everything fails them.
+- **Refusals never fail the gate.** A loop that refuses on every aside line passes, because the gate tests that edits land on the right word, not that the loop can edit aside lines. The `agree` counts show which one a head does.
+- **CANNOT TELL** is returned if production uses `swap_at_slot` in a way the tool doesn't replicate: other arguments, an alias, or any other reference (read with `ast` from `revise.py`, `loop.py` and `lyric_harness.py`). At main there are 4 call sites, all passing `(text, slot, word)`, and no other use.
 
-The output pins the tested commit and its tracked changes, the tool's and `loop.py`'s sha256, the lexicon (class, supplement version, path and sha256, CMUdict sha256, fallback), the population digests and the evaluated slot counts. Lines that `join_spaced_enclitics` changes are excluded and counted (78 line-modes), and those transformed inputs stay **untested** here.
+**Pins.** The output pins:
+- the tested commit, and its tracked changes. These are read before the output is written, leave out this folder, and are `None` outside a git checkout;
+- the sha256 of the tool and of `loop.py`;
+- the lexicon: class, supplement version, path and sha256, CMUdict sha256, fallback and reader scheme;
+- the population digests;
+- the evaluated slot counts.
 
-**Baseline at main.** The harness code is identical to `fce4bf0f`. There are 984 selected lines: 973 corpus lines and 11 synthetic.
+Lines that `join_spaced_enclitics` changes are excluded and counted (78 line-modes), and those transformed inputs stay **untested** here.
 
-| mode | evaluated | agree | agree, unbound | refused | refused, unbound | refused, grader elsewhere | no word, refused | wrong word |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| asides stripped (default) | 3,703 | 168 | 4 | 2,420 | 71 | 7 | 1,028 | **5** |
-| asides sung (`--voices`) | 8,138 | 173 | 4 | 7,675 | 270 | 16 | 0 | 0 |
+**Baseline at main `fce4bf0f`**, run against a clean worktree of that commit. There are 984 selected lines (973 corpus and 11 synthetic) and 11,340 evaluated slots per mode:
 
-The controls all pass, and the gate is **FAIL** because of the 5 wrong words.
-- **With voices on, main never edits a wrong word.** Every `head` and `T<n>` slot on an aside line refuses (`quality/loop.py:400-402`), so R2's bug is new in the 1b branch.
+| mode | agree | agree, unbound | refused | refused, unbound | refused, grader elsewhere | no word, refused | wrong word |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| asides stripped (default) | 168 | 4 | 3,255 | 76 | 29 | 7,803 | **5** |
+| asides sung (`--voices`) | 173 | 4 | 9,488 | 285 | 78 | 1,312 | 0 |
+
+All 24 control cases agree, and the gate is **FAIL** because of the 5 wrong words.
+- **With voices on, main never edits a wrong word.** Every `head`, `headrime`, `endword` and `T<n>` slot on an aside line refuses (`quality/loop.py:400-402`), so R2's bug is new in the 1b branch.
 - **Main's own wrong-word edit, in the default mode.** `swap_end_word` (`quality/loop.py:356-358`) checks that the last raw word has the same TEXT as the end word, but not the same POSITION. When a trailing aside repeats the end word, the copy inside the parentheses is edited, while the grader still reads the unchanged word:
   - `I love you (love you)` becomes `I love you (love zqzq)`;
   - `You said (Oh not in vain you said),` becomes `You said (Oh not in vain you zqzq),`.
 
   That is 3 corpus lines and 2 synthetic echo lines. Echoes in parentheses are common in modern lyrics, so this corpus count is not an estimate of real use.
+
+**How the check itself was reviewed.**
+- **3PO's source review of the first version** found four weaknesses: a character-diff edit locator, binding inferred without `slots.resolve`, argument injection, and an unenforced gate. All four are fixed above.
+- **An adversarial review** followed: three reviewers, each finding re-run by a skeptic. It fuzzed the edit locator on about 225,000 edits and the span builder on about 400,000 lines, and found no wrong span. An independent classifier agreed on all 19,040 population cases. It confirmed one gap, now fixed: `T<n>` slots past a line's word count had been skipped, so an edit where the slot names no word went unjudged. It also raised five lower-severity points, all now fixed:
+  - a marker that already occurs in the line;
+  - an edit that returns the line unchanged;
+  - a crash read as FAIL;
+  - the tool's own output marking the tree as changed;
+  - a non-git root pinned as clean.
+
+  Two "a broken loop passes" findings were refuted as defects, because those loops are correct on everything the gate covers. They led to the extra controls.
 
 ## The disputed dictionary rows
 

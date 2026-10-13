@@ -10,12 +10,13 @@ aside rule. A head or `T<n>` slot after an aside could then edit a different
 word from the one the grader binds.
 
 For every line with a parenthesised aside, in both aside modes (asides stripped,
-and asides sung as with `--voices`), and for the slots `end`, `head` and `T1`
-through `T8`, this compares three spans in the line as the reader returns it.
-That is reader-returned text (stripped, bracket-edited), NOT necessarily the
-untouched corpus file:
-- **named**: the word the slot names in that mode's cut. `end` is the last
-  token, `head` the first, and `T<n>` the n-th;
+and asides sung as with `--voices`), and for EVERY slot in `SLOTS` (`end`,
+`endword`, `head`, `headrime`, `T1` to `T8`), this compares three spans in the
+line as the reader returns it. That is reader-returned text (stripped,
+bracket-edited), NOT necessarily the untouched corpus file:
+- **named**: the word the slot names in that mode's cut. `end` and `endword`
+  are the last token, `head` and `headrime` the first, and `T<n>` the n-th. It
+  is None when the mode has no such word;
 - **bound**: the word the grader binds. `slots.resolve(lex, line, slot)` is
   called, and its label is checked against the token found through
   `word_syllable_map`'s own `widx` (the index `resolve` reads). If they
@@ -23,53 +24,62 @@ untouched corpus file:
   the gate is CANNOT TELL;
 - **edited**: the span `swap_at_slot` actually replaced. It is found by EXACT
   RECONSTRUCTION, never by diffing: the line with one candidate span replaced
-  by the marker, cased as the loop cases it, must equal the returned line.
+  by the marker, cased as the loop cases it, must equal the returned line. The
+  marker is chosen per line from `MARKS` so that it occurs nowhere in that line,
+  which keeps a correct edit and an edit that did nothing distinguishable.
   Candidates are every span of the harness tokenizer and of the loop's own
-  `_WORD_RE`. A returned line that no single-span replacement reproduces is
-  `wrong_word`.
+  `_WORD_RE`, when the measured head still has it. A returned line that no
+  single-span replacement reproduces is `wrong_word`. A returned line
+  identical to the input is `no_op_edit`.
 
 Outcomes:
 - `agree`: edited = named = bound;
 - `agree_unbound`: edited = named, and the grader binds nothing there, for
   example an unreadable word (replacing it is how a revision fixes it);
 - `grader_elsewhere`: edited = named, but the grader binds a different word.
-  FAILS the gate, because the revision target and the graded word differ;
-- `wrong_word`: the loop edits anything other than the named word, including
-  an edit on a line where the mode has no sung word. FAILS the gate;
+  FAILS the gate;
+- `wrong_word`: the loop edits anything other than the named word, including an
+  edit where the slot names no word in that mode. FAILS the gate;
+- `no_op_edit`: the loop returned the line unchanged as if it had edited it.
+  FAILS the gate;
 - `refused`, `refused_unbound`, `refused_grader_elsewhere`, `no_word_refused`:
   the loop declines. That never edits a wrong word, so it doesn't fail the
-  gate, but each is counted;
+  gate, but each is counted. A loop that refuses on every aside line passes
+  this gate: the gate tests that edits land on the right word, not that the
+  loop can edit aside lines. `agree` counts are reported so that's visible;
 - `resolver_mismatch`: see above.
 
-THE GATE (exit status 0 PASS, 1 FAIL, 2 CANNOT TELL):
-- PASS needs 0 `wrong_word`, 0 `grader_elsewhere` and 0 `resolver_mismatch`
-  in both modes, and every REQUIRED CONTROL edit agreeing. The controls are
-  lines with no aside, where the loop must edit the bound word in both modes,
-  so a loop that refuses everything cannot pass;
-- CANNOT TELL is returned when a production call of `swap_at_slot` passes
-  arguments this tool does not replicate. The tool calls it the way production
-  does, `swap_at_slot(text, slot, word)`, and it checks that by reading the
-  production call sites, never by injecting an argument production might not
-  pass.
+THE GATE (exit status 0 PASS, 1 FAIL, 2 CANNOT TELL, 3 ERROR):
+- PASS needs 0 `wrong_word`, 0 `grader_elsewhere`, 0 `no_op_edit` and 0
+  `resolver_mismatch` in both modes, and every REQUIRED CONTROL edit agreeing.
+  The controls are no-aside lines, including a capitalised head, an all-caps
+  line, `T5`, `endword` and `headrime`, where the loop must edit the bound word
+  in both modes. A loop that refuses everything fails them;
+- CANNOT TELL is returned on a resolver mismatch, or when production uses
+  `swap_at_slot` in a way this tool does not replicate. That covers a call with
+  arguments other than `(text, slot, word)`, a call under an alias, and any
+  other reference such as passing it on. The tool calls it the way production
+  does. Production call sites are read with `ast`, and no argument production
+  might not pass is ever injected;
+- ERROR (3) means no verdict: an import or run failure. It never reads as FAIL.
 
 Lines that `join_spaced_enclitics` changes are excluded and counted, because
 their token offsets would be in transformed text. Those inputs stay untested
 here.
 
-The header pins the tested commit and its tracked changes, the tool's own
-sha256, the lexicon (class, supplement version and files, CMUdict, fallback),
-the population digest and the evaluated slot counts.
+The output pins the tested commit and its tracked changes, the tool's own
+sha256, `loop.py`'s sha256, the lexicon (class, supplement version and files,
+CMUdict, fallback, reader scheme), the population digests and the evaluated
+slot counts. `tracked_changes` is read before the output is written, and it
+leaves out this tool's own folder, so re-running the documented command on a
+clean checkout stays clean. Both `commit` and `tracked_changes` are None when
+`HARNESS_ROOT` is not a git checkout.
 """
 import ast, copy, glob, hashlib, json, os, re, subprocess, sys
 
 ROOT = os.path.abspath(sys.argv[2] if len(sys.argv) > 2 else
                        os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
-sys.path.insert(0, ROOT)
-import lyric_harness as LH  # noqa: E402
-from quality import slots as SL  # noqa: E402
-from quality.coverage_census import build_lexicon  # noqa: E402
-from quality.loop import swap_at_slot  # noqa: E402
-from quality.loop import _WORD_RE as LOOP_WORD_RE  # noqa: E402
+HERE_REL = "quality/results/acceptance_2026-10-13"
 
 SYNTHETIC = [
     "(oh) love, love me do",
@@ -90,10 +100,13 @@ CONTROLS = [
     ("love, love me do", "end"), ("love, love me do", "head"), ("love, love me do", "T2"),
     ("hold me closer now", "T3"), ("the night and the day goes", "T4"),
     ("zoom, zoom away", "T2"), ("I love you", "end"),
+    ("the night and the day goes on", "T5"), ("Hold me now and hold me tight", "head"),
+    ("HOLD ME NOW", "T2"), ("love, love me do", "endword"), ("love, love me do", "headrime"),
 ]
-SLOTS = ["end", "head"] + [f"T{n}" for n in range(1, 9)]
-MARK = "zqzq"
+SLOTS = ["end", "endword", "head", "headrime"] + [f"T{n}" for n in range(1, 9)]
+MARKS = ("zqzq", "qxqx", "vzvz", "xjxj")
 PRODUCTION_FILES = ("quality/revise.py", "quality/loop.py", "lyric_harness.py")
+FAILING = ("wrong_word", "grader_elsewhere", "no_op_edit", "resolver_mismatch")
 
 
 def _sha(path):
@@ -101,12 +114,22 @@ def _sha(path):
         return hashlib.sha256(fh.read()).hexdigest()
 
 
-def _cased(old):
+def _git(*args):
+    r = subprocess.run(["git", "-C", ROOT, *args], capture_output=True, text=True)
+    return r.stdout.strip() if r.returncode == 0 else None
+
+
+def _mark(line):
+    low = line.lower()
+    return next(m for m in MARKS if m not in low)
+
+
+def _cased(old, mark):
     if old.isupper():
-        return MARK.upper()
+        return mark.upper()
     if old[:1].isupper():
-        return MARK.capitalize()
-    return MARK.lower()
+        return mark.capitalize()
+    return mark.lower()
 
 
 def _spans(line, strip):
@@ -124,9 +147,9 @@ def _spans(line, strip):
 def _named(slot, spans):
     if not spans:
         return None
-    if slot == "end":
+    if slot in ("end", "endword"):
         return spans[-1][1]
-    if slot == "head":
+    if slot in ("head", "headrime"):
         return spans[0][1]
     i = int(slot[1:]) - 1
     return spans[i][1] if i < len(spans) else None
@@ -147,42 +170,62 @@ def _bound(lex, line, slot, spans):
         span = spans[-1] if spans and spans[-1][0] == final else None
     else:
         widx = sorted({s["widx"] for s in LH.word_syllable_map(lex, line) if s.get("widx") is not None})
-        i = widx[0] if slot == "head" else int(slot[1:]) - 1
-        span = spans[i] if widx and i in widx and i < len(spans) else None
+        if not widx:
+            return "mismatch"
+        i = (widx[0] if slot in ("head", "headrime") else widx[-1] if slot == "endword"
+             else int(slot[1:]) - 1)
+        span = spans[i] if i in widx and i < len(spans) else None
     if span is None or _fold(span[0]) != _fold(label):
         return "mismatch"
     return span[1]
 
 
-def _edited(line, new):
+def _edited(line, new, mark):
     """-> the single span whose replacement reproduces `new` exactly, or None."""
-    cands = {m.span() for m in LH._TOKEN_RUN.finditer(line)} | {m.span() for m in LOOP_WORD_RE.finditer(line)}
-    hits = [(a, b) for a, b in sorted(cands) if line[:a] + _cased(line[a:b]) + line[b:] == new]
+    cands = {m.span() for m in LH._TOKEN_RUN.finditer(line)}
+    if LOOP_WORD_RE is not None:
+        cands |= {m.span() for m in LOOP_WORD_RE.finditer(line)}
+    hits = [(a, b) for a, b in sorted(cands) if line[:a] + _cased(line[a:b], mark) + line[b:] == new]
     return hits[0] if len(hits) == 1 else None
 
 
-def _production_calls():
-    """Every production call of swap_at_slot, with its argument shape."""
-    sites = []
+def _production_uses():
+    """Every production use of swap_at_slot: direct calls with their argument
+    shape, calls under an alias, and any other reference."""
+    calls, other = [], []
     for rel in PRODUCTION_FILES:
         path = os.path.join(ROOT, rel)
         if not os.path.exists(path):
             continue
         with open(path, encoding="utf-8") as fh:
             tree = ast.parse(fh.read())
+        aliases = {a.asname for n in ast.walk(tree) if isinstance(n, ast.ImportFrom)
+                   for a in n.names if a.name == "swap_at_slot" and a.asname}
+        call_funcs = set()
         for node in ast.walk(tree):
             if isinstance(node, ast.Call):
                 f = node.func
                 name = f.id if isinstance(f, ast.Name) else f.attr if isinstance(f, ast.Attribute) else None
-                if name == "swap_at_slot":
-                    sites.append({"file": rel, "line": node.lineno, "positional": len(node.args),
-                                  "keywords": sorted(k.arg or "**" for k in node.keywords)})
-    return sites
+                if name == "swap_at_slot" or name in aliases:
+                    call_funcs.add(id(f))
+                    calls.append({"file": rel, "line": node.lineno, "name": name, "positional": len(node.args),
+                                  "keywords": sorted(k.arg or "**" for k in node.keywords),
+                                  "starred": any(isinstance(a, ast.Starred) for a in node.args)})
+        for node in ast.walk(tree):
+            if isinstance(node, (ast.Name, ast.Attribute)) and id(node) not in call_funcs:
+                name = node.id if isinstance(node, ast.Name) else node.attr
+                if name == "swap_at_slot" or name in aliases:
+                    other.append({"file": rel, "line": node.lineno, "name": name})
+    odd = [c for c in calls if c["positional"] != 3 or c["keywords"] or c["starred"] or c["name"] != "swap_at_slot"]
+    return calls, odd, other
 
 
 def _classify(line, slot, lex, spans):
+    mark = _mark(line)
     named = _named(slot, spans)
-    new = swap_at_slot(line, SL.parse_slot(f"1.{slot}"), MARK)
+    new = swap_at_slot(line, SL.parse_slot(f"1.{slot}"), mark)
+    if new is not None and new == line:
+        return "no_op_edit", named, None, None, new
     if named is None:
         return ("no_word_refused" if new is None else "wrong_word"), None, None, None, new
     bound = _bound(lex, line, slot, spans)
@@ -191,7 +234,7 @@ def _classify(line, slot, lex, spans):
     if new is None:
         kind = "refused" if bound == named else "refused_unbound" if bound is None else "refused_grader_elsewhere"
         return kind, named, bound, None, new
-    edited = _edited(line, new)
+    edited = _edited(line, new, mark)
     if edited != tuple(named):
         return "wrong_word", named, bound, edited, new
     if bound is None:
@@ -201,6 +244,9 @@ def _classify(line, slot, lex, spans):
 
 def main():
     out = sys.argv[1]
+    commit = _git("rev-parse", "HEAD")
+    status = _git("status", "--porcelain", "--untracked-files=no", "--", ".", f":(exclude){HERE_REL}")
+    dirty = None if status is None or commit is None else bool(status)
     base = build_lexicon("v2", "none")
     sung = copy.copy(base)
     sung.strip_parens = False
@@ -220,12 +266,10 @@ def main():
                 excluded["spaced_enclitic_or_folded" if spans is None else "spans_not_reproduced"] += 1
                 continue
             for slot in SLOTS:
-                if slot.startswith("T") and int(slot[1:]) > len(spans):
-                    continue
                 kind, named, bound, edited, new = _classify(line, slot, lex, spans)
                 evaluated[mode] += 1
                 tally[mode][kind] = tally[mode].get(kind, 0) + 1
-                if kind in ("wrong_word", "grader_elsewhere", "resolver_mismatch"):
+                if kind in FAILING:
                     cases.append({"kind": kind, "source": source, "line": line, "mode": mode, "slot": slot,
                                   "named": list(named) if named else None,
                                   "bound": list(bound) if bound else None,
@@ -236,23 +280,15 @@ def main():
             spans = _spans(line, lex.strip_parens)
             kind = _classify(line, slot, lex, spans)[0] if spans else "unmapped"
             controls.append({"line": line, "slot": slot, "mode": mode, "kind": kind})
-    calls = _production_calls()
-    odd = [c for c in calls if c["positional"] != 3 or c["keywords"]]
-    failing = {m: {k: tally[m].get(k, 0) for k in ("wrong_word", "grader_elsewhere", "resolver_mismatch")}
-               for m in lexes}
+    calls, odd, other = _production_uses()
+    failing = {m: {k: tally[m].get(k, 0) for k in FAILING} for m in lexes}
     controls_failed = [c for c in controls if c["kind"] != "agree"]
-    if odd or any(failing[m]["resolver_mismatch"] for m in lexes):
+    if odd or other or any(failing[m]["resolver_mismatch"] for m in lexes):
         gate = "CANNOT TELL"
-    elif any(failing[m]["wrong_word"] or failing[m]["grader_elsewhere"] for m in lexes) or controls_failed:
+    elif any(failing[m][k] for m in lexes for k in FAILING) or controls_failed:
         gate = "FAIL"
     else:
         gate = "PASS"
-    try:
-        commit = subprocess.run(["git", "-C", ROOT, "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
-        dirty = bool(subprocess.run(["git", "-C", ROOT, "status", "--porcelain", "--untracked-files=no"],
-                                    capture_output=True, text=True).stdout.strip())
-    except OSError:
-        commit, dirty = None, None
     supp = getattr(base, "supplement_path", None)
     rec = {
         "gate": gate,
@@ -260,6 +296,7 @@ def main():
             "commit": commit, "tracked_changes": dirty, "harness_root": ROOT,
             "tool_sha256": _sha(os.path.abspath(__file__)),
             "loop_sha256": _sha(os.path.join(ROOT, "quality", "loop.py")),
+            "loop_word_re": LOOP_WORD_RE is not None,
             "lexicon": {"class": type(base).__name__,
                         "supplement": {"version": "v2", "path": supp and os.path.relpath(supp, ROOT),
                                        "sha256": supp and _sha(supp)},
@@ -273,9 +310,9 @@ def main():
                            "corpus_sha256": hashlib.sha256("\n".join(corpus).encode()).hexdigest(),
                            "synthetic_sha256": hashlib.sha256("\n".join(SYNTHETIC).encode()).hexdigest(),
                            "controls": len(CONTROLS)},
-            "slots": SLOTS,
+            "slots": SLOTS, "marks": MARKS,
         },
-        "production_calls": calls, "production_calls_not_replicated": odd,
+        "production_calls": calls, "production_uses_not_replicated": {"calls": odd, "other_references": other},
         "excluded_line_modes": excluded, "evaluated_slots": evaluated,
         "outcomes": tally, "failing": failing,
         "controls": controls, "controls_failed": controls_failed,
@@ -285,11 +322,25 @@ def main():
         json.dump(rec, fh, indent=1, ensure_ascii=False)
         fh.write("\n")
     print(json.dumps({k: rec[k] for k in ("gate", "excluded_line_modes", "evaluated_slots", "outcomes",
-                                          "production_calls_not_replicated")}
+                                          "production_uses_not_replicated")}
                      | {"controls_failed": len(controls_failed),
                         "selected_lines": rec["pins"]["population"]["selected_lines"]}, indent=1))
-    sys.exit({"PASS": 0, "FAIL": 1, "CANNOT TELL": 2}[gate])
+    return {"PASS": 0, "FAIL": 1, "CANNOT TELL": 2}[gate]
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        sys.path.insert(0, ROOT)
+        import lyric_harness as LH  # noqa: E402
+        from quality import slots as SL  # noqa: E402
+        from quality.coverage_census import build_lexicon  # noqa: E402
+        from quality.loop import swap_at_slot  # noqa: E402
+        try:
+            from quality.loop import _WORD_RE as LOOP_WORD_RE  # noqa: E402
+        except ImportError:
+            LOOP_WORD_RE = None
+        code = main()
+    except Exception as exc:  # noqa: BLE001 -- no verdict is never a FAIL
+        print(f"ERROR (no verdict): {type(exc).__name__}: {exc}", file=sys.stderr)
+        code = 3
+    sys.exit(code)

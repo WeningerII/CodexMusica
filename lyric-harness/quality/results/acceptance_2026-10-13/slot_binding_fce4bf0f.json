@@ -1,11 +1,12 @@
 {
  "gate": "FAIL",
  "pins": {
-  "commit": "773f8ee998df38084e2f8cac7c6d32ec519a2f90",
-  "tracked_changes": true,
-  "harness_root": "/home/user/CodexMusica/lyric-harness",
-  "tool_sha256": "f419d853f71f78f2a006d864c41d853efafbf40914a5d124a7d498fad7f17a80",
+  "commit": "fce4bf0f1b4b274d1c44c67831a6e40b22a8802c",
+  "tracked_changes": false,
+  "harness_root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness",
+  "tool_sha256": "deb55766618befb81a237fbd2e92385f346ba48e0478314ed2ac2bf6ac2a3d58",
   "loop_sha256": "1b8ebc8d0a6ff7eb72f3afe5961a36184b0f839e5c7cfbbae8321b2cf30e90d7",
+  "loop_word_re": true,
   "lexicon": {
    "class": "SupplementedLexicon",
    "supplement": {
@@ -23,11 +24,13 @@
    "selected_lines": 984,
    "corpus_sha256": "0b3edaa9934a50137ca5b029ae3b83df82ca3a7a5470ef974481192384a804a6",
    "synthetic_sha256": "d633071066177a58c717e2812a0099dc576fddbb43a43d163138d6040c7a3931",
-   "controls": 7
+   "controls": 12
   },
   "slots": [
    "end",
+   "endword",
    "head",
+   "headrime",
    "T1",
    "T2",
    "T3",
@@ -36,58 +39,76 @@
    "T6",
    "T7",
    "T8"
+  ],
+  "marks": [
+   "zqzq",
+   "qxqx",
+   "vzvz",
+   "xjxj"
   ]
  },
  "production_calls": [
   {
    "file": "quality/revise.py",
    "line": 4479,
+   "name": "swap_at_slot",
    "positional": 3,
-   "keywords": []
+   "keywords": [],
+   "starred": false
   },
   {
    "file": "quality/revise.py",
    "line": 4522,
+   "name": "swap_at_slot",
    "positional": 3,
-   "keywords": []
+   "keywords": [],
+   "starred": false
   },
   {
    "file": "quality/loop.py",
    "line": 573,
+   "name": "swap_at_slot",
    "positional": 3,
-   "keywords": []
+   "keywords": [],
+   "starred": false
   },
   {
    "file": "quality/loop.py",
    "line": 608,
+   "name": "swap_at_slot",
    "positional": 3,
-   "keywords": []
+   "keywords": [],
+   "starred": false
   }
  ],
- "production_calls_not_replicated": [],
+ "production_uses_not_replicated": {
+  "calls": [],
+  "other_references": []
+ },
  "excluded_line_modes": {
   "spaced_enclitic_or_folded": 78,
   "spans_not_reproduced": 0
  },
  "evaluated_slots": {
-  "asides_stripped": 3703,
-  "asides_sung": 8138
+  "asides_stripped": 11340,
+  "asides_sung": 11340
  },
  "outcomes": {
   "asides_stripped": {
    "agree": 168,
-   "refused": 2420,
+   "refused": 3255,
+   "no_word_refused": 7803,
    "wrong_word": 5,
-   "no_word_refused": 1028,
-   "refused_grader_elsewhere": 7,
-   "refused_unbound": 71,
+   "refused_grader_elsewhere": 29,
+   "refused_unbound": 76,
    "agree_unbound": 4
   },
   "asides_sung": {
    "agree": 173,
-   "refused": 7675,
-   "refused_unbound": 270,
-   "refused_grader_elsewhere": 16,
+   "refused": 9488,
+   "no_word_refused": 1312,
+   "refused_unbound": 285,
+   "refused_grader_elsewhere": 78,
    "agree_unbound": 4
   }
  },
@@ -95,11 +116,13 @@
   "asides_stripped": {
    "wrong_word": 5,
    "grader_elsewhere": 0,
+   "no_op_edit": 0,
    "resolver_mismatch": 0
   },
   "asides_sung": {
    "wrong_word": 0,
    "grader_elsewhere": 0,
+   "no_op_edit": 0,
    "resolver_mismatch": 0
   }
  },
@@ -185,6 +208,66 @@
   {
    "line": "I love you",
    "slot": "end",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
    "mode": "asides_sung",
    "kind": "agree"
   }
