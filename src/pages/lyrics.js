@@ -1,5 +1,5 @@
 /* exported uiLyricsWaiting, lyDraftForWriter */
-/* global $ui, UI, UILayout, CHAT_BACKEND, CHAT_STORAGE_KEY, CMLibraryImport, CMLyricTokens, _chatPersistedState, _chatPollStop, _chatSave, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, esc, execCopyFallback, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiChatSessions, uiCount, uiDownload, uiEmptyState, uiExport, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt */
+/* global $ui, UI, UILayout, CHAT_BACKEND, CHAT_STORAGE_KEY, CMLibraryImport, CMLyricTokens, _chatPersistedState, _chatPollStop, _chatSave, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, esc, execCopyFallback, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiChatSessions, uiCount, uiDownload, uiEmptyState, uiExport, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt, sessionSnapshot */
 /* Lyrics page. Owned by the Lyrics page worker; see docs/ui-foundation.md.
 
    THE DRAFT IS THE ONE SOURCE OF TRUTH. Everything this page shows is read
@@ -85,6 +85,118 @@ function lyWordSpans(text, voices) {
   }
   if (last < text.length) out.push({ gap: text.slice(last) });
   return out;
+}
+// ── Saved readings from before the reader's v2 cut ─────────────────────────
+// A [SETUP — reading — token N …] row names a word by its number, and a draft
+// saved before this release numbered its words under the page's earlier cut.
+// The draft-level marker (`tokenScheme` in the page context, app.lyricMeta)
+// says a draft's numbers are the current cut's; a draft without it is
+// pre-release and its readings are rebound ONCE, by span identity: the old
+// cut's occurrence becomes the current token covering exactly the same
+// characters. A row with no such token, or whose old number no longer names
+// its own word, is never dropped and never rebound to another occurrence: it
+// is flagged in the text as needing the writer's decision, shown as an input,
+// and the draft is not sent to the writer until it is decided.
+const LY_TOKEN_SCHEME = CMLyricTokens.SCHEME;
+const LY_READING_UNDECIDED = 'needs a decision: numbered under the earlier word cut';
+// MIGRATION ONLY: the page's pre-release word cut, verbatim (its LY_TOKEN and
+// lyTokens before reader scheme v2). Nothing but the rebinding reads it.
+const LY_V1_MIGRATION_LETTER = /[A-Za-zÀ-ɏḀ-ỿ]/;
+const LY_V1_MIGRATION_TOKEN = /(?:[A-Za-zÀ-ɏḀ-ỿ]|['-])+/g;
+function lyV1MigrationTokens(text, voices = false) {
+  let t = String(text).replace(/[’‘]/g, "'");
+  if (!voices) t = t.replace(/\([^)]*\)/g, ' ');
+  return (t.match(LY_V1_MIGRATION_TOKEN) || []).filter((w) => LY_V1_MIGRATION_LETTER.test(w));
+}
+// The same cut located in the line: [{ text, from, to }] in UTF-16 offsets,
+// with a stripped aside blanked to its own length, or null when that does not
+// reproduce lyV1MigrationTokens exactly.
+function lyV1MigrationSpans(text, voices = false) {
+  let t = String(text).replace(/[’‘]/g, "'");
+  if (!voices) t = t.replace(/\([^)]*\)/g, (m) => ' '.repeat(m.length));
+  const out = [];
+  for (const m of t.matchAll(LY_V1_MIGRATION_TOKEN))
+    if (LY_V1_MIGRATION_LETTER.test(m[0]))
+      out.push({ text: m[0], from: m.index, to: m.index + m[0].length });
+  const want = lyV1MigrationTokens(text, voices);
+  return out.length === want.length && out.every((x, k) => x.text === want[k]) ? out : null;
+}
+// One saved reading -> { token, word } under the current cut, or { blocked }.
+function lyRebindReading(r, voices) {
+  const old = lyV1MigrationSpans(r.line, voices);
+  const src = old && old[r.token - 1];
+  if (!src || src.text !== r.word)
+    return { blocked: `its old number no longer names “${r.word}” in that line` };
+  const hits = CMLyricTokens.readerLine(String(r.line), { stripParens: !voices })
+    .tokens.map((t, k) => ({ t, k }))
+    .filter(
+      ({ t }) => t.pieces.length === 1 && t.pieces[0][0] === src.from && t.pieces[0][1] === src.to
+    );
+  if (hits.length !== 1 || hits[0].t.text !== src.text)
+    return {
+      blocked: `no word of the current cut covers exactly the characters “${src.text}” covered`,
+    };
+  return { token: hits[0].k + 1, word: hits[0].t.text };
+}
+// A pre-release draft's text with every reading rebound or flagged:
+// -> { text, rebound, blocked: [{ i, word, line, reason }] }. Pure.
+function lyMigrateSavedReadings(text) {
+  const model = lyParse(text);
+  const rows = model.text.split('\n');
+  const out = { text: model.text, rebound: 0, blocked: [] };
+  for (const r of lySetupOf(model, 'reading')) {
+    if (r.malformed || r.undecided) continue;
+    const got = lyRebindReading(r, model.voices);
+    if (got.blocked) {
+      rows[r.i] = r.raw.replace(/\]$/, `${LY_DASH}${LY_READING_UNDECIDED}]`);
+      out.blocked.push({ i: r.i, word: r.word, line: r.line, reason: got.blocked });
+    } else if (got.token !== r.token || got.word !== r.word) {
+      rows[r.i] = r.raw.replace(
+        /^(\[SETUP\s+—\s+reading\s+—\s+)token \d+ "(?:[^"\\]|\\.)*"/i,
+        (_, head) => `${head}token ${got.token} ${lyQuote(got.word)}`
+      );
+      out.rebound++;
+    }
+  }
+  out.text = rows.join('\n');
+  return out;
+}
+// The page's readings are numbered under the current cut from here on: a
+// draft without the marker is migrated, then marked. -> true when the text
+// changed. The migration replaces the current Undo step rather than adding
+// one, so Undo never returns to numbers read under the earlier cut.
+function lyEnsureTokenScheme() {
+  const meta = lyMeta();
+  if (meta.tokenScheme === LY_TOKEN_SCHEME) return false;
+  const draft = lyDraft();
+  const before = draft.value;
+  const done = lyMigrateSavedReadings(before);
+  meta.tokenScheme = LY_TOKEN_SCHEME;
+  if (done.text === before) {
+    uiAutosave();
+    return false;
+  }
+  draft.value = done.text;
+  uiSaveLyrics();
+  if (Array.isArray(app.history) && app.history[app.historyIndex] !== undefined)
+    app.history[app.historyIndex] = JSON.stringify(sessionSnapshot());
+  if (done.blocked.length)
+    showToast(
+      `${uiCount(done.blocked.length, 'saved reading')} from before this release ${done.blocked.length === 1 ? 'needs' : 'need'} your decision before the writer can be asked.`,
+      'error'
+    );
+  return true;
+}
+const lyUndecidedReadings = (model) => lySetupOf(model, 'reading').filter((r) => r.undecided);
+// The message every send path stops on while a saved reading is undecided.
+function lyUndecidedRefusal(model) {
+  const open = lyUndecidedReadings(model);
+  if (!open.length) return '';
+  return `Nothing was sent. ${uiCount(open.length, 'reading')} saved before this release (${open
+    .map((r) => `“${r.word}”`)
+    .join(
+      ', '
+    )}) could not be matched to a word of the current text. Choose each reading again, or remove it, in Review.`;
 }
 const lyNorm = (s) => lyTokens(s, true).map((w) => w.toLowerCase().replace(/’/g, "'"));
 const lyCap = (s) => (s === s.toUpperCase() ? s.charAt(0) + s.slice(1).toLowerCase() : s);
@@ -196,7 +308,8 @@ function lyParseSetup(raw) {
       const rest = (m[4] || '').split(/\s+—\s+/).map((s) => s.trim());
       item.state = 'choice';
       for (const r of rest) {
-        if (/^needs a (dictionary )?choice$/i.test(r)) item.state = 'choice';
+        if (r.toLowerCase() === LY_READING_UNDECIDED) item.undecided = true;
+        else if (/^needs a (dictionary )?choice$/i.test(r)) item.state = 'choice';
         else if (/^uncertain$/i.test(r)) item.state = 'uncertain';
         else if (/^(dictionary|declared)$/i.test(r)) item.basis = r.toLowerCase();
         else if (/^source:\s*/i.test(r)) item.source = r.replace(/^source:\s*/i, '');
@@ -594,7 +707,14 @@ function lyDeclarationsOf(model) {
     .flatMap((x) => lyParsePlacement(x.value))
     .filter((r) => !r.bad);
   if (placed.length) d.line_placement = placed; // declared blueprint lines: bar, beat, duration in beats
-  const readings = lySetupOf(model, 'reading').filter((r) => !r.malformed);
+  const all = lySetupOf(model, 'reading').filter((r) => !r.malformed);
+  const readings = all.filter((r) => !r.undecided);
+  // A reading saved before this release that could not be rebound is never
+  // left out as if absent: it travels as undecided (and the send paths stop).
+  const undecided = all
+    .filter((r) => r.undecided)
+    .map((r) => ({ line: r.line, saved_token: r.token, word: r.word }));
+  if (undecided.length) d.readings_need_decision = undecided;
   const chosen = readings
     .filter((r) => r.state === 'declared')
     .map((r) => ({
@@ -693,6 +813,23 @@ function lyLocalChecks(model) {
   }
   // Readings bound to exact line text.
   for (const r of lySetupOf(model, 'reading')) {
+    if (r.undecided) {
+      const lines = model.sung.filter((x) => x.text === r.line).map((x) => x.n);
+      add({
+        id: `reading:${r.i}`,
+        tone: 'input',
+        category: 'Pronunciation',
+        title: `The reading for “${r.word}” saved before this release needs your decision`,
+        where: lines.length ? lyLineRef(lines) : 'No matching line',
+        lines,
+        text: 'It was numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.',
+        actions: [
+          ['ly-tool', 'Choose again', 'message-circle', 'pronunciation'],
+          ['ly-remove-setup', 'Remove it', 'trash-2', r.i],
+        ],
+      });
+      continue;
+    }
     if (r.malformed) {
       add({
         id: `reading:${r.i}`,
@@ -2517,7 +2654,7 @@ const LY_FORMS = {
         errors.kind = 'This line contains “]”, which a setup line cannot hold.';
       if (Object.keys(errors).length) return { errors };
       const others = lySetupOf(model, 'reading')
-        .filter((r) => !(r.line === line && r.token === token))
+        .filter((r) => r.undecided || !(r.line === line && r.token === token))
         .map((r) => r.value);
       const lines = model.sung.filter((r) => r.text === line).map((r) => r.n);
       return {
@@ -3448,7 +3585,8 @@ function lyRhymeResults() {
 
 // ── Pronunciation ─────────────────────────────────────────────────────────
 function lyToolPronunciation(model) {
-  const readings = lySetupOf(model, 'reading');
+  // An undecided saved reading binds no word until it is chosen again.
+  const readings = lySetupOf(model, 'reading').filter((r) => !r.undecided);
   const line = LY.activeLine || LY.picks.readingLine || model.sung[0]?.n || 0;
   const row = model.sung[line - 1];
   const toks = row ? lyTokens(row.text, model.voices) : [];
@@ -3847,6 +3985,7 @@ function lyRefresh(now = false) {
   clearTimeout(lyTimer);
   const draft = lyDraft();
   if (!draft) return;
+  lyEnsureTokenScheme();
   if (draft.value !== LY.text) {
     const prev = LY.model;
     const next = lyParse(draft.value);
@@ -4092,7 +4231,14 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
     showToast('Writer is working. You can keep editing.', 'error');
     return false;
   }
+  lyEnsureTokenScheme();
   const model = (LY.model = lyParse(lyDraft().value));
+  const undecided = kind === 'answer' || kind === 'resume' ? '' : lyUndecidedRefusal(model);
+  if (undecided) {
+    showToast(undecided, 'error');
+    lyShowTab('review');
+    return false;
+  }
   if (kind === 'answer' || kind === 'resume') {
     if (!uiSwitchChat('lyrics')) return false;
     const r = await _chatSend(
@@ -4170,7 +4316,11 @@ async function lyStartConversation(choice, prefill = '') {
 if (typeof window !== 'undefined')
   window.uiLyricContext = (choice) => {
     if (!LY.model) return null;
+    lyEnsureTokenScheme();
     const model = lyParse(lyDraft().value);
+    // The draft goes with an edit; a saved reading still undecided stops it.
+    const undecided = choice === 'lyrics-edit' ? lyUndecidedRefusal(model) : '';
+    if (undecided) return { blocked: undecided };
     return lyContext(model, { document: choice === 'lyrics-edit' });
   };
 async function lyRetrieve(id) {
