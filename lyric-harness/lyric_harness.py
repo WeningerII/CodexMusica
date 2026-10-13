@@ -8350,7 +8350,7 @@ def _recorded_reader_scheme(args):
     if spec.startswith("defer:"):
         if not isinstance(st.get("answered"), dict):
             return None
-        scheme = _defer_record_scheme(st)
+        scheme = _defer_record_scheme(st, recorded=True)
     else:
         # A checkpoint, or a replay file (a finished state's `answered`
         # block): one without the field predates it.
@@ -8358,19 +8358,24 @@ def _recorded_reader_scheme(args):
     return scheme if scheme in READER_SCHEMES else None
 
 
-def _defer_record_scheme(st):
-    """-> the reader scheme a deferred-run state records, or None when the
-    state records no run (the empty template `_defer_state` answers for a
-    missing file). A state is a record when it holds an answer, a pending
-    question, a completion marker (a finished run -- one that converged
-    without asking anything holds only that) or the scheme itself; a record
-    without the field predates it and was cut under `v1`. The value is not
-    checked here (`_defer_proposer` refuses an unknown one)."""
-    answered = st.get("answered") or {}
-    if (answered.get("propose") or answered.get("propose_group")
-            or st.get("pending") or "complete" in st or "reader_scheme" in st):
-        return st.get("reader_scheme", "v1")
-    return None
+def _defer_record_scheme(st, recorded):
+    """-> the reader scheme a deferred-run state records, or None when there
+    is no record: `recorded` is False only for the empty template
+    `_defer_state` answers for a missing file, which is new work.
+
+    EVERY STATE FILE IS A RECORD. This build writes `reader_scheme` into
+    every state it creates (`_defer_proposer`, before any write), so a state
+    file without the field was written by the pre-batch harness and was cut
+    under `v1` -- whatever else it holds. That includes the states that hold
+    no answer, no pending question and no completion marker: the safe-point
+    stop (status `stopped`, exit 5, written whenever the call has a
+    deadline) and the mid-run saves (`started`, `grading`, `resumed`, with
+    or without a saved position). Reading those by their content instead
+    resumed a pre-batch run under `v2`. The value is not checked here
+    (`_defer_proposer` refuses an unknown one)."""
+    if not recorded:
+        return None
+    return st.get("reader_scheme", "v1")
 
 
 def _defer_proposer(path, lines=None):
@@ -8438,7 +8443,7 @@ def _defer_proposer(path, lines=None):
     # mismatch is an explicit `--reader-scheme` naming the other one, and it
     # refuses. The state keeps the scheme the run started under.
     _here_scheme = resolve_reader_scheme(None)
-    _run_scheme = _defer_record_scheme(st)
+    _run_scheme = _defer_record_scheme(st, recorded=os.path.exists(path))
     if _run_scheme not in (None,) + READER_SCHEMES:
         _refuse(f"--propose=defer:{path} — recorded reader scheme {_run_scheme!r} "
                 f"is not one this build reads ({', '.join(READER_SCHEMES)})")

@@ -633,9 +633,13 @@ class LegacyReplay(unittest.TestCase):
         self.assertIsNone(LH._recorded_reader_scheme(["revise", "f.txt"]))
         self.assertIsNone(LH._recorded_reader_scheme(
             ["revise", "f.txt", "--propose=defer:/nonexistent/state.json"]))
-        fresh = self._state({"version": 1, "answered": {"propose": [], "propose_group": []},
-                             "pending": None})
-        self.assertIsNone(LH._recorded_reader_scheme(["revise", "--propose=defer:" + fresh]))
+        # A state FILE is always a record: this build writes the field into
+        # every state it creates, so one without it -- even one with no
+        # answer, no pending question and no completion marker, like a
+        # pre-batch safe-point stop or mid-run save -- predates the field.
+        bare = self._state({"version": 1, "answered": {"propose": [], "propose_group": []},
+                            "pending": None})
+        self.assertEqual(LH._recorded_reader_scheme(["revise", "--propose=defer:" + bare]), "v1")
         legacy = self._state(resumed)
         self.assertEqual(LH._recorded_reader_scheme(["revise", "--propose=defer:" + legacy]), "v1")
         self.assertEqual(LH._recorded_reader_scheme(["revise", "--propose", "defer:" + legacy]), "v1")
@@ -677,6 +681,64 @@ class LegacyReplay(unittest.TestCase):
                 os.environ.pop("LYRIC_CHECKPOINT_PATH", None)
             else:
                 os.environ["LYRIC_CHECKPOINT_PATH"] = old
+
+    def test_pre_batch_states_without_an_answer_resume_as_v1(self):
+        # Real states the PRE-BATCH harness wrote (fixtures/
+        # reader_v1_defer_states.json, captured on fce4bf0f by
+        # capture_reader_v1_defer_states.py): the safe-point stop a call with
+        # a deadline writes (`stopped`), and the mid-run saves (`started`,
+        # and `grading` with a saved position). None holds an answer, a
+        # pending question or a completion marker. Resumed through the CLI
+        # with no flag, each reads as v1, keeps v1 in the state it writes
+        # back, and reproduces what the pre-batch harness printed resuming
+        # the same state -- up to the scheme field and the saved position,
+        # which this build's scorer does not trust: it replays from round 1,
+        # so the pre-batch record it matches is the resume without the
+        # position (`replay_*`).
+        fx = json.loads((HERE / "fixtures" / "reader_v1_defer_states.json")
+                        .read_text(encoding="utf-8"))
+        env = {k: v for k, v in os.environ.items()
+               if k not in ("LYRIC_CONTROL_TOKEN", "LYRIC_REQUEST_DEADLINE_MS",
+                            "LYRIC_CHECKPOINT_PATH")}
+
+        def strip(rec):
+            return {k: v for k, v in rec.items()
+                    if k not in ("reader_scheme", "cursor") and not k.startswith("cursor_")}
+
+        def norm(stdout):
+            out = []
+            for line in stdout.splitlines():
+                for tag in ("  lyric result: ", "  lyric checkpoint: "):
+                    if line.startswith(tag):
+                        out.append((tag, strip(json.loads(line[len(tag):]))))
+                        break
+                else:
+                    out.append(line)
+            return out
+        self.assertEqual([r["name"] for r in fx["states"]],
+                         ["stopped", "started", "grading+cursor"])
+        for rec in fx["states"]:
+            work = Path(tempfile.mkdtemp())
+            self.addCleanup(__import__("shutil").rmtree, work, True)
+            (work / "draft.txt").write_text("\n".join(fx["draft"]) + "\n", encoding="utf-8")
+            state = work / "state.json"
+            state.write_text(rec["state"], encoding="utf-8")
+            self.assertNotIn("reader_scheme", json.loads(rec["state"]))
+            self.assertEqual(LH._recorded_reader_scheme(
+                [a.replace("<WORK>", str(work)) for a in fx["verb"]]), "v1")
+            r = subprocess.run([sys.executable, str(ROOT / "lyric_harness.py"),
+                                *[a.replace("<WORK>", str(work)) for a in fx["verb"]]],
+                               capture_output=True, text=True, env=env, cwd=ROOT, timeout=900)
+            with self.subTest(state=rec["name"]):
+                self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
+                got = norm(r.stdout.replace(str(work), "<WORK>"))
+                self.assertEqual(got, norm(rec["replay_stdout"]))
+                self.assertIn('"reader_scheme":"v1"', r.stdout)
+                self.assertNotIn('"reader_scheme":"v2"', r.stdout)
+                written = json.loads(state.read_text(encoding="utf-8"))
+                self.assertEqual(written["reader_scheme"], "v1")
+                self.assertNotIn("reader_scheme", written["answered"])
+                self.assertEqual(strip(written), strip(json.loads(rec["replay_written"])))
 
     def test_an_explicit_other_scheme_refuses_to_resume(self):
         import contextlib
