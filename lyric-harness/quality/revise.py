@@ -4494,13 +4494,20 @@ class Reviser:
 
     # -- the brief --------------------------------------------------------
 
+    def _splice(self, text, slot, word):
+        """-> `text` with `word` spliced in at `slot` under this lexicon's
+        cut (its reader scheme and its aside rule, the coordinate `grade()`
+        resolves the slot in), or None where the loop has no such move."""
+        from quality.loop import swap_at_slot
+        import lyric_harness as _LH
+        return swap_at_slot(text, slot, word, scheme=_LH._scheme_of(self.lex),
+                            strip_parens=getattr(self.lex, "strip_parens", True))
+
     def _anchors_at(self, text, slot, word):
         """-> bool. Whether `word`, spliced in at `slot`, gives the grade an
         anchor there: the test `grade()`'s `_anchorless` applies, asked of
         the line the writer would hand back."""
-        from quality.loop import swap_at_slot
-        import lyric_harness as _LH
-        trial = swap_at_slot(text, slot, word, scheme=_LH._scheme_of(self.lex))
+        trial = self._splice(text, slot, word)
         if trial is None:
             return False
         anc, label, _ = _SL.resolve(self.lex, trial, slot)
@@ -4520,7 +4527,6 @@ class Reviser:
         may be introduced. Omission requests every incident pair as before.
         The finite input is a suggestion pool, not an impossibility proof.
         """
-        from quality.loop import swap_at_slot
         requested = set(group_indices)
         relevant = set(requested)
         ret = m.return_of(line)
@@ -4543,8 +4549,7 @@ class Reviser:
         baseline_bad = baseline_unknown = moot = None
         kept, refused = [], []
         for word in dict.fromkeys(candidates):
-            text = swap_at_slot(lines[line - 1], slot, word,
-                                scheme=getattr(self.lex, "reader_scheme", None))
+            text = self._splice(lines[line - 1], slot, word)
             if text is None:
                 refused.append(word)
                 continue

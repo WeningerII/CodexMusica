@@ -303,6 +303,7 @@ handed to whoever writes it.
 """
 
 import collections
+import functools
 import itertools
 import os
 import re
@@ -364,14 +365,26 @@ def swap_end_word(text, new_word, scheme=None):
     Under reader scheme `v2` (`scheme`, None = this process's) the span is
     `reader_line`'s own: the last raw run, refused when it is a kept aside or
     is not `raw_final_token`. A token joined across a spaced enclitic is
-    replaced from its first piece to its last.
+    replaced from its first piece to its last. The run must also hold the
+    line's last token whole: where the printed end is a token the run does
+    not cover (`I said ×` ends on the token `×`, after the run `said`) or the
+    run is only a fragment of that token (`night` inside `×night`, `2` inside
+    `×2`), or it starts inside an earlier token, the end word the grader and
+    the relation stream bind is not this run, so the swap is refused (as `v1`
+    refuses those lines), never spliced onto another word.
     """
     if resolve_reader_scheme(scheme) == "v2":
         final = raw_final_token(text, scheme="v2")
-        runs = reader_line(text, strip_parens=False, scheme="v2").runs
-        if not runs or final is None or runs[-1].aside or runs[-1].text != final:
+        rl = reader_line(text, strip_parens=False, scheme="v2")
+        runs, tokens = rl.runs, rl.tokens
+        if (not runs or not tokens or final is None or runs[-1].aside
+                or runs[-1].text != final):
             return None
         start, end = runs[-1].pieces[0][0], runs[-1].pieces[-1][1]
+        if not start <= tokens[-1].pieces[0][0] <= tokens[-1].pieces[-1][1] <= end:
+            return None
+        if len(tokens) > 1 and tokens[-2].pieces[-1][1] > start:
+            return None
         return text[:start] + _cased(runs[-1].text, new_word) + text[end:]
     matches = list(_WORD_RE.finditer(text))
     if not matches:
@@ -389,7 +402,7 @@ def swap_end_word(text, new_word, scheme=None):
     return text[:last.start()] + cased + text[last.end():]
 
 
-def swap_at_slot(text, slot, new_word, scheme=None):
+def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=True):
     """-> `text` with the token the SLOT names replaced; `None` if it cannot
     be done without guessing.
 
@@ -412,13 +425,18 @@ def swap_at_slot(text, slot, new_word, scheme=None):
     Under reader scheme `v2` the token index is `line_tokens`' and the span is
     that token's own raw pieces (`reader_line`), so a line with an aside, a
     numeral or a dash run is no longer refused for disagreeing with a second
-    regex.
+    regex. `strip_parens` is the grading lexicon's aside rule (a `--voices`
+    lexicon passes False): the grader resolves a slot through
+    `word_syllable_map`, which counts asides exactly when the lexicon keeps
+    them, so the token index here has to count them the same way or `T2` on
+    `(oh) hello my world` splices `my` while the grader binds `hello`. Under
+    `v1` it is ignored (the pre-batch cut refuses every line with an aside).
     """
     if _SL.is_default(slot):
         return swap_end_word(text, new_word, scheme=scheme)
     slot = _SL.as_slot(slot)
     if resolve_reader_scheme(scheme) == "v2":
-        tokens = reader_line(text, scheme="v2").tokens
+        tokens = reader_line(text, strip_parens, scheme="v2").tokens
         locus = slot.rule.locus
         if not tokens:
             return None
@@ -594,7 +612,8 @@ def _open_by_rule(briefs, pursue=frozenset()):
     return flagged, pursued
 
 
-def default_propose(brief, lines, attempt, reasons=None, whole=()):
+def default_propose(brief, lines, attempt, reasons=None, whole=(), *, scheme=None,
+                    strip_parens=True):
     """-> a replacement line for `brief.line_no`, or `None` to give up.
 
     The MECHANICAL stub tier 1 ships with: walk `brief.candidates` in the
@@ -616,11 +635,14 @@ def default_propose(brief, lines, attempt, reasons=None, whole=()):
     # slot IS declared, splicing the end word would answer a flag about the
     # line's HEAD by rewriting its ending — the stub proving the loop's
     # control flow would be proving it against the wrong word.
+    # `scheme`/`strip_parens` are the grading lexicon's cut (`revise_loop`
+    # binds them from its reviser), so a slot is spliced where it is graded.
     return swap_at_slot(brief.text, brief.slot or brief.line_no,
-                        brief.candidates[attempt])
+                        brief.candidates[attempt], scheme=scheme,
+                        strip_parens=strip_parens)
 
 
-def default_propose_group(group_brief):
+def default_propose_group(group_brief, *, scheme=None, strip_parens=True):
     """-> one replacement line per member of the group, or `None`.
 
     Tier 2's stub, the same mechanism `default_propose` is for tier 1: one
@@ -651,7 +673,8 @@ def default_propose_group(group_brief):
         if prop is None:
             return None
         text, word, slot = prop
-        new = swap_at_slot(text, m if slot is None else slot, word)
+        new = swap_at_slot(text, m if slot is None else slot, word, scheme=scheme,
+                           strip_parens=strip_parens)
         if new is None:
             return None
         out.append(new)
@@ -1377,10 +1400,18 @@ def _lex_cut(reviser):
     """-> (strip_parens, reader scheme) of the reviser's lexicon: the cut its
     own grading reads a line's words under, so an end word or token index
     taken here is the one the grader binds (a `--voices` run keeps its
-    asides; a v1 replay cuts as v1)."""
+    asides under `v2`).
+
+    Under `v1` the cut is the pre-batch call verbatim: `line_tokens` and
+    `raw_final_token` at their default `strip_parens=True`, whatever the
+    lexicon declares. A v1 replay of a `--voices` run then asks the tier-2
+    question the pre-batch harness asked, so its recorded answers (keyed by
+    question hash) still apply."""
     lex = getattr(reviser, "lex", None)
-    return (getattr(lex, "strip_parens", True),
-            resolve_reader_scheme(getattr(lex, "reader_scheme", None)))
+    scheme = resolve_reader_scheme(getattr(lex, "reader_scheme", None))
+    if scheme == "v1":
+        return (True, "v1")
+    return (getattr(lex, "strip_parens", True), scheme)
 
 
 def _slot_for(mandate, group_index, line):
@@ -2292,8 +2323,13 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         # transfer its phones to changed text or excuse a stale input choice.
         reviser = reviser.for_revision(lines)
     _group_declared = propose_group is not None
-    propose = propose or default_propose
-    propose_group = propose_group or default_propose_group
+    # The stock stubs splice under the reviser's own cut (its scheme and, under
+    # v2, its aside rule), the coordinate `grade()` resolves a slot in.
+    _sp, _sch = _lex_cut(reviser)
+    propose = propose or functools.partial(default_propose, scheme=_sch,
+                                           strip_parens=_sp)
+    propose_group = propose_group or functools.partial(
+        default_propose_group, scheme=_sch, strip_parens=_sp)
     rdecl = reviser.rdecl
     # READ OFF THE DECLARATION, never a parameter of its own: a caller tunes
     # this the way it tunes `modal_exclusion`, and one coordinate has one

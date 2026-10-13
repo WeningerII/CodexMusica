@@ -1962,9 +1962,14 @@ def rime_cmudict(lex=None):
             # spelling -- U+00AD removed, U+2010/U+2011 folded, a dash run a
             # break, NFC -- never a fragment of it. It binds, and is keyed on
             # the exact sung token, when the run IS the line's last sung token
-            # (same raw pieces); otherwise (a final aside, a non-Latin run)
-            # it is keyed unbound, as before. A numeral endpoint keys only
-            # through a declared reading.
+            # (same raw pieces); a run after the last sung token (a final
+            # aside, a non-Latin run) is keyed unbound, as before. Where the
+            # last sung token shares characters with the run without being it
+            # (`night` inside `×night`, `night` followed by a mark NFC cannot
+            # compose, U+0333) or ends after it (`I said ×` ends on the token `×`),
+            # the end is no readable word -- `line_anchors` and the relation
+            # stream refuse it -- so it keys nothing. A numeral endpoint keys
+            # only through a declared reading.
             runs = LH.reader_line(raw, False, "v2").runs
             if not runs:
                 return "", None, key("", line=line, token=None)
@@ -1976,6 +1981,8 @@ def rime_cmudict(lex=None):
                 return (normalise_line(last.text), token,
                         key(last.text, line=line, token=token))
             word = normalise_line(last.text)
+            if tokens and tokens[-1].pieces[-1][1] > last.pieces[0][0]:
+                return word, None, None
             return word, None, key(word, line=line, token=None)
         # Scheme v1, the pre-batch binding: declaration indexes belong to the
         # original exact line. NFC may join a combining mark and change the

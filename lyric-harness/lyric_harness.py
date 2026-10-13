@@ -6069,6 +6069,19 @@ def _qafiya_parts(lex, line):
     corpus/song/ lines into clean passes, so the refusal is typed.
     """
     final = raw_final_token(line, strip_parens=lex.strip_parens, scheme=_scheme_of(lex))
+    if _scheme_of(lex) == "v2":
+        # The end word is the line's last run only when that run IS its last
+        # English token. `I said ×` ends on the token `×`, `love ×night` on a
+        # fragment of `×night`: `line_anchors` and the relation stream refuse
+        # both, and so does this, rather than judging `said` or `night`.
+        rl = reader_line(line, lex.strip_parens, "v2")
+        if rl.tokens and rl.runs and not (rl.tokens[-1].pieces == rl.runs[-1].pieces
+                                          and rl.tokens[-1].text == rl.runs[-1].text):
+            return {"unreadable": True, "endword": final,
+                    "reason": (f"the line's last run {final!r} is not its last "
+                               f"English token {rl.tokens[-1].text!r}; its "
+                               f"printed end is no whole word. Refused, not "
+                               f"licensed.")}
     sylls = word_syllable_map(lex, line)
     if not sylls or final is None:
         return {"unreadable": True, "endword": final,

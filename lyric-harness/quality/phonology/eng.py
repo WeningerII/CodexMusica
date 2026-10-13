@@ -115,6 +115,8 @@ from quality import quotients as _QUOTIENTS  # noqa: E402
 from quality import morphology as _MORPH  # noqa: E402
 
 _LEX = {}
+#: `English.cut_lexicon`'s plain lexicons, keyed (reader scheme, strip_parens).
+_CUT_LEX = {}
 
 
 def _lexicon():
@@ -269,6 +271,27 @@ class English(Phonology):
     def _lexicon(self):
         return self.lexicon if self.lexicon is not None else _lexicon()
 
+    def cut_lexicon(self):
+        """-> a lexicon that cuts lines as this phonology's stream does: its
+        own lexicon, or the shared one, or -- where this phonology declares a
+        `v2` cut the shared lexicon does not make (a plain `--voices`
+        lexicon's `strip_parens=False`, another scheme than this process's)
+        -- a plain lexicon of that cut, one per (scheme, aside rule). Under
+        `v1` the stream reads no aside rule, so the cut is the pre-batch
+        shared lexicon's: scheme `v1`, asides stripped."""
+        lx = self._lexicon()
+        if self.lexicon is not None:
+            return lx
+        scheme = self.reader_scheme
+        aside = self._aside_rule() if scheme == "v2" else True
+        if lx.reader_scheme == scheme and lx.strip_parens == aside:
+            return lx
+        key = (scheme, aside)
+        if key not in _CUT_LEX:
+            import lyric_harness as _lh
+            _CUT_LEX[key] = _lh.Lexicon(reader_scheme=scheme, strip_parens=aside)
+        return _CUT_LEX[key]
+
     def _aside_rule(self):
         """-> the `strip_parens` this phonology's stream cuts under."""
         if self._strip_parens is not None:
@@ -346,6 +369,21 @@ class English(Phonology):
             return None
         rl = lh.reader_line(text, strip_parens=self._aside_rule(), scheme="v2")
         return len(rl.tokens) if lh.printed_endpoint(rl) is not None else None
+
+    #: A word broken across the line end: a letter or apostrophe, then one
+    #: hyphen, then only whitespace (`relations.build_stream`'s split flag).
+    _SPLIT_FINAL = re.compile(r"[\w’'](-)\s*$")
+
+    def split_final(self, text):
+        """-> True when the line ends on a word broken by a hyphen. Under `v2`
+        it is asked of the reader's normalised line, the spelling its token
+        cut reads (D13): `king-` spelled with U+2010 or U+2011, or with a
+        U+00AD beside the hyphen, is the one token `king-` and gets the one
+        answer. `v1` asks the raw line, as the pre-batch stream did."""
+        import lyric_harness as lh
+        if self.reader_scheme != "v1":
+            text = lh.normalise_word(text)
+        return bool(self._SPLIT_FINAL.search(text))
 
     def _fallback(self):
         if self._fb is None and self.fallback is not None:

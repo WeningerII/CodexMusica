@@ -914,7 +914,11 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
                     if declared_tokens is not None and not analysis
                     and hasattr(line_phon, "printed_boundary") else None)
         lexical.append(tuple(words))
-        cut = bool(re.search(r"[\w’'](-)\s*$", raw)) and hyphen_continues
+        # The split flag reads the line the phonology's token cut reads (an
+        # English v2 cut folds U+2010/U+2011 and ignores U+00AD); any other
+        # phonology keeps the raw spelling.
+        cut = (line_phon.split_final(raw) if hasattr(line_phon, "split_final")
+               else bool(re.search(r"[\w’'](-)\s*$", raw))) and hyphen_continues
         read = []
         if analysis:
             unreadable.extend((li, ti, w) for ti, w in analysis.refused)
@@ -9631,7 +9635,17 @@ def _uncertain_tokens(stream, ids):
 def _stream_lexicon(stream):
     ph = stream.phon
     lx = getattr(ph, "lexicon", None)
-    if lx is None and hasattr(ph, "_lexicon"):
+    if lx is None and hasattr(ph, "cut_lexicon"):
+        # A phonology declaring its own cut without a lexicon (a plain
+        # `--voices` lexicon's `English(strip_parens=False)`) reads its stream
+        # that way; the any-reading search locates and pins occurrences
+        # through the lexicon returned here, so it must cut lines the same
+        # way, or an end word sung inside `(...)` cannot be found.
+        try:
+            lx = ph.cut_lexicon()
+        except Exception:
+            lx = None
+    elif lx is None and hasattr(ph, "_lexicon"):
         try:
             lx = ph._lexicon()
         except Exception:

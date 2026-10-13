@@ -53,6 +53,7 @@ Run: python3 quality/test_reader.py
 import copy
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -315,6 +316,51 @@ class Normalisation(unittest.TestCase):
             for sp in (True, False):
                 self.assertEqual(_texts(LH.reader_line(unicodedata.normalize("NFD", text), sp)),
                                  _texts(LH.reader_line(unicodedata.normalize("NFC", text), sp)), text)
+
+    def test_the_broken_rhyme_split_reads_the_normalised_line(self):
+        # Regression: the stream's cross-line split flag (which `broken
+        # rhyme` reads) came from an ASCII-only regex on the raw line, so
+        # `king-`, `king\u2010`, `king\u2011`, `king-\u00ad` and `king\u00ad-`
+        # (one token `king-` to the v2 reader) gave different verdicts.
+        import quality.relations as RL
+        from quality.phonology.eng import English
+        tail = ["dom of daylight's dauphin, dapple-dawn-drawn Falcon, in his riding",
+                "Of the rolling level underneath him steady air, and striding",
+                "High there, how he rung upon the rein of a wimpling wing"]
+        verdicts = {}
+        for scheme in ("v2", "v1"):
+            with LH.reader_scheme_scope(scheme):
+                for h in ("-", "\u2010", "\u2011", "-\u00ad", "\u00ad-"):
+                    lines = ["I caught this morning morning's minion, king" + h] + tail
+                    phon = English(fallback="high")
+                    if scheme == "v2":
+                        self.assertEqual(LH.line_tokens(lines[0])[-1], "king-")
+                    st = RL.build_stream(lines, phon)
+                    verdicts[(scheme, h)] = RL.line_pairs_for(
+                        RL.REGISTRY["broken rhyme"], st, keep_refusal=True,
+                        requested_pairs={(1, 4)}).verdict((1, 4))
+        self.assertEqual({h: v for (sc, h), v in verdicts.items() if sc == "v2"},
+                         dict.fromkeys(("-", "\u2010", "\u2011", "-\u00ad", "\u00ad-"), True))
+        # v1 keeps the pre-batch raw-line flag.
+        self.assertEqual({h: v for (sc, h), v in verdicts.items() if sc == "v1"},
+                         {"-": True, "\u2010": False, "\u2011": False,
+                          "-\u00ad": False, "\u00ad-": False})
+
+    def test_a_supplemented_bare_word_is_normalised_as_a_token_is(self):
+        # Regression: SupplementedLexicon.transcribe_word looked a supplement
+        # row up under the raw spelling, so a bare-word caller missed the row
+        # for a U+00AD, U+2010 or NFD spelling the same lexicon reads in a line.
+        import quality.lexicon_supplement as LS
+        self.assertEqual(LH.Lexicon().transcribe_word("streetlight"), ([], True))
+        want = ["S", "T", "R", "IY1", "T", "L", "AY2", "T"]
+        lex = LS.SupplementedLexicon(version=LS.canonical_version("v2"), reader_scheme="v2")
+        for spelling in ("streetlight", "street\u00adlight", "streetli\u00adght"):
+            self.assertEqual(lex.transcribe_word(spelling), (want, False), spelling)
+            self.assertEqual(lex.transcribe("the " + spelling)[0], ["DH", "AH0"] + want)
+        # Scheme v1 looks the raw spelling up, as before the batch.
+        v1 = LS.SupplementedLexicon(version=LS.canonical_version("v2"), reader_scheme="v1")
+        self.assertEqual(v1.transcribe_word("streetlight"), (want, False))
+        self.assertNotEqual(v1.transcribe_word("street\u00adlight"), (want, False))
 
     def test_soft_hyphen_inside_a_token_changes_no_text(self):
         # Every interior position of every piece of every token, joined
@@ -625,6 +671,123 @@ class OneCoordinate(unittest.TestCase):
         self.assertTrue(legacy and all("widx" not in s for s in legacy[0]))
 
 
+class LoopSwaps(unittest.TestCase):
+    """The reviser's word swaps splice the token the grader binds."""
+
+    def test_a_slot_swap_counts_asides_as_the_lexicon_does(self):
+        # Regression: under v2, swap_at_slot cut the line with asides dropped
+        # whatever the lexicon declared, while the grader resolves a slot
+        # through word_syllable_map, which counts asides for a `--voices`
+        # lexicon. A head or T<n> slot after an aside then spliced a
+        # different word than the grader binds, and _anchors_at answered True
+        # for a splice that never touched the slot's word.
+        from quality import slots as SL
+        from quality.loop import swap_at_slot
+        from quality.revise import Reviser
+        lex = LH.Lexicon(strip_parens=False, reader_scheme="v2")
+        for text, slot, bound in (("(oh) hello world", "1.head", "oh"),
+                                  ("(oh) hello my world", "1.T2", "hello")):
+            s = SL.parse_slot(slot)
+            self.assertEqual(SL.resolve(lex, text, s)[1], bound)
+            new = swap_at_slot(text, s, "goodbye", scheme="v2", strip_parens=False)
+            self.assertEqual(SL.resolve(lex, new, s)[1], "goodbye", (text, new))
+            self.assertTrue(Reviser(lex)._anchors_at(text, s, "goodbye"))
+            # The reviser's own trial splice follows its lexicon's aside rule:
+            # T2 of `(oh) zzzqx world` is the unreadable `zzzqx`, so only a
+            # splice AT it gives the grade an anchor there.
+            self.assertTrue(Reviser(lex)._anchors_at("(oh) zzzqx world",
+                                                     SL.parse_slot("1.T2"), "goodbye"))
+            # v1 still refuses every line with an aside.
+            self.assertIsNone(swap_at_slot(text, s, "goodbye", scheme="v1",
+                                           strip_parens=False))
+        # Property: whichever aside rule the lexicon declares, the token the
+        # splice replaced is the token at the slot's index in the grader's cut.
+        # Plain-letter lines, so a retokenised splice cannot join a mark or a
+        # repertoire character next to it (a separate question).
+        plain = []
+        for p in sorted((ROOT / "corpus" / "song").glob("eng_*.txt"))[::9]:
+            with p.open(encoding="utf-8") as fh:
+                plain += [ln.strip() for ln in fh
+                          if re.fullmatch(r"[A-Za-z' ,.!?;:]+", ln.strip())
+                          and len(ln.split()) >= 3]
+        checked = 0
+        for k, base in enumerate(plain[:1500]):
+            text = ("(oh) " + base) if k % 2 else base.replace(" ", " (ah) ", 1)
+            for sp in (True, False):
+                before = LH.line_tokens(text, sp, "v2")
+                for slot, idx in (("1.head", 0), ("1.T2", 1), ("1.T3", 2)):
+                    new = swap_at_slot(text, SL.parse_slot(slot), "zqx",
+                                       scheme="v2", strip_parens=sp)
+                    if new is None or idx >= len(before):
+                        continue
+                    after = LH.line_tokens(new, sp, "v2")
+                    self.assertEqual(after[idx].lower(), "zqx", (text, sp, slot))
+                    self.assertEqual(after[:idx] + after[idx + 1:],
+                                     before[:idx] + before[idx + 1:], (text, sp, slot))
+                    checked += 1
+        self.assertGreater(checked, 500)
+
+    def test_the_loops_stock_stubs_splice_under_the_revisers_cut(self):
+        # The default proposer (`revise --propose=stub`, the CLI default) and
+        # the group stub splice through swap_at_slot; revise_loop binds them
+        # to its reviser's cut, so a `--voices` run splices where it grades.
+        import quality.loop as LP
+        from quality.revise import Reviser
+        seen = []
+        real = LP.default_propose
+
+        def recording(brief, lines, attempt, reasons=None, whole=(), **kw):
+            seen.append(kw)
+            return real(brief, lines, attempt, reasons, whole, **kw)
+        lines = ["The candle burned and set the room on fire",
+                 "He said the word and he turned to go",
+                 "And all night long she nursed a small desire",
+                 "She never asked the thing she had to know"]
+        try:
+            LP.default_propose = recording
+            for sp in (True, False):
+                seen.clear()
+                lex = LH.Lexicon(strip_parens=sp, reader_scheme="v2")
+                LP.revise_loop(Reviser(lex=lex), lines, "ABAB")
+                self.assertTrue(seen)
+                self.assertEqual({(k["scheme"], k["strip_parens"]) for k in seen},
+                                 {("v2", sp)})
+        finally:
+            LP.default_propose = real
+        # And the stub itself splices the token the grader binds.
+        from types import SimpleNamespace
+        from quality import slots as SL
+        b = SimpleNamespace(text="(oh) zzzqx world", slot=SL.parse_slot("1.T2"),
+                            line_no=1, candidates=["goodbye"])
+        self.assertEqual(LP.default_propose(b, [b.text], 0, scheme="v2", strip_parens=False),
+                         "(oh) goodbye world")
+
+    def test_an_end_word_swap_never_misses_the_printed_end(self):
+        # Regression: the v2 end-word swap replaced the last raw run whenever
+        # it equalled raw_final_token, even where that run is not the line's
+        # last token (`I said ×` ends on the token `×`) or is a fragment of it
+        # (`night` in `×night`, `2` in `×2`). It refuses those, as v1 does.
+        from quality.loop import swap_end_word
+        for text in ("I said ×", "love ×night", "x ×2", "love 我"):
+            self.assertIsNone(swap_end_word(text, "zing", scheme="v2"), text)
+            self.assertIsNone(swap_end_word(text, "zing", scheme="v1"), text)
+        self.assertEqual(swap_end_word("the room on fire", "zing", scheme="v2"),
+                         "the room on zing")
+        # Property: every v2 end-word swap rewrites the line's last token and
+        # nothing before it (the new word can join a repertoire character the
+        # run left out, `K1×δQ` -> `K1×zqx`, never another word).
+        swapped = 0
+        for text in GENERATED[:3000]:
+            new = swap_end_word(text, "zqx", scheme="v2")
+            if new is None:
+                continue
+            old_t, new_t = LH.line_tokens(text, True, "v2"), LH.line_tokens(new, True, "v2")
+            self.assertTrue(new_t[-1].lower().endswith("zqx"), (text, new))
+            self.assertEqual(new_t[:-1], old_t[:len(new_t) - 1], (text, new))
+            swapped += 1
+        self.assertGreater(swapped, 1000)
+
+
 class Declarations(unittest.TestCase):
     """8. A declared reading binds any token, numeral and joined alike."""
 
@@ -676,7 +839,7 @@ class Declarations(unittest.TestCase):
         import quality.grid as G
         from quality.pronunciation import validate_choices
         base = LH.Lexicon()
-        bound = unbound = 0
+        bound = unbound = refused = 0
         for text in GENERATED + RC.V2_REGRESSIONS:
             if len(text) > 4000 or any(c in text for c in "\r\n") or not text.strip():
                 continue
@@ -694,15 +857,31 @@ class Declarations(unittest.TestCase):
             if last.pieces == tok.pieces and last.text == tok.text:
                 self.assertEqual((token, key), (len(rl.tokens), "AY N"), text)
                 bound += 1
+            elif tok.pieces[-1][1] > last.pieces[0][0]:
+                # The last sung token overlaps the run without being it, or
+                # ends after it: no readable end word, so no key.
+                self.assertEqual((token, key), (None, None), text)
+                refused += 1
             else:
                 self.assertIsNone(token, text)
                 self.assertEqual(key, G.rime_cmudict(base)(word), text)
                 unbound += 1
         self.assertGreater(bound, 500)
         self.assertGreater(unbound, 20)
+        self.assertGreater(refused, 20)
         # Regressions: no fragment of a token is ever the end word, and an
         # undeclared numeral endpoint keys nothing.
         rk = G.rime_cmudict(base)
+        # A run that is a fragment of the last token, carries a mark NFC
+        # cannot compose, or ends before the last token keys nothing (the
+        # stream and line_anchors refuse those ends), and _qafiya_parts
+        # refuses them too.
+        for text in ("love \u00d7night", "love night\u0333", "I said \u00d7"):
+            self.assertIsNone(rk.end_occurrence(text)[2], text)
+            self.assertEqual(LH.line_anchors(base, text)[0], [], text)
+            self.assertTrue(LH._qafiya_parts(base, text)["unreadable"], text)
+        self.assertEqual(rk.end_occurrence("the room on fire")[1:], (4, "AY ER"))
+        self.assertFalse(LH._qafiya_parts(base, "the room on fire")["unreadable"])
         self.assertEqual(rk.end_occurrence("we sing 4\u2011ever"), ("4-ever", 3, None))
         self.assertEqual(rk.end_occurrence("we co\u00adoperate")[:2], ("cooperate", 2))
         self.assertEqual(rk.end_occurrence("we sing it to\u2011night"),
@@ -815,8 +994,11 @@ class LexiconCut(unittest.TestCase):
             for sp in (True, False):
                 lex = LH.Lexicon(reader_scheme=own, strip_parens=sp)
                 rv = Reviser(lex=lex)
+                # Under v1 the loop's cut is the pre-batch call verbatim
+                # (default strip_parens), whatever the lexicon declares (D1).
+                loop_sp = True if own == "v1" else sp
                 with LH.reader_scheme_scope(process):
-                    self.assertEqual(LP._lex_cut(rv), (sp, own))
+                    self.assertEqual(LP._lex_cut(rv), (loop_sp, own))
                     for text in lines:
                         want_end = LH.raw_final_token(text, sp, own)
                         moved += want_end != LH.raw_final_token(text, sp, process)
@@ -825,10 +1007,69 @@ class LexiconCut(unittest.TestCase):
                                          want_end, (process, own, text))
                         # The loop's end word and end-token index (tier 2).
                         self.assertEqual(LH.raw_final_token(text, *LP._lex_cut(rv)),
-                                         want_end, (process, own, text))
-                        self.assertEqual(LH.line_tokens(text, *LP._lex_cut(rv)),
-                                         lex.transcribe(text)[1], (process, own, text))
+                                         LH.raw_final_token(text, loop_sp, own),
+                                         (process, own, text))
+                        if own == "v2":
+                            self.assertEqual(LH.line_tokens(text, *LP._lex_cut(rv)),
+                                             lex.transcribe(text)[1], (process, own, text))
+                        else:
+                            self.assertEqual(LH.line_tokens(text, *LP._lex_cut(rv)),
+                                             LH._line_tokens_v1(text), (process, own, text))
         self.assertGreater(moved, 50)
+
+    def test_a_v1_voices_tier2_cut_is_the_pre_batch_one(self):
+        # Regression: `_lex_cut` passed a `--voices` lexicon's strip_parens
+        # into the v1 cut, so a v1 replay's tier-2 pivot end word and anchor
+        # end-token index read the aside the pre-batch harness stripped, and
+        # asked a different group question than the one recorded. The
+        # expected values are the pre-batch export's (fce4bf0f) own output.
+        import quality.loop as LP
+        from quality.revise import Reviser
+        text = "I left my heart beside the door (the floor)"
+        lines = [text, "You never came to see the shore",
+                 "I watched the floor and waited more", "The night is cold and full of rain"]
+        want = {(9, "A"): ([], []), (9, "B"): ([], []),
+                (7, "A"): (["more"], []), (7, "B"): (["shore"], [])}
+        for process in ("v1", "v2"):
+            with LH.reader_scheme_scope(process):
+                rv = Reviser(lex=LH.Lexicon(strip_parens=False, reader_scheme="v1"))
+                self.assertEqual(LH.raw_final_token(text, *LP._lex_cut(rv)), "door")
+                self.assertEqual(len(LH.line_tokens(text, *LP._lex_cut(rv))) - 1, 6)
+                for t in (9, 7):
+                    m = rv.mandate(lines, [[1, 2], [f"1.T{t}", 3]])
+                    for lab in m.labels:
+                        self.assertEqual(
+                            LP._anchor_obligations(rv, m, lines, 1, 2, rewriting_label=lab),
+                            want[(t, lab)], (process, t, lab))
+                # v2 keeps the lexicon's aside rule: the aside is the end word.
+                rv2 = Reviser(lex=LH.Lexicon(strip_parens=False, reader_scheme="v2"))
+                self.assertEqual(LH.raw_final_token(text, *LP._lex_cut(rv2)), "floor")
+
+    def test_the_any_reading_search_cuts_as_the_stream_does(self):
+        # Regression: under a plain `--voices` lexicon the relation stream
+        # keeps asides (English(strip_parens=False), no lexicon), but the
+        # any-reading search located and pinned occurrences through the
+        # shared lexicon, which strips them, so an end word sung inside
+        # `(...)` could not be found and the pair stayed undecided.
+        import quality.relations as RL
+        from quality.revise import relation_phonology_for
+        phon = relation_phonology_for(LH.Lexicon(strip_parens=False))
+        self.assertFalse(phon._aside_rule())
+        self.assertFalse(phon.cut_lexicon().strip_parens)
+        for lines in (["we go (live)", "they all give"], ["we go live", "they all give"],
+                      ["(oh) we live", "(ah) they give"]):
+            build = RL.cached_builder(lambda p, lines=lines: RL.build_stream(lines, p))
+            self.assertEqual(RL.resolve_line_pair(RL.REGISTRY["perfect rhyme"],
+                                                  build(phon), (1, 2), build),
+                             (True, ["live = L IH1 V"]), lines)
+            combos, _ = RL.reading_combos(build(phon), {(0, len(build(phon).lexical_tokens[0]) - 1)})
+            trial = RL.pinned_phonology(build(phon), combos[0])
+            self.assertFalse(trial._aside_rule(), lines)
+        # The default aside rule still strips: `go` is that line's end word.
+        plain = relation_phonology_for(LH.Lexicon())
+        build = RL.cached_builder(lambda p: RL.build_stream(["we go (live)", "they all give"], p))
+        self.assertEqual(RL.resolve_line_pair(RL.REGISTRY["perfect rhyme"],
+                                              build(plain), (1, 2), build)[0], False)
 
     def test_no_production_cut_omits_its_scheme(self):
         # Every production call of the four cuts names a scheme (its
@@ -1309,6 +1550,18 @@ class WarmWorker(unittest.TestCase):
                 self.assertEqual(lex.reader_scheme, key[2])
         for key, lex in LS._SUPPLEMENTED.items():
             self.assertEqual(lex.reader_scheme, key[-1])
+        for (scheme, aside), lex in eng._CUT_LEX.items():
+            self.assertEqual((lex.reader_scheme, lex.strip_parens), (scheme, aside))
+        import quality.meter_bands as MB
+        for (mode, scheme), ph in MB._READERS.items():
+            with LH.reader_scheme_scope(scheme):
+                self.assertIs(MB.reader(mode), ph)
+                fb = ph._fallback()
+                self.assertEqual(fb.lex.reader_scheme, scheme, (mode, scheme))
+        for scheme in LH.READER_SCHEMES:
+            with LH.reader_scheme_scope(scheme):
+                self.assertEqual(MB.reader(MB.ADOPTED_READER)._fallback().lex.reader_scheme,
+                                 scheme)
         for scheme in LH.READER_SCHEMES:
             self.assertEqual(FT._english_lexicon(True, None, scheme).reader_scheme, scheme)
             with LH.reader_scheme_scope(scheme):

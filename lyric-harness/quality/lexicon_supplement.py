@@ -585,6 +585,12 @@ class SupplementedLexicon(LH.Lexicon):
         return out
 
     def transcribe_word(self, word):
+        # The base class's reader-entry normalisation for a bare word (NFC,
+        # U+2010/U+2011 folded, U+00AD removed) under `v2`, so a direct caller
+        # finds the supplement row a `reader_line` token of the same spelling
+        # finds. Scheme v1 looks the bare word up exactly as before.
+        if LH._scheme_of(self) == "v2":
+            word = LH.normalise_word(word)
         variants = self.pronunciation_variants(word)
         if variants:
             return list(variants[0]), False
