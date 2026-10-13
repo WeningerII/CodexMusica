@@ -1128,7 +1128,9 @@ class Lexicon:
         choice = getattr(self, '_pronunciation_choice', None)
         # A numeral token is never read piecewise: `Catch-22` must not read as
         # `Catch` (M1). It stays whole, and whole it is refused unless declared.
-        if (choice and choice['word'] == word) or has_numeral(word):
+        # Scheme v1 keeps the pre-batch split.
+        if (choice and choice['word'] == word) or (
+                has_numeral(word) and _scheme_of(self) == "v2"):
             return [word]
         return re.split(r"[-\u2011]", word)
 
@@ -1162,7 +1164,10 @@ class Lexicon:
         """Return (phones, oov_flag). Naive fallback for out-of-vocabulary."""
         # Reader-entry normalisation for a bare word, so a direct caller and a
         # `reader_line` token agree; the identity on every pre-batch token.
-        word = normalise_word(word)
+        # Scheme v1 reads a bare word exactly as before the batch.
+        v2 = _scheme_of(self) == "v2"
+        if v2:
+            word = normalise_word(word)
         w = fold_apostrophes(word).lower().strip("'\"“”‘’.,;:!?()[]")
         if not w:
             return [], False
@@ -1173,7 +1178,7 @@ class Lexicon:
         # General_Category N character has no reading here unless a declared
         # reading named it (answered just above): no number expansion, and no
         # suffix, elision or g2p layer may read `4ever` as `ever` + a guess.
-        if has_numeral(w):
+        if v2 and has_numeral(w):
             return [], True
         # OOV fallback: strip trailing s / 's and re-attach the suffix with
         # its VOICING, which is fixed by the base's last phone (see
@@ -2393,6 +2398,14 @@ _SHY = "\u00ad"
 _ASIDE = re.compile(r"\([^)]*\)")
 
 
+def _is_hangul(ch):
+    """Hangul jamo (conjoining and extended) and precomposed syllables: the
+    characters NFC composes across starters."""
+    o = ord(ch)
+    return (0x1100 <= o <= 0x11FF or 0xA960 <= o <= 0xA97F
+            or 0xD7B0 <= o <= 0xD7FF or 0xAC00 <= o <= 0xD7A3)
+
+
 def _is_numeral(ch):
     return unicodedata.category(ch)[0] == "N"
 
@@ -2425,23 +2438,28 @@ def _reader_stream(text):
     NFC runs per canonical segment (a starter and the marks after it), so an
     unchanged segment maps character for character and a recomposed one maps
     every output character to the whole segment -- the many-codepoints-to-one
-    map that keeps a raw span from ever losing a character. A composition
-    across starters (Hangul jamo) cannot be segmented that way, so such a line
-    falls back to whitespace-delimited chunks, which NFC never composes across.
+    map that keeps a raw span from ever losing a character. Hangul composes
+    across starters (jamo into a syllable), so a run of Hangul characters and
+    their marks is one segment. Any other composition across starters falls
+    back to whitespace-delimited chunks, which NFC never composes across.
     """
     if unicodedata.is_normalized("NFC", text):
         out = [(ch, i, i + 1) for i, ch in enumerate(text)]
     else:
-        out, start = [], 0
-        for i in range(1, len(text) + 1):
-            if i == len(text) or unicodedata.category(text[i])[0] != "M":
-                seg = text[start:i]
-                nfc = unicodedata.normalize("NFC", seg)
-                if nfc == seg:
-                    out.extend((ch, start + k, start + k + 1) for k, ch in enumerate(seg))
-                else:
-                    out.extend((ch, start, i) for ch in nfc)
-                start = i
+        out, start, n = [], 0, len(text)
+        while start < n:
+            end = start + 1
+            hangul = _is_hangul(text[start])
+            while end < n and (unicodedata.category(text[end])[0] == "M"
+                               or (hangul and _is_hangul(text[end]))):
+                end += 1
+            seg = text[start:end]
+            nfc = unicodedata.normalize("NFC", seg)
+            if nfc == seg:
+                out.extend((ch, start + k, start + k + 1) for k, ch in enumerate(seg))
+            else:
+                out.extend((ch, start, end) for ch in nfc)
+            start = end
         if "".join(c for c, _, _ in out) != unicodedata.normalize("NFC", text):
             out = []
             for m in re.finditer(r"\S+|\s+", text):
@@ -2484,12 +2502,14 @@ def reader_line(text, strip_parens=True, scheme=None):
 @functools.lru_cache(maxsize=1 << 16)
 def _reader_line_v2(text, strip_parens):
     stream = _reader_stream(text)
-    norm = "".join(c for c, _, _ in stream)
     # The spaced enclitic joins on the normalised stream (`join_spaced_enclitics`'
-    # own regex); the whitespace it removes splits the token into two pieces.
+    # own regex) with U+00AD left out, so a soft hyphen can neither make nor
+    # break a join; the whitespace it removes splits the token into two pieces.
+    visible = [i for i, (c, _, _) in enumerate(stream) if c != _SHY]
+    norm = "".join(stream[i][0] for i in visible)
     removed = set()
     for m in _SPACED_ENCLITIC.finditer(norm):
-        removed.update(range(m.end(1), m.start(2)))
+        removed.update(visible[j] for j in range(m.end(1), m.start(2)))
     seq = [i for i in range(len(stream)) if i not in removed]
     joined = "".join(stream[i][0] for i in seq)
     aside = set()
@@ -2809,21 +2829,32 @@ def line_readability(lex, text, anchors=None):
     # A NUMERAL END WORD (scheme v2, M1) is its own cause: the token is read
     # whole, and nothing here expands a number into words, so it reads only
     # through a declared reading for that occurrence.
+    # The end word is a numeral either as the line's last English token
+    # (declarable) or as a run that is not one whole token at all (`x ×2`,
+    # whose last token is `×2` and whose end run is `2`): no G2P reads either.
+    numeral_token_end = bool(toks) and toks[-1] == final
     numeral_end = (scheme == "v2" and final_unreadable and has_numeral(final)
-                   and bool(toks) and toks[-1] == final
-                   and not _declared_token(lex, len(toks) - 1, final))
+                   and not (numeral_token_end
+                            and _declared_token(lex, len(toks) - 1, final)))
     if numeral_end:
         cause = "numeral"
     elif final_unreadable:
         cause = ("piece" if unread_final_piece(lex, final)[0] is not None
                  else "token")
     reason = None
-    if cause == "numeral":
+    if cause == "numeral" and numeral_token_end:
         reason = (f"the end word {final!r} is a numeral token; the reader does "
                   f"not expand numbers into words and CMUdict spells none, so "
                   f"it has no pronunciation unless a reading is declared for "
                   f"this occurrence. This line's end-rhyme is UNKNOWN, not "
                   f"absent.")
+    elif cause == "numeral":
+        reason = (f"the end word {final!r} carries a numeral and is not one "
+                  f"whole English token of this line (its last is "
+                  f"{toks[-1] if toks else None!r}); the reader does not "
+                  f"expand numbers into words and a declared reading binds "
+                  f"only a whole token, so it has no pronunciation here. This "
+                  f"line's end-rhyme is UNKNOWN, not absent.")
     elif cause == "piece":
         reason = (f"the end word {final!r} is a compound and CMUdict has no "
                   f"pronunciation for its LAST piece "
@@ -2996,7 +3027,8 @@ def token_pieces(lex, token):
     for p in (lex.word_pieces(token) if hasattr(lex, "word_pieces") else token.split("-")):
         # A numeral piece is a word that did not read, never an invisible one
         # (M1): `token_pieces('1-2')` was `([], [])`.
-        if not p or not (LATIN_SCRIPT.search(p) or has_numeral(p)):
+        if not p or not (LATIN_SCRIPT.search(p)
+                         or (has_numeral(p) and _scheme_of(lex) == "v2")):
             continue
         ph, is_oov = lex.transcribe_word(p)
         (unread if (is_oov or not ph) else read).append(p)
@@ -3028,7 +3060,8 @@ def unread_final_piece(lex, token):
     if not token or not HYPHEN_SPLIT.search(token):
         return None, None
     pieces = [p for p in HYPHEN_SPLIT.split(token)
-              if p and (LATIN_SCRIPT.search(p) or has_numeral(p))]
+              if p and (LATIN_SCRIPT.search(p)
+                        or (has_numeral(p) and _scheme_of(lex) == "v2"))]
     if len(pieces) < 2:
         return None, None
     read, unread = token_pieces(lex, token)
@@ -8238,25 +8271,45 @@ def _defer_state(path):
 
 
 def _recorded_reader_scheme(args):
-    """-> the reader scheme a resumed deferred run (`--propose=defer:PATH`)
-    recorded -- `v1` for a state that predates the field -- or None when the
-    call starts new work. Read before the lexicon is built, because the
-    scheme is a coordinate of the lexicon (`main`)."""
+    """-> the reader scheme a resumed run recorded -- `v1` for a record that
+    predates the field -- or None when the call starts new work. Read before
+    the lexicon is built, because the scheme is a coordinate of the lexicon
+    (`main`). Two records carry it: a deferred run's state
+    (`--propose=defer:PATH`) and a kitchen run's checkpoint
+    (`--propose=call:` with `LYRIC_CHECKPOINT_PATH`).
+
+    It NEVER refuses. A record it cannot read answers None here, and the
+    proposer that owns the record refuses later, at the point in the verb's
+    output it always did (`_defer_state`, `_checkpoint_proposer`); an
+    unknown recorded scheme is refused there too.
+    """
     spec = _flag_value(args, "--propose")
-    if not spec or not spec.startswith("defer:"):
+    if not spec:
         return None
-    path = spec.split(":", 1)[1]
-    if not os.path.exists(path):
+    if spec.startswith("defer:"):
+        path = spec.split(":", 1)[1]
+    elif spec.startswith("call:"):
+        path = os.environ.get("LYRIC_CHECKPOINT_PATH")
+    else:
         return None
-    st = _defer_state(path)
-    if not (st["answered"]["propose"] or st["answered"]["propose_group"]
-            or st.get("pending")):
+    try:
+        if not path or not os.path.exists(path) or not os.path.getsize(path):
+            return None
+        with open(path, encoding="utf-8") as fh:
+            st = json.load(fh)
+    except (OSError, ValueError):
         return None
+    if not isinstance(st, dict):
+        return None
+    if spec.startswith("defer:"):
+        answered = st.get("answered")
+        if not isinstance(answered, dict):
+            return None
+        if not (answered.get("propose") or answered.get("propose_group")
+                or st.get("pending")):
+            return None
     scheme = st.get("reader_scheme", "v1")
-    if scheme not in READER_SCHEMES:
-        _refuse(f"--propose=defer:{path} — recorded reader scheme {scheme!r} is "
-                f"not one this build reads ({', '.join(READER_SCHEMES)})")
-    return scheme
+    return scheme if scheme in READER_SCHEMES else None
 
 
 def _defer_proposer(path, lines=None):
@@ -8325,6 +8378,9 @@ def _defer_proposer(path, lines=None):
     # refuses. The state keeps the scheme the run started under.
     _here_scheme = resolve_reader_scheme(None)
     _run_scheme = st.get("reader_scheme", "v1") if _resuming else None
+    if _run_scheme not in (None,) + READER_SCHEMES:
+        _refuse(f"--propose=defer:{path} — recorded reader scheme {_run_scheme!r} "
+                f"is not one this build reads ({', '.join(READER_SCHEMES)})")
     if _run_scheme not in (None, _here_scheme) and _READER_SCHEME_DECLARED:
         _refuse("READER_SCHEME_MISMATCH: this deferred run was started under "
                 f"reader scheme {_run_scheme}, and this call declares "
@@ -9055,6 +9111,15 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
              "config_key": config_key, "proposer": spec,
              "accepted_lines": initial, "round": 0, "status": "started",
              "proposals": [], "answered": {"propose": [], "propose_group": []}}
+    # THE CHECKPOINT KEEPS ITS READER SCHEME, on the deferred state's rule
+    # (`_defer_proposer`): its journal's questions were asked against one cut
+    # of the lines. Absent means `v1` -- a checkpoint written before the
+    # field, and a fresh `v1` run, whose checkpoint bytes stay pre-batch.
+    # `main` inherits it when no `--reader-scheme` is declared
+    # (`_recorded_reader_scheme`), so only a contrary flag reaches the refusal.
+    here_scheme = resolve_reader_scheme(None)
+    if here_scheme != "v1":
+        state["reader_scheme"] = here_scheme
     input_checkpoint_sha256 = None
     if path and os.path.exists(path) and os.path.getsize(path):
         try:
@@ -9064,6 +9129,13 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
             prior = json.loads(checkpoint_bytes)
             if not isinstance(prior, dict):
                 raise ValueError("checkpoint must be an object")
+            run_scheme = prior.get("reader_scheme", "v1")
+            if run_scheme != here_scheme:
+                raise ValueError(
+                    f"READER_SCHEME_MISMATCH: this run was started under reader "
+                    f"scheme {run_scheme!r}, and this call reads {here_scheme}; "
+                    f"resume it with no --reader-scheme (or --reader-scheme="
+                    f"{run_scheme}), or start a new run")
             if (prior.get("version") != 1
                     or prior.get("input_draft") != initial
                     or prior.get("config_key") != config_key
@@ -9580,6 +9652,26 @@ def _parse_narrative_flag(raw):
     return {"atoms": atoms, "junctions": juncs}
 
 
+def _request_scoped_reader_scheme(fn):
+    """Restore this process's reader scheme when one request's `main` ends.
+
+    The warm worker (`mcp/worker.py`) serves lyrics requests through `main`
+    and Library analyses through `AnalysisSession` directly, in one process.
+    `main` sets the scheme for its own request (a declared `--reader-scheme`,
+    or `v1` inherited from a pre-batch recorded run); without this the next
+    Library analysis on that worker read under the previous request's scheme.
+    """
+    @functools.wraps(fn)
+    def wrapper(*a, **kw):
+        saved = (_ACTIVE_READER_SCHEME, _READER_SCHEME_DECLARED)
+        try:
+            return fn(*a, **kw)
+        finally:
+            globals()["_ACTIVE_READER_SCHEME"], globals()["_READER_SCHEME_DECLARED"] = saved
+    return wrapper
+
+
+@_request_scoped_reader_scheme
 def main():
     # One worker process serves many requests: a record emitted before this
     # request's lexicon is built must not carry the previous request's basis.
@@ -14084,7 +14176,8 @@ def main():
                     sys.exit(0 if _ok else 3)
 
                 from quality import replay_memo as RM
-                _rm_key = RM.run_key(sys.argv[1:], input_paths=(args[1], bp_path))
+                _rm_key = RM.run_key(sys.argv[1:], input_paths=(args[1], bp_path),
+                                     reader_scheme=resolve_reader_scheme(None))
                 from quality.propose import ProposerUnavailable
                 try:
                     propose, propose_group, say_proposer = _resolve_proposer(
@@ -14119,7 +14212,8 @@ def main():
                     return _RPM
                 from quality import revise as _RV_mod
                 _rm_key = RM.run_key(sys.argv[1:],
-                                     input_paths=(args[1], bp_path))
+                                     input_paths=(args[1], bp_path),
+                                     reader_scheme=resolve_reader_scheme(None))
                 rv_loop, say_memo = RM.wrap(rv, _rm_key, len(lines))
                 # THE SAVED POSITION (LOOP_REDESIGN.md §2.0): a deferred run
                 # resumes where its last call stopped when the cursor was

@@ -568,7 +568,12 @@ class AnalysisSession:
             located = list(rl.tokens)
             if LH.printed_endpoint(rl) is not None:
                 located.append(rl.runs[-1])
-            positions = ([list(t.pieces) for t in located]
+            # A token whose pieces do not rebuild its text (a line the reader
+            # had to map in whitespace chunks) has no exact span: it falls
+            # back to the row's range rather than claim a chunk as `exact`.
+            positions = ([list(t.pieces) if LH.normalise_word(
+                              "".join(raw[a:b] for a, b in t.pieces)) == t.text else []
+                          for t in located]
                          if tuple(t.text for t in located) == tuple(words) else None)
         elif self.language == "eng":
             # Reader scheme v1: the pre-batch projection, verbatim.

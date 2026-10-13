@@ -903,7 +903,9 @@ class Fallback:
         # A numeral-bearing word is refused whole (M1): `4ever` passes the
         # letter test and would otherwise reach the elision, suffix and letter
         # layers as `ever` plus a guess. Only a declared reading reads it.
-        if not w or not re.search(r"[a-z]", w) or has_numeral(w):
+        # A lexicon read under reader scheme v1 keeps the pre-batch layers.
+        if not w or not re.search(r"[a-z]", w) or (
+                has_numeral(w) and getattr(self.lex, "reader_scheme", "v2") != "v1"):
             self.counts["refused"] += 1
             return None
         if re.search(r"[-‑]", w):

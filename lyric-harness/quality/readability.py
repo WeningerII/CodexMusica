@@ -509,7 +509,7 @@ def corpus_rate(lex, paths):
                          "unreadable_final_piece": len(pc),
                          "rate": (len(u) / len(c)) if c else 0.0,
                          "rate_token": (len(t) / len(c)) if c else 0.0})
-    return {"files": len(per_file), "lines_countable": tot,
+    rec = {"files": len(per_file), "lines_countable": tot,
             "unreadable_final": unread,
             # SPLIT BY CAUSE 2026-08-11. `unreadable_final_token` is the
             # quantity every pin recorded before the hyphen refusal shipped,
@@ -519,11 +519,6 @@ def corpus_rate(lex, paths):
             # have made their two effects inseparable (doctrine 58).
             "unreadable_final_token": by_token,
             "unreadable_final_piece": by_piece,
-            # Reader scheme v2 (2026-10-13): an end word that is a numeral
-            # token with no declared reading -- `'62`, a margin line number
-            # `heart.    10` -- is its own cause. Always 0 under v1, where
-            # the cut dropped digits and read the word before them instead.
-            "unreadable_final_numeral": by_numeral,
             # The REPORT-layer half of the same defect: the last piece reads,
             # so the anchor is right and only the printed word overstates.
             # Never a refusal, and it is deliberately NOT added to `rate`.
@@ -544,6 +539,15 @@ def corpus_rate(lex, paths):
             "top_unreadable_finals": sorted(words.items(),
                                             key=lambda kv: (-kv[1], kv[0]))[:20],
             "per_file": per_file}
+    import lyric_harness as _LH
+    if _LH._scheme_of(lex) != "v1":
+        # Reader scheme v2 (2026-10-13): an end word that is a numeral token
+        # with no declared reading -- `'62`, a margin line number
+        # `heart.    10` -- is its own cause. Absent under v1, whose cut
+        # dropped digits and read the word before them instead, so a v1
+        # record keeps its pre-batch shape.
+        rec["unreadable_final_numeral"] = by_numeral
+    return rec
 
 
 def main(argv):

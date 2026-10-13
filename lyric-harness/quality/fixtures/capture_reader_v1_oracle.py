@@ -15,7 +15,11 @@ byte (`line_anchors`, `line_readability`, `word_syllable_map`,
 `fit.read_line`, the relations stream's English token source,
 `rime_cmudict.end_occurrence`, `loop.swap_end_word`, and declaration
 validation on the last sung token), and the stdout of a few CLI calls
-(`CLI_CASES`). `quality/test_reader.py` compares the
+(`CLI_CASES`); and, for bare words handed to the word-level readers
+directly, `transcribe_word`, `word_pieces`, `token_pieces`,
+`unread_final_piece`, `English.read`, `Fallback.read` and the grid's rhyme key
+(`word_records`), with the refusal text of mismatched declarations
+(`declaration_refusals`). `quality/test_reader.py` compares the
 post-batch scheme `v1` against it. Re-running this on a post-batch tree
 measures nothing: the file is the pre-batch record, kept verbatim.
 """
@@ -61,6 +65,71 @@ def consumers(lex, text, LH, FT, RL, G, loop, validate_choices, rck):
             "oov": list(oov), "readability": rec, "wsm": wsm, "fit": fit,
             "stream": stream, "end_occurrence": [word, token, key],
             "swap": loop.swap_end_word(text, "zing"), "declaration": decl}
+
+
+def oracle_words(RC):
+    """-> the bare words the word-level section records: every whitespace
+    chunk of the first 600 generated lines and of the regressions, as a
+    direct caller (`capacity`, a word list) would pass them -- digits, soft
+    hyphens, Unicode hyphens and dash runs included."""
+    seen = {}
+    for text in RC.generated_lines()[:600] + RC.REGRESSIONS:
+        for w in text.split():
+            seen.setdefault(w, None)
+    return list(seen)
+
+
+def word_records(words, lexes, LH, G):
+    """-> one record per bare word: what the word-level readers answer when a
+    caller hands them the word directly (no line cut involved). `lexes` is
+    {"none": ..., "high": ..., "low": ...}, all with strip_parens=True."""
+    from quality.phonology.eng import English
+
+    def safe(f, *a):
+        try:
+            r = f(*a)
+            if hasattr(r, "phones"):
+                r = [list(r.phones), getattr(r, "layer", None), getattr(r, "source", None)]
+            return json.loads(json.dumps(r, ensure_ascii=False))
+        except Exception as e:  # recorded, so a moved exception is a moved answer
+            return ["EXC", type(e).__name__]
+    eng = {k: English(fallback=None if k == "none" else k, lexicon=lex)
+           for k, lex in lexes.items()}
+    rck = G.rime_cmudict(lexes["none"])
+    fb = lexes["high"].g2p_fallback
+    out = []
+    for w in words:
+        out.append({
+            "word": w,
+            "transcribe_word": {k: safe(lex.transcribe_word, w) for k, lex in lexes.items()},
+            "word_pieces": safe(lexes["none"].word_pieces, w),
+            "token_pieces": {k: safe(LH.token_pieces, lexes[k], w) for k in ("none", "high")},
+            "unread_final_piece": safe(LH.unread_final_piece, lexes["none"], w),
+            "english_read": {k: safe(e.read, w) for k, e in eng.items()},
+            "fallback_read": safe(fb.read, w),
+            "grid_key": safe(rck, w),
+        })
+    return out
+
+
+def declaration_refusals(lines, lex):
+    """-> the refusal text of a declaration naming the wrong word at a real
+    position, and one naming a position past the line's end."""
+    from quality.pronunciation import validate_choices
+    out = []
+    for text in lines:
+        if not text.strip() or len(text) > 4000 or any(c in text for c in "\r\n"):
+            continue
+        for token in (1, 999):
+            try:
+                validate_choices([{"line": text, "token": token, "word": "\u00f8nope",
+                                   "phones": ["AH1"], "basis": "declared",
+                                   "source": "oracle"}], lex)
+                got = "valid"
+            except ValueError as e:
+                got = str(e)
+            out.append({"text": text, "token": token, "refusal": got})
+    return out
 
 
 #: CLI calls whose pre-batch stdout is recorded (`--reader-scheme=v1` must
@@ -114,10 +183,15 @@ def main(out):
     subset = RC.generated_lines()[:400] + RC.REGRESSIONS
     legacy = [{"text": t, **consumers(lexes[True], t, LH, FT, RL, G, loop,
                                       validate_choices, rck)} for t in subset]
+    wlex = {"none": lexes[True], "high": LH.Lexicon(fallback="high"),
+            "low": LH.Lexicon(fallback="low")}
+    words = word_records(oracle_words(RC), wlex, LH, G)
+    refusals = declaration_refusals(RC.generated_lines()[:200] + RC.REGRESSIONS, lexes[True])
     with open(out, "w", encoding="utf-8") as fh:
         json.dump({"captured_at": "fce4bf0f (pre-batch origin/main)",
                    "generator": "quality/reader_cases.py generated_lines() + REGRESSIONS",
-                   "tokenizer": rows, "legacy": legacy, "cli": cli_outputs()},
+                   "tokenizer": rows, "legacy": legacy, "cli": cli_outputs(),
+                   "words": words, "declaration_refusals": refusals},
                   fh, ensure_ascii=False, indent=0, sort_keys=True)
         fh.write("\n")
 

@@ -114,18 +114,23 @@ from quality.phonology import Phonology, Syllable, merge_readings, register
 from quality import quotients as _QUOTIENTS  # noqa: E402
 from quality import morphology as _MORPH  # noqa: E402
 
-_LEX = None
+_LEX = {}
 
 
 def _lexicon():
     """Lazily built. `lyric_harness` imports `quality.phonology` inside a
     function to avoid a cycle; importing it at module scope here would close
-    that cycle from the other side."""
-    global _LEX
-    if _LEX is None:
-        import lyric_harness as _lh
-        _LEX = _lh.Lexicon()
-    return _LEX
+    that cycle from the other side.
+
+    One per reader scheme, keyed by this process's scheme at the call: a warm
+    worker serves requests under both, and a single lexicon built under the
+    first request's scheme would have cut every later request's lines that way.
+    """
+    import lyric_harness as _lh
+    scheme = _lh.resolve_reader_scheme(None)
+    if scheme not in _LEX:
+        _LEX[scheme] = _lh.Lexicon(reader_scheme=scheme)
+    return _LEX[scheme]
 
 
 #: The values `fallback` takes, and what each one licenses. `None` is the
@@ -336,7 +341,8 @@ class English(Phonology):
             return Reading(tuple(choice['phones']), 'declared', choice['source'], (word.lower(),))
         # THE NUMERAL GUARD (M1): a numeral-bearing token without a declared
         # reading (answered just above) is refused before any fallback.
-        if lh.has_numeral(word):
+        # Scheme v1 reads a bare word as before the batch.
+        if lh.has_numeral(word) and self.reader_scheme == "v2":
             return None
         lex = self._lexicon()
         # Inside the supplement coordinate a whole entry -- CMUdict's or a

@@ -847,11 +847,23 @@ def _read_english_v2(text, phon, lex, strip_parens, unit_name):
     # refused visibly, as the v1 chunk scan refused it.
     covered = {(tok.text, tok.pieces) for tok in rl.tokens}
     for run in rl.runs:
-        if (run.text, run.pieces) not in covered:
+        if (run.text, run.pieces) in covered:
+            continue
+        if run.numeral:
+            # A numeral run that is not one whole English token (`×2` is the
+            # token, `2` the run): no G2P will ever read it, and a declared
+            # reading binds a whole token, so the gap is not the lexicon's.
             refused.append(RefusedToken(
-                run.text, "OUT_OF_LEXICON",
-                f"{phon.name} could not read it, so it contributed no "
-                f"{unit_name}s. Known gap 1 (G2P for OOV)."))
+                run.text, "NUMERAL",
+                "a numeral run that is not one whole English token of this "
+                "line: the reader does not expand numbers into words and a "
+                "declared reading binds only a whole token, so it contributes "
+                f"no {unit_name}s here and the count without it is a LOWER BOUND."))
+        else:
+            refused.append(RefusedToken(
+                    run.text, "OUT_OF_LEXICON",
+                    f"{phon.name} could not read it, so it contributed no "
+                    f"{unit_name}s. Known gap 1 (G2P for OOV)."))
     return tuple(words), units, segments, refused
 
 

@@ -16,6 +16,15 @@ same lines on every Python version and the fixtures built from it
 checked for freshness. No line here is a named-word acceptance list: the
 inputs are generated, and `REGRESSIONS` holds only the reproductions of
 defects the reader batch was measured on.
+
+RESIDUAL, DISCLOSED: the website mirror (`src/lyric-tokens.js`) agrees with
+the grader only inside the Unicode version both runtimes carry. General
+categories come from Python's `unicodedata` and from the JavaScript engine's
+own tables, so a character assigned in a newer Unicode than Python's reads as
+a letter or numeral on the page and as nothing in the grader (measured: Node
+22 carries Unicode 16.0, Python 3.13 carries 15.1, and `love \U0001CCF1` is
+two tokens on the page and one in the grader). The alphabet here stays inside
+characters both versions assign.
 """
 
 LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -131,6 +140,22 @@ REGRESSIONS = [
 ]
 
 
+#: Reproductions found after the v1 oracle was captured (so they are not in
+#: `REGRESSIONS`, whose v1 answers the oracle pins): read under v2 only, and
+#: carried into the mirror fixture. A soft hyphen beside or inside an
+#: enclitic, a Hangul jamo composition beside Latin words, a numeral run that
+#: is not one whole English token.
+V2_REGRESSIONS = [
+    "go 'm\u00adidst",
+    "There '\u00ads high",
+    "There\u00ad 's high",
+    "love,night \u1100\u1161 sing",
+    "\u1100\u1161\u11a8 cafe\u0301, night",
+    "x \u00d72",
+    "go \u043a\u043e\u04425",
+]
+
+
 MIRROR_FIXTURE = "quality/fixtures/reader_v2_mirror.json"
 
 
@@ -146,7 +171,7 @@ def mirror_fixture():
     def rows(seq):
         return [[t.text, [list(p) for p in t.pieces], t.numeral, t.aside] for t in seq]
     out = []
-    for text in generated_lines(1000, seed=7) + REGRESSIONS:
+    for text in generated_lines(1000, seed=7) + REGRESSIONS + V2_REGRESSIONS:
         row = {"text": text}
         for sp, key in ((True, "strip"), (False, "keep")):
             rl = LH.reader_line(text, strip_parens=sp, scheme="v2")

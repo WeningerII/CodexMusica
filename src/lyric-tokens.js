@@ -17,7 +17,13 @@
    \w as [\p{L}\p{N}_], \b after a word character as a negative lookahead, and
    \s as the exact str.isspace() set (JavaScript's \s adds U+FEFF and lacks
    U+001C-U+001F and U+0085). scripts/test_lyric_tokens.js checks this file
-   against the harness on a generated fixture. */
+   against the harness on a generated fixture.
+
+   Residual, disclosed: \p{L}, \p{M} and \p{N} are the engine's Unicode
+   tables and the grader's are Python's unicodedata. A character assigned in a
+   newer Unicode than Python's (U+1CCF1 is Unicode 16.0; Python 3.13 carries
+   15.1) is a letter or numeral here and nothing in the grader, so the token
+   numbering of such a line can differ. */
 (function (root) {
   const SCHEME = 'v2';
   const APOSTROPHES = '’‘ʼʻ՚＇`´';
@@ -36,6 +42,15 @@
   );
   const ASIDE = /\([^)]*\)/g;
 
+  const isHangul = (c) => {
+    const o = c.codePointAt(0);
+    return (
+      (o >= 0x1100 && o <= 0x11ff) ||
+      (o >= 0xa960 && o <= 0xa97f) ||
+      (o >= 0xd7b0 && o <= 0xd7ff) ||
+      (o >= 0xac00 && o <= 0xd7a3)
+    );
+  };
   const fold = (c) => (APOSTROPHES.includes(c) ? "'" : c === '‐' || c === '‑' ? '-' : c);
   const isNumeralText = (s) => Array.from(s).some((c) => N_ONE.test(c));
 
@@ -45,15 +60,18 @@
     if (text.normalize('NFC') === text) {
       out = cps.map((c, i) => [c, i, i + 1]);
     } else {
+      // A segment is a starter and its marks, or a run of Hangul (which NFC
+      // composes across starters) and its marks.
       let start = 0;
-      for (let i = 1; i <= cps.length; i++) {
-        if (i === cps.length || !M_ONE.test(cps[i])) {
-          const seg = cps.slice(start, i).join('');
-          const nfc = seg.normalize('NFC');
-          if (nfc === seg) for (let k = start; k < i; k++) out.push([cps[k], k, k + 1]);
-          else for (const ch of Array.from(nfc)) out.push([ch, start, i]);
-          start = i;
-        }
+      while (start < cps.length) {
+        let end = start + 1;
+        const hangul = isHangul(cps[start]);
+        while (end < cps.length && (M_ONE.test(cps[end]) || (hangul && isHangul(cps[end])))) end++;
+        const seg = cps.slice(start, end).join('');
+        const nfc = seg.normalize('NFC');
+        if (nfc === seg) for (let k = start; k < end; k++) out.push([cps[k], k, k + 1]);
+        else for (const ch of Array.from(nfc)) out.push([ch, start, end]);
+        start = end;
       }
       if (out.map((x) => x[0]).join('') !== text.normalize('NFC')) {
         out = [];
@@ -86,12 +104,16 @@
     text = String(text);
     const cps = Array.from(text);
     const st = stream(text, cps);
-    const normChars = st.map((s) => s[0]);
+    // The enclitic join reads the stream with U+00AD left out, so a soft
+    // hyphen can neither make nor break a join.
+    const visible = [];
+    for (let i = 0; i < st.length; i++) if (st[i][0] !== SHY) visible.push(i);
+    const normChars = visible.map((i) => st[i][0]);
     const nmap = utf16Index(normChars);
     const removed = new Set();
     for (const m of normChars.join('').matchAll(ENCLITIC)) {
       const s16 = m.index + m[1].length;
-      for (let i = nmap[s16]; i < nmap[s16 + m[2].length]; i++) removed.add(i);
+      for (let j = nmap[s16]; j < nmap[s16 + m[2].length]; j++) removed.add(visible[j]);
     }
     const seq = [];
     for (let i = 0; i < st.length; i++) if (!removed.has(i)) seq.push(i);

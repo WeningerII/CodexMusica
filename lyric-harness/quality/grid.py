@@ -1903,8 +1903,8 @@ def rime_cmudict(lex=None):
     returns None, and None propagates to a REFUSAL rather than to a False
     (doctrine 79).
     """
+    import lyric_harness as LH
     if lex is None:
-        import lyric_harness as LH
         lex = LH.Lexicon()
 
     def key(word, *, line=None, token=None):
@@ -1913,6 +1913,11 @@ def rime_cmudict(lex=None):
             reader = lex.for_line(line).for_token(token - 1)
         w = normalise_line(word).strip("'")
         if not w:
+            return None
+        if (getattr(reader, "_pronunciation_choice", None) is None
+                and LH._scheme_of(lex) == "v2" and LH.has_numeral(w)):
+            # Reader scheme v2: a numeral endpoint is read only through a
+            # declared reading (the reader's numeral guard); never piecewise.
             return None
         if getattr(reader, "_pronunciation_choice", None) is not None:
             # A bound declaration keys the exact sung token, including edge
@@ -1949,25 +1954,33 @@ def rime_cmudict(lex=None):
         # Preserve the legacy endpoint even when the declaration tokenizer
         # omits it (digits, non-Latin text, unsung parentheticals). Bind only
         # if that same physical span is exactly the last complete sung token.
-        import lyric_harness as LH
-        word = _end_word(line)
         raw = line
         if LH._scheme_of(lex) == "v2":
-            # Reader scheme v2: the line's last sung token binds when it is
-            # also the last PHYSICAL word of the line (same raw pieces) and
-            # spells `word`. NFC happens inside the reader, so declaration
-            # positions are the reader's own, not the un-NFC'd line's.
-            tokens = LH.reader_line(raw, lex.strip_parens, "v2").tokens
+            # Reader scheme v2: the endpoint is the reader's last PHYSICAL run
+            # (any script, numerals included, a `(...)` aside included, as the
+            # legacy endpoint was), and the end word is that run's reader
+            # spelling -- U+00AD removed, U+2010/U+2011 folded, a dash run a
+            # break, NFC -- never a fragment of it. It binds, and is keyed on
+            # the exact sung token, when the run IS the line's last sung token
+            # (same raw pieces); otherwise (a final aside, a non-Latin run)
+            # it is keyed unbound, as before. A numeral endpoint keys only
+            # through a declared reading.
             runs = LH.reader_line(raw, False, "v2").runs
-            token = None
-            if (tokens and runs and runs[-1].pieces == tokens[-1].pieces
-                    and runs[-1].text == tokens[-1].text
-                    and normalise_line(tokens[-1].text) == word):
+            if not runs:
+                return "", None, key("", line=line, token=None)
+            last = runs[-1]
+            tokens = LH.reader_line(raw, lex.strip_parens, "v2").tokens
+            if (tokens and tokens[-1].pieces == last.pieces
+                    and tokens[-1].text == last.text):
                 token = len(tokens)
-            return word, token, key(word, line=line, token=token)
+                return (normalise_line(last.text), token,
+                        key(last.text, line=line, token=token))
+            word = normalise_line(last.text)
+            return word, None, key(word, line=line, token=None)
         # Scheme v1, the pre-batch binding: declaration indexes belong to the
         # original exact line. NFC may join a combining mark and change the
         # declaration tokenizer's count.
+        word = _end_word(line)
         spans = list(re.finditer(r"(?:[^\W_]|['‘’-])+", raw))
         words = LH.line_tokens(raw, strip_parens=lex.strip_parens, scheme="v1")
         token = None

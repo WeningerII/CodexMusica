@@ -49,13 +49,17 @@ def validate_choices(rows, lex):
         line, token, word, phones = (row[k] for k in ('line', 'token', 'word', 'phones'))
         if not isinstance(line, str) or not line.strip() or len(line) > 4000 or any(c in line for c in '\r\n'):
             raise ValueError('pronunciation line must be one exact nonempty lyric line, at most 4000 characters')
-        words = line_tokens(line, strip_parens=lex.strip_parens, scheme=_scheme(lex))
+        scheme = _scheme(lex)
+        words = line_tokens(line, strip_parens=lex.strip_parens, scheme=scheme)
         if type(token) is not int or not 1 <= token <= len(words) or words[token-1] != word:
-            found = (f'token {token} there is {words[token-1]!r}'
+            # Under v2 the refusal names what the position holds, because the
+            # numbering moved for some lines; v1 keeps the pre-batch text.
+            found = ('' if scheme == 'v1' else
+                     f' ({word!r} declared; token {token} there is {words[token-1]!r})'
                      if type(token) is int and 1 <= token <= len(words)
-                     else f'the line has {len(words)} sung tokens')
+                     else f' ({word!r} declared; the line has {len(words)} sung tokens)')
             raise ValueError('pronunciation token/word must match the exact sung token in its declared line'
-                             f' ({word!r} declared; {found})')
+                             + found)
         if (line, token) in seen:
             raise ValueError('duplicate pronunciation occurrence; declare one reading per token')
         seen.add((line, token))
