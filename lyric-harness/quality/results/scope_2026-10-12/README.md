@@ -118,3 +118,31 @@ A field this pass cannot observe is `"UNAVAILABLE"`. No verdict is recorded.
 **Counts.** 24,965 edge-apostrophe tokens (7 dropped by the tokenizer) and 746 digit tokens (640 dropped).
 
 **The selection is by spelling.** It includes tokens that are not elisions, for example quotation marks (`'Reveille.'`) and editorial line numbers (`heart.    10`). Telling these apart is left to the adjudicator.
+
+## Item 6: hyphenated anchor end tokens, four classes, with line ids
+
+    python3 quality/results/scope_2026-10-12/hyphen_end_classes.py quality/results/scope_2026-10-12/hyphen_end_classes.jsonl.gz
+
+The script reads `raw_final_token` on every dev line (227,115 anchor end lines) with `SupplementedLexicon(v2)` and no fallback. It records one JSON line per hyphenated end token, carrying a stable id `path#item:line`, under three selection definitions. Its docstring states each definition exactly.
+
+| definition | whole entry (read whole today / not) | every piece reads | an earlier piece unread | last piece unread | total |
+|---|---|---|---|---|---|
+| `bb8` (BB8's first count) | 86 (82 / 4) | 2,962 | 147 | 411 | 3,606 |
+| `r2` (R2's third row) | 86 (82 / 4) | 2,960 | 148 | 413 | 3,607 |
+| `policy` (the agreed dash rule: split at internal `--`/`–`/`—`, take the last word) | 87 (82 / 5) | 2,963 | 148 | 413 | 3,611 |
+
+**Reconciling the definitions.**
+- **`bb8` against `r2`.** 8 lines are in `bb8` only: tokens joined by an internal `--`, such as `flower-pot--yet`. 9 lines are in `r2` only: a hyphen next to an apostrophe, such as `meetin'-bunnet`. Every other line has the same class under both.
+- **`policy` against `r2`.** `policy` adds 4 lines that `r2` excludes for their internal `--` but whose last word is hyphenated: `great--grand-daughters`, `bands--Mac-Nee's--`, `likewise--Never-mind` and `also--You-know-who--`.
+
+**What the strict item-6 rule would change, under `policy`:**
+
+| class | lines | change |
+|---|---|---|
+| every piece reads | 2,963 | joined today → refused |
+| an earlier piece unread | 148 | read silently by the last piece today → refused |
+| whole entry, not read whole today | 5 | → read whole |
+| whole entry, read whole today | 82 | unchanged |
+| last piece unread | 413 | refused today and after |
+
+These are anchor end-line counts only. Per-word, meter and schema before/after counts belong to the test family.
