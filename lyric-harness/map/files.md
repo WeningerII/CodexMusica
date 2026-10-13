@@ -4,7 +4,7 @@ Everything tracked under `lyric-harness/`, sized in tokens (bytes ÷ 3.6, rounde
 
 | part | files | tokens |
 |---|---:|---:|
-| saved measurement results | 752 | 12,000k |
+| saved measurement results | 753 | 12,000k |
 | corpus (raw verse, measured offline) | 2328 | 11,000k |
 | other files | 235 | 9,800k |
 | data tables (read at run time) | 38 | 7,500k |
