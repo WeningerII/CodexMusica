@@ -2130,7 +2130,9 @@ function lyDraftStale(d, model = LY.model) {
 function lyPending(tool) {
   return lyDrafts(tool).reduce((t, d) => t + d.dirty.length, 0);
 }
-const lyPendingAll = () => LY_TOOLS.reduce((t, [id]) => t + lyPending(id), 0);
+const lyDraftTools = (tool) => (tool === 'rhythm' ? ['rhythm', 'placement', 'melody'] : [tool]);
+const lyToolPending = (tool) => lyDraftTools(tool).reduce((n, id) => n + lyPending(id), 0);
+const lyPendingAll = () => LY_TOOLS.reduce((n, [id]) => n + lyToolPending(id), 0);
 function lyDraftDiscard(tool, target = null) {
   const drafts = lyMeta().drafts;
   for (const k of Object.keys(drafts))
@@ -2146,13 +2148,13 @@ function lyDraftRebase(tool, target) {
   lyMetaSaved();
 }
 // Apply every pending entry of `tool` (or only `target`) as one change.
-function lyDraftApply(tool, target = null) {
+function lyDraftApply(tool, target = null, { reportFailure = true } = {}) {
   const spec = LY_FORMS[tool];
   const model = lyParse(lyDraft().value);
   const entries = lyDrafts(tool).filter((d) => target === null || d.target === target);
   if (!entries.length) return false;
   if (entries.some((d) => lyDraftStale(d, model))) {
-    showToast('Target changed. Review these entries before applying.', 'error');
+    if (reportFailure) showToast('Target changed. Review these entries before applying.', 'error');
     return false;
   }
   let text = model.text;
@@ -2178,13 +2180,33 @@ function lyDraftApply(tool, target = null) {
     if (document.activeElement?.closest?.('#surface-lyrics')) document.activeElement.blur();
     lyRefresh(true);
     uiFocus(document.querySelector('#surface-lyrics [aria-invalid="true"]'));
-    showToast('Nothing was applied. Correct the marked fields.', 'error');
+    if (reportFailure) showToast('Nothing was applied. Correct the marked fields.', 'error');
     return false;
   }
   for (const d of entries) delete meta.drafts[lyDraftKey(d.tool, d.target)];
   meta.notes = notes;
   lyCommit(text, messages.join(' ') || 'Changes applied. Undo reverses them.');
   return true;
+}
+// Each form keeps its own validation and Undo boundary. Report the combined
+// outcome without hiding an earlier commit behind a later validation failure.
+function lyDraftApplyTools(tools, { stopOnFailure = false } = {}) {
+  let applied = false,
+    failed = false;
+  for (const tool of tools) {
+    if (!lyPending(tool)) continue;
+    if (lyDraftApply(tool, null, { reportFailure: false })) applied = true;
+    else {
+      failed = true;
+      if (stopOnFailure) break;
+    }
+  }
+  if (failed)
+    showToast(
+      `${applied ? 'Some changes were applied.' : 'Nothing was applied.'} Remaining changes are still pending. Review their fields and targets.${applied ? ' Use Undo to reverse applied changes one form at a time.' : ''}`,
+      'error'
+    );
+  return { applied, failed };
 }
 const lyErr = (d, field) =>
   d?.errors?.[field]
@@ -3118,8 +3140,8 @@ function lySetHtml(box, html, view = '') {
 const lyToolMeta = (id) => LY_TOOLS.find((t) => t[0] === id);
 function lyToolRow(id, { selected = false, expanded = null } = {}) {
   const [, label, help, ic] = lyToolMeta(id);
-  const n = lyPending(id);
-  return `<button type="button" class="ly-toolrow${selected ? ' is-selected' : ''}" data-ui="ly-tool" data-id="${id}"${expanded === null ? '' : ` aria-expanded="${expanded}"`}${selected ? ' aria-current="true"' : ''}>${icon(ic, 22)}<span class="ly-toolrow-text"><strong>${esc(label)}</strong><small>${esc(help)}</small></span>${n ? `<span class="ly-count" aria-label="${esc(uiCount(n, 'pending change'))}">${n}</span>` : ''}${icon(expanded ? 'chevron-down' : 'chevron-right', 18)}</button>`;
+  const n = lyToolPending(id);
+  return `<button type="button" class="ly-toolrow${selected ? ' is-selected' : ''}" data-ui="ly-tool" data-id="${id}"${expanded === null ? '' : ` aria-expanded="${expanded}"`}${selected ? ' aria-current="true"' : ''}>${icon(ic, 22)}<span class="ly-toolrow-text"><strong>${esc(label)}</strong><small>${esc(help)}</small></span><span class="ly-count"${n ? '' : ' hidden'} aria-label="${esc(uiCount(n, 'pending change'))}">${n || ''}</span>${icon(expanded ? 'chevron-down' : 'chevron-right', 18)}</button>`;
 }
 function lyPendingStrip(tool, { applyLabel = 'Apply' } = {}) {
   const drafts = [
@@ -4070,6 +4092,8 @@ const LY_ACTION_TEXT = {
     `Check the committed document in the page context and list the dictionary pronunciation options (pronunciation_options) for “${word}”, word ${token} of line ${n}. Do not choose a reading and do not rewrite anything.`,
   recheck: ({ n, proposal }) =>
     `Check this replacement for line ${n} against the committed document in the page context and its declarations. If it fails, keep the original line and say why.\nReplacement: ${proposal}`,
+  'recheck-whole': ({ proposal }) =>
+    `Check this proposed whole-draft replacement against the committed document in the page context and its declarations. If it fails, keep the current draft and say why.\nProposed replacement:\n${proposal}`,
   lines: ({ ns }) =>
     `Rewrite ${lyLineRef(ns)} of the committed document in the page context together, so they keep their rhyme link and every other declaration. Change no other line.`,
 };
@@ -4126,6 +4150,7 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
   uiUpdatePrompt();
   const message = LY_ACTION_TEXT[kind](args);
   const context = lyContext(model);
+  const previousRun = LY.run;
   const sent = _chatSend(message, { choice: 'lyrics-edit', context });
   // _chatSend records the request synchronously before it awaits the POST.
   const requestId = chatState.pending?.request_id || null;
@@ -4135,18 +4160,34 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
   lyRefresh(true);
   const r = await sent;
   if (!r.ok && r.reason) showToast('Nothing was sent.', 'error');
+  // Send's ok also covers recovery/errors; only announce an actual new reply.
+  if (
+    kind === 'recheck-whole' &&
+    r.ok &&
+    !chatState.pending &&
+    LY.run !== previousRun &&
+    LY.run?.generation === chatState.generation &&
+    !LY.run.error
+  )
+    showToast('Recheck reply is in Writer.');
   lyRefresh(true);
   return r.ok;
 }
 // A new conversation the person will type into: the same conflict rule.
-async function lyStartConversation(choice, prefill = '') {
+async function lyStartConversation(choice, prefill = '', { force = false } = {}) {
   lyCloseMenus();
   if (chatState.busy) {
     showToast('Writer is working. You can keep editing.', 'error');
     return false;
   }
-  if (lyLiveWork()) {
+  if (lyLiveWork() && !force) {
     LY.conflict = { kind: 'conversation', args: { choice, prefill } };
+    lyShowTab('writer');
+    return false;
+  }
+  // Explicit independent work may set aside a known run, never an unknown outcome.
+  if (chatState.pending) {
+    showToast('Retrieve the saved result before starting another request.', 'error');
     lyShowTab('writer');
     return false;
   }
@@ -4156,10 +4197,11 @@ async function lyStartConversation(choice, prefill = '') {
   }
   LY.conflict = null;
   _chatReset();
-  $ui('chat-domain').value = choice;
-  uiUpdatePrompt();
   lyShowTab('writer');
   uiChatOpen();
+  // Opening the shared dock selects the lyrics domain; retain the requested phase.
+  $ui('chat-domain').value = choice;
+  uiUpdatePrompt();
   if (prefill) {
     $ui('chat-input').value = prefill;
     _chatSyncCount();
@@ -4433,7 +4475,8 @@ const LY_ACTIONS = {
     return lySubmitLyricsAction('review');
   },
   'ly-gate-apply'() {
-    for (const [id] of LY_TOOLS) if (lyPending(id) && !lyDraftApply(id)) return;
+    const tools = LY_TOOLS.flatMap(([id]) => lyDraftTools(id));
+    if (lyDraftApplyTools(tools, { stopOnFailure: true }).failed) return;
     LY.gate = null;
     return lySubmitLyricsAction('review');
   },
@@ -4588,10 +4631,8 @@ const LY_ACTIONS = {
     lyToolOpen(tool);
   },
   'ly-draft-apply'(tool) {
-    const tools = tool === 'rhythm' ? ['rhythm', 'placement', 'melody'] : [tool];
-    let any = false;
-    for (const t of tools) if (lyDrafts(t).length) any = lyDraftApply(t) || any;
-    if (any && tool === 'rhymes') LY.picks.linkGroup = -1;
+    const { applied } = lyDraftApplyTools(lyDraftTools(tool));
+    if (applied && tool === 'rhymes') LY.picks.linkGroup = -1;
   },
   'ly-draft-discard'(tool) {
     for (const t of tool === 'rhythm' ? ['rhythm', 'placement', 'melody'] : [tool])
@@ -4862,6 +4903,10 @@ const LY_ACTIONS = {
   },
   'ly-recheck'(id) {
     const item = lyItem(id);
+    if (item?.decision?.whole)
+      return lySubmitLyricsAction('recheck-whole', {
+        proposal: lyWriterText(LY.run.wholeText || item.whole.join('\n')),
+      });
     if (!item?.decision?.n) return;
     return lySubmitLyricsAction('recheck', { n: item.decision.n, proposal: item.proposal });
   },
@@ -5264,9 +5309,12 @@ function lyRenderPendingOnly(tool) {
   const t = tool === 'placement' || tool === 'melody' ? 'rhythm' : tool;
   const el = $ui(`ly-pending-${t}`);
   if (el) el.outerHTML = lyPendingStrip(t);
-  document
-    .querySelectorAll(`.ly-toolrow[data-id="${t}"] .ly-count`)
-    .forEach((c) => (c.textContent = lyPending(t) || ''));
+  document.querySelectorAll(`.ly-toolrow[data-id="${t}"] .ly-count`).forEach((c) => {
+    const n = lyToolPending(t);
+    c.textContent = n || '';
+    c.hidden = !n;
+    c.setAttribute('aria-label', uiCount(n, 'pending change'));
+  });
   if (t === 'rhymes') {
     const link = document.querySelector(
       '[data-ui="ly-draft-apply"][data-id="rhymes"]:not(.cm-btn-primary)'
