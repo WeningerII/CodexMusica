@@ -4128,6 +4128,7 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
   uiUpdatePrompt();
   const message = LY_ACTION_TEXT[kind](args);
   const context = lyContext(model);
+  const previousRun = LY.run;
   const sent = _chatSend(message, { choice: 'lyrics-edit', context });
   // _chatSend records the request synchronously before it awaits the POST.
   const requestId = chatState.pending?.request_id || null;
@@ -4137,6 +4138,16 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
   lyRefresh(true);
   const r = await sent;
   if (!r.ok && r.reason) showToast('Nothing was sent.', 'error');
+  // Send's ok also covers recovery/errors; only announce an actual new reply.
+  if (
+    kind === 'recheck-whole' &&
+    r.ok &&
+    !chatState.pending &&
+    LY.run !== previousRun &&
+    LY.run?.generation === chatState.generation &&
+    !LY.run.error
+  )
+    showToast('Recheck reply is in Writer.');
   lyRefresh(true);
   return r.ok;
 }

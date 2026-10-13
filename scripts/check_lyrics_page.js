@@ -927,18 +927,43 @@ async function browserChecks(chromium) {
         (await page.locator('#ly-panel-review [data-ui="ly-recheck"]').count()) === 1,
         'no Recheck action for the stale whole-draft suggestion'
       );
+      const recheckId = await page
+        .locator('#ly-panel-review [data-ui="ly-recheck"]')
+        .getAttribute('data-id');
+      await page.evaluate(async (id) => {
+        chatState.busy = true;
+        await LY_ACTIONS['ly-recheck'](id);
+        chatState.busy = false;
+      }, recheckId);
+      check(
+        q.calls.length === 1 &&
+          !(await page.locator('#toast').innerText()).includes('Recheck reply'),
+        'blocked Recheck claimed a reply or sent a request'
+      );
+      q.replies.push({ error: 'Fixture: request rejected.' });
+      await page.evaluate((id) => LY_ACTIONS['ly-recheck'](id), recheckId);
+      check(
+        q.calls.length === 2 &&
+          !(await page.locator('#toast').innerText()).includes('Recheck reply'),
+        'rejected Recheck claimed a reply'
+      );
       q.replies.push({
         reply: 'Fixture: replacement checked, no draft returned.',
         history: [],
         sig: 'rechecked',
+        task: { domain: 'lyrics', phase: 'edit' },
       });
       await page.evaluate(async () => {
         const button = document.querySelector('#ly-panel-review [data-ui="ly-recheck"]');
         await LY_ACTIONS['ly-recheck'](button.dataset.id);
       });
       await page.waitForFunction(() => !chatState.busy);
-      check(q.calls.length === 2, 'whole-draft Recheck sent no request');
-      const request = q.calls[1];
+      check(q.calls.length === 3, 'whole-draft Recheck sent no request');
+      check(
+        (await page.locator('#toast.show').innerText()) === 'Recheck reply is in Writer.',
+        'successful whole-draft Recheck did not name Writer in visible feedback'
+      );
+      const request = q.calls[2];
       check(
         request?.task?.domain === 'lyrics' &&
           request?.task?.phase === 'edit' &&
@@ -960,6 +985,17 @@ async function browserChecks(chromium) {
     });
 
     // J2: the explicit conversation choice must work, without bypassing recovery.
+    await step('J2. unforced edit conversation keeps its phase', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      await page.evaluate(() => LY_ACTIONS['edit-lyrics']());
+      check(
+        await page.evaluate(() => !LY.conflict && $ui('chat-domain').value === 'lyrics-edit'),
+        'unforced Edit this draft opened in the new-song phase'
+      );
+      check(q.calls.length === 0, 'opening the edit conversation sent a request');
+      await ctx.close();
+    });
     await step('J2. independent conversation', async () => {
       const { ctx, page, q } = await boot();
       await setDraft(page, DRAFT);
