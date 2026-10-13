@@ -71,7 +71,13 @@ The diff refuses to compare recordings of different populations, and it reports 
 
 Each mechanism gets projected and observed counts, with projected-not-observed and observed-not-projected ids. Without `--summary` the output carries every id, plus before/after detail for up to 25 lines per class.
 
-**Reader agreement.** This was added for 3PO's open item on live consumers that omit the scheme argument (PR #527, comment 6147757628). The recorder calls every reader with no scheme argument, as a live consumer does. `reader_agreement` takes the lines where an anchor-path word was newly refused or newly read, and counts how many of them also changed in the schema stream and in meter. For the grid, which reads only the end, it takes the lines whose end changed. **These counts are observational. They don't establish scheme propagation in either direction.** A reader that stays still may legitimately not depend on the change. And if a head's process default is already v2, an omitted argument changes nothing a recording can see. Propagation is established by explicit opposite-scheme and process-isolation tests and by source call-site coverage (3PO, comment 6147841348). The counts are line-level, they cover only the four readers the recorder calls, and they are for R2 and 3PO to explain.
+**Reader agreement.** This was added for 3PO's open item on live consumers that omit the scheme argument (PR #527, comment 6147757628). The recorder calls every reader with no scheme argument, as a live consumer does. `reader_agreement` reports four counts for each secondary reader.
+- **`anchor_path_moved`** is a narrow denominator. For the schema stream and meter, it is the lines where an aligned word's readability flipped, newly refused or newly read. For the grid, which reads only the end, it is the lines whose end readability flipped. It does not include reading switches, words added or removed, token cuts, or changes to the anchors or the end word.
+- **`moved_together`** is the denominator lines on which that reader also changed. For the schema stream, "changed" means a word newly refused or newly read by it. A change to its token list, or entries renumbered by a token cut, doesn't count. For meter it means any change in stress or refusals, and for the grid any change in its end word or key. This is line-level co-occurrence. It doesn't mean the same word, the same direction or the same cause.
+- **`stayed_still`** is the denominator lines on which that reader didn't change. In full mode it lists their ids.
+- **`moved_alone`** is the lines on which that reader changed outside the denominator.
+
+**These counts are observational. They don't establish scheme propagation in either direction.** A reader that stays still may legitimately not depend on the change. And if a head's process default is already v2, an omitted argument changes nothing a recording can see. Propagation is established by explicit opposite-scheme and process-isolation tests and by source call-site coverage (3PO, comment 6147841348). The counts are line-level, they cover only the four readers the recorder calls, and they are for R2 and 3PO to explain.
 
 ## The website tokenizer
 
@@ -93,7 +99,7 @@ There is one standing measure, the same on both sides: **27,712** dev lines of *
 - There are no unexplained fields. The only configuration change is the comparator fingerprint, which the simulation's patch to `lyric_harness.py` moves.
 - Reader agreement: meter moved on all **10,687** lines where an anchor-path word changed. The schema stream stayed still on all **10,687**, and the grid on all **3,111** changed ends. That is the expected result, because the simulation patches only `Lexicon.word_pieces`, which those two readers don't call. It shows the count detects a reader whose output didn't follow the anchor path. It says nothing about why.
 
-**Self-test (`selftest.py`).** It runs twelve synthetic cases that the corpus runs cannot show:
+**Self-test (`selftest.py`).** It runs thirteen synthetic cases that the corpus runs cannot show:
 - an expected item-6 refusal and an unexplained grid change on one line;
 - a stream-only refusal;
 - a meter-only change;
@@ -104,7 +110,10 @@ There is one standing measure, the same on both sides: **27,712** dev lines of *
 - a meter stress change beside an expected refusal, plus a lost meter refusal;
 - secondary-reader changes under `M3`, which are raw deltas, neither out of scope nor unattributed;
 - a respelled refusal;
-- a word newly refused on the anchor path while the schema stream stays still, and the same with the stream refusing it too.
+- reader agreement for the schema stream and meter: an interior word newly refused while both stay still, the same with both refusing it too, and a change in either on a line where no word flipped. The grid is not counted for an interior word;
+- reader agreement for the grid: an end newly refused with the grid unchanged, and with the grid refusing it too, read back from `--summary`.
+
+Two deliberately broken versions of `diff.py` were each caught by the matching reader-agreement case. One counted meter as moving whenever the anchor path moved. The other skipped the `--summary` conversion.
 
 All pass.
 

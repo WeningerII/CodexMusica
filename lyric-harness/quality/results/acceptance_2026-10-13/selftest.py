@@ -25,9 +25,13 @@ property. Exit status 1 if any case fails.
                    out of scope nor unattributed
   respelled        a refusal reported as a piece before and whole after is
                    neither new nor unattributed
-  reader_agreement a word newly refused on the anchor path while the stream
-                   reader stays still is listed as stayed_still; with the
-                   stream refusing it too, as moved_together
+  reader_agreement an interior word newly refused on the anchor path: stream
+                   and meter unchanged are stayed_still, both refusing too are
+                   moved_together, a stream/meter change on a line where no
+                   word flipped is moved_alone; the grid is not counted
+  reader_agreement_grid  an end newly refused: grid unchanged is stayed_still,
+                   grid refusing too is moved_together; the second run is
+                   read back from --summary, where the id list is a count
 """
 import copy, gzip, json, os, subprocess, sys, tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -128,14 +132,30 @@ def _cases():
     out["m3_raw_only"] = (r["M3_raw_deltas"] and r["out_of_scope_changes"]["count"] == 0 and r["unattributed_changes"]["count"] == 0,
                           f'raw {r["M3_raw_deltas"]}, out_of_scope {r["out_of_scope_changes"]["count"]}, unattributed {r["unattributed_changes"]["count"]}')
 
+    def _agree(r, reader):
+        g = r["reader_agreement"][reader]
+        return (g["anchor_path_moved"], g["moved_together"], g["stayed_still"], g["moved_alone"])
     a = copy.deepcopy(base); a["tok"][1] = ["", ["war-cry"]]
-    a2 = copy.deepcopy(a); a2["stream_unread"] = [[1, "war-cry"]]
-    still = _run([base], [a], "--mechanisms=item6")["reader_agreement"]["stream"]
-    moved = _run([base], [a2], "--mechanisms=item6")["reader_agreement"]["stream"]
-    out["reader_agreement"] = (still["anchor_path_moved"] == 1 and still["stayed_still"] == ["synthetic:0"]
-                               and moved["moved_together"] == 1 and moved["stayed_still"] == [],
-                               f'stream unchanged: still {still["stayed_still"]}; stream refusing too: '
-                               f'together {moved["moved_together"]}, still {moved["stayed_still"]}')
+    a2 = copy.deepcopy(a); a2["stream_unread"] = [[1, "war-cry"]]; a2["meter_refused"] = [["war-cry", "OUT_OF_LEXICON"]]
+    a3 = copy.deepcopy(base); a3["stream_unread"] = [[2, "rang"]]; a3["meter_stress"] = "//"
+    still, moved, alone = (_run([base], [x], "--mechanisms=item6") for x in (a, a2, a3))
+    want = {("still", "stream"): (1, 0, ["synthetic:0"], 0), ("still", "meter"): (1, 0, ["synthetic:0"], 0),
+            ("still", "grid"): (0, 0, [], 0),     # an interior word moved, not the end
+            ("moved", "stream"): (1, 1, [], 0), ("moved", "meter"): (1, 1, [], 0),
+            ("alone", "stream"): (0, 0, [], 1), ("alone", "meter"): (0, 0, [], 1)}
+    runs = {"still": still, "moved": moved, "alone": alone}
+    got = {k: _agree(runs[k[0]], k[1]) for k in want}
+    out["reader_agreement"] = (got == want, "; ".join(f"{k[0]}/{k[1]} {v}" for k, v in got.items() if v != want[k]) or
+                               "stream and meter: still, together and alone as expected; grid untouched by an interior word")
+
+    e = copy.deepcopy(base); e["readable"] = False; e["tok"][3] = ["", ["home"]]
+    e2 = copy.deepcopy(e); e2["grid"] = ["home", None]
+    g_still = _run([base], [e], "--mechanisms=item6")
+    g_moved = _run([base], [e2], "--mechanisms=item6", "--summary")
+    gs, gm = g_still["reader_agreement"]["grid"], g_moved["reader_agreement"]["grid"]
+    out["reader_agreement_grid"] = (_agree(g_still, "grid") == (1, 0, ["synthetic:0"], 0)
+                                    and gm == {"anchor_path_moved": 1, "moved_together": 1, "stayed_still": 0, "moved_alone": 0},
+                                    f'end refused, grid unchanged: {gs}; grid refusing too, --summary: {gm}')
 
     rb = _line(3, "Tra-la-la", ["Tra-la-la"], [["L AA1 L AA1", ["Tra"]]])
     ra = _line(3, "Tra-la-la", ["Tra-la-la"], [["", ["Tra-la-la"]]])

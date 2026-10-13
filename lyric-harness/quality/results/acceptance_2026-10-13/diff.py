@@ -385,9 +385,11 @@ def _main():
     # anchor path moved, how many moved in each secondary reader too.
     # OBSERVATIONAL ONLY: a reader may legitimately not depend on the change,
     # and a process default of v2 hides an omitted scheme argument, so this
-    # proves scheme propagation in neither direction. Line-level, not
-    # word-level. The grid reads only the end, so it is held to the lines
-    # whose end moved.
+    # proves scheme propagation in neither direction. NARROW DENOMINATOR:
+    # aligned-word readability flips (the end's, for the grid, which reads
+    # only the end); not switches, added/removed words, token cuts, anchor or
+    # end-word changes. "Together" is line-level co-occurrence, not the same
+    # word, direction or cause.
     def _union(*names):
         return set().union(*(cls.get(n, set()) for n in names))
     word_moved = _union("word_newly_refused", "word_newly_read")
