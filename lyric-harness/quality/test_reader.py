@@ -1251,12 +1251,26 @@ class LegacyReplay(unittest.TestCase):
         # and `grading` with a saved position) -- none holds an answer, a
         # pending question or a completion marker -- and a suspended state
         # whose question is answered, which runs to the end. Resumed through the CLI
-        # with no flag, each reads as v1, keeps v1 in the state it writes
-        # back, and reproduces what the pre-batch harness printed resuming
-        # the same state -- up to the scheme field and the saved position,
-        # which this build's scorer does not trust: it replays from round 1,
-        # so the pre-batch record it matches is the resume without the
-        # position (`replay_*`).
+        # with no flag, each reads as v1 and keeps v1 in the state it writes
+        # back.
+        #
+        # WHAT IT IS COMPARED WITH, precisely. A saved position (`cursor`) is
+        # trusted only under the scorer that took it (`_scorer_identity`, a
+        # digest of the harness source, data and Python version -- the rule
+        # that predates this batch). Every source change moves that digest, so
+        # this build replays a pre-batch state that carries a cursor from
+        # round 1 (`cursor_stripped` "run_key"), where the pre-batch harness
+        # resuming the IDENTICAL file trusted its own cursor (`resume_*`:
+        # `cursor_resumed` true). Against that identical-file resume the
+        # output is NOT equal for those states (asserted below): the stdout
+        # and the written state's cursor differ, and on a resumed run the
+        # checkpoint lines and memo counts too. "Only reader_scheme differs"
+        # holds against the pre-batch harness resuming the SAME state with its
+        # cursor removed (`replay_*`), which is what each state is compared
+        # with: equal once `reader_scheme` and the cursor fields are set
+        # aside. For a state without a cursor the two pre-batch records are
+        # the same run. This is the scorer-identity rule, not the reader
+        # scheme; the scheme is pinned by asserting v1 in every record.
         fx = json.loads((HERE / "fixtures" / "reader_v1_defer_states.json")
                         .read_text(encoding="utf-8"))
         env = {k: v for k, v in os.environ.items()
@@ -1299,6 +1313,22 @@ class LegacyReplay(unittest.TestCase):
                 self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
                 got = norm(r.stdout.replace(str(work), "<WORK>"))
                 self.assertEqual(got, norm(rec["replay_stdout"]))
+                result = json.loads([l for l in r.stdout.splitlines()
+                                     if l.startswith("  lyric result: ")][-1]
+                                    [len("  lyric result: "):])
+                pre = json.loads([l for l in rec["resume_stdout"].splitlines()
+                                  if l.startswith("  lyric result: ")][-1]
+                                 [len("  lyric result: "):])
+                if "cursor" in json.loads(rec["state"]):
+                    # the scorer-identity rule: the pre-batch harness trusted
+                    # its cursor, this build replays from round 1 ...
+                    self.assertTrue(pre["cursor_resumed"])
+                    self.assertEqual((result["cursor_resumed"], result["cursor_stripped"]),
+                                     (False, "run_key"))
+                    # ... so the identical-file resume is not what it equals
+                    self.assertNotEqual(got, norm(rec["resume_stdout"]))
+                else:
+                    self.assertEqual(norm(rec["resume_stdout"]), norm(rec["replay_stdout"]))
                 self.assertIn('"reader_scheme":"v1"', r.stdout)
                 self.assertNotIn('"reader_scheme":"v2"', r.stdout)
                 written = json.loads(state.read_text(encoding="utf-8"))

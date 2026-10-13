@@ -24,10 +24,16 @@ question, with that question answered (an ordinary continuation);
 
 and, for each, what the pre-batch harness printed and wrote when it resumed
 that state with no answer (`resume_*`), and when it resumed it without its
-saved position (`replay_*`: a position is trusted only under the scorer that
-took it, so a post-batch build replays from round 1). `quality/test_reader.py` resumes the same states
+saved position (`replay_*`). `quality/test_reader.py` resumes the same states
 with this build and no `--reader-scheme`: each must resume as `v1` and
-reproduce the pre-batch resume. The draft ends on a numeral, so a resume read
+reproduce `replay_*` once `reader_scheme` and the cursor fields are set
+aside. It is `replay_*` and not `resume_*` because of the scorer-identity
+rule that predates the batch (`_scorer_identity`): a position is trusted only
+under the scorer that took it, and any source change moves that digest, so a
+post-batch build replays a state carrying a cursor from round 1 where the
+pre-batch harness resumed from the cursor; against `resume_*` those states
+differ (stdout, the written cursor and, on a resumed run, the checkpoint
+lines and memo counts), and the test asserts that too. The draft ends on a numeral, so a resume read
 under `v2` (which refuses the numeral) is visible in the output. Re-running
 this with a post-batch harness measures nothing: the file is the pre-batch
 record, kept verbatim.
