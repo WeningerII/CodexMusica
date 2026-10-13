@@ -1,5 +1,5 @@
 {
- "commit": "eb193f030eaeba17cb618ea4b901b305d1f16de2",
+ "commit": "d71fa5cb1e5575df5117d554df372cf5ee366c5e",
  "split": "quality/results/coverage_split_2026-10-11-r2.tsv",
  "lexicon": {
   "supplement": "v2",
@@ -2813,29 +2813,36 @@
  },
  "apostrophes": {
   "tokens_all_positions": {
-   "M2a: exact entry, reading changes [other]": 213,
-   "M2a: exact entry, reading changes [s']": 59,
-   "M2a: exact entry, same reading": 5451,
-   "M2b: selected reading is the spelled letters": 995,
+   "M2a: exact entry, reading changes [in']": 17,
+   "M2a: exact entry, reading changes [other]": 183,
+   "M2a: exact entry, reading changes [s']": 58,
+   "M2a: exact entry, same reading": 5498,
+   "M2b: another candidate is the spelled letters": 1116,
+   "M2b: selected reading is the spelled letters": 999,
    "quotation (both edges): unchanged": 34,
-   "unchanged: stripped key reads": 10945,
-   "unchanged: unread today": 5421
+   "unchanged: stripped key reads": 9907,
+   "unchanged: unread today": 5352
   },
   "end_tokens": [
    {
-    "class": "M2a: exact entry, reading changes [other]",
+    "class": "M2a: exact entry, reading changes [in']",
     "anchored_today": true,
-    "lines": 47
+    "lines": 2
    },
    {
-    "class": "M2a: exact entry, reading changes [s']",
+    "class": "M2a: exact entry, reading changes [other]",
     "anchored_today": true,
-    "lines": 1
+    "lines": 45
    },
    {
     "class": "M2a: exact entry, same reading",
     "anchored_today": true,
-    "lines": 67
+    "lines": 68
+   },
+   {
+    "class": "M2b: another candidate is the spelled letters",
+    "anchored_today": true,
+    "lines": 203
    },
    {
     "class": "M2b: selected reading is the spelled letters",
@@ -2855,7 +2862,7 @@
    {
     "class": "unchanged: stripped key reads",
     "anchored_today": true,
-    "lines": 599
+    "lines": 423
    },
    {
     "class": "unchanged: unread today",
@@ -2865,10 +2872,24 @@
    {
     "class": "unchanged: unread today",
     "anchored_today": true,
-    "lines": 43
+    "lines": 10
    }
   ],
   "examples": {
+   "M2a: exact entry, reading changes [in']": [
+    {
+     "id": "corpus/song/eng_american_james_russell_lowell.txt#14:106",
+     "token": "goin'",
+     "today": "G OW1 IH0 N",
+     "anchored": true
+    },
+    {
+     "id": "corpus/song/eng_celtic_msm_william_laidlaw.txt#0:14",
+     "token": "sittin'",
+     "today": "S IH1 T IH0 N",
+     "anchored": true
+    }
+   ],
    "M2a: exact entry, reading changes [other]": [
     {
      "id": "corpus/song/eng_american_eugene_raymond.txt#0:12",
@@ -2889,14 +2910,6 @@
      "anchored": true
     }
    ],
-   "M2a: exact entry, reading changes [s']": [
-    {
-     "id": "corpus/song/eng_british_percy_bysshe_shelley.txt#42:79",
-     "token": "bears'--",
-     "today": "",
-     "anchored": true
-    }
-   ],
    "M2a: exact entry, same reading": [
     {
      "id": "corpus/song/eng_american_james_russell_lowell.txt#14:132",
@@ -2914,6 +2927,26 @@
      "id": "corpus/song/eng_american_paul_laurence_dunbar.txt#2:14",
      "token": "singin'",
      "today": "S IH1 NG IH0 N",
+     "anchored": true
+    }
+   ],
+   "M2b: another candidate is the spelled letters": [
+    {
+     "id": "corpus/song/eng_american_paul_laurence_dunbar.txt#7:4",
+     "token": "las'",
+     "today": "L AA1 S",
+     "anchored": true
+    },
+    {
+     "id": "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#11:21",
+     "token": "a'",
+     "today": "AH0",
+     "anchored": true
+    },
+    {
+     "id": "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#11:23",
+     "token": "a'",
+     "today": "AH0",
      "anchored": true
     }
    ],
@@ -2979,20 +3012,20 @@
    ],
    "unchanged: unread today": [
     {
-     "id": "corpus/song/eng_american_edgar_allan_poe.txt#0:67",
-     "token": "'Never--nevermore",
-     "today": "",
-     "anchored": true
-    },
-    {
-     "id": "corpus/song/eng_american_henry_cuyler_bunner.txt#9:25",
-     "token": "'fifty-two--",
-     "today": "",
-     "anchored": true
-    },
-    {
      "id": "corpus/song/eng_american_henry_howard_brownell.txt#3:13",
      "token": "'ome",
+     "today": "",
+     "anchored": false
+    },
+    {
+     "id": "corpus/song/eng_american_james_russell_lowell.txt#1:29",
+     "token": "natur'",
+     "today": "",
+     "anchored": false
+    },
+    {
+     "id": "corpus/song/eng_american_james_russell_lowell.txt#1:65",
+     "token": "dasignin'--",
      "today": "",
      "anchored": false
     }
@@ -3003,8 +3036,8 @@
   "counts": {
    "item6": 3111,
    "M1": 503,
-   "M2b": 29,
-   "union": 3636,
+   "M2b": 232,
+   "union": 3839,
    "item6_and_M1": 7,
    "item6_and_M2b": 0,
    "M1_and_M2b": 0
@@ -6634,9 +6667,65 @@
     "corpus/song/eng_american_james_russell_lowell.txt#14:12",
     "corpus/song/eng_american_james_russell_lowell.txt#14:14",
     "corpus/song/eng_american_james_russell_lowell.txt#18:335",
+    "corpus/song/eng_american_paul_laurence_dunbar.txt#7:4",
     "corpus/song/eng_british_christina_rossetti.txt#170:4",
     "corpus/song/eng_british_jean_ingelow.txt#32:28",
     "corpus/song/eng_british_robert_herrick.txt#360:10",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#11:21",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#11:23",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#11:24",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#14:15",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#14:23",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#14:7",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#26:0",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#26:1",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#26:17",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#26:19",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#26:20",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#26:3",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#26:30",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#26:33",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#26:7",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#26:9",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#30:15",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#30:23",
+    "corpus/song/eng_celtic_carolina_oliphant_lady_nairne.txt#30:8",
+    "corpus/song/eng_celtic_james_hogg.txt#0:11",
+    "corpus/song/eng_celtic_james_hogg.txt#0:20",
+    "corpus/song/eng_celtic_james_hogg.txt#0:21",
+    "corpus/song/eng_celtic_james_hogg.txt#0:23",
+    "corpus/song/eng_celtic_james_hogg.txt#0:32",
+    "corpus/song/eng_celtic_james_hogg.txt#0:33",
+    "corpus/song/eng_celtic_james_hogg.txt#0:35",
+    "corpus/song/eng_celtic_james_hogg.txt#0:44",
+    "corpus/song/eng_celtic_james_hogg.txt#0:45",
+    "corpus/song/eng_celtic_james_hogg.txt#0:47",
+    "corpus/song/eng_celtic_james_hogg.txt#0:56",
+    "corpus/song/eng_celtic_james_hogg.txt#0:57",
+    "corpus/song/eng_celtic_james_hogg.txt#0:59",
+    "corpus/song/eng_celtic_james_hogg.txt#0:8",
+    "corpus/song/eng_celtic_james_hogg.txt#0:9",
+    "corpus/song/eng_celtic_james_hogg.txt#11:33",
+    "corpus/song/eng_celtic_james_hogg.txt#12:21",
+    "corpus/song/eng_celtic_james_hogg.txt#13:16",
+    "corpus/song/eng_celtic_james_hogg.txt#13:39",
+    "corpus/song/eng_celtic_james_hogg.txt#13:7",
+    "corpus/song/eng_celtic_james_hogg.txt#22:15",
+    "corpus/song/eng_celtic_james_hogg.txt#22:21",
+    "corpus/song/eng_celtic_james_hogg.txt#22:23",
+    "corpus/song/eng_celtic_james_hogg.txt#22:6",
+    "corpus/song/eng_celtic_james_hogg.txt#29:22",
+    "corpus/song/eng_celtic_msm_alexander_carlile.txt#0:10",
+    "corpus/song/eng_celtic_msm_alexander_carlile.txt#0:11",
+    "corpus/song/eng_celtic_msm_alexander_carlile.txt#0:16",
+    "corpus/song/eng_celtic_msm_alexander_carlile.txt#0:17",
+    "corpus/song/eng_celtic_msm_alexander_carlile.txt#0:22",
+    "corpus/song/eng_celtic_msm_alexander_carlile.txt#0:23",
+    "corpus/song/eng_celtic_msm_alexander_carlile.txt#0:6",
+    "corpus/song/eng_celtic_msm_alexander_carlile.txt#0:7",
+    "corpus/song/eng_celtic_msm_alexander_macdonald.txt#2:106",
+    "corpus/song/eng_celtic_msm_allan_cunningham.txt#0:11",
+    "corpus/song/eng_celtic_msm_allan_cunningham.txt#0:9",
     "corpus/song/eng_celtic_msm_andrew_scott.txt#0:17",
     "corpus/song/eng_celtic_msm_david_webster.txt#0:18",
     "corpus/song/eng_celtic_msm_david_webster.txt#0:40",
@@ -6644,18 +6733,165 @@
     "corpus/song/eng_celtic_msm_david_webster.txt#0:44",
     "corpus/song/eng_celtic_msm_duncan_kennedy.txt#0:5",
     "corpus/song/eng_celtic_msm_duncan_kennedy.txt#0:7",
+    "corpus/song/eng_celtic_msm_george_donald.txt#0:6",
+    "corpus/song/eng_celtic_msm_george_donald_jun.txt#0:9",
+    "corpus/song/eng_celtic_msm_george_outram.txt#0:58",
+    "corpus/song/eng_celtic_msm_hector_macneill.txt#4:23",
+    "corpus/song/eng_celtic_msm_hector_macneill.txt#4:24",
+    "corpus/song/eng_celtic_msm_hector_macneill.txt#4:33",
+    "corpus/song/eng_celtic_msm_henry_scott_riddell.txt#17:19",
+    "corpus/song/eng_celtic_msm_henry_scott_riddell.txt#19:18",
+    "corpus/song/eng_celtic_msm_hew_ainslie.txt#5:2",
+    "corpus/song/eng_celtic_msm_hew_ainslie.txt#5:6",
+    "corpus/song/eng_celtic_msm_hugh_miller.txt#0:35",
+    "corpus/song/eng_celtic_msm_james_ballantine.txt#7:5",
+    "corpus/song/eng_celtic_msm_james_brown.txt#3:24",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#10:19",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#11:11",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#11:20",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#11:23",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#11:35",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#11:45",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#11:47",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#11:56",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#11:59",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#11:8",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#11:9",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#5:12",
+    "corpus/song/eng_celtic_msm_joanna_baillie.txt#7:18",
+    "corpus/song/eng_celtic_msm_john_crawford.txt#5:32",
+    "corpus/song/eng_celtic_msm_john_imlah.txt#5:0",
+    "corpus/song/eng_celtic_msm_john_imlah.txt#5:15",
+    "corpus/song/eng_celtic_msm_john_imlah.txt#5:23",
+    "corpus/song/eng_celtic_msm_john_imlah.txt#5:31",
+    "corpus/song/eng_celtic_msm_john_imlah.txt#5:7",
+    "corpus/song/eng_celtic_msm_john_mayne.txt#2:13",
+    "corpus/song/eng_celtic_msm_john_mayne.txt#2:18",
+    "corpus/song/eng_celtic_msm_john_mayne.txt#2:2",
+    "corpus/song/eng_celtic_msm_john_mayne.txt#2:20",
+    "corpus/song/eng_celtic_msm_john_mayne.txt#2:22",
+    "corpus/song/eng_celtic_msm_john_mayne.txt#2:5",
+    "corpus/song/eng_celtic_msm_john_mayne.txt#2:7",
+    "corpus/song/eng_celtic_msm_john_skinner.txt#0:16",
+    "corpus/song/eng_celtic_msm_john_skinner.txt#0:18",
+    "corpus/song/eng_celtic_msm_john_skinner.txt#0:20",
+    "corpus/song/eng_celtic_msm_john_skinner.txt#2:13",
+    "corpus/song/eng_celtic_msm_john_skinner.txt#2:49",
+    "corpus/song/eng_celtic_msm_john_skinner.txt#2:67",
+    "corpus/song/eng_celtic_msm_john_skinner.txt#2:80",
+    "corpus/song/eng_celtic_msm_joseph_grant.txt#1:15",
+    "corpus/song/eng_celtic_msm_lady_anne_barnard.txt#0:28",
+    "corpus/song/eng_celtic_msm_lady_anne_barnard.txt#0:77",
+    "corpus/song/eng_celtic_msm_lady_anne_barnard.txt#0:85",
     "corpus/song/eng_celtic_msm_peter_still.txt#2:6",
+    "corpus/song/eng_celtic_msm_robert_allan.txt#12:14",
+    "corpus/song/eng_celtic_msm_robert_allan.txt#9:1",
+    "corpus/song/eng_celtic_msm_robert_davidson.txt#2:24",
+    "corpus/song/eng_celtic_msm_robert_jamieson.txt#1:20",
+    "corpus/song/eng_celtic_msm_robert_lochore.txt#0:22",
     "corpus/song/eng_celtic_msm_robert_lochore.txt#1:4",
     "corpus/song/eng_celtic_msm_robert_lochore.txt#1:6",
+    "corpus/song/eng_celtic_msm_robert_tannahill.txt#15:11",
+    "corpus/song/eng_celtic_msm_robert_tannahill.txt#15:9",
+    "corpus/song/eng_celtic_msm_robert_tannahill.txt#9:22",
     "corpus/song/eng_celtic_msm_sir_alexander_boswell_bart.txt#2:30",
+    "corpus/song/eng_celtic_msm_thomas_dick.txt#0:11",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:10",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:11",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:15",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:16",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:17",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:21",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:22",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:23",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:3",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:4",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:5",
+    "corpus/song/eng_celtic_msm_thomas_elliott.txt#2:9",
     "corpus/song/eng_celtic_msm_thomas_mounsey_cunningham.txt#1:21",
+    "corpus/song/eng_celtic_msm_thomas_mounsey_cunningham.txt#5:15",
+    "corpus/song/eng_celtic_msm_thomas_pringle.txt#3:2",
+    "corpus/song/eng_celtic_msm_thomas_pringle.txt#3:26",
     "corpus/song/eng_celtic_msm_william_laidlaw.txt#0:2",
+    "corpus/song/eng_celtic_msm_william_laidlaw.txt#2:0",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:10",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:11",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:15",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:16",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:17",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:21",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:22",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:23",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:3",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:4",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:5",
+    "corpus/song/eng_celtic_msm_william_miller.txt#0:9",
+    "corpus/song/eng_celtic_msm_william_reid.txt#4:3",
+    "corpus/song/eng_celtic_msm_william_wilson.txt#0:10",
+    "corpus/song/eng_celtic_robert_burns.txt#104:36",
+    "corpus/song/eng_celtic_robert_burns.txt#108:16",
+    "corpus/song/eng_celtic_robert_burns.txt#110:123",
+    "corpus/song/eng_celtic_robert_burns.txt#113:29",
     "corpus/song/eng_celtic_robert_burns.txt#113:5",
+    "corpus/song/eng_celtic_robert_burns.txt#129:66",
+    "corpus/song/eng_celtic_robert_burns.txt#129:70",
+    "corpus/song/eng_celtic_robert_burns.txt#12:14",
+    "corpus/song/eng_celtic_robert_burns.txt#131:7",
+    "corpus/song/eng_celtic_robert_burns.txt#135:29",
+    "corpus/song/eng_celtic_robert_burns.txt#136:16",
+    "corpus/song/eng_celtic_robert_burns.txt#138:41",
+    "corpus/song/eng_celtic_robert_burns.txt#141:53",
+    "corpus/song/eng_celtic_robert_burns.txt#152:69",
+    "corpus/song/eng_celtic_robert_burns.txt#224:6",
+    "corpus/song/eng_celtic_robert_burns.txt#249:14",
+    "corpus/song/eng_celtic_robert_burns.txt#256:5",
+    "corpus/song/eng_celtic_robert_burns.txt#258:11",
+    "corpus/song/eng_celtic_robert_burns.txt#258:13",
+    "corpus/song/eng_celtic_robert_burns.txt#268:11",
+    "corpus/song/eng_celtic_robert_burns.txt#268:15",
+    "corpus/song/eng_celtic_robert_burns.txt#268:3",
+    "corpus/song/eng_celtic_robert_burns.txt#268:7",
+    "corpus/song/eng_celtic_robert_burns.txt#283:3",
+    "corpus/song/eng_celtic_robert_burns.txt#28:36",
+    "corpus/song/eng_celtic_robert_burns.txt#291:5",
+    "corpus/song/eng_celtic_robert_burns.txt#303:16",
+    "corpus/song/eng_celtic_robert_burns.txt#314:39",
+    "corpus/song/eng_celtic_robert_burns.txt#360:3",
+    "corpus/song/eng_celtic_robert_burns.txt#360:7",
+    "corpus/song/eng_celtic_robert_burns.txt#360:8",
+    "corpus/song/eng_celtic_robert_burns.txt#360:9",
+    "corpus/song/eng_celtic_robert_burns.txt#362:17",
     "corpus/song/eng_celtic_robert_burns.txt#364:1",
+    "corpus/song/eng_celtic_robert_burns.txt#364:2",
+    "corpus/song/eng_celtic_robert_burns.txt#393:15",
+    "corpus/song/eng_celtic_robert_burns.txt#39:1",
+    "corpus/song/eng_celtic_robert_burns.txt#423:9",
+    "corpus/song/eng_celtic_robert_burns.txt#438:6",
+    "corpus/song/eng_celtic_robert_burns.txt#462:11",
+    "corpus/song/eng_celtic_robert_burns.txt#462:23",
+    "corpus/song/eng_celtic_robert_burns.txt#462:35",
+    "corpus/song/eng_celtic_robert_burns.txt#479:7",
+    "corpus/song/eng_celtic_robert_burns.txt#484:11",
+    "corpus/song/eng_celtic_robert_burns.txt#510:107",
+    "corpus/song/eng_celtic_robert_burns.txt#510:57",
+    "corpus/song/eng_celtic_robert_burns.txt#513:5",
+    "corpus/song/eng_celtic_robert_burns.txt#513:6",
+    "corpus/song/eng_celtic_robert_burns.txt#546:7",
+    "corpus/song/eng_celtic_robert_burns.txt#55:34",
     "corpus/song/eng_celtic_robert_burns.txt#55:36",
+    "corpus/song/eng_celtic_robert_burns.txt#56:46",
     "corpus/song/eng_celtic_robert_burns.txt#58:111",
     "corpus/song/eng_celtic_robert_burns.txt#58:113",
+    "corpus/song/eng_celtic_robert_burns.txt#65:19",
+    "corpus/song/eng_celtic_robert_burns.txt#65:20",
+    "corpus/song/eng_celtic_robert_burns.txt#85:119",
+    "corpus/song/eng_celtic_robert_burns.txt#86:84",
+    "corpus/song/eng_celtic_robert_burns.txt#88:37",
+    "corpus/song/eng_celtic_robert_burns.txt#89:6",
+    "corpus/song/eng_celtic_robert_burns.txt#96:8",
+    "corpus/song/eng_celtic_walter_scott.txt#21:20",
     "corpus/song/eng_hall_william_barnes.txt#125:25",
+    "corpus/song/eng_hbv_alexander_anderson.txt#1:11",
     "corpus/song/eng_pah_edward_bangs.txt#0:33",
     "corpus/song/eng_pah_edward_bangs.txt#0:35"
    ]
@@ -6667,8 +6903,8 @@
    "lines_fully_read_today": 72
   },
   "M2b": {
-   "lines": 924,
-   "lines_fully_read_today": 516
+   "lines": 1816,
+   "lines_fully_read_today": 915
   }
  },
  "interior_join_only": {
@@ -6816,15 +7052,16 @@
   "words_only": []
  },
  "combined_lines": {
-  "end_union_as_worded": 3636,
-  "end_union_with_apparatus_strip": 3210,
+  "end_union_as_worded": 3839,
+  "end_union_with_apparatus_strip": 3413,
   "M1_end_after_strip": 70,
   "interior_join_only": 7911,
   "interior_M1": 110,
   "interior_M1_after_strip": 91,
-  "interior_M2b": 924,
-  "all_as_worded": 12300,
-  "all_with_apparatus_strip": 11876,
+  "interior_M2b": 1816,
+  "interior_union": 9784,
+  "all_as_worded": 13353,
+  "all_with_apparatus_strip": 12929,
   "all_as_worded_outside_receipt_denominator": 0
  }
 }
