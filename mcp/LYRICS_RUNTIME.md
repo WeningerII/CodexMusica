@@ -184,6 +184,44 @@ file. Adding one changes the release asset inventory, so an in-flight
 continuation from the previous image still meets `CONTINUATION_MIGRATION_REQUIRED`:
 a stable version identity does not promise resume across deployments.
 
+## Word numbering: declarations held from before the reader change
+
+A pronunciation declaration names a word by its one-based sung-token position
+in an exact line (`{line, token, word, …}`), and the English reader's cut of a
+line changed in this release (reader scheme v2: ASCII dash runs split words,
+digit-bearing runs are numeral tokens, NFC and the Unicode-hyphen folds apply).
+The published schema did not change and carries no scheme field, so a
+declaration does not say which cut numbered it. What follows is exactly what
+does and does not protect one built before the release.
+
+- **A continuation across the release is refused.** A `state`, `checkpoint`,
+  `run_id` or session receipt written by the earlier image carries its
+  `connector_semantic_identity`; the source changed, so
+  `assertContinuationSemantics` (`mcp/state_codec.js`) refuses it as
+  `CONTINUATION_MIGRATION_REQUIRED`, and the declarations inside it are never
+  replayed under the new cut. `recover_only:true` extracts the stored lyrics
+  and journal without replay.
+- **Options are always numbered under the running release.**
+  `pronunciation_options` from `lyric_grade` and `lyric_check` (the harness's
+  `quality.pronunciation.reading_options`) number tokens under v2, so a
+  declaration chosen from options this release returned binds the occurrence
+  it names.
+- **A mismatched position refuses.** A held declaration sent to a NEW call is
+  validated against the line under v2; where its position no longer holds its
+  word (`token 3 "Lawdy"` in `U--h, u--h, Lawdy,`, now `u`), the call refuses
+  with the token the position names. It is never dropped silently.
+- **The residual.** Where the old position still holds the SAME word text under
+  v2 but another occurrence of it, the held declaration validates and binds
+  that other occurrence: in `Oh--oh, oh my love`, a pre-release `token 2 "oh"`
+  meant the third `oh` and now binds the second. Nothing in the schema can
+  detect it. A caller holding declarations from before this release (its own
+  record, or a session it keeps across the deployment) re-reads
+  `pronunciation_options` and re-declares before grading lines whose cut moved
+  (a dash run, a numeral, a Unicode hyphen, a soft hyphen, combining marks).
+  The website does this for its own saved drafts: a draft without its
+  token-scheme marker is rebound by span identity, or blocked for the writer's
+  decision (`src/pages/lyrics.js`, `lyEnsureTokenScheme`).
+
 ## What the money limits establish
 
 The shared model ledger reserves an allowance before each network dispatch, across
