@@ -308,13 +308,14 @@ import itertools
 import os
 import re
 import sys
+import unicodedata
 from dataclasses import dataclass, field
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from lyric_harness import (load_lyric_lines, line_tokens,
+from lyric_harness import (APOSTROPHES, load_lyric_lines, line_tokens,
                            raw_final_token, reader_line,
                            resolve_reader_scheme)
 from quality import slots as _SL  # noqa: E402
@@ -337,6 +338,25 @@ __all__ = ["LineAttempt", "AnchorSlot", "GroupBrief", "RoundResult",
 #: word on any line Barnes actually wrote. Safe (it refuses rather than
 #: corrupting) and wrong (doctrine 1).
 _WORD_RE = re.compile(r"(?:[A-Za-zÀ-ɏḀ-ỿ]|['\-])+")
+
+
+def _only_word_material(text, pieces):
+    """-> True when the raw span `pieces` (and the gaps a spaced enclitic
+    join left between them) hold nothing a splice must keep: every codepoint
+    inside a piece is a letter, a mark, a numeral, an apostrophe, a hyphen or
+    U+00AD, and a gap holds only whitespace or U+00AD. A printed symbol --
+    `𝅗𝅥` (U+1D15E), whose normal form is a symbol plus a combining mark --
+    inside the span would be deleted by the splice, so it refuses."""
+    def word(ch):
+        return (ch.isalpha() or unicodedata.category(ch)[0] in "MN"
+                or ch in APOSTROPHES or ch in "'-\u2010\u2011\u00ad")
+    for k, (a, b) in enumerate(pieces):
+        if not all(word(text[x]) for x in range(a, b)):
+            return False
+        if k and not all(text[x].isspace() or text[x] == "\u00ad"
+                         for x in range(pieces[k - 1][1], a)):
+            return False
+    return True
 
 
 def _cased(old, new_word):
@@ -371,7 +391,11 @@ def swap_end_word(text, new_word, scheme=None):
     run is only a fragment of that token (`night` inside `×night`, `2` inside
     `×2`), or it starts inside an earlier token, the end word the grader and
     the relation stream bind is not this run, so the swap is refused (as `v1`
-    refuses those lines), never spliced onto another word.
+    refuses those lines), never spliced onto another word. The splice is then
+    re-read: a run starting exactly where the token before it ends (after
+    `×`/`÷`) would fuse the candidate onto that token, and a run whose raw
+    span covers a printed symbol would delete it, so both refuse; the re-read
+    line must be the old one with exactly its last token replaced.
     """
     if resolve_reader_scheme(scheme) == "v2":
         final = raw_final_token(text, scheme="v2")
@@ -385,7 +409,22 @@ def swap_end_word(text, new_word, scheme=None):
             return None
         if len(tokens) > 1 and tokens[-2].pieces[-1][1] > start:
             return None
-        return text[:start] + _cased(runs[-1].text, new_word) + text[end:]
+        if not _only_word_material(text, runs[-1].pieces):
+            return None
+        cased = _cased(runs[-1].text, new_word)
+        new = text[:start] + cased + text[end:]
+        # The splice is re-read, not assumed. The run can start exactly where
+        # the token before it ends -- after `×` or `÷`, which the token
+        # repertoire reads and the run does not (`K1×δQ`, `sing÷δnight`) --
+        # and replacing it then fuses the candidate onto that token, so the
+        # grader binds `K1×zqx` and the line loses a word. The re-read line
+        # must be the old one with exactly its last token replaced.
+        before = [t.text for t in tokens]
+        after = [t.text for t in reader_line(new, strip_parens=False, scheme="v2").tokens]
+        mid = [t.text for t in reader_line(cased, strip_parens=False, scheme="v2").tokens]
+        if after != before[:-1] + mid:
+            return None
+        return new
     matches = list(_WORD_RE.finditer(text))
     if not matches:
         return None

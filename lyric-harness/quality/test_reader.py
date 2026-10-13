@@ -792,18 +792,77 @@ class LoopSwaps(unittest.TestCase):
         self.assertEqual(swap_end_word("the room on fire", "zing", scheme="v2"),
                          "the room on zing")
         # Property: every v2 end-word swap rewrites the line's last token and
-        # nothing before it (the new word can join a repertoire character the
-        # run left out, `K1×δQ` -> `K1×zqx`, never another word).
+        # nothing else: the token count never shrinks (a candidate fused onto
+        # the token before, `K1×δQ` -> `K1×zqx`, loses a word) and every
+        # token before the last reads as it did.
         swapped = 0
         for text in GENERATED[:3000]:
             new = swap_end_word(text, "zqx", scheme="v2")
             if new is None:
                 continue
             old_t, new_t = LH.line_tokens(text, True, "v2"), LH.line_tokens(new, True, "v2")
-            self.assertTrue(new_t[-1].lower().endswith("zqx"), (text, new))
-            self.assertEqual(new_t[:-1], old_t[:len(new_t) - 1], (text, new))
+            self.assertEqual(len(new_t), len(old_t), (text, new))
+            self.assertEqual(new_t[-1].lower(), "zqx", (text, new))
+            self.assertEqual(new_t[:-1], old_t[:-1], (text, new))
             swapped += 1
         self.assertGreater(swapped, 1000)
+
+    def test_an_end_word_swap_never_fuses_or_deletes_a_symbol(self):
+        # Regression (verify round 3): the v2 end-word swap -- also the
+        # default-slot path of swap_at_slot -- never re-read its splice. Where
+        # the last run starts exactly where the token before it ends (after
+        # `×`/`÷`, which the token repertoire reads and the run does not), it
+        # fused the candidate onto that token; with a fallback lexicon the
+        # reviser then judged the fused word.
+        from quality import slots as SL
+        from quality.loop import swap_at_slot, swap_end_word
+        from quality.revise import Reviser
+        end = SL.parse_slot("1.end")
+        for text in ("we sing\u00f7\u03b4night", "K1\u00d7\u03b4Q", "go \u00d7\u03b4dawn"):
+            before = LH.line_tokens(text, True, "v2")
+            for new in (swap_end_word(text, "zebra", scheme="v2"),
+                        swap_at_slot(text, end, "zebra", scheme="v2")):
+                self.assertTrue(new is None or (
+                    len(LH.line_tokens(new, True, "v2")) == len(before)
+                    and LH.line_tokens(new, True, "v2")[:-1] == before[:-1]), (text, new))
+            self.assertIsNone(swap_end_word(text, "zebra", scheme="v2"), text)
+            self.assertFalse(Reviser(LH.Lexicon(fallback="low"))._anchors_at(text, end, "zebra"),
+                             text)
+        # A symbol whose normal form carries a combining mark (U+2ADC and the
+        # musical note symbols) is never deleted or fused: the swap keeps it
+        # and replaces the word after it, or refuses.
+        for sym in ("\u2adc", "\U0001d15e", "\U0001d160", "\U0001d1bb", "\U0001d1c0"):
+            for text in (f"we sing{sym}tonight", f"we sing {sym}night"):
+                before = LH.line_tokens(text, True, "v2")
+                for new in (swap_end_word(text, "zebra", scheme="v2"),
+                            swap_at_slot(text, end, "zebra", scheme="v2")):
+                    self.assertTrue(new is None or (
+                        sym in new and LH.line_tokens(new, True, "v2") == before[:-1] + ["zebra"]),
+                        (text, new))
+
+    def test_an_end_word_swap_refuses_a_span_holding_a_printed_symbol(self):
+        # The swap's own guard, independent of how the reader cuts: a last
+        # run whose raw span covers a printed symbol (what the reader gave
+        # `we sing 𝅗𝅥night` before its stream kept a symbol's normal-form
+        # mark out of the next word: the run `\U0001d165night` at [8, 14),
+        # starting ON U+1D15E) is refused, never spliced over the symbol.
+        from unittest import mock
+        import quality.loop as LP
+        text = "we sing \U0001d15enight"
+        T = LH.ReaderToken
+        recorded = LH.ReaderLine(
+            text,
+            (T("we", ((0, 2),), False, False), T("sing", ((3, 7),), False, False),
+             T("night", ((9, 14),), False, False)),
+            (T("we", ((0, 2),), False, False), T("sing", ((3, 7),), False, False),
+             T("\U0001d165night", ((8, 14),), False, False)))
+        real = LP.reader_line
+
+        def reader(t, strip_parens=True, scheme=None):
+            return recorded if t == text else real(t, strip_parens, scheme)
+        with mock.patch.object(LP, "reader_line", reader), \
+                mock.patch.object(LP, "raw_final_token", lambda t, *a, **k: "\U0001d165night"):
+            self.assertIsNone(LP.swap_end_word(text, "zebra", scheme="v2"))
 
     def test_an_end_word_swap_keeps_a_space_or_mark_nfc_replaces(self):
         # Regression: U+2000/U+2001 (NFC: U+2002/U+2003), U+037E (';') and
