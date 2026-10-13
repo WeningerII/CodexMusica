@@ -458,7 +458,9 @@ class English(Phonology):
         The battery reports 50 refused sonnet pairs; this is the same fact
         made available to any caller before it computes a rate.
         """
-        return [t for t in self._tokens(text) if not self.syllabify(t)]
+        return [t for t in self._tokens(text, self.reader_scheme,
+                                        self._lexicon().strip_parens)
+                if not self.syllabify(t)]
 
     def derived(self, text):
         """-> [(token, layer)] the tokens read by something OTHER than the
@@ -469,21 +471,23 @@ class English(Phonology):
         verdict over `text` needs both lists or neither.
         """
         out = []
-        for t in self._tokens(text):
+        for t in self._tokens(text, self.reader_scheme, self._lexicon().strip_parens):
             lay = self.layer_of(t)
             if lay is not None and lay != "dictionary":
                 out.append((t, lay))
         return out
 
-    def _tokens(self, text):
+    @staticmethod
+    def _tokens(text, scheme=None, strip_parens=True):
         """-> the words `unreadable`/`derived` read: `line_tokens` under
-        scheme `v2`; under `v1` the pre-batch cutter below, verbatim (no
-        enclitic join, no paren strip, two of the eight apostrophes)."""
+        reader scheme `v2`; under `v1` the pre-batch cutter below, verbatim
+        (no enclitic join, no paren strip, two of the eight apostrophes).
+        `scheme` None is this process's, so the unbound spelling
+        `English._tokens(text)` stays callable."""
         import lyric_harness as lh
-        if self.reader_scheme != "v1":
-            return lh.line_tokens(text, strip_parens=self._lexicon().strip_parens,
-                                  scheme="v2")
-        return self._tokens_v1(text)
+        if lh.resolve_reader_scheme(scheme) != "v1":
+            return lh.line_tokens(text, strip_parens=strip_parens, scheme="v2")
+        return English._tokens_v1(text)
 
     @staticmethod
     def _tokens_v1(text):

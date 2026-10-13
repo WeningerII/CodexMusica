@@ -2347,6 +2347,9 @@ READER_SCHEME = "v2"
 #: deferred run recorded), set once by `main` like `_LEXICON_IDENTITY`. None
 #: means `READER_SCHEME`. Read through `resolve_reader_scheme`, never directly.
 _ACTIVE_READER_SCHEME = None
+#: True when this process's scheme came from an explicit `--reader-scheme`
+#: (not inherited from a recorded run, not the default); see `_defer_proposer`.
+_READER_SCHEME_DECLARED = False
 
 
 def resolve_reader_scheme(scheme=None):
@@ -8317,16 +8320,17 @@ def _defer_proposer(path, lines=None):
     # THE RUN KEEPS ITS READER SCHEME TOO, on the same rule: its recorded
     # answers were asked against one cut of the lines. A state written before
     # the field existed was cut under v1. `main` inherits the recorded scheme
-    # when none is declared (`_recorded_reader_scheme`), so a mismatch here is
-    # an explicit `--reader-scheme` naming the other one; it refuses.
+    # when none is declared (`_recorded_reader_scheme`), so on the CLI a
+    # mismatch is an explicit `--reader-scheme` naming the other one, and it
+    # refuses. The state keeps the scheme the run started under.
     _here_scheme = resolve_reader_scheme(None)
-    if _resuming and st.get("reader_scheme", "v1") != _here_scheme:
+    _run_scheme = st.get("reader_scheme", "v1") if _resuming else None
+    if _run_scheme not in (None, _here_scheme) and _READER_SCHEME_DECLARED:
         _refuse("READER_SCHEME_MISMATCH: this deferred run was started under "
-                f"reader scheme {st.get('reader_scheme', 'v1')}, and this call "
-                f"reads {_here_scheme}. Resume it under "
-                f"--reader-scheme={st.get('reader_scheme', 'v1')} (or with no "
-                "--reader-scheme), or start a new run.")
-    st["reader_scheme"] = _here_scheme
+                f"reader scheme {_run_scheme}, and this call declares "
+                f"{_here_scheme}. Resume it under --reader-scheme={_run_scheme} "
+                "(or with no --reader-scheme), or start a new run.")
+    st["reader_scheme"] = _run_scheme or _here_scheme
     st.setdefault("input_draft", list(lines or ()))
     st.setdefault("accepted_lines", list(lines or ()))
     pending = st.get("pending")
@@ -9579,9 +9583,10 @@ def _parse_narrative_flag(raw):
 def main():
     # One worker process serves many requests: a record emitted before this
     # request's lexicon is built must not carry the previous request's basis.
-    global _LEXICON_IDENTITY, _ACTIVE_READER_SCHEME
+    global _LEXICON_IDENTITY, _ACTIVE_READER_SCHEME, _READER_SCHEME_DECLARED
     _LEXICON_IDENTITY = None
     _ACTIVE_READER_SCHEME = None
+    _READER_SCHEME_DECLARED = False
     decl = Declaration()
     args = sys.argv[1:]
     # Normalize these declared value flags before individual verbs read or
@@ -9692,6 +9697,7 @@ def main():
     else:
         reader_scheme = _recorded_reader_scheme(args) or READER_SCHEME
     _ACTIVE_READER_SCHEME = reader_scheme
+    _READER_SCHEME_DECLARED = bool(declared_scheme)
 
     if not args or args[0] in ("-h", "--help"):
         print(__doc__)

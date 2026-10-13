@@ -156,7 +156,14 @@ class HarnessProduction(unittest.TestCase):
         r = fit.read_line("I 我我我我 love you")
         self.assertFalse(r.certain)
         self.assertEqual(r.refused[0].token, "我我我我")
-        self.assertEqual([u.widx for u in r.units], [0, 2, 3])
+        # Reader scheme v2: `widx` indexes `line_tokens` (`tokens`), where the
+        # Han run is no English token and is refused, not counted.
+        self.assertEqual([u.widx for u in r.units], [0, 1, 2])
+        self.assertEqual(r.tokens, ("I", "love", "you"))
+        # v1 (legacy replay) indexed the whitespace chunks instead.
+        legacy = fit.read_line("I 我我我我 love you", reader_scheme="v1")
+        self.assertEqual([u.widx for u in legacy.units], [0, 2, 3])
+        self.assertEqual(legacy.refused[0].token, "我我我我")
         compound = fit.read_line("long-lost love")
         self.assertTrue(compound.certain)
         self.assertEqual(compound.count, 3)

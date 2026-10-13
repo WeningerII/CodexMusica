@@ -447,6 +447,22 @@ class LegacyReplay(unittest.TestCase):
         with self.assertRaises(SystemExit):
             LH._recorded_reader_scheme(["revise", "--propose=defer:" + bogus])
 
+    def test_an_explicit_other_scheme_refuses_to_resume(self):
+        import contextlib
+        import io
+        legacy = self._state({"version": 1, "pending": None,
+                              "answered": {"propose": [["x"]], "propose_group": []}})
+        saved = (LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED)
+        LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED = "v2", True
+        try:
+            with contextlib.redirect_stdout(io.StringIO()) as out, \
+                    self.assertRaises(SystemExit):
+                LH._defer_proposer(legacy, ["a line", "b line"])
+        finally:
+            LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED = saved
+        self.assertIn("READER_SCHEME_MISMATCH", out.getvalue())
+        self.assertIn("--reader-scheme=v1", out.getvalue())
+
     def test_the_flag_refuses_an_undeclared_scheme(self):
         r = subprocess.run([sys.executable, str(ROOT / "lyric_harness.py"),
                             "--reader-scheme=v3", "score", "a -- b"],
