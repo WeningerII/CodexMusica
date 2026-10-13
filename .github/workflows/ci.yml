@@ -2742,7 +2742,11 @@ jobs:
       #   commit: a stored frame is drawn from only when its own payload, its header and the
       #   re-derived frame agree with the same bindings, and the draw is a pure function of
       #   frame and seed; synthetic frames only, under a second; label 107 to 108
-      - name: The 108 cheap suites (their history is the comment above)
+      #   reader joined 2026-10-13 with the reader batch (quality/test_reader.py): scheme v1
+      #   against the oracle captured on the pre-batch tree, the v2 reader's properties over
+      #   generated lines, legacy replay of a pre-batch checkpoint, and the website mirror's
+      #   fixture freshness; about 80 s; label 108 to 109
+      - name: The 109 cheap suites (their history is the comment above)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
