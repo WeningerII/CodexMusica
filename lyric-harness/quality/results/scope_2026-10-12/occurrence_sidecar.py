@@ -89,4 +89,6 @@ def _main():
 
 
 if __name__ == "__main__":
-    _main()
+    # Reproduces a historical receipt (D8a): the pre-batch reader cut, v1.
+    with LH.reader_scheme_scope("v1"):
+        _main()

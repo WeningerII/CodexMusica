@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """Receipt for the 2026-10-12 validation-side census (PR #527, BB8 6133890644).
 
-    python3 quality/coverage_census.py --population song --split validation \
+    python3 quality/coverage_census.py --reader-scheme=v1 --population song --split validation \
         --lexicon-supplement=v2 --top 100000 --out /tmp/v2_top.json
-    python3 quality/coverage_census.py --population song --split validation \
+    python3 quality/coverage_census.py --reader-scheme=v1 --population song --split validation \
         --lexicon-supplement=v2 --fallback=high --top 100000 --out /tmp/v2high_top.json
     python3 quality/results/census_validation_2026-10-12/compare.py \
         --census-top /tmp/v2_top.json --census-top-high /tmp/v2high_top.json \
         --mpron PATH/TO/mpron.txt > quality/results/census_validation_2026-10-12/compare_output.json
 
 The two `census_commit` fields record the checkout each census ran at; the
-committed output's two differ (README, Provenance).
+committed output's two differ (README, Provenance). `--reader-scheme=v1`, and
+the v1 pin below, reproduce a historical input (D8a): the receipt was measured
+under the pre-batch reader cut, and the census now defaults to v2.
 
 Read-only. Three things, all printed as JSON:
   0. The SET DIFFERENCE between the two census records: the spellings unread
@@ -70,7 +72,7 @@ def _main(argv=None):
         print(f"REFUSED: {a.mpron} is not the pinned mpron.txt ({digest})")
         return 1
     E = M.load(a.mpron)
-    hi = build_lexicon("v2", "high")
+    hi = build_lexicon("v2", "high", reader_scheme="v1")
     newly, still = [], 0
     for t in T:
         w = t["type"]

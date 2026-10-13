@@ -17,7 +17,9 @@ Run every command below from `lyric-harness/`. The Moby file is the staged, git-
 
 ## Item 1: unread words, dev side
 
-    python3 quality/coverage_census.py --population song --split dev [--lexicon-supplement=v2] [--fallback=high] --top 100000 --out FILE
+    python3 quality/coverage_census.py --reader-scheme=v1 --population song --split dev [--lexicon-supplement=v2] [--fallback=high] --top 100000 --out FILE
+
+`--reader-scheme=v1` reproduces a historical input (D8a): these records were measured under the pre-batch reader cut, and the census now defaults to v2. The scripts in this directory pin v1 themselves for the same reason.
 
 The records are `census_dev_none.json`, `census_dev_v2.json` and `census_dev_v2high.json`. They are the command's output after three edits: `population_manifest` dropped, every `top_*` list cut to its first 500 rows, and a `note` field added. The command above regenerates the unedited records. They took 66 s, 136 s and 140 s to run.
 
