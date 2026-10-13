@@ -17,11 +17,13 @@ A line that raises is recorded with its error. `HARNESS_ROOT` lets one copy of t
 
 ## The diff
 
-    python3 quality/results/acceptance_2026-10-13/diff.py BEFORE.jsonl.gz AFTER.jsonl.gz OUT.json
+    python3 quality/results/acceptance_2026-10-13/diff.py BEFORE.jsonl.gz AFTER.jsonl.gz quality/results/acceptance_2026-10-13/diff_null.json
 
 The diff joins two recordings by id. It classifies every change: the end word newly refused or newly read, a word before the end newly refused or newly read, a reading switched while the line stays readable, the tokens changed, or a line raised.
 
 The two refusal classes are cross-tabulated against the projected id sets: item 6, M1 and M2b, at the end word and inside the line. Each set gets three counts: projected and observed, projected and not observed, and **observed but not projected**. The last is the change nobody predicted, and its ids are listed with before and after detail.
+
+**The null test.** `diff_null.json` diffs a recording of main at `fce4bf0f` against a recording of this receipt's own commit, which has the same harness code. Every class is 0, which is what a correct diff gives when nothing changed. Each recording takes about 3 minutes and is about 11 MB, so recordings are not committed. Rerun the recorder at the named head to reproduce one.
 
 ## The disputed dictionary rows
 
