@@ -231,6 +231,9 @@ function unitSavedReadings() {
     sessionSnapshot: () => ({ lyrics: app.lyrics, lyricMeta: { ...app.lyricMeta } }),
     showToast: (m, tone) => toasts.push([m, tone]),
     _chatSend: (...a) => (sends.push(a), Promise.resolve({ ok: true })),
+    // Reaching the conversation counts as sending: a send path past its
+    // guards is recorded, not thrown.
+    uiSwitchChat: () => (sends.push(['switch']), false),
   });
   vm.runInContext(fs.readFileSync(path.join(ROOT, 'src/lyric-tokens.js'), 'utf8'), ctx);
   vm.runInContext(src, ctx, { filename: 'src/pages/lyrics.js' });
@@ -398,6 +401,172 @@ function unitSavedReadings() {
     // A draft with no reading rows is untouched.
     draft.value = 'just a line';
     check(run('lyEnsureTokenScheme()') === false && draft.value === 'just a line', 'no rows');
+
+    // 6. A renumbering is reported, never silent: an unmarked row on a line
+    // whose cut moved gets a notice naming the old and new number.
+    toasts.length = 0;
+    draft.value = song([row(2, 'oh', OH)]);
+    check(run('lyEnsureTokenScheme()') === true, 'the unmarked row was not migrated');
+    check(
+      toasts.length === 1 && /renumbered/.test(toasts[0][0]) && /word 2 → 3/.test(toasts[0][0]),
+      `a renumbered reading moved without notice: ${JSON.stringify(toasts)}`
+    );
+
+    // 7. Rhyme links and declared returns name words by number too (`N.Tk`,
+    // the pre-release "Word N" pickers). An unmarked row's word places are
+    // rebound by span identity and the row gains the mark, which the tools
+    // never receive; place words do not move.
+    const OHS = `[VERSE]\n${OH}\nYou are the one I dream of\n${OH}`;
+    const linked = `[SETUP — rhyme groups — 1.T4,2]\n[SETUP — returns — 1.T2,3.T2;1.head,3.head]\n\n${OHS}`;
+    const member = (text, key, k) => {
+      const m = run('lyParse(__t)', { __t: text });
+      const g = run('lyParseGroups(lySetupOf(__m, __k)[0].value)', { __m: m, __k: key });
+      return { word: run('lyMemberWord(__m, __x)', { __m: m, __x: g[0][k] }), m: g[0][k] };
+    };
+    check(
+      member(linked, 'rhyme groups', 0).word === 'my' && member(linked, 'returns', 0).word === 'oh',
+      'the fixture lost its point: unmigrated, 1.T4 must read "my" under the current cut'
+    );
+    toasts.length = 0;
+    draft.value = linked;
+    check(run('lyEnsureTokenScheme()') === true, 'word places were not migrated');
+    const rows6 = draft.value.split('\n');
+    check(
+      rows6[0] === '[SETUP — rhyme groups — 1.T5,2 — cut v2]' &&
+        rows6[1] === '[SETUP — returns — 1.T3,3.T3;1.head,3.head — cut v2]',
+      `word places not rebound and marked: ${JSON.stringify(rows6.slice(0, 2))}`
+    );
+    const love = member(draft.value, 'rhyme groups', 0);
+    const ohRet = member(draft.value, 'returns', 0);
+    check(love.word === 'love', `the rhyme link moved to "${love.word}"`);
+    check(
+      ohRet.word === 'oh' &&
+        JSON.stringify(
+          run('CMLyricTokens.readerLine(__l).tokens[__k].pieces', {
+            __l: OH,
+            __k: Number(ohRet.m.place.slice(1)) - 1,
+          })
+        ) === JSON.stringify([[8, 10]]),
+      'the placed return moved to another occurrence of "oh"'
+    );
+    let d6 = run('lyDeclarationsOf(lyParse(__t))', { __t: draft.value });
+    check(
+      d6.groups === '1.T5,2' && d6.returns === '1.T3,3.T3;1.head,3.head',
+      `the tools would receive ${JSON.stringify([d6.groups, d6.returns])}`
+    );
+    check(
+      toasts.length === 1 && /renumbered/.test(toasts[0][0]),
+      'renumbered word places moved without notice'
+    );
+    check(run('lyEnsureTokenScheme()') === false, 'marked word places were migrated again');
+    // A row the page writes is marked; renumbering lines keeps the mark.
+    const set = run('lySetSetup("returns", ["1.T2,3.T2"], __t)', { __t: OHS });
+    check(
+      set.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — cut v2]',
+      'a written word place carries no cut mark'
+    );
+    check(
+      run('lySetSetup("returns", ["1,3"], __t)', { __t: OHS }).split('\n')[0] ===
+        '[SETUP — returns — 1,3]',
+      'a row with no word place was marked'
+    );
+    const moved = run('lyAssemble(lyBlocks(lyParse(__t))).text', { __t: set });
+    check(
+      moved.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — cut v2]',
+      `reassembly dropped the mark: ${moved.split('\n')[0]}`
+    );
+    // 8. A word place with no current word over its characters keeps its
+    // old number, binds nothing, travels as needing a decision and stops
+    // every send; removing the link clears the block.
+    const lost = `[SETUP — returns — 1.T1,2.T1;1,2]\n\n[VERSE]\n${LAWDY}\n${LAWDY}`;
+    toasts.length = 0;
+    sends.length = 0;
+    draft.value = lost;
+    check(run('lyEnsureTokenScheme()') === true, 'a lost word place was not flagged');
+    check(
+      draft.value.split('\n')[0] ===
+        '[SETUP — returns — 1.T1 (numbered under the earlier cut),2.T1 (numbered under the earlier cut);1,2 — cut v2]',
+      `the lost word place was moved or dropped: ${draft.value.split('\n')[0]}`
+    );
+    check(member(draft.value, 'returns', 0).word === null, 'a lost word place binds a word');
+    d6 = run('lyDeclarationsOf(lyParse(__t))', { __t: draft.value });
+    check(
+      d6.returns === '1,2' &&
+        JSON.stringify(d6.returns_need_decision) ===
+          JSON.stringify([
+            '1.T1 (numbered under the earlier cut),2.T1 (numbered under the earlier cut)',
+          ]),
+      `a lost word place was sent as binding: ${JSON.stringify(d6)}`
+    );
+    check(
+      /Nothing was sent.*word places? in a rhyme link or declared return/.test(
+        run('lyUndecidedRefusal(lyParse(__t))', { __t: draft.value })
+      ),
+      'no refusal for a lost word place'
+    );
+    check(toasts.length === 1 && toasts[0][1] === 'error', 'no notice for a lost word place');
+    const review = Array.from(run('lyLocalChecks(lyParse(__t))', { __t: draft.value }));
+    check(
+      review.some(
+        (x) =>
+          /declared return saved before this release needs your decision/.test(x.title) &&
+          x.actions.some((a) => a[0] === 'ly-drop-undecided')
+      ) && !review.some((x) => /which the draft does not have/.test(x.title)),
+      `Review shows no decision card for a lost word place: ${JSON.stringify(review.map((x) => x.title))}`
+    );
+    // Nor does it mark a word in the document's rhyme annotation.
+    const lostLink = run('lyMigrateSavedReadings(__t).text', {
+      __t: `[SETUP — rhyme groups — 1.T1,2]\n\n[VERSE]\n${LAWDY}\n${LAWDY}`,
+    });
+    app.lyricMeta.drafts = app.lyricMeta.drafts || {};
+    const marks = run(
+      'LY.tool = "rhymes"; const __r = lyRhymeMarks(lyParse(__t)); LY.tool = ""; __r',
+      { __t: lostLink }
+    );
+    check(
+      !marks.ends.has('1:1') && marks.ends.has('2:5'),
+      `a lost word place marks a word: ${JSON.stringify([...marks.ends.keys()])}`
+    );
+    const okLost = run('lySubmitLyricsAction("review")');
+    return Promise.resolve(okLost).then((value) => {
+      check(value === false && sends.length === 0, 'a draft with a lost word place was sent');
+      ctx.pushHistory = () => {};
+      run(
+        'LY.model = lyParse(lyDraft().value); typeof LY_ACTIONS["ly-drop-undecided"] === "function" && LY_ACTIONS["ly-drop-undecided"]("returns")'
+      );
+      check(
+        draft.value.split('\n')[0] === '[SETUP — returns — 1,2]' &&
+          run('lyUndecidedRefusal(lyParse(__t))', { __t: draft.value }) === '',
+        `removing the link did not clear the block: ${draft.value.split('\n')[0]}`
+      );
+
+      // 9. Choosing the reading again, as Review says, clears the block: the
+      // new choice replaces the undecided reading of the word it is.
+      draft.value = song([row(1, 'U--h', LAWDY), row(2, 'love', OH)]);
+      run('lyEnsureTokenScheme()');
+      check(
+        readings(draft.value).every((x) => x.undecided),
+        'the fixture rows are not undecided'
+      );
+      let res = run(
+        'LY_FORMS.pronunciation.apply(lyParse(__t), lyReadingKey(__l, 1, "U"), {kind: "declared", phones: "Y UW1", source: "the singer"})',
+        { __t: draft.value, __l: LAWDY }
+      );
+      check(
+        JSON.stringify(readings(res.text).map((x) => [x.word, x.undecided])) ===
+          '[["love",true],["U",false]]',
+        `choosing "U" again did not replace the undecided "U--h" alone: ${res.text}`
+      );
+      res = run(
+        'LY_FORMS.pronunciation.apply(lyParse(__t), lyReadingKey(__l, 5, "love"), {kind: "declared", phones: "L AH1 V", source: "the singer"})',
+        { __t: res.text, __l: OH }
+      );
+      check(
+        run('lyUndecidedRefusal(lyParse(__t))', { __t: res.text }) === '' &&
+          readings(res.text).length === 2,
+        `choosing each reading again left the draft blocked: ${res.text}`
+      );
+    });
   });
 }
 

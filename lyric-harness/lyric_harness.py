@@ -2438,7 +2438,7 @@ def _reader_stream(text):
     NFC runs per canonical segment (a starter and the marks after it), so an
     unchanged segment maps character for character and a recomposed one maps
     every output character to the whole segment (to the segment after its
-    starter, when the starter itself survives) -- the many-codepoints-to-one
+    starter, when the starter's own normal form survives at its head) -- the many-codepoints-to-one
     map that keeps a raw span from ever losing a character. Hangul composes
     across starters (jamo into a syllable), so a run of Hangul characters and
     their marks is one segment. Any other composition across starters falls
@@ -2458,12 +2458,15 @@ def _reader_stream(text):
             nfc = unicodedata.normalize("NFC", seg)
             if nfc == seg:
                 out.extend((ch, start + k, start + k + 1) for k, ch in enumerate(seg))
-            elif nfc[0] == seg[0]:
+            elif nfc.startswith(unicodedata.normalize("NFC", seg[0])):
                 # The starter composed with nothing (a space before reordered
-                # marks): it keeps its own codepoint, so no piece built from
-                # the marks reaches across it.
-                out.append((nfc[0], start, start + 1))
-                out.extend((ch, start + 1, end) for ch in nfc[1:])
+                # marks, or a singleton NFC replaces on its own: U+2000 EN QUAD
+                # -> U+2002, U+037E -> ';'): its own normal form maps to its
+                # own codepoint, so no piece built from the marks reaches
+                # across a space or a punctuation mark.
+                own = unicodedata.normalize("NFC", seg[0])
+                out.extend((ch, start, start + 1) for ch in own)
+                out.extend((ch, start + 1, end) for ch in nfc[len(own):])
             else:
                 out.extend((ch, start, end) for ch in nfc)
             start = end

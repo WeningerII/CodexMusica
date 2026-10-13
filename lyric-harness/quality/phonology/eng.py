@@ -386,16 +386,24 @@ class English(Phonology):
         return bool(self._SPLIT_FINAL.search(text))
 
     def _fallback(self):
-        if self._fb is None and self.fallback is not None:
+        """-> the G2P fallback over the lexicon this phonology reads through
+        NOW. Without its own lexicon a phonology reads through the shared one
+        of the process's scheme at the call, so the fallback is cached per
+        that lexicon: built once under a `v1` scope (a pinned instrument such
+        as `meter_bands.measure_line`), it must not answer a later `v2` read."""
+        if self.fallback is None:
+            return None
+        base = self._lexicon()
+        if self._fb is None or self._fb[0] is not base:
             from quality.g2p import Fallback
-            lex = self._lexicon()
+            lex = base
             # A supplemented lexicon hands derivation CMUdict alone: a
             # reviewed row is a reading of its word, never a stem or a piece.
             # `read` consults the whole entries before this fallback.
             if hasattr(lex, "cmu_lexicon"):
                 lex = lex.cmu_lexicon()
-            self._fb = Fallback(lex, min_confidence=self.fallback)
-        return self._fb
+            self._fb = (base, Fallback(lex, min_confidence=self.fallback))
+        return self._fb[1]
 
     # ---------------------------------------------------------------- reads
     def read(self, word):

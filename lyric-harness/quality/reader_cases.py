@@ -144,7 +144,9 @@ REGRESSIONS = [
 #: `REGRESSIONS`, whose v1 answers the oracle pins): read under v2 only, and
 #: carried into the mirror fixture. A soft hyphen beside or inside an
 #: enclitic, a Hangul jamo composition beside Latin words, a numeral run that
-#: is not one whole English token.
+#: is not one whole English token, and a starter NFC replaces on its own
+#: (U+2000/U+2001 quads, U+037E, U+0387) before combining marks, whose raw
+#: runs must not take the space or the punctuation in.
 V2_REGRESSIONS = [
     "go 'm\u00adidst",
     "There '\u00ads high",
@@ -153,6 +155,10 @@ V2_REGRESSIONS = [
     "\u1100\u1161\u11a8 cafe\u0301, night",
     "x \u00d72",
     "go \u043a\u043e\u04425",
+    "I love\u2001\u0308night",
+    "go\u2000\u0301bed",
+    "love\u037e\u0301night",
+    "a\u0387\u0327\u0301b",
 ]
 
 

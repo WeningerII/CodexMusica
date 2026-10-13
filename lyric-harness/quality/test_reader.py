@@ -451,7 +451,9 @@ class NfcAcrossWhitespace(unittest.TestCase):
 
     def test_no_token_or_run_piece_crosses_whitespace(self):
         marks = ["\u0301", "\u0327", "\u0323", "\u0308", "\u0345", "\u031b"]
-        spaces = [" ", "\u00a0", "\t", "\u2003", "\u0085", "\u3000"]
+        # U+2000 and U+2001 are spaces NFC replaces (by U+2002, U+2003): the
+        # starter changes, and must still map to its own codepoint alone.
+        spaces = [" ", "\u00a0", "\t", "\u2003", "\u0085", "\u3000", "\u2000", "\u2001"]
         lines = []
         for sp in spaces:
             for a in marks:
@@ -472,6 +474,19 @@ class NfcAcrossWhitespace(unittest.TestCase):
                         checked += 1
                     self.assertFalse(any(c.isspace() for c in t.text), (text, t))
         self.assertGreater(checked, 1000)
+
+    def test_a_punctuation_mark_nfc_replaces_stays_outside_the_runs(self):
+        # U+037E -> ';' and U+0387 -> U+00B7 before combining marks: the
+        # punctuation keeps its own codepoint, so no raw run swallows it.
+        for punct in ("\u037e", "\u0387"):
+            for a, b in (("\u0301", ""), ("\u0327", "\u0301"), ("\u0301", "\u0327")):
+                text = f"love{punct}{a}{b}night"
+                self.assertFalse(unicodedata.is_normalized("NFC", text))
+                for sp_rule in (True, False):
+                    rl = LH.reader_line(text, sp_rule)
+                    for t in list(rl.tokens) + list(rl.runs):
+                        for x, y in t.pieces:
+                            self.assertFalse(x <= 4 < y, (text, t))
 
 
 class HangulSegments(unittest.TestCase):
@@ -786,6 +801,43 @@ class LoopSwaps(unittest.TestCase):
             self.assertEqual(new_t[:-1], old_t[:len(new_t) - 1], (text, new))
             swapped += 1
         self.assertGreater(swapped, 1000)
+
+    def test_an_end_word_swap_keeps_a_space_or_mark_nfc_replaces(self):
+        # Regression: U+2000/U+2001 (NFC: U+2002/U+2003), U+037E (';') and
+        # U+0387 before combining marks mapped the starter to the whole
+        # segment, so the last run's first piece began ON the space or the
+        # punctuation, and the splice deleted it and fused the candidate onto
+        # the word before.
+        from quality.loop import swap_end_word
+        for text, sep in (("I love\u2001\u0308night", "\u2001"), ("go\u2000\u0301bed", "\u2000"),
+                          ("love\u037e\u0301night", "\u037e"), ("love\u0387\u0301night", "\u0387")):
+            new = swap_end_word(text, "zqx", scheme="v2")
+            self.assertIsNotNone(new, text)
+            head = text[:text.index(sep) + 1]
+            self.assertTrue(new.startswith(head), (text, new))
+            self.assertEqual(LH.line_tokens(new, True, "v2")[:-1],
+                             LH.line_tokens(text, True, "v2")[:-1], (text, new))
+
+    def test_a_slot_swap_never_fuses_onto_the_next_token(self):
+        # Regression: a token ending in a segment NFC recomposed (`ọ` +
+        # U+0301 from `o` U+0323 U+0301) has a piece covering the U+0301 that
+        # ends it; the splice deleted it and the candidate fused with `run`,
+        # so the grader bound `Zqxrun` and the slot after it vanished.
+        from quality import slots as SL
+        from quality.loop import swap_at_slot
+        for text, slot in (("Olo\u0323\u0301run love", "1.head"),
+                           ("my do\u0323\u0301run night", "1.T2")):
+            for sp in (True, False):
+                new = swap_at_slot(text, SL.parse_slot(slot), "zqx", scheme="v2",
+                                   strip_parens=sp)
+                if new is not None:
+                    before = LH.line_tokens(text, sp, "v2")
+                    after = LH.line_tokens(new, sp, "v2")
+                    self.assertEqual(len(after), len(before), (text, new))
+        self.assertIsNone(swap_at_slot("Olo\u0323\u0301run love", SL.parse_slot("1.head"),
+                                       "zqx", scheme="v2"))
+        self.assertEqual(swap_at_slot("Olo run love", SL.parse_slot("1.head"), "zqx",
+                                      scheme="v2"), "Zqx run love")
 
 
 class Declarations(unittest.TestCase):
@@ -1470,12 +1522,64 @@ class LegacyReplay(unittest.TestCase):
                         rebind_occurrences([row], "v1", "v2")
 
 
+class SharedFallback(unittest.TestCase):
+    """A phonology with no lexicon of its own reads through the shared one of
+    the scheme at the call; its G2P fallback follows that lexicon."""
+
+    def test_a_v1_scope_never_leaves_its_fallback_to_a_v2_read(self):
+        # Regression: `meter_bands.measure_line` pins v1; when the v2-keyed
+        # shared reader was first used inside it, the reader cached a fallback
+        # built on the v1 lexicon and every later v2 read used it.
+        from unittest.mock import patch
+        import quality.meter_bands as MB
+        with patch.object(MB, "_READERS", {}):
+            r = MB.reader("fallback-low")
+            MB.measure_line("we sing it 4ever and a day", r)
+            self.assertEqual(r._fallback().lex.reader_scheme, "v2")
+            with LH.reader_scheme_scope("v1"):
+                self.assertEqual(r._fallback().lex.reader_scheme, "v1")
+            self.assertEqual(r._fallback().lex.reader_scheme, "v2")
+
+
+_WARM_CHILD = "READER_TEST_WARM_WORKER_CHILD"
+
+
 class WarmWorker(unittest.TestCase):
     """8a. One warm worker process (`mcp/worker.py`: `run_one` for lyrics,
     `run_reader` for the Library) serves both schemes in either order: each
     request reads under its own scheme, the Library rebinds the v1-bound
     Gutenberg set, and every module-level lexicon cache holds lexicons of the
-    scheme it is keyed by."""
+    scheme it is keyed by.
+
+    Each scenario runs in a process of its own (`WarmWorkerBody`), as a
+    worker does: the Library reader guards its resident memory against the
+    deployment envelope (`library.analysis._resource_guard`, 1 GiB by
+    default), and inside this whole suite's process the other classes'
+    corpora already hold more than that, so the guard would refuse for memory
+    the worker never holds (a worker serving both requests peaks near 600 MiB).
+    The envelope is not raised: the scenario is measured against it."""
+
+    def _child(self, name):
+        env = {**os.environ, _WARM_CHILD: "1"}
+        r = subprocess.run([sys.executable, "-m", "unittest", "-v",
+                            f"quality.test_reader.WarmWorkerBody.{name}"],
+                           cwd=ROOT, env=env, capture_output=True, text=True, timeout=1800)
+        self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+        # It ran: a skip ("OK (skipped=1)") is not a pass.
+        self.assertTrue("Ran 1 test" in r.stderr and r.stderr.rstrip().endswith("\nOK"),
+                        r.stderr[-2000:])
+
+    def test_a_legacy_lyrics_request_then_a_library_analysis(self):
+        self._child("test_a_legacy_lyrics_request_then_a_library_analysis")
+
+    def test_a_new_lyrics_request_then_a_legacy_one(self):
+        self._child("test_a_new_lyrics_request_then_a_legacy_one")
+
+
+@unittest.skipUnless(os.environ.get(_WARM_CHILD) == "1",
+                     "run in a process of its own by WarmWorker")
+class WarmWorkerBody(unittest.TestCase):
+    """The `WarmWorker` scenarios, each run by it in a fresh process."""
 
     @classmethod
     def setUpClass(cls):

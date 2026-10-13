@@ -79,11 +79,13 @@
         const nfc = seg.normalize('NFC');
         const nfcCps = Array.from(nfc);
         if (nfc === seg) for (let k = start; k < end; k++) out.push([cps[k], k, k + 1]);
-        else if (nfcCps[0] === cps[start]) {
+        else if (nfc.startsWith(cps[start].normalize('NFC'))) {
           // The starter composed with nothing (a space before reordered
-          // marks): it keeps its own codepoint.
-          out.push([nfcCps[0], start, start + 1]);
-          for (const ch of nfcCps.slice(1)) out.push([ch, start + 1, end]);
+          // marks, or a singleton NFC replaces on its own: U+2000 -> U+2002,
+          // U+037E -> ';'): its own normal form keeps its own codepoint.
+          const own = Array.from(cps[start].normalize('NFC'));
+          for (const ch of own) out.push([ch, start, start + 1]);
+          for (const ch of nfcCps.slice(own.length)) out.push([ch, start + 1, end]);
         } else for (const ch of nfcCps) out.push([ch, start, end]);
         start = end;
       }

@@ -431,6 +431,8 @@ def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=True):
     them, so the token index here has to count them the same way or `T2` on
     `(oh) hello my world` splices `my` while the grader binds `hello`. Under
     `v1` it is ignored (the pre-batch cut refuses every line with an aside).
+    A v2 splice whose re-read line is not the old one with exactly that token
+    replaced (the candidate fused onto a neighbour) is refused.
     """
     if _SL.is_default(slot):
         return swap_end_word(text, new_word, scheme=scheme)
@@ -452,7 +454,22 @@ def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=True):
             return None
         hit = tokens[idx]
         start, end = hit.pieces[0][0], hit.pieces[-1][1]
-        return text[:start] + _cased(hit.text, new_word) + text[end:]
+        cased = _cased(hit.text, new_word)
+        new = text[:start] + cased + text[end:]
+        # The splice is checked, not assumed: a token ending in a segment NFC
+        # recomposed (`Olọ́run`: `ọ` + U+0301) has a piece that also covers
+        # the trailing marks that END it, which are not in its text, and
+        # replacing them fuses the candidate onto the next token. The grader
+        # would then bind another word, so the move is refused unless the
+        # re-read line is the old one with exactly this token replaced.
+        before = [t.text for t in tokens]
+        after = [t.text for t in reader_line(new, strip_parens, scheme="v2").tokens]
+        mid = [t.text for t in reader_line(cased, strip_parens, scheme="v2").tokens]
+        tail = len(before) - idx - 1
+        if (after[:idx] != before[:idx] or after[idx:len(after) - tail] != mid
+                or after[len(after) - tail:] != before[idx + 1:]):
+            return None
+        return new
     toks = list(_WORD_RE.finditer(text))
     if not toks:
         return None

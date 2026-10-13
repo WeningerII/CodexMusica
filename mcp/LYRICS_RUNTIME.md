@@ -222,7 +222,22 @@ does and does not protect one built before the release.
   writes carries the cut it was numbered under (`— cut v2`, in the row itself,
   so the mark survives a downloaded `.txt`, a paste, an import and a Library
   working copy), and a row without it is rebound by span identity, or blocked
-  for the writer's decision (`src/pages/lyrics.js`, `lyEnsureTokenScheme`).
+  for the writer's decision (`src/pages/lyrics.js`, `lyEnsureTokenScheme`); a
+  number it changes is reported to the writer, not changed in silence.
+- **Word places in `groups` and `returns` are numbers too.** A member `N.Tk`
+  (`--groups=1.T4,2`, `--returns=1.T2,3.T2`) names word k of line N, carries
+  no word to validate against, and is read under v2 by a new call: in
+  `Oh--oh, oh my love` a pre-release `1.T4` meant `love` and now binds `my`,
+  and `1.T2` moves to the `oh` inside `Oh--oh`, with no refusal. Place words
+  (`end`, `endword`, `head`, `headrime`, `line`) are not numbers and do not
+  move. A caller holding such members from before this release re-reads the
+  line's words and re-declares them. The website's rhyme links and declared
+  returns follow the same rule as its readings: a row holding a word place
+  carries `— cut v2` after its members (never sent to a tool), an unmarked
+  row's word places are rebound by span identity, and one with no word of the
+  current cut over its characters keeps its old number as
+  `N.Tk (numbered under the earlier cut)`, binds nothing, and stops every send
+  until the writer removes the link and declares it again.
 
 ## What the money limits establish
 
