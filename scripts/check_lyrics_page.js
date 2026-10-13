@@ -130,6 +130,8 @@ function unitWriterPayload() {
     chatState: { generation: 0, lyric: null, busy: false },
     UI: {},
   });
+  // The page reads the shared reader the build bundles ahead of it.
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'src/lyric-tokens.js'), 'utf8'), ctx);
   vm.runInContext(src, ctx, { filename: 'src/pages/lyrics.js' });
   const cases = [
     ['setup first', DRAFT],
@@ -214,6 +216,8 @@ function unitHeadersAndIdentity() {
     chatState: { generation: 0, lyric: null, busy: false },
     UI: {},
   });
+  // The page reads the shared reader the build bundles ahead of it.
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'src/lyric-tokens.js'), 'utf8'), ctx);
   vm.runInContext(src, ctx, { filename: 'src/pages/lyrics.js' });
   const run = (code, vars = {}) => {
     Object.assign(ctx, vars);

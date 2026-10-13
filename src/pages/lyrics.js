@@ -1,5 +1,5 @@
 /* exported uiLyricsWaiting, lyDraftForWriter */
-/* global $ui, UI, UILayout, CHAT_BACKEND, CHAT_STORAGE_KEY, CMLibraryImport, _chatPersistedState, _chatPollStop, _chatSave, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, esc, execCopyFallback, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiChatSessions, uiCount, uiDownload, uiEmptyState, uiExport, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt */
+/* global $ui, UI, UILayout, CHAT_BACKEND, CHAT_STORAGE_KEY, CMLibraryImport, CMLyricTokens, _chatPersistedState, _chatPollStop, _chatSave, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, esc, execCopyFallback, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiChatSessions, uiCount, uiDownload, uiEmptyState, uiExport, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt */
 /* Lyrics page. Owned by the Lyrics page worker; see docs/ui-foundation.md.
 
    THE DRAFT IS THE ONE SOURCE OF TRUTH. Everything this page shows is read
@@ -30,9 +30,6 @@
 
 // ── Text model ──────────────────────────────────────────────────────────────
 const LY_DASH = ' — ';
-// lyric_harness.LATIN_SCRIPT / _TOKEN_RUN: À-ɏ is U+00C0–U+024F, Ḁ-ỿ U+1E00–U+1EFF.
-const LY_LETTER = /[A-Za-zÀ-ɏḀ-ỿ]/;
-const LY_TOKEN = /(?:[A-Za-zÀ-ɏḀ-ỿ]|['-])+/g;
 const LY_STAMP = /^\[(FINISHED|GRADED)\b/i;
 const LY_SETUP = /^\[SETUP\s+—\s+/i;
 const LY_BRACKET = /^\[[^\]]*\]$/;
@@ -57,33 +54,34 @@ const LY_SECTION_NAMES = [
   'Refrain',
 ];
 
+// The grader's line_tokens, read through the shared mirror of its one reader
+// (src/lyric-tokens.js, reader scheme v2): a declaration's token number here is
+// the one the harness binds. `voices` keeps (...) as sung words.
 function lyTokens(text, voices = false) {
-  let t = String(text).replace(/[’‘]/g, "'");
-  if (!voices) t = t.replace(/\([^)]*\)/g, ' ');
-  return (t.match(LY_TOKEN) || []).filter((w) => LY_LETTER.test(w));
+  return CMLyricTokens.readerLine(String(text), { stripParens: !voices }).tokens.map((t) => t.text);
 }
-// Word-by-word spans of a line for display: every run is a token of the
-// harness's reading; parenthesised runs are marked unsung unless voices say so.
+// Word-by-word spans of a line for display, from the same reader's raw pieces:
+// each token is numbered as lyTokens numbers it (an aside only under voices),
+// every piece of a token joined across a spaced enclitic carries its number,
+// and everything between pieces is shown as printed, once.
 function lyWordSpans(text, voices) {
+  text = String(text);
   const out = [];
-  let depth = 0,
-    last = 0,
+  let last = 0,
     index = 0;
-  const re = /(?:[A-Za-zÀ-ɏḀ-ỿ]|['’‘-])+|[()]/g;
-  let m;
-  while ((m = re.exec(text))) {
-    if (m.index > last) out.push({ gap: text.slice(last, m.index) });
-    last = m.index + m[0].length;
-    if (m[0] === '(') depth++;
-    if (m[0] === ')') depth = Math.max(0, depth - 1);
-    if (m[0] === '(' || m[0] === ')') {
-      out.push({ gap: m[0] });
-      continue;
+  for (const tok of CMLyricTokens.readerLine(text, { stripParens: false }).tokens) {
+    const sung = voices || !tok.aside;
+    const token = sung ? ++index : null;
+    for (const [from, b] of tok.pieces) {
+      // A piece can overlap the previous token's only where the reader had to
+      // map a whole printed chunk (a composition across characters, such as
+      // Hangul jamo); the shared characters are shown once, under the first.
+      const a = Math.max(from, last);
+      if (a >= b) continue;
+      if (a > last) out.push({ gap: text.slice(last, a) });
+      out.push({ word: text.slice(a, b), token, aside: !sung });
+      last = b;
     }
-    const word = m[0];
-    const sung = voices || depth === 0;
-    const letter = LY_LETTER.test(word);
-    out.push({ word, token: sung && letter ? ++index : null, aside: !sung });
   }
   if (last < text.length) out.push({ gap: text.slice(last) });
   return out;

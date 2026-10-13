@@ -653,6 +653,12 @@ const RUNTIME_MODULES = [
   },
   { label: 'runtime: src/layout.js', code: layoutJs },
   {
+    // The English reader's one cut, shared by library-import.js and the
+    // Lyrics page (lyric_harness.reader_line's mirror).
+    label: 'runtime: src/lyric-tokens.js',
+    code: fs.readFileSync(path.join(SRC, 'lyric-tokens.js'), 'utf8'),
+  },
+  {
     label: 'runtime: src/library-import.js',
     code: fs.readFileSync(path.join(SRC, 'library-import.js'), 'utf8'),
   },

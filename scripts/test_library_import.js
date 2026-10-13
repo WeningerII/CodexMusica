@@ -497,6 +497,7 @@ test('Lyrics activation preserves the old private continuation without aborting 
     console,
     crypto: webcrypto,
     CMLibraryImport: api,
+    CMLyricTokens: require('../src/lyric-tokens.js'),
     $ui: (id) => elements[id],
     UI: { lyricRevision: 7, saveFailed: false, storageConflict: false },
     app: {

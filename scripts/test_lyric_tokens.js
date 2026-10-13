@@ -1,0 +1,124 @@
+// The website's reader (src/lyric-tokens.js) against the harness's
+// (lyric_harness.reader_line, scheme v2), on the generated fixture the harness
+// writes (lyric-harness/quality/reader_cases.py mirror_fixture(); its
+// freshness is checked by lyric-harness/quality/test_reader.py). Texts,
+// codepoint pieces (converted from the mirror's UTF-16 offsets), numeral and
+// aside flags, for tokens and raw runs, under both paren declarations. Then
+// the page's own word spans (lyWordSpans) are checked to number exactly the
+// tokens lyTokens returns.
+const assert = require('node:assert/strict');
+const test = require('node:test');
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const LT = require('../src/lyric-tokens.js');
+
+const ROOT = path.join(__dirname, '..');
+const FIXTURE = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'lyric-harness/quality/fixtures/reader_v2_mirror.json'), 'utf8')
+);
+
+// UTF-16 offset -> codepoint offset, for one line.
+function toCodepoints(text) {
+  const map = new Map();
+  let cp = 0,
+    u = 0;
+  for (const c of Array.from(text)) {
+    map.set(u, cp);
+    u += c.length;
+    cp += 1;
+  }
+  map.set(u, cp);
+  return (offset) => {
+    assert.ok(
+      map.has(offset),
+      `offset ${offset} splits a surrogate pair in ${JSON.stringify(text)}`
+    );
+    return map.get(offset);
+  };
+}
+
+const shape = (text, list) => {
+  const cp = toCodepoints(text);
+  return list.map((t) => [t.text, t.pieces.map(([a, b]) => [cp(a), cp(b)]), t.numeral, t.aside]);
+};
+
+test('the mirror agrees with the harness on every fixture case', () => {
+  assert.equal(FIXTURE.scheme, LT.SCHEME);
+  assert.ok(FIXTURE.cases.length > 1000);
+  let disagreements = 0;
+  for (const c of FIXTURE.cases) {
+    for (const [key, stripParens] of [
+      ['strip', true],
+      ['keep', false],
+    ]) {
+      const got = LT.readerLine(c.text, { stripParens });
+      const ok =
+        JSON.stringify(shape(c.text, got.tokens)) === JSON.stringify(c[key].tokens) &&
+        JSON.stringify(shape(c.text, got.runs)) === JSON.stringify(c[key].runs);
+      if (!ok) {
+        disagreements += 1;
+        if (disagreements <= 5)
+          console.error(
+            'DISAGREE',
+            key,
+            JSON.stringify(c.text),
+            JSON.stringify(shape(c.text, got.tokens)),
+            JSON.stringify(c[key].tokens)
+          );
+      }
+    }
+  }
+  assert.equal(disagreements, 0);
+});
+
+test('pieces slice the source line', () => {
+  for (const c of FIXTURE.cases) {
+    for (const t of LT.readerLine(c.text, { stripParens: false }).tokens) {
+      let prev = -1;
+      for (const [a, b] of t.pieces) {
+        assert.ok(prev <= a && a < b && b <= c.text.length, JSON.stringify(c.text));
+        prev = b;
+      }
+    }
+  }
+});
+
+test("the page's word spans number exactly the tokens it declares against", () => {
+  const ctx = vm.createContext({
+    console,
+    $ui: () => null,
+    uiRegisterPage: () => {},
+    chatState: { generation: 0, lyric: null, busy: false },
+    UI: {},
+  });
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'src/lyric-tokens.js'), 'utf8'), ctx);
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8'), ctx, {
+    filename: 'src/pages/lyrics.js',
+  });
+  for (const c of FIXTURE.cases.slice(0, 600)) {
+    for (const voices of [false, true]) {
+      ctx.__text = c.text;
+      ctx.__voices = voices;
+      const tokens = vm.runInContext('lyTokens(__text, __voices)', ctx);
+      const spans = vm.runInContext('lyWordSpans(__text, __voices)', ctx);
+      assert.deepEqual(
+        Array.from(tokens),
+        c[voices ? 'keep' : 'strip'].tokens.map((t) => t[0])
+      );
+      // Every printed character is shown once, in order.
+      assert.equal(spans.map((p) => (p.gap !== undefined ? p.gap : p.word)).join(''), c.text);
+      // Each numbered span belongs to token n, in order; a joined token's
+      // pieces share n. Where two tokens' pieces overlap (a chunk the reader
+      // could only map whole) the later one may have nothing left to show.
+      const numbers = Array.from(spans.filter((p) => p.token).map((p) => p.token));
+      assert.deepEqual(
+        numbers,
+        [...numbers].sort((x, y) => x - y)
+      );
+      const pieces = c[voices ? 'keep' : 'strip'].tokens.flatMap((t) => t[1]);
+      const overlap = pieces.some((p, i) => i && p[0] < pieces[i - 1][1]);
+      if (!overlap) assert.equal(new Set(numbers).size, tokens.length, JSON.stringify(c.text));
+    }
+  }
+});
