@@ -21,11 +21,13 @@ Sections of the output:
            (bracketed footnote marker, line number set off by a column gap or
            `_`, page reference, apostrophe year, number in running text), with
            anchored today; and digit runs before the end chunk.
-  apostrophes  M2a/M2b over every `line_tokens` token with an edge apostrophe:
-           an exact apostrophe entry that changes today's reading (M2a), a
-           bare key whose selected reading is the spelled letters under the
-           dotted-key alphabet `a.`..`z.` (M2b), a quotation (both edges),
-           or unchanged.
+  apostrophes  M2a/M2b over every word with an edge apostrophe, words cut by the
+           dash rule (`line_tokens`, split at `-{2,}`, edge hyphens off): an
+           exact apostrophe entry that changes today's first reading (M2a,
+           split by shape: `s'`, `in'`, other), a word with ANY candidate
+           reading that is the bare key's spelled letters under the dotted-key
+           alphabet `a.`..`z.` (M2b, the signed rule: selected or another
+           candidate), a quotation (both edges), or unchanged.
   interior_refusals  M1 and M2b before the end word: lines that would gain a
            refused interior token, and how many of them read in full today.
   interior_join_only  R2's interior count (#527, 6136092217) re-derived here by
@@ -195,13 +197,15 @@ def _apostrophe_class(lex, alpha, tok):
     key = f.strip("'")
     today, unread = lex.transcribe_word(tok)
     if f in lex.entries:
-        shape = "s'" if f.endswith("s'") else "other"
+        shape = "s'" if f.endswith("s'") else ("in'" if f.endswith("in'") else "other")
         return (f"M2a: exact entry, reading changes [{shape}]" if list(lex.entries[f][0]) != list(today)
                 else "M2a: exact entry, same reading")
     if f.startswith("'") and f.endswith("'") and len(f) > 2:
         return "quotation (both edges): unchanged"
     if not unread and alpha.spelled(key, today):
         return "M2b: selected reading is the spelled letters"
+    if any(alpha.spelled(key, v) for v in lex.pronunciation_variants(tok)):
+        return "M2b: another candidate is the spelled letters"
     return "unchanged: stripped key reads" if not unread else "unchanged: unread today"
 
 
@@ -288,11 +292,11 @@ def _main():
                         if len(frag_ex[(via, kind)]) < _EXAMPLES:
                             frag_ex[(via, kind)].append({"id": lid, "token": tok})
                 apo_end_cls = None; m2b_inside = False
-                for i, tok in enumerate(toks):
+                for i, tok in enumerate(ws):
                     k = _apostrophe_class(lex, alpha, tok)
                     if k:
                         apo_all[k] += 1
-                        if i == len(toks) - 1 and tok == at:
+                        if i == len(ws) - 1:
                             apo_end_cls = k
                         elif k.startswith("M2b"):
                             m2b_inside = True
@@ -386,6 +390,7 @@ def _main():
             "M1_end_after_strip": len(m1_after_strip),
             "interior_join_only": len(inner_ids["join_only"]), "interior_M1": len(inner_ids["M1"]),
             "interior_M1_after_strip": len(inner_ids["M1_after_strip"]), "interior_M2b": len(inner_ids["M2b"]),
+            "interior_union": len(inner_ids["join_only"] | inner_ids["M1"] | inner_ids["M2b"]),
             "all_as_worded": len(all_strict), "all_with_apparatus_strip": len(all_strip),
             "all_as_worded_outside_receipt_denominator": len(all_strict - has_end)},
     }
