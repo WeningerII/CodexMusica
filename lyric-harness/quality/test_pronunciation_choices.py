@@ -494,7 +494,9 @@ class PronunciationChoices(unittest.TestCase):
     def test_function_reads_numeral_endpoints_as_tokens_under_v2(self):
         # Reader scheme v2 (M1): a digit-bearing run is ONE sung token, so
         # `1966` and `record2` take a position -- unread (key None) until a
-        # reading is declared for it. Every other endpoint is unchanged.
+        # reading is declared for it. A spaced enclitic is part of its word in
+        # the reader's runs too, so `That 's` ends on the token `That's`
+        # (the grid's own split read `'s`). Every other endpoint is unchanged.
         from quality import grid as G
         key = G.rime_cmudict(self.base)
         for line, word, token in [
@@ -503,7 +505,7 @@ class PronunciationChoices(unittest.TestCase):
             ("I'm going home (ooh)", 'ooh', None),
             ('(Name your price and take it home)', 'home', None),
             ('Read record (record)', 'record', None),
-            ("That 's", "'s", None),
+            ("That 's", "that's", 1),
             ('Read record我', 'record我', None),
             ('Read record2', 'record2', 2),
             ('Read (quietly) record', 'record', 2),
@@ -544,9 +546,13 @@ class PronunciationChoices(unittest.TestCase):
             line = 'Read record (record)'
             lex.pronunciations = P.validate_choices([choice(line, 3, 'record', NOUN)], lex)
             self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('record', 3, 'EH K ER D'))
+            # A joined enclitic: v1's grid split the physical `'s` off and could
+            # not bind; v2's end word is the reader's run, the token `That's`.
             line = "That 's"
             lex = self.lex([choice(line, 1, "That's", ['DH', 'AE1', 'T', 'S'], 'declared')], base)
-            self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ("'s", None, G.rime_cmudict(base)("'s")))
+            self.assertEqual(G.rime_cmudict(lex).end_occurrence(line),
+                             ("'s", None, G.rime_cmudict(base)("'s")) if base is self.base_v1
+                             else ("that's", 1, 'AE T S'))
         with self.assertRaisesRegex(ValueError, "token 2 there is 'record2'"):
             self.lex([choice('Read record2', 2, 'record', NOUN)])
         lex = self.lex([choice('Read record2', 2, 'record2', NOUN, 'declared')])
