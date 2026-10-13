@@ -381,11 +381,13 @@ def _main():
                                         and not ("M3" in scope and k.startswith(secondary)))))
     m3_raw = ({k: len(v) for k, v in sorted(cls.items()) if k.startswith(("stream_", "meter_", "grid_"))}
               if "M3" in scope else None)
-    # READER AGREEMENT (3PO 6147757628, live consumers omitting the scheme
-    # argument): of the lines where the anchor path moved, how many moved in
-    # each secondary reader too. Line-level, not word-level; a count to
-    # explain, not a verdict. The grid reads only the end, so it is held to
-    # the lines whose end moved.
+    # READER AGREEMENT (3PO 6147757628, 6147841348): of the lines where the
+    # anchor path moved, how many moved in each secondary reader too.
+    # OBSERVATIONAL ONLY: a reader may legitimately not depend on the change,
+    # and a process default of v2 hides an omitted scheme argument, so this
+    # proves scheme propagation in neither direction. Line-level, not
+    # word-level. The grid reads only the end, so it is held to the lines
+    # whose end moved.
     def _union(*names):
         return set().union(*(cls.get(n, set()) for n in names))
     word_moved = _union("word_newly_refused", "word_newly_read")
