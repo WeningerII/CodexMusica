@@ -1869,13 +1869,21 @@ class WarmWorker(unittest.TestCase):
     Gutenberg set, and every module-level lexicon cache holds lexicons of the
     scheme it is keyed by.
 
-    Each scenario runs in a process of its own (`WarmWorkerBody`), as a
-    worker does: the Library reader guards its resident memory against the
-    deployment envelope (`library.analysis._resource_guard`, 1 GiB by
-    default), and inside this whole suite's process the other classes'
-    corpora already hold more than that, so the guard would refuse for memory
-    the worker never holds (a worker serving both requests peaks near 600 MiB).
-    The envelope is not raised: the scenario is measured against it."""
+    TEST-PROCESS ISOLATION, NOT A CAPACITY BOUND. Each complete sequential
+    scenario (a new lyrics request then a legacy one then a Library
+    analysis; a legacy lyrics request then a Library analysis; a new lyrics
+    request then a Library analysis) runs whole inside one child process of
+    its own (`WarmWorkerBody`), as one worker would serve it. The Library
+    reader guards its resident memory against the deployment envelope
+    (`library.analysis._resource_guard`, 1 GiB by default), and inside this
+    whole suite's process the other classes' corpora already hold more than
+    that, so the guard would refuse for memory the worker never holds. The
+    envelope is NOT raised: each child asserts the guard is active at the
+    unchanged 1 GiB and that the Library analysis passed through it, and
+    reports its peak resident memory (VmHWM), which this test prints. A pass
+    here says these scenarios fit the envelope in a fresh process; it is not
+    a bound on a long-lived worker's memory (measured separately:
+    `quality/results/warm_worker_rss_2026-10-13/`)."""
 
     def _child(self, name):
         env = {**os.environ, _WARM_CHILD: "1"}
@@ -1886,12 +1894,25 @@ class WarmWorker(unittest.TestCase):
         # It ran: a skip ("OK (skipped=1)") is not a pass.
         self.assertTrue("Ran 1 test" in r.stderr and r.stderr.rstrip().endswith("\nOK"),
                         r.stderr[-2000:])
+        peak = re.findall(r"^WARM_WORKER_PEAK_RSS (\{.*\})$", r.stdout, re.M)
+        self.assertEqual(len(peak), 1, r.stdout[-2000:])
+        rec = json.loads(peak[0])
+        self.assertEqual((rec["scenario"], rec["guard_envelope_bytes"]), (name, 1 << 30))
+        self.assertGreater(rec["guard_calls"], 0)
+        print(f"\n    [test-process isolation] {name}: child peak RSS (VmHWM) "
+              f"{rec['peak_rss_bytes']:,} bytes ({rec['peak_rss_bytes'] / 2**20:.0f} MiB) "
+              f"against the unchanged {rec['guard_envelope_bytes'] / 2**20:.0f} MiB guard; "
+              f"guard checks passed {rec['guard_calls']}; {rec['python']}",
+              file=sys.stderr, flush=True)
 
     def test_a_legacy_lyrics_request_then_a_library_analysis(self):
         self._child("test_a_legacy_lyrics_request_then_a_library_analysis")
 
     def test_a_new_lyrics_request_then_a_legacy_one(self):
         self._child("test_a_new_lyrics_request_then_a_legacy_one")
+
+    def test_a_new_lyrics_request_then_a_library_analysis(self):
+        self._child("test_a_new_lyrics_request_then_a_library_analysis")
 
 
 @unittest.skipUnless(os.environ.get(_WARM_CHILD) == "1",
@@ -1902,6 +1923,21 @@ class WarmWorkerBody(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         import importlib.util
+        import library.analysis as LA
+        # The Library guard is active, at the unchanged default envelope, and
+        # can read this process's resident memory. Never raised here: an
+        # environment that sets another envelope fails this assertion by name.
+        envelope = int(os.environ.get("LIBRARY_READER_MAX_RSS_MIB", "1024")) * 1024 * 1024
+        assert envelope == 1 << 30, f"LIBRARY_READER_MAX_RSS_MIB moves the guard: {envelope}"
+        assert LA._reader_rss_bytes() is not None, "the guard cannot read resident memory"
+        cls.guard_calls = [0]
+        real_guard = LA._resource_guard
+
+        def counted(phase, extra_bytes=0):
+            cls.guard_calls[0] += 1
+            return real_guard(phase, extra_bytes)
+        cls._real_guard = real_guard
+        LA._resource_guard = counted
         cwd = os.getcwd()
         spec = importlib.util.spec_from_file_location(
             "lyric_worker_under_test", ROOT.parent / "mcp" / "worker.py")
@@ -1914,6 +1950,29 @@ class WarmWorkerBody(unittest.TestCase):
         payloads = json.loads(batch.read_text(encoding="utf-8"))
         cls.rows = next(p["pronunciations"] for p in payloads.values()
                         if any(r["line"].startswith("U--h") for r in p["pronunciations"]))
+
+    @classmethod
+    def tearDownClass(cls):
+        import library.analysis as LA
+        LA._resource_guard = cls._real_guard
+
+    def _report(self):
+        """Print this child's peak resident memory for `WarmWorker`."""
+        import platform
+        peak = None
+        for row in Path("/proc/self/status").read_text().splitlines():
+            if row.startswith("VmHWM:"):
+                peak = int(row.split()[1]) * 1024
+        if peak is None:
+            import resource
+            peak = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024
+        print("WARM_WORKER_PEAK_RSS " + json.dumps({
+            "scenario": self._testMethodName, "peak_rss_bytes": peak,
+            "guard_envelope_bytes": int(os.environ.get("LIBRARY_READER_MAX_RSS_MIB",
+                                                       "1024")) * 1024 * 1024,
+            "guard_calls": self.guard_calls[0],
+            "python": f"{platform.python_implementation()} {platform.python_version()}"}),
+            flush=True)
 
     def _lyrics(self, state_text):
         """-> the `lyric result` of one revise request through `run_one`,
@@ -1997,14 +2056,23 @@ class WarmWorkerBody(unittest.TestCase):
         self.assertEqual([b["token"] for b in bound], [w["token"] for w in want])
         return sum(b["token"] != r["token"] for b, r in zip(bound, self.rows))
 
+    def _analysed(self):
+        """One Library analysis, through the guard: it rebinds and the guard
+        was consulted (it is active, not bypassed)."""
+        before = self.guard_calls[0]
+        moved = self._rebound(self._library())
+        self.assertGreater(self.guard_calls[0], before)
+        return moved
+
     def test_a_legacy_lyrics_request_then_a_library_analysis(self):
         legacy = self.fx["states"][0]["state"]
         rec, written = self._lyrics(legacy)
         self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v1", "v1"))
         self._caches_agree()
-        moved = self._rebound(self._library())
+        moved = self._analysed()
         self.assertGreater(moved, 0)
         self._caches_agree()
+        self._report()
 
     def test_a_new_lyrics_request_then_a_legacy_one(self):
         rec, written = self._lyrics(None)
@@ -2013,8 +2081,17 @@ class WarmWorkerBody(unittest.TestCase):
         rec, written = self._lyrics(self.fx["states"][1]["state"])
         self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v1", "v1"))
         self._caches_agree()
-        self.assertGreater(self._rebound(self._library()), 0)
+        self.assertGreater(self._analysed(), 0)
         self._caches_agree()
+        self._report()
+
+    def test_a_new_lyrics_request_then_a_library_analysis(self):
+        rec, written = self._lyrics(None)
+        self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v2", "v2"))
+        self._caches_agree()
+        self.assertGreater(self._analysed(), 0)
+        self._caches_agree()
+        self._report()
 
 
 class MirrorFixture(unittest.TestCase):
