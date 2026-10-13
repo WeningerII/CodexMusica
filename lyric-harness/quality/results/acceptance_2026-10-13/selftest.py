@@ -25,6 +25,9 @@ property. Exit status 1 if any case fails.
                    out of scope nor unattributed
   respelled        a refusal reported as a piece before and whole after is
                    neither new nor unattributed
+  reader_agreement a word newly refused on the anchor path while the stream
+                   reader stays still is listed as stayed_still; with the
+                   stream refusing it too, as moved_together
 """
 import copy, gzip, json, os, subprocess, sys, tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -124,6 +127,15 @@ def _cases():
     r = _run([gb], [ga], "--mechanisms=M3")
     out["m3_raw_only"] = (r["M3_raw_deltas"] and r["out_of_scope_changes"]["count"] == 0 and r["unattributed_changes"]["count"] == 0,
                           f'raw {r["M3_raw_deltas"]}, out_of_scope {r["out_of_scope_changes"]["count"]}, unattributed {r["unattributed_changes"]["count"]}')
+
+    a = copy.deepcopy(base); a["tok"][1] = ["", ["war-cry"]]
+    a2 = copy.deepcopy(a); a2["stream_unread"] = [[1, "war-cry"]]
+    still = _run([base], [a], "--mechanisms=item6")["reader_agreement"]["stream"]
+    moved = _run([base], [a2], "--mechanisms=item6")["reader_agreement"]["stream"]
+    out["reader_agreement"] = (still["anchor_path_moved"] == 1 and still["stayed_still"] == ["synthetic:0"]
+                               and moved["moved_together"] == 1 and moved["stayed_still"] == [],
+                               f'stream unchanged: still {still["stayed_still"]}; stream refusing too: '
+                               f'together {moved["moved_together"]}, still {moved["stayed_still"]}')
 
     rb = _line(3, "Tra-la-la", ["Tra-la-la"], [["L AA1 L AA1", ["Tra"]]])
     ra = _line(3, "Tra-la-la", ["Tra-la-la"], [["", ["Tra-la-la"]]])

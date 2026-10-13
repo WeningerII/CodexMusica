@@ -103,6 +103,26 @@
   "respell:item6": 2402
  },
  "M3_raw_deltas": null,
+ "reader_agreement": {
+  "stream": {
+   "anchor_path_moved": 10687,
+   "moved_together": 0,
+   "stayed_still": 10687,
+   "moved_alone": 0
+  },
+  "meter": {
+   "anchor_path_moved": 10687,
+   "moved_together": 10687,
+   "stayed_still": 0,
+   "moved_alone": 2105
+  },
+  "grid": {
+   "anchor_path_moved": 3111,
+   "moved_together": 0,
+   "stayed_still": 3111,
+   "moved_alone": 0
+  }
+ },
  "declared_probe_unresolved_lines": {
   "before": 27712,
   "after": 36224

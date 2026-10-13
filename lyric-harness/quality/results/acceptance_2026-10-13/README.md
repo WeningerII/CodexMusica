@@ -71,6 +71,8 @@ The diff refuses to compare recordings of different populations, and it reports 
 
 Each mechanism gets projected and observed counts, with projected-not-observed and observed-not-projected ids. Without `--summary` the output carries every id, plus before/after detail for up to 25 lines per class.
 
+**Reader agreement.** This was added for 3PO's open item on live consumers that omit the scheme argument (PR #527, comment 6147757628). The recorder calls every reader with no scheme argument, as a live consumer does. `reader_agreement` takes the lines where an anchor-path word was newly refused or newly read, and counts how many of them also changed in the schema stream and in meter. For the grid, which reads only the end, it takes the lines whose end changed. A reader that stays still where the anchor path moved is how an omitted scheme argument would show up. The counts are line-level, and they are for R2 and 3PO to explain, not a verdict. They cover only the four readers the recorder calls.
+
 ## The website tokenizer
 
     node quality/results/acceptance_2026-10-13/js_parity.mjs RECORDING.jsonl.gz REPO_ROOT quality/results/acceptance_2026-10-13/js_parity_fce4bf0f.json
@@ -79,7 +81,7 @@ This runs the Lyrics page's own `lyTokens`, taken from `src/pages/lyrics.js` at 
 
 ## Validation of the tools
 
-**Null test (`diff_null.json`).** This compares main at `fce4bf0f` with `3777ac3e` on this branch, which has the same harness code, both recorded by the same recorder. Every class is 0 and nothing is unattributed.
+**Null test (`diff_null.json`).** This compares main at `fce4bf0f` with `3777ac3e` on this branch, which has the same harness code, both recorded by the same recorder. Every class is 0, every reader-agreement count is 0, and nothing is unattributed.
 
 There is one standing measure, the same on both sides: **27,712** dev lines of *synthetic-declaration probe exposure*. On these lines the recorder's own probe declares every refused token, and `line_readability` still reports unread words or stale reason text. They are not user declarations and not confirmed production incidents. That is a defect in today's code, not in these tools. `line_readability` reads `token_pieces(lex, t)` on the line view and never `lex.for_token(i)` (`lyric_harness.py:2428, 2433`). A writer's declared reading therefore clears `transcribe` but not the readability report. The batch's refusal-wording commit should take it to 0.
 
@@ -89,8 +91,9 @@ There is one standing measure, the same on both sides: **27,712** dev lines of *
 - Words newly refused: **8,115** interior and **2,963** at the line end, matching the projection's join-only and pieces classes.
 - Refusals respelled from a piece to the whole word: **1,909** interior and **561** at the line end. These match the projection's some-piece-unread count, and its 413 last-piece-unread plus 148 earlier-piece-unread end lines.
 - There are no unexplained fields. The only configuration change is the comparator fingerprint, which the simulation's patch to `lyric_harness.py` moves.
+- Reader agreement: meter moved on all **10,687** lines where an anchor-path word changed. The schema stream stayed still on all **10,687**, and the grid on all **3,111** changed ends. That is the expected result, because the simulation patches only `Lexicon.word_pieces`, which those two readers don't call. It shows the check detects a reader left behind.
 
-**Self-test (`selftest.py`).** It runs eleven synthetic cases that the corpus runs cannot show:
+**Self-test (`selftest.py`).** It runs twelve synthetic cases that the corpus runs cannot show:
 - an expected item-6 refusal and an unexplained grid change on one line;
 - a stream-only refusal;
 - a meter-only change;
@@ -100,7 +103,8 @@ There is one standing measure, the same on both sides: **27,712** dev lines of *
 - an edge-hyphen-only cut (`shore--` → `shore`);
 - a meter stress change beside an expected refusal, plus a lost meter refusal;
 - secondary-reader changes under `M3`, which are raw deltas, neither out of scope nor unattributed;
-- a respelled refusal.
+- a respelled refusal;
+- a word newly refused on the anchor path while the schema stream stays still, and the same with the stream refusing it too.
 
 All pass.
 

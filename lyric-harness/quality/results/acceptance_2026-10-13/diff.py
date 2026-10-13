@@ -381,6 +381,23 @@ def _main():
                                         and not ("M3" in scope and k.startswith(secondary)))))
     m3_raw = ({k: len(v) for k, v in sorted(cls.items()) if k.startswith(("stream_", "meter_", "grid_"))}
               if "M3" in scope else None)
+    # READER AGREEMENT (3PO 6147757628, live consumers omitting the scheme
+    # argument): of the lines where the anchor path moved, how many moved in
+    # each secondary reader too. Line-level, not word-level; a count to
+    # explain, not a verdict. The grid reads only the end, so it is held to
+    # the lines whose end moved.
+    def _union(*names):
+        return set().union(*(cls.get(n, set()) for n in names))
+    word_moved = _union("word_newly_refused", "word_newly_read")
+    end_moved = _union("end_newly_refused", "end_newly_read")
+    agreement = {}
+    for reader, anchor, moved in (
+            ("stream", word_moved, _union("stream_newly_refused", "stream_newly_read",
+                                          "stream_added_refused", "stream_added_read")),
+            ("meter", word_moved, _union("meter_refused_gained", "meter_refused_lost", "meter_stress_changed")),
+            ("grid", end_moved, _union("grid_newly_refused", "grid_newly_read", "grid_key_changed", "grid_word_changed"))):
+        agreement[reader] = {"anchor_path_moved": len(anchor), "moved_together": len(anchor & moved),
+                             "stayed_still": sorted(anchor - moved), "moved_alone": len(moved - anchor)}
     rec = {
         "before": {k: hb.get(k) for k in ("commit", "tracked_changes", "fallback")},
         "after": {k: ha.get(k) for k in ("commit", "tracked_changes", "fallback")},
@@ -391,6 +408,7 @@ def _main():
         "unexplained_field_counts": residual_fields,
         "secondary_reader_attribution": {k: len(v) for k, v in sorted(by_mech.items()) if k.startswith(("stream:", "grid:", "meter:", "tok:", "respell:"))},
         "M3_raw_deltas": m3_raw,
+        "reader_agreement": agreement,
         "declared_probe_unresolved_lines": unresolved,
         "by_shape": tallies,
         "projection_cross_tab": cross,
@@ -407,6 +425,8 @@ def _main():
         rec["projection_cross_tab"] = {m: {k: (len(v) if isinstance(v, list) else v) for k, v in c.items()}
                                        for m, c in cross.items()}
         rec["unattributed_changes"] = len(unpredicted)
+        rec["reader_agreement"] = {r: {k: (len(v) if isinstance(v, list) else v) for k, v in a.items()}
+                                   for r, a in agreement.items()}
         rec["lines"] = {k: (len(v) if isinstance(v, list) else v) for k, v in rec["lines"].items()}
     with open(out, "w", encoding="utf-8") as fh:
         json.dump(rec, fh, ensure_ascii=False, indent=1, default=str)
@@ -415,6 +435,8 @@ def _main():
                       "config_changes": sorted(config), "counts": rec["counts"],
                       "cross": {m: {k: (len(v) if isinstance(v, list) else v) for k, v in c.items()} for m, c in cross.items()},
                       "unattributed": len(unpredicted), "out_of_scope": len(out_of_scope),
+                      "reader_agreement": {r: {k: (len(v) if isinstance(v, list) else v) for k, v in a.items()}
+                                           for r, a in agreement.items()},
                       "fixtures_changed": len(rec["fixtures"])}, indent=1))
 
 
