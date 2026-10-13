@@ -36,7 +36,8 @@ No test here is a list of named words the reader must accept.
      `reader_scheme` resumes as v1 (a pre-batch checkpoint byte for byte); a
      declared `--reader-scheme` that differs refuses, on `tryline`'s
      pre-flight against a deferred state as on the resume (one read-only
-     check); the run key is the
+     check); a call checkpoint's `answered` block replays on its own
+     scheme; the run key is the
      pre-batch key under v1; a request's scheme does not outlive it in a warm
      process; the Gutenberg rows rebind by raw span.
  10. The website mirror's fixture is fresh (`reader_cases.py --check`).
@@ -1491,6 +1492,59 @@ class LegacyReplay(unittest.TestCase):
                 self.assertNotIn("REFUSED", r.stdout)
         fresh.write_text(saved, encoding="utf-8")
         self.assertIn("READER_SCHEME_MISMATCH", run(fresh, "--reader-scheme=v1").stdout)
+
+    def test_a_call_checkpoints_answered_block_replays_on_its_scheme(self):
+        # A kitchen checkpoint's `answered` block is a replay file, as a
+        # deferred state's is (quality/test_verbs.py, the answered journal
+        # replay): under v2 it names its scheme, so saved as a replay file it
+        # replays under v2 with no flag and refuses an explicit v1; a
+        # pre-batch checkpoint's block carries none and replays as v1 (and
+        # refuses an explicit v2).
+        fx = json.loads((HERE / "fixtures" / "reader_v1_checkpoint.json").read_text(encoding="utf-8"))
+        work = Path(tempfile.mkdtemp())
+        self.addCleanup(__import__("shutil").rmtree, work, True)
+        (work / "stubwriter.py").write_text(
+            "def factory():\n    def call(prompt):\n        return %r\n    return call\n"
+            % fx["stub_answer"], encoding="utf-8")
+        draft = work / "draft.txt"
+        draft.write_text("\n".join(fx["draft"]) + "\n", encoding="utf-8")
+        env = {k: v for k, v in os.environ.items()
+               if k not in ("LYRIC_CONTROL_TOKEN", "LYRIC_CHECKPOINT_PATH",
+                            "LYRIC_REQUEST_DEADLINE_MS")}
+        env["PYTHONPATH"] = str(work)
+
+        def run(propose, *flags, checkpoint=None):
+            e = dict(env, LYRIC_CHECKPOINT_PATH=str(checkpoint)) if checkpoint else env
+            return subprocess.run([sys.executable, str(ROOT / "lyric_harness.py"), *flags,
+                                   "revise", str(draft), "AA", propose],
+                                  capture_output=True, text=True, env=e, cwd=ROOT, timeout=900)
+
+        def scheme_of(r):
+            row = json.loads([l for l in r.stdout.splitlines()
+                              if l.startswith("  lyric result: ")][-1][len("  lyric result: "):])
+            return row["reader_scheme"]
+        ck = work / "fresh.json"
+        run("--propose=call:stubwriter:factory", checkpoint=ck)
+        fresh = json.loads(ck.read_text(encoding="utf-8"))
+        self.assertEqual(fresh["reader_scheme"], "v2")
+        self.assertTrue(fresh["answered"]["propose"] or fresh["answered"]["propose_group"])
+        self.assertEqual(fresh["answered"].get("reader_scheme"), "v2")
+        old = json.loads(fx["resumed_checkpoint"])
+        self.assertNotIn("reader_scheme", old)
+        self.assertNotIn("reader_scheme", old["answered"])
+        for name, answered, own, other in (("v2 checkpoint", fresh["answered"], "v2", "v1"),
+                                           ("pre-batch checkpoint", old["answered"], "v1", "v2")):
+            rep = work / f"replay-{own}.json"
+            rep.write_text(json.dumps(answered), encoding="utf-8")
+            self.assertEqual(LH._recorded_reader_scheme(["revise", f"--propose=replay:{rep}"]), own)
+            with self.subTest(replay=name):
+                r = run(f"--propose=replay:{rep}")
+                self.assertNotIn("REFUSED", r.stdout, r.stdout[-600:])
+                self.assertEqual(scheme_of(r), own)
+                r = run(f"--propose=replay:{rep}", f"--reader-scheme={other}")
+                self.assertEqual(r.returncode, 2, r.stdout[-600:])
+                self.assertIn("READER_SCHEME_MISMATCH", r.stdout)
+                self.assertIn(f"--reader-scheme={own}", r.stdout)
 
     def test_a_request_does_not_leak_its_scheme_into_the_process(self):
         # The warm worker serves lyrics requests through `main` and Library

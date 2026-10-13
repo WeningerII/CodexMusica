@@ -8339,8 +8339,9 @@ def _recorded_reader_scheme(args):
     (`--propose=call:` with `LYRIC_CHECKPOINT_PATH`).
 
     A third is a replay file (`--propose=replay:PATH`): a finished state's
-    `answered` block carries the scheme its answers were asked under
-    (`_defer_proposer`), so a recorded run replays on its own cut.
+    `answered` block, and a kitchen checkpoint's, carries the scheme its
+    answers were asked under (`_defer_proposer`, `_checkpoint_proposer`), so
+    a recorded run replays on its own cut.
 
     It NEVER refuses. A record it cannot read answers None here, and the
     proposer that owns the record refuses later, at the point in the verb's
@@ -9282,6 +9283,12 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
             state = dict(prior, journal_id=journal_id)
         except (OSError, ValueError, TypeError) as e:
             raise ProposerUnavailable(f"checkpoint cannot resume: {e}") from e
+    # The `answered` block is a replay file (`--propose=replay:`), as the
+    # deferred state's is, so under v2 it names its scheme too
+    # (`_defer_proposer`); under v1 it carries none, as the pre-batch block
+    # did, and a block without one replays as v1 (`_replay_proposer`).
+    if here_scheme != "v1":
+        state["answered"]["reader_scheme"] = here_scheme
     cursor = 0
     replay_count = len(state["proposals"])
     accepted_at_start = list(state["accepted_lines"])
