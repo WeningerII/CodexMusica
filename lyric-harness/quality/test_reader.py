@@ -34,7 +34,9 @@ No test here is a list of named words the reader must accept.
      surface, as a numeral.
   9. Legacy replay plumbing: a deferred state or kitchen checkpoint without
      `reader_scheme` resumes as v1 (a pre-batch checkpoint byte for byte); a
-     declared `--reader-scheme` that differs refuses; the run key is the
+     declared `--reader-scheme` that differs refuses, on `tryline`'s
+     pre-flight against a deferred state as on the resume (one read-only
+     check); the run key is the
      pre-batch key under v1; a request's scheme does not outlive it in a warm
      process; the Gutenberg rows rebind by raw span.
  10. The website mirror's fixture is fresh (`reader_cases.py --check`).
@@ -1318,6 +1320,108 @@ class LegacyReplay(unittest.TestCase):
             LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED = saved
         self.assertIn("READER_SCHEME_MISMATCH", out.getvalue())
         self.assertIn("--reader-scheme=v1", out.getvalue())
+
+    def test_tryline_reads_a_deferred_state_under_its_recorded_scheme(self):
+        # `tryline --propose=defer:STATE` answers against the state's current
+        # draft without resuming it, so it never reached `_defer_proposer`'s
+        # scheme refusal: an explicit contrary --reader-scheme, or a recorded
+        # scheme this build does not read, was answered under the wrong cut.
+        # Both readers of a state now apply one read-only check
+        # (`_defer_scheme_check`) with the same words; with no flag the state's
+        # recorded scheme is inherited (absent: v1). The state file is never
+        # written by the pre-flight, refused or answered.
+        work = Path(tempfile.mkdtemp())
+        self.addCleanup(__import__("shutil").rmtree, work, True)
+        lines = ["the water holds the light", "the morning turns to grey",
+                 "nothing here is still", "and i will find a way",
+                 "keep the low knot tight", "say what the river wrote",
+                 "hold the door for rain", "nothing turns about",
+                 "carry the cold stone", "marry the old bone",
+                 "quiet folds a wing", "grief is a small thing"]
+        draft = work / "d12.txt"
+        draft.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        env = {k: v for k, v in os.environ.items()
+               if k not in ("LYRIC_CONTROL_TOKEN", "LYRIC_REQUEST_DEADLINE_MS",
+                            "LYRIC_CHECKPOINT_PATH")}
+        states = {}
+        for name, extra in (("legacy", {}), ("v2", {"reader_scheme": "v2"}),
+                            ("v9", {"reader_scheme": "v9"})):
+            path = work / f"{name}.json"
+            path.write_text(json.dumps(dict(
+                {"version": 1, "answered": {"propose": [], "propose_group": []},
+                 "pending": None, "input_draft": lines, "accepted_lines": lines,
+                 "round": 1, "status": "started"}, **extra)), encoding="utf-8")
+            states[name] = path
+
+        def refusal(stdout):
+            return next((l.strip() for l in stdout.splitlines() if "REFUSED" in l), None)
+
+        def run(verb, state, *flags):
+            tail = (["3", "nothing here is very still"] if verb == "tryline" else [])
+            before = state.read_bytes()
+            r = subprocess.run([sys.executable, str(ROOT / "lyric_harness.py"), *flags,
+                                verb, str(draft), *tail, "--seed=7", "--lines=12",
+                                f"--propose=defer:{state}"],
+                               capture_output=True, text=True, env=env, cwd=ROOT,
+                               timeout=900)
+            if verb == "tryline":
+                self.assertEqual(state.read_bytes(), before, "the pre-flight wrote the state")
+            return r
+
+        cases = (("legacy", ("--reader-scheme=v2",), "READER_SCHEME_MISMATCH",
+                  "--reader-scheme=v1"),
+                 ("v2", ("--reader-scheme=v1",), "READER_SCHEME_MISMATCH",
+                  "--reader-scheme=v2"),
+                 ("v9", (), "recorded reader scheme 'v9'", "(v1, v2)"),
+                 ("v9", ("--reader-scheme=v2",), "recorded reader scheme 'v9'", "(v1, v2)"))
+        for name, flags, cause, remedy in cases:
+            with self.subTest(state=name, flags=flags):
+                r = run("tryline", states[name], *flags)
+                self.assertEqual(r.returncode, 2, r.stdout[-600:])
+                said = refusal(r.stdout)
+                self.assertIsNotNone(said, r.stdout[-600:])
+                self.assertIn(cause, said)
+                self.assertIn(remedy, said)
+                self.assertNotIn("VERDICT", r.stdout)
+                # the resuming verb refuses the same state in the same words
+                self.assertEqual(refusal(run("finish", states[name], *flags).stdout), said)
+        for name, flags, want in (("legacy", (), "v1"), ("legacy", ("--reader-scheme=v1",), "v1"),
+                                  ("v2", (), "v2"), ("v2", ("--reader-scheme=v2",), "v2")):
+            with self.subTest(inherits=name, flags=flags):
+                r = run("tryline", states[name], *flags)
+                self.assertIn(r.returncode, (0, 3), r.stdout[-600:])
+                self.assertNotIn("REFUSED", r.stdout)
+                row = json.loads(next(l for l in r.stdout.splitlines()
+                                      if l.startswith("  lyric result: "))
+                                 [len("  lyric result: "):])
+                self.assertEqual((row["reader_scheme"], row["against"]), (want, "state"))
+
+    def test_the_deferred_scheme_check_writes_nothing(self):
+        import contextlib
+        import copy as _copy
+        import io
+        saved = (LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED)
+        try:
+            for payload, active, declared, want in (
+                    ({"answered": {"propose": [], "propose_group": []}}, "v1", False, "v1"),
+                    ({"answered": {"propose": []}, "reader_scheme": "v2"}, "v2", True, "v2")):
+                path = self._state(payload)
+                st = json.loads(Path(path).read_text(encoding="utf-8"))
+                snap = _copy.deepcopy(st)
+                LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED = active, declared
+                self.assertEqual(LH._defer_scheme_check(path, st), want)
+                self.assertEqual(st, snap)
+                self.assertEqual(json.loads(Path(path).read_text(encoding="utf-8")), payload)
+            self.assertIsNone(LH._defer_scheme_check("/nonexistent/state.json",
+                                                     {"answered": {}}))
+            LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED = "v2", True
+            path = self._state({"answered": {"propose": []}})
+            with contextlib.redirect_stdout(io.StringIO()) as out, \
+                    self.assertRaises(SystemExit):
+                LH._defer_scheme_check(path, json.loads(Path(path).read_text()))
+            self.assertIn("READER_SCHEME_MISMATCH", out.getvalue())
+        finally:
+            LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED = saved
 
     def test_the_run_key_is_the_pre_batch_key_under_v1(self):
         from quality import replay_memo as RM

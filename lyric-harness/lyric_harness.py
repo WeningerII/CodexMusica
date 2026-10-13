@@ -6967,7 +6967,9 @@ into words. v2 (new work): one cut on every surface; NFC; `4ever`, `1999`
 and `Catch-22` are whole numeral tokens, refused unless a pronunciation is
 declared for them; `thee--Arise` is two words. v1: the cut before 2026-10-13,
 for replaying a run recorded under it. Omitted, a resumed --propose=defer:
-run keeps the scheme it recorded (v1 when it predates the field).
+run keeps the scheme it recorded (v1 when it predates the field), and so does
+`tryline --propose=defer:` asking against that state; a contrary value, or a
+recorded scheme this build does not read, refuses on both.
 
 commands (the fifteen spine verbs):
   declaration             print the active declaration
@@ -8394,6 +8396,34 @@ def _defer_record_scheme(st, recorded):
     return st.get("reader_scheme", "v1")
 
 
+def _defer_scheme_check(path, st):
+    """-> the reader scheme the deferred state `st` (read from `path`)
+    records, or None for new work; refuses a record this call may not read.
+
+    READ-ONLY: it inspects `st` and the process's declared scheme and writes
+    nothing. It is the ONE check every reader of a deferred state applies
+    before reading the state's lines -- the proposer that resumes the run
+    (`_defer_proposer`) and `tryline`'s pre-flight, which answers against the
+    state's current draft without resuming it -- so neither can read a
+    state under a scheme the other would refuse. Two refusals, with the same
+    words on both paths: a recorded scheme this build does not read (which
+    `_recorded_reader_scheme` answers None for, on purpose, so `main` falls
+    back to the default and the refusal lands here), and an explicit
+    `--reader-scheme` naming another scheme than the state's. With no flag,
+    `main` has already inherited the recorded scheme."""
+    here = resolve_reader_scheme(None)
+    run = _defer_record_scheme(st, recorded=os.path.exists(path))
+    if run not in (None,) + READER_SCHEMES:
+        _refuse(f"--propose=defer:{path} — recorded reader scheme {run!r} "
+                f"is not one this build reads ({', '.join(READER_SCHEMES)})")
+    if run not in (None, here) and _READER_SCHEME_DECLARED:
+        _refuse("READER_SCHEME_MISMATCH: this deferred run was started under "
+                f"reader scheme {run}, and this call declares "
+                f"{here}. Resume it under --reader-scheme={run} "
+                "(or with no --reader-scheme), or start a new run.")
+    return run
+
+
 def _defer_proposer(path, lines=None):
     """-> (propose, propose_group, disclosure) that SUSPENDS rather than guess.
 
@@ -8459,15 +8489,7 @@ def _defer_proposer(path, lines=None):
     # mismatch is an explicit `--reader-scheme` naming the other one, and it
     # refuses. The state keeps the scheme the run started under.
     _here_scheme = resolve_reader_scheme(None)
-    _run_scheme = _defer_record_scheme(st, recorded=os.path.exists(path))
-    if _run_scheme not in (None,) + READER_SCHEMES:
-        _refuse(f"--propose=defer:{path} — recorded reader scheme {_run_scheme!r} "
-                f"is not one this build reads ({', '.join(READER_SCHEMES)})")
-    if _run_scheme not in (None, _here_scheme) and _READER_SCHEME_DECLARED:
-        _refuse("READER_SCHEME_MISMATCH: this deferred run was started under "
-                f"reader scheme {_run_scheme}, and this call declares "
-                f"{_here_scheme}. Resume it under --reader-scheme={_run_scheme} "
-                "(or with no --reader-scheme), or start a new run.")
+    _run_scheme = _defer_scheme_check(path, st)
     st["reader_scheme"] = _run_scheme or _here_scheme
     # The `answered` block is a replay file (below), so it carries the scheme
     # too -- under v2 only: the pre-batch block carried no such key, and a
@@ -14083,6 +14105,10 @@ def main():
                                         "--propose=defer:PATH` first, then "
                                         "ask here"])
                         _st = _defer_state(_st_path)
+                        # The state's lines are read under the scheme the
+                        # run recorded, on the resume's own rule and with
+                        # its words (`_defer_scheme_check`, read-only).
+                        _defer_scheme_check(_st_path, _st)
                         if not _st.get("input_draft"):
                             _refuse(
                                 f"--propose=defer:{_st_path} — the state "
