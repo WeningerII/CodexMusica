@@ -12,13 +12,14 @@ Run every command below from `lyric-harness/`. The Moby file is the staged, git-
 | `cmudict.dict` | sha256 `81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22` |
 | `data/lexicon_supplement_v2.tsv` | sha256 `bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51` |
 | Moby `mpron.txt` (staged, not committed) | sha256 `55580c3b258873723fed33497fe3a438b26167370bbe016431b3fc65fea67f2d` |
-| population for items 1 and 3 | `song`, **dev** side of the frozen split (6,991 items). Validation is excluded because it is spent for tuning (`../census_validation_2026-10-12/README.md`). |
+| population for items 1 and 3 | `song`, **dev** side of the frozen split `quality/results/coverage_split_2026-10-11-r2.tsv` (sha256 `604d309f…`, 6,991 items). Validation is excluded because it is spent for tuning (`../census_validation_2026-10-12/README.md`). |
+| scripts | the `.py` files in this directory exist only at this PR's head, not at `4b14ff5b` |
 
 ## Item 1: unread words, dev side
 
     python3 quality/coverage_census.py --population song --split dev [--lexicon-supplement=v2] [--fallback=high] --top 100000 --out FILE
 
-The records are `census_dev_none.json`, `census_dev_v2.json` and `census_dev_v2high.json`. Every `top_*` list is cut to its first 500 rows here, and the command above regenerates the full lists. They took 66 s, 136 s and 140 s to run.
+The records are `census_dev_none.json`, `census_dev_v2.json` and `census_dev_v2high.json`. They are the command's output after three edits: `population_manifest` dropped, every `top_*` list cut to its first 500 rows, and a `note` field added. The command above regenerates the unedited records. They took 66 s, 136 s and 140 s to run.
 
 | basis | unread words (of 1,491,865 tokenizer-produced occurrences; tokens the tokenizer drops, such as digits, are not in this denominator) | unread types (of 60,446) | songs fully read (of 6,991) |
 |---|---|---|---|
@@ -27,7 +28,7 @@ The records are `census_dev_none.json`, `census_dev_v2.json` and `census_dev_v2h
 | + v2 + `fallback: high` | 51,231 | 15,041 | 2,185 |
 
 - **v2 changes no dev count.** Its 205 rows are 203 hyphenated number readings plus *streetlight* and *streetlights*, and none of those forms occurs in these dev songs. That means no measured gain on dev. It says nothing about any other population.
-- **Spelling groups of unread occurrences under v2:** 73.0% have no hyphen and no apostrophe, 22.9% have an apostrophe and 4.1% a hyphen. Spelling groups are **not** a linguistic classification. They do not establish what share is dialect, archaic or a closed compound.
+- **Spelling groups of unread occurrences under v2:** 73.0% have no hyphen and no apostrophe, 22.9% have an apostrophe and 4.1% a hyphen. A hyphen takes precedence: the 484 occurrences carrying both count as hyphen, so the split depends on that order. Spelling groups are **not** a linguistic classification. They do not establish what share is dialect, archaic or a closed compound.
 
 ## Item 2: CMUdict + v2 against Moby
 
@@ -61,7 +62,7 @@ It reads with `SupplementedLexicon(v2)` and no fallback. The output is in `reade
 
 | mechanism | lines |
 |---|---|
-| anchor reads, grid refuses: the two readers chose different end words (generic; its most frequent examples carry a trailing `--`, which is not shown for every member) | 3,811 |
+| anchor reads, grid refuses: the two readers chose different end words (generic). Of the 3,811, the grid's token ends in `--` in 3,729, in another dash in 12, and in something else in 70 | 3,811 |
 | anchor reads, grid refuses: the grid's last token has no letter (punctuation and digits together, not separated) | 3,656 |
 | anchor reads, grid refuses: hyphenated, where the grid reads the whole token and the anchor reads the last piece | 3,206 |
 | grid reads, anchor refuses: same word | 370 |
@@ -72,20 +73,20 @@ It reads with `SupplementedLexicon(v2)` and no fallback. The output is in `reade
 - **"Anchor reads" on a digit line can itself be wrong.** The digits are dropped, so the anchor lands on the word before them (R2's finding, reproduced on #527).
 - **The 370 row is unverified.** It still needs checking in line context.
 
-## Item 2b: the readings actually selected in dev occurrences
+## Item 2b: one isolated reading per dev spelling, weighted by occurrence
 
     python3 quality/results/scope_2026-10-12/selected_vs_moby.py data/moby/mpron.txt quality/results/scope_2026-10-12/selected_vs_moby.json
 
-`selected_vs_moby.json` records `commit` `6bfbb726`, this PR's first commit, which it ran from. `4b14ff5b..6bfbb726` adds only this directory, `.prettierignore` and `map/files.md`. A rerun at a later head reproduces every field except `commit`.
+`lex_vs_moby*.json` and `reader_disagree_dev.json` now record `commit` (and `mpron_sha256`, or the split file) too; they were regenerated at `dafbab2a` with only those fields added, every other field byte-for-byte as before. `selected_vs_moby.json` records `commit` `6bfbb726`, this PR's first commit, which it ran from. `4b14ff5b..6bfbb726` adds only this directory, `.prettierignore` and `map/files.md`. A rerun at a later head reproduces every field except `commit`.
 
-**Isolated readings, not contextual ones.** Each distinct dev spelling is read once, in isolation, by `transcribe_word` (`SupplementedLexicon(v2)`, no fallback), and that one reading is weighted by the spelling's occurrence count. It is not the sequence `transcribe(line)` returns in context: per-position weak-token stress demotion is not applied, and a spelling with several contextual readings gets one. The contextual line sequence is kept in the occurrence sidecar below for the occurrences it covers. **Denominators.** "Line-end" here is the last token `transcribe` keeps on lines where it keeps any (227,098 lines). That is a different population from item 3's 227,538 lines with an anchor or grid endpoint, and a kept last token can already have lost a raw digit endpoint. **Exposure, not errors.** Counts per spelling are exposure counts, not adjudicated errors. The output is in `selected_vs_moby.json`. It ran in 31 s.
+**Isolated readings, not contextual ones.** Each distinct dev spelling is read once, in isolation, by `transcribe_word` (`SupplementedLexicon(v2)`, no fallback), and that one reading is weighted by the spelling's occurrence count. It is not the sequence `transcribe(line)` returns in context: per-position weak-token stress demotion is not applied, and a spelling with several contextual readings gets one. The contextual line sequence is kept in the occurrence sidecar below for the occurrences it covers. **Denominators.** Three line populations appear in this receipt, and they differ: 227,538 lines with an anchor or grid endpoint (item 3; equal to the census's `end_grid.end_words`); 227,115 lines with an anchor endpoint (`end_anchor.end_words`); and 227,098 lines where `transcribe` keeps at least one token, whose last kept token is this table's "line end". A kept last token can already have lost a raw digit endpoint. **Exposure, not errors.** Counts per spelling are exposure counts, not adjudicated errors. The output is in `selected_vs_moby.json`. It ran in 31 s.
 
 | class | all occurrences (1,491,865) | last kept token on lines with one (227,098) |
 |---|---|---|
 | exact | 63.7% | 71.3% |
 | not in Moby | 12.7% | 16.3% |
 | unread | 4.7% | 6.2% |
-| sounds differ in the rhyme tail | 9.6% | 3.5% |
+| sounds differ in the rhyme tail | 9.6% (54.8% of it is *and* and *a*: our weak forms against Moby's strong forms) | 3.5% |
 | stress only | 7.8% | 0.8% |
 | reduced vowel only | 1.1% | 1.2% |
 | sounds differ before the rhyme tail | 0.3% | 0.6% |
@@ -93,8 +94,8 @@ It reads with `SupplementedLexicon(v2)` and no fallback. The output is in `reade
 The line-end disagreements with the most occurrences fall into four groups:
 - **Conventions.** NEAR `IH`~`IY` (*dear, fear, near, year, clear*), which M-320's licence already agrees before R, and `AW ER`~`AW R` (*hour, ours*).
 - **Valid homographs.** *read, lives, content*.
-- **Moby carrying only a rare sense.** For *said* it has only `'s/A//I/d` (sayyid), for *rose* only `r/oU/'z/eI/` (rosé), for *none* only `n/oU/n`, and for *comes* only the Latin plural.
-- **A real silent error.** Scots *a'* ("all") is read `AH0` as the article *a*. This is the apostrophe-stripping mechanism R2 found.
+- **Reference artifacts.** Moby carries only a rare sense for *said* (`'s/A//I/d`, sayyid), *rose* (`r/oU/'z/eI/`, rosé), *none* (`n/oU/n`) and *comes* (the Latin plural). The top line-end row, *man* (565 line-end, 1,780 total), is a converter case artifact: `moby_convert` keeps lowercase `man m/A/n` and drops `Man m/&/n`.
+- **An exposure, not a verdict.** *a'* is read `AH0`, as the article *a*, through the apostrophe-stripping mechanism. Its occurrences (1,030 total, 184 at line ends) mix the article *a'* with Scots *a'* ("all"), so they cannot all take one verdict (3PO's occurrence review).
 
 So disagreeing with Moby is a weak signal of error, and some of Moby's own entries are wrong for the common sense. That is more evidence that Moby cannot judge a reading.
 

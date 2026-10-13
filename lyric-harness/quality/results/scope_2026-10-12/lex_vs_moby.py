@@ -1,6 +1,6 @@
 """Every reading in CMUdict + supplement v2 vs Moby (converted). Read-only.
 Moby flags disagreements; it does not judge."""
-import sys, re, collections, difflib, json
+import sys, re, collections, difflib, json, hashlib, subprocess
 sys.path.insert(0, '.')
 from quality import moby_convert as M
 
@@ -53,7 +53,9 @@ def _main():
                 pat[p] += 1
                 if len(ex[p]) < 5: ex[p].append(w)
         cls[k] += 1; src_cls[(src, k)] += 1
-    res = {"readings_words": len(R), "classes": dict(cls), "by_source": {f"{s}|{k}": n for (s, k), n in src_cls.items()},
+    ident = {"commit": subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip(),
+             "mpron_sha256": hashlib.sha256(open(mpron, "rb").read()).hexdigest()}
+    res = {**ident, "readings_words": len(R), "classes": dict(cls), "by_source": {f"{s}|{k}": n for (s, k), n in src_cls.items()},
            "stress_patterns_top": [[f"{a} vs moby {b}", n, sex[(a, b)]] for (a, b), n in stresspat.most_common(25)],
            "sound_substitutions_top": [[p, n, ex[p]] for p, n in pat.most_common(60)]}
     json.dump(res, open(out, 'w'), indent=1)
@@ -78,7 +80,7 @@ def _main():
         if len(tex[key]) < 5: tex[key].append(w)
     print('non-exact words whose rhyme tail still agrees:', tail_same, ' rhyme tail differs:', tail_diff)
     for k, n in tpat.most_common(40): print(n, k, tex[k])
-    json.dump({"tail_same": tail_same, "tail_diff": tail_diff, "tail_patterns": [[k, n, tex[k]] for k, n in tpat.most_common(200)]}, open(out.replace('.json', '_tail.json'), 'w'), indent=1)
+    json.dump({**ident, "tail_same": tail_same, "tail_diff": tail_diff, "tail_patterns": [[k, n, tex[k]] for k, n in tpat.most_common(200)]}, open(out.replace('.json', '_tail.json'), 'w'), indent=1)
     # Same, with reduced unstressed vowels tolerated, and known dialect/convention families tagged.
     def _rtail2(t): return _red(_tail(t))
     FAM = {
@@ -114,7 +116,7 @@ def _main():
     for k, n in fam.most_common(): print('   ', n, k, fex[k])
     print('  everything else:', sum(other.values()), 'in', len(other), 'distinct substitution patterns; top 30:')
     for k, n in other.most_common(30): print('   ', n, k, oex[k])
-    json.dump({"tail_disagreements": tot, "families": [[k, n, fex[k]] for k, n in fam.most_common()],
+    json.dump({**ident, "tail_disagreements": tot, "families": [[k, n, fex[k]] for k, n in fam.most_common()],
                "other_total": sum(other.values()), "other_patterns": [[k, n, oex[k]] for k, n in other.most_common()]},
               open(out.replace('.json', '_tail2.json'), 'w'), indent=1)
 

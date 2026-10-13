@@ -1,10 +1,10 @@
 """Every end word where the grader's anchor reader and the grid reader disagree (dev side, v2). Read-only."""
-import sys, os, glob, collections, json, re
+import sys, os, glob, collections, json, re, subprocess
 sys.path.insert(0, '.')
 import lyric_harness as LH
 from quality import grid as G
 from quality.coverage_census import build_lexicon, items_of, POPULATIONS, ROOT
-from quality.coverage_split import checked_assignment
+from quality.coverage_split import SPLIT_PATH, checked_assignment
 
 
 def _main():
@@ -41,7 +41,9 @@ def _main():
                 side = 'anchor reads, grid refuses' if a_ok else 'grid reads, anchor refuses'
                 c = side + ' | ' + _cause(a, g)
                 dis[c] += 1; ex[c][g or a] += 1
-    out = {"lines": lines_n, "both_read": both_read, "both_unread": both_unread,
+    out = {"commit": subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip(),
+           "split": os.path.relpath(SPLIT_PATH, ROOT),
+           "lines": lines_n, "both_read": both_read, "both_unread": both_unread,
            "disagree": sum(dis.values()),
            "by_cause": [[c, n, len(ex[c]), [w for w, _ in ex[c].most_common(8)]] for c, n in dis.most_common()]}
     json.dump(out, open(sys.argv[1], 'w'), indent=1, ensure_ascii=False)
