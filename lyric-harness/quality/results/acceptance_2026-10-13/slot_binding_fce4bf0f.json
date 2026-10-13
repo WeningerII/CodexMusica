@@ -1,0 +1,141 @@
+{
+ "harness_root": "/home/user/CodexMusica/lyric-harness",
+ "swap_at_slot_mode_argument": null,
+ "loop_sha256": "1b8ebc8d0a6ff7eb72f3afe5961a36184b0f839e5c7cfbbae8321b2cf30e90d7",
+ "lines": {
+  "synthetic": 10,
+  "corpus": 973
+ },
+ "slots": [
+  "end",
+  "head",
+  "T1",
+  "T2",
+  "T3",
+  "T4",
+  "T5",
+  "T6",
+  "T7",
+  "T8"
+ ],
+ "excluded_line_modes": {
+  "spaced_enclitic_or_folded": 78,
+  "spans_not_reproduced": 0
+ },
+ "outcomes": {
+  "asides_stripped": {
+   "agree": 171,
+   "refused": 2494,
+   "wrong_word": 5,
+   "no_word_refused": 1028
+  },
+  "asides_sung": {
+   "agree": 176,
+   "refused": 7956
+  }
+ },
+ "wrong_word": 5,
+ "grader_elsewhere": 0,
+ "cases": [
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "I love you (love you)",
+   "mode": "asides_stripped",
+   "slot": "end",
+   "named": [
+    7,
+    10
+   ],
+   "bound": [
+    7,
+    10
+   ],
+   "edited": [
+    17,
+    20
+   ],
+   "result": "I love you (love zqzq)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "hold on (hold on)",
+   "mode": "asides_stripped",
+   "slot": "end",
+   "named": [
+    5,
+    7
+   ],
+   "bound": [
+    5,
+    7
+   ],
+   "edited": [
+    14,
+    16
+   ],
+   "result": "hold on (hold zqzq)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Content some day (a far-off day)",
+   "mode": "asides_stripped",
+   "slot": "end",
+   "named": [
+    13,
+    16
+   ],
+   "bound": [
+    13,
+    16
+   ],
+   "edited": [
+    28,
+    31
+   ],
+   "result": "Content some day (a far-off zqzq)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "You said (Oh not in vain you said),",
+   "mode": "asides_stripped",
+   "slot": "end",
+   "named": [
+    4,
+    8
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    29,
+    33
+   ],
+   "result": "You said (Oh not in vain you zqzq),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Take a little Dram of Passion, (a little dram of Passion)",
+   "mode": "asides_stripped",
+   "slot": "end",
+   "named": [
+    22,
+    29
+   ],
+   "bound": [
+    22,
+    29
+   ],
+   "edited": [
+    49,
+    56
+   ],
+   "result": "Take a little Dram of Passion, (a little dram of Zqzq)"
+  }
+ ]
+}

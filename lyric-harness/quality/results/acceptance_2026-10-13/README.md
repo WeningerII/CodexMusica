@@ -151,6 +151,36 @@ Physical identity is each token's character span in the harness's own tokenizer,
 
 **What it doesn't measure.** This corpus mostly uses parentheses for printed asides, so voices-off is its own reading. Modern lyrics that put backing vocals in parentheses use them far more, often around repeated words, so real drafts may well show more. This is a count on this corpus, not an estimate for real use.
 
+## Slot binding: does the revision edit the word the grader binds?
+
+    python3 quality/results/acceptance_2026-10-13/slot_binding.py quality/results/acceptance_2026-10-13/slot_binding_fce4bf0f.json [HARNESS_ROOT]
+
+This is R2's 1b v2 blocker (PR #519, comment 6151243417): under `--voices`, the loop's `swap_at_slot` cut the line with asides stripped, while the grader binds the slot through the lexicon's aside rule. 3PO asked for it to be measured at the pinned head (PR #527, comment 6151284267).
+
+The check covers every line with a parenthesised aside, in both aside modes, for the slots `end`, `head` and `T1` to `T8`. In each case it compares, as spans in the **original** line:
+- the word the slot names;
+- the word the grader binds (`word_syllable_map`'s `widx`, the index `slots.resolve` reads);
+- the characters the loop actually replaces.
+
+A `wrong_word` is an edit anywhere other than the named word. **Acceptance requires 0 in both modes.** A refusal never counts as wrong. It calls the loop the way production does (`revise.py`, `loop.py`), and passes an aside argument only if a head's `swap_at_slot` has one, recording which.
+
+The population is 973 corpus lines (the reader's sung lines that voices cuts differently) and 10 synthetic lines. Lines that `join_spaced_enclitics` changes are excluded and counted (78 line-modes), because their offsets would be in transformed text.
+
+**Baseline at main `fce4bf0f`:**
+
+| mode | agree | refused | no word, refused | wrong word |
+|---|---:|---:|---:|---:|
+| asides stripped (the default) | 171 | 2,494 | 1,028 | **5** |
+| asides sung (`--voices`) | 176 | 7,956 | 0 | 0 |
+
+With voices on, main never edits a wrong word: every `head` and `T<n>` slot on an aside line refuses (`quality/loop.py:400-402`). The bug R2 found is therefore new in the 1b branch, not inherited from main.
+
+**Main does have a wrong-word edit of its own, in the default mode.** `swap_end_word` (`quality/loop.py:356-358`) checks that the last raw word has the same TEXT as the line's real end word, but not the same POSITION. When a trailing aside repeats the end word, the check passes and the copy inside the parentheses is edited, while the grader still reads the unchanged word:
+- `I love you (love you)` becomes `I love you (love zqzq)`;
+- `You said (Oh not in vain you said),` becomes `You said (Oh not in vain you zqzq),`.
+
+That is 3 corpus lines and 2 synthetic echo lines. Echoes in parentheses are common in modern lyrics, so this corpus count is not an estimate of real use.
+
 ## The disputed dictionary rows
 
     python3 quality/results/acceptance_2026-10-13/disputed_rows.py quality/results/acceptance_2026-10-13/disputed_rows.json MPRON
