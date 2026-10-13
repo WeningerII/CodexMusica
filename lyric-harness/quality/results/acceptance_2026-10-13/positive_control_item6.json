@@ -90,12 +90,18 @@
   "end_newly_refused": 3111,
   "meter_refused_gained": 10690,
   "meter_refused_lost": 261,
-  "meter_stress_changed": 12792,
   "reading_switched": 13,
   "reason_changed": 8982,
   "voices_changed": 55,
-  "word_newly_refused": 10687
+  "word_newly_refused": 10687,
+  "word_refusal_respelled": 2402
  },
+ "unexplained_field_counts": {},
+ "secondary_reader_attribution": {
+  "meter:item6": 10690,
+  "respell:item6": 2402
+ },
+ "M3_raw_deltas": null,
  "declared_probe_unresolved_lines": {
   "before": 27712,
   "after": 36224
@@ -110,6 +116,10 @@
   },
   "end_newly_refused": {
    "item6": 3111
+  },
+  "word_refusal_respelled": {
+   "item6/interior": 1909,
+   "item6/end": 561
   },
   "reading_switched": {
    "item6": 13
@@ -154,7 +164,9 @@
    "observed": 0,
    "projected_and_observed": 0,
    "projected_not_observed": 7885,
-   "observed_not_projected": 0
+   "observed_not_projected": 0,
+   "observed_token_cut": 0,
+   "observed_refusal_or_switch": 0
   }
  },
  "fixtures": [

@@ -5,7 +5,7 @@
   "fallback": "none"
  },
  "after": {
-  "commit": "d6e63623567240946f5d66e6f81fed1cf308b4a2",
+  "commit": "fcd2ad9520067bb5742cb25bdf6830742871479d",
   "tracked_changes": true,
   "fallback": "none"
  },
@@ -24,6 +24,9 @@
   "only_after": 0
  },
  "counts": {},
+ "unexplained_field_counts": {},
+ "secondary_reader_attribution": {},
+ "M3_raw_deltas": null,
  "declared_probe_unresolved_lines": {
   "before": 27712,
   "after": 27712
@@ -68,7 +71,9 @@
    "observed": 0,
    "projected_and_observed": 0,
    "projected_not_observed": 7885,
-   "observed_not_projected": 0
+   "observed_not_projected": 0,
+   "observed_token_cut": 0,
+   "observed_refusal_or_switch": 0
   }
  },
  "fixtures": [],

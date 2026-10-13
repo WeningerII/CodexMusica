@@ -16,7 +16,8 @@ The header pins every coordinate that could move a reading without a code change
 - the commit, and whether it had tracked changes;
 - the recorder's own sha256;
 - the reader class, the supplement's version, path and sha256, and the CMUdict sha256;
-- the fallback, `strip_parens` and the declarations;
+- the fallback, the **effective fallback of each consumer**, `strip_parens` and the declarations. With `--fallback=high`, the anchor path and meter read with `high`, while the schema stream keeps its registered fallback. That is today's production difference, which M3 addresses, and it is recorded rather than unified;
+- any reader scheme the head exposes;
 - the split file and its sha256, a digest of the population files, and the fixture digest;
 - `comparator_fingerprint_parts()`.
 
@@ -49,8 +50,12 @@ The diff refuses to compare recordings of different populations, and it reports 
   - a word that came from a `--` or edge-hyphen token means `dash`;
   - anything else is `other`, the change nobody predicted.
 - A line whose end flips from read to refused is credited by the shape of its end word.
+- A word refused on both sides, but reported as a piece before and as the whole word after, is `word_refusal_respelled`. It is credited by shape and is never counted as new.
+- A change in how a line is cut into tokens is an observation of its own: a `--` cut, a numeral added, or other. A clean split is observed even when no refusal changes.
 
-**Scope.** `--mechanisms` names what the after-head implements. A change attributed to a mechanism outside that list is reported separately, never credited to the projection.
+**Scope.** `--mechanisms` names what the after-head implements: `item6`, `M1`, `M2a`, `M2b`, `dash` (alias `tokenizer`) and `M3`. A change attributed to a mechanism outside that list is reported separately, never credited to the projection. `M3` has no shape attribution, so under `M3` the stream, grid and meter changes are reported as raw deltas.
+
+**The field-level residual.** On every line, each recorded field that differs and that no class explains is reported in `unexplained_fields`, even when another class hit that line. An expected change therefore cannot mask an unexpected one. The other readers (stream, grid and meter) are attributed by shape too, and their `other` changes count as unattributed.
 
 **Classes reported:**
 - the anchor path: end refused or read, end word, cause, reason and anchors;
@@ -74,7 +79,7 @@ This runs the Lyrics page's own `lyTokens`, taken from `src/pages/lyrics.js` at 
 
 ## Validation of the tools
 
-**Null test (`diff_null.json`).** This compares main at `fce4bf0f` with `d6e63623` on this branch, which has the same harness code. Its header says `tracked_changes: true` only because this receipt's own output files were being regenerated in that tree. Every class is 0 and nothing is unattributed.
+**Null test (`diff_null.json`).** This compares main at `fce4bf0f` with `fcd2ad95` on this branch, which has the same harness code, both recorded by the same recorder. The second header says `tracked_changes: true` because this README was being edited during the run; no code was. Every class is 0 and nothing is unattributed.
 
 There is one standing measure, the same on both sides: **27,712** dev lines of *synthetic-declaration probe exposure*. On these lines the recorder's own probe declares every refused token, and `line_readability` still reports unread words or stale reason text. They are not user declarations and not confirmed production incidents. That is a defect in today's code, not in these tools. `line_readability` reads `token_pieces(lex, t)` on the line view and never `lex.for_token(i)` (`lyric_harness.py:2428, 2433`). A writer's declared reading therefore clears `transcribe` but not the readability report. The batch's refusal-wording commit should take it to 0.
 
@@ -82,6 +87,21 @@ There is one standing measure, the same on both sides: **27,712** dev lines of *
 - The projection's **10,825** item-6 lines were all observed, with **0** projected-not-observed, **0** observed-not-projected and **0** unattributed.
 - **3,111** ends were newly refused, the projected figure.
 - Words newly refused: **8,115** interior and **2,963** at the line end, matching the projection's join-only and pieces classes.
+- Refusals respelled from a piece to the whole word: **1,909** interior and **561** at the line end. These match the projection's some-piece-unread count, and its 413 last-piece-unread plus 148 earlier-piece-unread end lines.
+- There are no unexplained fields. The only configuration change is the comparator fingerprint, which the simulation's patch to `lyric_harness.py` moves.
+
+**Self-test (`selftest.py`).** It runs seven synthetic cases that the corpus runs cannot show:
+- an expected item-6 refusal and an unexplained grid change on one line;
+- a stream-only refusal;
+- a meter-only change;
+- a field no class explains;
+- a `--` cut with `dash` in scope and out of it;
+- a reading switch on a `--`-cut word;
+- a respelled refusal.
+
+All pass.
+
+**What these results do and don't establish.** Shape attribution and membership in a projected id set are not causal proof. The item-6 simulation is sensitivity evidence that the tools detect and attribute such a change; it is not acceptance of R2's implementation. "Zero unattributed" means no unexplained field and no `other`-shaped change in any reader, *within the fields recorded*.
 
 **Independent review.** Before any R2 head was measured, 22 agents reviewed the first version of these tools from four angles: blind spots, diff logic, a positive control and the row list. A skeptic tried to refute each finding. All 18 medium and high findings reproduced, and this version addresses them:
 - position-level comparison;
