@@ -1,0 +1,4882 @@
+{
+ "commit": "6bfbb72637565db6807cda34917f778c4d5b3c6c",
+ "mpron_sha256": "55580c3b258873723fed33497fe3a438b26167370bbe016431b3fc65fea67f2d",
+ "all_occurrences": {
+  "types": 60446,
+  "occurrences": 1491865,
+  "by_class": {
+   "exact": {
+    "types": 9411,
+    "occurrences": 950381
+   },
+   "not in Moby": {
+    "types": 27372,
+    "occurrences": 190042
+   },
+   "reduced vowel only": {
+    "types": 1063,
+    "occurrences": 16324
+   },
+   "sounds differ before the rhyme tail": {
+    "types": 303,
+    "occurrences": 4155
+   },
+   "sounds differ in the rhyme tail": {
+    "types": 1026,
+    "occurrences": 143466
+   },
+   "stress only": {
+    "types": 804,
+    "occurrences": 116926
+   },
+   "unread": {
+    "types": 20467,
+    "occurrences": 70571
+   }
+  },
+  "rhyme_tail_disagreements_by_occurrence": [
+   [
+    "and",
+    54394,
+    "AH0 N D",
+    [
+     "AE1 N D"
+    ]
+   ],
+   [
+    "a",
+    24215,
+    "AH0",
+    [
+     "EY1"
+    ]
+   ],
+   [
+    "our",
+    6220,
+    "AW1 ER0",
+    [
+     "AW1 R"
+    ]
+   ],
+   [
+    "was",
+    6005,
+    "W AA1 Z",
+    [
+     "W AH1 Z"
+    ]
+   ],
+   [
+    "or",
+    5725,
+    "AO1 R",
+    [
+     "ER1"
+    ]
+   ],
+   [
+    "at",
+    5240,
+    "AE1 T",
+    [
+     "AH1 T"
+    ]
+   ],
+   [
+    "your",
+    4289,
+    "Y AO1 R",
+    [
+     "Y UH1 R"
+    ]
+   ],
+   [
+    "o'",
+    3103,
+    "OW1",
+    [
+     "AH1"
+    ]
+   ],
+   [
+    "man",
+    1780,
+    "M AE1 N",
+    [
+     "M AA1 N"
+    ]
+   ],
+   [
+    "an",
+    1716,
+    "AE1 N",
+    [
+     "AH1 N"
+    ]
+   ],
+   [
+    "dear",
+    1552,
+    "D IH1 R",
+    [
+     "D IY1 R"
+    ]
+   ],
+   [
+    "every",
+    1532,
+    "EH1 V ER0 IY0",
+    [
+     "EH1 V R IY0"
+    ]
+   ],
+   [
+    "said",
+    1196,
+    "S EH1 D",
+    [
+     "S AA1 IH0 D"
+    ]
+   ],
+   [
+    "a'",
+    1030,
+    "AH0",
+    [
+     "AA1"
+    ]
+   ],
+   [
+    "poor",
+    866,
+    "P UW1 R",
+    [
+     "P UH1 R"
+    ]
+   ],
+   [
+    "fear",
+    832,
+    "F IH1 R",
+    [
+     "F IY1 R"
+    ]
+   ],
+   [
+    "rose",
+    828,
+    "R OW1 Z",
+    [
+     "R OW0 Z EY1"
+    ]
+   ],
+   [
+    "hour",
+    798,
+    "AW1 ER0",
+    [
+     "AW1 R"
+    ]
+   ],
+   [
+    "near",
+    729,
+    "N IH1 R",
+    [
+     "N IY1 R"
+    ]
+   ],
+   [
+    "doth",
+    709,
+    "D AO1 TH",
+    [
+     "D AH1 TH"
+    ]
+   ],
+   [
+    "soft",
+    620,
+    "S AA1 F T",
+    [
+     "S AO1 F T"
+    ]
+   ],
+   [
+    "comes",
+    613,
+    "K AH1 M Z",
+    [
+     "K OW1 M IY0 Z"
+    ]
+   ],
+   [
+    "weary",
+    598,
+    "W IH1 R IY0",
+    [
+     "W IY1 R IY0"
+    ]
+   ],
+   [
+    "none",
+    557,
+    "N AH1 N",
+    [
+     "N OW1 N"
+    ]
+   ],
+   [
+    "clear",
+    510,
+    "K L IH1 R",
+    [
+     "K L IY1 R"
+    ]
+   ],
+   [
+    "year",
+    498,
+    "Y IH1 R",
+    [
+     "Y IY1 R"
+    ]
+   ],
+   [
+    "aye",
+    473,
+    "AY1",
+    [
+     "EY1"
+    ]
+   ],
+   [
+    "lives",
+    332,
+    "L IH1 V Z",
+    [
+     "L AY1 V Z"
+    ]
+   ],
+   [
+    "cheer",
+    297,
+    "CH IH1 R",
+    [
+     "CH IY1 R"
+    ]
+   ],
+   [
+    "mortal",
+    284,
+    "M AO1 R T AH0 L",
+    [
+     "M AO1 R T AE0 L"
+    ]
+   ],
+   [
+    "cause",
+    256,
+    "K AA1 Z",
+    [
+     "K AO1 Z"
+    ]
+   ],
+   [
+    "read",
+    248,
+    "R EH1 D",
+    [
+     "R IY1 D"
+    ]
+   ],
+   [
+    "dost",
+    238,
+    "D AA1 S T",
+    [
+     "D AH1 S T"
+    ]
+   ],
+   [
+    "appear",
+    232,
+    "AH0 P IH1 R",
+    [
+     "AH0 P IY1 R"
+    ]
+   ],
+   [
+    "de",
+    232,
+    "D IY1",
+    [
+     "D EH1"
+    ]
+   ],
+   [
+    "ancient",
+    213,
+    "EY1 N CH AH0 N T",
+    [
+     "EY1 N SH AH0 N T"
+    ]
+   ],
+   [
+    "bower",
+    212,
+    "B AW1 ER0",
+    [
+     "B OW1 ER0"
+    ]
+   ],
+   [
+    "fierce",
+    200,
+    "F IH1 R S",
+    [
+     "F IY1 R S"
+    ]
+   ],
+   [
+    "ours",
+    195,
+    "AW1 ER0 Z",
+    [
+     "AW1 R Z"
+    ]
+   ],
+   [
+    "here's",
+    186,
+    "HH IH1 R Z",
+    [
+     "HH IY1 R Z"
+    ]
+   ],
+   [
+    "softly",
+    182,
+    "S AO1 F T L IY0",
+    [
+     "S AA1 F T L IY0"
+    ]
+   ],
+   [
+    "mony",
+    181,
+    "M OW1 N IY0",
+    [
+     "M AA1 N IY0"
+    ]
+   ],
+   [
+    "blessed",
+    163,
+    "B L EH1 S T",
+    [
+     "B L EH1 S IH0 D"
+    ]
+   ],
+   [
+    "content",
+    161,
+    "K AA1 N T EH0 N T",
+    [
+     "K AH0 N T EH1 N T"
+    ]
+   ],
+   [
+    "wound",
+    156,
+    "W AW1 N D",
+    [
+     "W UW1 N D"
+    ]
+   ],
+   [
+    "to-morrow",
+    156,
+    "T UW1 M AA1 R OW0",
+    [
+     "T UW0 M AO1 R OW0"
+    ]
+   ],
+   [
+    "perfect",
+    153,
+    "P ER0 F EH1 K T",
+    [
+     "P AH1 R F EH0 K T"
+    ]
+   ],
+   [
+    "wold",
+    153,
+    "W OW1 L D",
+    [
+     "W AO1 L D"
+    ]
+   ],
+   [
+    "treasure",
+    149,
+    "T R EH1 ZH ER0",
+    [
+     "T R EH1 SH ER0"
+    ]
+   ],
+   [
+    "la",
+    144,
+    "L AA1",
+    [
+     "L AO1"
+    ]
+   ],
+   [
+    "awful",
+    142,
+    "AA1 F AH0 L",
+    [
+     "AO1 F AH0 L"
+    ]
+   ],
+   [
+    "beloved",
+    140,
+    "B IH0 L AH1 V D",
+    [
+     "B IH0 L AH1 V IH0 D"
+    ]
+   ],
+   [
+    "dreary",
+    139,
+    "D R IH1 R IY0",
+    [
+     "D R IY1 R IY0"
+    ]
+   ],
+   [
+    "tower",
+    132,
+    "T AW1 ER0",
+    [
+     "T OW1 ER0"
+    ]
+   ],
+   [
+    "desert",
+    130,
+    "D EH1 Z ER0 T",
+    [
+     "D IH0 Z ER1 T"
+    ]
+   ],
+   [
+    "mournful",
+    130,
+    "M AO1 R N F AH0 L",
+    [
+     "M AO1 R N F UH0 L"
+    ]
+   ],
+   [
+    "caught",
+    125,
+    "K AA1 T",
+    [
+     "K AO1 T"
+    ]
+   ],
+   [
+    "worthy",
+    119,
+    "W ER1 DH IY0",
+    [
+     "W ER1 TH IY0"
+    ]
+   ],
+   [
+    "onward",
+    114,
+    "AO1 N W ER0 D",
+    [
+     "AA1 N W ER0 D"
+    ]
+   ],
+   [
+    "naught",
+    112,
+    "N AO1 T",
+    [
+     "N AA1 T"
+    ]
+   ],
+   [
+    "narrow",
+    109,
+    "N EH1 R OW0",
+    [
+     "N AE1 R OW0"
+    ]
+   ],
+   [
+    "rebel",
+    108,
+    "R EH1 B AH0 L",
+    [
+     "R IH0 B EH1 L",
+     "R IH1 B EH0 L"
+    ]
+   ],
+   [
+    "bade",
+    108,
+    "B EY1 D",
+    [
+     "B AE1 D"
+    ]
+   ],
+   [
+    "hero",
+    106,
+    "HH IH1 R OW0",
+    [
+     "HH IY1 R OW0"
+    ]
+   ],
+   [
+    "wanton",
+    105,
+    "W AO1 N T AH0 N",
+    [
+     "W AA1 N T AH0 N"
+    ]
+   ],
+   [
+    "fallen",
+    103,
+    "F AA1 L AH0 N",
+    [
+     "F AO1 L AH0 N"
+    ]
+   ],
+   [
+    "cheerful",
+    101,
+    "CH IH1 R F AH0 L",
+    [
+     "CH IY1 R F AH0 L"
+    ]
+   ],
+   [
+    "northern",
+    100,
+    "N AO1 R DH ER0 N",
+    [
+     "N AO1 R DH AH0 N"
+    ]
+   ],
+   [
+    "virtue",
+    97,
+    "V ER1 CH UW0",
+    [
+     "V ER1 T Y UW0"
+    ]
+   ],
+   [
+    "paradise",
+    95,
+    "P EH1 R AH0 D AY2 S",
+    [
+     "P AE1 R AH0 D AY0 S"
+    ]
+   ],
+   [
+    "row",
+    92,
+    "R OW1",
+    [
+     "R AW1"
+    ]
+   ],
+   [
+    "fearless",
+    89,
+    "F IH1 R L AH0 S",
+    [
+     "F IY1 R L IH0 S"
+    ]
+   ],
+   [
+    "parted",
+    89,
+    "P AA1 R T IH0 D",
+    [
+     "P AE1 R T IH0 D"
+    ]
+   ],
+   [
+    "married",
+    88,
+    "M EH1 R IY0 D",
+    [
+     "M AE1 R IY0 D"
+    ]
+   ],
+   [
+    "bought",
+    87,
+    "B AA1 T",
+    [
+     "B AO1 T"
+    ]
+   ],
+   [
+    "morrow",
+    86,
+    "M AA1 R OW0",
+    [
+     "M AO1 R OW0"
+    ]
+   ],
+   [
+    "paths",
+    84,
+    "P AE1 DH Z",
+    [
+     "P AA1 DH Z"
+    ]
+   ],
+   [
+    "marry",
+    84,
+    "M EH1 R IY0",
+    [
+     "M AE1 R IY0"
+    ]
+   ],
+   [
+    "nightingale",
+    83,
+    "N AY1 T IH0 NG G EY0 L",
+    [
+     "N AY1 T AH0 N G EY2 L"
+    ]
+   ],
+   [
+    "mate",
+    81,
+    "M EY1 T",
+    [
+     "M AA1 T EY0"
+    ]
+   ],
+   [
+    "shew",
+    81,
+    "SH UW1",
+    [
+     "S HH OW1"
+    ]
+   ],
+   [
+    "sphere",
+    75,
+    "S F IH1 R",
+    [
+     "S F IY1 R"
+    ]
+   ],
+   [
+    "fearful",
+    74,
+    "F IH1 R F AH0 L",
+    [
+     "F IY1 R F AH0 L"
+    ]
+   ],
+   [
+    "riches",
+    72,
+    "R IH1 CH AH0 Z",
+    [
+     "R IY1 T SH IH0 Z"
+    ]
+   ],
+   [
+    "lyre",
+    70,
+    "L AY1 R",
+    [
+     "L AY1 ER0"
+    ]
+   ],
+   [
+    "rear",
+    70,
+    "R IH1 R",
+    [
+     "R IY1 R"
+    ]
+   ],
+   [
+    "wretch",
+    69,
+    "R EH1 CH",
+    [
+     "R EH1 T CH"
+    ]
+   ],
+   [
+    "gear",
+    69,
+    "G IH1 R",
+    [
+     "G IY1 R"
+    ]
+   ],
+   [
+    "stronger",
+    68,
+    "S T R AO1 NG ER0",
+    [
+     "S T R AA1 NG ER0"
+    ]
+   ],
+   [
+    "forehead",
+    67,
+    "F AO1 R HH EH0 D",
+    [
+     "F AO1 R IH0 D"
+    ]
+   ],
+   [
+    "wretched",
+    67,
+    "R EH1 CH IH0 D",
+    [
+     "R EH1 T SH IH0 D"
+    ]
+   ],
+   [
+    "awe",
+    66,
+    "AA1",
+    [
+     "AO1"
+    ]
+   ],
+   [
+    "scarcely",
+    66,
+    "S K EH1 R S L IY0",
+    [
+     "S K EH1 S L IY0"
+    ]
+   ],
+   [
+    "spear",
+    66,
+    "S P IH1 R",
+    [
+     "S P IY1 R"
+    ]
+   ],
+   [
+    "deer",
+    66,
+    "D IH1 R",
+    [
+     "D IY1 R"
+    ]
+   ],
+   [
+    "cost",
+    65,
+    "K AA1 S T",
+    [
+     "K AO1 S T"
+    ]
+   ],
+   [
+    "aged",
+    61,
+    "EY1 JH D",
+    [
+     "EY1 JH IH0 D"
+    ]
+   ],
+   [
+    "gems",
+    59,
+    "JH EH1 M Z",
+    [
+     "G EH1 M S"
+    ]
+   ],
+   [
+    "sincere",
+    57,
+    "S IH0 N S IH1 R",
+    [
+     "S IH0 N S IY1 R"
+    ]
+   ],
+   [
+    "dawning",
+    56,
+    "D AO1 N IH0 NG",
+    [
+     "D AA1 N IY0 NG"
+    ]
+   ],
+   [
+    "bowed",
+    56,
+    "B AW1 D",
+    [
+     "B OW1 D"
+    ]
+   ],
+   [
+    "closer",
+    54,
+    "K L OW1 S ER0",
+    [
+     "K L OW1 Z ER0"
+    ]
+   ],
+   [
+    "cursed",
+    54,
+    "K ER1 S T",
+    [
+     "K ER1 S IH0 D"
+    ]
+   ],
+   [
+    "yesterday",
+    53,
+    "Y EH1 S T ER0 D EY2",
+    [
+     "Y EH1 S T ER0 D IY0"
+    ]
+   ],
+   [
+    "rouse",
+    52,
+    "R AW1 S",
+    [
+     "R AW1 Z"
+    ]
+   ],
+   [
+    "lower",
+    51,
+    "L OW1 ER0",
+    [
+     "L AW1 ER0"
+    ]
+   ],
+   [
+    "toss",
+    51,
+    "T AO1 S",
+    [
+     "T AA1 S"
+    ]
+   ],
+   [
+    "nearly",
+    48,
+    "N IH1 R L IY0",
+    [
+     "N IY1 R L IY0"
+    ]
+   ],
+   [
+    "tales",
+    48,
+    "T EY1 L Z",
+    [
+     "T EY1 L IY0 Z"
+    ]
+   ],
+   [
+    "van",
+    48,
+    "V AE1 N",
+    [
+     "V AA1 N"
+    ]
+   ],
+   [
+    "marriage",
+    48,
+    "M EH1 R IH0 JH",
+    [
+     "M IY1 R AA0 JH"
+    ]
+   ],
+   [
+    "phantom",
+    47,
+    "F AE1 N T AH0 M",
+    [
+     "F EY1 AH0 N"
+    ]
+   ],
+   [
+    "clothes",
+    47,
+    "K L OW1 DH Z",
+    [
+     "K L OW1 Z"
+    ]
+   ],
+   [
+    "theirs",
+    46,
+    "DH EH1 R Z",
+    [
+     "DH EH1 Z"
+    ]
+   ],
+   [
+    "grandeur",
+    46,
+    "G R AE0 N D UW1 R",
+    [
+     "G R AE1 N JH EH0 R"
+    ]
+   ],
+   [
+    "recall",
+    46,
+    "R IY1 K AO2 L",
+    [
+     "R IY0 K AA1 L"
+    ]
+   ],
+   [
+    "sow",
+    46,
+    "S AW1",
+    [
+     "S OW1"
+    ]
+   ],
+   [
+    "majestic",
+    45,
+    "M AH0 JH EH1 S T IH0 K",
+    [
+     "M AH0 JH EH1 S T AH0"
+    ]
+   ],
+   [
+    "ca'",
+    45,
+    "K AH1",
+    [
+     "K AA1"
+    ]
+   ],
+   [
+    "mere",
+    44,
+    "M IH1 R",
+    [
+     "M IY1 R"
+    ]
+   ],
+   [
+    "monarch",
+    43,
+    "M AA1 N AA2 R K",
+    [
+     "M AA1 N ER0 K"
+    ]
+   ],
+   [
+    "thither",
+    43,
+    "DH IH1 TH ER2",
+    [
+     "TH IH1 DH ER0"
+    ]
+   ],
+   [
+    "wherefore",
+    43,
+    "W EH0 R F AO1 R",
+    [
+     "W EH1 F AO0 R"
+    ]
+   ],
+   [
+    "severe",
+    42,
+    "S AH0 V IH1 R",
+    [
+     "S IH0 V IY1 R"
+    ]
+   ],
+   [
+    "tarry",
+    42,
+    "T EH1 R IY0",
+    [
+     "T AE1 R IY0"
+    ]
+   ],
+   [
+    "mischief",
+    41,
+    "M IH1 S CH AH0 F",
+    [
+     "M IH1 S T SH IH0 F"
+    ]
+   ],
+   [
+    "mysterious",
+    41,
+    "M IH0 S T IH1 R IY0 AH0 S",
+    [
+     "M IH0 S T IY1 R IY0 AH0 S"
+    ]
+   ],
+   [
+    "eerie",
+    41,
+    "IH1 R IY0",
+    [
+     "IY1 R IY0"
+    ]
+   ],
+   [
+    "admire",
+    40,
+    "AE0 D M AY1 R",
+    [
+     "AE0 D M AY1 ER0"
+    ]
+   ],
+   [
+    "waft",
+    40,
+    "W AA1 F T",
+    [
+     "W AE1 F T"
+    ]
+   ],
+   [
+    "troth",
+    40,
+    "T R OW1 TH",
+    [
+     "T R AO1 TH"
+    ]
+   ],
+   [
+    "passes",
+    39,
+    "P AE1 S AH0 Z",
+    [
+     "P AE0 S EY1 Z"
+    ]
+   ],
+   [
+    "anon",
+    39,
+    "AE2 N AO1 N",
+    [
+     "AH0 N AA1 N"
+    ]
+   ],
+   [
+    "really",
+    39,
+    "R IH1 L IY0",
+    [
+     "R IY1 AH0 L IY0"
+    ]
+   ],
+   [
+    "wreaths",
+    39,
+    "R IY1 TH S",
+    [
+     "R IY1 DH Z"
+    ]
+   ],
+   [
+    "beard",
+    38,
+    "B IH1 R D",
+    [
+     "B IY1 R D"
+    ]
+   ],
+   [
+    "leisure",
+    38,
+    "L EH1 ZH ER0",
+    [
+     "L IY1 ZH ER0"
+    ]
+   ],
+   [
+    "nobody",
+    38,
+    "N OW1 B AA2 D IY2",
+    [
+     "N OW1 B AH0 D IY0"
+    ]
+   ],
+   [
+    "maud",
+    37,
+    "M AO1 D",
+    [
+     "M AA1 D"
+    ]
+   ],
+   [
+    "sheaves",
+    37,
+    "SH IY1 V Z",
+    [
+     "SH IH1 V Z"
+    ]
+   ],
+   [
+    "steer",
+    37,
+    "S T IH1 R",
+    [
+     "S T IY1 R"
+    ]
+   ],
+   [
+    "piercing",
+    37,
+    "P IH1 R S IH0 NG",
+    [
+     "P IY1 R S IH0 NG"
+    ]
+   ],
+   [
+    "wat",
+    37,
+    "W AO1 T",
+    [
+     "W AE1 T"
+    ]
+   ],
+   [
+    "real",
+    36,
+    "R IY1 L",
+    [
+     "R EY0 AA1 L"
+    ]
+   ],
+   [
+    "dower",
+    36,
+    "D AW1 R",
+    [
+     "D AW1 ER0"
+    ]
+   ],
+   [
+    "desperate",
+    35,
+    "D EH1 S P R IH0 T",
+    [
+     "D EH1 S P ER0 IH0 T"
+    ]
+   ],
+   [
+    "harry",
+    35,
+    "HH EH1 R IY0",
+    [
+     "HH AE1 R IY0"
+    ]
+   ],
+   [
+    "peer",
+    35,
+    "P IH1 R",
+    [
+     "P IY1 R"
+    ]
+   ],
+   [
+    "conquest",
+    34,
+    "K AA1 NG K W EH0 S T",
+    [
+     "K AA1 N K W EH0 S T"
+    ]
+   ],
+   [
+    "toy",
+    34,
+    "T OY1",
+    [
+     "T OW1 Y"
+    ]
+   ],
+   [
+    "alien",
+    33,
+    "EY1 L IY0 AH0 N",
+    [
+     "EY1 L Y AH0 N"
+    ]
+   ],
+   [
+    "address",
+    33,
+    "AE1 D R EH2 S",
+    [
+     "AH0 D R EH1 S",
+     "AH1 D R EH0 S"
+    ]
+   ],
+   [
+    "spouse",
+    33,
+    "S P AW1 S",
+    [
+     "S P AW1 Z"
+    ]
+   ],
+   [
+    "aspire",
+    32,
+    "AH0 S P AY1 R",
+    [
+     "AH0 S P AY1 ER0"
+    ]
+   ],
+   [
+    "methought",
+    32,
+    "M IY2 TH AO1 T",
+    [
+     "M IH0 TH AA1 T"
+    ]
+   ],
+   [
+    "spire",
+    32,
+    "S P AY1 R",
+    [
+     "S P AY1 ER0"
+    ]
+   ],
+   [
+    "talking",
+    32,
+    "T AO1 K IH0 NG",
+    [
+     "T AA1 K IY0 NG"
+    ]
+   ],
+   [
+    "leaped",
+    31,
+    "L EH1 P T",
+    [
+     "L IY1 P T"
+    ]
+   ],
+   [
+    "leading",
+    31,
+    "L IY1 D IH0 NG",
+    [
+     "L EH1 D IH0 NG"
+    ]
+   ],
+   [
+    "revere",
+    31,
+    "R IH0 V IH1 R",
+    [
+     "R IH0 V IY1 R"
+    ]
+   ],
+   [
+    "inspire",
+    31,
+    "IH2 N S P AY1 R",
+    [
+     "IH0 N S P AY1 ER0"
+    ]
+   ],
+   [
+    "psalm",
+    30,
+    "S AA1 L M",
+    [
+     "S AA1 M"
+    ]
+   ],
+   [
+    "cheery",
+    30,
+    "CH IH1 R IY0",
+    [
+     "CH IY1 R IY0"
+    ]
+   ],
+   [
+    "wark",
+    30,
+    "W AO1 R K",
+    [
+     "W AA1 R K"
+    ]
+   ],
+   [
+    "imperial",
+    29,
+    "IH2 M P IH1 R IY0 AH0 L",
+    [
+     "IH0 M P IY1 R IY0 AH0 L"
+    ]
+   ],
+   [
+    "glossy",
+    29,
+    "G L AO1 S IY0",
+    [
+     "G L AA1 S IY0"
+    ]
+   ],
+   [
+    "devour",
+    29,
+    "D IH0 V AW1 ER0",
+    [
+     "D IH0 V AW1 R"
+    ]
+   ],
+   [
+    "non",
+    29,
+    "N AA1 N",
+    [
+     "N AH1 N"
+    ]
+   ],
+   [
+    "beer",
+    29,
+    "B IH1 R",
+    [
+     "B IY1 R"
+    ]
+   ],
+   [
+    "chap",
+    29,
+    "CH AE1 P",
+    [
+     "CH AA1 P"
+    ]
+   ],
+   [
+    "thirty",
+    28,
+    "TH ER1 D IY2",
+    [
+     "TH ER1 T IY0"
+    ]
+   ],
+   [
+    "sere",
+    28,
+    "S IH1 R",
+    [
+     "S IY1 R"
+    ]
+   ],
+   [
+    "sour",
+    28,
+    "S AW1 ER0",
+    [
+     "S AW1 R"
+    ]
+   ],
+   [
+    "richly",
+    28,
+    "R IH1 CH L IY0",
+    [
+     "R IY1 T SH L IY0"
+    ]
+   ],
+   [
+    "mon",
+    28,
+    "M OW1 N",
+    [
+     "M AA1 N"
+    ]
+   ],
+   [
+    "smoking",
+    27,
+    "S M OW1 K IH0 NG",
+    [
+     "S M AO0 K IY1 NG"
+    ]
+   ],
+   [
+    "younger",
+    27,
+    "Y AH1 NG G ER0",
+    [
+     "Y AH1 NG ER0"
+    ]
+   ],
+   [
+    "pall",
+    27,
+    "P AA1 L",
+    [
+     "P AO1 L"
+    ]
+   ],
+   [
+    "career",
+    27,
+    "K ER0 IH1 R",
+    [
+     "K AH0 R IY1 R"
+    ]
+   ],
+   [
+    "wa'",
+    27,
+    "W AA1",
+    [
+     "W AO1"
+    ]
+   ],
+   [
+    "merely",
+    26,
+    "M IH1 R L IY0",
+    [
+     "M IY1 R L IY0"
+    ]
+   ],
+   [
+    "clearer",
+    26,
+    "K L IH1 R ER0",
+    [
+     "K L IY1 R ER0"
+    ]
+   ],
+   [
+    "august",
+    26,
+    "AA1 G AH0 S T",
+    [
+     "AO0 G AH1 S T"
+    ]
+   ],
+   [
+    "serpent",
+    26,
+    "S ER1 P AH0 N T",
+    [
+     "S EH1 R P EH0 N T"
+    ]
+   ],
+   [
+    "charity",
+    26,
+    "CH EH1 R IH0 T IY0",
+    [
+     "CH AE1 R IH0 T IY0"
+    ]
+   ],
+   [
+    "vice",
+    26,
+    "V AY1 S",
+    [
+     "V AY1 S IY0"
+    ]
+   ],
+   [
+    "squire",
+    26,
+    "S K W AY1 R",
+    [
+     "S K W AY1 ER0"
+    ]
+   ],
+   [
+    "dire",
+    25,
+    "D AY1 R",
+    [
+     "D AY1 ER0"
+    ]
+   ],
+   [
+    "youths",
+    25,
+    "Y UW1 DH Z",
+    [
+     "Y UW1 TH S"
+    ]
+   ],
+   [
+    "ire",
+    25,
+    "AY1 R",
+    [
+     "AY1 ER0"
+    ]
+   ],
+   [
+    "truths",
+    25,
+    "T R UW1 TH S",
+    [
+     "T R UW1 DH Z"
+    ]
+   ],
+   [
+    "retire",
+    25,
+    "R IH0 T AY1 R",
+    [
+     "R IH0 T AY1 ER0"
+    ]
+   ],
+   [
+    "dong",
+    25,
+    "D AO1 NG",
+    [
+     "D AA1 NG"
+    ]
+   ],
+   [
+    "separate",
+    24,
+    "S EH1 P ER0 EY2 T",
+    [
+     "S EH1 P AH0 R IH2 T",
+     "S EH2 P AH0 R EY1 T"
+    ]
+   ],
+   [
+    "rattling",
+    24,
+    "R AE1 T L IH0 NG",
+    [
+     "R AE1 T L IH0 N"
+    ]
+   ],
+   [
+    "tearful",
+    24,
+    "T IH1 R F AH0 L",
+    [
+     "T IY1 AH0 F UH0 L"
+    ]
+   ],
+   [
+    "survey",
+    24,
+    "S ER0 V EY1",
+    [
+     "S AH1 R V EY2"
+    ]
+   ],
+   [
+    "sneer",
+    23,
+    "S N IH1 R",
+    [
+     "S N IY1 R"
+    ]
+   ],
+   [
+    "sorrowful",
+    23,
+    "S AA1 R OW0 F AH0 L",
+    [
+     "S AA1 R OW0 F UH2 L"
+    ]
+   ],
+   [
+    "flour",
+    23,
+    "F L AW1 ER0",
+    [
+     "F L AW1 R"
+    ]
+   ],
+   [
+    "queer",
+    23,
+    "K W IH1 R",
+    [
+     "K W IY1 R"
+    ]
+   ],
+   [
+    "emerald",
+    23,
+    "EH1 M R AH0 L D",
+    [
+     "EH1 M ER0 AH0 L D"
+    ]
+   ],
+   [
+    "covert",
+    23,
+    "K OW1 V ER0 T",
+    [
+     "K AH1 V ER0 T"
+    ]
+   ],
+   [
+    "interest",
+    23,
+    "IH1 N T R AH0 S T",
+    [
+     "IH1 N T ER0 IH0 S T"
+    ]
+   ],
+   [
+    "foliage",
+    23,
+    "F OW1 L IH0 JH",
+    [
+     "F OW1 L IY0 IH0 JH"
+    ]
+   ],
+   [
+    "cuckoo",
+    23,
+    "K AH1 K UW2",
+    [
+     "K UW1 K UW0"
+    ]
+   ],
+   [
+    "beata",
+    23,
+    "B IY0 AE1 T AH0",
+    [
+     "B EY0 AA1 T AH0"
+    ]
+   ],
+   [
+    "firing",
+    22,
+    "F AY1 R IH0 NG",
+    [
+     "F AY1 ER0 IH0 NG"
+    ]
+   ],
+   [
+    "chariot",
+    22,
+    "CH EH1 R IY0 AH0 T",
+    [
+     "CH AE1 R IY0 AH0 T"
+    ]
+   ],
+   [
+    "singer",
+    22,
+    "S IH1 NG ER0",
+    [
+     "S IH1 N JH ER0"
+    ]
+   ],
+   [
+    "peerless",
+    21,
+    "P IH1 R L IH0 S",
+    [
+     "P IY1 R L IH0 S"
+    ]
+   ],
+   [
+    "twinkling",
+    21,
+    "T W IH1 NG K AH0 L IH0 NG",
+    [
+     "T W IH1 NG K L IH0 NG"
+    ]
+   ],
+   [
+    "expire",
+    21,
+    "IH0 K S P AY1 R",
+    [
+     "IH0 K S P AY1 ER0"
+    ]
+   ],
+   [
+    "strengthen",
+    21,
+    "S T R EH1 NG TH AH0 N",
+    [
+     "S T R EH1 NG K TH AH0 N"
+    ]
+   ],
+   [
+    "costly",
+    21,
+    "K AA1 S T L IY0",
+    [
+     "K AO1 S T L IY0"
+    ]
+   ],
+   [
+    "forbidden",
+    21,
+    "F AO1 R B IH0 D AH0 N",
+    [
+     "F ER0 B IH1 D AH0 N"
+    ]
+   ],
+   [
+    "erring",
+    21,
+    "EH1 R IH0 NG",
+    [
+     "ER1 IH0 NG"
+    ]
+   ],
+   [
+    "loth",
+    21,
+    "L AA1 TH",
+    [
+     "L OW1 TH"
+    ]
+   ],
+   [
+    "several",
+    21,
+    "S EH1 V R AH0 L",
+    [
+     "S EH1 V ER0 AH0 L"
+    ]
+   ],
+   [
+    "stalwart",
+    20,
+    "S T AO1 L W ER0 T",
+    [
+     "S T AO1 L W AA0 R T"
+    ]
+   ],
+   [
+    "touching",
+    20,
+    "T AH1 CH IH0 NG",
+    [
+     "T AH1 T SH IY0 NG"
+    ]
+   ],
+   [
+    "weird",
+    20,
+    "W IH1 R D",
+    [
+     "W IY1 R D"
+    ]
+   ],
+   [
+    "ava",
+    20,
+    "EY1 V AH0",
+    [
+     "AH0 V AA1"
+    ]
+   ],
+   [
+    "southward",
+    19,
+    "S AW1 TH W ER0 D",
+    [
+     "S AW1 TH W AH2 R D"
+    ]
+   ],
+   [
+    "dutch",
+    19,
+    "D AH1 CH",
+    [
+     "D AH1 T SH"
+    ]
+   ],
+   [
+    "northward",
+    19,
+    "N AO1 R TH W ER0 D",
+    [
+     "N AO1 R TH W AH2 R D"
+    ]
+   ],
+   [
+    "cheerfully",
+    19,
+    "CH IH1 R F AH0 L IY0",
+    [
+     "CH IY1 R F AH0 L IY0"
+    ]
+   ],
+   [
+    "falsehood",
+    19,
+    "F AE1 L S HH UH2 D",
+    [
+     "F AO1 L S HH UH2 D"
+    ]
+   ],
+   [
+    "fie",
+    19,
+    "F IY1",
+    [
+     "F AY1"
+    ]
+   ],
+   [
+    "ensign",
+    18,
+    "EH1 N S AH0 N",
+    [
+     "EH1 N S AY0 N"
+    ]
+   ],
+   [
+    "starboard",
+    18,
+    "S T AA1 R B ER0 D",
+    [
+     "S T AA1 R B AH0 D"
+    ]
+   ],
+   [
+    "surly",
+    18,
+    "S ER1 L IY0",
+    [
+     "S UH1 R L IY0"
+    ]
+   ],
+   [
+    "volunteer",
+    18,
+    "V AA2 L AH0 N T IH1 R",
+    [
+     "V AA2 L AH0 N T IY1 R"
+    ]
+   ],
+   [
+    "wilder",
+    18,
+    "W AY1 L D ER0",
+    [
+     "W IH1 L D ER0"
+    ]
+   ],
+   [
+    "moorland",
+    18,
+    "M UH1 R L AE2 N D",
+    [
+     "M UH1 AH0 L AH0 N D"
+    ]
+   ],
+   [
+    "cruelty",
+    18,
+    "K R UW1 L T IY0",
+    [
+     "K R UW1 AH0 L T IY0"
+    ]
+   ],
+   [
+    "snatch",
+    17,
+    "S N AE1 CH",
+    [
+     "S N AE1 T SH"
+    ]
+   ],
+   [
+    "choral",
+    17,
+    "K AO1 R AH0 L",
+    [
+     "K AH0 R AE1 L"
+    ]
+   ],
+   [
+    "sparrow",
+    17,
+    "S P EH1 R OW0",
+    [
+     "S P AE1 R OW0"
+    ]
+   ],
+   [
+    "babbling",
+    17,
+    "B AE1 B AH0 L IH0 NG",
+    [
+     "B AE1 B L IH0 NG"
+    ]
+   ],
+   [
+    "mire",
+    17,
+    "M AY1 R",
+    [
+     "M AY1 ER0"
+    ]
+   ],
+   [
+    "tumbling",
+    17,
+    "T AH1 M B AH0 L IH0 NG",
+    [
+     "T AH1 M B L IH0 NG"
+    ]
+   ],
+   [
+    "breeches",
+    16,
+    "B R IY1 CH IH0 Z",
+    [
+     "B R IH1 CH IH0 Z"
+    ]
+   ],
+   [
+    "government",
+    16,
+    "G AH1 V ER0 M AH0 N T",
+    [
+     "G AH1 V ER0 N M AH0 N T"
+    ]
+   ],
+   [
+    "vocal",
+    16,
+    "V OW1 K AH0 L",
+    [
+     "V OW1 K AE0 L"
+    ]
+   ],
+   [
+    "fiddler",
+    16,
+    "F IH1 D AH0 L ER0",
+    [
+     "F IH1 D L ER0"
+    ]
+   ],
+   [
+    "mare",
+    16,
+    "M EH1 R",
+    [
+     "M AA1 R EY0"
+    ]
+   ],
+   [
+    "leant",
+    16,
+    "L IY1 AH0 N T",
+    [
+     "L EH1 N T"
+    ]
+   ],
+   [
+    "quod",
+    16,
+    "K W AO1 D",
+    [
+     "K W AA1 D"
+    ]
+   ],
+   [
+    "loe",
+    16,
+    "L OW1",
+    [
+     "L UW1"
+    ]
+   ],
+   [
+    "tattered",
+    15,
+    "T AE1 T ER0 D",
+    [
+     "T AE1 T AH0 D"
+    ]
+   ],
+   [
+    "begot",
+    15,
+    "B IY0 G AO1 T",
+    [
+     "B IH0 G AA1 T"
+    ]
+   ],
+   [
+    "lowland",
+    15,
+    "L OW1 L AE2 N D",
+    [
+     "L OW1 L AH0 N D"
+    ]
+   ],
+   [
+    "endearing",
+    15,
+    "EH0 N D IY1 R IH0 NG",
+    [
+     "IH0 N D IY1 ER0 IY0 NG"
+    ]
+   ],
+   [
+    "ethereal",
+    15,
+    "IH0 TH IH1 R IY0 AH0 L",
+    [
+     "IH0 TH IY1 R IY0 AH0 L"
+    ]
+   ],
+   [
+    "serenely",
+    15,
+    "S ER0 IY1 N AH0 L IY0",
+    [
+     "S AH0 R IY1 N L IY0"
+    ]
+   ],
+   [
+    "picked",
+    15,
+    "P IH1 K T",
+    [
+     "P IH1 K IH0 D"
+    ]
+   ],
+   [
+    "impious",
+    15,
+    "IH2 M P AY1 AH0 S",
+    [
+     "IH1 M P IY0 AH0 S"
+    ]
+   ],
+   [
+    "scythe",
+    15,
+    "S IH1 TH",
+    [
+     "S AY1 DH"
+    ]
+   ],
+   [
+    "yearly",
+    15,
+    "Y IH1 R L IY0",
+    [
+     "Y IY1 R L IY0"
+    ]
+   ],
+   [
+    "des",
+    15,
+    "D EH1 S",
+    [
+     "D EH1"
+    ]
+   ],
+   [
+    "coronet",
+    15,
+    "K AO1 R AH0 N EH1 T",
+    [
+     "K AO1 R AH0 N IH0 T"
+    ]
+   ],
+   [
+    "tawny",
+    14,
+    "T AA1 N IY0",
+    [
+     "T AO1 N IY0"
+    ]
+   ],
+   [
+    "shameful",
+    14,
+    "SH EY1 M F AH0 L",
+    [
+     "SH EY1 M F UH0 L"
+    ]
+   ],
+   [
+    "serious",
+    14,
+    "S IH1 R IY0 AH0 S",
+    [
+     "S IY1 R IY0 AH0 S"
+    ]
+   ],
+   [
+    "rumble",
+    14,
+    "R AH1 M B AH0 L",
+    [
+     "R AH1 M B L"
+    ]
+   ],
+   [
+    "tinge",
+    14,
+    "T IH1 N JH",
+    [
+     "T IH1 NG"
+    ]
+   ],
+   [
+    "pinch",
+    14,
+    "P IH1 N CH",
+    [
+     "P IH1 N T SH"
+    ]
+   ],
+   [
+    "admiring",
+    14,
+    "AE0 D M AY1 R IH0 NG",
+    [
+     "AH0 D M AY1 ER0 IY0 NG"
+    ]
+   ],
+   [
+    "buckler",
+    14,
+    "B AH1 K AH0 L ER0",
+    [
+     "B AH1 K L ER0"
+    ]
+   ],
+   [
+    "raw",
+    14,
+    "R AA1",
+    [
+     "R AO1"
+    ]
+   ],
+   [
+    "alms",
+    14,
+    "AA1 L M Z",
+    [
+     "AA1 M Z"
+    ]
+   ],
+   [
+    "ban",
+    13,
+    "B AE1 N",
+    [
+     "B AA1 N"
+    ]
+   ],
+   [
+    "stanch",
+    13,
+    "S T AE1 N CH",
+    [
+     "S T AO1 N CH"
+    ]
+   ],
+   [
+    "fashioned",
+    13,
+    "F AE1 SH AH0 N D",
+    [
+     "F AE1 S HH AH0 N D"
+    ]
+   ],
+   [
+    "requiem",
+    13,
+    "R EH1 K W IY0 AH0 M",
+    [
+     "R EH1 K W IH0 EH2 M"
+    ]
+   ],
+   [
+    "luxury",
+    13,
+    "L AH1 G ZH ER0 IY0",
+    [
+     "L AH1 K SH ER0 IY0"
+    ]
+   ],
+   [
+    "sheer",
+    13,
+    "SH IH1 R",
+    [
+     "SH IY1 R"
+    ]
+   ],
+   [
+    "sot",
+    13,
+    "S AO1 T",
+    [
+     "S AA1 T"
+    ]
+   ],
+   [
+    "austere",
+    13,
+    "AO0 S T IH1 R",
+    [
+     "AO0 S T IY1 R"
+    ]
+   ],
+   [
+    "jeer",
+    13,
+    "JH IH1 R",
+    [
+     "JH IY1 R"
+    ]
+   ],
+   [
+    "priesthood",
+    13,
+    "P R IY1 S T HH UH0 D",
+    [
+     "P R IY1 S TH UH0 D"
+    ]
+   ],
+   [
+    "character",
+    13,
+    "K EH1 R IH0 K T ER0",
+    [
+     "K AE1 R IH0 K T ER0"
+    ]
+   ],
+   [
+    "cataract",
+    13,
+    "K AE1 T ER0 AE0 K T",
+    [
+     "K AE1 T AH0 R AE2 K T"
+    ]
+   ],
+   [
+    "limes",
+    13,
+    "L AY1 M Z",
+    [
+     "L AY1 M IY0 S"
+    ]
+   ],
+   [
+    "retired",
+    13,
+    "R IH0 T AY1 R D",
+    [
+     "R IY0 T AY1 AH0 D"
+    ]
+   ],
+   [
+    "espy",
+    13,
+    "EH1 S P IY0",
+    [
+     "EH0 S P AY1"
+    ]
+   ],
+   [
+    "experience",
+    13,
+    "IH0 K S P IH1 R IY0 AH0 N S",
+    [
+     "IH0 K S P IY1 R IY0 AH0 N S"
+    ]
+   ],
+   [
+    "chevalier",
+    13,
+    "SH EH2 V AH0 L IH1 R",
+    [
+     "SH EH2 V AH0 L IY1 R"
+    ]
+   ],
+   [
+    "opposite",
+    12,
+    "AA1 P AH0 Z AH0 T",
+    [
+     "AA1 P AH0 S IH0 T"
+    ]
+   ],
+   [
+    "inland",
+    12,
+    "IH1 N L AE2 N D",
+    [
+     "IH1 N L AH0 N D"
+    ]
+   ],
+   [
+    "lear",
+    12,
+    "L IH1 R",
+    [
+     "L IY1 R"
+    ]
+   ],
+   [
+    "caution",
+    12,
+    "K AA1 SH AH0 N",
+    [
+     "K AO1 SH AH0 N"
+    ]
+   ],
+   [
+    "clarion",
+    12,
+    "K L EH1 R IY0 AH0 N",
+    [
+     "K L AE1 R IY0 AH0 N"
+    ]
+   ],
+   [
+    "cant",
+    12,
+    "K AE1 N T",
+    [
+     "K AA1 N T"
+    ]
+   ],
+   [
+    "hinder",
+    12,
+    "HH IH1 N D ER0",
+    [
+     "HH AY1 N D ER0"
+    ]
+   ],
+   [
+    "hemisphere",
+    12,
+    "HH EH1 M IH0 S F IH2 R",
+    [
+     "HH EH1 M IH0 S F IY2 R"
+    ]
+   ],
+   [
+    "cook",
+    12,
+    "K UH1 K",
+    [
+     "K UW1 K"
+    ]
+   ],
+   [
+    "disappear",
+    12,
+    "D IH2 S AH0 P IH1 R",
+    [
+     "D IH2 S AH0 P IY1 R"
+    ]
+   ],
+   [
+    "politics",
+    12,
+    "P AA1 L AH0 T IH2 K S",
+    [
+     "P AA1 L IH0 T IH0 K S"
+    ]
+   ]
+  ]
+ },
+ "end_occurrences": {
+  "types": 23902,
+  "occurrences": 227098,
+  "by_class": {
+   "exact": {
+    "types": 6116,
+    "occurrences": 161992
+   },
+   "not in Moby": {
+    "types": 9811,
+    "occurrences": 37001
+   },
+   "reduced vowel only": {
+    "types": 577,
+    "occurrences": 2674
+   },
+   "sounds differ before the rhyme tail": {
+    "types": 166,
+    "occurrences": 1425
+   },
+   "sounds differ in the rhyme tail": {
+    "types": 580,
+    "occurrences": 7996
+   },
+   "stress only": {
+    "types": 372,
+    "occurrences": 1920
+   },
+   "unread": {
+    "types": 6280,
+    "occurrences": 14090
+   }
+  },
+  "rhyme_tail_disagreements_by_occurrence": [
+   [
+    "man",
+    565,
+    "M AE1 N",
+    [
+     "M AA1 N"
+    ]
+   ],
+   [
+    "dear",
+    403,
+    "D IH1 R",
+    [
+     "D IY1 R"
+    ]
+   ],
+   [
+    "fear",
+    364,
+    "F IH1 R",
+    [
+     "F IY1 R"
+    ]
+   ],
+   [
+    "hour",
+    343,
+    "AW1 ER0",
+    [
+     "AW1 R"
+    ]
+   ],
+   [
+    "said",
+    325,
+    "S EH1 D",
+    [
+     "S AA1 IH0 D"
+    ]
+   ],
+   [
+    "near",
+    307,
+    "N IH1 R",
+    [
+     "N IY1 R"
+    ]
+   ],
+   [
+    "rose",
+    255,
+    "R OW1 Z",
+    [
+     "R OW0 Z EY1"
+    ]
+   ],
+   [
+    "year",
+    225,
+    "Y IH1 R",
+    [
+     "Y IY1 R"
+    ]
+   ],
+   [
+    "clear",
+    200,
+    "K L IH1 R",
+    [
+     "K L IY1 R"
+    ]
+   ],
+   [
+    "appear",
+    196,
+    "AH0 P IH1 R",
+    [
+     "AH0 P IY1 R"
+    ]
+   ],
+   [
+    "a'",
+    184,
+    "AH0",
+    [
+     "AA1"
+    ]
+   ],
+   [
+    "bower",
+    116,
+    "B AW1 ER0",
+    [
+     "B OW1 ER0"
+    ]
+   ],
+   [
+    "cheer",
+    115,
+    "CH IH1 R",
+    [
+     "CH IY1 R"
+    ]
+   ],
+   [
+    "ours",
+    113,
+    "AW1 ER0 Z",
+    [
+     "AW1 R Z"
+    ]
+   ],
+   [
+    "weary",
+    95,
+    "W IH1 R IY0",
+    [
+     "W IY1 R IY0"
+    ]
+   ],
+   [
+    "none",
+    91,
+    "N AH1 N",
+    [
+     "N OW1 N"
+    ]
+   ],
+   [
+    "poor",
+    90,
+    "P UW1 R",
+    [
+     "P UH1 R"
+    ]
+   ],
+   [
+    "was",
+    85,
+    "W AA1 Z",
+    [
+     "W AH1 Z"
+    ]
+   ],
+   [
+    "treasure",
+    80,
+    "T R EH1 ZH ER0",
+    [
+     "T R EH1 SH ER0"
+    ]
+   ],
+   [
+    "read",
+    77,
+    "R EH1 D",
+    [
+     "R IY1 D"
+    ]
+   ],
+   [
+    "to-morrow",
+    75,
+    "T UW1 M AA1 R OW0",
+    [
+     "T UW0 M AO1 R OW0"
+    ]
+   ],
+   [
+    "cause",
+    73,
+    "K AA1 Z",
+    [
+     "K AO1 Z"
+    ]
+   ],
+   [
+    "and",
+    72,
+    "AH0 N D",
+    [
+     "AE1 N D"
+    ]
+   ],
+   [
+    "lives",
+    69,
+    "L IH1 V Z",
+    [
+     "L AY1 V Z"
+    ]
+   ],
+   [
+    "tower",
+    69,
+    "T AW1 ER0",
+    [
+     "T OW1 ER0"
+    ]
+   ],
+   [
+    "content",
+    63,
+    "K AA1 N T EH0 N T",
+    [
+     "K AH0 N T EH1 N T"
+    ]
+   ],
+   [
+    "la",
+    61,
+    "L AA1",
+    [
+     "L AO1"
+    ]
+   ],
+   [
+    "sphere",
+    60,
+    "S F IH1 R",
+    [
+     "S F IY1 R"
+    ]
+   ],
+   [
+    "paradise",
+    55,
+    "P EH1 R AH0 D AY2 S",
+    [
+     "P AE1 R AH0 D AY0 S"
+    ]
+   ],
+   [
+    "comes",
+    54,
+    "K AH1 M Z",
+    [
+     "K OW1 M IY0 Z"
+    ]
+   ],
+   [
+    "wound",
+    51,
+    "W AW1 N D",
+    [
+     "W UW1 N D"
+    ]
+   ],
+   [
+    "row",
+    49,
+    "R OW1",
+    [
+     "R AW1"
+    ]
+   ],
+   [
+    "dreary",
+    49,
+    "D R IH1 R IY0",
+    [
+     "D R IY1 R IY0"
+    ]
+   ],
+   [
+    "morrow",
+    49,
+    "M AA1 R OW0",
+    [
+     "M AO1 R OW0"
+    ]
+   ],
+   [
+    "mate",
+    44,
+    "M EY1 T",
+    [
+     "M AA1 T EY0"
+    ]
+   ],
+   [
+    "a",
+    42,
+    "AH0",
+    [
+     "EY1"
+    ]
+   ],
+   [
+    "or",
+    42,
+    "AO1 R",
+    [
+     "ER1"
+    ]
+   ],
+   [
+    "awe",
+    41,
+    "AA1",
+    [
+     "AO1"
+    ]
+   ],
+   [
+    "aye",
+    41,
+    "AY1",
+    [
+     "EY1"
+    ]
+   ],
+   [
+    "lyre",
+    41,
+    "L AY1 R",
+    [
+     "L AY1 ER0"
+    ]
+   ],
+   [
+    "sincere",
+    39,
+    "S IH0 N S IH1 R",
+    [
+     "S IH0 N S IY1 R"
+    ]
+   ],
+   [
+    "spear",
+    39,
+    "S P IH1 R",
+    [
+     "S P IY1 R"
+    ]
+   ],
+   [
+    "severe",
+    35,
+    "S AH0 V IH1 R",
+    [
+     "S IH0 V IY1 R"
+    ]
+   ],
+   [
+    "rear",
+    35,
+    "R IH1 R",
+    [
+     "R IY1 R"
+    ]
+   ],
+   [
+    "nightingale",
+    33,
+    "N AY1 T IH0 NG G EY0 L",
+    [
+     "N AY1 T AH0 N G EY2 L"
+    ]
+   ],
+   [
+    "soft",
+    31,
+    "S AA1 F T",
+    [
+     "S AO1 F T"
+    ]
+   ],
+   [
+    "gear",
+    30,
+    "G IH1 R",
+    [
+     "G IY1 R"
+    ]
+   ],
+   [
+    "deer",
+    29,
+    "D IH1 R",
+    [
+     "D IY1 R"
+    ]
+   ],
+   [
+    "dower",
+    29,
+    "D AW1 R",
+    [
+     "D AW1 ER0"
+    ]
+   ],
+   [
+    "cost",
+    28,
+    "K AA1 S T",
+    [
+     "K AO1 S T"
+    ]
+   ],
+   [
+    "recall",
+    27,
+    "R IY1 K AO2 L",
+    [
+     "R IY0 K AA1 L"
+    ]
+   ],
+   [
+    "caught",
+    27,
+    "K AA1 T",
+    [
+     "K AO1 T"
+    ]
+   ],
+   [
+    "admire",
+    26,
+    "AE0 D M AY1 R",
+    [
+     "AE0 D M AY1 ER0"
+    ]
+   ],
+   [
+    "at",
+    26,
+    "AE1 T",
+    [
+     "AH1 T"
+    ]
+   ],
+   [
+    "yesterday",
+    25,
+    "Y EH1 S T ER0 D EY2",
+    [
+     "Y EH1 S T ER0 D IY0"
+    ]
+   ],
+   [
+    "van",
+    25,
+    "V AE1 N",
+    [
+     "V AA1 N"
+    ]
+   ],
+   [
+    "rebel",
+    24,
+    "R EH1 B AH0 L",
+    [
+     "R IH0 B EH1 L",
+     "R IH1 B EH0 L"
+    ]
+   ],
+   [
+    "parted",
+    24,
+    "P AA1 R T IH0 D",
+    [
+     "P AE1 R T IH0 D"
+    ]
+   ],
+   [
+    "aspire",
+    23,
+    "AH0 S P AY1 R",
+    [
+     "AH0 S P AY1 ER0"
+    ]
+   ],
+   [
+    "sheaves",
+    23,
+    "SH IY1 V Z",
+    [
+     "SH IH1 V Z"
+    ]
+   ],
+   [
+    "tarry",
+    23,
+    "T EH1 R IY0",
+    [
+     "T AE1 R IY0"
+    ]
+   ],
+   [
+    "marry",
+    22,
+    "M EH1 R IY0",
+    [
+     "M AE1 R IY0"
+    ]
+   ],
+   [
+    "beloved",
+    22,
+    "B IH0 L AH1 V D",
+    [
+     "B IH0 L AH1 V IH0 D"
+    ]
+   ],
+   [
+    "eerie",
+    22,
+    "IH1 R IY0",
+    [
+     "IY1 R IY0"
+    ]
+   ],
+   [
+    "retire",
+    22,
+    "R IH0 T AY1 R",
+    [
+     "R IH0 T AY1 ER0"
+    ]
+   ],
+   [
+    "pall",
+    21,
+    "P AA1 L",
+    [
+     "P AO1 L"
+    ]
+   ],
+   [
+    "ire",
+    21,
+    "AY1 R",
+    [
+     "AY1 ER0"
+    ]
+   ],
+   [
+    "peer",
+    21,
+    "P IH1 R",
+    [
+     "P IY1 R"
+    ]
+   ],
+   [
+    "bought",
+    21,
+    "B AA1 T",
+    [
+     "B AO1 T"
+    ]
+   ],
+   [
+    "career",
+    21,
+    "K ER0 IH1 R",
+    [
+     "K AH0 R IY1 R"
+    ]
+   ],
+   [
+    "wa'",
+    21,
+    "W AA1",
+    [
+     "W AO1"
+    ]
+   ],
+   [
+    "revere",
+    20,
+    "R IH0 V IH1 R",
+    [
+     "R IH0 V IY1 R"
+    ]
+   ],
+   [
+    "toy",
+    20,
+    "T OY1",
+    [
+     "T OW1 Y"
+    ]
+   ],
+   [
+    "stronger",
+    20,
+    "S T R AO1 NG ER0",
+    [
+     "S T R AA1 NG ER0"
+    ]
+   ],
+   [
+    "wold",
+    19,
+    "W OW1 L D",
+    [
+     "W AO1 L D"
+    ]
+   ],
+   [
+    "spire",
+    19,
+    "S P AY1 R",
+    [
+     "S P AY1 ER0"
+    ]
+   ],
+   [
+    "leisure",
+    19,
+    "L EH1 ZH ER0",
+    [
+     "L IY1 ZH ER0"
+    ]
+   ],
+   [
+    "anon",
+    19,
+    "AE2 N AO1 N",
+    [
+     "AH0 N AA1 N"
+    ]
+   ],
+   [
+    "o'",
+    19,
+    "OW1",
+    [
+     "AH1"
+    ]
+   ],
+   [
+    "expire",
+    18,
+    "IH0 K S P AY1 R",
+    [
+     "IH0 K S P AY1 ER0"
+    ]
+   ],
+   [
+    "maud",
+    18,
+    "M AO1 D",
+    [
+     "M AA1 D"
+    ]
+   ],
+   [
+    "ava",
+    18,
+    "EY1 V AH0",
+    [
+     "AH0 V AA1"
+    ]
+   ],
+   [
+    "sere",
+    16,
+    "S IH1 R",
+    [
+     "S IY1 R"
+    ]
+   ],
+   [
+    "naught",
+    16,
+    "N AO1 T",
+    [
+     "N AA1 T"
+    ]
+   ],
+   [
+    "steer",
+    16,
+    "S T IH1 R",
+    [
+     "S T IY1 R"
+    ]
+   ],
+   [
+    "passes",
+    15,
+    "P AE1 S AH0 Z",
+    [
+     "P AE0 S EY1 Z"
+    ]
+   ],
+   [
+    "spouse",
+    15,
+    "S P AW1 S",
+    [
+     "S P AW1 Z"
+    ]
+   ],
+   [
+    "shew",
+    15,
+    "SH UW1",
+    [
+     "S HH OW1"
+    ]
+   ],
+   [
+    "psalm",
+    14,
+    "S AA1 L M",
+    [
+     "S AA1 M"
+    ]
+   ],
+   [
+    "inspire",
+    14,
+    "IH2 N S P AY1 R",
+    [
+     "IH0 N S P AY1 ER0"
+    ]
+   ],
+   [
+    "sow",
+    14,
+    "S AW1",
+    [
+     "S OW1"
+    ]
+   ],
+   [
+    "devour",
+    14,
+    "D IH0 V AW1 ER0",
+    [
+     "D IH0 V AW1 R"
+    ]
+   ],
+   [
+    "beer",
+    14,
+    "B IH1 R",
+    [
+     "B IY1 R"
+    ]
+   ],
+   [
+    "desert",
+    13,
+    "D EH1 Z ER0 T",
+    [
+     "D IH0 Z ER1 T"
+    ]
+   ],
+   [
+    "mire",
+    13,
+    "M AY1 R",
+    [
+     "M AY1 ER0"
+    ]
+   ],
+   [
+    "onward",
+    13,
+    "AO1 N W ER0 D",
+    [
+     "AA1 N W ER0 D"
+    ]
+   ],
+   [
+    "married",
+    13,
+    "M EH1 R IY0 D",
+    [
+     "M AE1 R IY0 D"
+    ]
+   ],
+   [
+    "beard",
+    13,
+    "B IH1 R D",
+    [
+     "B IY1 R D"
+    ]
+   ],
+   [
+    "chevalier",
+    13,
+    "SH EH2 V AH0 L IH1 R",
+    [
+     "SH EH2 V AH0 L IY1 R"
+    ]
+   ],
+   [
+    "paths",
+    12,
+    "P AE1 DH Z",
+    [
+     "P AA1 DH Z"
+    ]
+   ],
+   [
+    "clothes",
+    12,
+    "K L OW1 DH Z",
+    [
+     "K L OW1 Z"
+    ]
+   ],
+   [
+    "troth",
+    12,
+    "T R OW1 TH",
+    [
+     "T R AO1 TH"
+    ]
+   ],
+   [
+    "grandeur",
+    12,
+    "G R AE0 N D UW1 R",
+    [
+     "G R AE1 N JH EH0 R"
+    ]
+   ],
+   [
+    "address",
+    12,
+    "AE1 D R EH2 S",
+    [
+     "AH0 D R EH1 S",
+     "AH1 D R EH0 S"
+    ]
+   ],
+   [
+    "talking",
+    12,
+    "T AO1 K IH0 NG",
+    [
+     "T AA1 K IY0 NG"
+    ]
+   ],
+   [
+    "espy",
+    12,
+    "EH1 S P IY0",
+    [
+     "EH0 S P AY1"
+    ]
+   ],
+   [
+    "theirs",
+    12,
+    "DH EH1 R Z",
+    [
+     "DH EH1 Z"
+    ]
+   ],
+   [
+    "cheery",
+    11,
+    "CH IH1 R IY0",
+    [
+     "CH IY1 R IY0"
+    ]
+   ],
+   [
+    "bowed",
+    11,
+    "B AW1 D",
+    [
+     "B OW1 D"
+    ]
+   ],
+   [
+    "disappear",
+    11,
+    "D IH2 S AH0 P IH1 R",
+    [
+     "D IH2 S AH0 P IY1 R"
+    ]
+   ],
+   [
+    "sneer",
+    10,
+    "S N IH1 R",
+    [
+     "S N IY1 R"
+    ]
+   ],
+   [
+    "atmosphere",
+    10,
+    "AE1 T M AH0 S F IH2 R",
+    [
+     "AE1 T M AH0 S F IY2 R"
+    ]
+   ],
+   [
+    "fierce",
+    10,
+    "F IH1 R S",
+    [
+     "F IY1 R S"
+    ]
+   ],
+   [
+    "charity",
+    10,
+    "CH EH1 R IH0 T IY0",
+    [
+     "CH AE1 R IH0 T IY0"
+    ]
+   ],
+   [
+    "survey",
+    10,
+    "S ER0 V EY1",
+    [
+     "S AH1 R V EY2"
+    ]
+   ],
+   [
+    "toss",
+    10,
+    "T AO1 S",
+    [
+     "T AA1 S"
+    ]
+   ],
+   [
+    "volunteer",
+    10,
+    "V AA2 L AH0 N T IH1 R",
+    [
+     "V AA2 L AH0 N T IY1 R"
+    ]
+   ],
+   [
+    "narrow",
+    10,
+    "N EH1 R OW0",
+    [
+     "N AE1 R OW0"
+    ]
+   ],
+   [
+    "riches",
+    9,
+    "R IH1 CH AH0 Z",
+    [
+     "R IY1 T SH IH0 Z"
+    ]
+   ],
+   [
+    "ban",
+    9,
+    "B AE1 N",
+    [
+     "B AA1 N"
+    ]
+   ],
+   [
+    "queer",
+    9,
+    "K W IH1 R",
+    [
+     "K W IY1 R"
+    ]
+   ],
+   [
+    "breeches",
+    9,
+    "B R IY1 CH IH0 Z",
+    [
+     "B R IH1 CH IH0 Z"
+    ]
+   ],
+   [
+    "mortal",
+    9,
+    "M AO1 R T AH0 L",
+    [
+     "M AO1 R T AE0 L"
+    ]
+   ],
+   [
+    "blessed",
+    9,
+    "B L EH1 S T",
+    [
+     "B L EH1 S IH0 D"
+    ]
+   ],
+   [
+    "thither",
+    9,
+    "DH IH1 TH ER2",
+    [
+     "TH IH1 DH ER0"
+    ]
+   ],
+   [
+    "leading",
+    9,
+    "L IY1 D IH0 NG",
+    [
+     "L EH1 D IH0 NG"
+    ]
+   ],
+   [
+    "gondolier",
+    9,
+    "G AA2 N D AH0 L IH1 R",
+    [
+     "G AA2 N D AH1 L IY0 R"
+    ]
+   ],
+   [
+    "loe",
+    9,
+    "L OW1",
+    [
+     "L UW1"
+    ]
+   ],
+   [
+    "mare",
+    9,
+    "M EH1 R",
+    [
+     "M AA1 R EY0"
+    ]
+   ],
+   [
+    "marriage",
+    9,
+    "M EH1 R IH0 JH",
+    [
+     "M IY1 R AA0 JH"
+    ]
+   ],
+   [
+    "fearless",
+    8,
+    "F IH1 R L AH0 S",
+    [
+     "F IY1 R L IH0 S"
+    ]
+   ],
+   [
+    "president",
+    8,
+    "P R EH1 Z AH0 D EH2 N T",
+    [
+     "P R EH1 Z IH0 D AH0 N T"
+    ]
+   ],
+   [
+    "lower",
+    8,
+    "L OW1 ER0",
+    [
+     "L AW1 ER0"
+    ]
+   ],
+   [
+    "worthy",
+    8,
+    "W ER1 DH IY0",
+    [
+     "W ER1 TH IY0"
+    ]
+   ],
+   [
+    "squire",
+    8,
+    "S K W AY1 R",
+    [
+     "S K W AY1 ER0"
+    ]
+   ],
+   [
+    "coronet",
+    8,
+    "K AO1 R AH0 N EH1 T",
+    [
+     "K AO1 R AH0 N IH0 T"
+    ]
+   ],
+   [
+    "dong",
+    8,
+    "D AO1 NG",
+    [
+     "D AA1 NG"
+    ]
+   ],
+   [
+    "flour",
+    8,
+    "F L AW1 ER0",
+    [
+     "F L AW1 R"
+    ]
+   ],
+   [
+    "chap",
+    8,
+    "CH AE1 P",
+    [
+     "CH AA1 P"
+    ]
+   ],
+   [
+    "pow",
+    8,
+    "P AW1",
+    [
+     "P OW1"
+    ]
+   ],
+   [
+    "lear",
+    8,
+    "L IH1 R",
+    [
+     "L IY1 R"
+    ]
+   ],
+   [
+    "mon",
+    8,
+    "M OW1 N",
+    [
+     "M AA1 N"
+    ]
+   ],
+   [
+    "peerless",
+    7,
+    "P IH1 R L IH0 S",
+    [
+     "P IY1 R L IH0 S"
+    ]
+   ],
+   [
+    "hero",
+    7,
+    "HH IH1 R OW0",
+    [
+     "HH IY1 R OW0"
+    ]
+   ],
+   [
+    "our",
+    7,
+    "AW1 ER0",
+    [
+     "AW1 R"
+    ]
+   ],
+   [
+    "cavalier",
+    7,
+    "K AE2 V AH0 L IH1 R",
+    [
+     "K AE2 V AH0 L IY1 R"
+    ]
+   ],
+   [
+    "jeer",
+    7,
+    "JH IH1 R",
+    [
+     "JH IY1 R"
+    ]
+   ],
+   [
+    "hemisphere",
+    7,
+    "HH EH1 M IH0 S F IH2 R",
+    [
+     "HH EH1 M IH0 S F IY2 R"
+    ]
+   ],
+   [
+    "austere",
+    7,
+    "AO0 S T IH1 R",
+    [
+     "AO0 S T IY1 R"
+    ]
+   ],
+   [
+    "sour",
+    7,
+    "S AW1 ER0",
+    [
+     "S AW1 R"
+    ]
+   ],
+   [
+    "domine",
+    7,
+    "D OW0 M IY1 N IY0",
+    [
+     "D AA1 M AH0 N IY2"
+    ]
+   ],
+   [
+    "limes",
+    7,
+    "L AY1 M Z",
+    [
+     "L AY1 M IY0 S"
+    ]
+   ],
+   [
+    "retired",
+    7,
+    "R IH0 T AY1 R D",
+    [
+     "R IY0 T AY1 AH0 D"
+    ]
+   ],
+   [
+    "harry",
+    7,
+    "HH EH1 R IY0",
+    [
+     "HH AE1 R IY0"
+    ]
+   ],
+   [
+    "seraphim",
+    7,
+    "S ER2 AA0 F IY1 M",
+    [
+     "S EH1 R AH0 F IH0 M"
+    ]
+   ],
+   [
+    "your",
+    7,
+    "Y AO1 R",
+    [
+     "Y UH1 R"
+    ]
+   ],
+   [
+    "twenty-one",
+    7,
+    "T W EH1 N T IY0 W AO2 N",
+    [
+     "T W EH1 N T IY0 W AH1 N"
+    ]
+   ],
+   [
+    "wretch",
+    7,
+    "R EH1 CH",
+    [
+     "R EH1 T CH"
+    ]
+   ],
+   [
+    "ca'",
+    7,
+    "K AH1",
+    [
+     "K AA1"
+    ]
+   ],
+   [
+    "sot",
+    7,
+    "S AO1 T",
+    [
+     "S AA1 T"
+    ]
+   ],
+   [
+    "wark",
+    7,
+    "W AO1 R K",
+    [
+     "W AA1 R K"
+    ]
+   ],
+   [
+    "tillage",
+    6,
+    "T IH1 L AA0 JH",
+    [
+     "T IH1 L IH0 JH"
+    ]
+   ],
+   [
+    "endearing",
+    6,
+    "EH0 N D IY1 R IH0 NG",
+    [
+     "IH0 N D IY1 ER0 IY0 NG"
+    ]
+   ],
+   [
+    "gems",
+    6,
+    "JH EH1 M Z",
+    [
+     "G EH1 M S"
+    ]
+   ],
+   [
+    "aver",
+    6,
+    "EY1 V ER0",
+    [
+     "AH0 V EH1 R"
+    ]
+   ],
+   [
+    "quire",
+    6,
+    "K W AY1 R",
+    [
+     "K W AY1 ER0"
+    ]
+   ],
+   [
+    "stature",
+    6,
+    "S T AE1 CH ER0",
+    [
+     "S T AE1 CH UW0 R"
+    ]
+   ],
+   [
+    "dawning",
+    6,
+    "D AO1 N IH0 NG",
+    [
+     "D AA1 N IY0 NG"
+    ]
+   ],
+   [
+    "merely",
+    6,
+    "M IH1 R L IY0",
+    [
+     "M IY1 R L IY0"
+    ]
+   ],
+   [
+    "loth",
+    6,
+    "L AA1 TH",
+    [
+     "L OW1 TH"
+    ]
+   ],
+   [
+    "singer",
+    6,
+    "S IH1 NG ER0",
+    [
+     "S IH1 N JH ER0"
+    ]
+   ],
+   [
+    "tales",
+    6,
+    "T EY1 L Z",
+    [
+     "T EY1 L IY0 Z"
+    ]
+   ],
+   [
+    "an",
+    6,
+    "AE1 N",
+    [
+     "AH1 N"
+    ]
+   ],
+   [
+    "vice",
+    6,
+    "V AY1 S",
+    [
+     "V AY1 S IY0"
+    ]
+   ],
+   [
+    "cruelty",
+    6,
+    "K R UW1 L T IY0",
+    [
+     "K R UW1 AH0 L T IY0"
+    ]
+   ],
+   [
+    "marrow",
+    6,
+    "M EH1 R OW0",
+    [
+     "M AE1 R OW0"
+    ]
+   ],
+   [
+    "mischief",
+    6,
+    "M IH1 S CH AH0 F",
+    [
+     "M IH1 S T SH IH0 F"
+    ]
+   ],
+   [
+    "speer",
+    6,
+    "S P IH1 R",
+    [
+     "S P IY1 R"
+    ]
+   ],
+   [
+    "bogie",
+    6,
+    "B UH1 G IY0",
+    [
+     "B OW1 G IY0"
+    ]
+   ],
+   [
+    "raw",
+    6,
+    "R AA1",
+    [
+     "R AO1"
+    ]
+   ],
+   [
+    "cant",
+    6,
+    "K AE1 N T",
+    [
+     "K AA1 N T"
+    ]
+   ],
+   [
+    "dire",
+    5,
+    "D AY1 R",
+    [
+     "D AY1 ER0"
+    ]
+   ],
+   [
+    "seer",
+    5,
+    "S IY1 R",
+    [
+     "S IY1 ER0"
+    ]
+   ],
+   [
+    "sham",
+    5,
+    "SH AE1 M",
+    [
+     "SH AH1 M"
+    ]
+   ],
+   [
+    "parapet",
+    5,
+    "P EH1 R AH0 P EH2 T",
+    [
+     "P AE1 R AH0 P EH0 T"
+    ]
+   ],
+   [
+    "closer",
+    5,
+    "K L OW1 S ER0",
+    [
+     "K L OW1 Z ER0"
+    ]
+   ],
+   [
+    "forehead",
+    5,
+    "F AO1 R HH EH0 D",
+    [
+     "F AO1 R IH0 D"
+    ]
+   ],
+   [
+    "firing",
+    5,
+    "F AY1 R IH0 NG",
+    [
+     "F AY1 ER0 IH0 NG"
+    ]
+   ],
+   [
+    "err",
+    5,
+    "EH1 R",
+    [
+     "ER1"
+    ]
+   ],
+   [
+    "pier",
+    5,
+    "P IH1 R",
+    [
+     "P IY1 R"
+    ]
+   ],
+   [
+    "outshine",
+    5,
+    "AW1 CH AY2 N",
+    [
+     "AW2 T SH AY1 N"
+    ]
+   ],
+   [
+    "marathon",
+    5,
+    "M EH1 R AH0 TH AA2 N",
+    [
+     "M AE1 R AH0 TH AA2 N"
+    ]
+   ],
+   [
+    "anemone",
+    5,
+    "AE1 N IH0 M OW2 N",
+    [
+     "AH0 N EH1 M AH0 N IY2"
+    ]
+   ],
+   [
+    "phantom",
+    5,
+    "F AE1 N T AH0 M",
+    [
+     "F EY1 AH0 N"
+    ]
+   ],
+   [
+    "proceeds",
+    5,
+    "P R AH0 S IY1 D Z",
+    [
+     "P R OW1 S IY0 D Z"
+    ]
+   ],
+   [
+    "reality",
+    5,
+    "R IY2 AE1 L AH0 T IY2",
+    [
+     "R IY0 AE1 L IH0 T IY0"
+    ]
+   ],
+   [
+    "begot",
+    5,
+    "B IY0 G AO1 T",
+    [
+     "B IH0 G AA1 T"
+    ]
+   ],
+   [
+    "falcon",
+    5,
+    "F AE1 L K AH0 N",
+    [
+     "F AO1 L K AH0 N"
+    ]
+   ],
+   [
+    "colon",
+    5,
+    "K OW1 L AH0 N",
+    [
+     "K OW0 L OW1 N"
+    ]
+   ],
+   [
+    "sanitary",
+    4,
+    "S AE1 N IH0 T EH2 R IY0",
+    [
+     "S AE1 N IH0 T ER0 IY0"
+    ]
+   ],
+   [
+    "opposite",
+    4,
+    "AA1 P AH0 Z AH0 T",
+    [
+     "AA1 P AH0 S IH0 T"
+    ]
+   ],
+   [
+    "hoof",
+    4,
+    "HH UW1 F",
+    [
+     "HH UH1 F"
+    ]
+   ],
+   [
+    "bayonet",
+    4,
+    "B EY1 AH0 N EH2 T",
+    [
+     "B EY1 AH0 N IH0 T"
+    ]
+   ],
+   [
+    "tumbling",
+    4,
+    "T AH1 M B AH0 L IH0 NG",
+    [
+     "T AH1 M B L IH0 NG"
+    ]
+   ],
+   [
+    "plies",
+    4,
+    "P L AY1 Z",
+    [
+     "P L IY0 EY1 Z"
+    ]
+   ],
+   [
+    "character",
+    4,
+    "K EH1 R IH0 K T ER0",
+    [
+     "K AE1 R IH0 K T ER0"
+    ]
+   ],
+   [
+    "offing",
+    4,
+    "AO1 F IH0 NG",
+    [
+     "AA1 F IY0 NG"
+    ]
+   ],
+   [
+    "interest",
+    4,
+    "IH1 N T R AH0 S T",
+    [
+     "IH1 N T ER0 IH0 S T"
+    ]
+   ],
+   [
+    "retiring",
+    4,
+    "R IH0 T AY1 R IH0 NG",
+    [
+     "R IH0 T AY1 ER0 IH0 NG"
+    ]
+   ],
+   [
+    "thereon",
+    4,
+    "DH EH0 R AO1 N",
+    [
+     "DH EH2 R AA1 N"
+    ]
+   ],
+   [
+    "caution",
+    4,
+    "K AA1 SH AH0 N",
+    [
+     "K AO1 SH AH0 N"
+    ]
+   ],
+   [
+    "smoking",
+    4,
+    "S M OW1 K IH0 NG",
+    [
+     "S M AO0 K IY1 NG"
+    ]
+   ],
+   [
+    "de",
+    4,
+    "D IY1",
+    [
+     "D EH1"
+    ]
+   ],
+   [
+    "pinch",
+    4,
+    "P IH1 N CH",
+    [
+     "P IH1 N T SH"
+    ]
+   ],
+   [
+    "clearer",
+    4,
+    "K L IH1 R ER0",
+    [
+     "K L IY1 R ER0"
+    ]
+   ],
+   [
+    "pate",
+    4,
+    "P EY1 T",
+    [
+     "P AA0 T EY1"
+    ]
+   ],
+   [
+    "cook",
+    4,
+    "K UH1 K",
+    [
+     "K UW1 K"
+    ]
+   ],
+   [
+    "nearly",
+    4,
+    "N IH1 R L IY0",
+    [
+     "N IY1 R L IY0"
+    ]
+   ],
+   [
+    "moderate",
+    4,
+    "M AA1 D ER0 AH0 T",
+    [
+     "M AA1 D EH0 R AH0 T",
+     "M AA1 D AH0 R IH2 T"
+    ]
+   ],
+   [
+    "sloth",
+    4,
+    "S L OW1 TH",
+    [
+     "S L AO1 TH"
+    ]
+   ],
+   [
+    "fie",
+    4,
+    "F IY1",
+    [
+     "F AY1"
+    ]
+   ],
+   [
+    "trill",
+    4,
+    "T R IH1 L",
+    [
+     "T R IH1 L IH0 NG"
+    ]
+   ],
+   [
+    "scripture",
+    4,
+    "S K R IH1 P CH ER0",
+    [
+     "S K R IY1 P T SH ER0"
+    ]
+   ],
+   [
+    "minnie",
+    4,
+    "M IH1 N IY0",
+    [
+     "M IH1 N G"
+    ]
+   ],
+   [
+    "galloway",
+    4,
+    "G AE1 L OW0 W EY2",
+    [
+     "G AE1 L AH0 W EY2"
+    ]
+   ],
+   [
+    "solely",
+    4,
+    "S OW1 AH0 L IY0",
+    [
+     "S OW1 L IY0"
+    ]
+   ],
+   [
+    "forbidden",
+    4,
+    "F AO1 R B IH0 D AH0 N",
+    [
+     "F ER0 B IH1 D AH0 N"
+    ]
+   ],
+   [
+    "purgatory",
+    4,
+    "P ER1 G AH0 T AO2 R IY0",
+    [
+     "P ER1 G AH0 T ER0 IY0"
+    ]
+   ],
+   [
+    "tomorrow",
+    4,
+    "T AH0 M AA1 R OW2",
+    [
+     "T AH0 M AO1 R OW0"
+    ]
+   ],
+   [
+    "fleur-de-lis",
+    4,
+    "F L ER1 D IY1 L IH1 S",
+    [
+     "F L ER2 D AH1 L IY0"
+    ]
+   ],
+   [
+    "barry",
+    4,
+    "B AE1 R IY0",
+    [
+     "B AA1 R IY0"
+    ]
+   ],
+   [
+    "larry",
+    4,
+    "L EH1 R IY0",
+    [
+     "L AE1 R IY0"
+    ]
+   ],
+   [
+    "zero",
+    3,
+    "Z IH1 R OW0",
+    [
+     "Z IY1 R OW0"
+    ]
+   ],
+   [
+    "cheerfully",
+    3,
+    "CH IH1 R F AH0 L IY0",
+    [
+     "CH IY1 R F AH0 L IY0"
+    ]
+   ],
+   [
+    "starboard",
+    3,
+    "S T AA1 R B ER0 D",
+    [
+     "S T AA1 R B AH0 D"
+    ]
+   ],
+   [
+    "winder",
+    3,
+    "W IH1 N D ER0",
+    [
+     "W AY1 N D ER0"
+    ]
+   ],
+   [
+    "sear",
+    3,
+    "S IH1 R",
+    [
+     "S IY1 R"
+    ]
+   ],
+   [
+    "citadel",
+    3,
+    "S IH1 T AH0 D EH2 L",
+    [
+     "S IH1 T AH0 D AH0 L"
+    ]
+   ],
+   [
+    "consequence",
+    3,
+    "K AA1 N S AH0 K W AH0 N S",
+    [
+     "K AA1 N S AH0 K W EH2 N S"
+    ]
+   ],
+   [
+    "wreaths",
+    3,
+    "R IY1 TH S",
+    [
+     "R IY1 DH Z"
+    ]
+   ],
+   [
+    "soften",
+    3,
+    "S AA1 F AH0 N",
+    [
+     "S AO1 F AH0 N"
+    ]
+   ],
+   [
+    "softly",
+    3,
+    "S AO1 F T L IY0",
+    [
+     "S AA1 F T L IY0"
+    ]
+   ],
+   [
+    "accursed",
+    3,
+    "AE2 K ER1 S T",
+    [
+     "AH0 K ER1 S IH0 D"
+    ]
+   ],
+   [
+    "doth",
+    3,
+    "D AO1 TH",
+    [
+     "D AH1 TH"
+    ]
+   ],
+   [
+    "shire",
+    3,
+    "SH AY1 R",
+    [
+     "SH AY1 ER0"
+    ]
+   ],
+   [
+    "younger",
+    3,
+    "Y AH1 NG G ER0",
+    [
+     "Y AH1 NG ER0"
+    ]
+   ],
+   [
+    "lied",
+    3,
+    "L AY1 D",
+    [
+     "L IY1 D"
+    ]
+   ],
+   [
+    "period",
+    3,
+    "P IH1 R IY0 AH0 D",
+    [
+     "P IY1 R IY0 AH0 D"
+    ]
+   ],
+   [
+    "beaux",
+    3,
+    "B OW1",
+    [
+     "B OW1 Z"
+    ]
+   ],
+   [
+    "tinge",
+    3,
+    "T IH1 N JH",
+    [
+     "T IH1 NG"
+    ]
+   ],
+   [
+    "strengthen",
+    3,
+    "S T R EH1 NG TH AH0 N",
+    [
+     "S T R EH1 NG K TH AH0 N"
+    ]
+   ],
+   [
+    "lengthen",
+    3,
+    "L EH1 NG TH AH0 N",
+    [
+     "L EH1 NG K TH AH0 N"
+    ]
+   ],
+   [
+    "mina",
+    3,
+    "M IY1 N AH0",
+    [
+     "M AY1 N AH0"
+    ]
+   ],
+   [
+    "yearling",
+    3,
+    "Y ER1 L IH0 NG",
+    [
+     "Y IY1 AH0 L IY0 NG"
+    ]
+   ],
+   [
+    "marigold",
+    3,
+    "M EH1 R AH0 G OW2 L D",
+    [
+     "M AE1 R AH0 G OW2 L D"
+    ]
+   ],
+   [
+    "hierarchy",
+    3,
+    "HH AY1 ER0 AA2 R K IY0",
+    [
+     "HH AY1 AH0 R AA2 R K IY0"
+    ]
+   ],
+   [
+    "dore",
+    3,
+    "D AO1 R",
+    [
+     "D AO0 R EY1"
+    ]
+   ],
+   [
+    "monarchy",
+    3,
+    "M AA1 N AA0 R K IY0",
+    [
+     "M AA1 N ER0 K IY0"
+    ]
+   ],
+   [
+    "indifferent",
+    3,
+    "IH2 N D IH1 F R AH0 N T",
+    [
+     "IH0 N D IH1 F ER0 AH0 N T"
+    ]
+   ],
+   [
+    "unsure",
+    3,
+    "AH0 N SH UH1 R",
+    [
+     "AH0 N SH UH1 ER0"
+    ]
+   ],
+   [
+    "paragon",
+    3,
+    "P EH1 R AH0 G AA2 N",
+    [
+     "P AE1 R AH0 G AA2 N"
+    ]
+   ],
+   [
+    "thereto",
+    3,
+    "DH EH1 R T UW2",
+    [
+     "DH EH0 T UW1"
+    ]
+   ],
+   [
+    "cheerfulness",
+    3,
+    "CH IH1 R F AH0 L N AH0 S",
+    [
+     "CH IY1 R F AH0 L N EH0 S"
+    ]
+   ],
+   [
+    "shears",
+    3,
+    "SH IY1 R Z",
+    [
+     "S HH IH1 ER0 Z"
+    ]
+   ],
+   [
+    "shear",
+    3,
+    "SH IH1 R",
+    [
+     "SH IY1 R"
+    ]
+   ],
+   [
+    "cataract",
+    3,
+    "K AE1 T ER0 AE0 K T",
+    [
+     "K AE1 T AH0 R AE2 K T"
+    ]
+   ],
+   [
+    "yarrow",
+    3,
+    "Y AA1 R OW0",
+    [
+     "Y AE1 R OW0"
+    ]
+   ],
+   [
+    "hussar",
+    3,
+    "HH AH1 S ER0",
+    [
+     "HH UH0 Z AA1 R"
+    ]
+   ],
+   [
+    "sincerely",
+    3,
+    "S IH0 N S IH1 R L IY0",
+    [
+     "S IH0 N S IY1 AH0 L IY0"
+    ]
+   ],
+   [
+    "twang",
+    3,
+    "T W AA1 NG",
+    [
+     "T W AE1 NG"
+    ]
+   ],
+   [
+    "clearing",
+    3,
+    "K L IH1 R IH0 NG",
+    [
+     "K L IY1 R IH0 NG"
+    ]
+   ],
+   [
+    "wallet",
+    3,
+    "W AO1 L AH0 T",
+    [
+     "W AA1 L IH0 T"
+    ]
+   ],
+   [
+    "pharisee",
+    3,
+    "F AA1 R IH0 S IY2",
+    [
+     "F AE1 R AH0 S IY2"
+    ]
+   ],
+   [
+    "intention",
+    3,
+    "IH2 N T EH1 N CH AH0 N",
+    [
+     "IH0 N T EH1 N SH AH0 N"
+    ]
+   ],
+   [
+    "dutch",
+    3,
+    "D AH1 CH",
+    [
+     "D AH1 T SH"
+    ]
+   ],
+   [
+    "rumble",
+    3,
+    "R AH1 M B AH0 L",
+    [
+     "R AH1 M B L"
+    ]
+   ],
+   [
+    "avenue",
+    3,
+    "AE1 V AH0 N UW2",
+    [
+     "AE1 V AH0 N Y UW2"
+    ]
+   ],
+   [
+    "tripoli",
+    3,
+    "T R IH1 P AH0 L IY0",
+    [
+     "T R IY1 P AH0 L IY0"
+    ]
+   ],
+   [
+    "regina",
+    3,
+    "R IH0 JH IY1 N AH0",
+    [
+     "R IH0 JH AY1 N AH0"
+    ]
+   ],
+   [
+    "pioneer",
+    3,
+    "P AY2 AH0 N IH1 R",
+    [
+     "P AY2 AH0 N IY1 R"
+    ]
+   ],
+   [
+    "tattered",
+    2,
+    "T AE1 T ER0 D",
+    [
+     "T AE1 T AH0 D"
+    ]
+   ],
+   [
+    "ensign",
+    2,
+    "EH1 N S AH0 N",
+    [
+     "EH1 N S AY0 N"
+    ]
+   ],
+   [
+    "chandelier",
+    2,
+    "SH AE0 N D AH0 L IH1 R",
+    [
+     "SH AE2 N D AH1 L IY0 R"
+    ]
+   ],
+   [
+    "thoroughbred",
+    2,
+    "TH ER1 OW0 B R EH1 D",
+    [
+     "TH AH1 R AH0 B R EH2 D"
+    ]
+   ],
+   [
+    "covert",
+    2,
+    "K OW1 V ER0 T",
+    [
+     "K AH1 V ER0 T"
+    ]
+   ],
+   [
+    "northward",
+    2,
+    "N AO1 R TH W ER0 D",
+    [
+     "N AO1 R TH W AH2 R D"
+    ]
+   ],
+   [
+    "awful",
+    2,
+    "AA1 F AH0 L",
+    [
+     "AO1 F AH0 L"
+    ]
+   ],
+   [
+    "luxury",
+    2,
+    "L AH1 G ZH ER0 IY0",
+    [
+     "L AH1 K SH ER0 IY0"
+    ]
+   ],
+   [
+    "inquire",
+    2,
+    "IH2 N K W AY1 R",
+    [
+     "IH0 N K W AY1 ER0"
+    ]
+   ],
+   [
+    "serpent",
+    2,
+    "S ER1 P AH0 N T",
+    [
+     "S EH1 R P EH0 N T"
+    ]
+   ],
+   [
+    "hinder",
+    2,
+    "HH IH1 N D ER0",
+    [
+     "HH AY1 N D ER0"
+    ]
+   ],
+   [
+    "hereabout",
+    2,
+    "HH IH1 R AH0 B AW2 T",
+    [
+     "HH IY1 R AH0 B AW2 T"
+    ]
+   ],
+   [
+    "auburn",
+    2,
+    "AA1 B ER0 N",
+    [
+     "AO1 B ER0 N"
+    ]
+   ],
+   [
+    "begotten",
+    2,
+    "B IY0 G AO1 T IH0 N",
+    [
+     "B IH0 G AA1 T AH0 N"
+    ]
+   ],
+   [
+    "turbulence",
+    2,
+    "T ER1 B Y AH0 L AH0 N S",
+    [
+     "T ER1 B Y UH0 L AH0 N S"
+    ]
+   ],
+   [
+    "colorado",
+    2,
+    "K AA2 L ER0 AA1 D OW0",
+    [
+     "K AA2 L AH0 R AE1 D OW0"
+    ]
+   ],
+   [
+    "mountaineer",
+    2,
+    "M AW1 N T IH0 N IH2 R",
+    [
+     "M AW2 N T IH0 N IY1 ER0"
+    ]
+   ],
+   [
+    "retort",
+    2,
+    "R IY1 T AO2 R T",
+    [
+     "R IH0 T AO1 R T"
+    ]
+   ],
+   [
+    "fallen",
+    2,
+    "F AA1 L AH0 N",
+    [
+     "F AO1 L AH0 N"
+    ]
+   ],
+   [
+    "fillet",
+    2,
+    "F AH0 L EY1",
+    [
+     "F IH1 L IH0 T"
+    ]
+   ]
+  ]
+ }
+}

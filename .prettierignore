@@ -95,6 +95,9 @@ lyric-harness/quality/results/pilot_frame_2026-10-11.json
 # quality/coverage_census.py --out and the directory's compare.py, and its
 # README promises compare_output.json reproduces byte for byte.
 lyric-harness/quality/results/census_validation_2026-10-12
+# Same class: the scope receipt JSON is written by coverage_census.py --out and
+# the directory's own scripts; its bytes are the tools'.
+lyric-harness/quality/results/scope_2026-10-12
 
 # Raw audit regression receipts/logs: SHA-indexed evidence, not authored inputs.
 docs/production-audit-evidence

@@ -1,0 +1,9166 @@
+{
+ "commit": "dafbab2a7e1a8b754cab3d6ccbfda568f24aed3d",
+ "mpron_sha256": "55580c3b258873723fed33497fe3a438b26167370bbe016431b3fc65fea67f2d",
+ "tail_disagreements": 3983,
+ "families": [
+  [
+   "ER ~ schwa+R / R~ER syllabification",
+   478,
+   [
+    "accelerate",
+    "accelerator",
+    "accessorize",
+    "acerbic"
+   ]
+  ],
+  [
+   "cot-caught AA~AO",
+   246,
+   [
+    "accosted",
+    "aeronautic",
+    "aforethought",
+    "agitprop"
+   ]
+  ],
+  [
+   "NEAR IH~IY (M-320 licence already agrees these before R)",
+   221,
+   [
+    "abridgement",
+    "adhere",
+    "adherence",
+    "adherent"
+   ]
+  ],
+  [
+   "Mary-marry-merry EH~AE",
+   116,
+   [
+    "apparent",
+    "apparently",
+    "arrogance",
+    "arrogant"
+   ]
+  ],
+  [
+   "Z~S voicing",
+   56,
+   [
+    "abraxas",
+    "analysand",
+    "andesite",
+    "appendicitis"
+   ]
+  ],
+  [
+   "CH ~ T SH (affricate spelling)",
+   39,
+   [
+    "aquaculture",
+    "belcher",
+    "congestion",
+    "dutch"
+   ]
+  ],
+  [
+   "ER ~ schwa+R / R~ER syllabification + cot-caught AA~AO",
+   7,
+   [
+    "ballpark",
+    "crossfire",
+    "logarithm",
+    "onlooker"
+   ]
+  ],
+  [
+   "ER ~ schwa+R / R~ER syllabification + NEAR IH~IY (M-320 licence already agrees these before R)",
+   3,
+   [
+    "deteriorate",
+    "filler",
+    "riverside"
+   ]
+  ],
+  [
+   "ER ~ schwa+R / R~ER syllabification + Mary-marry-merry EH~AE",
+   1,
+   [
+    "characterize"
+   ]
+  ],
+  [
+   "ER ~ schwa+R / R~ER syllabification + Z~S voicing",
+   1,
+   [
+    "mesmerism"
+   ]
+  ],
+  [
+   "NEAR IH~IY (M-320 licence already agrees these before R) + cot-caught AA~AO",
+   1,
+   [
+    "scrimshaw"
+   ]
+  ],
+  [
+   "CH ~ T SH (affricate spelling) + NEAR IH~IY (M-320 licence already agrees these before R)",
+   1,
+   [
+    "scripture"
+   ]
+  ]
+ ],
+ "other_total": 2813,
+ "other_patterns": [
+  [
+   "IY\u2192@",
+   147,
+   [
+    "ability",
+    "actuality",
+    "adenine",
+    "agonizingly"
+   ]
+  ],
+  [
+   "\u2192@",
+   70,
+   [
+    "academically",
+    "accompaniment",
+    "aesthetically",
+    "anatomically"
+   ]
+  ],
+  [
+   "@\u2192AH",
+   70,
+   [
+    "adenoid",
+    "analog",
+    "analogue",
+    "analyze"
+   ]
+  ],
+  [
+   "IH\u2192@",
+   67,
+   [
+    "agronomy",
+    "anarchist",
+    "apocalypse",
+    "autism"
+   ]
+  ],
+  [
+   "EH\u2192@",
+   61,
+   [
+    "abscess",
+    "access",
+    "advent",
+    "ancestor"
+   ]
+  ],
+  [
+   "AE\u2192AA",
+   49,
+   [
+    "alba",
+    "atman",
+    "babka",
+    "ban"
+   ]
+  ],
+  [
+   "AA\u2192AE",
+   41,
+   [
+    "abo",
+    "afghani",
+    "almoner",
+    "assam"
+   ]
+  ],
+  [
+   "UW\u2192@",
+   38,
+   [
+    "absolutism",
+    "actualize",
+    "actually",
+    "ague"
+   ]
+  ],
+  [
+   "@\u2192UH",
+   36,
+   [
+    "acupuncture",
+    "amputate",
+    "arguable",
+    "continuum"
+   ]
+  ],
+  [
+   "@\u2192IH",
+   34,
+   [
+    "atavism",
+    "backspin",
+    "backstitch",
+    "bandwidth"
+   ]
+  ],
+  [
+   "@\u2192AE",
+   32,
+   [
+    "adman",
+    "ashman",
+    "badman",
+    "cameraman"
+   ]
+  ],
+  [
+   "OW\u2192@",
+   30,
+   [
+    "aerospace",
+    "aerostat",
+    "arrogate",
+    "autobahn"
+   ]
+  ],
+  [
+   "AE\u2192@",
+   30,
+   [
+    "batman",
+    "caftan",
+    "dextran",
+    "efficacy"
+   ]
+  ],
+  [
+   "EH\u2192IY",
+   29,
+   [
+    "abele",
+    "allelic",
+    "betel",
+    "bever"
+   ]
+  ],
+  [
+   "AA\u2192AH",
+   26,
+   [
+    "admonish",
+    "anarchical",
+    "bhakta",
+    "colander"
+   ]
+  ],
+  [
+   "W\u2192",
+   25,
+   [
+    "actual",
+    "casual",
+    "casually",
+    "casualty"
+   ]
+  ],
+  [
+   "AA\u2192@",
+   25,
+   [
+    "alleluia",
+    "ascot",
+    "astrakhan",
+    "balaclava"
+   ]
+  ],
+  [
+   "OW\u2192AA",
+   25,
+   [
+    "autotrophic",
+    "boccia",
+    "codify",
+    "coliform"
+   ]
+  ],
+  [
+   "AE\u2192EY",
+   25,
+   [
+    "babel",
+    "bason",
+    "calif",
+    "caliph"
+   ]
+  ],
+  [
+   "@\u2192",
+   24,
+   [
+    "avowedly",
+    "cassia",
+    "dementia",
+    "deservedly"
+   ]
+  ],
+  [
+   "AA\u2192OW",
+   22,
+   [
+    "aerosol",
+    "chon",
+    "conifer",
+    "demagogy"
+   ]
+  ],
+  [
+   "AH\u2192@",
+   21,
+   [
+    "adjunct",
+    "cover-up",
+    "donut",
+    "doughnut"
+   ]
+  ],
+  [
+   "@\u2192AA",
+   20,
+   [
+    "anybody",
+    "bodega",
+    "chrismon",
+    "crouton"
+   ]
+  ],
+  [
+   "@\u2192IY",
+   16,
+   [
+    "ambergris",
+    "anemone",
+    "anomie",
+    "antihistamine"
+   ]
+  ],
+  [
+   "G\u2192",
+   16,
+   [
+    "bracingly",
+    "brougham",
+    "bubinga",
+    "congregant"
+   ]
+  ],
+  [
+   "IH\u2192AY",
+   15,
+   [
+    "botrytis",
+    "childe",
+    "defibrillator",
+    "fanaticism"
+   ]
+  ],
+  [
+   "UW\u2192UH",
+   13,
+   [
+    "amour",
+    "footloose",
+    "hoof",
+    "muenster"
+   ]
+  ],
+  [
+   "IY\u2192AY",
+   13,
+   [
+    "bedizen",
+    "fie",
+    "imprimis",
+    "lino"
+   ]
+  ],
+  [
+   "@\u2192EY",
+   13,
+   [
+    "bene",
+    "communicative",
+    "conversationalist",
+    "cumulative"
+   ]
+  ],
+  [
+   "CH\u2192SH",
+   12,
+   [
+    "abstention",
+    "conscientiously",
+    "contravention",
+    "inattention"
+   ]
+  ],
+  [
+   "@\u2192EH",
+   12,
+   [
+    "allergen",
+    "consequence",
+    "consequent",
+    "homesteader"
+   ]
+  ],
+  [
+   "\u2192Y",
+   12,
+   [
+    "avenue",
+    "biannual",
+    "celluloid",
+    "colla"
+   ]
+  ],
+  [
+   "EY\u2192AE",
+   11,
+   [
+    "amide",
+    "apricot",
+    "baa",
+    "bade"
+   ]
+  ],
+  [
+   "\u2192AH L",
+   11,
+   [
+    "biotechnological",
+    "candelabra",
+    "cannelloni",
+    "chronological"
+   ]
+  ],
+  [
+   "\u2192AH L | L IH\u2192",
+   11,
+   [
+    "capitalism",
+    "emotionalism",
+    "fatalism",
+    "feudalism"
+   ]
+  ],
+  [
+   "Y\u2192@",
+   11,
+   [
+    "copiously",
+    "cranial",
+    "crocodilian",
+    "epithelium"
+   ]
+  ],
+  [
+   "SH\u2192S HH",
+   10,
+   [
+    "adulation",
+    "dalmatian",
+    "decentralization",
+    "fashioned"
+   ]
+  ],
+  [
+   "AY\u2192@",
+   10,
+   [
+    "aggrandizement",
+    "bowline",
+    "corbeil",
+    "crystalline"
+   ]
+  ],
+  [
+   "IY\u2192EY",
+   10,
+   [
+    "alameda",
+    "carburetion",
+    "gazebo",
+    "haen"
+   ]
+  ],
+  [
+   "@\u2192AY",
+   10,
+   [
+    "alexandrine",
+    "anhydride",
+    "castelli",
+    "dromedary"
+   ]
+  ],
+  [
+   "EY\u2192@",
+   10,
+   [
+    "aluminosilicate",
+    "angulate",
+    "incorporate",
+    "investigative"
+   ]
+  ],
+  [
+   "R\u2192",
+   10,
+   [
+    "chairperson",
+    "deterrent",
+    "hairspray",
+    "hairstyle"
+   ]
+  ],
+  [
+   "IY\u2192EH",
+   10,
+   [
+    "creme",
+    "de",
+    "ecosystem",
+    "heroize"
+   ]
+  ],
+  [
+   "IH\u2192AH L @",
+   9,
+   [
+    "analytic",
+    "analytics",
+    "capitalistic",
+    "catalytic"
+   ]
+  ],
+  [
+   "AY\u2192IH",
+   9,
+   [
+    "binder",
+    "fortnight",
+    "fortnightly",
+    "hibernate"
+   ]
+  ],
+  [
+   "AO\u2192OW",
+   9,
+   [
+    "cos",
+    "coss",
+    "daube",
+    "ethanol"
+   ]
+  ],
+  [
+   "EY\u2192IY",
+   9,
+   [
+    "keto",
+    "laevo",
+    "meson",
+    "pedro"
+   ]
+  ],
+  [
+   "AE\u2192AO",
+   8,
+   [
+    "baldric",
+    "dak",
+    "falcon",
+    "falconer"
+   ]
+  ],
+  [
+   "ER\u2192 | \u2192R EY",
+   8,
+   [
+    "barbiturate",
+    "degenerative",
+    "federative",
+    "generative"
+   ]
+  ],
+  [
+   "OW\u2192AW",
+   8,
+   [
+    "bowman",
+    "bown",
+    "bowser",
+    "dau"
+   ]
+  ],
+  [
+   "OW\u2192AO",
+   8,
+   [
+    "ecole",
+    "espanol",
+    "foreskin",
+    "ideologue"
+   ]
+  ],
+  [
+   "D\u2192",
+   8,
+   [
+    "grandma",
+    "grandmother",
+    "grandmotherly",
+    "grandpa"
+   ]
+  ],
+  [
+   "EH\u2192EY",
+   7,
+   [
+    "allegro",
+    "eh",
+    "jaeger",
+    "resh"
+   ]
+  ],
+  [
+   "AE\u2192AH",
+   7,
+   [
+    "an",
+    "at",
+    "halogen",
+    "math"
+   ]
+  ],
+  [
+   "AO\u2192@",
+   7,
+   [
+    "anion",
+    "crampon",
+    "ionosphere",
+    "meteorite"
+   ]
+  ],
+  [
+   "AA\u2192EY",
+   7,
+   [
+    "capo",
+    "cruzado",
+    "desiderata",
+    "escalade"
+   ]
+  ],
+  [
+   "EH\u2192AH N @",
+   7,
+   [
+    "centenarian",
+    "continental",
+    "continentally",
+    "extraordinarily"
+   ]
+  ],
+  [
+   "AH\u2192UH",
+   7,
+   [
+    "chung",
+    "deluxe",
+    "dumbo",
+    "earful"
+   ]
+  ],
+  [
+   "\u2192R",
+   7,
+   [
+    "forerunner",
+    "irregardless",
+    "lawnmower",
+    "marjoram"
+   ]
+  ],
+  [
+   "N\u2192NG",
+   6,
+   [
+    "anglophile",
+    "ankh",
+    "concubine",
+    "encore"
+   ]
+  ],
+  [
+   "@\u2192OW",
+   6,
+   [
+    "annotate",
+    "biomass",
+    "extrovert",
+    "microwave"
+   ]
+  ],
+  [
+   "G\u2192JH",
+   6,
+   [
+    "armiger",
+    "bulger",
+    "burgee",
+    "collagen"
+   ]
+  ],
+  [
+   "W\u2192@",
+   6,
+   [
+    "bivouac",
+    "conceptualize",
+    "impetuous",
+    "incestuous"
+   ]
+  ],
+  [
+   "AW\u2192AO",
+   6,
+   [
+    "dauphin",
+    "hausen",
+    "heehaw",
+    "landau"
+   ]
+  ],
+  [
+   "T\u2192@ D",
+   5,
+   [
+    "accursed",
+    "blessed",
+    "cursed",
+    "cussed"
+   ]
+  ],
+  [
+   "UH\u2192@",
+   5,
+   [
+    "aneurysm",
+    "octopus",
+    "platypus",
+    "posthumous"
+   ]
+  ],
+  [
+   "AY\u2192IY",
+   5,
+   [
+    "bise",
+    "lied",
+    "mercantile",
+    "rupiah"
+   ]
+  ],
+  [
+   "Z\u2192",
+   5,
+   [
+    "blase",
+    "bonnes",
+    "civilize",
+    "pas"
+   ]
+  ],
+  [
+   "UH\u2192UW",
+   5,
+   [
+    "bookbinder",
+    "centurion",
+    "cook",
+    "hoodlum"
+   ]
+  ],
+  [
+   "UW\u2192AH",
+   5,
+   [
+    "buccal",
+    "cumin",
+    "jugular",
+    "permute"
+   ]
+  ],
+  [
+   "NG\u2192N",
+   5,
+   [
+    "conquest",
+    "frigging",
+    "junkyard",
+    "nightingale"
+   ]
+  ],
+  [
+   "AH\u2192AA",
+   5,
+   [
+    "dah",
+    "gaga",
+    "microscopy",
+    "papa"
+   ]
+  ],
+  [
+   "UH\u2192AH",
+   5,
+   [
+    "ebullience",
+    "fuddle",
+    "fulminate",
+    "pulmonary"
+   ]
+  ],
+  [
+   "\u2192S",
+   5,
+   [
+    "flaxseed",
+    "pacesetter",
+    "pastoralize",
+    "spacesuit"
+   ]
+  ],
+  [
+   "TH\u2192DH",
+   5,
+   [
+    "furtherance",
+    "furthest",
+    "loathing",
+    "mouthy"
+   ]
+  ],
+  [
+   "\u2192T",
+   5,
+   [
+    "heighth",
+    "hotshot",
+    "matchbook",
+    "pirouette"
+   ]
+  ],
+  [
+   "\u2192K",
+   5,
+   [
+    "lengthways",
+    "lengthwise",
+    "lengthy",
+    "phytoplankton"
+   ]
+  ],
+  [
+   "AO R T @ S\u2192",
+   5,
+   [
+    "forty-second",
+    "forty-seven",
+    "forty-seventh",
+    "forty-six"
+   ]
+  ],
+  [
+   "EY\u2192AA",
+   4,
+   [
+    "aba",
+    "shaman",
+    "shamanism",
+    "thaler"
+   ]
+  ],
+  [
+   "EH\u2192AH L @",
+   4,
+   [
+    "adolescence",
+    "adolescent",
+    "intellectual",
+    "predilection"
+   ]
+  ],
+  [
+   "N\u2192",
+   4,
+   [
+    "aine",
+    "greenness",
+    "kiln",
+    "nympho"
+   ]
+  ],
+  [
+   "EH\u2192AH",
+   4,
+   [
+    "airbase",
+    "airmail",
+    "airspace",
+    "jen"
+   ]
+  ],
+  [
+   "@\u2192Y",
+   4,
+   [
+    "alien",
+    "bilious",
+    "pannier",
+    "rebelliousness"
+   ]
+  ],
+  [
+   "Z\u2192ZH",
+   4,
+   [
+    "amnesiac",
+    "glazer",
+    "leisurely",
+    "silesia"
+   ]
+  ],
+  [
+   "\u2192G",
+   4,
+   [
+    "anglicize",
+    "dinghy",
+    "multilingual",
+    "recognizance"
+   ]
+  ],
+  [
+   "@\u2192Y UH",
+   4,
+   [
+    "audiovisual",
+    "consular",
+    "erudite",
+    "fenugreek"
+   ]
+  ],
+  [
+   "T\u2192",
+   4,
+   [
+    "blotch",
+    "blotchy",
+    "pate",
+    "tonsil"
+   ]
+  ],
+  [
+   "IY\u2192 | \u2192@",
+   4,
+   [
+    "brachia",
+    "insignia",
+    "poinsettia",
+    "tachycardia"
+   ]
+  ],
+  [
+   "OW\u2192UW",
+   4,
+   [
+    "combe",
+    "jozef",
+    "loe",
+    "shoebox"
+   ]
+  ],
+  [
+   "\u2192AH N",
+   4,
+   [
+    "concatenation",
+    "coordination",
+    "detonation",
+    "ordination"
+   ]
+  ],
+  [
+   "JH\u2192ZH",
+   4,
+   [
+    "counterespionage",
+    "espionage",
+    "loge",
+    "luge"
+   ]
+  ],
+  [
+   "AO\u2192AA | IY\u2192@",
+   4,
+   [
+    "eponymy",
+    "obloquy",
+    "sophistry",
+    "taxonomy"
+   ]
+  ],
+  [
+   "\u2192R @",
+   4,
+   [
+    "ferrel",
+    "harass",
+    "harassed",
+    "paramo"
+   ]
+  ],
+  [
+   "EY\u2192AH",
+   4,
+   [
+    "frater",
+    "obligation",
+    "okay",
+    "speculator"
+   ]
+  ],
+  [
+   "AO\u2192AE",
+   4,
+   [
+    "gantlet",
+    "lall",
+    "rainfall",
+    "wat"
+   ]
+  ],
+  [
+   "D\u2192T",
+   4,
+   [
+    "gesundheit",
+    "high-spirited",
+    "high-spiritedness",
+    "thirty-five"
+   ]
+  ],
+  [
+   "IH\u2192EH",
+   4,
+   [
+    "hemispheric",
+    "reenter",
+    "reentry",
+    "stratospheric"
+   ]
+  ],
+  [
+   "@\u2192UW",
+   4,
+   [
+    "miniscule",
+    "mongoose",
+    "vicissitude",
+    "wrongdoing"
+   ]
+  ],
+  [
+   "EH N T @ F\u2192",
+   4,
+   [
+    "twenty-first",
+    "twenty-four",
+    "twenty-fifth",
+    "twenty-fourth"
+   ]
+  ],
+  [
+   "EY T @ S\u2192",
+   4,
+   [
+    "eighty-second",
+    "eighty-seven",
+    "eighty-seventh",
+    "eighty-sixth"
+   ]
+  ],
+  [
+   "IH F T @ S\u2192",
+   4,
+   [
+    "fifty-second",
+    "fifty-seven",
+    "fifty-seventh",
+    "fifty-sixth"
+   ]
+  ],
+  [
+   "AY N T @ S\u2192",
+   4,
+   [
+    "ninety-second",
+    "ninety-seven",
+    "ninety-seventh",
+    "ninety-six"
+   ]
+  ],
+  [
+   "IH K S T @ S\u2192",
+   4,
+   [
+    "sixty-second",
+    "sixty-seven",
+    "sixty-seventh",
+    "sixty-sixth"
+   ]
+  ],
+  [
+   "Y\u2192",
+   3,
+   [
+    "abasia",
+    "reconfigure",
+    "simulcast"
+   ]
+  ],
+  [
+   "\u2192AH L | L IY\u2192",
+   3,
+   [
+    "acetylene",
+    "diastole",
+    "polybutylene"
+   ]
+  ],
+  [
+   "AY\u2192AA @",
+   3,
+   [
+    "ai",
+    "ais",
+    "lanai"
+   ]
+  ],
+  [
+   "CH\u2192K",
+   3,
+   [
+    "alchemist",
+    "ich",
+    "stich"
+   ]
+  ],
+  [
+   "AE\u2192AA | ER\u2192@",
+   3,
+   [
+    "alexanders",
+    "mastermind",
+    "unanswered"
+   ]
+  ],
+  [
+   "\u2192M",
+   3,
+   [
+    "ammeter",
+    "roommate",
+    "teammate"
+   ]
+  ],
+  [
+   "AA\u2192AE | EY\u2192@",
+   3,
+   [
+    "andante",
+    "canape",
+    "comandante"
+   ]
+  ],
+  [
+   "EY\u2192",
+   3,
+   [
+    "appreciative",
+    "appreciatively",
+    "seve"
+   ]
+  ],
+  [
+   "IH R\u2192IY @",
+   3,
+   [
+    "arrears",
+    "sincerely",
+    "spearman"
+   ]
+  ],
+  [
+   "AY\u2192EY",
+   3,
+   [
+    "aye",
+    "lai",
+    "plies"
+   ]
+  ],
+  [
+   "TH S\u2192DH Z",
+   3,
+   [
+    "baths",
+    "cloths",
+    "truths"
+   ]
+  ],
+  [
+   "\u2192AH N | N EH\u2192",
+   3,
+   [
+    "bicentenary",
+    "centenary",
+    "extraordinary"
+   ]
+  ],
+  [
+   "K\u2192",
+   3,
+   [
+    "bookstand",
+    "conical",
+    "majestic"
+   ]
+  ],
+  [
+   "AW\u2192OW",
+   3,
+   [
+    "bower",
+    "pow",
+    "tower"
+   ]
+  ],
+  [
+   "Z @\u2192ZH",
+   3,
+   [
+    "brazier",
+    "glazier",
+    "grazier"
+   ]
+  ],
+  [
+   "N CH\u2192NG K",
+   3,
+   [
+    "bronchial",
+    "concha",
+    "conchoid"
+   ]
+  ],
+  [
+   "\u2192N",
+   3,
+   [
+    "calendula",
+    "preadolescence",
+    "synapse"
+   ]
+  ],
+  [
+   "L @\u2192",
+   3,
+   [
+    "colon",
+    "illicitly",
+    "stalagmite"
+   ]
+  ],
+  [
+   "ER\u2192",
+   3,
+   [
+    "comfortable",
+    "reactor",
+    "uncomfortable"
+   ]
+  ],
+  [
+   "AO\u2192AA | \u2192G",
+   3,
+   [
+    "conger",
+    "incongruous",
+    "incongruously"
+   ]
+  ],
+  [
+   "AO\u2192AA | AA\u2192@",
+   3,
+   [
+    "costa",
+    "endoscopy",
+    "proctoscope"
+   ]
+  ],
+  [
+   "OW\u2192AH",
+   3,
+   [
+    "covert",
+    "covin",
+    "o'"
+   ]
+  ],
+  [
+   "S\u2192SH",
+   3,
+   [
+    "dissociate",
+    "excruciatingly",
+    "nuncio"
+   ]
+  ],
+  [
+   "Y\u2192 | \u2192@",
+   3,
+   [
+    "eosinophilia",
+    "regalia",
+    "valonia"
+   ]
+  ],
+  [
+   "EH V ER M\u2192",
+   3,
+   [
+    "evermore",
+    "nevermind",
+    "nevermore"
+   ]
+  ],
+  [
+   "EH K S P\u2192",
+   3,
+   [
+    "expert",
+    "exponent",
+    "export"
+   ]
+  ],
+  [
+   "UH\u2192UW @",
+   3,
+   [
+    "fluoride",
+    "fluorine",
+    "fluorite"
+   ]
+  ],
+  [
+   "L\u2192",
+   3,
+   [
+    "guileless",
+    "medalist",
+    "soulless"
+   ]
+  ],
+  [
+   "EY\u2192AY",
+   3,
+   [
+    "haik",
+    "kain",
+    "staved"
+   ]
+  ],
+  [
+   "AY\u2192AA Y",
+   3,
+   [
+    "maya",
+    "papaya",
+    "sayyid"
+   ]
+  ],
+  [
+   "IY T\u2192",
+   3,
+   [
+    "meat-eating",
+    "preterm",
+    "retort"
+   ]
+  ],
+  [
+   "I\u2192@",
+   3,
+   [
+    "modeling",
+    "precinct",
+    "staggering"
+   ]
+  ],
+  [
+   "T\u2192SH",
+   3,
+   [
+    "otiose",
+    "strontium",
+    "tertius"
+   ]
+  ],
+  [
+   "AW T G\u2192",
+   3,
+   [
+    "outgo",
+    "outguess",
+    "outgun"
+   ]
+  ],
+  [
+   "OW V ER\u2192",
+   3,
+   [
+    "overact",
+    "overeager",
+    "overeat"
+   ]
+  ],
+  [
+   "OW V ER T\u2192",
+   3,
+   [
+    "overtake",
+    "overtax",
+    "overtime"
+   ]
+  ],
+  [
+   "\u2192AH R V",
+   3,
+   [
+    "pervasive",
+    "pervasiveness",
+    "survey"
+   ]
+  ],
+  [
+   "R\u2192@",
+   3,
+   [
+    "retired",
+    "uninsured",
+    "wireless"
+   ]
+  ],
+  [
+   "IH\u2192IY | IY\u2192@",
+   3,
+   [
+    "serial",
+    "serialize",
+    "striptease"
+   ]
+  ],
+  [
+   "ZH\u2192SH",
+   3,
+   [
+    "supervision",
+    "transient",
+    "treasure"
+   ]
+  ],
+  [
+   "IH F T @ F\u2192",
+   3,
+   [
+    "fifty-first",
+    "fifty-four",
+    "fifty-fourth"
+   ]
+  ],
+  [
+   "AO R T @ F\u2192",
+   3,
+   [
+    "forty-fifth",
+    "forty-first",
+    "forty-fourth"
+   ]
+  ],
+  [
+   "EH V @ N T @ F\u2192",
+   3,
+   [
+    "seventy-fifth",
+    "seventy-four",
+    "seventy-fourth"
+   ]
+  ],
+  [
+   "EH V @ N T @ S\u2192",
+   3,
+   [
+    "seventy-seventh",
+    "seventy-six",
+    "seventy-sixth"
+   ]
+  ],
+  [
+   "EH N T @ S\u2192",
+   3,
+   [
+    "twenty-seventh",
+    "twenty-six",
+    "twenty-sixth"
+   ]
+  ],
+  [
+   "ER\u2192@ | AA\u2192AH",
+   2,
+   [
+    "aftermarket",
+    "hypermarket"
+   ]
+  ],
+  [
+   "EH R @\u2192EY",
+   2,
+   [
+    "ageratum",
+    "barre"
+   ]
+  ],
+  [
+   "EY\u2192AE M F @ TH IY @",
+   2,
+   [
+    "amphitheater",
+    "amphitheatre"
+   ]
+  ],
+  [
+   "OW\u2192AO | @\u2192AA",
+   2,
+   [
+    "ancona",
+    "dona"
+   ]
+  ],
+  [
+   "\u2192AE N @ K D",
+   2,
+   [
+    "anecdotal",
+    "anecdotally"
+   ]
+  ],
+  [
+   "AE N @\u2192AH",
+   2,
+   [
+    "annul",
+    "annulment"
+   ]
+  ],
+  [
+   "OW\u2192@ | IY\u2192@",
+   2,
+   [
+    "antinomy",
+    "proctoscopy"
+   ]
+  ],
+  [
+   "\u2192AA R K",
+   2,
+   [
+    "archangel",
+    "arkose"
+   ]
+  ],
+  [
+   "AE S @\u2192EY",
+   2,
+   [
+    "assay",
+    "passes"
+   ]
+  ],
+  [
+   "D W\u2192JH @",
+   2,
+   [
+    "assiduous",
+    "assiduously"
+   ]
+  ],
+  [
+   "\u2192Z",
+   2,
+   [
+    "beaux",
+    "chassis"
+   ]
+  ],
+  [
+   "AY F\u2192",
+   2,
+   [
+    "bifocal",
+    "bifocals"
+   ]
+  ],
+  [
+   "AO\u2192AA | AO\u2192@",
+   2,
+   [
+    "bollocks",
+    "phraseology"
+   ]
+  ],
+  [
+   "\u2192IY",
+   2,
+   [
+    "brioche",
+    "preamble"
+   ]
+  ],
+  [
+   "AH\u2192UW",
+   2,
+   [
+    "buffa",
+    "fugate"
+   ]
+  ],
+  [
+   "\u2192AE M @ M",
+   2,
+   [
+    "camomile",
+    "chamomile"
+   ]
+  ],
+  [
+   "EH R @ S\u2192",
+   2,
+   [
+    "carousel",
+    "carrousel"
+   ]
+  ],
+  [
+   "EH N T R @\u2192AA",
+   2,
+   [
+    "central",
+    "centrally"
+   ]
+  ],
+  [
+   "IY\u2192EH R @",
+   2,
+   [
+    "cerebrally",
+    "merida"
+   ]
+  ],
+  [
+   "AA\u2192AE | IY\u2192@",
+   2,
+   [
+    "concavity",
+    "kali"
+   ]
+  ],
+  [
+   "AO\u2192AA | @\u2192AE",
+   2,
+   [
+    "cossack",
+    "orthogonal"
+   ]
+  ],
+  [
+   "AW N T ER\u2192",
+   2,
+   [
+    "counteract",
+    "counteroffer"
+   ]
+  ],
+  [
+   "B\u2192",
+   2,
+   [
+    "crumby",
+    "wamble"
+   ]
+  ],
+  [
+   "\u2192EY T | T IH\u2192",
+   2,
+   [
+    "cumulatively",
+    "determinative"
+   ]
+  ],
+  [
+   "Z\u2192@ S",
+   2,
+   [
+    "dais",
+    "limes"
+   ]
+  ],
+  [
+   "AW\u2192AA",
+   2,
+   [
+    "dauber",
+    "menopause"
+   ]
+  ],
+  [
+   "EY\u2192IH",
+   2,
+   [
+    "delegate",
+    "overestimate"
+   ]
+  ],
+  [
+   "SH\u2192S",
+   2,
+   [
+    "deliciously",
+    "licorice"
+   ]
+  ],
+  [
+   "S\u2192",
+   2,
+   [
+    "des",
+    "glace"
+   ]
+  ],
+  [
+   "\u2192AY @ G N",
+   2,
+   [
+    "diagnose",
+    "misdiagnose"
+   ]
+  ],
+  [
+   "\u2192AA S @",
+   2,
+   [
+    "dossier",
+    "dossiers"
+   ]
+  ],
+  [
+   "AO\u2192AH",
+   2,
+   [
+    "doth",
+    "mong"
+   ]
+  ],
+  [
+   "AO\u2192AW",
+   2,
+   [
+    "doughty",
+    "trauma"
+   ]
+  ],
+  [
+   "IH N\u2192I NG",
+   2,
+   [
+    "drinkable",
+    "laryngoscope"
+   ]
+  ],
+  [
+   "D @\u2192DH AA",
+   2,
+   [
+    "espada",
+    "posada"
+   ]
+  ],
+  [
+   "\u2192AA T | T\u2192",
+   2,
+   [
+    "frate",
+    "mate"
+   ]
+  ],
+  [
+   "AA\u2192EY | Y\u2192 | \u2192@",
+   2,
+   [
+    "genitalia",
+    "titania"
+   ]
+  ],
+  [
+   "AA D D\u2192",
+   2,
+   [
+    "goddamn",
+    "goddamned"
+   ]
+  ],
+  [
+   "UW\u2192",
+   2,
+   [
+    "gouache",
+    "luau"
+   ]
+  ],
+  [
+   "\u2192AE R @ N T",
+   2,
+   [
+    "guarantor",
+    "guaranty"
+   ]
+  ],
+  [
+   "AE F HH\u2192",
+   2,
+   [
+    "half-hearted",
+    "halfhearted"
+   ]
+  ],
+  [
+   "AE L\u2192",
+   2,
+   [
+    "hallow",
+    "unalloyed"
+   ]
+  ],
+  [
+   "\u2192D",
+   2,
+   [
+    "headdress",
+    "holdfast"
+   ]
+  ],
+  [
+   "IH R @ B\u2192",
+   2,
+   [
+    "hereabouts",
+    "mirabelle"
+   ]
+  ],
+  [
+   "OW\u2192AA | OW\u2192@",
+   2,
+   [
+    "homophone",
+    "provost"
+   ]
+  ],
+  [
+   "AA\u2192AO R",
+   2,
+   [
+    "housewarming",
+    "mulligatawny"
+   ]
+  ],
+  [
+   "IH N\u2192I NG | IY\u2192@",
+   2,
+   [
+    "idiosyncrasy",
+    "syncope"
+   ]
+  ],
+  [
+   "\u2192IH N L",
+   2,
+   [
+    "in-law",
+    "inline"
+   ]
+  ],
+  [
+   "I NG\u2192IH N",
+   2,
+   [
+    "incubator",
+    "nincompoop"
+   ]
+  ],
+  [
+   "UW\u2192IH JH @",
+   2,
+   [
+    "individualism",
+    "individualist"
+   ]
+  ],
+  [
+   "\u2192AY R",
+   2,
+   [
+    "irate",
+    "tirade"
+   ]
+  ],
+  [
+   "EH N\u2192",
+   2,
+   [
+    "kenaf",
+    "penang"
+   ]
+  ],
+  [
+   "OY\u2192AO @",
+   2,
+   [
+    "killjoy",
+    "midpoint"
+   ]
+  ],
+  [
+   "IY\u2192AY @",
+   2,
+   [
+    "lien",
+    "varietal"
+   ]
+  ],
+  [
+   "OW Z\u2192AA S",
+   2,
+   [
+    "logos",
+    "pharos"
+   ]
+  ],
+  [
+   "AE N D @ L\u2192",
+   2,
+   [
+    "mandolin",
+    "standalone"
+   ]
+  ],
+  [
+   "IH Z @\u2192AA",
+   2,
+   [
+    "misogynist",
+    "misogyny"
+   ]
+  ],
+  [
+   "IH\u2192AH N @",
+   2,
+   [
+    "mutineer",
+    "reminiscent"
+   ]
+  ],
+  [
+   "AE\u2192EY | OW\u2192@",
+   2,
+   [
+    "nanometer",
+    "nanosecond"
+   ]
+  ],
+  [
+   "AE\u2192AA M B @",
+   2,
+   [
+    "non-combatant",
+    "noncombatant"
+   ]
+  ],
+  [
+   "AH\u2192OW",
+   2,
+   [
+    "none",
+    "shove"
+   ]
+  ],
+  [
+   "AW T D\u2192",
+   2,
+   [
+    "outdate",
+    "outdated"
+   ]
+  ],
+  [
+   "\u2192AW T S",
+   2,
+   [
+    "outside",
+    "outsource"
+   ]
+  ],
+  [
+   "AW T W\u2192",
+   2,
+   [
+    "outweigh",
+    "outwit"
+   ]
+  ],
+  [
+   "OW V ER B\u2192",
+   2,
+   [
+    "overbook",
+    "overbuy"
+   ]
+  ],
+  [
+   "OW V ER P\u2192",
+   2,
+   [
+    "overpay",
+    "overpayment"
+   ]
+  ],
+  [
+   "OW V ER S\u2192",
+   2,
+   [
+    "oversee",
+    "oversell"
+   ]
+  ],
+  [
+   "OW V ER S T\u2192",
+   2,
+   [
+    "overstep",
+    "overstuff"
+   ]
+  ],
+  [
+   "OY\u2192OW Y",
+   2,
+   [
+    "oyer",
+    "toy"
+   ]
+  ],
+  [
+   "CH\u2192 | \u2192SH T",
+   2,
+   [
+    "parched",
+    "unmatched"
+   ]
+  ],
+  [
+   "AA R D @\u2192IY",
+   2,
+   [
+    "pardi",
+    "pardy"
+   ]
+  ],
+  [
+   "\u2192AA L @",
+   2,
+   [
+    "polyandry",
+    "polyester"
+   ]
+  ],
+  [
+   "CH @\u2192T Y UH",
+   2,
+   [
+    "punctuate",
+    "unfortunately"
+   ]
+  ],
+  [
+   "AE TH\u2192AA T",
+   2,
+   [
+    "rath",
+    "rathskeller"
+   ]
+  ],
+  [
+   "IY K AO\u2192AA",
+   2,
+   [
+    "recall",
+    "recon"
+   ]
+  ],
+  [
+   "\u2192EH K @ G N",
+   2,
+   [
+    "recognizable",
+    "unrecognizable"
+   ]
+  ],
+  [
+   "JH\u2192D Y",
+   2,
+   [
+    "reschedule",
+    "unscheduled"
+   ]
+  ],
+  [
+   "AY\u2192IH | AA\u2192@",
+   2,
+   [
+    "ribald",
+    "ribaldry"
+   ]
+  ],
+  [
+   "IH CH\u2192IY T SH",
+   2,
+   [
+    "riches",
+    "richly"
+   ]
+  ],
+  [
+   "IH TH\u2192AY DH",
+   2,
+   [
+    "scythe",
+    "writhe"
+   ]
+  ],
+  [
+   "I NG\u2192IH N JH",
+   2,
+   [
+    "singer",
+    "swinger"
+   ]
+  ],
+  [
+   "IY\u2192AE",
+   2,
+   [
+    "stearic",
+    "theatric"
+   ]
+  ],
+  [
+   "IH N JH\u2192I NG",
+   2,
+   [
+    "stingy",
+    "tinge"
+   ]
+  ],
+  [
+   "\u2192EH L @ P",
+   2,
+   [
+    "telepath",
+    "teleport"
+   ]
+  ],
+  [
+   "AH N B\u2192",
+   2,
+   [
+    "unbolt",
+    "unbolted"
+   ]
+  ],
+  [
+   "ER\u2192@ | AE\u2192AA",
+   2,
+   [
+    "underclass",
+    "underpass"
+   ]
+  ],
+  [
+   "AH P S T\u2192",
+   2,
+   [
+    "upstanding",
+    "upstart"
+   ]
+  ],
+  [
+   "\u2192R | ER\u2192@",
+   2,
+   [
+    "watergate",
+    "waterlogged"
+   ]
+  ],
+  [
+   "OW L HH\u2192",
+   2,
+   [
+    "wholehearted",
+    "wholeheartedly"
+   ]
+  ],
+  [
+   "DH\u2192TH",
+   2,
+   [
+    "worthy",
+    "zither"
+   ]
+  ],
+  [
+   "AY N T @ F\u2192",
+   2,
+   [
+    "ninety-fifth",
+    "ninety-fourth"
+   ]
+  ],
+  [
+   "EH V @ N T @\u2192",
+   2,
+   [
+    "seventy-eight",
+    "seventy-eighth"
+   ]
+  ],
+  [
+   "EH V @ N T @ N\u2192",
+   2,
+   [
+    "seventy-nine",
+    "seventy-ninth"
+   ]
+  ],
+  [
+   "IH K S T @ F\u2192",
+   2,
+   [
+    "sixty-five",
+    "sixty-four"
+   ]
+  ],
+  [
+   "EH N T @\u2192",
+   2,
+   [
+    "twenty-eight",
+    "twenty-eighth"
+   ]
+  ],
+  [
+   "EH N T @ N\u2192",
+   2,
+   [
+    "twenty-nine",
+    "twenty-ninth"
+   ]
+  ],
+  [
+   "AE B @\u2192AA",
+   1,
+   [
+    "abba"
+   ]
+  ],
+  [
+   "EH\u2192AE B S @ | SH\u2192T | \u2192AE",
+   1,
+   [
+    "absentia"
+   ]
+  ],
+  [
+   "AE B S T R\u2192",
+   1,
+   [
+    "abstracted"
+   ]
+  ],
+  [
+   "AE K @ D\u2192",
+   1,
+   [
+    "academe"
+   ]
+  ],
+  [
+   "AE K L\u2192AY M | M EY\u2192",
+   1,
+   [
+    "acclimate"
+   ]
+  ],
+  [
+   "AE K @ L\u2192",
+   1,
+   [
+    "accolade"
+   ]
+  ],
+  [
+   "AW N T @ B\u2192",
+   1,
+   [
+    "accountability"
+   ]
+  ],
+  [
+   "AA\u2192AE | AA\u2192@",
+   1,
+   [
+    "accra"
+   ]
+  ],
+  [
+   "@ K R\u2192",
+   1,
+   [
+    "accredit"
+   ]
+  ],
+  [
+   "AE K R\u2192 | IY\u2192@ @",
+   1,
+   [
+    "acrolein"
+   ]
+  ],
+  [
+   "\u2192AE K CH @ | IY\u2192@",
+   1,
+   [
+    "actuary"
+   ]
+  ],
+  [
+   "\u2192AE K CH @",
+   1,
+   [
+    "actuate"
+   ]
+  ],
+  [
+   "ZH @\u2192JH",
+   1,
+   [
+    "adagio"
+   ]
+  ],
+  [
+   "AE D @\u2192AH",
+   1,
+   [
+    "adduct"
+   ]
+  ],
+  [
+   "EH N @ V\u2192",
+   1,
+   [
+    "adenovirus"
+   ]
+  ],
+  [
+   "\u2192IH N @ S T R",
+   1,
+   [
+    "administratively"
+   ]
+  ],
+  [
+   "R\u2192 | \u2192ER",
+   1,
+   [
+    "admirer"
+   ]
+  ],
+  [
+   "\u2192AE F L @ T",
+   1,
+   [
+    "aflatoxin"
+   ]
+  ],
+  [
+   "\u2192AE F T @ SH",
+   1,
+   [
+    "aftershave"
+   ]
+  ],
+  [
+   "\u2192AA P | P\u2192",
+   1,
+   [
+    "agape"
+   ]
+  ],
+  [
+   "EY\u2192AA | ER\u2192AA R",
+   1,
+   [
+    "agar"
+   ]
+  ],
+  [
+   "EH\u2192AH | AO\u2192AA",
+   1,
+   [
+    "airlock"
+   ]
+  ],
+  [
+   "AA L K @\u2192AE | AA R\u2192ER",
+   1,
+   [
+    "alcazar"
+   ]
+  ],
+  [
+   "@\u2192AO",
+   1,
+   [
+    "aliyah"
+   ]
+  ],
+  [
+   "EH\u2192IY | @\u2192",
+   1,
+   [
+    "allele"
+   ]
+  ],
+  [
+   "IH T ER\u2192",
+   1,
+   [
+    "alliteration"
+   ]
+  ],
+  [
+   "AA\u2192AE | @\u2192OW",
+   1,
+   [
+    "almon"
+   ]
+  ],
+  [
+   "HH AA\u2192@",
+   1,
+   [
+    "aloha"
+   ]
+  ],
+  [
+   "AO L T ER N\u2192",
+   1,
+   [
+    "alternation"
+   ]
+  ],
+  [
+   "UW M @\u2192IH | \u2192@",
+   1,
+   [
+    "aluminium"
+   ]
+  ],
+  [
+   "S IY\u2192SH @",
+   1,
+   [
+    "americium"
+   ]
+  ],
+  [
+   "AE M N @ AO\u2192AA",
+   1,
+   [
+    "amniotic"
+   ]
+  ],
+  [
+   "AA\u2192IH G D @",
+   1,
+   [
+    "amygdala"
+   ]
+  ],
+  [
+   "N G\u2192NG | @\u2192OW",
+   1,
+   [
+    "anglophone"
+   ]
+  ],
+  [
+   "EY\u2192IY M",
+   1,
+   [
+    "anime"
+   ]
+  ],
+  [
+   "\u2192AE N OW T",
+   1,
+   [
+    "annotated"
+   ]
+  ],
+  [
+   "@ W\u2192UH",
+   1,
+   [
+    "annualized"
+   ]
+  ],
+  [
+   "AE\u2192AA | ER AE\u2192@ R AA",
+   1,
+   [
+    "anorak"
+   ]
+  ],
+  [
+   "T HH IH\u2192TH @",
+   1,
+   [
+    "anthill"
+   ]
+  ],
+  [
+   "\u2192AE N T @ M",
+   1,
+   [
+    "antimatter"
+   ]
+  ],
+  [
+   "AE N T\u2192IH P | P OW\u2192 | @\u2192IY",
+   1,
+   [
+    "antipodes"
+   ]
+  ],
+  [
+   "AE CH @\u2192AA SH",
+   1,
+   [
+    "apache"
+   ]
+  ],
+  [
+   "AE CH\u2192AA SH",
+   1,
+   [
+    "apaches"
+   ]
+  ],
+  [
+   "AY\u2192HH EY",
+   1,
+   [
+    "apartheid"
+   ]
+  ],
+  [
+   "AE P N\u2192IY | @\u2192",
+   1,
+   [
+    "apnea"
+   ]
+  ],
+  [
+   "AE P @\u2192EH",
+   1,
+   [
+    "appel"
+   ]
+  ],
+  [
+   "AA\u2192AE | AA\u2192AO",
+   1,
+   [
+    "aquanaut"
+   ]
+  ],
+  [
+   "AA R B @ T R AA ZH\u2192",
+   1,
+   [
+    "arbitrageur"
+   ]
+  ],
+  [
+   "AA R K @\u2192EY",
+   1,
+   [
+    "arcanum"
+   ]
+  ],
+  [
+   "AA R CH D\u2192",
+   1,
+   [
+    "archduke"
+   ]
+  ],
+  [
+   "@ T\u2192OW",
+   1,
+   [
+    "argot"
+   ]
+  ],
+  [
+   "AA M W\u2192",
+   1,
+   [
+    "armoire"
+   ]
+  ],
+  [
+   "S Y\u2192SH",
+   1,
+   [
+    "asexual"
+   ]
+  ],
+  [
+   "AE\u2192AA | AA\u2192@",
+   1,
+   [
+    "ashram"
+   ]
+  ],
+  [
+   "AE S P\u2192AY",
+   1,
+   [
+    "aspirant"
+   ]
+  ],
+  [
+   "\u2192EY | IH\u2192@",
+   1,
+   [
+    "associative"
+   ]
+  ],
+  [
+   "\u2192L | IY\u2192@",
+   1,
+   [
+    "astilbe"
+   ]
+  ],
+  [
+   "AE S @ M P T AO\u2192AA",
+   1,
+   [
+    "asymptotic"
+   ]
+  ],
+  [
+   "AE T @ V @\u2192IH",
+   1,
+   [
+    "atavistic"
+   ]
+  ],
+  [
+   "AE TH @ N\u2192IY",
+   1,
+   [
+    "atheneum"
+   ]
+  ],
+  [
+   "AE CH @\u2192EY",
+   1,
+   [
+    "attaches"
+   ]
+  ],
+  [
+   "IH\u2192IY | @\u2192UH",
+   1,
+   [
+    "attributable"
+   ]
+  ],
+  [
+   "AO\u2192OW | JH\u2192ZH",
+   1,
+   [
+    "aubergine"
+   ]
+  ],
+  [
+   "IY OW\u2192AO D @ @ | IY\u2192AY",
+   1,
+   [
+    "audiophile"
+   ]
+  ],
+  [
+   "AA G @\u2192AH",
+   1,
+   [
+    "august"
+   ]
+  ],
+  [
+   "\u2192AO R @ T",
+   1,
+   [
+    "authoritatively"
+   ]
+  ],
+  [
+   "OY M Y @\u2192UW",
+   1,
+   [
+    "autoimmune"
+   ]
+  ],
+  [
+   "OW\u2192AO K S",
+   1,
+   [
+    "aux"
+   ]
+  ],
+  [
+   "EY V @\u2192AA",
+   1,
+   [
+    "ava"
+   ]
+  ],
+  [
+   "AE V @ T\u2192",
+   1,
+   [
+    "avatar"
+   ]
+  ],
+  [
+   "UW\u2192AA B @",
+   1,
+   [
+    "babu"
+   ]
+  ],
+  [
+   "EY B @ S\u2192",
+   1,
+   [
+    "baby-sitter"
+   ]
+  ],
+  [
+   "\u2192K @ R AA",
+   1,
+   [
+    "baccarat"
+   ]
+  ],
+  [
+   "EY N @\u2192AA",
+   1,
+   [
+    "bacchanal"
+   ]
+  ],
+  [
+   "AA K\u2192AE CH",
+   1,
+   [
+    "bach"
+   ]
+  ],
+  [
+   "AE K D\u2192",
+   1,
+   [
+    "backdate"
+   ]
+  ],
+  [
+   "AE K S T\u2192",
+   1,
+   [
+    "backstairs"
+   ]
+  ],
+  [
+   "IY\u2192R @",
+   1,
+   [
+    "backstreet"
+   ]
+  ],
+  [
+   "AE K Y\u2192",
+   1,
+   [
+    "backyard"
+   ]
+  ],
+  [
+   "\u2192AA L K",
+   1,
+   [
+    "ballcock"
+   ]
+  ],
+  [
+   "\u2192AE L @ HH",
+   1,
+   [
+    "ballyhoo"
+   ]
+  ],
+  [
+   "AA\u2192EY N @",
+   1,
+   [
+    "banal"
+   ]
+  ],
+  [
+   "AA\u2192AE | \u2192Y | @\u2192",
+   1,
+   [
+    "bania"
+   ]
+  ],
+  [
+   "AA R\u2192AE",
+   1,
+   [
+    "barf"
+   ]
+  ],
+  [
+   "\u2192EY S B",
+   1,
+   [
+    "baseball"
+   ]
+  ],
+  [
+   "AE S T @\u2192IY",
+   1,
+   [
+    "bastille"
+   ]
+  ],
+  [
+   "IH\u2192IY | @\u2192",
+   1,
+   [
+    "batiste"
+   ]
+  ],
+  [
+   "UW T\u2192",
+   1,
+   [
+    "beautician"
+   ]
+  ],
+  [
+   "EH\u2192IY D @",
+   1,
+   [
+    "bedel"
+   ]
+  ],
+  [
+   "IH\u2192EH L V @ D IY",
+   1,
+   [
+    "belvedere"
+   ]
+  ],
+  [
+   "IH SH\u2192EH F @ S",
+   1,
+   [
+    "beneficent"
+   ]
+  ],
+  [
+   "EH R @ T\u2192EY",
+   1,
+   [
+    "beret"
+   ]
+  ],
+  [
+   "EH R @ T S\u2192EY Z",
+   1,
+   [
+    "berets"
+   ]
+  ],
+  [
+   "S T @\u2192",
+   1,
+   [
+    "bested"
+   ]
+  ],
+  [
+   "TH\u2192T",
+   1,
+   [
+    "beth"
+   ]
+  ],
+  [
+   "EH T\u2192",
+   1,
+   [
+    "betook"
+   ]
+  ],
+  [
+   "AA G R AA\u2192AE",
+   1,
+   [
+    "bibliographic"
+   ]
+  ],
+  [
+   "\u2192UH L | L ER\u2192",
+   1,
+   [
+    "binoculars"
+   ]
+  ],
+  [
+   "OW\u2192@ | EH\u2192@",
+   1,
+   [
+    "biogen"
+   ]
+  ],
+  [
+   "OW\u2192@ | IH\u2192IY",
+   1,
+   [
+    "biosphere"
+   ]
+  ],
+  [
+   "IH F @\u2192EH",
+   1,
+   [
+    "biphenyl"
+   ]
+  ],
+  [
+   "IH T ER S W\u2192",
+   1,
+   [
+    "bittersweet"
+   ]
+  ],
+  [
+   "\u2192OW T HH",
+   1,
+   [
+    "boathouse"
+   ]
+  ],
+  [
+   "T\u2192 | W EY\u2192@",
+   1,
+   [
+    "boatswain"
+   ]
+  ],
+  [
+   "UH\u2192OW",
+   1,
+   [
+    "bogie"
+   ]
+  ],
+  [
+   "L S @\u2192",
+   1,
+   [
+    "bolson"
+   ]
+  ],
+  [
+   "\u2192OW N S",
+   1,
+   [
+    "bonsai"
+   ]
+  ],
+  [
+   "\u2192UW L | @\u2192AA",
+   1,
+   [
+    "boolean"
+   ]
+  ],
+  [
+   "\u2192UW N D",
+   1,
+   [
+    "boondoggle"
+   ]
+  ],
+  [
+   "AW CH\u2192UW SH",
+   1,
+   [
+    "bouche"
+   ]
+  ],
+  [
+   "OY\u2192W AA",
+   1,
+   [
+    "boudoir"
+   ]
+  ],
+  [
+   "ZH IY\u2192JH @",
+   1,
+   [
+    "bougie"
+   ]
+  ],
+  [
+   "IH\u2192UH | @\u2192Y AA",
+   1,
+   [
+    "bouillon"
+   ]
+  ],
+  [
+   "AO\u2192UH",
+   1,
+   [
+    "bourg"
+   ]
+  ],
+  [
+   "OW S\u2192UW Z",
+   1,
+   [
+    "bowse"
+   ]
+  ],
+  [
+   "AE N D N\u2192",
+   1,
+   [
+    "brand-new"
+   ]
+  ],
+  [
+   "AH\u2192EH D K R @",
+   1,
+   [
+    "breadcrumb"
+   ]
+  ],
+  [
+   "\u2192IH G @ N T",
+   1,
+   [
+    "brigantine"
+   ]
+  ],
+  [
+   "T\u2192D",
+   1,
+   [
+    "brodie"
+   ]
+  ],
+  [
+   "\u2192AA NG K @ S K",
+   1,
+   [
+    "bronchoscope"
+   ]
+  ],
+  [
+   "UW HH\u2192",
+   1,
+   [
+    "brouhaha"
+   ]
+  ],
+  [
+   "UW L\u2192EY",
+   1,
+   [
+    "brule"
+   ]
+  ],
+  [
+   "EY\u2192EH | OW\u2192AO",
+   1,
+   [
+    "bueno"
+   ]
+  ],
+  [
+   "UW R @\u2192AA",
+   1,
+   [
+    "buran"
+   ]
+  ],
+  [
+   "\u2192AH S L",
+   1,
+   [
+    "busload"
+   ]
+  ],
+  [
+   "AE\u2192AA | @\u2192Y AA",
+   1,
+   [
+    "cabana"
+   ]
+  ],
+  [
+   "AE SH\u2192",
+   1,
+   [
+    "cachet"
+   ]
+  ],
+  [
+   "EY\u2192AA | IH\u2192@",
+   1,
+   [
+    "cahill"
+   ]
+  ],
+  [
+   "EY\u2192IY | @\u2192",
+   1,
+   [
+    "calabrese"
+   ]
+  ],
+  [
+   "AE L\u2192AO",
+   1,
+   [
+    "calkin"
+   ]
+  ],
+  [
+   "\u2192AE L Y @ M",
+   1,
+   [
+    "calumet"
+   ]
+  ],
+  [
+   "AE N @\u2192AA",
+   1,
+   [
+    "canada"
+   ]
+  ],
+  [
+   "UH\u2192EY P @",
+   1,
+   [
+    "caput"
+   ]
+  ],
+  [
+   "AO\u2192AW | AA\u2192@",
+   1,
+   [
+    "carnauba"
+   ]
+  ],
+  [
+   "EH\u2192AA R V @",
+   1,
+   [
+    "carvel"
+   ]
+  ],
+  [
+   "IY\u2192EY S @",
+   1,
+   [
+    "casein"
+   ]
+  ],
+  [
+   "AE\u2192IY | @ S\u2192",
+   1,
+   [
+    "cassis"
+   ]
+  ],
+  [
+   "EH CH\u2192AE T S",
+   1,
+   [
+    "catsup"
+   ]
+  ],
+  [
+   "IH\u2192IY | \u2192Y",
+   1,
+   [
+    "caudillo"
+   ]
+  ],
+  [
+   "AE V @ L K\u2192",
+   1,
+   [
+    "cavalcade"
+   ]
+  ],
+  [
+   "IY\u2192EH L @ S T @ | @\u2192",
+   1,
+   [
+    "celestine"
+   ]
+  ],
+  [
+   "EH\u2192AA | AY\u2192@",
+   1,
+   [
+    "centime"
+   ]
+  ],
+  [
+   "EH N T R @\u2192IH | UW\u2192@",
+   1,
+   [
+    "centrifugal"
+   ]
+  ],
+  [
+   "AE L S\u2192EH D | D OW\u2192",
+   1,
+   [
+    "chalcedony"
+   ]
+  ],
+  [
+   "AA\u2192AE | AO\u2192@",
+   1,
+   [
+    "chanson"
+   ]
+  ],
+  [
+   "AA R K UH T R\u2192",
+   1,
+   [
+    "charcuterie"
+   ]
+  ],
+  [
+   "AA\u2192EH",
+   1,
+   [
+    "chary"
+   ]
+  ],
+  [
+   "AA S UW\u2192AE Z Y @",
+   1,
+   [
+    "chasuble"
+   ]
+  ],
+  [
+   "EH\u2192IH | Y\u2192 | \u2192@",
+   1,
+   [
+    "chenier"
+   ]
+  ],
+  [
+   "CH @\u2192",
+   1,
+   [
+    "chichi"
+   ]
+  ],
+  [
+   "AE N Z @\u2192IY",
+   1,
+   [
+    "chimpanzee"
+   ]
+  ],
+  [
+   "ER\u2192 | NG\u2192N",
+   1,
+   [
+    "chitterlings"
+   ]
+  ],
+  [
+   "\u2192OW L Y | L @\u2192",
+   1,
+   [
+    "cholla"
+   ]
+  ],
+  [
+   "OW\u2192AA | AE\u2192@",
+   1,
+   [
+    "chopin"
+   ]
+  ],
+  [
+   "AO R @\u2192AE",
+   1,
+   [
+    "choral"
+   ]
+  ],
+  [
+   "AE\u2192OW M @",
+   1,
+   [
+    "chromatogram"
+   ]
+  ],
+  [
+   "\u2192AH L | \u2192@",
+   1,
+   [
+    "chronologically"
+   ]
+  ],
+  [
+   "AW\u2192AA AO",
+   1,
+   [
+    "ciao"
+   ]
+  ],
+  [
+   "IH S ER\u2192 | \u2192@",
+   1,
+   [
+    "cicerone"
+   ]
+  ],
+  [
+   "EY D @\u2192IY",
+   1,
+   [
+    "circadian"
+   ]
+  ],
+  [
+   "IY\u2192IH T",
+   1,
+   [
+    "cit"
+   ]
+  ],
+  [
+   "IY\u2192IH T R @",
+   1,
+   [
+    "citrine"
+   ]
+  ],
+  [
+   "P\u2192 | AO R\u2192ER",
+   1,
+   [
+    "clapboard"
+   ]
+  ],
+  [
+   "\u2192IY SH",
+   1,
+   [
+    "cliched"
+   ]
+  ],
+  [
+   "AA S\u2192OW",
+   1,
+   [
+    "clos"
+   ]
+  ],
+  [
+   "AW\u2192AH F",
+   1,
+   [
+    "clough"
+   ]
+  ],
+  [
+   "ER\u2192AH R | IY\u2192@",
+   1,
+   [
+    "cloverleaf"
+   ]
+  ],
+  [
+   "IH K Y @ L\u2192",
+   1,
+   [
+    "coarticulation"
+   ]
+  ],
+  [
+   "OW CH\u2192",
+   1,
+   [
+    "cochairman"
+   ]
+  ],
+  [
+   "OW\u2192",
+   1,
+   [
+    "coed"
+   ]
+  ],
+  [
+   "OY\u2192OW @",
+   1,
+   [
+    "coitus"
+   ]
+  ],
+  [
+   "AO\u2192AA | @\u2192IY",
+   1,
+   [
+    "colchicine"
+   ]
+  ],
+  [
+   "EH\u2192AA L @",
+   1,
+   [
+    "collect"
+   ]
+  ],
+  [
+   "IY\u2192AA L @",
+   1,
+   [
+    "colleen"
+   ]
+  ],
+  [
+   "AA L @\u2192AO | \u2192B",
+   1,
+   [
+    "colomb"
+   ]
+  ],
+  [
+   "R I\u2192@",
+   1,
+   [
+    "colouring"
+   ]
+  ],
+  [
+   "AH\u2192OW | \u2192@",
+   1,
+   [
+    "comes"
+   ]
+  ],
+  [
+   "\u2192AA M Y @ T",
+   1,
+   [
+    "commutate"
+   ]
+  ],
+  [
+   "EY N\u2192",
+   1,
+   [
+    "compania"
+   ]
+  ],
+  [
+   "ER\u2192AA M P | \u2192R EY",
+   1,
+   [
+    "comparator"
+   ]
+  ],
+  [
+   "\u2192AA M P",
+   1,
+   [
+    "comport"
+   ]
+  ],
+  [
+   "AA N D @\u2192EH",
+   1,
+   [
+    "condensate"
+   ]
+  ],
+  [
+   "AA N F @ D AA\u2192AE",
+   1,
+   [
+    "confidant"
+   ]
+  ],
+  [
+   "AA N F @ D\u2192",
+   1,
+   [
+    "confidante"
+   ]
+  ],
+  [
+   "\u2192AA N F L",
+   1,
+   [
+    "conflate"
+   ]
+  ],
+  [
+   "UW\u2192AA N F L @",
+   1,
+   [
+    "confluent"
+   ]
+  ],
+  [
+   "AO NG JH\u2192IY R | R IY\u2192",
+   1,
+   [
+    "congeries"
+   ]
+  ],
+  [
+   "AO N\u2192AA NG",
+   1,
+   [
+    "congruence"
+   ]
+  ],
+  [
+   "AO N\u2192AA NG | EH\u2192@",
+   1,
+   [
+    "congruent"
+   ]
+  ],
+  [
+   "\u2192AA N S | @\u2192EY",
+   1,
+   [
+    "conservator"
+   ]
+  ],
+  [
+   "IH\u2192AA N S | IH\u2192UW T @",
+   1,
+   [
+    "constitutive"
+   ]
+  ],
+  [
+   "AA N T R\u2192",
+   1,
+   [
+    "contracted"
+   ]
+  ],
+  [
+   "AA N T R @ V\u2192",
+   1,
+   [
+    "contravene"
+   ]
+  ],
+  [
+   "AA N V\u2192",
+   1,
+   [
+    "conversely"
+   ]
+  ],
+  [
+   "AA N V @ L\u2192",
+   1,
+   [
+    "convolution"
+   ]
+  ],
+  [
+   "\u2192@ | @\u2192EY",
+   1,
+   [
+    "cooperatively"
+   ]
+  ],
+  [
+   "OW P\u2192",
+   1,
+   [
+    "copartner"
+   ]
+  ],
+  [
+   "OW\u2192AO R D @",
+   1,
+   [
+    "cordoba"
+   ]
+  ],
+  [
+   "AO R N @\u2192EH",
+   1,
+   [
+    "cornett"
+   ]
+  ],
+  [
+   "AO R N M\u2192",
+   1,
+   [
+    "cornmeal"
+   ]
+  ],
+  [
+   "EH\u2192AO R @ N @",
+   1,
+   [
+    "coronet"
+   ]
+  ],
+  [
+   "AA S T @\u2192UW",
+   1,
+   [
+    "costumer"
+   ]
+  ],
+  [
+   "AO T\u2192AH L | L IY\u2192",
+   1,
+   [
+    "cotyledon"
+   ]
+  ],
+  [
+   "UW L @\u2192EY",
+   1,
+   [
+    "coulee"
+   ]
+  ],
+  [
+   "AW N T ER T\u2192",
+   1,
+   [
+    "countertenor"
+   ]
+  ],
+  [
+   "AW N T ER V\u2192",
+   1,
+   [
+    "countervail"
+   ]
+  ],
+  [
+   "UW P\u2192EY",
+   1,
+   [
+    "coupe"
+   ]
+  ],
+  [
+   "CH IH\u2192T SH @",
+   1,
+   [
+    "courtship"
+   ]
+  ],
+  [
+   "ER\u2192EY",
+   1,
+   [
+    "couturier"
+   ]
+  ],
+  [
+   "AA\u2192EH | IY\u2192@",
+   1,
+   [
+    "covariance"
+   ]
+  ],
+  [
+   "\u2192AH V",
+   1,
+   [
+    "covertly"
+   ]
+  ],
+  [
+   "AE\u2192EY | @\u2192AA",
+   1,
+   [
+    "craton"
+   ]
+  ],
+  [
+   "AY S @\u2192IY",
+   1,
+   [
+    "crises"
+   ]
+  ],
+  [
+   "AO\u2192IY | \u2192K R AA S",
+   1,
+   [
+    "criss-cross"
+   ]
+  ],
+  [
+   "AO S P\u2192",
+   1,
+   [
+    "cross-pollinate"
+   ]
+  ],
+  [
+   "AO S R\u2192",
+   1,
+   [
+    "cross-reference"
+   ]
+  ],
+  [
+   "AO\u2192AA S T AA",
+   1,
+   [
+    "crosstalk"
+   ]
+  ],
+  [
+   "\u2192AY B",
+   1,
+   [
+    "crybaby"
+   ]
+  ],
+  [
+   "AY @ JH\u2192",
+   1,
+   [
+    "cryogenics"
+   ]
+  ],
+  [
+   "AH L D @ S\u2192",
+   1,
+   [
+    "cul-de-sac"
+   ]
+  ],
+  [
+   "UW N @\u2192IY",
+   1,
+   [
+    "cuneiform"
+   ]
+  ],
+  [
+   "I\u2192AH L @",
+   1,
+   [
+    "cunnilingus"
+   ]
+  ],
+  [
+   "OW\u2192UW P @",
+   1,
+   [
+    "cupola"
+   ]
+  ],
+  [
+   "AE\u2192AA | EY\u2192@",
+   1,
+   [
+    "curare"
+   ]
+  ],
+  [
+   "UH R\u2192EY",
+   1,
+   [
+    "cures"
+   ]
+  ],
+  [
+   "IH\u2192@ | @\u2192UW",
+   1,
+   [
+    "curlicue"
+   ]
+  ],
+  [
+   "\u2192ER T",
+   1,
+   [
+    "curtail"
+   ]
+  ],
+  [
+   "\u2192AH S T @ M",
+   1,
+   [
+    "customarily"
+   ]
+  ],
+  [
+   "\u2192AY",
+   1,
+   [
+    "cyan"
+   ]
+  ],
+  [
+   "AY\u2192IH | EH\u2192@",
+   1,
+   [
+    "cyclamen"
+   ]
+  ],
+  [
+   "\u2192AY K L",
+   1,
+   [
+    "cyclone"
+   ]
+  ],
+  [
+   "AE\u2192AY",
+   1,
+   [
+    "daiquiri"
+   ]
+  ],
+  [
+   "EH TH\u2192@ D",
+   1,
+   [
+    "daleth"
+   ]
+  ],
+  [
+   "EH R S\u2192",
+   1,
+   [
+    "daresay"
+   ]
+  ],
+  [
+   "IY\u2192AA SH @",
+   1,
+   [
+    "dashiki"
+   ]
+  ],
+  [
+   "B AY D EY\u2192",
+   1,
+   [
+    "day-by-day"
+   ]
+  ],
+  [
+   "T @ D EY\u2192",
+   1,
+   [
+    "day-to-day"
+   ]
+  ],
+  [
+   "EY @\u2192AA",
+   1,
+   [
+    "dayan"
+   ]
+  ],
+  [
+   "EH D W\u2192",
+   1,
+   [
+    "deadweight"
+   ]
+  ],
+  [
+   "EH B @\u2192AH",
+   1,
+   [
+    "debus"
+   ]
+  ],
+  [
+   "\u2192EH B Y @ T",
+   1,
+   [
+    "debutante"
+   ]
+  ],
+  [
+   "IH ZH @ N M\u2192",
+   1,
+   [
+    "decision-making"
+   ]
+  ],
+  [
+   "\u2192IY M @ N @ L",
+   1,
+   [
+    "decriminalize"
+   ]
+  ],
+  [
+   "IY P W\u2192",
+   1,
+   [
+    "deepwater"
+   ]
+  ],
+  [
+   "EY G @\u2192AE",
+   1,
+   [
+    "degas"
+   ]
+  ],
+  [
+   "\u2192AA JH @ L",
+   1,
+   [
+    "demodulate"
+   ]
+  ],
+  [
+   "EH M @\u2192AA",
+   1,
+   [
+    "demonstrable"
+   ]
+  ],
+  [
+   "EH\u2192IY | OW Z\u2192AA S",
+   1,
+   [
+    "demos"
+   ]
+  ],
+  [
+   "N\u2192NG | \u2192EY",
+   1,
+   [
+    "dengue"
+   ]
+  ],
+  [
+   "SH\u2192T | \u2192AA",
+   1,
+   [
+    "depravation"
+   ]
+  ],
+  [
+   "IH\u2192IY | \u2192@",
+   1,
+   [
+    "depreciable"
+   ]
+  ],
+  [
+   "\u2192EH S @ K R",
+   1,
+   [
+    "desecrate"
+   ]
+  ],
+  [
+   "IH\u2192EH S P @",
+   1,
+   [
+    "despicable"
+   ]
+  ],
+  [
+   "EH S T @ T\u2192",
+   1,
+   [
+    "destitution"
+   ]
+  ],
+  [
+   "UW @\u2192AA",
+   1,
+   [
+    "dewan"
+   ]
+  ],
+  [
+   "AY JH\u2192",
+   1,
+   [
+    "digester"
+   ]
+  ],
+  [
+   "\u2192IH L @ D",
+   1,
+   [
+    "dillydally"
+   ]
+  ],
+  [
+   "IH N JH\u2192I NG G",
+   1,
+   [
+    "dingy"
+   ]
+  ],
+  [
+   "IH\u2192IY | AA\u2192@",
+   1,
+   [
+    "diphtheria"
+   ]
+  ],
+  [
+   "UW\u2192AH N @",
+   1,
+   [
+    "discontinuity"
+   ]
+  ],
+  [
+   "IH S K OW T\u2192",
+   1,
+   [
+    "discotheque"
+   ]
+  ],
+  [
+   "\u2192@ | @\u2192EH",
+   1,
+   [
+    "disinterested"
+   ]
+  ],
+  [
+   "AO R S\u2192",
+   1,
+   [
+    "divorcee"
+   ]
+  ],
+  [
+   "AE\u2192AA K Y UH D R AA",
+   1,
+   [
+    "docudrama"
+   ]
+  ],
+  [
+   "AO G\u2192",
+   1,
+   [
+    "doggone"
+   ]
+  ],
+  [
+   "\u2192AA M @ N | N @\u2192",
+   1,
+   [
+    "domine"
+   ]
+  ],
+  [
+   "\u2192AO N | N @\u2192",
+   1,
+   [
+    "donna"
+   ]
+  ],
+  [
+   "UW\u2192AO",
+   1,
+   [
+    "doorknob"
+   ]
+  ],
+  [
+   "AO R\u2192EY",
+   1,
+   [
+    "dore"
+   ]
+  ],
+  [
+   "AH B @ L TH\u2192",
+   1,
+   [
+    "doublethink"
+   ]
+  ],
+  [
+   "OW\u2192UW | @\u2192AA",
+   1,
+   [
+    "douma"
+   ]
+  ],
+  [
+   "\u2192AW N B",
+   1,
+   [
+    "downbeat"
+   ]
+  ],
+  [
+   "\u2192AW N G R",
+   1,
+   [
+    "downgrade"
+   ]
+  ],
+  [
+   "AW N L\u2192",
+   1,
+   [
+    "download"
+   ]
+  ],
+  [
+   "AW N P L\u2192",
+   1,
+   [
+    "downplay"
+   ]
+  ],
+  [
+   "AW N S T\u2192",
+   1,
+   [
+    "downstage"
+   ]
+  ],
+  [
+   "\u2192AW N T R",
+   1,
+   [
+    "downtrodden"
+   ]
+  ],
+  [
+   "OY @\u2192EH",
+   1,
+   [
+    "doyen"
+   ]
+  ],
+  [
+   "S\u2192CH EY",
+   1,
+   [
+    "duce"
+   ]
+  ],
+  [
+   "IY\u2192IH N | \u2192@",
+   1,
+   [
+    "dulcinea"
+   ]
+  ],
+  [
+   "AH M F\u2192",
+   1,
+   [
+    "dumbfound"
+   ]
+  ],
+  [
+   "\u2192UW N",
+   1,
+   [
+    "dunite"
+   ]
+  ],
+  [
+   "AA D @\u2192IY",
+   1,
+   [
+    "duodenum"
+   ]
+  ],
+  [
+   "UH R @\u2192EH",
+   1,
+   [
+    "duress"
+   ]
+  ],
+  [
+   "@\u2192R I",
+   1,
+   [
+    "earring"
+   ]
+  ],
+  [
+   "\u2192EH JH UH K",
+   1,
+   [
+    "educative"
+   ]
+  ],
+  [
+   "EH F Y @\u2192UW",
+   1,
+   [
+    "effusive"
+   ]
+  ],
+  [
+   "IY L @\u2192AA",
+   1,
+   [
+    "elan"
+   ]
+  ],
+  [
+   "\u2192EH K T R @ L",
+   1,
+   [
+    "electrolyte"
+   ]
+  ],
+  [
+   "AO\u2192OW | IH\u2192@",
+   1,
+   [
+    "encomium"
+   ]
+  ],
+  [
+   "OW\u2192@ | AY\u2192@",
+   1,
+   [
+    "endocrine"
+   ]
+  ],
+  [
+   "UW @\u2192IY",
+   1,
+   [
+    "ennui"
+   ]
+  ],
+  [
+   "\u2192@ | IY\u2192@",
+   1,
+   [
+    "epidemiologically"
+   ]
+  ],
+  [
+   "\u2192UH",
+   1,
+   [
+    "epidural"
+   ]
+  ],
+  [
+   "EH P @ S T\u2192 | \u2192@",
+   1,
+   [
+    "episteme"
+   ]
+  ],
+  [
+   "EH\u2192IY | Y\u2192@",
+   1,
+   [
+    "epithelial"
+   ]
+  ],
+  [
+   "AO\u2192AA | IH\u2192@",
+   1,
+   [
+    "eponymous"
+   ]
+  ],
+  [
+   "UW\u2192EH S K Y @",
+   1,
+   [
+    "esculent"
+   ]
+  ],
+  [
+   "EH S P @\u2192AY",
+   1,
+   [
+    "espy"
+   ]
+  ],
+  [
+   "EH S K W\u2192 | R\u2192ER",
+   1,
+   [
+    "esquire"
+   ]
+  ],
+  [
+   "AE N JH @ L @\u2192IH",
+   1,
+   [
+    "evangelistic"
+   ]
+  ],
+  [
+   "\u2192EH V R @ D",
+   1,
+   [
+    "everyday"
+   ]
+  ],
+  [
+   "\u2192ER | @ R @\u2192",
+   1,
+   [
+    "evidentiary"
+   ]
+  ],
+  [
+   "\u2192K S @ L @",
+   1,
+   [
+    "excellency"
+   ]
+  ],
+  [
+   "AH\u2192EH K S K @",
+   1,
+   [
+    "exculpate"
+   ]
+  ],
+  [
+   "\u2192K S @",
+   1,
+   [
+    "execrable"
+   ]
+  ],
+  [
+   "IH\u2192EH K S @",
+   1,
+   [
+    "exigency"
+   ]
+  ],
+  [
+   "AO\u2192EH K S AA",
+   1,
+   [
+    "exon"
+   ]
+  ],
+  [
+   "IH\u2192EH K S P L @",
+   1,
+   [
+    "explicable"
+   ]
+  ],
+  [
+   "IH\u2192EH K S K W @",
+   1,
+   [
+    "exquisitely"
+   ]
+  ],
+  [
+   "EH K S T\u2192",
+   1,
+   [
+    "extender"
+   ]
+  ],
+  [
+   "IY\u2192AH",
+   1,
+   [
+    "extralegal"
+   ]
+  ],
+  [
+   "IH\u2192EH K S T R @",
+   1,
+   [
+    "extricable"
+   ]
+  ],
+  [
+   "\u2192AO L K @ N",
+   1,
+   [
+    "falconet"
+   ]
+  ],
+  [
+   "EH\u2192IY | IH\u2192@",
+   1,
+   [
+    "feverishly"
+   ]
+  ],
+  [
+   "AE N S @\u2192EY",
+   1,
+   [
+    "fiancee"
+   ]
+  ],
+  [
+   "CH\u2192SH | S\u2192Z",
+   1,
+   [
+    "fichus"
+   ]
+  ],
+  [
+   "EY\u2192IH L @ T",
+   1,
+   [
+    "fillet"
+   ]
+  ],
+  [
+   "AY R P\u2192",
+   1,
+   [
+    "firepower"
+   ]
+  ],
+  [
+   "AO\u2192AH M @",
+   1,
+   [
+    "flummox"
+   ]
+  ],
+  [
+   "UH\u2192UW AO",
+   1,
+   [
+    "fluorspar"
+   ]
+  ],
+  [
+   "OW M @\u2192EH",
+   1,
+   [
+    "foment"
+   ]
+  ],
+  [
+   "HH\u2192",
+   1,
+   [
+    "forehead"
+   ]
+  ],
+  [
+   "\u2192AO R TH R",
+   1,
+   [
+    "forthright"
+   ]
+  ],
+  [
+   "\u2192AO R F",
+   1,
+   [
+    "fourfold"
+   ]
+  ],
+  [
+   "D\u2192JH",
+   1,
+   [
+    "fraudulently"
+   ]
+  ],
+  [
+   "L AE N S\u2192",
+   1,
+   [
+    "freelance"
+   ]
+  ],
+  [
+   "\u2192IY M",
+   1,
+   [
+    "freemasonry"
+   ]
+  ],
+  [
+   "IY S T\u2192",
+   1,
+   [
+    "freestanding"
+   ]
+  ],
+  [
+   "IY W\u2192",
+   1,
+   [
+    "freewheeling"
+   ]
+  ],
+  [
+   "T IY\u2192CH",
+   1,
+   [
+    "fustian"
+   ]
+  ],
+  [
+   "EY\u2192AE | \u2192Y",
+   1,
+   [
+    "gaillard"
+   ]
+  ],
+  [
+   "AA R N @\u2192EH",
+   1,
+   [
+    "garnett"
+   ]
+  ],
+  [
+   "AE S @ L\u2192",
+   1,
+   [
+    "gasoline"
+   ]
+  ],
+  [
+   "IY\u2192EH L @ T @",
+   1,
+   [
+    "gelatine"
+   ]
+  ],
+  [
+   "OW D\u2192",
+   1,
+   [
+    "godown"
+   ]
+  ],
+  [
+   "UH D B\u2192",
+   1,
+   [
+    "goodby"
+   ]
+  ],
+  [
+   "UW\u2192AE N JH @",
+   1,
+   [
+    "grandeur"
+   ]
+  ],
+  [
+   "\u2192AE N N",
+   1,
+   [
+    "grandnephew"
+   ]
+  ],
+  [
+   "\u2192AE N D",
+   1,
+   [
+    "granduncle"
+   ]
+  ],
+  [
+   "UW\u2192AE N Y @",
+   1,
+   [
+    "granulocyte"
+   ]
+  ],
+  [
+   "\u2192AA V | V\u2192",
+   1,
+   [
+    "gravely"
+   ]
+  ],
+  [
+   "AE V\u2192IH M | M IY\u2192",
+   1,
+   [
+    "gravimeter"
+   ]
+  ],
+  [
+   "D\u2192 | TH\u2192DH",
+   1,
+   [
+    "great-grandmother"
+   ]
+  ],
+  [
+   "EY HH\u2192",
+   1,
+   [
+    "greyhound"
+   ]
+  ],
+  [
+   "\u2192AH N K",
+   1,
+   [
+    "guncotton"
+   ]
+  ],
+  [
+   "IY\u2192AH T S @",
+   1,
+   [
+    "gutsy"
+   ]
+  ],
+  [
+   "AY @ T\u2192OW",
+   1,
+   [
+    "guyot"
+   ]
+  ],
+  [
+   "AE B @\u2192IH | \u2192EY",
+   1,
+   [
+    "habitues"
+   ]
+  ],
+  [
+   "AE F B\u2192",
+   1,
+   [
+    "half-baked"
+   ]
+  ],
+  [
+   "AE F K\u2192",
+   1,
+   [
+    "half-cocked"
+   ]
+  ],
+  [
+   "AE F D\u2192",
+   1,
+   [
+    "half-dozen"
+   ]
+  ],
+  [
+   "EY M @\u2192AA",
+   1,
+   [
+    "hamal"
+   ]
+  ],
+  [
+   "ER\u2192@ | @\u2192AE",
+   1,
+   [
+    "hammerman"
+   ]
+  ],
+  [
+   "ER\u2192@ | IH\u2192@",
+   1,
+   [
+    "hammersmith"
+   ]
+  ],
+  [
+   "AE N D K R\u2192",
+   1,
+   [
+    "handcrafted"
+   ]
+  ],
+  [
+   "\u2192AA R D K",
+   1,
+   [
+    "hardcore"
+   ]
+  ],
+  [
+   "AA R D K\u2192",
+   1,
+   [
+    "hardcover"
+   ]
+  ],
+  [
+   "AA R D HH\u2192",
+   1,
+   [
+    "hardheaded"
+   ]
+  ],
+  [
+   "AA R D W\u2192",
+   1,
+   [
+    "hardworking"
+   ]
+  ],
+  [
+   "EH D M\u2192",
+   1,
+   [
+    "headmistress"
+   ]
+  ],
+  [
+   "EH V @ S\u2192",
+   1,
+   [
+    "heavyset"
+   ]
+  ],
+  [
+   "\u2192AH N | N IH\u2192",
+   1,
+   [
+    "hedonism"
+   ]
+  ],
+  [
+   "UW\u2192EH L @",
+   1,
+   [
+    "helluva"
+   ]
+  ],
+  [
+   "\u2192IY M @ G L",
+   1,
+   [
+    "hemoglobin"
+   ]
+  ],
+  [
+   "UW L @\u2192IY",
+   1,
+   [
+    "herculean"
+   ]
+  ],
+  [
+   "TH\u2192S",
+   1,
+   [
+    "heth"
+   ]
+  ],
+  [
+   "AY F L\u2192",
+   1,
+   [
+    "highflying"
+   ]
+  ],
+  [
+   "IH\u2192AY | @\u2192I",
+   1,
+   [
+    "hijinks"
+   ]
+  ],
+  [
+   "AY N D K W\u2192 | ER\u2192@",
+   1,
+   [
+    "hindquarters"
+   ]
+  ],
+  [
+   "\u2192IH P B",
+   1,
+   [
+    "hipbone"
+   ]
+  ],
+  [
+   "IH T AE N R\u2192",
+   1,
+   [
+    "hit-and-run"
+   ]
+  ],
+  [
+   "\u2192IH DH ER T",
+   1,
+   [
+    "hitherto"
+   ]
+  ],
+  [
+   "OW M B\u2192",
+   1,
+   [
+    "homebound"
+   ]
+  ],
+  [
+   "AE\u2192AA P @",
+   1,
+   [
+    "homeopathy"
+   ]
+  ],
+  [
+   "OW M S T R\u2192",
+   1,
+   [
+    "homestretch"
+   ]
+  ],
+  [
+   "OW M T\u2192",
+   1,
+   [
+    "hometown"
+   ]
+  ],
+  [
+   "OW M W\u2192",
+   1,
+   [
+    "homeworker"
+   ]
+  ],
+  [
+   "AH W\u2192@",
+   1,
+   [
+    "homosexual"
+   ]
+  ],
+  [
+   "HH OW M OW\u2192AA",
+   1,
+   [
+    "homosporous"
+   ]
+  ],
+  [
+   "IH\u2192AA S P @",
+   1,
+   [
+    "hospitable"
+   ]
+  ],
+  [
+   "AO\u2192AA | IH\u2192@ | @\u2192AH",
+   1,
+   [
+    "hospitalize"
+   ]
+  ],
+  [
+   "AH F\u2192AA K",
+   1,
+   [
+    "hough"
+   ]
+  ],
+  [
+   "AH\u2192AA | ER\u2192@",
+   1,
+   [
+    "hovercraft"
+   ]
+  ],
+  [
+   "\u2192AH L @ B @ L",
+   1,
+   [
+    "hullabaloo"
+   ]
+  ],
+  [
+   "AH M D @\u2192I",
+   1,
+   [
+    "humdinger"
+   ]
+  ],
+  [
+   "AO R @\u2192IY",
+   1,
+   [
+    "hyperborean"
+   ]
+  ],
+  [
+   "IY AA\u2192@ @",
+   1,
+   [
+    "hyperopia"
+   ]
+  ],
+  [
+   "\u2192AY P ER S P",
+   1,
+   [
+    "hyperspace"
+   ]
+  ],
+  [
+   "AY P\u2192 | OW\u2192@",
+   1,
+   [
+    "hypertrophy"
+   ]
+  ],
+  [
+   "\u2192@ | @\u2192IH",
+   1,
+   [
+    "idealism"
+   ]
+  ],
+  [
+   "\u2192IH N K R",
+   1,
+   [
+    "idiosyncratic"
+   ]
+  ],
+  [
+   "\u2192AY D",
+   1,
+   [
+    "idolatry"
+   ]
+  ],
+  [
+   "IH\u2192@ | IY\u2192@",
+   1,
+   [
+    "imaginatively"
+   ]
+  ],
+  [
+   "\u2192IH M | \u2192IY",
+   1,
+   [
+    "imagines"
+   ]
+  ],
+  [
+   "AY\u2192AA | @ N\u2192",
+   1,
+   [
+    "iman"
+   ]
+  ],
+  [
+   "IH\u2192AH T @",
+   1,
+   [
+    "immaterial"
+   ]
+  ],
+  [
+   "IH M @ L\u2192",
+   1,
+   [
+    "immolation"
+   ]
+  ],
+  [
+   "\u2192EH",
+   1,
+   [
+    "impatiens"
+   ]
+  ],
+  [
+   "AY\u2192IH M P @",
+   1,
+   [
+    "impious"
+   ]
+  ],
+  [
+   "IH\u2192AA L @ | IH\u2192@",
+   1,
+   [
+    "impolitic"
+   ]
+  ],
+  [
+   "IH M P R @ S\u2192",
+   1,
+   [
+    "imprecise"
+   ]
+  ],
+  [
+   "\u2192IH N HH",
+   1,
+   [
+    "in-house"
+   ]
+  ],
+  [
+   "AE S M @ K\u2192AH T SH",
+   1,
+   [
+    "inasmuch"
+   ]
+  ],
+  [
+   "IH N B\u2192",
+   1,
+   [
+    "inborn"
+   ]
+  ],
+  [
+   "IH N B R\u2192",
+   1,
+   [
+    "inbred"
+   ]
+  ],
+  [
+   "\u2192IH N B R",
+   1,
+   [
+    "inbreeding"
+   ]
+  ],
+  [
+   "IY\u2192AA G N @",
+   1,
+   [
+    "incognito"
+   ]
+  ],
+  [
+   "AA N K L @\u2192UW",
+   1,
+   [
+    "inconclusively"
+   ]
+  ],
+  [
+   "AA N S P\u2192IH K Y | K W\u2192",
+   1,
+   [
+    "inconspicuous"
+   ]
+  ],
+  [
+   "AO R D @\u2192AH",
+   1,
+   [
+    "incoordination"
+   ]
+  ],
+  [
+   "I NG K @\u2192AH",
+   1,
+   [
+    "inculcate"
+   ]
+  ],
+  [
+   "EH S @\u2192AY",
+   1,
+   [
+    "indecisiveness"
+   ]
+  ],
+  [
+   "S Y\u2192SH | \u2192@",
+   1,
+   [
+    "indicia"
+   ]
+  ],
+  [
+   "IH N D\u2192",
+   1,
+   [
+    "indoors"
+   ]
+  ],
+  [
+   "IY\u2192IH N D R @",
+   1,
+   [
+    "indri"
+   ]
+  ],
+  [
+   "IH\u2192EH K | \u2192P L @ K",
+   1,
+   [
+    "inexplicable"
+   ]
+  ],
+  [
+   "N F @\u2192",
+   1,
+   [
+    "infiltrate"
+   ]
+  ],
+  [
+   "\u2192IH N F R @ S T R",
+   1,
+   [
+    "infrastructure"
+   ]
+  ],
+  [
+   "AA\u2192AE | JH\u2192ZH",
+   1,
+   [
+    "ingenue"
+   ]
+  ],
+  [
+   "IH N S @ F\u2192",
+   1,
+   [
+    "insofar"
+   ]
+  ],
+  [
+   "IH N S T @\u2192I",
+   1,
+   [
+    "instinct"
+   ]
+  ],
+  [
+   "\u2192AH L | L EH\u2192",
+   1,
+   [
+    "intellect"
+   ]
+  ],
+  [
+   "UW\u2192AH L @ K CH @",
+   1,
+   [
+    "intellectualism"
+   ]
+  ],
+  [
+   "\u2192IH N T ER B",
+   1,
+   [
+    "interbank"
+   ]
+  ],
+  [
+   "ER\u2192IY S @ | @ S IY N\u2192",
+   1,
+   [
+    "internecine"
+   ]
+  ],
+  [
+   "\u2192IH N T",
+   1,
+   [
+    "internist"
+   ]
+  ],
+  [
+   "IH N T R @ S P\u2192",
+   1,
+   [
+    "introspect"
+   ]
+  ],
+  [
+   "IH N T R OW V\u2192",
+   1,
+   [
+    "introvert"
+   ]
+  ],
+  [
+   "IH N V ER N\u2192",
+   1,
+   [
+    "inverness"
+   ]
+  ],
+  [
+   "UW\u2192EH F Y @",
+   1,
+   [
+    "irrefutable"
+   ]
+  ],
+  [
+   "EH\u2192IY | IY\u2192 | \u2192@",
+   1,
+   [
+    "ischemia"
+   ]
+  ],
+  [
+   "IH N ER\u2192",
+   1,
+   [
+    "itinerary"
+   ]
+  ],
+  [
+   "IY HH AE\u2192AA",
+   1,
+   [
+    "jihad"
+   ]
+  ],
+  [
+   "IY\u2192AH L @",
+   1,
+   [
+    "journalese"
+   ]
+  ],
+  [
+   "ER\u2192@ | \u2192R",
+   1,
+   [
+    "juggernaut"
+   ]
+  ],
+  [
+   "AE\u2192AA | @\u2192AA",
+   1,
+   [
+    "kana"
+   ]
+  ],
+  [
+   "AW\u2192EY @",
+   1,
+   [
+    "kaolin"
+   ]
+  ],
+  [
+   "SH\u2192ZH",
+   1,
+   [
+    "kashmir"
+   ]
+  ],
+  [
+   "IY\u2192EY @",
+   1,
+   [
+    "kea"
+   ]
+  ],
+  [
+   "\u2192EY B",
+   1,
+   [
+    "kebab"
+   ]
+  ],
+  [
+   "IY AO\u2192AA",
+   1,
+   [
+    "kiosk"
+   ]
+  ],
+  [
+   "IH Z @\u2192IY S AA",
+   1,
+   [
+    "kisan"
+   ]
+  ],
+  [
+   "\u2192IH K N",
+   1,
+   [
+    "knick-knack"
+   ]
+  ],
+  [
+   "UW\u2192AO R @",
+   1,
+   [
+    "koruna"
+   ]
+  ],
+  [
+   "IH\u2192AH R @ | IY\u2192@",
+   1,
+   [
+    "labyrinthine"
+   ]
+  ],
+  [
+   "NG AA\u2192",
+   1,
+   [
+    "lagniappe"
+   ]
+  ],
+  [
+   "EH\u2192AE M @",
+   1,
+   [
+    "lamentable"
+   ]
+  ],
+  [
+   "AY\u2192AE P @ | \u2192IY",
+   1,
+   [
+    "lapides"
+   ]
+  ],
+  [
+   "AA R JH @\u2192EH",
+   1,
+   [
+    "largess"
+   ]
+  ],
+  [
+   "IY\u2192AE R @ | @\u2192",
+   1,
+   [
+    "larine"
+   ]
+  ],
+  [
+   "AO\u2192AA | OW\u2192@ | IY\u2192@",
+   1,
+   [
+    "laryngoscopy"
+   ]
+  ],
+  [
+   "\u2192R | CH\u2192T SH",
+   1,
+   [
+    "launcher"
+   ]
+  ],
+  [
+   "UW\u2192AE Z UH",
+   1,
+   [
+    "lazuli"
+   ]
+  ],
+  [
+   "IY @\u2192EH",
+   1,
+   [
+    "leant"
+   ]
+  ],
+  [
+   "IY P F R AO\u2192AA",
+   1,
+   [
+    "leapfrog"
+   ]
+  ],
+  [
+   "K\u2192T SH",
+   1,
+   [
+    "lech"
+   ]
+  ],
+  [
+   "EH G @ L\u2192 | S\u2192Z",
+   1,
+   [
+    "legalese"
+   ]
+  ],
+  [
+   "IY JH @ N\u2192",
+   1,
+   [
+    "legionnaire"
+   ]
+  ],
+  [
+   "\u2192EH G R",
+   1,
+   [
+    "legroom"
+   ]
+  ],
+  [
+   "ER\u2192R @ | AW\u2192AO",
+   1,
+   [
+    "leprechaun"
+   ]
+  ],
+  [
+   "UW\u2192EH UH",
+   1,
+   [
+    "leu"
+   ]
+  ],
+  [
+   "V\u2192F",
+   1,
+   [
+    "lev"
+   ]
+  ],
+  [
+   "\u2192EH R | R IY\u2192",
+   1,
+   [
+    "library"
+   ]
+  ],
+  [
+   "\u2192AY F L",
+   1,
+   [
+    "lifelong"
+   ]
+  ],
+  [
+   "AY T HH\u2192",
+   1,
+   [
+    "lighthearted"
+   ]
+  ],
+  [
+   "\u2192AY T W",
+   1,
+   [
+    "lightweight"
+   ]
+  ],
+  [
+   "AA N ZH ER\u2192",
+   1,
+   [
+    "lingerie"
+   ]
+  ],
+  [
+   "IH\u2192AY | @\u2192OW",
+   1,
+   [
+    "liposome"
+   ]
+  ],
+  [
+   "IH\u2192IY | @\u2192EY",
+   1,
+   [
+    "lire"
+   ]
+  ],
+  [
+   "OW B OW\u2192AA | OW\u2192@",
+   1,
+   [
+    "lobotomy"
+   ]
+  ],
+  [
+   "K @\u2192S AY",
+   1,
+   [
+    "loci"
+   ]
+  ],
+  [
+   "G\u2192JH | @\u2192",
+   1,
+   [
+    "loggia"
+   ]
+  ],
+  [
+   "AO NG S T\u2192",
+   1,
+   [
+    "longstanding"
+   ]
+  ],
+  [
+   "AW\u2192AA K",
+   1,
+   [
+    "lough"
+   ]
+  ],
+  [
+   "IY\u2192UW @",
+   1,
+   [
+    "louie"
+   ]
+  ],
+  [
+   "UW\u2192AW",
+   1,
+   [
+    "loury"
+   ]
+  ],
+  [
+   "AW\u2192UW",
+   1,
+   [
+    "lown"
+   ]
+  ],
+  [
+   "UW S\u2192",
+   1,
+   [
+    "lucerne"
+   ]
+  ],
+  [
+   "IY\u2192UW S @",
+   1,
+   [
+    "lucida"
+   ]
+  ],
+  [
+   "G ZH\u2192K SH",
+   1,
+   [
+    "luxury"
+   ]
+  ],
+  [
+   "\u2192IH M F @ B L",
+   1,
+   [
+    "lymphoblast"
+   ]
+  ],
+  [
+   "AA CH\u2192AE T SH",
+   1,
+   [
+    "macho"
+   ]
+  ],
+  [
+   "AE K R\u2192AA M | M EY\u2192",
+   1,
+   [
+    "macrame"
+   ]
+  ],
+  [
+   "EH\u2192AE D @ L EY",
+   1,
+   [
+    "madeleine"
+   ]
+  ],
+  [
+   "AE G @ Z\u2192",
+   1,
+   [
+    "magazine"
+   ]
+  ],
+  [
+   "ZH AH\u2192JH @",
+   1,
+   [
+    "maharaja"
+   ]
+  ],
+  [
+   "AE TH @\u2192AY",
+   1,
+   [
+    "malathion"
+   ]
+  ],
+  [
+   "\u2192AE L K @ N T",
+   1,
+   [
+    "malcontent"
+   ]
+  ],
+  [
+   "AA\u2192AE | Z\u2192S",
+   1,
+   [
+    "manas"
+   ]
+  ],
+  [
+   "AE N @ T\u2192",
+   1,
+   [
+    "manatee"
+   ]
+  ],
+  [
+   "AA\u2192AE N",
+   1,
+   [
+    "mandala"
+   ]
+  ],
+  [
+   "EY\u2192AA N @ T",
+   1,
+   [
+    "manet"
+   ]
+  ],
+  [
+   "EY\u2192AE | G\u2192",
+   1,
+   [
+    "mangel"
+   ]
+  ],
+  [
+   "\u2192UH L | L EY\u2192",
+   1,
+   [
+    "manipulative"
+   ]
+  ],
+  [
+   "EH\u2192AA | \u2192EY",
+   1,
+   [
+    "mare"
+   ]
+  ],
+  [
+   "IY\u2192AA R | \u2192@",
+   1,
+   [
+    "maria"
+   ]
+  ],
+  [
+   "AA R @ N\u2192",
+   1,
+   [
+    "marinade"
+   ]
+  ],
+  [
+   "IY\u2192AA R K W @ S",
+   1,
+   [
+    "marquis"
+   ]
+  ],
+  [
+   "EH\u2192IY | @\u2192AA",
+   1,
+   [
+    "marriage"
+   ]
+  ],
+  [
+   "AY\u2192EY L",
+   1,
+   [
+    "marseilles"
+   ]
+  ],
+  [
+   "AA R SH M EH\u2192AE",
+   1,
+   [
+    "marshmallow"
+   ]
+  ],
+  [
+   "NG\u2192N G",
+   1,
+   [
+    "martingale"
+   ]
+  ],
+  [
+   "\u2192EY",
+   1,
+   [
+    "masse"
+   ]
+  ],
+  [
+   "AE T @\u2192AH",
+   1,
+   [
+    "matinee"
+   ]
+  ],
+  [
+   "IH\u2192AE K S @ | \u2192EH R | R IY\u2192",
+   1,
+   [
+    "maxillary"
+   ]
+  ],
+  [
+   "EY @ N\u2192",
+   1,
+   [
+    "mayonnaise"
+   ]
+  ],
+  [
+   "EH L @ M @\u2192EY",
+   1,
+   [
+    "melamed"
+   ]
+  ],
+  [
+   "IY\u2192IH | Y\u2192 | \u2192@",
+   1,
+   [
+    "memorabilia"
+   ]
+  ],
+  [
+   "\u2192EH NG G | NG\u2192",
+   1,
+   [
+    "merengue"
+   ]
+  ],
+  [
+   "AE\u2192AA | Z\u2192",
+   1,
+   [
+    "mesdames"
+   ]
+  ],
+  [
+   "EH S K\u2192",
+   1,
+   [
+    "mesquite"
+   ]
+  ],
+  [
+   "\u2192EH S",
+   1,
+   [
+    "messieurs"
+   ]
+  ],
+  [
+   "EH T Y ER\u2192EY",
+   1,
+   [
+    "metier"
+   ]
+  ],
+  [
+   "EH T @\u2192IY",
+   1,
+   [
+    "metis"
+   ]
+  ],
+  [
+   "Z\u2192T S",
+   1,
+   [
+    "mezzo"
+   ]
+  ],
+  [
+   "IH\u2192AY K R OW T SH @",
+   1,
+   [
+    "microchip"
+   ]
+  ],
+  [
+   "\u2192AY K R OW K @ M P Y",
+   1,
+   [
+    "microcomputer"
+   ]
+  ],
+  [
+   "OW\u2192@ | @\u2192IY",
+   1,
+   [
+    "microliter"
+   ]
+  ],
+  [
+   "IH D AE F T ER N\u2192",
+   1,
+   [
+    "midafternoon"
+   ]
+  ],
+  [
+   "\u2192IH D K",
+   1,
+   [
+    "midcourse"
+   ]
+  ],
+  [
+   "IH\u2192EY JH | @ L EY G D\u2192",
+   1,
+   [
+    "middle-aged"
+   ]
+  ],
+  [
+   "IH D M\u2192",
+   1,
+   [
+    "midmorning"
+   ]
+  ],
+  [
+   "\u2192IH D SH",
+   1,
+   [
+    "midshipman"
+   ]
+  ],
+  [
+   "IH D S T R\u2192",
+   1,
+   [
+    "midstream"
+   ]
+  ],
+  [
+   "IH D T\u2192",
+   1,
+   [
+    "midtown"
+   ]
+  ],
+  [
+   "IH G\u2192AA | @ N\u2192",
+   1,
+   [
+    "mignon"
+   ]
+  ],
+  [
+   "UW\u2192Y @",
+   1,
+   [
+    "mildew"
+   ]
+  ],
+  [
+   "IY T ER\u2192OW",
+   1,
+   [
+    "millimeter"
+   ]
+  ],
+  [
+   "\u2192@ | ER\u2192@ R",
+   1,
+   [
+    "miniaturize"
+   ]
+  ],
+  [
+   "\u2192IH N @ K @ M P Y",
+   1,
+   [
+    "minicomputer"
+   ]
+  ],
+  [
+   "I NG\u2192IH N | \u2192@",
+   1,
+   [
+    "minke"
+   ]
+  ],
+  [
+   "@\u2192G",
+   1,
+   [
+    "minnie"
+   ]
+  ],
+  [
+   "IH S K Y\u2192",
+   1,
+   [
+    "miscue"
+   ]
+  ],
+  [
+   "IH S F\u2192",
+   1,
+   [
+    "misfit"
+   ]
+  ],
+  [
+   "IH T S V @\u2192AA",
+   1,
+   [
+    "mitzvah"
+   ]
+  ],
+  [
+   "AO\u2192AA | UH\u2192@",
+   1,
+   [
+    "modulus"
+   ]
+  ],
+  [
+   "OW @\u2192EY",
+   1,
+   [
+    "mohel"
+   ]
+  ],
+  [
+   "AA\u2192OW | UW\u2192@",
+   1,
+   [
+    "molecule"
+   ]
+  ],
+  [
+   "AO\u2192OW | @\u2192",
+   1,
+   [
+    "moleskin"
+   ]
+  ],
+  [
+   "IY\u2192OW L @",
+   1,
+   [
+    "moline"
+   ]
+  ],
+  [
+   "AA N D\u2192",
+   1,
+   [
+    "mondo"
+   ]
+  ],
+  [
+   "AA\u2192AH | ER IH\u2192@ R IY",
+   1,
+   [
+    "monetarism"
+   ]
+  ],
+  [
+   "@\u2192OW | @\u2192AH",
+   1,
+   [
+    "monohull"
+   ]
+  ],
+  [
+   "AE\u2192AA N @ S | ER AY D\u2192OW P",
+   1,
+   [
+    "monosaccharide"
+   ]
+  ],
+  [
+   "R\u2192@ | AE\u2192@",
+   1,
+   [
+    "moorland"
+   ]
+  ],
+  [
+   "AO\u2192AA | @\u2192AH",
+   1,
+   [
+    "moribund"
+   ]
+  ],
+  [
+   "AA\u2192AO R F @ | \u2192OW G | JH @\u2192",
+   1,
+   [
+    "morphology"
+   ]
+  ],
+  [
+   "AW\u2192AH | T\u2192 | N IH\u2192",
+   1,
+   [
+    "mountaineering"
+   ]
+  ],
+  [
+   "AA\u2192AH R",
+   1,
+   [
+    "moussaka"
+   ]
+  ],
+  [
+   "AH S T AE\u2192AA",
+   1,
+   [
+    "moustache"
+   ]
+  ],
+  [
+   "\u2192AH L T @ K",
+   1,
+   [
+    "multicolor"
+   ]
+  ],
+  [
+   "\u2192AH L T @ L",
+   1,
+   [
+    "multilayer"
+   ]
+  ],
+  [
+   "\u2192AH L T @ M",
+   1,
+   [
+    "multimillion"
+   ]
+  ],
+  [
+   "@\u2192UH | CH\u2192T SH",
+   1,
+   [
+    "musculature"
+   ]
+  ],
+  [
+   "AE\u2192AA | @\u2192",
+   1,
+   [
+    "mustachio"
+   ]
+  ],
+  [
+   "AA\u2192AH | AA\u2192@",
+   1,
+   [
+    "namaste"
+   ]
+  ],
+  [
+   "AE\u2192EH | \u2192@",
+   1,
+   [
+    "nares"
+   ]
+  ],
+  [
+   "EH R\u2192",
+   1,
+   [
+    "narrator"
+   ]
+  ],
+  [
+   "\u2192EY SH @ N W",
+   1,
+   [
+    "nationwide"
+   ]
+  ],
+  [
+   "ZH\u2192Z",
+   1,
+   [
+    "nauseating"
+   ]
+  ],
+  [
+   "IY R S\u2192",
+   1,
+   [
+    "nearsighted"
+   ]
+  ],
+  [
+   "OW\u2192@ | IH\u2192@",
+   1,
+   [
+    "neolith"
+   ]
+  ],
+  [
+   "IY OW L\u2192",
+   1,
+   [
+    "neolithic"
+   ]
+  ],
+  [
+   "UH R OW S\u2192",
+   1,
+   [
+    "neurosurgeon"
+   ]
+  ],
+  [
+   "N T @ @ TH\u2192",
+   1,
+   [
+    "ninetieth"
+   ]
+  ],
+  [
+   "@\u2192UH | S\u2192Z",
+   1,
+   [
+    "nitrocellulose"
+   ]
+  ],
+  [
+   "SH OW\u2192",
+   1,
+   [
+    "no-show"
+   ]
+  ],
+  [
+   "AA N @ L\u2192",
+   1,
+   [
+    "non-aligned"
+   ]
+  ],
+  [
+   "AA R T @ Z @\u2192AE",
+   1,
+   [
+    "non-partisan"
+   ]
+  ],
+  [
+   "AA\u2192OW | AA\u2192@",
+   1,
+   [
+    "nona"
+   ]
+  ],
+  [
+   "SH\u2192CH",
+   1,
+   [
+    "nonintervention"
+   ]
+  ],
+  [
+   "EH\u2192AA V @ | @\u2192AA",
+   1,
+   [
+    "novella"
+   ]
+  ],
+  [
+   "S\u2192Z | IH\u2192@",
+   1,
+   [
+    "numismatist"
+   ]
+  ],
+  [
+   "AA B F @\u2192AH",
+   1,
+   [
+    "obfuscate"
+   ]
+  ],
+  [
+   "\u2192AA B V",
+   1,
+   [
+    "obverse"
+   ]
+  ],
+  [
+   "AA K T @\u2192EY",
+   1,
+   [
+    "octave"
+   ]
+  ],
+  [
+   "AO\u2192AA | \u2192UH L | L IH\u2192",
+   1,
+   [
+    "oculist"
+   ]
+  ],
+  [
+   "AA D\u2192IY | @\u2192",
+   1,
+   [
+    "odea"
+   ]
+  ],
+  [
+   "\u2192AO F B",
+   1,
+   [
+    "offbeat"
+   ]
+  ],
+  [
+   "AO\u2192AA | UW\u2192@",
+   1,
+   [
+    "offshoot"
+   ]
+  ],
+  [
+   "OW L @\u2192",
+   1,
+   [
+    "oleander"
+   ]
+  ],
+  [
+   "OY\u2192IY OW @",
+   1,
+   [
+    "oleoyl"
+   ]
+  ],
+  [
+   "AA\u2192AO | @\u2192UH | @\u2192AE",
+   1,
+   [
+    "ombudsman"
+   ]
+  ],
+  [
+   "NG\u2192N | OW\u2192@",
+   1,
+   [
+    "oncogene"
+   ]
+  ],
+  [
+   "\u2192AH N M",
+   1,
+   [
+    "one-man"
+   ]
+  ],
+  [
+   "IY\u2192AA | \u2192S K R @ N",
+   1,
+   [
+    "onscreen"
+   ]
+  ],
+  [
+   "AA N SH\u2192",
+   1,
+   [
+    "onshore"
+   ]
+  ],
+  [
+   "AA\u2192OW | R\u2192ER",
+   1,
+   [
+    "opera"
+   ]
+  ],
+  [
+   "\u2192AE",
+   1,
+   [
+    "organization"
+   ]
+  ],
+  [
+   "CH\u2192SH | @\u2192",
+   1,
+   [
+    "orthodontia"
+   ]
+  ],
+  [
+   "AO\u2192AA | @\u2192EY",
+   1,
+   [
+    "osprey"
+   ]
+  ],
+  [
+   "AW T B\u2192",
+   1,
+   [
+    "outbid"
+   ]
+  ],
+  [
+   "AW T K L\u2192",
+   1,
+   [
+    "outclass"
+   ]
+  ],
+  [
+   "AW T F L\u2192",
+   1,
+   [
+    "outflank"
+   ]
+  ],
+  [
+   "AW T P\u2192",
+   1,
+   [
+    "outpace"
+   ]
+  ],
+  [
+   "AW T P ER F\u2192",
+   1,
+   [
+    "outperform"
+   ]
+  ],
+  [
+   "\u2192AW T P",
+   1,
+   [
+    "outpour"
+   ]
+  ],
+  [
+   "\u2192AW T R",
+   1,
+   [
+    "outrageous"
+   ]
+  ],
+  [
+   "AW T R\u2192",
+   1,
+   [
+    "outreach"
+   ]
+  ],
+  [
+   "\u2192L ER",
+   1,
+   [
+    "outset"
+   ]
+  ],
+  [
+   "AW CH\u2192",
+   1,
+   [
+    "outshine"
+   ]
+  ],
+  [
+   "AW T S M\u2192",
+   1,
+   [
+    "outsmart"
+   ]
+  ],
+  [
+   "AW T S P\u2192",
+   1,
+   [
+    "outspend"
+   ]
+  ],
+  [
+   "\u2192OW V",
+   1,
+   [
+    "ovation"
+   ]
+  ],
+  [
+   "OW V ER AE M B\u2192",
+   1,
+   [
+    "overambitious"
+   ]
+  ],
+  [
+   "OW V ER CH\u2192",
+   1,
+   [
+    "overcharge"
+   ]
+  ],
+  [
+   "OW V ER K\u2192",
+   1,
+   [
+    "overcome"
+   ]
+  ],
+  [
+   "OW V ER F\u2192",
+   1,
+   [
+    "overfill"
+   ]
+  ],
+  [
+   "OW V ER JH\u2192",
+   1,
+   [
+    "overgenerous"
+   ]
+  ],
+  [
+   "OW V ER HH\u2192",
+   1,
+   [
+    "overheat"
+   ]
+  ],
+  [
+   "OW V ER K W\u2192",
+   1,
+   [
+    "overqualified"
+   ]
+  ],
+  [
+   "\u2192OW V ER S",
+   1,
+   [
+    "overseer"
+   ]
+  ],
+  [
+   "OW V ER SH\u2192",
+   1,
+   [
+    "overshoot"
+   ]
+  ],
+  [
+   "OW V ER S P\u2192",
+   1,
+   [
+    "overspend"
+   ]
+  ],
+  [
+   "OW V ER V\u2192",
+   1,
+   [
+    "overvalue"
+   ]
+  ],
+  [
+   "\u2192F @ | OW\u2192AO",
+   1,
+   [
+    "pacifico"
+   ]
+  ],
+  [
+   "EY\u2192AH R K @",
+   1,
+   [
+    "pakeha"
+   ]
+  ],
+  [
+   "Z OW\u2192T S AO",
+   1,
+   [
+    "palazzo"
+   ]
+  ],
+  [
+   "AE L @\u2192EH",
+   1,
+   [
+    "palette"
+   ]
+  ],
+  [
+   "\u2192M P",
+   1,
+   [
+    "palimpsest"
+   ]
+  ],
+  [
+   "AE\u2192AH L @ | T @ L UW N\u2192",
+   1,
+   [
+    "pantaloon"
+   ]
+  ],
+  [
+   "AE N T @ L\u2192",
+   1,
+   [
+    "pantaloons"
+   ]
+  ],
+  [
+   "AO P AO\u2192AA",
+   1,
+   [
+    "papaw"
+   ]
+  ],
+  [
+   "AO Y\u2192OY",
+   1,
+   [
+    "paperboy"
+   ]
+  ],
+  [
+   "EY\u2192AH @ | ER\u2192@",
+   1,
+   [
+    "paperwork"
+   ]
+  ],
+  [
+   "EH R @\u2192AA",
+   1,
+   [
+    "para"
+   ]
+  ],
+  [
+   "EH\u2192AE | IH\u2192@",
+   1,
+   [
+    "parallelism"
+   ]
+  ],
+  [
+   "EH\u2192AE | EH\u2192@",
+   1,
+   [
+    "parapet"
+   ]
+  ],
+  [
+   "EH\u2192AH R AE F | F R EY Z\u2192S",
+   1,
+   [
+    "paraphrase"
+   ]
+  ],
+  [
+   "IH\u2192@ | @\u2192",
+   1,
+   [
+    "parochialism"
+   ]
+  ],
+  [
+   "AA R T @\u2192IY",
+   1,
+   [
+    "parti"
+   ]
+  ],
+  [
+   "SH\u2192S K",
+   1,
+   [
+    "paschal"
+   ]
+  ],
+  [
+   "AE S ER Z B\u2192",
+   1,
+   [
+    "passers-by"
+   ]
+  ],
+  [
+   "IY\u2192AE S @",
+   1,
+   [
+    "passim"
+   ]
+  ],
+  [
+   "AE\u2192AA | @\u2192AE",
+   1,
+   [
+    "passman"
+   ]
+  ],
+  [
+   "EH\u2192AE S T @",
+   1,
+   [
+    "pastel"
+   ]
+  ],
+  [
+   "AE\u2192AA | CH ER\u2192T Y @ R",
+   1,
+   [
+    "pasteurize"
+   ]
+  ],
+  [
+   "AA L\u2192AO R F | JH\u2192Z | \u2192M",
+   1,
+   [
+    "pathology"
+   ]
+  ],
+  [
+   "IY\u2192AE T @",
+   1,
+   [
+    "patina"
+   ]
+  ],
+  [
+   "\u2192AE T W",
+   1,
+   [
+    "patois"
+   ]
+  ],
+  [
+   "AA\u2192EY T R @ AH",
+   1,
+   [
+    "patriotic"
+   ]
+  ],
+  [
+   "EY\u2192AE | IY\u2192@",
+   1,
+   [
+    "paty"
+   ]
+  ],
+  [
+   "V\u2192",
+   1,
+   [
+    "paves"
+   ]
+  ],
+  [
+   "EH\u2192AH | @\u2192AE",
+   1,
+   [
+    "pedant"
+   ]
+  ],
+  [
+   "IY K @\u2192IH",
+   1,
+   [
+    "pekin"
+   ]
+  ],
+  [
+   "EH\u2192IY | EY\u2192",
+   1,
+   [
+    "pele"
+   ]
+  ],
+  [
+   "EH\u2192AH R F @",
+   1,
+   [
+    "perfect"
+   ]
+  ],
+  [
+   "AO\u2192OW | IY\u2192@",
+   1,
+   [
+    "peyote"
+   ]
+  ],
+  [
+   "\u2192L @",
+   1,
+   [
+    "phalange"
+   ]
+  ],
+  [
+   "\u2192AE N T",
+   1,
+   [
+    "phantasm"
+   ]
+  ],
+  [
+   "AE\u2192EY @ | T @ M\u2192",
+   1,
+   [
+    "phantom"
+   ]
+  ],
+  [
+   "AA M @ N\u2192 | AA G IY\u2192@ JH @",
+   1,
+   [
+    "phenomenology"
+   ]
+  ],
+  [
+   "OW T @\u2192AA | AE\u2192@",
+   1,
+   [
+    "photograph"
+   ]
+  ],
+  [
+   "AA\u2192AH T @ | @\u2192AE | ER\u2192",
+   1,
+   [
+    "photographer"
+   ]
+  ],
+  [
+   "IY\u2192IH | AA\u2192@",
+   1,
+   [
+    "picaro"
+   ]
+  ],
+  [
+   "IY\u2192AY @ | @\u2192IH",
+   1,
+   [
+    "pietism"
+   ]
+  ],
+  [
+   "ER\u2192S T AE F",
+   1,
+   [
+    "piker"
+   ]
+  ],
+  [
+   "IY\u2192IH N @",
+   1,
+   [
+    "pineal"
+   ]
+  ],
+  [
+   "\u2192AY N T S",
+   1,
+   [
+    "pint-size"
+   ]
+  ],
+  [
+   "AE\u2192AA | HH\u2192Y",
+   1,
+   [
+    "piranha"
+   ]
+  ],
+  [
+   "EY\u2192EH",
+   1,
+   [
+    "ploughshare"
+   ]
+  ],
+  [
+   "OW\u2192AA | D\u2192@ N",
+   1,
+   [
+    "polled"
+   ]
+  ],
+  [
+   "OW\u2192AA | ER\u2192@",
+   1,
+   [
+    "poltergeist"
+   ]
+  ],
+  [
+   "P\u2192 | IY\u2192@",
+   1,
+   [
+    "polyglot"
+   ]
+  ],
+  [
+   "AA L\u2192IH M | M ER\u2192R",
+   1,
+   [
+    "polymerize"
+   ]
+  ],
+  [
+   "IY\u2192@ | @\u2192IH",
+   1,
+   [
+    "polytheism"
+   ]
+  ],
+  [
+   "\u2192AA M G R",
+   1,
+   [
+    "pomegranate"
+   ]
+  ],
+  [
+   "OW\u2192AA | S\u2192Z",
+   1,
+   [
+    "pontes"
+   ]
+  ],
+  [
+   "UW R\u2192UH @",
+   1,
+   [
+    "poorhouse"
+   ]
+  ],
+  [
+   "\u2192UH L | L ER\u2192R",
+   1,
+   [
+    "popularize"
+   ]
+  ],
+  [
+   "AO R K B EH\u2192AE",
+   1,
+   [
+    "pork-barrel"
+   ]
+  ],
+  [
+   "AO R T M AA\u2192AE",
+   1,
+   [
+    "portmanteau"
+   ]
+  ],
+  [
+   "IH\u2192IY | Y\u2192@",
+   1,
+   [
+    "posterior"
+   ]
+  ],
+  [
+   "\u2192AA T B",
+   1,
+   [
+    "potboiler"
+   ]
+  ],
+  [
+   "AA T P\u2192",
+   1,
+   [
+    "potpie"
+   ]
+  ],
+  [
+   "EY S\u2192",
+   1,
+   [
+    "precis"
+   ]
+  ],
+  [
+   "SH @ N\u2192T",
+   1,
+   [
+    "prediction"
+   ]
+  ],
+  [
+   "N\u2192 | IY\u2192@",
+   1,
+   [
+    "predominately"
+   ]
+  ],
+  [
+   "IY\u2192",
+   1,
+   [
+    "preempt"
+   ]
+  ],
+  [
+   "\u2192IY F",
+   1,
+   [
+    "prefab"
+   ]
+  ],
+  [
+   "IH\u2192IY L @",
+   1,
+   [
+    "prelim"
+   ]
+  ],
+  [
+   "EY\u2192EH | UW\u2192Y @",
+   1,
+   [
+    "prelude"
+   ]
+  ],
+  [
+   "EH\u2192IY | UW\u2192@",
+   1,
+   [
+    "prepuce"
+   ]
+  ],
+  [
+   "\u2192IY T",
+   1,
+   [
+    "pretense"
+   ]
+  ],
+  [
+   "T HH\u2192TH",
+   1,
+   [
+    "priesthood"
+   ]
+  ],
+  [
+   "EY\u2192OW B @",
+   1,
+   [
+    "probative"
+   ]
+  ],
+  [
+   "OW K\u2192",
+   1,
+   [
+    "procaine"
+   ]
+  ],
+  [
+   "IY\u2192OW S @",
+   1,
+   [
+    "proceeds"
+   ]
+  ],
+  [
+   "AA\u2192OW | EH\u2192@",
+   1,
+   [
+    "processor"
+   ]
+  ],
+  [
+   "\u2192OW K R @",
+   1,
+   [
+    "procreate"
+   ]
+  ],
+  [
+   "AO\u2192AA | EY\u2192@",
+   1,
+   [
+    "profligate"
+   ]
+  ],
+  [
+   "AH\u2192AA M @",
+   1,
+   [
+    "promulgate"
+   ]
+  ],
+  [
+   "\u2192OW P @ L",
+   1,
+   [
+    "propylene"
+   ]
+  ],
+  [
+   "AO\u2192AA | EH\u2192@",
+   1,
+   [
+    "prospector"
+   ]
+  ],
+  [
+   "EH\u2192AA S TH @",
+   1,
+   [
+    "prosthesis"
+   ]
+  ],
+  [
+   "OW V @ L\u2192 | \u2192@",
+   1,
+   [
+    "provolone"
+   ]
+  ],
+  [
+   "OW\u2192AA M @ | Z\u2192S",
+   1,
+   [
+    "pseudomonas"
+   ]
+  ],
+  [
+   "\u2192AY K OW B",
+   1,
+   [
+    "psychobabble"
+   ]
+  ],
+  [
+   "AO\u2192AA | G IY\u2192JH @",
+   1,
+   [
+    "psychopathology"
+   ]
+  ],
+  [
+   "AY K OW S\u2192",
+   1,
+   [
+    "psychosocial"
+   ]
+  ],
+  [
+   "UH\u2192AH | ER\u2192AA R",
+   1,
+   [
+    "pulsar"
+   ]
+  ],
+  [
+   "EH\u2192UH R B R @",
+   1,
+   [
+    "purebred"
+   ]
+  ],
+  [
+   "\u2192UW R | R @\u2192",
+   1,
+   [
+    "purulent"
+   ]
+  ],
+  [
+   "\u2192UH S @ F",
+   1,
+   [
+    "pussyfoot"
+   ]
+  ],
+  [
+   "\u2192AO HH | HH AO\u2192",
+   1,
+   [
+    "quahog"
+   ]
+  ],
+  [
+   "\u2192AA N T @ T",
+   1,
+   [
+    "quantitatively"
+   ]
+  ],
+  [
+   "AA T\u2192 | EH R\u2192ER",
+   1,
+   [
+    "quaternary"
+   ]
+  ],
+  [
+   "\u2192EH S CH @ N M",
+   1,
+   [
+    "question-mark"
+   ]
+  ],
+  [
+   "\u2192IH K S",
+   1,
+   [
+    "quicksilver"
+   ]
+  ],
+  [
+   "AY\u2192IH | AY\u2192@",
+   1,
+   [
+    "quinine"
+   ]
+  ],
+  [
+   "IH N T @\u2192UW",
+   1,
+   [
+    "quintuple"
+   ]
+  ],
+  [
+   "AH\u2192IH N T Y UH",
+   1,
+   [
+    "quintuplet"
+   ]
+  ],
+  [
+   "S HH\u2192SH",
+   1,
+   [
+    "racehorse"
+   ]
+  ],
+  [
+   "IY\u2192AA N @",
+   1,
+   [
+    "ranee"
+   ]
+  ],
+  [
+   "AA N @\u2192IY",
+   1,
+   [
+    "rani"
+   ]
+  ],
+  [
+   "UW\u2192AA T @",
+   1,
+   [
+    "ratu"
+   ]
+  ],
+  [
+   "\u2192AO R",
+   1,
+   [
+    "react"
+   ]
+  ],
+  [
+   "IY\u2192AA",
+   1,
+   [
+    "real"
+   ]
+  ],
+  [
+   "IY L @ S T\u2192",
+   1,
+   [
+    "real-estate"
+   ]
+  ],
+  [
+   "IH\u2192IY @",
+   1,
+   [
+    "really"
+   ]
+  ],
+  [
+   "R IY @ P L\u2192",
+   1,
+   [
+    "reapply"
+   ]
+  ],
+  [
+   "IH\u2192IY B @",
+   1,
+   [
+    "rebid"
+   ]
+  ],
+  [
+   "\u2192IY B",
+   1,
+   [
+    "rebound"
+   ]
+  ],
+  [
+   "UW S\u2192IH K L @ Z",
+   1,
+   [
+    "recluse"
+   ]
+  ],
+  [
+   "\u2192IY M @ N",
+   1,
+   [
+    "recriminate"
+   ]
+  ],
+  [
+   "IH\u2192IY | @\u2192UW",
+   1,
+   [
+    "redistribute"
+   ]
+  ],
+  [
+   "\u2192IY D R",
+   1,
+   [
+    "redraft"
+   ]
+  ],
+  [
+   "IY\u2192 | @\u2192UH",
+   1,
+   [
+    "reeducate"
+   ]
+  ],
+  [
+   "IY F L @\u2192EH",
+   1,
+   [
+    "reflex"
+   ]
+  ],
+  [
+   "EH F Y @ JH @\u2192IY",
+   1,
+   [
+    "refugee"
+   ]
+  ],
+  [
+   "R @\u2192IY",
+   1,
+   [
+    "rehab"
+   ]
+  ],
+  [
+   "IY Z\u2192EY S",
+   1,
+   [
+    "reis"
+   ]
+  ],
+  [
+   "\u2192UW N @ R",
+   1,
+   [
+    "remunerate"
+   ]
+  ],
+  [
+   "T ER\u2192",
+   1,
+   [
+    "reporter"
+   ]
+  ],
+  [
+   "\u2192@ @ V",
+   1,
+   [
+    "result"
+   ]
+  ],
+  [
+   "@\u2192AH | AO\u2192OW",
+   1,
+   [
+    "retinol"
+   ]
+  ],
+  [
+   "\u2192AH N | N UW\u2192",
+   1,
+   [
+    "retinue"
+   ]
+  ],
+  [
+   "\u2192EH T R OW V | R\u2192ER",
+   1,
+   [
+    "retrovirus"
+   ]
+  ],
+  [
+   "\u2192IY W",
+   1,
+   [
+    "reworked"
+   ]
+  ],
+  [
+   "\u2192AY N OW P L | IY\u2192@",
+   1,
+   [
+    "rhinoplasty"
+   ]
+  ],
+  [
+   "AY @\u2192AE | \u2192T OW",
+   1,
+   [
+    "rial"
+   ]
+  ],
+  [
+   "IH K @ SH\u2192",
+   1,
+   [
+    "ricochet"
+   ]
+  ],
+  [
+   "\u2192IY S K",
+   1,
+   [
+    "risque"
+   ]
+  ],
+  [
+   "IH V @\u2192EH",
+   1,
+   [
+    "rivest"
+   ]
+  ],
+  [
+   "@\u2192 | \u2192EY",
+   1,
+   [
+    "roble"
+   ]
+  ],
+  [
+   "OW\u2192EY",
+   1,
+   [
+    "roemer"
+   ]
+  ],
+  [
+   "OW N\u2192AA NG",
+   1,
+   [
+    "ronco"
+   ]
+  ],
+  [
+   "\u2192AA N D",
+   1,
+   [
+    "rondeau"
+   ]
+  ],
+  [
+   "OW Z\u2192EY",
+   1,
+   [
+    "rose"
+   ]
+  ],
+  [
+   "\u2192AH F SH",
+   1,
+   [
+    "roughshod"
+   ]
+  ],
+  [
+   "UW\u2192AH S T P R @",
+   1,
+   [
+    "rustproof"
+   ]
+  ],
+  [
+   "UW T @ B\u2192",
+   1,
+   [
+    "rutabaga"
+   ]
+  ],
+  [
+   "AA\u2192AY @",
+   1,
+   [
+    "ryal"
+   ]
+  ],
+  [
+   "AE K R @ M @\u2192EH",
+   1,
+   [
+    "sacramental"
+   ]
+  ],
+  [
+   "EH\u2192IH",
+   1,
+   [
+    "sacrilegious"
+   ]
+  ],
+  [
+   "EH\u2192AA @",
+   1,
+   [
+    "said"
+   ]
+  ],
+  [
+   "\u2192AE L @ M",
+   1,
+   [
+    "salamander"
+   ]
+  ],
+  [
+   "IY\u2192EY L AY",
+   1,
+   [
+    "saline"
+   ]
+  ],
+  [
+   "IY\u2192AA R D AY",
+   1,
+   [
+    "sardine"
+   ]
+  ],
+  [
+   "\u2192EH R | R OW\u2192",
+   1,
+   [
+    "saros"
+   ]
+  ],
+  [
+   "AA\u2192AE | IH\u2192@",
+   1,
+   [
+    "sarrazin"
+   ]
+  ],
+  [
+   "\u2192AE T",
+   1,
+   [
+    "satay"
+   ]
+  ],
+  [
+   "UW\u2192AE T S UH",
+   1,
+   [
+    "satsuma"
+   ]
+  ],
+  [
+   "AO\u2192AW | @\u2192AA",
+   1,
+   [
+    "sauna"
+   ]
+  ],
+  [
+   "EH\u2192",
+   1,
+   [
+    "savagery"
+   ]
+  ],
+  [
+   "AA\u2192AE V @",
+   1,
+   [
+    "savant"
+   ]
+  ],
+  [
+   "AE V @\u2192AA",
+   1,
+   [
+    "savants"
+   ]
+  ],
+  [
+   "AY @ N S F\u2192",
+   1,
+   [
+    "science-fiction"
+   ]
+  ],
+  [
+   "AO P @\u2192AA | IY\u2192@",
+   1,
+   [
+    "scopolamine"
+   ]
+  ],
+  [
+   "EY\u2192EH | Z\u2192",
+   1,
+   [
+    "secateurs"
+   ]
+  ],
+  [
+   "EH K @ N D HH\u2192",
+   1,
+   [
+    "secondhand"
+   ]
+  ],
+  [
+   "\u2192N Y",
+   1,
+   [
+    "seigniorage"
+   ]
+  ],
+  [
+   "G R @\u2192 | AY\u2192@",
+   1,
+   [
+    "self-aggrandizement"
+   ]
+  ],
+  [
+   "T S\u2192SH @ N",
+   1,
+   [
+    "self-destruction"
+   ]
+  ],
+  [
+   "EH\u2192EY | AY Z\u2192@ S",
+   1,
+   [
+    "semis"
+   ]
+  ],
+  [
+   "\u2192EH M @ T R",
+   1,
+   [
+    "semitrailer"
+   ]
+  ],
+  [
+   "EH N S D\u2192",
+   1,
+   [
+    "sense-data"
+   ]
+  ],
+  [
+   "EH N SH\u2192AA S | W\u2192T | S\u2192",
+   1,
+   [
+    "sensuous"
+   ]
+  ],
+  [
+   "IY\u2192EH R @ F @",
+   1,
+   [
+    "seraphim"
+   ]
+  ],
+  [
+   "ER V @\u2192IH | IY\u2192@",
+   1,
+   [
+    "servility"
+   ]
+  ],
+  [
+   "\u2192K S | \u2192@ T",
+   1,
+   [
+    "sextet"
+   ]
+  ],
+  [
+   "\u2192AE NG HH",
+   1,
+   [
+    "shanghai"
+   ]
+  ],
+  [
+   "AA SH L @\u2192IH",
+   1,
+   [
+    "shashlik"
+   ]
+  ],
+  [
+   "EH L\u2192",
+   1,
+   [
+    "shellac"
+   ]
+  ],
+  [
+   "UW\u2192OW",
+   1,
+   [
+    "shew"
+   ]
+  ],
+  [
+   "\u2192AO R T W",
+   1,
+   [
+    "shortwave"
+   ]
+  ],
+  [
+   "IY\u2192EH | \u2192L | L\u2192",
+   1,
+   [
+    "siecle"
+   ]
+  ],
+  [
+   "\u2192AY T S",
+   1,
+   [
+    "sightseer"
+   ]
+  ],
+  [
+   "OW N\u2192IY | @\u2192",
+   1,
+   [
+    "sinfonia"
+   ]
+  ],
+  [
+   "W\u2192Y @",
+   1,
+   [
+    "sinuous"
+   ]
+  ],
+  [
+   "AY N @ S\u2192",
+   1,
+   [
+    "sinusoidal"
+   ]
+  ],
+  [
+   "AY R @\u2192IY",
+   1,
+   [
+    "siris"
+   ]
+  ],
+  [
+   "AH F\u2192AW",
+   1,
+   [
+    "slough"
+   ]
+  ],
+  [
+   "OW K @\u2192I",
+   1,
+   [
+    "smoking"
+   ]
+  ],
+  [
+   "AE F @\u2192UW",
+   1,
+   [
+    "snafu"
+   ]
+  ],
+  [
+   "T\u2192HH EH D",
+   1,
+   [
+    "snapped"
+   ]
+  ],
+  [
+   "AY\u2192IH | \u2192@",
+   1,
+   [
+    "snively"
+   ]
+  ],
+  [
+   "OW\u2192AA | \u2192EY",
+   1,
+   [
+    "soave"
+   ]
+  ],
+  [
+   "\u2192AA L @ D S T",
+   1,
+   [
+    "solid-state"
+   ]
+  ],
+  [
+   "\u2192AA L @ T",
+   1,
+   [
+    "solitaire"
+   ]
+  ],
+  [
+   "AA L\u2192AE",
+   1,
+   [
+    "somali"
+   ]
+  ],
+  [
+   "\u2192AH M W",
+   1,
+   [
+    "somewhat"
+   ]
+  ],
+  [
+   "AO N G\u2192AA NG",
+   1,
+   [
+    "songbook"
+   ]
+  ],
+  [
+   "\u2192UW TH S",
+   1,
+   [
+    "soothsayer"
+   ]
+  ],
+  [
+   "AW\u2192AH",
+   1,
+   [
+    "sough"
+   ]
+  ],
+  [
+   "AH\u2192AW",
+   1,
+   [
+    "souther"
+   ]
+  ],
+  [
+   "IY K\u2192 | IY\u2192@",
+   1,
+   [
+    "speak-easy"
+   ]
+  ],
+  [
+   "IY L\u2192AY",
+   1,
+   [
+    "spieler"
+   ]
+  ],
+  [
+   "UW\u2192@ | IH\u2192@",
+   1,
+   [
+    "spiritualist"
+   ]
+  ],
+  [
+   "AE\u2192AO | Y @ N\u2192W ER T",
+   1,
+   [
+    "stallion"
+   ]
+  ],
+  [
+   "\u2192AE N D ER D B",
+   1,
+   [
+    "standard-bearer"
+   ]
+  ],
+  [
+   "\u2192AE N D B",
+   1,
+   [
+    "standby"
+   ]
+  ],
+  [
+   "@\u2192HH OW",
+   1,
+   [
+    "stanhope"
+   ]
+  ],
+  [
+   "AA\u2192AH | ER\u2192@",
+   1,
+   [
+    "starkers"
+   ]
+  ],
+  [
+   "EY T W\u2192",
+   1,
+   [
+    "statewide"
+   ]
+  ],
+  [
+   "\u2192EH R",
+   1,
+   [
+    "steroid"
+   ]
+  ],
+  [
+   "\u2192IH L B",
+   1,
+   [
+    "stillborn"
+   ]
+  ],
+  [
+   "S\u2192@ Z",
+   1,
+   [
+    "stipes"
+   ]
+  ],
+  [
+   "AA K\u2192",
+   1,
+   [
+    "stockade"
+   ]
+  ],
+  [
+   "\u2192EH CH ER B",
+   1,
+   [
+    "stretcher-bearer"
+   ]
+  ],
+  [
+   "IH\u2192IY | AY\u2192@",
+   1,
+   [
+    "strychnine"
+   ]
+  ],
+  [
+   "\u2192AH B K @ M",
+   1,
+   [
+    "subcommittee"
+   ]
+  ],
+  [
+   "AH B F\u2192",
+   1,
+   [
+    "subfamily"
+   ]
+  ],
+  [
+   "AO R\u2192OW",
+   1,
+   [
+    "subordinate"
+   ]
+  ],
+  [
+   "AH B R @ T\u2192",
+   1,
+   [
+    "subroutine"
+   ]
+  ],
+  [
+   "AH B S @\u2192EH",
+   1,
+   [
+    "subsection"
+   ]
+  ],
+  [
+   "\u2192AH B S",
+   1,
+   [
+    "subsequence"
+   ]
+  ],
+  [
+   "I\u2192AH K S @",
+   1,
+   [
+    "succinct"
+   ]
+  ],
+  [
+   "@\u2192AH | @\u2192EY",
+   1,
+   [
+    "sultanate"
+   ]
+  ],
+  [
+   "UW P\u2192",
+   1,
+   [
+    "superbly"
+   ]
+  ],
+  [
+   "\u2192UW P ER CH",
+   1,
+   [
+    "supercharge"
+   ]
+  ],
+  [
+   "UW P ER K @\u2192AH | AH\u2192@",
+   1,
+   [
+    "superconductor"
+   ]
+  ],
+  [
+   "UW P ER F\u2192",
+   1,
+   [
+    "superficially"
+   ]
+  ],
+  [
+   "UW P\u2192 | W AH\u2192@ @",
+   1,
+   [
+    "superfluous"
+   ]
+  ],
+  [
+   "\u2192UW P @ JH",
+   1,
+   [
+    "supergiant"
+   ]
+  ],
+  [
+   "\u2192UW P @ HH",
+   1,
+   [
+    "superhighway"
+   ]
+  ],
+  [
+   "\u2192UW P ER P",
+   1,
+   [
+    "superpower"
+   ]
+  ],
+  [
+   "\u2192UW P @ S T",
+   1,
+   [
+    "superstar"
+   ]
+  ],
+  [
+   "I NG K @ P\u2192",
+   1,
+   [
+    "syncopation"
+   ]
+  ],
+  [
+   "IH N D R OW\u2192AA",
+   1,
+   [
+    "syndrome"
+   ]
+  ],
+  [
+   "\u2192AE B L",
+   1,
+   [
+    "tableau"
+   ]
+  ],
+  [
+   "\u2192AE B L | \u2192Z",
+   1,
+   [
+    "tableaux"
+   ]
+  ],
+  [
+   "AA\u2192AH | Z\u2192S",
+   1,
+   [
+    "tamas"
+   ]
+  ],
+  [
+   "EH\u2192AA",
+   1,
+   [
+    "taro"
+   ]
+  ],
+  [
+   "\u2192AE R",
+   1,
+   [
+    "tarot"
+   ]
+  ],
+  [
+   "ER\u2192@ | @\u2192AA",
+   1,
+   [
+    "tattersall"
+   ]
+  ],
+  [
+   "IH R\u2192IY @ | @\u2192UH",
+   1,
+   [
+    "tearful"
+   ]
+  ],
+  [
+   "EY\u2192OW T @",
+   1,
+   [
+    "teetotaler"
+   ]
+  ],
+  [
+   "AA\u2192EH L @ M AH",
+   1,
+   [
+    "telemarketing"
+   ]
+  ],
+  [
+   "IY L @ AO\u2192AA | IY\u2192@",
+   1,
+   [
+    "teleology"
+   ]
+  ],
+  [
+   "L\u2192F | F OW\u2192",
+   1,
+   [
+    "telephony"
+   ]
+  ],
+  [
+   "EH L @ F\u2192",
+   1,
+   [
+    "telephoto"
+   ]
+  ],
+  [
+   "\u2192EH L @ T",
+   1,
+   [
+    "teletext"
+   ]
+  ],
+  [
+   "EH N P\u2192",
+   1,
+   [
+    "tenpenny"
+   ]
+  ],
+  [
+   "IY\u2192EH | \u2192@",
+   1,
+   [
+    "tepe"
+   ]
+  ],
+  [
+   "\u2192AH L | L @\u2192 | \u2192K @ L",
+   1,
+   [
+    "terminology"
+   ]
+  ],
+  [
+   "\u2192EH R @ B",
+   1,
+   [
+    "thereabouts"
+   ]
+  ],
+  [
+   "EH R T\u2192",
+   1,
+   [
+    "thereto"
+   ]
+  ],
+  [
+   "\u2192EH R @ P",
+   1,
+   [
+    "thereupon"
+   ]
+  ],
+  [
+   "AA M\u2192EH T R | T ER\u2192K",
+   1,
+   [
+    "thermometer"
+   ]
+  ],
+  [
+   "ER M OW S\u2192",
+   1,
+   [
+    "thermosetting"
+   ]
+  ],
+  [
+   "D IY\u2192T @",
+   1,
+   [
+    "thirty"
+   ]
+  ],
+  [
+   "\u2192AH R @ B R",
+   1,
+   [
+    "thoroughbred"
+   ]
+  ],
+  [
+   "@\u2192I",
+   1,
+   [
+    "tiddlywinks"
+   ]
+  ],
+  [
+   "\u2192K @",
+   1,
+   [
+    "tiki"
+   ]
+  ],
+  [
+   "IH\u2192AE",
+   1,
+   [
+    "timbre"
+   ]
+  ],
+  [
+   "IH N @\u2192AY",
+   1,
+   [
+    "tinnitus"
+   ]
+  ],
+  [
+   "AO\u2192AA | @\u2192Y UH",
+   1,
+   [
+    "toluene"
+   ]
+  ],
+  [
+   "OW\u2192AA | AE\u2192@ | IY\u2192@",
+   1,
+   [
+    "tomography"
+   ]
+  ],
+  [
+   "N G\u2192NG",
+   1,
+   [
+    "tonga"
+   ]
+  ],
+  [
+   "\u2192OW N",
+   1,
+   [
+    "tonite"
+   ]
+  ],
+  [
+   "OY\u2192OW",
+   1,
+   [
+    "topsoil"
+   ]
+  ],
+  [
+   "AO R M\u2192",
+   1,
+   [
+    "tormentor"
+   ]
+  ],
+  [
+   "UW SH\u2192EY",
+   1,
+   [
+    "touche"
+   ]
+  ],
+  [
+   "ER\u2192UH @ | IH\u2192@ | @ T\u2192EY",
+   1,
+   [
+    "tourniquet"
+   ]
+  ],
+  [
+   "\u2192AW",
+   1,
+   [
+    "towery"
+   ]
+  ],
+  [
+   "AE\u2192AA | CH\u2192SH",
+   1,
+   [
+    "tranche"
+   ]
+  ],
+  [
+   "AE N S\u2192",
+   1,
+   [
+    "transect"
+   ]
+  ],
+  [
+   "\u2192AE N S F",
+   1,
+   [
+    "transference"
+   ]
+  ],
+  [
+   "Z @\u2192SH",
+   1,
+   [
+    "transience"
+   ]
+  ],
+  [
+   "SH\u2192S | @\u2192UH",
+   1,
+   [
+    "transsexual"
+   ]
+  ],
+  [
+   "\u2192@ NG",
+   1,
+   [
+    "trill"
+   ]
+  ],
+  [
+   "EH\u2192IH P L @",
+   1,
+   [
+    "triplex"
+   ]
+  ],
+  [
+   "AY @\u2192AH",
+   1,
+   [
+    "triumph"
+   ]
+  ],
+  [
+   "AA CH\u2192OW SH",
+   1,
+   [
+    "troche"
+   ]
+  ],
+  [
+   "\u2192AA M B",
+   1,
+   [
+    "trombonist"
+   ]
+  ],
+  [
+   "AH K L\u2192",
+   1,
+   [
+    "truckload"
+   ]
+  ],
+  [
+   "AH NG K\u2192",
+   1,
+   [
+    "truncation"
+   ]
+  ],
+  [
+   "\u2192ER | R IH\u2192",
+   1,
+   [
+    "turmeric"
+   ]
+  ],
+  [
+   "EH\u2192AH | T @ W AO N\u2192",
+   1,
+   [
+    "twenty-one"
+   ]
+  ],
+  [
+   "EH N T @ T\u2192",
+   1,
+   [
+    "twenty-two"
+   ]
+  ],
+  [
+   "\u2192UW F",
+   1,
+   [
+    "twofold"
+   ]
+  ],
+  [
+   "OW\u2192AA | G IH\u2192JH @",
+   1,
+   [
+    "typology"
+   ]
+  ],
+  [
+   "AH M P T\u2192",
+   1,
+   [
+    "umpteenth"
+   ]
+  ],
+  [
+   "\u2192K | W\u2192@",
+   1,
+   [
+    "unctuous"
+   ]
+  ],
+  [
+   "AH N D ER W\u2192 | \u2192R",
+   1,
+   [
+    "underwater"
+   ]
+  ],
+  [
+   "AE\u2192@ | S T\u2192Z D",
+   1,
+   [
+    "undiagnosed"
+   ]
+  ],
+  [
+   "AH N D\u2192",
+   1,
+   [
+    "undine"
+   ]
+  ],
+  [
+   "@\u2192UH | @\u2192EH",
+   1,
+   [
+    "undocumented"
+   ]
+  ],
+  [
+   "IY\u2192UW N @",
+   1,
+   [
+    "unique"
+   ]
+  ],
+  [
+   "UW N\u2192",
+   1,
+   [
+    "unite"
+   ]
+  ],
+  [
+   "\u2192AH S T @ F",
+   1,
+   [
+    "unjustifiable"
+   ]
+  ],
+  [
+   "AE S K\u2192IY N @ NG",
+   1,
+   [
+    "unmask"
+   ]
+  ],
+  [
+   "EH S @ S\u2192",
+   1,
+   [
+    "unnecessarily"
+   ]
+  ],
+  [
+   "AH P\u2192",
+   1,
+   [
+    "unpaved"
+   ]
+  ],
+  [
+   "@ N R IY HH\u2192",
+   1,
+   [
+    "unrehearsed"
+   ]
+  ],
+  [
+   "\u2192T | ER\u2192@",
+   1,
+   [
+    "unstructured"
+   ]
+  ],
+  [
+   "\u2192EH R @ F",
+   1,
+   [
+    "unverifiable"
+   ]
+  ],
+  [
+   "AH P B R\u2192",
+   1,
+   [
+    "upbraid"
+   ]
+  ],
+  [
+   "AH P K\u2192",
+   1,
+   [
+    "upcoming"
+   ]
+  ],
+  [
+   "AH P F R\u2192",
+   1,
+   [
+    "upfront"
+   ]
+  ],
+  [
+   "AH P L @\u2192IH",
+   1,
+   [
+    "uplift"
+   ]
+  ],
+  [
+   "\u2192AH P S",
+   1,
+   [
+    "upside"
+   ]
+  ],
+  [
+   "IY\u2192AH P S T R @",
+   1,
+   [
+    "upstream"
+   ]
+  ],
+  [
+   "I\u2192AH P S W @",
+   1,
+   [
+    "upswing"
+   ]
+  ],
+  [
+   "\u2192UH | EH R\u2192ER",
+   1,
+   [
+    "urinary"
+   ]
+  ],
+  [
+   "EY K\u2192",
+   1,
+   [
+    "vacate"
+   ]
+  ],
+  [
+   "AY\u2192AE JH @",
+   1,
+   [
+    "vaginal"
+   ]
+  ],
+  [
+   "EY\u2192AE L @ T",
+   1,
+   [
+    "valet"
+   ]
+  ],
+  [
+   "IH\u2192AE N @",
+   1,
+   [
+    "vanillin"
+   ]
+  ],
+  [
+   "\u2192EH JH @ T",
+   1,
+   [
+    "vegetative"
+   ]
+  ],
+  [
+   "\u2192IY L @ D R",
+   1,
+   [
+    "velodrome"
+   ]
+  ],
+  [
+   "EH L V @ T\u2192",
+   1,
+   [
+    "velveteen"
+   ]
+  ],
+  [
+   "N D\u2192T R | \u2192K",
+   1,
+   [
+    "veranda"
+   ]
+  ],
+  [
+   "IY SH\u2192IH S HH",
+   1,
+   [
+    "vichy"
+   ]
+  ],
+  [
+   "AY\u2192IY | \u2192@",
+   1,
+   [
+    "vide"
+   ]
+  ],
+  [
+   "\u2192IH D @ OW T",
+   1,
+   [
+    "videotape"
+   ]
+  ],
+  [
+   "AE\u2192IH JH @ L @ | @\u2192IH",
+   1,
+   [
+    "vigilantism"
+   ]
+  ],
+  [
+   "OW\u2192AY @",
+   1,
+   [
+    "viola"
+   ]
+  ],
+  [
+   "IH R\u2192ER | UW\u2192@",
+   1,
+   [
+    "virgule"
+   ]
+  ],
+  [
+   "CH\u2192T Y",
+   1,
+   [
+    "virtue"
+   ]
+  ],
+  [
+   "Z @ V @\u2192",
+   1,
+   [
+    "vis-a-vis"
+   ]
+  ],
+  [
+   "IH S\u2192AY",
+   1,
+   [
+    "viscount"
+   ]
+  ],
+  [
+   "AY S\u2192IY Z EY",
+   1,
+   [
+    "vise"
+   ]
+  ],
+  [
+   "IH\u2192AH",
+   1,
+   [
+    "vitiligo"
+   ]
+  ],
+  [
+   "\u2192AA L @ N T",
+   1,
+   [
+    "voluntarily"
+   ]
+  ],
+  [
+   "AH\u2192AA L @ | ER\u2192@ R",
+   1,
+   [
+    "voluntarism"
+   ]
+  ],
+  [
+   "UW R\u2192ER | @\u2192",
+   1,
+   [
+    "voyeurism"
+   ]
+  ],
+  [
+   "IY\u2192AA P @",
+   1,
+   [
+    "wapiti"
+   ]
+  ],
+  [
+   "AE\u2192AA R",
+   1,
+   [
+    "warpath"
+   ]
+  ],
+  [
+   "AA SH\u2192AO S HH",
+   1,
+   [
+    "washbasin"
+   ]
+  ],
+  [
+   "AO T ER L\u2192",
+   1,
+   [
+    "waterloo"
+   ]
+  ],
+  [
+   "\u2192R | ER\u2192@ | AA\u2192AH",
+   1,
+   [
+    "watermark"
+   ]
+  ],
+  [
+   "\u2192F",
+   1,
+   [
+    "waugh"
+   ]
+  ],
+  [
+   "L EY\u2192",
+   1,
+   [
+    "waylay"
+   ]
+  ],
+  [
+   "\u2192EH F",
+   1,
+   [
+    "wherefore"
+   ]
+  ],
+  [
+   "@ R\u2192 | \u2192ER",
+   1,
+   [
+    "whisperer"
+   ]
+  ],
+  [
+   "T HH EH\u2192TH @",
+   1,
+   [
+    "whitehead"
+   ]
+  ],
+  [
+   "\u2192OW | W @\u2192",
+   1,
+   [
+    "willowy"
+   ]
+  ],
+  [
+   "\u2192D | EH\u2192@",
+   1,
+   [
+    "windswept"
+   ]
+  ],
+  [
+   "\u2192UH L V @ R",
+   1,
+   [
+    "wolverine"
+   ]
+  ],
+  [
+   "\u2192ER L D W",
+   1,
+   [
+    "worldwide"
+   ]
+  ],
+  [
+   "ER\u2192AH R | AO\u2192OW",
+   1,
+   [
+    "wormhole"
+   ]
+  ],
+  [
+   "ER\u2192UH",
+   1,
+   [
+    "worsted"
+   ]
+  ],
+  [
+   "\u2192AA NG D",
+   1,
+   [
+    "wrongdoer"
+   ]
+  ],
+  [
+   "IY\u2192EH | AA\u2192@",
+   1,
+   [
+    "xenon"
+   ]
+  ],
+  [
+   "AA HH\u2192",
+   1,
+   [
+    "yahoo"
+   ]
+  ],
+  [
+   "EH S T ER Y IH\u2192IY",
+   1,
+   [
+    "yesteryear"
+   ]
+  ],
+  [
+   "IY\u2192IH P @",
+   1,
+   [
+    "yippee"
+   ]
+  ],
+  [
+   "AE\u2192IY L AA",
+   1,
+   [
+    "ylang-ylang"
+   ]
+  ],
+  [
+   "AE T S\u2192",
+   1,
+   [
+    "zaibatsu"
+   ]
+  ],
+  [
+   "EY T @\u2192",
+   1,
+   [
+    "eighty-eighth"
+   ]
+  ],
+  [
+   "EY T @ W\u2192",
+   1,
+   [
+    "eighty-one"
+   ]
+  ],
+  [
+   "EY T @ TH R\u2192",
+   1,
+   [
+    "eighty-three"
+   ]
+  ],
+  [
+   "IH F T @ W\u2192",
+   1,
+   [
+    "fifty-one"
+   ]
+  ],
+  [
+   "IH F T @ TH\u2192",
+   1,
+   [
+    "fifty-third"
+   ]
+  ],
+  [
+   "IH F T @ TH R\u2192",
+   1,
+   [
+    "fifty-three"
+   ]
+  ],
+  [
+   "T @ F AO R\u2192",
+   1,
+   [
+    "forty-four"
+   ]
+  ],
+  [
+   "AY N T @ T\u2192",
+   1,
+   [
+    "ninety-two"
+   ]
+  ],
+  [
+   "T @ S EH V @ N\u2192",
+   1,
+   [
+    "seventy-seven"
+   ]
+  ],
+  [
+   "EH V @ N T @ T\u2192",
+   1,
+   [
+    "seventy-two"
+   ]
+  ],
+  [
+   "IH K S T @\u2192",
+   1,
+   [
+    "sixty-eight"
+   ]
+  ],
+  [
+   "IH K S T @ N\u2192",
+   1,
+   [
+    "sixty-nine"
+   ]
+  ],
+  [
+   "T @ S IH K S\u2192",
+   1,
+   [
+    "sixty-six"
+   ]
+  ],
+  [
+   "IH K S T @ TH\u2192",
+   1,
+   [
+    "sixty-third"
+   ]
+  ],
+  [
+   "IH K S T @ TH R\u2192",
+   1,
+   [
+    "sixty-three"
+   ]
+  ],
+  [
+   "EH N T @ TH\u2192",
+   1,
+   [
+    "twenty-third"
+   ]
+  ]
+ ]
+}
