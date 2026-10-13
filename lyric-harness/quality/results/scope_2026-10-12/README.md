@@ -148,3 +148,11 @@ The script reads `raw_final_token` on every dev line (227,115 anchor end lines) 
 "Whole-token lookup succeeds" is `transcribe_word` on the whole spelling. That includes its always-on `-s`/`'s`, `'d` and `in'` rules, so it is not an exact-entry test. One `policy` line, `corpus/song/eng_british_edwin_arnold.txt#4:70` (`grand-daughters`), is read through the plural rule on CMUdict's `grand-daughter` entry. Counting exact entries only would give 2,964 lines that every piece reads, so 3,112 newly refused lines. R2's independent check on #527 measured with `line_anchors` that every line in the first three classes anchors today and every last-piece-unread line refuses. So the "today" side of the transitions above is a measured current outcome, and the "after" side is projected post-change behaviour.
 
 These are anchor end-line counts only. Per-word, meter and schema before/after counts belong to the test family.
+
+## Blast-radius sweep: every character and word shape on the dev side
+
+    python3 quality/results/scope_2026-10-12/shape_sweep.py quality/results/scope_2026-10-12/shape_sweep.json
+
+This is BB8's share of the blast-radius pass that R2 set up on #527. The script lists every character in the dev lines that is not an ASCII letter or whitespace, and records what each of the four cutters does with it. It tags every written chunk by its shape: digits, each apostrophe and hyphen position, look-alike characters, diacritics, symbols and case. For each line's end chunk it measures, with `line_anchors`, whether the line anchors today. It projects the signed plan's rules onto these shapes. M1 refuses a digit-bearing end chunk. M2a reads the exact apostrophe entry first, and the output records whether that changes the reading, split into `s'` and other shapes. M2b flags a bare key whose selected reading is the spelled letters under the dotted-key alphabet. It also writes the ids of the dev end lines that anchor today and would refuse under item 6, M1 and M2b, with their union. The item-6 set is read from `hyphen_end_classes.jsonl.gz`, and it reproduces the 3,111 lines.
+
+**The projections are rules applied to today's readings. They are not the implemented batch.** Example ids are reproductions, not acceptance lists. It ran in 41 s.
