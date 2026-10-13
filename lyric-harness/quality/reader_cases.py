@@ -162,6 +162,31 @@ V2_REGRESSIONS = [
 ]
 
 
+#: The non-letter starters whose normal form carries a combining mark:
+#: U+2ADC FORKING and the musical note symbols U+1D15E-U+1D164 and
+#: U+1D1BB-U+1D1C0 -- every codepoint that is not a letter, a mark or a
+#: numeral and whose NFC form holds a General_Category M character,
+#: enumerated over every codepoint (the same fourteen under Python 3.11's
+#: Unicode 14.0 and 3.13's 15.1; `quality/test_reader.py` re-enumerates in
+#: the interpreter it runs on). The reader's stream maps such a form to the
+#: symbol's own codepoint, and its mark must not start the next word's raw
+#: run (`_reader_line_v2`'s `glued`).
+NFC_MARK_SYMBOLS = (["\u2adc"] + [chr(c) for c in range(0x1D15E, 0x1D165)]
+                    + [chr(c) for c in range(0x1D1BB, 0x1D1C1)])
+
+
+def nfc_mark_symbol_lines():
+    """-> lines putting each `NFC_MARK_SYMBOLS` character where its mark
+    could reach a word: before an end word after a space and with none, before
+    a further combining mark, inside and after an aside, before a numeral and
+    an enclitic, and after a word that ends in a mark."""
+    out = []
+    for c in NFC_MARK_SYMBOLS:
+        out += [f"sing along {c}love", f"we sing{c}tonight", f"love{c}\u0301night",
+                f"(oh{c}) heart {c}4ever", f"we {c}'s go", f"cafe\u0301{c}night"]
+    return out
+
+
 #: Codepoints where a character class the mirror spells out has differed, or
 #: could differ, from Python's -- enumerated over every codepoint both Unicode
 #: versions assign, not chosen by example. U+0345 is the one character a
@@ -205,7 +230,7 @@ def mirror_fixture():
         return [[t.text, [list(p) for p in t.pieces], t.numeral, t.aside] for t in seq]
     out = []
     for text in (generated_lines(1000, seed=7) + REGRESSIONS + V2_REGRESSIONS
-                 + class_boundary_lines()):
+                 + class_boundary_lines() + nfc_mark_symbol_lines()):
         row = {"text": text}
         for sp, key in ((True, "strip"), (False, "keep")):
             rl = LH.reader_line(text, strip_parens=sp, scheme="v2")

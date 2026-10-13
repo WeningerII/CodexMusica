@@ -141,6 +141,21 @@
     }
     const off16 = [0];
     for (const c of cps) off16.push(off16[off16.length - 1] + c.length);
+    // A symbol's own normal form is not word material: a mark that is one
+    // output character of a single non-mark, non-letter, non-numeral
+    // codepoint (U+2ADC, the musical note symbols) closes a run, as the
+    // symbol does, so it never starts the next word's raw run.
+    const glued = new Set();
+    st.forEach(([c, a, b], i) => {
+      if (
+        b === a + 1 &&
+        M_ONE.test(c) &&
+        !M_ONE.test(cps[a]) &&
+        !L_ONE.test(cps[a]) &&
+        !N_ONE.test(cps[a])
+      )
+        glued.add(i);
+    });
 
     const make = (idx) => {
       let lo = 0,
@@ -210,7 +225,7 @@
           k++;
           continue;
         }
-        if (member(ch)) cur.push(i);
+        if (member(ch) && !glued.has(i)) cur.push(i);
         else close();
         k++;
       }

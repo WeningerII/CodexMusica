@@ -49,7 +49,9 @@ No test here is a list of named words the reader must accept.
      consumer, and no production cut omits its scheme; the grid refuses a
      numeral end and binds a declared end after a dash run; an appended printed
      endpoint is never read (stream and Library); a declaration never changes
-     the token cut; no token or raw run piece crosses whitespace under NFC.
+     the token cut; no token or raw run piece crosses whitespace under NFC,
+     nor takes in a symbol whose normal form carries a combining mark
+     (U+2ADC, the musical note symbols: the line reads as with U+266A).
 
 Run: python3 quality/test_reader.py
 """
@@ -478,6 +480,26 @@ class NfcAcrossWhitespace(unittest.TestCase):
                     self.assertFalse(any(c.isspace() for c in t.text), (text, t))
         self.assertGreater(checked, 1000)
 
+    def test_a_symbols_normal_form_mark_stays_outside_the_runs(self):
+        # The separator property for a symbol NFC rewrites into a symbol plus
+        # a combining mark: no token or raw run piece covers the symbol's
+        # codepoint, and no run begins with the mark of its normal form,
+        # beside whitespace, a further mark, an aside or an enclitic.
+        checked = 0
+        for sym in RC.NFC_MARK_SYMBOLS:
+            own = unicodedata.normalize("NFC", sym)[1:]
+            for text in [t for t in RC.nfc_mark_symbol_lines() if sym in t]:
+                self.assertFalse(unicodedata.is_normalized("NFC", text))
+                at = [i for i, c in enumerate(text) if c == sym]
+                for sp_rule in (True, False):
+                    rl = LH.reader_line(text, sp_rule)
+                    for t in list(rl.tokens) + list(rl.runs):
+                        self.assertFalse(t.text[:1] in own, (text, t))
+                        for x, y in t.pieces:
+                            self.assertFalse(any(x <= i < y for i in at), (text, sp_rule, t))
+                            checked += 1
+        self.assertGreater(checked, 300)
+
     def test_a_punctuation_mark_nfc_replaces_stays_outside_the_runs(self):
         # U+037E -> ';' and U+0387 -> U+00B7 before combining marks: the
         # punctuation keeps its own codepoint, so no raw run swallows it.
@@ -490,6 +512,55 @@ class NfcAcrossWhitespace(unittest.TestCase):
                     for t in list(rl.tokens) + list(rl.runs):
                         for x, y in t.pieces:
                             self.assertFalse(x <= 4 < y, (text, t))
+
+
+class NfcMarkSymbols(unittest.TestCase):
+    """8g. A non-letter starter whose normal form carries a combining mark
+    (U+2ADC FORKING, the musical note symbols): the stream maps the whole form
+    to the symbol's codepoint, and its mark must not start a raw run that
+    reaches into the next word. The line reads exactly as it does with U+266A
+    in the symbol's place."""
+
+    def test_the_fourteen_are_every_such_starter(self):
+        found = []
+        for cp in range(0x110000):
+            ch = chr(cp)
+            if unicodedata.category(ch) == "Cs":
+                continue
+            nfc = unicodedata.normalize("NFC", ch)
+            if (nfc != ch and unicodedata.category(ch)[0] not in "MN" and not ch.isalpha()
+                    and any(unicodedata.category(c)[0] == "M" for c in nfc)):
+                found.append(ch)
+        self.assertEqual(found, RC.NFC_MARK_SYMBOLS)
+        self.assertEqual(len(found), 14)
+
+    def test_a_symbol_reads_as_a_plain_symbol_does(self):
+        def shape(rl):
+            return ([tuple(t) for t in rl.tokens], [tuple(t) for t in rl.runs])
+        checked = 0
+        for sym in RC.NFC_MARK_SYMBOLS:
+            for text in [t for t in RC.nfc_mark_symbol_lines() if sym in t]:
+                plain = text.replace(sym, "\u266a")
+                for sp in (True, False):
+                    self.assertEqual(shape(LH.reader_line(text, sp)),
+                                     shape(LH.reader_line(plain, sp)), (text, sp))
+                    checked += 1
+        self.assertEqual(checked, 14 * 6 * 2)
+
+    def test_the_end_word_after_a_symbol_reads_as_after_a_note(self):
+        from quality import relations as R
+        from quality.phonology.eng import English
+        for sym in RC.NFC_MARK_SYMBOLS:
+            for scheme in ("v1", "v2"):
+                lex = LH.Lexicon(reader_scheme=scheme)
+                text = f"sing along {sym}love"
+                self.assertEqual(LH.line_anchors(lex, text)[1:],
+                                 LH.line_anchors(lex, "sing along \u266alove")[1:], (sym, scheme))
+                self.assertEqual(LH.raw_final_token(text, scheme=scheme), "love", (sym, scheme))
+                stream = R.build_stream([text, "above"], English(lexicon=lex))
+                self.assertEqual(stream.lexical_tokens[0], ("sing", "along", "love"),
+                                 (sym, scheme))
+            self.assertEqual(LH.raw_final_token(f"we sing{sym}tonight", scheme="v2"), "tonight")
 
 
 class HangulSegments(unittest.TestCase):

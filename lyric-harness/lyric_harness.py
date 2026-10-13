@@ -2537,6 +2537,20 @@ def _reader_line_v2(text, strip_parens):
     aside = set()
     for m in _ASIDE.finditer(joined):
         aside.update(seq[m.start():m.end()])
+    # A SYMBOL'S OWN NORMAL FORM IS NOT WORD MATERIAL. A few non-letter
+    # starters normalise to a symbol plus a combining mark (U+2ADC FORKING,
+    # the musical note symbols U+1D15E-U+1D164 and U+1D1BB-U+1D1C0); the
+    # stream maps that whole form to the symbol's own codepoint. A mark is a
+    # run member, so the mark began a raw run that reached into the next word
+    # and started ON the symbol: the end word after `𝅘𝅥𝅮` read as a mark-led
+    # run and was refused, where after `♪` it reads. Such a mark (one output
+    # character of a single non-mark, non-letter, non-numeral codepoint)
+    # closes a run, as the symbol does. A letter's own marks (U+0958 ->
+    # U+0915 U+093C) stay with the letter.
+    glued = {i for i, (c, a, b) in enumerate(stream)
+             if b == a + 1 and unicodedata.category(c)[0] == "M"
+             and unicodedata.category(text[a])[0] != "M"
+             and not text[a].isalpha() and not _is_numeral(text[a])}
 
     def make(idx):
         while idx and stream[idx[0]][0] == _SHY:
@@ -2594,7 +2608,7 @@ def _reader_line_v2(text, strip_parens):
                 cur.append(i)
                 k += 1
                 continue
-            if member(ch):
+            if member(ch) and i not in glued:
                 cur.append(i)
             else:
                 close()

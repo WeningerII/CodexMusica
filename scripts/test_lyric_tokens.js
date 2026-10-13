@@ -154,3 +154,30 @@ test('no class in the mirror case-folds: every such codepoint is in the fixture'
   assert.ok(flags.length >= 4, `found flags ${flags}`);
   for (const f of flags) assert.ok(!f.includes('i'), `a regex in the mirror takes flags '${f}'`);
 });
+
+test("a symbol's normal-form mark: every such starter is in the fixture", () => {
+  // A non-letter starter whose NFC form carries a combining mark (U+2ADC,
+  // the musical note symbols) maps that form to its own codepoint, and its
+  // mark must not start the next word's raw run. Enumerate them in the engine
+  // this runs on; each must be a fixture case (reader_cases.NFC_MARK_SYMBOLS),
+  // and after one the end word reads as it does after U+266A.
+  const M = /^\p{M}$/u;
+  const L = /^\p{L}$/u;
+  const N = /^\p{N}$/u;
+  const found = [];
+  for (let c = 0; c <= 0x10ffff; c++) {
+    if (c >= 0xd800 && c <= 0xdfff) continue;
+    const s = String.fromCodePoint(c);
+    const nfc = s.normalize('NFC');
+    if (nfc !== s && !M.test(s) && !L.test(s) && !N.test(s) && /\p{M}/u.test(nfc)) found.push(s);
+  }
+  assert.ok(found.includes('⫝̸') && found.includes('\u{1d160}'));
+  const texts = FIXTURE.cases.map((c) => c.text);
+  for (const s of found) {
+    const hex = s.codePointAt(0).toString(16);
+    assert.ok(texts.includes(`sing along ${s}love`), `U+${hex} is not a fixture case`);
+    const runs = (t) => LT.readerLine(t).runs.map((r) => r.text);
+    assert.deepEqual(runs(`sing along ${s}love`), runs('sing along ♪love'), `U+${hex}`);
+    assert.deepEqual(runs(`we sing${s}tonight`), ['we', 'sing', 'tonight'], `U+${hex}`);
+  }
+});
