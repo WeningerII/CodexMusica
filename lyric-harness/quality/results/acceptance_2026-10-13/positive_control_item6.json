@@ -147,6 +147,14 @@
    "projected_and_observed": 0,
    "projected_not_observed": 2020,
    "observed_not_projected": 0
+  },
+  "dash": {
+   "in_scope": false,
+   "projected": 7885,
+   "observed": 0,
+   "projected_and_observed": 0,
+   "projected_not_observed": 7885,
+   "observed_not_projected": 0
   }
  },
  "fixtures": [

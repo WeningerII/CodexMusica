@@ -14,7 +14,8 @@
   "item6",
   "M1",
   "M2a",
-  "M2b"
+  "M2b",
+  "dash"
  ],
  "projection": "results/scope_2026-10-12/shape_sweep.json",
  "lines": {
@@ -59,6 +60,14 @@
    "observed": 0,
    "projected_and_observed": 0,
    "projected_not_observed": 2020,
+   "observed_not_projected": 0
+  },
+  "dash": {
+   "in_scope": true,
+   "projected": 7885,
+   "observed": 0,
+   "projected_and_observed": 0,
+   "projected_not_observed": 7885,
    "observed_not_projected": 0
   }
  },

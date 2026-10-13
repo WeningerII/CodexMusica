@@ -8,7 +8,9 @@ that changed, and set against the PROJECTION in the scope receipt's
 `--summary` writes counts and the cross-tab only, without ids or detail.
 
 `--mechanisms` names what the AFTER head implements (cumulative over R2's
-commit series; default all four). A change attributed to a mechanism outside
+commit series; default all): item6, M1, M2a, M2b and dash (alias tokenizer:
+the cut at `--` and edge hyphens, projected as every base line with such a
+token). A change attributed to a mechanism outside
 that list is reported as such, never credited to the projection.
 
 HOW WORDS ARE COMPARED. Each side's tokens are cut by the dash rule (split at
@@ -41,7 +43,8 @@ SWEEP = os.path.join(os.path.dirname(HERE), "scope_2026-10-12", "shape_sweep.jso
 _DETAIL = 25
 _APOS = "’‘`´ʼʻ＇՚"
 _HYPHEN = re.compile(r"[^\W\d_]['’]?[-‐‑]['’]?[^\W\d_]")
-_ALL = ("item6", "M1", "M2a", "M2b")
+_ALL = ("item6", "M1", "M2a", "M2b", "dash")
+_ALIAS = {"tokenizer": "dash"}
 _PIN = ("split_sha256", "population_sha256", "fixtures_sha256")
 _CONFIG = ("reader", "supplement", "cmudict_sha256", "fallback", "strip_parens", "declarations",
            "recorder_sha256", "comparator_fingerprint_parts")
@@ -174,7 +177,10 @@ def _detail(b, a, keys=("text", "tokens", "final", "readable", "cause", "reason"
 def _main():
     args = [x for x in sys.argv[1:] if not x.startswith("--")]
     flags = dict(x[2:].split("=", 1) for x in sys.argv[1:] if x.startswith("--") and "=" in x)
-    scope = [m for m in flags.get("mechanisms", ",".join(_ALL)).split(",") if m]
+    scope = [_ALIAS.get(m, m) for m in flags.get("mechanisms", ",".join(_ALL)).split(",") if m]
+    unknown = [m for m in scope if m not in _ALL]
+    if unknown:
+        sys.exit(f"unknown mechanism(s) {unknown}; known: {list(_ALL)} (alias: tokenizer = dash)")
     hb, before, fb = _load(args[0])
     ha, after, fa = _load(args[1])
     out = args[2]
@@ -187,7 +193,10 @@ def _main():
     projected = {"item6": set(pr["ids"]["item6"]) | set(pr["interior_ids"]["join_only"]),
                  "M1": set(pr["ids"]["M1"]) | set(pr["interior_ids"]["M1"]),
                  "M2b": set(pr["ids"]["M2b"]) | set(pr["interior_ids"]["M2b"]),
-                 "M2a": set(pr.get("m2a_switch_ids", ()))}
+                 "M2a": set(pr.get("m2a_switch_ids", ())),
+                 # the dash cut: every line with a `--` or edge-hyphen token at the base
+                 "dash": {i for i, r in before.items()
+                          if any(re.search(r"-{2,}|^-|-$", t) for t in r.get("tokens") or ())}}
     cls = {}
     by_mech = {}
     unresolved = {"before": 0, "after": 0}
@@ -287,7 +296,10 @@ def _main():
                     "projected_and_observed": len(obs & projected[m]),
                     "projected_not_observed": sorted(projected[m] - obs) if m in scope else len(projected[m] - obs),
                     "observed_not_projected": sorted(obs - projected[m])}
-    unpredicted = sorted(set().union(*(v for k, v in by_mech.items() if k in ("other", "dash", "switch:other", "switch:dash"))))
+    loose = ("other", "switch:other") + (() if "dash" in scope else ("dash", "switch:dash"))
+    if "dash" in scope:
+        by_mech.setdefault("dash", set()).update(by_mech.get("switch:dash", set()))
+    unpredicted = sorted(set().union(*(v for k, v in by_mech.items() if k in loose)))
     out_of_scope = sorted(set().union(*(v for k, v in by_mech.items() if k in _ALL and k not in scope)))
     rec = {
         "before": {k: hb.get(k) for k in ("commit", "tracked_changes", "fallback")},
