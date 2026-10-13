@@ -100,6 +100,8 @@ class Finding:
 #: them. Stated here rather than left to each caller, because doctrine 58 says
 #: a bare n-of-N is a coordinate of some setting nobody wrote down.
 def countable(text):
+    # No lexicon here, so the cut every lexicon this process builds without a
+    # declared scheme reads under -- the process's scheme.
     return bool(line_tokens(text))
 
 

@@ -1189,7 +1189,8 @@ def _counts_main(args):
         if os.path.exists(a):
             n0 = len(words)
             for line in load_lyric_lines(a):
-                words.extend(line_tokens(line, strip_parens=lex.strip_parens))
+                words.extend(line_tokens(line, strip_parens=lex.strip_parens,
+                                         scheme=lex.reader_scheme))
             sources.append(f"{a}: {len(words) - n0} token(s)")
         else:
             words.append(a)

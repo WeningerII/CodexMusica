@@ -312,7 +312,7 @@ def sweep_corpus(lex, verbose=True, pattern="corpus/song/eng_*.txt"):
                 loose += 1
             if not s or s[0] in "#[" or s.startswith("---"):
                 continue
-            toks = lh.line_tokens(line)
+            toks = lh.line_tokens(line)       # no lexicon: the process's scheme
             if not toks:
                 continue
             countable += 1

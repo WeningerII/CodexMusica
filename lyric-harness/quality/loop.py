@@ -1343,7 +1343,7 @@ def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
     def token_index(slot):
         token = _SL.token_of(anchor_line if slot is None else slot)
         if token == -1:
-            return len(line_tokens(lines[anchor_line - 1])) - 1
+            return len(line_tokens(lines[anchor_line - 1], *_lex_cut(reviser))) - 1
         return token
     moved = token_index(_slot_for(mandate, k_rw, anchor_line))
     calls, rets = [], []
@@ -1371,6 +1371,16 @@ def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
             if w:
                 calls.append(w)
     return calls, sorted(rets)
+
+
+def _lex_cut(reviser):
+    """-> (strip_parens, reader scheme) of the reviser's lexicon: the cut its
+    own grading reads a line's words under, so an end word or token index
+    taken here is the one the grader binds (a `--voices` run keeps its
+    asides; a v1 replay cuts as v1)."""
+    lex = getattr(reviser, "lex", None)
+    return (getattr(lex, "strip_parens", True),
+            resolve_reader_scheme(getattr(lex, "reader_scheme", None)))
 
 
 def _slot_for(mandate, group_index, line):
@@ -1609,7 +1619,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         # pivot briefed at T2. The brief's field is empty only when no field
         # was computed, and then the end word is what it always was.
         pivot_current = (getattr(b, "forbidden_incumbent", "")
-                         or raw_final_token(b.text) or "")
+                         or raw_final_token(b.text, *_lex_cut(reviser)) or "")
         p_offered, _p_forbidden = (
             reviser.joint_field(other_calls, exclude=(pivot_current,),
                                 profile=profile)

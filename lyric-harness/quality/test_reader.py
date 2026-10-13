@@ -689,6 +689,86 @@ class Declarations(unittest.TestCase):
             self.assertEqual(causes, {"NUMERAL"}, line)
 
 
+class LexiconCut(unittest.TestCase):
+    """8b. A consumer handed a lexicon cuts lines under that lexicon's scheme,
+    not this process's (amendment B)."""
+
+    def test_consumers_cut_under_the_lexicons_scheme(self):
+        import quality.loop as LP
+        from quality.revise import Reviser
+        lines = GENERATED[:500] + RC.REGRESSIONS
+        moved = 0
+        for process, own in (("v2", "v1"), ("v1", "v2")):
+            for sp in (True, False):
+                lex = LH.Lexicon(reader_scheme=own, strip_parens=sp)
+                rv = Reviser(lex=lex)
+                with LH.reader_scheme_scope(process):
+                    self.assertEqual(LP._lex_cut(rv), (sp, own))
+                    for text in lines:
+                        want_end = LH.raw_final_token(text, sp, own)
+                        moved += want_end != LH.raw_final_token(text, sp, process)
+                        # `_qafiya_parts` names the end word it judged.
+                        self.assertEqual(LH._qafiya_parts(lex, text).get("endword"),
+                                         want_end, (process, own, text))
+                        # The loop's end word and end-token index (tier 2).
+                        self.assertEqual(LH.raw_final_token(text, *LP._lex_cut(rv)),
+                                         want_end, (process, own, text))
+                        self.assertEqual(LH.line_tokens(text, *LP._lex_cut(rv)),
+                                         lex.transcribe(text)[1], (process, own, text))
+        self.assertGreater(moved, 50)
+
+    def test_no_production_cut_omits_its_scheme(self):
+        # Every production call of the four cuts names a scheme (its
+        # lexicon's, or an explicit one) or says, on its line or the one
+        # above, that it reads the process's scheme because it has no
+        # lexicon. A bare call beside a lexicon read the process's cut while
+        # the lexicon read its own.
+        import ast
+        names = {"line_tokens", "raw_final_token", "reader_line", "reader_token_spans"}
+        files = ([ROOT / "lyric_harness.py"]
+                 + sorted(p for p in (ROOT / "quality").rglob("*.py")
+                          if not p.name.startswith("test_")
+                          and not {"results", "fixtures", "archive"} & set(p.parts))
+                 + sorted(p for p in (ROOT / "library").glob("*.py")
+                          if not p.name.startswith("test_")))
+        bare = []
+        for path in files:
+            src = path.read_text(encoding="utf-8")
+            lines = src.splitlines()
+            import warnings
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                tree = ast.parse(src)
+            for n in ast.walk(tree):
+                if not isinstance(n, ast.Call):
+                    continue
+                fn = n.func
+                name = getattr(fn, "attr", None) or getattr(fn, "id", None)
+                if name not in names:
+                    continue
+                if (len(n.args) >= 3 or any(k.arg == "scheme" for k in n.keywords)
+                        or any(isinstance(a, ast.Starred) for a in n.args)):
+                    continue
+                near = " ".join(lines[max(0, n.lineno - 2):n.lineno])
+                if "the process's scheme" not in near:
+                    bare.append(f"{path.relative_to(ROOT)}:{n.lineno}")
+        self.assertEqual(bare, [])
+
+    def test_the_library_language_tokens_and_lexicon_share_a_scheme(self):
+        from unittest.mock import patch
+        sys.path.insert(0, str(ROOT / "library"))
+        from library.form import analyze_language
+        import library.test_form as TF
+        work = TF.source(["Sail the year 1999", "Sail away home"], "eng")
+        for scheme, end in (("v1", "year"), ("v2", "1999")):
+            with LH.reader_scheme_scope(scheme), \
+                    patch("lyric_harness.Lexicon", wraps=LH.Lexicon) as built:
+                result = analyze_language(work)
+            self.assertEqual(result["line_endings"][0]["word"], end)
+            self.assertEqual({c.kwargs.get("reader_scheme") for c in built.call_args_list},
+                             {scheme})
+
+
 class LegacyReplay(unittest.TestCase):
     """9. A run keeps the scheme it was recorded under."""
 

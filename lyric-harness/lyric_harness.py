@@ -6068,7 +6068,7 @@ def _qafiya_parts(lex, line):
     read None as "radif/refrain line: licensed", turning 241 unreadable
     corpus/song/ lines into clean passes, so the refusal is typed.
     """
-    final = raw_final_token(line, strip_parens=lex.strip_parens)
+    final = raw_final_token(line, strip_parens=lex.strip_parens, scheme=_scheme_of(lex))
     sylls = word_syllable_map(lex, line)
     if not sylls or final is None:
         return {"unreadable": True, "endword": final,
@@ -12049,7 +12049,8 @@ def main():
                   "end word is READ there when its LAST PIECE reads; these "
                   "count EVERY WORD TOKEN, and refuse the token whole.")
             _words = [w for _l in lines
-                      for w in line_tokens(_l, strip_parens=lex.strip_parens)]
+                      for w in line_tokens(_l, strip_parens=lex.strip_parens,
+                                           scheme=_scheme_of(lex))]
             for _out in format_three_counts(
                     lexicon_three_counts(lex, _words), what="word tokens"):
                 print(_out)
