@@ -1,0 +1,274 @@
+{
+ "root": "/workspace/acceptance-code",
+ "html": "acceptance.html",
+ "hasFn": true,
+ "errs": [],
+ "results": [
+  {
+   "line": "\"Μπένω μεσ' τὸ περιβόλι,",
+   "key": "rhyme groups",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.end,2.end]",
+   "review_text": "Current version · 491a14b\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen rhymes\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "\"Μπένω μεσ' τὸ περιβόλι,",
+   "key": "returns",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.end,2.end]",
+   "review_text": "Current version · 151ac7c\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen repeats\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "καὶ τῶν πτερῶν κατασχών",
+   "key": "rhyme groups",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.end,2.end]",
+   "review_text": "Current version · 9f1a8af\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen rhymes\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "καὶ τῶν πτερῶν κατασχών",
+   "key": "returns",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.end,2.end]",
+   "review_text": "Current version · dda2208\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen repeats\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "λαβὼν δ' ἔπινον αὐτόν,",
+   "key": "rhyme groups",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.end,2.end]",
+   "review_text": "Current version · 1fe3b8b\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen rhymes\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "λαβὼν δ' ἔπινον αὐτόν,",
+   "key": "returns",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.end,2.end]",
+   "review_text": "Current version · a3396cc\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen repeats\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "πτεροῖσι γαργαλίζει.",
+   "key": "rhyme groups",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.end,2.end]",
+   "review_text": "Current version · 857fc8f\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen rhymes\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "πτεροῖσι γαργαλίζει.",
+   "key": "returns",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.end,2.end]",
+   "review_text": "Current version · 31182d0\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen repeats\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "οὔ με μὴ λάθῃ φλέγων Ὀφθαλμὸς, ἥτις ἀνδρὸς ᾖ γεγευμένη.",
+   "key": "rhyme groups",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.end,2.end]",
+   "review_text": "Current version · a03f82d\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen rhymes\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "οὔ με μὴ λάθῃ φλέγων Ὀφθαλμὸς, ἥτις ἀνδρὸς ᾖ γεγευμένη.",
+   "key": "returns",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.end,2.end]",
+   "review_text": "Current version · 9ce0dd4\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen repeats\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "καὶ Νύμφαι κυανώπιδες",
+   "key": "rhyme groups",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.end,2.end]",
+   "review_text": "Current version · 5250e16\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen rhymes\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "καὶ Νύμφαι κυανώπιδες",
+   "key": "returns",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.end,2.end]",
+   "review_text": "Current version · 7dd03d5\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen repeats\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "πορφυρέη τ' Ἀφροδίτη",
+   "key": "rhyme groups",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.end,2.end]",
+   "review_text": "Current version · 413dc98\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen rhymes\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "πορφυρέη τ' Ἀφροδίτη",
+   "key": "returns",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.end,2.end]",
+   "review_text": "Current version · 5cfccc5\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen repeats\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  }
+ ]
+}

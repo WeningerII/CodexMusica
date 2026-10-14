@@ -1,0 +1,2220 @@
+{
+ "summary": {
+  "tree": "/workspace/acceptance-code",
+  "has_v1GraderLookup": true,
+  "union_fire_voices_off": [
+   [
+    "An' at each zide [=o]'m, sprack an' strong,",
+    true
+   ],
+   [
+    "As most is in _Lynn_'s fair Town;",
+    true
+   ],
+   [
+    "Below the knap, 's a runnèn still;",
+    true
+   ],
+   [
+    "By hoof or shoe, 's a sheenèn bright,",
+    true
+   ],
+   [
+    "What plaÿsome anticks zome [=o]'s done!",
+    true
+   ],
+   [
+    "When in that house M.P.'s divide,",
+    true
+   ],
+   [
+    "Where her \"meteor flag\" 's nailed fast",
+    true
+   ],
+   [
+    "“Also, some few I. O. U.’s and bets,”",
+    true
+   ]
+  ],
+  "union_all_fire": true,
+  "receipt_lookup_differs_fire": "24/24",
+  "nfc_controls_fire": "0/7",
+  "distinct_lines": 31
+ },
+ "rows": [
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "sources": [
+    "union:recorder_line_anchors",
+    "receipt.lookup_differs(end_changed)",
+    "receipt.end_changed"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "at",
+     "each",
+     "zide",
+     "o",
+     "'m",
+     "sprack",
+     "an'",
+     "strong"
+    ],
+    "v1_lookup": [
+     "An'",
+     "at",
+     "each",
+     "zide",
+     "o'm",
+     "sprack",
+     "an'",
+     "strong"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "at",
+     "each",
+     "zide",
+     "o",
+     "'m",
+     "sprack",
+     "an'",
+     "strong"
+    ],
+    "v1_lookup": [
+     "An'",
+     "at",
+     "each",
+     "zide",
+     "o'm",
+     "sprack",
+     "an'",
+     "strong"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "sources": [
+    "union:grader_census",
+    "receipt.lookup_differs(end_changed)",
+    "receipt.end_changed"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "As",
+     "most",
+     "is",
+     "in",
+     "Lynn",
+     "'s",
+     "fair",
+     "Town"
+    ],
+    "v1_lookup": [
+     "As",
+     "most",
+     "is",
+     "in",
+     "Lynn's",
+     "fair",
+     "Town"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "As",
+     "most",
+     "is",
+     "in",
+     "Lynn",
+     "'s",
+     "fair",
+     "Town"
+    ],
+    "v1_lookup": [
+     "As",
+     "most",
+     "is",
+     "in",
+     "Lynn's",
+     "fair",
+     "Town"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "sources": [
+    "union:grader_census+recorder_line_anchors",
+    "receipt.lookup_differs(end_changed)",
+    "receipt.end_changed"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Below",
+     "the",
+     "knap",
+     "'s",
+     "a",
+     "runnèn",
+     "still"
+    ],
+    "v1_lookup": [
+     "Below",
+     "the",
+     "knap's",
+     "a",
+     "runnèn",
+     "still"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Below",
+     "the",
+     "knap",
+     "'s",
+     "a",
+     "runnèn",
+     "still"
+    ],
+    "v1_lookup": [
+     "Below",
+     "the",
+     "knap's",
+     "a",
+     "runnèn",
+     "still"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "sources": [
+    "union:grader_census+recorder_line_anchors",
+    "receipt.lookup_differs(end_changed)",
+    "receipt.end_changed"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "By",
+     "hoof",
+     "or",
+     "shoe",
+     "'s",
+     "a",
+     "sheenèn",
+     "bright"
+    ],
+    "v1_lookup": [
+     "By",
+     "hoof",
+     "or",
+     "shoe's",
+     "a",
+     "sheenèn",
+     "bright"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "By",
+     "hoof",
+     "or",
+     "shoe",
+     "'s",
+     "a",
+     "sheenèn",
+     "bright"
+    ],
+    "v1_lookup": [
+     "By",
+     "hoof",
+     "or",
+     "shoe's",
+     "a",
+     "sheenèn",
+     "bright"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "sources": [
+    "union:recorder_line_anchors",
+    "receipt.lookup_differs(end_changed)",
+    "receipt.end_changed"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "What",
+     "plaÿsome",
+     "anticks",
+     "zome",
+     "o",
+     "'s",
+     "done"
+    ],
+    "v1_lookup": [
+     "What",
+     "plaÿsome",
+     "anticks",
+     "zome",
+     "o's",
+     "done"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "What",
+     "plaÿsome",
+     "anticks",
+     "zome",
+     "o",
+     "'s",
+     "done"
+    ],
+    "v1_lookup": [
+     "What",
+     "plaÿsome",
+     "anticks",
+     "zome",
+     "o's",
+     "done"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "sources": [
+    "union:grader_census",
+    "receipt.lookup_differs(end_changed)",
+    "receipt.end_changed"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "When",
+     "in",
+     "that",
+     "house",
+     "M",
+     "P",
+     "'s",
+     "divide"
+    ],
+    "v1_lookup": [
+     "When",
+     "in",
+     "that",
+     "house",
+     "M",
+     "P's",
+     "divide"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "When",
+     "in",
+     "that",
+     "house",
+     "M",
+     "P",
+     "'s",
+     "divide"
+    ],
+    "v1_lookup": [
+     "When",
+     "in",
+     "that",
+     "house",
+     "M",
+     "P's",
+     "divide"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "sources": [
+    "union:grader_census+recorder_line_anchors",
+    "receipt.lookup_differs(end_changed)",
+    "receipt.end_changed"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Where",
+     "her",
+     "meteor",
+     "flag",
+     "'s",
+     "nailed",
+     "fast"
+    ],
+    "v1_lookup": [
+     "Where",
+     "her",
+     "meteor",
+     "flag's",
+     "nailed",
+     "fast"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Where",
+     "her",
+     "meteor",
+     "flag",
+     "'s",
+     "nailed",
+     "fast"
+    ],
+    "v1_lookup": [
+     "Where",
+     "her",
+     "meteor",
+     "flag's",
+     "nailed",
+     "fast"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "sources": [
+    "union:grader_census+recorder_line_anchors",
+    "receipt.lookup_differs(end_changed)",
+    "receipt.end_changed"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Also",
+     "some",
+     "few",
+     "I",
+     "O",
+     "U",
+     "'s",
+     "and",
+     "bets"
+    ],
+    "v1_lookup": [
+     "Also",
+     "some",
+     "few",
+     "I",
+     "O",
+     "U's",
+     "and",
+     "bets"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Also",
+     "some",
+     "few",
+     "I",
+     "O",
+     "U",
+     "'s",
+     "and",
+     "bets"
+    ],
+    "v1_lookup": [
+     "Also",
+     "some",
+     "few",
+     "I",
+     "O",
+     "U's",
+     "and",
+     "bets"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Wut",
+     "'ll",
+     "make",
+     "ye",
+     "act",
+     "like",
+     "freemen"
+    ],
+    "v1_lookup": [
+     "Wut'll",
+     "make",
+     "ye",
+     "act",
+     "like",
+     "freemen"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Wut",
+     "'ll",
+     "make",
+     "ye",
+     "act",
+     "like",
+     "freemen"
+    ],
+    "v1_lookup": [
+     "Wut'll",
+     "make",
+     "ye",
+     "act",
+     "like",
+     "freemen"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Wut",
+     "'ll",
+     "git",
+     "your",
+     "dander",
+     "riz"
+    ],
+    "v1_lookup": [
+     "Wut'll",
+     "git",
+     "your",
+     "dander",
+     "riz"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Wut",
+     "'ll",
+     "git",
+     "your",
+     "dander",
+     "riz"
+    ],
+    "v1_lookup": [
+     "Wut'll",
+     "git",
+     "your",
+     "dander",
+     "riz"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "your",
+     "fact'ry",
+     "gals",
+     "'ll",
+     "make",
+     "head"
+    ],
+    "v1_lookup": [
+     "An'",
+     "your",
+     "fact'ry",
+     "gals'll",
+     "make",
+     "head"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "your",
+     "fact'ry",
+     "gals",
+     "soon",
+     "ez",
+     "we",
+     "split",
+     "'ll",
+     "make",
+     "head"
+    ],
+    "v1_lookup": [
+     "An'",
+     "your",
+     "fact'ry",
+     "gals",
+     "soon",
+     "ez",
+     "we",
+     "split'll",
+     "make",
+     "head"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "I",
+     "says",
+     "'M",
+     "go'",
+     "to",
+     "be",
+     "a",
+     "Raggedy",
+     "Man"
+    ],
+    "v1_lookup": [
+     "An'",
+     "I",
+     "says'M",
+     "go'",
+     "to",
+     "be",
+     "a",
+     "Raggedy",
+     "Man"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "I",
+     "says",
+     "'M",
+     "go'",
+     "to",
+     "be",
+     "a",
+     "Raggedy",
+     "Man"
+    ],
+    "v1_lookup": [
+     "An'",
+     "I",
+     "says'M",
+     "go'",
+     "to",
+     "be",
+     "a",
+     "Raggedy",
+     "Man"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "My",
+     "fount",
+     "of",
+     "song",
+     "dear",
+     "friend",
+     "'s",
+     "a",
+     "bitter",
+     "well"
+    ],
+    "v1_lookup": [
+     "My",
+     "fount",
+     "of",
+     "song",
+     "dear",
+     "friend's",
+     "a",
+     "bitter",
+     "well"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "My",
+     "fount",
+     "of",
+     "song",
+     "dear",
+     "friend",
+     "'s",
+     "a",
+     "bitter",
+     "well"
+    ],
+    "v1_lookup": [
+     "My",
+     "fount",
+     "of",
+     "song",
+     "dear",
+     "friend's",
+     "a",
+     "bitter",
+     "well"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Not",
+     "more",
+     "than",
+     "when",
+     "you",
+     "'re",
+     "what",
+     "you",
+     "call"
+    ],
+    "v1_lookup": [
+     "Not",
+     "more",
+     "than",
+     "when",
+     "you're",
+     "what",
+     "you",
+     "call"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Not",
+     "more",
+     "than",
+     "when",
+     "you",
+     "'re",
+     "what",
+     "you",
+     "call"
+    ],
+    "v1_lookup": [
+     "Not",
+     "more",
+     "than",
+     "when",
+     "you're",
+     "what",
+     "you",
+     "call"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "That",
+     "'s",
+     "tost",
+     "up",
+     "after",
+     "fox-i'-th'-hole"
+    ],
+    "v1_lookup": [
+     "That's",
+     "tost",
+     "up",
+     "after",
+     "fox-i'-th'-hole"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "That",
+     "'s",
+     "tost",
+     "up",
+     "after",
+     "fox-i'-th'-hole"
+    ],
+    "v1_lookup": [
+     "That's",
+     "tost",
+     "up",
+     "after",
+     "fox-i'-th'-hole"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Oh",
+     "oui",
+     "Monsieur",
+     "'s",
+     "the",
+     "waiter's",
+     "answer"
+    ],
+    "v1_lookup": [
+     "Oh",
+     "oui",
+     "Monsieur's",
+     "the",
+     "waiter's",
+     "answer"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Oh",
+     "oui",
+     "Monsieur",
+     "'s",
+     "the",
+     "waiter's",
+     "answer"
+    ],
+    "v1_lookup": [
+     "Oh",
+     "oui",
+     "Monsieur's",
+     "the",
+     "waiter's",
+     "answer"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "God",
+     "save",
+     "the",
+     "King",
+     "'s",
+     "a",
+     "cuckoo",
+     "sang"
+    ],
+    "v1_lookup": [
+     "God",
+     "save",
+     "the",
+     "King's",
+     "a",
+     "cuckoo",
+     "sang"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "God",
+     "save",
+     "the",
+     "King",
+     "'s",
+     "a",
+     "cuckoo",
+     "sang"
+    ],
+    "v1_lookup": [
+     "God",
+     "save",
+     "the",
+     "King's",
+     "a",
+     "cuckoo",
+     "sang"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "zoo",
+     "when",
+     "he",
+     "'d",
+     "a-been",
+     "all",
+     "roun'"
+    ],
+    "v1_lookup": [
+     "An'",
+     "zoo",
+     "when",
+     "he'd",
+     "a-been",
+     "all",
+     "roun'"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "zoo",
+     "when",
+     "he",
+     "'d",
+     "a-been",
+     "all",
+     "roun'"
+    ],
+    "v1_lookup": [
+     "An'",
+     "zoo",
+     "when",
+     "he'd",
+     "a-been",
+     "all",
+     "roun'"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Do",
+     "shoulder",
+     "each",
+     "o",
+     "'s",
+     "a",
+     "reäke",
+     "an'",
+     "pick"
+    ],
+    "v1_lookup": [
+     "Do",
+     "shoulder",
+     "each",
+     "o's",
+     "a",
+     "reäke",
+     "an'",
+     "pick"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Do",
+     "shoulder",
+     "each",
+     "o",
+     "'s",
+     "a",
+     "reäke",
+     "an'",
+     "pick"
+    ],
+    "v1_lookup": [
+     "Do",
+     "shoulder",
+     "each",
+     "o's",
+     "a",
+     "reäke",
+     "an'",
+     "pick"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "mother",
+     "weary",
+     "'s",
+     "a-zot",
+     "a",
+     "thinkèn"
+    ],
+    "v1_lookup": [
+     "An'",
+     "mother",
+     "weary's",
+     "a-zot",
+     "a",
+     "thinkèn"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "mother",
+     "weary",
+     "'s",
+     "a-zot",
+     "a",
+     "thinkèn"
+    ],
+    "v1_lookup": [
+     "An'",
+     "mother",
+     "weary's",
+     "a-zot",
+     "a",
+     "thinkèn"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Ah",
+     "s",
+     "o",
+     "'s",
+     "'tis",
+     "now",
+     "zome",
+     "years",
+     "agoo"
+    ],
+    "v1_lookup": [
+     "Ah",
+     "s",
+     "o's",
+     "'tis",
+     "now",
+     "zome",
+     "years",
+     "agoo"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Ah",
+     "s",
+     "o",
+     "'s",
+     "'tis",
+     "now",
+     "zome",
+     "years",
+     "agoo"
+    ],
+    "v1_lookup": [
+     "Ah",
+     "s",
+     "o's",
+     "'tis",
+     "now",
+     "zome",
+     "years",
+     "agoo"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Her",
+     "head",
+     "'s",
+     "a-walkèn",
+     "to",
+     "an'",
+     "fro"
+    ],
+    "v1_lookup": [
+     "Her",
+     "head's",
+     "a-walkèn",
+     "to",
+     "an'",
+     "fro"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "Her",
+     "head",
+     "'s",
+     "a-walkèn",
+     "to",
+     "an'",
+     "fro"
+    ],
+    "v1_lookup": [
+     "Her",
+     "head's",
+     "a-walkèn",
+     "to",
+     "an'",
+     "fro"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "The",
+     "ceäke",
+     "upon",
+     "the",
+     "vier",
+     "too",
+     "'s",
+     "a-burnèn"
+    ],
+    "v1_lookup": [
+     "The",
+     "ceäke",
+     "upon",
+     "the",
+     "vier",
+     "too's",
+     "a-burnèn"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "The",
+     "ceäke",
+     "upon",
+     "the",
+     "vier",
+     "too",
+     "'s",
+     "a-burnèn"
+    ],
+    "v1_lookup": [
+     "The",
+     "ceäke",
+     "upon",
+     "the",
+     "vier",
+     "too's",
+     "a-burnèn"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "sources": [
+    "receipt.lookup_differs"
+   ],
+   "voices_off": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "little",
+     "Jack",
+     "you",
+     "know",
+     "'s",
+     "a-gwaïn",
+     "to",
+     "eärn"
+    ],
+    "v1_lookup": [
+     "An'",
+     "little",
+     "Jack",
+     "you",
+     "know's",
+     "a-gwaïn",
+     "to",
+     "eärn"
+    ]
+   },
+   "voices_on": {
+    "fires": true,
+    "cut_identical": true,
+    "cut": [
+     "An'",
+     "little",
+     "Jack",
+     "you",
+     "know",
+     "'s",
+     "a-gwaïn",
+     "to",
+     "eärn"
+    ],
+    "v1_lookup": [
+     "An'",
+     "little",
+     "Jack",
+     "you",
+     "know's",
+     "a-gwaïn",
+     "to",
+     "eärn"
+    ]
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "rhyme groups",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [
+      {
+       "key": "returns",
+       "n": 1,
+       "place": "end"
+      }
+     ],
+     "new_row": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "\"Μπένω μεσ' τὸ περιβόλι,",
+   "sources": [
+    "receipt.label_nfc_only"
+   ],
+   "voices_off": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "voices_on": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — returns — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "καὶ τῶν πτερῶν κατασχών",
+   "sources": [
+    "receipt.label_nfc_only"
+   ],
+   "voices_off": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "voices_on": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — returns — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "λαβὼν δ' ἔπινον αὐτόν,",
+   "sources": [
+    "receipt.label_nfc_only"
+   ],
+   "voices_off": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "voices_on": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — returns — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "πτεροῖσι γαργαλίζει.",
+   "sources": [
+    "receipt.label_nfc_only"
+   ],
+   "voices_off": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "voices_on": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — returns — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "οὔ με μὴ λάθῃ φλέγων Ὀφθαλμὸς, ἥτις ἀνδρὸς ᾖ γεγευμένη.",
+   "sources": [
+    "receipt.label_nfc_only"
+   ],
+   "voices_off": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "voices_on": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — returns — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "καὶ Νύμφαι κυανώπιδες",
+   "sources": [
+    "receipt.label_nfc_only"
+   ],
+   "voices_off": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "voices_on": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — returns — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  },
+  {
+   "line": "πορφυρέη τ' Ἀφροδίτη",
+   "sources": [
+    "receipt.label_nfc_only"
+   ],
+   "voices_off": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "voices_on": {
+    "fires": false,
+    "cut_identical": true,
+    "cut": [],
+    "v1_lookup": []
+   },
+   "migrate": [
+    {
+     "row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — rhyme groups — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    },
+    {
+     "row": "[SETUP — returns — 1.end,2.end]",
+     "carried": [],
+     "new_row": "[SETUP — returns — 1.end,2.end]",
+     "moved": [],
+     "blocked": []
+    }
+   ]
+  }
+ ]
+}

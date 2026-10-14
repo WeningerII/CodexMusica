@@ -1,0 +1,24 @@
+{
+  "a2_browser_sends": 54,
+  "selection": {
+    "click_MIG": {
+      "kept": 0,
+      "total": 4
+    },
+    "click_NOMIG": {
+      "kept": 4,
+      "total": 4
+    },
+    "kbd_MIG": {
+      "kept": 4,
+      "total": 4
+    },
+    "kbd_NOMIG": {
+      "kept": 4,
+      "total": 4
+    }
+  },
+  "order_final_equal": true,
+  "g2p_unread_controls": true,
+  "declared_reading_precedence": true
+}

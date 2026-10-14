@@ -1,0 +1,341 @@
+[
+  {
+    "scheme": "v1",
+    "strip_asides": true,
+    "text": "\u201cIt\u2019s a Boo-\u201d",
+    "fallback": null,
+    "split": false,
+    "unread": [],
+    "units": [
+      "Syllable(text='It\u2019s', onset=(), nucleus='IH', coda=('T', 'S'), prominence=Readings({0, 1}), moras=1)",
+      "Syllable(text='a', onset=(), nucleus=Readings({'AH', 'EY'}), coda=(), prominence=Readings({0, 1}), moras=1)",
+      "Syllable(text='Boo', onset=('B',), nucleus='UW', coda=(), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v1",
+    "strip_asides": true,
+    "text": "king-,",
+    "fallback": null,
+    "split": false,
+    "unread": [],
+    "units": [
+      "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v1",
+    "strip_asides": true,
+    "text": "king- (aside)",
+    "fallback": null,
+    "split": false,
+    "unread": [],
+    "units": [
+      "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)",
+      "Syllable(text='aside', onset=(), nucleus='AH', coda=(), prominence=0, moras=1)",
+      "Syllable(text='aside', onset=('S',), nucleus='AY', coda=('D',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v1",
+    "strip_asides": true,
+    "text": "king-",
+    "fallback": null,
+    "split": true,
+    "unread": [],
+    "units": [
+      "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v1",
+    "strip_asides": true,
+    "text": "savour-",
+    "fallback": null,
+    "split": true,
+    "unread": [
+      [
+        0,
+        0,
+        "savour"
+      ]
+    ],
+    "units": [],
+    "stem_high_readable": true
+  },
+  {
+    "scheme": "v1",
+    "strip_asides": true,
+    "text": "inden-",
+    "fallback": null,
+    "split": true,
+    "unread": [
+      [
+        0,
+        0,
+        "inden"
+      ]
+    ],
+    "units": [],
+    "stem_high_readable": true
+  },
+  {
+    "scheme": "v1",
+    "strip_asides": false,
+    "text": "\u201cIt\u2019s a Boo-\u201d",
+    "fallback": null,
+    "split": false,
+    "unread": [],
+    "units": [
+      "Syllable(text='It\u2019s', onset=(), nucleus='IH', coda=('T', 'S'), prominence=Readings({0, 1}), moras=1)",
+      "Syllable(text='a', onset=(), nucleus=Readings({'AH', 'EY'}), coda=(), prominence=Readings({0, 1}), moras=1)",
+      "Syllable(text='Boo', onset=('B',), nucleus='UW', coda=(), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v1",
+    "strip_asides": false,
+    "text": "king-,",
+    "fallback": null,
+    "split": false,
+    "unread": [],
+    "units": [
+      "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v1",
+    "strip_asides": false,
+    "text": "king- (aside)",
+    "fallback": null,
+    "split": false,
+    "unread": [],
+    "units": [
+      "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)",
+      "Syllable(text='aside', onset=(), nucleus='AH', coda=(), prominence=0, moras=1)",
+      "Syllable(text='aside', onset=('S',), nucleus='AY', coda=('D',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v1",
+    "strip_asides": false,
+    "text": "king-",
+    "fallback": null,
+    "split": true,
+    "unread": [],
+    "units": [
+      "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v1",
+    "strip_asides": false,
+    "text": "savour-",
+    "fallback": null,
+    "split": true,
+    "unread": [
+      [
+        0,
+        0,
+        "savour"
+      ]
+    ],
+    "units": [],
+    "stem_high_readable": true
+  },
+  {
+    "scheme": "v1",
+    "strip_asides": false,
+    "text": "inden-",
+    "fallback": null,
+    "split": true,
+    "unread": [
+      [
+        0,
+        0,
+        "inden"
+      ]
+    ],
+    "units": [],
+    "stem_high_readable": true
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": true,
+    "text": "\u201cIt\u2019s a Boo-\u201d",
+    "fallback": null,
+    "split": false,
+    "unread": [],
+    "units": [
+      "Syllable(text=\"It's\", onset=(), nucleus='IH', coda=('T', 'S'), prominence=Readings({0, 1}), moras=1)",
+      "Syllable(text='a', onset=(), nucleus=Readings({'AH', 'EY'}), coda=(), prominence=Readings({0, 1}), moras=1)",
+      "Syllable(text='Boo', onset=('B',), nucleus='UW', coda=(), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": true,
+    "text": "king-,",
+    "fallback": null,
+    "split": false,
+    "unread": [],
+    "units": [
+      "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": true,
+    "text": "king- (aside)",
+    "fallback": null,
+    "split": false,
+    "unread": [],
+    "units": [
+      "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": true,
+    "text": "king-",
+    "fallback": null,
+    "split": true,
+    "unread": [],
+    "units": [
+      "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": true,
+    "text": "savour-",
+    "fallback": null,
+    "split": true,
+    "unread": [
+      [
+        0,
+        0,
+        "savour-"
+      ]
+    ],
+    "units": [],
+    "stem_high_readable": true
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": true,
+    "text": "inden-",
+    "fallback": null,
+    "split": true,
+    "unread": [
+      [
+        0,
+        0,
+        "inden-"
+      ]
+    ],
+    "units": [],
+    "stem_high_readable": true
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": false,
+    "text": "\u201cIt\u2019s a Boo-\u201d",
+    "fallback": null,
+    "split": false,
+    "unread": [],
+    "units": [
+      "Syllable(text=\"It's\", onset=(), nucleus='IH', coda=('T', 'S'), prominence=Readings({0, 1}), moras=1)",
+      "Syllable(text='a', onset=(), nucleus=Readings({'AH', 'EY'}), coda=(), prominence=Readings({0, 1}), moras=1)",
+      "Syllable(text='Boo', onset=('B',), nucleus='UW', coda=(), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": false,
+    "text": "king-,",
+    "fallback": null,
+    "split": false,
+    "unread": [],
+    "units": [
+      "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": false,
+    "text": "king- (aside)",
+    "fallback": null,
+    "split": false,
+    "unread": [
+      [
+        0,
+        0,
+        "king-"
+      ]
+    ],
+    "units": [
+      "Syllable(text='aside', onset=(), nucleus='AH', coda=(), prominence=0, moras=1)",
+      "Syllable(text='aside', onset=('S',), nucleus='AY', coda=('D',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": false,
+    "text": "king-",
+    "fallback": null,
+    "split": true,
+    "unread": [],
+    "units": [
+      "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"
+    ],
+    "stem_high_readable": null
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": false,
+    "text": "savour-",
+    "fallback": null,
+    "split": true,
+    "unread": [
+      [
+        0,
+        0,
+        "savour-"
+      ]
+    ],
+    "units": [],
+    "stem_high_readable": true
+  },
+  {
+    "scheme": "v2",
+    "strip_asides": false,
+    "text": "inden-",
+    "fallback": null,
+    "split": true,
+    "unread": [
+      [
+        0,
+        0,
+        "inden-"
+      ]
+    ],
+    "units": [],
+    "stem_high_readable": true
+  }
+]

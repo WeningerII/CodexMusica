@@ -1,0 +1,27 @@
+All production checks target 8ea94ac9d5141eb5062a8094351a9330f4edc38c.
+Evidence inputs target df27fe11ad3c0e8ad0783e7965a93691dd65d19c.
+Node v24.19.0; Python 3.12.14; Chromium 151.0.7922.173 (Debian 13); npm lock installed with npm ci --ignore-scripts --cache /tmp/acceptance-npm-cache.
+Runtime packages installed in /workspace/acceptance-venv from mcp/requirements-runtime.txt with pip --require-hashes. Explicit setup: lyric_harness.fetch_data(); quality/fetch_data.py --runtime.
+No paid providers. Browser chat requests intercepted and answered with fixture responses.
+
+From /workspace/acceptance-code:
+node scripts/build_html.js --out=acceptance.html --quiet --check
+EVIDENCE_ROOT=/workspace/acceptance-evidence node /workspace/acceptance-results/a_vm_fire.js /workspace/acceptance-code /workspace/acceptance-results/a_vm_8ea.json
+EVIDENCE_ROOT=/workspace/acceptance-evidence node /workspace/acceptance-results/a_page_drive.js /workspace/acceptance-code acceptance.html /workspace/acceptance-results/a_page_8ea.json
+node /workspace/acceptance-results/a_page_forms.js /workspace/acceptance-code acceptance.html /workspace/acceptance-results/a_forms_8ea.json
+node /workspace/acceptance-results/baseline.js /workspace/acceptance-code > /workspace/acceptance-results/baseline_8ea.json
+python3 /workspace/acceptance-results/recompare_shards.py /workspace/acceptance-evidence > /workspace/acceptance-results/raw-shard-recompare.json
+python3 /workspace/acceptance-results/king_witness.py /workspace/acceptance-code > /workspace/acceptance-results/king_8ea.json
+python3 /workspace/acceptance-evidence/lyric-harness/quality/results/acceptance_2026-10-13/findings_0af39c6f/repro/king-relation/probe_decl.py /workspace/acceptance-code/lyric-harness v2 /workspace/acceptance-results/declared_8ea.json
+PLAYWRIGHT_BROWSERS_PATH=/tmp/acceptance-browsers node scripts/check_lyrics_page.js --html=acceptance.html
+CHROMIUM_PATH=/usr/bin/chromium PATH=/workspace/acceptance-venv/bin:$PATH node scripts/check_library_page.js
+PATH=/workspace/acceptance-venv/bin:$PATH python3 lyric-harness/quality/test_reader.py
+node /workspace/acceptance-results/order/orders.js cand RG2.add.review.paste
+node /workspace/acceptance-results/selection/sel6.js cand click,kbd MIG,NOMIG
+
+/tmp/acceptance-browsers/chromium-1/chrome-linux/chrome is a symlink to /usr/bin/chromium.
+order/com.js and selection/lib6.js retain explicit /workspace tree paths; relocate those constants for another workspace.
+The a_page scripts derive from BB8's committed scripts with paths adapted, per-case lyricMeta reset, full notice text retained, and Run review dispatched by real locator click instead of direct function invocation.
+Initial reader logs without the dictionary, and then without nltk, are environment setup failures, not production verdicts. Only test_reader_8ea_pinned.log is the fully staged attempt.
+
+node /workspace/acceptance-results/a_page_nfc.js /workspace/acceptance-code acceptance.html /workspace/acceptance-results/a_page_nfc_8ea.json

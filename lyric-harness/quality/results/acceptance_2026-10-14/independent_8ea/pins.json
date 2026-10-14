@@ -1,0 +1,54 @@
+{
+  "code_sha": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+  "evidence_sha": "df27fe11ad3c0e8ad0783e7965a93691dd65d19c",
+  "files": {
+    "src/lyric-tokens.js": "806dbed10e9c65cedaf897f0d4333333ec85dc9e50bea22693d524653234476b",
+    "src/pages/lyrics.js": "502f2a529b08d041bcaa9c0735e800024b856f413fec7feb3d2b6c5ccd630253",
+    "lyric-harness/cmudict.dict": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+    "lyric-harness/data/lexicon_supplement_versions.json": "fe1f2362a80f213d973f4ef05267aeccd26efa0183ea22cbe8666e4999f8a209",
+    "lyric-harness/data/runtime_assets.json": "c4fcefd938b6dbdd3692e7c3364f34232cf6616634f8501a5c0974dc8454fd7b",
+    "package-lock.json": "a60532eca22f2eb2f6988b93a7e0f2afc85b0e8f4d92c08b8313a4643a4ab184",
+    "mcp/requirements-runtime.txt": "dbe8aa8246d4710810fd37bec3bb856dc21b18eda2bde5218bb2fddbbac39320",
+    "acceptance.html": "c59c5cff6a7ef76ace93144a53a85c58298dde318a011afe40fd4982c24bc24b",
+    "lyric-harness/quality/loop.py": "e9e5646119d27dcfbeab4bd9a9ec9f9a82828d3a3e5a91f2462f5f540b4f044f",
+    "lyric-harness/quality/relations.py": "53e0793017305e084f84be9c0675584953eb90ff865ead67e8be1b9099b8e1b6",
+    "lyric-harness/quality/revise.py": "3b40a7ed97289247c2f3840021a09dabbc4179d08ff90f8cd29c8a883e17924f",
+    "lyric-harness/quality/phonology/eng.py": "5e3de90fe8bbb749015c7bc17a5df550e3ed7a63af096e6e359ec061b115509b",
+    "lyric-harness/lyric_harness.py": "1bfd00ed8b6c7efee3adac83a1e623c0aa3bd2531f4c5dd4a9e1154e4d92534f",
+    "lyric-harness/data/lexicon_supplement.tsv": "452d7aae056ed67f6bff94b76bf6f5df66516ce9e1c95d31796d45a8a92957f7",
+    "lyric-harness/data/lexicon_supplement_v2.tsv": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+    "lyric-harness/quality/test_reader.py": "180b414883330d3ed80ee2c3764e22a0e848010675a0d2ad1857ddd8078dce4a",
+    "scripts/check_lyrics_page.js": "853af67a3bbad1bfdbea0b29507f46d55c44796d4d5bfea95f29336a0ae2eb47",
+    "scripts/check_library_page.js": "894e05b7b9176f4ca04c906179a39237f34e632135e8d925c134977a023188d3"
+  },
+  "runtime_packages": [
+    "click==8.5.0",
+    "defusedxml==0.7.1",
+    "joblib==1.5.3",
+    "nltk==3.10.3",
+    "regex==2026.9.3",
+    "tqdm==4.70.0"
+  ],
+  "playwright_version": "1.60.0",
+  "lexicon_versions": {
+    "version": 1,
+    "about": "The shipped versions of the reviewed lexicon supplement (quality/lexicon_supplement.py). A version is FROZEN: its file is never edited, and a new batch is a new row with a new file. `default` is the version a NEW run declares; a saved run keeps the id and sha256 it was graded under, and an id or file that no longer matches refuses (LEXICON_SUPPLEMENT_UNAVAILABLE) rather than reading another version.",
+    "default": "v2",
+    "versions": [
+      {
+        "id": "v1",
+        "path": "data/lexicon_supplement.tsv",
+        "sha256": "452d7aae056ed67f6bff94b76bf6f5df66516ce9e1c95d31796d45a8a92957f7",
+        "rows": 203,
+        "shipped": "PR #522, 2026-10-10: 203 readings of 135 tens-unit number compounds (rule:number-compound)"
+      },
+      {
+        "id": "v2",
+        "path": "data/lexicon_supplement_v2.tsv",
+        "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+        "rows": 205,
+        "shipped": "2026-10-10: frozen v1 plus reviewed streetlight (Moby attestation) and streetlights (finite plural derivation); opt-in when shipped; made the default 2026-10-11 by owner decision; v1 still resolves for runs that recorded it"
+      }
+    ]
+  }
+}
