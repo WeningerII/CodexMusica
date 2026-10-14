@@ -93,10 +93,15 @@ lexicon has `with_reader_scheme`, the same two under v1.
 import copy, gzip, hashlib, importlib.util, inspect, json, os, subprocess, sys
 from types import SimpleNamespace
 
-OUT, POP = sys.argv[1], sys.argv[2]
-ROOT = os.path.abspath(sys.argv[3] if len(sys.argv) > 3 else os.getcwd())
+_ARGS = [a for a in sys.argv[1:] if not a.startswith("--lexicons=")]
+OUT, POP = _ARGS[0], _ARGS[1]
+ROOT = os.path.abspath(_ARGS[2] if len(_ARGS) > 2 else os.getcwd())
+#: 3.2: `--lexicons=VARIANT` runs the process scheme's modes under another
+#: lexicon production can pass (see `_variant_lexes`); absent, the run is 3.1's.
+VARIANT = next((a.split("=", 1)[1] for a in sys.argv[1:] if a.startswith("--lexicons=")), None)
+VARIANTS = ("fb_high", "fb_low", "supp_none", "voices_fresh", "decl")
 HERE = os.path.dirname(os.path.abspath(__file__))
-TOOL_VERSION = "3.1"  # 3.1 pins: lexicon identity and population accounting (tool-review skeptic)
+TOOL_VERSION = "3.2"  # 3.1 + --lexicons=VARIANT; without it the run is 3.1's, record for record
 FAILING = ("occ_wrong", "unplaceable_edit", "no_op_edit", "edit_unbound")
 #: (line, slot): the real swap's edit is moved to another occurrence of the
 #: same spelling; the oracle must call it occ_wrong.
@@ -142,6 +147,76 @@ GROUP_PARTNER = ("love, love me do", "T2")
 def _sha(p):
     with open(p, "rb") as fh:
         return hashlib.sha256(fh.read()).hexdigest()
+
+
+def _variant_lexes(variant, lines, sb, LH, build_lexicon):
+    """-> {mode: lexicon} for the process scheme only, under a lexicon
+    production can pass but the default run never builds. Ported from the
+    tool-review skeptic's `probe_lexicons.py` (slot_occurrence_61b6618a/
+    skeptics.json):
+    - fb_high / fb_low: `build_lexicon("v2", "high"|"low")`;
+    - supp_none: `build_lexicon("none", "none")`;
+    - voices_fresh: a freshly built `SupplementedLexicon(version="v2",
+      strip_parens=False)` for the sung mode, not a copy;
+    - decl: in each mode, a declared reading on the first and last unreadable
+      token of every population line, and a distinct reading on the last
+      occurrence of each repeated readable word, validated with
+      `validate_choices` 128 rows at a time; rows it refuses are counted and
+      left out. One lexicon then holds every line's declarations, which
+      `for_line` scopes to its line, as a song's own declarations are.
+    """
+    from quality import lexicon_supplement as LS
+    from quality.pronunciation import validate_choices
+    import collections
+
+    def sung_copy(lex):
+        out = copy.copy(lex)
+        out.strip_parens = False
+        return out
+    if variant in ("fb_high", "fb_low"):
+        b = build_lexicon("v2", variant[3:])
+        return {"cur:stripped": b, "cur:sung": sung_copy(b)}, {}
+    if variant == "supp_none":
+        b = build_lexicon("none", "none")
+        return {"cur:stripped": b, "cur:sung": sung_copy(b)}, {}
+    if variant == "voices_fresh":
+        return {"cur:sung": LS.SupplementedLexicon(version="v2", strip_parens=False)}, {}
+    if variant != "decl":
+        raise SystemExit(f"--lexicons= takes one of {VARIANTS}")
+    out, info = {}, {}
+    for m, strip in (("cur:stripped", True), ("cur:sung", False)):
+        lex = LS.SupplementedLexicon(version="v2", strip_parens=strip)
+        rows = []
+        for line in lines:
+            if not sb._spans(line, strip, lex):
+                continue
+            toks = LH.line_tokens(line, strip_parens=strip, scheme=LH._scheme_of(lex))
+            readable = {x["widx"] for x in LH.word_syllable_map(lex, line) if x.get("widx") is not None}
+            un = [i for i in range(len(toks)) if i not in readable]
+            pick = sorted(set(un[:1] + un[-1:]))
+            for i in pick:
+                rows.append({"line": line, "token": i + 1, "word": toks[i], "phones": ["Z", "IY1", "K", "S"],
+                             "basis": "declared", "source": "BB8 probe: make an unreadable token readable"})
+            seen = collections.Counter(t.lower() for t in toks)
+            rep = [i for i, t in enumerate(toks) if seen[t.lower()] > 1 and i in readable]
+            if rep and rep[-1] not in pick:
+                rows.append({"line": line, "token": rep[-1] + 1, "word": toks[rep[-1]],
+                             "phones": ["M", "AA1", "R", "K"], "basis": "declared",
+                             "source": "BB8 probe: an occurrence-scoped reading"})
+        good, bad = [], 0
+        for k in range(0, len(rows), 128):
+            try:
+                good += validate_choices(rows[k:k + 128], lex)
+            except ValueError:
+                for r in rows[k:k + 128]:
+                    try:
+                        good += validate_choices([r], lex)
+                    except ValueError:
+                        bad += 1
+        lex.pronunciations = good
+        out[m] = lex
+        info[m] = {"declarations": len(good), "refused": bad}
+    return out, info
 
 
 def main():
@@ -225,6 +300,9 @@ def main():
                 if mode in lexes else [], "result": new}
 
     lines = [l for l in open(POP, encoding="utf-8").read().split("\n") if l]
+    variant_info = {}
+    if VARIANT:
+        lexes, variant_info = _variant_lexes(VARIANT, lines, sb, LH, build_lexicon)
     tally = {m: {} for m in lexes}
     admitted = 0
     admitted_by = {m: 0 for m in lexes}
@@ -446,6 +524,12 @@ def main():
                                 if os.path.exists(getattr(LH, "CMUDICT_PATH", "")) else None,
                                 "reader_scheme": {m: LH._scheme_of(l) if hasattr(LH, "_scheme_of") else None
                                                   for m, l in lexes.items()}},
+                    "lexicon_variant": None if not VARIANT else {
+                        "variant": VARIANT, "declarations": variant_info,
+                        "modes": {m: {"class": type(l).__name__, "fallback": repr(getattr(l, "fallback", None)),
+                                      "supplement_path": getattr(l, "supplement_path", None)
+                                      and os.path.relpath(l.supplement_path, ROOT),
+                                      "strip_parens": l.strip_parens} for m, l in lexes.items()}},
                     "population_accounted": {"intended_line_modes": intended, "admitted": admitted,
                                              "excluded": dict(excluded), "accounted": accounted},
                     "population": {"path": os.path.basename(POP), "lines": len(lines),
