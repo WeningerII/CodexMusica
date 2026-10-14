@@ -6,20 +6,26 @@ Evidence for the head that carries the slot-binding repair: code commit
 nothing else.
 
 **The verified tree is not the pushed tree.** `678898511` is pushed, and its
-CI run is the one cited below. The repair commit and this file are local. They
-have not been pushed, and no GitHub CI run exists for them. Every result below
-that names the new head is local, under the interpreter it states.
+CI run is the one cited below. When this section was written the repair
+commit and this file were local, with no GitHub CI run; they have since been
+pushed (see "Push state"). Every result below that names the new head is
+local, under the interpreter it states.
 
 **Update, broad fix round.** Code commit
-`643e292e6586d5aa5aea57e9ede231e360d5590d` (on top of `61b6618a`) closes BB8's
-F1, F4-F10 and A.2-six findings. It is also local and unpushed, with no CI
-run; see "Broad fix round" below. Every section before it describes
-`58de1816`, unchanged.
+`643e292e6586d5aa5aea57e9ede231e360d5590d` (on top of `61b6618a`) addresses
+BB8's F1, F4-F10 and A.2-six findings; see "Broad fix round" below. Every
+section before it describes `58de1816`, unchanged.
 
 **Update, contract-blocker round.** Code commits `3e77a5d97`, `82fe130e4` and
-`0af39c6ff` (on top of `6955e342`) close 3PO's contract blockers (#519
-6163216518) and the three items of #527 6163315071. They are local and
-unpushed too, with no CI run; see "Contract-blocker round" at the end.
+`0af39c6ff` (on top of `6955e342`) address 3PO's contract blockers (#519
+6163216518) and the three items of #527 6163315071; see "Contract-blocker
+round". Items those commits left open (returns annotations and Library
+coverage, punctuated hyphen ends, F4 retention, F1 member mapping, the form and
+Undo blockers) are handled in the fourth pass ("Fourth pass" at the end).
+
+**Push state.** Everything up to and including `43d32cdf` is pushed (CI run
+38554634818; see "Fourth pass"). The fourth pass's commits and this file's
+latest section are local, with no CI run.
 
 ## Baselines
 
@@ -325,8 +331,9 @@ suites (this round touches no JS or page file).
 
 ## Broad fix round (BB8 #519 6161601064, 3PO triage 6161637870 and limits 6161683534)
 
-Code commit `643e292e6586d5aa5aea57e9ede231e360d5590d`, on top of `61b6618a`. Like everything after `678898511`,
-it is local, unpushed, and has no CI run. Interpreter for every Python result
+Code commit `643e292e6586d5aa5aea57e9ede231e360d5590d`, on top of `61b6618a`. When this section
+was written it had no CI run; it has since been pushed (see "Push state" at
+the top). Interpreter for every Python result
 here: `/dev/shm/py311/bin/python`, CPython 3.11.17 (CI pins 3.11.16). The page
 baseline stays `8b1d2ad2`. `codex.html` was rebuilt with
 `node scripts/build_html.js --out=codex.html`, and `library/code/` was then
@@ -382,7 +389,8 @@ Not re-run at `643e292e`, with the reason for each:
 
 ## Contract-blocker round (3PO #519 6163216518; #527 6163315071)
 
-Code commits, on top of `6955e342`, all local and unpushed, with no CI run:
+Code commits, on top of `6955e342` (pushed since, with `43d32cdf`; see "Push
+state" at the top):
 
 - `3e77a5d97` — default end: zero bound syllables refuse (item 1);
 - `82fe130e4` — Lyrics: an explicit `N.end` and a bare `N` keep their
@@ -509,3 +517,139 @@ U+00AD`-`):
 
 No re-pin is applied on this branch. The proposals stay on
 `claude/reader-batch-2026-10-13-repins`.
+
+## Fourth pass (3PO #519 6164274432, 6165168676, 6166169619, 6166749777, 6167042191; #527 6164215811; BB8 66cef416)
+
+Code commits, on top of `43d32cdf` (pushed), local and with no CI run:
+
+- `34ecc6bcc` — Lyrics page: F4 retention, F1 member mapping, the form-writer
+  blocker, the Undo-evidence blocker, whole-line vs placed returns (items 1,
+  2, 6, 7, 8, 9);
+- `7c26d40c4` — harness: punctuated hyphen ends, the two slot-guard
+  qualification tests, the WarmWorker wording (items 10, 4, 3).
+
+Interpreter for every Python result in this section: `/dev/shm/py311/bin/python`,
+CPython 3.11.17. CI pins 3.11.16, so these are local results, distinct from
+CI and from an independent final-head qualification. The page baseline stays
+`8b1d2ad2`, the harness baseline `fce4bf0f`. `codex.html` was rebuilt with
+`node scripts/build_html.js --out=codex.html` and `library/code/` restored
+(generations.json included); `npm run check:fresh` passes on the result.
+
+| item | what changed | test that fails when it is reverted |
+|---|---|---|
+| 1. F4 retention | The renumbering record keeps every entry whole (no 40-character word cut, no four-line cap, no eviction) in its own page-context field, `app.lyricMeta.renumbered`, which `src/app.js` `lyricMetaOf` keeps whole. The card shows the first 20 entries; "Show all N" lists every one; Dismiss is the only removal. A record from the 6955e342 page (`ui.renumbered` with an evicted count) is carried over and its count still said. This supersedes the F4 row of "Broad fix round" (the 3,200-character bound with eviction). | Unit B §4 (replaces the test that approved eviction): one import moving 501 numbers, the 45-character word and all six lines of a reading listed after Show all, the shipped `lyricMetaOf`/`lyricMetaHistory` keeping all 501. Reverting the paging and the word cut fails 2. |
+| Library-card qualification (#527 6164215811) | Stated in `mcp/LYRICS_RUNTIME.md` and the page comment: the record belongs to its draft. Importing ANOTHER draft (a Library working copy, a saved draft reopened) shows that draft's record; the earlier draft's record stays with that draft (Undo, reopening it) and is never carried into or saved under the other. A `.txt` import replaces the same draft's text, so its entries join the same list. No claim that evidence survives a later import of another draft. | Browser 9e (below). |
+| 2. F1 member mapping | `lyMapOffset` aligns a rewritten row unit by unit (separators `;` `,` ` — ` `]`, longest common subsequence); a character in a unit present in both spellings maps onto itself; a selection's start follows the character after it, its end the character before. | Unit B §1b: the unchanged `2.end` in `[SETUP — returns — 1.T2, 2.end]` -> `… 1.T3, 2.end — cut v2]` keeps [25,30] (it became [39,39]); every caret inside it; the changed member's selection is exactly `1.T3`; a multi-member row (two renumbered, one carried, three unchanged). Restoring the one-prefix/one-suffix mapping fails 14. |
+| 6. Form writers (BLOCKER) | Every rhyme groups / returns form writer (Link endings, Remove link, a placed return, Declare exact repeat, removing links that bind no word, Keep / Remove on a carried member) reads the rows of its key through `lyFormBase`: unmarked rows rebound by span or kept undecided and named places carried, exactly as the boundary migration does, BEFORE the row is written back marked. The renumbering is recorded on the card and said in the form's own message. The typing refresh still never rewrites the draft. Remaining, disclosed: before any boundary or form, the Rhymes and Repeats display still shows an unmarked row under the current cut (display only). | Unit O: six writer/row-type pairs; form-then-send and send-then-form give the same final text and `1.T5` (`love`), and the harness's placed-return verdict on the payload (`1.T5,8.T2` on `And love above`) is the same in both orders. Removing the policy pass fails 25. |
+| 7. Undo evidence (BLOCKER) | The record is tied to its draftId and is part of each history step (`lyricMetaHistory`); `_restoreSnapshot` restores the step's record instead of keeping the live one; `lyLibraryCapture` saves a record only under the draft it belongs to (an unowned record is the current draft's). No history redesign, no separate migration Undo step; Dismiss updates the current step in place. | Browser 9e: `.txt` draft A (renumbers a reading) -> Library working copy B (renumbers a rhyme link) -> Undo. A's text and id come back with A's card; after the page's re-save A's IndexedDB record, the saved session and the card hold only A's entries and B's record keeps B's; after a reload A shows A's, and B reopened from History shows B's. Reverting the history and capture changes fails 4 (B's card over A, A's stored record and the session overwritten, A's after reload). |
+| 8. N.end identity follow-up | See "Item 8: the exact delta" below. | Unit E (rewritten), browser 9e. |
+| 9. Returns classes | In a returns row a bare `N` and `N.line` are WHOLE-LINE returns and are never carried, annotated, labelled "last rhyme" or shown with endpoint words; placed returns (`N.end`, `N.endword`, `N.head`, `N.headrime`, `N.T<k>`) follow the word-place rules through import, Keep and the outgoing payload. A whole-line member an earlier page annotated is named a whole-line return in Review (no word shown) and Keep drops the note. The parser comment claiming bare `N` and `N.end` bind alike is corrected (true for rhyme groups, false for returns). | Unit E on valid classes only (`2.end,6.end;1,5;1.line,3.line;1.head,7.head;2,4`, no mixed class): migration, Review, Keep, the wire, and the harness's own `schemes.mandate` / `returns_check` / `placed_returns_check` run on the exact `returns` payload (two whole-line classes, three placed; the whole-line judge fires only on `1,5`, the placed judge on `head` and `line`). Browser 9e: the same classes through the Library working-copy receiver (`lyLibraryImport`). Making `lyWholeLineReturn` false fails 10 (E 6, P 2, R 2). Units P and R were updated where they expected bare returns to be carried. |
+| 4. Slot guards | `SlotBinding.test_a_span_holding_more_than_word_material_refuses` pins `_only_word_material` on the non-default splice (`love×you more`, `lo÷ve`, U+1FEF, each with a declared reading so the grader binds the token) and on the default end (U+1FEF, U+1FFD), through `swap_at_slot`, `swap_end_word` and `Reviser._splice`, with word-material controls. `test_the_default_end_endpoint_must_be_the_replaced_pieces` pins the endpoint-pieces check of `_end_occurrence_bound` by direct call: on the 3,990-line population the asides-kept cut and the lexicon's cut differ at the end on 264 line-modes and an earlier guard refuses every one, so no production splice reaches the check with a mismatch; it is defence in depth, and the test says so. | Removing the non-default guard fails 10 subtests, the default-end guard 4, the pieces check 1. No `loop.py` change. |
+| 10. Punctuated hyphen ends | `relations.build_stream` reads the printed part of the line's last token whenever it ends in a hyphen (a closing quote after it allowed), through the same phonology, so `king-,`, `king-.`, `king-;`, `king-'` read `king`, as `line_anchors` reads them. Whether the line is SPLIT stays `split_final`'s answer, so punctuation never becomes a broken-word continuation. v2 now answers exactly as v1: declared perfect rhyme True, declared broken rhyme False (they were None/None). | `Normalisation.test_punctuation_after_the_hyphen_is_read_not_continued`: 11 shapes x v1/v2, the `line_anchors` premise, split, numeral (`2-,`) and printed-boundary controls, a mid-word hyphen. Reverting the stream change fails 11 subtests; dropping the closing-quote allowance fails 2. |
+| 3. WarmWorker wording | `_caches_hold_their_schemes` is described as what it checks: scheme ownership, not a count (BB8 counted 4 entries in `fit._LEX`). The child peak assertion is unchanged. | none (wording) |
+| 5. Empty pivot | `mcp/LYRICS_RUNTIME.md` (pre-existing items) and the slot receipt: the stock proposer forwarding an EMPTY `GroupBrief` pivot through the splice (an empty replacement deleting a word) is a PRE-EXISTING shared-loop candidate-validity issue, separate from occurrence targeting, owner-gated (needs John's bounded approval), not fixed here. The marker-only slot oracle does not show production candidates are safe. | none (wording) |
+
+Reverting `src/pages/lyrics.js` alone to `43d32cdf` fails 53 unit assertions
+(B 18, E 6, O 25, P 2, R 2).
+
+### Item 8: the exact delta
+
+- **Already fixed before this pass, and not credited to it or to `82fe130e`:**
+  explicit `N.end` preserved in text and wire on the 6955e342 paths
+  (643e292e re-read each member's raw text; BB8's 39-send / three-parser
+  receipt at 66cef416).
+- **`82fe130e`'s own delta over 6955e342:** the `explicit` flag in every member
+  shape, so members of a row marked with an unknown cut keep `.end` when a
+  form merges the row, and Review names them as written.
+- **This pass:** whole-line returns (bare `N`, `N.line`) are no longer carried
+  or annotated on changed-cut lines (the 6955e342/43d32cdf page carried them,
+  `lyrics.js` ~314-319); no returns member is called "last rhyme" or shown
+  with endpoint words unless it is a placed end (~1407-1417); `N.line` and
+  the Library working-copy receiver are covered; and the return classes are
+  checked in what the harness reads from the payload, not by spelling alone.
+
+### Item 10: corpus reach and the acceptance matrix
+
+| shape | v1 broken / perfect | v2 before (43d32cdf) | v2 now |
+|---|---|---|---|
+| `king-` (split) | True / True | True / True | True / True |
+| `king-,` `king-.` `king-;` `king-!` `king- ,` `king-)` `king-—` | False / True | None / None | False / True |
+| `king-'` `king-’` | False / True | None / None | False / True |
+| `king‐,` (U+2010), `king-`U+00AD`.` | False / True | None / None | False / True |
+| `2-,` (numeral) | — | None / None | None / None |
+| `×king-,` (printed boundary) | — | None / None | None / None |
+
+On the English song corpus (281,399 sung lines by the page's filter), 2 lines
+end on a hyphen followed by punctuation: `Then the ominous words “It’s a
+Boo-”` is now read (`Boo`); `Yecleap'd _Buce-_` stays refused (the stem has
+no reading). No earlier shape is claimed closed beyond this matrix.
+
+### Item 4: the five excluded witnesses
+
+At `61b6618a` a direct call finds 196 unbound default-end edits per v2 mode,
+the slot tool's 191 plus 5 lines it excludes as `excluded_transformed`
+(spaced enclitics: `An' Charlie he 's our ain.` and four more, listed in the
+slot receipt). At `7c26d40c4`: 0 per mode, so the v2 zero-binding refusal
+covers them. "Default end unchanged" is scoped to the measured 3,990-line
+population and lexicon; BB8's 1,760 crafted/fuzzed conservative refusals at
+`61b6618a` stay disclosed (the probed examples bind zero syllables at this
+head; the full crafted set was not re-run).
+
+### Item 11: the slot receipt, completed
+
+`quality/results/slot_default_end_zero_binding_2026-10-14/` now holds the full
+per-case dumps for `61b6618a` and the code head `7c26d40c4` (with the tool's
+summaries and logs, sha256 in its README), `compare_runs.py` (the exact
+comparison, reading only per-case records) and its output, and
+`default_end_direct.py` with both outputs. Reconstructed from the dumps:
+190,530 cases each; exactly 382 differ, all v2 default `end` (191 per mode
+`edit_unbound` -> `refused_unbound`; 181 unread, 7 numeral, 3 hyphenated);
+6,052 of 6,052 readable v2 default-end cases byte-identical; 95,265 of 95,265
+v1 cases byte-identical; 174,660 non-end cases byte-identical; the 989 cohort
+(v2 `grader_elsewhere` at 67889851, from BB8's committed dump) all `occ_agree`
+and byte-identical. The code head's per-case dump is byte-identical
+(decompressed) to the `0af39c6f` run's, and the `61b6618a` dump to BB8's
+committed one. The five witnesses and any alternate lexicon are kept apart
+from the 3,990-line gate. The trees are archives, not checkouts (the
+attestation limitation is in the receipt).
+
+### Local results at `7c26d40c4` (page code `34ecc6bcc`)
+
+| suite | result |
+|---|---|
+| `node scripts/check_lyrics_page.js` (unit + browser) | PASS, 594 assertions (384 unit, 210 browser, step 9e new). Run with a scratch preload that points Playwright at the preinstalled Chromium (environment limit, repo unchanged) |
+| `quality/test_reader.py`, one process | 101 tests OK, 6 skips (the six child bodies, each run by its parent; 98 + 3 new). Child peaks (VmHWM) under the unchanged 1024 MiB guard: 456 / 538 / 459 MiB, cold 538 / 471 / 471 MiB |
+| `scripts/check_library_page.js` | PASS, 270/270 |
+| `scripts/test_library_import.js`, `test_library_declarations.js`, `test_lyric_tokens.js`, `test_library_chunk_generations.js` | 34 tests pass, 0 fail |
+| `test_library_import_browser.js`, `test_library_import_shipped.js` | pass (1 test; SHIPPED LIBRARY IMPORT PASS), same preload |
+| `mcp/test_high_report.mjs` | 10/10, under both CPython 3.11.17 and the system 3.13.16 (see CI below) |
+| `npm run lint`, `npm run format:check`, `npm run check:fresh`, `npm run check:budget`, `npm run test:minified`, `scripts/check_doc_paths.js` | All PASS (check:fresh byte-identical to a fresh build; 13 budgets hold; minified equivalence across 7755 traditions) |
+| `map/build.py`, then `--check` | regenerated (`map/files.md`), then current |
+| `search_null --check`, `audit_corpus --verify-shape`, `check_comparator_pin.py`, `counters.py --check` | Only the held failures: search_null k=3-4 813 -> 808 and k=5-8 208 -> 207; audit NOTE 1856 -> 1861; comparator MOVED 1 of 7 inputs; counters public-symbol row only (below) |
+
+Not re-run at this head, with the reason: the revision-loop job, `test_verbs`
+and `test_production_revision` (`loop.py`, `revise.py`, `slots.py` and
+`lyric_harness.py` are unchanged; the harness change is the relation stream's
+line-final token and test files).
+
+### CI at 43d32cdf and held pins
+
+- Run https://github.com/WeningerII/CodexMusica/actions/runs/38554634818
+  (push, head `43d32cdf`): 48 jobs, 41 success / 4 failed / 3 skipped. Failed:
+  `record`, `suites (shard 2/3)`, `suites-result` (the held pins, as at
+  `678898511`) and **`verify`**.
+- **UNEXPECTED: `verify` failed on `node --test mcp/test_high_report.mjs`
+  (exit 1)**, the only failing leaf it lists. It passed at `678898511`. It does
+  not reproduce locally at `7c26d40c4` (10/10 under 3.11.17 and 3.13.16), and
+  the failing assertion is not in the retrievable tail of the job log (the
+  full log download is blocked from this environment), so its cause is not
+  established here. It needs a look at the full CI log, or a re-run, before
+  qualification.
+- Held, unapplied (proposals stay on `claude/reader-batch-2026-10-13-repins`):
+  comparator fingerprint; search_null 813 -> 808, 208 -> 207; audit NOTE
+  1856 -> 1861; counters public-symbol row 1719 committed, measured **1739**
+  (production 434, tests-only 511, self-only 655, nowhere 4, refused 135);
+  the total is the same as at `43d32cdf`, and this pass adds no declared-public module-level symbol (the
+  receipt scripts' helpers are private and behind a `__main__` guard; an
+  unguarded draft briefly tripped the "stranded modules" row, fixed before
+  commit).
