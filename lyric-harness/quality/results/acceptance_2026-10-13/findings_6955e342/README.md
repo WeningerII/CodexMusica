@@ -24,7 +24,7 @@
 - **TESTER:** one tester's result, with its skeptic still queued.
 - **PENDING:** not run yet.
 
-When this was written, the skeptics for F1, F6, A.2 and the author tests had not run. They are queued behind the F4 skeptics.
+The F4 and F1 skeptics finished. The **Scope** paragraph above says which did not run.
 
 ## New at `6955e342`
 

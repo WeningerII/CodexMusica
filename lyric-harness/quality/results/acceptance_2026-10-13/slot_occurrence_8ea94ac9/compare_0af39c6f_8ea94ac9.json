@@ -1,0 +1,35 @@
+{
+ "streams": {
+  "0af39c6f": {
+   "path": "/home/user/CodexMusica/lyric-harness/quality/results/acceptance_2026-10-13/slot_occurrence_0af39c6f/so_0af39c6f.jsonl.gz",
+   "uncompressed_sha256": "da395e29859c9bb221573f105f59fa28b7a6725d03ad853e8f7d19e2262d140b",
+   "records": 190530
+  },
+  "8ea94ac9": {
+   "path": "so8ea/so_8ea94ac9.jsonl.gz",
+   "uncompressed_sha256": "da395e29859c9bb221573f105f59fa28b7a6725d03ad853e8f7d19e2262d140b",
+   "records": 190530
+  }
+ },
+ "per_scheme": {
+  "cur": {
+   "cases": 95265,
+   "evaluated": 95220,
+   "identical": 95265,
+   "excluded_placeholders": 45
+  },
+  "v1": {
+   "cases": 95265,
+   "evaluated": 95220,
+   "identical": 95265,
+   "excluded_placeholders": 45
+  }
+ },
+ "readable_default_end": {
+  "what": "v2 `end` records reading occ_agree in 0af39c6f",
+  "count": 6052,
+  "identical_in_new": 6052
+ },
+ "change_counts": {},
+ "changed": []
+}
