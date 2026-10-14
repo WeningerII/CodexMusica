@@ -22,9 +22,16 @@ It classifies each line-mode:
 - `zero_anchor`: the grader binds no syllable at the end, so the refusal is
   the contract's;
 - `bound_endpoint`: the grader binds syllables and the last one sits on the
-  token the unguarded edit replaced, so the refusal is COLLATERAL;
+  line's last token;
 - `bound_elsewhere`: the grader binds syllables on another token;
 - `no_unguarded_edit`: nothing to compare.
+A bound kind is NOT by itself collateral. `collateral` is true only where
+the grader binds the end AND the guard changes the outcome (a guarded refusal
+or an output that differs from the unguarded one); the `bound_endpoint` lines
+in the 0af39c6f receipt are positive controls, guarded output equal to the
+unguarded one (3PO, #527 6167341734).
+Pins: commit, this tool's and `loop.py`'s sha256 only; the sweep receipts it
+reads carry the fuller pins (corpus, lexicons, CMUdict, dirty state).
 Read-only.
 """
 import copy, glob, gzip, hashlib, json, os, sys
@@ -87,8 +94,11 @@ def main():
                 kind = "bound_endpoint"
             else:
                 kind = "bound_elsewhere"
+            collateral = bool(anchors) and guarded != unguarded
             tally[f"{m} | {kind}"] = tally.get(f"{m} | {kind}", 0) + 1
-            rows.append({"line": line, "mode": m, "kind": kind, "source": "extra" if line in extra else "sweep",
+            if collateral:
+                tally[f"{m} | collateral"] = tally.get(f"{m} | collateral", 0) + 1
+            rows.append({"line": line, "mode": m, "kind": kind, "collateral": collateral, "source": "extra" if line in extra else "sweep",
                          "resolve": {"readings": len(anchors), "label": label, "unread": list(oov or []),
                                      "end_syllables": [list(e) for e in ends]},
                          "last_token": None if last is None else {"text": last.text, "pieces": [list(p) for p in last.pieces]},
