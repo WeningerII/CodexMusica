@@ -1,0 +1,454 @@
+{
+ "purpose": "UTF-8 JSONL chunks of the committed gzipped ledgers, for readers that cannot open gzip (3PO, #527 6160911990). Byte-for-byte the decompressed content; every record kept, in original order, split only at line ends.",
+ "commit_written_from": "3874768f52091e02786c44c8b34e29d733b5d78d",
+ "candidate_sha": "67889851144dd2a7eefedd9960a868978fb7bfae",
+ "base_sha": "fce4bf0f1b4b274d1c44c67831a6e40b22a8802c",
+ "ledgers": [
+  {
+   "ledger": "67889851",
+   "gzip_path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/67889851.jsonl.gz",
+   "gzip_blob": "3de413592494bbbf0cebb092d1c55ad7eececb42",
+   "gzip_bytes": 1183112,
+   "decompressed_bytes": 29734230,
+   "decompressed_sha256": "f1dc6371cd8475eb72a3f8dd0a9a2ab1397e81c13929727d6218fc86cd85a43e",
+   "records": 190530,
+   "chunks": [
+    {
+     "order": 0,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part00.jsonl",
+     "first_record": 0,
+     "records": 5821,
+     "bytes": 899904,
+     "sha256": "8db36d0b006dc17973239fda1c993ccdb681a69a7465a33c71c990f048929557"
+    },
+    {
+     "order": 1,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part01.jsonl",
+     "first_record": 5821,
+     "records": 5660,
+     "bytes": 899896,
+     "sha256": "cd09beda3770fe615a37f38722209786d0543b95a0d2f38d9801e595313d7e76"
+    },
+    {
+     "order": 2,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part02.jsonl",
+     "first_record": 11481,
+     "records": 5551,
+     "bytes": 899910,
+     "sha256": "745a5b4c9442cd7b2122a3afc1993b54d13df707a7c37fd2192c1b9a18bf1cd1"
+    },
+    {
+     "order": 3,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part03.jsonl",
+     "first_record": 17032,
+     "records": 5665,
+     "bytes": 899937,
+     "sha256": "5bf3a1f018255eb3330f243a24f66f08c82d4c76c04cd27f30cd3f52b307de41"
+    },
+    {
+     "order": 4,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part04.jsonl",
+     "first_record": 22697,
+     "records": 5667,
+     "bytes": 899933,
+     "sha256": "0da66dbbfead4491cd47e27013bda596864d0b7ee53a1acb6662ddc374549cdb"
+    },
+    {
+     "order": 5,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part05.jsonl",
+     "first_record": 28364,
+     "records": 5624,
+     "bytes": 899894,
+     "sha256": "cbc9fbc489cb70673f459aaafd2d9b627ccc4502386de73b898a8488351431b9"
+    },
+    {
+     "order": 6,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part06.jsonl",
+     "first_record": 33988,
+     "records": 5739,
+     "bytes": 899967,
+     "sha256": "3b74f2472cd73446aff398b29aa550be2581b7fe34e11d50a7533d444107f12b"
+    },
+    {
+     "order": 7,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part07.jsonl",
+     "first_record": 39727,
+     "records": 5595,
+     "bytes": 899905,
+     "sha256": "47f0914b30975609d067cb1cd812939ce1c461089102230651e3e0a2b3250dd5"
+    },
+    {
+     "order": 8,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part08.jsonl",
+     "first_record": 45322,
+     "records": 5522,
+     "bytes": 899881,
+     "sha256": "48e1ee732e30d6b83d067fc509dea1e452886f1272b2bdd115dd78c391e04d51"
+    },
+    {
+     "order": 9,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part09.jsonl",
+     "first_record": 50844,
+     "records": 5862,
+     "bytes": 899913,
+     "sha256": "cc43127c9704d837daed7ca90e01ac36711317581f78602ead749627ce1019ae"
+    },
+    {
+     "order": 10,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part10.jsonl",
+     "first_record": 56706,
+     "records": 5874,
+     "bytes": 899852,
+     "sha256": "c411ce1e446394f22863edccd2c182c605daa5dd2f06b71a49dfd857a4447afb"
+    },
+    {
+     "order": 11,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part11.jsonl",
+     "first_record": 62580,
+     "records": 5847,
+     "bytes": 899983,
+     "sha256": "d5b669e31fd4d5d691b90ae74e770d22733a81d17bafd2969ccac9ebe5f71763"
+    },
+    {
+     "order": 12,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part12.jsonl",
+     "first_record": 68427,
+     "records": 5801,
+     "bytes": 899851,
+     "sha256": "0d2cffd5f4f56271f47d40edd4d61dd666cfa72d9ad1ec7848a8955f071089b0"
+    },
+    {
+     "order": 13,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part13.jsonl",
+     "first_record": 74228,
+     "records": 5797,
+     "bytes": 899912,
+     "sha256": "cadb64e6a357e3dc4c62f09f6dbb5c2d0ef6114e333ed01deb27bde4bf647eec"
+    },
+    {
+     "order": 14,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part14.jsonl",
+     "first_record": 80025,
+     "records": 5841,
+     "bytes": 899991,
+     "sha256": "8359eb87911fd1678d28e57050608dff7e0d59b35b7bf3de05f7e2abd839b4f2"
+    },
+    {
+     "order": 15,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part15.jsonl",
+     "first_record": 85866,
+     "records": 5867,
+     "bytes": 899864,
+     "sha256": "57c67caea78fbb8e3acbadeb8327d50f9e333f9cab42368168998b7461dc62f7"
+    },
+    {
+     "order": 16,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part16.jsonl",
+     "first_record": 91733,
+     "records": 5826,
+     "bytes": 899931,
+     "sha256": "8deb213404b5b26e998654a9825eda9893d6a245cd7ce0fd5d94d7a5fca85905"
+    },
+    {
+     "order": 17,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part17.jsonl",
+     "first_record": 97559,
+     "records": 5769,
+     "bytes": 899904,
+     "sha256": "78ab79f42009de70e36f7d072f630e406c95694c41e33deaca43e3aac3a66fa1"
+    },
+    {
+     "order": 18,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part18.jsonl",
+     "first_record": 103328,
+     "records": 5796,
+     "bytes": 899968,
+     "sha256": "9ca4f8030f83a21d8131c8959f459944a88a7feac93bb2f707afa8ce747c1b68"
+    },
+    {
+     "order": 19,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part19.jsonl",
+     "first_record": 109124,
+     "records": 5817,
+     "bytes": 899951,
+     "sha256": "a93957d6787d31d752bd389373c6b5c8fa385f7b574df7b04298a66626c207b4"
+    },
+    {
+     "order": 20,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part20.jsonl",
+     "first_record": 114941,
+     "records": 5825,
+     "bytes": 899903,
+     "sha256": "8fca4363a8fed1b283dcd91523388908cf0915809f8705c600df45b25d234b0b"
+    },
+    {
+     "order": 21,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part21.jsonl",
+     "first_record": 120766,
+     "records": 5785,
+     "bytes": 899973,
+     "sha256": "6425f510ccd773911fd540f447a2866e6be002dcf66668673e4bbd64f2d3f7db"
+    },
+    {
+     "order": 22,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part22.jsonl",
+     "first_record": 126551,
+     "records": 5871,
+     "bytes": 899929,
+     "sha256": "bcbaabbd8c4bb25934fd10337f11f2be4b32cd642001fb1eb8c3145cbac39169"
+    },
+    {
+     "order": 23,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part23.jsonl",
+     "first_record": 132422,
+     "records": 5758,
+     "bytes": 899856,
+     "sha256": "8816ca624af415c6ed942f31459152f4d0f1f5baf4bd1a8eb2a72561f98c1584"
+    },
+    {
+     "order": 24,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part24.jsonl",
+     "first_record": 138180,
+     "records": 5745,
+     "bytes": 899992,
+     "sha256": "d98682b1be6f28f58ac2b7bb7f11eb1cab5ef10ff1c0588c20583da668f933d6"
+    },
+    {
+     "order": 25,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part25.jsonl",
+     "first_record": 143925,
+     "records": 5764,
+     "bytes": 899904,
+     "sha256": "536d1203e9e9ac2ad7799bd0bda7a4086abadd9b430a5314792c74961056cdcc"
+    },
+    {
+     "order": 26,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part26.jsonl",
+     "first_record": 149689,
+     "records": 5807,
+     "bytes": 899920,
+     "sha256": "6b031b4f48c6572181c9c2ac8dad78656a85ce0f5553568e443d56df2c06fe1a"
+    },
+    {
+     "order": 27,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part27.jsonl",
+     "first_record": 155496,
+     "records": 5815,
+     "bytes": 899935,
+     "sha256": "aa7d2f419f2ffc754bbfc4554b1072dde06cf3e5fcca57ecbc0d8f7b1f276d93"
+    },
+    {
+     "order": 28,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part28.jsonl",
+     "first_record": 161311,
+     "records": 5737,
+     "bytes": 899995,
+     "sha256": "de06ed1a5aae291201cd878f4fa32feda975cb057c267d813af3c078045ab856"
+    },
+    {
+     "order": 29,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part29.jsonl",
+     "first_record": 167048,
+     "records": 5844,
+     "bytes": 899948,
+     "sha256": "949f8d4be96d01517f845bd241a9d60f2b54a64ad7363c5c62e988458407b616"
+    },
+    {
+     "order": 30,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part30.jsonl",
+     "first_record": 172892,
+     "records": 5796,
+     "bytes": 899929,
+     "sha256": "a6b9c77535cd2c2ae560202a7f9ba48cb6d951e15d9d7421c41fdec63061f3c9"
+    },
+    {
+     "order": 31,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part31.jsonl",
+     "first_record": 178688,
+     "records": 5774,
+     "bytes": 899845,
+     "sha256": "c218ef052a64ff712d7d6104073beed84cbf3abffa238db7762e959ba220d833"
+    },
+    {
+     "order": 32,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part32.jsonl",
+     "first_record": 184462,
+     "records": 5824,
+     "bytes": 899869,
+     "sha256": "0a2050c7772831b53dace49f4efac00cd6ec5345dae2ef53b28f4cca779355a9"
+    },
+    {
+     "order": 33,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/67889851.part33.jsonl",
+     "first_record": 190286,
+     "records": 244,
+     "bytes": 36885,
+     "sha256": "e4d51e1c24af6d647f3e3e812097d45d99b1da2f58da7ca81356b92c7a6142b5"
+    }
+   ],
+   "records_by_mode": {
+    "cur:stripped": 47616,
+    "cur:stripped|excluded": 22,
+    "cur:sung": 47604,
+    "cur:sung|excluded": 23,
+    "v1:stripped": 47616,
+    "v1:stripped|excluded": 22,
+    "v1:sung": 47604,
+    "v1:sung|excluded": 23
+   }
+  },
+  {
+   "ledger": "fce4bf0f",
+   "gzip_path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/fce4bf0f.jsonl.gz",
+   "gzip_blob": "9d0812d79bbd3d19cdc49c106ccbbf5e0600d409",
+   "gzip_bytes": 718586,
+   "decompressed_bytes": 14502978,
+   "decompressed_sha256": "fece7f8aae1863c66ff5a30c6e67f93d924aeb42a2dc47b7c35f5979b4a89056",
+   "records": 92218,
+   "chunks": [
+    {
+     "order": 0,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part00.jsonl",
+     "first_record": 0,
+     "records": 5687,
+     "bytes": 899960,
+     "sha256": "e7470761bb2d4a17a48104b97abd21d7dec2518e97a3ab1baa3bf5cb376f57bf"
+    },
+    {
+     "order": 1,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part01.jsonl",
+     "first_record": 5687,
+     "records": 5579,
+     "bytes": 899889,
+     "sha256": "439815d9f3ac35ac31c38dae885633e07aefcb55dada807b2cecbbc3eed631c4"
+    },
+    {
+     "order": 2,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part02.jsonl",
+     "first_record": 11266,
+     "records": 5599,
+     "bytes": 899931,
+     "sha256": "09d633af6108197e050ce7a321fb51540956dae2d44c7e9d2b953ba2e0015e74"
+    },
+    {
+     "order": 3,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part03.jsonl",
+     "first_record": 16865,
+     "records": 5578,
+     "bytes": 899951,
+     "sha256": "acedcc257430b3565721cc5bc281cc2afefaeb4fe5626c6dda32de612ad99dc0"
+    },
+    {
+     "order": 4,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part04.jsonl",
+     "first_record": 22443,
+     "records": 5719,
+     "bytes": 899859,
+     "sha256": "c5956dc2b489dfa481b3fbd7c864a05642e7500634b7ca486725bb10fa09d9b3"
+    },
+    {
+     "order": 5,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part05.jsonl",
+     "first_record": 28162,
+     "records": 5795,
+     "bytes": 899925,
+     "sha256": "a87e60887ab4376f1a8d2673908f43b1433c18dae66102c1c840a9538ab1613d"
+    },
+    {
+     "order": 6,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part06.jsonl",
+     "first_record": 33957,
+     "records": 5780,
+     "bytes": 899926,
+     "sha256": "9478184303b1740abe4686f38a84cebf12e4b1796cd137470b8fad2961d2e9f0"
+    },
+    {
+     "order": 7,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part07.jsonl",
+     "first_record": 39737,
+     "records": 5796,
+     "bytes": 899932,
+     "sha256": "29c4e2f9688d08fe93ae10c4f2a49cd0d7caadf0a31d93f85cc41450fbfd1219"
+    },
+    {
+     "order": 8,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part08.jsonl",
+     "first_record": 45533,
+     "records": 5731,
+     "bytes": 899855,
+     "sha256": "40990b4a45758aece4beb3b5f07b7feff2613bfad2a135a88529a3c93cff4142"
+    },
+    {
+     "order": 9,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part09.jsonl",
+     "first_record": 51264,
+     "records": 5792,
+     "bytes": 899918,
+     "sha256": "c2f1203f8ae4f81293790fcd4e13892b168d0983708b9924a48c4b584eaa64d5"
+    },
+    {
+     "order": 10,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part10.jsonl",
+     "first_record": 57056,
+     "records": 5747,
+     "bytes": 899924,
+     "sha256": "33b0f692816f8be99c3a5f771eecec91d2697b53b0c69bac2d447766703127ec"
+    },
+    {
+     "order": 11,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part11.jsonl",
+     "first_record": 62803,
+     "records": 5738,
+     "bytes": 899893,
+     "sha256": "933f10573252b68c3d7145b285c4ed3e32e1bad9059476be7d5b594ff6c358ce"
+    },
+    {
+     "order": 12,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part12.jsonl",
+     "first_record": 68541,
+     "records": 5729,
+     "bytes": 899855,
+     "sha256": "e3752bfc7976a374f8b1b78cf1c3349b4b60babd05be6bf21fe82dc52ae4c0af"
+    },
+    {
+     "order": 13,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part13.jsonl",
+     "first_record": 74270,
+     "records": 5751,
+     "bytes": 899997,
+     "sha256": "4231ef0db0eabadf35d8ebd8fe5be48dec516217609bccf3feae2109c778ba7b"
+    },
+    {
+     "order": 14,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part14.jsonl",
+     "first_record": 80021,
+     "records": 5775,
+     "bytes": 899939,
+     "sha256": "68b9160884aad4cc95754f0ebd9a5d5b52e2e0b8ec80a862a5661c947f8ea3c6"
+    },
+    {
+     "order": 15,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part15.jsonl",
+     "first_record": 85796,
+     "records": 5763,
+     "bytes": 899890,
+     "sha256": "6e7e088e568d3b981a071b8044f22ada6c18e109335a5a240b8b45940ec7ee6b"
+    },
+    {
+     "order": 16,
+     "path": "lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/chunks/fce4bf0f.part16.jsonl",
+     "first_record": 91559,
+     "records": 659,
+     "bytes": 104334,
+     "sha256": "ce1214297c30cd067b419b269d4d9fd064b308e6457533aad9cb07d1781cb94e"
+    }
+   ],
+   "records_by_mode": {
+    "base:stripped": 45948,
+    "base:stripped|excluded": 161,
+    "base:sung": 45948,
+    "base:sung|excluded": 161
+   }
+  }
+ ]
+}

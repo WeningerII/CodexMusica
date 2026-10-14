@@ -1,0 +1,659 @@
+{"line": "Thee, aith-detesting, chaste Kilkerran;", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "Thee", "bound": "Thee", "edited": "Thee"}
+{"line": "Thee, aith-detesting, chaste Kilkerran;", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "Thee", "bound": "Thee", "edited": "Thee"}
+{"line": "Thee, aith-detesting, chaste Kilkerran;", "mode": "base:sung", "slot": "T2", "kind": "agree_unbound", "named": "aith-detesting", "bound": null, "edited": "aith-detesting"}
+{"line": "Thee, aith-detesting, chaste Kilkerran;", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "chaste", "bound": "chaste", "edited": "chaste"}
+{"line": "Thee, aith-detesting, chaste Kilkerran;", "mode": "base:sung", "slot": "T4", "kind": "agree_unbound", "named": "Kilkerran", "bound": null, "edited": "Kilkerran"}
+{"line": "Thee, aith-detesting, chaste Kilkerran;", "mode": "base:sung", "slot": "T5", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Thee, aith-detesting, chaste Kilkerran;", "mode": "base:sung", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Thee, aith-detesting, chaste Kilkerran;", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Thee, aith-detesting, chaste Kilkerran;", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "end", "kind": "refused", "named": "low", "bound": "low", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "endword", "kind": "refused", "named": "low", "bound": "low", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "head", "kind": "refused", "named": "Was", "bound": "Was", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "headrime", "kind": "refused", "named": "Was", "bound": "Was", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "T1", "kind": "refused", "named": "Was", "bound": "Was", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "T2", "kind": "refused", "named": "sent", "bound": "sent", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "T3", "kind": "refused", "named": "that", "bound": "that", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "T4", "kind": "refused", "named": "laid", "bound": "laid", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "T5", "kind": "refused", "named": "me", "bound": "me", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "T6", "kind": "refused", "named": "low", "bound": "low", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "end", "kind": "refused", "named": "low", "bound": "low", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "endword", "kind": "refused", "named": "low", "bound": "low", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "head", "kind": "refused", "named": "Was", "bound": "Was", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "headrime", "kind": "refused", "named": "Was", "bound": "Was", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "T1", "kind": "refused", "named": "Was", "bound": "Was", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "T2", "kind": "refused", "named": "sent", "bound": "sent", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "T3", "kind": "refused", "named": "that", "bound": "that", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "T4", "kind": "refused", "named": "laid", "bound": "laid", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "T5", "kind": "refused", "named": "me", "bound": "me", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "T6", "kind": "refused", "named": "low", "bound": "low", "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Was sent that laid me low!--", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "spink", "bound": "spink", "edited": "spink"}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "spink", "bound": "spink", "edited": "spink"}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "Spink", "bound": "Spink", "edited": "Spink"}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "Spink", "bound": "Spink", "edited": "Spink"}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "Spink", "bound": "Spink", "edited": "Spink"}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "spank", "bound": "spank", "edited": "spank"}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "spink", "bound": "spink", "edited": "spink"}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "T4", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "T5", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Spink, spank, spink;", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "spink", "bound": "spink", "edited": "spink"}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "spink", "bound": "spink", "edited": "spink"}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "Spink", "bound": "Spink", "edited": "Spink"}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "Spink", "bound": "Spink", "edited": "Spink"}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "Spink", "bound": "Spink", "edited": "Spink"}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "spank", "bound": "spank", "edited": "spank"}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "spink", "bound": "spink", "edited": "spink"}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "T4", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "T5", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Spink, spank, spink;", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "maintain", "bound": "maintain", "edited": "maintain"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "maintain", "bound": "maintain", "edited": "maintain"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "Till", "bound": "Till", "edited": "Till"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "Till", "bound": "Till", "edited": "Till"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "Till", "bound": "Till", "edited": "Till"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "then", "bound": "then", "edited": "then"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "her", "bound": "her", "edited": "her"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "lovely", "bound": "lovely", "edited": "lovely"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "eyes", "bound": "eyes", "edited": "eyes"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "maintain", "bound": "maintain", "edited": "maintain"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "maintain", "bound": "maintain", "edited": "maintain"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "maintain", "bound": "maintain", "edited": "maintain"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "Till", "bound": "Till", "edited": "Till"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "Till", "bound": "Till", "edited": "Till"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "Till", "bound": "Till", "edited": "Till"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "then", "bound": "then", "edited": "then"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "her", "bound": "her", "edited": "her"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "lovely", "bound": "lovely", "edited": "lovely"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "eyes", "bound": "eyes", "edited": "eyes"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "maintain", "bound": "maintain", "edited": "maintain"}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Till then, her lovely eyes maintain", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "seen", "bound": "seen", "edited": "seen"}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "seen", "bound": "seen", "edited": "seen"}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "It's", "bound": "It's", "edited": "It's"}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "It's", "bound": "It's", "edited": "It's"}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "It's", "bound": "It's", "edited": "It's"}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "seldom", "bound": "seldom", "edited": "seldom"}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "to", "bound": "to", "edited": "to"}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "be", "bound": "be", "edited": "be"}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "seen", "bound": "seen", "edited": "seen"}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "It's seldom to be seen;", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "seen", "bound": "seen", "edited": "seen"}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "seen", "bound": "seen", "edited": "seen"}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "It's", "bound": "It's", "edited": "It's"}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "It's", "bound": "It's", "edited": "It's"}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "It's", "bound": "It's", "edited": "It's"}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "seldom", "bound": "seldom", "edited": "seldom"}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "to", "bound": "to", "edited": "to"}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "be", "bound": "be", "edited": "be"}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "seen", "bound": "seen", "edited": "seen"}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "It's seldom to be seen;", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "bliss", "bound": "bliss", "edited": "bliss"}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "bliss", "bound": "bliss", "edited": "bliss"}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "All", "bound": "All", "edited": "All"}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "All", "bound": "All", "edited": "All"}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "All", "bound": "All", "edited": "All"}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "her", "bound": "her", "edited": "her"}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "duty", "bound": "duty", "edited": "duty"}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "all", "bound": "all", "edited": "all"}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "her", "bound": "her", "edited": "her"}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "bliss", "bound": "bliss", "edited": "bliss"}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "All her duty, all her bliss,", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "bliss", "bound": "bliss", "edited": "bliss"}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "bliss", "bound": "bliss", "edited": "bliss"}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "All", "bound": "All", "edited": "All"}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "All", "bound": "All", "edited": "All"}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "All", "bound": "All", "edited": "All"}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "her", "bound": "her", "edited": "her"}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "duty", "bound": "duty", "edited": "duty"}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "all", "bound": "all", "edited": "all"}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "her", "bound": "her", "edited": "her"}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "bliss", "bound": "bliss", "edited": "bliss"}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "All her duty, all her bliss,", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "luck", "bound": "luck", "edited": "luck"}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "luck", "bound": "luck", "edited": "luck"}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "drink", "bound": "drink", "edited": "drink"}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "young", "bound": "young", "edited": "young"}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "couple", "bound": "couple", "edited": "couple"}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "gude", "bound": "gude", "edited": "gude"}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "luck", "bound": "luck", "edited": "luck"}
+{"line": "To drink the young couple gude luck,", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "luck", "bound": "luck", "edited": "luck"}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "luck", "bound": "luck", "edited": "luck"}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "drink", "bound": "drink", "edited": "drink"}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "young", "bound": "young", "edited": "young"}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "couple", "bound": "couple", "edited": "couple"}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "gude", "bound": "gude", "edited": "gude"}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "luck", "bound": "luck", "edited": "luck"}
+{"line": "To drink the young couple gude luck,", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "things", "bound": "things", "edited": "things"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "things", "bound": "things", "edited": "things"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "She", "bound": "She", "edited": "She"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "She", "bound": "She", "edited": "She"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "She", "bound": "She", "edited": "She"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "sings--fresh", "bound": "sings--fresh", "edited": "sings--fresh"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "hopes", "bound": "hopes", "edited": "hopes"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "for", "bound": "for", "edited": "for"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "desperate", "bound": "desperate", "edited": "desperate"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "things", "bound": "things", "edited": "things"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "things", "bound": "things", "edited": "things"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "things", "bound": "things", "edited": "things"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "She", "bound": "She", "edited": "She"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "She", "bound": "She", "edited": "She"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "She", "bound": "She", "edited": "She"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "sings--fresh", "bound": "sings--fresh", "edited": "sings--fresh"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "hopes", "bound": "hopes", "edited": "hopes"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "for", "bound": "for", "edited": "for"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "desperate", "bound": "desperate", "edited": "desperate"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "things", "bound": "things", "edited": "things"}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "She sings--fresh hopes for desperate things.", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "cold", "bound": "cold", "edited": "cold"}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "cold", "bound": "cold", "edited": "cold"}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "Making", "bound": "Making", "edited": "Making"}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "Making", "bound": "Making", "edited": "Making"}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "Making", "bound": "Making", "edited": "Making"}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "blood", "bound": "blood", "edited": "blood"}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "of", "bound": "of", "edited": "of"}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "listener", "bound": "listener", "edited": "listener"}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "cold", "bound": "cold", "edited": "cold"}
+{"line": "Making the blood of the listener cold,", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "cold", "bound": "cold", "edited": "cold"}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "cold", "bound": "cold", "edited": "cold"}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "Making", "bound": "Making", "edited": "Making"}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "Making", "bound": "Making", "edited": "Making"}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "Making", "bound": "Making", "edited": "Making"}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "blood", "bound": "blood", "edited": "blood"}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "of", "bound": "of", "edited": "of"}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "listener", "bound": "listener", "edited": "listener"}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "cold", "bound": "cold", "edited": "cold"}
+{"line": "Making the blood of the listener cold,", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Never to blend in victory’s cheer,", "mode": "base:stripped", "slot": null, "kind": "excluded_transformed"}
+{"line": "Never to blend in victory’s cheer,", "mode": "base:sung", "slot": null, "kind": "excluded_transformed"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "verve--", "bound": "verve--", "edited": "verve--"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "verve--", "bound": "verve--", "edited": "verve--"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "a", "bound": "a", "edited": "a"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "joint", "bound": "joint", "edited": "joint"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "not", "bound": "not", "edited": "not"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "a", "bound": "a", "edited": "a"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "nerve--so", "bound": "nerve--so", "edited": "nerve--so"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "prostrate", "bound": "prostrate", "edited": "prostrate"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:stripped", "slot": "T8", "kind": "agree", "named": "their", "bound": "their", "edited": "their"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "verve--", "bound": "verve--", "edited": "verve--"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "verve--", "bound": "verve--", "edited": "verve--"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "a", "bound": "a", "edited": "a"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "joint", "bound": "joint", "edited": "joint"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "not", "bound": "not", "edited": "not"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "a", "bound": "a", "edited": "a"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "nerve--so", "bound": "nerve--so", "edited": "nerve--so"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "prostrate", "bound": "prostrate", "edited": "prostrate"}
+{"line": "Not a joint, not a nerve--so prostrate their verve--", "mode": "base:sung", "slot": "T8", "kind": "agree", "named": "their", "bound": "their", "edited": "their"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "end", "kind": "agree_unbound", "named": "M'sieu'", "bound": null, "edited": "M'sieu'"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "endword", "kind": "grader_elsewhere", "named": "M'sieu'", "bound": "garde", "edited": "M'sieu'"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "And", "bound": "And", "edited": "And"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "And", "bound": "And", "edited": "And"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "And", "bound": "And", "edited": "And"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "a", "bound": "a", "edited": "a"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "Ben", "bound": "Ben", "edited": "Ben"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "T4", "kind": "agree_unbound", "named": "Dieu", "bound": null, "edited": "Dieu"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "garde", "bound": "garde", "edited": "garde"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "T6", "kind": "agree_unbound", "named": "M'sieu'", "bound": null, "edited": "M'sieu'"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "end", "kind": "agree_unbound", "named": "M'sieu'", "bound": null, "edited": "M'sieu'"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "endword", "kind": "grader_elsewhere", "named": "M'sieu'", "bound": "garde", "edited": "M'sieu'"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "And", "bound": "And", "edited": "And"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "And", "bound": "And", "edited": "And"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "And", "bound": "And", "edited": "And"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "a", "bound": "a", "edited": "a"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "Ben", "bound": "Ben", "edited": "Ben"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "T4", "kind": "agree_unbound", "named": "Dieu", "bound": null, "edited": "Dieu"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "garde", "bound": "garde", "edited": "garde"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "T6", "kind": "agree_unbound", "named": "M'sieu'", "bound": null, "edited": "M'sieu'"}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "And a \"Ben Dieu garde M'sieu'!\"", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "round", "bound": "round", "edited": "round"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "round", "bound": "round", "edited": "round"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "head", "kind": "grader_elsewhere", "named": "Couldst", "bound": "thou", "edited": "Couldst"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "headrime", "kind": "grader_elsewhere", "named": "Couldst", "bound": "thou", "edited": "Couldst"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "T1", "kind": "agree_unbound", "named": "Couldst", "bound": null, "edited": "Couldst"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "thou", "bound": "thou", "edited": "thou"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "but", "bound": "but", "edited": "but"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "call", "bound": "call", "edited": "call"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "those", "bound": "those", "edited": "those"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "spirits", "bound": "spirits", "edited": "spirits"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "round", "bound": "round", "edited": "round"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "round", "bound": "round", "edited": "round"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "round", "bound": "round", "edited": "round"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "head", "kind": "grader_elsewhere", "named": "Couldst", "bound": "thou", "edited": "Couldst"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "headrime", "kind": "grader_elsewhere", "named": "Couldst", "bound": "thou", "edited": "Couldst"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "T1", "kind": "agree_unbound", "named": "Couldst", "bound": null, "edited": "Couldst"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "thou", "bound": "thou", "edited": "thou"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "but", "bound": "but", "edited": "but"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "call", "bound": "call", "edited": "call"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "those", "bound": "those", "edited": "those"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "spirits", "bound": "spirits", "edited": "spirits"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "round", "bound": "round", "edited": "round"}
+{"line": "Couldst thou but call those spirits round,", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "sigh", "bound": "sigh", "edited": "sigh"}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "sigh", "bound": "sigh", "edited": "sigh"}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "me", "bound": "me", "edited": "me"}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "a", "bound": "a", "edited": "a"}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "single", "bound": "single", "edited": "single"}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "sigh", "bound": "sigh", "edited": "sigh"}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "To me a single sigh.", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "sigh", "bound": "sigh", "edited": "sigh"}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "sigh", "bound": "sigh", "edited": "sigh"}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "To", "bound": "To", "edited": "To"}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "me", "bound": "me", "edited": "me"}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "a", "bound": "a", "edited": "a"}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "single", "bound": "single", "edited": "single"}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "sigh", "bound": "sigh", "edited": "sigh"}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "To me a single sigh.", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "Buccaneer", "bound": "Buccaneer", "edited": "Buccaneer"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "Buccaneer", "bound": "Buccaneer", "edited": "Buccaneer"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "Alongside", "bound": "Alongside", "edited": "Alongside"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "Alongside", "bound": "Alongside", "edited": "Alongside"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "Alongside", "bound": "Alongside", "edited": "Alongside"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "last", "bound": "last", "edited": "last"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "Buccaneer", "bound": "Buccaneer", "edited": "Buccaneer"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "T5", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Alongside the last Buccaneer.", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "Buccaneer", "bound": "Buccaneer", "edited": "Buccaneer"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "Buccaneer", "bound": "Buccaneer", "edited": "Buccaneer"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "Alongside", "bound": "Alongside", "edited": "Alongside"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "Alongside", "bound": "Alongside", "edited": "Alongside"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "Alongside", "bound": "Alongside", "edited": "Alongside"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "last", "bound": "last", "edited": "last"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "Buccaneer", "bound": "Buccaneer", "edited": "Buccaneer"}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "T5", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Alongside the last Buccaneer.", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "free", "bound": "free", "edited": "free"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "free", "bound": "free", "edited": "free"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "Such", "bound": "Such", "edited": "Such"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "Such", "bound": "Such", "edited": "Such"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "Such", "bound": "Such", "edited": "Such"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "honoured", "bound": "honoured", "edited": "honoured"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "dwell", "bound": "dwell", "edited": "dwell"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "in", "bound": "in", "edited": "in"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "cities", "bound": "cities", "edited": "cities"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "fair", "bound": "fair", "edited": "fair"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "and", "bound": "and", "edited": "and"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:stripped", "slot": "T8", "kind": "agree", "named": "free", "bound": "free", "edited": "free"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "free", "bound": "free", "edited": "free"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "free", "bound": "free", "edited": "free"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "Such", "bound": "Such", "edited": "Such"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "Such", "bound": "Such", "edited": "Such"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "Such", "bound": "Such", "edited": "Such"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "honoured", "bound": "honoured", "edited": "honoured"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "dwell", "bound": "dwell", "edited": "dwell"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "in", "bound": "in", "edited": "in"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "cities", "bound": "cities", "edited": "cities"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "fair", "bound": "fair", "edited": "fair"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "and", "bound": "and", "edited": "and"}
+{"line": "Such honoured dwell in cities fair and free,", "mode": "base:sung", "slot": "T8", "kind": "agree", "named": "free", "bound": "free", "edited": "free"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "or", "bound": "or", "edited": "or"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "or", "bound": "or", "edited": "or"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "misery", "bound": "misery", "edited": "misery"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "of", "bound": "of", "edited": "of"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "being", "bound": "being", "edited": "being"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "without", "bound": "without", "edited": "without"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "God", "bound": "God", "edited": "God"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "in", "bound": "in", "edited": "in"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:stripped", "slot": "T8", "kind": "agree", "named": "this", "bound": "this", "edited": "this"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "or", "bound": "or", "edited": "or"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "or", "bound": "or", "edited": "or"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "misery", "bound": "misery", "edited": "misery"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "of", "bound": "of", "edited": "of"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "being", "bound": "being", "edited": "being"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "without", "bound": "without", "edited": "without"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "God", "bound": "God", "edited": "God"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "in", "bound": "in", "edited": "in"}
+{"line": "The misery of being without God in this world; or,", "mode": "base:sung", "slot": "T8", "kind": "agree", "named": "this", "bound": "this", "edited": "this"}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "me", "bound": "me", "edited": "me"}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "me", "bound": "me", "edited": "me"}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "O", "bound": "O", "edited": "O"}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "O", "bound": "O", "edited": "O"}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "O", "bound": "O", "edited": "O"}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "don't", "bound": "don't", "edited": "don't"}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "forget", "bound": "forget", "edited": "forget"}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "you've", "bound": "you've", "edited": "you've"}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "married", "bound": "married", "edited": "married"}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "me", "bound": "me", "edited": "me"}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "O, don't forget you've married me!", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "me", "bound": "me", "edited": "me"}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "me", "bound": "me", "edited": "me"}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "O", "bound": "O", "edited": "O"}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "O", "bound": "O", "edited": "O"}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "O", "bound": "O", "edited": "O"}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "don't", "bound": "don't", "edited": "don't"}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "forget", "bound": "forget", "edited": "forget"}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "you've", "bound": "you've", "edited": "you've"}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "married", "bound": "married", "edited": "married"}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "me", "bound": "me", "edited": "me"}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "O, don't forget you've married me!", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "ire", "bound": "ire", "edited": "ire"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "ire", "bound": "ire", "edited": "ire"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "Yon", "bound": "Yon", "edited": "Yon"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "Yon", "bound": "Yon", "edited": "Yon"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "Yon", "bound": "Yon", "edited": "Yon"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "voice", "bound": "voice", "edited": "voice"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "that", "bound": "that", "edited": "that"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "shouts", "bound": "shouts", "edited": "shouts"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "high-hoarse", "bound": "high-hoarse", "edited": "high-hoarse"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "with", "bound": "with", "edited": "with"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "ire", "bound": "ire", "edited": "ire"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "ire", "bound": "ire", "edited": "ire"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "ire", "bound": "ire", "edited": "ire"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "Yon", "bound": "Yon", "edited": "Yon"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "Yon", "bound": "Yon", "edited": "Yon"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "Yon", "bound": "Yon", "edited": "Yon"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "voice", "bound": "voice", "edited": "voice"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "that", "bound": "that", "edited": "that"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "shouts", "bound": "shouts", "edited": "shouts"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "high-hoarse", "bound": "high-hoarse", "edited": "high-hoarse"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "with", "bound": "with", "edited": "with"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "ire", "bound": "ire", "edited": "ire"}
+{"line": "Yon voice that shouts, high-hoarse with ire,", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "yore", "bound": "yore", "edited": "yore"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "yore", "bound": "yore", "edited": "yore"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "there", "bound": "there", "edited": "there"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "stepped", "bound": "stepped", "edited": "stepped"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "a", "bound": "a", "edited": "a"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "stately", "bound": "stately", "edited": "stately"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "Raven", "bound": "Raven", "edited": "Raven"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "of", "bound": "of", "edited": "of"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:stripped", "slot": "T8", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "yore", "bound": "yore", "edited": "yore"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "yore", "bound": "yore", "edited": "yore"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "there", "bound": "there", "edited": "there"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "stepped", "bound": "stepped", "edited": "stepped"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "a", "bound": "a", "edited": "a"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "stately", "bound": "stately", "edited": "stately"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "Raven", "bound": "Raven", "edited": "Raven"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "of", "bound": "of", "edited": "of"}
+{"line": "In there stepped a stately Raven of the saintly days of yore;", "mode": "base:sung", "slot": "T8", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "wood", "bound": "wood", "edited": "wood"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "wood", "bound": "wood", "edited": "wood"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "But", "bound": "But", "edited": "But"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "But", "bound": "But", "edited": "But"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "But", "bound": "But", "edited": "But"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "still", "bound": "still", "edited": "still"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "on", "bound": "on", "edited": "on"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "gentle", "bound": "gentle", "edited": "gentle"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "hill-slopes", "bound": "hill-slopes", "edited": "hill-slopes"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "in", "bound": "in", "edited": "in"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "valleys", "bound": "valleys", "edited": "valleys"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:stripped", "slot": "T8", "kind": "agree_unbound", "named": "fringed", "bound": null, "edited": "fringed"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "wood", "bound": "wood", "edited": "wood"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "wood", "bound": "wood", "edited": "wood"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "But", "bound": "But", "edited": "But"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "But", "bound": "But", "edited": "But"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "But", "bound": "But", "edited": "But"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "still", "bound": "still", "edited": "still"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "on", "bound": "on", "edited": "on"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "gentle", "bound": "gentle", "edited": "gentle"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "hill-slopes", "bound": "hill-slopes", "edited": "hill-slopes"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "in", "bound": "in", "edited": "in"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "valleys", "bound": "valleys", "edited": "valleys"}
+{"line": "But still, on gentle hill-slopes, in valleys fringed with wood,", "mode": "base:sung", "slot": "T8", "kind": "agree_unbound", "named": "fringed", "bound": null, "edited": "fringed"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "here", "bound": "here", "edited": "here"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "here", "bound": "here", "edited": "here"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "That", "bound": "That", "edited": "That"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "That", "bound": "That", "edited": "That"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "That", "bound": "That", "edited": "That"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "she", "bound": "she", "edited": "she"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "could", "bound": "could", "edited": "could"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "die", "bound": "die", "edited": "die"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "or", "bound": "or", "edited": "or"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "that", "bound": "that", "edited": "that"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "she", "bound": "she", "edited": "she"}
+{"line": "That she could die, or that she could live here.", "mode": "base:stripped", "slot": "T8", "kind": "agree", "named": "could", "bound": "could", "edited": "could"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "here", "bound": "here", "edited": "here"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "here", "bound": "here", "edited": "here"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "That", "bound": "That", "edited": "That"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "That", "bound": "That", "edited": "That"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "That", "bound": "That", "edited": "That"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "she", "bound": "she", "edited": "she"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "could", "bound": "could", "edited": "could"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "die", "bound": "die", "edited": "die"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "or", "bound": "or", "edited": "or"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "that", "bound": "that", "edited": "that"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "she", "bound": "she", "edited": "she"}
+{"line": "That she could die, or that she could live here.", "mode": "base:sung", "slot": "T8", "kind": "agree", "named": "could", "bound": "could", "edited": "could"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "high", "bound": "high", "edited": "high"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "high", "bound": "high", "edited": "high"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "T2", "kind": "agree_unbound", "named": "fleämes", "bound": null, "edited": "fleämes"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "T3", "kind": "agree_unbound", "named": "arisèn", "bound": null, "edited": "arisèn"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "up", "bound": "up", "edited": "up"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "so", "bound": "so", "edited": "so"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "high", "bound": "high", "edited": "high"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "The fleämes, arisèn up so high", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "high", "bound": "high", "edited": "high"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "high", "bound": "high", "edited": "high"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "The", "bound": "The", "edited": "The"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "T2", "kind": "agree_unbound", "named": "fleämes", "bound": null, "edited": "fleämes"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "T3", "kind": "agree_unbound", "named": "arisèn", "bound": null, "edited": "arisèn"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "up", "bound": "up", "edited": "up"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "so", "bound": "so", "edited": "so"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "high", "bound": "high", "edited": "high"}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "The fleämes, arisèn up so high", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "brim", "bound": "brim", "edited": "brim"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "brim", "bound": "brim", "edited": "brim"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "Fill", "bound": "Fill", "edited": "Fill"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "Fill", "bound": "Fill", "edited": "Fill"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "Fill", "bound": "Fill", "edited": "Fill"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "memory's", "bound": "memory's", "edited": "memory's"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "cup", "bound": "cup", "edited": "cup"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "to", "bound": "to", "edited": "to"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "brim", "bound": "brim", "edited": "brim"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Fill memory's cup to the brim;", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "brim", "bound": "brim", "edited": "brim"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "brim", "bound": "brim", "edited": "brim"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "Fill", "bound": "Fill", "edited": "Fill"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "Fill", "bound": "Fill", "edited": "Fill"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "Fill", "bound": "Fill", "edited": "Fill"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "memory's", "bound": "memory's", "edited": "memory's"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "cup", "bound": "cup", "edited": "cup"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "to", "bound": "to", "edited": "to"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "brim", "bound": "brim", "edited": "brim"}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Fill memory's cup to the brim;", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "soil--", "bound": "soil--", "edited": "soil--"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "soil--", "bound": "soil--", "edited": "soil--"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "His", "bound": "His", "edited": "His"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "His", "bound": "His", "edited": "His"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "His", "bound": "His", "edited": "His"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "bones", "bound": "bones", "edited": "bones"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "were", "bound": "were", "edited": "were"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "gather'd", "bound": "gather'd", "edited": "gather'd"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "to", "bound": "to", "edited": "to"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "soil--", "bound": "soil--", "edited": "soil--"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "soil--", "bound": "soil--", "edited": "soil--"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "soil--", "bound": "soil--", "edited": "soil--"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "His", "bound": "His", "edited": "His"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "His", "bound": "His", "edited": "His"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "His", "bound": "His", "edited": "His"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "bones", "bound": "bones", "edited": "bones"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "were", "bound": "were", "edited": "were"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "gather'd", "bound": "gather'd", "edited": "gather'd"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "to", "bound": "to", "edited": "to"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "soil--", "bound": "soil--", "edited": "soil--"}
+{"line": "His bones were gather'd to the soil--", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "sleep", "bound": "sleep", "edited": "sleep"}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "sleep", "bound": "sleep", "edited": "sleep"}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "everlasting", "bound": "everlasting", "edited": "everlasting"}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "sleep", "bound": "sleep", "edited": "sleep"}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "T4", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "T5", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "In everlasting sleep;", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "sleep", "bound": "sleep", "edited": "sleep"}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "sleep", "bound": "sleep", "edited": "sleep"}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "In", "bound": "In", "edited": "In"}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "everlasting", "bound": "everlasting", "edited": "everlasting"}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "sleep", "bound": "sleep", "edited": "sleep"}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "T4", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "T5", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "In everlasting sleep;", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "another", "bound": "another", "edited": "another"}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "another", "bound": "another", "edited": "another"}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "given", "bound": "given", "edited": "given"}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "to", "bound": "to", "edited": "to"}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "another", "bound": "another", "edited": "another"}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "T5", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Not given to another!", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "another", "bound": "another", "edited": "another"}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "another", "bound": "another", "edited": "another"}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "Not", "bound": "Not", "edited": "Not"}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "given", "bound": "given", "edited": "given"}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "to", "bound": "to", "edited": "to"}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "another", "bound": "another", "edited": "another"}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "T5", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "T6", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Not given to another!", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "snow", "bound": "snow", "edited": "snow"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "snow", "bound": "snow", "edited": "snow"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "Deep", "bound": "Deep", "edited": "Deep"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "Deep", "bound": "Deep", "edited": "Deep"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "Deep", "bound": "Deep", "edited": "Deep"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "and", "bound": "and", "edited": "and"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "deeper", "bound": "deeper", "edited": "deeper"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "falls", "bound": "falls", "edited": "falls"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "T6", "kind": "agree", "named": "snow", "bound": "snow", "edited": "snow"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Deep and deeper falls the snow,", "mode": "base:stripped", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "snow", "bound": "snow", "edited": "snow"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "snow", "bound": "snow", "edited": "snow"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "Deep", "bound": "Deep", "edited": "Deep"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "Deep", "bound": "Deep", "edited": "Deep"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "Deep", "bound": "Deep", "edited": "Deep"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "and", "bound": "and", "edited": "and"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "deeper", "bound": "deeper", "edited": "deeper"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "falls", "bound": "falls", "edited": "falls"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "the", "bound": "the", "edited": "the"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "T6", "kind": "agree", "named": "snow", "bound": "snow", "edited": "snow"}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "T7", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "Deep and deeper falls the snow,", "mode": "base:sung", "slot": "T8", "kind": "no_word_refused", "named": null, "bound": null, "edited": null}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "end", "kind": "agree", "named": "flight", "bound": "flight", "edited": "flight"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "endword", "kind": "agree", "named": "flight", "bound": "flight", "edited": "flight"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "head", "kind": "agree", "named": "For", "bound": "For", "edited": "For"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "headrime", "kind": "agree", "named": "For", "bound": "For", "edited": "For"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "T1", "kind": "agree", "named": "For", "bound": "For", "edited": "For"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "T2", "kind": "agree", "named": "through", "bound": "through", "edited": "through"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "T3", "kind": "agree", "named": "your", "bound": "your", "edited": "your"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "T4", "kind": "agree", "named": "orbs", "bound": "orbs", "edited": "orbs"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "T5", "kind": "agree", "named": "he's", "bound": "he's", "edited": "he's"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "T6", "kind": "agree_unbound", "named": "ta'en", "bound": null, "edited": "ta'en"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "T7", "kind": "agree", "named": "his", "bound": "his", "edited": "his"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:stripped", "slot": "T8", "kind": "agree", "named": "flight", "bound": "flight", "edited": "flight"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "end", "kind": "agree", "named": "flight", "bound": "flight", "edited": "flight"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "endword", "kind": "agree", "named": "flight", "bound": "flight", "edited": "flight"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "head", "kind": "agree", "named": "For", "bound": "For", "edited": "For"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "headrime", "kind": "agree", "named": "For", "bound": "For", "edited": "For"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "T1", "kind": "agree", "named": "For", "bound": "For", "edited": "For"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "T2", "kind": "agree", "named": "through", "bound": "through", "edited": "through"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "T3", "kind": "agree", "named": "your", "bound": "your", "edited": "your"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "T4", "kind": "agree", "named": "orbs", "bound": "orbs", "edited": "orbs"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "T5", "kind": "agree", "named": "he's", "bound": "he's", "edited": "he's"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "T6", "kind": "agree_unbound", "named": "ta'en", "bound": null, "edited": "ta'en"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "T7", "kind": "agree", "named": "his", "bound": "his", "edited": "his"}
+{"line": "For through your orbs he's ta'en his flight,", "mode": "base:sung", "slot": "T8", "kind": "agree", "named": "flight", "bound": "flight", "edited": "flight"}
