@@ -1,0 +1,394 @@
+{
+ "workflow": "wf_b81025e8-b47",
+ "candidate": "67889851144dd2a7eefedd9960a868978fb7bfae",
+ "agents": [
+  {
+   "agent": "connector-continuation",
+   "result": {
+    "task": "connector-continuation (BB8): how the connector behaves across the release. Covers a pre-batch (fce4bf0f) raw-engine state, session state, interrupted operations and the website chat's signed continuation, each continued on candidate 67889851. Also reports which identities the source-identity guard compares.",
+    "verdict": "PASS",
+    "checks": [
+     {
+      "id": "C1-raw-state-cross-release",
+      "claim": "A raw-engine lyric_revise interview state written by the base tree is refused on the candidate with CONTINUATION_MIGRATION_REQUIRED, never replayed under v2.",
+      "expected": "refusal CONTINUATION_MIGRATION_REQUIRED, no verdict",
+      "observed": "Two runs were started on base and suspended with exit 4 'awaiting_proposal': 'simple' (Copper cat/Azure dog, scheme AA) and 'dash' (['Oh--oh, oh my love','Azure dog'], groups '1.T4,2'). Both states were passed to the candidate four ways: state+answer, run_id+run_revision+state+answer, state with the declarations resent plus answer, and decodeState directly. Every one returned isError with 'CONTINUATION_MIGRATION_REQUIRED: The scorer source, lexical data or runtime differs from this continuation. Keep the original state/checkpoint and accepted lyrics as recovery artifacts; automatic replay under changed semantics is refused. To extract the stored lyrics and journal without replay, call lyric_revise with recover_only:true and only that original state or checkpoint.' The writer identity was a9ccaa92…; the reader identity was 30c543e7….",
+      "status": "pass",
+      "independent": true,
+      "evidence": "<scratch>/h678/connector-continuation/cont_base_simple_on_cand.json, cont_base_dash_on_cand.json, raw_probe.mjs, COMMANDS.txt"
+     },
+     {
+      "id": "C1-controls",
+      "claim": "The refusal comes from the release change, not from the probe or from a process restart.",
+      "expected": "same-tree continuation succeeds in a fresh process",
+      "observed": "The base state continued on base in a new process and finished with exit 3 'stopped_with_open_lines' for all three state-carrying call forms. The candidate state continued on the candidate the same way. The rollback direction (a candidate state sent to base) is also refused with CONTINUATION_MIGRATION_REQUIRED.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "cont_base_simple_on_base.json, cont_base_dash_on_base.json, cont_cand_simple_on_cand.json, cont_cand_dash_on_cand.json, cont_cand_simple_on_base.json in the task dir"
+     },
+     {
+      "id": "C1-run-id-only",
+      "claim": "run_id plus run_revision without state, after the release (a new process), does not continue silently.",
+      "expected": "refusal",
+      "observed": "Refused, but with a different message (not MIGRATION_REQUIRED): '`run_id` run_… names no run this tool remembers — it may have finished, expired (6 h idle) or been forgotten by a restart; pass `state` back, or omit `run_id`…'. RUNS is an in-memory cache (run_store.js header). Passing the state back as told then hits MIGRATION_REQUIRED. The same message appears on the same tree after a restart, so it is not specific to the release.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "runid_answer entries in cont_*_on_cand.json; mcp/lyric_tools.js:2466-2469"
+     },
+     {
+      "id": "C1-recover-only",
+      "claim": "recover_only:true with the pre-batch state exports lyrics and journal without replay on the candidate.",
+      "expected": "recovered_artifact, uncertified, nonresumable",
+      "observed": "Returned status 'recovered_artifact', source_format gzip+base64, source_semantic_identity a9ccaa92… (the original identity, not restamped), checksum_verified true, final_draft and replay_draft verbatim (['Oh--oh, oh my love','Azure dog'] for the dash run), certified false, resumable false, new_run_required true, journal_included true.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "recover_only in cont_base_dash_on_cand.json"
+     },
+     {
+      "id": "C2-shared-mcp-caller-managed",
+      "claim": "Caller-managed state sent through the shared /mcp surface (no session_id, so rawCall) is refused the same way.",
+      "expected": "CONTINUATION_MIGRATION_REQUIRED",
+      "observed": "On the candidate, buildWorkflowServer({sessions, compatibility:true}) refused lyric_revise {state: base state, answer} with 'Error: CONTINUATION_MIGRATION_REQUIRED: The scorer source…'. On base the same call continued with exit 3.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "shared_surface_raw_state in sess_read_on_cand.json and sess_read_on_base.json"
+     },
+     {
+      "id": "C2-recipe-workspace",
+      "claim": "What happens to a caller-held recipe workspace across the release.",
+      "expected": "continues: recipes are exempt by design (workflow_sessions.js:307-308)",
+      "observed": "A base start_recipe workspace passed to the candidate's edit_recipe (set_environment mic hydrophone_piezo) was accepted. Its recipe string is byte-identical to base's own edit of the same workspace. Recipe workspaces carry no identity.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "recipe_on_cand.json, recipe_probe.mjs"
+     },
+     {
+      "id": "C3-session-continue",
+      "claim": "A durable session written by base (begin_lyrics phase edit, then lyric_revise suspended) cannot continue on the candidate.",
+      "expected": "CONTINUATION_MIGRATION_REQUIRED (session wording)",
+      "observed": "The store dir was copied with cp -a and opened by the candidate. lyric_revise {session_id:S1, answer} was refused with 'CONTINUATION_MIGRATION_REQUIRED: The scorer, its lexical data or its runtime changed after this session was recorded, and its receipts cannot be replayed under the new ones. lyric_revise with this session_id and recover_only: true exports the lyrics and journal it holds; then call begin_lyrics for a new session.' lyric_check on an old session gets the same refusal: the guard runs on every lyric submit. A new begin_lyrics session works. Control: base opened the same store copy and continued S1 to completion.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "continue_S1_answer and lyric_check_on_old_session in sess_read_on_cand.json vs sess_read_on_base.json; session_probe.mjs"
+     },
+     {
+      "id": "C3-resume-operation",
+      "claim": "resume_operation on operations interrupted by a process death on base is refused on the candidate.",
+      "expected": "refusal; resumable:false",
+      "observed": "Two operations were interrupted by killing the base process: a lyric_check that never ran, and a lyric_revise continuation killed after its first checkpoint (progress carried identity a9ccaa92…, reader_scheme absent). The store reloaded both as 'interrupted'/'process_restarted'. On the candidate, get_operation shows resumable:false and resume_operation is refused with the CONTINUATION_MIGRATION_REQUIRED session message. On base the same records show resumable:true and resume_operation starts a pending successor.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "get_killed_*, resume_killed_* in sess_read_on_cand.json vs sess_read_on_base.json; recover_killed_on_cand.log"
+     },
+     {
+      "id": "C3-get-operation-read",
+      "claim": "get_operation (read-only) across the release.",
+      "expected": "reads old receipts without replay",
+      "observed": "The candidate reads the old completed S1 (the suspended prompt), the old lyric_check with detail 'findings', and both interrupted operations. recover_only on S1, S1b and the killed revise exports on the candidate; the killed revise exports as source_format legacy-json, checksum_verified false, source_semantic_identity null.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "get_S1, get_grade_findings, recover_only_S1 in sess_read_on_cand.json; recover_killed_on_cand.log"
+     },
+     {
+      "id": "C1-chat-signed",
+      "claim": "The website chat's signed continuation from base is refused on the candidate before any provider call.",
+      "expected": "409 CONTINUATION_MIGRATION_REQUIRED, 0 provider calls",
+      "observed": "A base /chat lyrics turn (provider stubbed in-process, task identity a9ccaa92…) was posted back to the candidate router with the same CHAT_SECRET. It returned 409 CONTINUATION_MIGRATION_REQUIRED, artifact {final_draft:null, certified:false, status:'contract_changed'}, providerCalls 0. Control on base: 200 with 1 stub provider call.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "chat_cont_on_wt-678.json, chat_cont_on_wt-base.json, chat_probe.mjs"
+     },
+     {
+      "id": "G-identity-composition",
+      "claim": "Which identities the guard compares, and whether the reader scheme or the harness source digest takes part.",
+      "expected": "documented exactly",
+      "observed": "assertContinuationSemantics (mcp/state_codec.js:55-61) compares a stored value with continuationSemanticIdentity() (state_codec.js:36-53). That value is sha256(JSON{source_sha256, assets_sha256, manifest_sha256, python, nltk, node}). source_sha256 is runtimeSourceFingerprint (mcp/build_identity.js:37-71): a walk of mcp/, lyric-harness/, scripts/, references/ hashing every .js/.mjs/.py file plus package-lock.json, requirements-runtime.txt and production-config.json, skipping dot-names and directories named node_modules, __pycache__, data, corpus or tests. assets_sha256, manifest_sha256, python and nltk come from release_assets.py's inventory (mcp/runtime_assets.js:195-207); node is process.version. Stored identities checked: the raw state envelope's semantic_identity and the decoded state's connector_semantic_identity (state_codec.js:140-143 via decodeState; lyric_tools.js:2510-2513 for state and checkpoint); session.semantic_identity (workflow_sessions.js:286 stamped, 309-321 checked, called at :391 on every submit and :526 in resumeSnapshot); progress.connector_semantic_identity (workflow_sessions.js:552); chat envelope.task.connector_semantic_identity and the checkpoint's (chat.js:421, 450, 691). Measured: base and candidate share assets 9bffbd58…, python 3.13.16, nltk 3.10.3, node v22.22.0 and connector_contract 3; only source_sha256 differs (9602d809… vs 9941c311…). The reader scheme is not a component: the candidate worker state records reader_scheme 'v2' (base: absent), but no non-test mcp/*.js file mentions reader_scheme, and the inventory's optional 'reader' key is outside the identity (null here). The reader change trips the guard only because lyric_harness.py (READER_SCHEME='v2' at lyric_harness.py:2349-2350) and the other changed .py files are inside source_sha256. The harness's own digest, _scorer_identity (lyric_harness.py:8282-8320), is not compared by the connector. It binds only the CLI cursor (lyric_harness.py:14368), and a mismatch there replays from round 1 rather than refusing.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "IDENTITY blocks in raw_start_*.log; fingerprint_files.log (copied walk rule reproduces both trees' own fingerprint: MATCH; 56 fingerprinted files differ)"
+     },
+     {
+      "id": "A1-author-tests",
+      "claim": "Author tests related to continuation identity pass on the candidate.",
+      "expected": "pass",
+      "observed": "test_state_codec.mjs: 1/1 pass. test_chatgpt.mjs 'a changed scorer refuses old lyric sessions…': 1/1 pass (uses a forged 'f'*64 identity, not a real cross-release). test_reader_client.mjs 'a job queued across the word-cut release…': 1/1 pass.",
+      "status": "pass",
+      "independent": false,
+      "evidence": "author_1.log, author_2.log, author_3.log in the task dir"
+     }
+    ],
+    "unexpected_findings": [
+     {
+      "summary": "On the candidate, get_operation re-serves a pre-release operation's pronunciation_options numbered under the v1 cut, with no scheme mark. For 'Wind--wind, wind my vrexl' the old operation lists token 2 'wind' (the standalone word). The candidate's own options list token 2 'wind' (inside Wind--wind) and token 3 'wind'. A declaration copied from the old list validates on the candidate and lands on the other occurrence. This is the documented open residual (commit 2). However, LYRICS_RUNTIME.md's bullet 'Options are always numbered under the running release' does not hold for options read back from a pre-release receipt.",
+      "severity": "minor",
+      "evidence": "sess_opts_read_on_cand.json (old_operation_options vs fresh_operation_options); opts3_wt-678.json (token 2 'wind' declaration accepted, isError false)"
+     },
+     {
+      "summary": "On the candidate, get_operation of a base-written interrupted operation reports resumable:false and offers session_id (status() treats interrupted-and-not-resumable as continuable). It gives no reason. Any lyric call with that session_id is then refused CONTINUATION_MIGRATION_REQUIRED. The refusal names recover_only and begin_lyrics, so the outcome is safe, but the receipt points at a step that cannot work. The same holds for a completed old S1, whose receipt still carries a session_id.",
+      "severity": "note",
+      "evidence": "get_killed_grade / get_killed_revise has_session_id:true in sess_read_on_cand.json; workflow_sessions.js:322-330 (resumable swallows the migration error) and status() 'continues'"
+     },
+     {
+      "summary": "The guard is coarse, so it refuses more than it needs to, never less. Any byte change in a fingerprinted .js/.mjs/.py file refuses every lyric continuation, including test, fixture and research files: 56 fingerprinted files differ in this release, 27 of them test/fixture/results/check scripts (e.g. mcp/test_reader_client.mjs, lyric-harness/quality/test_reader.py). Website-only src/ changes (src/lyric-tokens.js, src/pages/lyrics.js) are not fingerprinted; the connector does not import src/.",
+      "severity": "note",
+      "evidence": "fingerprint_files.log; mcp/build_identity.js:47-58"
+     },
+     {
+      "summary": "The website chat's 409 migration refusal reuses the raw-engine wording ('call lyric_revise with recover_only:true and only that original state or checkpoint'). That step is addressed to a tool caller, not a chat user.",
+      "severity": "note",
+      "evidence": "chat_cont_on_wt-678.json error field"
+     },
+     {
+      "summary": "While the probes ran, the agent proxy logged 18 rejected CONNECTs to www.google.com:443. Concurrent Playwright chromium processes from other testers were running at the time. No mcp/ or lyric-harness source references that host, and the provider fetch in chat_probe was stubbed (providerCalls counted locally).",
+      "severity": "note",
+      "evidence": "proxy status recentRelayFailures; ps showed /opt/pw-browsers/chromium from h678/library-tests and scen_matrix.js"
+     }
+    ],
+    "not_covered": [
+     "The HTTP server process (server_http.js) with LYRIC_RUNTIME_DIR. Sessions were driven in-process through buildWorkflowServer + WorkflowSessions + a durable JobStore, the same objects server_http.js mounts, not over HTTP.",
+     "The legacy /chat job store path (WorkflowSessions legacyStore adoption of sessions an earlier release wrote to the /chat store).",
+     "The kitchen-writer checkpoint path on the connector: it is refused KITCHEN_CHAT_ONLY outside chat. Chat checkpoint recovery (chat.js:450, router.recoverCheckpoint) was not exercised beyond the signed-envelope POST.",
+     "Library reader jobs (STALE_READING): only the author's test was run, not an independent cross-release job.",
+     "Harness-CLI-level resume of a v1 defer state (D1, 'resolves every place under v1'): the connector never reaches it, because the guard refuses first.",
+     "Proof that a v1-numbered held declaration changes a verdict: two attempts (scheme AA with 'Lead--lead, lead'/'bed', and relation 'type:perfect') did not discriminate. Only acceptance of the mismatched-occurrence declaration is shown, not its scoring effect.",
+     "main 8b1d2ad2's mcp: identical to base fce4bf0f's mcp/ (empty git diff), so base was used with a resolve hook (nm_hooks.mjs) borrowing wt-678/mcp/node_modules. No file in any tree was created or modified."
+    ],
+    "artifacts_dir": "<scratch>/h678/connector-continuation"
+   }
+  },
+  {
+   "agent": "page-matrix",
+   "result": {
+    "task": "BB8 independent acceptance, page-matrix: candidate 67889851 (wt-678) vs. the policy for the Lyrics page's saved [SETUP — rhyme groups/returns] rows. Covered: (1) both row types × all seven spellings × changed and unchanged lines, (2) aside lines with voices OFF and ON, (3) whether Keep the link survives later steps, (4) Policy 3 end to end through a real published grade. Rows were written on the pre-batch page wt-main 8b1d2ad2 with its own Rhymes/Repeats forms, or hand-written in the same format where the forms cannot write the spelling. Each saved session was then opened in the real candidate page in Playwright. /chat was stubbed in-page and its request body captured.",
+    "verdict": "MIXED",
+    "checks": [
+     {
+      "id": "M0-build",
+      "claim": "The served candidate and baseline pages are the builds of their own sources",
+      "expected": "scripts/build_html.js output identical to each tree's codex.html",
+      "observed": "Both builds are byte-identical to the served codex.html (wt-678 and wt-main)",
+      "status": "pass",
+      "independent": true,
+      "evidence": "h678/page-matrix/COMMANDS.txt lines 2-3 (cmp IDENTICAL)"
+     },
+     {
+      "id": "M1-named-changed",
+      "claim": "Bare N and named places (end, endword, head, headrime, line) on a line whose v1 and v2 cuts differ anywhere are kept named, show a visible carried state, get one non-blocking Review notice with Keep the link / Remove it, and are sent as declared",
+      "expected": "Row `N[.place] (carried across the word-cut change),partner — cut v2`; one tone-note notice naming the line, the place and the words under each cut, actions Keep the link / Remove it; the editor label shows the carried state; /chat reached once with the plain member; boot toast says the places were kept as declared",
+      "observed": "84/84 cells (2 row types × 6 named spellings × lines 1 earlier-word-only re-cut, 2 end re-cut, 3 middle-only re-cut, 4 numeral end, 8 aside+outside with voices off, 7 and 8 with voices on) behave exactly so. Example G|v0|L1|head: main `1.head,6` became `1.head (carried across the word-cut change),6 — cut v2`, notice words “Oh--oh”->“Oh”, sent groups `1.head,6`, 1 call. On 'Oh--oh, oh my love' only word 1 is re-cut and the end `love` keeps the same span, yet it is still flagged (whole-line rule). 'Thundered the battery’s double bass--' re-cuts the LAST word (bass-- -> bass), not an earlier one. N.end is rewritten as bare N: harmless for rhyme groups, but see M6 for returns",
+      "status": "pass",
+      "independent": true,
+      "evidence": "matrix.log, matrix.json, matrix.tsv (kind=carried); expect.js; cuts2.out"
+     },
+     {
+      "id": "M2-named-unchanged",
+      "claim": "Named places and bare N on lines whose cut did not change are carried silently and the row is not rewritten",
+      "expected": "Row byte-identical to what main wrote, no mark, no notice, no toast, sent verbatim, non-blocking",
+      "observed": "24/24 cells: line 5 (voices off) and line 7 (voices off, where the only re-cut is inside the unsung aside) keep their rows exactly (e.g. `[SETUP — returns — 7.headrime,6.head]`), with no notice and no toast, and are sent verbatim with 1 /chat call",
+      "status": "pass",
+      "independent": true,
+      "evidence": "matrix.tsv (kind=silent)"
+     },
+     {
+      "id": "M3-T-rebound",
+      "claim": "N.T<k> is rebound by span where the earlier word's exact characters are a current word",
+      "expected": "`N.T<k'>` with — cut v2, no notice, sent with the new number; a renumber toast only when k' != k",
+      "observed": "28/28 cells, e.g. 1.T4 -> 1.T5 (love), 1.T2 -> 1.T3, 8.T4 -> 8.T5 (voices off), 8.T6 -> 8.T7 and 7.T5 -> 7.T6 (voices on). The renumber toast appears for exactly the 12 moved cells and none of the 16 unmoved",
+      "status": "pass",
+      "independent": true,
+      "evidence": "matrix.tsv (kind=rebound)"
+     },
+     {
+      "id": "M4-T-blocked",
+      "claim": "N.T<k> with no current word on the same characters blocks as 'numbered under the earlier cut'",
+      "expected": "`N.T<k> (numbered under the earlier cut)` with — cut v2, a tone-input notice, 0 /chat calls, 'Nothing was sent…', *_need_decision in the declarations, the edit send also blocked",
+      "observed": "12/12 cells (1.T1 Oh--oh, 2.T5 bass--, 3.T2 love--love, 8.T3 close--close with voices off, 7.T4 oh--oh and 8.T5 with voices on; both row types) are blocked exactly so, e.g. declarations {groups_need_decision:['1.T1 (numbered under the earlier cut),6']}",
+      "status": "pass",
+      "independent": true,
+      "evidence": "matrix.tsv (kind=blocked)"
+     },
+     {
+      "id": "M5-asides",
+      "claim": "Aside lines follow the voices setting with voices OFF and ON",
+      "expected": "Voices off: a line re-cut only inside its aside is unchanged. Voices on: it is changed. T<k> numbering includes the aside only with voices on",
+      "observed": "Line 7 (oh--oh inside the aside): silent with voices off (12 cells), carried or blocked or rebound with voices on (18 cells). Line 8: carried with both settings. The voices flag (`voices:true`) is sent",
+      "status": "pass",
+      "independent": true,
+      "evidence": "matrix.log rows G|v0|L7, G|v1|L7, R|v1|L8 …"
+     },
+     {
+      "id": "M6-returns-N.end",
+      "claim": "A named place in a returns row is kept named (policy: kept named, sent as declared)",
+      "expected": "A hand-written pre-batch returns member `N.end` stays a placed end-word member",
+      "observed": "FAIL. The candidate rewrites `N.end` in a returns row to bare `N` and sends `N`. The harness reads bare N in returns as a WHOLE-LINE member (quality/schemes.py:1310-1365). This happens on load with no user action whenever the row is touched: (a) the member's line re-cut (7 matrix cells R|*|L{1,2,3,4,8}|end and R|v1|L{7,8}|end). Main sent `1.end,6.head`; the harness grades that as a placed return. The candidate sends `1,6.head`; the harness REFUSES that as a mandate ('MIXES a placed member with a whole-line one'). (b) Silently on unchanged lines when a T<k> row-mate is rebound (E3): `5.end,6.end;1.T4,8.T4` becomes `5,6;1.T5,8.T5 — cut v2`, with no notice, and is sent `5,6;…`. The baseline already did this normalization, but only when a user applied the Repeats form",
+      "status": "fail",
+      "independent": true,
+      "evidence": "end_returns.log; harness/brief_x1.log vs brief_x2.log; harness/brief_returns_5_end_6_end.log vs brief_returns_5_6.log; src/pages/lyrics.js:774 lyMemberPlain (drops '.end'), :299, :798"
+     },
+     {
+      "id": "M7-unknown-cut-mark",
+      "claim": "A row or member marked with a cut the page does not read blocks and is not rewritten",
+      "expected": "Row unchanged, tone-input notice, nothing sent, refusal names 'cut v2'",
+      "observed": "`— cut v3`, `— cut v1`, `— cut v9` rows and a member `(marked cut v3: not read here)` are all left unchanged, get the input notice and are blocked (0 calls). `— cut V2` (upper case) is read as v2 and sent",
+      "status": "pass",
+      "independent": true,
+      "evidence": "unknown.log U1-U5, U11"
+     },
+     {
+      "id": "M8-member-level-unknown-annotation",
+      "claim": "An unrecognised annotation on a member blocks",
+      "expected": "Under a strict reading of 'unknown marker blocks': nothing sent",
+      "observed": "Not blocked. `1.head (kept),6`, `1.T4 (carried across the word-cut change),6` and `1.head (numbered under the earlier cut),6.head` get only a 'points at …, which the draft does not have' input notice, and the raw value goes to /chat, page wording included. The harness then refuses visibly (brief_x3/x4/x5: REFUSED, or return:1:6 refused). A garbage tail `— cut` is absorbed into the last member and the row becomes `1 (carried…),6 — cut — cut v2`",
+      "status": "fail",
+      "independent": true,
+      "evidence": "unknown.log U6-U8, U12; harness/brief_x3.log, brief_x4.log, brief_x5.log"
+     },
+     {
+      "id": "M9-keep-durability",
+      "claim": "After Keep the link (without Undo), the kept member is never flagged or migrated again, and the row and sent value stay what Keep produced",
+      "expected": "Kept member plain in a — cut v2 row, no notice for it, other carried members intact, the same declarations sent, after every step",
+      "observed": "63/63 checks pass. Keep was clicked from the Review notice for rhyme line 1 and return line 1.head, then: reload; Download text and Import in a fresh browser; Library working-copy envelope import, then .json download and import in a fresh browser; Export/Import session; section reorder (kept member renumbered 1->5 and still plain), reload, reorder back; Rhymes form add link; Repeats form add placed return; Rhymes Remove link; Undo×3 / Redo×3 of the form edits; voices turned ON; final reload. Sent groups `1,6;2.endword,5;4,3.head` and returns `1.head,6.head;8.line,5.line` throughout. No migration toast after the first load",
+      "status": "pass",
+      "independent": true,
+      "evidence": "keep.log, keep.json, keep_download.txt, keep_library_download.json"
+     },
+     {
+      "id": "M10-routes",
+      "claim": "The same rows arriving by Import (.txt) or paste migrate the same way; Undo after Import never returns unmigrated numbers",
+      "expected": "Same rows, notices and sends as the saved-session route",
+      "observed": "22/22 route checks plus Undo/Redo after import pass. Keep beside a blocked row-mate clears only the carried state, and the row still blocks",
+      "status": "pass",
+      "independent": true,
+      "evidence": "paths.log"
+     },
+     {
+      "id": "M11-policy3-groups-e2e",
+      "claim": "A numeral-end member ('You hold my heart.    10') stays in the PUBLISHED blocking list of a real grade",
+      "expected": "The session connector's short verdict `blocking` names L4",
+      "observed": "Candidate session connector (buildWorkflowServer in process, same as /mcp): begin_lyrics phase edit -> lyric_check -> lyric_revise (no seed), each question answered with the line unchanged, then get_operation. With the declarations the page sent for G|v0|L4|N and G|v0|L4|end ({groups:'4,6'}): exit 2, NO_PROGRESS, certified false, blocking ['L4: not judged — rhyme with L6 (SCHEME_UNREADABLE); … no dictionary reading listed: L4 10; …', 'L6: …']. lyric_check refused rhyme:4:6:0. The Keep scenario's sent set gives lyric_check refused rhyme:3:4:2 (its revise loop did not finish, see not_covered). lyric_harness.py has no `grade` verb: lyric_grade = harness `song`, which needs a seed, so the pasted-song published verdict is lyric_revise's",
+      "status": "pass",
+      "independent": true,
+      "evidence": "e2e/e2e2_678.log, e2e/e2e2_678.json (case C1); harness/brief_groups_4_6.log"
+     },
+     {
+      "id": "M12-policy3-returns-e2e",
+      "claim": "Policy 3 holds for a numeral-end member in a returns row as the page sends it",
+      "expected": "L4 stays in the published blocking list",
+      "observed": "FAIL, through M6. As written pre-batch ({returns:'4.end,6.end'}): published blocking ['L4: not judged — return with L6; … L4 10', …]. As the candidate page sends it ({returns:'4,6'}): lyric_check certified true with refused []. lyric_revise asked for L6; mirroring the declared whole-line return replaced the user's L4 with 'Well-worn shoes upon the floor', and the run finished_clean, certified true, blocking []",
+      "status": "fail",
+      "independent": true,
+      "evidence": "e2e/e2e2_678.json cases C3a and C3b; harness/brief_returns_4_end_6_end.log vs brief_returns_4_6.log"
+     },
+     {
+      "id": "A1-author-page-check",
+      "claim": "The author's scripts/check_lyrics_page.js passes on the candidate",
+      "expected": "PASS",
+      "observed": "PASS — 471 assertions, exit 0. Its N.end case is in a rhyme groups row only (check_lyrics_page.js:965), not in returns",
+      "status": "pass",
+      "independent": false,
+      "evidence": "author_check_lyrics_page.log"
+     }
+    ],
+    "unexpected_findings": [
+     {
+      "summary": "The page's automatic upgrade of old saved rows rewrites a returns member `N.end` to bare `N`. The harness reads bare N in returns as a whole-line return, so the declaration's meaning changes, and the page still calls it 'kept as declared'. On re-cut lines this happens with a notice. On unchanged lines it happens silently when a T<k> row-mate is rebound. End to end, it removes the numeral-end refusal from the published blocking list and lets lyric_revise overwrite the user's line through mirroring. Reach: only returns rows containing a hand-written `.end` (the baseline forms never wrote one). Root cause is the pre-existing lyMemberPlain (src/pages/lyrics.js:774), which the baseline also hit, but only when a user applied the Repeats form",
+      "severity": "blocker",
+      "evidence": "end_returns.log (main vs candidate E1/E3/E5); harness/brief_x1.log (1.end,6.head graded) vs brief_x2.log (1,6.head REFUSED MIXES); e2e/e2e2_678.json C3a vs C3b (blocking [L4…] vs [] and L4 replaced)"
+     },
+     {
+      "summary": "For a returns row, the carried notice describes bare N as 'last rhyme' and shows the end word (e.g. 'heart' -> '10'). The harness treats a bare-N return member as the whole line",
+      "severity": "minor",
+      "evidence": "matrix.tsv R|v0|L4|N; review_carried_blocked.txt; quality/schemes.py:1310-1365"
+     },
+     {
+      "summary": "An unrecognised annotation on a member, including the page's own markers misplaced by hand ('1.T4 (carried …)', '1.head (numbered under …)'), is not blocked. It is sent to /chat verbatim with only a 'points at …' notice. The harness then refuses it visibly, so nothing is silently bound. A bare '— cut' tail is absorbed into the last member and the row gains '— cut — cut v2'",
+      "severity": "minor",
+      "evidence": "unknown.log U6-U8, U12; harness/brief_x3..x5.log"
+     },
+     {
+      "summary": "A legacy unmarked row on unchanged lines stays unmarked. If the user later edits that line so its cut differs, the page then flags the member with 'Line 5's word cut changed in this release', but the user's edit changed it, not the release. The notice is non-blocking",
+      "severity": "note",
+      "evidence": "paths.log legacySilentThenEdited"
+     },
+     {
+      "summary": "Policy wording versus the lines named in the task: on 'Oh--oh, oh my love' only an earlier word is re-cut, and the end 'love' keeps the same span ([14,18]); it is still flagged under the whole-line rule. On 'Thundered the battery’s double bass--' the last word is re-cut (bass-- [31,37] -> bass [31,35]), so its .T5 blocks rather than rebinds",
+      "severity": "note",
+      "evidence": "cuts2.out; matrix.tsv G|v0|L1|N, G|v0|L2|T5"
+     }
+    ],
+    "not_covered": [
+     "The Keep scenario's full declaration set did not reach a stopped lyric_revise verdict: my answer loop does not answer propose_group questions and was capped at 40 rounds. Its lyric_check result (refused rhyme:3:4:2) is recorded instead",
+     "lyric_grade (harness `song`) was not run: it needs a seed/plan and cannot take page-declared groups or returns",
+     "The real website /chat server and writer model were not exercised (/chat was stubbed). The tools were driven directly with the captured declarations",
+     "Library tab -> Lyrics handoff from a real Library reading (uiOpenInLyrics): the working copy was built with CMLibraryImport.makeWorkingCopyEnvelope and imported, then downloaded as .json and imported fresh",
+     "Writer-applied whole-draft replacements and the recheck/apply path were not exercised against carried rows",
+     "Base-tree (v1 harness, wt-base) contrasts for the e2e grade were not re-run here"
+    ],
+    "artifacts_dir": "<scratch>/h678/page-matrix"
+   }
+  },
+  {
+   "agent": "verify:connector-continuation:0",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "The finding holds and is understated. Corrected statement:\n\n1. What get_operation returns. On candidate 67889851, the session-surface get_operation re-serves the stored result of a completed lyric_check written by the pre-batch release, unchanged. The code is status() → publicToolResult in mcp/workflow_sessions.js, and that file has zero diff from fce4bf0f. The pronunciation_options it re-serves are numbered under the v1 cut. Nothing in the short, 'pronunciations' or 'full' views marks the cut or the earlier release. Neither the old nor the fresh options carry any scheme field, because the published schema has none.\n\n2. The two lists for 'Wind--wind, wind my vrexl' / 'Azure vrexl':\n   - Re-served v1 list: t1 'Wind--wind', t2 'wind' (the standalone word), t4 'vrexl'.\n   - Candidate's own list: t1 'Wind', t2 'wind' (inside the dash run), t3 'wind', t5 'vrexl'.\n\n3. Copying each old entry into a new candidate call:\n   - 'Wind--wind' t1 is refused, naming 'Wind'.\n   - 'vrexl' t4 is refused, naming 'my'.\n   - Only 'wind' t2 validates, and it binds the inner occurrence. This is the doc's same-word residual, reached by a path the doc does not name.\n\n4. Consequence (in a new session).\n   - Draft: 'Wind--wind, wind' / 'Azure vrexl', with vrexl declared as V R IH1 N D and relation class:RHYME.\n   - The old-list declaration is t2 'wind' W AY1 N D.\n   - On base this binds the end word as intended and the verdict is SCHEME_VIOLATION.\n   - On the candidate the same declaration gives 'answered — no flag stands' with certified true, a false pass against the caller's chosen reading. Declaring t3 on the candidate does give the flag.\n\n5. The old session cannot be continued. Using the old operation's session_id on the candidate is refused with CONTINUATION_MIGRATION_REQUIRED. So the v1 numbering leaks only through the read path (get_operation detail 'pronunciations').\n\n6. Pre-existing or not.\n   - The unchanged re-serve exists in base fce4bf0f and main 8b1d2ad2.\n   - On both, the re-served numbering equals their own cut: both are v1 only, with no reader scheme in their harness. Main also refuses continuing the base session, because its scorer changed.\n   - The mismatch is new with the candidate's cut change.\n   - The bullet 'Options are always numbered under the running release' was added by candidate commit f8acf2ad4, and its 'always' is literally false for options read back from a pre-release operation.\n\n7. What the doc does and does not cover. The residual bullet (commit 2) covers the same binding effect for held declarations, and commit 2's marker should also close this path. But no bullet mentions get_operation reads of pre-release operations. The residual's remedy ('re-reads pronunciation_options') does not say to re-read from a NEW call; read from the old operation, it returns the v1 list.\n\n8. Severity: minor. The path is narrow: it needs a session operation kept across the deployment (by design, runtimeDir('sessions') persists), a same-word repeat on a line whose cut moved, and a declaration copied from the stale list. Within that path, the outcome can be a certified false pass, not just a refusal.",
+    "evidence": "All files are in <scratch>/h678/verify-connector-continuation-0/. Every command is in COMMANDS.txt. The scripts are my own: sess.mjs, raw.mjs, and hook.mjs/reg.mjs (a fallback resolve hook for trees without node_modules).\n\n(1) write_base.log / ids_base.json: two edit-phase lyric_check operations written by wt-base into a JobStore (store_w). The store was copied (cp -a) for each reading tree.\n\n(2) read_on_cand.json (wt-678):\n- old_options for 'finding': [(1,'Wind--wind'),(2,'wind'),(4,'vrexl'),(2,'vrexl')]\n- fresh_options: [(1,'Wind'),(2,'wind'),(3,'wind'),(5,'vrexl'),(2,'vrexl')]\n- old_full_text_has: no match for reader_scheme / token_scheme / cut / v1 / semantic / MIGRATION / stale (full dump in oldfull_read_on_cand.json)\n- continue_old_session: isError, 'CONTINUATION_MIGRATION_REQUIRED'\n- grades in new sessions, 'endword' draft with relation class:RHYME:\n  - t2 W AY1 N D (copied from the old list): 'answered — no flag stands', certified true, findings []\n  - t3: 'answered — 1 per-line ... flag(s) stand', SCHEME_VIOLATION\n\n(3) read_on_base.json (wt-base control):\n- old and fresh lists are identical (v1)\n- the old session continues: an operation is queued, not refused\n- t2 gives SCHEME_VIOLATION (it binds the end word)\n\n(4) read_on_main.json (wt-main 8b1d2ad2):\n- the same v1 list is re-served\n- continuing the old session is refused with CONTINUATION_MIGRATION_REQUIRED\n- grading is refused with LEXICAL_ASSET_MISSING (cmudict not staged in that tree, as expected)\n- grep finds 0 harness .py files mentioning a reader scheme in wt-base and wt-main, against 70 in wt-678\n\n(5) raw_oldcopies_wt-678.json: copying old-list entries on the candidate.\n- 'Wind--wind' t1 is refused: \"token 1 there is 'Wind'\"\n- 'vrexl' t4 is refused: \"token 4 there is 'my'\"\n- 'wind' t2 is accepted\n\n(6) Code and doc checks:\n- `git diff fce4bf0f 67889851 -- mcp/workflow_sessions.js mcp/verdict_view.js mcp/workflow_tools.js` is empty.\n- `git log -S 'Options are always numbered'` returns f8acf2ad4, a candidate-only commit. The bullet is absent from the base and main docs.\n- server_http.js keeps sessions in runtimeDir('sessions') with legacyStore: jobStore, so earlier-release operations are meant to stay readable.\n\n(7) explore_cand.json: sanity check of the detector. Unpinned end 'wind' against 'sinned' passes; pinned AY1 flags.\n\nAuthor test (independent=false): lyric-harness quality.test_pronunciation_choices on wt-678 ran 36 tests, OK (author_test_pronunciation_choices.log). No author test covers get_operation re-serving pre-release options.\n\nAll three trees and /home/user/CodexMusica have no tracked changes."
+   }
+  },
+  {
+   "agent": "verify:page-matrix:0",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "FAIL is confirmed, with the scope corrected. The tester read the expected behaviour correctly: the agreed policy keeps named places named, and the candidate's own comment in lyDeclarationsOf says a carried named place \"is sent as declared\". On the first load after the upgrade, with no user action, the candidate's migration (lyMigrateSavedReadings at src/pages/lyrics.js:299, which calls lyGroupRow, then lyGroupsText, then lyMemberPlain at :774) rewrites any rhyme-groups or returns row it touches and saves it to storage. That drops `.end` from every member in the row, because the page parses `N.end` and bare `N` to the same place, 'end'. A row counts as touched if (a) any named or bare member sits on a line whose v1 and v2 cuts differ (lines 1,2,3,4,8 of the test song with voices off, and 1,2,3,4,7,8 with voices on), or (b) the row holds any T<k> member, even when every named member is on an unchanged line. Row-mates on unchanged lines lose `.end` too: `4.end,6.end` becomes `4 (carried…),6 — cut v2`. The 7 cells the tester named are only the ones its matrix sampled; with voices on, L1–L4 are affected as well, so 11 of the 14 `N.end,6.head` cells (voices off and on) are rewritten. The page then sends bare `N`. Both the candidate harness and the pre-batch harness (fce4bf0f) read bare `N` in returns as a whole-line verbatim member and `N.end` as a placed member, so the obligation changes. Examples: `1.end,6.head` is graded as a placed return, but the candidate sends `1,6.head` and the whole brief is refused (status refused, exit 2, \"MIXES a placed member with a whole-line one\"). `4.end,6.end` would be a refused/unjudged placed return under v2 (\"L4 has no 'end' to read\"), but the candidate sends `4,6`, which is judged as a whole-line verbatim return and flagged. `5.end,6.end;1.T4,8.T4` becomes `5,6;1.T5,8.T5` with no Review notice. The only toast there is about the T4→T5 renumbering, and nothing mentions `.end`. Where a carried notice does appear, its toast says the place \"was kept as declared\", which is false for `.end`. Choosing Keep the link makes the change permanent: the row becomes `1,8 — cut v2`, the notices clear, the page sends `1,8`, and this survives a reload. A row whose `.end` members are all on unchanged lines and that has no T member is left alone and sent as `N.end` (`5.end,6.end`; `7.end,6.head` with voices off). Rhyme-groups rows are rewritten the same way, but that is harmless: the harness output for `--groups=4.end,6.end` and `--groups=4,6` is identical. The root cause existed before the batch. Main's lyGroupsText (8b1d2ad2) already dropped `.end`, but only when a user action rewrote the row (a section move gave `5.end,6.end` → `1,2`; applying the Repeats form gave `5,6;2.head,3.head`). Main does not rewrite on load, and it sends a hand-typed `N.end` unchanged. What the candidate adds is that the conversion now happens automatically on upgrade, against its stated policy. `N.end` can only reach a returns row by hand or by import/paste: no page form writes it, since the Repeats places are head, line, endword and T<k>.",
+    "evidence": "All of these are my own scripts, in <scratch>/h678/verify-page-matrix-0/ (COMMANDS.txt lists each command).\n\n(1) upgrade_end.js / upgrade_end.log / upgrade_end.json. The row is typed into #lyrics-draft on wt-main 8b1d2ad2 and the page reloaded; then the same origin is switched to serve wt-678 67889851 and reloaded. Before the switch I cleared only the codex-musica-chat* keys, because my /chat stub had left a request pending. Results, main row and send → candidate row and send:\n- C1 `4.end,6.end` sent `4.end,6.end` → `4 (carried across the word-cut change),6 — cut v2`, one carried note, sent `4,6`.\n- C2 `1.end,6.head` → `1 (carried…),6.head — cut v2`, sent `1,6.head`.\n- C3 `5.end,6.end` → unchanged, sent `5.end,6.end`.\n- C4 `5.end,6.end;1.T4,8.T4` → `5,6;1.T5,8.T5 — cut v2`, no Review item, only the toast \"2 saved word numbers … word 4 → 5\", sent `5,6;1.T5,8.T5`.\n- Controls: `1.endword,8.endword` is kept named and sent unchanged; bare `1,8` stays `1,8`.\n- C7 groups `4.end,6.end` → `4 (carried…),6`, sent `4,6`.\n- C8 `1.end,8.end` → carried; after Keep the link ×2 the row is `1,8 — cut v2` with no notices and sends `1,8`, and this persists after a reload.\n- No page errors in any case.\n\n(2) pure_migrate.log: the candidate's own lyMigrateSavedReadings and lyDeclarationsOf on `N.end,6.head`. Rewritten to `N (carried…)` and sent `N,6.head` for v0 L1,2,3,4,8 and v1 L1,2,3,4,7,8. Kept for v0 L5, v0 L7 and v1 L5.\n\n(3) harness/*.log, summarised in summary_cand.txt and summary_base.txt. `brief --returns=` runs over the 8 sung lines, which is the same `--returns=` string the connector passes (mcp/lyric_tools.js).\n- Candidate: `1.end,6.head` is graded as a placed return (RETURN_NOT_VERBATIM \"L1.end='love', L6.head='Well-worn'\"). `1,6.head` gives status refused (MIXES…).\n- `4.end,6.end` leaves return:4:6 refused (RETURN_PLACEMENT_ABSENT, L4 has no 'end'), while `4,6` answers it with a whole-line VERBATIM flag.\n- `5.end,6.end` and `1.end,8.end` are placed-word checks; `5,6` and `1,8` are whole-line checks.\n- The base harness fce4bf0f shows the same N vs N.end split in returns, so that semantics is pre-existing.\n- `--groups=4.end,6.end` and `--groups=4,6` give byte-identical output once the echoed value is normalised.\n\n(4) main_rewrite.log: with a typed `5.end,6.end` row, main and the candidate both drop `.end` when a user action rewrites the row (section move → `1,2`; Repeats form apply → `5,6;2.head,3.head`).\n\n(5) Code: lyParseGroups maps `N` and `N.end` both to place 'end'; lyMemberPlain prints 'end' as bare N (lyrics.js:774); the migration rewrite is at :299 and lyGroupRow at :798; the carried-member send path uses lyGroupsWire at :980; main's lyGroupsText (main :438) has the same drop.\n\nAuthor's test, reported separately (independent=false): scripts/check_lyrics_page.js passes 471 assertions, exit 0 (author_check_lyrics_page.log). None of its 15 returns rows uses `.end`.\n\nNo tracked file was modified (git status is clean in wt-678 apart from the node_modules symlinks), and the scratch directory is 332K."
+   }
+  },
+  {
+   "agent": "verify:page-matrix:1",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "The observation reproduces, but most of it is not new and it falls outside what the commit means by \"unknown mark\". One related candidate-only defect is real.\n\nOn the candidate (67889851), a member the page cannot parse does not block. This covers `1.head (kept)`, the carried wording on a T member, the undecided wording on a named place, and a stray tail such as `— cut` or `— cut  v2` (two spaces) that gets absorbed into the last member. Review shows only the input notice \"points at …, which the draft does not have\" with the action Open rhymes or Open repeats. Run review then posts the raw value to /chat, page wording included.\n\nMain (8b1d2ad2) behaves the same way for the same saved rows: it gives the same notice and sends the raw value, including the `— cut v2` tail. So not blocking on an unparseable member is a pre-existing gap, not something the candidate changed.\n\nWhat the commit message calls an \"unknown mark\" is a cut mark: `— cut v1`, `v3` or `v9` on a row, or `(marked cut v3: not read here)` on a member. Those do block, with \"Nothing was sent … it accepts only “cut v2”\" and 0 /chat calls. Under that definition the rule is met. The \"fail\" holds only under the tester's wider reading.\n\nThe harness part is overstated:\n- **Rhyme groups:** the harness does refuse the whole brief (exit 2, \"names no place\" or \"mandate was not accepted\"). The pre-batch harness fce4bf0f does the same.\n- **Returns (U8):** the harness does not refuse. It grades with exit 0 and reports the return as UNJUDGED (NOTE RETURN_PLACEMENT_UNREADABLE, \"CANNOT TELL\"), with `refused_obligations [\"return:1:6\"]` and `certified:false`.\n- **Website path:** /chat hands the declarations to the model as context, not to the harness directly. A stub cannot show what the model then sends to the tools.\n\nFor U12, absorbing the tail is pre-existing. The only new part is that the candidate rewrites the row on load to `1 (carried across the word-cut change),6 — cut — cut v2`, with a boot toast and a Keep the link / Remove it notice for line 1. That matches the policy for an unmarked row.\n\nThe candidate-only defect breaks the T<k> rule (rebind by span or block). In an unmarked legacy row, a T member with an unparseable note (`1.T4 (kept)`) is neither rebound nor blocked. If another member of the same row is rebound, the whole row is still stamped `— cut v2`: `[SETUP — rhyme groups — 1.T4 (kept),8.T4]` becomes `1.T4 (kept),8.T5 — cut v2`. Deleting \" (kept)\" then makes 1.T4 point at \"my\" (word 4 under the current cut) instead of \"love\" (the word it counted under the earlier cut), and no notice says so. Main gives \"love\" here, and the same row without the note is correctly renumbered to `1.T5`.",
+    "evidence": "All scratch is in <scratch>/h678/verify-page-matrix-1/, with commands in COMMANDS.txt. These are my own scripts (vlib.js, cases.js, x1_followon.js, harness/run.sh), not the earlier tester's harness (independent=true). The served candidate codex.html is byte-identical to a fresh `node scripts/build_html.js` of wt-678. All three trees were left clean.\n\n**Page runs (cases.log, cases_cand_main.json).** Each row was a saved session in localStorage before load, then Run review with /chat stubbed. Results are candidate | main:\n- U6 `1.head (kept),6`: input notice, 1 call, groups=\"1.head (kept),6\" | identical.\n- U7 `1.T4 (carried across the word-cut change),6 — cut v2`: input notice, 1 call, groups=\"1.T4 (carried across the word-cut change),6\" | 1 call, raw including \"— cut v2\".\n- U8 returns `1.head (numbered under the earlier cut),6.head — cut v2`: input notice, 1 call, raw value sent | same, plus the tail.\n- U12 `1,6 — cut`: on load the row becomes `1 (carried across the word-cut change),6 — cut — cut v2`, with boot toast \"1 rhyme or return place … kept as declared\", the input notice for \"6 — cut\", and a note with Keep the link / Remove it; groups=\"1,6 — cut\" sent | row unchanged, same input notice, same value sent.\n- X3 `— cut  v2` (two spaces): treated as unmarked; the row becomes `… ,6 — cut  v2 — cut v2` and is sent.\n- Blocking controls on the candidate: C2 (`1.T4 (numbered under the earlier cut)`), C3 (`(marked cut v3: not read here)`) and C5 (row `— cut v3`) give 0 calls plus a \"Nothing was sent…\" toast. C1 (`1.head (carried…)`, a valid position) sends \"1.head,6\" with the Keep/Remove note. C4 `1.foo,6` gets the same notice and send on both trees. On main every one of these rows is sent raw, cut-mark rows included.\n\n**Harness runs (harness/*.log).** brief over each sent value, on wt-678 and on wt-base, with identical outcomes on both:\n- U6, U7, C4: REFUSED \"names no place\", exit 2.\n- U12: REFUSED \"mandate was not accepted … got ['1', '6 — cut']\", exit 2.\n- U8 returns: status graded, exit 0. Output shows \"L1~L6: UNJUDGED\" and NOTE RETURN_PLACEMENT_UNREADABLE \"CANNOT TELL\", with refused_obligations [\"return:1:6\"] and certified:false.\n- The /chat server (wt-678 mcp/task_contract.js, chat.js) only puts the declarations into the model's context; it does not run the harness on them itself.\n\n**T-member laundering (x1_followon.log).**\n- Candidate: `[SETUP — rhyme groups — 1.T4 (kept),8.T4]` loads as `1.T4 (kept),8.T5 — cut v2`. The only toast is \"“tonight” word 4 → 5\". After \" (kept)\" is removed by hand, lyMemberWord(1.T4) = \"my\". The current cut of line 1 is [\"Oh\",\"oh\",\"oh\",\"my\",\"love\"]; the earlier cut is [\"Oh--oh\",\"oh\",\"my\",\"love\"].\n- Main: after the same edit, 1.T4 = \"love\".\n- Candidate, same row without the note: migrates to `1.T5,8.T5 — cut v2`, and 1.T5 = \"love\".\n\n**Scope of \"unknown mark\".** Commit be5a1b3e2's message says \"a row or reading marked with a cut the page does not read (`— cut v3`, `— cut vX`) … stops every send\". The 67889851 message says \"an unknown mark refuses, naming the accepted value\". In src/pages/lyrics.js, lyParseGroups marks every other unparseable member `bad`, and lyUndecidedRefusal only stops sends for `undecided` members.\n\n**Author's tests (independent=false).** scripts/check_lyrics_page.js has no case with an unparseable member annotation (grep for \"(kept)\" or similar finds nothing). The earlier tester's run of it exited 0."
+   }
+  },
+  {
+   "agent": "verify:page-matrix:2",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "The FAIL stands, and it is new in the candidate. The tester attributed it correctly, but the claim should be narrowed. The defect is in the candidate PAGE, not the grader.\n\nWhen the candidate (67889851) loads an unmarked `[SETUP — returns — 4.end,6.end]`, it rewrites the row to `[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]`. The rewrite is saved to storage at once. The result is byte-identical to what an unmarked bare `4,6` row turns into. Run review then sends `returns:'4,6'`. The Review notice describes the member as line 4's \"last rhyme\" (\"heart\" earlier, \"10\" now) and asks the writer to keep the link \"if it still means what you declared\". Choosing Keep the link writes `[SETUP — returns — 4,6 — cut v2]`.\n\nIn a returns row the engine reads `N.end` as a placed end-word return and bare `N` as a whole-line verbatim return. This is identical on base fce4bf0f and on the candidate. So the page has silently replaced the writer's declaration with a different, stronger one, contrary to the code's own rule (\"never converted\"; \"a numeral end … stays a visible refusal in the grader's own verdict\").\n\nThrough the candidate's /mcp twin:\n- `4.end,6.end`: lyric_check certified=false with refused [\"return:4:6\"]. lyric_revise ends with exit 2, uncertified, and blocking [\"L4: not judged — return with L6; … L4 10; L6 Well-worn\", \"L6: not judged — return with L4; …\"].\n- `4,6`: lyric_check certified=true and refused [], but it is not clean: one RETURN_NOT_VERBATIM flag stands, \"L4 … vs L6 …\". lyric_revise asks for L6; the writer keeps it, L4 is overwritten with \"Well-worn shoes upon the floor\", and the run reports finished_clean, certified, blocking [].\n\nThe base connector does exactly the same with `4,6`, so the whole-line mirroring is pre-existing engine behaviour. On base, `4.end,6.end` gives a placed-return flag (\"L4.end='heart', L6.end='floor'\") rather than a refusal, so \"L4 stays in blocking\" is the v2 outcome.\n\nMain 8b1d2ad2 sends `4.end,6.end` unchanged on load and review. Main already had a narrower conflation: lyMemberPlain/lyGroupsText print place 'end' as bare N, so its Repeats-form merge rewrites `4.end,6.end` to `4,6;2.head,3.head`. Neither page's Placed-returns form offers 'end'. The candidate now applies that conflation automatically on load, with no writer action, in three places:\n- to a member on a line whose cut did not change (`6.end` becomes `6`);\n- to a row rewritten only for a T rebind, with no notice: `5.end,6.end;1.T4,8.T4` becomes `5,6;1.T5,8.T5`, and lyric_check then judges \"L5 vs L6 verbatim\" instead of \"L5.end='tonight', L6.end='floor'\";\n- to a non-end place: `4.head,6.head` stays `4.head` with the carried mark, so only 'end' collapses.\n\nA row already marked `— cut v2` keeps `4.end,6.end` and sends it, until a Repeats-form merge collapses it. Rhyme-group rows are not affected: the harness gives identical results for `--groups=4.end,6` and `4,6`. The author's check_lyrics_page.js has no returns row with an `N.end` member.",
+    "evidence": "All raw outputs are under <scratch>/h678/verify-page-matrix-2/. COMMANDS.txt there lists every command. My scripts and runs are independent=true.\n\n**Page (my own Playwright script, page_end_returns.js / .log / .json; /chat stubbed)**\n- Candidate R1 `4.end,6.end`: on load the row is `4 (carried across the word-cut change),6 — cut v2`, and the saved storage holds the same row. The notice reads \"line 4 · last rhyme\". /chat returns=\"4,6\".\n- Candidate R2 bare `4,6`: same rewritten row, same notice, same send.\n- Candidate R3, the row already marked `— cut v2`: sends \"4.end,6.end\".\n- Candidate R5 `5.end,6.end;1.T4,8.T4`: becomes `5,6;1.T5,8.T5 — cut v2` with no notice, and sends \"5,6;1.T5,8.T5\".\n- Candidate R6 `4.head,6.head`: the head place is kept.\n- Main: every row loads and is sent exactly as written; R1 sends \"4.end,6.end\".\n\n**Page follow-ups (page_followups.log)**\n- K1, candidate: Keep the link produces `[SETUP — returns — 4,6 — cut v2]` and sends \"4,6\".\n- F1, main: the Repeats-form merge produces `4,6;2.head,3.head` and sends it. This conflation is pre-existing.\n- F2, candidate, marked row: the same collapse happens after a form merge.\n- Neither page's Placed-returns form offers 'end'.\n\n**Code**\nsrc/pages/lyrics.js in wt-678:\n- `lyMemberPlain` prints place 'end' as bare N.\n- `lyParseGroups` maps bare N to place 'end'.\n- The carried branch matches `\\.(end|…)` but serializes through `lyMemberPlain`.\n\n**Harness (harness/*.log)**\n- Base `--returns=4.end,6.end`: flag \"placed return … L4.end='heart', L6.end='floor'\".\n- Candidate v2 `4.end,6.end`: RETURN_PLACEMENT_ABSENT \"L4 has no 'end'\", refused return:4:6, certified=false.\n- `--returns=4,6`, on both base and candidate: RETURN_NOT_VERBATIM \"L4 … vs L6 …\", certified=true.\n- `--groups=4.end,6` and `4,6`: identical results.\n\n**e2e (my own returns_e2e.mjs; buildWorkflowServer with compatibility:true, in process)**\n- cand_e2e.log, `4.end,6.end`: check refused [\"return:4:6\"]. Revise ends with exit 2, uncertified, and blocking for L4 and L6 \"not judged — return with …\".\n- cand_e2e.log, `4,6`: check certified with refused [] and one RETURN_NOT_VERBATIM flag. Revise asked {propose line 6}; I answered with the line unchanged. The final L4 is \"Well-worn shoes upon the floor\" (the writer's was \"You hold my heart.    10\"), and the run reports finished_clean, certified=true, blocking [].\n- base_e2e.log, `4,6`: identical to the candidate, so the mirroring is pre-existing engine behaviour.\n- base_e2e.log, `4.end,6.end`: a placed flag (heart/floor) and a propose_group question.\n- cand_e2e_5.log: `5.end,6.end;…` is judged \"L5.end='tonight', L6.end='floor'\", while `5,6;…` is judged \"L5 … vs L6 … VERBATIM\".\n\n**Author's test (independent=false)**\nscripts/check_lyrics_page.js has 15 returns-row fixtures and none contains an `N.end` member.\n\n**Tester's report**\nThe tester's numbers are reproduced exactly. One omission: in C3b, lyric_check for `4,6` still had a standing RETURN_NOT_VERBATIM flag (\"1 per-line flag stands\"), so it was not clean.\n\nNo tracked file was modified in any tree."
+   }
+  },
+  {
+   "agent": "verify:page-matrix:4",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "The finding holds, but its example is a bad one. On candidate 67889851, the carried notice for a bare N member of a [SETUP — returns — …] row labels the member 'last rhyme'. Its text then compares the line's last word under each cut, for example \"shows “heart” under the earlier cut and “10” under the current one\". The grader (both wt-678 and wt-base fce4bf0f) and the page's own Repeats form both read a bare-N return as the whole line. The correct notice is the one the candidate already gives for N.line: 'whole line', \"You hold my heart\" → \"You hold my heart 10\".\n\nThe commonest affected row is the one main's own \"Declare as exact repeat\" action writes. On main 8b1d2ad2 it writes `[SETUP — returns — 1,5;2,6;3,7;4,8]` with whole-line intent. After the upgrade, the candidate shows five notices titled \"A declared return member, line N · last rhyme\", for lines 1, 2, 3, 4 and 8. The same page's Repeats form still lists \"Line 4 = Line 8\" with no place.\n\nThis is new in the candidate. Main shows no Review item for these rows, and main's Repeats form never prints a label for a bare return member. The cause is older: lyParseGroups maps a bare N to place 'end' for both keys (main lyrics.js:429). On main that never surfaced, because the Repeats form hides the 'end' label. The candidate's new notice (lyrics.js ~1186-1196: `LY_PLACES[m.place]` and `lyPlaceWords(…, m.place)`) skips that returns exception.\n\nIt is display-only and minor. The row, the carried state, Keep/Remove, the non-blocking send and the sent value `returns: \"1,5;2,6;3,7;4,8\"` all match the agreed policy. The grader judges whole lines regardless of the label. The risk is that a writer decides Keep or Remove based on a wrong description.\n\nCorrection to the cited evidence: matrix row R|v0|L4|N is `4,6.head`, which mixes a bare member with a placed one. The harness refuses that class outright on both trees (\"MIXES a placed member with a whole-line one … Declare them as two classes\", exit 2), so it is not a valid example. Valid rows, `4,5` and main's own `1,5;…;4,8`, show the same mislabel.\n\nFor rhyme groups, 'last rhyme' is correct: the harness grades groups `4,6` and `4.end,6.end` the same.\n\nRelated but separate (the N.end→N finding): an unmarked `4.end,5.end` returns row is rewritten to `4 (carried…),5` and sent as `4,5`. That turns a word-at-end class into a whole-line class, while the notice still says 'last rhyme'.",
+    "evidence": "All of this is from my own scripts. Scratch: <scratch>/h678/verify-page-matrix-4/ (COMMANDS.txt, page/bare_return.js, bare_return.json, bare_return.log, summary.txt, harness/*.log). No tracked file was modified in any tree. The served codex.html matched a fresh build_html.js in both wt-678 and wt-main.\n\nPAGE (Playwright with chromium at /opt/pw-browsers/chromium; /chat stubbed). Each session was written on wt-main and then upgraded on the same origin to wt-678. The upgrade goes through robots.txt so the page really reloads, and the script asserts lyMigrateSavedReadings exists after it.\n\n- **M1, row written by main's own LY_ACTIONS['ly-declare-repeat'] (VERSE→CHORUS):** `[SETUP — returns — 1,5;2,6;3,7;4,8]`.\n  - Main: Review items = [], Repeats form \"Line 1 = Line 5 / … / Line 4 = Line 8\", sent {returns:\"1,5;2,6;3,7;4,8\"}.\n  - Candidate row: `[SETUP — returns — 1 (carried across the word-cut change),5;2 (carried…),6;3 (carried…),7;4 (carried…),8 (carried…) — cut v2]`.\n  - Candidate Review: 5 notes, e.g. \"A declared return member, line 4 · last rhyme, was carried across the word-cut change … what its last rhyme reads may have changed … shows “heart” under the earlier cut and “10” under the current one\". Line 2's note shows “bass--”→“bass”.\n  - Candidate Repeats form is unchanged (\"Line 4 = Line 8\"); sent {returns:\"1,5;2,6;3,7;4,8\"}.\n- **H1, `4,5`:** candidate note \"line 4 · last rhyme\", “heart”→“10”.\n- **H2, `4.line,5.line`:** candidate note \"line 4 · whole line\", “You hold my heart”→“You hold my heart 10”, which is the correct form.\n- **H3, `4.end,5.end`:** rewritten to `4 (carried…),5 — cut v2` and sent \"4,5\". This belongs to the separate finding.\n- **H4, rhyme groups `4,5`:** \"last rhyme\", which is correct for groups.\n\nHARNESS (brief on the 8 sung lines, LYRIC_STAGED_DATA staged, run in both wt-678 and wt-base):\n- `--returns=4,6` gives \"DECLARED RETURNS: 1 full-line obligation(s)\" and RETURN_NOT_VERBATIM \"L4 'You hold my heart.    10' vs L6 'Well-worn shoes upon the floor'\". Both trees agree.\n- The candidate with `--returns=1,5;2,6;3,7;4,8` gives \"4 full-line obligation(s)\", each comparing whole lines.\n- `--returns=4.end,6.end` is a placed class. The base reports \"L4.end='heart', L6.end='floor'\". The candidate reports RETURN_PLACEMENT_ABSENT, obligation refused, because the numeral ends the line.\n- `--returns=4,6.head` and `4.end,6` are refused with \"MIXES a placed member with a whole-line one\" (exit 2) on both trees.\n- `--groups=4,6` and `--groups=4.end,6.end` produce identical output apart from the echoed spelling.\n\nSource: wt-678 quality/schemes.py:1310-1365, where a bare member becomes a whole-line Return and a placed member becomes a Return with loci. mcp/lyric_tools.js:213 says \"`--returns=` names LINES that are the same line … a return is a whole line repeated\". In wt-main, src/pages/lyrics.js:429 maps bare N to 'end', and lines 3576 and 4102 (the latter in the candidate) omit the label for 'end' in the Repeats form. The candidate's carried notice at src/pages/lyrics.js:1186-1196 has no returns exception.\n\nThe author's scripts/check_lyrics_page.js (independent=false, not run here) asserts only the row text for a carried bare returns class (`1 (carried…),2 (carried…)`), not the notice's label or words."
+   }
+  },
+  {
+   "agent": "verify:page-matrix:3",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "CONFIRMED, with corrections to the pre-existing scope and to the silent trigger.\n\nWhat the harness does (same on candidate 67889851 and on the pre-batch harness fce4bf0f, so not new): in `--returns=`, a bare `N` is a whole-line verbatim return and `N.end` is a placed end-word return. A class that mixes the two is refused (MIXES, M-142). So in a returns row, `N.end` and `N` mean different things. In rhyme groups they mean the same thing (bare N = the end slot).\n\nWhat the candidate page does at load, with no user action: `lyMigrateSavedReadings` rewrites a returns row through `lyGroupRow` -> `lyGroupsText` -> `lyMemberPlain` (src/pages/lyrics.js:299, 799, 774). That writes every `N.end` as bare `N`. Main 8b1d2ad2 loads the same saved row unchanged and sends `N.end` as written. It happens on any returns row the migration rewrites:\n- (a) A `.end` member on a line whose cut changed becomes `N (carried across the word-cut change)`. It gets a note titled 'line N · last rhyme' with Keep/Remove, and the toast '…was kept as declared'. Keep leaves it as bare `N` and says 'The declared return on line N is kept as declared'.\n- (b) Silently, with no notice and no toast, a `.end` member on a line whose cut did not change is collapsed whenever the row is rewritten for another reason. The finding says this needs a T<k> row-mate to be rebound. It is wider: any T<k> member triggers it, even one whose number does not move (`5.end,6.end;2.T2,3.T2` -> `5,6;2.T2,3.T2`). So does any row-mate carried on a re-cut line (`5.end,6.end;1.head,8.head` -> `5,6;1.head (carried…),8.head (carried…)`). A row of `.end` members alone on unchanged lines is left as it is.\n- The loss cannot be undone on the page. After the migration, three Undos, `app.history`, localStorage and a reopen all lack the original `.end`.\n\nEnd to end (candidate session connector, pasted-song path, the writer keeps every line):\n- `4.end,7.end`, where L4 ends in the numeral '9' (what main sends): uncertified. Blocking lists L4 and L7 as 'not judged'.\n- `4,7` (what the candidate sends): certified finished_clean, blocking empty. lyric_revise replaced L4 with L7's text ('changed only [4]').\n- `5.end,6.end`: clean, nothing changed.\n- `5,6` (the silent case): L5 replaced by L6's text.\n- A further effect the finding does not name: `1.end,6.head` is graded, but the candidate sends `1,6.head`, which the harness refuses outright (MIXES), so the review judges nothing.\n\nThis contradicts the agreed policy ('kept named'). It also contradicts the candidate's own comment at src/pages/lyrics.js:116-133, which says members are written `N.place (carried…)`, are 'still sent and judged', and that 'a numeral end … stays a visible refusal in the grader's own verdict'.\n\nCorrection on what is pre-existing: the same collapse existed on main as an inline expression in `lyGroupsText` (main src/pages/lyrics.js:436-441). Main hits it on more than the Repeats form. Every section edit goes through `lyAssemble` (main :1715), and I ran three of them:\n- duplicating a section turned `5.end,6.end` into `5,6`;\n- moving a section turned it into `1,2`;\n- adding a section turned `4.end,7.end` into `4,7`.\n\nRemoving a section and labelling stanzas go through the same path but were not run. In every case I ran, main then sent the bare form. The candidate keeps this behaviour unchanged for a row that survives load.\n\nWhat is new in the candidate is the timing and the wording: the collapse now happens at load, without any user action, cannot be undone, and is described as 'kept as declared'.\n\nReach is as the finding says: only returns rows containing a hand-written, imported or pasted `.end`. No page form writes one, and neither does the plan (plan.py:3177 writes bare `a,b`); main's 'Declare exact repeat' writes bare N for a whole-line return. A minor related issue: a bare-N returns member, which the harness reads as a whole line, gets a candidate notice labelled 'last rhyme'.\n\nThe author's check_lyrics_page.js (independent=false) passes 471 assertions. Its line 668 explicitly treats `.end` as bare N for returns too ('the page writes `.end` as a bare number'), and its send assertion at :691 expects bare `N,M`. So the author's test encodes this defect as intended behaviour, and its unchanged-lines check never tries a row with a row-mate.",
+    "evidence": "All under <scratch>/h678/verify-page-matrix-3/ (COMMANDS.txt lists every command).\n\nHarness CLI (`brief harness/song.txt --returns=R`):\n- harness/brief_cand_*.log (wt-678): `5.end,6.end` SATISFIED, 0 FLAG; `5,6` VIOLATED RETURN_NOT_VERBATIM; `4.end,7.end` obligation return:4:7 refused, certified=false; `4,7` answered, certified=true with a flag; `1.end,6.head` graded; `1,6.head` REFUSED 'MIXES a placed member with a whole-line one', exit 2.\n- harness/brief_base_*.log (wt-base fce4bf0f): the same N vs N.end distinction and the same MIXES refusal.\n\nPage (own Playwright driver page/page.js; one origin; the user writes the row on main, then the same origin is served the candidate and reloaded; /chat stubbed, no provider):\n- page/page_load.json: L1 `4.end,7.end`: main row unchanged, main sent \"4.end,7.end\"; candidate row `4 (carried across the word-cut change),7 — cut v2`, toast '…kept as declared: check it in Review.', candidate sent \"4,7\"; after Keep the row is `4,7 — cut v2` and the toast is 'The declared return on line 4 is kept as declared.'\n- L2 `5.end,6.end`: kept and sent as written.\n- L3 `5.end,6.end;2.T2,3.T2`: becomes `5,6;2.T2,3.T2 — cut v2` with no toast or notice; sent \"5,6;2.T2,3.T2\" (T2 did not move).\n- L4 `1.end,6.head`: sent \"1,6.head\".\n- L5: like L3. L6: the rhyme-groups control collapses the same way, which is harmless there.\n- page/page_load2.json: L7 `5.end,6.end;1.head,8.head`: becomes `5,6;…` with notices only for lines 1 and 8. L8: a bare `4,7` gets a notice titled 'line 4 · last rhyme'.\n- page/undo.json: no `.end` after three Undos, in history, in localStorage or after a reopen.\n- page/page_edits.json: on main, duplicating, moving or adding a section, and applying the Repeats form, all rewrite `5.end,6.end` / `4.end,7.end` to bare N and main sends the bare form; the candidate does the same on these paths.\n\nEnd to end (e2e/e2e.mjs; candidate buildWorkflowServer in-process; begin_lyrics phase edit -> lyric_check -> lyric_revise; every question answered with the original line):\n- e2e/e2e_A.json: A1 `4.end,7.end` -> exit 2 uncertified, blocking ['L4: not judged — return with L7 … no dictionary reading listed: L4 9', 'L7: not judged …']. A2 `4,7` -> asked line 7, kept it; folded verdict 'changed only [4]'; finished_clean, certified, blocking []; L4 'Meet me at the corner at 9' became 'The station clock says nine'.\n- e2e/e2e_BC.json: B1 `5.end,6.end` clean, no change. B2 `5,6` -> L5 'I walk the line tonight' became 'Stay with me tonight'. C1 `1.end,6.head` graded (WHOLE_DRAFT_UNRESOLVED). C2 `1,6.head` -> REFUSED (MIXES), nothing judged.\n\nCode:\n- candidate src/pages/lyrics.js:774 (`lyMemberPlain`), 776-794, 799, 299, 2203; policy comment 116-133.\n- main src/pages/lyrics.js:436-441 (the same expression inline), 1715 (`lyAssemble`), 2577 (Repeats form), 4806-4816 (Declare exact repeat).\n- harness quality/schemes.py:1275-1370 (`_normalise_returns`: bare = whole line, dotted = placed, mixing refused); `_member_slot` at 2541 (bare = end slot for groups).\n\nAuthor's test (independent=false): author_check_lyrics_page.js run gives 'LYRICS PAGE: PASS — 471 assertions', exit 0. scripts/check_lyrics_page.js:668 `plainSp = sp === '.end' ? '' : sp; // the page writes .end as a bare number` is applied to returns as well, and :691 asserts the bare send.\n\nNo tracked file was modified in any tree; `git status` shows only the untracked node_modules symlinks."
+   }
+  },
+  {
+   "agent": "verify:page-matrix:5",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "The finding reproduces on 67889851, but most of it is behaviour main already had, and two details are wrong.\n\n(1) Not blocked, but not new. On the candidate page, any group or return member it cannot parse is not blocked:\n- It gets only an input-tone Review notice, \"A rhyme link / A declared return points at X, which the draft does not have\", whose only action is Open rhymes / Open repeats.\n- lyUndecidedRefusal returns '', Run review makes one /chat call, and the member is sent verbatim in declarations.groups or declarations.returns (the row's \"— cut v2\" is stripped).\n- This covers free text ('1.head (kept)', '1.hed') and the page's own markers in places the page never writes them ('1.T4 (carried across the word-cut change)', '1.head (numbered under the earlier cut)', and the misspelt '(carried across the word cut change)').\n- Main 8b1d2ad2 does exactly the same: same notice, same unblocked send.\n- What is new is only that the candidate now has its own marker words, and a misplaced or misspelt copy falls into this old path instead of the new gate. The agreed \"unknown marker blocks\" rule means an unknown cut mark ('— cut v3', 'v1', 'v9', 'vX'). The author's check_lyrics_page.js §5 \"Unknown marks block\" uses that same meaning, and such rows do block (control A8: 0 /chat calls, \"Nothing was sent…\"). So this is a gap outside the stated policy, not a breach of it.\n\n(2) \"The harness then refuses it visibly\" is only partly true.\n- Every lyric tool refuses the value. mcp/lyric_tools.js is byte-identical to main, and the session connector's lyric_check returns tool_error \"groups must be line numbers…\" or \"returns must be members like…\" for these strings.\n- The harness CLI refuses groups (exit 2), the same on fce4bf0f.\n- The harness CLI does not refuse returns. `brief --returns='1.head (numbered under the earlier cut),6.head'` or `'1.head (kept),6.head'` grades with exit 0 and \"WHAT TO CHANGE — 0 decision(s)\". The return comes out UNJUDGED: NOTE RETURN_PLACEMENT_UNREADABLE, certified:false, refused_obligations [\"return:1:6\"]. That is visible, not a refusal, and the same on base.\n- On /chat, the declarations reach the website chat model as text before any tool runs. Whether that model passes them on verbatim was not tested (no provider). So \"nothing is silently bound\" is shown at the tool layer only.\n\n(3) The '— cut' item is understated. Any row tail that is not exactly '— cut <token>' at the end is read as no mark at all, not as an unknown mark. That includes a bare '— cut', '— cut v2 (checked)' and '—cut v2'.\n- The tail is absorbed into the last member, as on main.\n- The row is then read as unmarked legacy. When the migration touches it (a T<k> member, or a named place on a line whose cut changed), it rewrites the row and appends ' — cut v2'.\n- Results seen: '1 (carried across the word-cut change),6 — cut — cut v2', with a carried notice; and '1.T5,6 — cut v2 (checked) — cut v2', with 1.T4 renumbered by span to T5.\n- The renumbering is reported only by the toast \"“love” word 4 → 5\". If the page wrote that row under v2 (T4 = \"my\") and the writer later annotated it, the link silently changes target from \"my\" to \"love\", apart from that toast.\n- A row the migration does not touch ('5,6 — cut') is left as it is, and a rewritten row stays stable on reopen.\n\nSeverity minor stands: the bad member still makes every tool call fail until it is fixed.",
+    "evidence": "Own scripts and outputs are in <scratch>/h678/verify-page-matrix-5/ (COMMANDS.txt lists every command). No tracked file was modified in wt-678, wt-main or wt-base.\n\nPAGE (page.js → page.log / page.json; Playwright with /opt/pw-browsers/chromium and /chat stubbed; each row typed and also saved-then-reopened; candidate wt-678 and main wt-main):\n- Candidate A1 '1.head (kept),6', A2 '1.T4 (carried…),6 — cut v2', A3 returns '1.head (numbered under…),6.head — cut v2', A5 returns '1.head (kept),6.head', A6 misspelt '5 (carried across the word cut change),6 — cut v2', A12 '1.hed,6 — cut v2': gate \"\", 1 /chat call, member sent verbatim, a single input notice \"…points at X, which the draft does not have\" with only Open rhymes/repeats.\n- Main, same rows: identical notice and 1 /chat call. It also sends the row tail, e.g. \"6 — cut v2\", because main has no mark parser.\n- Controls on the candidate: A7/A11 '1.T4 (numbered under the earlier cut)' and A8 '— cut v3' are blocked (0 calls, \"Nothing was sent…\").\n- A4 '1,6 — cut' becomes '1 (carried across the word-cut change),6 — cut — cut v2' (carried notice plus toast), and \"1,6 — cut\" is sent. On main the row is unchanged and \"1,6 — cut\" is sent.\n- A10 '5,6 — cut': not rewritten. A9, the rewritten row reopened: stable.\n\npage_b.js → page_b.log:\n- B1 '1.T4,6 — cut', B2 '1.T4,6 — cut v2 (checked)', B3 '1.T4,6 —cut v2': the candidate rewrites them to '1.T5,6 — cut — cut v2', '1.T5,6 — cut v2 (checked) — cut v2' and '1.T5,6 —cut v2 — cut v2'. Toast: \"1 saved word number without the current cut mark was renumbered… “love” word 4 → 5\". Not blocked.\n- B4 control '1.T4,6 — cut v2' is unchanged. Main leaves all of them unchanged.\n- Cut check: v2 cut of line 1 is [Oh,oh,oh,my,love]; v1 is [Oh--oh,oh,my,love].\n\nHARNESS (harness/cand_*.log on wt-678, harness/base_*.log on wt-base, same strings):\n- groups '1.head (kept),6', '1.T4 (carried…),6', '1,6 — cut', '5 (carried across the word cut change),6', '1.hed,6' and '5,6 — cut': REFUSED, exit 2, on both trees.\n- returns '1.head (numbered under the earlier cut),6.head' and '1.head (kept),6.head': exit 0, \"L1~L6: UNJUDGED\", NOTE RETURN_PLACEMENT_UNREADABLE, certified:false, refused_obligations [\"return:1:6\"], \"WHAT TO CHANGE — 0 decision(s)\", on both trees.\n- Control '1.head,6.head': FLAG RETURN_NOT_VERBATIM.\n\nCONNECTOR (conn/check.mjs → conn/check_678.log; candidate buildWorkflowServer, begin_lyrics phase edit, then lyric_check):\n- groups strings: tool_error \"groups must be line numbers like '1,3;2,4'…\".\n- returns strings: tool_error \"returns must be members like '5,13;6,14' or '1.head,3.head'\".\n- Control '1.head,6.head' is graded.\n- `diff` of mcp/lyric_tools.js between main and candidate is empty.\n\nCODE (candidate src/pages/lyrics.js):\n- lyParseGroups returns {raw, bad:true} for any unmatched member. lyGroupsWire sends m.raw verbatim.\n- lyUndecidedRefusal only covers undecided and unknownCut members.\n- The group mark regex in lyParseSetup is /^(.*?)\\s+—\\s+cut (\\S+)$/i.\n- lyMigrateSavedReadings rewrites a touched row through lyGroupRow, which appends '— cut v2'.\n\nAuthor's test (independent=false): scripts/check_lyrics_page.js §5 \"Unknown marks block\" tests only '— cut v3'/'— cut vX' rows and a '— cut v9' reading. It has no case for misplaced member markers or malformed tails."
+   }
+  }
+ ]
+}

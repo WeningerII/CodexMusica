@@ -6,3 +6,5 @@ cd page && node page.js edits > page/edits.log  (row written on one tree; then s
 cd page && node page.js load2 > page/load2.log -> page/page_load2.json (L7 named row-mate on re-cut lines; L8 bare 4,7 notice label)
 cd e2e && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data node e2e.mjs wt-678/mcp e2e/e2e_A.json 'A1|A2' > e2e/e2e_A.log
 cd e2e && node e2e.mjs wt-678/mcp e2e/e2e_BC.json 'B1|B2|C1|C2' > e2e/e2e_BC.log
+cd page && node undo.js -> page/undo.json (Undo x3 / history / storage / reopen after migration)
+cd wt-678 && node scripts/check_lyrics_page.js -> author_check_lyrics_page.log (AUTHOR's test, independent=false)

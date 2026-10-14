@@ -1,0 +1,1728 @@
+{
+ "cand": [
+  {
+   "name": "A1 U6 groups 1.head (kept) unmarked",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1.head (kept),6]",
+   "row": "[SETUP — rhyme groups — 1.head (kept),6]",
+   "decl": {
+    "groups": "1.head (kept),6"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.head (kept), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.head (kept),6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A1 U6 groups 1.head (kept) unmarked",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1.head (kept),6]",
+   "row": "[SETUP — rhyme groups — 1.head (kept),6]",
+   "decl": {
+    "groups": "1.head (kept),6"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.head (kept), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.head (kept),6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A2 U7 groups 1.T4 (carried…) cut v2",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+   "decl": {
+    "groups": "1.T4 (carried across the word-cut change),6"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.T4 (carried across the word-cut change), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.T4 (carried across the word-cut change),6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A2 U7 groups 1.T4 (carried…) cut v2",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+   "decl": {
+    "groups": "1.T4 (carried across the word-cut change),6"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.T4 (carried across the word-cut change), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.T4 (carried across the word-cut change),6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A3 U8 returns 1.head (numbered under…) cut v2",
+   "route": "typed",
+   "written": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+   "row": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+   "decl": {
+    "returns": "1.head (numbered under the earlier cut),6.head"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "returns:0",
+     "tone": "input",
+     "title": "A declared return points at 1.head (numbered under the earlier cut), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open repeats"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "returns": "1.head (numbered under the earlier cut),6.head",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A3 U8 returns 1.head (numbered under…) cut v2",
+   "route": "reopened",
+   "written": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+   "row": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+   "decl": {
+    "returns": "1.head (numbered under the earlier cut),6.head"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "returns:0",
+     "tone": "input",
+     "title": "A declared return points at 1.head (numbered under the earlier cut), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open repeats"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "returns": "1.head (numbered under the earlier cut),6.head",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A4 U12 groups 1,6 — cut",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1,6 — cut]",
+   "row": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+   "decl": {
+    "groups": "1,6 — cut"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    },
+    {
+     "id": "rhyme groups:0:carried:0:0",
+     "tone": "note",
+     "title": "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+     "text": "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “love” under the earlier cut and “love” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1,6 — cut",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [
+    "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   ],
+   "errors": []
+  },
+  {
+   "name": "A4 U12 groups 1,6 — cut",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1,6 — cut]",
+   "row": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+   "decl": {
+    "groups": "1,6 — cut"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    },
+    {
+     "id": "rhyme groups:0:carried:0:0",
+     "tone": "note",
+     "title": "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+     "text": "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “love” under the earlier cut and “love” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1,6 — cut",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A5 returns 1.head (kept) unmarked",
+   "route": "typed",
+   "written": "[SETUP — returns — 1.head (kept),6.head]",
+   "row": "[SETUP — returns — 1.head (kept),6.head]",
+   "decl": {
+    "returns": "1.head (kept),6.head"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "returns:0",
+     "tone": "input",
+     "title": "A declared return points at 1.head (kept), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open repeats"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "returns": "1.head (kept),6.head",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A5 returns 1.head (kept) unmarked",
+   "route": "reopened",
+   "written": "[SETUP — returns — 1.head (kept),6.head]",
+   "row": "[SETUP — returns — 1.head (kept),6.head]",
+   "decl": {
+    "returns": "1.head (kept),6.head"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "returns:0",
+     "tone": "input",
+     "title": "A declared return points at 1.head (kept), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open repeats"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "returns": "1.head (kept),6.head",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A6 groups misspelt carried marker",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]",
+   "decl": {
+    "groups": "5 (carried across the word cut change),6"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 5 (carried across the word cut change), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "5 (carried across the word cut change),6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A6 groups misspelt carried marker",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]",
+   "decl": {
+    "groups": "5 (carried across the word cut change),6"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 5 (carried across the word cut change), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "5 (carried across the word cut change),6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A7 CONTROL groups 1.T4 (numbered under…) cut v2",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+   "decl": {
+    "groups_need_decision": [
+     "1.T4 (numbered under the earlier cut),6"
+    ]
+   },
+   "gate": "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review.",
+   "items": [
+    {
+     "id": "rhyme groups:0:undecided",
+     "tone": "input",
+     "title": "A rhyme link saved without the current cut mark needs your decision",
+     "text": "1.T4 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+     "actions": [
+      "Remove the link",
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": false,
+    "carried": false
+   },
+   "runReviewReturn": false,
+   "chatCalls": 0,
+   "sent": [],
+   "toasts": [
+    "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."
+   ],
+   "errors": []
+  },
+  {
+   "name": "A7 CONTROL groups 1.T4 (numbered under…) cut v2",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+   "decl": {
+    "groups_need_decision": [
+     "1.T4 (numbered under the earlier cut),6"
+    ]
+   },
+   "gate": "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review.",
+   "items": [
+    {
+     "id": "rhyme groups:0:undecided",
+     "tone": "input",
+     "title": "A rhyme link saved without the current cut mark needs your decision",
+     "text": "1.T4 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+     "actions": [
+      "Remove the link",
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": false,
+    "carried": false
+   },
+   "runReviewReturn": false,
+   "chatCalls": 0,
+   "sent": [],
+   "toasts": [
+    "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."
+   ],
+   "errors": []
+  },
+  {
+   "name": "A8 CONTROL groups 1,6 cut v3",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1,6 — cut v3]",
+   "row": "[SETUP — rhyme groups — 1,6 — cut v3]",
+   "decl": {
+    "groups_need_decision": [
+     "1 (marked cut v3: not read here),6 (marked cut v3: not read here)"
+    ]
+   },
+   "gate": "Nothing was sent. 2 word places in a rhyme link or declared return (1 marked cut v3, 6 marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review.",
+   "items": [
+    {
+     "id": "rhyme groups:0:unknown-cut",
+     "tone": "input",
+     "title": "A rhyme link is marked with a word cut this page does not read",
+     "text": "1, 6 are marked “cut v3”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+     "actions": [
+      "Remove the link",
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": false,
+    "carried": false
+   },
+   "runReviewReturn": false,
+   "chatCalls": 0,
+   "sent": [],
+   "toasts": [
+    "Nothing was sent. 2 word places in a rhyme link or declared return (1 marked cut v3, 6 marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+   ],
+   "errors": []
+  },
+  {
+   "name": "A8 CONTROL groups 1,6 cut v3",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1,6 — cut v3]",
+   "row": "[SETUP — rhyme groups — 1,6 — cut v3]",
+   "decl": {
+    "groups_need_decision": [
+     "1 (marked cut v3: not read here),6 (marked cut v3: not read here)"
+    ]
+   },
+   "gate": "Nothing was sent. 2 word places in a rhyme link or declared return (1 marked cut v3, 6 marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review.",
+   "items": [
+    {
+     "id": "rhyme groups:0:unknown-cut",
+     "tone": "input",
+     "title": "A rhyme link is marked with a word cut this page does not read",
+     "text": "1, 6 are marked “cut v3”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+     "actions": [
+      "Remove the link",
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": false,
+    "carried": false
+   },
+   "runReviewReturn": false,
+   "chatCalls": 0,
+   "sent": [],
+   "toasts": [
+    "Nothing was sent. 2 word places in a rhyme link or declared return (1 marked cut v3, 6 marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+   ],
+   "errors": []
+  },
+  {
+   "name": "A9 groups reopened U12 output",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+   "row": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+   "decl": {
+    "groups": "1,6 — cut"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    },
+    {
+     "id": "rhyme groups:0:carried:0:0",
+     "tone": "note",
+     "title": "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+     "text": "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “love” under the earlier cut and “love” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1,6 — cut",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A9 groups reopened U12 output",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+   "row": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+   "decl": {
+    "groups": "1,6 — cut"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    },
+    {
+     "id": "rhyme groups:0:carried:0:0",
+     "tone": "note",
+     "title": "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+     "text": "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “love” under the earlier cut and “love” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1,6 — cut",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A10 groups 5,6 — cut (unchanged line 5)",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 5,6 — cut]",
+   "row": "[SETUP — rhyme groups — 5,6 — cut]",
+   "decl": {
+    "groups": "5,6 — cut"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "5,6 — cut",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A10 groups 5,6 — cut (unchanged line 5)",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 5,6 — cut]",
+   "row": "[SETUP — rhyme groups — 5,6 — cut]",
+   "decl": {
+    "groups": "5,6 — cut"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "5,6 — cut",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A11 groups 1.T4 (numbered under…) unmarked row",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]",
+   "row": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]",
+   "decl": {
+    "groups_need_decision": [
+     "1.T4 (numbered under the earlier cut),6"
+    ]
+   },
+   "gate": "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review.",
+   "items": [
+    {
+     "id": "rhyme groups:0:undecided",
+     "tone": "input",
+     "title": "A rhyme link saved without the current cut mark needs your decision",
+     "text": "1.T4 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+     "actions": [
+      "Remove the link",
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": false,
+    "carried": false
+   },
+   "runReviewReturn": false,
+   "chatCalls": 0,
+   "sent": [],
+   "toasts": [
+    "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."
+   ],
+   "errors": []
+  },
+  {
+   "name": "A11 groups 1.T4 (numbered under…) unmarked row",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]",
+   "row": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]",
+   "decl": {
+    "groups_need_decision": [
+     "1.T4 (numbered under the earlier cut),6"
+    ]
+   },
+   "gate": "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review.",
+   "items": [
+    {
+     "id": "rhyme groups:0:undecided",
+     "tone": "input",
+     "title": "A rhyme link saved without the current cut mark needs your decision",
+     "text": "1.T4 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+     "actions": [
+      "Remove the link",
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": false,
+    "carried": false
+   },
+   "runReviewReturn": false,
+   "chatCalls": 0,
+   "sent": [],
+   "toasts": [
+    "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."
+   ],
+   "errors": []
+  },
+  {
+   "name": "A12 groups plain typo 1.hed,6 cut v2",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1.hed,6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.hed,6 — cut v2]",
+   "decl": {
+    "groups": "1.hed,6"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.hed, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.hed,6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A12 groups plain typo 1.hed,6 cut v2",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1.hed,6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.hed,6 — cut v2]",
+   "decl": {
+    "groups": "1.hed,6"
+   },
+   "gate": "",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.hed, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.hed,6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  }
+ ],
+ "main": [
+  {
+   "name": "A1 U6 groups 1.head (kept) unmarked",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1.head (kept),6]",
+   "row": "[SETUP — rhyme groups — 1.head (kept),6]",
+   "decl": {
+    "groups": "1.head (kept),6"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.head (kept), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.head (kept),6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A1 U6 groups 1.head (kept) unmarked",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1.head (kept),6]",
+   "row": "[SETUP — rhyme groups — 1.head (kept),6]",
+   "decl": {
+    "groups": "1.head (kept),6"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.head (kept), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.head (kept),6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A2 U7 groups 1.T4 (carried…) cut v2",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+   "decl": {
+    "groups": "1.T4 (carried across the word-cut change),6 — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.T4 (carried across the word-cut change), 6 — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.T4 (carried across the word-cut change),6 — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A2 U7 groups 1.T4 (carried…) cut v2",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+   "decl": {
+    "groups": "1.T4 (carried across the word-cut change),6 — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.T4 (carried across the word-cut change), 6 — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.T4 (carried across the word-cut change),6 — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A3 U8 returns 1.head (numbered under…) cut v2",
+   "route": "typed",
+   "written": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+   "row": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+   "decl": {
+    "returns": "1.head (numbered under the earlier cut),6.head — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "returns:0",
+     "tone": "input",
+     "title": "A declared return points at 1.head (numbered under the earlier cut), 6.head — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open repeats"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "returns": "1.head (numbered under the earlier cut),6.head — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A3 U8 returns 1.head (numbered under…) cut v2",
+   "route": "reopened",
+   "written": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+   "row": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+   "decl": {
+    "returns": "1.head (numbered under the earlier cut),6.head — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "returns:0",
+     "tone": "input",
+     "title": "A declared return points at 1.head (numbered under the earlier cut), 6.head — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open repeats"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "returns": "1.head (numbered under the earlier cut),6.head — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A4 U12 groups 1,6 — cut",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1,6 — cut]",
+   "row": "[SETUP — rhyme groups — 1,6 — cut]",
+   "decl": {
+    "groups": "1,6 — cut"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1,6 — cut",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A4 U12 groups 1,6 — cut",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1,6 — cut]",
+   "row": "[SETUP — rhyme groups — 1,6 — cut]",
+   "decl": {
+    "groups": "1,6 — cut"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1,6 — cut",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A5 returns 1.head (kept) unmarked",
+   "route": "typed",
+   "written": "[SETUP — returns — 1.head (kept),6.head]",
+   "row": "[SETUP — returns — 1.head (kept),6.head]",
+   "decl": {
+    "returns": "1.head (kept),6.head"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "returns:0",
+     "tone": "input",
+     "title": "A declared return points at 1.head (kept), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open repeats"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "returns": "1.head (kept),6.head",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A5 returns 1.head (kept) unmarked",
+   "route": "reopened",
+   "written": "[SETUP — returns — 1.head (kept),6.head]",
+   "row": "[SETUP — returns — 1.head (kept),6.head]",
+   "decl": {
+    "returns": "1.head (kept),6.head"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "returns:0",
+     "tone": "input",
+     "title": "A declared return points at 1.head (kept), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open repeats"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "returns": "1.head (kept),6.head",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A6 groups misspelt carried marker",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]",
+   "decl": {
+    "groups": "5 (carried across the word cut change),6 — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 5 (carried across the word cut change), 6 — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "5 (carried across the word cut change),6 — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A6 groups misspelt carried marker",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]",
+   "decl": {
+    "groups": "5 (carried across the word cut change),6 — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 5 (carried across the word cut change), 6 — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "5 (carried across the word cut change),6 — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A7 CONTROL groups 1.T4 (numbered under…) cut v2",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+   "decl": {
+    "groups": "1.T4 (numbered under the earlier cut),6 — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.T4 (numbered under the earlier cut), 6 — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.T4 (numbered under the earlier cut),6 — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A7 CONTROL groups 1.T4 (numbered under…) cut v2",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+   "decl": {
+    "groups": "1.T4 (numbered under the earlier cut),6 — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.T4 (numbered under the earlier cut), 6 — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.T4 (numbered under the earlier cut),6 — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A8 CONTROL groups 1,6 cut v3",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1,6 — cut v3]",
+   "row": "[SETUP — rhyme groups — 1,6 — cut v3]",
+   "decl": {
+    "groups": "1,6 — cut v3"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut v3, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1,6 — cut v3",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A8 CONTROL groups 1,6 cut v3",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1,6 — cut v3]",
+   "row": "[SETUP — rhyme groups — 1,6 — cut v3]",
+   "decl": {
+    "groups": "1,6 — cut v3"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut v3, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1,6 — cut v3",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A9 groups reopened U12 output",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+   "row": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+   "decl": {
+    "groups": "1 (carried across the word-cut change),6 — cut — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1 (carried across the word-cut change), 6 — cut — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1 (carried across the word-cut change),6 — cut — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A9 groups reopened U12 output",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+   "row": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+   "decl": {
+    "groups": "1 (carried across the word-cut change),6 — cut — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1 (carried across the word-cut change), 6 — cut — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": true
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1 (carried across the word-cut change),6 — cut — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A10 groups 5,6 — cut (unchanged line 5)",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 5,6 — cut]",
+   "row": "[SETUP — rhyme groups — 5,6 — cut]",
+   "decl": {
+    "groups": "5,6 — cut"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "5,6 — cut",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A10 groups 5,6 — cut (unchanged line 5)",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 5,6 — cut]",
+   "row": "[SETUP — rhyme groups — 5,6 — cut]",
+   "decl": {
+    "groups": "5,6 — cut"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 6 — cut, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "5,6 — cut",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A11 groups 1.T4 (numbered under…) unmarked row",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]",
+   "row": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]",
+   "decl": {
+    "groups": "1.T4 (numbered under the earlier cut),6"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.T4 (numbered under the earlier cut), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.T4 (numbered under the earlier cut),6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A11 groups 1.T4 (numbered under…) unmarked row",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]",
+   "row": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]",
+   "decl": {
+    "groups": "1.T4 (numbered under the earlier cut),6"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.T4 (numbered under the earlier cut), which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.T4 (numbered under the earlier cut),6",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A12 groups plain typo 1.hed,6 cut v2",
+   "route": "typed",
+   "written": "[SETUP — rhyme groups — 1.hed,6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.hed,6 — cut v2]",
+   "decl": {
+    "groups": "1.hed,6 — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.hed, 6 — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.hed,6 — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  },
+  {
+   "name": "A12 groups plain typo 1.hed,6 cut v2",
+   "route": "reopened",
+   "written": "[SETUP — rhyme groups — 1.hed,6 — cut v2]",
+   "row": "[SETUP — rhyme groups — 1.hed,6 — cut v2]",
+   "decl": {
+    "groups": "1.hed,6 — cut v2"
+   },
+   "gate": "(no gate fn on this page)",
+   "items": [
+    {
+     "id": "rhyme groups:0",
+     "tone": "input",
+     "title": "A rhyme link points at 1.hed, 6 — cut v2, which the draft does not have",
+     "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+     "actions": [
+      "Open rhymes"
+     ]
+    }
+   ],
+   "reviewHas": {
+    "pointsAt": true,
+    "carried": false
+   },
+   "runReviewReturn": true,
+   "chatCalls": 1,
+   "sent": [
+    {
+     "groups": "1.hed,6 — cut v2",
+     "draftHead": "[VERSE]"
+    }
+   ],
+   "toasts": [],
+   "errors": []
+  }
+ ]
+}

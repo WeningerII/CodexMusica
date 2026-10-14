@@ -1,0 +1,144 @@
+[cand/typed] B1 T member + bare cut tail
+  written: [SETUP — rhyme groups — 1.T4,6 — cut]
+  row now: [SETUP — rhyme groups — 1.T5,6 — cut — cut v2]
+  decl:    {"groups":"1.T5,6 — cut"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T5,6 — cut"}]
+  toasts:  ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+  errors:  []
+[cand/reopened] B1 T member + bare cut tail
+  written: [SETUP — rhyme groups — 1.T4,6 — cut]
+  row now: [SETUP — rhyme groups — 1.T5,6 — cut — cut v2]
+  decl:    {"groups":"1.T5,6 — cut"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T5,6 — cut"}]
+  toasts:  ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+  errors:  []
+[cand/typed] B2 T member + mark with trailing note
+  written: [SETUP — rhyme groups — 1.T4,6 — cut v2 (checked)]
+  row now: [SETUP — rhyme groups — 1.T5,6 — cut v2 (checked) — cut v2]
+  decl:    {"groups":"1.T5,6 — cut v2 (checked)"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 — cut v2 (checked), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T5,6 — cut v2 (checked)"}]
+  toasts:  ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+  errors:  []
+[cand/reopened] B2 T member + mark with trailing note
+  written: [SETUP — rhyme groups — 1.T4,6 — cut v2 (checked)]
+  row now: [SETUP — rhyme groups — 1.T5,6 — cut v2 (checked) — cut v2]
+  decl:    {"groups":"1.T5,6 — cut v2 (checked)"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 — cut v2 (checked), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T5,6 — cut v2 (checked)"}]
+  toasts:  ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+  errors:  []
+[cand/typed] B3 T member + mark missing space
+  written: [SETUP — rhyme groups — 1.T4,6 —cut v2]
+  row now: [SETUP — rhyme groups — 1.T5,6 —cut v2 — cut v2]
+  decl:    {"groups":"1.T5,6 —cut v2"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 —cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T5,6 —cut v2"}]
+  toasts:  ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+  errors:  []
+[cand/reopened] B3 T member + mark missing space
+  written: [SETUP — rhyme groups — 1.T4,6 —cut v2]
+  row now: [SETUP — rhyme groups — 1.T5,6 —cut v2 — cut v2]
+  decl:    {"groups":"1.T5,6 —cut v2"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 —cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T5,6 —cut v2"}]
+  toasts:  ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+  errors:  []
+[cand/typed] B4 CONTROL T member + proper mark
+  written: [SETUP — rhyme groups — 1.T4,6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4,6 — cut v2]
+  decl:    {"groups":"1.T4,6"}
+  gate:    ""
+  notices: []
+  /chat:   1 [{"groups":"1.T4,6"}]
+  toasts:  []
+  errors:  []
+[cand/reopened] B4 CONTROL T member + proper mark
+  written: [SETUP — rhyme groups — 1.T4,6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4,6 — cut v2]
+  decl:    {"groups":"1.T4,6"}
+  gate:    ""
+  notices: []
+  /chat:   1 [{"groups":"1.T4,6"}]
+  toasts:  []
+  errors:  []
+[main/typed] B1 T member + bare cut tail
+  written: [SETUP — rhyme groups — 1.T4,6 — cut]
+  row now: [SETUP — rhyme groups — 1.T4,6 — cut]
+  decl:    {"groups":"1.T4,6 — cut"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4,6 — cut"}]
+  toasts:  []
+  errors:  []
+[main/reopened] B1 T member + bare cut tail
+  written: [SETUP — rhyme groups — 1.T4,6 — cut]
+  row now: [SETUP — rhyme groups — 1.T4,6 — cut]
+  decl:    {"groups":"1.T4,6 — cut"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4,6 — cut"}]
+  toasts:  []
+  errors:  []
+[main/typed] B2 T member + mark with trailing note
+  written: [SETUP — rhyme groups — 1.T4,6 — cut v2 (checked)]
+  row now: [SETUP — rhyme groups — 1.T4,6 — cut v2 (checked)]
+  decl:    {"groups":"1.T4,6 — cut v2 (checked)"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut v2 (checked), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4,6 — cut v2 (checked)"}]
+  toasts:  []
+  errors:  []
+[main/reopened] B2 T member + mark with trailing note
+  written: [SETUP — rhyme groups — 1.T4,6 — cut v2 (checked)]
+  row now: [SETUP — rhyme groups — 1.T4,6 — cut v2 (checked)]
+  decl:    {"groups":"1.T4,6 — cut v2 (checked)"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut v2 (checked), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4,6 — cut v2 (checked)"}]
+  toasts:  []
+  errors:  []
+[main/typed] B3 T member + mark missing space
+  written: [SETUP — rhyme groups — 1.T4,6 —cut v2]
+  row now: [SETUP — rhyme groups — 1.T4,6 —cut v2]
+  decl:    {"groups":"1.T4,6 —cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 —cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4,6 —cut v2"}]
+  toasts:  []
+  errors:  []
+[main/reopened] B3 T member + mark missing space
+  written: [SETUP — rhyme groups — 1.T4,6 —cut v2]
+  row now: [SETUP — rhyme groups — 1.T4,6 —cut v2]
+  decl:    {"groups":"1.T4,6 —cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 —cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4,6 —cut v2"}]
+  toasts:  []
+  errors:  []
+[main/typed] B4 CONTROL T member + proper mark
+  written: [SETUP — rhyme groups — 1.T4,6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4,6 — cut v2]
+  decl:    {"groups":"1.T4,6 — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4,6 — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/reopened] B4 CONTROL T member + proper mark
+  written: [SETUP — rhyme groups — 1.T4,6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4,6 — cut v2]
+  decl:    {"groups":"1.T4,6 — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4,6 — cut v2"}]
+  toasts:  []
+  errors:  []

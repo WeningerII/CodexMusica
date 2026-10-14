@@ -123,12 +123,40 @@ Every body is accepted by `validate`. A body that carries a scheme marker is ref
 | blocking / certification | `lyric_check` certified, with the flag `RETURN_NOT_VERBATIM` (placed: `heart` vs `floor`). `lyric_revise` stopped at a group proposal the script does not answer (exit 4, no song yet) | `lyric_check` **certified true, refused []**, with the flag `RETURN_NOT_VERBATIM` (whole line). `lyric_revise` exit 0, `finished_clean`, **certified true**, blocking `[]` | `lyric_check` certified false, refused `return:4:6`. `lyric_revise` exit 2, uncertified, blocking `L4: not judged — return with L6 …` |
 | changed lyric | none | **L4 `You hold my heart.    10` → `Well-worn shoes upon the floor`**. The writer kept every line it was asked for; the loop wrote L4 | none |
 
+**The actual payload and the parsed mandate** (3PO, #527 6162609268, asked for these rather than the durable labels). The script is `repro/returns_nend/payload_and_mandate.py`, and its output is `repro/returns_nend/payload_and_mandate.json`.
+- It takes the `returns` string each page put on the wire to the stubbed /chat (`sent` in `verify-page-matrix-2/page_end_returns.json`).
+- It parses that string with each harness tree's own mandate parser, the way the CLI's `--returns=` does: `_groups`, then `quality.schemes.mandate`.
+- `fce4bf0f`, `67889851` and `61b6618a` parse every payload identically. The candidate page's `src/pages/lyrics.js` is unchanged at `61b6618a`.
+
+| row as written | main page sends → parsed | candidate page sends → parsed |
+|---|---|---|
+| `4.end,6.end` (line 4's cut changed) | `4.end,6.end` → one class, lines 4 and 6, **placed** at `end`, `end` | `4,6` → one class, lines 4 and 6, **whole line** |
+| `5.end,6.end` (unchanged lines) | `5.end,6.end` → **placed** | `5.end,6.end` → **placed** |
+| `5.end,6.end;1.T4,8.T4` (unchanged lines, plus a `T<k>` row-mate) | the same string → two **placed** classes: `5,6` at `end` and `1,8` at `T4` | `5,6;1.T5,8.T5` → `1,8` placed at `T5`, and **`5,6` whole line**. There is no notice for lines 5 and 6 |
+| `4,6` (bare) | `4,6` → whole line | `4,6` → whole line |
+
+One side observation, not checked further: the pre-batch page sends a candidate-marked row as written (`4.end,6.end — cut v2`). The parser then keeps `end — cut v2` as the second member's placement. I did not check what the grader does with that placement.
+
 **How the halves join.** The page half stubs /chat and records the declaration the page sends. The connector half feeds that exact string into an in-process `/mcp` session: `begin_lyrics {phase:'edit'}` → `lyric_check` → `lyric_revise`, where the writer answers each asked line with the line as it stands. This is not one continuous run through the website.
 
 **Qualifications, from 3PO (#527 6162369014):**
 - The page matrix's Keep and reload counts (63/63) show that the **serialized row** persists. For a returns row that is the rewritten, wrong obligation. They do not show that `N.end` is preserved, and they are not a pass for the original obligation.
 - `N.end` reaches a returns row only by hand, by import or by paste: no page form writes it.
 - In rhyme-group rows the same rewrite grades the same (`--groups=4.end,6.end` and `4,6`).
+
+## Minor findings behind #519 6162326336, as the skeptics corrected them
+
+Every agent's full result, the skeptics' included, is in `gap_checks_b_page_connector.json`. Scratch paths there read `<scratch>`.
+
+- **`get_operation` re-serves a pre-release operation's `pronunciation_options`, numbered under v1 and unmarked.** Files are in `repro/connector_continuation/verify-connector-continuation-0/`:
+  - `read_on_cand.json` and `read_on_base.json`, from operations written by `fce4bf0f` (`write_base.log`, `ids_base.json`);
+  - the full option dumps, `oldfull_read_on_*.json`.
+
+  On the candidate, copying the old `wind` token 2 (`W AY1 N D`) into a **new** session binds the inner occurrence. That gives `answered — no flag stands`, **certified true**, where `fce4bf0f` gives SCHEME_VIOLATION. Continuing the old session itself is refused with `CONTINUATION_MIGRATION_REQUIRED`.
+
+  The re-serve itself predates the batch: `mcp/workflow_sessions.js` is unchanged. The mismatch is new with the cut change. The path is narrow. The skeptic made `CHAT_SECRET` a locally generated test value for these runs; that value is not kept here.
+- **A member annotation the page cannot parse is not blocked.** This is mostly pre-existing: main `8b1d2ad2` sends the same saved rows the same way (`repro/returns_nend/verify-page-matrix-1/`, `-5/`). What is new is that the candidate has its own marker words, and a misplaced or misspelt copy takes that old path. Unknown cut marks (`— cut v1`, `v3`, `v9`) do block.
+- **The carried notice calls a bare `N` returns member "last rhyme",** while the grader reads it as the whole line (`repro/returns_nend/verify-page-matrix-4/`). After the upgrade, a row written by main's "Declare as exact repeat" gets one such notice per line.
 
 ## Passes behind #519 6162326336
 

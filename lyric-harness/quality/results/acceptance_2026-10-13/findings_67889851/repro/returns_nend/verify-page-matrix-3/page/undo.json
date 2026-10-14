@@ -1,0 +1,30 @@
+[
+ {
+  "written": "4.end,7.end",
+  "after_upgrade": [
+   "[SETUP — returns — 4 (carried across the word-cut change),7 — cut v2]"
+  ],
+  "history_has_end": false,
+  "storage_has_end": false,
+  "after_3_undos": [
+   "[SETUP — returns — 4 (carried across the word-cut change),7 — cut v2]"
+  ],
+  "after_reopen": [
+   "[SETUP — returns — 4 (carried across the word-cut change),7 — cut v2]"
+  ]
+ },
+ {
+  "written": "5.end,6.end;2.T2,3.T2",
+  "after_upgrade": [
+   "[SETUP — returns — 5,6;2.T2,3.T2 — cut v2]"
+  ],
+  "history_has_end": false,
+  "storage_has_end": false,
+  "after_3_undos": [
+   "[SETUP — returns — 5,6;2.T2,3.T2 — cut v2]"
+  ],
+  "after_reopen": [
+   "[SETUP — returns — 5,6;2.T2,3.T2 — cut v2]"
+  ]
+ }
+]

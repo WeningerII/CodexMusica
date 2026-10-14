@@ -1,0 +1,432 @@
+[cand/typed] A1 U6 groups 1.head (kept) unmarked
+  written: [SETUP — rhyme groups — 1.head (kept),6]
+  row now: [SETUP — rhyme groups — 1.head (kept),6]
+  decl:    {"groups":"1.head (kept),6"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 1.head (kept), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.head (kept),6"}]
+  toasts:  []
+  errors:  []
+[cand/reopened] A1 U6 groups 1.head (kept) unmarked
+  written: [SETUP — rhyme groups — 1.head (kept),6]
+  row now: [SETUP — rhyme groups — 1.head (kept),6]
+  decl:    {"groups":"1.head (kept),6"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 1.head (kept), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.head (kept),6"}]
+  toasts:  []
+  errors:  []
+[cand/typed] A2 U7 groups 1.T4 (carried…) cut v2
+  written: [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  decl:    {"groups":"1.T4 (carried across the word-cut change),6"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 1.T4 (carried across the word-cut change), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4 (carried across the word-cut change),6"}]
+  toasts:  []
+  errors:  []
+[cand/reopened] A2 U7 groups 1.T4 (carried…) cut v2
+  written: [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  decl:    {"groups":"1.T4 (carried across the word-cut change),6"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 1.T4 (carried across the word-cut change), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4 (carried across the word-cut change),6"}]
+  toasts:  []
+  errors:  []
+[cand/typed] A3 U8 returns 1.head (numbered under…) cut v2
+  written: [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  row now: [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  decl:    {"returns":"1.head (numbered under the earlier cut),6.head"}
+  gate:    ""
+  notices: ["input|A declared return points at 1.head (numbered under the earlier cut), which the draft does not have|Open repeats"]
+  /chat:   1 [{"returns":"1.head (numbered under the earlier cut),6.head"}]
+  toasts:  []
+  errors:  []
+[cand/reopened] A3 U8 returns 1.head (numbered under…) cut v2
+  written: [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  row now: [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  decl:    {"returns":"1.head (numbered under the earlier cut),6.head"}
+  gate:    ""
+  notices: ["input|A declared return points at 1.head (numbered under the earlier cut), which the draft does not have|Open repeats"]
+  /chat:   1 [{"returns":"1.head (numbered under the earlier cut),6.head"}]
+  toasts:  []
+  errors:  []
+[cand/typed] A4 U12 groups 1,6 — cut
+  written: [SETUP — rhyme groups — 1,6 — cut]
+  row now: [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  decl:    {"groups":"1,6 — cut"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes","note|A rhyme link member, line 1 · last rhyme, was carried across the word-cut change|Keep the link/Remove it"]
+  /chat:   1 [{"groups":"1,6 — cut"}]
+  toasts:  ["1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."]
+  errors:  []
+[cand/reopened] A4 U12 groups 1,6 — cut
+  written: [SETUP — rhyme groups — 1,6 — cut]
+  row now: [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  decl:    {"groups":"1,6 — cut"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes","note|A rhyme link member, line 1 · last rhyme, was carried across the word-cut change|Keep the link/Remove it"]
+  /chat:   1 [{"groups":"1,6 — cut"}]
+  toasts:  []
+  errors:  []
+[cand/typed] A5 returns 1.head (kept) unmarked
+  written: [SETUP — returns — 1.head (kept),6.head]
+  row now: [SETUP — returns — 1.head (kept),6.head]
+  decl:    {"returns":"1.head (kept),6.head"}
+  gate:    ""
+  notices: ["input|A declared return points at 1.head (kept), which the draft does not have|Open repeats"]
+  /chat:   1 [{"returns":"1.head (kept),6.head"}]
+  toasts:  []
+  errors:  []
+[cand/reopened] A5 returns 1.head (kept) unmarked
+  written: [SETUP — returns — 1.head (kept),6.head]
+  row now: [SETUP — returns — 1.head (kept),6.head]
+  decl:    {"returns":"1.head (kept),6.head"}
+  gate:    ""
+  notices: ["input|A declared return points at 1.head (kept), which the draft does not have|Open repeats"]
+  /chat:   1 [{"returns":"1.head (kept),6.head"}]
+  toasts:  []
+  errors:  []
+[cand/typed] A6 groups misspelt carried marker
+  written: [SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]
+  row now: [SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]
+  decl:    {"groups":"5 (carried across the word cut change),6"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 5 (carried across the word cut change), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"5 (carried across the word cut change),6"}]
+  toasts:  []
+  errors:  []
+[cand/reopened] A6 groups misspelt carried marker
+  written: [SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]
+  row now: [SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]
+  decl:    {"groups":"5 (carried across the word cut change),6"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 5 (carried across the word cut change), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"5 (carried across the word cut change),6"}]
+  toasts:  []
+  errors:  []
+[cand/typed] A7 CONTROL groups 1.T4 (numbered under…) cut v2
+  written: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  decl:    {"groups_need_decision":["1.T4 (numbered under the earlier cut),6"]}
+  gate:    "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."
+  notices: ["input|A rhyme link saved without the current cut mark needs your decision|Remove the link/Open rhymes"]
+  /chat:   0 []
+  toasts:  ["Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."]
+  errors:  []
+[cand/reopened] A7 CONTROL groups 1.T4 (numbered under…) cut v2
+  written: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  decl:    {"groups_need_decision":["1.T4 (numbered under the earlier cut),6"]}
+  gate:    "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."
+  notices: ["input|A rhyme link saved without the current cut mark needs your decision|Remove the link/Open rhymes"]
+  /chat:   0 []
+  toasts:  ["Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."]
+  errors:  []
+[cand/typed] A8 CONTROL groups 1,6 cut v3
+  written: [SETUP — rhyme groups — 1,6 — cut v3]
+  row now: [SETUP — rhyme groups — 1,6 — cut v3]
+  decl:    {"groups_need_decision":["1 (marked cut v3: not read here),6 (marked cut v3: not read here)"]}
+  gate:    "Nothing was sent. 2 word places in a rhyme link or declared return (1 marked cut v3, 6 marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+  notices: ["input|A rhyme link is marked with a word cut this page does not read|Remove the link/Open rhymes"]
+  /chat:   0 []
+  toasts:  ["Nothing was sent. 2 word places in a rhyme link or declared return (1 marked cut v3, 6 marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."]
+  errors:  []
+[cand/reopened] A8 CONTROL groups 1,6 cut v3
+  written: [SETUP — rhyme groups — 1,6 — cut v3]
+  row now: [SETUP — rhyme groups — 1,6 — cut v3]
+  decl:    {"groups_need_decision":["1 (marked cut v3: not read here),6 (marked cut v3: not read here)"]}
+  gate:    "Nothing was sent. 2 word places in a rhyme link or declared return (1 marked cut v3, 6 marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+  notices: ["input|A rhyme link is marked with a word cut this page does not read|Remove the link/Open rhymes"]
+  /chat:   0 []
+  toasts:  ["Nothing was sent. 2 word places in a rhyme link or declared return (1 marked cut v3, 6 marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."]
+  errors:  []
+[cand/typed] A9 groups reopened U12 output
+  written: [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  row now: [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  decl:    {"groups":"1,6 — cut"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes","note|A rhyme link member, line 1 · last rhyme, was carried across the word-cut change|Keep the link/Remove it"]
+  /chat:   1 [{"groups":"1,6 — cut"}]
+  toasts:  []
+  errors:  []
+[cand/reopened] A9 groups reopened U12 output
+  written: [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  row now: [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  decl:    {"groups":"1,6 — cut"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes","note|A rhyme link member, line 1 · last rhyme, was carried across the word-cut change|Keep the link/Remove it"]
+  /chat:   1 [{"groups":"1,6 — cut"}]
+  toasts:  []
+  errors:  []
+[cand/typed] A10 groups 5,6 — cut (unchanged line 5)
+  written: [SETUP — rhyme groups — 5,6 — cut]
+  row now: [SETUP — rhyme groups — 5,6 — cut]
+  decl:    {"groups":"5,6 — cut"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"5,6 — cut"}]
+  toasts:  []
+  errors:  []
+[cand/reopened] A10 groups 5,6 — cut (unchanged line 5)
+  written: [SETUP — rhyme groups — 5,6 — cut]
+  row now: [SETUP — rhyme groups — 5,6 — cut]
+  decl:    {"groups":"5,6 — cut"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"5,6 — cut"}]
+  toasts:  []
+  errors:  []
+[cand/typed] A11 groups 1.T4 (numbered under…) unmarked row
+  written: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]
+  row now: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]
+  decl:    {"groups_need_decision":["1.T4 (numbered under the earlier cut),6"]}
+  gate:    "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."
+  notices: ["input|A rhyme link saved without the current cut mark needs your decision|Remove the link/Open rhymes"]
+  /chat:   0 []
+  toasts:  ["Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."]
+  errors:  []
+[cand/reopened] A11 groups 1.T4 (numbered under…) unmarked row
+  written: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]
+  row now: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]
+  decl:    {"groups_need_decision":["1.T4 (numbered under the earlier cut),6"]}
+  gate:    "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."
+  notices: ["input|A rhyme link saved without the current cut mark needs your decision|Remove the link/Open rhymes"]
+  /chat:   0 []
+  toasts:  ["Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."]
+  errors:  []
+[cand/typed] A12 groups plain typo 1.hed,6 cut v2
+  written: [SETUP — rhyme groups — 1.hed,6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.hed,6 — cut v2]
+  decl:    {"groups":"1.hed,6"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 1.hed, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.hed,6"}]
+  toasts:  []
+  errors:  []
+[cand/reopened] A12 groups plain typo 1.hed,6 cut v2
+  written: [SETUP — rhyme groups — 1.hed,6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.hed,6 — cut v2]
+  decl:    {"groups":"1.hed,6"}
+  gate:    ""
+  notices: ["input|A rhyme link points at 1.hed, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.hed,6"}]
+  toasts:  []
+  errors:  []
+[main/typed] A1 U6 groups 1.head (kept) unmarked
+  written: [SETUP — rhyme groups — 1.head (kept),6]
+  row now: [SETUP — rhyme groups — 1.head (kept),6]
+  decl:    {"groups":"1.head (kept),6"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1.head (kept), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.head (kept),6"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A1 U6 groups 1.head (kept) unmarked
+  written: [SETUP — rhyme groups — 1.head (kept),6]
+  row now: [SETUP — rhyme groups — 1.head (kept),6]
+  decl:    {"groups":"1.head (kept),6"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1.head (kept), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.head (kept),6"}]
+  toasts:  []
+  errors:  []
+[main/typed] A2 U7 groups 1.T4 (carried…) cut v2
+  written: [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  decl:    {"groups":"1.T4 (carried across the word-cut change),6 — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1.T4 (carried across the word-cut change), 6 — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4 (carried across the word-cut change),6 — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A2 U7 groups 1.T4 (carried…) cut v2
+  written: [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  decl:    {"groups":"1.T4 (carried across the word-cut change),6 — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1.T4 (carried across the word-cut change), 6 — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4 (carried across the word-cut change),6 — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/typed] A3 U8 returns 1.head (numbered under…) cut v2
+  written: [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  row now: [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  decl:    {"returns":"1.head (numbered under the earlier cut),6.head — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A declared return points at 1.head (numbered under the earlier cut), 6.head — cut v2, which the draft does not have|Open repeats"]
+  /chat:   1 [{"returns":"1.head (numbered under the earlier cut),6.head — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A3 U8 returns 1.head (numbered under…) cut v2
+  written: [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  row now: [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  decl:    {"returns":"1.head (numbered under the earlier cut),6.head — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A declared return points at 1.head (numbered under the earlier cut), 6.head — cut v2, which the draft does not have|Open repeats"]
+  /chat:   1 [{"returns":"1.head (numbered under the earlier cut),6.head — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/typed] A4 U12 groups 1,6 — cut
+  written: [SETUP — rhyme groups — 1,6 — cut]
+  row now: [SETUP — rhyme groups — 1,6 — cut]
+  decl:    {"groups":"1,6 — cut"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1,6 — cut"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A4 U12 groups 1,6 — cut
+  written: [SETUP — rhyme groups — 1,6 — cut]
+  row now: [SETUP — rhyme groups — 1,6 — cut]
+  decl:    {"groups":"1,6 — cut"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1,6 — cut"}]
+  toasts:  []
+  errors:  []
+[main/typed] A5 returns 1.head (kept) unmarked
+  written: [SETUP — returns — 1.head (kept),6.head]
+  row now: [SETUP — returns — 1.head (kept),6.head]
+  decl:    {"returns":"1.head (kept),6.head"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A declared return points at 1.head (kept), which the draft does not have|Open repeats"]
+  /chat:   1 [{"returns":"1.head (kept),6.head"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A5 returns 1.head (kept) unmarked
+  written: [SETUP — returns — 1.head (kept),6.head]
+  row now: [SETUP — returns — 1.head (kept),6.head]
+  decl:    {"returns":"1.head (kept),6.head"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A declared return points at 1.head (kept), which the draft does not have|Open repeats"]
+  /chat:   1 [{"returns":"1.head (kept),6.head"}]
+  toasts:  []
+  errors:  []
+[main/typed] A6 groups misspelt carried marker
+  written: [SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]
+  row now: [SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]
+  decl:    {"groups":"5 (carried across the word cut change),6 — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 5 (carried across the word cut change), 6 — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"5 (carried across the word cut change),6 — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A6 groups misspelt carried marker
+  written: [SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]
+  row now: [SETUP — rhyme groups — 5 (carried across the word cut change),6 — cut v2]
+  decl:    {"groups":"5 (carried across the word cut change),6 — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 5 (carried across the word cut change), 6 — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"5 (carried across the word cut change),6 — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/typed] A7 CONTROL groups 1.T4 (numbered under…) cut v2
+  written: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  decl:    {"groups":"1.T4 (numbered under the earlier cut),6 — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1.T4 (numbered under the earlier cut), 6 — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4 (numbered under the earlier cut),6 — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A7 CONTROL groups 1.T4 (numbered under…) cut v2
+  written: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  decl:    {"groups":"1.T4 (numbered under the earlier cut),6 — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1.T4 (numbered under the earlier cut), 6 — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4 (numbered under the earlier cut),6 — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/typed] A8 CONTROL groups 1,6 cut v3
+  written: [SETUP — rhyme groups — 1,6 — cut v3]
+  row now: [SETUP — rhyme groups — 1,6 — cut v3]
+  decl:    {"groups":"1,6 — cut v3"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut v3, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1,6 — cut v3"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A8 CONTROL groups 1,6 cut v3
+  written: [SETUP — rhyme groups — 1,6 — cut v3]
+  row now: [SETUP — rhyme groups — 1,6 — cut v3]
+  decl:    {"groups":"1,6 — cut v3"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut v3, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1,6 — cut v3"}]
+  toasts:  []
+  errors:  []
+[main/typed] A9 groups reopened U12 output
+  written: [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  row now: [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  decl:    {"groups":"1 (carried across the word-cut change),6 — cut — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1 (carried across the word-cut change), 6 — cut — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1 (carried across the word-cut change),6 — cut — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A9 groups reopened U12 output
+  written: [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  row now: [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  decl:    {"groups":"1 (carried across the word-cut change),6 — cut — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1 (carried across the word-cut change), 6 — cut — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1 (carried across the word-cut change),6 — cut — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/typed] A10 groups 5,6 — cut (unchanged line 5)
+  written: [SETUP — rhyme groups — 5,6 — cut]
+  row now: [SETUP — rhyme groups — 5,6 — cut]
+  decl:    {"groups":"5,6 — cut"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"5,6 — cut"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A10 groups 5,6 — cut (unchanged line 5)
+  written: [SETUP — rhyme groups — 5,6 — cut]
+  row now: [SETUP — rhyme groups — 5,6 — cut]
+  decl:    {"groups":"5,6 — cut"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 6 — cut, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"5,6 — cut"}]
+  toasts:  []
+  errors:  []
+[main/typed] A11 groups 1.T4 (numbered under…) unmarked row
+  written: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]
+  row now: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]
+  decl:    {"groups":"1.T4 (numbered under the earlier cut),6"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1.T4 (numbered under the earlier cut), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4 (numbered under the earlier cut),6"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A11 groups 1.T4 (numbered under…) unmarked row
+  written: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]
+  row now: [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6]
+  decl:    {"groups":"1.T4 (numbered under the earlier cut),6"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1.T4 (numbered under the earlier cut), which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.T4 (numbered under the earlier cut),6"}]
+  toasts:  []
+  errors:  []
+[main/typed] A12 groups plain typo 1.hed,6 cut v2
+  written: [SETUP — rhyme groups — 1.hed,6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.hed,6 — cut v2]
+  decl:    {"groups":"1.hed,6 — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1.hed, 6 — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.hed,6 — cut v2"}]
+  toasts:  []
+  errors:  []
+[main/reopened] A12 groups plain typo 1.hed,6 cut v2
+  written: [SETUP — rhyme groups — 1.hed,6 — cut v2]
+  row now: [SETUP — rhyme groups — 1.hed,6 — cut v2]
+  decl:    {"groups":"1.hed,6 — cut v2"}
+  gate:    "(no gate fn on this page)"
+  notices: ["input|A rhyme link points at 1.hed, 6 — cut v2, which the draft does not have|Open rhymes"]
+  /chat:   1 [{"groups":"1.hed,6 — cut v2"}]
+  toasts:  []
+  errors:  []

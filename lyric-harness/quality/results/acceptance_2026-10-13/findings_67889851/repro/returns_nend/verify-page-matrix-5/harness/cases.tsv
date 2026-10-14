@@ -1,0 +1,9 @@
+groups	1.head (kept),6
+groups	1.T4 (carried across the word-cut change),6
+groups	1,6 — cut
+groups	5 (carried across the word cut change),6
+groups	1.hed,6
+groups	5,6 — cut
+returns	1.head (numbered under the earlier cut),6.head
+returns	1.head (kept),6.head
+returns	1.head,6.head

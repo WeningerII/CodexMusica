@@ -1,0 +1,541 @@
+{
+ "page_cases": [
+  {
+   "tree": "main",
+   "case": "R1 returns 4.end,6.end (L4 numeral end, cut changed)",
+   "written": "[SETUP — returns — 4.end,6.end]",
+   "row_after_load": [
+    "[SETUP — returns — 4.end,6.end]"
+   ],
+   "sent": [
+    "4.end,6.end"
+   ]
+  },
+  {
+   "tree": "main",
+   "case": "R2 returns 4,6 (bare, whole line)",
+   "written": "[SETUP — returns — 4,6]",
+   "row_after_load": [
+    "[SETUP — returns — 4,6]"
+   ],
+   "sent": [
+    "4,6"
+   ]
+  },
+  {
+   "tree": "main",
+   "case": "R3 returns 4.end,6.end already marked cut v2",
+   "written": "[SETUP — returns — 4.end,6.end — cut v2]",
+   "row_after_load": [
+    "[SETUP — returns — 4.end,6.end — cut v2]"
+   ],
+   "sent": [
+    "4.end,6.end — cut v2"
+   ]
+  },
+  {
+   "tree": "main",
+   "case": "R4 returns 5.end,6.end (unchanged lines)",
+   "written": "[SETUP — returns — 5.end,6.end]",
+   "row_after_load": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "sent": [
+    "5.end,6.end"
+   ]
+  },
+  {
+   "tree": "main",
+   "case": "R5 returns 5.end,6.end;1.T4,8.T4 (unchanged N.end + T row-mate)",
+   "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+   "row_after_load": [
+    "[SETUP — returns — 5.end,6.end;1.T4,8.T4]"
+   ],
+   "sent": [
+    "5.end,6.end;1.T4,8.T4"
+   ]
+  },
+  {
+   "tree": "main",
+   "case": "R6 returns 4.head,6.head (named non-end place, cut changed)",
+   "written": "[SETUP — returns — 4.head,6.head]",
+   "row_after_load": [
+    "[SETUP — returns — 4.head,6.head]"
+   ],
+   "sent": [
+    "4.head,6.head"
+   ]
+  },
+  {
+   "tree": "main",
+   "case": "G1 rhyme groups 4.end,6 (rhyme row for contrast)",
+   "written": "[SETUP — rhyme groups — 4.end,6]",
+   "row_after_load": [
+    "[SETUP — rhyme groups — 4.end,6]"
+   ],
+   "sent": [
+    null
+   ]
+  },
+  {
+   "tree": "cand",
+   "case": "R1 returns 4.end,6.end (L4 numeral end, cut changed)",
+   "written": "[SETUP — returns — 4.end,6.end]",
+   "row_after_load": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]"
+   ],
+   "sent": [
+    "4,6"
+   ]
+  },
+  {
+   "tree": "cand",
+   "case": "R2 returns 4,6 (bare, whole line)",
+   "written": "[SETUP — returns — 4,6]",
+   "row_after_load": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]"
+   ],
+   "sent": [
+    "4,6"
+   ]
+  },
+  {
+   "tree": "cand",
+   "case": "R3 returns 4.end,6.end already marked cut v2",
+   "written": "[SETUP — returns — 4.end,6.end — cut v2]",
+   "row_after_load": [
+    "[SETUP — returns — 4.end,6.end — cut v2]"
+   ],
+   "sent": [
+    "4.end,6.end"
+   ]
+  },
+  {
+   "tree": "cand",
+   "case": "R4 returns 5.end,6.end (unchanged lines)",
+   "written": "[SETUP — returns — 5.end,6.end]",
+   "row_after_load": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "sent": [
+    "5.end,6.end"
+   ]
+  },
+  {
+   "tree": "cand",
+   "case": "R5 returns 5.end,6.end;1.T4,8.T4 (unchanged N.end + T row-mate)",
+   "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+   "row_after_load": [
+    "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]"
+   ],
+   "sent": [
+    "5,6;1.T5,8.T5"
+   ]
+  },
+  {
+   "tree": "cand",
+   "case": "R6 returns 4.head,6.head (named non-end place, cut changed)",
+   "written": "[SETUP — returns — 4.head,6.head]",
+   "row_after_load": [
+    "[SETUP — returns — 4.head (carried across the word-cut change),6.head — cut v2]"
+   ],
+   "sent": [
+    "4.head,6.head"
+   ]
+  },
+  {
+   "tree": "cand",
+   "case": "G1 rhyme groups 4.end,6 (rhyme row for contrast)",
+   "written": "[SETUP — rhyme groups — 4.end,6]",
+   "row_after_load": [
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]"
+   ],
+   "sent": [
+    null
+   ]
+  }
+ ],
+ "parsed_by_harness": {
+  "fce4bf0f": {
+   "4,6": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [],
+     "kind": "whole_line",
+     "verbatim": "True",
+     "origin": "declared return class"
+    }
+   ],
+   "4.end,6.end": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [
+      "end",
+      "end"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "4.end,6.end — cut v2": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [
+      "end",
+      "end — cut v2"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "4.head,6.head": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [
+      "head",
+      "head"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "5,6;1.T5,8.T5": [
+    {
+     "lines": [
+      1,
+      8
+     ],
+     "loci": [
+      "T5",
+      "T5"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    },
+    {
+     "lines": [
+      5,
+      6
+     ],
+     "loci": [],
+     "kind": "whole_line",
+     "verbatim": "True",
+     "origin": "declared return class"
+    }
+   ],
+   "5.end,6.end": [
+    {
+     "lines": [
+      5,
+      6
+     ],
+     "loci": [
+      "end",
+      "end"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "5.end,6.end;1.T4,8.T4": [
+    {
+     "lines": [
+      1,
+      8
+     ],
+     "loci": [
+      "T4",
+      "T4"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    },
+    {
+     "lines": [
+      5,
+      6
+     ],
+     "loci": [
+      "end",
+      "end"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ]
+  },
+  "67889851": {
+   "4,6": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [],
+     "kind": "whole_line",
+     "verbatim": "True",
+     "origin": "declared return class"
+    }
+   ],
+   "4.end,6.end": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [
+      "end",
+      "end"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "4.end,6.end — cut v2": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [
+      "end",
+      "end — cut v2"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "4.head,6.head": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [
+      "head",
+      "head"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "5,6;1.T5,8.T5": [
+    {
+     "lines": [
+      1,
+      8
+     ],
+     "loci": [
+      "T5",
+      "T5"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    },
+    {
+     "lines": [
+      5,
+      6
+     ],
+     "loci": [],
+     "kind": "whole_line",
+     "verbatim": "True",
+     "origin": "declared return class"
+    }
+   ],
+   "5.end,6.end": [
+    {
+     "lines": [
+      5,
+      6
+     ],
+     "loci": [
+      "end",
+      "end"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "5.end,6.end;1.T4,8.T4": [
+    {
+     "lines": [
+      1,
+      8
+     ],
+     "loci": [
+      "T4",
+      "T4"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    },
+    {
+     "lines": [
+      5,
+      6
+     ],
+     "loci": [
+      "end",
+      "end"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ]
+  },
+  "61b6618a": {
+   "4,6": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [],
+     "kind": "whole_line",
+     "verbatim": "True",
+     "origin": "declared return class"
+    }
+   ],
+   "4.end,6.end": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [
+      "end",
+      "end"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "4.end,6.end — cut v2": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [
+      "end",
+      "end — cut v2"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "4.head,6.head": [
+    {
+     "lines": [
+      4,
+      6
+     ],
+     "loci": [
+      "head",
+      "head"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "5,6;1.T5,8.T5": [
+    {
+     "lines": [
+      1,
+      8
+     ],
+     "loci": [
+      "T5",
+      "T5"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    },
+    {
+     "lines": [
+      5,
+      6
+     ],
+     "loci": [],
+     "kind": "whole_line",
+     "verbatim": "True",
+     "origin": "declared return class"
+    }
+   ],
+   "5.end,6.end": [
+    {
+     "lines": [
+      5,
+      6
+     ],
+     "loci": [
+      "end",
+      "end"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ],
+   "5.end,6.end;1.T4,8.T4": [
+    {
+     "lines": [
+      1,
+      8
+     ],
+     "loci": [
+      "T4",
+      "T4"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    },
+    {
+     "lines": [
+      5,
+      6
+     ],
+     "loci": [
+      "end",
+      "end"
+     ],
+     "kind": "placed",
+     "verbatim": "True",
+     "origin": "declared placed return class"
+    }
+   ]
+  }
+ }
+}
