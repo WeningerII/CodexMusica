@@ -1,0 +1,2 @@
+cand tabclick MIG   sung_sing         preMig=n sendRewrote=Y before=[64,64,"forward"] inEnsure=[73,73] after=[73,73,"forward"] expected=[73,73] KEPT active=draft | return(37)=[73,73] ZQ@73 row="I siZQng the line tonight" setup=1
+cand tabclick NOMIG sung_sing         preMig=n sendRewrote=n before=[65,65,"forward"] inEnsure=- after=[65,65,"forward"] expected=[65,65] KEPT active=draft | return(37)=[65,65] ZQ@65 row="I siZQng the line tonight" setup=1

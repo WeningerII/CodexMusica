@@ -1,0 +1,2420 @@
+{
+ "root": "/workspace/acceptance-code",
+ "html": "acceptance.html",
+ "hasFn": true,
+ "errs": [],
+ "results": [
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 300d510\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “strong” under the earlier cut and “strong” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “strong” under the earlier cut and “strong” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "e358f706b3c189372d1cfb49c264d368c797848d5ab57cc60afa0ce08ba09486",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' at each zide [=o]'m, sprack an' strong,\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "300d510f5e657a3ef4978bcde70c03fae60a5c87be0318002c9843de3c352c72",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 524df4e\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “strong” under the earlier cut and “strong” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “strong” under the earlier cut and “strong” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "3fbcbd4efe97674c7d8c82c48cb75db950ccee0f00615acfbc872fcf3687d8b4",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' at each zide [=o]'m, sprack an' strong,\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "524df4ed7b4b12f195419341e0fdd48d9ffda31bfe4e4f46aabf83cdfc6bd81c",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · f47ee16\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Town” under the earlier cut and “Town” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Town” under the earlier cut and “Town” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "8d89569b72f8c53d27db730019a0cc525a06ece27feb3c208a6f9cc2c823588c",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAs most is in _Lynn_'s fair Town;\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "f47ee16b71cf8df0d986bb62ffd7f04f4973200ae758802e19d7596f8a6536b9",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 2290502\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Town” under the earlier cut and “Town” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Town” under the earlier cut and “Town” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "40d86c3001ba9d1eeff9fa54f6a537d9f404e1c904765a8be17d08e46bfd9485",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAs most is in _Lynn_'s fair Town;\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "2290502c07ff3e27783c8caf4926e54bb288d76abfdb69871e3d9678ff92eb71",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · cee7e9e\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “still” under the earlier cut and “still” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “still” under the earlier cut and “still” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "846f7239c3dc01009da47104426034e57b7d56bb8c484da94cca730045606d7c",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nBelow the knap, 's a runnèn still;\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "cee7e9ea30497f0ced5a91c46bf96dfcadaf61abd0ad63b1747ebf6e44199078",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · ec40c21\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “still” under the earlier cut and “still” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “still” under the earlier cut and “still” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "3b48c9edebeb9fa0c1c1f17c7765dcb76ab1bf806090280b2cad5b96e220a220",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nBelow the knap, 's a runnèn still;\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "ec40c2105df6d10e1c4b3141aebf91468e7568e9c12aa92f612506d32d739947",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 6790abe\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bright” under the earlier cut and “bright” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bright” under the earlier cut and “bright” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "76291c75aa5bff08eeb8b18fc847f065408fdc4307211f0a7107037f39301b36",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nBy hoof or shoe, 's a sheenèn bright,\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "6790abe56a6a5a6037c2dc6c95ef600c50a9ad08333706d5311cce6bb4bc7eec",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · d456525\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bright” under the earlier cut and “bright” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bright” under the earlier cut and “bright” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "82f5830870d3ec27aa0e88946d386677839272e5dcb0d70e3104c32e9cfe0fd4",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nBy hoof or shoe, 's a sheenèn bright,\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "d45652559e58bed247b224363ad156527aae1e205f779add6e5c2067d79c4d26",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 9306bb7\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “done” under the earlier cut and “done” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “done” under the earlier cut and “done” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "4f20bd0c56a394ca3661caa372b1d1523f46aece9ef4f93b42b2cc100845047d",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nWhat plaÿsome anticks zome [=o]'s done!\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "9306bb762d590f7b51521d22a87b255c925a3ae4f2dbff88478f2ab2ea561c29",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 760f897\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “done” under the earlier cut and “done” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “done” under the earlier cut and “done” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "985d48fedff5988990dcb08465bd7d65280f32f7baf5d1175e7fcf12afff180f",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nWhat plaÿsome anticks zome [=o]'s done!\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "760f897a171d8ad8bf1086a31646b0b46ad1e04b7f7295a029b07ca4b87e48f1",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 1c1be82\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “divide” under the earlier cut and “divide” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “divide” under the earlier cut and “divide” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "377b190aae25e20a6dbab4a9b88240ef89dd054f01f4764bc8dfa58b9976f81c",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nWhen in that house M.P.'s divide,\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "1c1be82e11053f7dae24deb617b321c383a19b5fe02ddea66b0ba128a6acf3d4",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 7447963\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “divide” under the earlier cut and “divide” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “divide” under the earlier cut and “divide” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "b13a91cd89831c6922013e8df16bb537574c7175d0915669832dd058be24cf1a",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nWhen in that house M.P.'s divide,\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "74479636a63894377aba077e9ed8ef7bf9115575ef8d422a172407ac4863aa95",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 14ca563\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fast” under the earlier cut and “fast” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fast” under the earlier cut and “fast” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "fdb13348230ceb272725f35b529d26a0c1d6ec86ae943f11c169f26ad130bfd7",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nWhere her \"meteor flag\" 's nailed fast\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "14ca56332e969ba60c9804b96ebc8d90c623d6f07dfa56b1fc335ef5642601ab",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 5005022\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fast” under the earlier cut and “fast” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fast” under the earlier cut and “fast” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "580ea054cd8d8eb8f334ca518735339ffbc4abe52806aaab057e88002a72846e",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nWhere her \"meteor flag\" 's nailed fast\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "500502257e7aeb177b5d2245586f292b0a1cb41481b5a48555c9a78e8884590b",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · dea920c\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bets” under the earlier cut and “bets” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bets” under the earlier cut and “bets” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "94fe0d6dce3208ed1a5c04ff03243397343a992cdeb2d9035824abaa97125766",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n“Also, some few I. O. U.’s and bets,”\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "dea920cb32c8e05e1f161508158167271e379a66765e0c4c88816193283ae0c9",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 66e0230\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bets” under the earlier cut and “bets” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bets” under the earlier cut and “bets” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "ef74e31b0068c360bf9bc01534435f1342542ff3f7de74d620218bfea05faff1",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n“Also, some few I. O. U.’s and bets,”\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "66e023078b4befa527ed0cbfd5c53e2d8e2e0d2e82e255f9373d250aa96eaccc",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 6b424e2\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “freemen” under the earlier cut and “freemen” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “freemen” under the earlier cut and “freemen” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "31636aa00258b02187035e7582e66c520f1f18b2a557fb7c49804ed329699344",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n_Wut_'ll make ye act like freemen?\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "6b424e2fd223d47fc908a9bb3b1c74f320631730392851b73e71c5e976649576",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · d9d98d2\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “freemen” under the earlier cut and “freemen” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “freemen” under the earlier cut and “freemen” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "91ab5cbf7a1359a07d5fb58260349c127252c7bbcc4ed75ca7178f44b1bdfb50",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n_Wut_'ll make ye act like freemen?\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "d9d98d2bb1ba75496e232e2794915bb32f7f917038bd4b8f2021d02861dc7652",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 6105db2\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “riz” under the earlier cut and “riz” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “riz” under the earlier cut and “riz” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "696b92bed375de122fb2f400703a80323b255379b298f1c6e3691ddfbeabece7",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n_Wut_'ll git your dander riz?\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "6105db2508d01dcfc00a4887a5bd66b43b6ed0125356c2f90a6c1f8cb58cd9b7",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · f02ac91\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “riz” under the earlier cut and “riz” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “riz” under the earlier cut and “riz” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "a885bcd65a77916eb4ce841e4415d0f4f729cd6c6b0cfc0a013a9dd04bbc9fff",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n_Wut_'ll git your dander riz?\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "f02ac91458b872e516ef48f821b8fb9ec6269808850c707961e62519a9859c47",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 165cf7e\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “head” under the earlier cut and “head” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “head” under the earlier cut and “head” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "47f22708246cfffec93d8e30048c94636d834e99f2c0113e0cc1d0fddbd6f584",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' your fact'ry gals (soon ez we split) 'll make head,\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "165cf7e91bb0eb46e292898a8269390da4d2ce70c71f1ce30046691bcf0daafc",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · f31416c\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “head” under the earlier cut and “head” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “head” under the earlier cut and “head” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "92f1491104ffad06f87af21b85cb46c72cd46f7b5445863f41e0bfd11ff79e9d",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' your fact'ry gals (soon ez we split) 'll make head,\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "f31416c5efe4cbc7d2469b1f92a9b006b09b97b35f4f0d0c0768b5b18e0d865b",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 9fb0cde\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Man” under the earlier cut and “Man” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Man” under the earlier cut and “Man” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "c93fc1ce53df595837c442aa7b9f5d9336749c4d17de18fe00b014c16b685814",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' I says \"'M go' to be a Raggedy Man!--\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "9fb0cdef69bb6085f6b04e7cc432ae0cecbaaac31373cbe30c0b2dbb0436d615",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 0d3869d\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Man” under the earlier cut and “Man” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Man” under the earlier cut and “Man” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "6c2b4577062dbe8df9bfec08dcfec1be42024f95397b3fb021617bc84280437f",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' I says \"'M go' to be a Raggedy Man!--\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "0d3869de3d250a0cde6b1527745cdd289f6b5b6648bc0bb759ee67e8076a351d",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 0e30457\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “well” under the earlier cut and “well” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “well” under the earlier cut and “well” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "bf88d3687d91408046dcb44d1e65ced2d1f8a87fcb410dccc5b6971f2b00698b",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nMy fount of song, dear friend, 's a bitter well;\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "0e30457a0a5a7987a381f2ff00deb8a1646d09e52ed6cfde15dc1d19c4741f31",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · f3c0461\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “well” under the earlier cut and “well” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “well” under the earlier cut and “well” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "eebafa2c6785bc4c19d73aa60aaa53e0cd08eff69802329eb8bf617f264b1115",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nMy fount of song, dear friend, 's a bitter well;\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "f3c0461419197e0caa3b4f6bd33420cae3640aad9a62e368a9a6e68fb59d8906",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 3ddc1b0\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “call” under the earlier cut and “call” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “call” under the earlier cut and “call” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "3bf7c9c5e475f5531fc09f3f7f7056b2cc5385c05038be75670f749c3e403609",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nNot more than when _you_ ’re what you call\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "3ddc1b09f7a887e2483839f4b787aee24b3d0436a3236aa5b77b8dac8fd5e428",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · eaa624d\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “call” under the earlier cut and “call” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “call” under the earlier cut and “call” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "95f849cea1430a69f9373b43d05034180aefad76d6f20fe4a380b58b7ac4edfa",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nNot more than when _you_ ’re what you call\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "eaa624dd9eb7c0919ec06b6142a8066f0b46d26b2a92b85924c7822c375407ec",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 67fc3c7\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fox-i'-th'-hole” under the earlier cut and “fox-i'-th'-hole” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fox-i'-th'-hole” under the earlier cut and “fox-i'-th'-hole” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "2fb94a68949ebc4e4ed279f3bc2ebda1bdcf462c87e91bb452489d2a40982d04",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nThat['s] tost up, after fox-i'-th'-hole;\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "67fc3c72a9eac5127330a2d20748a0cbfe9455ae48d6a488c053f83be8654d0e",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 963f4c1\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fox-i'-th'-hole” under the earlier cut and “fox-i'-th'-hole” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fox-i'-th'-hole” under the earlier cut and “fox-i'-th'-hole” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "bd01e7686dcade1bef9d1793a10a36887aeb786d8286e05a422c60c1b13d2fff",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nThat['s] tost up, after fox-i'-th'-hole;\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "963f4c17b80f260adee56f87a4b33677c933b09a3300b6b13909e650f12609b7",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 160a945\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “answer” under the earlier cut and “answer” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “answer” under the earlier cut and “answer” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "621dc81e95a6a61831836371f97a31c3aa4f114315f39462dfa6ff0081a77508",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n\"Oh, oui, Monsieur,\" 's the waiter's answer;\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "160a9455cb75af0412ba7b8fa87e336ece7e500820ff7ec4659c2f7882765613",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 63331d8\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “answer” under the earlier cut and “answer” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “answer” under the earlier cut and “answer” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "1111feb60ae2d7d737b2831c856cb13ebef5272b062ba39021b2963fd8800f7e",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n\"Oh, oui, Monsieur,\" 's the waiter's answer;\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "63331d8cebedce511a99ba3b75f46ed7b073336d594305219c77320516269a6b",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 929ab28\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “sang” under the earlier cut and “sang” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “sang” under the earlier cut and “sang” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "4a26934b8ea677f6f57cf8bc598f2d83a37f065c79c4f6e108d84d51097184ef",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n“God save the King” 's a cuckoo sang\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "929ab28f6469e68e22c4b19a0419c2edefa6b8550b32232d1f448e56bed5312a",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · e1d534a\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “sang” under the earlier cut and “sang” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “sang” under the earlier cut and “sang” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "0946958a7812f5b6c524cf111685771c081a9048e4733991ec4369221ede2eeb",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n“God save the King” 's a cuckoo sang\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "e1d534ab3b4bfd0b15d21d7ce012f1127b33bedf0522cc578cf3f83940044a9d",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · e0e6410\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “roun'” under the earlier cut and “roun'” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “roun'” under the earlier cut and “roun'” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "d190f55e425eb0cd60097a265abd68f10a988823d411f44bb68bb66724831898",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' zoo, when _he_'d a-been all roun',\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "e0e641072ff64840f9a2b1c6a545c08645d13fb27cdd954e7d14a4cddc41addc",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 1a2d871\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “roun'” under the earlier cut and “roun'” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “roun'” under the earlier cut and “roun'” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "bbd4f77d0fa1eedb5ce3d018a114cf2978e5eb0b281a9478804ec2fd61d33e89",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' zoo, when _he_'d a-been all roun',\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "1a2d8719fb28c973c4f6124f4d3b394abfd1a749edef952ef8c7b970b9b72955",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 8296058\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “pick” under the earlier cut and “pick” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “pick” under the earlier cut and “pick” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "1061735be361a08868a59f853813251d39dcf74fa578402e145c1b2c6d90568b",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nDo shoulder each [=o]'s a reäke an' pick,\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "82960583ffedace4de1b5b6b58c3f69d8cab01f6b2e629ca4758f487b0e365ab",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 7345a71\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “pick” under the earlier cut and “pick” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “pick” under the earlier cut and “pick” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "669052a0e3d3f667633623f49f3b87f5a64eb07a736d545bc3329c9ad53aa7d3",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nDo shoulder each [=o]'s a reäke an' pick,\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "7345a715a98d67bc28f9dcf00959f8ca31483f2d2599f8fd59e23423f6fe2713",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 737c590\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “thinkèn” under the earlier cut and “thinkèn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “thinkèn” under the earlier cut and “thinkèn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "9dde7a18dd48b2d018660eab688e6a0d99586ec21dc11205fc9310bf4bd2888a",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' mother, weary, 's a-zot a thinkèn,\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "737c590ec131f80e049d27d416867ff905300c628c69009618447aadf254b053",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 2d558ec\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “thinkèn” under the earlier cut and “thinkèn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “thinkèn” under the earlier cut and “thinkèn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "f8951acfbfbfc8a55911fe44b988523d2ee7f6e732578d5d6088fa56a843471b",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' mother, weary, 's a-zot a thinkèn,\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "2d558ec12d32e16a1fde8a5c6ecd588146d9b24404efc56f4e4ba07a4d838e61",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · f3b2cb0\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “agoo” under the earlier cut and “agoo” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “agoo” under the earlier cut and “agoo” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "8ed10649f54d62985a31893700bcc0d8349c31b58883a6c9876921511759f67b",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAh, s[=o]'s! 'tis now zome years agoo\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "f3b2cb038aa397ccee060c2ac420db6386c9347b21ca87b82d38e9ecbbd610c5",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 9faa18d\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “agoo” under the earlier cut and “agoo” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “agoo” under the earlier cut and “agoo” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "c50d912c7750b13d9518b532da5f23f3519006a99c270cab105372749c5d9789",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAh, s[=o]'s! 'tis now zome years agoo\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "9faa18d06a11511a6b6ad16b4344ca1fe408dd7350bf1fe3d2c7e5b13e411bdd",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · d63296c\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fro” under the earlier cut and “fro” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fro” under the earlier cut and “fro” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "08b3d9a3793e8ff4c27bb3eaa3d44716bdfb7872d3f7e02f1cbf58c1b9e0ff0a",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nHer head, 's a-walkèn to an' fro\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "d63296c1ff4bcb54a9a53f4230d3d6e5d4ae812fed41a6da93e8a4606b33dca5",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · f0a1381\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fro” under the earlier cut and “fro” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “fro” under the earlier cut and “fro” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "0aacbe89496a845a3fd2f847ff4d2747148f8191a1be4ad0d2c0e85a697d72dd",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nHer head, 's a-walkèn to an' fro\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "f0a1381743c5d42c117f230345560c6aedc6e8e6d7f41cea9ca6e28057e0693f",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 8192349\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “a-burnèn” under the earlier cut and “a-burnèn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “a-burnèn” under the earlier cut and “a-burnèn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "ca9d353aa6baeb6e4cf84e909e69059cb24d80c6947523136bfa34c5eaf49205",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nThe ceäke upon the vier, too, 's a-burnèn,\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "8192349c393bf6c70261fb96bc9c3dbafd61744eb7f0a5b00ecb80dcb9490357",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 2838f5d\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “a-burnèn” under the earlier cut and “a-burnèn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “a-burnèn” under the earlier cut and “a-burnèn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "606385ef1c65ac5a164496e10b699abd7f8440582c375887567cba277d963aee",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nThe ceäke upon the vier, too, 's a-burnèn,\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "2838f5de1eb4aefe8c336c46925272706f46ca86a5ec36a5e612867eaab70a5e",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "rhyme groups",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 7487195\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “eärn” under the earlier cut and “eärn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “eärn” under the earlier cut and “eärn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "47a8bf5f5614367f391ecd749370e19a229da547e6a9291a89feb7210a70d78c",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' little Jack, you know, 's a-gwaïn to eärn\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "74871954713f8e8adf73e1ad4ab3d47f2f6597215c98c8476a604c11c4f67ea5",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "returns",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "review_text": "Current version · 7ecd994\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return member, line 1 · last rhyme, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “eärn” under the earlier cut and “eärn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “eärn” under the earlier cut and “eärn” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "b2ee0b9959767942dfc95003c21f86d7c16c2708432a1cc336b09bfaf09479c6",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAn' little Jack, you know, 's a-gwaïn to eärn\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "7ecd99421122e99d6644682bfb3eb537beb3470b64da016e62a76df1fe7ebe92",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "rhyme groups",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.end,2.end]",
+   "review_text": "Current version · aacee38\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n0\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "d15d74275be3feb09579354d95521228425adcd0ed75378cad725e8a96fd82ce",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nWe sing it plain tonight\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "aacee38d9cc5ccbc702a5109fe6485f0770af7e69f4973401e4ce059fb7078b2",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.end,2.end]",
+   "review_text": "Current version · 947fedf\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n0\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "f3370b9654a2b7bdac60c1eae8e432cb42188c747a44cbf3f47935d2fde26134",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nWe sing it plain tonight\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "947fedfa2c3c9ceaff79c033551cf9693b3f16fcd3509d943ff4848a67bca09a",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Below the knap, a runnèn still;",
+   "key": "rhyme groups",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.end,2.end]",
+   "review_text": "Current version · da297ad\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n0\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "f52ae5db1bd3193976d4ed834dc24d811d07bc33ce7529b2c28431d15fbf09f4",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nBelow the knap, a runnèn still;\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "da297adb416ed038301429a55c26de3d02fa2adae1e43e6984815466fbde5695",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "Below the knap, a runnèn still;",
+   "key": "returns",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.end,2.end]",
+   "review_text": "Current version · fecd648\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n0\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "a0e4942525e25a55e445fad3390d3c315f972ec456339945d8a8205a13cd6b45",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nBelow the knap, a runnèn still;\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "fecd64879e6743def6364b7f6db456c2429c8ca335ba045033711d24d509d486",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  },
+  {
+   "line": "\"Μπένω μεσ' τὸ περιβόλι,",
+   "key": "rhyme groups",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.end,2.end]",
+   "review_text": "Current version · 491a14b\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen rhymes\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "89df1dd8e3faa19f47026e4f82d10b54eebd8e18f520af87edc7cd62a772dad4",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n\"Μπένω μεσ' τὸ περιβόλι,\nWe sing it plain",
+     "declarations": {
+      "groups": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "491a14b52c8d6f45f955757dbb027a103202e5702d0b5c2291bd088f90b0a3b1",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "groups": "1.end,2.end"
+   }
+  },
+  {
+   "line": "\"Μπένω μεσ' τὸ περιβόλι,",
+   "key": "returns",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.end,2.end]",
+   "review_text": "Current version · 151ac7c\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA declared return points at 1.end, which the draft does not have\nDeclared as 1.end,2.end\nLine numbers are the harness’s own spelling; they no longer match the text. Choose the members again.\nOpen repeats\n\n Changes to text, form or rhythm require a new review.",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "request": {
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "request_id": "666d332c9cdc0fe3a200cbc163b97c07ea5458c715fbf0b49da7be5951c6aa9b",
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\n\"Μπένω μεσ' τὸ περιβόλι,\nWe sing it plain",
+     "declarations": {
+      "returns": "1.end,2.end"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "151ac7c3bcfb5c87457d4009f75fe7fc1da5980b93767106db76d4c43470f645",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    }
+   },
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": {
+    "returns": "1.end,2.end"
+   }
+  }
+ ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "shard": 0,
+    "file_sha256": {
+      "endpoint_guard_0af39c6f/egw_0af39c6f_0.json.gz": "089c05286ecc97e421173d79433221fea230596548dfae313b9023a2c0d093d8",
+      "endpoint_guard_8ea94ac9/egw_8ea94ac9_0.json.gz": "076b3084e5f7f7556644936526aa0fef9fcc22ee557e327121b822619ef38865"
+    },
+    "differing_top_keys": [
+      "pins"
+    ],
+    "differing_pins": [
+      "commit"
+    ],
+    "part1_equal": true,
+    "focused_equal": true,
+    "controls_equal": true
+  },
+  {
+    "shard": 1,
+    "file_sha256": {
+      "endpoint_guard_0af39c6f/egw_0af39c6f_1.json.gz": "0fa06b1db74ec9c9dce849208ec2b4d9e20cfa74231f42dc8290c2470cf9ca1b",
+      "endpoint_guard_8ea94ac9/egw_8ea94ac9_1.json.gz": "a5f66af2f53095c589cbf3df45c501785b8f57291b4c837587956d4baa4f9203"
+    },
+    "differing_top_keys": [
+      "pins"
+    ],
+    "differing_pins": [
+      "commit"
+    ],
+    "part1_equal": true,
+    "focused_equal": true,
+    "controls_equal": true
+  },
+  {
+    "shard": 2,
+    "file_sha256": {
+      "endpoint_guard_0af39c6f/egw_0af39c6f_2.json.gz": "b74e5b3d770f3a57508395c1993213c4a1f865d1694b8c879957c40d07e66785",
+      "endpoint_guard_8ea94ac9/egw_8ea94ac9_2.json.gz": "341af9572dcb56f19aca0f4d93eb1e347a687bbca3006123f4657bf42b02b006"
+    },
+    "differing_top_keys": [
+      "pins"
+    ],
+    "differing_pins": [
+      "commit"
+    ],
+    "part1_equal": true,
+    "focused_equal": true,
+    "controls_equal": true
+  },
+  {
+    "shard": 3,
+    "file_sha256": {
+      "endpoint_guard_0af39c6f/egw_0af39c6f_3.json.gz": "b88db7b5335d2b56b6d6c94031fa96471a4b732271ae32e66f1bf889c797067b",
+      "endpoint_guard_8ea94ac9/egw_8ea94ac9_3.json.gz": "ce2aca65259bd8a44d8471dd8ae5d0289b9195854ae2d016cf9ace270a029b48"
+    },
+    "differing_top_keys": [
+      "pins"
+    ],
+    "differing_pins": [
+      "commit"
+    ],
+    "part1_equal": true,
+    "focused_equal": true,
+    "controls_equal": true
+  }
+]

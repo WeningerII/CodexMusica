@@ -1,0 +1,24 @@
+cand RT2.placed.review.paste
+  O1 rows: [SETUP — returns — 1.T2,8.T1]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]
+  O1 final {"returns":"1.T3,8.T1;2.head,6.head"}
+  O2 rows: [SETUP — returns — 1.T2,8.T1]  =>  [SETUP — returns — 1.T3,8.T1 — cut v2]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]
+  O2 final {"returns":"1.T3,8.T1;2.head,6.head"}
+  O1 toasts [[],["Placed return declared. 1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.\nUndo"],["Placed return declared. 1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.\nUndo"]]
+  O2 toasts [[],["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."],["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.","Placed return declared.\nUndo"],["Placed return declared.\nUndo"]]
+  review O1 cut=true renum=true | O2 cut=true renum=true  dockFocus=-  errs=0
+cand RT2.placed.dock.paste
+  O1 rows: [SETUP — returns — 1.T2,8.T1]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]
+  O1 final {"returns":"1.T3,8.T1;2.head,6.head"}
+  O2 rows: [SETUP — returns — 1.T2,8.T1]  =>  [SETUP — returns — 1.T3,8.T1 — cut v2]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]
+  O2 final {"returns":"1.T3,8.T1;2.head,6.head"}
+  O1 toasts [[],["Placed return declared. 1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.\nUndo"],["Placed return declared. 1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.\nUndo"]]
+  O2 toasts [[],["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."],["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.","Placed return declared.\nUndo"],["Placed return declared.\nUndo"]]
+  review O1 cut=true renum=true | O2 cut=true renum=true  dockFocus=chat-input  errs=0
+cand RT2.placed.review.type
+  O1 rows: [SETUP — returns — 1.T2,8.T1]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]
+  O1 final {"returns":"1.T3,8.T1;2.head,6.head"}
+  O2 rows: [SETUP — returns — 1.T2,8.T1]  =>  [SETUP — returns — 1.T3,8.T1 — cut v2]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]  =>  [SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]
+  O2 final {"returns":"1.T3,8.T1;2.head,6.head"}
+  O1 toasts [[],["Placed return declared. 1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.\nUndo"],["Placed return declared. 1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.\nUndo"]]
+  O2 toasts [[],["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."],["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.","Placed return declared.\nUndo"],["Placed return declared.\nUndo"]]
+  review O1 cut=true renum=true | O2 cut=true renum=true  dockFocus=-  errs=0

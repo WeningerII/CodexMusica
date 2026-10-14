@@ -1,0 +1,894 @@
+[
+  {
+    "mode": "undo-before-debounce",
+    "a": {
+      "text": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+      "meta": {
+        "version": 1,
+        "brief": "",
+        "notes": {},
+        "drafts": {},
+        "ui": {
+          "tab": "tools",
+          "tool": "",
+          "outline": true
+        },
+        "renumbered": {
+          "items": [
+            {
+              "kind": "reading",
+              "word": "oh",
+              "n": [
+                1
+              ],
+              "from": 2,
+              "to": 3
+            }
+          ]
+        }
+      }
+    },
+    "b": {
+      "text": "[SETUP — rhyme groups — 1.T5,4 — cut v2]\n[SETUP — returns — 1,3;1.line,3.line;1.head (carried across the word-cut change),3.head (carried across the word-cut change);2.end,4.end — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight",
+      "meta": {
+        "version": 1,
+        "brief": "",
+        "notes": {},
+        "drafts": {},
+        "ui": {
+          "tab": "tools",
+          "tool": "",
+          "outline": true
+        },
+        "draftId": "draft:96671a07-7304-495a-b0a1-34e6395f4e94",
+        "libraryOrigin": {
+          "version": 1,
+          "handoffId": "handoff:14a94e7b-b058-4472-95da-ad219bb0af3f",
+          "digest": "db461b91bd5ae184e900cc79586cc7f2058ecf8f3f7836aaf672e30aa1da5250",
+          "importedAt": 1791990511724,
+          "adapted": true,
+          "title": "B delayed",
+          "language": "eng",
+          "scope": "whole",
+          "provenance": {
+            "snapshotId": "snap:1",
+            "unitId": "unit:1",
+            "workId": "work:1",
+            "editionId": "ed:1",
+            "revisionId": "rev:1",
+            "workingCopy": {
+              "version": 1,
+              "adapted": false,
+              "importedFromHandoffId": "handoff:b1405654-f6e5-4366-9b56-6dcb8c70783f",
+              "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+              "lineageBasis": "Imported reading before edits",
+              "declarations": [],
+              "metadata": {
+                "brief": "",
+                "notes": {},
+                "drafts": {},
+                "ui": {}
+              }
+            }
+          },
+          "lineage": [],
+          "declarations": [],
+          "writingEligibility": {
+            "eligible": true,
+            "reasons": []
+          }
+        },
+        "renumbered": {
+          "items": [
+            {
+              "kind": "rhyme groups",
+              "word": "love",
+              "n": [
+                1
+              ],
+              "from": 4,
+              "to": 5
+            }
+          ],
+          "draftId": "draft:96671a07-7304-495a-b0a1-34e6395f4e94"
+        }
+      }
+    },
+    "undo": {
+      "text": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+      "meta": {
+        "version": 1,
+        "brief": "",
+        "notes": {},
+        "drafts": {},
+        "ui": {
+          "tab": "tools",
+          "tool": "",
+          "outline": true
+        },
+        "draftId": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40",
+        "renumbered": {
+          "items": [
+            {
+              "kind": "reading",
+              "word": "oh",
+              "n": [
+                1
+              ],
+              "from": 2,
+              "to": 3
+            }
+          ],
+          "draftId": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40"
+        }
+      }
+    },
+    "stored": {
+      "a": {
+        "draftId": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40",
+        "text": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+        "title": "Untitled song",
+        "meta": {
+          "version": 1,
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {
+            "tab": "tools",
+            "tool": "",
+            "outline": true
+          },
+          "draftId": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40",
+          "renumbered": {
+            "items": [
+              {
+                "kind": "reading",
+                "word": "oh",
+                "n": [
+                  1
+                ],
+                "from": 2,
+                "to": 3
+              }
+            ],
+            "draftId": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40"
+          }
+        },
+        "writer": {
+          "history": null,
+          "workspace": null,
+          "lyric": null,
+          "task": null,
+          "sig": null,
+          "generation": 2,
+          "pending": null,
+          "archives": [],
+          "retryAt": 0
+        },
+        "writerInput": "",
+        "savedAt": 1791990512239,
+        "pageReview": {
+          "run": null,
+          "past": [],
+          "analysis": null,
+          "outcomes": {},
+          "results": {}
+        },
+        "originalText": null
+      },
+      "b": {
+        "draftId": "draft:96671a07-7304-495a-b0a1-34e6395f4e94",
+        "text": "[SETUP — rhyme groups — 1.T4,4]\n[SETUP — returns — 1,3;1.line,3.line;1.head,3.head;2.end,4.end]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight",
+        "title": "B delayed",
+        "savedAt": 1791990511724,
+        "meta": {
+          "version": 1,
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {},
+          "draftId": "draft:96671a07-7304-495a-b0a1-34e6395f4e94",
+          "libraryOrigin": {
+            "version": 1,
+            "handoffId": "handoff:14a94e7b-b058-4472-95da-ad219bb0af3f",
+            "digest": "db461b91bd5ae184e900cc79586cc7f2058ecf8f3f7836aaf672e30aa1da5250",
+            "importedAt": 1791990511724,
+            "adapted": false,
+            "title": "B delayed",
+            "language": "eng",
+            "scope": "whole",
+            "provenance": {
+              "snapshotId": "snap:1",
+              "unitId": "unit:1",
+              "workId": "work:1",
+              "editionId": "ed:1",
+              "revisionId": "rev:1",
+              "workingCopy": {
+                "version": 1,
+                "adapted": false,
+                "importedFromHandoffId": "handoff:b1405654-f6e5-4366-9b56-6dcb8c70783f",
+                "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+                "lineageBasis": "Imported reading before edits",
+                "declarations": [],
+                "metadata": {
+                  "brief": "",
+                  "notes": {},
+                  "drafts": {},
+                  "ui": {}
+                }
+              }
+            },
+            "lineage": [],
+            "declarations": [],
+            "writingEligibility": {
+              "eligible": true,
+              "reasons": []
+            }
+          }
+        },
+        "writer": null,
+        "pageReview": null,
+        "originalText": "[SETUP — rhyme groups — 1.T4,4]\n[SETUP — returns — 1,3;1.line,3.line;1.head,3.head;2.end,4.end]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight"
+      },
+      "session": {
+        "version": 1,
+        "name": "Untitled session",
+        "cards": [],
+        "lyrics": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+        "lyricMeta": {
+          "version": 1,
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {
+            "tab": "tools",
+            "tool": "",
+            "outline": true
+          },
+          "draftId": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40",
+          "renumbered": {
+            "items": [
+              {
+                "kind": "reading",
+                "word": "oh",
+                "n": [
+                  1
+                ],
+                "from": 2,
+                "to": 3
+              }
+            ],
+            "draftId": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40"
+          }
+        }
+      },
+      "calls": [
+        {
+          "id": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40",
+          "text": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+          "meta": {
+            "version": 1,
+            "brief": "",
+            "notes": {},
+            "drafts": {},
+            "ui": {
+              "tab": "tools",
+              "tool": "",
+              "outline": true
+            },
+            "draftId": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40",
+            "renumbered": {
+              "items": [
+                {
+                  "kind": "reading",
+                  "word": "oh",
+                  "n": [
+                    1
+                  ],
+                  "from": 2,
+                  "to": 3
+                }
+              ],
+              "draftId": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40"
+            }
+          }
+        }
+      ]
+    },
+    "bStorageState": "original-awaiting-migration",
+    "reload": {
+      "text": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+      "meta": {
+        "version": 1,
+        "brief": "",
+        "notes": {},
+        "drafts": {},
+        "ui": {
+          "tab": "tools",
+          "tool": "",
+          "outline": true
+        },
+        "draftId": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40",
+        "renumbered": {
+          "items": [
+            {
+              "kind": "reading",
+              "word": "oh",
+              "n": [
+                1
+              ],
+              "from": 2,
+              "to": 3
+            }
+          ],
+          "draftId": "draft:9ce840c6-811f-4d92-9be2-79dd5c712c40"
+        }
+      }
+    },
+    "reopen": {
+      "text": "[SETUP — rhyme groups — 1.T5,4 — cut v2]\n[SETUP — returns — 1,3;1.line,3.line;1.head (carried across the word-cut change),3.head (carried across the word-cut change);2.end,4.end — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight",
+      "meta": {
+        "version": 1,
+        "brief": "",
+        "notes": {},
+        "drafts": {},
+        "ui": {
+          "tab": "tools",
+          "tool": "",
+          "outline": true
+        },
+        "draftId": "draft:96671a07-7304-495a-b0a1-34e6395f4e94",
+        "libraryOrigin": {
+          "version": 1,
+          "handoffId": "handoff:14a94e7b-b058-4472-95da-ad219bb0af3f",
+          "digest": "db461b91bd5ae184e900cc79586cc7f2058ecf8f3f7836aaf672e30aa1da5250",
+          "importedAt": 1791990511724,
+          "adapted": true,
+          "title": "B delayed",
+          "language": "eng",
+          "scope": "whole",
+          "provenance": {
+            "snapshotId": "snap:1",
+            "unitId": "unit:1",
+            "workId": "work:1",
+            "editionId": "ed:1",
+            "revisionId": "rev:1",
+            "workingCopy": {
+              "version": 1,
+              "adapted": false,
+              "importedFromHandoffId": "handoff:b1405654-f6e5-4366-9b56-6dcb8c70783f",
+              "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+              "lineageBasis": "Imported reading before edits",
+              "declarations": [],
+              "metadata": {
+                "brief": "",
+                "notes": {},
+                "drafts": {},
+                "ui": {}
+              }
+            }
+          },
+          "lineage": [],
+          "declarations": [],
+          "writingEligibility": {
+            "eligible": true,
+            "reasons": []
+          }
+        },
+        "renumbered": {
+          "items": [
+            {
+              "kind": "rhyme groups",
+              "word": "love",
+              "n": [
+                1
+              ],
+              "from": 4,
+              "to": 5
+            }
+          ],
+          "draftId": "draft:96671a07-7304-495a-b0a1-34e6395f4e94"
+        }
+      }
+    },
+    "pass": true,
+    "pageErrors": []
+  },
+  {
+    "mode": "held-B-write",
+    "a": {
+      "text": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+      "meta": {
+        "version": 1,
+        "brief": "",
+        "notes": {},
+        "drafts": {},
+        "ui": {
+          "tab": "tools",
+          "tool": "",
+          "outline": true
+        },
+        "renumbered": {
+          "items": [
+            {
+              "kind": "reading",
+              "word": "oh",
+              "n": [
+                1
+              ],
+              "from": 2,
+              "to": 3
+            }
+          ]
+        }
+      }
+    },
+    "b": {
+      "text": "[SETUP — rhyme groups — 1.T5,4 — cut v2]\n[SETUP — returns — 1,3;1.line,3.line;1.head (carried across the word-cut change),3.head (carried across the word-cut change);2.end,4.end — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight",
+      "meta": {
+        "version": 1,
+        "brief": "",
+        "notes": {},
+        "drafts": {},
+        "ui": {
+          "tab": "tools",
+          "tool": "",
+          "outline": true
+        },
+        "draftId": "draft:d0fbdfcb-c615-4ba3-b6e3-c1fd0709eee5",
+        "libraryOrigin": {
+          "version": 1,
+          "handoffId": "handoff:3eecb504-df1a-44b7-8658-5331cfeb109a",
+          "digest": "cf0564127894fbdb5f93e4b228a5f939c020dc40ea18fa0e525bbf7f0b6f18d7",
+          "importedAt": 1791990517297,
+          "adapted": true,
+          "title": "B delayed",
+          "language": "eng",
+          "scope": "whole",
+          "provenance": {
+            "snapshotId": "snap:1",
+            "unitId": "unit:1",
+            "workId": "work:1",
+            "editionId": "ed:1",
+            "revisionId": "rev:1",
+            "workingCopy": {
+              "version": 1,
+              "adapted": false,
+              "importedFromHandoffId": "handoff:137ccd92-7256-46c0-94f9-63295267c4d4",
+              "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+              "lineageBasis": "Imported reading before edits",
+              "declarations": [],
+              "metadata": {
+                "brief": "",
+                "notes": {},
+                "drafts": {},
+                "ui": {}
+              }
+            }
+          },
+          "lineage": [],
+          "declarations": [],
+          "writingEligibility": {
+            "eligible": true,
+            "reasons": []
+          }
+        },
+        "renumbered": {
+          "items": [
+            {
+              "kind": "rhyme groups",
+              "word": "love",
+              "n": [
+                1
+              ],
+              "from": 4,
+              "to": 5
+            }
+          ],
+          "draftId": "draft:d0fbdfcb-c615-4ba3-b6e3-c1fd0709eee5"
+        }
+      }
+    },
+    "undo": {
+      "text": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+      "meta": {
+        "version": 1,
+        "brief": "",
+        "notes": {},
+        "drafts": {},
+        "ui": {
+          "tab": "tools",
+          "tool": "",
+          "outline": true
+        },
+        "draftId": "draft:ec3a5d54-402c-4349-b59b-1371209a0353",
+        "renumbered": {
+          "items": [
+            {
+              "kind": "reading",
+              "word": "oh",
+              "n": [
+                1
+              ],
+              "from": 2,
+              "to": 3
+            }
+          ],
+          "draftId": "draft:ec3a5d54-402c-4349-b59b-1371209a0353"
+        }
+      }
+    },
+    "stored": {
+      "a": {
+        "draftId": "draft:ec3a5d54-402c-4349-b59b-1371209a0353",
+        "text": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+        "title": "Untitled song",
+        "meta": {
+          "version": 1,
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {
+            "tab": "tools",
+            "tool": "",
+            "outline": true
+          },
+          "draftId": "draft:ec3a5d54-402c-4349-b59b-1371209a0353",
+          "renumbered": {
+            "items": [
+              {
+                "kind": "reading",
+                "word": "oh",
+                "n": [
+                  1
+                ],
+                "from": 2,
+                "to": 3
+              }
+            ],
+            "draftId": "draft:ec3a5d54-402c-4349-b59b-1371209a0353"
+          }
+        },
+        "writer": {
+          "history": null,
+          "workspace": null,
+          "lyric": null,
+          "task": null,
+          "sig": null,
+          "generation": 2,
+          "pending": null,
+          "archives": [],
+          "retryAt": 0
+        },
+        "writerInput": "",
+        "savedAt": 1791990518137,
+        "pageReview": {
+          "run": null,
+          "past": [],
+          "analysis": null,
+          "outcomes": {},
+          "results": {}
+        },
+        "originalText": null
+      },
+      "b": {
+        "draftId": "draft:d0fbdfcb-c615-4ba3-b6e3-c1fd0709eee5",
+        "text": "[SETUP — rhyme groups — 1.T5,4 — cut v2]\n[SETUP — returns — 1,3;1.line,3.line;1.head (carried across the word-cut change),3.head (carried across the word-cut change);2.end,4.end — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight",
+        "title": "Untitled song",
+        "meta": {
+          "version": 1,
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {
+            "tab": "tools",
+            "tool": "",
+            "outline": true
+          },
+          "draftId": "draft:d0fbdfcb-c615-4ba3-b6e3-c1fd0709eee5",
+          "libraryOrigin": {
+            "version": 1,
+            "handoffId": "handoff:3eecb504-df1a-44b7-8658-5331cfeb109a",
+            "digest": "cf0564127894fbdb5f93e4b228a5f939c020dc40ea18fa0e525bbf7f0b6f18d7",
+            "importedAt": 1791990517297,
+            "adapted": true,
+            "title": "B delayed",
+            "language": "eng",
+            "scope": "whole",
+            "provenance": {
+              "snapshotId": "snap:1",
+              "unitId": "unit:1",
+              "workId": "work:1",
+              "editionId": "ed:1",
+              "revisionId": "rev:1",
+              "workingCopy": {
+                "version": 1,
+                "adapted": false,
+                "importedFromHandoffId": "handoff:137ccd92-7256-46c0-94f9-63295267c4d4",
+                "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+                "lineageBasis": "Imported reading before edits",
+                "declarations": [],
+                "metadata": {
+                  "brief": "",
+                  "notes": {},
+                  "drafts": {},
+                  "ui": {}
+                }
+              }
+            },
+            "lineage": [],
+            "declarations": [],
+            "writingEligibility": {
+              "eligible": true,
+              "reasons": []
+            }
+          },
+          "renumbered": {
+            "items": [
+              {
+                "kind": "rhyme groups",
+                "word": "love",
+                "n": [
+                  1
+                ],
+                "from": 4,
+                "to": 5
+              }
+            ],
+            "draftId": "draft:d0fbdfcb-c615-4ba3-b6e3-c1fd0709eee5"
+          }
+        },
+        "writer": {
+          "history": null,
+          "workspace": null,
+          "lyric": null,
+          "task": null,
+          "sig": null,
+          "generation": 2,
+          "pending": null,
+          "archives": [],
+          "retryAt": 0
+        },
+        "writerInput": "",
+        "savedAt": 1791990517644,
+        "pageReview": {
+          "run": null,
+          "past": [],
+          "analysis": null,
+          "outcomes": {},
+          "results": {}
+        },
+        "originalText": "[SETUP — rhyme groups — 1.T4,4]\n[SETUP — returns — 1,3;1.line,3.line;1.head,3.head;2.end,4.end]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight"
+      },
+      "session": {
+        "version": 1,
+        "name": "Untitled session",
+        "cards": [],
+        "lyrics": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+        "lyricMeta": {
+          "version": 1,
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {
+            "tab": "tools",
+            "tool": "",
+            "outline": true
+          },
+          "draftId": "draft:ec3a5d54-402c-4349-b59b-1371209a0353",
+          "renumbered": {
+            "items": [
+              {
+                "kind": "reading",
+                "word": "oh",
+                "n": [
+                  1
+                ],
+                "from": 2,
+                "to": 3
+              }
+            ],
+            "draftId": "draft:ec3a5d54-402c-4349-b59b-1371209a0353"
+          }
+        }
+      },
+      "calls": [
+        {
+          "id": "draft:d0fbdfcb-c615-4ba3-b6e3-c1fd0709eee5",
+          "text": "[SETUP — rhyme groups — 1.T5,4 — cut v2]\n[SETUP — returns — 1,3;1.line,3.line;1.head (carried across the word-cut change),3.head (carried across the word-cut change);2.end,4.end — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight",
+          "meta": {
+            "version": 1,
+            "brief": "",
+            "notes": {},
+            "drafts": {},
+            "ui": {
+              "tab": "tools",
+              "tool": "",
+              "outline": true
+            },
+            "draftId": "draft:d0fbdfcb-c615-4ba3-b6e3-c1fd0709eee5",
+            "libraryOrigin": {
+              "version": 1,
+              "handoffId": "handoff:3eecb504-df1a-44b7-8658-5331cfeb109a",
+              "digest": "cf0564127894fbdb5f93e4b228a5f939c020dc40ea18fa0e525bbf7f0b6f18d7",
+              "importedAt": 1791990517297,
+              "adapted": true,
+              "title": "B delayed",
+              "language": "eng",
+              "scope": "whole",
+              "provenance": {
+                "snapshotId": "snap:1",
+                "unitId": "unit:1",
+                "workId": "work:1",
+                "editionId": "ed:1",
+                "revisionId": "rev:1",
+                "workingCopy": {
+                  "version": 1,
+                  "adapted": false,
+                  "importedFromHandoffId": "handoff:137ccd92-7256-46c0-94f9-63295267c4d4",
+                  "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+                  "lineageBasis": "Imported reading before edits",
+                  "declarations": [],
+                  "metadata": {
+                    "brief": "",
+                    "notes": {},
+                    "drafts": {},
+                    "ui": {}
+                  }
+                }
+              },
+              "lineage": [],
+              "declarations": [],
+              "writingEligibility": {
+                "eligible": true,
+                "reasons": []
+              }
+            },
+            "renumbered": {
+              "items": [
+                {
+                  "kind": "rhyme groups",
+                  "word": "love",
+                  "n": [
+                    1
+                  ],
+                  "from": 4,
+                  "to": 5
+                }
+              ],
+              "draftId": "draft:d0fbdfcb-c615-4ba3-b6e3-c1fd0709eee5"
+            }
+          }
+        },
+        {
+          "id": "draft:ec3a5d54-402c-4349-b59b-1371209a0353",
+          "text": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+          "meta": {
+            "version": 1,
+            "brief": "",
+            "notes": {},
+            "drafts": {},
+            "ui": {
+              "tab": "tools",
+              "tool": "",
+              "outline": true
+            },
+            "draftId": "draft:ec3a5d54-402c-4349-b59b-1371209a0353",
+            "renumbered": {
+              "items": [
+                {
+                  "kind": "reading",
+                  "word": "oh",
+                  "n": [
+                    1
+                  ],
+                  "from": 2,
+                  "to": 3
+                }
+              ],
+              "draftId": "draft:ec3a5d54-402c-4349-b59b-1371209a0353"
+            }
+          }
+        }
+      ]
+    },
+    "bStorageState": "migrated",
+    "reload": {
+      "text": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: acceptance — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+      "meta": {
+        "version": 1,
+        "brief": "",
+        "notes": {},
+        "drafts": {},
+        "ui": {
+          "tab": "tools",
+          "tool": "",
+          "outline": true
+        },
+        "draftId": "draft:ec3a5d54-402c-4349-b59b-1371209a0353",
+        "renumbered": {
+          "items": [
+            {
+              "kind": "reading",
+              "word": "oh",
+              "n": [
+                1
+              ],
+              "from": 2,
+              "to": 3
+            }
+          ],
+          "draftId": "draft:ec3a5d54-402c-4349-b59b-1371209a0353"
+        }
+      }
+    },
+    "reopen": {
+      "text": "[SETUP — rhyme groups — 1.T5,4 — cut v2]\n[SETUP — returns — 1,3;1.line,3.line;1.head (carried across the word-cut change),3.head (carried across the word-cut change);2.end,4.end — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight",
+      "meta": {
+        "version": 1,
+        "brief": "",
+        "notes": {},
+        "drafts": {},
+        "ui": {
+          "tab": "tools",
+          "tool": "",
+          "outline": true
+        },
+        "draftId": "draft:d0fbdfcb-c615-4ba3-b6e3-c1fd0709eee5",
+        "libraryOrigin": {
+          "version": 1,
+          "handoffId": "handoff:3eecb504-df1a-44b7-8658-5331cfeb109a",
+          "digest": "cf0564127894fbdb5f93e4b228a5f939c020dc40ea18fa0e525bbf7f0b6f18d7",
+          "importedAt": 1791990517297,
+          "adapted": true,
+          "title": "B delayed",
+          "language": "eng",
+          "scope": "whole",
+          "provenance": {
+            "snapshotId": "snap:1",
+            "unitId": "unit:1",
+            "workId": "work:1",
+            "editionId": "ed:1",
+            "revisionId": "rev:1",
+            "workingCopy": {
+              "version": 1,
+              "adapted": false,
+              "importedFromHandoffId": "handoff:137ccd92-7256-46c0-94f9-63295267c4d4",
+              "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+              "lineageBasis": "Imported reading before edits",
+              "declarations": [],
+              "metadata": {
+                "brief": "",
+                "notes": {},
+                "drafts": {},
+                "ui": {}
+              }
+            }
+          },
+          "lineage": [],
+          "declarations": [],
+          "writingEligibility": {
+            "eligible": true,
+            "reasons": []
+          }
+        },
+        "renumbered": {
+          "items": [
+            {
+              "kind": "rhyme groups",
+              "word": "love",
+              "n": [
+                1
+              ],
+              "from": 4,
+              "to": 5
+            }
+          ],
+          "draftId": "draft:d0fbdfcb-c615-4ba3-b6e3-c1fd0709eee5"
+        }
+      }
+    },
+    "pass": true,
+    "pageErrors": []
+  }
+]

@@ -1,0 +1,32 @@
+Independent targeted qualification: PASS at a09703a0eb9581a37b97c8041e8fcc640c7cf2b1
+
+Environment available; previous evidence and pinned runtime survived. The only runtime delta since2c9 is lyWire's mouse-review focus handling: it now includes a retained collapsed caret. Actual diff and producer before/after receipts were inspected. Tests here use this exact commit's shipped codex.html, copied byte-for-byte to acceptance.html (SHA256 1c2080a8e4b0108ffd05f3b0ee05aea60e1312212cdcaf95a5e9bd28008e2400). No production edits.
+
+P5 previously confirmed blocker is closed within the tested Chromium paths:
+- Hybrid Tab-out -> real mouse Run review: all8 independent cases pass, including collapsed sung/declaration carets, nonempty ranges and no-rewrite controls. Post-send positions are measured after TWO animation frames, then after actual keyboard return.
+- Exact inside-sing fixture: before[64,64], migration maps[73,73], after frames[73,73], keyboard return[73,73]. Typed ZQ lands in siZQng rather than prefixing SETUP. No-rewrite control retains[65,65]. Both pass, versus migrated failure at2c9.
+- Independent direct mouse / focused-button Enter matrix:16/16 preserved, including collapsed and nonempty selections with/without migration.
+- Existing full browser gate:225 assertions PASS at this exact SHA; includes direct mouse, Tab-range mouse, Tab-caret mouse, keyboard, dock and phone, plus the persistence/return-identity checks. Units intentionally skipped in this run; unchanged earlier unit evidence is carried separately, not counted anew.
+
+Relevant persistence and order reruns on this exact head:
+- Both real-browser Library A->B->Undo modes PASS: Undo before the normal save debounce, and a captured B IndexedDB save deliberately held until A has been restored/saved. Actual IndexedDB operations execute after the delay; no store stub replaces them. Session reload restores A and real History/Open draft restores B without cross-draft text/evidence overwrite.
+- Early Undo retains B's original unmarked stored text; reopening B correctly remigrates it and recreates B's own evidence. This is the qualified behavior, not a requirement for a cancelled debounce to have completed.
+- Six order scenarios (RG2.add and RT2.placed, review/dock sends and paste/type input), each form-first and send-first:12 browser cases, zero errors; all six final declarations equal. Eighteen actual sends passed to the real v2 harness binder; all six paired final occurrence-binding records equal.
+- P1/P2 baseline probe again at exacta097: [29,34] preserved; historical more=7 retained with125 entries.
+
+A2 evidence strengthened:
+-54 real-click sends cover all24 affected lookup lines (including all8 union witnesses) x explicit-end groups/returns, plus controls. Zero page errors. Every row retains the FULL intercepted request, including actual lyric_context.document, declarations and binding fields. Direct assertions require the case's lyric text in that document and the relevant groups/returns declaration exactly1.end,2.end. Affected lines show notices; controls do not.
+-This establishes the stated declaration at the actual request location, beyond the older regex spelling excerpts. It does not claim a live grader accepted the declaration: replies are fixtures. Historical A2 reports now explicitly limit their older evidence to extracted spelling preservation; current a2_requests.json is the retained request evidence.
+
+Carry-forward justified by explicit hashes (carry_hashes.json):
+-15 complete source/data/lock files hash-identical at8ea,84f,37f,2c9,a097, including the shared token reader, app persistence, Library receiver, loop, relations, schemes, slots, phonology and lexicon manifests.
+-14 relevant function/constant source ranges hash-identical from84f onward: migration/alignment/mapping, declaration extraction, notice retention, Library capture/activation/import/persist and LY_ACTIONS. Hashes are of exact acorn-parsed source ranges, not normalized semantics.
+-Thus retain earlier503-entry notice Show all/autosave/reload evidence, long label and more=7, independent narrow range/caret/newline checks, broader25-pair order/binding matrix, P7 Normalisation11 and C/F2 mutant kills, and the scoped corpus/slot evidence. New exact-head tests cover changed mouse behavior, including phone/dock through the full browser gate. Unchanged populations were not rerun.
+
+Shard comparator repair:
+recompare_shards.py now compares the UNION of keys at both top level and pins, explicitly distinguishing a missing key from a null-valued key. New-only and old-only key regression assertions are embedded. Four retained raw shard pairs were re-compared with the strengthened checker: full parsed records differ only at pins.commit. This is a retained-artifact comparison, not a fresh corpus execution. The earlier independent_8ea comparator/receipt is updated on the evidence branch; original historical commits remain available.
+
+Disposition and remaining gates:
+No remaining reproduced P1/P2/P5/P6/P7 blocker in the covered paths; targeted independent acceptance PASSES at the exact SHA above. Not blanket production/release acceptance. Final exact-head CI is not independently certified here; parent tracks it. Four revise shards and the full MCP suite remain unrun in this continuation. The earlier101-test reader suite is8ea evidence; only changed Normalisation tests were rerun at84f and are unchanged since. Other browser engines, touch-specific event paths and all possible asynchronous schedules remain outside this fixture qualification.
+
+Owner-gated exclusions remain unimplemented: old/new Library compatibility plus queued-job identity/release safeguards; shared-loop empty replacement validation. No merge, deployment, inbox messages/closure or paid-provider calls. Evidence branch only; no evidence PR opened.

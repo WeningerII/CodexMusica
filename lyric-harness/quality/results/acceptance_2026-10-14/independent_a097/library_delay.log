@@ -1,0 +1,4 @@
+[
+  { mode: 'undo-before-debounce', pass: true, error: undefined },
+  { mode: 'held-B-write', pass: true, error: undefined }
+]

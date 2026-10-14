@@ -1,0 +1,19 @@
+Root /workspace/acceptance-code at a09703a0eb9581a37b97c8041e8fcc640c7cf2b1.
+Node24.19.0; Python3.12.14; Chromium151.0.7922.173; Playwright version and source/data hashes in carry_hashes.json.
+Runtime requirements and CMUdict pins are unchanged from prior evidence. Requests intercepted locally; no paid providers.
+
+cp codex.html acceptance.html
+node /workspace/acceptance-final/sel_tab.js cand tabclick MIG,NOMIG
+node /workspace/acceptance-2c9/sing_tab.js cand tabclick MIG,NOMIG
+node /workspace/acceptance-results/selection/sel6.js cand click,kbd MIG,NOMIG
+PATH=/workspace/acceptance-venv/bin:$PATH PLAYWRIGHT_BROWSERS_PATH=/tmp/acceptance-browsers node scripts/check_lyrics_page.js --html=acceptance.html --browser-only
+OUT=/workspace/acceptance-a097/library_delay.json node /workspace/acceptance-final/library_delay.js
+node /workspace/acceptance-final/order_matrix.js cand RG2.add
+node /workspace/acceptance-final/order_matrix.js cand RT2.placed
+PATH=/workspace/acceptance-venv/bin:$PATH python3 /workspace/acceptance-final/order_bind.py /workspace/acceptance-code /workspace/acceptance-a097/order_bind_inputs.json /workspace/acceptance-a097/order_bindings.json
+node /workspace/acceptance-final/baseline.js /workspace/acceptance-code > /workspace/acceptance-a097/baseline.json
+node /workspace/acceptance-a097/a_page_requests.js /workspace/acceptance-code acceptance.html /workspace/acceptance-a097/a2_requests.json
+python3 /workspace/acceptance-a097/recompare_shards.py /workspace/acceptance-evidence > /workspace/acceptance-a097/raw-shards-symmetric.json
+node /workspace/acceptance-a097/carry_hashes.js
+
+Helper sources are retained in independent_8ea, independent_37f and independent_2c9. These probes have explicit workspace paths; relocate them when reproducing elsewhere. Output JSON copied from shared helpers is pinned by the directory, report and manifest. sel_tab.js waits two animation frames before the after-position snapshot and then records actual keyboard return and typing. Browser-only gate excludes units. The carry-hash procedure extracts exact top-level function/constant ranges with acorn and compares source bytes across the listed commits.

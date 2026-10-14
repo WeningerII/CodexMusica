@@ -1,0 +1,35 @@
+{
+  "tabclick": {
+    "cases": 8,
+    "kept": 8
+  },
+  "sing": {
+    "cases": 2,
+    "kept": 2
+  },
+  "direct_selection": {
+    "cases": 16,
+    "kept": 16
+  },
+  "library": [
+    {
+      "mode": "undo-before-debounce",
+      "pass": true,
+      "B_stored": "original-awaiting-migration"
+    },
+    {
+      "mode": "held-B-write",
+      "pass": true,
+      "B_stored": "migrated"
+    }
+  ],
+  "A2_actual_requests": 54,
+  "unchanged_file_hashes": 15,
+  "unchanged_function_hashes_since84f": 14,
+  "order": {
+    "scenarios": 6,
+    "orders": 12,
+    "actual_sends": 18,
+    "binding_pairs_equal": 6
+  }
+}
