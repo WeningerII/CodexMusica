@@ -1,0 +1,161 @@
+TAP version 13
+# Subtest: POST mints the HttpOnly cookie, the job carries no capability, reads slide the cookie
+ok 1 - POST mints the HttpOnly cookie, the job carries no capability, reads slide the cookie
+  ---
+  duration_ms: 136.428846
+  type: 'test'
+  ...
+# Subtest: another viewer's job, or no cookie, is 404; a GET never mints
+ok 2 - another viewer's job, or no cookie, is 404; a GET never mints
+  ---
+  duration_ms: 86.447815
+  type: 'test'
+  ...
+# Subtest: the request contract: no client snapshot, a key, JSON only, known units
+ok 3 - the request contract: no client snapshot, a key, JSON only, known units
+  ---
+  duration_ms: 34.532372
+  type: 'test'
+  ...
+# Subtest: two outstanding per viewer, as the old Site allowed
+ok 4 - two outstanding per viewer, as the old Site allowed
+  ---
+  duration_ms: 136.041294
+  type: 'test'
+  ...
+# Subtest: per-address ceiling: 3 viewers x 2 succeed; with 6 viewers x 2 running, the 7th is refused
+ok 5 - per-address ceiling: 3 viewers x 2 succeed; with 6 viewers x 2 running, the 7th is refused
+  ---
+  duration_ms: 591.702223
+  type: 'test'
+  ...
+# Subtest: creates: 30 an hour per viewer, the 31st waits for Retry-After
+ok 6 - creates: 30 an hour per viewer, the 31st waits for Retry-After
+  ---
+  duration_ms: 1234.166691
+  type: 'test'
+  ...
+# Subtest: cookie mints: 30 new browsers an hour per address, the 31st waits
+ok 7 - cookie mints: 30 new browsers an hour per address, the 31st waits
+  ---
+  duration_ms: 911.501378
+  type: 'test'
+  ...
+# Subtest: long readings: one long job service-wide; short readings are unaffected
+ok 8 - long readings: one long job service-wide; short readings are unaffected
+  ---
+  duration_ms: 141.317809
+  type: 'test'
+  ...
+# Subtest: controls need an Idempotency-Key; routing is strict; delete then read is 410
+ok 9 - controls need an Idempotency-Key; routing is strict; delete then read is 410
+  ---
+  duration_ms: 89.313242
+  type: 'test'
+  ...
+# Subtest: controls: 120 an hour per viewer
+ok 10 - controls: 120 an hour per viewer
+  ---
+  duration_ms: 1210.947311
+  type: 'test'
+  ...
+# Subtest: evidence reads are private, re-hashed and carry X-Library-SHA256
+ok 11 - evidence reads are private, re-hashed and carry X-Library-SHA256
+  ---
+  duration_ms: 66.36865
+  type: 'test'
+  ...
+# Subtest: credentialed CORS applies to the viewer paths only; the viewer id is a hash
+ok 12 - credentialed CORS applies to the viewer paths only; the viewer id is a hash
+  ---
+  duration_ms: 0.442651
+  type: 'test'
+  ...
+# Subtest: creates: 120 an hour per address across viewers, the 121st waits
+ok 13 - creates: 120 an hour per address across viewers, the 121st waits
+  ---
+  duration_ms: 1358.708622
+  type: 'test'
+  ...
+# Subtest: job reads: 600 a minute per address
+ok 14 - job reads: 600 a minute per address
+  ---
+  duration_ms: 985.099962
+  type: 'test'
+  ...
+# Subtest: two concurrent creates cannot both take the last per-address slot
+ok 15 - two concurrent creates cannot both take the last per-address slot
+  ---
+  duration_ms: 486.461429
+  type: 'test'
+  ...
+# Subtest: two concurrent long creates from different addresses: one runs, one waits
+ok 16 - two concurrent long creates from different addresses: one runs, one waits
+  ---
+  duration_ms: 45.475743
+  type: 'test'
+  ...
+# Subtest: a resume is admitted like a create: the per-address ceiling
+ok 17 - a resume is admitted like a create: the per-address ceiling
+  ---
+  duration_ms: 88.6349
+  type: 'test'
+  ...
+# Subtest: a resume is admitted like a create: one long reading service-wide
+ok 18 - a resume is admitted like a create: one long reading service-wide
+  ---
+  duration_ms: 25.569524
+  type: 'test'
+  ...
+# Subtest: the private bridge shares the long-reading rule, in both orders
+ok 19 - the private bridge shares the long-reading rule, in both orders
+  ---
+  duration_ms: 39.180389
+  type: 'test'
+  ...
+# Subtest: departed addresses are forgotten, not kept forever
+ok 20 - departed addresses are forgotten, not kept forever
+  ---
+  duration_ms: 33.640587
+  type: 'test'
+  ...
+# Subtest: a body that does not parse answers the JSON, uncached refusal
+ok 21 - a body that does not parse answers the JSON, uncached refusal
+  ---
+  duration_ms: 9.928947
+  type: 'test'
+  ...
+# Subtest: a private-bridge resume shares the long-reading rule, in both orders
+ok 22 - a private-bridge resume shares the long-reading rule, in both orders
+  ---
+  duration_ms: 56.312792
+  type: 'test'
+  ...
+# Subtest: an analysis export: the reading byte-identical to a json selection, then provenance and ANALYSIS/
+ok 23 - an analysis export: the reading byte-identical to a json selection, then provenance and ANALYSIS/
+  ---
+  duration_ms: 151.772437
+  type: 'test'
+  ...
+# Subtest: analysis export refusals are attachments: changed reading, missing definitions, another viewer
+ok 24 - analysis export refusals are attachments: changed reading, missing definitions, another viewer
+  ---
+  duration_ms: 149.694837
+  type: 'test'
+  ...
+# Subtest: an analysis export respects backpressure: a paused client stops page reads; others are served
+ok 25 - an analysis export respects backpressure: a paused client stops page reads; others are served
+  ---
+  duration_ms: 2273.587141
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14675.3191
+exit=0

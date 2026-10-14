@@ -1,0 +1,38 @@
+# BB8 library-tests — exact invocations; raw outputs in this dir
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; O=$S/h678/library-tests
+# node: v22.22.0
+## 1a check_library_regression
+cd $S/wt-678 && node scripts/check_library_regression.js > $O/regression_wt-678.log 2>&1; echo exit=$?
+cd $S/wt-main && node scripts/check_library_regression.js > $O/regression_wt-main.log 2>&1; echo exit=$?
+## 1b mcp reader/library node tests, one file per invocation (TMPDIR in scratch)
+for t in wt-678 wt-main; do for f in test_reader_job_store test_reader_integration test_reader_client test_reader_store_bounds test_library_search test_library_viewer_routes test_library_exports test_library_corpus test_library_fixtures; do
+  (cd $S/$t && TMPDIR=$O/tmp node --test mcp/$f.mjs > $O/mcp_${t}_$f.log 2>&1; echo exit=$? >> $O/mcp_${t}_$f.log); done; done
+# main first pass: 7/9 files failed ERR_MODULE_NOT_FOUND 'express' (wt-main lacked mcp/node_modules; wt-678 has it as an untracked symlink)
+# setup: ln -s /home/user/CodexMusica/mcp/node_modules $S/wt-main/mcp/node_modules   (untracked; removed at end), first-pass logs kept as mcp_wt-main_*.nomodules.log
+# then re-ran the same loop for wt-main only
+## 1b-exact: as specified in task
+for t in wt-678 wt-main; do (cd $S/$t && TMPDIR=$O/tmp node --test mcp/test_reader_job_store.mjs mcp/test_reader_integration.mjs > $O/mcp_exact_$t.log 2>&1; echo exit=$? >> $O/mcp_exact_$t.log); done
+## 1c FULL check_library_page (script builds itself; TMPDIR in scratch so its build lands under $O/tmp)
+for t in wt-678 wt-main; do (cd $S/$t && TMPDIR=$O/tmp CHROMIUM_PATH=/opt/pw-browsers/chromium node scripts/check_library_page.js > $O/page_$t.log 2>&1; echo exit=$? >> $O/page_$t.log); done
+# (first attempt used /usr/bin/time, absent -> exit 127; dropped it, timing via bash SECONDS)
+# RESULT: with TMPDIR=$O/tmp chromium exits SIGTRAP at launch (exit=2, log page_wt-678.tmpdir-crash.log) -- environment (HYPOTHESIS, not verified): the Playwright profile dir
+#   then sits under the long scratch path (Chromium singleton socket path length). Not a candidate defect.
+# Instead: build exactly as the script's build() does, into scratch, then run the FULL check with --built (all sections, no --only), default TMPDIR for the browser profile:
+for t in wt-678 wt-main; do mkdir -p $O/build-$t && (cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build-$t/codex.html --quiet > $O/build_$t.log 2>&1); done
+for t in wt-678 wt-main; do (cd $S/$t && node scripts/check_library_page.js --built=$O/build-$t > $O/page_$t.log 2>&1; echo exit=$? >> $O/page_$t.log); done
+# rerun (flake check): same command, logs page_<t>.run2.log
+## 2-xcheck: harness tokenization of the line (v1 = wt-base pre-batch; v2 = wt-678)
+for t in wt-base wt-678; do (cd $S/$t/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/tok_xcheck.py $t); done > $O/tok_xcheck.out 2>&1
+## 2 fallback IndexedDB store (our Playwright script; reuses only the helper half of check_library_page.js: server, Render stub, openPage)
+cd $O && node fallback_idb.js --tree=$S/wt-678 --built=$O/build-wt-678 --out=$O/fallback_wt-678.json > $O/fallback_wt-678.log 2>&1; echo exit=$?
+cd $O && node fallback_idb.js --tree=$S/wt-main --built=$O/build-wt-main --out=$O/fallback_wt-main.json > $O/fallback_wt-main.log 2>&1; echo exit=$?
+## 3 Library -> Lyrics whole-reading handoff with a blocked choice (our Playwright script)
+cd $O && node lyrics_handoff.js --tree=$S/wt-678 --built=$O/build-wt-678 --out=$O/handoff_wt-678.json > $O/handoff_wt-678.log 2>&1; echo exit=$?
+cd $O && node lyrics_handoff.js --tree=$S/wt-main --built=$O/build-wt-main --out=$O/handoff_wt-main.json > $O/handoff_wt-main.log 2>&1; echo exit=$?
+## 1d extra (author tests, independent=false): scripts/test_library_*.js on both trees
+for t in wt-678 wt-main; do for f in test_library_import test_library_declarations test_library_chunk_generations test_lyric_tokens; do [ -f $S/$t/scripts/$f.js ] || { echo "absent" > $O/scripts_${t}_$f.log; continue; }; (cd $S/$t && TMPDIR=$O/tmp node --test scripts/$f.js > $O/scripts_${t}_$f.log 2>&1; echo exit=$? >> $O/scripts_${t}_$f.log); done; (cd $S/$t && node scripts/test_library_import_browser.js > $O/scripts_${t}_test_library_import_browser.log 2>&1; echo exit=$? >> $O/scripts_${t}_test_library_import_browser.log); done
+# test_library_import_browser first pass failed on both trees: default Playwright headless shell 1223 not installed (environment). Rerun with CHROMIUM_EXECUTABLE_PATH (the knob the test reads):
+for t in wt-678 wt-main; do (cd $S/$t && CHROMIUM_EXECUTABLE_PATH=/opt/pw-browsers/chromium node scripts/test_library_import_browser.js > $O/scripts_${t}_test_library_import_browser.log 2>&1; echo exit=$? >> $O/scripts_${t}_test_library_import_browser.log); done
+# probes added (inspector collapsed via its remembered localStorage setting): node lyrics_handoff.js --tree=... --built=... --only=valid_v2_inspector_closed,blocked_row_inspector_closed --out=$O/handoff_closed_<t>.json
+## cleanup: rm -rf $O/tmp (test leftovers: chunk-gen-*, chromium dirs); rm $S/wt-main/mcp/node_modules (the symlink this run added); wt-main/wt-678 git status unchanged (only pre-existing untracked node_modules links)
+# NOTE: fallback_idb.js and lyrics_handoff.js were extended during the run (own request capture of POST /analyses bodies; a lib.device reference context; the Library record dump; toasts split before/after the click; --only probes). Every *.json/*.log here is from the FINAL script version, re-run with the commands above on both trees.

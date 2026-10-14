@@ -1,0 +1,585 @@
+{
+ "results": [
+  {
+   "id": "load.rows",
+   "claim": "baseline rows on load: every named place on a changed line carried (1, 2.endword, 4, 3.head; 1.head, 8.line), unchanged-line partners plain",
+   "expected": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head (carried across the word-cut change),6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head (carried across the word-cut change),6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "keep.clicked",
+   "claim": "Keep the link buttons found and clicked for rhyme line 1 and return line 1",
+   "expected": "both",
+   "observed": {
+    "k1": true,
+    "k2": true,
+    "toasts": [
+     "6 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review.",
+     "The rhyme link on line 1 is kept as declared. Undo restores the notice.\nUndo",
+     "The declared return on line 1 is kept as declared. Undo restores the notice.\nUndo"
+    ]
+   },
+   "status": "pass"
+  },
+  {
+   "id": "keep.rows",
+   "claim": "keep: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "keep.keptNotFlagged",
+   "claim": "keep: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "keep.sendValue",
+   "claim": "keep: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "keep.review",
+   "claim": "keep: Run review reaches /chat with those values",
+   "expected": "1 call, {\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": {
+    "calls": 1,
+    "groups": "1,6;2.endword,5;4,3.head",
+    "returns": "1.head,6.head;8.line,5.line",
+    "nd": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "reload.rows",
+   "claim": "reload: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "reload.keptNotFlagged",
+   "claim": "reload: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "reload.sendValue",
+   "claim": "reload: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "reload.review",
+   "claim": "reload: Run review reaches /chat with those values",
+   "expected": "1 call, {\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": {
+    "calls": 1,
+    "groups": "1,6;2.endword,5;4,3.head",
+    "returns": "1.head,6.head;8.line,5.line",
+    "nd": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "reload.noMigrationToast",
+   "claim": "reload: no renumber/carry toast",
+   "expected": "no toast mentioning renumbered/kept as declared",
+   "observed": [],
+   "status": "pass"
+  },
+  {
+   "id": "export.body",
+   "claim": "Download text is the draft as Keep left it",
+   "expected": "body rows == KEPT",
+   "observed": [
+    "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2]",
+    "[SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "importText.rows",
+   "claim": "importText: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "importText.keptNotFlagged",
+   "claim": "importText: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "importText.sendValue",
+   "claim": "importText: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "importText.review",
+   "claim": "importText: Run review reaches /chat with those values",
+   "expected": "1 call, {\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": {
+    "calls": 1,
+    "groups": "1,6;2.endword,5;4,3.head",
+    "returns": "1.head,6.head;8.line,5.line",
+    "nd": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "library.import",
+   "claim": "Library working-copy envelope imports without error and is library-origin",
+   "expected": "err null, origin true",
+   "observed": {
+    "err": null,
+    "origin": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "libraryImport.rows",
+   "claim": "libraryImport: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "libraryImport.keptNotFlagged",
+   "claim": "libraryImport: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "libraryImport.sendValue",
+   "claim": "libraryImport: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "libraryImport.review",
+   "claim": "libraryImport: Run review reaches /chat with those values",
+   "expected": "1 call, {\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": {
+    "calls": 1,
+    "groups": "1,6;2.endword,5;4,3.head",
+    "returns": "1.head,6.head;8.line,5.line",
+    "nd": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "library.download",
+   "claim": "a library-origin draft downloads as a .json working copy",
+   "expected": ".json",
+   "observed": "lyrics.library-working-copy.json",
+   "status": "pass"
+  },
+  {
+   "id": "libraryReimport.rows",
+   "claim": "libraryReimport: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "libraryReimport.keptNotFlagged",
+   "claim": "libraryReimport: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "libraryReimport.sendValue",
+   "claim": "libraryReimport: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "libraryReimport.review",
+   "claim": "libraryReimport: Run review reaches /chat with those values",
+   "expected": "1 call, {\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": {
+    "calls": 1,
+    "groups": "1,6;2.endword,5;4,3.head",
+    "returns": "1.head,6.head;8.line,5.line",
+    "nd": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "importSession.rows",
+   "claim": "importSession: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "importSession.keptNotFlagged",
+   "claim": "importSession: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "importSession.sendValue",
+   "claim": "importSession: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "importSession.review",
+   "claim": "importSession: Run review reaches /chat with those values",
+   "expected": "1 call, {\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": {
+    "calls": 1,
+    "groups": "1,6;2.endword,5;4,3.head",
+    "returns": "1.head,6.head;8.line,5.line",
+    "nd": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "reorder.rows",
+   "claim": "reorder: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 5,2;6.endword (carried across the word-cut change),1;8 (carried across the word-cut change),7.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 5.head,2.head;4.line (carried across the word-cut change),1.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 5,2;6.endword (carried across the word-cut change),1;8 (carried across the word-cut change),7.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 5.head,2.head;4.line (carried across the word-cut change),1.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "reorder.keptNotFlagged",
+   "claim": "reorder: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "reorder.sendValue",
+   "claim": "reorder: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"5,2;6.endword,1;8,7.head\",\"returns\":\"5.head,2.head;4.line,1.line\"}",
+   "observed": "{\"groups\":\"5,2;6.endword,1;8,7.head\",\"returns\":\"5.head,2.head;4.line,1.line\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "reorder.review",
+   "claim": "reorder: Run review reaches /chat with those values",
+   "expected": "1 call, {\"groups\":\"5,2;6.endword,1;8,7.head\",\"returns\":\"5.head,2.head;4.line,1.line\"}",
+   "observed": {
+    "calls": 1,
+    "groups": "5,2;6.endword,1;8,7.head",
+    "returns": "5.head,2.head;4.line,1.line",
+    "nd": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "reorder.reload.rows",
+   "claim": "reorder.reload: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 5,2;6.endword (carried across the word-cut change),1;8 (carried across the word-cut change),7.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 5.head,2.head;4.line (carried across the word-cut change),1.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 5,2;6.endword (carried across the word-cut change),1;8 (carried across the word-cut change),7.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 5.head,2.head;4.line (carried across the word-cut change),1.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "reorder.reload.keptNotFlagged",
+   "claim": "reorder.reload: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "reorder.reload.sendValue",
+   "claim": "reorder.reload: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"5,2;6.endword,1;8,7.head\",\"returns\":\"5.head,2.head;4.line,1.line\"}",
+   "observed": "{\"groups\":\"5,2;6.endword,1;8,7.head\",\"returns\":\"5.head,2.head;4.line,1.line\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "reorderBack.rows",
+   "claim": "reorderBack: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "reorderBack.keptNotFlagged",
+   "claim": "reorderBack: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "reorderBack.sendValue",
+   "claim": "reorderBack: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "rhymesForm.rows",
+   "claim": "rhymesForm: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "rhymesForm.keptNotFlagged",
+   "claim": "rhymesForm: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "rhymesForm.sendValue",
+   "claim": "rhymesForm: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;2.endword,5;4,3.head;5.T2,6.T2\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": "{\"groups\":\"1,6;2.endword,5;4,3.head;5.T2,6.T2\",\"returns\":\"1.head,6.head;8.line,5.line\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "repeatsForm.rows",
+   "claim": "repeatsForm: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "repeatsForm.keptNotFlagged",
+   "claim": "repeatsForm: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "repeatsForm.sendValue",
+   "claim": "repeatsForm: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;2.endword,5;4,3.head;5.T2,6.T2\",\"returns\":\"1.head,6.head;8.line,5.line;5.head,7.head\"}",
+   "observed": "{\"groups\":\"1,6;2.endword,5;4,3.head;5.T2,6.T2\",\"returns\":\"1.head,6.head;8.line,5.line;5.head,7.head\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "repeatsForm.review",
+   "claim": "repeatsForm: Run review reaches /chat with those values",
+   "expected": "1 call, {\"groups\":\"1,6;2.endword,5;4,3.head;5.T2,6.T2\",\"returns\":\"1.head,6.head;8.line,5.line;5.head,7.head\"}",
+   "observed": {
+    "calls": 1,
+    "groups": "1,6;2.endword,5;4,3.head;5.T2,6.T2",
+    "returns": "1.head,6.head;8.line,5.line;5.head,7.head",
+    "nd": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "rhymesRemove.rows",
+   "claim": "rhymesRemove: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "rhymesRemove.keptNotFlagged",
+   "claim": "rhymesRemove: no notice for a kept member; 3 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=3; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 3,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "rhymesRemove.sendValue",
+   "claim": "rhymesRemove: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;4,3.head;5.T2,6.T2\",\"returns\":\"1.head,6.head;8.line,5.line;5.head,7.head\"}",
+   "observed": "{\"groups\":\"1,6;4,3.head;5.T2,6.T2\",\"returns\":\"1.head,6.head;8.line,5.line;5.head,7.head\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "undo1.rows",
+   "claim": "undo1: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "undo1.keptNotFlagged",
+   "claim": "undo1: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "undo1.sendValue",
+   "claim": "undo1: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;2.endword,5;4,3.head;5.T2,6.T2\",\"returns\":\"1.head,6.head;8.line,5.line;5.head,7.head\"}",
+   "observed": "{\"groups\":\"1,6;2.endword,5;4,3.head;5.T2,6.T2\",\"returns\":\"1.head,6.head;8.line,5.line;5.head,7.head\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "undo3.rows",
+   "claim": "undo3: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "undo3.keptNotFlagged",
+   "claim": "undo3: no notice for a kept member; 4 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=4; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 4,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "undo3.sendValue",
+   "claim": "undo3: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\"}",
+   "observed": "{\"groups\":\"1,6;2.endword,5;4,3.head\",\"returns\":\"1.head,6.head;8.line,5.line\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "redo3.rows",
+   "claim": "redo3: rows are what Keep produced (kept members plain, others still carried, mark kept)",
+   "expected": "[SETUP — rhyme groups — 1,6;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "redo3.keptNotFlagged",
+   "claim": "redo3: no notice for a kept member; 3 carried notices remain; no blocking input notice",
+   "expected": "kept flagged: none; carried=3; inputs=[]",
+   "observed": {
+    "flagged": [],
+    "carried": 3,
+    "inputs": []
+   },
+   "status": "pass"
+  },
+  {
+   "id": "redo3.sendValue",
+   "claim": "redo3: lyContext declarations the page sends are unchanged",
+   "expected": "{\"groups\":\"1,6;4,3.head;5.T2,6.T2\",\"returns\":\"1.head,6.head;8.line,5.line;5.head,7.head\"}",
+   "observed": "{\"groups\":\"1,6;4,3.head;5.T2,6.T2\",\"returns\":\"1.head,6.head;8.line,5.line;5.head,7.head\",\"nd\":[]}",
+   "status": "pass"
+  },
+  {
+   "id": "voicesOn.rows",
+   "claim": "turning voices on after Keep: group rows unchanged (no re-migration of the kept or any member)",
+   "expected": "[SETUP — rhyme groups — 1,6;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "voicesOn.keptNotFlagged",
+   "claim": "turning voices on: kept members still not flagged",
+   "expected": "no line 1 notice",
+   "observed": [
+    "A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+    "A rhyme link member, line 3 · first word, was carried across the word-cut change",
+    "A declared return member, line 8 · whole line, was carried across the word-cut change"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "final.reload",
+   "claim": "final reload: same rows (voices row + F3)",
+   "expected": "[SETUP — rhyme groups — 1,6;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "observed": "[SETUP — rhyme groups — 1,6;4 (carried across the word-cut change),3.head (carried across the word-cut change);5.T2,6.T2 — cut v2] | [SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line;5.head,7.head — cut v2]",
+   "status": "pass"
+  },
+  {
+   "id": "pageErrors",
+   "claim": "no uncaught page errors / script exceptions",
+   "expected": "[]",
+   "observed": [],
+   "status": "pass"
+  }
+ ],
+ "toastsAll": {
+  "boot": [
+   "6 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review."
+  ],
+  "keep": [
+   "6 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review.",
+   "The rhyme link on line 1 is kept as declared. Undo restores the notice.\nUndo",
+   "The declared return on line 1 is kept as declared. Undo restores the notice.\nUndo"
+  ],
+  "reload": [],
+  "importText": [
+   "Imported lyrics.txt. Undo restores the previous draft.\nUndo"
+  ],
+  "libraryReimport": [
+   "Library working copy imported. Your previous draft is under History."
+  ],
+  "importSession": [
+   "Preparing the instrument data…",
+   "Session imported"
+  ],
+  "final": []
+ }
+}

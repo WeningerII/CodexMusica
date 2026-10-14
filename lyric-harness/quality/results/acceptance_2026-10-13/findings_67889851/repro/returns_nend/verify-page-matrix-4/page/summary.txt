@@ -1,0 +1,65 @@
+## M1_main_declare_repeat__main_action ["[SETUP — returns — 1,5;2,6;3,7;4,8]"]
+
+######## M1_main_declare_repeat errors []
+ -- main rows ["[SETUP — returns — 1,5;2,6;3,7;4,8]"]
+   members [[1,"end","","last rhyme","love"],[5,"end","","last rhyme","tonight"],[2,"end","","last rhyme","bass--"],[6,"end","","last rhyme","floor"],[3,"end","","last rhyme","true"],[7,"end","","last rhyme","tonight"],[4,"end","","last rhyme","heart"],[8,"end","","last rhyme","tonight"]]
+   form Declared returns: "Line 1 = Line 5\nLine 2 = Line 6\nLine 3 = Line 7\nLine 4 = Line 8"
+   decl {"returns":"1,5;2,6;3,7;4,8"}  sent [{"returns":"1,5;2,6;3,7;4,8"}]
+ -- cand rows ["[SETUP — returns — 1 (carried across the word-cut change),5;2 (carried across the word-cut change),6;3 (carried across the word-cut change),7;4 (carried across the word-cut change),8 (carried across the word-cut change) — cut v2]"]
+   boot toast: "5 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review."
+   members [[1,"end","C","last rhyme","love"],[5,"end","","last rhyme","tonight"],[2,"end","C","last rhyme","bass"],[6,"end","","last rhyme","floor"],[3,"end","C","last rhyme","true"],[7,"end","","last rhyme","tonight"],[4,"end","C","last rhyme","10"],[8,"end","C","last rhyme","tonight"]]
+   form Declared returns: "Line 1 = Line 5\nLine 2 = Line 6\nLine 3 = Line 7\nLine 4 = Line 8"
+   decl {"returns":"1,5;2,6;3,7;4,8"}  sent [{"returns":"1,5;2,6;3,7;4,8"}]
+   ITEM note | A declared return member, line 1 · last rhyme, was carried across the word-cut change | Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “love” under the earlier cut and “love” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it. | Keep the link/Remove it
+   ITEM note | A declared return member, line 2 · last rhyme, was carried across the word-cut change | Line 2's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it. | Keep the link/Remove it
+   ITEM note | A declared return member, line 3 · last rhyme, was carried across the word-cut change | Line 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “true” under the earlier cut and “true” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it. | Keep the link/Remove it
+   ITEM note | A declared return member, line 4 · last rhyme, was carried across the word-cut change | Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it. | Keep the link/Remove it
+   ITEM note | A declared return member, line 8 · last rhyme, was carried across the word-cut change | Line 8's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “tonight” under the earlier cut and “tonight” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it. | Keep the link/Remove it
+
+######## H1_returns_bare_4_5 errors []
+ -- main rows ["[SETUP — returns — 4,5]"]
+   members [[4,"end","","last rhyme","heart"],[5,"end","","last rhyme","tonight"]]
+   form Declared returns: "Line 4 = Line 5"
+   decl {"returns":"4,5"}  sent [{"returns":"4,5"}]
+ -- cand rows ["[SETUP — returns — 4 (carried across the word-cut change),5 — cut v2]"]
+   boot toast: "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   members [[4,"end","C","last rhyme","10"],[5,"end","","last rhyme","tonight"]]
+   form Declared returns: "Line 4 = Line 5"
+   decl {"returns":"4,5"}  sent [{"returns":"4,5"}]
+   ITEM note | A declared return member, line 4 · last rhyme, was carried across the word-cut change | Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it. | Keep the link/Remove it
+
+######## H2_returns_line_4_5 errors []
+ -- main rows ["[SETUP — returns — 4.line,5.line]"]
+   members [[4,"line","","whole line","You hold my heart.    10"],[5,"line","","whole line","I walk the line tonight"]]
+   form Declared returns: "Line 4 · whole line = Line 5 · whole line"
+   decl {"returns":"4.line,5.line"}  sent [{"returns":"4.line,5.line"}]
+ -- cand rows ["[SETUP — returns — 4.line (carried across the word-cut change),5.line — cut v2]"]
+   boot toast: "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   members [[4,"line","C","whole line","You hold my heart.    10"],[5,"line","","whole line","I walk the line tonight"]]
+   form Declared returns: "Line 4 · whole line = Line 5 · whole line"
+   decl {"returns":"4.line,5.line"}  sent [{"returns":"4.line,5.line"}]
+   ITEM note | A declared return member, line 4 · whole line, was carried across the word-cut change | Line 4's word cut changed in this release, so what its whole line reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “You hold my heart” under the earlier cut and “You hold my heart 10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you d | Keep the link/Remove it
+
+######## H3_returns_end_4_5 errors []
+ -- main rows ["[SETUP — returns — 4.end,5.end]"]
+   members [[4,"end","","last rhyme","heart"],[5,"end","","last rhyme","tonight"]]
+   form Declared returns: "Line 4 = Line 5"
+   decl {"returns":"4.end,5.end"}  sent [{"returns":"4.end,5.end"}]
+ -- cand rows ["[SETUP — returns — 4 (carried across the word-cut change),5 — cut v2]"]
+   boot toast: "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   members [[4,"end","C","last rhyme","10"],[5,"end","","last rhyme","tonight"]]
+   form Declared returns: "Line 4 = Line 5"
+   decl {"returns":"4,5"}  sent [{"returns":"4,5"}]
+   ITEM note | A declared return member, line 4 · last rhyme, was carried across the word-cut change | Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it. | Keep the link/Remove it
+
+######## H4_groups_bare_4_5 errors []
+ -- main rows ["[SETUP — rhyme groups — 4,5]"]
+   members [[4,"end","","last rhyme","heart"],[5,"end","","last rhyme","tonight"]]
+   form Declared returns: null
+   decl {"groups":"4,5"}  sent [{"groups":"4,5"}]
+ -- cand rows ["[SETUP — rhyme groups — 4 (carried across the word-cut change),5 — cut v2]"]
+   boot toast: "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   members [[4,"end","C","last rhyme","10"],[5,"end","","last rhyme","tonight"]]
+   form Declared returns: null
+   decl {"groups":"4,5"}  sent [{"groups":"4,5"}]
+   ITEM note | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change | Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it. | Keep the link/Remove it

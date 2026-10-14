@@ -1,0 +1,4 @@
+  REFUSED — the mandate was not accepted.
+  return class ['4', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes.
+  lyric result: {"lexicon":{"supplement_id":null,"sha256":null},"status":"refused","exit":2,"refusal":"return class ['4', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes.","version":1,"transport_token":null}
+exit 2

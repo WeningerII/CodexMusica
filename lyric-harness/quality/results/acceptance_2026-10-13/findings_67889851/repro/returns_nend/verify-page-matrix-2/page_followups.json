@@ -1,0 +1,82 @@
+{
+ "K1": {
+  "loaded": [
+   "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]"
+  ],
+  "notice": {
+   "id": "returns:0:carried:0:0",
+   "text": "Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+   "actions": [
+    [
+     "ly-carried-keep",
+     "returns|0|0|0"
+    ],
+    [
+     "ly-carried-remove",
+     "returns|0|0|0"
+    ]
+   ]
+  },
+  "afterKeep": [
+   "[SETUP — returns — 4,6 — cut v2]"
+  ],
+  "carriedNoticesAfterKeep": 0,
+  "sent": [
+   "4,6"
+  ],
+  "errors": []
+ },
+ "F1": {
+  "tree": "main",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "loaded": [
+   "[SETUP — returns — 4.end,6.end]"
+  ],
+  "sentBeforeForm": [
+   "4.end,6.end"
+  ],
+  "placedPlacesOffered": [
+   "head",
+   "line",
+   "endword",
+   "T1",
+   "T2",
+   "T3",
+   "T4"
+  ],
+  "afterForm": [
+   "[SETUP — returns — 4,6;2.head,3.head]"
+  ],
+  "sentAfterForm": [
+   "4,6;2.head,3.head"
+  ],
+  "errors": []
+ },
+ "F2": {
+  "tree": "cand",
+  "written": "[SETUP — returns — 4.end,6.end — cut v2]",
+  "loaded": [
+   "[SETUP — returns — 4.end,6.end — cut v2]"
+  ],
+  "sentBeforeForm": [
+   "4.end,6.end"
+  ],
+  "placedPlacesOffered": [
+   "head",
+   "line",
+   "endword",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5"
+  ],
+  "afterForm": [
+   "[SETUP — returns — 4,6;2.head,3.head — cut v2]"
+  ],
+  "sentAfterForm": [
+   "4,6;2.head,3.head"
+  ],
+  "errors": []
+ }
+}

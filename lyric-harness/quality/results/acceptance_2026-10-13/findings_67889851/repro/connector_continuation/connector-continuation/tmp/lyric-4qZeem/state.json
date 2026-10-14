@@ -1,0 +1,349 @@
+{
+  "version": 1,
+  "answered": {
+    "propose": [
+      {
+        "line": 2,
+        "attempt": 0,
+        "round": 1,
+        "draft": "54ab17b496bf",
+        "text": "I left the basket underneath the oak",
+        "batch": null
+      }
+    ],
+    "propose_group": []
+  },
+  "pending": null,
+  "lexicon": {
+    "supplement_id": "v2",
+    "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+  },
+  "input_draft": [
+    "Copper cat",
+    "Azure dog"
+  ],
+  "accepted_lines": [
+    "Copper cat",
+    "Azure dog"
+  ],
+  "outcomes": [],
+  "group_outcomes": [],
+  "dispositions": [],
+  "round": 1,
+  "status": "resumed",
+  "cursor": {
+    "version": 1,
+    "loop": {
+      "phase": "pass",
+      "round": 1,
+      "at": 0,
+      "pass": [
+        2
+      ],
+      "judged_open": true,
+      "draft": [
+        "Copper cat",
+        "Azure dog"
+      ],
+      "round_draft": null,
+      "touched": [],
+      "fixed": [],
+      "resolved": [],
+      "attempts": [],
+      "rounds": [],
+      "barren": 0,
+      "touched_by": {},
+      "last_accept": [],
+      "unit_verdicts": [],
+      "menus": [
+        [
+          "('brief', '458d23c0fc36cd72a3d0c5aa66218e366a8f28dc4e6f85521a7925c5c45432e5', [2])",
+          [
+            {
+              "$dc": "quality.revise:Brief",
+              "a": {
+                "line_no": 2,
+                "text": "Azure dog",
+                "findings": [
+                  {
+                    "$dc": "quality.floor:Finding",
+                    "a": {
+                      "code": "SCHEME_VIOLATION",
+                      "severity": "flag",
+                      "message": "L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires",
+                      "evidence": "does not satisfy the declared relation 'type:rime riche' \u2014 judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score 0.737; 'cat' ~ 'dog') \u2014 NAMED PAIR IS NOT THE EVIDENCE: scored on: Copper cat  ~  Azure dog   (best of k=4)   MOSAIC (both sides): the winning span reaches back past the end word",
+                      "locations": [
+                        1,
+                        2
+                      ],
+                      "groups": {
+                        "$t": [
+                          "A"
+                        ]
+                      },
+                      "obligations": {
+                        "$t": []
+                      },
+                      "subject": {
+                        "$t": []
+                      }
+                    }
+                  }
+                ],
+                "slot": null,
+                "slot_conflict": false,
+                "fields_by_slot": {
+                  "$d": [
+                    [
+                      null,
+                      {
+                        "$dc": "quality.revise:SlotField",
+                        "a": {
+                          "slot": null,
+                          "labels": {
+                            "$t": [
+                              "A"
+                            ]
+                          },
+                          "calls": {
+                            "$t": [
+                              "cat"
+                            ]
+                          },
+                          "incumbent": "dog",
+                          "offered": [],
+                          "forbidden": [
+                            "kat"
+                          ],
+                          "violated": true,
+                          "joint_conflict": false,
+                          "dropped": {
+                            "$t": []
+                          },
+                          "by_call": {
+                            "$t": []
+                          },
+                          "schema_refused": {
+                            "$t": [
+                              "matt",
+                              "pratt",
+                              "habitat",
+                              "diplomat",
+                              "pussycat",
+                              "democrat",
+                              "copycat",
+                              "format",
+                              "aristocrat",
+                              "chitchat",
+                              "laundromat",
+                              "wildcat",
+                              "bureaucrat",
+                              "platt",
+                              "doormat",
+                              "thermostat",
+                              "acrobat",
+                              "tomcat",
+                              "matte",
+                              "snapchat",
+                              "bobcat",
+                              "spratt",
+                              "caveat",
+                              "wombat",
+                              "that",
+                              "at",
+                              "sat",
+                              "spat",
+                              "fat",
+                              "flat",
+                              "mat",
+                              "rat",
+                              "chat",
+                              "what",
+                              "hat",
+                              "bat",
+                              "pat",
+                              "somewhat",
+                              "brat",
+                              "nat",
+                              "swat",
+                              "twat",
+                              "stat",
+                              "dat",
+                              "tat",
+                              "vat",
+                              "scat",
+                              "wat",
+                              "splat",
+                              "lat",
+                              "gat",
+                              "begat",
+                              "gnat",
+                              "sadat",
+                              "nonfat",
+                              "gujarat"
+                            ]
+                          },
+                          "grader_refused": {
+                            "$t": []
+                          },
+                          "widened": 0
+                        }
+                      }
+                    ]
+                  ]
+                },
+                "group_slots": {
+                  "$d": [
+                    [
+                      "A",
+                      null
+                    ]
+                  ]
+                },
+                "violated_groups": {
+                  "$t": [
+                    "A"
+                  ]
+                },
+                "noted_groups": {
+                  "$d": []
+                },
+                "slot_groups": {
+                  "$t": [
+                    "A"
+                  ]
+                },
+                "screened_out": {
+                  "$t": []
+                },
+                "round_no": 0,
+                "must_rhyme_with": {
+                  "$t": [
+                    1,
+                    "cat"
+                  ]
+                },
+                "candidates": [],
+                "forbidden_modal": [
+                  "kat"
+                ],
+                "forbidden_incumbent": "dog",
+                "return_groups": {
+                  "$t": []
+                },
+                "return_members": {
+                  "$t": []
+                },
+                "field_computed": true,
+                "empty_head_cause": "",
+                "keep": [
+                  1
+                ],
+                "must_answer": [
+                  {
+                    "$t": [
+                      "A",
+                      [
+                        1,
+                        2
+                      ],
+                      [
+                        {
+                          "$t": [
+                            1,
+                            "cat"
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ],
+                "joint_conflict": false,
+                "partial_by_call": {
+                  "$t": []
+                },
+                "schema_refused": {
+                  "$t": [
+                    "matt",
+                    "pratt",
+                    "habitat",
+                    "diplomat",
+                    "pussycat",
+                    "democrat",
+                    "copycat",
+                    "format",
+                    "aristocrat",
+                    "chitchat",
+                    "laundromat",
+                    "wildcat",
+                    "bureaucrat",
+                    "platt",
+                    "doormat",
+                    "thermostat",
+                    "acrobat",
+                    "tomcat",
+                    "matte",
+                    "snapchat",
+                    "bobcat",
+                    "spratt",
+                    "caveat",
+                    "wombat",
+                    "that",
+                    "at",
+                    "sat",
+                    "spat",
+                    "fat",
+                    "flat",
+                    "mat",
+                    "rat",
+                    "chat",
+                    "what",
+                    "hat",
+                    "bat",
+                    "pat",
+                    "somewhat",
+                    "brat",
+                    "nat",
+                    "swat",
+                    "twat",
+                    "stat",
+                    "dat",
+                    "tat",
+                    "vat",
+                    "scat",
+                    "wat",
+                    "splat",
+                    "lat",
+                    "gat",
+                    "begat",
+                    "gnat",
+                    "sadat",
+                    "nonfat",
+                    "gujarat"
+                  ]
+                },
+                "grader_refused": {
+                  "$t": []
+                },
+                "field_widened": 0,
+                "offer_emptied_by_ban": "NOTHING OFFERED: the searched answers to 'cat' were removed by the two-tier\nban (HOMEOTELEUTON / MODAL_RHYME; 1 under FORBIDDEN). This bounded field\ndoes not prove that no one-line repair exists. The GROUP (A) can move\ntogether through tier 2, the joint backtrack (M-105): `revise`/`finish`\nescalate there after tier 1 fails (M-205). The CLI uses `--backtrack=5`;\nconnector `lyric_revise` uses `backtrack=1` by default (0 disables group\nsearch). Preserve every declared relation and return while rewriting.\n`capacity WORD` can also show a certified chain and the words the ban admits\nagainst WORD; that evidence has its own declared scope.",
+                "field_declaration": "field_depth=complete pool, field_band='grader'",
+                "offers_requested": true
+              }
+            }
+          ]
+        ]
+      ]
+    },
+    "tally_hit": 0,
+    "stale": [],
+    "batch_stale": [],
+    "rej": [],
+    "grej": [],
+    "k1": 0,
+    "k2": 0,
+    "digest": "6e611f9e4647113a9c689067db5200757f0bbc8bd6d477a55a338698630dd368",
+    "run_key": "413521d96e3c877d6b02b76f1bef4e1ca7ce73503f2cc13e0aeb5aba7bb35076",
+    "scorer": "df6532652dea9d578ecc6cb0b44a1370f6138d0eb28aae4653fb3aed116f6a7c"
+  }
+}

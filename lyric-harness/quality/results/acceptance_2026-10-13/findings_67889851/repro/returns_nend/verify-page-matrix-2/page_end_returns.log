@@ -1,0 +1,112 @@
+[main] R1 returns 4.end,6.end (L4 numeral end, cut changed)
+  written : [SETUP — returns — 4.end,6.end]
+  on load : [SETUP — returns — 4.end,6.end]
+  notices : []
+  view    : "Declared returns\nLine 4 = Line 6\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to the whole document. Chang"
+  decl    : {"returns":"4.end,6.end"}
+  /chat   : calls=1 declarations.returns=["4.end,6.end"] declarations.groups=[null]
+  errors  : []
+[main] R2 returns 4,6 (bare, whole line)
+  written : [SETUP — returns — 4,6]
+  on load : [SETUP — returns — 4,6]
+  notices : []
+  view    : "Declared returns\nLine 4 = Line 6\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to the whole document. Chang"
+  decl    : {"returns":"4,6"}
+  /chat   : calls=1 declarations.returns=["4,6"] declarations.groups=[null]
+  errors  : []
+[main] R3 returns 4.end,6.end already marked cut v2
+  written : [SETUP — returns — 4.end,6.end — cut v2]
+  on load : [SETUP — returns — 4.end,6.end — cut v2]
+  notices : ["input | returns:0 | A declared return points at 6.end — cut v2, which the draft does not have"]
+  view    : "Declared returns\nLine 4 = 6.end — cut v2\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to the whole documen"
+  decl    : {"returns":"4.end,6.end — cut v2"}
+  /chat   : calls=1 declarations.returns=["4.end,6.end — cut v2"] declarations.groups=[null]
+  errors  : []
+[main] R4 returns 5.end,6.end (unchanged lines)
+  written : [SETUP — returns — 5.end,6.end]
+  on load : [SETUP — returns — 5.end,6.end]
+  notices : []
+  view    : "Declared returns\nLine 5 = Line 6\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to the whole document. Chang"
+  decl    : {"returns":"5.end,6.end"}
+  /chat   : calls=1 declarations.returns=["5.end,6.end"] declarations.groups=[null]
+  errors  : []
+[main] R5 returns 5.end,6.end;1.T4,8.T4 (unchanged N.end + T row-mate)
+  written : [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  on load : [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  notices : []
+  view    : "Declared returns\nLine 5 = Line 6\nLine 1 · word 4 = Line 8 · word 4\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nAp"
+  decl    : {"returns":"5.end,6.end;1.T4,8.T4"}
+  /chat   : calls=1 declarations.returns=["5.end,6.end;1.T4,8.T4"] declarations.groups=[null]
+  errors  : []
+[main] R6 returns 4.head,6.head (named non-end place, cut changed)
+  written : [SETUP — returns — 4.head,6.head]
+  on load : [SETUP — returns — 4.head,6.head]
+  notices : []
+  view    : "Declared returns\nLine 4 · first word = Line 6 · first word\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to"
+  decl    : {"returns":"4.head,6.head"}
+  /chat   : calls=1 declarations.returns=["4.head,6.head"] declarations.groups=[null]
+  errors  : []
+[main] G1 rhyme groups 4.end,6 (rhyme row for contrast)
+  written : [SETUP — rhyme groups — 4.end,6]
+  on load : [SETUP — rhyme groups — 4.end,6]
+  notices : []
+  view    : "Declared returns\n\nNone declared.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to the whole document. Changing it changes which words are sung, so readings and review may "
+  decl    : {"groups":"4.end,6"}
+  /chat   : calls=1 declarations.returns=[null] declarations.groups=["4.end,6"]
+  errors  : []
+[cand] R1 returns 4.end,6.end (L4 numeral end, cut changed)
+  written : [SETUP — returns — 4.end,6.end]
+  on load : [SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]
+  notices : ["note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"]
+  view    : "Declared returns\nLine 4 = Line 6\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to the whole document. Chang"
+  decl    : {"returns":"4,6"}
+  /chat   : calls=1 declarations.returns=["4,6"] declarations.groups=[null]
+  errors  : []
+[cand] R2 returns 4,6 (bare, whole line)
+  written : [SETUP — returns — 4,6]
+  on load : [SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]
+  notices : ["note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"]
+  view    : "Declared returns\nLine 4 = Line 6\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to the whole document. Chang"
+  decl    : {"returns":"4,6"}
+  /chat   : calls=1 declarations.returns=["4,6"] declarations.groups=[null]
+  errors  : []
+[cand] R3 returns 4.end,6.end already marked cut v2
+  written : [SETUP — returns — 4.end,6.end — cut v2]
+  on load : [SETUP — returns — 4.end,6.end — cut v2]
+  notices : []
+  view    : "Declared returns\nLine 4 = Line 6\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to the whole document. Chang"
+  decl    : {"returns":"4.end,6.end"}
+  /chat   : calls=1 declarations.returns=["4.end,6.end"] declarations.groups=[null]
+  errors  : []
+[cand] R4 returns 5.end,6.end (unchanged lines)
+  written : [SETUP — returns — 5.end,6.end]
+  on load : [SETUP — returns — 5.end,6.end]
+  notices : []
+  view    : "Declared returns\nLine 5 = Line 6\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to the whole document. Chang"
+  decl    : {"returns":"5.end,6.end"}
+  /chat   : calls=1 declarations.returns=["5.end,6.end"] declarations.groups=[null]
+  errors  : []
+[cand] R5 returns 5.end,6.end;1.T4,8.T4 (unchanged N.end + T row-mate)
+  written : [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  on load : [SETUP — returns — 5,6;1.T5,8.T5 — cut v2]
+  notices : []
+  view    : "Declared returns\nLine 5 = Line 6\nLine 1 · word 5 = Line 8 · word 5\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nAp"
+  decl    : {"returns":"5,6;1.T5,8.T5"}
+  /chat   : calls=1 declarations.returns=["5,6;1.T5,8.T5"] declarations.groups=[null]
+  errors  : []
+[cand] R6 returns 4.head,6.head (named non-end place, cut changed)
+  written : [SETUP — returns — 4.head,6.head]
+  on load : [SETUP — returns — 4.head (carried across the word-cut change),6.head — cut v2]
+  notices : ["note | returns:0:carried:0:0 | A declared return member, line 4 · first word, was carried across the word-cut change"]
+  view    : "Declared returns\nLine 4 · first word = Line 6 · first word\nClear declared returns\n\nClearing a return never deletes lyrics.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to"
+  decl    : {"returns":"4.head,6.head"}
+  /chat   : calls=1 declarations.returns=["4.head,6.head"] declarations.groups=[null]
+  errors  : []
+[cand] G1 rhyme groups 4.end,6 (rhyme row for contrast)
+  written : [SETUP — rhyme groups — 4.end,6]
+  on load : [SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]
+  notices : ["note | rhyme groups:0:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change"]
+  view    : "Declared returns\n\nNone declared.\n\nPlaced returns\nParenthesised text\nUnsung aside\nSung second voice\n\nApplies to the whole document. Changing it changes which words are sung, so readings and review may "
+  decl    : {"groups":"4,6"}
+  /chat   : calls=1 declarations.returns=[null] declarations.groups=["4,6"]
+  errors  : []

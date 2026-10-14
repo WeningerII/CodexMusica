@@ -1,0 +1,96 @@
+{
+ "identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+ "fresh": {
+  "status": 200,
+  "body": {
+   "reply": "This song has no certified final deliverable yet.",
+   "completion": null,
+   "artifact": null,
+   "cost": 0.00002,
+   "accounted_cost": 0.00002,
+   "usage_unknown": false,
+   "accounting": {
+    "id": "272b96377f774d309c2de6b97c540fb329b58c5ce874062e88f43f21ad596665",
+    "usd": 0.00002,
+    "reservedUsd": 0,
+    "unknownUsd": 0,
+    "maxUsd": 2.5,
+    "events": [
+     {
+      "reservation_id": "a82c47ce95467778f603a517885095c66571edcfda3eacff495eef2682948cf6",
+      "model": "gemini-3.1-flash-lite",
+      "status": "success",
+      "usd": 0.00002,
+      "reservedUsd": 0.16802225,
+      "usage": {
+       "promptTokenCount": 20,
+       "candidatesTokenCount": 10,
+       "thoughtsTokenCount": 0
+      }
+     }
+    ]
+   },
+   "usage": {
+    "promptTokens": 20,
+    "candidatesTokens": 10,
+    "thoughtsTokens": 0,
+    "requests": 1,
+    "providerAttempts": 1,
+    "retries": 0,
+    "malformedRetries": 0,
+    "kitchenUsd": 0,
+    "kitchenUnpriced": false
+   },
+   "recipe": null,
+   "cards": null,
+   "tools": [],
+   "stopped": "LYRICS_UNFINISHED",
+   "stopped_detail": null,
+   "malformed": [],
+   "history": [
+    {
+     "role": "user",
+     "parts": [
+      {
+       "text": "new love song"
+      }
+     ]
+    },
+    {
+     "role": "model",
+     "parts": [
+      {
+       "text": "working"
+      }
+     ]
+    }
+   ],
+   "workspace": null,
+   "task": {
+    "version": 3,
+    "domain": "lyrics",
+    "connector_semantic_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+    "format": "rich",
+    "maxChars": 1000,
+    "phase": "create",
+    "requiresCustomization": false,
+    "brief": "new love song",
+    "plan": null,
+    "completedSteps": [],
+    "turns": 1,
+    "workflow": {
+     "version": 1,
+     "sweeps": [],
+     "screen": null,
+     "plan": null,
+     "grade": null,
+     "started": null
+    },
+    "instructions": [
+     "new love song"
+    ]
+   },
+   "sig": "6f905752ac3b1a666170f8d145fb3e47da54e7c3fca4bf933c6b0a83fc59b2a0"
+  }
+ }
+}

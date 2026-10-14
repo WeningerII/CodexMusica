@@ -1,0 +1,225 @@
+ok   [light 1280] explore renders without an error state
+ok   [light 1280] explore: shelves in first-appearance order start cym,fas,fin,eng
+ok   [light 1280] explore: collection cards
+ok   [light 1280] explore: collections rail
+ok   [light 1280] explore: topline
+ok   [light 1280] explore: a card names its collection
+ok   [light 1280] collection page renders
+ok   [light 1280] explore: theme is light
+ok   [light 1280] explore: no horizontal page overflow
+ok   [light 1280] explore: no console errors
+ok   [light 390] explore renders without an error state
+ok   [light 390] explore: shelves in first-appearance order start cym,fas,fin,eng
+ok   [light 390] explore: collection cards
+ok   [light 390] explore: collections rail
+ok   [light 390] explore: topline
+ok   [light 390] explore: a card names its collection
+FAIL [light 390] collection page renders — 0 rows
+ok   [light 390] explore: theme is light
+ok   [light 390] explore: no horizontal page overflow
+ok   [light 390] explore: no console errors
+ok   [dark 1280] explore renders without an error state
+ok   [dark 1280] explore: shelves in first-appearance order start cym,fas,fin,eng
+ok   [dark 1280] explore: collection cards
+ok   [dark 1280] explore: collections rail
+ok   [dark 1280] explore: topline
+ok   [dark 1280] explore: a card names its collection
+ok   [dark 1280] collection page renders
+ok   [dark 1280] explore: theme is dark
+ok   [dark 1280] explore: no horizontal page overflow
+ok   [dark 1280] explore: no console errors
+ok   [dark 390] explore renders without an error state
+ok   [dark 390] explore: shelves in first-appearance order start cym,fas,fin,eng
+ok   [dark 390] explore: collection cards
+ok   [dark 390] explore: collections rail
+ok   [dark 390] explore: topline
+ok   [dark 390] explore: a card names its collection
+ok   [dark 390] collection page renders
+ok   [dark 390] explore: theme is dark
+ok   [dark 390] explore: no horizontal page overflow
+ok   [dark 390] explore: no console errors
+ok   [light 1280] works: table renders 50 rows
+ok   [light 1280] works: search finds Epithalamion
+ok   [light 1280] works: q in the hash
+ok   [light 1280] works: filters sheet opens
+ok   [light 1280] works: Escape closes the filters sheet
+ok   [light 1280] works: metadata sheet shows the record
+ok   [light 1280] works: theme is light
+ok   [light 1280] works: no horizontal page overflow
+ok   [light 1280] works: no console errors
+ok   [light 390] works: table renders 50 rows
+ok   [light 390] works: search finds Epithalamion
+ok   [light 390] works: q in the hash
+ok   [light 390] works: filters sheet opens
+ok   [light 390] works: Escape closes the filters sheet
+ok   [light 390] works: metadata sheet shows the record
+ok   [light 390] works: theme is light
+ok   [light 390] works: no horizontal page overflow
+ok   [light 390] works: no console errors
+ok   [dark 1280] works: table renders 50 rows
+ok   [dark 1280] works: search finds Epithalamion
+ok   [dark 1280] works: q in the hash
+ok   [dark 1280] works: filters sheet opens
+ok   [dark 1280] works: Escape closes the filters sheet
+ok   [dark 1280] works: metadata sheet shows the record
+ok   [dark 1280] works: theme is dark
+ok   [dark 1280] works: no horizontal page overflow
+ok   [dark 1280] works: no console errors
+ok   [dark 390] works: table renders 50 rows
+ok   [dark 390] works: search finds Epithalamion
+ok   [dark 390] works: q in the hash
+ok   [dark 390] works: filters sheet opens
+ok   [dark 390] works: Escape closes the filters sheet
+ok   [dark 390] works: metadata sheet shows the record
+ok   [dark 390] works: theme is dark
+ok   [dark 390] works: no horizontal page overflow
+ok   [dark 390] works: no console errors
+ok   [light 1280] rights: view renders
+ok   [light 1280] rights: selection accepts a readable unit
+ok   [light 1280] rights: export panel counts the selection
+ok   [light 1280] rights: theme is light
+ok   [light 1280] rights: no horizontal page overflow
+ok   [light 1280] rights: no console errors
+ok   [light 390] rights: view renders
+ok   [light 390] rights: selection accepts a readable unit
+ok   [light 390] rights: export panel counts the selection
+ok   [light 390] rights: theme is light
+ok   [light 390] rights: no horizontal page overflow
+ok   [light 390] rights: no console errors
+ok   [dark 1280] rights: view renders
+ok   [dark 1280] rights: selection accepts a readable unit
+ok   [dark 1280] rights: export panel counts the selection
+ok   [dark 1280] rights: theme is dark
+ok   [dark 1280] rights: no horizontal page overflow
+ok   [dark 1280] rights: no console errors
+ok   [dark 390] rights: view renders
+ok   [dark 390] rights: selection accepts a readable unit
+ok   [dark 390] rights: export panel counts the selection
+ok   [dark 390] rights: theme is dark
+ok   [dark 390] rights: no horizontal page overflow
+ok   [dark 390] rights: no console errors
+ok   [light 1280] reader: paper renders the first page
+ok   [light 1280] reader: title shown
+ok   [light 1280] reader: Load next for a 2-page reading
+ok   [light 1280] reader: paging appends the next rows
+ok   [light 1280] reader: passage bar after selecting lines
+ok   [light 1280] reader: Lyrics handoff opens Lyrics
+ok   [light 1280] reader: Lyrics holds the exact excerpt
+ok   [light 1280] reader: theme is light
+ok   [light 1280] reader: no horizontal page overflow
+ok   [light 1280] reader: no console errors
+ok   [light 390] reader: paper renders the first page
+ok   [light 390] reader: title shown
+ok   [light 390] reader: Load next for a 2-page reading
+ok   [light 390] reader: paging appends the next rows
+ok   [light 390] reader: passage bar after selecting lines
+ok   [light 390] reader: Lyrics handoff opens Lyrics
+ok   [light 390] reader: Lyrics holds the exact excerpt
+ok   [light 390] reader: theme is light
+ok   [light 390] reader: no horizontal page overflow
+ok   [light 390] reader: no console errors
+ok   [dark 1280] reader: paper renders the first page
+ok   [dark 1280] reader: title shown
+ok   [dark 1280] reader: Load next for a 2-page reading
+ok   [dark 1280] reader: paging appends the next rows
+ok   [dark 1280] reader: passage bar after selecting lines
+ok   [dark 1280] reader: Lyrics handoff opens Lyrics
+ok   [dark 1280] reader: Lyrics holds the exact excerpt
+ok   [dark 1280] reader: theme is dark
+ok   [dark 1280] reader: no horizontal page overflow
+ok   [dark 1280] reader: no console errors
+ok   [dark 390] reader: paper renders the first page
+ok   [dark 390] reader: title shown
+ok   [dark 390] reader: Load next for a 2-page reading
+ok   [dark 390] reader: paging appends the next rows
+ok   [dark 390] reader: passage bar after selecting lines
+ok   [dark 390] reader: Lyrics handoff opens Lyrics
+ok   [dark 390] reader: Lyrics holds the exact excerpt
+ok   [dark 390] reader: theme is dark
+ok   [dark 390] reader: no horizontal page overflow
+ok   [dark 390] reader: no console errors
+ok   [light 1280] compare: deep link ?compare= opens the aligned diff
+ok   [light 1280] compare: picker offers the other reading of the work
+ok   [light 1280] compare: Show next aligned rows
+ok   [light 1280] compare: Escape closes and removes ?compare
+ok   [light 1280] compare: Compare passage restricts to the selected lines
+ok   [light 1280] compare: Persian pair renders right-to-left, lang fas, as a text comparison
+ok   [light 1280] compare: theme is light
+ok   [light 1280] compare: no horizontal page overflow
+ok   [light 1280] compare: no console errors
+ok   [light 390] compare: deep link ?compare= opens the aligned diff
+ok   [light 390] compare: picker offers the other reading of the work
+ok   [light 390] compare: Show next aligned rows
+ok   [light 390] compare: mobile Other mode shows one column
+ok   [light 390] compare: Escape closes and removes ?compare
+ok   [light 390] compare: Compare passage restricts to the selected lines
+ok   [light 390] compare: Persian pair renders right-to-left, lang fas, as a text comparison
+ok   [light 390] compare: theme is light
+ok   [light 390] compare: no horizontal page overflow
+ok   [light 390] compare: no console errors
+ok   [dark 1280] compare: deep link ?compare= opens the aligned diff
+ok   [dark 1280] compare: picker offers the other reading of the work
+ok   [dark 1280] compare: Show next aligned rows
+ok   [dark 1280] compare: Escape closes and removes ?compare
+ok   [dark 1280] compare: Compare passage restricts to the selected lines
+ok   [dark 1280] compare: Persian pair renders right-to-left, lang fas, as a text comparison
+ok   [dark 1280] compare: theme is dark
+ok   [dark 1280] compare: no horizontal page overflow
+ok   [dark 1280] compare: no console errors
+ok   [dark 390] compare: deep link ?compare= opens the aligned diff
+ok   [dark 390] compare: picker offers the other reading of the work
+ok   [dark 390] compare: Show next aligned rows
+ok   [dark 390] compare: mobile Other mode shows one column
+ok   [dark 390] compare: Escape closes and removes ?compare
+ok   [dark 390] compare: Compare passage restricts to the selected lines
+ok   [dark 390] compare: Persian pair renders right-to-left, lang fas, as a text comparison
+ok   [dark 390] compare: theme is dark
+ok   [dark 390] compare: no horizontal page overflow
+ok   [dark 390] compare: no console errors
+ok   [light 1280] analysis: Sound lens offers Analyze
+ok   [light 1280] analysis: POST /analyses sent
+ok   [light 1280] analysis: job state shown
+ok   [light 1280] analysis: form lens renders
+ok   [light 1280] analysis: rhythm lens renders
+ok   [light 1280] analysis: language lens renders
+ok   [light 1280] analysis: summary lens renders
+ok   [light 1280] analysis: sources lens renders
+ok   [light 1280] analysis: theme is light
+ok   [light 1280] analysis: no horizontal page overflow
+ok   [light 1280] analysis: no console errors
+ok   [light 390] analysis: Sound lens offers Analyze
+ok   [light 390] analysis: POST /analyses sent
+ok   [light 390] analysis: job state shown
+ok   [light 390] analysis: form lens renders
+ok   [light 390] analysis: rhythm lens renders
+ok   [light 390] analysis: language lens renders
+ok   [light 390] analysis: summary lens renders
+ok   [light 390] analysis: sources lens renders
+ok   [light 390] analysis: theme is light
+ok   [light 390] analysis: no horizontal page overflow
+ok   [light 390] analysis: no console errors
+ok   [dark 1280] analysis: Sound lens offers Analyze
+ok   [dark 1280] analysis: POST /analyses sent
+ok   [dark 1280] analysis: job state shown
+ok   [dark 1280] analysis: form lens renders
+ok   [dark 1280] analysis: rhythm lens renders
+ok   [dark 1280] analysis: language lens renders
+ok   [dark 1280] analysis: summary lens renders
+ok   [dark 1280] analysis: sources lens renders
+ok   [dark 1280] analysis: theme is dark
+ok   [dark 1280] analysis: no horizontal page overflow
+ok   [dark 1280] analysis: no console errors
+ok   [dark 390] analysis: Sound lens offers Analyze
+ok   [dark 390] analysis: POST /analyses sent
+ok   [dark 390] analysis: job state shown
+ok   [dark 390] analysis: form lens renders
+ok   [dark 390] analysis: rhythm lens renders
+ok   [dark 390] analysis: language lens renders
+ok   [dark 390] analysis: summary lens renders
+ok   [dark 390] analysis: sources lens renders
+ok   [dark 390] analysis: theme is dark
+ok   [dark 390] analysis: no horizontal page overflow
+ok   [dark 390] analysis: no console errors
+check_library_page: FAIL — 221/222 checks, chunks: analysis,compare,core,reader,rights,works
+exit=1
+secs=47

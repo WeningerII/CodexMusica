@@ -1,0 +1,515 @@
+{
+ "load": [
+  {
+   "name": "L1 returns 4.end,7.end (line 4 ends in a numeral)",
+   "key": "returns",
+   "written": "4.end,7.end",
+   "main_row_after_reload": [
+    "[SETUP — returns — 4.end,7.end]"
+   ],
+   "main_saved": [
+    "[SETUP — returns — 4.end,7.end]"
+   ],
+   "main_sent": {
+    "chat": [
+     {
+      "returns": "4.end,7.end"
+     }
+    ],
+    "builder": {
+     "returns": "4.end,7.end"
+    },
+    "clearedPending": false
+   },
+   "cand_cut_changed": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     false
+    ],
+    [
+     3,
+     false
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "cand_row_after_upgrade": [
+    "[SETUP — returns — 4 (carried across the word-cut change),7 — cut v2]"
+   ],
+   "cand_toasts": [
+    "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   ],
+   "cand_notices": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 4 · last rhyme, was carried across the word-cut change",
+     "actions": [
+      [
+       "ly-carried-keep",
+       "returns|0|0|0"
+      ],
+      [
+       "ly-carried-remove",
+       "returns|0|0|0"
+      ]
+     ]
+    }
+   ],
+   "cand_sent": {
+    "chat": [
+     {
+      "returns": "4,7"
+     }
+    ],
+    "builder": {
+     "returns": "4,7"
+    },
+    "clearedPending": false
+   },
+   "cand_row_after_keep": [
+    "[SETUP — returns — 4,7 — cut v2]"
+   ],
+   "cand_toasts_after_keep": [
+    "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review.",
+    "The declared return on line 4 is kept as declared. Undo restores the notice.\nUndo"
+   ],
+   "cand_sent_after_keep": {
+    "chat": [
+     {
+      "returns": "4,7"
+     }
+    ],
+    "builder": {
+     "returns": "4,7"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "name": "L2 returns 5.end,6.end (unchanged lines only)",
+   "key": "returns",
+   "written": "5.end,6.end",
+   "main_row_after_reload": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "main_saved": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "main_sent": {
+    "chat": [
+     {
+      "returns": "5.end,6.end"
+     }
+    ],
+    "builder": {
+     "returns": "5.end,6.end"
+    },
+    "clearedPending": false
+   },
+   "cand_cut_changed": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     false
+    ],
+    [
+     3,
+     false
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "cand_row_after_upgrade": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "cand_toasts": [],
+   "cand_notices": [],
+   "cand_sent": {
+    "chat": [
+     {
+      "returns": "5.end,6.end"
+     }
+    ],
+    "builder": {
+     "returns": "5.end,6.end"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "name": "L3 returns 5.end,6.end;2.T2,3.T2 (unchanged N.end + T row-mate)",
+   "key": "returns",
+   "written": "5.end,6.end;2.T2,3.T2",
+   "main_row_after_reload": [
+    "[SETUP — returns — 5.end,6.end;2.T2,3.T2]"
+   ],
+   "main_saved": [
+    "[SETUP — returns — 5.end,6.end;2.T2,3.T2]"
+   ],
+   "main_sent": {
+    "chat": [
+     {
+      "returns": "5.end,6.end;2.T2,3.T2"
+     }
+    ],
+    "builder": {
+     "returns": "5.end,6.end;2.T2,3.T2"
+    },
+    "clearedPending": false
+   },
+   "cand_cut_changed": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     false
+    ],
+    [
+     3,
+     false
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "cand_row_after_upgrade": [
+    "[SETUP — returns — 5,6;2.T2,3.T2 — cut v2]"
+   ],
+   "cand_toasts": [],
+   "cand_notices": [],
+   "cand_sent": {
+    "chat": [
+     {
+      "returns": "5,6;2.T2,3.T2"
+     }
+    ],
+    "builder": {
+     "returns": "5,6;2.T2,3.T2"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "name": "L4 returns 1.end,6.head",
+   "key": "returns",
+   "written": "1.end,6.head",
+   "main_row_after_reload": [
+    "[SETUP — returns — 1.end,6.head]"
+   ],
+   "main_saved": [
+    "[SETUP — returns — 1.end,6.head]"
+   ],
+   "main_sent": {
+    "chat": [
+     {
+      "returns": "1.end,6.head"
+     }
+    ],
+    "builder": {
+     "returns": "1.end,6.head"
+    },
+    "clearedPending": false
+   },
+   "cand_cut_changed": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     false
+    ],
+    [
+     3,
+     false
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "cand_row_after_upgrade": [
+    "[SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]"
+   ],
+   "cand_toasts": [
+    "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   ],
+   "cand_notices": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+     "actions": [
+      [
+       "ly-carried-keep",
+       "returns|0|0|0"
+      ],
+      [
+       "ly-carried-remove",
+       "returns|0|0|0"
+      ]
+     ]
+    }
+   ],
+   "cand_sent": {
+    "chat": [
+     {
+      "returns": "1,6.head"
+     }
+    ],
+    "builder": {
+     "returns": "1,6.head"
+    },
+    "clearedPending": false
+   },
+   "cand_row_after_keep": [
+    "[SETUP — returns — 1,6.head — cut v2]"
+   ],
+   "cand_toasts_after_keep": [
+    "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review.",
+    "The declared return on line 1 is kept as declared. Undo restores the notice.\nUndo"
+   ],
+   "cand_sent_after_keep": {
+    "chat": [
+     {
+      "returns": "1,6.head"
+     }
+    ],
+    "builder": {
+     "returns": "1,6.head"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "name": "L5 returns 5.end,6.end;4.T3,7.T3 (unchanged N.end + T row-mate on a re-cut line)",
+   "key": "returns",
+   "written": "5.end,6.end;4.T3,7.T3",
+   "main_row_after_reload": [
+    "[SETUP — returns — 5.end,6.end;4.T3,7.T3]"
+   ],
+   "main_saved": [
+    "[SETUP — returns — 5.end,6.end;4.T3,7.T3]"
+   ],
+   "main_sent": {
+    "chat": [
+     {
+      "returns": "5.end,6.end;4.T3,7.T3"
+     }
+    ],
+    "builder": {
+     "returns": "5.end,6.end;4.T3,7.T3"
+    },
+    "clearedPending": false
+   },
+   "cand_cut_changed": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     false
+    ],
+    [
+     3,
+     false
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "cand_row_after_upgrade": [
+    "[SETUP — returns — 5,6;4.T3,7.T3 — cut v2]"
+   ],
+   "cand_toasts": [],
+   "cand_notices": [],
+   "cand_sent": {
+    "chat": [
+     {
+      "returns": "5,6;4.T3,7.T3"
+     }
+    ],
+    "builder": {
+     "returns": "5,6;4.T3,7.T3"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "name": "L6 rhyme groups 5.end,6.end;2.T2,3.T2 (control)",
+   "key": "rhyme groups",
+   "written": "5.end,6.end;2.T2,3.T2",
+   "main_row_after_reload": [
+    "[SETUP — rhyme groups — 5.end,6.end;2.T2,3.T2]"
+   ],
+   "main_saved": [
+    "[SETUP — rhyme groups — 5.end,6.end;2.T2,3.T2]"
+   ],
+   "main_sent": {
+    "chat": [
+     {
+      "groups": "5.end,6.end;2.T2,3.T2"
+     }
+    ],
+    "builder": {
+     "groups": "5.end,6.end;2.T2,3.T2"
+    },
+    "clearedPending": false
+   },
+   "cand_cut_changed": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     false
+    ],
+    [
+     3,
+     false
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "cand_row_after_upgrade": [
+    "[SETUP — rhyme groups — 5,6;2.T2,3.T2 — cut v2]"
+   ],
+   "cand_toasts": [],
+   "cand_notices": [],
+   "cand_sent": {
+    "chat": [
+     {
+      "groups": "5,6;2.T2,3.T2"
+     }
+    ],
+    "builder": {
+     "groups": "5,6;2.T2,3.T2"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  }
+ ],
+ "edits": []
+}

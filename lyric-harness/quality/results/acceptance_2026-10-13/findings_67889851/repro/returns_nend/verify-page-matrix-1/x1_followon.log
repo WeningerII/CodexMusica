@@ -1,0 +1,24 @@
+[main] annotated
+  loaded: [SETUP — rhyme groups — 1.T4 (kept),8.T4]
+          [{"raw":"1.T4 (kept)","bad":true,"undecided":false,"word":null},{"raw":"8.T4","bad":false,"undecided":false,"word":"tonight"}] sent="1.T4 (kept),8.T4" need=null
+          line1 v2-cut=["Oh--oh","oh","my","love"] v1-cut=null
+  after removing " (kept)": [SETUP — rhyme groups — 1.T4,8.T4]
+          [{"raw":"1.T4","bad":false,"undecided":false,"word":"love"},{"raw":"8.T4","bad":false,"undecided":false,"word":"tonight"}] sent="1.T4,8.T4"
+  toasts: [] errors: []
+[main] plain
+  loaded: [SETUP — rhyme groups — 1.T4,8.T4]
+          [{"raw":"1.T4","bad":false,"undecided":false,"word":"love"},{"raw":"8.T4","bad":false,"undecided":false,"word":"tonight"}] sent="1.T4,8.T4" need=null
+          line1 v2-cut=["Oh--oh","oh","my","love"] v1-cut=null
+  toasts: [] errors: []
+[cand] annotated
+  loaded: [SETUP — rhyme groups — 1.T4 (kept),8.T5 — cut v2]
+          [{"raw":"1.T4 (kept)","bad":true,"undecided":false,"word":null},{"raw":"8.T5","bad":false,"undecided":false,"word":"tonight"}] sent="1.T4 (kept),8.T5" need=null
+          line1 v2-cut=["Oh","oh","oh","my","love"] v1-cut=["Oh--oh","oh","my","love"]
+  after removing " (kept)": [SETUP — rhyme groups — 1.T4,8.T5 — cut v2]
+          [{"raw":"1.T4","bad":false,"undecided":false,"word":"my"},{"raw":"8.T5","bad":false,"undecided":false,"word":"tonight"}] sent="1.T4,8.T5"
+  toasts: ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “tonight” word 4 → 5."] errors: []
+[cand] plain
+  loaded: [SETUP — rhyme groups — 1.T5,8.T5 — cut v2]
+          [{"raw":"1.T5","bad":false,"undecided":false,"word":"love"},{"raw":"8.T5","bad":false,"undecided":false,"word":"tonight"}] sent="1.T5,8.T5" need=null
+          line1 v2-cut=["Oh","oh","oh","my","love"] v1-cut=["Oh--oh","oh","my","love"]
+  toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “tonight” word 4 → 5."] errors: []

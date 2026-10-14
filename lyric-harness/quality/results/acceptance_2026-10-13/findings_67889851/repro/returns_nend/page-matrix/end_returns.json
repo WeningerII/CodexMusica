@@ -1,0 +1,117 @@
+[
+ {
+  "tree": "main",
+  "name": "E1 returns 4.end,6.end (changed line 4)",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "afterLoad": "[SETUP — returns — 4.end,6.end]",
+  "notices": [],
+  "chatCalls": 1,
+  "sent": "4.end,6.end",
+  "afterRepeatsFormAdd": "[SETUP — returns — 4,6;2.head,3.head]",
+  "errors": []
+ },
+ {
+  "tree": "main",
+  "name": "E2 returns 5.end,6.end (unchanged lines only)",
+  "written": "[SETUP — returns — 5.end,6.end]",
+  "afterLoad": "[SETUP — returns — 5.end,6.end]",
+  "notices": [],
+  "chatCalls": 1,
+  "sent": "5.end,6.end",
+  "afterRepeatsFormAdd": "[SETUP — returns — 5,6;2.head,3.head]",
+  "errors": []
+ },
+ {
+  "tree": "main",
+  "name": "E3 returns 5.end,6.end;1.T4,8.T4 (unchanged N.end + a rebindable T row-mate)",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "afterLoad": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "notices": [],
+  "chatCalls": 1,
+  "sent": "5.end,6.end;1.T4,8.T4",
+  "afterRepeatsFormAdd": "[SETUP — returns — 5,6;1.T4,8.T4;2.head,3.head]",
+  "errors": []
+ },
+ {
+  "tree": "main",
+  "name": "E4 rhyme groups 5.end,6.end;1.T4,8.T4",
+  "written": "[SETUP — rhyme groups — 5.end,6.end;1.T4,8.T4]",
+  "afterLoad": "[SETUP — rhyme groups — 5.end,6.end;1.T4,8.T4]",
+  "notices": [],
+  "chatCalls": 1,
+  "sent": "5.end,6.end;1.T4,8.T4",
+  "afterRepeatsFormAdd": null,
+  "errors": []
+ },
+ {
+  "tree": "main",
+  "name": "E5 returns 1.end,8.end (changed lines)",
+  "written": "[SETUP — returns — 1.end,8.end]",
+  "afterLoad": "[SETUP — returns — 1.end,8.end]",
+  "notices": [],
+  "chatCalls": 1,
+  "sent": "1.end,8.end",
+  "afterRepeatsFormAdd": "[SETUP — returns — 1,8;2.head,3.head]",
+  "errors": []
+ },
+ {
+  "tree": "cand",
+  "name": "E1 returns 4.end,6.end (changed line 4)",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "afterLoad": "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]",
+  "notices": [
+   "note: A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+  ],
+  "chatCalls": 1,
+  "sent": "4,6",
+  "afterRepeatsFormAdd": "[SETUP — returns — 4 (carried across the word-cut change),6;2.head,3.head — cut v2]",
+  "errors": []
+ },
+ {
+  "tree": "cand",
+  "name": "E2 returns 5.end,6.end (unchanged lines only)",
+  "written": "[SETUP — returns — 5.end,6.end]",
+  "afterLoad": "[SETUP — returns — 5.end,6.end]",
+  "notices": [],
+  "chatCalls": 1,
+  "sent": "5.end,6.end",
+  "afterRepeatsFormAdd": "[SETUP — returns — 5,6;2.head,3.head — cut v2]",
+  "errors": []
+ },
+ {
+  "tree": "cand",
+  "name": "E3 returns 5.end,6.end;1.T4,8.T4 (unchanged N.end + a rebindable T row-mate)",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "afterLoad": "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+  "notices": [],
+  "chatCalls": 1,
+  "sent": "5,6;1.T5,8.T5",
+  "afterRepeatsFormAdd": "[SETUP — returns — 5,6;1.T5,8.T5;2.head,3.head — cut v2]",
+  "errors": []
+ },
+ {
+  "tree": "cand",
+  "name": "E4 rhyme groups 5.end,6.end;1.T4,8.T4",
+  "written": "[SETUP — rhyme groups — 5.end,6.end;1.T4,8.T4]",
+  "afterLoad": "[SETUP — rhyme groups — 5,6;1.T5,8.T5 — cut v2]",
+  "notices": [],
+  "chatCalls": 1,
+  "sent": "5,6;1.T5,8.T5",
+  "afterRepeatsFormAdd": null,
+  "errors": []
+ },
+ {
+  "tree": "cand",
+  "name": "E5 returns 1.end,8.end (changed lines)",
+  "written": "[SETUP — returns — 1.end,8.end]",
+  "afterLoad": "[SETUP — returns — 1 (carried across the word-cut change),8 (carried across the word-cut change) — cut v2]",
+  "notices": [
+   "note: A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+   "note: A declared return member, line 8 · last rhyme, was carried across the word-cut change"
+  ],
+  "chatCalls": 1,
+  "sent": "1,8",
+  "afterRepeatsFormAdd": "[SETUP — returns — 1 (carried across the word-cut change),8 (carried across the word-cut change);2.head,3.head — cut v2]",
+  "errors": []
+ }
+]

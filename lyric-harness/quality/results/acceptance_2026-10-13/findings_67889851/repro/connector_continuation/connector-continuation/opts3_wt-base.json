@@ -1,0 +1,170 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base",
+ "lines": [
+  "Wind--wind, wind my vrexl",
+  "Azure vrexl"
+ ],
+ "check_isError": false,
+ "check_keys": [
+  "exit_code",
+  "meaning",
+  "report",
+  "verified_outcomes",
+  "verified_outcomes_error",
+  "verified_outcomes_draft_sha256",
+  "journal_id",
+  "resume_proof",
+  "resume_proof_error",
+  "path",
+  "ms",
+  "tool_deadline",
+  "retained",
+  "coverage",
+  "certified",
+  "measurement_status",
+  "lexicon",
+  "pronunciations",
+  "pronunciation_options",
+  "findings_measured",
+  "findings",
+  "flags",
+  "whole_flags",
+  "notes",
+  "banned_pairs",
+  "banned",
+  "unreadable_findings",
+  "unreadable",
+  "standing",
+  "final_draft",
+  "final_draft_sha256",
+  "blueprint_declared"
+ ],
+ "pronunciation_options": {
+  "items": [
+   {
+    "line": "Wind--wind, wind my vrexl",
+    "token": 1,
+    "word": "Wind--wind",
+    "matching_lines": [
+     1
+    ],
+    "dictionary_readings": [],
+    "supplied_reading_requires_source": true
+   },
+   {
+    "line": "Wind--wind, wind my vrexl",
+    "token": 2,
+    "word": "wind",
+    "matching_lines": [
+     1
+    ],
+    "dictionary_readings": [
+     {
+      "phones": [
+       "W",
+       "AY1",
+       "N",
+       "D"
+      ],
+      "stress": [
+       1
+      ],
+      "syllables": 1,
+      "source": "cmudict"
+     },
+     {
+      "phones": [
+       "W",
+       "IH1",
+       "N",
+       "D"
+      ],
+      "stress": [
+       1
+      ],
+      "syllables": 1,
+      "source": "cmudict"
+     }
+    ],
+    "supplied_reading_requires_source": false
+   },
+   {
+    "line": "Wind--wind, wind my vrexl",
+    "token": 4,
+    "word": "vrexl",
+    "matching_lines": [
+     1
+    ],
+    "dictionary_readings": [],
+    "supplied_reading_requires_source": true
+   },
+   {
+    "line": "Azure vrexl",
+    "token": 2,
+    "word": "vrexl",
+    "matching_lines": [
+     2
+    ],
+    "dictionary_readings": [],
+    "supplied_reading_requires_source": true
+   }
+  ],
+  "total": 4,
+  "truncated": false,
+  "scope": "refused_lines",
+  "eligible": 4
+ },
+ "pronunciations": [],
+ "declared": [
+  {
+   "sent": {
+    "line": "Wind--wind, wind my vrexl",
+    "token": 2,
+    "word": "wind",
+    "phones": [
+     "W",
+     "IH1",
+     "N",
+     "D"
+    ],
+    "basis": "dictionary",
+    "source": "the singer"
+   },
+   "isError": false,
+   "pronunciations": [
+    {
+     "line": "Wind--wind, wind my vrexl",
+     "token": 2,
+     "word": "wind",
+     "phones": [
+      "W",
+      "IH1",
+      "N",
+      "D"
+     ],
+     "basis": "dictionary",
+     "source": "the singer"
+    }
+   ],
+   "options_for_line1": null
+  },
+  {
+   "sent": {
+    "line": "Wind--wind, wind my vrexl",
+    "token": 3,
+    "word": "wind",
+    "phones": [
+     "W",
+     "IH1",
+     "N",
+     "D"
+    ],
+    "basis": "dictionary",
+    "source": "the singer"
+   },
+   "isError": false,
+   "pronunciations": null,
+   "options_for_line1": []
+  }
+ ]
+}

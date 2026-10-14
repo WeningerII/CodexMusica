@@ -1,0 +1,3002 @@
+{
+ "out": {
+  "G|v0|L1|N": {
+   "cell": {
+    "id": "G|v0|L1|N",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 1,
+    "sp": "N",
+    "member": "1",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 1,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 1,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "1,6"
+   },
+   "bad": [],
+   "mainWord": "love"
+  },
+  "G|v0|L1|end": {
+   "cell": {
+    "id": "G|v0|L1|end",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 1,
+    "sp": "end",
+    "member": "1.end",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — rhyme groups — 1.end,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 1.end,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "1.end,6"
+   },
+   "bad": [],
+   "mainWord": "love"
+  },
+  "G|v0|L1|endword": {
+   "cell": {
+    "id": "G|v0|L1|endword",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 1,
+    "sp": "endword",
+    "member": "1.endword",
+    "partner": "6",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 1.endword,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 1.endword,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "1.endword,6"
+   },
+   "bad": [],
+   "mainWord": "love"
+  },
+  "G|v0|L1|head": {
+   "cell": {
+    "id": "G|v0|L1|head",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 1,
+    "sp": "head",
+    "member": "1.head",
+    "partner": "6",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 1.head,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 1.head,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "1.head,6"
+   },
+   "bad": [],
+   "mainWord": "Oh--oh"
+  },
+  "G|v0|L1|headrime": {
+   "cell": {
+    "id": "G|v0|L1|headrime",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 1,
+    "sp": "headrime",
+    "member": "1.headrime",
+    "partner": "6",
+    "formPlace": "headrime",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 1.headrime,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 1.headrime,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "1.headrime,6"
+   },
+   "bad": [],
+   "mainWord": "Oh--oh"
+  },
+  "G|v0|L1|line": {
+   "cell": {
+    "id": "G|v0|L1|line",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 1,
+    "sp": "line",
+    "member": "1.line",
+    "partner": "6",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 1.line,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 1.line,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "1.line,6"
+   },
+   "bad": [],
+   "mainWord": "Oh--oh, oh my love"
+  },
+  "G|v0|L1|T1": {
+   "cell": {
+    "id": "G|v0|L1|T1",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 1,
+    "sp": "T1",
+    "member": "1.T1",
+    "partner": "6",
+    "formPlace": "T1",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 1.T1,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 1.T1,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "1.T1,6"
+   },
+   "bad": [],
+   "mainWord": "Oh--oh"
+  },
+  "G|v0|L1|T2": {
+   "cell": {
+    "id": "G|v0|L1|T2",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 1,
+    "sp": "T2",
+    "member": "1.T2",
+    "partner": "6",
+    "formPlace": "T2",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 1.T2,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 1.T2,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "1.T2,6"
+   },
+   "bad": [],
+   "mainWord": "oh"
+  },
+  "G|v0|L1|T4": {
+   "cell": {
+    "id": "G|v0|L1|T4",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 1,
+    "sp": "T4",
+    "member": "1.T4",
+    "partner": "6",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 1.T4,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 1.T4,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "1.T4,6"
+   },
+   "bad": [],
+   "mainWord": "love"
+  },
+  "G|v0|L2|N": {
+   "cell": {
+    "id": "G|v0|L2|N",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 2,
+    "sp": "N",
+    "member": "2",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 2,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 2,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "2,6"
+   },
+   "bad": [],
+   "mainWord": "bass--"
+  },
+  "G|v0|L2|end": {
+   "cell": {
+    "id": "G|v0|L2|end",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 2,
+    "sp": "end",
+    "member": "2.end",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — rhyme groups — 2.end,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 2.end,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "2.end,6"
+   },
+   "bad": [],
+   "mainWord": "bass--"
+  },
+  "G|v0|L2|endword": {
+   "cell": {
+    "id": "G|v0|L2|endword",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 2,
+    "sp": "endword",
+    "member": "2.endword",
+    "partner": "6",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 2.endword,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 2.endword,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "2.endword,6"
+   },
+   "bad": [],
+   "mainWord": "bass--"
+  },
+  "G|v0|L2|head": {
+   "cell": {
+    "id": "G|v0|L2|head",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 2,
+    "sp": "head",
+    "member": "2.head",
+    "partner": "6",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 2.head,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 2.head,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "2.head,6"
+   },
+   "bad": [],
+   "mainWord": "Thundered"
+  },
+  "G|v0|L2|headrime": {
+   "cell": {
+    "id": "G|v0|L2|headrime",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 2,
+    "sp": "headrime",
+    "member": "2.headrime",
+    "partner": "6",
+    "formPlace": "headrime",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 2.headrime,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 2.headrime,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "2.headrime,6"
+   },
+   "bad": [],
+   "mainWord": "Thundered"
+  },
+  "G|v0|L2|line": {
+   "cell": {
+    "id": "G|v0|L2|line",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 2,
+    "sp": "line",
+    "member": "2.line",
+    "partner": "6",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 2.line,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 2.line,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "2.line,6"
+   },
+   "bad": [],
+   "mainWord": "Thundered the battery’s double bass--"
+  },
+  "G|v0|L2|T1": {
+   "cell": {
+    "id": "G|v0|L2|T1",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 2,
+    "sp": "T1",
+    "member": "2.T1",
+    "partner": "6",
+    "formPlace": "T1",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 2.T1,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 2.T1,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "2.T1,6"
+   },
+   "bad": [],
+   "mainWord": "Thundered"
+  },
+  "G|v0|L2|T5": {
+   "cell": {
+    "id": "G|v0|L2|T5",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 2,
+    "sp": "T5",
+    "member": "2.T5",
+    "partner": "6",
+    "formPlace": "T5",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 2.T5,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 2.T5,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "2.T5,6"
+   },
+   "bad": [],
+   "mainWord": "bass--"
+  },
+  "G|v0|L3|N": {
+   "cell": {
+    "id": "G|v0|L3|N",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 3,
+    "sp": "N",
+    "member": "3",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 3,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 3,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "3,6"
+   },
+   "bad": [],
+   "mainWord": "true"
+  },
+  "G|v0|L3|end": {
+   "cell": {
+    "id": "G|v0|L3|end",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 3,
+    "sp": "end",
+    "member": "3.end",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — rhyme groups — 3.end,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 3.end,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "3.end,6"
+   },
+   "bad": [],
+   "mainWord": "true"
+  },
+  "G|v0|L3|endword": {
+   "cell": {
+    "id": "G|v0|L3|endword",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 3,
+    "sp": "endword",
+    "member": "3.endword",
+    "partner": "6",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 3.endword,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 3.endword,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "3.endword,6"
+   },
+   "bad": [],
+   "mainWord": "true"
+  },
+  "G|v0|L3|head": {
+   "cell": {
+    "id": "G|v0|L3|head",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 3,
+    "sp": "head",
+    "member": "3.head",
+    "partner": "6",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 3.head,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 3.head,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "3.head,6"
+   },
+   "bad": [],
+   "mainWord": "My"
+  },
+  "G|v0|L3|headrime": {
+   "cell": {
+    "id": "G|v0|L3|headrime",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 3,
+    "sp": "headrime",
+    "member": "3.headrime",
+    "partner": "6",
+    "formPlace": "headrime",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 3.headrime,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 3.headrime,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "3.headrime,6"
+   },
+   "bad": [],
+   "mainWord": "My"
+  },
+  "G|v0|L3|line": {
+   "cell": {
+    "id": "G|v0|L3|line",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 3,
+    "sp": "line",
+    "member": "3.line",
+    "partner": "6",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 3.line,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 3.line,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "3.line,6"
+   },
+   "bad": [],
+   "mainWord": "My love--love is true"
+  },
+  "G|v0|L3|T2": {
+   "cell": {
+    "id": "G|v0|L3|T2",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 3,
+    "sp": "T2",
+    "member": "3.T2",
+    "partner": "6",
+    "formPlace": "T2",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 3.T2,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 3.T2,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "3.T2,6"
+   },
+   "bad": [],
+   "mainWord": "love--love"
+  },
+  "G|v0|L3|T4": {
+   "cell": {
+    "id": "G|v0|L3|T4",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 3,
+    "sp": "T4",
+    "member": "3.T4",
+    "partner": "6",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 3.T4,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 3.T4,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "3.T4,6"
+   },
+   "bad": [],
+   "mainWord": "true"
+  },
+  "G|v0|L4|N": {
+   "cell": {
+    "id": "G|v0|L4|N",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 4,
+    "sp": "N",
+    "member": "4",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 4,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 4,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "4,6"
+   },
+   "bad": [],
+   "mainWord": "heart"
+  },
+  "G|v0|L4|end": {
+   "cell": {
+    "id": "G|v0|L4|end",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 4,
+    "sp": "end",
+    "member": "4.end",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — rhyme groups — 4.end,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 4.end,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "4.end,6"
+   },
+   "bad": [],
+   "mainWord": "heart"
+  },
+  "G|v0|L4|endword": {
+   "cell": {
+    "id": "G|v0|L4|endword",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 4,
+    "sp": "endword",
+    "member": "4.endword",
+    "partner": "6",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 4.endword,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 4.endword,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "4.endword,6"
+   },
+   "bad": [],
+   "mainWord": "heart"
+  },
+  "G|v0|L4|head": {
+   "cell": {
+    "id": "G|v0|L4|head",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 4,
+    "sp": "head",
+    "member": "4.head",
+    "partner": "6",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 4.head,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 4.head,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "4.head,6"
+   },
+   "bad": [],
+   "mainWord": "You"
+  },
+  "G|v0|L4|headrime": {
+   "cell": {
+    "id": "G|v0|L4|headrime",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 4,
+    "sp": "headrime",
+    "member": "4.headrime",
+    "partner": "6",
+    "formPlace": "headrime",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 4.headrime,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 4.headrime,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "4.headrime,6"
+   },
+   "bad": [],
+   "mainWord": "You"
+  },
+  "G|v0|L4|line": {
+   "cell": {
+    "id": "G|v0|L4|line",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 4,
+    "sp": "line",
+    "member": "4.line",
+    "partner": "6",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 4.line,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 4.line,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "4.line,6"
+   },
+   "bad": [],
+   "mainWord": "You hold my heart.    10"
+  },
+  "G|v0|L4|T4": {
+   "cell": {
+    "id": "G|v0|L4|T4",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 4,
+    "sp": "T4",
+    "member": "4.T4",
+    "partner": "6",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 4.T4,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 4.T4,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "4.T4,6"
+   },
+   "bad": [],
+   "mainWord": "heart"
+  },
+  "G|v0|L5|N": {
+   "cell": {
+    "id": "G|v0|L5|N",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 5,
+    "sp": "N",
+    "member": "5",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 5,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 5,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "5,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v0|L5|end": {
+   "cell": {
+    "id": "G|v0|L5|end",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 5,
+    "sp": "end",
+    "member": "5.end",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — rhyme groups — 5.end,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 5.end,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "5.end,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v0|L5|endword": {
+   "cell": {
+    "id": "G|v0|L5|endword",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 5,
+    "sp": "endword",
+    "member": "5.endword",
+    "partner": "6",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 5.endword,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 5.endword,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "5.endword,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v0|L5|head": {
+   "cell": {
+    "id": "G|v0|L5|head",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 5,
+    "sp": "head",
+    "member": "5.head",
+    "partner": "6",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 5.head,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 5.head,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "5.head,6"
+   },
+   "bad": [],
+   "mainWord": "I"
+  },
+  "G|v0|L5|headrime": {
+   "cell": {
+    "id": "G|v0|L5|headrime",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 5,
+    "sp": "headrime",
+    "member": "5.headrime",
+    "partner": "6",
+    "formPlace": "headrime",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 5.headrime,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 5.headrime,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "5.headrime,6"
+   },
+   "bad": [],
+   "mainWord": "I"
+  },
+  "G|v0|L5|line": {
+   "cell": {
+    "id": "G|v0|L5|line",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 5,
+    "sp": "line",
+    "member": "5.line",
+    "partner": "6",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 5.line,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 5.line,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "5.line,6"
+   },
+   "bad": [],
+   "mainWord": "I walk the line tonight"
+  },
+  "G|v0|L5|T4": {
+   "cell": {
+    "id": "G|v0|L5|T4",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 5,
+    "sp": "T4",
+    "member": "5.T4",
+    "partner": "6",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 5.T4,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 5.T4,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "5.T4,6"
+   },
+   "bad": [],
+   "mainWord": "line"
+  },
+  "G|v0|L5|T5": {
+   "cell": {
+    "id": "G|v0|L5|T5",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 5,
+    "sp": "T5",
+    "member": "5.T5",
+    "partner": "6",
+    "formPlace": "T5",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 5.T5,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 5.T5,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "5.T5,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v0|L7|N": {
+   "cell": {
+    "id": "G|v0|L7|N",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 7,
+    "sp": "N",
+    "member": "7",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 7,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 7,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v0|L7|end": {
+   "cell": {
+    "id": "G|v0|L7|end",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 7,
+    "sp": "end",
+    "member": "7.end",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — rhyme groups — 7.end,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 7.end,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.end,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v0|L7|endword": {
+   "cell": {
+    "id": "G|v0|L7|endword",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 7,
+    "sp": "endword",
+    "member": "7.endword",
+    "partner": "6",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 7.endword,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 7.endword,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.endword,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v0|L7|head": {
+   "cell": {
+    "id": "G|v0|L7|head",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 7,
+    "sp": "head",
+    "member": "7.head",
+    "partner": "6",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 7.head,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 7.head,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.head,6"
+   },
+   "bad": [],
+   "mainWord": "Stay"
+  },
+  "G|v0|L7|headrime": {
+   "cell": {
+    "id": "G|v0|L7|headrime",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 7,
+    "sp": "headrime",
+    "member": "7.headrime",
+    "partner": "6",
+    "formPlace": "headrime",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 7.headrime,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 7.headrime,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.headrime,6"
+   },
+   "bad": [],
+   "mainWord": "Stay"
+  },
+  "G|v0|L7|line": {
+   "cell": {
+    "id": "G|v0|L7|line",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 7,
+    "sp": "line",
+    "member": "7.line",
+    "partner": "6",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 7.line,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 7.line,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.line,6"
+   },
+   "bad": [],
+   "mainWord": "Stay with me (oh--oh) tonight"
+  },
+  "G|v0|L7|T3": {
+   "cell": {
+    "id": "G|v0|L7|T3",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 7,
+    "sp": "T3",
+    "member": "7.T3",
+    "partner": "6",
+    "formPlace": "T3",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 7.T3,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 7.T3,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.T3,6"
+   },
+   "bad": [],
+   "mainWord": "me"
+  },
+  "G|v0|L7|T4": {
+   "cell": {
+    "id": "G|v0|L7|T4",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 7,
+    "sp": "T4",
+    "member": "7.T4",
+    "partner": "6",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 7.T4,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 7.T4,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.T4,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v0|L8|N": {
+   "cell": {
+    "id": "G|v0|L8|N",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 8,
+    "sp": "N",
+    "member": "8",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 8,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 8,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v0|L8|end": {
+   "cell": {
+    "id": "G|v0|L8|end",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 8,
+    "sp": "end",
+    "member": "8.end",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — rhyme groups — 8.end,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 8.end,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.end,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v0|L8|endword": {
+   "cell": {
+    "id": "G|v0|L8|endword",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 8,
+    "sp": "endword",
+    "member": "8.endword",
+    "partner": "6",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 8.endword,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 8.endword,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.endword,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v0|L8|head": {
+   "cell": {
+    "id": "G|v0|L8|head",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 8,
+    "sp": "head",
+    "member": "8.head",
+    "partner": "6",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 8.head,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 8.head,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.head,6"
+   },
+   "bad": [],
+   "mainWord": "Hold"
+  },
+  "G|v0|L8|headrime": {
+   "cell": {
+    "id": "G|v0|L8|headrime",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 8,
+    "sp": "headrime",
+    "member": "8.headrime",
+    "partner": "6",
+    "formPlace": "headrime",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 8.headrime,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 8.headrime,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.headrime,6"
+   },
+   "bad": [],
+   "mainWord": "Hold"
+  },
+  "G|v0|L8|line": {
+   "cell": {
+    "id": "G|v0|L8|line",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 8,
+    "sp": "line",
+    "member": "8.line",
+    "partner": "6",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 8.line,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 8.line,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.line,6"
+   },
+   "bad": [],
+   "mainWord": "Hold me (hold me) close--close tonight"
+  },
+  "G|v0|L8|T3": {
+   "cell": {
+    "id": "G|v0|L8|T3",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 8,
+    "sp": "T3",
+    "member": "8.T3",
+    "partner": "6",
+    "formPlace": "T3",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 8.T3,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 8.T3,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.T3,6"
+   },
+   "bad": [],
+   "mainWord": "close--close"
+  },
+  "G|v0|L8|T4": {
+   "cell": {
+    "id": "G|v0|L8|T4",
+    "key": "rhyme groups",
+    "voices": false,
+    "n": 8,
+    "sp": "T4",
+    "member": "8.T4",
+    "partner": "6",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — rhyme groups — 8.T4,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 8.T4,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.T4,6"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v1|L7|N": {
+   "cell": {
+    "id": "G|v1|L7|N",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 7,
+    "sp": "N",
+    "member": "7",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 7,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 7,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v1|L7|end": {
+   "cell": {
+    "id": "G|v1|L7|end",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 7,
+    "sp": "end",
+    "member": "7.end",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 7.end,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 7.end,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.end,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v1|L7|endword": {
+   "cell": {
+    "id": "G|v1|L7|endword",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 7,
+    "sp": "endword",
+    "member": "7.endword",
+    "partner": "6",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 7.endword,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 7.endword,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.endword,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v1|L7|head": {
+   "cell": {
+    "id": "G|v1|L7|head",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 7,
+    "sp": "head",
+    "member": "7.head",
+    "partner": "6",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 7.head,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 7.head,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.head,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Stay"
+  },
+  "G|v1|L7|headrime": {
+   "cell": {
+    "id": "G|v1|L7|headrime",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 7,
+    "sp": "headrime",
+    "member": "7.headrime",
+    "partner": "6",
+    "formPlace": "headrime",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 7.headrime,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 7.headrime,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.headrime,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Stay"
+  },
+  "G|v1|L7|line": {
+   "cell": {
+    "id": "G|v1|L7|line",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 7,
+    "sp": "line",
+    "member": "7.line",
+    "partner": "6",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 7.line,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 7.line,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.line,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Stay with me (oh--oh) tonight"
+  },
+  "G|v1|L7|T3": {
+   "cell": {
+    "id": "G|v1|L7|T3",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 7,
+    "sp": "T3",
+    "member": "7.T3",
+    "partner": "6",
+    "formPlace": "T3",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 7.T3,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 7.T3,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.T3,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "me"
+  },
+  "G|v1|L7|T4": {
+   "cell": {
+    "id": "G|v1|L7|T4",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 7,
+    "sp": "T4",
+    "member": "7.T4",
+    "partner": "6",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 7.T4,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 7.T4,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.T4,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "oh--oh"
+  },
+  "G|v1|L7|T5": {
+   "cell": {
+    "id": "G|v1|L7|T5",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 7,
+    "sp": "T5",
+    "member": "7.T5",
+    "partner": "6",
+    "formPlace": "T5",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 7.T5,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 7.T5,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "7.T5,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v1|L8|N": {
+   "cell": {
+    "id": "G|v1|L8|N",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 8,
+    "sp": "N",
+    "member": "8",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 8,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 8,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v1|L8|end": {
+   "cell": {
+    "id": "G|v1|L8|end",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 8,
+    "sp": "end",
+    "member": "8.end",
+    "partner": "6",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 8.end,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 8.end,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.end,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v1|L8|endword": {
+   "cell": {
+    "id": "G|v1|L8|endword",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 8,
+    "sp": "endword",
+    "member": "8.endword",
+    "partner": "6",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 8.endword,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 8.endword,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.endword,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "G|v1|L8|head": {
+   "cell": {
+    "id": "G|v1|L8|head",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 8,
+    "sp": "head",
+    "member": "8.head",
+    "partner": "6",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 8.head,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 8.head,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.head,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Hold"
+  },
+  "G|v1|L8|headrime": {
+   "cell": {
+    "id": "G|v1|L8|headrime",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 8,
+    "sp": "headrime",
+    "member": "8.headrime",
+    "partner": "6",
+    "formPlace": "headrime",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 8.headrime,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 8.headrime,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.headrime,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Hold"
+  },
+  "G|v1|L8|line": {
+   "cell": {
+    "id": "G|v1|L8|line",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 8,
+    "sp": "line",
+    "member": "8.line",
+    "partner": "6",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 8.line,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 8.line,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.line,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Hold me (hold me) close--close tonight"
+  },
+  "G|v1|L8|T3": {
+   "cell": {
+    "id": "G|v1|L8|T3",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 8,
+    "sp": "T3",
+    "member": "8.T3",
+    "partner": "6",
+    "formPlace": "T3",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 8.T3,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 8.T3,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.T3,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "hold"
+  },
+  "G|v1|L8|T5": {
+   "cell": {
+    "id": "G|v1|L8|T5",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 8,
+    "sp": "T5",
+    "member": "8.T5",
+    "partner": "6",
+    "formPlace": "T5",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 8.T5,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 8.T5,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.T5,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "close--close"
+  },
+  "G|v1|L8|T6": {
+   "cell": {
+    "id": "G|v1|L8|T6",
+    "key": "rhyme groups",
+    "voices": true,
+    "n": 8,
+    "sp": "T6",
+    "member": "8.T6",
+    "partner": "6",
+    "formPlace": "T6",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — rhyme groups — 8.T6,6]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — rhyme groups — 8.T6,6]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "groups": "8.T6,6",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L1|N": {
+   "cell": {
+    "id": "R|v0|L1|N",
+    "key": "returns",
+    "voices": false,
+    "n": 1,
+    "sp": "N",
+    "member": "1",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 1,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 1,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "returns": "1,6.head"
+   },
+   "bad": [],
+   "mainWord": "love"
+  },
+  "R|v0|L1|end": {
+   "cell": {
+    "id": "R|v0|L1|end",
+    "key": "returns",
+    "voices": false,
+    "n": 1,
+    "sp": "end",
+    "member": "1.end",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 1.end,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 1.end,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"rhymes\",\"outline\":true}}}",
+   "decl": {
+    "returns": "1.end,6.head"
+   },
+   "bad": [],
+   "mainWord": "love"
+  },
+  "R|v0|L1|endword": {
+   "cell": {
+    "id": "R|v0|L1|endword",
+    "key": "returns",
+    "voices": false,
+    "n": 1,
+    "sp": "endword",
+    "member": "1.endword",
+    "partner": "6.head",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 1.endword,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 1.endword,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "1.endword,6.head"
+   },
+   "bad": [],
+   "mainWord": "love"
+  },
+  "R|v0|L1|head": {
+   "cell": {
+    "id": "R|v0|L1|head",
+    "key": "returns",
+    "voices": false,
+    "n": 1,
+    "sp": "head",
+    "member": "1.head",
+    "partner": "6.head",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 1.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 1.head,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "1.head,6.head"
+   },
+   "bad": [],
+   "mainWord": "Oh--oh"
+  },
+  "R|v0|L1|headrime": {
+   "cell": {
+    "id": "R|v0|L1|headrime",
+    "key": "returns",
+    "voices": false,
+    "n": 1,
+    "sp": "headrime",
+    "member": "1.headrime",
+    "partner": "6.head",
+    "formPlace": "headrime",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 1.headrime,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 1.headrime,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "1.headrime,6.head"
+   },
+   "bad": [],
+   "mainWord": "Oh--oh"
+  },
+  "R|v0|L1|line": {
+   "cell": {
+    "id": "R|v0|L1|line",
+    "key": "returns",
+    "voices": false,
+    "n": 1,
+    "sp": "line",
+    "member": "1.line",
+    "partner": "6.head",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 1.line,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 1.line,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "1.line,6.head"
+   },
+   "bad": [],
+   "mainWord": "Oh--oh, oh my love"
+  },
+  "R|v0|L1|T1": {
+   "cell": {
+    "id": "R|v0|L1|T1",
+    "key": "returns",
+    "voices": false,
+    "n": 1,
+    "sp": "T1",
+    "member": "1.T1",
+    "partner": "6.head",
+    "formPlace": "T1",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 1.T1,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 1.T1,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "1.T1,6.head"
+   },
+   "bad": [],
+   "mainWord": "Oh--oh"
+  },
+  "R|v0|L1|T2": {
+   "cell": {
+    "id": "R|v0|L1|T2",
+    "key": "returns",
+    "voices": false,
+    "n": 1,
+    "sp": "T2",
+    "member": "1.T2",
+    "partner": "6.head",
+    "formPlace": "T2",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 1.T2,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 1.T2,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "1.T2,6.head"
+   },
+   "bad": [],
+   "mainWord": "oh"
+  },
+  "R|v0|L1|T4": {
+   "cell": {
+    "id": "R|v0|L1|T4",
+    "key": "returns",
+    "voices": false,
+    "n": 1,
+    "sp": "T4",
+    "member": "1.T4",
+    "partner": "6.head",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 1.T4,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 1.T4,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "1.T4,6.head"
+   },
+   "bad": [],
+   "mainWord": "love"
+  },
+  "R|v0|L2|N": {
+   "cell": {
+    "id": "R|v0|L2|N",
+    "key": "returns",
+    "voices": false,
+    "n": 2,
+    "sp": "N",
+    "member": "2",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 2,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 2,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "2,6.head"
+   },
+   "bad": [],
+   "mainWord": "bass--"
+  },
+  "R|v0|L2|end": {
+   "cell": {
+    "id": "R|v0|L2|end",
+    "key": "returns",
+    "voices": false,
+    "n": 2,
+    "sp": "end",
+    "member": "2.end",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 2.end,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 2.end,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "2.end,6.head"
+   },
+   "bad": [],
+   "mainWord": "bass--"
+  },
+  "R|v0|L2|endword": {
+   "cell": {
+    "id": "R|v0|L2|endword",
+    "key": "returns",
+    "voices": false,
+    "n": 2,
+    "sp": "endword",
+    "member": "2.endword",
+    "partner": "6.head",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 2.endword,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 2.endword,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "2.endword,6.head"
+   },
+   "bad": [],
+   "mainWord": "bass--"
+  },
+  "R|v0|L2|head": {
+   "cell": {
+    "id": "R|v0|L2|head",
+    "key": "returns",
+    "voices": false,
+    "n": 2,
+    "sp": "head",
+    "member": "2.head",
+    "partner": "6.head",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 2.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 2.head,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "2.head,6.head"
+   },
+   "bad": [],
+   "mainWord": "Thundered"
+  },
+  "R|v0|L2|headrime": {
+   "cell": {
+    "id": "R|v0|L2|headrime",
+    "key": "returns",
+    "voices": false,
+    "n": 2,
+    "sp": "headrime",
+    "member": "2.headrime",
+    "partner": "6.head",
+    "formPlace": "headrime",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 2.headrime,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 2.headrime,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "2.headrime,6.head"
+   },
+   "bad": [],
+   "mainWord": "Thundered"
+  },
+  "R|v0|L2|line": {
+   "cell": {
+    "id": "R|v0|L2|line",
+    "key": "returns",
+    "voices": false,
+    "n": 2,
+    "sp": "line",
+    "member": "2.line",
+    "partner": "6.head",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 2.line,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 2.line,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "2.line,6.head"
+   },
+   "bad": [],
+   "mainWord": "Thundered the battery’s double bass--"
+  },
+  "R|v0|L2|T1": {
+   "cell": {
+    "id": "R|v0|L2|T1",
+    "key": "returns",
+    "voices": false,
+    "n": 2,
+    "sp": "T1",
+    "member": "2.T1",
+    "partner": "6.head",
+    "formPlace": "T1",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 2.T1,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 2.T1,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "2.T1,6.head"
+   },
+   "bad": [],
+   "mainWord": "Thundered"
+  },
+  "R|v0|L2|T5": {
+   "cell": {
+    "id": "R|v0|L2|T5",
+    "key": "returns",
+    "voices": false,
+    "n": 2,
+    "sp": "T5",
+    "member": "2.T5",
+    "partner": "6.head",
+    "formPlace": "T5",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 2.T5,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 2.T5,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "2.T5,6.head"
+   },
+   "bad": [],
+   "mainWord": "bass--"
+  },
+  "R|v0|L3|N": {
+   "cell": {
+    "id": "R|v0|L3|N",
+    "key": "returns",
+    "voices": false,
+    "n": 3,
+    "sp": "N",
+    "member": "3",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 3,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 3,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "3,6.head"
+   },
+   "bad": [],
+   "mainWord": "true"
+  },
+  "R|v0|L3|end": {
+   "cell": {
+    "id": "R|v0|L3|end",
+    "key": "returns",
+    "voices": false,
+    "n": 3,
+    "sp": "end",
+    "member": "3.end",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 3.end,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 3.end,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "3.end,6.head"
+   },
+   "bad": [],
+   "mainWord": "true"
+  },
+  "R|v0|L3|endword": {
+   "cell": {
+    "id": "R|v0|L3|endword",
+    "key": "returns",
+    "voices": false,
+    "n": 3,
+    "sp": "endword",
+    "member": "3.endword",
+    "partner": "6.head",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 3.endword,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 3.endword,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "3.endword,6.head"
+   },
+   "bad": [],
+   "mainWord": "true"
+  },
+  "R|v0|L3|head": {
+   "cell": {
+    "id": "R|v0|L3|head",
+    "key": "returns",
+    "voices": false,
+    "n": 3,
+    "sp": "head",
+    "member": "3.head",
+    "partner": "6.head",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 3.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 3.head,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "3.head,6.head"
+   },
+   "bad": [],
+   "mainWord": "My"
+  },
+  "R|v0|L3|headrime": {
+   "cell": {
+    "id": "R|v0|L3|headrime",
+    "key": "returns",
+    "voices": false,
+    "n": 3,
+    "sp": "headrime",
+    "member": "3.headrime",
+    "partner": "6.head",
+    "formPlace": "headrime",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 3.headrime,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 3.headrime,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "3.headrime,6.head"
+   },
+   "bad": [],
+   "mainWord": "My"
+  },
+  "R|v0|L3|line": {
+   "cell": {
+    "id": "R|v0|L3|line",
+    "key": "returns",
+    "voices": false,
+    "n": 3,
+    "sp": "line",
+    "member": "3.line",
+    "partner": "6.head",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 3.line,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 3.line,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "3.line,6.head"
+   },
+   "bad": [],
+   "mainWord": "My love--love is true"
+  },
+  "R|v0|L3|T2": {
+   "cell": {
+    "id": "R|v0|L3|T2",
+    "key": "returns",
+    "voices": false,
+    "n": 3,
+    "sp": "T2",
+    "member": "3.T2",
+    "partner": "6.head",
+    "formPlace": "T2",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 3.T2,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 3.T2,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "3.T2,6.head"
+   },
+   "bad": [],
+   "mainWord": "love--love"
+  },
+  "R|v0|L3|T4": {
+   "cell": {
+    "id": "R|v0|L3|T4",
+    "key": "returns",
+    "voices": false,
+    "n": 3,
+    "sp": "T4",
+    "member": "3.T4",
+    "partner": "6.head",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 3.T4,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 3.T4,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "3.T4,6.head"
+   },
+   "bad": [],
+   "mainWord": "true"
+  },
+  "R|v0|L4|N": {
+   "cell": {
+    "id": "R|v0|L4|N",
+    "key": "returns",
+    "voices": false,
+    "n": 4,
+    "sp": "N",
+    "member": "4",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 4,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 4,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "4,6.head"
+   },
+   "bad": [],
+   "mainWord": "heart"
+  },
+  "R|v0|L4|end": {
+   "cell": {
+    "id": "R|v0|L4|end",
+    "key": "returns",
+    "voices": false,
+    "n": 4,
+    "sp": "end",
+    "member": "4.end",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 4.end,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 4.end,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "4.end,6.head"
+   },
+   "bad": [],
+   "mainWord": "heart"
+  },
+  "R|v0|L4|endword": {
+   "cell": {
+    "id": "R|v0|L4|endword",
+    "key": "returns",
+    "voices": false,
+    "n": 4,
+    "sp": "endword",
+    "member": "4.endword",
+    "partner": "6.head",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 4.endword,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 4.endword,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "4.endword,6.head"
+   },
+   "bad": [],
+   "mainWord": "heart"
+  },
+  "R|v0|L4|head": {
+   "cell": {
+    "id": "R|v0|L4|head",
+    "key": "returns",
+    "voices": false,
+    "n": 4,
+    "sp": "head",
+    "member": "4.head",
+    "partner": "6.head",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 4.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 4.head,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "4.head,6.head"
+   },
+   "bad": [],
+   "mainWord": "You"
+  },
+  "R|v0|L4|headrime": {
+   "cell": {
+    "id": "R|v0|L4|headrime",
+    "key": "returns",
+    "voices": false,
+    "n": 4,
+    "sp": "headrime",
+    "member": "4.headrime",
+    "partner": "6.head",
+    "formPlace": "headrime",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 4.headrime,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 4.headrime,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "4.headrime,6.head"
+   },
+   "bad": [],
+   "mainWord": "You"
+  },
+  "R|v0|L4|line": {
+   "cell": {
+    "id": "R|v0|L4|line",
+    "key": "returns",
+    "voices": false,
+    "n": 4,
+    "sp": "line",
+    "member": "4.line",
+    "partner": "6.head",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 4.line,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 4.line,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "4.line,6.head"
+   },
+   "bad": [],
+   "mainWord": "You hold my heart.    10"
+  },
+  "R|v0|L4|T4": {
+   "cell": {
+    "id": "R|v0|L4|T4",
+    "key": "returns",
+    "voices": false,
+    "n": 4,
+    "sp": "T4",
+    "member": "4.T4",
+    "partner": "6.head",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 4.T4,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 4.T4,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "4.T4,6.head"
+   },
+   "bad": [],
+   "mainWord": "heart"
+  },
+  "R|v0|L5|N": {
+   "cell": {
+    "id": "R|v0|L5|N",
+    "key": "returns",
+    "voices": false,
+    "n": 5,
+    "sp": "N",
+    "member": "5",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 5,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 5,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "5,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L5|end": {
+   "cell": {
+    "id": "R|v0|L5|end",
+    "key": "returns",
+    "voices": false,
+    "n": 5,
+    "sp": "end",
+    "member": "5.end",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 5.end,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 5.end,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "5.end,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L5|endword": {
+   "cell": {
+    "id": "R|v0|L5|endword",
+    "key": "returns",
+    "voices": false,
+    "n": 5,
+    "sp": "endword",
+    "member": "5.endword",
+    "partner": "6.head",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 5.endword,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 5.endword,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "5.endword,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L5|head": {
+   "cell": {
+    "id": "R|v0|L5|head",
+    "key": "returns",
+    "voices": false,
+    "n": 5,
+    "sp": "head",
+    "member": "5.head",
+    "partner": "6.head",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 5.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 5.head,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "5.head,6.head"
+   },
+   "bad": [],
+   "mainWord": "I"
+  },
+  "R|v0|L5|headrime": {
+   "cell": {
+    "id": "R|v0|L5|headrime",
+    "key": "returns",
+    "voices": false,
+    "n": 5,
+    "sp": "headrime",
+    "member": "5.headrime",
+    "partner": "6.head",
+    "formPlace": "headrime",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 5.headrime,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 5.headrime,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "5.headrime,6.head"
+   },
+   "bad": [],
+   "mainWord": "I"
+  },
+  "R|v0|L5|line": {
+   "cell": {
+    "id": "R|v0|L5|line",
+    "key": "returns",
+    "voices": false,
+    "n": 5,
+    "sp": "line",
+    "member": "5.line",
+    "partner": "6.head",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 5.line,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 5.line,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "5.line,6.head"
+   },
+   "bad": [],
+   "mainWord": "I walk the line tonight"
+  },
+  "R|v0|L5|T4": {
+   "cell": {
+    "id": "R|v0|L5|T4",
+    "key": "returns",
+    "voices": false,
+    "n": 5,
+    "sp": "T4",
+    "member": "5.T4",
+    "partner": "6.head",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 5.T4,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 5.T4,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "5.T4,6.head"
+   },
+   "bad": [],
+   "mainWord": "line"
+  },
+  "R|v0|L5|T5": {
+   "cell": {
+    "id": "R|v0|L5|T5",
+    "key": "returns",
+    "voices": false,
+    "n": 5,
+    "sp": "T5",
+    "member": "5.T5",
+    "partner": "6.head",
+    "formPlace": "T5",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 5.T5,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 5.T5,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "5.T5,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L7|N": {
+   "cell": {
+    "id": "R|v0|L7|N",
+    "key": "returns",
+    "voices": false,
+    "n": 7,
+    "sp": "N",
+    "member": "7",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 7,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 7,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L7|end": {
+   "cell": {
+    "id": "R|v0|L7|end",
+    "key": "returns",
+    "voices": false,
+    "n": 7,
+    "sp": "end",
+    "member": "7.end",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 7.end,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 7.end,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.end,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L7|endword": {
+   "cell": {
+    "id": "R|v0|L7|endword",
+    "key": "returns",
+    "voices": false,
+    "n": 7,
+    "sp": "endword",
+    "member": "7.endword",
+    "partner": "6.head",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 7.endword,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 7.endword,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.endword,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L7|head": {
+   "cell": {
+    "id": "R|v0|L7|head",
+    "key": "returns",
+    "voices": false,
+    "n": 7,
+    "sp": "head",
+    "member": "7.head",
+    "partner": "6.head",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 7.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 7.head,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.head,6.head"
+   },
+   "bad": [],
+   "mainWord": "Stay"
+  },
+  "R|v0|L7|headrime": {
+   "cell": {
+    "id": "R|v0|L7|headrime",
+    "key": "returns",
+    "voices": false,
+    "n": 7,
+    "sp": "headrime",
+    "member": "7.headrime",
+    "partner": "6.head",
+    "formPlace": "headrime",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 7.headrime,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 7.headrime,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.headrime,6.head"
+   },
+   "bad": [],
+   "mainWord": "Stay"
+  },
+  "R|v0|L7|line": {
+   "cell": {
+    "id": "R|v0|L7|line",
+    "key": "returns",
+    "voices": false,
+    "n": 7,
+    "sp": "line",
+    "member": "7.line",
+    "partner": "6.head",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 7.line,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 7.line,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.line,6.head"
+   },
+   "bad": [],
+   "mainWord": "Stay with me (oh--oh) tonight"
+  },
+  "R|v0|L7|T3": {
+   "cell": {
+    "id": "R|v0|L7|T3",
+    "key": "returns",
+    "voices": false,
+    "n": 7,
+    "sp": "T3",
+    "member": "7.T3",
+    "partner": "6.head",
+    "formPlace": "T3",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 7.T3,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 7.T3,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.T3,6.head"
+   },
+   "bad": [],
+   "mainWord": "me"
+  },
+  "R|v0|L7|T4": {
+   "cell": {
+    "id": "R|v0|L7|T4",
+    "key": "returns",
+    "voices": false,
+    "n": 7,
+    "sp": "T4",
+    "member": "7.T4",
+    "partner": "6.head",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 7.T4,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 7.T4,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.T4,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L8|N": {
+   "cell": {
+    "id": "R|v0|L8|N",
+    "key": "returns",
+    "voices": false,
+    "n": 8,
+    "sp": "N",
+    "member": "8",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 8,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 8,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L8|end": {
+   "cell": {
+    "id": "R|v0|L8|end",
+    "key": "returns",
+    "voices": false,
+    "n": 8,
+    "sp": "end",
+    "member": "8.end",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 8.end,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 8.end,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.end,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L8|endword": {
+   "cell": {
+    "id": "R|v0|L8|endword",
+    "key": "returns",
+    "voices": false,
+    "n": 8,
+    "sp": "endword",
+    "member": "8.endword",
+    "partner": "6.head",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 8.endword,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 8.endword,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.endword,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v0|L8|head": {
+   "cell": {
+    "id": "R|v0|L8|head",
+    "key": "returns",
+    "voices": false,
+    "n": 8,
+    "sp": "head",
+    "member": "8.head",
+    "partner": "6.head",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 8.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 8.head,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.head,6.head"
+   },
+   "bad": [],
+   "mainWord": "Hold"
+  },
+  "R|v0|L8|headrime": {
+   "cell": {
+    "id": "R|v0|L8|headrime",
+    "key": "returns",
+    "voices": false,
+    "n": 8,
+    "sp": "headrime",
+    "member": "8.headrime",
+    "partner": "6.head",
+    "formPlace": "headrime",
+    "viaForm": false
+   },
+   "text": "[SETUP — returns — 8.headrime,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 8.headrime,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.headrime,6.head"
+   },
+   "bad": [],
+   "mainWord": "Hold"
+  },
+  "R|v0|L8|line": {
+   "cell": {
+    "id": "R|v0|L8|line",
+    "key": "returns",
+    "voices": false,
+    "n": 8,
+    "sp": "line",
+    "member": "8.line",
+    "partner": "6.head",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 8.line,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 8.line,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.line,6.head"
+   },
+   "bad": [],
+   "mainWord": "Hold me (hold me) close--close tonight"
+  },
+  "R|v0|L8|T3": {
+   "cell": {
+    "id": "R|v0|L8|T3",
+    "key": "returns",
+    "voices": false,
+    "n": 8,
+    "sp": "T3",
+    "member": "8.T3",
+    "partner": "6.head",
+    "formPlace": "T3",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 8.T3,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 8.T3,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.T3,6.head"
+   },
+   "bad": [],
+   "mainWord": "close--close"
+  },
+  "R|v0|L8|T4": {
+   "cell": {
+    "id": "R|v0|L8|T4",
+    "key": "returns",
+    "voices": false,
+    "n": 8,
+    "sp": "T4",
+    "member": "8.T4",
+    "partner": "6.head",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — returns — 8.T4,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — returns — 8.T4,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.T4,6.head"
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v1|L7|N": {
+   "cell": {
+    "id": "R|v1|L7|N",
+    "key": "returns",
+    "voices": true,
+    "n": 7,
+    "sp": "N",
+    "member": "7",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 7,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 7,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v1|L7|end": {
+   "cell": {
+    "id": "R|v1|L7|end",
+    "key": "returns",
+    "voices": true,
+    "n": 7,
+    "sp": "end",
+    "member": "7.end",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 7.end,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 7.end,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.end,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v1|L7|endword": {
+   "cell": {
+    "id": "R|v1|L7|endword",
+    "key": "returns",
+    "voices": true,
+    "n": 7,
+    "sp": "endword",
+    "member": "7.endword",
+    "partner": "6.head",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 7.endword,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 7.endword,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.endword,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v1|L7|head": {
+   "cell": {
+    "id": "R|v1|L7|head",
+    "key": "returns",
+    "voices": true,
+    "n": 7,
+    "sp": "head",
+    "member": "7.head",
+    "partner": "6.head",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 7.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 7.head,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.head,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Stay"
+  },
+  "R|v1|L7|headrime": {
+   "cell": {
+    "id": "R|v1|L7|headrime",
+    "key": "returns",
+    "voices": true,
+    "n": 7,
+    "sp": "headrime",
+    "member": "7.headrime",
+    "partner": "6.head",
+    "formPlace": "headrime",
+    "viaForm": false
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 7.headrime,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 7.headrime,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.headrime,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Stay"
+  },
+  "R|v1|L7|line": {
+   "cell": {
+    "id": "R|v1|L7|line",
+    "key": "returns",
+    "voices": true,
+    "n": 7,
+    "sp": "line",
+    "member": "7.line",
+    "partner": "6.head",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 7.line,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 7.line,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.line,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Stay with me (oh--oh) tonight"
+  },
+  "R|v1|L7|T3": {
+   "cell": {
+    "id": "R|v1|L7|T3",
+    "key": "returns",
+    "voices": true,
+    "n": 7,
+    "sp": "T3",
+    "member": "7.T3",
+    "partner": "6.head",
+    "formPlace": "T3",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 7.T3,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 7.T3,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.T3,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "me"
+  },
+  "R|v1|L7|T4": {
+   "cell": {
+    "id": "R|v1|L7|T4",
+    "key": "returns",
+    "voices": true,
+    "n": 7,
+    "sp": "T4",
+    "member": "7.T4",
+    "partner": "6.head",
+    "formPlace": "T4",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 7.T4,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 7.T4,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.T4,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "oh--oh"
+  },
+  "R|v1|L7|T5": {
+   "cell": {
+    "id": "R|v1|L7|T5",
+    "key": "returns",
+    "voices": true,
+    "n": 7,
+    "sp": "T5",
+    "member": "7.T5",
+    "partner": "6.head",
+    "formPlace": "T5",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 7.T5,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 7.T5,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "7.T5,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v1|L8|N": {
+   "cell": {
+    "id": "R|v1|L8|N",
+    "key": "returns",
+    "voices": true,
+    "n": 8,
+    "sp": "N",
+    "member": "8",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 8,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 8,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v1|L8|end": {
+   "cell": {
+    "id": "R|v1|L8|end",
+    "key": "returns",
+    "voices": true,
+    "n": 8,
+    "sp": "end",
+    "member": "8.end",
+    "partner": "6.head",
+    "formPlace": "end",
+    "viaForm": false
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 8.end,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 8.end,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.end,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v1|L8|endword": {
+   "cell": {
+    "id": "R|v1|L8|endword",
+    "key": "returns",
+    "voices": true,
+    "n": 8,
+    "sp": "endword",
+    "member": "8.endword",
+    "partner": "6.head",
+    "formPlace": "endword",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 8.endword,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 8.endword,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.endword,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "R|v1|L8|head": {
+   "cell": {
+    "id": "R|v1|L8|head",
+    "key": "returns",
+    "voices": true,
+    "n": 8,
+    "sp": "head",
+    "member": "8.head",
+    "partner": "6.head",
+    "formPlace": "head",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 8.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 8.head,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.head,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Hold"
+  },
+  "R|v1|L8|headrime": {
+   "cell": {
+    "id": "R|v1|L8|headrime",
+    "key": "returns",
+    "voices": true,
+    "n": 8,
+    "sp": "headrime",
+    "member": "8.headrime",
+    "partner": "6.head",
+    "formPlace": "headrime",
+    "viaForm": false
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 8.headrime,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 8.headrime,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.headrime,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Hold"
+  },
+  "R|v1|L8|line": {
+   "cell": {
+    "id": "R|v1|L8|line",
+    "key": "returns",
+    "voices": true,
+    "n": 8,
+    "sp": "line",
+    "member": "8.line",
+    "partner": "6.head",
+    "formPlace": "line",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 8.line,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 8.line,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.line,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "Hold me (hold me) close--close tonight"
+  },
+  "R|v1|L8|T3": {
+   "cell": {
+    "id": "R|v1|L8|T3",
+    "key": "returns",
+    "voices": true,
+    "n": 8,
+    "sp": "T3",
+    "member": "8.T3",
+    "partner": "6.head",
+    "formPlace": "T3",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 8.T3,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 8.T3,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.T3,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "hold"
+  },
+  "R|v1|L8|T5": {
+   "cell": {
+    "id": "R|v1|L8|T5",
+    "key": "returns",
+    "voices": true,
+    "n": 8,
+    "sp": "T5",
+    "member": "8.T5",
+    "partner": "6.head",
+    "formPlace": "T5",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 8.T5,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 8.T5,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.T5,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "close--close"
+  },
+  "R|v1|L8|T6": {
+   "cell": {
+    "id": "R|v1|L8|T6",
+    "key": "returns",
+    "voices": true,
+    "n": 8,
+    "sp": "T6",
+    "member": "8.T6",
+    "partner": "6.head",
+    "formPlace": "T6",
+    "viaForm": true
+   },
+   "text": "[SETUP — voices — parentheses are sung]\n[SETUP — returns — 8.T6,6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "ls": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — voices — parentheses are sung]\\n[SETUP — returns — 8.T6,6.head]\\n\\n[VERSE]\\nOh--oh, oh my love\\nThundered the battery’s double bass--\\nMy love--love is true\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nStay with me (oh--oh) tonight\\nHold me (hold me) close--close tonight\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+   "decl": {
+    "returns": "8.T6,6.head",
+    "voices": true
+   },
+   "bad": [],
+   "mainWord": "tonight"
+  },
+  "__voicesRow": "[SETUP — voices — parentheses are sung]"
+ },
+ "errors": []
+}

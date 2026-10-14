@@ -1,0 +1,53 @@
+..../usr/lib/python3.13/re/__init__.py:167: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f5606fc3d30>
+  return _compile(pattern, flags).match(string)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/re/__init__.py:208: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f5606fc3d30>
+  return _compile(pattern, flags).sub(repl, string, count)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1051: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f55fed8be20>
+  line = line.split("#")[0].strip()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+../usr/lib/python3.13/asyncio/protocols.py:109: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f55fed8be20>
+  class BufferedProtocol(BaseProtocol):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1051: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f55f9496980>
+  line = line.split("#")[0].strip()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1057: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f560400ae30>
+  self.entries.setdefault(word, []).append(phones)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+../tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1051: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f55f9496200>
+  line = line.split("#")[0].strip()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1057: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f55f9496200>
+  self.entries.setdefault(word, []).append(phones)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1051: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f56040088b0>
+  line = line.split("#")[0].strip()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1051: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f56040087c0>
+  line = line.split("#")[0].strip()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1051: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f560400b2e0>
+  line = line.split("#")[0].strip()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+../tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1051: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f56185889a0>
+  line = line.split("#")[0].strip()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1057: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f55f94971f0>
+  self.entries.setdefault(word, []).append(phones)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+../usr/lib/python3.13/re/__init__.py:208: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f5619be2d40>
+  return _compile(pattern, flags).sub(repl, string, count)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1057: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f5619be2d40>
+  self.entries.setdefault(word, []).append(phones)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...../tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness/lyric_harness.py:1051: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7f5619be2d40>
+  line = line.split("#")[0].strip()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...............
+----------------------------------------------------------------------
+Ran 36 tests in 93.205s
+
+OK

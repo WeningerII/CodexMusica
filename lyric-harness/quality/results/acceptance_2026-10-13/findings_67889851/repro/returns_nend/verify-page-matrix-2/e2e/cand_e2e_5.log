@@ -1,0 +1,21 @@
+=== wt-678 returns="5.end,6.end;1.T5,8.T5"
+  lyric_check : exit 0 certified=true refused=[]
+                flags=["RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T5='tonight'. The rest of these lines is not constrained by this class","RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L5.end='tonight', L6.end='floor'. The rest of these lines is not constrained by this class"]
+                meaning=answered — 2 per-line and 0 whole-draft flag(s) stand
+  revise asked: {"kind":"propose_group","members":[1,2,3,4,5,6,7,8],"attempt":0,"question_sha256":"ff78e4175380056b35a7d18004d283e5a212d86395d3325b223c4804d3a56009","round":1} -> answered undefined
+  lyric_revise: exit 4 status=awaiting_proposal certified=false
+                blocking=undefined
+  final L4: undefined   (written: "You hold my heart.    10")
+  final L6: undefined
+  stop line: "[AWAITING PROPOSAL — declared mandate — 0 answer(s) on record — NO SONG YET]"
+=== wt-678 returns="5,6;1.T5,8.T5"
+  lyric_check : exit 0 certified=true refused=[]
+                flags=["RETURN_NOT_VERBATIM: return  must come back VERBATIM: L5 'I walk the line tonight' vs L6 'Well-worn shoes upon the floor'","RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T5='tonight'. The rest of these lines is not constrained by this class"]
+                meaning=answered — 2 per-line and 0 whole-draft flag(s) stand
+  revise asked: {"kind":"propose","line":6,"attempt":0,"round":1} -> answered {"answer":"Well-worn shoes upon the floor"}
+  revise asked: {"kind":"propose_group","members":[1,2,3,4,5,6,7,8],"attempt":0,"question_sha256":"0284c3917d37812a727d33390a763db5d8d71bff1bb0242cec63814491285d87","round":2} -> answered undefined
+  lyric_revise: exit 4 status=awaiting_proposal certified=false
+                blocking=undefined
+  final L4: undefined   (written: "You hold my heart.    10")
+  final L6: undefined
+  stop line: "[AWAITING PROPOSAL — declared mandate — 1 answer(s) on record — NO SONG YET]"

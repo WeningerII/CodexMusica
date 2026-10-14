@@ -1,0 +1,89 @@
+base files 665 copied-rule digest 9602d809f6788fa8f79ee9c78bcd39cb9b416c4adb00823f2638ea8f479974f2 tree function 9602d809f6788fa8f79ee9c78bcd39cb9b416c4adb00823f2638ea8f479974f2 MATCH
+cand files 672 copied-rule digest 9941c311943dc29a19802e3fde81589188077fe40947dcef5ac39f9afd9b5f94 tree function 9941c311943dc29a19802e3fde81589188077fe40947dcef5ac39f9afd9b5f94 MATCH
+fingerprinted files that differ base->cand: 56
+  A lyric-harness/quality/fixtures/capture_reader_v1_defer_states.py
+  A lyric-harness/quality/fixtures/capture_reader_v1_oracle.py
+  A lyric-harness/quality/reader_cases.py
+  A lyric-harness/quality/results/warm_worker_rss_2026-10-13/measure.py
+  A lyric-harness/quality/test_reader.py
+  A scripts/test_library_declarations.js
+  A scripts/test_lyric_tokens.js
+  M lyric-harness/library/analysis.py
+  M lyric-harness/library/form.py
+  M lyric-harness/library/test_analysis.py
+  M lyric-harness/lyric_harness.py
+  M lyric-harness/quality/audit_corpus.py
+  M lyric-harness/quality/audit_rhyme_organization.py
+  M lyric-harness/quality/audit_spans.py
+  M lyric-harness/quality/build_song_frequency.py
+  M lyric-harness/quality/coverage_census.py
+  M lyric-harness/quality/coverage_queue.py
+  M lyric-harness/quality/fit.py
+  M lyric-harness/quality/g2p.py
+  M lyric-harness/quality/grid.py
+  M lyric-harness/quality/lexicon_supplement.py
+  M lyric-harness/quality/loop.py
+  M lyric-harness/quality/meter_bands.py
+  M lyric-harness/quality/mutate.py
+  M lyric-harness/quality/narrative_bands.py
+  M lyric-harness/quality/negative_control.py
+  M lyric-harness/quality/phonology/eng.py
+  M lyric-harness/quality/pronunciation.py
+  M lyric-harness/quality/readability.py
+  M lyric-harness/quality/relations.py
+  M lyric-harness/quality/replay_memo.py
+  M lyric-harness/quality/results/census_validation_2026-10-12/compare.py
+  M lyric-harness/quality/results/scope_2026-10-12/hyphen_end_classes.py
+  M lyric-harness/quality/results/scope_2026-10-12/occurrence_sidecar.py
+  M lyric-harness/quality/results/scope_2026-10-12/reader_disagree.py
+  M lyric-harness/quality/results/scope_2026-10-12/selected_vs_moby.py
+  M lyric-harness/quality/revise.py
+  M lyric-harness/quality/rhyme_organization.py
+  M lyric-harness/quality/rhyme_types.py
+  M lyric-harness/quality/structure_census.py
+  M lyric-harness/quality/test_corpus_audit.py
+  M lyric-harness/quality/test_fit.py
+  M lyric-harness/quality/test_grid.py
+  M lyric-harness/quality/test_gutenberg_next_import.py
+  M lyric-harness/quality/test_production_harness.py
+  M lyric-harness/quality/test_pronunciation_choices.py
+  M lyric-harness/quality/test_readability.py
+  M lyric-harness/quality/test_replay_memo.py
+  M lyric-harness/quality/test_structure_census.py
+  M lyric-harness/quality/test_verbs.py
+  M mcp/test_reader_client.mjs
+  M scripts/build_html.js
+  M scripts/check_library_page.js
+  M scripts/check_lyrics_page.js
+  M scripts/test_library_import.js
+  M scripts/test_library_import_browser.js
+of which not test/fixture/results/check scripts: 29
+  * A lyric-harness/quality/reader_cases.py
+  * M lyric-harness/library/analysis.py
+  * M lyric-harness/library/form.py
+  * M lyric-harness/lyric_harness.py
+  * M lyric-harness/quality/audit_corpus.py
+  * M lyric-harness/quality/audit_rhyme_organization.py
+  * M lyric-harness/quality/audit_spans.py
+  * M lyric-harness/quality/build_song_frequency.py
+  * M lyric-harness/quality/coverage_census.py
+  * M lyric-harness/quality/coverage_queue.py
+  * M lyric-harness/quality/fit.py
+  * M lyric-harness/quality/g2p.py
+  * M lyric-harness/quality/grid.py
+  * M lyric-harness/quality/lexicon_supplement.py
+  * M lyric-harness/quality/loop.py
+  * M lyric-harness/quality/meter_bands.py
+  * M lyric-harness/quality/mutate.py
+  * M lyric-harness/quality/narrative_bands.py
+  * M lyric-harness/quality/negative_control.py
+  * M lyric-harness/quality/phonology/eng.py
+  * M lyric-harness/quality/pronunciation.py
+  * M lyric-harness/quality/readability.py
+  * M lyric-harness/quality/relations.py
+  * M lyric-harness/quality/replay_memo.py
+  * M lyric-harness/quality/revise.py
+  * M lyric-harness/quality/rhyme_organization.py
+  * M lyric-harness/quality/rhyme_types.py
+  * M lyric-harness/quality/structure_census.py
+  * M scripts/build_html.js

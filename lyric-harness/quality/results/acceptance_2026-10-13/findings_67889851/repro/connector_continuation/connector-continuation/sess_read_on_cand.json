@@ -1,0 +1,120 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+ "identity": "30c543e7ebe772bebd3cac36e3971a949c4e63978fd37e62722e010d9fba725f",
+ "same_identity": false,
+ "writer_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+ "records_on_load": {
+  "S1": "completed",
+  "grade_op": "completed",
+  "killed_grade_op": {
+   "state": "interrupted",
+   "interruption": "process_restarted"
+  },
+  "killed_revise_op": {
+   "state": "interrupted",
+   "interruption": "process_restarted",
+   "has_progress": true,
+   "progress_semantic_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+   "progress_reader_scheme": "(absent)"
+  }
+ },
+ "get_S1": {
+  "isError": false,
+  "status": "completed",
+  "tool_error": null,
+  "resumable": false,
+  "interruption": null,
+  "has_session_id": true,
+  "text": "[AWAITING PROPOSAL — declared mandate — 0 answer(s) on record — NO SONG YET]\n\nREVISE ONE LINE — L2 of a 2-line draft.\n\nYou are given a draft, one line of it a grader has flagged, everything that grader\nmeasured, and the rules it will apply to what you send back. Rewrite that ONE line.\n\nATTEMPT\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nTHE LINE TO REVISE\n  L2: Azure dog\n\nTHE WHOLE DRAFT (context — only L2 may change)\n     L1  Copper cat\n  >> L2  Azure dog\n\nWHAT THE GRADER FOUND ON L2 (1)\n  [flag] SCHEME_VIOLATION: L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires (lines 1, 2)\n      evidence: does not satisfy the declared relation 'type:rime riche' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score 0.737; 'cat' ~ 'dog') — NAMED PAIR IS NOT THE EVIDENCE: scored on: Copper cat  ~  Azure dog   (best of k=4)   MOSAIC (both sides): the winning span reaches back past the end word\n\nTHE RHYME MANDATE ON L2\n  group A [1, 2] at its end word — this line must stand in at least one relation with: L1 ('cat') — VIOLATED, this is the word to change\n\nOFFERED — words for the end word that answer every group bound there\n  56 word(s) the band admitted are NOT offered: this place is judged by its group's declared\n  relation, and it di"
+ },
+ "get_grade_findings": {
+  "isError": false,
+  "status": "completed",
+  "tool_error": null,
+  "resumable": false,
+  "interruption": null,
+  "has_session_id": true,
+  "text": "{\"exit_code\":0,\"meaning\":\"answered — 1 per-line and 0 whole-draft flag(s) stand\",\"report\":\"  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  draft: 2 line(s), md5 54ab17b496bf\\n  ADJACENCY: longest stress run 1 (L1), longest weak run 1 (L1) — disclosed, uncalibrated, never charged.\\n  REPORT: 1 line(s) briefed — 1 FLAG, 0 NOTE (two counts, never summed: doctrine 79)\\n\\n  WHAT TO CHANGE — 1 decision(s). Flags only; the notes below are measurements handed back, not defects (doctrine 96)\\n    1. SCHEME_VIOLATION — L2\\n\\n  THE EVIDENCE — every finding not rolled up, in full; the lines carrying an un-rolled flag first\\n  L2: Azure dog\\n      FINDING [FLAG] SCHEME_VIOLATION: L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires (lines 1, 2)\\n         NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.737; 'cat' ~ 'dog') — NAMED PAIR IS NOT THE EVIDENCE: scored on: Copper cat  ~  Azure dog   (best of k=4)   MOSAIC (both sides): the winning span reaches back past the end word\\n      FAILS L1-L2 (cat/dog): 0.737 "
+ },
+ "get_killed_grade": {
+  "isError": false,
+  "status": "interrupted",
+  "tool_error": null,
+  "resumable": false,
+  "interruption": "process_restarted",
+  "has_session_id": true,
+  "text": "{\"operation_id\":\"c79daa8ac997928fc563298fb8deab10c95333c5929cbc74b03a2e9ea03431f7\",\"status\":\"interrupted\",\"session_id\":\"c79daa8ac997928fc563298fb8deab10c95333c5929cbc74b03a2e9ea03431f7\",\"tool\":\"lyric_check\",\"interruption\":\"process_restarted\",\"resumable\":false,\"durable\":true,\"retention_ms\":86400000,\"expires_at\":1792043599260,\"uncertain_proposal\":false}"
+ },
+ "get_killed_revise": {
+  "isError": false,
+  "status": "interrupted",
+  "tool_error": null,
+  "resumable": false,
+  "interruption": "process_restarted",
+  "has_session_id": true,
+  "text": "{\"operation_id\":\"65a28e4ef7b72cf9c48fffe34d5343d5cab424eac23d5372fe5f6022d50e9b80\",\"status\":\"interrupted\",\"session_id\":\"65a28e4ef7b72cf9c48fffe34d5343d5cab424eac23d5372fe5f6022d50e9b80\",\"tool\":\"lyric_revise\",\"accepted_draft\":[\"Copper cat\",\"Azure dog\"],\"interruption\":\"process_restarted\",\"resumable\":false,\"durable\":true,\"retention_ms\":86400000,\"expires_at\":1792043599256,\"uncertain_proposal\":false}"
+ },
+ "resume_killed_grade": {
+  "isError": true,
+  "status": null,
+  "tool_error": null,
+  "resumable": null,
+  "interruption": null,
+  "has_session_id": false,
+  "text": "CONTINUATION_MIGRATION_REQUIRED: The scorer, its lexical data or its runtime changed after this session was recorded, and its receipts cannot be replayed under the new ones. lyric_revise with this session_id and recover_only: true exports the lyrics and journal it holds; then call begin_lyrics for a new session."
+ },
+ "resume_killed_revise": {
+  "isError": true,
+  "status": null,
+  "tool_error": null,
+  "resumable": null,
+  "interruption": null,
+  "has_session_id": false,
+  "text": "CONTINUATION_MIGRATION_REQUIRED: The scorer, its lexical data or its runtime changed after this session was recorded, and its receipts cannot be replayed under the new ones. lyric_revise with this session_id and recover_only: true exports the lyrics and journal it holds; then call begin_lyrics for a new session."
+ },
+ "continue_S1_answer": {
+  "isError": true,
+  "status": null,
+  "tool_error": null,
+  "resumable": null,
+  "interruption": null,
+  "has_session_id": false,
+  "text": "CONTINUATION_MIGRATION_REQUIRED: The scorer, its lexical data or its runtime changed after this session was recorded, and its receipts cannot be replayed under the new ones. lyric_revise with this session_id and recover_only: true exports the lyrics and journal it holds; then call begin_lyrics for a new session."
+ },
+ "lyric_check_on_old_session": {
+  "isError": true,
+  "status": null,
+  "tool_error": null,
+  "resumable": null,
+  "interruption": null,
+  "has_session_id": false,
+  "text": "CONTINUATION_MIGRATION_REQUIRED: The scorer, its lexical data or its runtime changed after this session was recorded, and its receipts cannot be replayed under the new ones. lyric_revise with this session_id and recover_only: true exports the lyrics and journal it holds; then call begin_lyrics for a new session."
+ },
+ "recover_only_S1": {
+  "isError": false,
+  "status": "completed",
+  "tool_error": null,
+  "resumable": false,
+  "interruption": null,
+  "has_session_id": true,
+  "text": "{\"status\":\"recovered_artifact\",\"recovery_part\":\"all\",\"source_format\":\"gzip+base64\",\"source_connector_contract\":3,\"source_semantic_identity\":\"a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb\",\"checksum_verified\":true,\"final_draft\":[\"Copper cat\",\"Azure dog\"],\"replay_draft\":[\"Copper cat\",\"Azure dog\"],\"journal\":{\"version\":1,\"answered\":{\"propose\":[],\"propose_group\":[]},\"pending\":{\"kind\":\"propose\",\"record\":{\"line\":2,\"attempt\":0,\"round\":1,\"draft\":\"54ab17b496bf\",\"text\":null},\"prompt\":\"REVISE ONE LINE — L2 of a 2-line draft.\\n\\nYou are given a draft, one line of it a grader has flagged, everything that grader\\nmeasured, and the rules it will apply to what you send back. Rewrite that ONE line.\\n\\nATTEMPT\\n  This is ATTEMPT 1 of this line's retry budget.\\n  No previous attempt was rejected on this line in this round.\\n\\nTHE LINE TO REVISE\\n  L2: Azure dog\\n\\nTHE WHOLE DRAFT (context — only L2 may change)\\n     L1  Copper cat\\n  >> L2  Azure dog\\n\\nWHAT THE GRADER FOUND ON L2 (1)\\n  [flag] SCHEME_VIOLATION: L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires (lines 1, 2)\\n      evidence: does not satisfy the declared relation 'type:rime riche' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score 0.737; 'cat' ~ 'dog') — NAMED PAIR IS NOT THE EVIDENCE: scored on: Copper cat  ~  Azure"
+ },
+ "fresh_session_grade": {
+  "isError": false,
+  "status": "completed",
+  "tool_error": null,
+  "resumable": false,
+  "interruption": null,
+  "has_session_id": true,
+  "text": "{\"exit_code\":0,\"meaning\":\"answered — 1 per-line and 0 whole-draft flag(s) stand\",\"report\":\"  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  draft: 2 line(s), md5 54ab17b496bf\\n  ADJACENCY: longest stress run 1 (L1), longest weak run 1 (L1) — disclosed, uncalibrated, never charged.\\n  REPORT: 1 line(s) briefed — 1 FLAG, 0 NOTE (two counts, never summed: doctrine 79)\\n\\n  WHAT TO CHANGE — 1 decision(s). Flags only; the notes below are measurements handed back, not defects (doctrine 96)\\n    1. SCHEME_VIOLATION — L2\\n\\n  THE EVIDENCE — every finding not rolled up, in full; the lines carrying an un-rolled flag first\\n  L2: Azure dog\\n      FINDING [FLAG] SCHEME_VIOLATION: L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires (lines 1, 2)\\n         NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.737; 'cat' ~ 'dog') — NAMED PAIR IS NOT THE EVIDENCE: scored on: Copper cat  ~  Azure dog   (best of k=4)   MOSAIC (both sides): the winning span reaches back past the end word\\n      FAILS L1-L2 (cat/dog): 0.737 "
+ },
+ "shared_surface_raw_state": {
+  "isError": true,
+  "status": null,
+  "tool_error": null,
+  "resumable": null,
+  "interruption": null,
+  "has_session_id": false,
+  "text": "Error: CONTINUATION_MIGRATION_REQUIRED: The scorer source, lexical data or runtime differs from this continuation. Keep the original state/checkpoint and accepted lyrics as recovery artifacts; automatic replay under changed semantics is refused. To extract the stored lyrics and journal without replay, call lyric_revise with recover_only:true and only that original state or checkpoint."
+ }
+}

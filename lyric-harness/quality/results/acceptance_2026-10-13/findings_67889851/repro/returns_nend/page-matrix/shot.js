@@ -1,0 +1,20 @@
+'use strict';
+const X = require('./cand_lib.js');
+const { L } = X;
+(async () => {
+  const main = JSON.parse(L.fs.readFileSync(L.path.join(L.OUT, 'main_cells.json'), 'utf8')).out;
+  const server = L.serve({ root: L.WT_CAND });
+  await new Promise((r) => server.listen(0, '127.0.0.1', r));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  const browser = await L.chromium.launch({ headless: true, executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox', '--disable-dev-shm-usage'] });
+  const ses = JSON.parse(main['G|v0|L1|N'].ls);
+  ses.lyrics = ses.lyrics.replace('[SETUP — rhyme groups — 1,6]', '[SETUP — rhyme groups — 1,6;3.T2,5]\n[SETUP — returns — 4.end,6.end]');
+  const b = await X.boot(browser, base, { session: JSON.stringify(ses) });
+  await b.page.evaluate(() => { lyRefresh(true); LY_ACTIONS['ly-tab']('review'); });
+  await b.page.waitForTimeout(300);
+  await b.page.screenshot({ path: L.path.join(L.OUT, 'review_carried_blocked.png') });
+  const t = await b.page.evaluate(() => ({ review: $ui('ly-panel-review').innerText, rows: [...document.querySelectorAll('.ly-r-setup .ly-lab')].map((e) => e.innerText) }));
+  L.fs.writeFileSync(L.path.join(L.OUT, 'review_carried_blocked.txt'), JSON.stringify(t, null, 1));
+  console.log(JSON.stringify(t, null, 1).slice(0, 3000));
+  await browser.close(); server.close();
+})();

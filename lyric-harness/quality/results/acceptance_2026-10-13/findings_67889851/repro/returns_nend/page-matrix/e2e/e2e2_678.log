@@ -1,0 +1,147 @@
+=== C1 page sent for G|v0|L4|N and G|v0|L4|end (row 4 (carried),6) {"groups":"4,6"}
+--- lyric_check (2 blocks)
+{
+ "exit_code": 0,
+ "meaning": "answered — no flag stands; coverage INCOMPLETE — uncertified (coverage.refused_obligations names what was not judged)",
+ "measurement_status": "graded",
+ "certified": false,
+ "refused_obligations": [
+  "rhyme:4:6:0"
+ ],
+ "notes": 5,
+ "pron": [
+  [
+   "You hold my heart.    10",
+   5,
+   "10"
+  ],
+  [
+   "Well-worn shoes upon the floor",
+   1,
+   "Well-worn"
+  ],
+  [
+   "Well-worn shoes upon the floor",
+   4,
+   "the"
+  ]
+ ]
+}
+{"operation_id":"89d0899da53391b00443895fde04fcf87b9d7d75bd9fe40cc35cc6eca54eb45c","status":"completed","session_id":"89d0899da53391b00443895fde04fcf87b9d7d75bd9fe40cc35cc6eca54eb45c","tool":"lyric_check","resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044287015,"uncertain_proposal":false}
+--- lyric_revise (3 blocks)
+Oh--oh, oh my love ⏎ Thundered the battery’s double bass-- ⏎ My love--love is true ⏎ You hold my heart.    10 ⏎ I walk the line tonight ⏎ Well-worn shoes upon the floor ⏎ Stay with me (oh--oh) tonight ⏎ Hold me (hold me) close--close tonight ⏎  ⏎ [FINISHED — declared mandate — exit 2 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L4 — COVERAGE UNCERTIFIED: rhyme:4:6:0] ⏎  ⏎ NOT FINISHED: this stop left lines open and its coverage uncertified — present it as parked. ⏎  ⏎ CONTINUE: no question is pending. Rewrite the open line(s), then call lyric_revise with the latest session_id, the complete rewritten draft, the same dec
+{
+ "exit_code": 2,
+ "meaning": "measured — coverage incomplete; this is an uncertified draft, not a successful song",
+ "status": "uncertified",
+ "measurement_status": "finished",
+ "certified": false,
+ "blocking": [
+  "L4: not judged — rhyme with L6 (SCHEME_UNREADABLE); words with more than one reading: L6 the; no dictionary reading listed: L4 10; L6 Well-worn",
+  "L6: not judged — rhyme with L4 (SCHEME_UNREADABLE); words with more than one reading: L6 the; no dictionary reading listed: L6 Well-worn; L4 10"
+ ],
+ "notes": 5
+}
+{"operation_id":"78eeb3547ec7fa742d499244376f954d3624eca46904f34b966ad7fae6035b92","status":"completed","session_id":"78eeb3547ec7fa742d499244376f954d3624eca46904f34b966ad7fae6035b92","tool":"lyric_revise","resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044298609,"uncertain_proposal":false}
+=== C3a returns as WRITTEN pre-batch 4.end,6.end {"returns":"4.end,6.end"}
+--- lyric_check (2 blocks)
+{
+ "exit_code": 0,
+ "meaning": "answered — no flag stands; coverage INCOMPLETE — uncertified (coverage.refused_obligations names what was not judged)",
+ "measurement_status": "graded",
+ "certified": false,
+ "refused_obligations": [
+  "return:4:6"
+ ],
+ "notes": 5,
+ "pron": [
+  [
+   "You hold my heart.    10",
+   5,
+   "10"
+  ],
+  [
+   "Well-worn shoes upon the floor",
+   1,
+   "Well-worn"
+  ],
+  [
+   "Well-worn shoes upon the floor",
+   4,
+   "the"
+  ]
+ ]
+}
+{"operation_id":"f8c6c7007604572f4e8a0a3abbd3c3d6c72e2a4032b4198b58f65a0a92febeb4","status":"completed","session_id":"f8c6c7007604572f4e8a0a3abbd3c3d6c72e2a4032b4198b58f65a0a92febeb4","tool":"lyric_check","resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044301971,"uncertain_proposal":false}
+--- lyric_revise (3 blocks)
+Oh--oh, oh my love ⏎ Thundered the battery’s double bass-- ⏎ My love--love is true ⏎ You hold my heart.    10 ⏎ I walk the line tonight ⏎ Well-worn shoes upon the floor ⏎ Stay with me (oh--oh) tonight ⏎ Hold me (hold me) close--close tonight ⏎  ⏎ [FINISHED — declared mandate — exit 2 — UNCERTIFIED after 0 round(s) — no line flag stands — COVERAGE UNCERTIFIED: return:4:6] ⏎  ⏎ NOT CERTIFIED: no line is open, but coverage is incomplete (see `coverage`) — present it as uncertified, not finished. Resolve the unread words with `pronunciations` (lyric_grade lists the options; never guess a reading), grade again, and star
+{
+ "exit_code": 2,
+ "meaning": "measured — coverage incomplete; this is an uncertified draft, not a successful song",
+ "status": "uncertified",
+ "measurement_status": "finished",
+ "certified": false,
+ "blocking": [
+  "L4: not judged — return with L6; words with more than one reading: L6 the; no dictionary reading listed: L4 10; L6 Well-worn",
+  "L6: not judged — return with L4; words with more than one reading: L6 the; no dictionary reading listed: L6 Well-worn; L4 10"
+ ],
+ "notes": 5
+}
+{"operation_id":"77fae6577a768d61fb131ff400fb711e8e6fa90651c9adaf425ec283ce5d8d44","status":"completed","session_id":"77fae6577a768d61fb131ff400fb711e8e6fa90651c9adaf425ec283ce5d8d44","tool":"lyric_revise","resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044305551,"uncertain_proposal":false}
+=== C3b returns as the candidate page SENDS it (4,6) {"returns":"4,6"}
+--- lyric_check (2 blocks)
+{
+ "exit_code": 0,
+ "meaning": "answered — 1 per-line and 0 whole-draft flag(s) stand",
+ "measurement_status": "graded",
+ "certified": true,
+ "refused_obligations": [],
+ "notes": 4,
+ "pron": []
+}
+{"operation_id":"d68ddbf9e4c8de902d3cd8ed8e2ba93132648ccde3c69e83d3e37faf825d4fa9","status":"completed","session_id":"d68ddbf9e4c8de902d3cd8ed8e2ba93132648ccde3c69e83d3e37faf825d4fa9","tool":"lyric_check","resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044311300,"uncertain_proposal":false}
+--- lyric_revise (3 blocks)
+Oh--oh, oh my love ⏎ Thundered the battery’s double bass-- ⏎ My love--love is true ⏎ Well-worn shoes upon the floor ⏎ I walk the line tonight ⏎ Well-worn shoes upon the floor ⏎ Stay with me (oh--oh) tonight ⏎ Hold me (hold me) close--close tonight ⏎  ⏎ [FINISHED — declared mandate — exit 0 — SUCCESS after 1 round(s) — no line flag stands]
+{
+ "exit_code": 0,
+ "meaning": "answered — no flag stands",
+ "status": "finished_clean",
+ "measurement_status": "finished",
+ "certified": true,
+ "blocking": [],
+ "notes": 4
+}
+{"operation_id":"a4b2196a230e96badc564bfcde0cd4f4b7f88df8611f70a606d567856482d644","status":"completed","session_id":"a4b2196a230e96badc564bfcde0cd4f4b7f88df8611f70a606d567856482d644","tool":"lyric_revise","resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044322530,"uncertain_proposal":false}
+=== C2 keep scenario as sent after Keep {"groups":"1,6;2.endword,5;4,3.head","returns":"1.head,6.head;8.line,5.line"}
+--- lyric_check (2 blocks)
+{
+ "exit_code": 0,
+ "meaning": "answered — 4 per-line and 0 whole-draft flag(s) stand; coverage INCOMPLETE — uncertified (coverage.refused_obligations names what was not judged)",
+ "measurement_status": "graded",
+ "certified": false,
+ "refused_obligations": [
+  "rhyme:3:4:2"
+ ],
+ "notes": 6,
+ "pron": [
+  [
+   "My love--love is true",
+   4,
+   "is"
+  ],
+  [
+   "You hold my heart.    10",
+   5,
+   "10"
+  ]
+ ]
+}
+{"operation_id":"915d5860490e133dd60649c7507a438b27ad18a8225cbce3556a3ef2a03b8dd3","status":"completed","session_id":"915d5860490e133dd60649c7507a438b27ad18a8225cbce3556a3ef2a03b8dd3","tool":"lyric_check","resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044339855,"uncertain_proposal":false}
+--- lyric_revise (3 blocks)
+[AWAITING PROPOSAL — declared mandate — 3 answer(s) on record — NO SONG YET] ⏎  ⏎ REPAIR THE DECLARED REQUIREMENTS ⏎  ⏎ Preserve the song's meaning, line count, placement and all declared relations. ⏎ Change only what is needed to clear the following whole-draft requirements. ⏎   [flag] SCHEME_VIOLATION: L2 and L5 are both in group B [2, 5] but do not stand in the relation it requires (lines 2, 5) ⏎       evidence: NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSO
+{
+ "exit_code": 4,
+ "status": "awaiting_proposal",
+ "certified": false
+}
+{"operation_id":"59893947b811584619f55f1ae000b14ca0ba3ca36b322ee8f2fe2cb189f81d26","status":"completed","session_id":"59893947b811584619f55f1ae000b14ca0ba3ca36b322ee8f2fe2cb189f81d26","tool":"lyric_revise","resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044520778,"uncertain_proposal":false}

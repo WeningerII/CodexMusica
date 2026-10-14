@@ -5,9 +5,9 @@ classification, and match base, candidate-v1 and candidate-v2 outcomes by
 identity so unchanged failures and newly exposed behaviour can be told apart.
 
     cd <tree>/lyric-harness
-    python3 sb_dump.py . select OUT.txt              # the gate's aside-line selection on that tree
-    python3 sb_dump.py . dump population.txt OUT.jsonl
-    python3 join.py fce4bf0f.jsonl 67889851.jsonl matched.json
+    python3 quality/results/acceptance_2026-10-13/slot_match_67889851/sb_dump.py . select <OUT.txt>    # the gate's aside-line selection on that tree
+    python3 quality/results/acceptance_2026-10-13/slot_match_67889851/sb_dump.py . dump quality/results/acceptance_2026-10-13/slot_match_67889851/population.txt <OUT.jsonl>
+    python3 quality/results/acceptance_2026-10-13/slot_match_67889851/join.py <fce4bf0f.jsonl> <67889851.jsonl> <matched.json>
 
 `sb_dump.py` reuses `../slot_binding.py` (tool v2) functions unchanged.
 `population.txt` is 3,990 lines: the gate's aside-line selection on both trees

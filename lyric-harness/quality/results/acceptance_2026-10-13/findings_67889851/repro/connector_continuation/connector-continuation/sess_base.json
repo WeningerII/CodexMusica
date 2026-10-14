@@ -1,0 +1,10 @@
+{
+ "S1": "300c2ac81c7bd00b1c6cb71b0a17784628b1dc97457d16836e7cc5d127cad9f4",
+ "S1b": "d5edca9d9d26eead089abe2039070d2d62f920ce18f2cdb3ec45f73d43613303",
+ "grade_op": "7728c8b5152025df2c9a9589f19e1c24a5f273d1c71d477f53a1885939fe53c5",
+ "killed_grade_op": "c79daa8ac997928fc563298fb8deab10c95333c5929cbc74b03a2e9ea03431f7",
+ "killed_revise_op": "65a28e4ef7b72cf9c48fffe34d5343d5cab424eac23d5372fe5f6022d50e9b80",
+ "killed_revise_state_at_exit": "pending",
+ "killed_revise_progress_at_exit": true,
+ "writer_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb"
+}

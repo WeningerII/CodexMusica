@@ -1,0 +1,155 @@
+TAP version 13
+# Subtest: durable storage is mandatory and lease may not exceed 600 seconds
+ok 1 - durable storage is mandatory and lease may not exceed 600 seconds
+  ---
+  duration_ms: 15.921288
+  type: 'test'
+  ...
+# Subtest: same exact create retry survives restart, changed input and viewer cannot read
+ok 2 - same exact create retry survives restart, changed input and viewer cannot read
+  ---
+  duration_ms: 32.050497
+  type: 'test'
+  ...
+# Subtest: one active lease, at most 16 queued and two outstanding per viewer
+ok 3 - one active lease, at most 16 queued and two outstanding per viewer
+  ---
+  duration_ms: 109.786531
+  type: 'test'
+  ...
+# Subtest: immutable partial generations, exact page order, final census and trusted paths
+ok 4 - immutable partial generations, exact page order, final census and trusted paths
+  ---
+  duration_ms: 173.698124
+  type: 'test'
+  ...
+# Subtest: refusal completion requires exhausted committed cursor and reconciled method/record census
+ok 5 - refusal completion requires exhausted committed cursor and reconciled method/record census
+  ---
+  duration_ms: 42.821609
+  type: 'test'
+  ...
+# Subtest: restart pauses running job and fences out even the old live store instance
+ok 6 - restart pauses running job and fences out even the old live store instance
+  ---
+  duration_ms: 63.170235
+  type: 'test'
+  ...
+# Subtest: cancel running retains fence until safe checkpoint; resume retry cannot restart a later interrupted attempt
+ok 7 - cancel running retains fence until safe checkpoint; resume retry cannot restart a later interrupted attempt
+  ---
+  duration_ms: 66.661863
+  type: 'test'
+  ...
+# Subtest: page and checkpoint limits reject without moving durable cursor
+ok 8 - page and checkpoint limits reject without moving durable cursor
+  ---
+  duration_ms: 90.808924
+  type: 'test'
+  ...
+# Subtest: quota pauses and preserves the committed cursor and evidence
+ok 9 - quota pauses and preserves the committed cursor and evidence
+  ---
+  duration_ms: 38.086496
+  type: 'test'
+  ...
+# Subtest: crash before pointer commit retains last generation; orphan objects cannot be read
+ok 10 - crash before pointer commit retains last generation; orphan objects cannot be read
+  ---
+  duration_ms: 175.073312
+  type: 'test'
+  ...
+# Subtest: crash after pointer rename recovers exactly the newly committed generation
+ok 11 - crash after pointer rename recovers exactly the newly committed generation
+  ---
+  duration_ms: 42.339266
+  type: 'test'
+  ...
+# Subtest: manifest index remains bounded and ordered beyond 250 page references
+ok 12 - manifest index remains bounded and ordered beyond 250 page references
+  ---
+  duration_ms: 584.35162
+  type: 'test'
+  ...
+# Subtest: access refreshes 30-day retention; expiry and deletion do not authorize redispatch
+ok 13 - access refreshes 30-day retention; expiry and deletion do not authorize redispatch
+  ---
+  duration_ms: 57.581667
+  type: 'test'
+  ...
+# Subtest: expired lease is fenced, and modified immutable bytes fail closed
+ok 14 - expired lease is fenced, and modified immutable bytes fail closed
+  ---
+  duration_ms: 38.748566
+  type: 'test'
+  ...
+# Subtest: checkpoint acknowledgement retry does not duplicate pages or advance generation
+ok 15 - checkpoint acknowledgement retry does not duplicate pages or advance generation
+  ---
+  duration_ms: 32.460655
+  type: 'test'
+  ...
+# Subtest: control fencing binds new actions while exact durable replay remains safe
+ok 16 - control fencing binds new actions while exact durable replay remains safe
+  ---
+  duration_ms: 61.213709
+  type: 'test'
+  ...
+# Subtest: successful yield at a full queue resumes automatically at its tail after restart
+ok 17 - successful yield at a full queue resumes automatically at its tail after restart
+  ---
+  duration_ms: 243.51515
+  type: 'test'
+  ...
+# Subtest: FIFO order and yield tail are stable even when all timestamps are identical
+ok 18 - FIFO order and yield tail are stable even when all timestamps are identical
+  ---
+  duration_ms: 30.271165
+  type: 'test'
+  ...
+# Subtest: source-bound defaults attach before identity, preserve other declarations, and do not mutate input
+ok 19 - source-bound defaults attach before identity, preserve other declarations, and do not mutate input
+  ---
+  duration_ms: 371.500873
+  type: 'test'
+  ...
+# Subtest: caller pronunciation set is authoritative including empty opt-out; non-English declaration skips defaults
+ok 20 - caller pronunciation set is authoritative including empty opt-out; non-English declaration skips defaults
+  ---
+  duration_ms: 263.755706
+  type: 'test'
+  ...
+# Subtest: unbound and retained sources receive no defaults
+ok 21 - unbound and retained sources receive no defaults
+  ---
+  duration_ms: 292.402417
+  type: 'test'
+  ...
+# Subtest: source-bound defaults reject stale binding IDs, revisions, source hashes, and changed declaration lines
+ok 22 - source-bound defaults reject stale binding IDs, revisions, source hashes, and changed declaration lines
+  ---
+  duration_ms: 386.191897
+  type: 'test'
+  ...
+# Subtest: source-bound defaults verify every asset, not just the requested collection
+ok 23 - source-bound defaults verify every asset, not just the requested collection
+  ---
+  duration_ms: 491.755969
+  type: 'test'
+  ...
+# Subtest: reader route prepares after validation, hashes and stores defaults, and resumes stored choices
+ok 24 - reader route prepares after validation, hashes and stores defaults, and resumes stored choices
+  ---
+  duration_ms: 356.667982
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4316.41451
+exit=0

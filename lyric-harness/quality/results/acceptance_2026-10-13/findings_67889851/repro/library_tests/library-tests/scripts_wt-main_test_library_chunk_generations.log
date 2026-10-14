@@ -1,0 +1,48 @@
+TAP version 13
+# fatal: pathspec 'library/code' did not match any files
+# Subtest: a publish merges beside the previous generation and keeps it 30 days
+ok 1 - a publish merges beside the previous generation and keeps it 30 days
+  ---
+  duration_ms: 26.917524
+  type: 'test'
+  ...
+# Subtest: re-publishing the same build changes nothing; returning to an old one revives it
+ok 2 - re-publishing the same build changes nothing; returning to an old one revives it
+  ---
+  duration_ms: 15.670349
+  type: 'test'
+  ...
+# Subtest: a build with no chunks retires the current generation and, after 30 days, empties the record
+ok 3 - a build with no chunks retires the current generation and, after 30 days, empties the record
+  ---
+  duration_ms: 7.860401
+  type: 'test'
+  ...
+# Subtest: a content-hashed name published with other bytes is refused
+ok 4 - a content-hashed name published with other bytes is refused
+  ---
+  duration_ms: 2.76469
+  type: 'test'
+  ...
+# Subtest: --check refuses drift
+ok 5 - --check refuses drift
+  ---
+  duration_ms: 4.531387
+  type: 'test'
+  ...
+# Subtest: sync-pages stages library/code only when there is something to stage
+ok 6 - sync-pages stages library/code only when there is something to stage
+  ---
+  duration_ms: 76.891312
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 349.041858
+exit=0

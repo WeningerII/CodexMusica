@@ -1,0 +1,654 @@
+[
+ {
+  "name": "C1 page sent for G|v0|L4|N and G|v0|L4|end (row 4 (carried),6)",
+  "declarations": {
+   "groups": "4,6"
+  },
+  "check": [
+   "{\"exit_code\":0,\"meaning\":\"answered — no flag stands; coverage INCOMPLETE — uncertified (coverage.refused_obligations names what was not judged)\",\"report\":\"  MANDATE: 1 group(s) over 8 lines, 1 mandated pair(s), source=declared (--groups=)\\n           group A = lines 4,6 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  draft: 8 line(s), md5 5aea9adb5fd6\\n  ADJACENCY: longest stress run 3 (L1), longest weak run 3 (L7) — disclosed, uncalibrated, never charged.\\n  REPORT: 4 line(s) briefed — 0 FLAG, 6 NOTE (two counts, never summed: doctrine 79)\\n\\n  WHAT TO CHANGE — 0 decision(s). Flags only; the notes below are measurements handed back, not defects (doctrine 96)\\n    nothing on any line, and nothing about the draft as a whole, carries a flag. The notes below still say what the draft is doing\\n\\n  THE EVIDENCE — every finding not rolled up, in full; the lines carrying an un-rolled flag first\\n  L4: You hold my heart.    10\\n      FINDING [NOTE] SCHEME_UNREADABLE: L4/L6 are mandated together (group(s) A) and the harness could not read a declared rhyme anchor, so this rhyme is UNKNOWN rather than absent (lines 4, 6)\\n         the end word '10' is a numeral token; the reader does not expand numbers into words and CMUdict spells none, so it has no pronunciation unless a reading is declared for this occurrence. This line's end-rhyme is UNKNOWN, not absent.\\n      FINDING [NOTE] SUBSTITUTED_END_WORD: 1 line(s) would have had the RHYME WORD SILENTLY REPLACED by an earlier word: L4 '10'->'heart' (lines 4)\\n         `word_syllable_map` emits no syllable for a word CMUdict cannot read, so anything taking its last entry as the rhyme word takes an EARLIER word instead -- the defect the shipped file carried in `_qafiya_parts`, where `zun` reported as `the` and `grow'st` as `thou`. THIS IS NOT A SECOND CHARGE. 1 of these 1 line(s) are ALREADY flagged above by UNREADABLE_END_WORD, which says the LINE cannot be read; what no other finding in this module says is WHICH WORD would have been used, and that is the only part a writer or a caller can act on -- the substitute is a plausible English word, so nothing about the output looks wrong. Every one of them is also flagged above, so this finding adds the word and no new line.\\n      must answer group A [4, 6]: L6 ('floor') — UNJUDGED\\n  L6: Well-worn shoes upon the floor\\n      FINDING [NOTE] SCHEME_UNREADABLE: L4/L6 are mandated together (group(s) A) and the harness could not read a declared rhyme anchor, so this rhyme is UNKNOWN rather than absent (lines 4, 6)\\n         the end word '10' is a numeral token; the reader does not expand numbers into words and CMUdict spells none, so it has no pronunciation unless a reading is declared for this occurrence. This line's end-rhyme is UNKNOWN, not absent.\\n      must answer group A [4, 6]: L4 ('10') — UNJUDGED\\n  L7: Stay with me (oh--oh) tonight\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L5 (free) and L7 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 5, 7)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n  L8: Hold me (hold me) close--close tonight\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L5 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 5, 8)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L7 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 7, 8)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n\",\"verified_outcomes\":null,\"verified_outcomes_error\":\"No authenticated verifier outcome inventory is available.\",\"verified_outcomes_draft_sha256\":null,\"journal_id\":null,\"resume_proof\":null,\"resume_proof_error\":\"No authenticated checkpoint replay receipt is available.\",\"path\":\"warm\",\"ms\":6073,\"tool_deadline\":{\"tool_budget_ms\":600000,\"caller_deadline_ms\":599994,\"reserve_ms\":1000,\"cap_ms\":598994,\"bound_by\":\"caller_deadline\",\"elapsed_ms\":6073},\"retained\":{\"stage\":\"result_recorded\",\"phase\":null,\"round\":null,\"completed_proposals\":null,\"accepted_lines\":null,\"proposer_calls\":null,\"proposer_in_flight\":null},\"coverage\":{\"pairs_mandated\":1,\"pairs_judged\":0,\"pairs_refused\":1,\"scope\":\"requested_layers\",\"certified\":false,\"obligations\":[{\"id\":\"function:draft\",\"layer\":\"function\",\"status\":\"not_requested\"},{\"id\":\"shape:draft\",\"layer\":\"shape\",\"status\":\"not_requested\"},{\"id\":\"sentencehood:draft\",\"layer\":\"sentencehood\",\"status\":\"answered\"},{\"id\":\"floor:draft\",\"layer\":\"floor\",\"status\":\"answered\"},{\"id\":\"meter:draft\",\"layer\":\"meter\",\"status\":\"not_requested\"},{\"id\":\"slot_grid:draft\",\"layer\":\"slot_grid\",\"status\":\"not_requested\"},{\"id\":\"setting:draft\",\"layer\":\"setting\",\"status\":\"not_requested\"},{\"id\":\"rhyme:4:6:0\",\"layer\":\"rhyme\",\"status\":\"refused\"}],\"refused_obligations\":[\"rhyme:4:6:0\"]},\"certified\":false,\"measurement_status\":\"graded\",\"lexicon\":{\"supplement_id\":\"v2\",\"sha256\":\"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51\"},\"pronunciations\":[],\"pronunciation_options\":{\"items\":[{\"line\":\"You hold my heart.    10\",\"token\":5,\"word\":\"10\",\"matching_lines\":[4],\"dictionary_readings\":[],\"supplied_reading_requires_source\":true},{\"line\":\"Well-worn shoes upon the floor\",\"token\":1,\"word\":\"Well-worn\",\"matching_lines\":[6],\"dictionary_readings\":[],\"supplied_reading_requires_source\":true},{\"line\":\"Well-worn shoes upon the floor\",\"token\":4,\"word\":\"the\",\"matching_lines\":[6],\"dictionary_readings\":[{\"phones\":[\"DH\",\"AH0\"],\"stress\":[0],\"syllables\":1,\"source\":\"cmudict\"},{\"phones\":[\"DH\",\"AH1\"],\"stress\":[1],\"syllables\":1,\"source\":\"cmudict\"},{\"phones\":[\"DH\",\"IY0\"],\"stress\":[0],\"syllables\":1,\"source\":\"cmudict\"}],\"supplied_reading_requires_source\":false}],\"total\":15,\"truncated\":false,\"scope\":\"refused_lines\",\"eligible\":3},\"findings_measured\":true,\"findings\":[{\"code\":\"SCHEME_UNREADABLE\",\"severity\":\"note\",\"message\":\"L4/L6 are mandated together (group(s) A) and the harness could not read a declared rhyme anchor, so this rhyme is UNKNOWN rather than absent\",\"evidence\":\"the end word '10' is a numeral token; the reader does not expand numbers into words and CMUdict spells none, so it has no pronunciation unless a reading is declared for this occurrence. This line's end-rhyme is UNKNOWN, not absent.\",\"locations\":[4,6],\"groups\":[\"A\"],\"obligations\":[],\"subject\":[\"unreadable_anchor\",4]},{\"code\":\"SUBSTITUTED_END_WORD\",\"severity\":\"note\",\"message\":\"1 line(s) would have had the RHYME WORD SILENTLY REPLACED by an earlier word: L4 '10'->'heart'\",\"evidence\":\"`word_syllable_map` emits no syllable for a word CMUdict cannot read, so anything taking its last entry as the rhyme word takes an EARLIER word instead -- the defect the shipped file carried in `_qafiya_parts`, where `zun` reported as `the` and `grow'st` as `thou`. THIS IS NOT A SECOND CHARGE. 1 of these 1 line(s) are ALREADY flagged above by UNREADABLE_END_WORD, which says the LINE cannot be read; what no other finding in this module says is WHICH WORD would have been used, and that is the only part a writer or a caller can act on -- the substitute is a plausible English word, so nothing about the output looks wrong. Every one of them is also flagged above, so this finding adds the word and no new line.\",\"locations\":[4],\"groups\":[],\"obligations\":[[4]],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L5 (free) and L7 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[5,7],\"groups\":[],\"obligations\":[],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L5 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[5,8],\"groups\":[],\"obligations\":[],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L7 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[7,8],\"groups\":[],\"obligations\":[],\"subject\":[]}],\"flags\":0,\"whole_flags\":0,\"notes\":5,\"banned_pairs\":0,\"banned\":[],\"unreadable_findings\":[{\"code\":\"SCHEME_UNREADABLE\",\"severity\":\"note\",\"message\":\"L4/L6 are mandated together (group(s) A) and the harness could not read a declared rhyme anchor, so this rhyme is UNKNOWN rather than absent\",\"evidence\":\"the end word '10' is a numeral token; the reader does not expand numbers into words and CMUdict spells none, so it has no pronunciation unless a reading is declared for this occurrence. This line's end-rhyme is UNKNOWN, not absent.\",\"locations\":[4,6],\"groups\":[\"A\"],\"obligations\":[],\"subject\":[\"unreadable_anchor\",4]}],\"unreadable\":1,\"standing\":[],\"final_draft\":[\"Oh--oh, oh my love\",\"Thundered the battery’s double bass--\",\"My love--love is true\",\"You hold my heart.    10\",\"I walk the line tonight\",\"Well-worn shoes upon the floor\",\"Stay with me (oh--oh) tonight\",\"Hold me (hold me) close--close tonight\"],\"final_draft_sha256\":\"d8ea6b259879df545d8fdfd9f1cf97e7647bde5c7ed4c0ac46fc50a36aa6ca96\",\"blueprint_declared\":false}",
+   "{\"operation_id\":\"89d0899da53391b00443895fde04fcf87b9d7d75bd9fe40cc35cc6eca54eb45c\",\"status\":\"completed\",\"session_id\":\"89d0899da53391b00443895fde04fcf87b9d7d75bd9fe40cc35cc6eca54eb45c\",\"tool\":\"lyric_check\",\"resumable\":false,\"durable\":false,\"retention_ms\":86400000,\"expires_at\":1792044287015,\"uncertain_proposal\":false}"
+  ],
+  "rounds": [
+   {
+    "asked": {
+     "kind": "propose",
+     "line": 4,
+     "attempt": 0,
+     "round": 1
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose",
+     "line": 4,
+     "attempt": 0,
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   }
+  ],
+  "revise": [
+   "Oh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight\n\n[FINISHED — declared mandate — exit 2 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L4 — COVERAGE UNCERTIFIED: rhyme:4:6:0]\n\nNOT FINISHED: this stop left lines open and its coverage uncertified — present it as parked.\n\nCONTINUE: no question is pending. Rewrite the open line(s), then call lyric_revise with the latest session_id, the complete rewritten draft, the same declarations this run was given (scheme or groups, relation, and any returns, structures or blueprint) and `new_run: true`.",
+   "{\"exit_code\":2,\"meaning\":\"measured — coverage incomplete; this is an uncertified draft, not a successful song\",\"measurement_status\":\"finished\",\"certified\":false,\"status\":\"uncertified\",\"loop_stop_reason\":\"NO_PROGRESS\",\"loop_rounds\":2,\"loop_unresolved_lines\":[4],\"loop_whole_flag_codes\":[],\"folded\":{\"kind\":\"propose\",\"line\":4,\"attempt\":0,\"round\":2,\"answer\":\"You hold my heart.    10\",\"verdict\":\"rejected\",\"reasons\":[\"nothing was fixed\"],\"source\":\"outcome\"},\"banned_pairs\":0,\"final_draft_sha256\":\"d8ea6b259879df545d8fdfd9f1cf97e7647bde5c7ed4c0ac46fc50a36aa6ca96\",\"lexicon\":{\"supplement_id\":\"v2\",\"sha256\":\"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51\"},\"presentation_sha256\":\"225fb5e5633d517fc71c0b19d02ca80f697199e301c7bf2f8330300f8cccba5b\",\"blocking\":[\"L4: not judged — rhyme with L6 (SCHEME_UNREADABLE); words with more than one reading: L6 the; no dictionary reading listed: L4 10; L6 Well-worn\",\"L6: not judged — rhyme with L4 (SCHEME_UNREADABLE); words with more than one reading: L6 the; no dictionary reading listed: L6 Well-worn; L4 10\"],\"notes\":5,\"detail\":\"The rest of this verdict is kept with the operation: get_operation with this operation_id and detail \\\"findings\\\", \\\"report\\\", \\\"coverage\\\", \\\"pronunciations\\\" or \\\"full\\\" (and lines: [n, ...] to narrow findings, coverage and pronunciations to those lines) returns it.\"}",
+   "{\"operation_id\":\"78eeb3547ec7fa742d499244376f954d3624eca46904f34b966ad7fae6035b92\",\"status\":\"completed\",\"session_id\":\"78eeb3547ec7fa742d499244376f954d3624eca46904f34b966ad7fae6035b92\",\"tool\":\"lyric_revise\",\"resumable\":false,\"durable\":false,\"retention_ms\":86400000,\"expires_at\":1792044298609,\"uncertain_proposal\":false}"
+  ],
+  "revise_isError": false
+ },
+ {
+  "name": "C3a returns as WRITTEN pre-batch 4.end,6.end",
+  "declarations": {
+   "returns": "4.end,6.end"
+  },
+  "check": [
+   "{\"exit_code\":0,\"meaning\":\"answered — no flag stands; coverage INCOMPLETE — uncertified (coverage.refused_obligations names what was not judged)\",\"report\":\"  MANDATE: 0 group(s) over 8 lines, 0 mandated pair(s), source=declared (declared line groups)\\n           no groups — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  draft: 8 line(s), md5 5aea9adb5fd6\\n  DECLARED RETURNS: 1 full-line obligation(s)\\n    L4~L6: UNJUDGED — verbatim requirement is undeclared\\n  ADJACENCY: longest stress run 3 (L1), longest weak run 3 (L7) — disclosed, uncalibrated, never charged.\\n  REPORT: 3 line(s) briefed — 0 FLAG, 4 NOTE (two counts, never summed: doctrine 79); 1 WHOLE-DRAFT finding(s), 0 of them FLAG(S), below\\n\\n  WHAT TO CHANGE — 0 decision(s). Flags only; the notes below are measurements handed back, not defects (doctrine 96)\\n    nothing on any line, and nothing about the draft as a whole, carries a flag. The notes below still say what the draft is doing\\n\\n  THE EVIDENCE — every finding not rolled up, in full; the lines carrying an un-rolled flag first\\n  L4: You hold my heart.    10\\n      FINDING [NOTE] SUBSTITUTED_END_WORD: 1 line(s) would have had the RHYME WORD SILENTLY REPLACED by an earlier word: L4 '10'->'heart' (lines 4)\\n         `word_syllable_map` emits no syllable for a word CMUdict cannot read, so anything taking its last entry as the rhyme word takes an EARLIER word instead -- the defect the shipped file carried in `_qafiya_parts`, where `zun` reported as `the` and `grow'st` as `thou`. THIS IS NOT A SECOND CHARGE. 1 of these 1 line(s) are ALREADY flagged above by UNREADABLE_END_WORD, which says the LINE cannot be read; what no other finding in this module says is WHICH WORD would have been used, and that is the only part a writer or a caller can act on -- the substitute is a plausible English word, so nothing about the output looks wrong. Every one of them is also flagged above, so this finding adds the word and no new line.\\n  L7: Stay with me (oh--oh) tonight\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L5 (free) and L7 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 5, 7)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n  L8: Hold me (hold me) close--close tonight\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L5 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 5, 8)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L7 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 7, 8)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n\\n  WHOLE DRAFT — 1 finding(s) that name no single line, 0 of them FLAG(S)\\n      These findings measure the complete draft or its declarations and assign no single target line. A permitted local edit can improve a text-dependent finding, and the declared whole-draft writer can be asked for a wider repair. `verify()` reads these findings alongside per-line findings. Rewriting words cannot repair an unchanged grid declaration.\\n      FINDING [NOTE] RETURN_PLACEMENT_ABSENT: L4 has no 'end' to read — the placement names nothing in this line, so the return is unasked rather than broken (doctrine 20) (lines 4, 6)\\n         Judged word identity at the declared placements.\\n\",\"verified_outcomes\":null,\"verified_outcomes_error\":\"No authenticated verifier outcome inventory is available.\",\"verified_outcomes_draft_sha256\":null,\"journal_id\":null,\"resume_proof\":null,\"resume_proof_error\":\"No authenticated checkpoint replay receipt is available.\",\"path\":\"warm\",\"ms\":2984,\"tool_deadline\":{\"tool_budget_ms\":600000,\"caller_deadline_ms\":599998,\"reserve_ms\":1000,\"cap_ms\":598998,\"bound_by\":\"caller_deadline\",\"elapsed_ms\":2984},\"retained\":{\"stage\":\"result_recorded\",\"phase\":null,\"round\":null,\"completed_proposals\":null,\"accepted_lines\":null,\"proposer_calls\":null,\"proposer_in_flight\":null},\"coverage\":{\"pairs_mandated\":0,\"pairs_judged\":0,\"pairs_refused\":0,\"scope\":\"requested_layers\",\"certified\":false,\"obligations\":[{\"id\":\"function:draft\",\"layer\":\"function\",\"status\":\"not_requested\"},{\"id\":\"shape:draft\",\"layer\":\"shape\",\"status\":\"not_requested\"},{\"id\":\"sentencehood:draft\",\"layer\":\"sentencehood\",\"status\":\"answered\"},{\"id\":\"floor:draft\",\"layer\":\"floor\",\"status\":\"answered\"},{\"id\":\"meter:draft\",\"layer\":\"meter\",\"status\":\"not_requested\"},{\"id\":\"slot_grid:draft\",\"layer\":\"slot_grid\",\"status\":\"not_requested\"},{\"id\":\"setting:draft\",\"layer\":\"setting\",\"status\":\"not_requested\"},{\"id\":\"return:4:6\",\"layer\":\"return\",\"status\":\"refused\"}],\"refused_obligations\":[\"return:4:6\"]},\"certified\":false,\"measurement_status\":\"graded\",\"lexicon\":{\"supplement_id\":\"v2\",\"sha256\":\"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51\"},\"pronunciations\":[],\"pronunciation_options\":{\"items\":[{\"line\":\"You hold my heart.    10\",\"token\":5,\"word\":\"10\",\"matching_lines\":[4],\"dictionary_readings\":[],\"supplied_reading_requires_source\":true},{\"line\":\"Well-worn shoes upon the floor\",\"token\":1,\"word\":\"Well-worn\",\"matching_lines\":[6],\"dictionary_readings\":[],\"supplied_reading_requires_source\":true},{\"line\":\"Well-worn shoes upon the floor\",\"token\":4,\"word\":\"the\",\"matching_lines\":[6],\"dictionary_readings\":[{\"phones\":[\"DH\",\"AH0\"],\"stress\":[0],\"syllables\":1,\"source\":\"cmudict\"},{\"phones\":[\"DH\",\"AH1\"],\"stress\":[1],\"syllables\":1,\"source\":\"cmudict\"},{\"phones\":[\"DH\",\"IY0\"],\"stress\":[0],\"syllables\":1,\"source\":\"cmudict\"}],\"supplied_reading_requires_source\":false}],\"total\":15,\"truncated\":false,\"scope\":\"refused_lines\",\"eligible\":3},\"findings_measured\":true,\"findings\":[{\"code\":\"SUBSTITUTED_END_WORD\",\"severity\":\"note\",\"message\":\"1 line(s) would have had the RHYME WORD SILENTLY REPLACED by an earlier word: L4 '10'->'heart'\",\"evidence\":\"`word_syllable_map` emits no syllable for a word CMUdict cannot read, so anything taking its last entry as the rhyme word takes an EARLIER word instead -- the defect the shipped file carried in `_qafiya_parts`, where `zun` reported as `the` and `grow'st` as `thou`. THIS IS NOT A SECOND CHARGE. 1 of these 1 line(s) are ALREADY flagged above by UNREADABLE_END_WORD, which says the LINE cannot be read; what no other finding in this module says is WHICH WORD would have been used, and that is the only part a writer or a caller can act on -- the substitute is a plausible English word, so nothing about the output looks wrong. Every one of them is also flagged above, so this finding adds the word and no new line.\",\"locations\":[4],\"groups\":[],\"obligations\":[[4]],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L5 (free) and L7 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[5,7],\"groups\":[],\"obligations\":[],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L5 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[5,8],\"groups\":[],\"obligations\":[],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L7 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[7,8],\"groups\":[],\"obligations\":[],\"subject\":[]},{\"code\":\"RETURN_PLACEMENT_ABSENT\",\"severity\":\"note\",\"message\":\"L4 has no 'end' to read — the placement names nothing in this line, so the return is unasked rather than broken (doctrine 20)\",\"evidence\":\"Judged word identity at the declared placements.\",\"locations\":[4,6],\"groups\":[\"\"],\"obligations\":[],\"subject\":[]}],\"flags\":0,\"whole_flags\":0,\"notes\":5,\"banned_pairs\":0,\"banned\":[],\"unreadable_findings\":[],\"unreadable\":0,\"standing\":[],\"final_draft\":[\"Oh--oh, oh my love\",\"Thundered the battery’s double bass--\",\"My love--love is true\",\"You hold my heart.    10\",\"I walk the line tonight\",\"Well-worn shoes upon the floor\",\"Stay with me (oh--oh) tonight\",\"Hold me (hold me) close--close tonight\"],\"final_draft_sha256\":\"d8ea6b259879df545d8fdfd9f1cf97e7647bde5c7ed4c0ac46fc50a36aa6ca96\",\"blueprint_declared\":false}",
+   "{\"operation_id\":\"f8c6c7007604572f4e8a0a3abbd3c3d6c72e2a4032b4198b58f65a0a92febeb4\",\"status\":\"completed\",\"session_id\":\"f8c6c7007604572f4e8a0a3abbd3c3d6c72e2a4032b4198b58f65a0a92febeb4\",\"tool\":\"lyric_check\",\"resumable\":false,\"durable\":false,\"retention_ms\":86400000,\"expires_at\":1792044301971,\"uncertain_proposal\":false}"
+  ],
+  "rounds": [],
+  "revise": [
+   "Oh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight\n\n[FINISHED — declared mandate — exit 2 — UNCERTIFIED after 0 round(s) — no line flag stands — COVERAGE UNCERTIFIED: return:4:6]\n\nNOT CERTIFIED: no line is open, but coverage is incomplete (see `coverage`) — present it as uncertified, not finished. Resolve the unread words with `pronunciations` (lyric_grade lists the options; never guess a reading), grade again, and start a new run with `new_run: true`.",
+   "{\"exit_code\":2,\"meaning\":\"measured — coverage incomplete; this is an uncertified draft, not a successful song\",\"measurement_status\":\"finished\",\"certified\":false,\"status\":\"uncertified\",\"loop_stop_reason\":\"UNCERTIFIED\",\"loop_rounds\":0,\"loop_unresolved_lines\":[],\"loop_whole_flag_codes\":[],\"folded\":null,\"banned_pairs\":0,\"final_draft_sha256\":\"d8ea6b259879df545d8fdfd9f1cf97e7647bde5c7ed4c0ac46fc50a36aa6ca96\",\"lexicon\":{\"supplement_id\":\"v2\",\"sha256\":\"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51\"},\"presentation_sha256\":\"f2bf0ed9d6600f8d2befa47b3e94f0e7a5095e312aef5e849479ba3a82452e78\",\"blocking\":[\"L4: not judged — return with L6; words with more than one reading: L6 the; no dictionary reading listed: L4 10; L6 Well-worn\",\"L6: not judged — return with L4; words with more than one reading: L6 the; no dictionary reading listed: L6 Well-worn; L4 10\"],\"notes\":5,\"detail\":\"The rest of this verdict is kept with the operation: get_operation with this operation_id and detail \\\"findings\\\", \\\"report\\\", \\\"coverage\\\", \\\"pronunciations\\\" or \\\"full\\\" (and lines: [n, ...] to narrow findings, coverage and pronunciations to those lines) returns it.\"}",
+   "{\"operation_id\":\"77fae6577a768d61fb131ff400fb711e8e6fa90651c9adaf425ec283ce5d8d44\",\"status\":\"completed\",\"session_id\":\"77fae6577a768d61fb131ff400fb711e8e6fa90651c9adaf425ec283ce5d8d44\",\"tool\":\"lyric_revise\",\"resumable\":false,\"durable\":false,\"retention_ms\":86400000,\"expires_at\":1792044305551,\"uncertain_proposal\":false}"
+  ],
+  "revise_isError": false
+ },
+ {
+  "name": "C3b returns as the candidate page SENDS it (4,6)",
+  "declarations": {
+   "returns": "4,6"
+  },
+  "check": [
+   "{\"exit_code\":0,\"meaning\":\"answered — 1 per-line and 0 whole-draft flag(s) stand\",\"report\":\"  MANDATE: 0 group(s) over 8 lines, 0 mandated pair(s), source=declared (declared line groups)\\n           no groups — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  draft: 8 line(s), md5 5aea9adb5fd6\\n  DECLARED RETURNS: 1 full-line obligation(s)\\n    L4~L6: VIOLATED — required verbatim return changed\\n  ADJACENCY: longest stress run 3 (L1), longest weak run 3 (L7) — disclosed, uncalibrated, never charged.\\n  REPORT: 4 line(s) briefed — 1 FLAG, 4 NOTE (two counts, never summed: doctrine 79)\\n\\n  WHAT TO CHANGE — 1 decision(s). Flags only; the notes below are measurements handed back, not defects (doctrine 96)\\n    1. RETURN_NOT_VERBATIM — L6\\n\\n  THE EVIDENCE — every finding not rolled up, in full; the lines carrying an un-rolled flag first\\n  L6: Well-worn shoes upon the floor\\n      FINDING [FLAG] RETURN_NOT_VERBATIM: return  must come back VERBATIM: L4 'You hold my heart.    10' vs L6 'Well-worn shoes upon the floor' (lines 4, 6)\\n         REWRITTEN_RETURN: no line, no rhyme, no token run and no slot survived: the return shares its position and its label and not its words. Hogg's 'Donald Macdonald' rewrites its whole chorus on every return and keeps the syntax. This is a NAMED kind, not a shrug -- it says what was tested and what failed, and it has two readings the harness cannot choose between: a chorus that rewrites, or a mark that groups two different sections.\\n  L4: You hold my heart.    10\\n      FINDING [NOTE] SUBSTITUTED_END_WORD: 1 line(s) would have had the RHYME WORD SILENTLY REPLACED by an earlier word: L4 '10'->'heart' (lines 4)\\n         `word_syllable_map` emits no syllable for a word CMUdict cannot read, so anything taking its last entry as the rhyme word takes an EARLIER word instead -- the defect the shipped file carried in `_qafiya_parts`, where `zun` reported as `the` and `grow'st` as `thou`. THIS IS NOT A SECOND CHARGE. 1 of these 1 line(s) are ALREADY flagged above by UNREADABLE_END_WORD, which says the LINE cannot be read; what no other finding in this module says is WHICH WORD would have been used, and that is the only part a writer or a caller can act on -- the substitute is a plausible English word, so nothing about the output looks wrong. Every one of them is also flagged above, so this finding adds the word and no new line.\\n  L7: Stay with me (oh--oh) tonight\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L5 (free) and L7 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 5, 7)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n  L8: Hold me (hold me) close--close tonight\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L5 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 5, 8)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L7 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 7, 8)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n\",\"verified_outcomes\":null,\"verified_outcomes_error\":\"No authenticated verifier outcome inventory is available.\",\"verified_outcomes_draft_sha256\":null,\"journal_id\":null,\"resume_proof\":null,\"resume_proof_error\":\"No authenticated checkpoint replay receipt is available.\",\"path\":\"warm\",\"ms\":4791,\"tool_deadline\":{\"tool_budget_ms\":600000,\"caller_deadline_ms\":599998,\"reserve_ms\":1000,\"cap_ms\":598998,\"bound_by\":\"caller_deadline\",\"elapsed_ms\":4791},\"retained\":{\"stage\":\"result_recorded\",\"phase\":null,\"round\":null,\"completed_proposals\":null,\"accepted_lines\":null,\"proposer_calls\":null,\"proposer_in_flight\":null},\"coverage\":{\"pairs_mandated\":0,\"pairs_judged\":0,\"pairs_refused\":0,\"scope\":\"requested_layers\",\"certified\":true,\"obligations\":[{\"id\":\"function:draft\",\"layer\":\"function\",\"status\":\"not_requested\"},{\"id\":\"shape:draft\",\"layer\":\"shape\",\"status\":\"not_requested\"},{\"id\":\"sentencehood:draft\",\"layer\":\"sentencehood\",\"status\":\"answered\"},{\"id\":\"floor:draft\",\"layer\":\"floor\",\"status\":\"answered\"},{\"id\":\"meter:draft\",\"layer\":\"meter\",\"status\":\"not_requested\"},{\"id\":\"slot_grid:draft\",\"layer\":\"slot_grid\",\"status\":\"not_requested\"},{\"id\":\"setting:draft\",\"layer\":\"setting\",\"status\":\"not_requested\"},{\"id\":\"return:4:6\",\"layer\":\"return\",\"status\":\"answered\"}],\"refused_obligations\":[]},\"certified\":true,\"measurement_status\":\"graded\",\"lexicon\":{\"supplement_id\":\"v2\",\"sha256\":\"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51\"},\"pronunciations\":[],\"pronunciation_options\":{\"items\":[],\"total\":15,\"truncated\":false,\"scope\":\"no_refused_obligation\",\"eligible\":0},\"findings_measured\":true,\"findings\":[{\"code\":\"RETURN_NOT_VERBATIM\",\"severity\":\"flag\",\"message\":\"return  must come back VERBATIM: L4 'You hold my heart.    10' vs L6 'Well-worn shoes upon the floor'\",\"evidence\":\"REWRITTEN_RETURN: no line, no rhyme, no token run and no slot survived: the return shares its position and its label and not its words. Hogg's 'Donald Macdonald' rewrites its whole chorus on every return and keeps the syntax. This is a NAMED kind, not a shrug -- it says what was tested and what failed, and it has two readings the harness cannot choose between: a chorus that rewrites, or a mark that groups two different sections.\",\"locations\":[4,6],\"groups\":[\"\"],\"obligations\":[],\"subject\":[]},{\"code\":\"SUBSTITUTED_END_WORD\",\"severity\":\"note\",\"message\":\"1 line(s) would have had the RHYME WORD SILENTLY REPLACED by an earlier word: L4 '10'->'heart'\",\"evidence\":\"`word_syllable_map` emits no syllable for a word CMUdict cannot read, so anything taking its last entry as the rhyme word takes an EARLIER word instead -- the defect the shipped file carried in `_qafiya_parts`, where `zun` reported as `the` and `grow'st` as `thou`. THIS IS NOT A SECOND CHARGE. 1 of these 1 line(s) are ALREADY flagged above by UNREADABLE_END_WORD, which says the LINE cannot be read; what no other finding in this module says is WHICH WORD would have been used, and that is the only part a writer or a caller can act on -- the substitute is a plausible English word, so nothing about the output looks wrong. Every one of them is also flagged above, so this finding adds the word and no new line.\",\"locations\":[4],\"groups\":[],\"obligations\":[[4]],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L5 (free) and L7 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[5,7],\"groups\":[],\"obligations\":[],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L5 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[5,8],\"groups\":[],\"obligations\":[],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L7 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[7,8],\"groups\":[],\"obligations\":[],\"subject\":[]}],\"flags\":1,\"whole_flags\":0,\"notes\":4,\"banned_pairs\":0,\"banned\":[],\"unreadable_findings\":[],\"unreadable\":0,\"standing\":[\"L4/L6: FINDING [FLAG] RETURN_NOT_VERBATIM: return  must come back VERBATIM: L4 'You hold my heart.    10' vs L6 'Well-worn shoes upon the floor'\"],\"final_draft\":[\"Oh--oh, oh my love\",\"Thundered the battery’s double bass--\",\"My love--love is true\",\"You hold my heart.    10\",\"I walk the line tonight\",\"Well-worn shoes upon the floor\",\"Stay with me (oh--oh) tonight\",\"Hold me (hold me) close--close tonight\"],\"final_draft_sha256\":\"d8ea6b259879df545d8fdfd9f1cf97e7647bde5c7ed4c0ac46fc50a36aa6ca96\",\"blueprint_declared\":false}",
+   "{\"operation_id\":\"d68ddbf9e4c8de902d3cd8ed8e2ba93132648ccde3c69e83d3e37faf825d4fa9\",\"status\":\"completed\",\"session_id\":\"d68ddbf9e4c8de902d3cd8ed8e2ba93132648ccde3c69e83d3e37faf825d4fa9\",\"tool\":\"lyric_check\",\"resumable\":false,\"durable\":false,\"retention_ms\":86400000,\"expires_at\":1792044311300,\"uncertain_proposal\":false}"
+  ],
+  "rounds": [
+   {
+    "asked": {
+     "kind": "propose",
+     "line": 6,
+     "attempt": 0,
+     "round": 1
+    },
+    "status": "awaiting_proposal"
+   }
+  ],
+  "revise": [
+   "Oh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nWell-worn shoes upon the floor\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight\n\n[FINISHED — declared mandate — exit 0 — SUCCESS after 1 round(s) — no line flag stands]",
+   "{\"exit_code\":0,\"meaning\":\"answered — no flag stands\",\"measurement_status\":\"finished\",\"certified\":true,\"status\":\"finished_clean\",\"loop_stop_reason\":\"SUCCESS\",\"loop_rounds\":1,\"loop_unresolved_lines\":[],\"loop_whole_flag_codes\":[],\"folded\":{\"kind\":\"propose\",\"line\":6,\"attempt\":0,\"round\":1,\"answer\":\"Well-worn shoes upon the floor\",\"verdict\":\"accepted\",\"reasons\":[\"fixed 2, introduced 0, disclosing 1 new note(s) [(6, 'REPEAT_ACROSS_GROUPS')], changed only [4]\"],\"source\":\"outcome\"},\"banned_pairs\":0,\"final_draft_sha256\":\"27cc840a977310a5aa50495d88356a6e3338de6ca4784dc048cd62444881c9ab\",\"lexicon\":{\"supplement_id\":\"v2\",\"sha256\":\"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51\"},\"presentation_sha256\":\"8e89d698ce5655bc24bf37f35e2288778662d1de00b11e6cfb644a772f7eb99a\",\"blocking\":[],\"notes\":4,\"detail\":\"The rest of this verdict is kept with the operation: get_operation with this operation_id and detail \\\"findings\\\", \\\"report\\\", \\\"coverage\\\", \\\"pronunciations\\\" or \\\"full\\\" (and lines: [n, ...] to narrow findings, coverage and pronunciations to those lines) returns it.\"}",
+   "{\"operation_id\":\"a4b2196a230e96badc564bfcde0cd4f4b7f88df8611f70a606d567856482d644\",\"status\":\"completed\",\"session_id\":\"a4b2196a230e96badc564bfcde0cd4f4b7f88df8611f70a606d567856482d644\",\"tool\":\"lyric_revise\",\"resumable\":false,\"durable\":false,\"retention_ms\":86400000,\"expires_at\":1792044322530,\"uncertain_proposal\":false}"
+  ],
+  "revise_isError": false
+ },
+ {
+  "name": "C2 keep scenario as sent after Keep",
+  "declarations": {
+   "groups": "1,6;2.endword,5;4,3.head",
+   "returns": "1.head,6.head;8.line,5.line"
+  },
+  "check": [
+   "{\"exit_code\":0,\"meaning\":\"answered — 4 per-line and 0 whole-draft flag(s) stand; coverage INCOMPLETE — uncertified (coverage.refused_obligations names what was not judged)\",\"report\":\"  MANDATE: 3 group(s) over 8 lines, 3 mandated pair(s), source=declared (declared line groups)\\n           group A = lines 1,6, group B = lines 2,5, group C = lines 3,4 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  draft: 8 line(s), md5 5aea9adb5fd6\\n  DECLARED RETURNS: 2 full-line obligation(s)\\n    L1~L6: SATISFIED — required verbatim return\\n    L5~L8: SATISFIED — required verbatim return\\n  MIXED SPANS: group 'B' binds front-of-word span(s) (2.endword) beside rime span(s) (5) in one scalar-judged family — a non-initial-stress polysyllable's front span cannot answer a rime family (a monosyllable's can). Check the words at the front spans, or respell the locus.\\n  MIXED SPANS: group 'C' binds front-of-word span(s) (3.head) beside rime span(s) (4) in one scalar-judged family — a non-initial-stress polysyllable's front span cannot answer a rime family (a monosyllable's can). Check the words at the front spans, or respell the locus.\\n  ADJACENCY: longest stress run 3 (L1), longest weak run 3 (L7) — disclosed, uncalibrated, never charged.\\n  REPORT: 6 line(s) briefed — 2 FLAG, 6 NOTE (two counts, never summed: doctrine 79); 3 WHOLE-DRAFT finding(s), 2 of them FLAG(S), below\\n\\n  WHAT TO CHANGE — 4 decision(s). Flags only; the notes below are measurements handed back, not defects (doctrine 96)\\n    1. SCHEME_VIOLATION — L5\\n    2. SCHEME_VIOLATION — L6\\n    3. RETURN_NOT_VERBATIM — WHOLE DRAFT (names no line; see below)\\n    4. RETURN_NOT_VERBATIM — WHOLE DRAFT (names no line; see below)\\n\\n  THE EVIDENCE — every finding not rolled up, in full; the lines carrying an un-rolled flag first\\n  L5: I walk the line tonight\\n      FINDING [FLAG] SCHEME_VIOLATION: L2 and L5 are both in group B [2, 5] but do not stand in the relation it requires (lines 2, 5)\\n         NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.777; 'bass' ~ 'tonight') — NAMED PAIR IS NOT THE EVIDENCE: scored on: bass  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=3)\\n      FAILS L2-L5 (bass/tonight): 0.777  NO_RELATION  — NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE']\\n          scored on: bass  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=3)\\n      must answer group B [2, 5]: L2 ('bass') — VIOLATED\\n      FORBIDDEN (modal — doctrine 9): ass, pass, class, glass, mass, grass, brass, cass, lass, harass, smartass, surpass, crass, sass, kass, dass, amass\\n      ALREADY THERE (a different rule — re-proposing the end word that is already on this line is not a revision): tonight\\n      offered: last, place, face, case, space, race, gas, grace, base, chase, trace, someplace\\n  L6: Well-worn shoes upon the floor\\n      FINDING [FLAG] SCHEME_VIOLATION: L1 and L6 are both in group A [1, 6] but do not stand in the relation it requires (lines 1, 6)\\n         NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.680; 'love' ~ 'floor')\\n      FAILS L1-L6 (love/floor): 0.68  NO_RELATION  — NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE']\\n          scored on: love  ~  floor   (best of k=4)\\n      must answer group A [1, 6]: L1 ('love') — VIOLATED\\n      FORBIDDEN (modal — doctrine 9): above, dove, glove, move, prove, drove, remove, approve, shove, improve, stove, grove, cove, disapprove, disprove, trove, clove, rove, wove, hove, of, thereof\\n      ALREADY THERE (a different rule — re-proposing the end word that is already on this line is not a revision): floor\\n      offered: gov, what, have, but, just, up, one, come, from, us, some, because\\n  L3: My love--love is true\\n      FINDING [NOTE] SCHEME_UNREADABLE: L3/L4 are mandated together (group(s) C) and the harness could not read a declared rhyme anchor, so this rhyme is UNKNOWN rather than absent (lines 3, 4)\\n         the end word '10' is a numeral token; the reader does not expand numbers into words and CMUdict spells none, so it has no pronunciation unless a reading is declared for this occurrence. This line's end-rhyme is UNKNOWN, not absent.\\n      must answer group C [3, 4] at 3.head: L4 ('10') — UNJUDGED\\n  L4: You hold my heart.    10\\n      FINDING [NOTE] SCHEME_UNREADABLE: L3/L4 are mandated together (group(s) C) and the harness could not read a declared rhyme anchor, so this rhyme is UNKNOWN rather than absent (lines 3, 4)\\n         the end word '10' is a numeral token; the reader does not expand numbers into words and CMUdict spells none, so it has no pronunciation unless a reading is declared for this occurrence. This line's end-rhyme is UNKNOWN, not absent.\\n      FINDING [NOTE] SUBSTITUTED_END_WORD: 1 line(s) would have had the RHYME WORD SILENTLY REPLACED by an earlier word: L4 '10'->'heart' (lines 4)\\n         `word_syllable_map` emits no syllable for a word CMUdict cannot read, so anything taking its last entry as the rhyme word takes an EARLIER word instead -- the defect the shipped file carried in `_qafiya_parts`, where `zun` reported as `the` and `grow'st` as `thou`. THIS IS NOT A SECOND CHARGE. 1 of these 1 line(s) are ALREADY flagged above by UNREADABLE_END_WORD, which says the LINE cannot be read; what no other finding in this module says is WHICH WORD would have been used, and that is the only part a writer or a caller can act on -- the substitute is a plausible English word, so nothing about the output looks wrong. Every one of them is also flagged above, so this finding adds the word and no new line.\\n      must answer group C [3, 4]: L3 ('My') — UNJUDGED\\n  L7: Stay with me (oh--oh) tonight\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L5 (B) and L7 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 5, 7)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n  L8: Hold me (hold me) close--close tonight\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L5 (B) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 5, 8)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n      FINDING [NOTE] REPEAT_ACROSS_GROUPS: L7 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9) (lines 7, 8)\\n         REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\\n\\n  WHOLE DRAFT — 3 finding(s) that name no single line, 2 of them FLAG(S)\\n      These findings measure the complete draft or its declarations and assign no single target line. A permitted local edit can improve a text-dependent finding, and the declared whole-draft writer can be asked for a wider repair. `verify()` reads these findings alongside per-line findings. Rewriting words cannot repair an unchanged grid declaration.\\n      FINDING [NOTE] FLOOR_LOCUS_SCOPE: end-rhyme floor checks exclude pairs declared only at other anchors\\n         2 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.\\n      FINDING [FLAG] RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.head='Oh', L6.head='Well-worn'. The rest of these lines is not constrained by this class (lines 1, 5, 6, 8)\\n         Judged word identity at the declared placements.\\n      FINDING [FLAG] RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L5.line='I walk the line tonight', L8.line='Hold me close tonight'. The rest of these lines is not constrained by this class (lines 1, 5, 6, 8)\\n         Judged word identity at the declared placements.\\n\",\"verified_outcomes\":null,\"verified_outcomes_error\":\"No authenticated verifier outcome inventory is available.\",\"verified_outcomes_draft_sha256\":null,\"journal_id\":null,\"resume_proof\":null,\"resume_proof_error\":\"No authenticated checkpoint replay receipt is available.\",\"path\":\"warm\",\"ms\":16689,\"tool_deadline\":{\"tool_budget_ms\":600000,\"caller_deadline_ms\":599990,\"reserve_ms\":1000,\"cap_ms\":598990,\"bound_by\":\"caller_deadline\",\"elapsed_ms\":16689},\"retained\":{\"stage\":\"result_recorded\",\"phase\":null,\"round\":null,\"completed_proposals\":null,\"accepted_lines\":null,\"proposer_calls\":null,\"proposer_in_flight\":null},\"coverage\":{\"pairs_mandated\":3,\"pairs_judged\":2,\"pairs_refused\":1,\"scope\":\"requested_layers\",\"certified\":false,\"obligations\":[{\"id\":\"function:draft\",\"layer\":\"function\",\"status\":\"not_requested\"},{\"id\":\"shape:draft\",\"layer\":\"shape\",\"status\":\"not_requested\"},{\"id\":\"sentencehood:draft\",\"layer\":\"sentencehood\",\"status\":\"answered\"},{\"id\":\"floor:draft\",\"layer\":\"floor\",\"status\":\"answered\"},{\"id\":\"meter:draft\",\"layer\":\"meter\",\"status\":\"not_requested\"},{\"id\":\"slot_grid:draft\",\"layer\":\"slot_grid\",\"status\":\"not_requested\"},{\"id\":\"setting:draft\",\"layer\":\"setting\",\"status\":\"not_requested\"},{\"id\":\"rhyme:1:6:0\",\"layer\":\"rhyme\",\"status\":\"answered\"},{\"id\":\"rhyme:2:5:1\",\"layer\":\"rhyme\",\"status\":\"answered\"},{\"id\":\"rhyme:3:4:2\",\"layer\":\"rhyme\",\"status\":\"refused\"},{\"id\":\"return:1:6\",\"layer\":\"return\",\"status\":\"answered\"},{\"id\":\"return:5:8\",\"layer\":\"return\",\"status\":\"answered\"}],\"refused_obligations\":[\"rhyme:3:4:2\"]},\"certified\":false,\"measurement_status\":\"graded\",\"lexicon\":{\"supplement_id\":\"v2\",\"sha256\":\"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51\"},\"pronunciations\":[],\"pronunciation_options\":{\"items\":[{\"line\":\"My love--love is true\",\"token\":4,\"word\":\"is\",\"matching_lines\":[3],\"dictionary_readings\":[{\"phones\":[\"IH0\",\"Z\"],\"stress\":[0],\"syllables\":1,\"source\":\"cmudict\"},{\"phones\":[\"IH1\",\"Z\"],\"stress\":[1],\"syllables\":1,\"source\":\"cmudict\"}],\"supplied_reading_requires_source\":false},{\"line\":\"You hold my heart.    10\",\"token\":5,\"word\":\"10\",\"matching_lines\":[4],\"dictionary_readings\":[],\"supplied_reading_requires_source\":true}],\"total\":15,\"truncated\":false,\"scope\":\"refused_lines\",\"eligible\":2},\"findings_measured\":true,\"findings\":[{\"code\":\"SCHEME_VIOLATION\",\"severity\":\"flag\",\"message\":\"L1 and L6 are both in group A [1, 6] but do not stand in the relation it requires\",\"evidence\":\"NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.680; 'love' ~ 'floor')\",\"locations\":[1,6],\"groups\":[\"A\"],\"obligations\":[],\"subject\":[]},{\"code\":\"SCHEME_VIOLATION\",\"severity\":\"flag\",\"message\":\"L2 and L5 are both in group B [2, 5] but do not stand in the relation it requires\",\"evidence\":\"NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.777; 'bass' ~ 'tonight') — NAMED PAIR IS NOT THE EVIDENCE: scored on: bass  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=3)\",\"locations\":[2,5],\"groups\":[\"B\"],\"obligations\":[],\"subject\":[]},{\"code\":\"SCHEME_UNREADABLE\",\"severity\":\"note\",\"message\":\"L3/L4 are mandated together (group(s) C) and the harness could not read a declared rhyme anchor, so this rhyme is UNKNOWN rather than absent\",\"evidence\":\"the end word '10' is a numeral token; the reader does not expand numbers into words and CMUdict spells none, so it has no pronunciation unless a reading is declared for this occurrence. This line's end-rhyme is UNKNOWN, not absent.\",\"locations\":[3,4],\"groups\":[\"C\"],\"obligations\":[],\"subject\":[\"unreadable_anchor\",4]},{\"code\":\"SUBSTITUTED_END_WORD\",\"severity\":\"note\",\"message\":\"1 line(s) would have had the RHYME WORD SILENTLY REPLACED by an earlier word: L4 '10'->'heart'\",\"evidence\":\"`word_syllable_map` emits no syllable for a word CMUdict cannot read, so anything taking its last entry as the rhyme word takes an EARLIER word instead -- the defect the shipped file carried in `_qafiya_parts`, where `zun` reported as `the` and `grow'st` as `thou`. THIS IS NOT A SECOND CHARGE. 1 of these 1 line(s) are ALREADY flagged above by UNREADABLE_END_WORD, which says the LINE cannot be read; what no other finding in this module says is WHICH WORD would have been used, and that is the only part a writer or a caller can act on -- the substitute is a plausible English word, so nothing about the output looks wrong. Every one of them is also flagged above, so this finding adds the word and no new line.\",\"locations\":[4],\"groups\":[],\"obligations\":[[4]],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L5 (B) and L7 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[5,7],\"groups\":[],\"obligations\":[],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L5 (B) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[5,8],\"groups\":[],\"obligations\":[],\"subject\":[]},{\"code\":\"REPEAT_ACROSS_GROUPS\",\"severity\":\"note\",\"message\":\"L7 (free) and L8 (free) END ON THE SAME WORD and share no mandated group — 'tonight' ~ 'tonight' 1.000 ASSONANCE+CONSONANCE+REPEAT+RHYME — NAMED PAIR IS NOT THE EVIDENCE: scored on: -tonight [last 1 of 2 syllables of 'tonight']  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=9)\",\"evidence\":\"REPEAT, not rhyme. Doctrine 3's first sentence, and the relation that inverts by context: a violation inside a verse, the REQUIREMENT across chorus instances, licensed as radif or refrain. Nothing in a score separates those, so the loop names the relation and stops\",\"locations\":[7,8],\"groups\":[],\"obligations\":[],\"subject\":[]},{\"code\":\"FLOOR_LOCUS_SCOPE\",\"severity\":\"note\",\"message\":\"end-rhyme floor checks exclude pairs declared only at other anchors\",\"evidence\":\"2 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.\",\"locations\":[],\"groups\":[],\"obligations\":[],\"subject\":[]},{\"code\":\"RETURN_NOT_VERBATIM\",\"severity\":\"flag\",\"message\":\"placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.head='Oh', L6.head='Well-worn'. The rest of these lines is not constrained by this class\",\"evidence\":\"Judged word identity at the declared placements.\",\"locations\":[1,5,6,8],\"groups\":[\"\"],\"obligations\":[],\"subject\":[]},{\"code\":\"RETURN_NOT_VERBATIM\",\"severity\":\"flag\",\"message\":\"placed return (unlabelled) requires ONE word at every declared placement and reads 2: L5.line='I walk the line tonight', L8.line='Hold me close tonight'. The rest of these lines is not constrained by this class\",\"evidence\":\"Judged word identity at the declared placements.\",\"locations\":[1,5,6,8],\"groups\":[\"\"],\"obligations\":[],\"subject\":[]}],\"flags\":4,\"whole_flags\":0,\"notes\":6,\"banned_pairs\":0,\"banned\":[],\"unreadable_findings\":[{\"code\":\"SCHEME_UNREADABLE\",\"severity\":\"note\",\"message\":\"L3/L4 are mandated together (group(s) C) and the harness could not read a declared rhyme anchor, so this rhyme is UNKNOWN rather than absent\",\"evidence\":\"the end word '10' is a numeral token; the reader does not expand numbers into words and CMUdict spells none, so it has no pronunciation unless a reading is declared for this occurrence. This line's end-rhyme is UNKNOWN, not absent.\",\"locations\":[3,4],\"groups\":[\"C\"],\"obligations\":[],\"subject\":[\"unreadable_anchor\",4]}],\"unreadable\":1,\"standing\":[\"L1/L6: FINDING [FLAG] SCHEME_VIOLATION: L1 and L6 are both in group A [1, 6] but do not stand in the relation it requires\",\"L2/L5: FINDING [FLAG] SCHEME_VIOLATION: L2 and L5 are both in group B [2, 5] but do not stand in the relation it requires\",\"L1/L5/L6/L8: FINDING [FLAG] RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.head='Oh', L6.head='Well-worn'. The rest of these lines is not constrained by this class\",\"L1/L5/L6/L8: FINDING [FLAG] RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L5.line='I walk the line tonight', L8.line='Hold me close tonight'. The rest of these lines is not constrained by this class\"],\"final_draft\":[\"Oh--oh, oh my love\",\"Thundered the battery’s double bass--\",\"My love--love is true\",\"You hold my heart.    10\",\"I walk the line tonight\",\"Well-worn shoes upon the floor\",\"Stay with me (oh--oh) tonight\",\"Hold me (hold me) close--close tonight\"],\"final_draft_sha256\":\"d8ea6b259879df545d8fdfd9f1cf97e7647bde5c7ed4c0ac46fc50a36aa6ca96\",\"blueprint_declared\":false}",
+   "{\"operation_id\":\"915d5860490e133dd60649c7507a438b27ad18a8225cbce3556a3ef2a03b8dd3\",\"status\":\"completed\",\"session_id\":\"915d5860490e133dd60649c7507a438b27ad18a8225cbce3556a3ef2a03b8dd3\",\"tool\":\"lyric_check\",\"resumable\":false,\"durable\":false,\"retention_ms\":86400000,\"expires_at\":1792044339855,\"uncertain_proposal\":false}"
+  ],
+  "rounds": [
+   {
+    "asked": {
+     "kind": "propose_batch",
+     "lines": [
+      5,
+      6
+     ],
+     "attempt": 0,
+     "round": 1
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose",
+     "line": 5,
+     "attempt": 0,
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      2,
+      5,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe",
+     "round": 2
+    },
+    "status": "awaiting_proposal"
+   }
+  ],
+  "revise": [
+   "[AWAITING PROPOSAL — declared mandate — 3 answer(s) on record — NO SONG YET]\n\nREPAIR THE DECLARED REQUIREMENTS\n\nPreserve the song's meaning, line count, placement and all declared relations.\nChange only what is needed to clear the following whole-draft requirements.\n  [flag] SCHEME_VIOLATION: L2 and L5 are both in group B [2, 5] but do not stand in the relation it requires (lines 2, 5)\n      evidence: NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.777; 'bass' ~ 'tonight') — NAMED PAIR IS NOT THE EVIDENCE: scored on: bass  ~  -tonight [last 1 of 2 syllables of 'tonight']   (best of k=3)\n  [note] FLOOR_LOCUS_SCOPE: end-rhyme floor checks exclude pairs declared only at other anchors\n      evidence: 2 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.\n\nDECLARED MANDATE\nmandate: 3 group(s) over 8 lines, 3 mandated pair(s), 1 free line(s), 2 return class(es) / 2 identity pair(s)\n  source: declared (declared line groups)\n  A: lines [1, 6]\n  B: lines [2, 5]\n  C: lines [3, 4]\n  RETURN (unlabelled): lines [1, 6] — VERBATIM required\n  RETURN (unlabelled): lines [5, 8] — VERBATIM required\n  doctrine 3, per PAIR: REPEAT is the REQUIREMENT at the 2 pair(s) above and a VIOLATION at the 3 rhyme pair(s); the mandate no longer needs one song-wide licence to mean both.\n  rhyme groups after the returns are transported (return_rhyme='union'): [[1, 6], [2, 5, 8], [3, 4]]\n  A-1 notation: A1bccB1A1XB1\n  rhyme projection only (drops every return): ABCCBAXB\n\nCURRENT DRAFT\n     L1  Well-worn shoes upon the floor\n     L2  Thundered the battery’s double bass--\n     L3  My love--love is true\n     L4  You hold my heart.    10\n     L5  I walk the line tonight\n     L6  Well-worn shoes upon the floor\n     L7  Stay with me (oh--oh) tonight\n     L8  I walk the line tonight\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nReturn exactly these lines (include unchanged members): L2, L5, L8\nOne L<number>: <whole line> row each. No commentary or additional lines.\nThe complete replacement is regraded; new defects and lost judgment coverage reject it.\n\nCONTINUE: call lyric_revise with the latest session_id and `answer` (one line of song text) or `answers` (one {line, text} per asked line). The session carries the run, its state and its draft.",
+   "{\"exit_code\":4,\"status\":\"awaiting_proposal\",\"writer\":\"interview\",\"verified_outcomes\":null,\"verified_outcomes_error\":\"No authenticated verifier outcome inventory is available.\",\"verified_outcomes_draft_sha256\":null,\"journal_id\":null,\"resume_proof\":null,\"resume_proof_error\":\"No authenticated checkpoint replay receipt is available.\",\"kind\":\"propose_group\",\"answers_on_record\":3,\"asked\":{\"kind\":\"propose_group\",\"members\":[2,5,8],\"attempt\":0,\"question_sha256\":\"9940ed500eaa2f4e780bf5bad0fd9bb2082b704b8fea4673ebaa98eab520e7fe\",\"round\":2},\"folded\":null,\"run_state_carried\":false,\"run_draft_carried\":false,\"run_decl_carried\":true,\"answer_sent\":null,\"draft_fp\":\"9815536e2b\",\"path\":\"warm\",\"ms\":3168,\"memo_state\":\"no run key\",\"stale_answers\":0,\"lexicon\":{\"supplement_id\":\"v2\",\"sha256\":\"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51\"},\"certified\":false,\"final_draft\":[\"Well-worn shoes upon the floor\",\"Thundered the battery’s double bass--\",\"My love--love is true\",\"You hold my heart.    10\",\"I walk the line tonight\",\"Well-worn shoes upon the floor\",\"Stay with me (oh--oh) tonight\",\"I walk the line tonight\"]}",
+   "{\"operation_id\":\"59893947b811584619f55f1ae000b14ca0ba3ca36b322ee8f2fe2cb189f81d26\",\"status\":\"completed\",\"session_id\":\"59893947b811584619f55f1ae000b14ca0ba3ca36b322ee8f2fe2cb189f81d26\",\"tool\":\"lyric_revise\",\"resumable\":false,\"durable\":false,\"retention_ms\":86400000,\"expires_at\":1792044520778,\"uncertain_proposal\":false}"
+  ],
+  "revise_isError": false
+ }
+]

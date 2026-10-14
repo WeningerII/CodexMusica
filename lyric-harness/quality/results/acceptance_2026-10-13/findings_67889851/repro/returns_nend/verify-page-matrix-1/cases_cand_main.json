@@ -1,0 +1,826 @@
+[
+ {
+  "tree": "cand",
+  "name": "U6",
+  "written": "[SETUP — rhyme groups — 1.head (kept),6]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.head (kept),6]",
+  "savedRow": "[SETUP — rhyme groups — 1.head (kept),6]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.head (kept), which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.head (kept),6"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.head (kept),6"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "U7",
+  "written": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.T4 (carried across the word-cut change), which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.T4 (carried across the word-cut change),6"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.T4 (carried across the word-cut change),6"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "U8",
+  "written": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+  "rowAfterLoad": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+  "savedRow": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "returns:0",
+    "tone": "input",
+    "title": "A declared return points at 1.head (numbered under the earlier cut), which the draft does not have",
+    "actions": [
+     "Open repeats"
+    ]
+   }
+  ],
+  "declNow": {
+   "returns": "1.head (numbered under the earlier cut),6.head"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "returns": "1.head (numbered under the earlier cut),6.head"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "U12",
+  "written": "[SETUP — rhyme groups — 1,6 — cut]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+  "bootToasts": [
+   "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+  ],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 6 — cut, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   },
+   {
+    "id": "rhyme groups:0:carried:0:0",
+    "tone": "note",
+    "title": "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "actions": [
+     "Keep the link",
+     "Remove it"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1,6 — cut"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1,6 — cut"
+  },
+  "runToasts": [
+   "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+  ],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "C1 carried named (valid)",
+  "written": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0:carried:0:0",
+    "tone": "note",
+    "title": "A rhyme link member, line 1 · first word, was carried across the word-cut change",
+    "actions": [
+     "Keep the link",
+     "Remove it"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.head,6"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.head,6"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "C2 undecided T (valid)",
+  "written": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0:undecided",
+    "tone": "input",
+    "title": "A rhyme link saved without the current cut mark needs your decision",
+    "actions": [
+     "Remove the link",
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups_need_decision": [
+    "1.T4 (numbered under the earlier cut),6"
+   ]
+  },
+  "chatCalls": 0,
+  "sentDecl": null,
+  "runToasts": [
+   "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."
+  ],
+  "ret": false,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "C3 member marked cut v3",
+  "written": "[SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0:unknown-cut",
+    "tone": "input",
+    "title": "A rhyme link is marked with a word cut this page does not read",
+    "actions": [
+     "Remove the link",
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups_need_decision": [
+    "1.T4 (marked cut v3: not read here),6"
+   ]
+  },
+  "chatCalls": 0,
+  "sentDecl": null,
+  "runToasts": [
+   "Nothing was sent. 1 word place in a rhyme link or declared return (1.T4 marked cut v3) is marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+  ],
+  "ret": false,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "C4 plain unknown place",
+  "written": "[SETUP — rhyme groups — 1.foo,6]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.foo,6]",
+  "savedRow": "[SETUP — rhyme groups — 1.foo,6]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.foo, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.foo,6"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.foo,6"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "C5 row cut v3",
+  "written": "[SETUP — rhyme groups — 1,6 — cut v3]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1,6 — cut v3]",
+  "savedRow": "[SETUP — rhyme groups — 1,6 — cut v3]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0:unknown-cut",
+    "tone": "input",
+    "title": "A rhyme link is marked with a word cut this page does not read",
+    "actions": [
+     "Remove the link",
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups_need_decision": [
+    "1 (marked cut v3: not read here),6 (marked cut v3: not read here)"
+   ]
+  },
+  "chatCalls": 0,
+  "sentDecl": null,
+  "runToasts": [
+   "Nothing was sent. 2 word places in a rhyme link or declared return (1 marked cut v3, 6 marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+  ],
+  "ret": false,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "X1 legacy T with unknown note beside a rebindable T",
+  "written": "[SETUP — rhyme groups — 1.T4 (kept),8.T4]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.T4 (kept),8.T5 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.T4 (kept),8.T5 — cut v2]",
+  "bootToasts": [
+   "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “tonight” word 4 → 5."
+  ],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.T4 (kept), which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.T4 (kept),8.T5"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.T4 (kept),8.T5"
+  },
+  "runToasts": [
+   "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “tonight” word 4 → 5."
+  ],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "X2 page wording, other case",
+  "written": "[SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.head (Carried across the word-cut change), which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.head (Carried across the word-cut change),6"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.head (Carried across the word-cut change),6"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "X3 row mark with two spaces",
+  "written": "[SETUP — rhyme groups — 1,6 — cut  v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut  v2 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut  v2 — cut v2]",
+  "bootToasts": [
+   "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+  ],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 6 — cut  v2, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   },
+   {
+    "id": "rhyme groups:0:carried:0:0",
+    "tone": "note",
+    "title": "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "actions": [
+     "Keep the link",
+     "Remove it"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1,6 — cut  v2"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1,6 — cut  v2"
+  },
+  "runToasts": [
+   "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+  ],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "X5 unknown note, marked row",
+  "written": "[SETUP — rhyme groups — 1.head (kept),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.head (kept),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.head (kept),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.head (kept), which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.head (kept),6"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.head (kept),6"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "cand",
+  "name": "X6 unknown note on unchanged line, unmarked",
+  "written": "[SETUP — rhyme groups — 5 (kept),6]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 5 (kept),6]",
+  "savedRow": "[SETUP — rhyme groups — 5 (kept),6]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 5 (kept), which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "5 (kept),6"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "5 (kept),6"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "U6",
+  "written": "[SETUP — rhyme groups — 1.head (kept),6]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.head (kept),6]",
+  "savedRow": "[SETUP — rhyme groups — 1.head (kept),6]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.head (kept), which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.head (kept),6"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.head (kept),6"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "U7",
+  "written": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.T4 (carried across the word-cut change), 6 — cut v2, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.T4 (carried across the word-cut change),6 — cut v2"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.T4 (carried across the word-cut change),6 — cut v2"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "U8",
+  "written": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+  "rowAfterLoad": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+  "savedRow": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "returns:0",
+    "tone": "input",
+    "title": "A declared return points at 1.head (numbered under the earlier cut), 6.head — cut v2, which the draft does not have",
+    "actions": [
+     "Open repeats"
+    ]
+   }
+  ],
+  "declNow": {
+   "returns": "1.head (numbered under the earlier cut),6.head — cut v2"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "returns": "1.head (numbered under the earlier cut),6.head — cut v2"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "U12",
+  "written": "[SETUP — rhyme groups — 1,6 — cut]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1,6 — cut]",
+  "savedRow": "[SETUP — rhyme groups — 1,6 — cut]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 6 — cut, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1,6 — cut"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1,6 — cut"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "C1 carried named (valid)",
+  "written": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.head (carried across the word-cut change), 6 — cut v2, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.head (carried across the word-cut change),6 — cut v2"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.head (carried across the word-cut change),6 — cut v2"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "C2 undecided T (valid)",
+  "written": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.T4 (numbered under the earlier cut), 6 — cut v2, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.T4 (numbered under the earlier cut),6 — cut v2"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.T4 (numbered under the earlier cut),6 — cut v2"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "C3 member marked cut v3",
+  "written": "[SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.T4 (marked cut v3: not read here), 6 — cut v2, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.T4 (marked cut v3: not read here),6 — cut v2"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.T4 (marked cut v3: not read here),6 — cut v2"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "C4 plain unknown place",
+  "written": "[SETUP — rhyme groups — 1.foo,6]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.foo,6]",
+  "savedRow": "[SETUP — rhyme groups — 1.foo,6]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.foo, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.foo,6"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.foo,6"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "C5 row cut v3",
+  "written": "[SETUP — rhyme groups — 1,6 — cut v3]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1,6 — cut v3]",
+  "savedRow": "[SETUP — rhyme groups — 1,6 — cut v3]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 6 — cut v3, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1,6 — cut v3"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1,6 — cut v3"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "X1 legacy T with unknown note beside a rebindable T",
+  "written": "[SETUP — rhyme groups — 1.T4 (kept),8.T4]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.T4 (kept),8.T4]",
+  "savedRow": "[SETUP — rhyme groups — 1.T4 (kept),8.T4]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.T4 (kept), which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.T4 (kept),8.T4"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.T4 (kept),8.T4"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "X2 page wording, other case",
+  "written": "[SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.head (Carried across the word-cut change), 6 — cut v2, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.head (Carried across the word-cut change),6 — cut v2"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.head (Carried across the word-cut change),6 — cut v2"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "X3 row mark with two spaces",
+  "written": "[SETUP — rhyme groups — 1,6 — cut  v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1,6 — cut  v2]",
+  "savedRow": "[SETUP — rhyme groups — 1,6 — cut  v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 6 — cut  v2, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1,6 — cut  v2"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1,6 — cut  v2"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "X5 unknown note, marked row",
+  "written": "[SETUP — rhyme groups — 1.head (kept),6 — cut v2]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 1.head (kept),6 — cut v2]",
+  "savedRow": "[SETUP — rhyme groups — 1.head (kept),6 — cut v2]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.head (kept), 6 — cut v2, which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "1.head (kept),6 — cut v2"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "1.head (kept),6 — cut v2"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ },
+ {
+  "tree": "main",
+  "name": "X6 unknown note on unchanged line, unmarked",
+  "written": "[SETUP — rhyme groups — 5 (kept),6]",
+  "rowAfterLoad": "[SETUP — rhyme groups — 5 (kept),6]",
+  "savedRow": "[SETUP — rhyme groups — 5 (kept),6]",
+  "bootToasts": [],
+  "items": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 5 (kept), which the draft does not have",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "declNow": {
+   "groups": "5 (kept),6"
+  },
+  "chatCalls": 1,
+  "sentDecl": {
+   "groups": "5 (kept),6"
+  },
+  "runToasts": [],
+  "ret": true,
+  "pageErrors": []
+ }
+]

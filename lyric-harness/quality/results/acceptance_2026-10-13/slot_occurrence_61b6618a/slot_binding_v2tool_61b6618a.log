@@ -1,0 +1,113 @@
+{
+ "gate": "FAIL",
+ "failures": {
+  "v1:asides_stripped:wrong_word": 9,
+  "v1:asides_sung:wrong_word": 9,
+  "controls_failed": 40
+ },
+ "unresolved": {
+  "v1:asides_stripped:resolver_mismatch": 1,
+  "v1:asides_sung:resolver_mismatch": 1,
+  "negative_controls_failed": 1,
+  "production_use_not_replicated": 3
+ },
+ "excluded_line_modes": {
+  "spaced_enclitic_or_folded": 6,
+  "spans_not_reproduced": 0
+ },
+ "evaluated_slots": {
+  "asides_stripped": 12660,
+  "asides_sung": 12648,
+  "v1:asides_stripped": 12660,
+  "v1:asides_sung": 12648
+ },
+ "outcomes": {
+  "asides_stripped": {
+   "agree": 229,
+   "refused": 4015,
+   "no_word_refused": 8124,
+   "refused_grader_elsewhere": 66,
+   "refused_unbound": 200,
+   "agree_unbound": 26
+  },
+  "asides_sung": {
+   "agree": 229,
+   "refused": 10323,
+   "no_word_refused": 1357,
+   "refused_unbound": 482,
+   "refused_grader_elsewhere": 231,
+   "agree_unbound": 26
+  },
+  "v1:asides_stripped": {
+   "agree": 220,
+   "refused": 4014,
+   "no_word_refused": 8129,
+   "refused_grader_elsewhere": 66,
+   "refused_unbound": 196,
+   "wrong_word": 9,
+   "resolver_mismatch": 1,
+   "agree_unbound": 25
+  },
+  "v1:asides_sung": {
+   "agree": 220,
+   "refused": 10493,
+   "no_word_refused": 1371,
+   "refused_unbound": 414,
+   "refused_grader_elsewhere": 115,
+   "wrong_word": 9,
+   "resolver_mismatch": 1,
+   "agree_unbound": 25
+  }
+ },
+ "production_uses_not_replicated": {
+  "calls": [
+   {
+    "file": "quality/revise.py",
+    "line": 4506,
+    "name": "swap_at_slot",
+    "positional": 3,
+    "keywords": [
+     "lex",
+     "scheme",
+     "strip_parens"
+    ],
+    "starred": false
+   },
+   {
+    "file": "quality/loop.py",
+    "line": 843,
+    "name": "swap_at_slot",
+    "positional": 3,
+    "keywords": [
+     "lex",
+     "scheme",
+     "strip_parens"
+    ],
+    "starred": false
+   },
+   {
+    "file": "quality/loop.py",
+    "line": 879,
+    "name": "swap_at_slot",
+    "positional": 3,
+    "keywords": [
+     "lex",
+     "scheme",
+     "strip_parens"
+    ],
+    "starred": false
+   }
+  ],
+  "other_references": []
+ },
+ "population": {
+  "intended_line_modes": 4224,
+  "admitted_line_modes": 4218,
+  "transformed_excluded": 6,
+  "unexpected_excluded": 0,
+  "accounted": true
+ },
+ "negative_controls_failed": 1,
+ "controls_failed": 40,
+ "selected_lines": 1056
+}

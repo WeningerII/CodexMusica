@@ -1,0 +1,312 @@
+{
+ "load": [
+  {
+   "name": "L7 returns 5.end,6.end;1.head,8.head (unchanged N.end + named row-mate on re-cut lines)",
+   "key": "returns",
+   "written": "5.end,6.end;1.head,8.head",
+   "main_row_after_reload": [
+    "[SETUP — returns — 5.end,6.end;1.head,8.head]"
+   ],
+   "main_saved": [
+    "[SETUP — returns — 5.end,6.end;1.head,8.head]"
+   ],
+   "main_sent": {
+    "chat": [
+     {
+      "returns": "5.end,6.end;1.head,8.head"
+     }
+    ],
+    "builder": {
+     "returns": "5.end,6.end;1.head,8.head"
+    },
+    "clearedPending": false
+   },
+   "cand_cut_changed": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     false
+    ],
+    [
+     3,
+     false
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "cand_row_after_upgrade": [
+    "[SETUP — returns — 5,6;1.head (carried across the word-cut change),8.head (carried across the word-cut change) — cut v2]"
+   ],
+   "cand_toasts": [
+    "2 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review."
+   ],
+   "cand_notices": [
+    {
+     "id": "returns:0:carried:1:0",
+     "tone": "note",
+     "title": "A declared return member, line 1 · first word, was carried across the word-cut change",
+     "actions": [
+      [
+       "ly-carried-keep",
+       "returns|0|1|0"
+      ],
+      [
+       "ly-carried-remove",
+       "returns|0|1|0"
+      ]
+     ]
+    },
+    {
+     "id": "returns:0:carried:1:1",
+     "tone": "note",
+     "title": "A declared return member, line 8 · first word, was carried across the word-cut change",
+     "actions": [
+      [
+       "ly-carried-keep",
+       "returns|0|1|1"
+      ],
+      [
+       "ly-carried-remove",
+       "returns|0|1|1"
+      ]
+     ]
+    }
+   ],
+   "cand_sent": {
+    "chat": [
+     {
+      "returns": "5,6;1.head,8.head"
+     }
+    ],
+    "builder": {
+     "returns": "5,6;1.head,8.head"
+    },
+    "clearedPending": false
+   },
+   "cand_row_after_keep": [
+    "[SETUP — returns — 5,6;1.head,8.head — cut v2]"
+   ],
+   "cand_toasts_after_keep": [
+    "2 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review.",
+    "The declared return on line 1 is kept as declared. Undo restores the notice.\nUndo",
+    "The declared return on line 8 is kept as declared. Undo restores the notice.\nUndo"
+   ],
+   "cand_sent_after_keep": {
+    "chat": [
+     {
+      "returns": "5,6;1.head,8.head"
+     }
+    ],
+    "builder": {
+     "returns": "5,6;1.head,8.head"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "name": "L8 returns 4,7 (bare N, as main declare-repeat writes, on a re-cut line)",
+   "key": "returns",
+   "written": "4,7",
+   "main_row_after_reload": [
+    "[SETUP — returns — 4,7]"
+   ],
+   "main_saved": [
+    "[SETUP — returns — 4,7]"
+   ],
+   "main_sent": {
+    "chat": [
+     {
+      "returns": "4,7"
+     }
+    ],
+    "builder": {
+     "returns": "4,7"
+    },
+    "clearedPending": false
+   },
+   "cand_cut_changed": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     false
+    ],
+    [
+     3,
+     false
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "cand_row_after_upgrade": [
+    "[SETUP — returns — 4 (carried across the word-cut change),7 — cut v2]"
+   ],
+   "cand_toasts": [
+    "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   ],
+   "cand_notices": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 4 · last rhyme, was carried across the word-cut change",
+     "actions": [
+      [
+       "ly-carried-keep",
+       "returns|0|0|0"
+      ],
+      [
+       "ly-carried-remove",
+       "returns|0|0|0"
+      ]
+     ]
+    }
+   ],
+   "cand_sent": {
+    "chat": [
+     {
+      "returns": "4,7"
+     }
+    ],
+    "builder": {
+     "returns": "4,7"
+    },
+    "clearedPending": false
+   },
+   "cand_row_after_keep": [
+    "[SETUP — returns — 4,7 — cut v2]"
+   ],
+   "cand_toasts_after_keep": [
+    "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review.",
+    "The declared return on line 4 is kept as declared. Undo restores the notice.\nUndo"
+   ],
+   "cand_sent_after_keep": {
+    "chat": [
+     {
+      "returns": "4,7"
+     }
+    ],
+    "builder": {
+     "returns": "4,7"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "name": "L9 returns 5.end,6.end (then the same row is untouched by load: Keep of an unrelated rhyme link)",
+   "key": "returns",
+   "written": "5.end,6.end",
+   "main_row_after_reload": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "main_saved": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "main_sent": {
+    "chat": [
+     {
+      "returns": "5.end,6.end"
+     }
+    ],
+    "builder": {
+     "returns": "5.end,6.end"
+    },
+    "clearedPending": false
+   },
+   "cand_cut_changed": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     false
+    ],
+    [
+     3,
+     false
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "cand_row_after_upgrade": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "cand_toasts": [],
+   "cand_notices": [],
+   "cand_sent": {
+    "chat": [
+     {
+      "returns": "5.end,6.end"
+     }
+    ],
+    "builder": {
+     "returns": "5.end,6.end"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  }
+ ],
+ "edits": []
+}

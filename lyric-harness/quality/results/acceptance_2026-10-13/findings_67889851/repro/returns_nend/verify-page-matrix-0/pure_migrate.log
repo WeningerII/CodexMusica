@@ -1,0 +1,14 @@
+R|v0|L1|end    -> [SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]  | sends 1,6.head | carried 1
+R|v0|L2|end    -> [SETUP — returns — 2 (carried across the word-cut change),6.head — cut v2]  | sends 2,6.head | carried 1
+R|v0|L3|end    -> [SETUP — returns — 3 (carried across the word-cut change),6.head — cut v2]  | sends 3,6.head | carried 1
+R|v0|L4|end    -> [SETUP — returns — 4 (carried across the word-cut change),6.head — cut v2]  | sends 4,6.head | carried 1
+R|v0|L5|end    -> [SETUP — returns — 5.end,6.head]  | sends 5.end,6.head | carried 0
+R|v0|L7|end    -> [SETUP — returns — 7.end,6.head]  | sends 7.end,6.head | carried 0
+R|v0|L8|end    -> [SETUP — returns — 8 (carried across the word-cut change),6.head — cut v2]  | sends 8,6.head | carried 1
+R|v1|L1|end    -> [SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]  | sends 1,6.head | carried 1
+R|v1|L2|end    -> [SETUP — returns — 2 (carried across the word-cut change),6.head — cut v2]  | sends 2,6.head | carried 1
+R|v1|L3|end    -> [SETUP — returns — 3 (carried across the word-cut change),6.head — cut v2]  | sends 3,6.head | carried 1
+R|v1|L4|end    -> [SETUP — returns — 4 (carried across the word-cut change),6.head — cut v2]  | sends 4,6.head | carried 1
+R|v1|L5|end    -> [SETUP — returns — 5.end,6.head]  | sends 5.end,6.head | carried 0
+R|v1|L7|end    -> [SETUP — returns — 7 (carried across the word-cut change),6.head — cut v2]  | sends 7,6.head | carried 1
+R|v1|L8|end    -> [SETUP — returns — 8 (carried across the word-cut change),6.head — cut v2]  | sends 8,6.head | carried 1

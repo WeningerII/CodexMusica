@@ -1,0 +1,250 @@
+base_G_4-end_6-end.log
+  {
+   "status": "graded",
+   "return_obligations": [],
+   "refused_obligations": [],
+   "return_findings": [],
+   "declared_returns_text": []
+  }
+base_G_4_6.log
+  {
+   "status": "graded",
+   "return_obligations": [],
+   "refused_obligations": [],
+   "return_findings": [],
+   "declared_returns_text": []
+  }
+base_R_1-end_6-head.log
+  {
+   "status": "graded",
+   "return_obligations": [
+    [
+     "return:1:6",
+     "answered"
+    ]
+   ],
+   "refused_obligations": [],
+   "return_findings": [
+    [
+     "RETURN_NOT_VERBATIM",
+     "flag",
+     "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.end='love', L6.head='Well-worn'. The rest of these lines is not constrained by th"
+    ]
+   ],
+   "declared_returns_text": [
+    "DECLARED RETURNS: 1 full-line obligation(s)",
+    "L1~L6: VIOLATED — required verbatim return changed"
+   ]
+  }
+base_R_1-end_8-end.log
+  {
+   "status": "graded",
+   "return_obligations": [
+    [
+     "return:1:8",
+     "answered"
+    ]
+   ],
+   "refused_obligations": [],
+   "return_findings": [
+    [
+     "RETURN_NOT_VERBATIM",
+     "flag",
+     "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.end='love', L8.end='tonight'. The rest of these lines is not constrained by this "
+    ]
+   ],
+   "declared_returns_text": [
+    "DECLARED RETURNS: 1 full-line obligation(s)",
+    "L1~L8: VIOLATED — required verbatim return changed"
+   ]
+  }
+base_R_1_6-head.log
+  {
+   "status": "refused",
+   "refusal": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about",
+   "return_obligations": [],
+   "refused_obligations": [],
+   "return_findings": [],
+   "declared_returns_text": []
+  }
+base_R_1_8.log
+  {
+   "status": "graded",
+   "return_obligations": [
+    [
+     "return:1:8",
+     "answered"
+    ]
+   ],
+   "refused_obligations": [],
+   "return_findings": [
+    [
+     "RETURN_NOT_VERBATIM",
+     "flag",
+     "return  must come back VERBATIM: L1 'Oh--oh, oh my love' vs L8 'Hold me (hold me) close--close tonight'"
+    ]
+   ],
+   "declared_returns_text": [
+    "DECLARED RETURNS: 1 full-line obligation(s)",
+    "L1~L8: VIOLATED — required verbatim return changed"
+   ]
+  }
+base_R_4-end_6-end.log
+  {
+   "status": "graded",
+   "return_obligations": [
+    [
+     "return:4:6",
+     "answered"
+    ]
+   ],
+   "refused_obligations": [],
+   "return_findings": [
+    [
+     "RETURN_NOT_VERBATIM",
+     "flag",
+     "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L4.end='heart', L6.end='floor'. The rest of these lines is not constrained by this c"
+    ]
+   ],
+   "declared_returns_text": [
+    "DECLARED RETURNS: 1 full-line obligation(s)",
+    "L4~L6: VIOLATED — required verbatim return changed"
+   ]
+  }
+base_R_4_6.log
+  {
+   "status": "graded",
+   "return_obligations": [
+    [
+     "return:4:6",
+     "answered"
+    ]
+   ],
+   "refused_obligations": [],
+   "return_findings": [
+    [
+     "RETURN_NOT_VERBATIM",
+     "flag",
+     "return  must come back VERBATIM: L4 'You hold my heart.    10' vs L6 'Well-worn shoes upon the floor'"
+    ]
+   ],
+   "declared_returns_text": [
+    "DECLARED RETURNS: 1 full-line obligation(s)",
+    "L4~L6: VIOLATED — required verbatim return changed"
+   ]
+  }
+base_R_5-end_6-end.log
+  {
+   "status": "graded",
+   "return_obligations": [
+    [
+     "return:5:6",
+     "answered"
+    ]
+   ],
+   "refused_obligations": [],
+   "return_findings": [
+    [
+     "RETURN_NOT_VERBATIM",
+     "flag",
+     "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L5.end='tonight', L6.end='floor'. The rest of these lines is not constrained by this"
+    ]
+   ],
+   "declared_returns_text": [
+    "DECLARED RETURNS: 1 full-line obligation(s)",
+    "L5~L6: VIOLATED — required verbatim return changed"
+   ]
+  }
+base_R_5-end_6-end_1-T4_8-T4.log
+  {
+   "status": "graded",
+   "return_obligations": [
+    [
+     "return:1:8",
+     "answered"
+    ],
+    [
+     "return:5:6",
+     "answered"
+    ]
+   ],
+   "refused_obligations": [],
+   "return_findings": [
+    [
+     "RETURN_NOT_VERBATIM",
+     "flag",
+     "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T4='love', L8.T4='tonight'. The rest of these lines is not constrained by this cl"
+    ],
+    [
+     "RETURN_NOT_VERBATIM",
+     "flag",
+     "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L5.end='tonight', L6.end='floor'. The rest of these lines is not constrained by this"
+    ]
+   ],
+   "declared_returns_text": [
+    "DECLARED RETURNS: 2 full-line obligation(s)",
+    "L1~L8: SATISFIED — required verbatim return",
+    "L5~L6: SATISFIED — required verbatim return"
+   ]
+  }
+base_R_5_6.log
+  {
+   "status": "graded",
+   "return_obligations": [
+    [
+     "return:5:6",
+     "answered"
+    ]
+   ],
+   "refused_obligations": [],
+   "return_findings": [
+    [
+     "RETURN_NOT_VERBATIM",
+     "flag",
+     "return  must come back VERBATIM: L5 'I walk the line tonight' vs L6 'Well-worn shoes upon the floor'"
+    ]
+   ],
+   "declared_returns_text": [
+    "DECLARED RETURNS: 1 full-line obligation(s)",
+    "L5~L6: VIOLATED — required verbatim return changed"
+   ]
+  }
+base_R_5_6_1-T5_8-T5.log
+  {
+   "status": "graded",
+   "return_obligations": [
+    [
+     "return:1:8",
+     "refused"
+    ],
+    [
+     "return:5:6",
+     "answered"
+    ]
+   ],
+   "refused_obligations": [
+    "return:1:8"
+   ],
+   "return_findings": [
+    [
+     "RETURN_NOT_VERBATIM",
+     "flag",
+     "return  must come back VERBATIM: L5 'I walk the line tonight' vs L6 'Well-worn shoes upon the floor'"
+    ],
+    [
+     "RETURN_PLACEMENT_ABSENT",
+     "note",
+     "L1 has no 'T5' to read — the placement names nothing in this line, so the return is unasked rather than broken (doctrine 20)"
+    ],
+    [
+     "RETURN_PLACEMENT_ABSENT",
+     "note",
+     "L8 has no 'T5' to read — the placement names nothing in this line, so the return is unasked rather than broken (doctrine 20)"
+    ]
+   ],
+   "declared_returns_text": [
+    "DECLARED RETURNS: 2 full-line obligation(s)",
+    "L1~L8: UNJUDGED — verbatim requirement is undeclared",
+    "L5~L6: VIOLATED — required verbatim return changed"
+   ]
+  }

@@ -1,0 +1,41 @@
+TAP version 13
+# Subtest: the mirror agrees with the harness on every fixture case
+ok 1 - the mirror agrees with the harness on every fixture case
+  ---
+  duration_ms: 286.154463
+  type: 'test'
+  ...
+# Subtest: pieces slice the source line
+ok 2 - pieces slice the source line
+  ---
+  duration_ms: 51.644515
+  type: 'test'
+  ...
+# Subtest: the page's word spans number exactly the tokens it declares against
+ok 3 - the page's word spans number exactly the tokens it declares against
+  ---
+  duration_ms: 284.805531
+  type: 'test'
+  ...
+# Subtest: no class in the mirror case-folds: every such codepoint is in the fixture
+ok 4 - no class in the mirror case-folds: every such codepoint is in the fixture
+  ---
+  duration_ms: 195.865824
+  type: 'test'
+  ...
+# Subtest: a symbol's normal-form mark: every such starter is in the fixture
+ok 5 - a symbol's normal-form mark: every such starter is in the fixture
+  ---
+  duration_ms: 129.067802
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1111.878347
+exit=0

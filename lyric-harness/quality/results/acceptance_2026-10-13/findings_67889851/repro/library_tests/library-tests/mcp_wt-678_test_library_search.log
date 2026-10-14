@@ -1,0 +1,155 @@
+TAP version 13
+# Subtest: order is UTF-8 byte order (SQLite BINARY), ties broken by id
+ok 1 - order is UTF-8 byte order (SQLite BINARY), ties broken by id
+  ---
+  duration_ms: 59.604351
+  type: 'test'
+  ...
+# Subtest: contributor order puts the empty contributor first, then title, then id
+ok 2 - contributor order puts the empty contributor first, then title, then id
+  ---
+  duration_ms: 47.46876
+  type: 'test'
+  ...
+# Subtest: instr: first match, 1-based in code points, projected onto the right line
+ok 3 - instr: first match, 1-based in code points, projected onto the right line
+  ---
+  duration_ms: 46.585488
+  type: 'test'
+  ...
+# Subtest: a match never spans two units, and empty bodies never claim one
+ok 4 - a match never spans two units, and empty bodies never claim one
+  ---
+  duration_ms: 44.861269
+  type: 'test'
+  ...
+# Subtest: lower() is ASCII-only, and an all-space contributor matches everyone (instr(x,'') = 1)
+ok 5 - lower() is ASCII-only, and an all-space contributor matches everyone (instr(x,'') = 1)
+  ---
+  duration_ms: 43.277516
+  type: 'test'
+  ...
+# Subtest: filters: equality, "all", collection membership and work
+ok 6 - filters: equality, "all", collection membership and work
+  ---
+  duration_ms: 46.466788
+  type: 'test'
+  ...
+# Subtest: held units: metadata and an empty snippet, never a hit projection
+ok 7 - held units: metadata and an empty snippet, never a hit projection
+  ---
+  duration_ms: 47.142381
+  type: 'test'
+  ...
+# Subtest: paging and validation follow the Worker's Number() rules; the page cap is 100
+ok 8 - paging and validation follow the Worker's Number() rules; the page cap is 100
+  ---
+  duration_ms: 97.616818
+  type: 'test'
+  ...
+# Subtest: a page over 2 MiB drops trailing items, as the Worker did
+ok 9 - a page over 2 MiB drops trailing items, as the Worker did
+  ---
+  duration_ms: 159.78624
+  type: 'test'
+  ...
+# Subtest: header readings: logical chunks are joined and projection reads only what it needs
+ok 10 - header readings: logical chunks are joined and projection reads only what it needs
+  ---
+  duration_ms: 59.0907
+  type: 'test'
+  ...
+# Subtest: searchText folds as the Worker did: NFC, casefold table, whitespace collapse
+ok 11 - searchText folds as the Worker did: NFC, casefold table, whitespace collapse
+  ---
+  duration_ms: 0.394358
+  type: 'test'
+  ...
+# Subtest: a truncated column refuses to load
+ok 12 - a truncated column refuses to load
+  ---
+  duration_ms: 51.451377
+  type: 'test'
+  ...
+# Subtest: routes: health, cacheable search and metadata, refusals
+ok 13 - routes: health, cacheable search and metadata, refusals
+  ---
+  duration_ms: 139.141979
+  type: 'test'
+  ...
+# Subtest: without an installed store, search answers 503 and health says so
+ok 14 - without an installed store, search answers 503 and health says so
+  ---
+  duration_ms: 16.434207
+  type: 'test'
+  ...
+# Subtest: the request log never records search terms
+ok 15 - the request log never records search terms
+  ---
+  duration_ms: 64.461024
+  type: 'test'
+  ...
+# Subtest: a malformed request answers the JSON, uncached refusal, never an HTML page
+ok 16 - a malformed request answers the JSON, uncached refusal, never an HTML page
+  ---
+  duration_ms: 58.032982
+  type: 'test'
+  ...
+# Subtest: the store refuses U+0000, where SQLite and the port would disagree
+ok 17 - the store refuses U+0000, where SQLite and the port would disagree
+  ---
+  duration_ms: 254.689727
+  type: 'test'
+  ...
+# Subtest: the fold table is the Worker's own, until the old Site is retired
+ok 18 - the fold table is the Worker's own, until the old Site is retired
+  ---
+  duration_ms: 0.564877
+  type: 'test'
+  ...
+# Subtest: search has a per-address abuse ceiling of 600 a minute, with Retry-After
+ok 19 - search has a per-address abuse ceiling of 600 a minute, with Retry-After
+  ---
+  duration_ms: 886.377451
+  type: 'test'
+  ...
+# Subtest: server_http loads a configured search store on first use, not at startup
+ok 20 - server_http loads a configured search store on first use, not at startup
+  ---
+  duration_ms: 2434.152798
+  type: 'test'
+  ...
+# Subtest: an unusable store is reported failed, by name, and its routes answer 503
+ok 21 - an unusable store is reported failed, by name, and its routes answer 503
+  ---
+  duration_ms: 1801.927285
+  type: 'test'
+  ...
+# Subtest: with no Library store configured the state is absent after first use
+ok 22 - with no Library store configured the state is absent after first use
+  ---
+  duration_ms: 2174.712874
+  type: 'test'
+  ...
+# Subtest: verified corpus packages leave the Library ready
+ok 23 - verified corpus packages leave the Library ready
+  ---
+  duration_ms: 2029.438374
+  type: 'test'
+  ...
+# Subtest: a corpus package that fails its hash marks the Library failed, by name
+ok 24 - a corpus package that fails its hash marks the Library failed, by name
+  ---
+  duration_ms: 2076.617459
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12943.066642
+exit=0

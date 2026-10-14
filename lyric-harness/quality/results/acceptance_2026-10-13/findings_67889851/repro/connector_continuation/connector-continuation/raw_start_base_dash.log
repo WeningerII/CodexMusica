@@ -1,0 +1,74 @@
+IDENTITY {
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base",
+ "connector_semantic_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+ "parts": {
+  "source_sha256": "9602d809f6788fa8f79ee9c78bcd39cb9b416c4adb00823f2638ea8f479974f2",
+  "assets_sha256": "9bffbd586992ca658ce10b067d79b92c005be86149ffc063d3fd92979f079b03",
+  "manifest_sha256": "c4fcefd938b6dbdd3692e7c3364f34232cf6616634f8501a5c0974dc8454fd7b",
+  "python": "3.13.16",
+  "nltk": "3.10.3",
+  "node": "v22.22.0",
+  "reader": null
+ }
+}
+STARTED {
+ "variant": "dash",
+ "args": {
+  "relation": "type:rime riche",
+  "groups": "1.T4,2",
+  "draft": [
+   "Oh--oh, oh my love",
+   "Azure dog"
+  ],
+  "writer": "interview",
+  "max_rounds": 1,
+  "backtrack": 0
+ },
+ "exit_code": 4,
+ "status": "awaiting_proposal",
+ "run_id": "run_196ae58c26dcac8d66382dd4fec02c0bb2acbc979b87bd481a705afe4b15c117",
+ "run_revision": 1,
+ "state": "<5745 chars>",
+ "envelope_semantic_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+ "envelope_connector_contract": 3,
+ "state_connector_semantic_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+ "state_reader_scheme": "(absent)",
+ "state_answered_reader_scheme": "(absent)",
+ "state_keys": [
+  "accepted_lines",
+  "answered",
+  "connector_declarations",
+  "connector_run_ref",
+  "connector_semantic_identity",
+  "cursor",
+  "cursor_seal",
+  "dispositions",
+  "group_outcomes",
+  "input_draft",
+  "lexicon",
+  "outcomes",
+  "pending",
+  "round",
+  "status",
+  "version"
+ ],
+ "pending_kind": [
+  "kind",
+  "record",
+  "prompt",
+  "answer"
+ ],
+ "writer_identity": {
+  "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base",
+  "connector_semantic_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+  "parts": {
+   "source_sha256": "9602d809f6788fa8f79ee9c78bcd39cb9b416c4adb00823f2638ea8f479974f2",
+   "assets_sha256": "9bffbd586992ca658ce10b067d79b92c005be86149ffc063d3fd92979f079b03",
+   "manifest_sha256": "c4fcefd938b6dbdd3692e7c3364f34232cf6616634f8501a5c0974dc8454fd7b",
+   "python": "3.13.16",
+   "nltk": "3.10.3",
+   "node": "v22.22.0",
+   "reader": null
+  }
+ }
+}

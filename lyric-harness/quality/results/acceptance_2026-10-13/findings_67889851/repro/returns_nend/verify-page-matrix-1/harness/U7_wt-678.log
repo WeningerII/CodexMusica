@@ -1,0 +1,8 @@
+$ cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data python3 lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-matrix-1/harness/song8.txt '--groups=1.T4 (carried across the word-cut change),6'
+  MANDATE: 1 group(s) over 8 lines, 1 mandated pair(s), source=declared (--groups=)
+           group A = lines 1.T4 (carried across the word-cut change),6 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)
+  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)
+  REFUSED — '1.T4 (carried across the word-cut change)' names no place this harness can find. Declared places: end, endword, head, headrime, line, or T<n> for the n-th word (1-based).
+    HANDED IN brief's FILE: /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-matrix-1/harness/song8.txt
+  lyric result: {"status":"refused","exit":2,"refusal":"'1.T4 (carried across the word-cut change)' names no place this harness can find. Declared places: end, endword, head, headrime, line, or T<n> for the n-th word (1-based).","version":1,"transport_token":null}
+exit=2

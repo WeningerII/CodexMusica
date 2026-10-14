@@ -1,0 +1,4 @@
+[main] move: before [SETUP — returns — 5.end,6.end] (sends 5.end,6.end) -> after [SETUP — returns — 1,2] (sends 1,2)
+[main] repeats-form: before [SETUP — returns — 5.end,6.end] (sends 5.end,6.end) -> after [SETUP — returns — 5,6;2.head,3.head] (sends 5,6;2.head,3.head)
+[cand] move: before [SETUP — returns — 5.end,6.end] (sends 5.end,6.end) -> after [SETUP — returns — 1,2] (sends 1,2)
+[cand] repeats-form: before [SETUP — returns — 5.end,6.end] (sends 5.end,6.end) -> after [SETUP — returns — 5,6;2.head,3.head — cut v2] (sends 5,6;2.head,3.head)

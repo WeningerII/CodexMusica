@@ -1,0 +1,27 @@
+[
+ {
+  "name": "C1 page sent for G|v0|L4|N and G|v0|L4|end (row 4 (carried),6)",
+  "declarations": {
+   "groups": "4,6"
+  }
+ },
+ {
+  "name": "C3a returns as WRITTEN pre-batch 4.end,6.end",
+  "declarations": {
+   "returns": "4.end,6.end"
+  }
+ },
+ {
+  "name": "C3b returns as the candidate page SENDS it (4,6)",
+  "declarations": {
+   "returns": "4,6"
+  }
+ },
+ {
+  "name": "C2 keep scenario as sent after Keep",
+  "declarations": {
+   "groups": "1,6;2.endword,5;4,3.head",
+   "returns": "1.head,6.head;8.line,5.line"
+  }
+ }
+]

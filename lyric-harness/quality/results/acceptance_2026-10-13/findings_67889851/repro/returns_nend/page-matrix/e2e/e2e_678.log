@@ -1,0 +1,36 @@
+=== G|v0|L4|N carried (as sent) {"groups":"4,6"}
+--- lyric_check (2 blocks)
+Error: `lines` (or `lines_text`, the same lines as one string) is required
+{"operation_id":"1cf1599acde0c8571f5726704c3a0904e5487ab907a718ca1b9dbe5d5c9722a3","status":"completed","session_id":"1cf1599acde0c8571f5726704c3a0904e5487ab907a718ca1b9dbe5d5c9722a3","tool":"lyric_check","tool_error":true,"resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044020760,"uncertain_proposal":false}
+--- lyric_revise (3 blocks)
+[AWAITING PROPOSAL — declared mandate — 0 answer(s) on record — NO SONG YET] ⏎  ⏎ REVISE ONE LINE — L4 of a 8-line draft. ⏎  ⏎ You are given a draft, one line of it a grader has flagged, everything that grader ⏎ measured, and the rules it will apply to what you send back. Rewrite that ONE line. ⏎  ⏎ ATTEMPT ⏎   This is ATTEMPT 1 of this line's retry budget. ⏎   No previous attempt was rejected on this line in this round. ⏎  ⏎ THE LINE TO REVISE ⏎   L4: You hold my heart.    10 ⏎  ⏎ THE WHOLE DRAFT (context — only L4 may change) ⏎      L1  Oh--oh, oh my love ⏎      L2  Thundered the battery’s double bass-- ⏎      L3  My love--l
+{
+ "exit_code": 4,
+ "status": "awaiting_proposal",
+ "certified": false
+}
+{"operation_id":"38a842e9c9b17ebf964a18698a95b11efa88406178ed55962624eff7db50055d","status":"completed","session_id":"38a842e9c9b17ebf964a18698a95b11efa88406178ed55962624eff7db50055d","tool":"lyric_revise","resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044028391,"uncertain_proposal":false}
+=== R|v0|L4|N carried (as sent) {"returns":"4,6.head"}
+--- lyric_check (2 blocks)
+Error: `lines` (or `lines_text`, the same lines as one string) is required
+{"operation_id":"1c7deb5857756a43d6c9f7435e7603960f996e5d0d0709e7afb011ff5ce4c9c0","status":"completed","session_id":"1c7deb5857756a43d6c9f7435e7603960f996e5d0d0709e7afb011ff5ce4c9c0","tool":"lyric_check","tool_error":true,"resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044029775,"uncertain_proposal":false}
+--- lyric_revise (2 blocks)
+{
+ "exit_code": 2,
+ "meaning": "REFUSED — the harness did not answer; the report names why",
+ "measurement_status": "refused",
+ "certified": false
+}
+{"operation_id":"d82b78a530419852aeaadf7b3526ca691315e0dfbd6731103c2e981adb2aa81f","status":"completed","session_id":"d82b78a530419852aeaadf7b3526ca691315e0dfbd6731103c2e981adb2aa81f","tool":"lyric_revise","resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044034226,"uncertain_proposal":false}
+=== keep scenario after Keep (as sent) {"groups":"1,6;2.endword,5;4,3.head","returns":"1.head,6.head;8.line,5.line"}
+--- lyric_check (2 blocks)
+Error: `lines` (or `lines_text`, the same lines as one string) is required
+{"operation_id":"c0eee3c5b336d31bdfd7f57232adfb7c68798431d2172b3d0b9842b03d89cc68","status":"completed","session_id":"c0eee3c5b336d31bdfd7f57232adfb7c68798431d2172b3d0b9842b03d89cc68","tool":"lyric_check","tool_error":true,"resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044034304,"uncertain_proposal":false}
+--- lyric_revise (3 blocks)
+[AWAITING PROPOSAL — declared mandate — 0 answer(s) on record — NO SONG YET] BATCH: answer L5, L6 with `answers` — one {line, text} per asked line, every one required, nothing else. ⏎  ⏎ REVISE 2 LINES AT ONCE — L5, L6 of a 8-line draft. ⏎  ⏎ Each of these lines was flagged by the grader, and none of them rhymes with, returns to, or ⏎ calls any of the others — so each can be rewritten on its own without moving the rest. Below is ⏎ one brief per line: everything the grader measured on it and the rules it will apply. The ⏎ whole draft and the whole-draft findings are printed ONCE, here, and hold for every lin
+{
+ "exit_code": 4,
+ "status": "awaiting_proposal",
+ "certified": false
+}
+{"operation_id":"a6bbe296fc324f67293ebef5844ca8c8a9210df03dc58d50276d34c1f942bbc3","status":"completed","session_id":"a6bbe296fc324f67293ebef5844ca8c8a9210df03dc58d50276d34c1f942bbc3","tool":"lyric_revise","resumable":false,"durable":false,"retention_ms":86400000,"expires_at":1792044058188,"uncertain_proposal":false}

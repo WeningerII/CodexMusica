@@ -1,0 +1,322 @@
+[
+ {
+  "name": "U1 row cut v3 (T)",
+  "written": "[SETUP — rhyme groups — 1.T4,6 — cut v3]",
+  "rowAfter": "[SETUP — rhyme groups — 1.T4,6 — cut v3]",
+  "bootToasts": [],
+  "notices": [
+   {
+    "id": "rhyme groups:0:unknown-cut",
+    "tone": "input",
+    "title": "A rhyme link is marked with a word cut this page does not read",
+    "text": "1.T4, 6 are marked “cut v3”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+    "actions": [
+     "Remove the link",
+     "Open rhymes"
+    ]
+   }
+  ],
+  "chatCalls": 0,
+  "sent": null,
+  "declWouldSend": {
+   "groups_need_decision": [
+    "1.T4 (marked cut v3: not read here),6 (marked cut v3: not read here)"
+   ]
+  },
+  "refusal": [
+   "Nothing was sent. 2 word places in a rhyme link or declared return (1.T4 marked cut v3, 6 marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+  ],
+  "pageErrors": []
+ },
+ {
+  "name": "U2 row cut v3 (named, returns)",
+  "written": "[SETUP — returns — 1.head,6.head — cut v3]",
+  "rowAfter": "[SETUP — returns — 1.head,6.head — cut v3]",
+  "bootToasts": [],
+  "notices": [
+   {
+    "id": "returns:0:unknown-cut",
+    "tone": "input",
+    "title": "A declared return is marked with a word cut this page does not read",
+    "text": "1.head, 6.head are marked “cut v3”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+    "actions": [
+     "Remove the link",
+     "Open repeats"
+    ]
+   }
+  ],
+  "chatCalls": 0,
+  "sent": null,
+  "declWouldSend": {
+   "returns_need_decision": [
+    "1.head (marked cut v3: not read here),6.head (marked cut v3: not read here)"
+   ]
+  },
+  "refusal": [
+   "Nothing was sent. 2 word places in a rhyme link or declared return (1.head marked cut v3, 6.head marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+  ],
+  "pageErrors": []
+ },
+ {
+  "name": "U3 row cut v1",
+  "written": "[SETUP — rhyme groups — 1.T4,6 — cut v1]",
+  "rowAfter": "[SETUP — rhyme groups — 1.T4,6 — cut v1]",
+  "bootToasts": [],
+  "notices": [
+   {
+    "id": "rhyme groups:0:unknown-cut",
+    "tone": "input",
+    "title": "A rhyme link is marked with a word cut this page does not read",
+    "text": "1.T4, 6 are marked “cut v1”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+    "actions": [
+     "Remove the link",
+     "Open rhymes"
+    ]
+   }
+  ],
+  "chatCalls": 0,
+  "sent": null,
+  "declWouldSend": {
+   "groups_need_decision": [
+    "1.T4 (marked cut v1: not read here),6 (marked cut v1: not read here)"
+   ]
+  },
+  "refusal": [
+   "Nothing was sent. 2 word places in a rhyme link or declared return (1.T4 marked cut v1, 6 marked cut v1) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+  ],
+  "pageErrors": []
+ },
+ {
+  "name": "U4 row cut V2 (case)",
+  "written": "[SETUP — rhyme groups — 1.T4,6 — cut V2]",
+  "rowAfter": "[SETUP — rhyme groups — 1.T4,6 — cut V2]",
+  "bootToasts": [],
+  "notices": [],
+  "chatCalls": 1,
+  "sent": {
+   "groups": "1.T4,6"
+  },
+  "declWouldSend": {
+   "groups": "1.T4,6"
+  },
+  "refusal": [],
+  "pageErrors": []
+ },
+ {
+  "name": "U5 member marked cut v3",
+  "written": "[SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]",
+  "rowAfter": "[SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]",
+  "bootToasts": [],
+  "notices": [
+   {
+    "id": "rhyme groups:0:unknown-cut",
+    "tone": "input",
+    "title": "A rhyme link is marked with a word cut this page does not read",
+    "text": "1.T4 is marked “cut v3”; this page reads only “cut v2”, so it binds no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+    "actions": [
+     "Remove the link",
+     "Open rhymes"
+    ]
+   }
+  ],
+  "chatCalls": 0,
+  "sent": null,
+  "declWouldSend": {
+   "groups_need_decision": [
+    "1.T4 (marked cut v3: not read here),6"
+   ]
+  },
+  "refusal": [
+   "Nothing was sent. 1 word place in a rhyme link or declared return (1.T4 marked cut v3) is marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+  ],
+  "pageErrors": []
+ },
+ {
+  "name": "U6 unknown member note, unmarked row",
+  "written": "[SETUP — rhyme groups — 1.head (kept),6]",
+  "rowAfter": "[SETUP — rhyme groups — 1.head (kept),6]",
+  "bootToasts": [],
+  "notices": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.head (kept), which the draft does not have",
+    "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "chatCalls": 1,
+  "sent": {
+   "groups": "1.head (kept),6"
+  },
+  "declWouldSend": {
+   "groups": "1.head (kept),6"
+  },
+  "refusal": [],
+  "pageErrors": []
+ },
+ {
+  "name": "U7 carried marker on a T member",
+  "written": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+  "rowAfter": "[SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]",
+  "bootToasts": [],
+  "notices": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 1.T4 (carried across the word-cut change), which the draft does not have",
+    "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+    "actions": [
+     "Open rhymes"
+    ]
+   }
+  ],
+  "chatCalls": 1,
+  "sent": {
+   "groups": "1.T4 (carried across the word-cut change),6"
+  },
+  "declWouldSend": {
+   "groups": "1.T4 (carried across the word-cut change),6"
+  },
+  "refusal": [],
+  "pageErrors": []
+ },
+ {
+  "name": "U8 undecided marker on a named place",
+  "written": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+  "rowAfter": "[SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]",
+  "bootToasts": [],
+  "notices": [
+   {
+    "id": "returns:0",
+    "tone": "input",
+    "title": "A declared return points at 1.head (numbered under the earlier cut), which the draft does not have",
+    "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+    "actions": [
+     "Open repeats"
+    ]
+   }
+  ],
+  "chatCalls": 1,
+  "sent": {
+   "returns": "1.head (numbered under the earlier cut),6.head"
+  },
+  "declWouldSend": {
+   "returns": "1.head (numbered under the earlier cut),6.head"
+  },
+  "refusal": [],
+  "pageErrors": []
+ },
+ {
+  "name": "U9 carried marker, unchanged line, unmarked row",
+  "written": "[SETUP — rhyme groups — 5 (carried across the word-cut change),6]",
+  "rowAfter": "[SETUP — rhyme groups — 5 (carried across the word-cut change),6]",
+  "bootToasts": [],
+  "notices": [
+   {
+    "id": "rhyme groups:0:carried:0:0",
+    "tone": "note",
+    "title": "A rhyme link member, line 5 · last rhyme, was carried across the word-cut change",
+    "text": "Line 5's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “tonight” under the earlier cut and “tonight” under the current one. That is the page's display, not the grade",
+    "actions": [
+     "Keep the link",
+     "Remove it"
+    ]
+   }
+  ],
+  "chatCalls": 1,
+  "sent": {
+   "groups": "5,6"
+  },
+  "declWouldSend": {
+   "groups": "5,6"
+  },
+  "refusal": [],
+  "pageErrors": []
+ },
+ {
+  "name": "U10 marked row, named place on changed line, no state",
+  "written": "[SETUP — rhyme groups — 1.head,6 — cut v2]",
+  "rowAfter": "[SETUP — rhyme groups — 1.head,6 — cut v2]",
+  "bootToasts": [],
+  "notices": [],
+  "chatCalls": 1,
+  "sent": {
+   "groups": "1.head,6"
+  },
+  "declWouldSend": {
+   "groups": "1.head,6"
+  },
+  "refusal": [],
+  "pageErrors": []
+ },
+ {
+  "name": "U11 row cut v9 + other text",
+  "written": "[SETUP — rhyme groups — 1,6 — cut v9]",
+  "rowAfter": "[SETUP — rhyme groups — 1,6 — cut v9]",
+  "bootToasts": [],
+  "notices": [
+   {
+    "id": "rhyme groups:0:unknown-cut",
+    "tone": "input",
+    "title": "A rhyme link is marked with a word cut this page does not read",
+    "text": "1, 6 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+    "actions": [
+     "Remove the link",
+     "Open rhymes"
+    ]
+   }
+  ],
+  "chatCalls": 0,
+  "sent": null,
+  "declWouldSend": {
+   "groups_need_decision": [
+    "1 (marked cut v9: not read here),6 (marked cut v9: not read here)"
+   ]
+  },
+  "refusal": [
+   "Nothing was sent. 2 word places in a rhyme link or declared return (1 marked cut v9, 6 marked cut v9) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+  ],
+  "pageErrors": []
+ },
+ {
+  "name": "U12 garbage mark",
+  "written": "[SETUP — rhyme groups — 1,6 — cut]",
+  "rowAfter": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]",
+  "bootToasts": [
+   "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+  ],
+  "notices": [
+   {
+    "id": "rhyme groups:0",
+    "tone": "input",
+    "title": "A rhyme link points at 6 — cut, which the draft does not have",
+    "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+    "actions": [
+     "Open rhymes"
+    ]
+   },
+   {
+    "id": "rhyme groups:0:carried:0:0",
+    "tone": "note",
+    "title": "A rhyme link member, line 1 · last rhyme, was carried across the word-cut change",
+    "text": "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “love” under the earlier cut and “love” under the current one. That is the page's display, not the grader's ev",
+    "actions": [
+     "Keep the link",
+     "Remove it"
+    ]
+   }
+  ],
+  "chatCalls": 1,
+  "sent": {
+   "groups": "1,6 — cut"
+  },
+  "declWouldSend": {
+   "groups": "1,6 — cut"
+  },
+  "refusal": [],
+  "pageErrors": []
+ }
+]

@@ -1,0 +1,53 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+ "reads": {
+  "finding": {
+   "old_op": "f4f232141ee4b66fdfe8719f286d13eae1acfcee0625b5e21e3e3bbb9ee05924",
+   "old_options": [
+    {
+     "line": "Wind--wind, wind my vrexl",
+     "token": 1,
+     "word": "Wind--wind",
+     "n_readings": 0
+    },
+    {
+     "line": "Wind--wind, wind my vrexl",
+     "token": 2,
+     "word": "wind",
+     "n_readings": 2
+    },
+    {
+     "line": "Wind--wind, wind my vrexl",
+     "token": 4,
+     "word": "vrexl",
+     "n_readings": 0
+    },
+    {
+     "line": "Azure vrexl",
+     "token": 2,
+     "word": "vrexl",
+     "n_readings": 0
+    }
+   ],
+   "old_full_text_has": {
+    "reader_scheme": false,
+    "token_scheme": false,
+    "cut": false,
+    "scheme v": false,
+    "v1": false,
+    "semantic": false,
+    "earlier release": false,
+    "MIGRATION": false,
+    "stale": false,
+    "STALE": false
+   },
+   "old_full_receipt": {
+    "operation_id": "f4f232141ee4b66fdfe8719f286d13eae1acfcee0625b5e21e3e3bbb9ee05924",
+    "status": "completed",
+    "session_id": "f4f232141ee4b66fdfe8719f286d13eae1acfcee0625b5e21e3e3bbb9ee05924",
+    "tool": "lyric_check",
+    "tool_result": {
+     "content": [
+      {
+       "type": "text",
+       "text": "{\"exit_code\":0,\"meaning\":\"answered — no flag stands; coverage INCOMPLETE — uncertified (coverage.refused_obligations names what was not judged)\",\"report\":\"  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  draft: 2 line(s), md5 ebc6ea4563af\\n  ADJACENCY: longest stress run 3 (L1), longest weak run 1 (L1) — disclosed, uncalibrated, never charged.\\n  REPORT: 2 line(s) briefed — 0 FLAG, 7 NOTE (two counts, never summed: doctrine 79)\\n\\n  WHAT TO CHANGE — 0 decision(s). Flags only; the notes below are measurements handed back, not defects (doctrine 96)\\n    nothing on any line, and nothing about the draft as a whole, carries a flag. The notes below still say what the draft is doing\\n\\n  THE EVIDENCE — every finding not rolled up, in full; the lines carrying an un-rolled flag first\\n  L1: Wind--wind, wind my vrexl\\n      FINDING [NOTE] REPEAT_IN_VERSE: 1 pair(s) rhyme a word with itself (lines 1)\\n         'vrexl' — only one rhyme pair here, so this cannot be told apart from a radif — the gate declines to decide\\n      FINDING [NOTE] SCHEME_UNREADABLE: L1/L2 are mandated together (group(s) A) and the harness could not read a declared rhyme anchor, so this rhyme is UNKNOWN rather than absent (lines 1, 2)\\n         CMUdict has no pronunciation for the end word 'vrexl'; the harness refuses rather than guessing one (no G2P fallback). This line's end-rhyme is UNKNOWN, not absent.\\n      FINDING [NOTE] UNREADABLE_END_WORD: 2 of 2 lines end in a word CMUdict cannot read; their end-rhyme is UNKNOWN, not absent (lines 1, 2)\\n         No pronunciation is guessed (no G2P fallback). Every relation these lines would have entered is REFUSED and recorded, not silently dropped. Words: vrexl SEVERITY: `readability.report` calls this a FLAG; the revision loop files it as a NOTE. A refusal is not a violation (doctrine 79), and `SCHEME_UNREADABLE` — the same refusal on a pair the mandate DECLARED — is already a note, so a flag here would fail an unmandated line harder than a mandated one. The lexicon cannot read the word; the line is not thereby wrong. `Lexicon(fallback='high'|'low')` is the declared coordinate that changes what is readable (doctrine 1) — there is no second switch for it in `ReviseDeclaration`.\\n      FINDING [NOTE] SUBSTITUTED_END_WORD: 2 line(s) would have had the RHYME WORD SILENTLY REPLACED by an earlier word: L1 'vrexl'->'my', L2 'vrexl'->'Azure' (lines 1, 2)\\n         `word_syllable_map` emits no syllable for a word CMUdict cannot read, so anything taking its last entry as the rhyme word takes an EARLIER word instead -- the defect the shipped file carried in `_qafiya_parts`, where `zun` reported as `the` and `grow'st` as `thou`. THIS IS NOT A SECOND CHARGE. 2 of these 2 line(s) are ALREADY flagged above by UNREADABLE_END_WORD, which says the LINE cannot be read; what no other finding in this module says is WHICH WORD would have been used, and that is the only part a writer or a caller can act on -- the substitute is a plausible English word, so nothing about the output looks wrong. Every one of them is also flagged above, so this finding adds the word and no new line.\\n      must answer group A [1, 2]: L2 ('vrexl') — UNJUDGED\\n      ALREADY THERE (a different rule — re-proposing the end word that is already on this line is not a revision): vrexl\\n  L2: Azure vrexl\\n      FINDING [NOTE] SCHEME_UNREADABLE: L1/L2 are mandated together (group(s) A) and the harness could not read a declared rhyme anchor, so this rhyme is UNKNOWN rather than absent (lines 1, 2)\\n         CMUdict has no pronunciation for the end word 'vrexl'; the harness refuses rather than guessing one (no G2P fallback). This line's end-rhyme is UNKNOWN, not absent.\\n      FINDING [NOTE] UNREADABLE_END_WORD: 2 of 2 lines end in a word CMUdict cannot read; their end-rhyme is UNKNOWN, not absent (lines 1, 2)\\n         No pronunciation is guessed (no G2P fallback). Every relation these lines would have entered is REFUSED and recorded, not silently dropped. Words: vrexl SEVERITY: `readability.report` calls this a FLAG; the revision loop files it as a NOTE. A refusal is not a violation (doctrine 79), and `SCHEME_UNREADABLE` — the same refusal on a pair the mandate DECLARED — is already a note, so a flag here would fail an unmandated line harder than a mandated one. The lexicon cannot read the word; the line is not thereby wrong. `Lexicon(fallback='high'|'low')` is the declared coordinate that changes what is readable (doctrine 1) — there is no second switch for it in `ReviseDeclaration`.\\n      FINDING [NOTE] SUBSTITUTED_END_WORD: 2 line(s) would have had the RHYME WORD SILENTLY REPLACED by an earlier word: L1 'vrexl'->'my', L2 'vrexl'->'Azure' (lines 1, 2)\\n         `word_syllable_map` emits no syllable for a word CMUdict cannot read, so anything taking its last entry as the rhyme word takes an EARLIER word instead -- the defect the shipped file carried in `_qafiya_parts`, where `zun` reported as `the` and `grow'st` as `thou`. THIS IS NOT A SECOND CHARGE. 2 of these 2 line(s) are ALREADY flagged above by UNREADABLE_END_WORD, which says the LINE cannot be read; what no other finding in this module says is WHICH WORD would have been used, and that is the only part a writer or a caller can act on -- the substitute is a plausible English word, so nothing about the output looks wrong. Every one of them is also flagged above, so this finding adds the word and no new line.\\n      must answer group A [1, 2]: L1 ('vrexl') — UNJUDGED\\n\",\"verified_outcomes\":null,\"verified_outcomes_error

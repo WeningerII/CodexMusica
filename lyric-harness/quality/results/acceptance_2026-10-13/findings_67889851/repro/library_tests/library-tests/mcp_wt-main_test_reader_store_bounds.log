@@ -1,0 +1,189 @@
+TAP version 13
+# Subtest: the delta counter equals a full scan after a randomized mix of operations
+ok 1 - the delta counter equals a full scan after a randomized mix of operations
+  ---
+  duration_ms: 693.186721
+  type: 'test'
+  ...
+# Subtest: shrink-before-scan: a scan that overlaps a mutation is discarded, and the next one is exact
+ok 2 - shrink-before-scan: a scan that overlaps a mutation is discarded, and the next one is exact
+  ---
+  duration_ms: 48.135738
+  type: 'test'
+  ...
+# {"event":"READER_RECOUNT_FAILED","message":"EIO"}
+# {"event":"READER_RECOUNT_FAILED","message":"EIO"}
+# {"event":"READER_RECOUNT_FAILED","message":"EIO"}
+# {"event":"READER_RECOUNT_FAILED","message":"busy"}
+# Subtest: grow, delete and create interleavings during a scan never publish a mixed total
+ok 3 - grow, delete and create interleavings during a scan never publish a mixed total
+  ---
+  duration_ms: 70.286587
+  type: 'test'
+  ...
+# Subtest: cross-writer growth: writer B refuses growth after A commits, until B recounts
+ok 4 - cross-writer growth: writer B refuses growth after A commits, until B recounts
+  ---
+  duration_ms: 63.967049
+  type: 'test'
+  ...
+# Subtest: a crash after a page object is written but before its record commits
+ok 5 - a crash after a page object is written but before its record commits
+  ---
+  duration_ms: 80.012079
+  type: 'test'
+  ...
+# Subtest: unknown usage: a create fails closed, a delete still succeeds
+ok 6 - unknown usage: a create fails closed, a delete still succeeds
+  ---
+  duration_ms: 50.877639
+  type: 'test'
+  ...
+# Subtest: retention slides in memory per read and persists at most once an hour
+ok 7 - retention slides in memory per read and persists at most once an hour
+  ---
+  duration_ms: 44.272638
+  type: 'test'
+  ...
+# Subtest: expiry binds at read time, before any sweep has run
+ok 8 - expiry binds at read time, before any sweep has run
+  ---
+  duration_ms: 56.961821
+  type: 'test'
+  ...
+# Subtest: a maintenance slice is bounded, and the sweep spares objects re-referenced after its mark
+ok 9 - a maintenance slice is bounded, and the sweep spares objects re-referenced after its mark
+  ---
+  duration_ms: 350.108455
+  type: 'test'
+  ...
+# Subtest: phase A readers: plain and gzip objects both read; bombs and hash mismatches refuse
+ok 10 - phase A readers: plain and gzip objects both read; bombs and hash mismatches refuse
+  ---
+  duration_ms: 52.395341
+  type: 'test'
+  ...
+# Subtest: capabilityFor derives the same capability the store authorizes, and never for a malformed id
+ok 11 - capabilityFor derives the same capability the store authorizes, and never for a malformed id
+  ---
+  duration_ms: 35.267923
+  type: 'test'
+  ...
+# Subtest: a page re-referenced by hash after the mark began is not swept
+ok 12 - a page re-referenced by hash after the mark began is not swept
+  ---
+  duration_ms: 82.406112
+  type: 'test'
+  ...
+# Subtest: a mark that fails part-way abandons the collection instead of sweeping a partial mark
+ok 13 - a mark that fails part-way abandons the collection instead of sweeping a partial mark
+  ---
+  duration_ms: 51.91371
+  type: 'test'
+  ...
+# Subtest: a mark slice reads at most its object bound, resuming mid-chain
+ok 14 - a mark slice reads at most its object bound, resuming mid-chain
+  ---
+  duration_ms: 60.034087
+  type: 'test'
+  ...
+# Subtest: while usage is unknown, reserved transitions cannot grow a record past its reservation
+ok 15 - while usage is unknown, reserved transitions cannot grow a record past its reservation
+  ---
+  duration_ms: 21.067076
+  type: 'test'
+  ...
+# Subtest: expired work is never dispatched, promoted or continued
+ok 16 - expired work is never dispatched, promoted or continued
+  ---
+  duration_ms: 32.87792
+  type: 'test'
+  ...
+# Subtest: a recount that throws is a failed attempt: the store stays usable and a later recount succeeds
+ok 17 - a recount that throws is a failed attempt: the store stays usable and a later recount succeeds
+  ---
+  duration_ms: 39.01191
+  type: 'test'
+  ...
+# Subtest: gzip objects are exactly one member: concatenations and trailing bytes refuse
+ok 18 - gzip objects are exactly one member: concatenations and trailing bytes refuse
+  ---
+  duration_ms: 3.236525
+  type: 'test'
+  ...
+# Subtest: the quota holds across two instances under unknown usage (per-record reservations)
+ok 19 - the quota holds across two instances under unknown usage (per-record reservations)
+  ---
+  duration_ms: 1042.08142
+  type: 'test'
+  ...
+# Subtest: a recount whose measurement fails is never accepted, even with an unchanged generation
+ok 20 - a recount whose measurement fails is never accepted, even with an unchanged generation
+  ---
+  duration_ms: 32.464488
+  type: 'test'
+  ...
+# Subtest: lock contention during recount acceptance is retried, never a permanent failure
+ok 21 - lock contention during recount acceptance is retried, never a permanent failure
+  ---
+  duration_ms: 35.130288
+  type: 'test'
+  ...
+# Subtest: an expired job cannot be handed to the worker
+ok 22 - an expired job cannot be handed to the worker
+  ---
+  duration_ms: 14.478348
+  type: 'test'
+  ...
+# Subtest: a slice examines at most its bound: expiry, mark and sweep enumeration all resume
+ok 23 - a slice examines at most its bound: expiry, mark and sweep enumeration all resume
+  ---
+  duration_ms: 312.251801
+  type: 'test'
+  ...
+# Subtest: one job's growth never consumes another job's reservation
+ok 24 - one job's growth never consumes another job's reservation
+  ---
+  duration_ms: 1409.774053
+  type: 'test'
+  ...
+# Subtest: the dirty re-mark stays inside the slice bound and withholds the sweep until it completes
+ok 25 - the dirty re-mark stays inside the slice bound and withholds the sweep until it completes
+  ---
+  duration_ms: 229.880121
+  type: 'test'
+  ...
+# Subtest: expiry checks the time bound between tombstones and resumes where it stopped
+ok 26 - expiry checks the time bound between tombstones and resumes where it stopped
+  ---
+  duration_ms: 96.377658
+  type: 'test'
+  ...
+# Subtest: the byte bound is checked before an object is read or deleted
+ok 27 - the byte bound is checked before an object is read or deleted
+  ---
+  duration_ms: 133.325352
+  type: 'test'
+  ...
+# Subtest: a mark step defers, unread, an object that would pass the byte bound
+ok 28 - a mark step defers, unread, an object that would pass the byte bound
+  ---
+  duration_ms: 183.636778
+  type: 'test'
+  ...
+# Subtest: retained definitions: exact bytes, counted, kept while referenced, collected after deletion
+ok 29 - retained definitions: exact bytes, counted, kept while referenced, collected after deletion
+  ---
+  duration_ms: 35.541615
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5491.373821
+exit=0

@@ -1,0 +1,41 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:8d11b87d-b5bf-4310-a940-a7306bcfb9bb",
+  "draftId": "draft:c41cd5f3-5103-4279-918e-9c974ee37c8f",
+  "createdAt": "2026-10-14T05:57:28.860Z",
+  "payload": {
+    "text": "[SETUP — rhyme groups — 1,6;2.endword (carried across the word-cut change),5;4 (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2]\n[SETUP — returns — 1.head,6.head;8.line (carried across the word-cut change),5.line — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+    "title": "Song",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:ed8b89cb-0604-4949-8907-045677f0df7f",
+        "sourceDigest": "403d61f67475c8849d92c93e1ebbc3501ced4322744909cfd39a59d905e1ad08",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {
+            "tab": "review",
+            "tool": "",
+            "outline": true
+          }
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "40c1833687db9950766b9d98a89cdd3097b6bc639cd41de9958c3c3d75b57a94"
+}

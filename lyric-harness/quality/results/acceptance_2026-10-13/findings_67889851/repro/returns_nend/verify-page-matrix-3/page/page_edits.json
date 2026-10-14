@@ -1,0 +1,421 @@
+{
+ "load": [],
+ "edits": [
+  {
+   "tree": "main",
+   "written": "5.end,6.end",
+   "edit": "duplicate Chorus (ly-sec-dup 1)",
+   "row_before": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 5,6]"
+   ],
+   "toasts": [
+    "Duplicated the section after the original.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "5,6"
+     }
+    ],
+    "builder": {
+     "returns": "5,6"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "written": "5.end,6.end",
+   "edit": "move Chorus up (ly-sec-move 1:-1)",
+   "row_before": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 1,2]"
+   ],
+   "toasts": [
+    "Moved section up.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "1,2"
+     }
+    ],
+    "builder": {
+     "returns": "1,2"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "written": "5.end,6.end",
+   "edit": "add a section (ly-add-section BRIDGE)",
+   "row_before": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 5,6]"
+   ],
+   "toasts": [
+    "Added Bridge. Write its lines under its header.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "5,6"
+     }
+    ],
+    "builder": {
+     "returns": "5,6"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "written": "5.end,6.end",
+   "edit": "Repeats form: placed return 2.head,3.head",
+   "row_before": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 5,6;2.head,3.head]"
+   ],
+   "toasts": [
+    "Placed return declared.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "5,6;2.head,3.head"
+     }
+    ],
+    "builder": {
+     "returns": "5,6;2.head,3.head"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "written": "4.end,7.end",
+   "edit": "duplicate Chorus (ly-sec-dup 1)",
+   "row_before": [
+    "[SETUP — returns — 4.end,7.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 4,7]"
+   ],
+   "toasts": [
+    "Duplicated the section after the original.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "4,7"
+     }
+    ],
+    "builder": {
+     "returns": "4,7"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "written": "4.end,7.end",
+   "edit": "move Chorus up (ly-sec-move 1:-1)",
+   "row_before": [
+    "[SETUP — returns — 4.end,7.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 8,3]"
+   ],
+   "toasts": [
+    "Moved section up.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "8,3"
+     }
+    ],
+    "builder": {
+     "returns": "8,3"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "written": "4.end,7.end",
+   "edit": "add a section (ly-add-section BRIDGE)",
+   "row_before": [
+    "[SETUP — returns — 4.end,7.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 4,7]"
+   ],
+   "toasts": [
+    "Added Bridge. Write its lines under its header.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "4,7"
+     }
+    ],
+    "builder": {
+     "returns": "4,7"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "written": "4.end,7.end",
+   "edit": "Repeats form: placed return 2.head,3.head",
+   "row_before": [
+    "[SETUP — returns — 4.end,7.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 4,7;2.head,3.head]"
+   ],
+   "toasts": [
+    "Placed return declared.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "4,7;2.head,3.head"
+     }
+    ],
+    "builder": {
+     "returns": "4,7;2.head,3.head"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "written": "5.end,6.end",
+   "edit": "duplicate Chorus (ly-sec-dup 1)",
+   "row_before": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 5,6]"
+   ],
+   "toasts": [
+    "Duplicated the section after the original.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "5,6"
+     }
+    ],
+    "builder": {
+     "returns": "5,6"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "written": "5.end,6.end",
+   "edit": "move Chorus up (ly-sec-move 1:-1)",
+   "row_before": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 1,2]"
+   ],
+   "toasts": [
+    "Moved section up.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "1,2"
+     }
+    ],
+    "builder": {
+     "returns": "1,2"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "written": "5.end,6.end",
+   "edit": "add a section (ly-add-section BRIDGE)",
+   "row_before": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 5,6]"
+   ],
+   "toasts": [
+    "Added Bridge. Write its lines under its header.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "5,6"
+     }
+    ],
+    "builder": {
+     "returns": "5,6"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "written": "5.end,6.end",
+   "edit": "Repeats form: placed return 2.head,3.head",
+   "row_before": [
+    "[SETUP — returns — 5.end,6.end]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 5,6;2.head,3.head — cut v2]"
+   ],
+   "toasts": [
+    "Placed return declared.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "5,6;2.head,3.head"
+     }
+    ],
+    "builder": {
+     "returns": "5,6;2.head,3.head"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "written": "4.end,7.end",
+   "edit": "duplicate Chorus (ly-sec-dup 1)",
+   "row_before": [
+    "[SETUP — returns — 4 (carried across the word-cut change),7 — cut v2]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 4 (carried across the word-cut change),7 — cut v2]"
+   ],
+   "toasts": [
+    "Duplicated the section after the original.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "4,7"
+     }
+    ],
+    "builder": {
+     "returns": "4,7"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "written": "4.end,7.end",
+   "edit": "move Chorus up (ly-sec-move 1:-1)",
+   "row_before": [
+    "[SETUP — returns — 4 (carried across the word-cut change),7 — cut v2]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 8 (carried across the word-cut change),3 — cut v2]"
+   ],
+   "toasts": [
+    "Moved section up.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "8,3"
+     }
+    ],
+    "builder": {
+     "returns": "8,3"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "written": "4.end,7.end",
+   "edit": "add a section (ly-add-section BRIDGE)",
+   "row_before": [
+    "[SETUP — returns — 4 (carried across the word-cut change),7 — cut v2]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 4 (carried across the word-cut change),7 — cut v2]"
+   ],
+   "toasts": [
+    "Added Bridge. Write its lines under its header.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "4,7"
+     }
+    ],
+    "builder": {
+     "returns": "4,7"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "written": "4.end,7.end",
+   "edit": "Repeats form: placed return 2.head,3.head",
+   "row_before": [
+    "[SETUP — returns — 4 (carried across the word-cut change),7 — cut v2]"
+   ],
+   "row_after": [
+    "[SETUP — returns — 4 (carried across the word-cut change),7;2.head,3.head — cut v2]"
+   ],
+   "toasts": [
+    "Placed return declared.\nUndo"
+   ],
+   "sent_after": {
+    "chat": [
+     {
+      "returns": "4,7;2.head,3.head"
+     }
+    ],
+    "builder": {
+     "returns": "4,7;2.head,3.head"
+    },
+    "clearedPending": false
+   },
+   "errors": []
+  }
+ ]
+}

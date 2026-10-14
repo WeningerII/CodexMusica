@@ -1,0 +1,667 @@
+[
+ {
+  "name": "C1 returns 4.end,6.end (line 4 re-cut)",
+  "typed": "[SETUP — returns — 4.end,6.end]",
+  "main": {
+   "row": "[SETUP — returns — 4.end,6.end]",
+   "saved": "[SETUP — returns — 4.end,6.end]",
+   "decl": {
+    "returns": "4.end,6.end"
+   },
+   "items": [],
+   "toasts": [],
+   "sent": [
+    {
+     "returns": "4.end,6.end"
+    }
+   ]
+  },
+  "cand": {
+   "row": "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]",
+   "saved": "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]",
+   "decl": {
+    "returns": "4,6"
+   },
+   "items": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 4 · last rhyme, was carried across the word-cut change",
+     "actions": [
+      "Keep the link=returns|0|0|0",
+      "Remove it=returns|0|0|0"
+     ]
+    }
+   ],
+   "toasts": [
+    "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   ],
+   "cutChanged": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     true
+    ],
+    [
+     3,
+     true
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "sent": [
+    {
+     "returns": "4,6"
+    }
+   ]
+  },
+  "errors": []
+ },
+ {
+  "name": "C2 returns 1.end,6.head (line 1 re-cut; placed partner)",
+  "typed": "[SETUP — returns — 1.end,6.head]",
+  "main": {
+   "row": "[SETUP — returns — 1.end,6.head]",
+   "saved": "[SETUP — returns — 1.end,6.head]",
+   "decl": {
+    "returns": "1.end,6.head"
+   },
+   "items": [],
+   "toasts": [],
+   "sent": [
+    {
+     "returns": "1.end,6.head"
+    }
+   ]
+  },
+  "cand": {
+   "row": "[SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]",
+   "saved": "[SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]",
+   "decl": {
+    "returns": "1,6.head"
+   },
+   "items": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+     "actions": [
+      "Keep the link=returns|0|0|0",
+      "Remove it=returns|0|0|0"
+     ]
+    }
+   ],
+   "toasts": [
+    "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   ],
+   "cutChanged": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     true
+    ],
+    [
+     3,
+     true
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "sent": [
+    {
+     "returns": "1,6.head"
+    }
+   ]
+  },
+  "errors": []
+ },
+ {
+  "name": "C3 returns 5.end,6.end (both lines unchanged)",
+  "typed": "[SETUP — returns — 5.end,6.end]",
+  "main": {
+   "row": "[SETUP — returns — 5.end,6.end]",
+   "saved": "[SETUP — returns — 5.end,6.end]",
+   "decl": {
+    "returns": "5.end,6.end"
+   },
+   "items": [],
+   "toasts": [],
+   "sent": [
+    {
+     "returns": "5.end,6.end"
+    }
+   ]
+  },
+  "cand": {
+   "row": "[SETUP — returns — 5.end,6.end]",
+   "saved": "[SETUP — returns — 5.end,6.end]",
+   "decl": {
+    "returns": "5.end,6.end"
+   },
+   "items": [],
+   "toasts": [],
+   "cutChanged": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     true
+    ],
+    [
+     3,
+     true
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "sent": [
+    {
+     "returns": "5.end,6.end"
+    }
+   ]
+  },
+  "errors": []
+ },
+ {
+  "name": "C4 returns 5.end,6.end;1.T4,8.T4 (unchanged .end + T row-mate)",
+  "typed": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "main": {
+   "row": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+   "saved": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+   "decl": {
+    "returns": "5.end,6.end;1.T4,8.T4"
+   },
+   "items": [],
+   "toasts": [],
+   "sent": [
+    {
+     "returns": "5.end,6.end;1.T4,8.T4"
+    }
+   ]
+  },
+  "cand": {
+   "row": "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+   "saved": "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+   "decl": {
+    "returns": "5,6;1.T5,8.T5"
+   },
+   "items": [],
+   "toasts": [
+    "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “tonight” word 4 → 5."
+   ],
+   "cutChanged": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     true
+    ],
+    [
+     3,
+     true
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "sent": [
+    {
+     "returns": "5,6;1.T5,8.T5"
+    }
+   ]
+  },
+  "errors": []
+ },
+ {
+  "name": "C5 control returns 1.endword,8.endword",
+  "typed": "[SETUP — returns — 1.endword,8.endword]",
+  "main": {
+   "row": "[SETUP — returns — 1.endword,8.endword]",
+   "saved": "[SETUP — returns — 1.endword,8.endword]",
+   "decl": {
+    "returns": "1.endword,8.endword"
+   },
+   "items": [],
+   "toasts": [],
+   "sent": [
+    {
+     "returns": "1.endword,8.endword"
+    }
+   ]
+  },
+  "cand": {
+   "row": "[SETUP — returns — 1.endword (carried across the word-cut change),8.endword (carried across the word-cut change) — cut v2]",
+   "saved": "[SETUP — returns — 1.endword (carried across the word-cut change),8.endword (carried across the word-cut change) — cut v2]",
+   "decl": {
+    "returns": "1.endword,8.endword"
+   },
+   "items": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 1 · last word, was carried across the word-cut change",
+     "actions": [
+      "Keep the link=returns|0|0|0",
+      "Remove it=returns|0|0|0"
+     ]
+    },
+    {
+     "id": "returns:0:carried:0:1",
+     "tone": "note",
+     "title": "A declared return member, line 8 · last word, was carried across the word-cut change",
+     "actions": [
+      "Keep the link=returns|0|0|1",
+      "Remove it=returns|0|0|1"
+     ]
+    }
+   ],
+   "toasts": [
+    "2 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review."
+   ],
+   "cutChanged": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     true
+    ],
+    [
+     3,
+     true
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "sent": [
+    {
+     "returns": "1.endword,8.endword"
+    }
+   ]
+  },
+  "errors": []
+ },
+ {
+  "name": "C6 control returns 1,8 (bare)",
+  "typed": "[SETUP — returns — 1,8]",
+  "main": {
+   "row": "[SETUP — returns — 1,8]",
+   "saved": "[SETUP — returns — 1,8]",
+   "decl": {
+    "returns": "1,8"
+   },
+   "items": [],
+   "toasts": [],
+   "sent": [
+    {
+     "returns": "1,8"
+    }
+   ]
+  },
+  "cand": {
+   "row": "[SETUP — returns — 1 (carried across the word-cut change),8 (carried across the word-cut change) — cut v2]",
+   "saved": "[SETUP — returns — 1 (carried across the word-cut change),8 (carried across the word-cut change) — cut v2]",
+   "decl": {
+    "returns": "1,8"
+   },
+   "items": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+     "actions": [
+      "Keep the link=returns|0|0|0",
+      "Remove it=returns|0|0|0"
+     ]
+    },
+    {
+     "id": "returns:0:carried:0:1",
+     "tone": "note",
+     "title": "A declared return member, line 8 · last rhyme, was carried across the word-cut change",
+     "actions": [
+      "Keep the link=returns|0|0|1",
+      "Remove it=returns|0|0|1"
+     ]
+    }
+   ],
+   "toasts": [
+    "2 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review."
+   ],
+   "cutChanged": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     true
+    ],
+    [
+     3,
+     true
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "sent": [
+    {
+     "returns": "1,8"
+    }
+   ]
+  },
+  "errors": []
+ },
+ {
+  "name": "C7 rhyme groups 4.end,6.end",
+  "typed": "[SETUP — rhyme groups — 4.end,6.end]",
+  "main": {
+   "row": "[SETUP — rhyme groups — 4.end,6.end]",
+   "saved": "[SETUP — rhyme groups — 4.end,6.end]",
+   "decl": {
+    "groups": "4.end,6.end"
+   },
+   "items": [],
+   "toasts": [],
+   "sent": [
+    {
+     "groups": "4.end,6.end"
+    }
+   ]
+  },
+  "cand": {
+   "row": "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]",
+   "saved": "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]",
+   "decl": {
+    "groups": "4,6"
+   },
+   "items": [
+    {
+     "id": "rhyme groups:0:carried:0:0",
+     "tone": "note",
+     "title": "A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+     "actions": [
+      "Keep the link=rhyme groups|0|0|0",
+      "Remove it=rhyme groups|0|0|0"
+     ]
+    }
+   ],
+   "toasts": [
+    "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   ],
+   "cutChanged": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     true
+    ],
+    [
+     3,
+     true
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "sent": [
+    {
+     "groups": "4,6"
+    }
+   ]
+  },
+  "errors": []
+ },
+ {
+  "name": "C8 returns 1.end,8.end then Keep the link x2, reload",
+  "typed": "[SETUP — returns — 1.end,8.end]",
+  "main": {
+   "row": "[SETUP — returns — 1.end,8.end]",
+   "saved": "[SETUP — returns — 1.end,8.end]",
+   "decl": {
+    "returns": "1.end,8.end"
+   },
+   "items": [],
+   "toasts": [],
+   "sent": [
+    {
+     "returns": "1.end,8.end"
+    }
+   ]
+  },
+  "cand": {
+   "row": "[SETUP — returns — 1 (carried across the word-cut change),8 (carried across the word-cut change) — cut v2]",
+   "saved": "[SETUP — returns — 1 (carried across the word-cut change),8 (carried across the word-cut change) — cut v2]",
+   "decl": {
+    "returns": "1,8"
+   },
+   "items": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+     "actions": [
+      "Keep the link=returns|0|0|0",
+      "Remove it=returns|0|0|0"
+     ]
+    },
+    {
+     "id": "returns:0:carried:0:1",
+     "tone": "note",
+     "title": "A declared return member, line 8 · last rhyme, was carried across the word-cut change",
+     "actions": [
+      "Keep the link=returns|0|0|1",
+      "Remove it=returns|0|0|1"
+     ]
+    }
+   ],
+   "toasts": [
+    "2 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review."
+   ],
+   "cutChanged": [
+    [
+     1,
+     true
+    ],
+    [
+     2,
+     true
+    ],
+    [
+     3,
+     true
+    ],
+    [
+     4,
+     true
+    ],
+    [
+     5,
+     false
+    ],
+    [
+     6,
+     false
+    ],
+    [
+     7,
+     false
+    ],
+    [
+     8,
+     true
+    ]
+   ],
+   "sent": [
+    {
+     "returns": "1,8"
+    }
+   ]
+  },
+  "candAfterKeep": {
+   "row": "[SETUP — returns — 1,8 — cut v2]",
+   "saved": "[SETUP — returns — 1,8 — cut v2]",
+   "decl": {
+    "returns": "1,8"
+   },
+   "items": [],
+   "toasts": [
+    "2 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review.",
+    "The declared return on line 1 is kept as declared. Undo restores the notice.\nUndo",
+    "The declared return on line 8 is kept as declared. Undo restores the notice.\nUndo"
+   ],
+   "sent": [
+    {
+     "returns": "1,8"
+    }
+   ]
+  },
+  "candAfterKeepReload": {
+   "row": "[SETUP — returns — 1,8 — cut v2]",
+   "saved": "[SETUP — returns — 1,8 — cut v2]",
+   "decl": {
+    "returns": "1,8"
+   },
+   "items": [],
+   "toasts": [],
+   "sent": []
+  },
+  "errors": []
+ }
+]

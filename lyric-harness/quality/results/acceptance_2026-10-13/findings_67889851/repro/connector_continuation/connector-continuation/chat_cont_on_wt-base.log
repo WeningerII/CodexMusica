@@ -1,0 +1,31 @@
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+{
+ "reader_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+ "writer_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+ "same_identity": true,
+ "status": 200,
+ "code": null,
+ "error": null,
+ "artifact": null,
+ "body_keys": [
+  "reply",
+  "completion",
+  "artifact",
+  "cost",
+  "accounted_cost",
+  "usage_unknown",
+  "accounting",
+  "usage",
+  "recipe",
+  "cards",
+  "tools",
+  "stopped",
+  "stopped_detail",
+  "malformed",
+  "history",
+  "workspace",
+  "task",
+  "sig"
+ ],
+ "providerCalls": 1
+}

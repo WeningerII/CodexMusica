@@ -1,0 +1,311 @@
+[
+ {
+  "id": "import:G|v0|L1|N",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut v2]",
+   "expRow": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut v2]",
+   "notices": [
+    "note:carried"
+   ],
+   "calls": 1,
+   "sent": "1,6"
+  }
+ },
+ {
+  "id": "paste:G|v0|L1|N",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut v2]",
+   "expRow": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut v2]",
+   "notices": [
+    "note:carried"
+   ],
+   "calls": 1,
+   "sent": "1,6"
+  }
+ },
+ {
+  "id": "import:G|v0|L2|endword",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 2.endword (carried across the word-cut change),6 — cut v2]",
+   "expRow": "[SETUP — rhyme groups — 2.endword (carried across the word-cut change),6 — cut v2]",
+   "notices": [
+    "note:carried"
+   ],
+   "calls": 1,
+   "sent": "2.endword,6"
+  }
+ },
+ {
+  "id": "paste:G|v0|L2|endword",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 2.endword (carried across the word-cut change),6 — cut v2]",
+   "expRow": "[SETUP — rhyme groups — 2.endword (carried across the word-cut change),6 — cut v2]",
+   "notices": [
+    "note:carried"
+   ],
+   "calls": 1,
+   "sent": "2.endword,6"
+  }
+ },
+ {
+  "id": "import:G|v0|L5|end",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 5.end,6]",
+   "expRow": "[SETUP — rhyme groups — 5.end,6]",
+   "notices": [],
+   "calls": 1,
+   "sent": "5.end,6"
+  }
+ },
+ {
+  "id": "paste:G|v0|L5|end",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 5.end,6]",
+   "expRow": "[SETUP — rhyme groups — 5.end,6]",
+   "notices": [],
+   "calls": 1,
+   "sent": "5.end,6"
+  }
+ },
+ {
+  "id": "import:G|v0|L1|T4",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 1.T5,6 — cut v2]",
+   "expRow": "[SETUP — rhyme groups — 1.T5,6 — cut v2]",
+   "notices": [],
+   "calls": 1,
+   "sent": "1.T5,6"
+  }
+ },
+ {
+  "id": "import.undoRedo:G|v0|L1|T4",
+  "ok": true,
+  "obs": {
+   "afterUndo": [],
+   "afterRedo": [
+    "[SETUP — rhyme groups — 1.T5,6 — cut v2]"
+   ]
+  }
+ },
+ {
+  "id": "paste:G|v0|L1|T4",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 1.T5,6 — cut v2]",
+   "expRow": "[SETUP — rhyme groups — 1.T5,6 — cut v2]",
+   "notices": [],
+   "calls": 1,
+   "sent": "1.T5,6"
+  }
+ },
+ {
+  "id": "import:G|v0|L1|T1",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),6 — cut v2]",
+   "expRow": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),6 — cut v2]",
+   "notices": [
+    "input:undecided"
+   ],
+   "calls": 0,
+   "sent": null
+  }
+ },
+ {
+  "id": "paste:G|v0|L1|T1",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),6 — cut v2]",
+   "expRow": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),6 — cut v2]",
+   "notices": [
+    "input:undecided"
+   ],
+   "calls": 0,
+   "sent": null
+  }
+ },
+ {
+  "id": "import:R|v0|L3|head",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — returns — 3.head (carried across the word-cut change),6.head — cut v2]",
+   "expRow": "[SETUP — returns — 3.head (carried across the word-cut change),6.head — cut v2]",
+   "notices": [
+    "note:carried"
+   ],
+   "calls": 1,
+   "sent": "3.head,6.head"
+  }
+ },
+ {
+  "id": "paste:R|v0|L3|head",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — returns — 3.head (carried across the word-cut change),6.head — cut v2]",
+   "expRow": "[SETUP — returns — 3.head (carried across the word-cut change),6.head — cut v2]",
+   "notices": [
+    "note:carried"
+   ],
+   "calls": 1,
+   "sent": "3.head,6.head"
+  }
+ },
+ {
+  "id": "import:R|v0|L5|line",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — returns — 5.line,6.head]",
+   "expRow": "[SETUP — returns — 5.line,6.head]",
+   "notices": [],
+   "calls": 1,
+   "sent": "5.line,6.head"
+  }
+ },
+ {
+  "id": "paste:R|v0|L5|line",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — returns — 5.line,6.head]",
+   "expRow": "[SETUP — returns — 5.line,6.head]",
+   "notices": [],
+   "calls": 1,
+   "sent": "5.line,6.head"
+  }
+ },
+ {
+  "id": "import:R|v0|L8|T4",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — returns — 8.T5,6.head — cut v2]",
+   "expRow": "[SETUP — returns — 8.T5,6.head — cut v2]",
+   "notices": [],
+   "calls": 1,
+   "sent": "8.T5,6.head"
+  }
+ },
+ {
+  "id": "paste:R|v0|L8|T4",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — returns — 8.T5,6.head — cut v2]",
+   "expRow": "[SETUP — returns — 8.T5,6.head — cut v2]",
+   "notices": [],
+   "calls": 1,
+   "sent": "8.T5,6.head"
+  }
+ },
+ {
+  "id": "import:R|v0|L2|T5",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — returns — 2.T5 (numbered under the earlier cut),6.head — cut v2]",
+   "expRow": "[SETUP — returns — 2.T5 (numbered under the earlier cut),6.head — cut v2]",
+   "notices": [
+    "input:undecided"
+   ],
+   "calls": 0,
+   "sent": null
+  }
+ },
+ {
+  "id": "paste:R|v0|L2|T5",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — returns — 2.T5 (numbered under the earlier cut),6.head — cut v2]",
+   "expRow": "[SETUP — returns — 2.T5 (numbered under the earlier cut),6.head — cut v2]",
+   "notices": [
+    "input:undecided"
+   ],
+   "calls": 0,
+   "sent": null
+  }
+ },
+ {
+  "id": "import:G|v1|L7|headrime",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 7.headrime (carried across the word-cut change),6 — cut v2]",
+   "expRow": "[SETUP — rhyme groups — 7.headrime (carried across the word-cut change),6 — cut v2]",
+   "notices": [
+    "note:carried"
+   ],
+   "calls": 1,
+   "sent": "7.headrime,6"
+  }
+ },
+ {
+  "id": "paste:G|v1|L7|headrime",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — rhyme groups — 7.headrime (carried across the word-cut change),6 — cut v2]",
+   "expRow": "[SETUP — rhyme groups — 7.headrime (carried across the word-cut change),6 — cut v2]",
+   "notices": [
+    "note:carried"
+   ],
+   "calls": 1,
+   "sent": "7.headrime,6"
+  }
+ },
+ {
+  "id": "import:R|v1|L8|T6",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — returns — 8.T7,6.head — cut v2]",
+   "expRow": "[SETUP — returns — 8.T7,6.head — cut v2]",
+   "notices": [],
+   "calls": 1,
+   "sent": "8.T7,6.head"
+  }
+ },
+ {
+  "id": "paste:R|v1|L8|T6",
+  "ok": true,
+  "obs": {
+   "row": "[SETUP — returns — 8.T7,6.head — cut v2]",
+   "expRow": "[SETUP — returns — 8.T7,6.head — cut v2]",
+   "notices": [],
+   "calls": 1,
+   "sent": "8.T7,6.head"
+  }
+ },
+ {
+  "id": "legacySilentThenEdited",
+  "ok": true,
+  "obs": {
+   "before": [
+    "[SETUP — rhyme groups — 5.end,6]"
+   ],
+   "after": [
+    "[SETUP — rhyme groups — 5 (carried across the word-cut change),6 — cut v2]"
+   ],
+   "notices": [
+    "A rhyme link member, line 5 · last rhyme, was carried across the word-cut change | Line 5's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can"
+   ]
+  }
+ },
+ {
+  "id": "keepWithBlockedRowMate",
+  "ok": true,
+  "obs": {
+   "before": "[SETUP — rhyme groups — 1 (carried across the word-cut change),6;3.T2 (numbered under the earlier cut),5 — cut v2]",
+   "after": "[SETUP — rhyme groups — 1,6;3.T2 (numbered under the earlier cut),5 — cut v2]",
+   "calls": 0,
+   "decl": {
+    "groups": "1,6",
+    "groups_need_decision": [
+     "3.T2 (numbered under the earlier cut),5"
+    ]
+   },
+   "refusal": [
+    "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (3.T2) could not be matched to a word of the current text. Remove that link and declare it again, in Review."
+   ]
+  }
+ }
+]

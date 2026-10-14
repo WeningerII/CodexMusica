@@ -1,0 +1,8 @@
+$ cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data python3 lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-matrix-1/harness/song8.txt '--groups=1,6 — cut'
+  MANDATE: 1 group(s) over 8 lines, 1 mandated pair(s), source=declared (--groups=)
+           group A = lines 1,6 — cut — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)
+  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)
+  REFUSED — the mandate was not accepted.
+  a mandate group must be an iterable of line numbers, each optionally naming a place in its line; got ['1', '6 — cut'] (invalid literal for int() with base 10: '6 — cut'). A partition is a list of LINE GROUPS -- [[1, 3], [2, 4]] -- not a list of letters.
+  lyric result: {"lexicon":{"supplement_id":null,"sha256":null},"status":"refused","exit":2,"refusal":"a mandate group must be an iterable of line numbers, each optionally naming a place in its line; got ['1', '6 — cut'] (invalid literal for int() with base 10: '6 — cut'). A partition is a list of LINE GROUPS -- [[1, 3], [2, 4]] -- not a list of letters.","version":1,"transport_token":null}
+exit=2

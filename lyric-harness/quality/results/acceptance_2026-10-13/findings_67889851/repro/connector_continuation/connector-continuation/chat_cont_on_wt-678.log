@@ -1,0 +1,20 @@
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+{
+ "reader_identity": "30c543e7ebe772bebd3cac36e3971a949c4e63978fd37e62722e010d9fba725f",
+ "writer_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+ "same_identity": false,
+ "status": 409,
+ "code": "CONTINUATION_MIGRATION_REQUIRED",
+ "error": "CONTINUATION_MIGRATION_REQUIRED: The scorer source, lexical data or runtime differs from this continuation. Keep the original state/checkpoint and accepted lyrics as recovery artifacts; automatic replay under changed semantics is refused. To extract the stored lyrics and journal without replay, call lyric_revise with recover_only:true and only that original state or checkpoint.",
+ "artifact": {
+  "final_draft": null,
+  "certified": false,
+  "status": "contract_changed"
+ },
+ "body_keys": [
+  "code",
+  "error",
+  "artifact"
+ ],
+ "providerCalls": 0
+}

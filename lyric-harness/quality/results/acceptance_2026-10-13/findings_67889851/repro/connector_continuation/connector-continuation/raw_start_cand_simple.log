@@ -1,0 +1,75 @@
+IDENTITY {
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+ "connector_semantic_identity": "30c543e7ebe772bebd3cac36e3971a949c4e63978fd37e62722e010d9fba725f",
+ "parts": {
+  "source_sha256": "9941c311943dc29a19802e3fde81589188077fe40947dcef5ac39f9afd9b5f94",
+  "assets_sha256": "9bffbd586992ca658ce10b067d79b92c005be86149ffc063d3fd92979f079b03",
+  "manifest_sha256": "c4fcefd938b6dbdd3692e7c3364f34232cf6616634f8501a5c0974dc8454fd7b",
+  "python": "3.13.16",
+  "nltk": "3.10.3",
+  "node": "v22.22.0",
+  "reader": null
+ }
+}
+STARTED {
+ "variant": "simple",
+ "args": {
+  "scheme": "AA",
+  "relation": "type:rime riche",
+  "draft": [
+   "Copper cat",
+   "Azure dog"
+  ],
+  "writer": "interview",
+  "max_rounds": 1,
+  "backtrack": 0
+ },
+ "exit_code": 4,
+ "status": "awaiting_proposal",
+ "run_id": "run_f5d97eae4010121ed8a2e50cdf1df72b044acf1e2a101b2e201f5860e6808622",
+ "run_revision": 1,
+ "state": "<5689 chars>",
+ "envelope_semantic_identity": "30c543e7ebe772bebd3cac36e3971a949c4e63978fd37e62722e010d9fba725f",
+ "envelope_connector_contract": 3,
+ "state_connector_semantic_identity": "30c543e7ebe772bebd3cac36e3971a949c4e63978fd37e62722e010d9fba725f",
+ "state_reader_scheme": "v2",
+ "state_answered_reader_scheme": "v2",
+ "state_keys": [
+  "accepted_lines",
+  "answered",
+  "connector_declarations",
+  "connector_run_ref",
+  "connector_semantic_identity",
+  "cursor",
+  "cursor_seal",
+  "dispositions",
+  "group_outcomes",
+  "input_draft",
+  "lexicon",
+  "outcomes",
+  "pending",
+  "reader_scheme",
+  "round",
+  "status",
+  "version"
+ ],
+ "pending_kind": [
+  "kind",
+  "record",
+  "prompt",
+  "answer"
+ ],
+ "writer_identity": {
+  "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+  "connector_semantic_identity": "30c543e7ebe772bebd3cac36e3971a949c4e63978fd37e62722e010d9fba725f",
+  "parts": {
+   "source_sha256": "9941c311943dc29a19802e3fde81589188077fe40947dcef5ac39f9afd9b5f94",
+   "assets_sha256": "9bffbd586992ca658ce10b067d79b92c005be86149ffc063d3fd92979f079b03",
+   "manifest_sha256": "c4fcefd938b6dbdd3692e7c3364f34232cf6616634f8501a5c0974dc8454fd7b",
+   "python": "3.13.16",
+   "nltk": "3.10.3",
+   "node": "v22.22.0",
+   "reader": null
+  }
+ }
+}

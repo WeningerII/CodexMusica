@@ -102,6 +102,44 @@ Every body is accepted by `validate`. A body that carries a scheme marker is ref
 
 **The identity-recovery ledger** prefilters on `'s` / recorder texts, and was used only to recover identities before the census existed. It is not a census.
 
+## returns_nend: the page's upgrade turns an `N.end` return into a whole-line return (candidate only)
+
+**Files:** `repro/returns_nend/verify-page-matrix-2/`.
+- The page half: `page_end_returns.js` → `page_end_returns.log` / `.json`.
+- The connector half: `e2e/returns_e2e.mjs` → `e2e/cand_e2e.log` and `e2e/base_e2e.log`.
+- The harness parses: `harness/*.log`, all over `harness/song8.txt`.
+
+`repro/returns_nend/page-matrix/` is the first observation (`scen_end.js` → `end_returns.log`). Other skeptics:
+- `verify-page-matrix-3/` covers other placements and the page's own load;
+- `verify-page-matrix-4/harness/` shows that both harness trees read a bare `N` in returns as a whole line, and refuse a row that mixes a placed member with a whole-line one.
+
+**The song:** line 4 is `You hold my heart.    10` and line 6 is `Well-worn shoes upon the floor`. Line 4's cut changes in v2, and its last word is a numeral.
+
+| field | main page `8b1d2ad2` → harness `fce4bf0f` | candidate page → candidate harness | control: the original row, sent straight to the candidate harness |
+|---|---|---|---|
+| original declaration (the row as written) | `[SETUP — returns — 4.end,6.end]` | the same | the same |
+| emitted declaration (what the page sends to /chat) | `4.end,6.end` | `4,6`. On load, with no user action, the row is rewritten and saved as `4 (carried across the word-cut change),6 — cut v2` | `4.end,6.end` |
+| parsed return kind | a placed return at `end`. This tree reads L4's end as `heart`, the word before the unreadable `10`, which is a pre-existing substitution | a **whole-line verbatim** return | a placed return at `end`. L4 has no end to read (`RETURN_PLACEMENT_ABSENT`) |
+| blocking / certification | `lyric_check` certified, with the flag `RETURN_NOT_VERBATIM` (placed: `heart` vs `floor`). `lyric_revise` stopped at a group proposal the script does not answer (exit 4, no song yet) | `lyric_check` **certified true, refused []**, with the flag `RETURN_NOT_VERBATIM` (whole line). `lyric_revise` exit 0, `finished_clean`, **certified true**, blocking `[]` | `lyric_check` certified false, refused `return:4:6`. `lyric_revise` exit 2, uncertified, blocking `L4: not judged — return with L6 …` |
+| changed lyric | none | **L4 `You hold my heart.    10` → `Well-worn shoes upon the floor`**. The writer kept every line it was asked for; the loop wrote L4 | none |
+
+**How the halves join.** The page half stubs /chat and records the declaration the page sends. The connector half feeds that exact string into an in-process `/mcp` session: `begin_lyrics {phase:'edit'}` → `lyric_check` → `lyric_revise`, where the writer answers each asked line with the line as it stands. This is not one continuous run through the website.
+
+**Qualifications, from 3PO (#527 6162369014):**
+- The page matrix's Keep and reload counts (63/63) show that the **serialized row** persists. For a returns row that is the rewritten, wrong obligation. They do not show that `N.end` is preserved, and they are not a pass for the original obligation.
+- `N.end` reaches a returns row only by hand, by import or by paste: no page form writes it.
+- In rhyme-group rows the same rewrite grades the same (`--groups=4.end,6.end` and `4,6`).
+
+## Passes behind #519 6162326336
+
+These are committed as receipts. Each was reproduced by an independent skeptic agent. They are pinned to the same trees.
+- **`repro/connector_continuation/`:** continuation across the release is refused everywhere with `CONTINUATION_MIGRATION_REQUIRED`:
+  - raw state, the shared `/mcp` caller-managed mode, session `lyric_revise`, `resume_operation` and the signed `/chat` continuation;
+  - `recover_only` exports the original artifact.
+
+  `fingerprint_files.mjs` / `.log` lists the 56 fingerprinted files that changed.
+- **`repro/library_tests/`:** the Library fallback store (`lib.device` removed) migrates and blocks the same way. `check_library_page` passes 270/270, `check_library_regression` passes, and `mcp/test_reader_*` passes.
+
 ## Not an acceptance failure
 
 `library.test_unit_manifest` exits 1 only when it is run from the repo root without `PYTHONPATH=lyric-harness`: the root `library/` static-site directory shadows the package. It fails the same way on the candidate, `fce4bf0f` and `8b1d2ad2`, and it passes in CI's form. See `repro/item3_mixed_version/library-routes234/COMMANDS_gate.txt` and its `gate_*` logs.

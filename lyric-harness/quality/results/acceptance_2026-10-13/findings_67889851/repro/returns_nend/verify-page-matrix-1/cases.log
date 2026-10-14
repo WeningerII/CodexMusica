@@ -1,0 +1,252 @@
+[cand] U6
+  written : [SETUP — rhyme groups — 1.head (kept),6]
+  loaded  : [SETUP — rhyme groups — 1.head (kept),6]
+  saved   : [SETUP — rhyme groups — 1.head (kept),6]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.head (kept), which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.head (kept),6"}
+  toasts  : []
+  errors  : []
+[cand] U7
+  written : [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.T4 (carried across the word-cut change), which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.T4 (carried across the word-cut change),6"}
+  toasts  : []
+  errors  : []
+[cand] U8
+  written : [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  loaded  : [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  saved   : [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  boot    : []
+  review  : ["input: A declared return points at 1.head (numbered under the earlier cut), which the draft does not have [Open repeats]"]
+  /chat   : 1 call(s) {"returns":"1.head (numbered under the earlier cut),6.head"}
+  toasts  : []
+  errors  : []
+[cand] U12
+  written : [SETUP — rhyme groups — 1,6 — cut]
+  loaded  : [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  saved   : [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut — cut v2]
+  boot    : ["1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."]
+  review  : ["input: A rhyme link points at 6 — cut, which the draft does not have [Open rhymes]","note: A rhyme link member, line 1 · last rhyme, was carried across the word-cut change [Keep the link | Remove it]"]
+  /chat   : 1 call(s) {"groups":"1,6 — cut"}
+  toasts  : ["1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."]
+  errors  : []
+[cand] C1 carried named (valid)
+  written : [SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]
+  boot    : []
+  review  : ["note: A rhyme link member, line 1 · first word, was carried across the word-cut change [Keep the link | Remove it]"]
+  /chat   : 1 call(s) {"groups":"1.head,6"}
+  toasts  : []
+  errors  : []
+[cand] C2 undecided T (valid)
+  written : [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  boot    : []
+  review  : ["input: A rhyme link saved without the current cut mark needs your decision [Remove the link | Open rhymes]"]
+  /chat   : 0 call(s) null
+  toasts  : ["Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."]
+  errors  : []
+[cand] C3 member marked cut v3
+  written : [SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]
+  boot    : []
+  review  : ["input: A rhyme link is marked with a word cut this page does not read [Remove the link | Open rhymes]"]
+  /chat   : 0 call(s) null
+  toasts  : ["Nothing was sent. 1 word place in a rhyme link or declared return (1.T4 marked cut v3) is marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."]
+  errors  : []
+[cand] C4 plain unknown place
+  written : [SETUP — rhyme groups — 1.foo,6]
+  loaded  : [SETUP — rhyme groups — 1.foo,6]
+  saved   : [SETUP — rhyme groups — 1.foo,6]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.foo, which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.foo,6"}
+  toasts  : []
+  errors  : []
+[cand] C5 row cut v3
+  written : [SETUP — rhyme groups — 1,6 — cut v3]
+  loaded  : [SETUP — rhyme groups — 1,6 — cut v3]
+  saved   : [SETUP — rhyme groups — 1,6 — cut v3]
+  boot    : []
+  review  : ["input: A rhyme link is marked with a word cut this page does not read [Remove the link | Open rhymes]"]
+  /chat   : 0 call(s) null
+  toasts  : ["Nothing was sent. 2 word places in a rhyme link or declared return (1 marked cut v3, 6 marked cut v3) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."]
+  errors  : []
+[cand] X1 legacy T with unknown note beside a rebindable T
+  written : [SETUP — rhyme groups — 1.T4 (kept),8.T4]
+  loaded  : [SETUP — rhyme groups — 1.T4 (kept),8.T5 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.T4 (kept),8.T5 — cut v2]
+  boot    : ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “tonight” word 4 → 5."]
+  review  : ["input: A rhyme link points at 1.T4 (kept), which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.T4 (kept),8.T5"}
+  toasts  : ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “tonight” word 4 → 5."]
+  errors  : []
+[cand] X2 page wording, other case
+  written : [SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.head (Carried across the word-cut change), which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.head (Carried across the word-cut change),6"}
+  toasts  : []
+  errors  : []
+[cand] X3 row mark with two spaces
+  written : [SETUP — rhyme groups — 1,6 — cut  v2]
+  loaded  : [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut  v2 — cut v2]
+  saved   : [SETUP — rhyme groups — 1 (carried across the word-cut change),6 — cut  v2 — cut v2]
+  boot    : ["1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."]
+  review  : ["input: A rhyme link points at 6 — cut  v2, which the draft does not have [Open rhymes]","note: A rhyme link member, line 1 · last rhyme, was carried across the word-cut change [Keep the link | Remove it]"]
+  /chat   : 1 call(s) {"groups":"1,6 — cut  v2"}
+  toasts  : ["1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."]
+  errors  : []
+[cand] X5 unknown note, marked row
+  written : [SETUP — rhyme groups — 1.head (kept),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.head (kept),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.head (kept),6 — cut v2]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.head (kept), which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.head (kept),6"}
+  toasts  : []
+  errors  : []
+[cand] X6 unknown note on unchanged line, unmarked
+  written : [SETUP — rhyme groups — 5 (kept),6]
+  loaded  : [SETUP — rhyme groups — 5 (kept),6]
+  saved   : [SETUP — rhyme groups — 5 (kept),6]
+  boot    : []
+  review  : ["input: A rhyme link points at 5 (kept), which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"5 (kept),6"}
+  toasts  : []
+  errors  : []
+[main] U6
+  written : [SETUP — rhyme groups — 1.head (kept),6]
+  loaded  : [SETUP — rhyme groups — 1.head (kept),6]
+  saved   : [SETUP — rhyme groups — 1.head (kept),6]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.head (kept), which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.head (kept),6"}
+  toasts  : []
+  errors  : []
+[main] U7
+  written : [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.T4 (carried across the word-cut change),6 — cut v2]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.T4 (carried across the word-cut change), 6 — cut v2, which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.T4 (carried across the word-cut change),6 — cut v2"}
+  toasts  : []
+  errors  : []
+[main] U8
+  written : [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  loaded  : [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  saved   : [SETUP — returns — 1.head (numbered under the earlier cut),6.head — cut v2]
+  boot    : []
+  review  : ["input: A declared return points at 1.head (numbered under the earlier cut), 6.head — cut v2, which the draft does not have [Open repeats]"]
+  /chat   : 1 call(s) {"returns":"1.head (numbered under the earlier cut),6.head — cut v2"}
+  toasts  : []
+  errors  : []
+[main] U12
+  written : [SETUP — rhyme groups — 1,6 — cut]
+  loaded  : [SETUP — rhyme groups — 1,6 — cut]
+  saved   : [SETUP — rhyme groups — 1,6 — cut]
+  boot    : []
+  review  : ["input: A rhyme link points at 6 — cut, which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1,6 — cut"}
+  toasts  : []
+  errors  : []
+[main] C1 carried named (valid)
+  written : [SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.head (carried across the word-cut change),6 — cut v2]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.head (carried across the word-cut change), 6 — cut v2, which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.head (carried across the word-cut change),6 — cut v2"}
+  toasts  : []
+  errors  : []
+[main] C2 undecided T (valid)
+  written : [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.T4 (numbered under the earlier cut),6 — cut v2]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.T4 (numbered under the earlier cut), 6 — cut v2, which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.T4 (numbered under the earlier cut),6 — cut v2"}
+  toasts  : []
+  errors  : []
+[main] C3 member marked cut v3
+  written : [SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.T4 (marked cut v3: not read here),6 — cut v2]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.T4 (marked cut v3: not read here), 6 — cut v2, which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.T4 (marked cut v3: not read here),6 — cut v2"}
+  toasts  : []
+  errors  : []
+[main] C4 plain unknown place
+  written : [SETUP — rhyme groups — 1.foo,6]
+  loaded  : [SETUP — rhyme groups — 1.foo,6]
+  saved   : [SETUP — rhyme groups — 1.foo,6]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.foo, which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.foo,6"}
+  toasts  : []
+  errors  : []
+[main] C5 row cut v3
+  written : [SETUP — rhyme groups — 1,6 — cut v3]
+  loaded  : [SETUP — rhyme groups — 1,6 — cut v3]
+  saved   : [SETUP — rhyme groups — 1,6 — cut v3]
+  boot    : []
+  review  : ["input: A rhyme link points at 6 — cut v3, which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1,6 — cut v3"}
+  toasts  : []
+  errors  : []
+[main] X1 legacy T with unknown note beside a rebindable T
+  written : [SETUP — rhyme groups — 1.T4 (kept),8.T4]
+  loaded  : [SETUP — rhyme groups — 1.T4 (kept),8.T4]
+  saved   : [SETUP — rhyme groups — 1.T4 (kept),8.T4]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.T4 (kept), which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.T4 (kept),8.T4"}
+  toasts  : []
+  errors  : []
+[main] X2 page wording, other case
+  written : [SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.head (Carried across the word-cut change),6 — cut v2]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.head (Carried across the word-cut change), 6 — cut v2, which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.head (Carried across the word-cut change),6 — cut v2"}
+  toasts  : []
+  errors  : []
+[main] X3 row mark with two spaces
+  written : [SETUP — rhyme groups — 1,6 — cut  v2]
+  loaded  : [SETUP — rhyme groups — 1,6 — cut  v2]
+  saved   : [SETUP — rhyme groups — 1,6 — cut  v2]
+  boot    : []
+  review  : ["input: A rhyme link points at 6 — cut  v2, which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1,6 — cut  v2"}
+  toasts  : []
+  errors  : []
+[main] X5 unknown note, marked row
+  written : [SETUP — rhyme groups — 1.head (kept),6 — cut v2]
+  loaded  : [SETUP — rhyme groups — 1.head (kept),6 — cut v2]
+  saved   : [SETUP — rhyme groups — 1.head (kept),6 — cut v2]
+  boot    : []
+  review  : ["input: A rhyme link points at 1.head (kept), 6 — cut v2, which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"1.head (kept),6 — cut v2"}
+  toasts  : []
+  errors  : []
+[main] X6 unknown note on unchanged line, unmarked
+  written : [SETUP — rhyme groups — 5 (kept),6]
+  loaded  : [SETUP — rhyme groups — 5 (kept),6]
+  saved   : [SETUP — rhyme groups — 5 (kept),6]
+  boot    : []
+  review  : ["input: A rhyme link points at 5 (kept), which the draft does not have [Open rhymes]"]
+  /chat   : 1 call(s) {"groups":"5 (kept),6"}
+  toasts  : []
+  errors  : []

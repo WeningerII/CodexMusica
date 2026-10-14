@@ -1,0 +1,237 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/library-tests/build-wt-678",
+ "steps": [
+  {
+   "name": "geometry",
+   "scheme": "v2",
+   "v1": [
+    [
+     "Oh--oh",
+     [
+      [
+       0,
+       6
+      ]
+     ]
+    ],
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ],
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ],
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "v2": [
+    [
+     "Oh",
+     [
+      [
+       0,
+       2
+      ]
+     ]
+    ],
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ],
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ],
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ],
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "slice_8_10": "oh",
+   "rebind": {
+    "token": 3,
+    "word": "oh"
+   }
+  },
+  {
+   "name": "seeded",
+   "fallback": {
+    "interpretation:reading_2c8cde38-7ea1-5dda-a413-98e3c4b0fb5f:779ef436b889f6302ca141ced23a470834df08731e1c5ac892f5dcf8be1ec364": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v2\"}",
+    "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"},{\"line\":\"my love is true\",\"token\":2,\"word\":\"love\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]}}"
+   },
+   "main_db": {}
+  },
+  {
+   "name": "load1 EPI_A (no lib.device)",
+   "dev": {
+    "before": true,
+    "after": false
+   },
+   "mounted": true,
+   "ui": {
+    "renumbered": "1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word cut and moved to the current one, on the same characters: “oh” token 2 → 3.",
+    "undecided": "",
+    "error": "",
+    "toasts": [
+     "1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word cut and moved to the current one, on the same characters: “oh” token 2 → 3."
+    ],
+    "hash": "#library/read/reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81?lens=sound"
+   },
+   "requests": [],
+   "fallback": {
+    "interpretation:reading_2c8cde38-7ea1-5dda-a413-98e3c4b0fb5f:779ef436b889f6302ca141ced23a470834df08731e1c5ac892f5dcf8be1ec364": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v2\"}",
+    "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"},{\"line\":\"my love is true\",\"token\":2,\"word\":\"love\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v2\",\"renumbered\":[{\"word\":\"oh\",\"line\":\"Oh--oh, oh my love\",\"from\":2,\"to\":3}],\"legacy_declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"},{\"line\":\"my love is true\",\"token\":2,\"word\":\"love\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]}}"
+   },
+   "main_db": {}
+  },
+  {
+   "name": "load2 EPI_A after reload",
+   "dev": {
+    "before": true,
+    "after": false
+   },
+   "mounted": true,
+   "ui": {
+    "renumbered": "1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word cut and moved to the current one, on the same characters: “oh” token 2 → 3.",
+    "undecided": "",
+    "error": "",
+    "toasts": [],
+    "hash": "#library/read/reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81?lens=sound"
+   },
+   "requests": [],
+   "fallback": {
+    "interpretation:reading_2c8cde38-7ea1-5dda-a413-98e3c4b0fb5f:779ef436b889f6302ca141ced23a470834df08731e1c5ac892f5dcf8be1ec364": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v2\"}",
+    "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"},{\"line\":\"my love is true\",\"token\":2,\"word\":\"love\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v2\",\"renumbered\":[{\"word\":\"oh\",\"line\":\"Oh--oh, oh my love\",\"from\":2,\"to\":3}],\"legacy_declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"},{\"line\":\"my love is true\",\"token\":2,\"word\":\"love\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]}}"
+   }
+  },
+  {
+   "name": "EPI_B control opened",
+   "dev": {
+    "before": false,
+    "after": false
+   },
+   "mounted": true,
+   "ui": {
+    "renumbered": "",
+    "undecided": "",
+    "error": "",
+    "toasts": [],
+    "hash": "#library/read/reading_2c8cde38-7ea1-5dda-a413-98e3c4b0fb5f?lens=sound"
+   },
+   "requests": [],
+   "fallback": {
+    "interpretation:reading_2c8cde38-7ea1-5dda-a413-98e3c4b0fb5f:779ef436b889f6302ca141ced23a470834df08731e1c5ac892f5dcf8be1ec364": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v2\"}",
+    "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"},{\"line\":\"my love is true\",\"token\":2,\"word\":\"love\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v2\",\"renumbered\":[{\"word\":\"oh\",\"line\":\"Oh--oh, oh my love\",\"from\":2,\"to\":3}],\"legacy_declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"},{\"line\":\"my love is true\",\"token\":2,\"word\":\"love\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]}}"
+   }
+  },
+  {
+   "name": "analyze after migration",
+   "requests": [
+    "POST /analyses",
+    "BODY {\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"},{\"line\":\"my love is true\",\"token\":2,\"word\":\"love\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]}"
+   ],
+   "posted": [
+    "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"},{\"line\":\"my love is true\",\"token\":2,\"word\":\"love\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]}"
+   ]
+  },
+  {
+   "name": "v9",
+   "dev": {
+    "before": true,
+    "after": false
+   },
+   "mounted": true,
+   "ui": {
+    "renumbered": "",
+    "undecided": "1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts until each is removed.\n\n“oh” · token 2 · Oh--oh, oh my love: its record names the word cut “v9”; this page accepts only “v2” Remove",
+    "error": "1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts until each is removed.",
+    "toasts": [],
+    "hash": "#library/read/reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81?lens=sound"
+   },
+   "requests": [],
+   "analyze_requests": [],
+   "posted": [],
+   "refusal": "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\n\n1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts until each is removed.\n\n“oh” · token 2 · Oh--oh, oh my love: its record names the word cut “v9”; this page accepts only “v2” Remove\n\nNothing was sent. 1 saved pronunciation choice (“oh”) could not be matched to a word of the current reading. Remove each in the list of saved choices awaiting a decision, then choose it again for the word you meant.\n\nReading interpretations",
+   "fallback_before": {
+    "interpretation:reading_2c8cde38-7ea1-5dda-a413-98e3c4b0fb5f:779ef436b889f6302ca141ced23a470834df08731e1c5ac892f5dcf8be1ec364": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v2\"}",
+    "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v9\"}"
+   },
+   "fallback_after": {
+    "interpretation:reading_2c8cde38-7ea1-5dda-a413-98e3c4b0fb5f:779ef436b889f6302ca141ced23a470834df08731e1c5ac892f5dcf8be1ec364": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v2\"}",
+    "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v9\"}"
+   }
+  },
+  {
+   "name": "reference: same seed via lib.device",
+   "record": "{\"declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"},{\"line\":\"my love is true\",\"token\":2,\"word\":\"love\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]},\"token_cut\":\"v2\",\"renumbered\":[{\"word\":\"oh\",\"line\":\"Oh--oh, oh my love\",\"from\":2,\"to\":3}],\"legacy_declarations\":{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"},{\"line\":\"my love is true\",\"token\":2,\"word\":\"love\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]}}",
+   "notice": "1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word cut and moved to the current one, on the same characters: “oh” token 2 → 3."
+  }
+ ],
+ "checks": {
+  "lib_device_was_present_then_absent": true,
+  "inspector_mounted": true,
+  "fallback_used_not_main_db": true,
+  "migrated_token_3": true,
+  "migrated_marked_v2": true,
+  "migrated_keeps_original": true,
+  "migrated_renumbered_field": true,
+  "control_row_byte_identical": true,
+  "notice_load1": true,
+  "toast_load1": true,
+  "notice_load2_still_shown": true,
+  "no_double_migration_on_reload": true,
+  "control_record_B_byte_identical": true,
+  "control_B_no_notice": true,
+  "same_record_as_lib_device_path": true,
+  "same_notice_as_lib_device_path": true,
+  "v9_undecided_shown": true,
+  "v9_no_analysis_sent": true,
+  "v9_refusal_text": true,
+  "v9_record_byte_identical": true,
+  "analysis_sends_token_3_and_control": true
+ },
+ "errors": []
+}

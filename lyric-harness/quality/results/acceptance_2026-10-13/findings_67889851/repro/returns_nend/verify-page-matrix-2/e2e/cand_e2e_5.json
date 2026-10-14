@@ -1,0 +1,114 @@
+[
+ {
+  "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+  "returns": "5.end,6.end;1.T5,8.T5",
+  "check": {
+   "isError": false,
+   "exit_code": 0,
+   "meaning": "answered — 2 per-line and 0 whole-draft flag(s) stand",
+   "certified": true,
+   "refused": [],
+   "flags": [
+    "RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T5='tonight'. The rest of these lines is not constrained by this class",
+    "RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L5.end='tonight', L6.end='floor'. The rest of these lines is not constrained by this class"
+   ],
+   "notes_codes": [
+    "SUBSTITUTED_END_WORD",
+    "REPEAT_ACROSS_GROUPS",
+    "REPEAT_ACROSS_GROUPS",
+    "REPEAT_ACROSS_GROUPS"
+   ],
+   "raw_first": "{\"exit_code\":0,\"meaning\":\"answered — 2 per-line and 0 whole-draft flag(s) stand\",\"report\":\"  MANDATE: 0 group(s) over 8 lines, 0 mandated pair(s), source=declared (declared line groups)\\n           no groups — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, no"
+  },
+  "rounds": [
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "ff78e4175380056b35a7d18004d283e5a212d86395d3325b223c4804d3a56009",
+     "round": 1
+    },
+    "note": "no line asked; stop"
+   }
+  ],
+  "revise": {
+   "isError": false,
+   "exit_code": 4,
+   "status": "awaiting_proposal",
+   "certified": false,
+   "song_block": "[AWAITING PROPOSAL — declared mandate — 0 answer(s) on record — NO SONG YET]\n\nREPAIR THE DECLARED REQUIREMENTS\n\nPreserve the song's meaning, line count, placement and all declared relations.\nChange only what is needed to clear the following whole-draft requirements.\n  [flag] RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T5='tonight'. The rest of these lines is not constrained by this class (lines 1, 5, 6, 8)\n      evidence: Judged word identity at the declared placements.\n  [flag] RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L5.end='tonight', L6.end='floor'. The rest of these lines is not constrained by this class (lines 1, 5, 6, 8)\n      evidence: Judged word identity at the declared placements.\n\nDECLARED MANDATE\nmandate: 0 group(s) over 8 lines, 0 mandated pair(s), 4 free line(s), 2 return class(es) / 2 identity pair(s)\n  source: declared (declared line groups)\n  RETURN (unlabelled): lines [1, 8] — VERBATIM required\n  RETURN (unlabelled): lines [5, 6] — VERBATIM required\n  doctrine 3, per PAIR: REPEAT is the REQUIREMENT at the 2 pair(s) above and a VIOLATION at the 0 rhyme pair(s); the mandate no longer needs one song-wide licence to mean both.\n  rhyme groups after the returns are transported (return_rhyme='union'): [[1, 8], [5, 6]]\n  A-1 notation: A^1XXXB^1B^1XA^1\n  rhyme projection only (drops every return): AXXXBBXA\n\nCURRENT DRAFT\n     L1  Oh--oh, oh my love\n     L2  Thundered the battery’s double bass--\n     L3  My love--love is true\n     L4  You hold my heart.    10\n     L5  I walk the line tonight\n     L6  Well-worn shoes upon the floor\n     L7  Stay with me (oh--oh) tonight\n     L8  Hold me (hold me) close--close tonight\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nReturn exactly these lines (include unchanged members): L1, L2, L3, L4, L5, L6, L7, L8\nOne L<number>: <whole line> row each. No commentary or additional lines.\nThe complete replacement is regraded; new defects and lost judgment coverage reject it.\n\nCONTINUE: call lyric_revise with the latest session_id and `answer` (one line of song text) or `answers` (one {line, text} per asked line). The session carries the run, its state and its draft."
+  }
+ },
+ {
+  "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+  "returns": "5,6;1.T5,8.T5",
+  "check": {
+   "isError": false,
+   "exit_code": 0,
+   "meaning": "answered — 2 per-line and 0 whole-draft flag(s) stand",
+   "certified": true,
+   "refused": [],
+   "flags": [
+    "RETURN_NOT_VERBATIM: return  must come back VERBATIM: L5 'I walk the line tonight' vs L6 'Well-worn shoes upon the floor'",
+    "RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T5='tonight'. The rest of these lines is not constrained by this class"
+   ],
+   "notes_codes": [
+    "SUBSTITUTED_END_WORD",
+    "REPEAT_ACROSS_GROUPS",
+    "REPEAT_ACROSS_GROUPS",
+    "REPEAT_ACROSS_GROUPS"
+   ],
+   "raw_first": "{\"exit_code\":0,\"meaning\":\"answered — 2 per-line and 0 whole-draft flag(s) stand\",\"report\":\"  MANDATE: 0 group(s) over 8 lines, 0 mandated pair(s), source=declared (declared line groups)\\n           no groups — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, no"
+  },
+  "rounds": [
+   {
+    "asked": {
+     "kind": "propose",
+     "line": 6,
+     "attempt": 0,
+     "round": 1
+    },
+    "answered_with": {
+     "answer": "Well-worn shoes upon the floor"
+    },
+    "question_head": "[AWAITING PROPOSAL — declared mandate — 0 answer(s) on record — NO SONG YET]\n\nREVISE ONE LINE — L6 of a 8-line draft.\n\nYou are given a draft, one line of it a grader has flagged, everything that grader\nmeasured, and the rules it will apply to what you send back. Rewrite that ONE line.\n\nATTEMPT\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nTHE LINE TO REVISE\n  L6: Well-worn shoes upon the floor\n\nTHE WHOLE DRAFT (context — only L6 may change)\n     L1  Oh--oh, oh my love\n     L2  Thundered the battery’s double bass--\n     L3  My love--love is true\n     L4  You hold my heart.    10\n     L5  I walk the line tonight\n  >> L6  Well-worn shoes upon the floor\n     L7  Stay with me (oh--oh) tonight\n     L8  Hold me (hold me) close--close tonight\n\nWHAT THE GRADER FOUND ON L6 (1)\n  [flag] RETURN_NOT_VERBATIM: return  must come back VE"
+   },
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "0284c3917d37812a727d33390a763db5d8d71bff1bb0242cec63814491285d87",
+     "round": 2
+    },
+    "note": "no line asked; stop"
+   }
+  ],
+  "revise": {
+   "isError": false,
+   "exit_code": 4,
+   "status": "awaiting_proposal",
+   "certified": false,
+   "song_block": "[AWAITING PROPOSAL — declared mandate — 1 answer(s) on record — NO SONG YET]\n\nREPAIR THE DECLARED REQUIREMENTS\n\nPreserve the song's meaning, line count, placement and all declared relations.\nChange only what is needed to clear the following whole-draft requirements.\n  [flag] RETURN_NOT_VERBATIM: placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T5='tonight'. The rest of these lines is not constrained by this class (lines 1, 8)\n      evidence: Judged word identity at the declared placements.\n\nDECLARED MANDATE\nmandate: 0 group(s) over 8 lines, 0 mandated pair(s), 4 free line(s), 2 return class(es) / 2 identity pair(s)\n  source: declared (declared line groups)\n  RETURN (unlabelled): lines [1, 8] — VERBATIM required\n  RETURN (unlabelled): lines [5, 6] — VERBATIM required\n  doctrine 3, per PAIR: REPEAT is the REQUIREMENT at the 2 pair(s) above and a VIOLATION at the 0 rhyme pair(s); the mandate no longer needs one song-wide licence to mean both.\n  rhyme groups after the returns are transported (return_rhyme='union'): [[1, 8], [5, 6]]\n  A-1 notation: A^1XXXB^1B^1XA^1\n  rhyme projection only (drops every return): AXXXBBXA\n\nCURRENT DRAFT\n     L1  Oh--oh, oh my love\n     L2  Thundered the battery’s double bass--\n     L3  My love--love is true\n     L4  You hold my heart.    10\n     L5  Well-worn shoes upon the floor\n     L6  Well-worn shoes upon the floor\n     L7  Stay with me (oh--oh) tonight\n     L8  Hold me (hold me) close--close tonight\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nReturn exactly these lines (include unchanged members): L1, L2, L3, L4, L5, L6, L7, L8\nOne L<number>: <whole line> row each. No commentary or additional lines.\nThe complete replacement is regraded; new defects and lost judgment coverage reject it.\n\nCONTINUE: call lyric_revise with the latest session_id and `answer` (one line of song text) or `answers` (one {line, text} per asked line). The session carries the run, its state and its draft."
+  }
+ }
+]

@@ -1,0 +1,84 @@
+TAP version 13
+# Subtest: a ZIP has the Worker layout: per-unit entries, one SOURCES per source (json), then the roots
+ok 1 - a ZIP has the Worker layout: per-unit entries, one SOURCES per source (json), then the roots
+  ---
+  duration_ms: 25.584513
+  type: 'test'
+  ...
+# Subtest: content identity follows the exact inputs: revision churn and snapshot-only churn both change it
+ok 2 - content identity follows the exact inputs: revision churn and snapshot-only churn both change it
+  ---
+  duration_ms: 19.240879
+  type: 'test'
+  ...
+# Subtest: plan then download: exact Content-Length, attachment, identical bytes for the same plan twice
+ok 3 - plan then download: exact Content-Length, attachment, identical bytes for the same plan twice
+  ---
+  duration_ms: 226.159044
+  type: 'test'
+  ...
+# Subtest: a restart forgets plans: PLAN_EXPIRED, served as an attachment; re-planning works
+ok 4 - a restart forgets plans: PLAN_EXPIRED, served as an attachment; re-planning works
+  ---
+  duration_ms: 82.863507
+  type: 'test'
+  ...
+# Subtest: a plan whose readings changed under it is PLAN_STALE
+ok 5 - a plan whose readings changed under it is PLAN_STALE
+  ---
+  duration_ms: 16.708592
+  type: 'test'
+  ...
+# Subtest: planning refuses unknown or unadmitted ids by name, bad formats, and empty selections
+ok 6 - planning refuses unknown or unadmitted ids by name, bad formats, and empty selections
+  ---
+  duration_ms: 32.595862
+  type: 'test'
+  ...
+# Subtest: export plans: 120 an hour per address
+ok 7 - export plans: 120 an hour per address
+  ---
+  duration_ms: 215.445888
+  type: 'test'
+  ...
+# Subtest: streams: 2 at once per address; a third waits with Retry-After
+ok 8 - streams: 2 at once per address; a third waits with Retry-After
+  ---
+  duration_ms: 1261.654985
+  type: 'test'
+  ...
+# [library] export stream refused: STORAGE_CORRUPT An export entry differs from its record: READINGS/reading_a.txt
+# Subtest: an entry that no longer matches its recorded CRC aborts the stream
+ok 9 - an entry that no longer matches its recorded CRC aborts the stream
+  ---
+  duration_ms: 78.061815
+  type: 'test'
+  ...
+# Subtest: without an installed store, planning answers 503
+ok 10 - without an installed store, planning answers 503
+  ---
+  duration_ms: 5.240452
+  type: 'test'
+  ...
+# Subtest: the plan cache keeps to its byte budget and always keeps the newest plan
+ok 11 - the plan cache keeps to its byte budget and always keeps the newest plan
+  ---
+  duration_ms: 472.657662
+  type: 'test'
+  ...
+# Subtest: an export store whose tables differ from their recorded sha256 refuses to load
+ok 12 - an export store whose tables differ from their recorded sha256 refuses to load
+  ---
+  duration_ms: 9.008947
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5772.344026
+exit=0

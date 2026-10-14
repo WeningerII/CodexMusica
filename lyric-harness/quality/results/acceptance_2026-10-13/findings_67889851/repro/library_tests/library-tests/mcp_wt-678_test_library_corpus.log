@@ -1,0 +1,95 @@
+TAP version 13
+# Subtest: the descriptor is checked: sizes, scope and formats; health lists each package by hash
+ok 1 - the descriptor is checked: sizes, scope and formats; health lists each package by hash
+  ---
+  duration_ms: 60.110779
+  type: 'test'
+  ...
+# Subtest: nothing is served until its hash verifies; a corrupt package never is
+ok 2 - nothing is served until its hash verifies; a corrupt package never is
+  ---
+  duration_ms: 48.865618
+  type: 'test'
+  ...
+# Subtest: a verified package: exact bytes, immutable caching, a strong ETag, and 304 on revalidation
+ok 3 - a verified package: exact bytes, immutable caching, a strong ETag, and 304 on revalidation
+  ---
+  duration_ms: 50.062956
+  type: 'test'
+  ...
+# Subtest: an old package URL is 404 naming the current one; unknown formats and ids are 404
+ok 4 - an old package URL is 404 naming the current one; unknown formats and ids are 404
+  ---
+  duration_ms: 45.259368
+  type: 'test'
+  ...
+# Subtest: byte ranges resume a download: 206 slices, suffixes, If-Range, and 416
+ok 5 - byte ranges resume a download: 206 slices, suffixes, If-Range, and 416
+  ---
+  duration_ms: 29.861034
+  type: 'test'
+  ...
+# Subtest: starts: 6 a day per address; HEAD and resumes are free
+ok 6 - starts: 6 a day per address; HEAD and resumes are free
+  ---
+  duration_ms: 68.762485
+  type: 'test'
+  ...
+# Subtest: streams: 2 service-wide; a third waits and does not spend a start
+ok 7 - streams: 2 service-wide; a third waits and does not spend a start
+  ---
+  duration_ms: 214.810098
+  type: 'test'
+  ...
+# Subtest: the stream guard cuts a stalled client and a crawling one, and frees the slot
+ok 8 - the stream guard cuts a stalled client and a crawling one, and frees the slot
+  ---
+  duration_ms: 2492.911981
+  type: 'test'
+  ...
+# Subtest: the stream guard measures the socket: a client draining bounded writes steadily is never idle
+ok 9 - the stream guard measures the socket: a client draining bounded writes steadily is never idle
+  ---
+  duration_ms: 4082.316709
+  type: 'test'
+  ...
+# Subtest: at the production limits a client that reads nothing is cut at the idle deadline
+ok 10 - at the production limits a client that reads nothing is cut at the idle deadline
+  ---
+  duration_ms: 61666.162024
+  type: 'test'
+  ...
+# Subtest: the stream guard keeps a healthy throttled reader over TLS
+ok 11 - the stream guard keeps a healthy throttled reader over TLS
+  ---
+  duration_ms: 2188.367348
+  type: 'test'
+  ...
+# Subtest: the stream guard reads no private socket state: a hidden write queue changes nothing
+ok 12 - the stream guard reads no private socket state: a hidden write queue changes nothing
+  ---
+  duration_ms: 1969.339295
+  type: 'test'
+  ...
+# Subtest: a whole-corpus selection plan names the corpus package URL
+ok 13 - a whole-corpus selection plan names the corpus package URL
+  ---
+  duration_ms: 36.023784
+  type: 'test'
+  ...
+# Subtest: guardStream reads socket progress: movement keeps a stream; silence or a crawl cuts it
+ok 14 - guardStream reads socket progress: movement keeps a stream; silence or a crawl cuts it
+  ---
+  duration_ms: 1250.58063
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 74556.861933
+exit=0

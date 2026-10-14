@@ -1,0 +1,80 @@
+"Oh--oh, oh my love" voices=false
+  pageV1 : ["Oh--oh","oh","my","love"]
+  graderV1: Oh--oh[[0,6]] oh[[8,10]] my[[11,13]] love[[14,18]]
+  v2     : Oh[[0,2]] oh[[4,6]] oh[[8,10]] my[[11,13]] love[[14,18]]
+"Oh--oh, oh my love" voices=true
+  pageV1 : ["Oh--oh","oh","my","love"]
+  graderV1: Oh--oh[[0,6]] oh[[8,10]] my[[11,13]] love[[14,18]]
+  v2     : Oh[[0,2]] oh[[4,6]] oh[[8,10]] my[[11,13]] love[[14,18]]
+"Thundered the battery’s double bass--" voices=false
+  pageV1 : ["Thundered","the","battery's","double","bass--"]
+  graderV1: Thundered[[0,9]] the[[10,13]] battery's[[14,23]] double[[24,30]] bass--[[31,37]]
+  v2     : Thundered[[0,9]] the[[10,13]] battery's[[14,23]] double[[24,30]] bass[[31,35]]
+"Thundered the battery’s double bass--" voices=true
+  pageV1 : ["Thundered","the","battery's","double","bass--"]
+  graderV1: Thundered[[0,9]] the[[10,13]] battery's[[14,23]] double[[24,30]] bass--[[31,37]]
+  v2     : Thundered[[0,9]] the[[10,13]] battery's[[14,23]] double[[24,30]] bass[[31,35]]
+"My love--love is true" voices=false
+  pageV1 : ["My","love--love","is","true"]
+  graderV1: My[[0,2]] love--love[[3,13]] is[[14,16]] true[[17,21]]
+  v2     : My[[0,2]] love[[3,7]] love[[9,13]] is[[14,16]] true[[17,21]]
+"My love--love is true" voices=true
+  pageV1 : ["My","love--love","is","true"]
+  graderV1: My[[0,2]] love--love[[3,13]] is[[14,16]] true[[17,21]]
+  v2     : My[[0,2]] love[[3,7]] love[[9,13]] is[[14,16]] true[[17,21]]
+"I walk the line tonight" voices=false
+  pageV1 : ["I","walk","the","line","tonight"]
+  graderV1: I[[0,1]] walk[[2,6]] the[[7,10]] line[[11,15]] tonight[[16,23]]
+  v2     : I[[0,1]] walk[[2,6]] the[[7,10]] line[[11,15]] tonight[[16,23]]
+"I walk the line tonight" voices=true
+  pageV1 : ["I","walk","the","line","tonight"]
+  graderV1: I[[0,1]] walk[[2,6]] the[[7,10]] line[[11,15]] tonight[[16,23]]
+  v2     : I[[0,1]] walk[[2,6]] the[[7,10]] line[[11,15]] tonight[[16,23]]
+"Stay with me (oh--oh) tonight" voices=false
+  pageV1 : ["Stay","with","me","tonight"]
+  graderV1: Stay[[0,4]] with[[5,9]] me[[10,12]] tonight[[22,29]]
+  v2     : Stay[[0,4]] with[[5,9]] me[[10,12]] tonight[[22,29]]
+"Stay with me (oh--oh) tonight" voices=true
+  pageV1 : ["Stay","with","me","oh--oh","tonight"]
+  graderV1: Stay[[0,4]] with[[5,9]] me[[10,12]] oh--oh[[14,20]] tonight[[22,29]]
+  v2     : Stay[[0,4]] with[[5,9]] me[[10,12]] oh[[14,16]] oh[[18,20]] tonight[[22,29]]
+"Stay (oh--oh) with me tonight" voices=false
+  pageV1 : ["Stay","with","me","tonight"]
+  graderV1: Stay[[0,4]] with[[14,18]] me[[19,21]] tonight[[22,29]]
+  v2     : Stay[[0,4]] with[[14,18]] me[[19,21]] tonight[[22,29]]
+"Stay (oh--oh) with me tonight" voices=true
+  pageV1 : ["Stay","oh--oh","with","me","tonight"]
+  graderV1: Stay[[0,4]] oh--oh[[6,12]] with[[14,18]] me[[19,21]] tonight[[22,29]]
+  v2     : Stay[[0,4]] oh[[6,8]] oh[[10,12]] with[[14,18]] me[[19,21]] tonight[[22,29]]
+"Hold me (hold me) close--close tonight" voices=false
+  pageV1 : ["Hold","me","close--close","tonight"]
+  graderV1: Hold[[0,4]] me[[5,7]] close--close[[18,30]] tonight[[31,38]]
+  v2     : Hold[[0,4]] me[[5,7]] close[[18,23]] close[[25,30]] tonight[[31,38]]
+"Hold me (hold me) close--close tonight" voices=true
+  pageV1 : ["Hold","me","hold","me","close--close","tonight"]
+  graderV1: Hold[[0,4]] me[[5,7]] hold[[9,13]] me[[14,16]] close--close[[18,30]] tonight[[31,38]]
+  v2     : Hold[[0,4]] me[[5,7]] hold[[9,13]] me[[14,16]] close[[18,23]] close[[25,30]] tonight[[31,38]]
+"You hold my heart.    10" voices=false
+  pageV1 : ["You","hold","my","heart"]
+  graderV1: You[[0,3]] hold[[4,8]] my[[9,11]] heart[[12,17]]
+  v2     : You[[0,3]] hold[[4,8]] my[[9,11]] heart[[12,17]] 10[[22,24]]
+"You hold my heart.    10" voices=true
+  pageV1 : ["You","hold","my","heart"]
+  graderV1: You[[0,3]] hold[[4,8]] my[[9,11]] heart[[12,17]]
+  v2     : You[[0,3]] hold[[4,8]] my[[9,11]] heart[[12,17]] 10[[22,24]]
+"Well-worn shoes upon the floor" voices=false
+  pageV1 : ["Well-worn","shoes","upon","the","floor"]
+  graderV1: Well-worn[[0,9]] shoes[[10,15]] upon[[16,20]] the[[21,24]] floor[[25,30]]
+  v2     : Well-worn[[0,9]] shoes[[10,15]] upon[[16,20]] the[[21,24]] floor[[25,30]]
+"Well-worn shoes upon the floor" voices=true
+  pageV1 : ["Well-worn","shoes","upon","the","floor"]
+  graderV1: Well-worn[[0,9]] shoes[[10,15]] upon[[16,20]] the[[21,24]] floor[[25,30]]
+  v2     : Well-worn[[0,9]] shoes[[10,15]] upon[[16,20]] the[[21,24]] floor[[25,30]]
+"Sing it (sing it) all night long" voices=false
+  pageV1 : ["Sing","it","all","night","long"]
+  graderV1: Sing[[0,4]] it[[5,7]] all[[18,21]] night[[22,27]] long[[28,32]]
+  v2     : Sing[[0,4]] it[[5,7]] all[[18,21]] night[[22,27]] long[[28,32]]
+"Sing it (sing it) all night long" voices=true
+  pageV1 : ["Sing","it","sing","it","all","night","long"]
+  graderV1: Sing[[0,4]] it[[5,7]] sing[[9,13]] it[[14,16]] all[[18,21]] night[[22,27]] long[[28,32]]
+  v2     : Sing[[0,4]] it[[5,7]] sing[[9,13]] it[[14,16]] all[[18,21]] night[[22,27]] long[[28,32]]

@@ -1,0 +1,1137 @@
+{
+ "gate": "FAIL",
+ "failures": {
+  "v1:asides_stripped:wrong_word": 9,
+  "v1:asides_sung:wrong_word": 9,
+  "controls_failed": 40
+ },
+ "unresolved": {
+  "v1:asides_stripped:resolver_mismatch": 1,
+  "v1:asides_sung:resolver_mismatch": 1,
+  "negative_controls_failed": 1,
+  "production_use_not_replicated": 3
+ },
+ "pins": {
+  "commit": "61b6618ae9373e00b60d3df3ab2d19cc11cc93cc",
+  "tracked_changes": false,
+  "harness_root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b/lyric-harness",
+  "tool_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026",
+  "tool_version": 2,
+  "swap_keywords_replicated": [],
+  "modes": [
+   "asides_stripped",
+   "asides_sung",
+   "v1:asides_stripped",
+   "v1:asides_sung"
+  ],
+  "loop_sha256": "a307ec7457babd11ef5859ab7c3cd77a7bae7b4c776a01ea0594d24f59ddc3b1",
+  "loop_word_re": true,
+  "lexicon": {
+   "class": "SupplementedLexicon",
+   "supplement": {
+    "version": "v2",
+    "path": "data/lexicon_supplement_v2.tsv",
+    "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+   },
+   "reader_scheme": {
+    "reader_scheme": "'v2'",
+    "READER_SCHEME": "'v2'",
+    "READER_SCHEMES": "('v1', 'v2')",
+    "_ACTIVE_READER_SCHEME": "None",
+    "_READER_SCHEME_DECLARED": "False"
+   },
+   "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+   "fallback": "none"
+  },
+  "population": {
+   "corpus_lines": 1045,
+   "synthetic_lines": 11,
+   "selected_lines": 1056,
+   "corpus_sha256": "3f7ee5d1d356b23f7505e4154e766888cf64077cfaa48a6cd26ddec4ad8068a9",
+   "synthetic_sha256": "d633071066177a58c717e2812a0099dc576fddbb43a43d163138d6040c7a3931",
+   "controls": 12
+  },
+  "slots": [
+   "end",
+   "endword",
+   "head",
+   "headrime",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8"
+  ],
+  "marks": [
+   "zqzq",
+   "qxqx",
+   "vzvz",
+   "xjxj"
+  ]
+ },
+ "production_calls": [
+  {
+   "file": "quality/revise.py",
+   "line": 4506,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "lex",
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  },
+  {
+   "file": "quality/loop.py",
+   "line": 843,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "lex",
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  },
+  {
+   "file": "quality/loop.py",
+   "line": 879,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "lex",
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  }
+ ],
+ "production_uses_not_replicated": {
+  "calls": [
+   {
+    "file": "quality/revise.py",
+    "line": 4506,
+    "name": "swap_at_slot",
+    "positional": 3,
+    "keywords": [
+     "lex",
+     "scheme",
+     "strip_parens"
+    ],
+    "starred": false
+   },
+   {
+    "file": "quality/loop.py",
+    "line": 843,
+    "name": "swap_at_slot",
+    "positional": 3,
+    "keywords": [
+     "lex",
+     "scheme",
+     "strip_parens"
+    ],
+    "starred": false
+   },
+   {
+    "file": "quality/loop.py",
+    "line": 879,
+    "name": "swap_at_slot",
+    "positional": 3,
+    "keywords": [
+     "lex",
+     "scheme",
+     "strip_parens"
+    ],
+    "starred": false
+   }
+  ],
+  "other_references": []
+ },
+ "excluded_line_modes": {
+  "spaced_enclitic_or_folded": 6,
+  "spans_not_reproduced": 0
+ },
+ "evaluated_slots": {
+  "asides_stripped": 12660,
+  "asides_sung": 12648,
+  "v1:asides_stripped": 12660,
+  "v1:asides_sung": 12648
+ },
+ "outcomes": {
+  "asides_stripped": {
+   "agree": 229,
+   "refused": 4015,
+   "no_word_refused": 8124,
+   "refused_grader_elsewhere": 66,
+   "refused_unbound": 200,
+   "agree_unbound": 26
+  },
+  "asides_sung": {
+   "agree": 229,
+   "refused": 10323,
+   "no_word_refused": 1357,
+   "refused_unbound": 482,
+   "refused_grader_elsewhere": 231,
+   "agree_unbound": 26
+  },
+  "v1:asides_stripped": {
+   "agree": 220,
+   "refused": 4014,
+   "no_word_refused": 8129,
+   "refused_grader_elsewhere": 66,
+   "refused_unbound": 196,
+   "wrong_word": 9,
+   "resolver_mismatch": 1,
+   "agree_unbound": 25
+  },
+  "v1:asides_sung": {
+   "agree": 220,
+   "refused": 10493,
+   "no_word_refused": 1371,
+   "refused_unbound": 414,
+   "refused_grader_elsewhere": 115,
+   "wrong_word": 9,
+   "resolver_mismatch": 1,
+   "agree_unbound": 25
+  }
+ },
+ "failing": {
+  "asides_stripped": {
+   "wrong_word": 0,
+   "grader_elsewhere": 0,
+   "no_op_edit": 0,
+   "resolver_mismatch": 0
+  },
+  "asides_sung": {
+   "wrong_word": 0,
+   "grader_elsewhere": 0,
+   "no_op_edit": 0,
+   "resolver_mismatch": 0
+  },
+  "v1:asides_stripped": {
+   "wrong_word": 9,
+   "grader_elsewhere": 0,
+   "no_op_edit": 0,
+   "resolver_mismatch": 1
+  },
+  "v1:asides_sung": {
+   "wrong_word": 9,
+   "grader_elsewhere": 0,
+   "no_op_edit": 0,
+   "resolver_mismatch": 1
+  }
+ },
+ "population": {
+  "intended_line_modes": 4224,
+  "admitted_line_modes": 4218,
+  "transformed_excluded": 6,
+  "unexpected_excluded": 0,
+  "accounted": true
+ },
+ "controls": [
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  }
+ ],
+ "controls_failed": [
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "asides_sung",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "v1:asides_stripped",
+   "kind": "refused"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "v1:asides_sung",
+   "kind": "refused"
+  }
+ ],
+ "controls_unresolved": [],
+ "negative_controls": [
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "rig": "first_occurrence",
+   "expected": "grader_elsewhere",
+   "kind": "refused_grader_elsewhere"
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "end",
+   "rig": "first_occurrence",
+   "expected": "grader_elsewhere",
+   "kind": "grader_elsewhere"
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "end",
+   "rig": "mixed_tags",
+   "expected": "resolver_mismatch",
+   "kind": "resolver_mismatch"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "rig": "mixed_tags",
+   "expected": "resolver_mismatch",
+   "kind": "resolver_mismatch"
+  }
+ ],
+ "negative_controls_failed": [
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "rig": "first_occurrence",
+   "expected": "grader_elsewhere",
+   "kind": "refused_grader_elsewhere"
+  }
+ ],
+ "cases": [
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Ah, that (quoth he) I do not know--",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    29,
+    35
+   ],
+   "bound": [
+    29,
+    35
+   ],
+   "edited": null,
+   "result": "Ah, that (quoth he) I do not zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Ah, that (quoth he) I do not know--",
+   "mode": "v1:asides_sung",
+   "slot": "end",
+   "named": [
+    29,
+    35
+   ],
+   "bound": [
+    29,
+    35
+   ],
+   "edited": null,
+   "result": "Ah, that (quoth he) I do not zqzq--"
+  },
+  {
+   "kind": "resolver_mismatch",
+   "source": "corpus",
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    50,
+    54
+   ],
+   "bound": null,
+   "edited": null,
+   "result": "An' your fact'ry gals (soon ez we split) 'll make zqzq,"
+  },
+  {
+   "kind": "resolver_mismatch",
+   "source": "corpus",
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "mode": "v1:asides_sung",
+   "slot": "end",
+   "named": [
+    50,
+    54
+   ],
+   "bound": null,
+   "edited": null,
+   "result": "An' your fact'ry gals (soon ez we split) 'll make zqzq,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(How shall I name it aright?) comes for a moment and goes--",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    53,
+    59
+   ],
+   "bound": [
+    53,
+    59
+   ],
+   "edited": null,
+   "result": "(How shall I name it aright?) comes for a moment and zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(How shall I name it aright?) comes for a moment and goes--",
+   "mode": "v1:asides_sung",
+   "slot": "end",
+   "named": [
+    53,
+    59
+   ],
+   "bound": [
+    53,
+    59
+   ],
+   "edited": null,
+   "result": "(How shall I name it aright?) comes for a moment and zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Yet most the unhappy) in his heart--",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    30,
+    37
+   ],
+   "bound": [
+    30,
+    37
+   ],
+   "edited": null,
+   "result": "(Yet most the unhappy) in his zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Yet most the unhappy) in his heart--",
+   "mode": "v1:asides_sung",
+   "slot": "end",
+   "named": [
+    30,
+    37
+   ],
+   "bound": [
+    30,
+    37
+   ],
+   "edited": null,
+   "result": "(Yet most the unhappy) in his zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(It was the Miller's Nancy told it to me),                       10",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": null,
+   "bound": null,
+   "edited": null,
+   "result": "(It was the Miller's Nancy told it to me),                       zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(It was the Miller's Nancy told it to me),                       10",
+   "mode": "v1:asides_sung",
+   "slot": "end",
+   "named": [
+    38,
+    40
+   ],
+   "bound": [
+    38,
+    40
+   ],
+   "edited": null,
+   "result": "(It was the Miller's Nancy told it to me),                       zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "_Mrs. S. (aside)._ Ay, but his daughter--",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    31,
+    41
+   ],
+   "bound": [
+    31,
+    41
+   ],
+   "edited": null,
+   "result": "_Mrs. S. (aside)._ Ay, but his zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "_Mrs. S. (aside)._ Ay, but his daughter--",
+   "mode": "v1:asides_sung",
+   "slot": "end",
+   "named": [
+    31,
+    41
+   ],
+   "bound": [
+    31,
+    41
+   ],
+   "edited": null,
+   "result": "_Mrs. S. (aside)._ Ay, but his zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "_Mrs. J_. (_rising_). I ask your pardon truly, that I do--",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    54,
+    58
+   ],
+   "bound": [
+    54,
+    58
+   ],
+   "edited": null,
+   "result": "_Mrs. J_. (_rising_). I ask your pardon truly, that I zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "_Mrs. J_. (_rising_). I ask your pardon truly, that I do--",
+   "mode": "v1:asides_sung",
+   "slot": "end",
+   "named": [
+    54,
+    58
+   ],
+   "bound": [
+    54,
+    58
+   ],
+   "edited": null,
+   "result": "_Mrs. J_. (_rising_). I ask your pardon truly, that I zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(So the crew would protest) “that he’s bought us the best--",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    53,
+    59
+   ],
+   "bound": [
+    53,
+    59
+   ],
+   "edited": null,
+   "result": "(So the crew would protest) “that he’s bought us the zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(So the crew would protest) “that he’s bought us the best--",
+   "mode": "v1:asides_sung",
+   "slot": "end",
+   "named": [
+    53,
+    59
+   ],
+   "bound": [
+    53,
+    59
+   ],
+   "edited": null,
+   "result": "(So the crew would protest) “that he’s bought us the zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "My life (she's by) won't let me die--",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    32,
+    37
+   ],
+   "bound": [
+    32,
+    37
+   ],
+   "edited": null,
+   "result": "My life (she's by) won't let me zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "My life (she's by) won't let me die--",
+   "mode": "v1:asides_sung",
+   "slot": "end",
+   "named": [
+    32,
+    37
+   ],
+   "bound": [
+    32,
+    37
+   ],
+   "edited": null,
+   "result": "My life (she's by) won't let me zqzq--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Just a glimpse (the air is clearer), they are nearer,--nearer,--nearer,",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    62,
+    70
+   ],
+   "bound": [
+    62,
+    70
+   ],
+   "edited": null,
+   "result": "Just a glimpse (the air is clearer), they are nearer,--nearer,--zqzq,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Just a glimpse (the air is clearer), they are nearer,--nearer,--nearer,",
+   "mode": "v1:asides_sung",
+   "slot": "end",
+   "named": [
+    62,
+    70
+   ],
+   "bound": [
+    62,
+    70
+   ],
+   "edited": null,
+   "result": "Just a glimpse (the air is clearer), they are nearer,--nearer,--zqzq,"
+  }
+ ]
+}

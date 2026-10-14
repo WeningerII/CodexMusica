@@ -1,0 +1,628 @@
+{
+ "M1_main_declare_repeat__main_action": {
+  "secs": [
+   {
+    "i": 0,
+    "title": "Verse",
+    "n": 4
+   },
+   {
+    "i": 1,
+    "title": "Chorus",
+    "n": 4
+   }
+  ],
+  "a": {
+   "i": 0,
+   "title": "Verse",
+   "n": 4
+  },
+  "b": {
+   "i": 1,
+   "title": "Chorus",
+   "n": 4
+  },
+  "row": [
+   "[SETUP — returns — 1,5;2,6;3,7;4,8]"
+  ]
+ },
+ "M1_main_declare_repeat": {
+  "main": {
+   "setupRows": [
+    "[SETUP — returns — 1,5;2,6;3,7;4,8]"
+   ],
+   "members": [
+    {
+     "line": 1,
+     "place": "end",
+     "raw": "1",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "love"
+    },
+    {
+     "line": 5,
+     "place": "end",
+     "raw": "5",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "tonight"
+    },
+    {
+     "line": 2,
+     "place": "end",
+     "raw": "2",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "bass--"
+    },
+    {
+     "line": 6,
+     "place": "end",
+     "raw": "6",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "floor"
+    },
+    {
+     "line": 3,
+     "place": "end",
+     "raw": "3",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "true"
+    },
+    {
+     "line": 7,
+     "place": "end",
+     "raw": "7",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "tonight"
+    },
+    {
+     "line": 4,
+     "place": "end",
+     "raw": "4",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "heart"
+    },
+    {
+     "line": 8,
+     "place": "end",
+     "raw": "8",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "tonight"
+    }
+   ],
+   "items": [],
+   "formDeclared": "Line 1 = Line 5\nLine 2 = Line 6\nLine 3 = Line 7\nLine 4 = Line 8",
+   "decl": {
+    "returns": "1,5;2,6;3,7;4,8"
+   },
+   "review": {
+    "r": "ok",
+    "sent": [
+     {
+      "returns": "1,5;2,6;3,7;4,8"
+     }
+    ]
+   }
+  },
+  "cand": {
+   "setupRows": [
+    "[SETUP — returns — 1 (carried across the word-cut change),5;2 (carried across the word-cut change),6;3 (carried across the word-cut change),7;4 (carried across the word-cut change),8 (carried across the word-cut change) — cut v2]"
+   ],
+   "members": [
+    {
+     "line": 1,
+     "place": "end",
+     "raw": "1",
+     "carried": true,
+     "label": "last rhyme",
+     "word": "love"
+    },
+    {
+     "line": 5,
+     "place": "end",
+     "raw": "5",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "tonight"
+    },
+    {
+     "line": 2,
+     "place": "end",
+     "raw": "2",
+     "carried": true,
+     "label": "last rhyme",
+     "word": "bass"
+    },
+    {
+     "line": 6,
+     "place": "end",
+     "raw": "6",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "floor"
+    },
+    {
+     "line": 3,
+     "place": "end",
+     "raw": "3",
+     "carried": true,
+     "label": "last rhyme",
+     "word": "true"
+    },
+    {
+     "line": 7,
+     "place": "end",
+     "raw": "7",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "tonight"
+    },
+    {
+     "line": 4,
+     "place": "end",
+     "raw": "4",
+     "carried": true,
+     "label": "last rhyme",
+     "word": "10"
+    },
+    {
+     "line": 8,
+     "place": "end",
+     "raw": "8",
+     "carried": true,
+     "label": "last rhyme",
+     "word": "tonight"
+    }
+   ],
+   "items": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+     "text": "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “love” under the earlier cut and “love” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    },
+    {
+     "id": "returns:0:carried:1:0",
+     "tone": "note",
+     "title": "A declared return member, line 2 · last rhyme, was carried across the word-cut change",
+     "text": "Line 2's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    },
+    {
+     "id": "returns:0:carried:2:0",
+     "tone": "note",
+     "title": "A declared return member, line 3 · last rhyme, was carried across the word-cut change",
+     "text": "Line 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “true” under the earlier cut and “true” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    },
+    {
+     "id": "returns:0:carried:3:0",
+     "tone": "note",
+     "title": "A declared return member, line 4 · last rhyme, was carried across the word-cut change",
+     "text": "Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    },
+    {
+     "id": "returns:0:carried:3:1",
+     "tone": "note",
+     "title": "A declared return member, line 8 · last rhyme, was carried across the word-cut change",
+     "text": "Line 8's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “tonight” under the earlier cut and “tonight” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    }
+   ],
+   "formDeclared": "Line 1 = Line 5\nLine 2 = Line 6\nLine 3 = Line 7\nLine 4 = Line 8",
+   "decl": {
+    "returns": "1,5;2,6;3,7;4,8"
+   },
+   "bootToasts": "5 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review.",
+   "review": {
+    "r": "ok",
+    "sent": [
+     {
+      "returns": "1,5;2,6;3,7;4,8"
+     }
+    ]
+   },
+   "reviewPanelCarried": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “love” under the earlier cut and “love” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+    "A declared return member, line 2 · last rhyme, was carried across the word-cut change",
+    "Line 2's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+    "A declared return member, line 3 · last rhyme, was carried across the word-cut change",
+    "Line 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “true” under the earlier cut and “true” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+    "A declared return member, line 4 · last rhyme, was carried across the word-cut change",
+    "Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+    "A declared return member, line 8 · last rhyme, was carried across the word-cut change",
+    "Line 8's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “tonight” under the earlier cut and “tonight” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ]
+  },
+  "errors": []
+ },
+ "H1_returns_bare_4_5": {
+  "main": {
+   "setupRows": [
+    "[SETUP — returns — 4,5]"
+   ],
+   "members": [
+    {
+     "line": 4,
+     "place": "end",
+     "raw": "4",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "heart"
+    },
+    {
+     "line": 5,
+     "place": "end",
+     "raw": "5",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "tonight"
+    }
+   ],
+   "items": [],
+   "formDeclared": "Line 4 = Line 5",
+   "decl": {
+    "returns": "4,5"
+   },
+   "review": {
+    "r": "ok",
+    "sent": [
+     {
+      "returns": "4,5"
+     }
+    ]
+   }
+  },
+  "cand": {
+   "setupRows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),5 — cut v2]"
+   ],
+   "members": [
+    {
+     "line": 4,
+     "place": "end",
+     "raw": "4",
+     "carried": true,
+     "label": "last rhyme",
+     "word": "10"
+    },
+    {
+     "line": 5,
+     "place": "end",
+     "raw": "5",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "tonight"
+    }
+   ],
+   "items": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 4 · last rhyme, was carried across the word-cut change",
+     "text": "Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    }
+   ],
+   "formDeclared": "Line 4 = Line 5",
+   "decl": {
+    "returns": "4,5"
+   },
+   "bootToasts": "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review.",
+   "review": {
+    "r": "ok",
+    "sent": [
+     {
+      "returns": "4,5"
+     }
+    ]
+   },
+   "reviewPanelCarried": [
+    "A declared return member, line 4 · last rhyme, was carried across the word-cut change",
+    "Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ]
+  },
+  "errors": []
+ },
+ "H2_returns_line_4_5": {
+  "main": {
+   "setupRows": [
+    "[SETUP — returns — 4.line,5.line]"
+   ],
+   "members": [
+    {
+     "line": 4,
+     "place": "line",
+     "raw": "4.line",
+     "carried": false,
+     "label": "whole line",
+     "word": "You hold my heart.    10"
+    },
+    {
+     "line": 5,
+     "place": "line",
+     "raw": "5.line",
+     "carried": false,
+     "label": "whole line",
+     "word": "I walk the line tonight"
+    }
+   ],
+   "items": [],
+   "formDeclared": "Line 4 · whole line = Line 5 · whole line",
+   "decl": {
+    "returns": "4.line,5.line"
+   },
+   "review": {
+    "r": "ok",
+    "sent": [
+     {
+      "returns": "4.line,5.line"
+     }
+    ]
+   }
+  },
+  "cand": {
+   "setupRows": [
+    "[SETUP — returns — 4.line (carried across the word-cut change),5.line — cut v2]"
+   ],
+   "members": [
+    {
+     "line": 4,
+     "place": "line",
+     "raw": "4.line",
+     "carried": true,
+     "label": "whole line",
+     "word": "You hold my heart.    10"
+    },
+    {
+     "line": 5,
+     "place": "line",
+     "raw": "5.line",
+     "carried": false,
+     "label": "whole line",
+     "word": "I walk the line tonight"
+    }
+   ],
+   "items": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 4 · whole line, was carried across the word-cut change",
+     "text": "Line 4's word cut changed in this release, so what its whole line reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “You hold my heart” under the earlier cut and “You hold my heart 10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    }
+   ],
+   "formDeclared": "Line 4 · whole line = Line 5 · whole line",
+   "decl": {
+    "returns": "4.line,5.line"
+   },
+   "bootToasts": "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review.",
+   "review": {
+    "r": "ok",
+    "sent": [
+     {
+      "returns": "4.line,5.line"
+     }
+    ]
+   },
+   "reviewPanelCarried": [
+    "A declared return member, line 4 · whole line, was carried across the word-cut change",
+    "Line 4's word cut changed in this release, so what its whole line reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “You hold my heart” under the earlier cut and “You hold my heart 10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ]
+  },
+  "errors": []
+ },
+ "H3_returns_end_4_5": {
+  "main": {
+   "setupRows": [
+    "[SETUP — returns — 4.end,5.end]"
+   ],
+   "members": [
+    {
+     "line": 4,
+     "place": "end",
+     "raw": "4.end",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "heart"
+    },
+    {
+     "line": 5,
+     "place": "end",
+     "raw": "5.end",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "tonight"
+    }
+   ],
+   "items": [],
+   "formDeclared": "Line 4 = Line 5",
+   "decl": {
+    "returns": "4.end,5.end"
+   },
+   "review": {
+    "r": "ok",
+    "sent": [
+     {
+      "returns": "4.end,5.end"
+     }
+    ]
+   }
+  },
+  "cand": {
+   "setupRows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),5 — cut v2]"
+   ],
+   "members": [
+    {
+     "line": 4,
+     "place": "end",
+     "raw": "4",
+     "carried": true,
+     "label": "last rhyme",
+     "word": "10"
+    },
+    {
+     "line": 5,
+     "place": "end",
+     "raw": "5",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "tonight"
+    }
+   ],
+   "items": [
+    {
+     "id": "returns:0:carried:0:0",
+     "tone": "note",
+     "title": "A declared return member, line 4 · last rhyme, was carried across the word-cut change",
+     "text": "Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    }
+   ],
+   "formDeclared": "Line 4 = Line 5",
+   "decl": {
+    "returns": "4,5"
+   },
+   "bootToasts": "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review.",
+   "review": {
+    "r": "ok",
+    "sent": [
+     {
+      "returns": "4,5"
+     }
+    ]
+   },
+   "reviewPanelCarried": [
+    "A declared return member, line 4 · last rhyme, was carried across the word-cut change",
+    "Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ]
+  },
+  "errors": []
+ },
+ "H4_groups_bare_4_5": {
+  "main": {
+   "setupRows": [
+    "[SETUP — rhyme groups — 4,5]"
+   ],
+   "members": [
+    {
+     "line": 4,
+     "place": "end",
+     "raw": "4",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "heart"
+    },
+    {
+     "line": 5,
+     "place": "end",
+     "raw": "5",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "tonight"
+    }
+   ],
+   "items": [],
+   "formDeclared": null,
+   "decl": {
+    "groups": "4,5"
+   },
+   "review": {
+    "r": "ok",
+    "sent": [
+     {
+      "groups": "4,5"
+     }
+    ]
+   }
+  },
+  "cand": {
+   "setupRows": [
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),5 — cut v2]"
+   ],
+   "members": [
+    {
+     "line": 4,
+     "place": "end",
+     "raw": "4",
+     "carried": true,
+     "label": "last rhyme",
+     "word": "10"
+    },
+    {
+     "line": 5,
+     "place": "end",
+     "raw": "5",
+     "carried": false,
+     "label": "last rhyme",
+     "word": "tonight"
+    }
+   ],
+   "items": [
+    {
+     "id": "rhyme groups:0:carried:0:0",
+     "tone": "note",
+     "title": "A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+     "text": "Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+     "actions": [
+      "Keep the link",
+      "Remove it"
+     ]
+    }
+   ],
+   "formDeclared": null,
+   "decl": {
+    "groups": "4,5"
+   },
+   "bootToasts": "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review.",
+   "review": {
+    "r": "ok",
+    "sent": [
+     {
+      "groups": "4,5"
+     }
+    ]
+   },
+   "reviewPanelCarried": [
+    "A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+    "Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ]
+  },
+  "errors": []
+ }
+}

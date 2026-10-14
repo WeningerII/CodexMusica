@@ -1,0 +1,16 @@
+TAP version 13
+# Subtest: a changed scorer refuses old lyric sessions with an export, and never blocks a recipe
+ok 1 - a changed scorer refuses old lyric sessions with an export, and never blocks a recipe
+  ---
+  duration_ms: 648.81391
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2451.204168

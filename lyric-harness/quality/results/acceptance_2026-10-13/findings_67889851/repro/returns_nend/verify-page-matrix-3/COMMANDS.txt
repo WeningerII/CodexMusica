@@ -1,0 +1,8 @@
+# verify-page-matrix-3 (BB8 adversarial verify of page-matrix finding: N.end -> N in returns rows). Scratch only; no tracked file modified.
+for R in 5.end,6.end 5,6 4.end,7.end 4,7 1.end,6.head 1,6.head: harness/run_brief.sh wt-678 cand R  (cd wt-678/lyric-harness; LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data python3 lyric_harness.py brief harness/song.txt --returns=R) -> harness/brief_cand_*.log
+same 5 returns (5.end,6.end 5,6 4.end,7.end 4,7 1,6.head) on wt-base fce4bf0f: harness/run_brief.sh wt-base base R -> harness/brief_base_*.log; python3 harness/summ.py
+cd page && node page.js load > page/load.log  (main writes row, same origin upgraded to candidate, reload; Run review via stubbed /chat) -> page/page_load.json
+cd page && node page.js edits > page/edits.log  (row written on one tree; then section dup/move/add or Repeats-form apply; row + /chat send after) -> page/page_edits.json
+cd page && node page.js load2 > page/load2.log -> page/page_load2.json (L7 named row-mate on re-cut lines; L8 bare 4,7 notice label)
+cd e2e && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data node e2e.mjs wt-678/mcp e2e/e2e_A.json 'A1|A2' > e2e/e2e_A.log
+cd e2e && node e2e.mjs wt-678/mcp e2e/e2e_BC.json 'B1|B2|C1|C2' > e2e/e2e_BC.log

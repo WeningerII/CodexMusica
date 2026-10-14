@@ -1,0 +1,42 @@
+{
+ "main|move": {
+  "before": {
+   "row": "[SETUP — returns — 5.end,6.end]",
+   "decl": "5.end,6.end"
+  },
+  "after": {
+   "row": "[SETUP — returns — 1,2]",
+   "decl": "1,2"
+  }
+ },
+ "main|repeats-form": {
+  "before": {
+   "row": "[SETUP — returns — 5.end,6.end]",
+   "decl": "5.end,6.end"
+  },
+  "after": {
+   "row": "[SETUP — returns — 5,6;2.head,3.head]",
+   "decl": "5,6;2.head,3.head"
+  }
+ },
+ "cand|move": {
+  "before": {
+   "row": "[SETUP — returns — 5.end,6.end]",
+   "decl": "5.end,6.end"
+  },
+  "after": {
+   "row": "[SETUP — returns — 1,2]",
+   "decl": "1,2"
+  }
+ },
+ "cand|repeats-form": {
+  "before": {
+   "row": "[SETUP — returns — 5.end,6.end]",
+   "decl": "5.end,6.end"
+  },
+  "after": {
+   "row": "[SETUP — returns — 5,6;2.head,3.head — cut v2]",
+   "decl": "5,6;2.head,3.head"
+  }
+ }
+}

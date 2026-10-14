@@ -1,0 +1,19 @@
+TAP version 13
+# recovery boundary: legacy-json drafts=2360224 journal=2360041 bytes; exact artifacts preserved
+# recovery boundary: gzip+base64 drafts=2360281 journal=2360098 bytes; exact artifacts preserved
+# state codec: lossless journal, UTF-8 wire bound, migration and bounded decompression passed
+# Subtest: mcp/test_state_codec.mjs
+ok 1 - mcp/test_state_codec.mjs
+  ---
+  duration_ms: 1355.251071
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1369.242727

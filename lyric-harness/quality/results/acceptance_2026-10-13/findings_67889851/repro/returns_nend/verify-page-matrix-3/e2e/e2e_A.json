@@ -1,0 +1,99 @@
+[
+ {
+  "name": "A1 as main sends (4.end,7.end)",
+  "returns": "4.end,7.end",
+  "check_isError": false,
+  "check": {
+   "exit_code": 0,
+   "certified": false,
+   "meaning": "answered — no flag stands; coverage INCOMPLETE — uncertified (coverage.refused_obligations names what was not judged)"
+  },
+  "rounds": [],
+  "revise_isError": false,
+  "revise": {
+   "exit_code": 2,
+   "status": "uncertified",
+   "certified": false,
+   "loop_stop_reason": "UNCERTIFIED",
+   "blocking": [
+    "L4: not judged — return with L7; words with more than one reading: L4 the; L7 The, says; no dictionary reading listed: L4 9",
+    "L7: not judged — return with L4; words with more than one reading: L7 The, says; L4 the; no dictionary reading listed: L4 9"
+   ],
+   "folded": null,
+   "meaning": "measured — coverage incomplete; this is an uncertified draft, not a successful song"
+  },
+  "song_head": [
+   "Hold on--hold on to me",
+   "The night is cold and grey",
+   "We danced until the morning",
+   "Meet me at the corner at 9",
+   "I walk the line tonight",
+   "Stay with me tonight",
+   "The station clock says nine",
+   "Hold on--hold on tonight",
+   "",
+   "[FINISHED — declared mandate — exit 2 — UNCERTIFIED after 0 round(s) — no line flag stands — COVERAGE UNCERTIFIED: return:4:7]"
+  ],
+  "changed_lines": []
+ },
+ {
+  "name": "A2 as candidate sends after upgrade (4,7)",
+  "returns": "4,7",
+  "check_isError": false,
+  "check": {
+   "exit_code": 0,
+   "certified": true,
+   "meaning": "answered — 1 per-line and 0 whole-draft flag(s) stand"
+  },
+  "rounds": [
+   {
+    "asked": {
+     "kind": "propose",
+     "line": 7,
+     "attempt": 0,
+     "round": 1
+    }
+   }
+  ],
+  "revise_isError": false,
+  "revise": {
+   "exit_code": 0,
+   "status": "finished_clean",
+   "certified": true,
+   "loop_stop_reason": "SUCCESS",
+   "blocking": [],
+   "folded": {
+    "kind": "propose",
+    "line": 7,
+    "attempt": 0,
+    "round": 1,
+    "answer": "The station clock says nine",
+    "verdict": "accepted",
+    "reasons": [
+     "fixed 2, introduced 0, disclosing 1 new note(s) [(7, 'REPEAT_ACROSS_GROUPS')], changed only [4]"
+    ],
+    "source": "outcome"
+   },
+   "meaning": "answered — no flag stands"
+  },
+  "song_head": [
+   "Hold on--hold on to me",
+   "The night is cold and grey",
+   "We danced until the morning",
+   "The station clock says nine",
+   "I walk the line tonight",
+   "Stay with me tonight",
+   "The station clock says nine",
+   "Hold on--hold on tonight",
+   "",
+   "[FINISHED — declared mandate — exit 0 — SUCCESS after 1 round(s) — no line flag stands]"
+  ],
+  "changed_lines": [
+   [
+    4,
+    "Meet me at the corner at 9",
+    "The station clock says nine"
+   ]
+  ]
+ }
+]

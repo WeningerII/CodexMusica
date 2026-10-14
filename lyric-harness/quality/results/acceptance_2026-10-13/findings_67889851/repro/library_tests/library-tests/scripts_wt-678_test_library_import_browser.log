@@ -1,0 +1,17 @@
+TAP version 13
+# Subtest: real browser transfer commits atomically, binds the opener and safely re-acknowledges after reload
+ok 1 - real browser transfer commits atomically, binds the opener and safely re-acknowledges after reload
+  ---
+  duration_ms: 877.224086
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 884.691927
+exit=0

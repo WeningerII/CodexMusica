@@ -1,0 +1,149 @@
+G|v0|L1|N form [SETUP — rhyme groups — 1,6] -> sent {"groups":"1,6"} word="love" bad=0
+G|v0|L1|end hand [SETUP — rhyme groups — 1.end,6] -> sent {"groups":"1.end,6"} word="love" bad=0
+G|v0|L1|endword form [SETUP — rhyme groups — 1.endword,6] -> sent {"groups":"1.endword,6"} word="love" bad=0
+G|v0|L1|head form [SETUP — rhyme groups — 1.head,6] -> sent {"groups":"1.head,6"} word="Oh--oh" bad=0
+G|v0|L1|headrime form [SETUP — rhyme groups — 1.headrime,6] -> sent {"groups":"1.headrime,6"} word="Oh--oh" bad=0
+G|v0|L1|line form [SETUP — rhyme groups — 1.line,6] -> sent {"groups":"1.line,6"} word="Oh--oh, oh my love" bad=0
+G|v0|L1|T1 form [SETUP — rhyme groups — 1.T1,6] -> sent {"groups":"1.T1,6"} word="Oh--oh" bad=0
+G|v0|L1|T2 form [SETUP — rhyme groups — 1.T2,6] -> sent {"groups":"1.T2,6"} word="oh" bad=0
+G|v0|L1|T4 form [SETUP — rhyme groups — 1.T4,6] -> sent {"groups":"1.T4,6"} word="love" bad=0
+G|v0|L2|N form [SETUP — rhyme groups — 2,6] -> sent {"groups":"2,6"} word="bass--" bad=0
+G|v0|L2|end hand [SETUP — rhyme groups — 2.end,6] -> sent {"groups":"2.end,6"} word="bass--" bad=0
+G|v0|L2|endword form [SETUP — rhyme groups — 2.endword,6] -> sent {"groups":"2.endword,6"} word="bass--" bad=0
+G|v0|L2|head form [SETUP — rhyme groups — 2.head,6] -> sent {"groups":"2.head,6"} word="Thundered" bad=0
+G|v0|L2|headrime form [SETUP — rhyme groups — 2.headrime,6] -> sent {"groups":"2.headrime,6"} word="Thundered" bad=0
+G|v0|L2|line form [SETUP — rhyme groups — 2.line,6] -> sent {"groups":"2.line,6"} word="Thundered the battery’s double bass--" bad=0
+G|v0|L2|T1 form [SETUP — rhyme groups — 2.T1,6] -> sent {"groups":"2.T1,6"} word="Thundered" bad=0
+G|v0|L2|T5 form [SETUP — rhyme groups — 2.T5,6] -> sent {"groups":"2.T5,6"} word="bass--" bad=0
+G|v0|L3|N form [SETUP — rhyme groups — 3,6] -> sent {"groups":"3,6"} word="true" bad=0
+G|v0|L3|end hand [SETUP — rhyme groups — 3.end,6] -> sent {"groups":"3.end,6"} word="true" bad=0
+G|v0|L3|endword form [SETUP — rhyme groups — 3.endword,6] -> sent {"groups":"3.endword,6"} word="true" bad=0
+G|v0|L3|head form [SETUP — rhyme groups — 3.head,6] -> sent {"groups":"3.head,6"} word="My" bad=0
+G|v0|L3|headrime form [SETUP — rhyme groups — 3.headrime,6] -> sent {"groups":"3.headrime,6"} word="My" bad=0
+G|v0|L3|line form [SETUP — rhyme groups — 3.line,6] -> sent {"groups":"3.line,6"} word="My love--love is true" bad=0
+G|v0|L3|T2 form [SETUP — rhyme groups — 3.T2,6] -> sent {"groups":"3.T2,6"} word="love--love" bad=0
+G|v0|L3|T4 form [SETUP — rhyme groups — 3.T4,6] -> sent {"groups":"3.T4,6"} word="true" bad=0
+G|v0|L4|N form [SETUP — rhyme groups — 4,6] -> sent {"groups":"4,6"} word="heart" bad=0
+G|v0|L4|end hand [SETUP — rhyme groups — 4.end,6] -> sent {"groups":"4.end,6"} word="heart" bad=0
+G|v0|L4|endword form [SETUP — rhyme groups — 4.endword,6] -> sent {"groups":"4.endword,6"} word="heart" bad=0
+G|v0|L4|head form [SETUP — rhyme groups — 4.head,6] -> sent {"groups":"4.head,6"} word="You" bad=0
+G|v0|L4|headrime form [SETUP — rhyme groups — 4.headrime,6] -> sent {"groups":"4.headrime,6"} word="You" bad=0
+G|v0|L4|line form [SETUP — rhyme groups — 4.line,6] -> sent {"groups":"4.line,6"} word="You hold my heart.    10" bad=0
+G|v0|L4|T4 form [SETUP — rhyme groups — 4.T4,6] -> sent {"groups":"4.T4,6"} word="heart" bad=0
+G|v0|L5|N form [SETUP — rhyme groups — 5,6] -> sent {"groups":"5,6"} word="tonight" bad=0
+G|v0|L5|end hand [SETUP — rhyme groups — 5.end,6] -> sent {"groups":"5.end,6"} word="tonight" bad=0
+G|v0|L5|endword form [SETUP — rhyme groups — 5.endword,6] -> sent {"groups":"5.endword,6"} word="tonight" bad=0
+G|v0|L5|head form [SETUP — rhyme groups — 5.head,6] -> sent {"groups":"5.head,6"} word="I" bad=0
+G|v0|L5|headrime form [SETUP — rhyme groups — 5.headrime,6] -> sent {"groups":"5.headrime,6"} word="I" bad=0
+G|v0|L5|line form [SETUP — rhyme groups — 5.line,6] -> sent {"groups":"5.line,6"} word="I walk the line tonight" bad=0
+G|v0|L5|T4 form [SETUP — rhyme groups — 5.T4,6] -> sent {"groups":"5.T4,6"} word="line" bad=0
+G|v0|L5|T5 form [SETUP — rhyme groups — 5.T5,6] -> sent {"groups":"5.T5,6"} word="tonight" bad=0
+G|v0|L7|N form [SETUP — rhyme groups — 7,6] -> sent {"groups":"7,6"} word="tonight" bad=0
+G|v0|L7|end hand [SETUP — rhyme groups — 7.end,6] -> sent {"groups":"7.end,6"} word="tonight" bad=0
+G|v0|L7|endword form [SETUP — rhyme groups — 7.endword,6] -> sent {"groups":"7.endword,6"} word="tonight" bad=0
+G|v0|L7|head form [SETUP — rhyme groups — 7.head,6] -> sent {"groups":"7.head,6"} word="Stay" bad=0
+G|v0|L7|headrime form [SETUP — rhyme groups — 7.headrime,6] -> sent {"groups":"7.headrime,6"} word="Stay" bad=0
+G|v0|L7|line form [SETUP — rhyme groups — 7.line,6] -> sent {"groups":"7.line,6"} word="Stay with me (oh--oh) tonight" bad=0
+G|v0|L7|T3 form [SETUP — rhyme groups — 7.T3,6] -> sent {"groups":"7.T3,6"} word="me" bad=0
+G|v0|L7|T4 form [SETUP — rhyme groups — 7.T4,6] -> sent {"groups":"7.T4,6"} word="tonight" bad=0
+G|v0|L8|N form [SETUP — rhyme groups — 8,6] -> sent {"groups":"8,6"} word="tonight" bad=0
+G|v0|L8|end hand [SETUP — rhyme groups — 8.end,6] -> sent {"groups":"8.end,6"} word="tonight" bad=0
+G|v0|L8|endword form [SETUP — rhyme groups — 8.endword,6] -> sent {"groups":"8.endword,6"} word="tonight" bad=0
+G|v0|L8|head form [SETUP — rhyme groups — 8.head,6] -> sent {"groups":"8.head,6"} word="Hold" bad=0
+G|v0|L8|headrime form [SETUP — rhyme groups — 8.headrime,6] -> sent {"groups":"8.headrime,6"} word="Hold" bad=0
+G|v0|L8|line form [SETUP — rhyme groups — 8.line,6] -> sent {"groups":"8.line,6"} word="Hold me (hold me) close--close tonight" bad=0
+G|v0|L8|T3 form [SETUP — rhyme groups — 8.T3,6] -> sent {"groups":"8.T3,6"} word="close--close" bad=0
+G|v0|L8|T4 form [SETUP — rhyme groups — 8.T4,6] -> sent {"groups":"8.T4,6"} word="tonight" bad=0
+G|v1|L7|N form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 7,6] -> sent {"groups":"7,6","voices":true} word="tonight" bad=0
+G|v1|L7|end hand [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 7.end,6] -> sent {"groups":"7.end,6","voices":true} word="tonight" bad=0
+G|v1|L7|endword form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 7.endword,6] -> sent {"groups":"7.endword,6","voices":true} word="tonight" bad=0
+G|v1|L7|head form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 7.head,6] -> sent {"groups":"7.head,6","voices":true} word="Stay" bad=0
+G|v1|L7|headrime form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 7.headrime,6] -> sent {"groups":"7.headrime,6","voices":true} word="Stay" bad=0
+G|v1|L7|line form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 7.line,6] -> sent {"groups":"7.line,6","voices":true} word="Stay with me (oh--oh) tonight" bad=0
+G|v1|L7|T3 form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 7.T3,6] -> sent {"groups":"7.T3,6","voices":true} word="me" bad=0
+G|v1|L7|T4 form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 7.T4,6] -> sent {"groups":"7.T4,6","voices":true} word="oh--oh" bad=0
+G|v1|L7|T5 form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 7.T5,6] -> sent {"groups":"7.T5,6","voices":true} word="tonight" bad=0
+G|v1|L8|N form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 8,6] -> sent {"groups":"8,6","voices":true} word="tonight" bad=0
+G|v1|L8|end hand [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 8.end,6] -> sent {"groups":"8.end,6","voices":true} word="tonight" bad=0
+G|v1|L8|endword form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 8.endword,6] -> sent {"groups":"8.endword,6","voices":true} word="tonight" bad=0
+G|v1|L8|head form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 8.head,6] -> sent {"groups":"8.head,6","voices":true} word="Hold" bad=0
+G|v1|L8|headrime form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 8.headrime,6] -> sent {"groups":"8.headrime,6","voices":true} word="Hold" bad=0
+G|v1|L8|line form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 8.line,6] -> sent {"groups":"8.line,6","voices":true} word="Hold me (hold me) close--close tonight" bad=0
+G|v1|L8|T3 form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 8.T3,6] -> sent {"groups":"8.T3,6","voices":true} word="hold" bad=0
+G|v1|L8|T5 form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 8.T5,6] -> sent {"groups":"8.T5,6","voices":true} word="close--close" bad=0
+G|v1|L8|T6 form [SETUP — voices — parentheses are sung] | [SETUP — rhyme groups — 8.T6,6] -> sent {"groups":"8.T6,6","voices":true} word="tonight" bad=0
+R|v0|L1|N hand [SETUP — returns — 1,6.head] -> sent {"returns":"1,6.head"} word="love" bad=0
+R|v0|L1|end hand [SETUP — returns — 1.end,6.head] -> sent {"returns":"1.end,6.head"} word="love" bad=0
+R|v0|L1|endword form [SETUP — returns — 1.endword,6.head] -> sent {"returns":"1.endword,6.head"} word="love" bad=0
+R|v0|L1|head form [SETUP — returns — 1.head,6.head] -> sent {"returns":"1.head,6.head"} word="Oh--oh" bad=0
+R|v0|L1|headrime hand [SETUP — returns — 1.headrime,6.head] -> sent {"returns":"1.headrime,6.head"} word="Oh--oh" bad=0
+R|v0|L1|line form [SETUP — returns — 1.line,6.head] -> sent {"returns":"1.line,6.head"} word="Oh--oh, oh my love" bad=0
+R|v0|L1|T1 form [SETUP — returns — 1.T1,6.head] -> sent {"returns":"1.T1,6.head"} word="Oh--oh" bad=0
+R|v0|L1|T2 form [SETUP — returns — 1.T2,6.head] -> sent {"returns":"1.T2,6.head"} word="oh" bad=0
+R|v0|L1|T4 form [SETUP — returns — 1.T4,6.head] -> sent {"returns":"1.T4,6.head"} word="love" bad=0
+R|v0|L2|N hand [SETUP — returns — 2,6.head] -> sent {"returns":"2,6.head"} word="bass--" bad=0
+R|v0|L2|end hand [SETUP — returns — 2.end,6.head] -> sent {"returns":"2.end,6.head"} word="bass--" bad=0
+R|v0|L2|endword form [SETUP — returns — 2.endword,6.head] -> sent {"returns":"2.endword,6.head"} word="bass--" bad=0
+R|v0|L2|head form [SETUP — returns — 2.head,6.head] -> sent {"returns":"2.head,6.head"} word="Thundered" bad=0
+R|v0|L2|headrime hand [SETUP — returns — 2.headrime,6.head] -> sent {"returns":"2.headrime,6.head"} word="Thundered" bad=0
+R|v0|L2|line form [SETUP — returns — 2.line,6.head] -> sent {"returns":"2.line,6.head"} word="Thundered the battery’s double bass--" bad=0
+R|v0|L2|T1 form [SETUP — returns — 2.T1,6.head] -> sent {"returns":"2.T1,6.head"} word="Thundered" bad=0
+R|v0|L2|T5 form [SETUP — returns — 2.T5,6.head] -> sent {"returns":"2.T5,6.head"} word="bass--" bad=0
+R|v0|L3|N hand [SETUP — returns — 3,6.head] -> sent {"returns":"3,6.head"} word="true" bad=0
+R|v0|L3|end hand [SETUP — returns — 3.end,6.head] -> sent {"returns":"3.end,6.head"} word="true" bad=0
+R|v0|L3|endword form [SETUP — returns — 3.endword,6.head] -> sent {"returns":"3.endword,6.head"} word="true" bad=0
+R|v0|L3|head form [SETUP — returns — 3.head,6.head] -> sent {"returns":"3.head,6.head"} word="My" bad=0
+R|v0|L3|headrime hand [SETUP — returns — 3.headrime,6.head] -> sent {"returns":"3.headrime,6.head"} word="My" bad=0
+R|v0|L3|line form [SETUP — returns — 3.line,6.head] -> sent {"returns":"3.line,6.head"} word="My love--love is true" bad=0
+R|v0|L3|T2 form [SETUP — returns — 3.T2,6.head] -> sent {"returns":"3.T2,6.head"} word="love--love" bad=0
+R|v0|L3|T4 form [SETUP — returns — 3.T4,6.head] -> sent {"returns":"3.T4,6.head"} word="true" bad=0
+R|v0|L4|N hand [SETUP — returns — 4,6.head] -> sent {"returns":"4,6.head"} word="heart" bad=0
+R|v0|L4|end hand [SETUP — returns — 4.end,6.head] -> sent {"returns":"4.end,6.head"} word="heart" bad=0
+R|v0|L4|endword form [SETUP — returns — 4.endword,6.head] -> sent {"returns":"4.endword,6.head"} word="heart" bad=0
+R|v0|L4|head form [SETUP — returns — 4.head,6.head] -> sent {"returns":"4.head,6.head"} word="You" bad=0
+R|v0|L4|headrime hand [SETUP — returns — 4.headrime,6.head] -> sent {"returns":"4.headrime,6.head"} word="You" bad=0
+R|v0|L4|line form [SETUP — returns — 4.line,6.head] -> sent {"returns":"4.line,6.head"} word="You hold my heart.    10" bad=0
+R|v0|L4|T4 form [SETUP — returns — 4.T4,6.head] -> sent {"returns":"4.T4,6.head"} word="heart" bad=0
+R|v0|L5|N hand [SETUP — returns — 5,6.head] -> sent {"returns":"5,6.head"} word="tonight" bad=0
+R|v0|L5|end hand [SETUP — returns — 5.end,6.head] -> sent {"returns":"5.end,6.head"} word="tonight" bad=0
+R|v0|L5|endword form [SETUP — returns — 5.endword,6.head] -> sent {"returns":"5.endword,6.head"} word="tonight" bad=0
+R|v0|L5|head form [SETUP — returns — 5.head,6.head] -> sent {"returns":"5.head,6.head"} word="I" bad=0
+R|v0|L5|headrime hand [SETUP — returns — 5.headrime,6.head] -> sent {"returns":"5.headrime,6.head"} word="I" bad=0
+R|v0|L5|line form [SETUP — returns — 5.line,6.head] -> sent {"returns":"5.line,6.head"} word="I walk the line tonight" bad=0
+R|v0|L5|T4 form [SETUP — returns — 5.T4,6.head] -> sent {"returns":"5.T4,6.head"} word="line" bad=0
+R|v0|L5|T5 form [SETUP — returns — 5.T5,6.head] -> sent {"returns":"5.T5,6.head"} word="tonight" bad=0
+R|v0|L7|N hand [SETUP — returns — 7,6.head] -> sent {"returns":"7,6.head"} word="tonight" bad=0
+R|v0|L7|end hand [SETUP — returns — 7.end,6.head] -> sent {"returns":"7.end,6.head"} word="tonight" bad=0
+R|v0|L7|endword form [SETUP — returns — 7.endword,6.head] -> sent {"returns":"7.endword,6.head"} word="tonight" bad=0
+R|v0|L7|head form [SETUP — returns — 7.head,6.head] -> sent {"returns":"7.head,6.head"} word="Stay" bad=0
+R|v0|L7|headrime hand [SETUP — returns — 7.headrime,6.head] -> sent {"returns":"7.headrime,6.head"} word="Stay" bad=0
+R|v0|L7|line form [SETUP — returns — 7.line,6.head] -> sent {"returns":"7.line,6.head"} word="Stay with me (oh--oh) tonight" bad=0
+R|v0|L7|T3 form [SETUP — returns — 7.T3,6.head] -> sent {"returns":"7.T3,6.head"} word="me" bad=0
+R|v0|L7|T4 form [SETUP — returns — 7.T4,6.head] -> sent {"returns":"7.T4,6.head"} word="tonight" bad=0
+R|v0|L8|N hand [SETUP — returns — 8,6.head] -> sent {"returns":"8,6.head"} word="tonight" bad=0
+R|v0|L8|end hand [SETUP — returns — 8.end,6.head] -> sent {"returns":"8.end,6.head"} word="tonight" bad=0
+R|v0|L8|endword form [SETUP — returns — 8.endword,6.head] -> sent {"returns":"8.endword,6.head"} word="tonight" bad=0
+R|v0|L8|head form [SETUP — returns — 8.head,6.head] -> sent {"returns":"8.head,6.head"} word="Hold" bad=0
+R|v0|L8|headrime hand [SETUP — returns — 8.headrime,6.head] -> sent {"returns":"8.headrime,6.head"} word="Hold" bad=0
+R|v0|L8|line form [SETUP — returns — 8.line,6.head] -> sent {"returns":"8.line,6.head"} word="Hold me (hold me) close--close tonight" bad=0
+R|v0|L8|T3 form [SETUP — returns — 8.T3,6.head] -> sent {"returns":"8.T3,6.head"} word="close--close" bad=0
+R|v0|L8|T4 form [SETUP — returns — 8.T4,6.head] -> sent {"returns":"8.T4,6.head"} word="tonight" bad=0
+R|v1|L7|N hand [SETUP — voices — parentheses are sung] | [SETUP — returns — 7,6.head] -> sent {"returns":"7,6.head","voices":true} word="tonight" bad=0
+R|v1|L7|end hand [SETUP — voices — parentheses are sung] | [SETUP — returns — 7.end,6.head] -> sent {"returns":"7.end,6.head","voices":true} word="tonight" bad=0
+R|v1|L7|endword form [SETUP — voices — parentheses are sung] | [SETUP — returns — 7.endword,6.head] -> sent {"returns":"7.endword,6.head","voices":true} word="tonight" bad=0
+R|v1|L7|head form [SETUP — voices — parentheses are sung] | [SETUP — returns — 7.head,6.head] -> sent {"returns":"7.head,6.head","voices":true} word="Stay" bad=0
+R|v1|L7|headrime hand [SETUP — voices — parentheses are sung] | [SETUP — returns — 7.headrime,6.head] -> sent {"returns":"7.headrime,6.head","voices":true} word="Stay" bad=0
+R|v1|L7|line form [SETUP — voices — parentheses are sung] | [SETUP — returns — 7.line,6.head] -> sent {"returns":"7.line,6.head","voices":true} word="Stay with me (oh--oh) tonight" bad=0
+R|v1|L7|T3 form [SETUP — voices — parentheses are sung] | [SETUP — returns — 7.T3,6.head] -> sent {"returns":"7.T3,6.head","voices":true} word="me" bad=0
+R|v1|L7|T4 form [SETUP — voices — parentheses are sung] | [SETUP — returns — 7.T4,6.head] -> sent {"returns":"7.T4,6.head","voices":true} word="oh--oh" bad=0
+R|v1|L7|T5 form [SETUP — voices — parentheses are sung] | [SETUP — returns — 7.T5,6.head] -> sent {"returns":"7.T5,6.head","voices":true} word="tonight" bad=0
+R|v1|L8|N hand [SETUP — voices — parentheses are sung] | [SETUP — returns — 8,6.head] -> sent {"returns":"8,6.head","voices":true} word="tonight" bad=0
+R|v1|L8|end hand [SETUP — voices — parentheses are sung] | [SETUP — returns — 8.end,6.head] -> sent {"returns":"8.end,6.head","voices":true} word="tonight" bad=0
+R|v1|L8|endword form [SETUP — voices — parentheses are sung] | [SETUP — returns — 8.endword,6.head] -> sent {"returns":"8.endword,6.head","voices":true} word="tonight" bad=0
+R|v1|L8|head form [SETUP — voices — parentheses are sung] | [SETUP — returns — 8.head,6.head] -> sent {"returns":"8.head,6.head","voices":true} word="Hold" bad=0
+R|v1|L8|headrime hand [SETUP — voices — parentheses are sung] | [SETUP — returns — 8.headrime,6.head] -> sent {"returns":"8.headrime,6.head","voices":true} word="Hold" bad=0
+R|v1|L8|line form [SETUP — voices — parentheses are sung] | [SETUP — returns — 8.line,6.head] -> sent {"returns":"8.line,6.head","voices":true} word="Hold me (hold me) close--close tonight" bad=0
+R|v1|L8|T3 form [SETUP — voices — parentheses are sung] | [SETUP — returns — 8.T3,6.head] -> sent {"returns":"8.T3,6.head","voices":true} word="hold" bad=0
+R|v1|L8|T5 form [SETUP — voices — parentheses are sung] | [SETUP — returns — 8.T5,6.head] -> sent {"returns":"8.T5,6.head","voices":true} word="close--close" bad=0
+R|v1|L8|T6 form [SETUP — voices — parentheses are sung] | [SETUP — returns — 8.T6,6.head] -> sent {"returns":"8.T6,6.head","voices":true} word="tonight" bad=0
+errors: [] secs 58.467

@@ -1,0 +1,113 @@
+IDENTITY {
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base",
+ "connector_semantic_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+ "parts": {
+  "source_sha256": "9602d809f6788fa8f79ee9c78bcd39cb9b416c4adb00823f2638ea8f479974f2",
+  "assets_sha256": "9bffbd586992ca658ce10b067d79b92c005be86149ffc063d3fd92979f079b03",
+  "manifest_sha256": "c4fcefd938b6dbdd3692e7c3364f34232cf6616634f8501a5c0974dc8454fd7b",
+  "python": "3.13.16",
+  "nltk": "3.10.3",
+  "node": "v22.22.0",
+  "reader": null
+ }
+}
+
+=== decodeState
+ {
+ "threw": false
+}
+
+=== state_answer
+ {
+ "isError": false,
+ "text": "Copper cat\nAzure dog\n\n[FINISHED — declared mandate — exit 3 — ROUND_LIMIT after 1 round(s) — UNRESOLVED: L2]\n\nSTANDING AT THE STOP — what the open lines and the whole draft still carry:\n  L1/L2: FINDING [FLAG] SCHEME_VIOLATION: L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with `run_id`, `run_revision` 1 and `draft_text` (the full song as ONE newline-separated string) — no `answer`, no `state` (run run_e13bfe39b5be98120f88a473665d98f71febd6212c5c8252d2a1f96fc9328038; `new_run: true` starts independently).\n{\"exit_code\":3,\"meaning\":\"answered — at least one FLAG stands; the report names the lines\",\"report\":\"  MANDATE: 1 group(s) over 2 lines, 1 mandated pair(s), source=declared (letter scheme 'AA')\\n           group A = lines 1,2 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\\n  RELATION: every group is judged under 'type:rime riche' unless it declares its own — the named relation's own judge, which narrows the default of every relation.\\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  PROPOSER: [server temporary file] — 1 answer(s) already given; the run resumes from its saved position, or replays its journal in order when that position cannot be trusted; nothing outside this process is reached, and the loop SUSPENDS at the first unanswered req",
+ "verdict": {
+  "exit_code": 3,
+  "status": "stopped_with_open_lines",
+  "run_id": "<run>",
+  "run_revision": 1,
+  "has_state": true
+ }
+}
+
+=== runid_answer
+ {
+ "isError": true,
+ "text": "Error: `run_id` run_e6794517a8ab99639b1984603d9bdf9841c65098b7953d2e9e1392e541098df6 names no run this tool remembers — it may have finished, expired (6 h idle) or been forgotten by a restart; pass `state` back, or omit `run_id` and send the draft to open a fresh run",
+ "verdict": null
+}
+
+=== runid_state_answer
+ {
+ "isError": false,
+ "text": "Copper cat\nAzure dog\n\n[FINISHED — declared mandate — exit 3 — ROUND_LIMIT after 1 round(s) — UNRESOLVED: L2]\n\nSTANDING AT THE STOP — what the open lines and the whole draft still carry:\n  L1/L2: FINDING [FLAG] SCHEME_VIOLATION: L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with `run_id`, `run_revision` 1 and `draft_text` (the full song as ONE newline-separated string) — no `answer`, no `state` (run run_5351562f3e3226ef933173ccd9528e326e3754bdd89d6c995e02394d75dd660a; `new_run: true` starts independently).\n{\"exit_code\":3,\"meaning\":\"answered — at least one FLAG stands; the report names the lines\",\"report\":\"  MANDATE: 1 group(s) over 2 lines, 1 mandated pair(s), source=declared (letter scheme 'AA')\\n           group A = lines 1,2 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\\n  RELATION: every group is judged under 'type:rime riche' unless it declares its own — the named relation's own judge, which narrows the default of every relation.\\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  PROPOSER: [server temporary file] — 1 answer(s) already given; the run resumes from its saved position, or replays its journal in order when that position cannot be trusted; nothing outside this process is reached, and the loop SUSPENDS at the first unanswered req",
+ "verdict": {
+  "exit_code": 3,
+  "status": "stopped_with_open_lines",
+  "run_id": "<run>",
+  "run_revision": 1,
+  "has_state": true
+ }
+}
+
+=== state_decl_answer
+ {
+ "isError": false,
+ "text": "Copper cat\nAzure dog\n\n[FINISHED — declared mandate — exit 3 — ROUND_LIMIT after 1 round(s) — UNRESOLVED: L2]\n\nSTANDING AT THE STOP — what the open lines and the whole draft still carry:\n  L1/L2: FINDING [FLAG] SCHEME_VIOLATION: L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with `run_id`, `run_revision` 1 and `draft_text` (the full song as ONE newline-separated string) — no `answer`, no `state` (run run_d8b03d6aa53a3c20f4216a9dc20a69f50550a070b58074f2f5fed04594cf8d9c; `new_run: true` starts independently).\n{\"exit_code\":3,\"meaning\":\"answered — at least one FLAG stands; the report names the lines\",\"report\":\"  MANDATE: 1 group(s) over 2 lines, 1 mandated pair(s), source=declared (letter scheme 'AA')\\n           group A = lines 1,2 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\\n  RELATION: every group is judged under 'type:rime riche' unless it declares its own — the named relation's own judge, which narrows the default of every relation.\\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  PROPOSER: [server temporary file] — 1 answer(s) already given; the run resumes from its saved position, or replays its journal in order when that position cannot be trusted; nothing outside this process is reached, and the loop SUSPENDS at the first unanswered req",
+ "verdict": {
+  "exit_code": 3,
+  "status": "stopped_with_open_lines",
+  "run_id": "<run>",
+  "run_revision": 1,
+  "has_state": true
+ }
+}
+
+=== recover_only
+ {
+ "isError": false,
+ "text": "{\"status\":\"recovered_artifact\",\"recovery_part\":\"all\",\"source_format\":\"gzip+base64\",\"source_connector_contract\":3,\"source_semantic_identity\":\"a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb\",\"checksum_verified\":true,\"final_draft\":[\"Copper cat\",\"Azure dog\"],\"replay_draft\":[\"Copper cat\",\"Azure dog\"],\"journal\":{\"version\":1,\"answered\":{\"propose\":[],\"propose_group\":[]},\"pending\":{\"kind\":\"propose\",\"record\":{\"line\":2,\"attempt\":0,\"round\":1,\"draft\":\"54ab17b496bf\",\"text\":null},\"prompt\":\"REVISE ONE LINE — L2 of a 2-line draft.\\n\\nYou are given a draft, one line of it a grader has flagged, everything that grader\\nmeasured, and the rules it will apply to what you send back. Rewrite that ONE line.\\n\\nATTEMPT\\n  This is ATTEMPT 1 of this line's retry budget.\\n  No previous attempt was rejected on this line in this round.\\n\\nTHE LINE TO REVISE\\n  L2: Azure dog\\n\\nTHE WHOLE DRAFT (context — only L2 may change)\\n     L1  Copper cat\\n  >> L2  Azure dog\\n\\nWHAT THE GRADER FOUND ON L2 (1)\\n  [flag] SCHEME_VIOLATION: L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires (lines 1, 2)\\n      evidence: does not satisfy the declared relation 'type:rime riche' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score 0.737; 'cat' ~ 'dog') — NAMED PAIR IS NOT THE EVIDENCE: scored on: Copper cat  ~  Azure dog   (best of k=4)   MOSAIC (both sides): the winning span reaches back past the end word\\n\\nTHE RHYME MANDATE ON L2\\n  group A [1, 2] at its end word — this line must stand in at least one relation with: L1 ('cat') — VIOLATED, this is the word to change\\n\\nOFFERED — words for the end word that answer every group bound there\\n  56 word(s) the band admitted are NOT offered: this place is judged by its group's declared\\n  relation, and it did not certify them (matt, pratt, habitat, diplomat, pussycat, democrat, copycat, format, …).\\n  The list below is what that relation accepts — the same judge the verdict uses.\\n  NOTHING OFFERED: the searched answers to 'cat' were removed by the two-tier\\n  ban (HOMEOTELEUTON / MODAL_RHYME; 1 under FORBIDDEN). This bounded field\\n  does not prove that no one-line repair exists. The GROUP (A) can move\\n  together through tier 2, the joint backtrack (M-105): `revise`/`finish`\\n  escalate there after tier 1 fails (M-205). The CLI uses `--backtrack=5`;\\",
+ "parsed_keys": [
+  "certified",
+  "checksum_verified",
+  "final_draft",
+  "journal",
+  "journal_included",
+  "meaning",
+  "new_run_required",
+  "original_wire_bytes",
+  "original_wire_sha256",
+  "recovery_part",
+  "replay_draft",
+  "resumable",
+  "source_connector_contract",
+  "source_format",
+  "source_semantic_identity",
+  "status"
+ ],
+ "summary": {
+  "status": "recovered_artifact",
+  "recovery_part": "all",
+  "source_format": "gzip+base64",
+  "source_connector_contract": 3,
+  "source_semantic_identity": "a9ccaa92237bf798577183269cf34447ba9c930969cb382ab9197d3f8a7df7fb",
+  "checksum_verified": true,
+  "final_draft": [
+   "Copper cat",
+   "Azure dog"
+  ],
+  "replay_draft": [
+   "Copper cat",
+   "Azure dog"
+  ],
+  "journal_included": true,
+  "original_wire_sha256": "bc2d62a3e3aadc76772cdd2dd241745f094c358af4ff2ea17b613bfb474a22a4",
+  "original_wire_bytes": 5673,
+  "certified": false,
+  "resumable": false,
+  "new_run_required": true,
+  "meaning": "Stored work exported without replay or grading. Drafts are copied verbatim; null means that draft was not stored and has not been inferred from answers. The journal and original wire retain their original identity. Start independent work from recovered lyrics; do not submit this recovery response as a continuation."
+ }
+}
+
+RUNS size in this process: [Function: size]

@@ -1,0 +1,52 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+ "old_operation_options": [
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "token": 1,
+   "word": "Wind--wind"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "token": 2,
+   "word": "wind"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "token": 4,
+   "word": "vrexl"
+  },
+  {
+   "line": "Azure vrexl",
+   "token": 2,
+   "word": "vrexl"
+  }
+ ],
+ "fresh_operation_options": [
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "token": 1,
+   "word": "Wind"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "token": 2,
+   "word": "wind"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "token": 3,
+   "word": "wind"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "token": 5,
+   "word": "vrexl"
+  },
+  {
+   "line": "Azure vrexl",
+   "token": 2,
+   "word": "vrexl"
+  }
+ ]
+}

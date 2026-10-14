@@ -1,0 +1,21 @@
+[
+ {
+  "name": "G|v0|L4|N carried (as sent)",
+  "declarations": {
+   "groups": "4,6"
+  }
+ },
+ {
+  "name": "R|v0|L4|N carried (as sent)",
+  "declarations": {
+   "returns": "4,6.head"
+  }
+ },
+ {
+  "name": "keep scenario after Keep (as sent)",
+  "declarations": {
+   "groups": "1,6;2.endword,5;4,3.head",
+   "returns": "1.head,6.head;8.line,5.line"
+  }
+ }
+]

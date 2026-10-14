@@ -1,0 +1,101 @@
+TAP version 13
+# Subtest: canonical SHA256 authenticates identity, exact text and every source notice
+ok 1 - canonical SHA256 authenticates identity, exact text and every source notice
+  ---
+  duration_ms: 15.768809
+  type: 'test'
+  ...
+# Subtest: unsupported versions, missing coordinates and unsafe envelope fields refuse
+ok 2 - unsupported versions, missing coordinates and unsafe envelope fields refuse
+  ---
+  duration_ms: 1.459038
+  type: 'test'
+  ...
+# Subtest: atomic commit preserves full previous draft, private continuation and provenance
+ok 3 - atomic commit preserves full previous draft, private continuation and provenance
+  ---
+  duration_ms: 4.847797
+  type: 'test'
+  ...
+# Subtest: write failure rolls back old draft, new draft, receipt and nonce claim together
+ok 4 - write failure rolls back old draft, new draft, receipt and nonce claim together
+  ---
+  duration_ms: 3.149039
+  type: 'test'
+  ...
+# Subtest: lost ACK and identical retry create one imported draft; changed digest and nonce reuse refuse
+ok 5 - lost ACK and identical retry create one imported draft; changed digest and nonce reuse refuse
+  ---
+  duration_ms: 6.631772
+  type: 'test'
+  ...
+# Subtest: wrong origin, source and nonce do not commit or acknowledge
+ok 6 - wrong origin, source and nonce do not commit or acknowledge
+  ---
+  duration_ms: 1.460981
+  type: 'test'
+  ...
+# Subtest: failed commits always release the current-draft lock and never acknowledge
+ok 7 - failed commits always release the current-draft lock and never acknowledge
+  ---
+  duration_ms: 2.024992
+  type: 'test'
+  ...
+# Subtest: file and window imports serialize so each preserves the immediately preceding active draft
+ok 8 - file and window imports serialize so each preserves the immediately preceding active draft
+  ---
+  duration_ms: 5.737868
+  type: 'test'
+  ...
+# Subtest: unused handshake expires at 60 seconds; a committed retry remains safe
+ok 9 - unused handshake expires at 60 seconds; a committed retry remains safe
+  ---
+  duration_ms: 1.80457
+  type: 'test'
+  ...
+# Subtest: receiver reload completes committed activation without duplicate draft creation
+ok 10 - receiver reload completes committed activation without duplicate draft creation
+  ---
+  duration_ms: 4.527566
+  type: 'test'
+  ...
+# Subtest: file import retains an oversized native reading verbatim and refuses writer eligibility
+ok 11 - file import retains an oversized native reading verbatim and refuses writer eligibility
+  ---
+  duration_ms: 1211.420981
+  type: 'test'
+  ...
+# Subtest: origins require exact production or explicitly configured localhost equality
+ok 12 - origins require exact production or explicitly configured localhost equality
+  ---
+  duration_ms: 2.163563
+  type: 'test'
+  ...
+# Subtest: metadata, saved copies, session exports and Undo retain the full untruncated provenance sidecar
+ok 13 - metadata, saved copies, session exports and Undo retain the full untruncated provenance sidecar
+  ---
+  duration_ms: 58.636227
+  type: 'test'
+  ...
+# Subtest: working-copy download binds the complete text and mandatory credits in one importable envelope
+ok 14 - working-copy download binds the complete text and mandatory credits in one importable envelope
+  ---
+  duration_ms: 31.322291
+  type: 'test'
+  ...
+# Subtest: Lyrics activation preserves the old private continuation without aborting it or inheriting its certification
+ok 15 - Lyrics activation preserves the old private continuation without aborting it or inheriting its certification
+  ---
+  duration_ms: 19.344349
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1537.945405
+exit=0

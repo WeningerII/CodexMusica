@@ -1,0 +1,199 @@
+[
+ {
+  "name": "B1 as main sends (5.end,6.end)",
+  "returns": "5.end,6.end",
+  "check_isError": false,
+  "check": {
+   "exit_code": 0,
+   "certified": true,
+   "meaning": "answered — no flag stands"
+  },
+  "rounds": [],
+  "revise_isError": false,
+  "revise": {
+   "exit_code": 0,
+   "status": "finished_clean",
+   "certified": true,
+   "loop_stop_reason": "SUCCESS",
+   "blocking": [],
+   "folded": null,
+   "meaning": "answered — no flag stands"
+  },
+  "song_head": [
+   "Hold on--hold on to me",
+   "The night is cold and grey",
+   "We danced until the morning",
+   "Meet me at the corner at 9",
+   "I walk the line tonight",
+   "Stay with me tonight",
+   "The station clock says nine",
+   "Hold on--hold on tonight",
+   "",
+   "[FINISHED — declared mandate — exit 0 — SUCCESS after 0 round(s) — no line flag stands]"
+  ],
+  "changed_lines": []
+ },
+ {
+  "name": "B2 the collapsed class alone (5,6)",
+  "returns": "5,6",
+  "check_isError": false,
+  "check": {
+   "exit_code": 0,
+   "certified": true,
+   "meaning": "answered — 1 per-line and 0 whole-draft flag(s) stand"
+  },
+  "rounds": [
+   {
+    "asked": {
+     "kind": "propose",
+     "line": 6,
+     "attempt": 0,
+     "round": 1
+    }
+   }
+  ],
+  "revise_isError": false,
+  "revise": {
+   "exit_code": 0,
+   "status": "finished_clean",
+   "certified": true,
+   "loop_stop_reason": "SUCCESS",
+   "blocking": [],
+   "folded": {
+    "kind": "propose",
+    "line": 6,
+    "attempt": 0,
+    "round": 1,
+    "answer": "Stay with me tonight",
+    "verdict": "accepted",
+    "reasons": [
+     "fixed 1, introduced 0, changed only [5]"
+    ],
+    "source": "outcome"
+   },
+   "meaning": "answered — no flag stands"
+  },
+  "song_head": [
+   "Hold on--hold on to me",
+   "The night is cold and grey",
+   "We danced until the morning",
+   "Meet me at the corner at 9",
+   "Stay with me tonight",
+   "Stay with me tonight",
+   "The station clock says nine",
+   "Hold on--hold on tonight",
+   "",
+   "[FINISHED — declared mandate — exit 0 — SUCCESS after 1 round(s) — no line flag stands]"
+  ],
+  "changed_lines": [
+   [
+    5,
+    "I walk the line tonight",
+    "Stay with me tonight"
+   ]
+  ]
+ },
+ {
+  "name": "C1 as main sends (1.end,6.head)",
+  "returns": "1.end,6.head",
+  "check_isError": false,
+  "check": {
+   "exit_code": 0,
+   "certified": true,
+   "meaning": "answered — 1 per-line and 0 whole-draft flag(s) stand"
+  },
+  "rounds": [
+   {
+    "asked": {
+     "kind": "propose_group",
+     "members": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "attempt": 0,
+     "question_sha256": "7df9e5b80efc35bf3f1d967e20f9cc3fc3d7ae346805ce0bc7992aab74e4a29f",
+     "round": 1
+    }
+   }
+  ],
+  "revise_isError": false,
+  "revise": {
+   "exit_code": 3,
+   "status": "stopped_with_whole_draft_flags",
+   "certified": true,
+   "loop_stop_reason": "WHOLE_DRAFT_UNRESOLVED",
+   "blocking": [
+    "L1/6: RETURN_NOT_VERBATIM — placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.end='me', L6.head='Stay'. The rest of these lines is not constrained by this class (Judged word identity at the declared placements.)"
+   ],
+   "folded": {
+    "kind": "propose_group",
+    "members": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "attempt": 0,
+    "round": 1,
+    "question_sha256": "7df9e5b80efc35bf3f1d967e20f9cc3fc3d7ae346805ce0bc7992aab74e4a29f",
+    "answer": "L1: Hold on--hold on to me\nL2: The night is cold and grey\nL3: We danced until the morning\nL4: Meet me at the corner at 9\nL5: I walk the line tonight\nL6: Stay with me tonight\nL7: The station clock says nine\nL8: Hold on--hold on tonight",
+    "verdict": "rejected",
+    "reasons": [
+     "nothing was fixed"
+    ],
+    "source": "outcome"
+   },
+   "meaning": "answered — at least one FLAG stands; the report names the lines"
+  },
+  "song_head": [
+   "Hold on--hold on to me",
+   "The night is cold and grey",
+   "We danced until the morning",
+   "Meet me at the corner at 9",
+   "I walk the line tonight",
+   "Stay with me tonight",
+   "The station clock says nine",
+   "Hold on--hold on tonight",
+   "",
+   "[FINISHED — declared mandate — exit 3 — WHOLE_DRAFT_UNRESOLVED after 1 round(s) — no line flag stands — WHOLE-DRAFT FLAG: RETURN_NOT_VERBATIM]"
+  ],
+  "changed_lines": []
+ },
+ {
+  "name": "C2 as candidate sends after upgrade (1,6.head)",
+  "returns": "1,6.head",
+  "check_isError": false,
+  "check": {
+   "exit_code": 2,
+   "certified": false,
+   "meaning": "REFUSED — the harness did not answer; the report names why"
+  },
+  "rounds": [],
+  "revise_isError": false,
+  "revise": {
+   "exit_code": 2,
+   "certified": false,
+   "meaning": "REFUSED — the harness did not answer; the report names why"
+  },
+  "song_head": [
+   "{\"exit_code\":2,\"meaning\":\"REFUSED — the harness did not answer; the report names why\",\"report\":\"  REFUSED — the mandate was not accepted.\\n  return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes.\\n\",\"verified_outcomes\":null,\"verified_outcomes_error\":\"No authenticated verifier outcome inventory is available.\",\"verified_outcomes_draft_sha256\":null,\"journal_id\":null,\"resume_proof\":null,\"resume_proof_error\":\"No authenticated checkpoint replay receipt is available.\",\"path\":\"warm\",\"ms\":3581,\"tool_deadline\":{\"tool_budget_ms\":600000,\"caller_deadline_ms\":599999,\"reserve_ms\":1000,\"cap_ms\":598999,\"bound_by\":\"caller_deadline\",\"elapsed_ms\":3581},\"retained\":{\"stage\":\"result_recorded\",\"phase\":null,\"round\":null,\"completed_proposals\":null,\"accepted_lines\":null,\"proposer_calls\":null,\"proposer_in_flight\":null},\"refusal\":\"return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes.\",\"measurement_status\":\"refused\",\"lexicon\":{\"supplement_id\":\"v2\",\"sha256\":\"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51\"},\"findings_measured\":false,\"certified\":false,\"writer\":\"interview\"}"
+  ],
+  "changed_lines": [
+   [
+    1,
+    "Hold on--hold on to me",
+    "{\"exit_code\":2,\"meaning\":\"REFUSED — the harness did not answer; the report names why\",\"report\":\"  REFUSED — the mandate was not accepted.\\n  return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes.\\n\",\"verified_outcomes\":null,\"verified_outcomes_error\":\"No authenticated verifier outcome inventory is available.\",\"verified_outcomes_draft_sha256\":null,\"journal_id\":null,\"resume_proof\":null,\"resume_proof_error\":\"No authenticated checkpoint replay receipt is available.\",\"path\":\"warm\",\"ms\":3581,\"tool_deadline\":{\"tool_budget_ms\":600000,\"caller_deadline_ms\":599999,\"reserve_ms\":1000,\"cap_ms\":598999,\"bound_by\":\"caller_deadline\",\"elapsed_ms\":3581},\"retained\":{\"stage\":\"result_recorded\",\"phase\":null,\"round\":null,\"completed_proposals\":null,\"accepted_lines\":null,\"proposer_calls\":null,\"proposer_in_flight\":null},\"refusal\":\"return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes.\",\"measurement_status\":\"refused\",\"lexicon\":{\"supplement_id\":\"v2\",\"sha256\":\"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51\"},\"findings_measured\":false,\"certified\":false,\"writer\":\"interview\"}"
+   ]
+  ]
+ }
+]
