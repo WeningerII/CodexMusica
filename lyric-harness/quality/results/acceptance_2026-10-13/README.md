@@ -222,7 +222,14 @@ Apart from that line, every outcome count is identical to the label-based versio
 - it takes spans from the harness's `reader_token_spans` under the lexicon's scheme;
 - it also runs both aside modes under scheme v1.
 
-On a tree without reader schemes it is version 1: re-run on `fce4bf0f` it reproduces the version-1 receipt exactly (FAIL, `asides_stripped:wrong_word` 5, 2 unresolved, the same population and outcome counts; `slot_binding_v2_fce4bf0f.json`).
+On a tree without reader schemes it is version 1. Re-run on `fce4bf0f`, it gives the version-1 RESULT: every field outside `pins` is equal (FAIL, `asides_stripped:wrong_word` 5, 2 unresolved, the same population and outcome counts; `slot_binding_v2_fce4bf0f.json`). The receipts are not byte-identical, because the pins differ (tool sha256, version, modes).
+
+**What version 2 does not establish** (3PO's review, PR #527, 6160610304):
+- `_production_uses` checks the SHAPE of the production calls' keywords, not that they mean the same thing. It is not a guard for future semantic equivalence;
+- because the gate takes spans from the harness's own `reader_token_spans`, it checks that slot and edit agree with each other, not that the raw spans are independently right;
+- the v1 modes call the reviser and the grader under scheme v1. They do not establish end-to-end replay of a legacy run.
+
+It is fit for bounded diagnostic use on this candidate, and the candidate gate is FAIL. The case-by-case match with the base is in `slot_match_67889851/`.
 
 ## The disputed dictionary rows
 
