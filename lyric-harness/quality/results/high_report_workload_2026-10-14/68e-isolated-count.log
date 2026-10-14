@@ -1,0 +1,11 @@
+MCP_CALL_START 1 lyric_revise
+MCP_CALL_END 1 lyric_revise 36.764ms
+MCP_CALL_START 2 lyric_revise
+MCP_CALL_END 2 lyric_revise 33.727ms
+MCP_CALL_START 3 lyric_revise
+MCP_CALL_END 3 lyric_revise 1.760ms
+MCP_CALL_START 4 lyric_revise
+MCP_CALL_END 4 lyric_revise 1.695ms
+MCP_CALL_START 5 lyric_revise
+MCP_CALL_END 5 lyric_revise 27452.816ms
+FIRST_REQUEST_PASS
