@@ -1,0 +1,895 @@
+{
+ "what": "8ea94ac9 corpus endpoint-guard sweep (../endpoint_guard_witness.py, same tool sha as at 0af39c6f) compared with the committed 0af39c6f receipts; differ lists are not stored again because they are equal",
+ "shards": [
+  {
+   "shard": [
+    0,
+    4
+   ],
+   "corpus": {
+    "files": 1344,
+    "file_list_sha256": "779bbea7f3f46c70b43351705d5227298b5fe189085d0e84127e3c91631bc6cd",
+    "files_content_sha256": "abb8713a364fac16dc2587246b4330e43c8903004b66fb452855b3797fa8d30c",
+    "unique_line_texts": 272317,
+    "unique_line_texts_sha256": "c80edf412afec05998e4a6c250e7aa9d9af47f75c80b2a2b4fe7bd5851e804b8",
+    "shard_lines": 68080,
+    "shard_lines_sha256": "3530b91bee511766080ec47ed9935b1b1c0c698efa93acda0cded7925573f6e1"
+   },
+   "counts_8ea94ac9": {
+    "cur:stripped": {
+     "lines": 68080,
+     "same": 63886,
+     "differ": 4194,
+     "errors": 0
+    },
+    "cur:sung": {
+     "lines": 68080,
+     "same": 63886,
+     "differ": 4194,
+     "errors": 0
+    }
+   },
+   "counts_equal": true,
+   "differ_list_canonical_sha256": {
+    "0af39c6f": "5016d07fcab8b8d933bc06bcb5532822897427de62864330156edba99ab83d51",
+    "8ea94ac9": "5016d07fcab8b8d933bc06bcb5532822897427de62864330156edba99ab83d51"
+   },
+   "differ_lists_equal": true,
+   "pins_8ea94ac9": {
+    "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+    "tracked_changes": false,
+    "tool_git_state": "committed, unchanged",
+    "lexicons": {
+     "cur:stripped": {
+      "class": "SupplementedLexicon",
+      "g2p_fallback": null,
+      "supplement": {
+       "id": "v2",
+       "path": "data/lexicon_supplement_v2.tsv",
+       "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+      },
+      "strip_parens": true,
+      "reader_scheme": "v2"
+     },
+     "cur:sung": {
+      "class": "SupplementedLexicon",
+      "g2p_fallback": null,
+      "supplement": {
+       "id": "v2",
+       "path": "data/lexicon_supplement_v2.tsv",
+       "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+      },
+      "strip_parens": false,
+      "reader_scheme": "v2"
+     }
+    },
+    "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+    "loop_sha256": "e9e5646119d27dcfbeab4bd9a9ec9f9a82828d3a3e5a91f2462f5f540b4f044f",
+    "tool_sha256": "df95541f98b7170055a72f6b89d7efdcc92613cdba10cef3ef695cf8e238c177",
+    "slot_binding_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026"
+   },
+   "pins_differing_from_0af39c6f": [
+    "commit"
+   ]
+  },
+  {
+   "shard": [
+    1,
+    4
+   ],
+   "corpus": {
+    "files": 1344,
+    "file_list_sha256": "779bbea7f3f46c70b43351705d5227298b5fe189085d0e84127e3c91631bc6cd",
+    "files_content_sha256": "abb8713a364fac16dc2587246b4330e43c8903004b66fb452855b3797fa8d30c",
+    "unique_line_texts": 272317,
+    "unique_line_texts_sha256": "c80edf412afec05998e4a6c250e7aa9d9af47f75c80b2a2b4fe7bd5851e804b8",
+    "shard_lines": 68079,
+    "shard_lines_sha256": "9446b1838b611b206fdfa34bceeaa557d9a71abdbdacff6a5c87c412717a14c5"
+   },
+   "counts_8ea94ac9": {
+    "cur:stripped": {
+     "lines": 68079,
+     "same": 63844,
+     "differ": 4235,
+     "errors": 0
+    },
+    "cur:sung": {
+     "lines": 68079,
+     "same": 63844,
+     "differ": 4235,
+     "errors": 0
+    }
+   },
+   "counts_equal": true,
+   "differ_list_canonical_sha256": {
+    "0af39c6f": "8085b9abf54a45b41ce93f14ebe213cb79edb744d790681b3c5dfd55d356692b",
+    "8ea94ac9": "8085b9abf54a45b41ce93f14ebe213cb79edb744d790681b3c5dfd55d356692b"
+   },
+   "differ_lists_equal": true,
+   "pins_8ea94ac9": {
+    "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+    "tracked_changes": false,
+    "tool_git_state": "committed, unchanged",
+    "lexicons": {
+     "cur:stripped": {
+      "class": "SupplementedLexicon",
+      "g2p_fallback": null,
+      "supplement": {
+       "id": "v2",
+       "path": "data/lexicon_supplement_v2.tsv",
+       "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+      },
+      "strip_parens": true,
+      "reader_scheme": "v2"
+     },
+     "cur:sung": {
+      "class": "SupplementedLexicon",
+      "g2p_fallback": null,
+      "supplement": {
+       "id": "v2",
+       "path": "data/lexicon_supplement_v2.tsv",
+       "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+      },
+      "strip_parens": false,
+      "reader_scheme": "v2"
+     }
+    },
+    "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+    "loop_sha256": "e9e5646119d27dcfbeab4bd9a9ec9f9a82828d3a3e5a91f2462f5f540b4f044f",
+    "tool_sha256": "df95541f98b7170055a72f6b89d7efdcc92613cdba10cef3ef695cf8e238c177",
+    "slot_binding_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026"
+   },
+   "pins_differing_from_0af39c6f": [
+    "commit"
+   ]
+  },
+  {
+   "shard": [
+    2,
+    4
+   ],
+   "corpus": {
+    "files": 1344,
+    "file_list_sha256": "779bbea7f3f46c70b43351705d5227298b5fe189085d0e84127e3c91631bc6cd",
+    "files_content_sha256": "abb8713a364fac16dc2587246b4330e43c8903004b66fb452855b3797fa8d30c",
+    "unique_line_texts": 272317,
+    "unique_line_texts_sha256": "c80edf412afec05998e4a6c250e7aa9d9af47f75c80b2a2b4fe7bd5851e804b8",
+    "shard_lines": 68079,
+    "shard_lines_sha256": "61f32412cb4466db47989dffd75bc75dd2dc433762d5fdd86b290c2910439800"
+   },
+   "counts_8ea94ac9": {
+    "cur:stripped": {
+     "lines": 68079,
+     "same": 63847,
+     "differ": 4232,
+     "errors": 0
+    },
+    "cur:sung": {
+     "lines": 68079,
+     "same": 63847,
+     "differ": 4232,
+     "errors": 0
+    }
+   },
+   "counts_equal": true,
+   "differ_list_canonical_sha256": {
+    "0af39c6f": "ed41a2c1f558e45afa01ad5207d06ff908f0b5378f11e709a62f3379f026f891",
+    "8ea94ac9": "ed41a2c1f558e45afa01ad5207d06ff908f0b5378f11e709a62f3379f026f891"
+   },
+   "differ_lists_equal": true,
+   "pins_8ea94ac9": {
+    "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+    "tracked_changes": false,
+    "tool_git_state": "committed, unchanged",
+    "lexicons": {
+     "cur:stripped": {
+      "class": "SupplementedLexicon",
+      "g2p_fallback": null,
+      "supplement": {
+       "id": "v2",
+       "path": "data/lexicon_supplement_v2.tsv",
+       "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+      },
+      "strip_parens": true,
+      "reader_scheme": "v2"
+     },
+     "cur:sung": {
+      "class": "SupplementedLexicon",
+      "g2p_fallback": null,
+      "supplement": {
+       "id": "v2",
+       "path": "data/lexicon_supplement_v2.tsv",
+       "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+      },
+      "strip_parens": false,
+      "reader_scheme": "v2"
+     }
+    },
+    "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+    "loop_sha256": "e9e5646119d27dcfbeab4bd9a9ec9f9a82828d3a3e5a91f2462f5f540b4f044f",
+    "tool_sha256": "df95541f98b7170055a72f6b89d7efdcc92613cdba10cef3ef695cf8e238c177",
+    "slot_binding_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026"
+   },
+   "pins_differing_from_0af39c6f": [
+    "commit"
+   ]
+  },
+  {
+   "shard": [
+    3,
+    4
+   ],
+   "corpus": {
+    "files": 1344,
+    "file_list_sha256": "779bbea7f3f46c70b43351705d5227298b5fe189085d0e84127e3c91631bc6cd",
+    "files_content_sha256": "abb8713a364fac16dc2587246b4330e43c8903004b66fb452855b3797fa8d30c",
+    "unique_line_texts": 272317,
+    "unique_line_texts_sha256": "c80edf412afec05998e4a6c250e7aa9d9af47f75c80b2a2b4fe7bd5851e804b8",
+    "shard_lines": 68079,
+    "shard_lines_sha256": "a2742b168f3103e1396d6973ba20a7cf0a770eb67080fbd414cdd621ceb4ea51"
+   },
+   "counts_8ea94ac9": {
+    "cur:stripped": {
+     "lines": 68079,
+     "same": 63741,
+     "differ": 4338,
+     "errors": 0
+    },
+    "cur:sung": {
+     "lines": 68079,
+     "same": 63741,
+     "differ": 4338,
+     "errors": 0
+    }
+   },
+   "counts_equal": true,
+   "differ_list_canonical_sha256": {
+    "0af39c6f": "9e8ad70722d29a45224154ae9c338ad3a4df62fd92f45ee01ed9aa290f169150",
+    "8ea94ac9": "9e8ad70722d29a45224154ae9c338ad3a4df62fd92f45ee01ed9aa290f169150"
+   },
+   "differ_lists_equal": true,
+   "pins_8ea94ac9": {
+    "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+    "tracked_changes": false,
+    "tool_git_state": "committed, unchanged",
+    "lexicons": {
+     "cur:stripped": {
+      "class": "SupplementedLexicon",
+      "g2p_fallback": null,
+      "supplement": {
+       "id": "v2",
+       "path": "data/lexicon_supplement_v2.tsv",
+       "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+      },
+      "strip_parens": true,
+      "reader_scheme": "v2"
+     },
+     "cur:sung": {
+      "class": "SupplementedLexicon",
+      "g2p_fallback": null,
+      "supplement": {
+       "id": "v2",
+       "path": "data/lexicon_supplement_v2.tsv",
+       "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+      },
+      "strip_parens": false,
+      "reader_scheme": "v2"
+     }
+    },
+    "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+    "loop_sha256": "e9e5646119d27dcfbeab4bd9a9ec9f9a82828d3a3e5a91f2462f5f540b4f044f",
+    "tool_sha256": "df95541f98b7170055a72f6b89d7efdcc92613cdba10cef3ef695cf8e238c177",
+    "slot_binding_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026"
+   },
+   "pins_differing_from_0af39c6f": [
+    "commit"
+   ]
+  }
+ ],
+ "part2_focused_8ea94ac9": [
+  {
+   "line": "I want to hold it",
+   "mode": "cur:stripped",
+   "rigged_endpoint": [
+    3,
+    "hold"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     10,
+     14
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      10,
+      14
+     ],
+     "text": "hold"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "I want to hold it",
+   "mode": "cur:sung",
+   "rigged_endpoint": [
+    3,
+    "hold"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     10,
+     14
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      10,
+      14
+     ],
+     "text": "hold"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:stripped",
+   "rigged_endpoint": [
+    0,
+    "do"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     0,
+     2
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:sung",
+   "rigged_endpoint": [
+    0,
+    "do"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     0,
+     2
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:stripped",
+   "rigged_endpoint": [
+    1,
+    "love"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     6,
+     10
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      6,
+      10
+     ],
+     "text": "love"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:sung",
+   "rigged_endpoint": [
+    1,
+    "love"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     6,
+     10
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      6,
+      10
+     ],
+     "text": "love"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "the night and the day goes on",
+   "mode": "cur:stripped",
+   "rigged_endpoint": [
+    4,
+    "day"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     18,
+     21
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      18,
+      21
+     ],
+     "text": "day"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "the night and the day goes on",
+   "mode": "cur:sung",
+   "rigged_endpoint": [
+    4,
+    "day"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     18,
+     21
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      18,
+      21
+     ],
+     "text": "day"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "witnessed": true
+  }
+ ],
+ "part2_controls_8ea94ac9": [
+  {
+   "line": "I want to hold it",
+   "mode": "cur:stripped",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "I want to hold it",
+   "mode": "cur:sung",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:stripped",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:sung",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:stripped",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:sung",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "the night and the day goes on",
+   "mode": "cur:stripped",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "the night and the day goes on",
+   "mode": "cur:sung",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "agree": true
+  }
+ ],
+ "part2_ok": true,
+ "part2_equal_to_0af39c6f": true
+}

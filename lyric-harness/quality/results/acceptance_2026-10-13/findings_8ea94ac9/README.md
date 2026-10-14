@@ -2,7 +2,9 @@
 
 **Candidate:** `8ea94ac9d5141eb5062a8094351a9330f4edc38c`. Its code commits are `34ecc6bc` (page) and `7c26d40c` (harness).
 
-**Committed elsewhere for this head:** the slot gate (`../slot_occurrence_8ea94ac9/`).
+**Committed elsewhere for this head:**
+- the slot gate (`../slot_occurrence_8ea94ac9/`): v2 PASS, with every record equal to `0af39c6f`'s;
+- the corpus guard sweep (`../endpoint_guard_8ea94ac9/`): equal to `0af39c6f`'s in every shard.
 
 ## A.2 lookup condition (`repro/a2-measure/`)
 
@@ -14,4 +16,4 @@ R2's `measure.py` ran unchanged at this head; the script last changed in `643e29
 
 This stands in for the dropped `6955e342` A.2 skeptic on the population count. The page tester, still to run, re-checks the 8 union lines, R2's 24 and the notice wording.
 
-**Still running when this was written:** the corpus guard sweep, and the testers for the order-marker, the Library Undo card, F4/F1, returns and bytes, the harness, and the regressions.
+**Still running when this was written:** the testers for the order-marker, the Library Undo card, F4/F1, returns and bytes, the harness, and the regressions.
