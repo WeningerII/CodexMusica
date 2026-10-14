@@ -876,6 +876,82 @@ class OneCoordinate(unittest.TestCase):
         cls.eng_lex = English(lexicon=cls.lex)
         cls.eng_plain = English()
 
+    def test_recovery_end_schemas_use_the_selected_lexicon(self):
+        from quality import recover as REC, relations as RL
+        from quality.lexicon_supplement import SupplementedLexicon
+        from quality.revise import relation_phonology_for
+        plain = LH.Lexicon(reader_scheme="v2")
+        selected = SupplementedLexicon(version="v2", reader_scheme="v2")
+
+        def schemas(lines, lex):
+            web = REC.recover(lines, lex=lex, placements=("end",))["web"]
+            return set().union(*(set(e["relations"]) & set(RL.REGISTRY)
+                                 for e in web)) if web else set()
+
+        # Actual shipped entries, not synthetic spelling-shape coverage.
+        for a, b in (("streetlight", "night"), ("streetlights", "nights"),
+                     ("sixty-six", "tricks"), ("twenty-first", "thirst"),
+                     ("night", "light"), ("streetlights", "seat"),
+                     ("zzqxqzz", "night")):
+            lines = ["I see the " + a, "You hear the " + b]
+            for lex in (plain, selected):
+                with self.subTest(words=(a, b), selected=lex is selected):
+                    expected = dict(RL.whole_vocabulary_pairs(
+                        lines, relation_phonology_for(lex),
+                        requested_pairs={(1, 2)}, bound={(1, 2): (-1, -1)}))
+                    self.assertEqual(schemas(lines, lex),
+                                     set(expected.get((1, 2), ())))
+            if a in ("streetlight", "streetlights", "sixty-six") and b != "seat":
+                self.assertIn("perfect rhyme", schemas(lines, selected))
+        self.assertNotIn("perfect rhyme", schemas(["streetlights", "seat"], selected))
+        self.assertEqual(schemas(["zzqxqzz", "night"], selected), set())
+
+        # Declared readings are a separate fixture, not reviewed vocabulary.
+        lines = ["king-", "hat"]
+        declared = LH.Lexicon(reader_scheme="v2", pronunciations=[{
+            "line": "king-", "token": 1, "word": "king-",
+            "phones": ["K", "AE1", "T"], "basis": "declared",
+            "source": "test: conflicting occurrence pronunciation"}])
+        self.assertIn("perfect rhyme", schemas(lines, declared))
+        self.assertNotIn("perfect rhyme", schemas(["king-", "wing"], declared))
+        self.assertIn("perfect rhyme", schemas(["king-", "wing"], plain))
+
+        # The same adapter keeps aside/voices endpoints aligned too.
+        for strip in (True, False):
+            lex = LH.Lexicon(reader_scheme="v2", strip_parens=strip)
+            got = schemas(["I see night (oh)", "You hear light (cat)"], lex)
+            self.assertEqual("perfect rhyme" in got, strip)
+
+        # Fallback remains the REGISTERED relation reader's policy, not a
+        # newly propagated Lexicon fallback setting. Exercise a real derived
+        # stem, not a stubbed schema verdict.
+        from unittest.mock import patch
+        from quality.phonology.eng import English
+        fallback_lex = LH.Lexicon(reader_scheme="v2", fallback="high")
+        for mode in (None, "high"):
+            with patch("quality.revise._relation_phonology", return_value=English(
+                    fallback=mode, reader_scheme="v2")):
+                got = schemas(["viewest", "newest"], fallback_lex)
+                self.assertEqual("consonance" in got, mode == "high")
+
+        # The passed lexicon's v2 coordinate wins over a warm v1 process.
+        with LH.reader_scheme_scope("v1"):
+            self.assertIn("perfect rhyme", schemas(["streetlights", "nights"], selected))
+
+    def test_recovery_preserves_the_legacy_schema_reader(self):
+        from quality import recover as REC
+        from quality.lexicon_supplement import SupplementedLexicon
+        # Frozen before this repair: v1 supplied rows yielded coarse edges
+        # while its historical schema reader ignored the supplement.
+        for active in ("v1", "v2"):
+            with LH.reader_scheme_scope(active):
+                lex = SupplementedLexicon(version="v2", reader_scheme="v1")
+                web = REC.recover(["streetlights", "nights"], lex=lex,
+                                  placements=("end",))["web"]
+                self.assertEqual(web, [{"a": "1", "b": "2",
+                    "words": ("streetlights", "nights"), "score": 1.0,
+                    "relations": ["ASSONANCE", "CONSONANCE", "RHYME"]}])
+
     def test_consumers_share_the_token_coordinate(self):
         import quality.fit as FT
         import quality.relations as RL

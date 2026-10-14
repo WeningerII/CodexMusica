@@ -339,17 +339,22 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     _schemas_by_lines = {}
     try:
         from quality import relations as _RLv
-        from quality.revise import _relation_phonology as _RPv
+        from quality.revise import (_relation_phonology as _RPv,
+                                    relation_phonology_for as _RPfor)
         _ends = sorted({s_[0] for s_ in sites if s_[1] == "end"})
         _req = {(x, y) for x in _ends for y in _ends if x < y}
-        from lyric_harness import admit_is_default as _AIDv
+        from lyric_harness import admit_is_default as _AIDv, _scheme_of
         if _req and _AIDv(decl):
             # BOUND AT THE END WORDS (`MISSING.md` M-317): a line-end edge is
             # a default group's question, and `grade()` judges that group at
             # the two words it binds -- a relation elsewhere in the lines
             # does not answer it.
+            # Preserve v1's historical recovery for legacy callers. New
+            # recovery uses the same selected lexicon and reader context as
+            # grade/screen; the shared adapter owns the fallback policy.
+            phon = _RPv() if _scheme_of(lex) == "v1" else _RPfor(lex)
             _schemas_by_lines = dict(_RLv.whole_vocabulary_pairs(
-                lines, _RPv(), requested_pairs=_req,
+                lines, phon, requested_pairs=_req,
                 bound={p_: (-1, -1) for p_ in _req}))
     except Exception:
         _schemas_by_lines = {}
