@@ -481,9 +481,117 @@
     ],
     "summary": "R2's test claims hold as stated, with qualifications. The weak point is how R2 justifies the default-end residual.\n\n**What reproduces at 61b6618a (venv311):**\n- SlotBinding (14) and LoopSwaps (7) pass. So do the 2 touched test_revise functions and the 3 touched test_production_revision tests.\n- Full test_reader: 83 OK, 3 skipped. Full test_revise: 4 of 4 shards rc=0, 62 sections, 427 PASS, 0 FAIL.\n- With R2's behavioural revert (the 67889851 bodies of swap_end_word and swap_at_slot, lex ignored), 13 of 14 SlotBinding tests fail and the v1 guard passes, as R2 claims. 2 LoopSwaps tests fail; both fail on the T<n>-unreadable refusal.\n- The 5 updated call sites in test_revise.py and test_production_revision.py pass under the behavioural revert. They are plumbing, not repair-detecting tests.\n\n**Literal revert (what this lens asked for):** I reverted loop.py and revise.py to their 67889851 versions in my own worktree. That breaks the API, so every test ERRORs or FAILs on the missing lex keyword: 14 of 14 SlotBinding (the v1 guard included), 3 LoopSwaps, the 2 test_revise functions and the 3 production tests. This run says nothing about behaviour; the behavioural revert above is the meaningful one.\n\n**Untested guards:** I removed each repair guard on its own (10 runs).\n- 8 are caught. 5 of those (a1, a5, a6, a9, a10) are caught only by rigs that patch _RESOLVE. The endpoint check (a1) changes none of the 3,990 population lines.\n- 2 are caught by no test: the _only_word_material refusal in the v2 swap_at_slot, and the endpoint pieces check. The first is reachable: with a declared reading, 'love×you more' head becomes 'zqx more', deleting '×you'.\n\n**Default end when the grader binds no syllable:** _end_occurrence_bound still edits the endpoint when line_anchors' label and raw_final_token both name it. Every non-default slot refuses on empty anchors. Concretely, 'the night was zzqx' end becomes 'the night was zqx', while T4 on the same unread token refuses. The grader treats those two cases the same way (slots.py:651-656).\n\nR2 attributes this to 3PO's review. That review only kept the one-token rule for multi-word anchors off the default end. R2's own contract (#519 6160940820, item 2) says the reviser refuses wherever the grader refuses the slot. So the residual departs from the posted contract, or at least is an open policy question; the cited review does not rule on it.\n\nThe fix is one code line, but it also breaks 2 test assertions and changes 196 edits per v2 mode on the population. That is a direct count; the tool reports 191 because 5 spaced-enclitic lines per mode are excluded_transformed.\n\n**Cleanup:** both of my worktrees are removed. My sparse-checkout init appended `extensions.worktreeConfig = true` to /home/user/CodexMusica/.git/config. Removing it was denied by the permission classifier. The setting is inert now; it can be removed with `git -C /home/user/CodexMusica config --unset extensions.worktreeConfig`."
    }
+  },
+  {
+   "agent": "counterexamples",
+   "result": {
+    "lens": "COUNTEREXAMPLE HUNT beyond the population at 61b6618a: my own oracle around production swap_at_slot (called exactly as Reviser._splice calls it), crafted, fuzzed and population lines, declared-reading and voices lexicons, and the real revise_loop call path end to end",
+    "verdict": "claims_hold_with_qualifications",
+    "findings": [
+     {
+      "severity": "qualification",
+      "claim": "Two separate defects let the stock loop delete the grader-bound word, and the loop accepts the result. First, swap_at_slot does not refuse an empty replacement word: it deletes the token. Second, the stock tier-2 stub feeds it one. When the pivot walk is empty (the M-205 case), tier 2 builds a GroupBrief with pivot_word='' and every anchor word=''. default_propose_group splices that '' at each member's bound slot, verify() accepts the draft, and revise_loop returns lines with words missing. Both defects predate the repair (fce4bf0f and 67889851 behave the same). At 61b6618a the deletion simply lands on the grader-bound occurrence. BB8's gate cannot see this because it only ever splices a non-empty marker. Under v3's own taxonomy such a result would read as unplaceable_edit, so '0 unplaceable / 0 no-op' says nothing about the words production actually splices.",
+      "evidence": "Stock revise_loop at 61b6618a returns [' be free', ' me now', 'zop  that'] from ['zap be free','zip me now','zop see that'] with groups [['1.head','2.head','3.head']] class:RHYME. Round record: tier 2, accepted=True, 'joint backtrack over group A [1, 2, 3] with NO ranked pivot field'. On 67889851 and fce4bf0f the same run returns [' be free', ' me now', ' see that']: the literal head is deleted instead of the bound one. Receipts are e2e_delete_{61b,678,base}.json. In e2e2.json all 180 of 180 default_propose_group calls carried word '' (14 drafts x 2 aside modes). Direct call on all three trees: swap_at_slot('1 love you so', head, '') gives '1  you so' (61b, base) or ' love you so' (678). Code: quality/loop.py:1892-1898 (empty-walk GroupBrief), :1053-1054 (whole_repair returns ''), :876-884 (stub does not check for ''), and swap_at_slot's re-read accepts mid == [].",
+      "repro": "cd <scratch>/wt-61b/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data <scratch>/venv311/bin/python -c \"import sys;sys.path.insert(0,'.');from quality.loop import revise_loop;from quality.revise import Reviser,ReviseDeclaration;from quality.schemes import mandate;from quality.coverage_census import build_lexicon as b;L=['zap be free','zip me now','zop see that'];print(revise_loop(Reviser(b('v2','none'),rdecl=ReviseDeclaration(max_rounds=2,attempts_per_line=3)),L,mandate([['1.head','2.head','3.head']],n_lines=3,default_relation='class:RHYME')).lines)\"  # prints [' be free', ' me now', 'zop  that']"
+     },
+     {
+      "severity": "qualification",
+      "claim": "'Default end slot unchanged' holds on the population only. On crafted and fuzzed lines, 61b6618a refuses default-end edits that 67889851 made. In every one of these cases the last raw run is wider than the last reader token: Cyrillic plus a numeral, a combining overlay, a ligature, a numeral plus a mark, or Cyrillic plus a spaced enclitic. Each refused edit replaced exactly the endpoint line_anchors names (label 'кот5'). The commit message promises that 'line_anchors' own named endpoint is the token replaced', but _end_occurrence_bound compares that label with the last TOKEN text ('5'), so it refuses. The difference only ever goes toward refusing; there are no new or different edits.",
+      "evidence": "Population: 0 differences in 39,900 default-end cases (3,990 lines x 2 aside modes x 5 candidates; endpop_678 vs endpop_61b). Crafted and fuzzed: 1,760 of 66,770 cases on 187 of 6,677 lines go from an edit at 67889851 to a refusal at 61b6618a, and none go the other way (end_678 vs end_61b; lines listed in end_diff_lines.json). Examples: 'go кот5' -> 'go zqxj' at 67889851, refused now; 'I love you love̴'; 'I said ﬁne'; 'we 1́'; \"hello кот 's\". Code: quality/loop.py _end_occurrence_bound, the anchors-empty branch 'label == last.text'.",
+      "repro": "cd <scratch>/wt-61b/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data <scratch>/venv311/bin/python -c \"import sys;sys.path.insert(0,'.');from quality.revise import Reviser;from quality import slots as SL;from quality.coverage_census import build_lexicon as b;print(Reviser(b('v2','none'))._splice('go кот5',SL.parse_slot('1.end'),'zqxj'))\"  # None here; the same command in .../scratchpad/wt-678/lyric-harness prints 'go zqxj'"
+     },
+     {
+      "severity": "qualification",
+      "claim": "A no-op splice can happen on the real call path, and swap_at_slot does not refuse it. declared_offer excludes the incumbent from its candidate pool case-sensitively ({_cur, *_forb}), so 'dark' is spliced back over 'Dark' and the line comes back unchanged. BB8's '0 no-op' comes from a marker that never equals the incumbent. This predates the repair: the same trace appears on 67889851. It was harmless in every run I observed, because the unchanged trial was graded and not offered.",
+      "evidence": "e2e_noop.json at 61b6618a: the stack revise_loop -> _materialize -> brief -> _build -> _place_field -> declared_offer -> _splice splices 'dark' into 'Dark is the night' at 2.head and gets the identical line back. e2e_noop_678.json shows the same no-op at 67889851. e2e.json had 8 no_op_sameword and e2e2.json had 4, all from _splice in declared_offer. Across 3.15M probe cases there were 0 no-ops with a candidate different from the incumbent (no_op_diffword = 0). Every no-op was candidate == incumbent.",
+      "repro": "cd <scratch>/wt-61b/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data <scratch>/venv311/bin/python -c \"import sys;sys.path.insert(0,'.');from quality.revise import Reviser;from quality import slots as SL;from quality.coverage_census import build_lexicon as b;print(repr(Reviser(b('v2','none'))._splice('Dark is the night',SL.parse_slot('1.head'),'dark')))\"  # 'Dark is the night'"
+     },
+     {
+      "severity": "note",
+      "claim": "The occurrence guarantee covers the line before the edit. After the splice, head, endword and headrime re-bind to the first or last READABLE word. A candidate the grader cannot read therefore moves the binding. Reviser._anchors_at, whose job is to keep only words that give the grade an anchor at the slot, still returns True in that case, because the anchor is now on another word. The stock pools cannot reach this: CMUdict has 7 vowelless entries and none of them is in the 39,425-word engine index.",
+      "evidence": "Every 'night' edit kept the binding at the same widx (e.g. crafted sup:stripped kept/night 15,335). Every unreadable 'zqxj' edit moved it (moved/zqxj 16,037; no kept/zqxj). Example: _anchors_at('1 love you so', head, 'hmm') is True, yet resolve('1 hmm you so', head) binds 'you' (widx 2). The vowelless entries are hm, hmm, hmmm, mm, sh, shh, ths; 0 of them are in Reviser().engine.index.",
+      "repro": "cd <scratch>/wt-61b/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data <scratch>/venv311/bin/python -c \"import sys;sys.path.insert(0,'.');from quality.revise import Reviser;from quality import slots as SL;from quality.coverage_census import build_lexicon as b;R=Reviser(b('v2','none'));h=SL.parse_slot('1.head');print(R._anchors_at('1 love you so',h,'hmm'),SL.resolve(R.lex,'1 hmm you so',h)[1])\"  # True you"
+     },
+     {
+      "severity": "note",
+      "claim": "I found no wrong-occurrence edit, no non-default edit where the grader binds nothing, no no-op with a different word, and no edit that changes any token other than the bound one. This covers v2 in both aside modes, declared readings, a g2p fallback lexicon, the real Reviser._splice, and the stock loop. The only cases my oracle could not place were 3,155 records on tokens ending in a decomposed NFC segment ('Olọ́run' reads as the token 'Olọ', whose raw hull also covers the acute). Production refused every one of them, which is its documented fusion guard.",
+      "evidence": "3,146,882 probe cases over 10,752 distinct lines, 13 slots each (end, endword, head, headrime, T1-T8, line): quick 200,642, crafted 876,706, fuzz 1,157,701, population 911,833. Modes: SupplementedLexicon v2 with asides stripped and with voices; a plain Lexicon (quick run only); Lexicon(fallback='high'); and per-line declared readings, both 'unread' (numerals, unknown words, fragments) and 'repeat' (last occurrence of a repeated word), in both aside modes. FAIL kinds (occ_wrong, edit_partial, edit_outside_tokens, edit_unbound, no_op_diffword, reread_change, kept_cut_change, inexact or wider-than-token default edits) totalled 0 in every run. Reviser._splice equalled the direct call in 128,882 sampled comparisons. The real loop made 222,804 swap calls (e2e 200,314; e2e2 22,490) from default_propose, default_propose_group and _splice; all passed the reviser's own lexicon, with 0 FAIL kinds. Oracle self-test: 11 rigged negatives and 3 positives all classified as expected. The 23 population lines BB8 excluded as 'transformed' (multi-piece enclitic tokens) had 0 failures here. Caveat on my own oracle: it counts an empty-word deletion as occ_agree, because it reconstructs exactly. The deletion finding above comes from inspecting the spliced words, not from the classifier.",
+      "repro": "cd <scratch>/wt-61b/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data <scratch>/venv311/bin/python <scratch>/so3/skeptic-counterexamples/probe.py $PWD <scratch>/so3/skeptic-counterexamples/crafted --lean  # likewise --no-crafted --fuzz=4000 --lean, and --no-crafted --population=<population.txt> --lean; selftest.py ROOT for the oracle controls"
+     }
+    ],
+    "numbers_checked": [
+     {
+      "what": "v2 occ_wrong (edit on a token other than the bound one)",
+      "bb8": "0 per cur mode, population with marker",
+      "yours": "0 in 3,146,882 cases on 10,752 lines, plus 0 in 222,804 real-loop calls",
+      "match": true
+     },
+     {
+      "what": "v2 non-default edit where the grader binds nothing",
+      "bb8": "0; 2,342 refused_unbound",
+      "yours": "0 edit_unbound in all runs",
+      "match": true
+     },
+     {
+      "what": "default-end edits where the grader binds nothing, per v2 mode (population)",
+      "bb8": "191 per mode, all on 'end'",
+      "yours": "191 per mode on BB8's measured lines, plus 5 on the 23 multi-piece lines BB8 excluded (196 total); all replace the token line_anchors names",
+      "match": true
+     },
+     {
+      "what": "default end vs 67889851, population",
+      "bb8": "unchanged",
+      "yours": "0 differences in 39,900 cases",
+      "match": true
+     },
+     {
+      "what": "default end vs 67889851, crafted and fuzzed",
+      "bb8": "not measured (claim stated without scope)",
+      "yours": "1,760 of 66,770 cases on 187 lines change from edit to refusal",
+      "match": false
+     },
+     {
+      "what": "no-op edits",
+      "bb8": "0 (marker never equals the incumbent)",
+      "yours": "0 with a different candidate; 12 reached in production as case-variant incumbents via declared_offer (8 e2e + 4 e2e2), also present at 67889851",
+      "match": true
+     },
+     {
+      "what": "unplaceable edits",
+      "bb8": "0 (marker only)",
+      "yours": "0 for non-empty words; the stock tier-2 stub spliced '' in 180 of 180 group calls in e2e2, deleting the bound token, and the loop accepted one such deletion end to end",
+      "match": true
+     }
+    ],
+    "files": [
+     "<scratch>/so3/skeptic-counterexamples/probe.py",
+     "<scratch>/so3/skeptic-counterexamples/selftest.py",
+     "<scratch>/so3/skeptic-counterexamples/summarize.py",
+     "<scratch>/so3/skeptic-counterexamples/summary.json",
+     "<scratch>/so3/skeptic-counterexamples/crafted.json",
+     "<scratch>/so3/skeptic-counterexamples/fuzz.json",
+     "<scratch>/so3/skeptic-counterexamples/pop.json",
+     "<scratch>/so3/skeptic-counterexamples/quick.json",
+     "<scratch>/so3/skeptic-counterexamples/e2e.py",
+     "<scratch>/so3/skeptic-counterexamples/e2e.json",
+     "<scratch>/so3/skeptic-counterexamples/e2e2.py",
+     "<scratch>/so3/skeptic-counterexamples/e2e2.json",
+     "<scratch>/so3/skeptic-counterexamples/e2e_delete.py",
+     "<scratch>/so3/skeptic-counterexamples/e2e_delete_61b.json",
+     "<scratch>/so3/skeptic-counterexamples/e2e_delete_678.json",
+     "<scratch>/so3/skeptic-counterexamples/e2e_delete_base.json",
+     "<scratch>/so3/skeptic-counterexamples/e2e_noop.py",
+     "<scratch>/so3/skeptic-counterexamples/e2e_noop.json",
+     "<scratch>/so3/skeptic-counterexamples/e2e_noop_678.json",
+     "<scratch>/so3/skeptic-counterexamples/default_end_dump.py",
+     "<scratch>/so3/skeptic-counterexamples/end_diff_lines.json",
+     "<scratch>/so3/skeptic-counterexamples/bb8_excluded_lines.json",
+     "<scratch>/wt-61b/lyric-harness/quality/loop.py",
+     "<scratch>/wt-61b/lyric-harness/quality/revise.py"
+    ],
+    "summary": "At 61b6618a I found no counterexample to the occurrence claim. My own oracle checks the bound span against slots.resolve widx, verifies that each token's raw hull actually spells the token, diffs old against new without a tokenizer, and re-reads the line in both cuts. Over 3.15M cases on 10,752 distinct lines it found 0 wrong-occurrence edits, 0 non-default edits where the grader binds nothing, 0 no-ops with a different word and 0 extra-token changes, and the real revise_loop added 222,804 calls with 0 failures. Those cases were crafted, fuzzed and population lines: repeated words in every position, numerals and margin numbers, dash runs, hyphens, unknown words, asides in both modes, enclitics, uppercase, Unicode, NBSP and soft hyphen. Lexicons covered declared readings, voices and g2p. My counts reproduce BB8's 191 unbound default-end edits per v2 mode exactly; the 23 lines BB8 excluded add 5 more and fail nothing.\n\nThree qualifications, two of them older than the repair:\n(1) swap_at_slot accepts an empty word and deletes the token. The stock tier-2 stub feeds it '' on the empty-walk path, and revise_loop accepted the result end to end: [' be free', ' me now', 'zop  that']. This is the same on 67889851 and fce4bf0f.\n(2) 'Default end unchanged' is true on the population (0 differences in 39,900 cases) but not beyond it. 61b now refuses 1,760 crafted/fuzz default-end edits (187 lines) that 67889851 made, even where the edit was exactly line_anchors' named endpoint.\n(3) No-op splices reach production via case-variant incumbents in declared_offer (also on 67889851). BB8's marker-only gate cannot observe (1) or (3).\n\nI created no worktrees, modified no tracked files, and left no background processes running."
+   }
   }
  ],
- "still_running_when_saved": [
-  "counterexamples"
- ]
+ "still_running_when_saved": []
 }

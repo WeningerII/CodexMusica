@@ -309,6 +309,18 @@ It is fit for bounded diagnostic use on this candidate, and the candidate gate i
   - R2's own posted contract (#519 6160940820, item 2) says the reviser refuses wherever the grader refuses the slot. The 3PO review R2 cites concerns the one-token rule for multi-word anchors, not empty anchors.
   - Refusing these is one code line. It also changes two test assertions.
 
+### Beyond the population (the counterexample skeptic, `slot_occurrence_61b6618a/skeptics.json`)
+
+- **No counterexample to the occurrence claim at `61b6618a`.** The skeptic's own oracle checks four things: the bound span from `slots.resolve` widx; that each token's raw hull spells the token; a tokenizer-free old/new diff; and a re-read in both cuts.
+  - **Scope:** 3,146,882 cases over 10,752 distinct lines (crafted, fuzzed and population), in both aside modes, with declared readings, a G2P fallback and voices. The real `revise_loop` added 222,804 swap calls.
+  - **Result:** 0 wrong-occurrence edits, 0 non-default edits where the grader binds nothing, 0 no-ops with a different word, and 0 changes to any other token.
+  - **Residual:** it reproduces 191 unbound default-end edits per mode exactly, plus 5 on the 23 excluded lines.
+- **Three qualifications.**
+  - **Pre-existing: an empty replacement word deletes a token.** `swap_at_slot` accepts `''`, and the stock tier-2 stub feeds it one on the empty-walk path (`GroupBrief` with `pivot_word=''`). `revise_loop` then accepts the result end to end. Example: `['zap be free','zip me now','zop see that']` with groups `1.head,2.head,3.head` becomes `[' be free', ' me now', 'zop  that']`. `67889851` and `fce4bf0f` do the same, except they delete the literal head. This tool cannot see it, because it only splices a non-empty marker.
+  - **"The default end is unchanged" holds on the population only.** On crafted and fuzzed lines, `61b6618a` refuses 1,760 of 66,770 default-end edits (on 187 lines) that `67889851` made. In every one, the last raw run is wider than the last reader token: `go кот5`, a combining overlay, the ligature `ﬁne`, a numeral with a mark. `_end_occurrence_bound` compares `line_anchors`' label (`кот5`) with the last token's text (`5`). The changes are refusals only, but they contradict the commit message's "`line_anchors`' own named endpoint is the token replaced".
+  - **Pre-existing: a no-op splice reaches production.** `declared_offer` excludes the incumbent case-sensitively, so `dark` is spliced back over `Dark` and the line comes back unchanged. This happened only when candidate == incumbent, and it was harmless in every observed run.
+- **Note:** the occurrence guarantee covers the line before the edit. A candidate the grader cannot read moves `head`, `endword` or `headrime` to another word after the splice, and `Reviser._anchors_at` still returns True. The stock word pools contain no such word.
+
 ### Other lexicons production can pass, under the 3.1 gate (revisions 3.2 and 3.3)
 
     cd <tree>/lyric-harness
