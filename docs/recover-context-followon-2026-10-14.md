@@ -17,12 +17,15 @@ negative controls, an unsupported token, a separately identified declared
 explicit v2 lexicon inside a v1 process. A frozen v1 web is unchanged inside both
 process contexts.
 
-Validation from `lyric-harness/` with Python 3.12.14:
+Validation used Python 3.12.14 from `lyric-harness/`. Equivalent commands
+from the repository root (the path convention for this document). These tests
+require staged harness research data, including the NLTK tagger; local runs set
+`LYRIC_STAGED_DATA` to the existing staged data directory:
 
 ```sh
-python -m unittest quality.test_reader.OneCoordinate quality.test_reader.V1Frozen
-python quality/test_recover.py
-python map/build.py --check
+(cd lyric-harness && python -m unittest quality.test_reader.OneCoordinate quality.test_reader.V1Frozen)
+(cd lyric-harness && python -m quality.test_recover)
+(cd lyric-harness && python -m map.build --check)
 ```
 
 Results: 11 unittest tests passed (27.073 seconds); the existing recovery suite
