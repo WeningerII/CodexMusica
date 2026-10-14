@@ -1,0 +1,21 @@
+import json,time,collections
+import lyric_harness as L
+from quality import search_null as S
+start=time.monotonic();lex=L.Lexicon();out={}
+for scheme in ['v1','v2']:
+ rows=[]
+ with L.reader_scheme_scope(scheme):
+  units=S.sonnet_units(lex.with_reader_scheme(scheme))
+  for u,anc in enumerate(units):
+   for i in range(14):
+    for j in range(i+1,14):
+     if S.SONNET_SCHEME[i]!=S.SONNET_SCHEME[j]:continue
+     a,b=anc[i],anc[j]
+     s=L.best_score(a[0],b[0],L.Declaration(),a[1],b[1]) if a[0] and b[0] else None
+     rows.append(dict(sonnet=u+1,lines=[i+1,j+1],words=[a[1],b[1]],k=s['spans']['search_k'] if s else None))
+ out[scheme]=rows
+ ks=collections.Counter(r['k'] for r in rows if r['k'] is not None)
+ print(scheme,dict(ks),S.bucket_populations(ks),flush=True)
+print('CHANGES',json.dumps([dict(v1=a,v2=b) for a,b in zip(out['v1'],out['v2']) if a!=b]),flush=True)
+print('SECONDS',time.monotonic()-start)
+json.dump(out,open('/tmp/musica-ci-evidence/sonnet-reader-pairs.json','w'),indent=2)

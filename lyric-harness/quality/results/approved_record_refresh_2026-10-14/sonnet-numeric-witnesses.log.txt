@@ -1,0 +1,18 @@
+CHANGED {'sonnet': 1, 'lines': [10, 12], 'words': ['Shakespeare', 'October'], 'k': 4} => {'sonnet': 1, 'lines': [10, 12], 'words': ['Shakespeare', '2024'], 'k': None}
+ corpus/sonnets.txt:13 'Author: William Shakespeare'
+ corpus/sonnets.txt:18 '                Most recently updated: October 29, 2024'
+CHANGED {'sonnet': 170, 'lines': [1, 3], 'words': ['bound', 'E'], 'k': 4} => {'sonnet': 170, 'lines': [1, 3], 'words': ['bound', '8'], 'k': None}
+ corpus/sonnets.txt:2706 'Project Gutenberg electronic work and you do not agree to be bound'
+ corpus/sonnets.txt:2708 'or entity to whom you paid the fee as set forth in paragraph 1.E.8.'
+CHANGED {'sonnet': 174, 'lines': [5, 7], 'words': ['E', 'distribution'], 'k': 4} => {'sonnet': 174, 'lines': [5, 7], 'words': ['9', 'distribution'], 'k': None}
+ corpus/sonnets.txt:2773 'trademark as set forth in paragraphs 1.E.8 or 1.E.9.'
+ corpus/sonnets.txt:2776 'with the permission of the copyright holder, your use and distribution'
+CHANGED {'sonnet': 176, 'lines': [1, 3], 'words': ['Plain', 'E'], 'k': 4} => {'sonnet': 176, 'lines': [1, 3], 'words': ['Plain', '1'], 'k': None}
+ corpus/sonnets.txt:2801 'of obtaining a copy upon request, of the work in its original “Plain'
+ corpus/sonnets.txt:2803 'full Project Gutenberg License as specified in paragraph 1.E.1.'
+CHANGED {'sonnet': 176, 'lines': [6, 8], 'words': ['E', 'works'], 'k': 4} => {'sonnet': 176, 'lines': [6, 8], 'words': ['9', 'works'], 'k': None}
+ corpus/sonnets.txt:2807 'unless you comply with paragraph 1.E.8 or 1.E.9.'
+ corpus/sonnets.txt:2810 'access to or distributing Project Gutenberg electronic works'
+CHANGED {'sonnet': 184, 'lines': [9, 11], 'words': ['by', 'Plaza'], 'k': 8} => {'sonnet': 184, 'lines': [9, 11], 'words': ['by', '516'], 'k': None}
+ corpus/sonnets.txt:2941 'Archive Foundation are tax deductible to the full extent permitted by'
+ corpus/sonnets.txt:2944 'The Foundation’s business office is located at 41 Watchung Plaza #516,'

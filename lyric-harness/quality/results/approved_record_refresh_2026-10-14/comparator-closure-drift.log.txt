@@ -1,0 +1,8 @@
+53abd2e5e 8ea94ac9 closure_equal False
+ADDED ['READER_SCHEME', 'READER_SCHEMES', 'ReaderLine', 'ReaderToken', '_ACTIVE_READER_SCHEME', '_ASIDE', '_SHY', '_is_hangul', '_is_numeral', '_line_tokens_v1', '_raw_final_token_v1', '_reader_fold', '_reader_line_v2', '_reader_stream', '_scheme_of', 'has_numeral', 'normalise_word', 'reader_line', 'resolve_reader_scheme']
+REMOVED []
+CHANGED ['Lexicon', 'join_spaced_enclitics', 'line_anchors', 'line_tokens', 'raw_final_token', 'token_pieces', 'unread_final_piece']
+8ea94ac9 68e213d0 closure_equal True
+ADDED []
+REMOVED []
+CHANGED []

@@ -1,0 +1,23 @@
+import ast,subprocess,pathlib,json
+from quality.source_identity import definition_closure,module_entry_names
+refs=['53abd2e5e','8ea94ac9','68e213d0']
+allparts={}
+for ref in refs:
+ d=pathlib.Path('/tmp/musica-ci-evidence/closure-'+ref);d.mkdir(exist_ok=True)
+ for p in ['lyric_harness.py','quality/features.py','quality/song_profile_calibration.py']:
+  q=d/pathlib.Path(p).name;q.write_bytes(subprocess.check_output(['git','show',ref+':lyric-harness/'+p]))
+ entries=sorted(set(module_entry_names(str(d/'features.py'),'lyric_harness'))|set(module_entry_names(str(d/'song_profile_calibration.py'),'lyric_harness')))
+ names,text=definition_closure(str(d/'lyric_harness.py'),entries)
+ source=(d/'lyric_harness.py').read_text(); tree=ast.parse(source); nodes={}
+ for n in tree.body:
+  if hasattr(n,'name'): nodes[n.name]=ast.get_source_segment(source,n)
+  elif isinstance(n,(ast.Assign,ast.AnnAssign)):
+   for t in (n.targets if isinstance(n,ast.Assign) else [n.target]):
+    if isinstance(t,ast.Name):nodes[t.id]=ast.get_source_segment(source,n)
+ allparts[ref]=(names,text,nodes)
+for a,b in zip(refs,refs[1:]):
+ x,y=allparts[a],allparts[b]
+ print(a,b,'closure_equal',x[1]==y[1])
+ print('ADDED',sorted(set(y[0])-set(x[0])))
+ print('REMOVED',sorted(set(x[0])-set(y[0])))
+ print('CHANGED',sorted(n for n in set(x[0])&set(y[0]) if x[2].get(n)!=y[2].get(n)))

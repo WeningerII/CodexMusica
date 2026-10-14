@@ -1,0 +1,17 @@
+{
+  "README.md": "757f605eea9195f8df9574b0f6b101b08a5e22c84f443b1c41df3e3902b09c36",
+  "audit-shape-check.log.txt": "436ba89d1fc166b295d4cbab0d9785cc28aeee9212281a58d3b977841852490d",
+  "audit.json.gz": "8ca0f1a99c25dfb0387500b736ed11d751b6af18474bbf04b1e247ad1d459e96",
+  "comparator-closure-drift.log.txt": "0105bb59fb2fe3252d46b821f2d3a015991f3242a1a3dfc74fa40db965169067",
+  "comparator-closure-drift.py.txt": "7d29fe222f81118351250984c413be40a27f6c796d473f6b0ac1f6dcbe861bed",
+  "comparator-current-check.log.txt": "9423d34c07091f9038302fd97c187242b52c8f8991cbd43d0436094c35c83c49",
+  "comparator-sonnet-drift-conclusion.md": "fbbc56ca953562bd6db07b92a4e1643a391aa5f368b86eab07d97396d6974aa1",
+  "counters-check.log.txt": "7a300a267bf6c838a103dccc7c95b1c853796ab7d0c5aecd51f4946093d61fb3",
+  "doc-paths.log.txt": "37a21be7b69c19c198eec8ac749f07dc40625191c614dd998e7cd8a6fe8d69de",
+  "map-check.log.txt": "cfc0b70e5de3e35fd905cc2b00d1424ae48b8250698ab3c7a3fa92e2a5e27773",
+  "sonnet-numeric-witnesses.log.txt": "b522e69b1c52e7e4d4969d32bc42046a5d777f5511bcc3bb1922977baf6e4081",
+  "sonnet-reader-drift.log.txt": "73688d1eea3ada59f352a6a21b9d9d2d80ac70f0e1f8424805d5d3d36936864c",
+  "sonnet-reader-drift.py.txt": "0258dc1cb36ab051103eb8bee06d8e0c2c3bd1f8423d292b65bb43841c20fc03",
+  "sonnet-reader-pairs.json": "5dbe4f016a4a1683128607c3983aa2b814c62d7fdc2c9a97d936434b8668aabb",
+  "audit.json (uncompressed)": "af31abe3e569a7f68ea0dce393cd6c69fde5f2a1ec4f4113cbbc88811ef7a0a6"
+}
