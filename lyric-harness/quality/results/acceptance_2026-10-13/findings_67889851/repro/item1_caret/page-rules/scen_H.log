@@ -1,0 +1,9 @@
+[PASS] H.typed.today: an unmarked T<k> row typed today is read as the earlier cut (policy: unmarked = legacy) and renumbered, with a toast
+    expected: row becomes 1.T5,8 — cut v2 (love), toast says renumbered
+    observed: {"mid":{"text":"[SETUP — rhyme groups — 1.T5,8 — cut v2]","caret":236},"after":{"first":"[SETUP — rhyme groups — 1.T5,8 — cut v2]","zAt":236,"len":237,"lineOfZ":12},"toasts":["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]}
+[FAIL] H.typed.caret: the rewrite does not move the caret away from where the person is typing
+    expected: Z typed right after the row (line 1)
+    observed: {"first":"[SETUP — rhyme groups — 1.T5,8 — cut v2]","zAt":236,"len":237,"lineOfZ":12}
+[PASS] H.pageErrors: no uncaught page errors
+    expected: []
+    observed: []

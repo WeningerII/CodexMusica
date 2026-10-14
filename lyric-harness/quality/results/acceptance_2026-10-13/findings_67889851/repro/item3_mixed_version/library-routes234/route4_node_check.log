@@ -1,0 +1,33 @@
+=== wt-678
+validateEnvelope: ok, digest true 1b88d61839bfc8571dd4796a76500bad9a29d9fb495c0634f0a38556eb2634cf
+recomputed digest 1b88d61839bfc8571dd4796a76500bad9a29d9fb495c0634f0a38556eb2634cf
+draft text === payload.text true
+libraryOrigin.declarations [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["AA1"],"basis":"declared","source":"the singer"}]}]
+re-exported working copy (unadapted) declarations [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["AA1"],"basis":"declared","source":"the singer"}]}]
+re-exported workingCopy.declarations [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["AA1"],"basis":"declared","source":"the singer"}]}]
+tampered (token 2->3 in file): refused: Library import digest does not match its content.
+=== wt-main
+node:internal/modules/cjs/loader:1386
+  throw err;
+  ^
+
+Error: Cannot find module '/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/src/lyric-tokens.js'
+Require stack:
+- /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/library-routes234/route4_node_check.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/library-routes234/route4_node_check.js:5:24)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/library-routes234/route4_node_check.js'
+  ]
+}
+
+Node.js v22.22.0

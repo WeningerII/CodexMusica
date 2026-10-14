@@ -1,0 +1,259 @@
+{
+  "results": [
+    {
+      "id": "E.paste.rows",
+      "claim": "typed/pasted legacy rows: 1.T2 (oh 8-10) -> 1.T3 not the v2 T2 (oh 4-6); 2.T5 (bass--) blocked; a reading whose old number named \"my\" not \"love\" blocked; needs-a-choice and uncertain readings rebound by span",
+      "expected": "[SETUP — rhyme groups — 1.T3,7.T2;2.T5 (numbered under the earlier cut),6 — cut v2] | [SETUP — reading — token 3 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: me — needs a decision: numbered under the earlier word cut] | [SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — needs a choice — cut v2] | [SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — uncertain — cut v2]",
+      "observed": "[SETUP — rhyme groups — 1.T3,7.T2;2.T5 (numbered under the earlier cut),6 — cut v2] | [SETUP — reading — token 3 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: me — needs a decision: numbered under the earlier word cut] | [SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — needs a choice — cut v2] | [SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — uncertain — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "E.paste.toast",
+      "claim": "the paste migration is announced (error toast for the blocked ones, naming the renumbering)",
+      "expected": "error toast with renumbered list",
+      "observed": "[\"2 saved word numbers without the current cut mark need your decision before the writer can be asked. 3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “oh” word 2 → 3.\"]",
+      "status": "pass"
+    },
+    {
+      "id": "E.paste.T3",
+      "claim": "1.T3 names the standalone \"oh\" at characters 8-10",
+      "expected": "oh [[8,10]]",
+      "observed": "[\"oh\",[[8,10]]]",
+      "status": "pass"
+    },
+    {
+      "id": "E.paste.history",
+      "claim": "no Undo step holds the unmarked (earlier-cut) rhyme row",
+      "expected": "no history entry with \"[SETUP — rhyme groups — 1.T2,7.T2;2.T5,6]\"",
+      "observed": "[\"[SETUP — rhyme groups — 1.T3,7.T2;2.T5 (numbered under the earlier cut),6 — cut v2]\"]",
+      "status": "pass"
+    },
+    {
+      "id": "E.tool.rhymesList",
+      "claim": "the Rhymes tool shows the blocked member as blocked (not as a word)",
+      "expected": "list contains \"(numbered under the earlier cut)\"",
+      "observed": "A\nA · declared Any\nLine 1 · oh ~ Line 7 · oh\nB\nB · declared Any\n2.T5 (numbered under the earlier cut) ~ Line 6 · floor",
+      "status": "pass"
+    },
+    {
+      "id": "E.chooseAgain",
+      "claim": "choosing \"love\" again (v2 word 5) replaces the blocked reading; the others stay",
+      "expected": "no \"needs a decision\" reading; a token 5 \"love\" declared row marked cut v2",
+      "observed": "[\"[SETUP — reading — token 3 \\\"oh\\\" in \\\"Oh--oh, oh my love\\\" — needs a choice — cut v2]\",\"[SETUP — reading — token 5 \\\"love\\\" in \\\"Oh--oh, oh my love\\\" — L AH1 V — declared — source: me — cut v2]\"]",
+      "status": "pass"
+    },
+    {
+      "id": "E.import.migrated",
+      "claim": "a pre-release .txt imported over a current draft is migrated at once",
+      "expected": "first row 1.T5,8;3 (carried…)…",
+      "observed": "[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "E.import.undo",
+      "claim": "Undo returns to the draft before the import",
+      "expected": "previous draft",
+      "observed": "previous draft",
+      "status": "pass"
+    },
+    {
+      "id": "E.import.redo",
+      "claim": "Redo returns the migrated import (never the unmarked earlier-cut rows)",
+      "expected": "[\"[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]\",\"[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]\",\"[SETUP — reading — token 3 \\\"oh\\\" in \\\"Oh--oh, oh my love\\\" — OW1 — declared — source: the singer — cut v2]\",\"[SETUP — reading — token 5 \\\"oh\\\" in \\\"Oh, oh, I said oh\\\" — OW1 — declared — source: the singer — cut v2]\"]",
+      "observed": "[\"[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]\",\"[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]\",\"[SETUP — reading — token 3 \\\"oh\\\" in \\\"Oh--oh, oh my love\\\" — OW1 — declared — source: the singer — cut v2]\",\"[SETUP — reading — token 5 \\\"oh\\\" in \\\"Oh, oh, I said oh\\\" — OW1 — declared — source: the singer — cut v2]\"]",
+      "status": "pass"
+    },
+    {
+      "id": "E.tool.carriedShown",
+      "claim": "the Rhymes / Repeats tool lists show a carried member's state (informational)",
+      "expected": "list mentions \"carried\"",
+      "observed": "{\"rhymes\":\"A\\nA · declared Any\\nLine 1 · love ~ Line 8 · above\\nB\\nB · declared Any\\nLine 3 · sea ~ Line 5 · tonight\\nC\\nC · declared Any\\nLine 2 · bass ~ Line 6 · floor\\nD\\nD · declared Any\\nLine 4 · 10 ~ Line 7 · oh\",\"repeats\":\"Line 1 · word 5 = Line 8 · word 1\\nLine 3 · first word = Line 5 · first word\"}",
+      "status": "fail"
+    },
+    {
+      "id": "E.tool.linkRemove",
+      "claim": "Remove link (first link, 1.T5,8) in the Rhymes tool leaves the other members' carried states and the mark",
+      "expected": "[SETUP — rhyme groups — 3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]",
+      "observed": "[SETUP — rhyme groups — 3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "E.pageErrors",
+      "claim": "no uncaught page errors",
+      "expected": "[]",
+      "observed": "[]",
+      "status": "pass"
+    }
+  ],
+  "snaps": {
+    "paste": {
+      "text": "[SETUP — rhyme groups — 1.T3,7.T2;2.T5 (numbered under the earlier cut),6 — cut v2]\n[SETUP — reading — token 3 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: me — needs a decision: numbered under the earlier word cut]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — needs a choice — cut v2]\n[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — uncertain — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "rows": [
+        "[SETUP — rhyme groups — 1.T3,7.T2;2.T5 (numbered under the earlier cut),6 — cut v2]",
+        "[SETUP — reading — token 3 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: me — needs a decision: numbered under the earlier word cut]",
+        "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — needs a choice — cut v2]",
+        "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+      ],
+      "decl": {
+        "groups": "1.T3,7.T2",
+        "groups_need_decision": [
+          "2.T5 (numbered under the earlier cut),6"
+        ],
+        "readings_need_decision": [
+          {
+            "line": "Oh--oh, oh my love",
+            "saved_token": 3,
+            "word": "love"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "reading:1",
+          "tone": "input",
+          "title": "The reading for “love” saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "It was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-tool",
+              "Choose again",
+              "pronunciation"
+            ],
+            [
+              "ly-remove-setup",
+              "Remove it",
+              "1"
+            ]
+          ]
+        },
+        {
+          "id": "reading:2",
+          "tone": "input",
+          "title": "Choose how “oh” is read",
+          "where": "line 1",
+          "text": "A reading is required here and none is chosen. Supply one with its source, or ask the writer for the dictionary options.",
+          "actions": [
+            [
+              "ly-tool",
+              "Choose a reading",
+              "pronunciation"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:undecided",
+          "tone": "input",
+          "title": "A rhyme link saved without the current cut mark needs your decision",
+          "where": "line 2",
+          "text": "2.T5 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "rhyme groups"
+            ],
+            [
+              "ly-tool",
+              "Open rhymes",
+              "rhymes"
+            ]
+          ]
+        },
+        {
+          "id": "reading:3",
+          "tone": "note",
+          "title": "“love” is marked uncertain",
+          "where": "line 1",
+          "text": "Kept as an explicit uncertainty; nothing assumes a reading for it.",
+          "actions": [
+            [
+              "ly-tool",
+              "Open pronunciation",
+              "pronunciation"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · 890d374\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n4\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “love” saved without the current cut mark needs your decision\nline 1\nIt was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\nChoose how “oh” is read\nline 1\nA reading is required here and none is chosen. Supply one with its source, or ask the writer for the dictionary options.\nChoose a reading\nShow in draft\nA rhyme link saved without the current cut mark needs your decision\nline 2\n2.T5 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen rhymes\nShow in draft\n“love” is marked uncertain\nline 1\nKept as an explicit uncertainty; nothing assumes a reading for it.\nOpen pronunciation\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 1.T3,7.T2;2.T5 (numbered under the earlier cut),6 — cut v2]\n[SETUP — reading — token 3 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: me — needs a decision: numbered under the earlier word cut]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — needs a choice — cut v2]\n[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — uncertain — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "histLen": 1,
+      "histIdx": 0
+    },
+    "historyFirstRows": [
+      "[SETUP — rhyme groups — 1.T3,7.T2;2.T5 (numbered under the earlier cut),6 — cut v2]"
+    ],
+    "rhymesList": "A\nA · declared Any\nLine 1 · oh ~ Line 7 · oh\nB\nB · declared Any\n2.T5 (numbered under the earlier cut) ~ Line 6 · floor",
+    "chooseAgain": {
+      "text": "[SETUP — rhyme groups — 1.T3,7.T2;2.T5 (numbered under the earlier cut),6 — cut v2]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — needs a choice — cut v2]\n[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: me — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "rows": [
+        "[SETUP — rhyme groups — 1.T3,7.T2;2.T5 (numbered under the earlier cut),6 — cut v2]",
+        "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — needs a choice — cut v2]",
+        "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: me — cut v2]"
+      ],
+      "decl": {
+        "groups": "1.T3,7.T2",
+        "groups_need_decision": [
+          "2.T5 (numbered under the earlier cut),6"
+        ],
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 5,
+            "word": "love",
+            "phones": [
+              "L",
+              "AH1",
+              "V"
+            ],
+            "basis": "declared",
+            "source": "me"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "reading:1",
+          "tone": "input",
+          "title": "Choose how “oh” is read",
+          "where": "line 1",
+          "text": "A reading is required here and none is chosen. Supply one with its source, or ask the writer for the dictionary options.",
+          "actions": [
+            [
+              "ly-tool",
+              "Choose a reading",
+              "pronunciation"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:undecided",
+          "tone": "input",
+          "title": "A rhyme link saved without the current cut mark needs your decision",
+          "where": "line 2",
+          "text": "2.T5 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "rhyme groups"
+            ],
+            [
+              "ly-tool",
+              "Open rhymes",
+              "rhymes"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · a400cc1\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n2\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nChoose how “oh” is read\nline 1\nA reading is required here and none is chosen. Supply one with its source, or ask the writer for the dictionary options.\nChoose a reading\nShow in draft\nA rhyme link saved without the current cut mark needs your decision\nline 2\n2.T5 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen rhymes\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 1.T3,7.T2;2.T5 (numbered under the earlier cut),6 — cut v2]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — needs a choice — cut v2]\n[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: me — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "histLen": 2,
+      "histIdx": 1
+    },
+    "toolLists": {
+      "rhymes": "A\nA · declared Any\nLine 1 · love ~ Line 8 · above\nB\nB · declared Any\nLine 3 · sea ~ Line 5 · tonight\nC\nC · declared Any\nLine 2 · bass ~ Line 6 · floor\nD\nD · declared Any\nLine 4 · 10 ~ Line 7 · oh",
+      "repeats": "Line 1 · word 5 = Line 8 · word 1\nLine 3 · first word = Line 5 · first word"
+    }
+  }
+}

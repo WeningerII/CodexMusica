@@ -1,0 +1,41 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:c4620e77-e7ac-4fd1-b954-92ef778bba98",
+  "draftId": "draft:516959fb-a3c3-40f2-bc7b-414b50fb7203",
+  "createdAt": "2026-10-14T03:53:07.496Z",
+  "payload": {
+    "text": "[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]\n[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]\n[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+    "title": "Song",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:ef498bc1-0a2a-4f43-8bd5-5038125a552c",
+        "sourceDigest": "872d38ca3c9191a51f726206502c18d3fe47a98298b65d69bfa8fa6a7ae7afa5",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {
+            "tab": "tools",
+            "tool": "",
+            "outline": true
+          }
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "1c09551e524844183971356259025141102a91e27599acd37d740223b9ba316d"
+}

@@ -1,0 +1,6 @@
+process reader scheme: v2
+{"token": 1, "text": "Oh", "codepoint_ranges": [[0, 2]], "precision": ["exact"], "syllables": [{"text": "Oh", "onset": [], "nucleus": "OW", "coda": [], "prominence": 1, "moras": 1}], "reading_status": "certain"}
+{"token": 2, "text": "oh", "codepoint_ranges": [[4, 6]], "precision": ["exact"], "syllables": [{"text": "oh", "onset": [], "nucleus": "AA", "coda": [], "prominence": 1, "moras": 1}], "reading_status": "certain"}
+{"token": 3, "text": "oh", "codepoint_ranges": [[8, 10]], "precision": ["exact"], "syllables": [{"text": "oh", "onset": [], "nucleus": "OW", "coda": [], "prominence": 1, "moras": 1}], "reading_status": "certain"}
+{"token": 4, "text": "my", "codepoint_ranges": [[11, 13]], "precision": ["exact"], "syllables": [{"text": "my", "onset": ["M"], "nucleus": "AY", "coda": [], "prominence": 1, "moras": 1}], "reading_status": "certain"}
+{"token": 5, "text": "love", "codepoint_ranges": [[14, 18]], "precision": ["exact"], "syllables": [{"text": "love", "onset": ["L"], "nucleus": "AH", "coda": ["V"], "prominence": 1, "moras": 1}], "reading_status": "certain"}

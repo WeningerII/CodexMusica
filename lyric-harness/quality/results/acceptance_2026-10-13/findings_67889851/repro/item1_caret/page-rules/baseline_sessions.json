@@ -1,0 +1,32 @@
+{
+  "out": {
+    "A": {
+      "text": "[SETUP — rhyme groups — 1.T4,8;3,5;2,6;4,7]\n[SETUP — returns — 1.T4,8.T1;3.head,5.head]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer]\n[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "localStorage": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 1.T4,8;3,5;2,6;4,7]\\n[SETUP — returns — 1.T4,8.T1;3.head,5.head]\\n[SETUP — reading — token 2 \\\"oh\\\" in \\\"Oh--oh, oh my love\\\" — OW1 — declared — source: the singer]\\n[SETUP — reading — token 5 \\\"oh\\\" in \\\"Oh, oh, I said oh\\\" — OW1 — declared — source: the singer]\\n\\n[VERSE]\\nOh--oh, oh my love\\nI play the double bass--\\nRun--run away to the sea\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nOh, oh, I said oh\\nLove above\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"pronunciation\",\"outline\":true}}}",
+      "toasts": [
+        "Rhyme link saved.\nUndo",
+        "Placed return declared.\nUndo",
+        "Reading for “oh” saved for line 1.\nUndo",
+        "Reading for “oh” saved for line 7.\nUndo"
+      ]
+    },
+    "B": {
+      "text": "[SETUP — rhyme groups — 1.T1,8;5.T2,6.T2]\n[SETUP — returns — 1.T1,7.T1]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "localStorage": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 1.T1,8;5.T2,6.T2]\\n[SETUP — returns — 1.T1,7.T1]\\n[SETUP — reading — token 1 \\\"Oh--oh\\\" in \\\"Oh--oh, oh my love\\\" — OW1 OW1 — declared — source: the singer]\\n\\n[VERSE]\\nOh--oh, oh my love\\nI play the double bass--\\nRun--run away to the sea\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nOh, oh, I said oh\\nLove above\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"pronunciation\",\"outline\":true}}}",
+      "toasts": [
+        "Rhyme link saved.\nUndo",
+        "Placed return declared.\nUndo",
+        "Reading for “Oh--oh” saved for line 1.\nUndo"
+      ]
+    },
+    "C": {
+      "text": "[SETUP — rhyme groups — 5,6;7.head,8]\n[SETUP — returns — 5.T2,6.T2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "localStorage": "{\"version\":1,\"name\":\"Untitled session\",\"cards\":[],\"lyrics\":\"[SETUP — rhyme groups — 5,6;7.head,8]\\n[SETUP — returns — 5.T2,6.T2]\\n\\n[VERSE]\\nOh--oh, oh my love\\nI play the double bass--\\nRun--run away to the sea\\nYou hold my heart.    10\\n\\n[CHORUS]\\nI walk the line tonight\\nWell-worn shoes upon the floor\\nOh, oh, I said oh\\nLove above\",\"lyricMeta\":{\"version\":1,\"brief\":\"\",\"notes\":{},\"drafts\":{},\"ui\":{\"tab\":\"tools\",\"tool\":\"repeats-voices\",\"outline\":true}}}",
+      "toasts": [
+        "Rhyme link saved.\nUndo",
+        "Placed return declared.\nUndo"
+      ]
+    }
+  },
+  "errors": []
+}

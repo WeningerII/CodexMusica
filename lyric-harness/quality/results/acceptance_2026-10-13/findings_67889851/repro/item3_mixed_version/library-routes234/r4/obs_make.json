@@ -1,0 +1,59 @@
+{
+  "firstWritten": {
+    "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": {
+      "declarations": {}
+    }
+  },
+  "afterReload": {
+    "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": {
+      "declarations": {
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 2,
+            "word": "oh",
+            "phones": [
+              "AA1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          }
+        ]
+      }
+    }
+  },
+  "buttonVisible": true,
+  "downloadName": "codex-musica-library-import.json",
+  "bundleDeclarations": [
+    {
+      "pronunciations": [
+        {
+          "line": "Oh--oh, oh my love",
+          "token": 2,
+          "word": "oh",
+          "phones": [
+            "AA1"
+          ],
+          "basis": "declared",
+          "source": "the singer"
+        }
+      ]
+    }
+  ],
+  "bundleDigest": "1b88d61839bfc8571dd4796a76500bad9a29d9fb495c0634f0a38556eb2634cf",
+  "mainWorkingDraftHead": [
+    "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — AA1 — declared — source: the singer]",
+    "",
+    "Oh--oh, oh my love",
+    "The evening wind returns"
+  ],
+  "mainSentDeclarations": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"AA1\"],\"basis\":\"declared\",\"source\":\"the singer\"}]}",
+  "workingCopyName": "lyrics.library-working-copy.json",
+  "workingCopyTextHead": [
+    "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — AA1 — declared — source: the singer]",
+    "",
+    "Oh--oh, oh my love",
+    "The evening wind returns"
+  ],
+  "workingCopyDeclarations": []
+}

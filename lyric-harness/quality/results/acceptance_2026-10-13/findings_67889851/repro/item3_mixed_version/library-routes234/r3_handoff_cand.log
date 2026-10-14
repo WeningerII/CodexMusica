@@ -1,0 +1,10 @@
+ok   [light 1280] cand inspector mounted
+ok   [light 1280] cand an interpretation record exists
+ok   [light 1280] cand inspector remounted
+ok   [light 1280] handoff reached Lyrics
+ok   [light 1280] handoff envelope carries the rebound token-3 row, never token 2
+ok   [light 1280] nothing sent binds the imported choice
+ok   [light 1280] handoff: theme is light
+ok   [light 1280] handoff: no horizontal page overflow
+ok   [light 1280] handoff: no console errors
+check_library_page: PASS — 9/9 checks, chunks: analysis,compare,core,reader,rights,works

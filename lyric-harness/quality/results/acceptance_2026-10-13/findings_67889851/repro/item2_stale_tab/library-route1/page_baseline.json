@@ -1,0 +1,1450 @@
+{
+  "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main",
+  "label": "baseline",
+  "key": "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d",
+  "scenarios": {
+    "oh": {
+      "seeded": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "Early, before the worlds light-giving lampe",
+              "token": 6,
+              "word": "lampe",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "1 more time I call your name",
+              "token": 1,
+              "word": "more",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ],
+          "hooks": [
+            {
+              "text": "Eccho ring",
+              "source": "bb8"
+            }
+          ]
+        }
+      },
+      "steps": [
+        {
+          "label": "load1",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Oh--oh, oh my love",
+                  "token": 2,
+                  "word": "oh",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 6,
+                  "word": "lampe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "1 more time I call your name",
+                  "token": 1,
+                  "word": "more",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ],
+              "hooks": [
+                {
+                  "text": "Eccho ring",
+                  "source": "bb8"
+                }
+              ]
+            }
+          },
+          "posts": 0
+        },
+        {
+          "label": "analyze1",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "Oh--oh, oh my love",
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "Early, before the worlds light-giving lampe",
+                "token": 6,
+                "word": "lampe",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "1 more time I call your name",
+                "token": 1,
+                "word": "more",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ],
+            "hooks": [
+              {
+                "text": "Eccho ring",
+                "source": "bb8"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"Early, before the worlds light-giving lampe\",\"token\":6,\"word\":\"lampe\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"1 more time I call your name\",\"token\":1,\"word\":\"more\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}],\"hooks\":[{\"text\":\"Eccho ring\",\"source\":\"bb8\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        },
+        {
+          "label": "reload1",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Oh--oh, oh my love",
+                  "token": 2,
+                  "word": "oh",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 6,
+                  "word": "lampe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "1 more time I call your name",
+                  "token": 1,
+                  "word": "more",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ],
+              "hooks": [
+                {
+                  "text": "Eccho ring",
+                  "source": "bb8"
+                }
+              ]
+            }
+          },
+          "posts": 1
+        },
+        {
+          "label": "analyze-after-reload1",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "Oh--oh, oh my love",
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "Early, before the worlds light-giving lampe",
+                "token": 6,
+                "word": "lampe",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "1 more time I call your name",
+                "token": 1,
+                "word": "more",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ],
+            "hooks": [
+              {
+                "text": "Eccho ring",
+                "source": "bb8"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"Early, before the worlds light-giving lampe\",\"token\":6,\"word\":\"lampe\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"1 more time I call your name\",\"token\":1,\"word\":\"more\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}],\"hooks\":[{\"text\":\"Eccho ring\",\"source\":\"bb8\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        },
+        {
+          "label": "after-save",
+          "status": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\n\nInterpretation saved on this device. Run a new whole-work analysis to apply it.\n\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "Whole-work analysis started.",
+          "toastClass": "toast show",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Oh--oh, oh my love",
+                  "token": 2,
+                  "word": "oh",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 6,
+                  "word": "lampe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "1 more time I call your name",
+                  "token": 1,
+                  "word": "more",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ],
+              "hooks": [
+                {
+                  "text": "Eccho ring",
+                  "source": "bb8"
+                }
+              ]
+            }
+          },
+          "posts": 2
+        },
+        {
+          "label": "reload2",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Oh--oh, oh my love",
+                  "token": 2,
+                  "word": "oh",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 6,
+                  "word": "lampe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "1 more time I call your name",
+                  "token": 1,
+                  "word": "more",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ],
+              "hooks": [
+                {
+                  "text": "Eccho ring",
+                  "source": "bb8"
+                }
+              ]
+            }
+          },
+          "posts": 2
+        },
+        {
+          "label": "analyze-after-reload2",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "Oh--oh, oh my love",
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "Early, before the worlds light-giving lampe",
+                "token": 6,
+                "word": "lampe",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "1 more time I call your name",
+                "token": 1,
+                "word": "more",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ],
+            "hooks": [
+              {
+                "text": "Eccho ring",
+                "source": "bb8"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"Early, before the worlds light-giving lampe\",\"token\":6,\"word\":\"lampe\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"1 more time I call your name\",\"token\":1,\"word\":\"more\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}],\"hooks\":[{\"text\":\"Eccho ring\",\"source\":\"bb8\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        }
+      ],
+      "seeded_readback": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "Early, before the worlds light-giving lampe",
+              "token": 6,
+              "word": "lampe",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "1 more time I call your name",
+              "token": 1,
+              "word": "more",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ],
+          "hooks": [
+            {
+              "text": "Eccho ring",
+              "source": "bb8"
+            }
+          ]
+        }
+      },
+      "errors": [],
+      "unmatched": []
+    },
+    "same": {
+      "seeded": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Early, before the worlds light-giving lampe",
+              "token": 6,
+              "word": "lampe",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "The woods shall to me answer, and my Eccho ring.",
+              "token": 10,
+              "word": "ring",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "Early, before the worlds light-giving lampe",
+              "token": 5,
+              "word": "light-giving",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        }
+      },
+      "steps": [
+        {
+          "label": "load1",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 6,
+                  "word": "lampe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "The woods shall to me answer, and my Eccho ring.",
+                  "token": 10,
+                  "word": "ring",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 5,
+                  "word": "light-giving",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            }
+          },
+          "posts": 0
+        },
+        {
+          "label": "analyze1",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "Early, before the worlds light-giving lampe",
+                "token": 6,
+                "word": "lampe",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "The woods shall to me answer, and my Eccho ring.",
+                "token": 10,
+                "word": "ring",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "Early, before the worlds light-giving lampe",
+                "token": 5,
+                "word": "light-giving",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Early, before the worlds light-giving lampe\",\"token\":6,\"word\":\"lampe\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"The woods shall to me answer, and my Eccho ring.\",\"token\":10,\"word\":\"ring\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"Early, before the worlds light-giving lampe\",\"token\":5,\"word\":\"light-giving\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        },
+        {
+          "label": "reload1",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 6,
+                  "word": "lampe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "The woods shall to me answer, and my Eccho ring.",
+                  "token": 10,
+                  "word": "ring",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 5,
+                  "word": "light-giving",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            }
+          },
+          "posts": 1
+        },
+        {
+          "label": "analyze-after-reload1",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "Early, before the worlds light-giving lampe",
+                "token": 6,
+                "word": "lampe",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "The woods shall to me answer, and my Eccho ring.",
+                "token": 10,
+                "word": "ring",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "Early, before the worlds light-giving lampe",
+                "token": 5,
+                "word": "light-giving",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Early, before the worlds light-giving lampe\",\"token\":6,\"word\":\"lampe\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"The woods shall to me answer, and my Eccho ring.\",\"token\":10,\"word\":\"ring\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"Early, before the worlds light-giving lampe\",\"token\":5,\"word\":\"light-giving\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        },
+        {
+          "label": "after-save",
+          "status": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\n\nInterpretation saved on this device. Run a new whole-work analysis to apply it.\n\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "Whole-work analysis started.",
+          "toastClass": "toast show",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 6,
+                  "word": "lampe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "The woods shall to me answer, and my Eccho ring.",
+                  "token": 10,
+                  "word": "ring",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 5,
+                  "word": "light-giving",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            }
+          },
+          "posts": 2
+        },
+        {
+          "label": "reload2",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 6,
+                  "word": "lampe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "The woods shall to me answer, and my Eccho ring.",
+                  "token": 10,
+                  "word": "ring",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "Early, before the worlds light-giving lampe",
+                  "token": 5,
+                  "word": "light-giving",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            }
+          },
+          "posts": 2
+        },
+        {
+          "label": "analyze-after-reload2",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "Early, before the worlds light-giving lampe",
+                "token": 6,
+                "word": "lampe",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "The woods shall to me answer, and my Eccho ring.",
+                "token": 10,
+                "word": "ring",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "Early, before the worlds light-giving lampe",
+                "token": 5,
+                "word": "light-giving",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Early, before the worlds light-giving lampe\",\"token\":6,\"word\":\"lampe\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"The woods shall to me answer, and my Eccho ring.\",\"token\":10,\"word\":\"ring\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"Early, before the worlds light-giving lampe\",\"token\":5,\"word\":\"light-giving\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        }
+      ],
+      "seeded_readback": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Early, before the worlds light-giving lampe",
+              "token": 6,
+              "word": "lampe",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "The woods shall to me answer, and my Eccho ring.",
+              "token": 10,
+              "word": "ring",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "Early, before the worlds light-giving lampe",
+              "token": 5,
+              "word": "light-giving",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        }
+      },
+      "errors": [],
+      "unmatched": []
+    },
+    "v9": {
+      "seeded": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "The woods shall to me answer, and my Eccho ring.",
+              "token": 10,
+              "word": "ring",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        },
+        "token_cut": "v9"
+      },
+      "steps": [
+        {
+          "label": "load1",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "The woods shall to me answer, and my Eccho ring.",
+                  "token": 10,
+                  "word": "ring",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            },
+            "token_cut": "v9"
+          },
+          "posts": 0
+        },
+        {
+          "label": "analyze1",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "The woods shall to me answer, and my Eccho ring.",
+                "token": 10,
+                "word": "ring",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"The woods shall to me answer, and my Eccho ring.\",\"token\":10,\"word\":\"ring\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        },
+        {
+          "label": "reload1",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "The woods shall to me answer, and my Eccho ring.",
+                  "token": 10,
+                  "word": "ring",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            },
+            "token_cut": "v9"
+          },
+          "posts": 1
+        },
+        {
+          "label": "analyze-after-reload1",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "The woods shall to me answer, and my Eccho ring.",
+                "token": 10,
+                "word": "ring",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"The woods shall to me answer, and my Eccho ring.\",\"token\":10,\"word\":\"ring\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        },
+        {
+          "label": "after-save",
+          "status": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\n\nInterpretation saved on this device. Run a new whole-work analysis to apply it.\n\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "Whole-work analysis started.",
+          "toastClass": "toast show",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "The woods shall to me answer, and my Eccho ring.",
+                  "token": 10,
+                  "word": "ring",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            }
+          },
+          "posts": 2
+        },
+        {
+          "label": "reload2",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "The woods shall to me answer, and my Eccho ring.",
+                  "token": 10,
+                  "word": "ring",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            }
+          },
+          "posts": 2
+        },
+        {
+          "label": "analyze-after-reload2",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "The woods shall to me answer, and my Eccho ring.",
+                "token": 10,
+                "word": "ring",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"The woods shall to me answer, and my Eccho ring.\",\"token\":10,\"word\":\"ring\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        }
+      ],
+      "seeded_readback": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "The woods shall to me answer, and my Eccho ring.",
+              "token": 10,
+              "word": "ring",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        },
+        "token_cut": "v9"
+      },
+      "errors": [],
+      "unmatched": []
+    },
+    "split": {
+      "seeded": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "yes--no--maybe so",
+              "token": 1,
+              "word": "yes--no--maybe",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        }
+      },
+      "steps": [
+        {
+          "label": "load1",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Oh--oh, oh my love",
+                  "token": 2,
+                  "word": "oh",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "yes--no--maybe so",
+                  "token": 1,
+                  "word": "yes--no--maybe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            }
+          },
+          "posts": 0
+        },
+        {
+          "label": "analyze1",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "Oh--oh, oh my love",
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "yes--no--maybe so",
+                "token": 1,
+                "word": "yes--no--maybe",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"yes--no--maybe so\",\"token\":1,\"word\":\"yes--no--maybe\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        },
+        {
+          "label": "drop-undecided",
+          "buttons": 0,
+          "status": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "Whole-work analysis started.",
+          "toastClass": "toast show",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Oh--oh, oh my love",
+                  "token": 2,
+                  "word": "oh",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "yes--no--maybe so",
+                  "token": 1,
+                  "word": "yes--no--maybe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            }
+          },
+          "posts": 1
+        },
+        {
+          "label": "analyze2",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "Oh--oh, oh my love",
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "yes--no--maybe so",
+                "token": 1,
+                "word": "yes--no--maybe",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"yes--no--maybe so\",\"token\":1,\"word\":\"yes--no--maybe\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        },
+        {
+          "label": "reload1",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Oh--oh, oh my love",
+                  "token": 2,
+                  "word": "oh",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "yes--no--maybe so",
+                  "token": 1,
+                  "word": "yes--no--maybe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            }
+          },
+          "posts": 2
+        },
+        {
+          "label": "analyze-after-reload1",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "Oh--oh, oh my love",
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "yes--no--maybe so",
+                "token": 1,
+                "word": "yes--no--maybe",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"yes--no--maybe so\",\"token\":1,\"word\":\"yes--no--maybe\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        },
+        {
+          "label": "after-save",
+          "status": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\n\nInterpretation saved on this device. Run a new whole-work analysis to apply it.\n\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "Whole-work analysis started.",
+          "toastClass": "toast show",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Oh--oh, oh my love",
+                  "token": 2,
+                  "word": "oh",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "yes--no--maybe so",
+                  "token": 1,
+                  "word": "yes--no--maybe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            }
+          },
+          "posts": 3
+        },
+        {
+          "label": "reload2",
+          "status": [
+            "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+          ],
+          "cut": [],
+          "cutAttrs": [],
+          "alerts": [],
+          "toast": "",
+          "toastClass": "toast",
+          "idb": {
+            "declarations": {
+              "pronunciations": [
+                {
+                  "line": "Oh--oh, oh my love",
+                  "token": 2,
+                  "word": "oh",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                },
+                {
+                  "line": "yes--no--maybe so",
+                  "token": 1,
+                  "word": "yes--no--maybe",
+                  "phones": [
+                    "OW1"
+                  ],
+                  "basis": "declared",
+                  "source": "bb8 legacy fixture"
+                }
+              ]
+            }
+          },
+          "posts": 3
+        },
+        {
+          "label": "analyze-after-reload2",
+          "sent_declaration_set": {
+            "pronunciations": [
+              {
+                "line": "Oh--oh, oh my love",
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              },
+              {
+                "line": "yes--no--maybe so",
+                "token": 1,
+                "word": "yes--no--maybe",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "bb8 legacy fixture"
+              }
+            ]
+          },
+          "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":2,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"yes--no--maybe so\",\"token\":1,\"word\":\"yes--no--maybe\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+          "status_after": [
+            "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+          ],
+          "alerts_after": []
+        }
+      ],
+      "seeded_readback": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "yes--no--maybe so",
+              "token": 1,
+              "word": "yes--no--maybe",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        }
+      },
+      "errors": [],
+      "unmatched": []
+    }
+  }
+}

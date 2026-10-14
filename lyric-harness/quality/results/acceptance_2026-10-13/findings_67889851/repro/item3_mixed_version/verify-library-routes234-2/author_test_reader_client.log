@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: portable signing input binds exact body, query, viewer and capability
+ok 1 - portable signing input binds exact body, query, viewer and capability
+  ---
+  duration_ms: 5.900047
+  type: 'test'
+  ...
+# Subtest: private route create is durable/idempotent and changed bodies or other viewers refuse
+ok 2 - private route create is durable/idempotent and changed bodies or other viewers refuse
+  ---
+  duration_ms: 141.989841
+  type: 'test'
+  ...
+# Subtest: signed pull returns exact fixed-manifest hashes and refuses unreferenced pages
+ok 3 - signed pull returns exact fixed-manifest hashes and refuses unreferenced pages
+  ---
+  duration_ms: 82.46359
+  type: 'test'
+  ...
+# Subtest: signed controls accept numeric bindings, reject stale new actions and replay deletion safely
+ok 4 - signed controls accept numeric bindings, reject stale new actions and replay deletion safely
+  ---
+  duration_ms: 100.730197
+  type: 'test'
+  ...
+# Subtest: page packing respects encoded UTF-8 bytes and 250 records
+ok 5 - page packing respects encoded UTF-8 bytes and 250 records
+  ---
+  duration_ms: 17.280699
+  type: 'test'
+  ...
+# Subtest: local catalog resolution verifies snapshot, registered paths, full revision and artifact bytes
+ok 6 - local catalog resolution verifies snapshot, registered paths, full revision and artifact bytes
+  ---
+  duration_ms: 102.524515
+  type: 'test'
+  ...
+# Subtest: the create path verifies a large reading off the event loop, with the same refusals
+ok 7 - the create path verifies a large reading off the event loop, with the same refusals
+  ---
+  duration_ms: 4896.752199
+  type: 'test'
+  ...
+# Subtest: reader fsync acknowledgement precedes yield and writing uses the same worker
+ok 8 - reader fsync acknowledgement precedes yield and writing uses the same worker
+  ---
+  duration_ms: 58.566462
+  type: 'test'
+  ...
+# Subtest: durable scheduler completes without an open browser and preserves immutable pages
+ok 9 - durable scheduler completes without an open browser and preserves immutable pages
+  ---
+  duration_ms: 153.686121
+  type: 'test'
+  ...
+# Subtest: successful bounded leases requeue automatically until the whole traversal completes
+ok 10 - successful bounded leases requeue automatically until the whole traversal completes
+  ---
+  duration_ms: 179.966537
+  type: 'test'
+  ...
+# Subtest: a job queued across the word-cut release is refused, never run, never rewritten
+ok 11 - a job queued across the word-cut release is refused, never run, never rewritten
+  ---
+  duration_ms: 19.552188
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5988.287137

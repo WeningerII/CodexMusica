@@ -1,0 +1,888 @@
+{
+  "results": [
+    {
+      "id": "B.load.rows",
+      "claim": "1.T1 (\"Oh--oh\", no v2 word covers 0-6) is kept under its old number and blocks; the reading is flagged; 5.T2/6.T2 unchanged",
+      "expected": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2] | [SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2] | [SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]",
+      "observed": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2] | [SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2] | [SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]",
+      "status": "pass"
+    },
+    {
+      "id": "B.load.toast",
+      "claim": "an error toast says a saved number needs a decision",
+      "expected": "error toast",
+      "observed": "[\"3 saved word numbers without the current cut mark need your decision before the writer can be asked.\"]",
+      "status": "pass"
+    },
+    {
+      "id": "B.load.decl",
+      "claim": "declarations keep the blocked links out of what binds and carry them as need_decision",
+      "expected": "groups=5.T2,6.T2; groups_need_decision, returns_need_decision, readings_need_decision present",
+      "observed": "{\"groups\":\"5.T2,6.T2\",\"groups_need_decision\":[\"1.T1 (numbered under the earlier cut),8\"],\"returns_need_decision\":[\"1.T1 (numbered under the earlier cut),7.T1\"],\"readings_need_decision\":[{\"line\":\"Oh--oh, oh my love\",\"saved_token\":1,\"word\":\"Oh--oh\"}]}",
+      "status": "pass"
+    },
+    {
+      "id": "B.load.review",
+      "claim": "Review shows input notices for the reading, the rhyme link and the return",
+      "expected": "3 input notices",
+      "observed": "[\"The reading for “Oh--oh” saved without the current cut mark needs your decision\",\"A rhyme link saved without the current cut mark needs your decision\",\"A declared return saved without the current cut mark needs your decision\"]",
+      "status": "pass"
+    },
+    {
+      "id": "B.load.sendBlocked",
+      "claim": "Run review and a typed lyrics-edit request are both refused while blocked; nothing reaches /chat",
+      "expected": "0 calls, toast \"Nothing was sent\", typed reason=declarations",
+      "observed": "{\"calls\":0,\"toasts\":[\"3 saved word numbers without the current cut mark need your decision before the writer can be asked.\",\"Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (1.T1, 1.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review.\"],\"typed\":{\"reason\":\"declarations\",\"ok\":false},\"typedReached\":0}",
+      "status": "pass"
+    },
+    {
+      "id": "B.reorder.rows",
+      "claim": "reorder renumbers lines and keeps the blocked state",
+      "expected": "5.T1 (numbered under the earlier cut),4;1.T2,2.T2 | 5.T1 (numbered under the earlier cut),3.T1",
+      "observed": "[SETUP — rhyme groups — 5.T1 (numbered under the earlier cut),4;1.T2,2.T2 — cut v2] | [SETUP — returns — 5.T1 (numbered under the earlier cut),3.T1 — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "B.reorder.sendBlocked",
+      "claim": "Run review and a typed lyrics-edit request are both refused while blocked; nothing reaches /chat",
+      "expected": "0 calls, toast \"Nothing was sent\", typed reason=declarations",
+      "observed": "{\"calls\":0,\"toasts\":[\"Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (1.T1, 1.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review.\",\"Moved section down.\\nUndo\",\"Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (5.T1, 5.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review.\"],\"typed\":{\"reason\":\"declarations\",\"ok\":false},\"typedReached\":0}",
+      "status": "pass"
+    },
+    {
+      "id": "B.reorder.undo",
+      "claim": "Undo of reorder restores blocked rows",
+      "expected": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]",
+      "observed": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "B.forms.rows",
+      "claim": "adding a link and a placed return through the forms keeps the blocked members",
+      "expected": "1.T1 (numbered under the earlier cut),8;5.T2,6.T2;6,8 | 1.T1 (numbered under the earlier cut),7.T1;6.head,7.head",
+      "observed": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2;6,8 — cut v2] | [SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1;6.head,7.head — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "B.forms.sendBlocked",
+      "claim": "Run review and a typed lyrics-edit request are both refused while blocked; nothing reaches /chat",
+      "expected": "0 calls, toast \"Nothing was sent\", typed reason=declarations",
+      "observed": "{\"calls\":0,\"toasts\":[\"Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (5.T1, 5.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review.\",\"Rhyme link saved.\\nUndo\",\"Placed return declared.\\nUndo\",\"Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (1.T1, 1.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review.\"],\"typed\":{\"reason\":\"declarations\",\"ok\":false},\"typedReached\":0}",
+      "status": "pass"
+    },
+    {
+      "id": "B.undo",
+      "claim": "Undo twice restores the original blocked rows",
+      "expected": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2] | [SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]",
+      "observed": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2] | [SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "B.redo",
+      "claim": "Redo re-applies the rhymes edit with the blocked member",
+      "expected": "1.T1 (numbered under the earlier cut),8;5.T2,6.T2;6,8",
+      "observed": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2;6,8 — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "B.reload",
+      "claim": "reload reopens the same blocked text",
+      "expected": "identical",
+      "observed": "identical",
+      "status": "pass"
+    },
+    {
+      "id": "B.reload.sendBlocked",
+      "claim": "Run review and a typed lyrics-edit request are both refused while blocked; nothing reaches /chat",
+      "expected": "0 calls, toast \"Nothing was sent\", typed reason=declarations",
+      "observed": "{\"calls\":0,\"toasts\":[\"Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (1.T1, 1.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review.\"],\"typed\":{\"reason\":\"declarations\",\"ok\":false},\"typedReached\":0}",
+      "status": "pass"
+    },
+    {
+      "id": "B.export",
+      "claim": "Download text holds the blocked markers",
+      "expected": "body == draft",
+      "observed": "equal",
+      "status": "pass"
+    },
+    {
+      "id": "B.import",
+      "claim": "Import in a fresh browser gives the same blocked rows",
+      "expected": "[\"[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]\",\"[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]\",\"[SETUP — reading — token 1 \\\"Oh--oh\\\" in \\\"Oh--oh, oh my love\\\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]\"]",
+      "observed": "[\"[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]\",\"[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]\",\"[SETUP — reading — token 1 \\\"Oh--oh\\\" in \\\"Oh--oh, oh my love\\\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]\"]",
+      "status": "pass"
+    },
+    {
+      "id": "B.import.sendBlocked",
+      "claim": "Run review and a typed lyrics-edit request are both refused while blocked; nothing reaches /chat",
+      "expected": "0 calls, toast \"Nothing was sent\", typed reason=declarations",
+      "observed": "{\"calls\":0,\"toasts\":[\"Imported lyrics.txt. Undo restores the previous draft.\\nUndo\",\"Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (1.T1, 1.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review.\"],\"typed\":{\"reason\":\"declarations\",\"ok\":false},\"typedReached\":0}",
+      "status": "pass"
+    },
+    {
+      "id": "B.drop.row",
+      "claim": "Remove the link removes only the link holding the blocked member",
+      "expected": "[SETUP — rhyme groups — 5.T2,6.T2 — cut v2]",
+      "observed": "[SETUP — rhyme groups — 5.T2,6.T2 — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "B.drop.wording",
+      "claim": "the removal message does not claim the row was provably created before the release (policy 6)",
+      "expected": "no \"saved before this release\"",
+      "observed": "[\"Rhyme link saved before this release removed. Undo restores it.\\nUndo\"]",
+      "status": "fail"
+    },
+    {
+      "id": "C.load.namedRow",
+      "claim": "a row of named places on unchanged lines is carried with NO notice and left byte-identical",
+      "expected": "[SETUP — rhyme groups — 5,6;7.head,8]",
+      "observed": "[SETUP — rhyme groups — 5,6;7.head,8]",
+      "status": "pass"
+    },
+    {
+      "id": "C.load.numberedRow",
+      "claim": "a T<k>-only row whose binding did not change: byte-identical? (invariant: unchanged choices byte-identical)",
+      "expected": "[SETUP — returns — 5.T2,6.T2]",
+      "observed": "[SETUP — returns — 5.T2,6.T2 — cut v2]",
+      "status": "fail"
+    },
+    {
+      "id": "C.load.toast",
+      "claim": "no migration toast for rows whose binding did not change",
+      "expected": "no toast",
+      "observed": "[]",
+      "status": "pass"
+    },
+    {
+      "id": "C.send",
+      "claim": "nothing blocks; groups/returns sent as declared",
+      "expected": "groups=5,6;7.head,8 returns=5.T2,6.T2",
+      "observed": "[[\"5,6;7.head,8\",\"5.T2,6.T2\"]]",
+      "status": "pass"
+    },
+    {
+      "id": "C.reading.unchanged",
+      "claim": "a reading on an unchanged line keeps token 5 (binding unchanged); byte-identical?",
+      "expected": "[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer]",
+      "observed": "[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]",
+      "status": "fail"
+    },
+    {
+      "id": "D.load.rows",
+      "claim": "rows marked cut v9 are left exactly as they are (never rewritten as v2)",
+      "expected": "[SETUP — rhyme groups — 5,6 — cut v9] | [SETUP — returns — 5.T2,6.T2 — cut v9] | [SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]",
+      "observed": "[SETUP — rhyme groups — 5,6 — cut v9] | [SETUP — returns — 5.T2,6.T2 — cut v9] | [SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]",
+      "status": "pass"
+    },
+    {
+      "id": "D.load.review",
+      "claim": "Review: input notices naming cut v9 and the accepted value \"cut v2\"",
+      "expected": "3 input notices, each naming v9 and “cut v2”",
+      "observed": "[\"It is marked “cut v9”; this page reads only “cut v2”, so its number binds no word. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\",\"5, 6 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.\",\"5.T2, 6.T2 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.\"]",
+      "status": "pass"
+    },
+    {
+      "id": "D.load.decl",
+      "claim": "no v9 row binds: groups/returns/pronunciations absent, need_decision present",
+      "expected": "need_decision only",
+      "observed": "{\"groups_need_decision\":[\"5 (marked cut v9: not read here),6 (marked cut v9: not read here)\"],\"returns_need_decision\":[\"5.T2 (marked cut v9: not read here),6.T2 (marked cut v9: not read here)\"],\"readings_need_decision\":[{\"line\":\"I walk the line tonight\",\"saved_token\":2,\"word\":\"walk\"}]}",
+      "status": "pass"
+    },
+    {
+      "id": "D.send",
+      "claim": "send blocked with a message naming the accepted value",
+      "expected": "0 calls; toast names “cut v2”",
+      "observed": "{\"calls\":0,\"toasts\":[\"Nothing was sent. 1 reading (“walk” marked cut v9) is marked with a word cut this page does not read; it accepts only “cut v2”. Choose each reading again, or remove it, in Review. 4 word places in a rhyme link or declared return (5 marked cut v9, 6 marked cut v9, 5.T2 marked cut v9, 6.T2 marked cut v9) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review.\"]}",
+      "status": "pass"
+    },
+    {
+      "id": "D.reorder",
+      "claim": "reorder renumbers lines but keeps cut v9 (not laundered into v2)",
+      "expected": "[SETUP — rhyme groups — 1,2 — cut v9] | [SETUP — returns — 1.T2,2.T2 — cut v9]",
+      "observed": "[SETUP — rhyme groups — 1,2 — cut v9] | [SETUP — returns — 1.T2,2.T2 — cut v9]",
+      "status": "pass"
+    },
+    {
+      "id": "D.rhymesForm",
+      "claim": "adding a link through the Rhymes form keeps the v9 members unbound (marked) and still blocks",
+      "expected": "v9 members written as “(marked cut v9: not read here)”",
+      "observed": "[SETUP — rhyme groups — 5 (marked cut v9: not read here),6 (marked cut v9: not read here);7,8 — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "D.rhymesForm.send",
+      "claim": "still blocked after the form edit",
+      "expected": "0 calls",
+      "observed": "{\"calls\":0,\"toasts\":[\"Nothing was sent. 1 reading (“walk” marked cut v9) is marked with a word cut this page does not read; it accepts only “cut v2”. Choose each reading again, or remove it, in Review. 4 word places in a rhyme link or declared return (5 marked cut v9, 6 marked cut v9, 5.T2 marked cut v9, 6.T2 marked cut v9) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review.\",\"Moved section down.\\nUndo\",\"Rhyme link saved.\\nUndo\",\"Nothing was sent. 1 reading (“walk” marked cut v9) is marked with a word cut this page does not read; it accepts only “cut v2”. Choose each reading again, or remove it, in Review. 4 word places in a rhyme link or declared return (5 marked cut v9, 6 marked cut v9, 5.T2 marked cut v9, 6.T2 marked cut v9) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review.\"]}",
+      "status": "pass"
+    },
+    {
+      "id": "D.reload",
+      "claim": "reload keeps the v9 state",
+      "expected": "identical",
+      "observed": "identical",
+      "status": "pass"
+    },
+    {
+      "id": "D.import",
+      "claim": "export/import keeps the v9 state",
+      "expected": "[\"[SETUP — rhyme groups — 5 (marked cut v9: not read here),6 (marked cut v9: not read here);7,8 — cut v2]\",\"[SETUP — returns — 5.T2,6.T2 — cut v9]\",\"[SETUP — reading — token 2 \\\"walk\\\" in \\\"I walk the line tonight\\\" — W AO1 K — declared — source: me — cut v9]\"]",
+      "observed": "[\"[SETUP — rhyme groups — 5 (marked cut v9: not read here),6 (marked cut v9: not read here);7,8 — cut v2]\",\"[SETUP — returns — 5.T2,6.T2 — cut v9]\",\"[SETUP — reading — token 2 \\\"walk\\\" in \\\"I walk the line tonight\\\" — W AO1 K — declared — source: me — cut v9]\"]",
+      "status": "pass"
+    },
+    {
+      "id": "D.drop.wording",
+      "claim": "removing a v9-marked return does not call it \"saved before this release\" (policy 6)",
+      "expected": "no \"saved before this release\"",
+      "observed": "[\"Declared return saved before this release removed. Undo restores it.\\nUndo\"]",
+      "status": "fail"
+    },
+    {
+      "id": "BCD.pageErrors",
+      "claim": "no uncaught page errors",
+      "expected": "[]",
+      "observed": "[]",
+      "status": "pass"
+    }
+  ],
+  "snaps": {
+    "B_load": {
+      "text": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]\n[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "rows": [
+        "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]",
+        "[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]",
+        "[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]"
+      ],
+      "decl": {
+        "groups": "5.T2,6.T2",
+        "groups_need_decision": [
+          "1.T1 (numbered under the earlier cut),8"
+        ],
+        "returns_need_decision": [
+          "1.T1 (numbered under the earlier cut),7.T1"
+        ],
+        "readings_need_decision": [
+          {
+            "line": "Oh--oh, oh my love",
+            "saved_token": 1,
+            "word": "Oh--oh"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "reading:2",
+          "tone": "input",
+          "title": "The reading for “Oh--oh” saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "It was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-tool",
+              "Choose again",
+              "pronunciation"
+            ],
+            [
+              "ly-remove-setup",
+              "Remove it",
+              "2"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:undecided",
+          "tone": "input",
+          "title": "A rhyme link saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "rhyme groups"
+            ],
+            [
+              "ly-tool",
+              "Open rhymes",
+              "rhymes"
+            ]
+          ]
+        },
+        {
+          "id": "returns:1:undecided",
+          "tone": "input",
+          "title": "A declared return saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "returns"
+            ],
+            [
+              "ly-tool",
+              "Open repeats",
+              "repeats-voices"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · d293157\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “Oh--oh” saved without the current cut mark needs your decision\nline 1\nIt was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\nA rhyme link saved without the current cut mark needs your decision\nline 1\n1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen rhymes\nShow in draft\nA declared return saved without the current cut mark needs your decision\nline 1\n1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen repeats\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]\n[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "histLen": 1,
+      "histIdx": 0
+    },
+    "B_reorder": {
+      "text": "[SETUP — rhyme groups — 5.T1 (numbered under the earlier cut),4;1.T2,2.T2 — cut v2]\n[SETUP — returns — 5.T1 (numbered under the earlier cut),3.T1 — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10",
+      "rows": [
+        "[SETUP — rhyme groups — 5.T1 (numbered under the earlier cut),4;1.T2,2.T2 — cut v2]",
+        "[SETUP — returns — 5.T1 (numbered under the earlier cut),3.T1 — cut v2]",
+        "[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]"
+      ],
+      "decl": {
+        "groups": "1.T2,2.T2",
+        "groups_need_decision": [
+          "5.T1 (numbered under the earlier cut),4"
+        ],
+        "returns_need_decision": [
+          "5.T1 (numbered under the earlier cut),3.T1"
+        ],
+        "readings_need_decision": [
+          {
+            "line": "Oh--oh, oh my love",
+            "saved_token": 1,
+            "word": "Oh--oh"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "reading:2",
+          "tone": "input",
+          "title": "The reading for “Oh--oh” saved without the current cut mark needs your decision",
+          "where": "line 5",
+          "text": "It was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-tool",
+              "Choose again",
+              "pronunciation"
+            ],
+            [
+              "ly-remove-setup",
+              "Remove it",
+              "2"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:undecided",
+          "tone": "input",
+          "title": "A rhyme link saved without the current cut mark needs your decision",
+          "where": "line 5",
+          "text": "5.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "rhyme groups"
+            ],
+            [
+              "ly-tool",
+              "Open rhymes",
+              "rhymes"
+            ]
+          ]
+        },
+        {
+          "id": "returns:1:undecided",
+          "tone": "input",
+          "title": "A declared return saved without the current cut mark needs your decision",
+          "where": "line 5",
+          "text": "5.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "returns"
+            ],
+            [
+              "ly-tool",
+              "Open repeats",
+              "repeats-voices"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · 82dc087\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “Oh--oh” saved without the current cut mark needs your decision\nline 5\nIt was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\nA rhyme link saved without the current cut mark needs your decision\nline 5\n5.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen rhymes\nShow in draft\nA declared return saved without the current cut mark needs your decision\nline 5\n5.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen repeats\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 5.T1 (numbered under the earlier cut),4;1.T2,2.T2 — cut v2]\n[SETUP — returns — 5.T1 (numbered under the earlier cut),3.T1 — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10",
+      "histLen": 2,
+      "histIdx": 1
+    },
+    "B_forms": {
+      "text": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2;6,8 — cut v2]\n[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1;6.head,7.head — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "rows": [
+        "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2;6,8 — cut v2]",
+        "[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1;6.head,7.head — cut v2]",
+        "[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]"
+      ],
+      "decl": {
+        "groups": "5.T2,6.T2;6,8",
+        "returns": "6.head,7.head",
+        "groups_need_decision": [
+          "1.T1 (numbered under the earlier cut),8"
+        ],
+        "returns_need_decision": [
+          "1.T1 (numbered under the earlier cut),7.T1"
+        ],
+        "readings_need_decision": [
+          {
+            "line": "Oh--oh, oh my love",
+            "saved_token": 1,
+            "word": "Oh--oh"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "reading:2",
+          "tone": "input",
+          "title": "The reading for “Oh--oh” saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "It was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-tool",
+              "Choose again",
+              "pronunciation"
+            ],
+            [
+              "ly-remove-setup",
+              "Remove it",
+              "2"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:undecided",
+          "tone": "input",
+          "title": "A rhyme link saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "rhyme groups"
+            ],
+            [
+              "ly-tool",
+              "Open rhymes",
+              "rhymes"
+            ]
+          ]
+        },
+        {
+          "id": "returns:1:undecided",
+          "tone": "input",
+          "title": "A declared return saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "returns"
+            ],
+            [
+              "ly-tool",
+              "Open repeats",
+              "repeats-voices"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · 659f662\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “Oh--oh” saved without the current cut mark needs your decision\nline 1\nIt was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\nA rhyme link saved without the current cut mark needs your decision\nline 1\n1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen rhymes\nShow in draft\nA declared return saved without the current cut mark needs your decision\nline 1\n1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen repeats\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2;6,8 — cut v2]\n[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1;6.head,7.head — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "histLen": 3,
+      "histIdx": 2
+    },
+    "B_reload": {
+      "text": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]\n[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "rows": [
+        "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]",
+        "[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]",
+        "[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]"
+      ],
+      "decl": {
+        "groups": "5.T2,6.T2",
+        "groups_need_decision": [
+          "1.T1 (numbered under the earlier cut),8"
+        ],
+        "returns_need_decision": [
+          "1.T1 (numbered under the earlier cut),7.T1"
+        ],
+        "readings_need_decision": [
+          {
+            "line": "Oh--oh, oh my love",
+            "saved_token": 1,
+            "word": "Oh--oh"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "reading:2",
+          "tone": "input",
+          "title": "The reading for “Oh--oh” saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "It was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-tool",
+              "Choose again",
+              "pronunciation"
+            ],
+            [
+              "ly-remove-setup",
+              "Remove it",
+              "2"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:undecided",
+          "tone": "input",
+          "title": "A rhyme link saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "rhyme groups"
+            ],
+            [
+              "ly-tool",
+              "Open rhymes",
+              "rhymes"
+            ]
+          ]
+        },
+        {
+          "id": "returns:1:undecided",
+          "tone": "input",
+          "title": "A declared return saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "returns"
+            ],
+            [
+              "ly-tool",
+              "Open repeats",
+              "repeats-voices"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · d293157\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “Oh--oh” saved without the current cut mark needs your decision\nline 1\nIt was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\nA rhyme link saved without the current cut mark needs your decision\nline 1\n1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen rhymes\nShow in draft\nA declared return saved without the current cut mark needs your decision\nline 1\n1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen repeats\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]\n[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "histLen": 1,
+      "histIdx": 0
+    },
+    "B_drop": {
+      "toasts": [
+        "Rhyme link saved before this release removed. Undo restores it.\nUndo"
+      ],
+      "rows": [
+        "[SETUP — rhyme groups — 5.T2,6.T2 — cut v2]",
+        "[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]",
+        "[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]"
+      ]
+    },
+    "C_load": {
+      "text": "[SETUP — rhyme groups — 5,6;7.head,8]\n[SETUP — returns — 5.T2,6.T2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "rows": [
+        "[SETUP — rhyme groups — 5,6;7.head,8]",
+        "[SETUP — returns — 5.T2,6.T2 — cut v2]"
+      ],
+      "decl": {
+        "groups": "5,6;7.head,8",
+        "returns": "5.T2,6.T2"
+      },
+      "items": [],
+      "review": "Current version · 41288c1\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n0\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 5,6;7.head,8]\n[SETUP — returns — 5.T2,6.T2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "histLen": 1,
+      "histIdx": 0
+    },
+    "D_load": {
+      "text": "[SETUP — rhyme groups — 5,6 — cut v9]\n[SETUP — returns — 5.T2,6.T2 — cut v9]\n[SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "rows": [
+        "[SETUP — rhyme groups — 5,6 — cut v9]",
+        "[SETUP — returns — 5.T2,6.T2 — cut v9]",
+        "[SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]"
+      ],
+      "decl": {
+        "groups_need_decision": [
+          "5 (marked cut v9: not read here),6 (marked cut v9: not read here)"
+        ],
+        "returns_need_decision": [
+          "5.T2 (marked cut v9: not read here),6.T2 (marked cut v9: not read here)"
+        ],
+        "readings_need_decision": [
+          {
+            "line": "I walk the line tonight",
+            "saved_token": 2,
+            "word": "walk"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "reading:2",
+          "tone": "input",
+          "title": "The reading for “walk” is marked with a word cut this page does not read",
+          "where": "line 5",
+          "text": "It is marked “cut v9”; this page reads only “cut v2”, so its number binds no word. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-tool",
+              "Choose again",
+              "pronunciation"
+            ],
+            [
+              "ly-remove-setup",
+              "Remove it",
+              "2"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:unknown-cut",
+          "tone": "input",
+          "title": "A rhyme link is marked with a word cut this page does not read",
+          "where": "lines 5 and 6",
+          "text": "5, 6 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "rhyme groups"
+            ],
+            [
+              "ly-tool",
+              "Open rhymes",
+              "rhymes"
+            ]
+          ]
+        },
+        {
+          "id": "returns:1:unknown-cut",
+          "tone": "input",
+          "title": "A declared return is marked with a word cut this page does not read",
+          "where": "lines 5 and 6",
+          "text": "5.T2, 6.T2 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "returns"
+            ],
+            [
+              "ly-tool",
+              "Open repeats",
+              "repeats-voices"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · bb3a702\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “walk” is marked with a word cut this page does not read\nline 5\nIt is marked “cut v9”; this page reads only “cut v2”, so its number binds no word. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\nA rhyme link is marked with a word cut this page does not read\nlines 5 and 6\n5, 6 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.\nRemove the link\nOpen rhymes\nShow in draft\nA declared return is marked with a word cut this page does not read\nlines 5 and 6\n5.T2, 6.T2 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.\nRemove the link\nOpen repeats\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 5,6 — cut v9]\n[SETUP — returns — 5.T2,6.T2 — cut v9]\n[SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "histLen": 1,
+      "histIdx": 0
+    },
+    "D_reorder": {
+      "text": "[SETUP — rhyme groups — 1,2 — cut v9]\n[SETUP — returns — 1.T2,2.T2 — cut v9]\n[SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10",
+      "rows": [
+        "[SETUP — rhyme groups — 1,2 — cut v9]",
+        "[SETUP — returns — 1.T2,2.T2 — cut v9]",
+        "[SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]"
+      ],
+      "decl": {
+        "groups_need_decision": [
+          "1 (marked cut v9: not read here),2 (marked cut v9: not read here)"
+        ],
+        "returns_need_decision": [
+          "1.T2 (marked cut v9: not read here),2.T2 (marked cut v9: not read here)"
+        ],
+        "readings_need_decision": [
+          {
+            "line": "I walk the line tonight",
+            "saved_token": 2,
+            "word": "walk"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "reading:2",
+          "tone": "input",
+          "title": "The reading for “walk” is marked with a word cut this page does not read",
+          "where": "line 1",
+          "text": "It is marked “cut v9”; this page reads only “cut v2”, so its number binds no word. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-tool",
+              "Choose again",
+              "pronunciation"
+            ],
+            [
+              "ly-remove-setup",
+              "Remove it",
+              "2"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:unknown-cut",
+          "tone": "input",
+          "title": "A rhyme link is marked with a word cut this page does not read",
+          "where": "lines 1 and 2",
+          "text": "1, 2 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "rhyme groups"
+            ],
+            [
+              "ly-tool",
+              "Open rhymes",
+              "rhymes"
+            ]
+          ]
+        },
+        {
+          "id": "returns:1:unknown-cut",
+          "tone": "input",
+          "title": "A declared return is marked with a word cut this page does not read",
+          "where": "lines 1 and 2",
+          "text": "1.T2, 2.T2 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "returns"
+            ],
+            [
+              "ly-tool",
+              "Open repeats",
+              "repeats-voices"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · 5b7fad6\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “walk” is marked with a word cut this page does not read\nline 1\nIt is marked “cut v9”; this page reads only “cut v2”, so its number binds no word. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\nA rhyme link is marked with a word cut this page does not read\nlines 1 and 2\n1, 2 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.\nRemove the link\nOpen rhymes\nShow in draft\nA declared return is marked with a word cut this page does not read\nlines 1 and 2\n1.T2, 2.T2 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.\nRemove the link\nOpen repeats\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 1,2 — cut v9]\n[SETUP — returns — 1.T2,2.T2 — cut v9]\n[SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10",
+      "histLen": 2,
+      "histIdx": 1
+    },
+    "D_form": {
+      "text": "[SETUP — rhyme groups — 5 (marked cut v9: not read here),6 (marked cut v9: not read here);7,8 — cut v2]\n[SETUP — returns — 5.T2,6.T2 — cut v9]\n[SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "rows": [
+        "[SETUP — rhyme groups — 5 (marked cut v9: not read here),6 (marked cut v9: not read here);7,8 — cut v2]",
+        "[SETUP — returns — 5.T2,6.T2 — cut v9]",
+        "[SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]"
+      ],
+      "decl": {
+        "groups": "7,8",
+        "groups_need_decision": [
+          "5 (marked cut v9: not read here),6 (marked cut v9: not read here)"
+        ],
+        "returns_need_decision": [
+          "5.T2 (marked cut v9: not read here),6.T2 (marked cut v9: not read here)"
+        ],
+        "readings_need_decision": [
+          {
+            "line": "I walk the line tonight",
+            "saved_token": 2,
+            "word": "walk"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "reading:2",
+          "tone": "input",
+          "title": "The reading for “walk” is marked with a word cut this page does not read",
+          "where": "line 5",
+          "text": "It is marked “cut v9”; this page reads only “cut v2”, so its number binds no word. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-tool",
+              "Choose again",
+              "pronunciation"
+            ],
+            [
+              "ly-remove-setup",
+              "Remove it",
+              "2"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:unknown-cut",
+          "tone": "input",
+          "title": "A rhyme link is marked with a word cut this page does not read",
+          "where": "lines 5 and 6",
+          "text": "5, 6 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "rhyme groups"
+            ],
+            [
+              "ly-tool",
+              "Open rhymes",
+              "rhymes"
+            ]
+          ]
+        },
+        {
+          "id": "returns:1:unknown-cut",
+          "tone": "input",
+          "title": "A declared return is marked with a word cut this page does not read",
+          "where": "lines 5 and 6",
+          "text": "5.T2, 6.T2 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "returns"
+            ],
+            [
+              "ly-tool",
+              "Open repeats",
+              "repeats-voices"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · 005b209\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “walk” is marked with a word cut this page does not read\nline 5\nIt is marked “cut v9”; this page reads only “cut v2”, so its number binds no word. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\nA rhyme link is marked with a word cut this page does not read\nlines 5 and 6\n5, 6 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.\nRemove the link\nOpen rhymes\nShow in draft\nA declared return is marked with a word cut this page does not read\nlines 5 and 6\n5.T2, 6.T2 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.\nRemove the link\nOpen repeats\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 5 (marked cut v9: not read here),6 (marked cut v9: not read here);7,8 — cut v2]\n[SETUP — returns — 5.T2,6.T2 — cut v9]\n[SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "histLen": 2,
+      "histIdx": 1
+    },
+    "D_drop": [
+      "Declared return saved before this release removed. Undo restores it.\nUndo"
+    ]
+  }
+}

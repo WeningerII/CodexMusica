@@ -1,0 +1,13 @@
+test_consistent_snapshot_yields_every_unit (test_unit_manifest.UnitManifestTests.test_consistent_snapshot_yields_every_unit) ... ok
+test_missing_artifact_entry_is_refused (test_unit_manifest.UnitManifestTests.test_missing_artifact_entry_is_refused) ... ok
+test_readable_with_unresolved_source_is_refused (test_unit_manifest.UnitManifestTests.test_readable_with_unresolved_source_is_refused) ... ok
+test_readable_without_admission_is_refused (test_unit_manifest.UnitManifestTests.test_readable_without_admission_is_refused) ... ok
+test_revision_disagreeing_with_index_is_refused (test_unit_manifest.UnitManifestTests.test_revision_disagreeing_with_index_is_refused) ... ok
+test_stale_index_is_refused (test_unit_manifest.UnitManifestTests.test_stale_index_is_refused) ... ok
+test_tampered_reading_file_is_refused (test_unit_manifest.UnitManifestTests.test_tampered_reading_file_is_refused) ... ok
+test_unknown_availability_is_refused (test_unit_manifest.UnitManifestTests.test_unknown_availability_is_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.010s
+
+OK

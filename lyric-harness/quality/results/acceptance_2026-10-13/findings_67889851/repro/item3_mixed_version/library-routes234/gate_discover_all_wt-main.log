@@ -1,0 +1,428 @@
+test_absent_and_explicitly_empty_caesura_are_distinct (test_analysis.ReaderAcceptance.test_absent_and_explicitly_empty_caesura_are_distinct) ... ERROR
+test_crlf_ranges_and_private_declaration_prose (test_analysis.ReaderAcceptance.test_crlf_ranges_and_private_declaration_prose) ... ERROR
+test_engine_registry_not_a_second_taxonomy (test_analysis.ReaderAcceptance.test_engine_registry_not_a_second_taxonomy) ... ok
+test_english_coordinates_follow_joined_enclitics_and_repeated_hyphens (test_analysis.ReaderAcceptance.test_english_coordinates_follow_joined_enclitics_and_repeated_hyphens) ... ERROR
+test_native_definitions_and_knowledge_sets_survive_json (test_analysis.ReaderAcceptance.test_native_definitions_and_knowledge_sets_survive_json) ... ok
+test_native_refused_punctuation_token_keeps_its_complete_range (test_analysis.ReaderAcceptance.test_native_refused_punctuation_token_keeps_its_complete_range) ... ok
+test_native_structured_unknowns_are_refused_in_census (test_analysis.ReaderAcceptance.test_native_structured_unknowns_are_refused_in_census) ... ok
+test_nine_profiles_exhaust_all_78_questions (test_analysis.ReaderAcceptance.test_nine_profiles_exhaust_all_78_questions) ... 
+  test_nine_profiles_exhaust_all_78_questions (test_analysis.ReaderAcceptance.test_nine_profiles_exhaust_all_78_questions) (language='eng') ... ERROR
+test_oversized_form_and_figure_details_roundtrip_across_restart (test_analysis.ReaderAcceptance.test_oversized_form_and_figure_details_roundtrip_across_restart) ... ERROR
+test_pair_judges_and_full_figures_match_installed_engine (test_analysis.ReaderAcceptance.test_pair_judges_and_full_figures_match_installed_engine) ... ERROR
+test_partial_beatgrid_does_not_make_unplaced_units_off_beat (test_analysis.ReaderAcceptance.test_partial_beatgrid_does_not_make_unplaced_units_off_beat) ... ERROR
+test_private_redaction_does_not_validate_whitespace_only_sources (test_analysis.ReaderAcceptance.test_private_redaction_does_not_validate_whitespace_only_sources) ... 
+  test_private_redaction_does_not_validate_whitespace_only_sources (test_analysis.ReaderAcceptance.test_private_redaction_does_not_validate_whitespace_only_sources) (declaration={'sound': {'caesura': {'positions': {}, 'source': ' \t\n'}}}) ... ERROR
+  test_private_redaction_does_not_validate_whitespace_only_sources (test_analysis.ReaderAcceptance.test_private_redaction_does_not_validate_whitespace_only_sources) (declaration={'hooks': [{'text': 'cat', 'source': ' \t\n'}]}) ... ERROR
+test_radif_absence_and_insufficient_population_are_distinct (test_analysis.ReaderAcceptance.test_radif_absence_and_insufficient_population_are_distinct) ... ok
+test_resource_envelope_is_an_explicit_pause_not_a_population_cutoff (test_analysis.ReaderAcceptance.test_resource_envelope_is_an_explicit_pause_not_a_population_cutoff) ... ERROR
+test_restart_is_identical_to_uninterrupted_whole_work (test_analysis.ReaderAcceptance.test_restart_is_identical_to_uninterrupted_whole_work) ... ERROR
+test_source_ranges_include_utf16_and_preserve_coarse_mapping (test_analysis.ReaderAcceptance.test_source_ranges_include_utf16_and_preserve_coarse_mapping) ... ok
+test_stale_resume_and_unknown_method_fail_explicitly (test_analysis.ReaderAcceptance.test_stale_resume_and_unknown_method_fail_explicitly) ... ERROR
+test_unknown_endpoint_is_not_previous_readable_word (test_analysis.ReaderAcceptance.test_unknown_endpoint_is_not_previous_readable_word) ... ERROR
+test_whole_dictionary_witness_and_occurrence_override (test_analysis.ReaderAcceptance.test_whole_dictionary_witness_and_occurrence_override) ... ERROR
+test_dcs_native_pada_offsets (test_catalog.CatalogTests.test_dcs_native_pada_offsets) ... ok
+test_declared_prefix_keeps_source_offsets_and_export_sidecar (test_catalog.CatalogTests.test_declared_prefix_keeps_source_offsets_and_export_sidecar) ... ok
+test_explicit_lineage_retains_identity_after_anchor_and_population_change (test_catalog.CatalogTests.test_explicit_lineage_retains_identity_after_anchor_and_population_change) ... ok
+test_export_joins_reviewed_work_and_preserves_complete_refusal (test_catalog.CatalogTests.test_export_joins_reviewed_work_and_preserves_complete_refusal) ... ok
+test_export_schema_accepts_producer_metadata_and_refuses_malformed_metadata (test_catalog.CatalogTests.test_export_schema_accepts_producer_metadata_and_refuses_malformed_metadata) ... ok
+test_first_seen_identical_items_remain_distinct (test_catalog.CatalogTests.test_first_seen_identical_items_remain_distinct) ... ok
+test_gzip_seed_preserves_plain_snapshot_identity_and_explicit_loading (test_catalog.CatalogTests.test_gzip_seed_preserves_plain_snapshot_identity_and_explicit_loading) ... ok
+test_moving_lines_preserves_identity_ambiguity_refuses (test_catalog.CatalogTests.test_moving_lines_preserves_identity_ambiguity_refuses) ... ok
+test_native_hafez_fields_and_escapes (test_catalog.CatalogTests.test_native_hafez_fields_and_escapes) ... ok
+test_oversized_reading_has_bounded_logical_chunks (test_catalog.CatalogTests.test_oversized_reading_has_bounded_logical_chunks) ... ok
+test_packed_export_omits_held_body_and_mixed_original (test_catalog.CatalogTests.test_packed_export_omits_held_body_and_mixed_original) ... ok
+test_reviewed_work_groups_editions_without_hiding (test_catalog.CatalogTests.test_reviewed_work_groups_editions_without_hiding) ... ok
+test_sanskrit_pretitle_prelude_is_not_dropped (test_catalog.CatalogTests.test_sanskrit_pretitle_prelude_is_not_dropped) ... ok
+test_scope_rejects_unknown_parent_and_noncommercial (test_catalog.CatalogTests.test_scope_rejects_unknown_parent_and_noncommercial) ... ok
+test_search_preserves_accents_and_original_spans (test_catalog.CatalogTests.test_search_preserves_accents_and_original_spans) ... ok
+test_snapshot_determinism_local_resolver_and_tamper_refusal (test_catalog.CatalogTests.test_snapshot_determinism_local_resolver_and_tamper_refusal) ... ok
+test_unicode_crlf_and_normalization_roundtrip (test_catalog.CatalogTests.test_unicode_crlf_and_normalization_roundtrip) ... ok
+test_all_formats_keep_credits_and_exclude_unadmitted_bodies (test_catalog_downloads.DownloadTests.test_all_formats_keep_credits_and_exclude_unadmitted_bodies) ... ok
+test_complete_verifier_rejects_a_tampered_upload_part (test_catalog_downloads.DownloadTests.test_complete_verifier_rejects_a_tampered_upload_part) ... ok
+test_repeated_exports_are_deterministic_and_corruption_fails_closed (test_catalog_downloads.DownloadTests.test_repeated_exports_are_deterministic_and_corruption_fails_closed) ... ok
+test_selected_readings_do_not_admit_held_neighbors_or_silently_drop_ids (test_catalog_downloads.DownloadTests.test_selected_readings_do_not_admit_held_neighbors_or_silently_drop_ids) ... ok
+test_utf8_csv_and_long_text_are_faithful_without_invented_headers (test_catalog_downloads.DownloadTests.test_utf8_csv_and_long_text_are_faithful_without_invented_headers) ... ok
+test_a_label_change_on_an_unchanged_revision_is_a_new_directory (test_catalog_static_export.RetainedClosureTests.test_a_label_change_on_an_unchanged_revision_is_a_new_directory) ... ok
+test_a_retained_generation_that_loses_readability_is_dropped_with_its_objects (test_catalog_static_export.RetainedClosureTests.test_a_retained_generation_that_loses_readability_is_dropped_with_its_objects) ... ok
+test_a_retained_notice_is_carried_into_a_generation_that_has_none (test_catalog_static_export.RetainedClosureTests.test_a_retained_notice_is_carried_into_a_generation_that_has_none)
+3PO's second #538 finding: the current generation writes no notices/ ... ok
+test_an_export_without_its_label_registry_is_refused (test_catalog_static_export.RetainedClosureTests.test_an_export_without_its_label_registry_is_refused) ... ok
+test_build_passes_the_gate_and_pages_carry_their_own_coordinates (test_catalog_static_export.RetainedClosureTests.test_build_passes_the_gate_and_pages_carry_their_own_coordinates) ... ok
+test_retained_heads_keep_their_whole_reference_closure (test_catalog_static_export.RetainedClosureTests.test_retained_heads_keep_their_whole_reference_closure) ... ok
+test_retention_keeps_a_superseded_directory_for_30_days (test_catalog_static_export.RetainedClosureTests.test_retention_keeps_a_superseded_directory_for_30_days) ... ok
+test_same_build_twice_is_byte_identical (test_catalog_static_export.RetainedClosureTests.test_same_build_twice_is_byte_identical) ... ok
+test_the_gate_refuses_a_retained_head_whose_objects_are_gone (test_catalog_static_export.RetainedClosureTests.test_the_gate_refuses_a_retained_head_whose_objects_are_gone) ... ok
+test_the_gate_refuses_a_tampered_line_and_a_stale_list (test_catalog_static_export.RetainedClosureTests.test_the_gate_refuses_a_tampered_line_and_a_stale_list) ... ok
+test_a_label_change_on_an_unchanged_revision_is_a_new_directory (test_catalog_static_export.StaticExportTests.test_a_label_change_on_an_unchanged_revision_is_a_new_directory) ... ok
+test_an_export_without_its_label_registry_is_refused (test_catalog_static_export.StaticExportTests.test_an_export_without_its_label_registry_is_refused) ... ok
+test_build_passes_the_gate_and_pages_carry_their_own_coordinates (test_catalog_static_export.StaticExportTests.test_build_passes_the_gate_and_pages_carry_their_own_coordinates) ... ok
+test_retention_keeps_a_superseded_directory_for_30_days (test_catalog_static_export.StaticExportTests.test_retention_keeps_a_superseded_directory_for_30_days) ... ok
+test_same_build_twice_is_byte_identical (test_catalog_static_export.StaticExportTests.test_same_build_twice_is_byte_identical) ... ok
+test_the_gate_refuses_a_tampered_line_and_a_stale_list (test_catalog_static_export.StaticExportTests.test_the_gate_refuses_a_tampered_line_and_a_stale_list) ... ok
+test_absent_grouping_is_a_refusal_not_an_assumed_group (test_form.FormReaderTests.test_absent_grouping_is_a_refusal_not_an_assumed_group) ... /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/grid.py:3871: DeprecationWarning: 'maxsplit' is passed as positional argument
+  head = re.split(r"[:(]", mark, 1)[0].strip()
+ok
+test_beatgrid_decodes_full_reading_units_exactly_and_preserves_empty (test_form.FormReaderTests.test_beatgrid_decodes_full_reading_units_exactly_and_preserves_empty) ... ok
+test_call_response_uses_exact_ids_and_cannot_cross_blocks (test_form.FormReaderTests.test_call_response_uses_exact_ids_and_cannot_cross_blocks) ... ok
+test_capacity_growth_pauses_whole_prosody_without_a_partial_answer (test_form.FormReaderTests.test_capacity_growth_pauses_whole_prosody_without_a_partial_answer) ... ok
+test_complete_and_partial_beatgrids_change_only_the_supported_question (test_form.FormReaderTests.test_complete_and_partial_beatgrids_change_only_the_supported_question) ... ok
+test_complexity_and_tempo_keep_exact_values_and_unknown_rubato (test_form.FormReaderTests.test_complexity_and_tempo_keep_exact_values_and_unknown_rubato) ... ok
+test_contradictory_timing_does_not_erase_the_fit_findings (test_form.FormReaderTests.test_contradictory_timing_does_not_erase_the_fit_findings) ... ok
+test_declared_native_profile_is_shared_by_prosody_not_silently_reset (test_form.FormReaderTests.test_declared_native_profile_is_shared_by_prosody_not_silently_reset) ... ERROR
+test_empty_source_blocks_keep_occurrence_order_and_bad_inputs_are_rejected (test_form.FormReaderTests.test_empty_source_blocks_keep_occurrence_order_and_bad_inputs_are_rejected) ... ok
+test_fallback_line_ids_and_unicode_ranges_match_complete_stream_coordinates (test_form.FormReaderTests.test_fallback_line_ids_and_unicode_ranges_match_complete_stream_coordinates) ... ok
+test_form_uses_authoritative_normalized_slice_with_coarse_source_projection (test_form.FormReaderTests.test_form_uses_authoritative_normalized_slice_with_coarse_source_projection) ... ok
+test_group_order_drives_heads_and_exact_fit_not_source_segmentation (test_form.FormReaderTests.test_group_order_drives_heads_and_exact_fit_not_source_segmentation) ... ok
+test_hook_confinement_is_unknown_for_an_undeclared_occurrence (test_form.FormReaderTests.test_hook_confinement_is_unknown_for_an_undeclared_occurrence) ... ok
+test_missing_dictionary_is_a_refusal_and_spelling_diversity_still_runs (test_form.FormReaderTests.test_missing_dictionary_is_a_refusal_and_spelling_diversity_still_runs) ... ok
+test_missing_duration_and_wrong_middle_eight_are_rejected (test_form.FormReaderTests.test_missing_duration_and_wrong_middle_eight_are_rejected) ... ok
+test_missing_native_resource_does_not_claim_the_language_engine_is_missing (test_form.FormReaderTests.test_missing_native_resource_does_not_claim_the_language_engine_is_missing) ... ok
+test_narrative_is_declared_grammar_not_semantic_detection (test_form.FormReaderTests.test_narrative_is_declared_grammar_not_semantic_detection) ... ok
+test_native_json_couplets_are_source_ground_without_synthetic_marks (test_form.FormReaderTests.test_native_json_couplets_are_source_ground_without_synthetic_marks) ... ok
+test_off_text_variation_preserves_the_underlying_verbatim_quality (test_form.FormReaderTests.test_off_text_variation_preserves_the_underlying_verbatim_quality) ... ok
+test_part_is_a_persistent_voice_and_refuses_guessed_stanza_ground (test_form.FormReaderTests.test_part_is_a_persistent_voice_and_refuses_guessed_stanza_ground) ... ok
+test_partial_setting_does_not_claim_a_whole_work_shape (test_form.FormReaderTests.test_partial_setting_does_not_claim_a_whole_work_shape) ... ok
+test_printed_chorus_apparatus_uses_existing_edition_receipts (test_form.FormReaderTests.test_printed_chorus_apparatus_uses_existing_edition_receipts) ... ok
+test_printed_inline_chorus_label_does_not_replace_normalized_lyric_text (test_form.FormReaderTests.test_printed_inline_chorus_label_does_not_replace_normalized_lyric_text) ... ERROR
+test_printed_pointer_resolves_only_to_evidenced_full_source_block (test_form.FormReaderTests.test_printed_pointer_resolves_only_to_evidenced_full_source_block) ... ok
+test_readability_coordinates_preserve_line_ids_and_parenthetical_text (test_form.FormReaderTests.test_readability_coordinates_preserve_line_ids_and_parenthetical_text) ... ok
+test_reader_declared_voice_keeps_source_voices_separate (test_form.FormReaderTests.test_reader_declared_voice_keeps_source_voices_separate) ... ok
+test_repeated_source_names_keep_occurrences_and_source_lines (test_form.FormReaderTests.test_repeated_source_names_keep_occurrences_and_source_lines) ... ok
+test_return_slots_use_declared_geometry_without_claiming_melody (test_form.FormReaderTests.test_return_slots_use_declared_geometry_without_claiming_melody) ... ok
+test_sanskrit_moras_are_not_relabelled_english_stress (test_form.FormReaderTests.test_sanskrit_moras_are_not_relabelled_english_stress) ... ok
+test_unavailable_language_features_remain_null (test_form.FormReaderTests.test_unavailable_language_features_remain_null) ... ok
+test_unmarked_poem_has_native_units_without_invented_geometry (test_form.FormReaderTests.test_unmarked_poem_has_native_units_without_invented_geometry) ... ok
+test_empty_first_occurrence_is_not_filled_by_later_same_name (test_form.RepeatedGeometryRegression.test_empty_first_occurrence_is_not_filled_by_later_same_name) ... ok
+test_uncovered_bars_is_keyed_by_occurrence_not_repeated_name (test_form.RepeatedGeometryRegression.test_uncovered_bars_is_keyed_by_occurrence_not_repeated_name) ... ok
+test_consistent_snapshot_yields_every_unit (test_unit_manifest.UnitManifestTests.test_consistent_snapshot_yields_every_unit) ... ok
+test_missing_artifact_entry_is_refused (test_unit_manifest.UnitManifestTests.test_missing_artifact_entry_is_refused) ... ok
+test_readable_with_unresolved_source_is_refused (test_unit_manifest.UnitManifestTests.test_readable_with_unresolved_source_is_refused) ... ok
+test_readable_without_admission_is_refused (test_unit_manifest.UnitManifestTests.test_readable_without_admission_is_refused) ... ok
+test_revision_disagreeing_with_index_is_refused (test_unit_manifest.UnitManifestTests.test_revision_disagreeing_with_index_is_refused) ... ok
+test_stale_index_is_refused (test_unit_manifest.UnitManifestTests.test_stale_index_is_refused) ... ok
+test_tampered_reading_file_is_refused (test_unit_manifest.UnitManifestTests.test_tampered_reading_file_is_refused) ... ok
+test_unknown_availability_is_refused (test_unit_manifest.UnitManifestTests.test_unknown_availability_is_refused) ... ok
+
+======================================================================
+ERROR: test_absent_and_explicitly_empty_caesura_are_distinct (test_analysis.ReaderAcceptance.test_absent_and_explicitly_empty_caesura_are_distinct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 160, in test_absent_and_explicitly_empty_caesura_are_distinct
+    default, _, _ = complete(reading, schemas=["cynghanedd groes"])
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+        load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_crlf_ranges_and_private_declaration_prose (test_analysis.ReaderAcceptance.test_crlf_ranges_and_private_declaration_prose)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 232, in test_crlf_ranges_and_private_declaration_prose
+    _, rows, _ = complete(source("😀 cat\r\nhat"), schemas=[])
+                 ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+        load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_english_coordinates_follow_joined_enclitics_and_repeated_hyphens (test_analysis.ReaderAcceptance.test_english_coordinates_follow_joined_enclitics_and_repeated_hyphens)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 180, in test_english_coordinates_follow_joined_enclitics_and_repeated_hyphens
+    session, records, _ = complete(source("😀 There ’s high\nwell--known cat"), schemas=[])
+                          ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+        load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_nine_profiles_exhaust_all_78_questions (test_analysis.ReaderAcceptance.test_nine_profiles_exhaust_all_78_questions) (language='eng')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 59, in test_nine_profiles_exhaust_all_78_questions
+    _, records, result = complete(source(text, language))
+                         ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+        load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_oversized_form_and_figure_details_roundtrip_across_restart (test_analysis.ReaderAcceptance.test_oversized_form_and_figure_details_roundtrip_across_restart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 284, in test_oversized_form_and_figure_details_roundtrip_across_restart
+    session = AnalysisSession(reading, requested={"layers": ["form"]}, checkpoint=checkpoint)
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_pair_judges_and_full_figures_match_installed_engine (test_analysis.ReaderAcceptance.test_pair_judges_and_full_figures_match_installed_engine)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 71, in test_pair_judges_and_full_figures_match_installed_engine
+    session, records, _ = complete(reading)
+                          ~~~~~~~~^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+        load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_partial_beatgrid_does_not_make_unplaced_units_off_beat (test_analysis.ReaderAcceptance.test_partial_beatgrid_does_not_make_unplaced_units_off_beat)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 266, in test_partial_beatgrid_does_not_make_unplaced_units_off_beat
+    session, rows, _ = complete(reading, declaration, ["offbeat internal rhyme"])
+                       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+        load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_private_redaction_does_not_validate_whitespace_only_sources (test_analysis.ReaderAcceptance.test_private_redaction_does_not_validate_whitespace_only_sources) (declaration={'sound': {'caesura': {'positions': {}, 'source': ' \t\n'}}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 252, in test_private_redaction_does_not_validate_whitespace_only_sources
+    complete(reading, declaration, schemas=[], layers=["sound", "form"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+        load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_private_redaction_does_not_validate_whitespace_only_sources (test_analysis.ReaderAcceptance.test_private_redaction_does_not_validate_whitespace_only_sources) (declaration={'hooks': [{'text': 'cat', 'source': ' \t\n'}]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 252, in test_private_redaction_does_not_validate_whitespace_only_sources
+    complete(reading, declaration, schemas=[], layers=["sound", "form"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+        load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_resource_envelope_is_an_explicit_pause_not_a_population_cutoff (test_analysis.ReaderAcceptance.test_resource_envelope_is_an_explicit_pause_not_a_population_cutoff)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 258, in test_resource_envelope_is_an_explicit_pause_not_a_population_cutoff
+    AnalysisSession(source("cat\nhat"))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_restart_is_identical_to_uninterrupted_whole_work (test_analysis.ReaderAcceptance.test_restart_is_identical_to_uninterrupted_whole_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 96, in test_restart_is_identical_to_uninterrupted_whole_work
+    _, all_rows, full = complete(reading, schemas=["perfect rhyme", "paroemion", "monorhyme / leash", "symploce"], batch=256)
+                        ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+        load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_stale_resume_and_unknown_method_fail_explicitly (test_analysis.ReaderAcceptance.test_stale_resume_and_unknown_method_fail_explicitly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 214, in test_stale_resume_and_unknown_method_fail_explicitly
+    session = AnalysisSession(reading, requested={"layers": ["sound"], "schemas": []})
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_unknown_endpoint_is_not_previous_readable_word (test_analysis.ReaderAcceptance.test_unknown_endpoint_is_not_previous_readable_word)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 122, in test_unknown_endpoint_is_not_previous_readable_word
+    _, rows, result = complete(source("cat qzxqzx\nhat qzxqzx"), schemas=["perfect rhyme"])
+                      ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+        load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_whole_dictionary_witness_and_occurrence_override (test_analysis.ReaderAcceptance.test_whole_dictionary_witness_and_occurrence_override)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 105, in test_whole_dictionary_witness_and_occurrence_override
+    _, rows, _ = complete(reading, schemas=["perfect rhyme"])
+                 ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+        load_records=lambda mid: (r for r in committed if r.get("method_id") == mid))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/analysis.py", line 274, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+                     pronunciations=private_declarations.get("pronunciations"))
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/quality/../lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+        "LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit "
+        "fetch_data() setup step before grading. No runtime download was attempted.")
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_declared_native_profile_is_shared_by_prosody_not_silently_reset (test_form.FormReaderTests.test_declared_native_profile_is_shared_by_prosody_not_silently_reset)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_form.py", line 345, in test_declared_native_profile_is_shared_by_prosody_not_silently_reset
+    self.assertEqual(english["rhythm"]["prosody"]["phonology"]["readings"], "first")
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'phonology'
+
+======================================================================
+ERROR: test_printed_inline_chorus_label_does_not_replace_normalized_lyric_text (test_form.FormReaderTests.test_printed_inline_chorus_label_does_not_replace_normalized_lyric_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/library/test_form.py", line 100, in test_printed_inline_chorus_label_does_not_replace_normalized_lyric_text
+    self.assertEqual(result["rhythm"]["prosody"]["lines"][0]["tokens"], ["cat", "hat"])
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+KeyError: 'tokens'
+
+----------------------------------------------------------------------
+Ran 98 tests in 21.149s
+
+FAILED (errors=16)
+
+real	0m21.857s
+user	0m19.673s
+sys	0m1.228s

@@ -1,0 +1,7 @@
+v2 tokens ['Oh', 'oh', 'oh', 'my', 'love']
+v2 spans [('Oh', ((0, 2),)), ('oh', ((4, 6),)), ('oh', ((8, 10),)), ('my', ((11, 13),)), ('love', ((14, 18),))]
+v1 spans [('Oh--oh', ((0, 6),)), ('oh', ((8, 10),)), ('my', ((11, 13),)), ('love', ((14, 18),))]
+v1 tokens ['Oh--oh', 'oh', 'my', 'love']
+v2 [["Oh",[[0,2]]],["oh",[[4,6]]],["oh",[[8,10]]],["my",[[11,13]]],["love",[[14,18]]]]
+v1 [{"text":"Oh--oh","pieces":[[0,6]]},{"text":"oh","pieces":[[8,10]]},{"text":"my","pieces":[[11,13]]},{"text":"love","pieces":[[14,18]]}]
+rebind tok2 {"token":3,"word":"oh"}

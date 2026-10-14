@@ -1,0 +1,6 @@
+ok   [light 1280] stale: inspector mounted
+ok   [light 1280] stale: paused job shows STALE_READING reason
+ok   [light 1280] stale: theme is light
+ok   [light 1280] stale: no horizontal page overflow
+ok   [light 1280] stale: no console errors
+check_library_page: PASS — 5/5 checks, chunks: analysis,compare,core,reader,rights,works

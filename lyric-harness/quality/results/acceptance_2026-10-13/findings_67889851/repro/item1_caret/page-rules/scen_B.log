@@ -1,0 +1,105 @@
+[PASS] B.load.rows: 1.T1 ("Oh--oh", no v2 word covers 0-6) is kept under its old number and blocks; the reading is flagged; 5.T2/6.T2 unchanged
+    expected: [SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2] | [SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2] | [SETUP — reading — token 1 "Oh--oh" in "Oh--oh, oh my love" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]
+    observed: [SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2] | [SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2] | [SETUP — reading — token 1 "Oh--oh" in "Oh--oh, oh my love" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]
+[PASS] B.load.toast: an error toast says a saved number needs a decision
+    expected: error toast
+    observed: ["3 saved word numbers without the current cut mark need your decision before the writer can be asked."]
+[PASS] B.load.decl: declarations keep the blocked links out of what binds and carry them as need_decision
+    expected: groups=5.T2,6.T2; groups_need_decision, returns_need_decision, readings_need_decision present
+    observed: {"groups":"5.T2,6.T2","groups_need_decision":["1.T1 (numbered under the earlier cut),8"],"returns_need_decision":["1.T1 (numbered under the earlier cut),7.T1"],"readings_need_decision":[{"line":"Oh--oh, oh my love","saved_token":1,"word":"Oh--oh"}]}
+[PASS] B.load.review: Review shows input notices for the reading, the rhyme link and the return
+    expected: 3 input notices
+    observed: ["The reading for “Oh--oh” saved without the current cut mark needs your decision","A rhyme link saved without the current cut mark needs your decision","A declared return saved without the current cut mark needs your decision"]
+[PASS] B.load.sendBlocked: Run review and a typed lyrics-edit request are both refused while blocked; nothing reaches /chat
+    expected: 0 calls, toast "Nothing was sent", typed reason=declarations
+    observed: {"calls":0,"toasts":["3 saved word numbers without the current cut mark need your decision before the writer can be asked.","Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (1.T1, 1.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review."],"typed":{"reason":"declarations","ok":false},"typedReached":0}
+[PASS] B.reorder.rows: reorder renumbers lines and keeps the blocked state
+    expected: 5.T1 (numbered under the earlier cut),4;1.T2,2.T2 | 5.T1 (numbered under the earlier cut),3.T1
+    observed: [SETUP — rhyme groups — 5.T1 (numbered under the earlier cut),4;1.T2,2.T2 — cut v2] | [SETUP — returns — 5.T1 (numbered under the earlier cut),3.T1 — cut v2]
+[PASS] B.reorder.sendBlocked: Run review and a typed lyrics-edit request are both refused while blocked; nothing reaches /chat
+    expected: 0 calls, toast "Nothing was sent", typed reason=declarations
+    observed: {"calls":0,"toasts":["Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (1.T1, 1.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review.","Moved section down.\nUndo","Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (5.T1, 5.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review."],"typed":{"reason":"declarations","ok":false},"typedReached":0}
+[PASS] B.reorder.undo: Undo of reorder restores blocked rows
+    expected: [SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]
+    observed: [SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]
+[PASS] B.forms.rows: adding a link and a placed return through the forms keeps the blocked members
+    expected: 1.T1 (numbered under the earlier cut),8;5.T2,6.T2;6,8 | 1.T1 (numbered under the earlier cut),7.T1;6.head,7.head
+    observed: [SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2;6,8 — cut v2] | [SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1;6.head,7.head — cut v2]
+[PASS] B.forms.sendBlocked: Run review and a typed lyrics-edit request are both refused while blocked; nothing reaches /chat
+    expected: 0 calls, toast "Nothing was sent", typed reason=declarations
+    observed: {"calls":0,"toasts":["Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (5.T1, 5.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review.","Rhyme link saved.\nUndo","Placed return declared.\nUndo","Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (1.T1, 1.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review."],"typed":{"reason":"declarations","ok":false},"typedReached":0}
+[PASS] B.undo: Undo twice restores the original blocked rows
+    expected: [SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2] | [SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]
+    observed: [SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2] | [SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]
+[PASS] B.redo: Redo re-applies the rhymes edit with the blocked member
+    expected: 1.T1 (numbered under the earlier cut),8;5.T2,6.T2;6,8
+    observed: [SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2;6,8 — cut v2]
+[PASS] B.reload: reload reopens the same blocked text
+    expected: identical
+    observed: identical
+[PASS] B.reload.sendBlocked: Run review and a typed lyrics-edit request are both refused while blocked; nothing reaches /chat
+    expected: 0 calls, toast "Nothing was sent", typed reason=declarations
+    observed: {"calls":0,"toasts":["Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (1.T1, 1.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review."],"typed":{"reason":"declarations","ok":false},"typedReached":0}
+[PASS] B.export: Download text holds the blocked markers
+    expected: body == draft
+    observed: equal
+[PASS] B.import: Import in a fresh browser gives the same blocked rows
+    expected: ["[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]","[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]","[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]"]
+    observed: ["[SETUP — rhyme groups — 1.T1 (numbered under the earlier cut),8;5.T2,6.T2 — cut v2]","[SETUP — returns — 1.T1 (numbered under the earlier cut),7.T1 — cut v2]","[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 OW1 — declared — source: the singer — needs a decision: numbered under the earlier word cut]"]
+[PASS] B.import.sendBlocked: Run review and a typed lyrics-edit request are both refused while blocked; nothing reaches /chat
+    expected: 0 calls, toast "Nothing was sent", typed reason=declarations
+    observed: {"calls":0,"toasts":["Imported lyrics.txt. Undo restores the previous draft.\nUndo","Nothing was sent. 1 reading saved without the current cut mark (“Oh--oh”) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review. 2 word places in a rhyme link or declared return saved without the current cut mark (1.T1, 1.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review."],"typed":{"reason":"declarations","ok":false},"typedReached":0}
+[PASS] B.drop.row: Remove the link removes only the link holding the blocked member
+    expected: [SETUP — rhyme groups — 5.T2,6.T2 — cut v2]
+    observed: [SETUP — rhyme groups — 5.T2,6.T2 — cut v2]
+[FAIL] B.drop.wording: the removal message does not claim the row was provably created before the release (policy 6)
+    expected: no "saved before this release"
+    observed: ["Rhyme link saved before this release removed. Undo restores it.\nUndo"]
+[PASS] C.load.namedRow: a row of named places on unchanged lines is carried with NO notice and left byte-identical
+    expected: [SETUP — rhyme groups — 5,6;7.head,8]
+    observed: [SETUP — rhyme groups — 5,6;7.head,8]
+[FAIL] C.load.numberedRow: a T<k>-only row whose binding did not change: byte-identical? (invariant: unchanged choices byte-identical)
+    expected: [SETUP — returns — 5.T2,6.T2]
+    observed: [SETUP — returns — 5.T2,6.T2 — cut v2]
+[PASS] C.load.toast: no migration toast for rows whose binding did not change
+    expected: no toast
+    observed: []
+[PASS] C.send: nothing blocks; groups/returns sent as declared
+    expected: groups=5,6;7.head,8 returns=5.T2,6.T2
+    observed: [["5,6;7.head,8","5.T2,6.T2"]]
+[FAIL] C.reading.unchanged: a reading on an unchanged line keeps token 5 (binding unchanged); byte-identical?
+    expected: [SETUP — reading — token 5 "oh" in "Oh, oh, I said oh" — OW1 — declared — source: the singer]
+    observed: [SETUP — reading — token 5 "oh" in "Oh, oh, I said oh" — OW1 — declared — source: the singer — cut v2]
+[PASS] D.load.rows: rows marked cut v9 are left exactly as they are (never rewritten as v2)
+    expected: [SETUP — rhyme groups — 5,6 — cut v9] | [SETUP — returns — 5.T2,6.T2 — cut v9] | [SETUP — reading — token 2 "walk" in "I walk the line tonight" — W AO1 K — declared — source: me — cut v9]
+    observed: [SETUP — rhyme groups — 5,6 — cut v9] | [SETUP — returns — 5.T2,6.T2 — cut v9] | [SETUP — reading — token 2 "walk" in "I walk the line tonight" — W AO1 K — declared — source: me — cut v9]
+[PASS] D.load.review: Review: input notices naming cut v9 and the accepted value "cut v2"
+    expected: 3 input notices, each naming v9 and “cut v2”
+    observed: ["It is marked “cut v9”; this page reads only “cut v2”, so its number binds no word. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.","5, 6 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer.","5.T2, 6.T2 are marked “cut v9”; this page reads only “cut v2”, so they bind no word. Remove the link and declare it again. Until then nothing is sent to the writer."]
+[PASS] D.load.decl: no v9 row binds: groups/returns/pronunciations absent, need_decision present
+    expected: need_decision only
+    observed: {"groups_need_decision":["5 (marked cut v9: not read here),6 (marked cut v9: not read here)"],"returns_need_decision":["5.T2 (marked cut v9: not read here),6.T2 (marked cut v9: not read here)"],"readings_need_decision":[{"line":"I walk the line tonight","saved_token":2,"word":"walk"}]}
+[PASS] D.send: send blocked with a message naming the accepted value
+    expected: 0 calls; toast names “cut v2”
+    observed: {"calls":0,"toasts":["Nothing was sent. 1 reading (“walk” marked cut v9) is marked with a word cut this page does not read; it accepts only “cut v2”. Choose each reading again, or remove it, in Review. 4 word places in a rhyme link or declared return (5 marked cut v9, 6 marked cut v9, 5.T2 marked cut v9, 6.T2 marked cut v9) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."]}
+[PASS] D.reorder: reorder renumbers lines but keeps cut v9 (not laundered into v2)
+    expected: [SETUP — rhyme groups — 1,2 — cut v9] | [SETUP — returns — 1.T2,2.T2 — cut v9]
+    observed: [SETUP — rhyme groups — 1,2 — cut v9] | [SETUP — returns — 1.T2,2.T2 — cut v9]
+[PASS] D.rhymesForm: adding a link through the Rhymes form keeps the v9 members unbound (marked) and still blocks
+    expected: v9 members written as “(marked cut v9: not read here)”
+    observed: [SETUP — rhyme groups — 5 (marked cut v9: not read here),6 (marked cut v9: not read here);7,8 — cut v2]
+[PASS] D.rhymesForm.send: still blocked after the form edit
+    expected: 0 calls
+    observed: {"calls":0,"toasts":["Nothing was sent. 1 reading (“walk” marked cut v9) is marked with a word cut this page does not read; it accepts only “cut v2”. Choose each reading again, or remove it, in Review. 4 word places in a rhyme link or declared return (5 marked cut v9, 6 marked cut v9, 5.T2 marked cut v9, 6.T2 marked cut v9) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review.","Moved section down.\nUndo","Rhyme link saved.\nUndo","Nothing was sent. 1 reading (“walk” marked cut v9) is marked with a word cut this page does not read; it accepts only “cut v2”. Choose each reading again, or remove it, in Review. 4 word places in a rhyme link or declared return (5 marked cut v9, 6 marked cut v9, 5.T2 marked cut v9, 6.T2 marked cut v9) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."]}
+[PASS] D.reload: reload keeps the v9 state
+    expected: identical
+    observed: identical
+[PASS] D.import: export/import keeps the v9 state
+    expected: ["[SETUP — rhyme groups — 5 (marked cut v9: not read here),6 (marked cut v9: not read here);7,8 — cut v2]","[SETUP — returns — 5.T2,6.T2 — cut v9]","[SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]"]
+    observed: ["[SETUP — rhyme groups — 5 (marked cut v9: not read here),6 (marked cut v9: not read here);7,8 — cut v2]","[SETUP — returns — 5.T2,6.T2 — cut v9]","[SETUP — reading — token 2 \"walk\" in \"I walk the line tonight\" — W AO1 K — declared — source: me — cut v9]"]
+[FAIL] D.drop.wording: removing a v9-marked return does not call it "saved before this release" (policy 6)
+    expected: no "saved before this release"
+    observed: ["Declared return saved before this release removed. Undo restores it.\nUndo"]
+[PASS] BCD.pageErrors: no uncaught page errors
+    expected: []
+    observed: []

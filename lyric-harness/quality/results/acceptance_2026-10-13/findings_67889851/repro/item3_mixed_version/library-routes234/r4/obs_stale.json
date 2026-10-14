@@ -1,0 +1,4 @@
+{
+  "pausedStatus": "paused\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nNew whole-work analysis\nResume\nDelete analysis\nCode\nSTALE_READING\nMessage\nSource or engine identity changed; create a new reader job.\nReading interpretations",
+  "afterResume": "paused\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nNew whole-work analysis\nResume\nDelete analysis\nCode\nSTALE_READING\nMessage\nSource or engine identity changed; create a new reader job.\n\nThis reading was updated. The analysis server updates within a day; retry later.\n\nReading interpretations"
+}

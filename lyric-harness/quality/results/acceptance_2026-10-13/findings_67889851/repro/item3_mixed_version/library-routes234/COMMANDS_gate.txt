@@ -1,0 +1,12 @@
+# Gate: library.test_unit_manifest
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad
+# 1) As task specified (tree root, PYTHONPATH=lyric-harness): logs gate_<tree>.log
+for t in wt-678 wt-base wt-main; do cd $S/$t && PYTHONPATH=lyric-harness LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data python3 -m unittest library.test_unit_manifest -v; done
+#   -> exit 0, Ran 8 tests OK on all three
+# 2) CI-style (.github/workflows/ci.yml:571-573: working-directory lyric-harness, python3 -m unittest library.test_unit_manifest): gate_ci_<tree>.log
+#   -> exit 0 on all three (python3.13); also python3.11 and python3.12: exit 0 on all three (gate_python3.1x_<tree>.log)
+# 3) discover -s lyric-harness/library -p test_unit_manifest.py with PYTHONPATH=lyric-harness: gate_disc_<tree>.log -> exit 0 all three
+# 4) tree root WITHOUT PYTHONPATH: gate_rootnopp_<tree>.log
+cd $S/$t && env -u PYTHONPATH python3 -m unittest library.test_unit_manifest
+#   -> exit 1 on ALL THREE trees: ModuleNotFoundError: No module named 'library.test_unit_manifest'
+#      (repo root has a tracked static-site dir library/{code,data,probe} that python imports as namespace package 'library')

@@ -1,0 +1,15 @@
+E
+======================================================================
+ERROR: test_unit_manifest (unittest.loader._FailedTest.test_unit_manifest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_unit_manifest
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/unittest/loader.py", line 141, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'library.test_unit_manifest'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

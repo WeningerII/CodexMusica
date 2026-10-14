@@ -1,0 +1,1 @@
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data python3 lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/page-rules/song8.txt --groups='1.T5,8;3,5;2,6;4,7'

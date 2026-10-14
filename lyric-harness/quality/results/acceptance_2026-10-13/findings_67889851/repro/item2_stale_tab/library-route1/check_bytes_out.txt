@@ -1,0 +1,33 @@
+PASS candidate same/analyze1: sent declaration_set bytes == seeded declarations bytes
+PASS candidate same/analyze-after-reload1: sent declaration_set bytes == seeded declarations bytes
+PASS candidate same/analyze-after-reload2: sent declaration_set bytes == seeded declarations bytes
+PASS candidate same/load1: stored declarations bytes == seeded
+PASS candidate same/load1: other stored fields :: ["token_cut"] {"token_cut":"v2"}
+PASS candidate same/reload1: stored declarations bytes == seeded
+PASS candidate same/reload1: other stored fields :: ["token_cut"] {"token_cut":"v2"}
+PASS candidate same/after-save: stored declarations bytes == seeded
+PASS candidate same/after-save: other stored fields :: ["token_cut"] {"token_cut":"v2"}
+PASS candidate same/reload2: stored declarations bytes == seeded
+PASS candidate same/reload2: other stored fields :: ["token_cut"] {"token_cut":"v2"}
+PASS candidate oh/analyze1: unmoved 'lampe' row bytes == seeded row bytes
+PASS candidate oh/analyze1: hooks bytes == seeded
+PASS candidate oh/analyze1: moved row differs only in :: ["token"] token 2 -> 3; keys ["line","token","word","phones","basis","source"]
+FAIL candidate oh/load1: stored record bytes unchanged from seed (no rewrite on load) :: ["declarations","token_cut","renumbered","legacy_declarations"]
+PASS candidate oh/load1: legacy_declarations bytes == seeded declarations
+PASS candidate v9/reload1: unknown-cut record left byte-identical before any user action
+PASS baseline same/analyze1: sent declaration_set bytes == seeded declarations bytes
+PASS baseline same/analyze-after-reload1: sent declaration_set bytes == seeded declarations bytes
+PASS baseline same/analyze-after-reload2: sent declaration_set bytes == seeded declarations bytes
+PASS baseline same/load1: stored declarations bytes == seeded
+PASS baseline same/load1: other stored fields :: [] {}
+PASS baseline same/reload1: stored declarations bytes == seeded
+PASS baseline same/reload1: other stored fields :: [] {}
+PASS baseline same/after-save: stored declarations bytes == seeded
+PASS baseline same/after-save: other stored fields :: [] {}
+PASS baseline same/reload2: stored declarations bytes == seeded
+PASS baseline same/reload2: other stored fields :: [] {}
+PASS baseline oh/analyze1: unmoved 'lampe' row bytes == seeded row bytes
+PASS baseline oh/analyze1: hooks bytes == seeded
+PASS baseline oh/analyze1: moved row differs only in :: [] token 2 -> 2; keys ["line","token","word","phones","basis","source"]
+PASS baseline oh/load1: stored record bytes unchanged from seed (no rewrite on load) :: ["declarations"]
+PASS baseline v9/reload1: unknown-cut record left byte-identical before any user action

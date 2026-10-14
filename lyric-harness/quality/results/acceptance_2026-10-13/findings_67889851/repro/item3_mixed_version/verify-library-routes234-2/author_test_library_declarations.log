@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: the v1 migration cut is the harness’s _v1_token_spans on every fixture line
+ok 1 - the v1 migration cut is the harness’s _v1_token_spans on every fixture line
+  ---
+  duration_ms: 715.277258
+  type: 'test'
+  ...
+# Subtest: an unmarked choice is rebound to the same characters, with a notice (R3 repro)
+ok 2 - an unmarked choice is rebound to the same characters, with a notice (R3 repro)
+  ---
+  duration_ms: 105.422688
+  type: 'test'
+  ...
+# Subtest: a line whose cut did not change binds byte-identically
+ok 3 - a line whose cut did not change binds byte-identically
+  ---
+  duration_ms: 0.517282
+  type: 'test'
+  ...
+# Subtest: a choice no current word covers exactly is set aside, never sent
+ok 4 - a choice no current word covers exactly is set aside, never sent
+  ---
+  duration_ms: 105.972017
+  type: 'test'
+  ...
+# Subtest: a record marked with the current cut is left untouched
+ok 5 - a record marked with the current cut is left untouched
+  ---
+  duration_ms: 0.66992
+  type: 'test'
+  ...
+# Subtest: an unknown cut mark refuses, naming the accepted value
+ok 6 - an unknown cut mark refuses, naming the accepted value
+  ---
+  duration_ms: 0.693309
+  type: 'test'
+  ...
+# Subtest: the rebinding is written back once, marked, and survives a reload
+ok 7 - the rebinding is written back once, marked, and survives a reload
+  ---
+  duration_ms: 1.159709
+  type: 'test'
+  ...
+# Subtest: the Lyrics handoff carries the current cut’s rows only (route 3)
+ok 8 - the Lyrics handoff carries the current cut’s rows only (route 3)
+  ---
+  duration_ms: 0.868349
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 952.811883

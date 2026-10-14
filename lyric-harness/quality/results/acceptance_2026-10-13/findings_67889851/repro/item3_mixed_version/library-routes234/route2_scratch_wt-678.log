@@ -1,0 +1,45 @@
+TAP version 13
+# IDENTITY_KEYS ["contract_version","declaration_hash","edition_id","engine_commit","native_profile","normalized_sha256","normalizer_version","parser_version","reading_revision","reading_unit_id","requested_layers","requested_methods","resource_fingerprint","snapshot_id","source_sha256","work_id"]
+# Subtest: identity keys (does reader scheme participate?)
+ok 1 - identity keys (does reader scheme participate?)
+  ---
+  duration_ms: 508.071322
+  type: 'test'
+  ...
+# DIFF_COMMIT {"leases":0,"state":"paused","reason":{"code":"STALE_READING","message":"Source or engine identity changed; create a new reader job."}}
+# Subtest: pre-batch commit job leased by candidate commit -> STALE_READING, never run, not rewritten
+ok 2 - pre-batch commit job leased by candidate commit -> STALE_READING, never run, not rewritten
+  ---
+  duration_ms: 428.478644
+  type: 'test'
+  ...
+# SAME_COMMIT {"leases":1,"state":"paused","reason":{"code":"BB8_STOP","message":"bb8 stub bridge ran"},"decl":{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["AA1"],"basis":"declared","source":"the singer"}]}}
+# Subtest: control: same commit -> lease runs with the stored (legacy) declarations
+ok 3 - control: same commit -> lease runs with the stored (legacy) declarations
+  ---
+  duration_ms: 429.2603
+  type: 'test'
+  ...
+# NULL_COMMIT {"leases":1,"state":"paused","reason":{"code":"BB8_STOP","message":"bb8 stub bridge ran"}}
+# Subtest: gap probe: null commit both sides, same resource fingerprint -> lease runs
+ok 4 - gap probe: null commit both sides, same resource fingerprint -> lease runs
+  ---
+  duration_ms: 500.650372
+  type: 'test'
+  ...
+# NULL_COMMIT_FP_CHANGED {"leases":0,"state":"paused","reason":{"code":"STALE_READING","message":"Source or engine identity changed; create a new reader job."}}
+# Subtest: null commit both sides but resource fingerprint changed -> STALE_READING
+ok 5 - null commit both sides but resource fingerprint changed -> STALE_READING
+  ---
+  duration_ms: 541.9458
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2628.142489

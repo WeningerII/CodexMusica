@@ -1,0 +1,8 @@
+ok   [light 1280] codex-musica-library-import.json: imported unchanged (digest verified, file not rewritten)
+ok   [light 1280] codex-musica-library-import.json: legacy choice kept verbatim as source history
+ok   [light 1280] codex-musica-library-import.json: nothing sent binds it
+ok   [light 1280] lyrics.library-working-copy.json: imported unchanged (digest verified, file not rewritten)
+ok   [light 1280] import: theme is light
+ok   [light 1280] import: no horizontal page overflow
+ok   [light 1280] import: no console errors
+check_library_page: PASS — 7/7 checks, chunks: analysis,compare,core,reader,rights,works

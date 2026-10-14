@@ -1,0 +1,184 @@
+{
+  "firstWritten": {
+    "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": {
+      "declarations": {},
+      "token_cut": "v2"
+    }
+  },
+  "afterReload": {
+    "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": {
+      "declarations": {
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 3,
+            "word": "oh",
+            "phones": [
+              "AA1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          }
+        ]
+      },
+      "token_cut": "v2",
+      "undecided": [
+        {
+          "row": {
+            "line": "ways:--and the road",
+            "token": 2,
+            "word": "--and",
+            "phones": [
+              "AA1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          },
+          "reason": "no word of the current cut covers exactly the characters “--and” covered"
+        }
+      ],
+      "renumbered": [
+        {
+          "word": "oh",
+          "line": "Oh--oh, oh my love",
+          "from": 2,
+          "to": 3
+        }
+      ],
+      "legacy_declarations": {
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 2,
+            "word": "oh",
+            "phones": [
+              "AA1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          },
+          {
+            "line": "ways:--and the road",
+            "token": 2,
+            "word": "--and",
+            "phones": [
+              "AA1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          }
+        ]
+      }
+    }
+  },
+  "statusText": "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\n\n1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word cut and moved to the current one, on the same characters: “oh” token 2 → 3.\n\n1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts until each is removed.\n\n“--and” · token 2 · ways:--and the road: no word of the current cut covers exactly the characters “--and” covered Remove\nReading interpretations",
+  "handoff": {
+    "hash": "#lyrics",
+    "envelopes": [
+      {
+        "digest": "c75e63f9295a0e72eedb16cdb47b5f49f13faeb61b4a943dbd7dc0d3c18726b3",
+        "declarations": [
+          {
+            "pronunciations": [
+              {
+                "line": "Oh--oh, oh my love",
+                "token": 3,
+                "word": "oh",
+                "phones": [
+                  "AA1"
+                ],
+                "basis": "declared",
+                "source": "the singer"
+              }
+            ]
+          }
+        ],
+        "scope": "whole"
+      }
+    ],
+    "origin": [
+      {
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 3,
+            "word": "oh",
+            "phones": [
+              "AA1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          }
+        ]
+      }
+    ],
+    "sent": "{}",
+    "ctx": "{\"version\":1,\"document\":\"Ye learnèd sisters, which have oftentimes\\nBeene to me ayding, others to adorne,\\nWhom ye thought worthy of your gracefull rymes,\\nThat even the greatest did not greatly scorne\\nTo heare theyr names sung in your simple layes,\\nBut joyèd in theyr praise;\\nAnd when ye list your owne mishaps to mourne,\\nWhich death, or love, or fortunes wreck did rayse,\\nYour string could soone to sadder tenor turne,\\nAnd teach the woods and waters to lament\\nYour dolefull dreriment:\\nNow lay those sorrowfull complaints aside;\\nAnd, having all your heads with girlands crownd,\\nHelpe me mine owne loves prayses to resound;\\nNe let the same of any be envide:\\nSo Orpheus did for his owne bride!\\nSo I unto my selfe alone will sing;\\nThe woods shall to me answer, and my Eccho ring.\\nEarly, before the worlds light-giving lampe\\nHis golden beame upon the hils doth spred,\\nHaving disperst the nights unchearefull dampe,\\nDoe ye awake; and, with fresh lusty-hed,\\nGo to the bowre of my belovèd love,\\nMy truest turtle dove;\\nBid her awake; for Hymen is awake,\\nAnd long since ready forth his maske to move,\\nWith his bright Tead that flames with many a flake,\\nAnd many a bachelor to waite on him,\\nIn theyr fresh garments trim.\\nBid her awake therefore, and soone her dight,\\nFor lo! the wishèd day is come at last,\\nThat shall, for all the paynes and sorrowes past,\\nPay to her usury of long delight:\\nAnd, whylest she doth her dight,\\nDoe ye to her of joy and solace sing,\\nThat all the woods may answer, and your eccho ring.\\nBring with you all the Nymphes that you can heare\\nBoth of the rivers and the forrests greene,\\nAnd of the sea that neighbours to her neare:\\nAl with gay girlands goodly wel beseene.\\nAnd let them also with them bring in hand\\nAnother gay girland\\nFor my fayre love, of lillyes and of roses,\\nBound truelove wize, with a blew silke riband.\\nAnd let them make great store of bridale poses,\\nAnd let them eeke bring store of other flowers,\\nTo deck the bridale bow"
+  },
+  "afterHandoffRecord": {
+    "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": {
+      "declarations": {
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 3,
+            "word": "oh",
+            "phones": [
+              "AA1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          }
+        ]
+      },
+      "token_cut": "v2",
+      "undecided": [
+        {
+          "row": {
+            "line": "ways:--and the road",
+            "token": 2,
+            "word": "--and",
+            "phones": [
+              "AA1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          },
+          "reason": "no word of the current cut covers exactly the characters “--and” covered"
+        }
+      ],
+      "renumbered": [
+        {
+          "word": "oh",
+          "line": "Oh--oh, oh my love",
+          "from": 2,
+          "to": 3
+        }
+      ],
+      "legacy_declarations": {
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 2,
+            "word": "oh",
+            "phones": [
+              "AA1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          },
+          {
+            "line": "ways:--and the road",
+            "token": 2,
+            "word": "--and",
+            "phones": [
+              "AA1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          }
+        ]
+      }
+    }
+  }
+}

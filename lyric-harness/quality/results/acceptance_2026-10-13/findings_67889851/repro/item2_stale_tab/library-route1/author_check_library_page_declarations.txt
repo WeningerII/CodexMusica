@@ -1,0 +1,53 @@
+ok   [light 1280] declarations: inspector mounted
+ok   [light 1280] declarations: an applied interpretation is saved
+ok   [light 1280] declarations: a record written now carries token_cut v2
+ok   [light 1280] declarations: inspector remounted
+ok   [light 1280] declarations: the renumbering is said
+ok   [light 1280] declarations: the uncovered choice needs a decision
+ok   [light 1280] declarations: no analysis starts while a choice is undecided
+ok   [light 1280] declarations: the rebound choice is sent on its new number, the removed one never
+ok   [light 1280] declarations: the saved record is marked, keeps the original, has no undecided
+ok   [light 1280] declarations: theme is light
+ok   [light 1280] declarations: no horizontal page overflow
+ok   [light 1280] declarations: no console errors
+ok   [light 390] declarations: inspector mounted
+ok   [light 390] declarations: an applied interpretation is saved
+ok   [light 390] declarations: a record written now carries token_cut v2
+ok   [light 390] declarations: inspector remounted
+ok   [light 390] declarations: the renumbering is said
+ok   [light 390] declarations: the uncovered choice needs a decision
+ok   [light 390] declarations: no analysis starts while a choice is undecided
+ok   [light 390] declarations: the rebound choice is sent on its new number, the removed one never
+ok   [light 390] declarations: the saved record is marked, keeps the original, has no undecided
+ok   [light 390] declarations: theme is light
+ok   [light 390] declarations: no horizontal page overflow
+ok   [light 390] declarations: no console errors
+ok   [dark 1280] declarations: inspector mounted
+ok   [dark 1280] declarations: an applied interpretation is saved
+ok   [dark 1280] declarations: a record written now carries token_cut v2
+ok   [dark 1280] declarations: inspector remounted
+ok   [dark 1280] declarations: the renumbering is said
+ok   [dark 1280] declarations: the uncovered choice needs a decision
+ok   [dark 1280] declarations: no analysis starts while a choice is undecided
+ok   [dark 1280] declarations: the rebound choice is sent on its new number, the removed one never
+ok   [dark 1280] declarations: the saved record is marked, keeps the original, has no undecided
+ok   [dark 1280] declarations: theme is dark
+ok   [dark 1280] declarations: no horizontal page overflow
+ok   [dark 1280] declarations: no console errors
+ok   [dark 390] declarations: inspector mounted
+ok   [dark 390] declarations: an applied interpretation is saved
+ok   [dark 390] declarations: a record written now carries token_cut v2
+ok   [dark 390] declarations: inspector remounted
+ok   [dark 390] declarations: the renumbering is said
+ok   [dark 390] declarations: the uncovered choice needs a decision
+ok   [dark 390] declarations: no analysis starts while a choice is undecided
+ok   [dark 390] declarations: the rebound choice is sent on its new number, the removed one never
+ok   [dark 390] declarations: the saved record is marked, keeps the original, has no undecided
+ok   [dark 390] declarations: theme is dark
+ok   [dark 390] declarations: no horizontal page overflow
+ok   [dark 390] declarations: no console errors
+check_library_page: PASS — 48/48 checks, chunks: analysis,compare,core,reader,rights,works
+
+real	0m8.928s
+user	0m2.922s
+sys	0m0.779s

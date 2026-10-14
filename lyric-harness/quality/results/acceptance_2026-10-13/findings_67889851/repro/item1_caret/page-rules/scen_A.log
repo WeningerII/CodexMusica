@@ -1,0 +1,105 @@
+[PASS] A.load.rows: baseline rows migrate on open: 1.T4 (love) -> 1.T5 by span, named places on changed lines carried, unchanged lines plain
+    expected: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2] | [SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2] | [SETUP — reading — token 3 "oh" in "Oh--oh, oh my love" — OW1 — declared — source: the singer — cut v2] | [SETUP — reading — token 5 "oh" in "Oh, oh, I said oh" — OW1 — declared — source: the singer — cut v2]
+    observed: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2] | [SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2] | [SETUP — reading — token 3 "oh" in "Oh--oh, oh my love" — OW1 — declared — source: the singer — cut v2] | [SETUP — reading — token 5 "oh" in "Oh, oh, I said oh" — OW1 — declared — source: the singer — cut v2]
+[PASS] A.load.span: the rebound T5 / token 3 cover the same characters as v1 T4 (love 14-18) / v1 token 2 (oh 8-10)
+    expected: T5=love[[14,18]], token3=oh[[8,10]]
+    observed: {"t5":["love",[[14,18]]],"t4":["my",[[11,13]]],"t3":["oh",[[8,10]]]}
+[PASS] A.load.toast: the renumbering and the carried places are said at open
+    expected: a toast naming love 4 -> 5, oh 2 -> 3 and the carried places
+    observed: ["3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “love” word 4 → 5. 4 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review."]
+[PASS] A.load.saved: autosave holds the migrated text
+    expected: saved == draft
+    observed: equal
+[PASS] A.notice.count: one Review notice per carried member: rhyme line 3 end, line 2 end, line 4 end; return line 3 head; none for lines 5-8 or T5
+    expected: 4 notices
+    observed: ["A rhyme link member, line 3 · last rhyme, was carried across the word-cut change","A rhyme link member, line 2 · last rhyme, was carried across the word-cut change","A rhyme link member, line 4 · last rhyme, was carried across the word-cut change","A declared return member, line 3 · first word, was carried across the word-cut change"]
+[PASS] A.notice.L3.Rhyme: notice names line 3, the place, both words, says page display is not the grader's binding, offers Keep/Remove, non-blocking
+    expected: title has "line 3 · last rhyme", text has “sea” earlier and “sea” current, "not the grader's evidence", actions Keep the link/Remove it, tone note
+    observed: {"title":"A rhyme link member, line 3 · last rhyme, was carried across the word-cut change","tone":"note","text":"Line 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “sea” under the earlier cut and “sea” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.","actions":["Keep the link","Remove it"]}
+[PASS] A.notice.L2.Rhyme: notice names line 2, the place, both words, says page display is not the grader's binding, offers Keep/Remove, non-blocking
+    expected: title has "line 2 · last rhyme", text has “bass--” earlier and “bass” current, "not the grader's evidence", actions Keep the link/Remove it, tone note
+    observed: {"title":"A rhyme link member, line 2 · last rhyme, was carried across the word-cut change","tone":"note","text":"Line 2's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.","actions":["Keep the link","Remove it"]}
+[PASS] A.notice.L4.Rhyme: notice names line 4, the place, both words, says page display is not the grader's binding, offers Keep/Remove, non-blocking
+    expected: title has "line 4 · last rhyme", text has “heart” earlier and “10” current, "not the grader's evidence", actions Keep the link/Remove it, tone note
+    observed: {"title":"A rhyme link member, line 4 · last rhyme, was carried across the word-cut change","tone":"note","text":"Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.","actions":["Keep the link","Remove it"]}
+[PASS] A.notice.L3.Return: notice names line 3, the place, both words, says page display is not the grader's binding, offers Keep/Remove, non-blocking
+    expected: title has "line 3 · first word", text has “Run--run” earlier and “Run” current, "not the grader's evidence", actions Keep the link/Remove it, tone note
+    observed: {"title":"A declared return member, line 3 · first word, was carried across the word-cut change","tone":"note","text":"Line 3's word cut changed in this release, so what its first word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Run--run” under the earlier cut and “Run” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.","actions":["Keep the link","Remove it"]}
+[PASS] A.notice.visibleInReview: the carried notices are rendered in the Review pane
+    expected: review innerText contains "carried across the word-cut change" for the members
+    observed: 4 occurrences
+[PASS] A.send.reaches: carried members do not block: Run review reaches /chat once
+    expected: 1 call
+    observed: 1 call(s); toasts ["3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “love” word 4 → 5. 4 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review."]
+[PASS] A.send.groups: declarations sent: groups 1.T5,8;3,5;2,6;4,7 (numeral-end member 4 not dropped), returns 1.T5,8.T1;3.head,5.head, pronunciations tokens 3 and 5, nothing marked need_decision
+    expected: groups=1.T5,8;3,5;2,6;4,7 returns=1.T5,8.T1;3.head,5.head tokens=[3,5]
+    observed: {"g":"1.T5,8;3,5;2,6;4,7","r":"1.T5,8.T1;3.head,5.head","p":[3,5],"nd":[]}
+[PASS] A.reorder.rows: section reorder renumbers lines and keeps the carried state and the mark
+    expected: [SETUP — rhyme groups — 5.T5,4;7 (carried across the word-cut change),1;6 (carried across the word-cut change),2;8 (carried across the word-cut change),3 — cut v2] | [SETUP — returns — 5.T5,4.T1;7.head (carried across the word-cut change),1.head — cut v2]
+    observed: [SETUP — rhyme groups — 5.T5,4;7 (carried across the word-cut change),1;6 (carried across the word-cut change),2;8 (carried across the word-cut change),3 — cut v2] | [SETUP — returns — 5.T5,4.T1;7.head (carried across the word-cut change),1.head — cut v2]
+[PASS] A.reorder.notices: four carried notices after reorder, naming the new line numbers 7,6,8 (rhyme) and 7 (return)
+    expected: lines 7,6,8,7
+    observed: ["A rhyme link member, line 7 · last rhyme, was carried across the word-cut change","A rhyme link member, line 6 · last rhyme, was carried across the word-cut change","A rhyme link member, line 8 · last rhyme, was carried across the word-cut change","A declared return member, line 7 · first word, was carried across the word-cut change"]
+[PASS] A.reorder.T5word: after reorder 5.T5 still names "love"
+    expected: love
+    observed: love
+[PASS] A.reorder.undo: Undo of the reorder restores the migrated rows exactly
+    expected: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2] | [SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]
+    observed: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2] | [SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]
+[PASS] A.reorder.redo: Redo re-applies the reorder with states
+    expected: [SETUP — rhyme groups — 5.T5,4;7 (carried across the word-cut change),1;6 (carried across the word-cut change),2;8 (carried across the word-cut change),3 — cut v2]
+    observed: [SETUP — rhyme groups — 5.T5,4;7 (carried across the word-cut change),1;6 (carried across the word-cut change),2;8 (carried across the word-cut change),3 — cut v2]
+[PASS] A.rhymesForm.row: adding a link through the Rhymes form keeps the earlier members, their carried state and the mark
+    expected: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;5.T2,6.T2 — cut v2]
+    observed: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;5.T2,6.T2 — cut v2]
+[PASS] A.repeatsForm.row: adding a placed return through the Repeats form keeps the carried state and the mark
+    expected: [SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head;6.head,7.head — cut v2]
+    observed: [SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head;6.head,7.head — cut v2]
+[PASS] A.undo.repeats: Undo of the repeats edit restores the returns row with its carried member
+    expected: [SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]
+    observed: [SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]
+[PASS] A.undo.rhymes: second Undo restores the rhyme row with carried states
+    expected: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]
+    observed: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]
+[PASS] A.redo.both: Redo twice brings back both form edits with states
+    expected: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;5.T2,6.T2 — cut v2] | [SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head;6.head,7.head — cut v2]
+    observed: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;5.T2,6.T2 — cut v2] | [SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head;6.head,7.head — cut v2]
+[PASS] A.keep.row: Keep the link on line 4 clears only that member's carried state
+    expected: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4,7 — cut v2]
+    observed: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4,7 — cut v2]
+[PASS] A.keep.undo: Undo restores the carried state and notice
+    expected: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]
+    observed: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]
+[PASS] A.keep.redo: Redo keeps it again
+    expected: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4,7 — cut v2]
+    observed: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4,7 — cut v2]
+[PASS] A.remove.row: Remove it on line 2 drops that two-member link whole and nothing else
+    expected: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;4 (carried across the word-cut change),7 — cut v2]
+    observed: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;4 (carried across the word-cut change),7 — cut v2]
+[PASS] A.remove.undo: Undo restores the removed carried member
+    expected: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]
+    observed: [SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]
+[PASS] A.reload.text: reload reopens the same text, with no second migration or mark
+    expected: identical text
+    observed: identical
+[PASS] A.reload.notices: reload keeps the four notices, and shows no new migration toast
+    expected: 4 notices, no renumber toast
+    observed: {"n":4,"toasts":[]}
+[PASS] A.export.body: Download text writes the draft with its marks and carried states
+    expected: body == draft
+    observed: equal (lyrics.txt)
+[PASS] A.import.text: Import of the downloaded text in a fresh browser gives the same rows
+    expected: same SETUP rows
+    observed: ["[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]","[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]","[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]","[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]"]
+[PASS] A.import.notices: imported draft shows the four carried notices
+    expected: 4
+    observed: 4
+[PASS] A.library.import: a Library working copy holding the migrated rows imports with them unchanged
+    expected: no error, same SETUP rows
+    observed: {"err":null,"origin":true,"rows":["[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]","[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]","[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]","[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]"]}
+[PASS] A.library.roundtrip: the Library working copy downloaded (.json) and imported in a fresh browser keeps marks and carried states
+    expected: ["[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]","[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]","[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]","[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]"]
+    observed: ["[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7 — cut v2]","[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]","[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]","[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]"]
+[PASS] A.pageErrors: no uncaught page errors
+    expected: []
+    observed: []

@@ -1,0 +1,312 @@
+{
+  "results": [
+    {
+      "id": "G.baselineSession.rows",
+      "claim": "a session exported by the baseline page, imported with Import session, is migrated (rebind / carry / block)",
+      "expected": "[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;1.T1 (numbered under the earlier cut),6 — cut v2]",
+      "observed": "[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;1.T1 (numbered under the earlier cut),6 — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "G.baselineSession.blocked",
+      "claim": "the imported session is blocked by its unrebindable member; nothing sent",
+      "expected": "0 calls",
+      "observed": "{\"calls\":0,\"toasts\":[\"Preparing the instrument data…\",\"Session imported\",\"1 saved word number without the current cut mark needs your decision before the writer can be asked. 3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “love” word 4 → 5. 4 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review.\",\"Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (1.T1) could not be matched to a word of the current text. Remove that link and declare it again, in Review.\"]}",
+      "status": "pass"
+    },
+    {
+      "id": "G.candSession.roundtrip",
+      "claim": "Export session then Import session keeps the marks, carried and blocked states",
+      "expected": "[\"[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;1.T1 (numbered under the earlier cut),6 — cut v2]\",\"[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]\",\"[SETUP — reading — token 3 \\\"oh\\\" in \\\"Oh--oh, oh my love\\\" — OW1 — declared — source: the singer — cut v2]\",\"[SETUP — reading — token 5 \\\"oh\\\" in \\\"Oh, oh, I said oh\\\" — OW1 — declared — source: the singer — cut v2]\"]",
+      "observed": "[\"[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;1.T1 (numbered under the earlier cut),6 — cut v2]\",\"[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]\",\"[SETUP — reading — token 3 \\\"oh\\\" in \\\"Oh--oh, oh my love\\\" — OW1 — declared — source: the singer — cut v2]\",\"[SETUP — reading — token 5 \\\"oh\\\" in \\\"Oh, oh, I said oh\\\" — OW1 — declared — source: the singer — cut v2]\"]",
+      "status": "pass"
+    },
+    {
+      "id": "G.pageErrors",
+      "claim": "no uncaught page errors",
+      "expected": "[]",
+      "observed": "[]",
+      "status": "pass"
+    }
+  ],
+  "snaps": {
+    "importBaseline": {
+      "text": "[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;1.T1 (numbered under the earlier cut),6 — cut v2]\n[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]\n[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "rows": [
+        "[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;1.T1 (numbered under the earlier cut),6 — cut v2]",
+        "[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]",
+        "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]",
+        "[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]"
+      ],
+      "decl": {
+        "groups": "1.T5,8;3,5;2,6;4,7",
+        "returns": "1.T5,8.T1;3.head,5.head",
+        "groups_need_decision": [
+          "1.T1 (numbered under the earlier cut),6"
+        ],
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 3,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          },
+          {
+            "line": "Oh, oh, I said oh",
+            "token": 5,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "rhyme groups:0:undecided",
+          "tone": "input",
+          "title": "A rhyme link saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "rhyme groups"
+            ],
+            [
+              "ly-tool",
+              "Open rhymes",
+              "rhymes"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:1:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 3 · last rhyme, was carried across the word-cut change",
+          "where": "Line 3",
+          "text": "Line 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “sea” under the earlier cut and “sea” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|1|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|1|0"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:2:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 2 · last rhyme, was carried across the word-cut change",
+          "where": "Line 2",
+          "text": "Line 2's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|2|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|2|0"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:3:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+          "where": "Line 4",
+          "text": "Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|3|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|3|0"
+            ]
+          ]
+        },
+        {
+          "id": "returns:1:carried:1:0",
+          "tone": "note",
+          "title": "A declared return member, line 3 · first word, was carried across the word-cut change",
+          "where": "Line 3",
+          "text": "Line 3's word cut changed in this release, so what its first word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Run--run” under the earlier cut and “Run” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "returns|1|1|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "returns|1|1|0"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · d7eab65\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n5\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link saved without the current cut mark needs your decision\nline 1\n1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen rhymes\nShow in draft\nA rhyme link member, line 3 · last rhyme, was carried across the word-cut change\nLine 3\nLine 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “sea” under the earlier cut and “sea” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA rhyme link member, line 2 · last rhyme, was carried across the word-cut change\nLine 2\nLine 2's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA rhyme link member, line 4 · last rhyme, was carried across the word-cut change\nLine 4\nLine 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA declared return member, line 3 · first word, was carried across the word-cut change\nLine 3\nLine 3's word cut changed in this release, so what its first word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Run--run” under the earlier cut and “Run” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;1.T1 (numbered under the earlier cut),6 — cut v2]\n[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]\n[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "histLen": 2,
+      "histIdx": 1
+    },
+    "reimport": {
+      "text": "[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;1.T1 (numbered under the earlier cut),6 — cut v2]\n[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]\n[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "rows": [
+        "[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;1.T1 (numbered under the earlier cut),6 — cut v2]",
+        "[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]",
+        "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]",
+        "[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]"
+      ],
+      "decl": {
+        "groups": "1.T5,8;3,5;2,6;4,7",
+        "returns": "1.T5,8.T1;3.head,5.head",
+        "groups_need_decision": [
+          "1.T1 (numbered under the earlier cut),6"
+        ],
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 3,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          },
+          {
+            "line": "Oh, oh, I said oh",
+            "token": 5,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "rhyme groups:0:undecided",
+          "tone": "input",
+          "title": "A rhyme link saved without the current cut mark needs your decision",
+          "where": "line 1",
+          "text": "1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.",
+          "actions": [
+            [
+              "ly-drop-undecided",
+              "Remove the link",
+              "rhyme groups"
+            ],
+            [
+              "ly-tool",
+              "Open rhymes",
+              "rhymes"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:1:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 3 · last rhyme, was carried across the word-cut change",
+          "where": "Line 3",
+          "text": "Line 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “sea” under the earlier cut and “sea” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|1|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|1|0"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:2:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 2 · last rhyme, was carried across the word-cut change",
+          "where": "Line 2",
+          "text": "Line 2's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|2|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|2|0"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:3:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+          "where": "Line 4",
+          "text": "Line 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|3|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|3|0"
+            ]
+          ]
+        },
+        {
+          "id": "returns:1:carried:1:0",
+          "tone": "note",
+          "title": "A declared return member, line 3 · first word, was carried across the word-cut change",
+          "where": "Line 3",
+          "text": "Line 3's word cut changed in this release, so what its first word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Run--run” under the earlier cut and “Run” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "returns|1|1|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "returns|1|1|0"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · d7eab65\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n5\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link saved without the current cut mark needs your decision\nline 1\n1.T1 was numbered under the earlier word cut, and no word of the current cut is exactly the word it named, so it was not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.\nRemove the link\nOpen rhymes\nShow in draft\nA rhyme link member, line 3 · last rhyme, was carried across the word-cut change\nLine 3\nLine 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “sea” under the earlier cut and “sea” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA rhyme link member, line 2 · last rhyme, was carried across the word-cut change\nLine 2\nLine 2's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA rhyme link member, line 4 · last rhyme, was carried across the word-cut change\nLine 4\nLine 4's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “heart” under the earlier cut and “10” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA declared return member, line 3 · first word, was carried across the word-cut change\nLine 3\nLine 3's word cut changed in this release, so what its first word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Run--run” under the earlier cut and “Run” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 1.T5,8;3 (carried across the word-cut change),5;2 (carried across the word-cut change),6;4 (carried across the word-cut change),7;1.T1 (numbered under the earlier cut),6 — cut v2]\n[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]\n[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI play the double bass--\nRun--run away to the sea\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\nLove above",
+      "histLen": 2,
+      "histIdx": 1
+    }
+  }
+}

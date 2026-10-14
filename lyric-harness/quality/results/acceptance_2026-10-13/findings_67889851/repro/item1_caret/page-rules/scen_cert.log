@@ -1,0 +1,12 @@
+[CANNOT_TELL] cert.named_only: a draft certified on the baseline (named_only) keeps "Certified for this version" after the upgrade when no binding changed
+    expected: Certified for this version (as on the baseline after reload)
+    observed: {"baselineAfterReview":"Reviewed for this version Certified for this version | Finished · certified","baselineAfterReload":"Not reviewed | ","candidateAfterUpgrade":"Not reviewed | ","rowsBefore":["[SETUP — rhyme groups — 1,2]"],"rowsAfter":["[SETUP — rhyme groups — 1,2]"],"toasts":[]}
+[CANNOT_TELL] cert.numbered_unchanged: a draft certified on the baseline (numbered_unchanged) keeps "Certified for this version" after the upgrade when no binding changed
+    expected: Certified for this version (as on the baseline after reload)
+    observed: {"baselineAfterReview":"Reviewed for this version Certified for this version | Finished · certified","baselineAfterReload":"Not reviewed | ","candidateAfterUpgrade":"Not reviewed | ","rowsBefore":["[SETUP — returns — 1.T2,2.T2]"],"rowsAfter":["[SETUP — returns — 1.T2,2.T2 — cut v2]"],"toasts":[]}
+[CANNOT_TELL] cert.reading_unchanged: a draft certified on the baseline (reading_unchanged) keeps "Certified for this version" after the upgrade when no binding changed
+    expected: Certified for this version (as on the baseline after reload)
+    observed: {"baselineAfterReview":"Reviewed for this version Certified for this version | Finished · certified","baselineAfterReload":"Not reviewed | ","candidateAfterUpgrade":"Not reviewed | ","rowsBefore":["[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer]"],"rowsAfter":["[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer — cut v2]"],"toasts":[]}
+[PASS] cert.pageErrors: no uncaught page errors
+    expected: []
+    observed: []

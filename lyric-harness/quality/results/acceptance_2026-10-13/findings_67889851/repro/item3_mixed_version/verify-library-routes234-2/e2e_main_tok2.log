@@ -1,0 +1,2 @@
+process reader scheme: v1(no-scheme-api)
+REFUSED: LexicalAssetUnavailable LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.

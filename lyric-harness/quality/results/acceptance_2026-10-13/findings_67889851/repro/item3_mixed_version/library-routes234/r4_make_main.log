@@ -1,0 +1,12 @@
+ok   [light 1280] main inspector mounted
+ok   [light 1280] main an interpretation record exists
+ok   [light 1280] main inspector remounted
+ok   [light 1280] main bundle carries the legacy token-2 choice verbatim
+ok   [light 1280] make: theme is light
+ok   [light 1280] make: no horizontal page overflow
+ok   [light 1280] make: no console errors
+check_library_page: PASS — 7/7 checks, chunks: analysis,compare,core,reader,rights,works
+
+real	0m5.501s
+user	0m1.873s
+sys	0m0.444s

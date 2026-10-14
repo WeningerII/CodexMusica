@@ -1,0 +1,5 @@
+v1 [["belove",[[0,6]]],["d",[[7,8]]],["love",[[9,13]]],["be",[[15,17]]],["mine",[[19,23]]]]
+v2 [["belovèd",[[0,8]]],["love",[[9,13]]],["bé",[[15,18]]],["mine",[[19,23]]]]
+kept [["love",2],["mine",4]]
+undecided [["belove",1,"no word of the current cut covers exactly the characters “belove” covered"]]
+renumbered [{"word":"love","line":"belovèd love, bé mine","from":3,"to":2},{"word":"mine","line":"belovèd love, bé mine","from":5,"to":4}]

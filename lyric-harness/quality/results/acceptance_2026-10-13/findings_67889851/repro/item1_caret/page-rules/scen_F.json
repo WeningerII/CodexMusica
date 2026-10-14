@@ -1,0 +1,239 @@
+{
+  "results": [
+    {
+      "id": "F.load.row",
+      "claim": "endword / headrime / end / line places on changed lines (dash end, leading dashes, mid-line numeral, earlier dash run) are kept named and carried; places on unchanged lines plain; 1.T1 (I) unchanged",
+      "expected": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),5;2.headrime (carried across the word-cut change),6.head;3 (carried across the word-cut change),6.line;4.line (carried across the word-cut change),5.endword;1.T1,6.T1 — cut v2]",
+      "observed": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),5;2.headrime (carried across the word-cut change),6.head;3 (carried across the word-cut change),6.line;4.line (carried across the word-cut change),5.endword;1.T1,6.T1 — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "F.load.notices",
+      "claim": "four notices with the words under each cut (bass--/bass; --and/and; heart-line words; Run--run… line)",
+      "expected": "4 notices",
+      "observed": "[\"A rhyme link member, line 1 · last word, was carried across the word-cut change :: shows “bass--” under the earlier cut and “bass” under the current one\",\"A rhyme link member, line 2 · first rhyme, was carried across the word-cut change :: shows “--and” under the earlier cut and “and” under the current one\",\"A rhyme link member, line 3 · last rhyme, was carried across the word-cut change :: shows “hearts” under the earlier cut and “hearts” under the current one\",\"A rhyme link member, line 4 · whole line, was carried across the word-cut change :: shows “Run--run away to the sea” under the earlier cut and “Run run away to the sea” under the current one\"]",
+      "status": "pass"
+    },
+    {
+      "id": "F.dup.row",
+      "claim": "Duplicate section keeps the row (carried states, mark), renumbering the chorus lines 5,6 -> 9,10",
+      "expected": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),9;2.headrime (carried across the word-cut change),10.head;3 (carried across the word-cut change),10.line;4.line (carried across the word-cut change),9.endword;1.T1,10.T1 — cut v2]",
+      "observed": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),9;2.headrime (carried across the word-cut change),10.head;3 (carried across the word-cut change),10.line;4.line (carried across the word-cut change),9.endword;1.T1,10.T1 — cut v2]",
+      "status": "pass"
+    },
+    {
+      "id": "F.remove.row",
+      "claim": "Remove the chorus: links that lose a member to the removal go (each had two), and nothing is laundered",
+      "expected": "no rhyme groups row left, or only links whose members all survive",
+      "observed": "{\"rows\":[],\"dialog\":\"\\n    \\n      Browse traditions\\n      \\n    \\n    \\n    \\n  \",\"toasts\":[\"4 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review.\",\"Duplicated the section after the original.\\nUndo\",\"Removed Chorus. Undo restores it. 5 declared link members pointed at removed lines and were removed.\\nUndo\"]}",
+      "status": "pass"
+    },
+    {
+      "id": "F.pageErrors",
+      "claim": "no uncaught page errors",
+      "expected": "[]",
+      "observed": "[]",
+      "status": "pass"
+    }
+  ],
+  "snaps": {
+    "load": {
+      "text": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),5;2.headrime (carried across the word-cut change),6.head;3 (carried across the word-cut change),6.line;4.line (carried across the word-cut change),5.endword;1.T1,6.T1 — cut v2]\n\n[VERSE]\nI play the double bass--\n--and so it goes\nI have 2 hearts\nRun--run away to the sea\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor",
+      "rows": [
+        "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),5;2.headrime (carried across the word-cut change),6.head;3 (carried across the word-cut change),6.line;4.line (carried across the word-cut change),5.endword;1.T1,6.T1 — cut v2]"
+      ],
+      "decl": {
+        "groups": "1.endword,5;2.headrime,6.head;3,6.line;4.line,5.endword;1.T1,6.T1"
+      },
+      "items": [
+        {
+          "id": "rhyme groups:0:carried:0:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 1 · last word, was carried across the word-cut change",
+          "where": "Line 1",
+          "text": "Line 1's word cut changed in this release, so what its last word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|0|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|0|0"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:1:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 2 · first rhyme, was carried across the word-cut change",
+          "where": "Line 2",
+          "text": "Line 2's word cut changed in this release, so what its first rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “--and” under the earlier cut and “and” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|1|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|1|0"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:2:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 3 · last rhyme, was carried across the word-cut change",
+          "where": "Line 3",
+          "text": "Line 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “hearts” under the earlier cut and “hearts” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|2|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|2|0"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:3:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 4 · whole line, was carried across the word-cut change",
+          "where": "Line 4",
+          "text": "Line 4's word cut changed in this release, so what its whole line reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Run--run away to the sea” under the earlier cut and “Run run away to the sea” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|3|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|3|0"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · 35b4045\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n4\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last word, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA rhyme link member, line 2 · first rhyme, was carried across the word-cut change\nLine 2\nLine 2's word cut changed in this release, so what its first rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “--and” under the earlier cut and “and” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA rhyme link member, line 3 · last rhyme, was carried across the word-cut change\nLine 3\nLine 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “hearts” under the earlier cut and “hearts” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA rhyme link member, line 4 · whole line, was carried across the word-cut change\nLine 4\nLine 4's word cut changed in this release, so what its whole line reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Run--run away to the sea” under the earlier cut and “Run run away to the sea” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),5;2.headrime (carried across the word-cut change),6.head;3 (carried across the word-cut change),6.line;4.line (carried across the word-cut change),5.endword;1.T1,6.T1 — cut v2]\n\n[VERSE]\nI play the double bass--\n--and so it goes\nI have 2 hearts\nRun--run away to the sea\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor",
+      "histLen": 1,
+      "histIdx": 0
+    },
+    "notes": [
+      "A rhyme link member, line 1 · last word, was carried across the word-cut change :: shows “bass--” under the earlier cut and “bass” under the current one",
+      "A rhyme link member, line 2 · first rhyme, was carried across the word-cut change :: shows “--and” under the earlier cut and “and” under the current one",
+      "A rhyme link member, line 3 · last rhyme, was carried across the word-cut change :: shows “hearts” under the earlier cut and “hearts” under the current one",
+      "A rhyme link member, line 4 · whole line, was carried across the word-cut change :: shows “Run--run away to the sea” under the earlier cut and “Run run away to the sea” under the current one"
+    ],
+    "dup": {
+      "text": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),9;2.headrime (carried across the word-cut change),10.head;3 (carried across the word-cut change),10.line;4.line (carried across the word-cut change),9.endword;1.T1,10.T1 — cut v2]\n\n[VERSE]\nI play the double bass--\n--and so it goes\nI have 2 hearts\nRun--run away to the sea\n\n[VERSE]\nI play the double bass--\n--and so it goes\nI have 2 hearts\nRun--run away to the sea\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor",
+      "rows": [
+        "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),9;2.headrime (carried across the word-cut change),10.head;3 (carried across the word-cut change),10.line;4.line (carried across the word-cut change),9.endword;1.T1,10.T1 — cut v2]"
+      ],
+      "decl": {
+        "groups": "1.endword,9;2.headrime,10.head;3,10.line;4.line,9.endword;1.T1,10.T1"
+      },
+      "items": [
+        {
+          "id": "rhyme groups:0:carried:0:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 1 · last word, was carried across the word-cut change",
+          "where": "Line 1",
+          "text": "Line 1's word cut changed in this release, so what its last word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|0|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|0|0"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:1:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 2 · first rhyme, was carried across the word-cut change",
+          "where": "Line 2",
+          "text": "Line 2's word cut changed in this release, so what its first rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “--and” under the earlier cut and “and” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|1|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|1|0"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:2:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 3 · last rhyme, was carried across the word-cut change",
+          "where": "Line 3",
+          "text": "Line 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “hearts” under the earlier cut and “hearts” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|2|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|2|0"
+            ]
+          ]
+        },
+        {
+          "id": "rhyme groups:0:carried:3:0",
+          "tone": "note",
+          "title": "A rhyme link member, line 4 · whole line, was carried across the word-cut change",
+          "where": "Line 4",
+          "text": "Line 4's word cut changed in this release, so what its whole line reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Run--run away to the sea” under the earlier cut and “Run run away to the sea” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.",
+          "actions": [
+            [
+              "ly-carried-keep",
+              "Keep the link",
+              "rhyme groups|0|3|0"
+            ],
+            [
+              "ly-carried-remove",
+              "Remove it",
+              "rhyme groups|0|3|0"
+            ]
+          ]
+        }
+      ],
+      "review": "Current version · 73267ae\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n4\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nA rhyme link member, line 1 · last word, was carried across the word-cut change\nLine 1\nLine 1's word cut changed in this release, so what its last word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “bass--” under the earlier cut and “bass” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA rhyme link member, line 2 · first rhyme, was carried across the word-cut change\nLine 2\nLine 2's word cut changed in this release, so what its first rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “--and” under the earlier cut and “and” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA rhyme link member, line 3 · last rhyme, was carried across the word-cut change\nLine 3\nLine 3's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “hearts” under the earlier cut and “hearts” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\nA rhyme link member, line 4 · whole line, was carried across the word-cut change\nLine 4\nLine 4's word cut changed in this release, so what its whole line reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Run--run away to the sea” under the earlier cut and “Run run away to the sea” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),9;2.headrime (carried across the word-cut change),10.head;3 (carried across the word-cut change),10.line;4.line (carried across the word-cut change),9.endword;1.T1,10.T1 — cut v2]\n\n[VERSE]\nI play the double bass--\n--and so it goes\nI have 2 hearts\nRun--run away to the sea\n\n[VERSE]\nI play the double bass--\n--and so it goes\nI have 2 hearts\nRun--run away to the sea\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor",
+      "histLen": 2,
+      "histIdx": 1
+    },
+    "remove": {
+      "text": "\n[VERSE]\nI play the double bass--\n--and so it goes\nI have 2 hearts\nRun--run away to the sea",
+      "rows": [],
+      "decl": {},
+      "items": [],
+      "review": "Current version · e3d627e\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n0\n\n Changes to text, form or rhythm require a new review.",
+      "saved": "\n[VERSE]\nI play the double bass--\n--and so it goes\nI have 2 hearts\nRun--run away to the sea",
+      "histLen": 2,
+      "histIdx": 1
+    }
+  }
+}

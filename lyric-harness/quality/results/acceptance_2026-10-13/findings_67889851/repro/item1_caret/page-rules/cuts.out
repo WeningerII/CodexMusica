@@ -1,0 +1,36 @@
+"Oh--oh, oh my love"
+  pageV1 : ["Oh--oh","oh","my","love"]
+  graderV1: Oh--oh[[0,6]] oh[[8,10]] my[[11,13]] love[[14,18]]
+  v2     : Oh[[0,2]] oh[[4,6]] oh[[8,10]] my[[11,13]] love[[14,18]]
+"I play the double bass--"
+  pageV1 : ["I","play","the","double","bass--"]
+  graderV1: I[[0,1]] play[[2,6]] the[[7,10]] double[[11,17]] bass--[[18,24]]
+  v2     : I[[0,1]] play[[2,6]] the[[7,10]] double[[11,17]] bass[[18,22]]
+"Run--run away to the sea"
+  pageV1 : ["Run--run","away","to","the","sea"]
+  graderV1: Run--run[[0,8]] away[[9,13]] to[[14,16]] the[[17,20]] sea[[21,24]]
+  v2     : Run[[0,3]] run[[5,8]] away[[9,13]] to[[14,16]] the[[17,20]] sea[[21,24]]
+"You hold my heart.    10"
+  pageV1 : ["You","hold","my","heart"]
+  graderV1: You[[0,3]] hold[[4,8]] my[[9,11]] heart[[12,17]]
+  v2     : You[[0,3]] hold[[4,8]] my[[9,11]] heart[[12,17]] 10[[22,24]]
+"I walk the line tonight"
+  pageV1 : ["I","walk","the","line","tonight"]
+  graderV1: I[[0,1]] walk[[2,6]] the[[7,10]] line[[11,15]] tonight[[16,23]]
+  v2     : I[[0,1]] walk[[2,6]] the[[7,10]] line[[11,15]] tonight[[16,23]]
+"Oh, oh, I said oh"
+  pageV1 : ["Oh","oh","I","said","oh"]
+  graderV1: Oh[[0,2]] oh[[4,6]] I[[8,9]] said[[10,14]] oh[[15,17]]
+  v2     : Oh[[0,2]] oh[[4,6]] I[[8,9]] said[[10,14]] oh[[15,17]]
+"Love--love is all I know"
+  pageV1 : ["Love--love","is","all","I","know"]
+  graderV1: Love--love[[0,10]] is[[11,13]] all[[14,17]] I[[18,19]] know[[20,24]]
+  v2     : Love[[0,4]] love[[6,10]] is[[11,13]] all[[14,17]] I[[18,19]] know[[20,24]]
+"Well-worn shoes upon the floor"
+  pageV1 : ["Well-worn","shoes","upon","the","floor"]
+  graderV1: Well-worn[[0,9]] shoes[[10,15]] upon[[16,20]] the[[21,24]] floor[[25,30]]
+  v2     : Well-worn[[0,9]] shoes[[10,15]] upon[[16,20]] the[[21,24]] floor[[25,30]]
+"We're sailing on"
+  pageV1 : ["We're","sailing","on"]
+  graderV1: We're[[0,5]] sailing[[6,13]] on[[14,16]]
+  v2     : We're[[0,5]] sailing[[6,13]] on[[14,16]]

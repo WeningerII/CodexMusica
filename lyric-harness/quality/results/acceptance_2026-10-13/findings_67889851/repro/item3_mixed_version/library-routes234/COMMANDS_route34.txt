@@ -1,0 +1,27 @@
+# Routes 3 and 4 (S=scratchpad, O=$S/h678/library-routes234)
+# author tests (candidate)
+cd $S/wt-678 && node --test scripts/test_library_import.js                     # 15/15 pass (route3_test_library_import_cand.log); main 15/15
+cd $S/wt-678 && CHROMIUM_EXECUTABLE_PATH=/opt/pw-browsers/chromium node --test scripts/test_library_import_browser.js   # 1/1 pass
+cd $S/wt-678 && node --test scripts/test_library_declarations.js              # 8/8 pass (author_test_library_declarations.log)
+# builds (output only to scratch)
+cd $S/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build-wt-main/codex.html --quiet
+cd $S/wt-678  && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build-wt-678/codex.html --quiet
+# harness = patched copy of candidate scripts/check_library_page.js (r34_page.js; same Render stubs, light/1280 only) + r34_sections.js
+# Route 4 make (MAIN build): legacy unmarked record {pronunciations:[{line:'Oh--oh, oh my love',token:2,word:'oh',...}]} put on the reading's
+#   interpretation key in IDB 'codex-musica-library-v1'/'state'; reload; uiOpenInLyrics forced to throw -> main's own reader downloads
+#   codex-musica-library-import.json; then that bundle imported into main Lyrics, a v1 [SETUP — reading — token 2 "oh" in "Oh--oh, oh my love" ...] row added,
+#   'Download text and sources' -> lyrics.library-working-copy.json
+TREE=$S/wt-main SECTIONS_FILE=$O/r34_sections.js MODE=make OUT=$O/r4 node $O/r34_page.js --built=$O/build-wt-main --only=make     # 7/7 ok, obs: r4/obs_make.json
+sha256sum r4/main-bundle/*.json > r4/bundle_sha256_before_import.txt
+# Route 4 import (CANDIDATE build): both files through Lyrics > Import (#ly-file)
+TREE=$S/wt-678 SECTIONS_FILE=$O/r34_sections.js MODE=import OUT=$O/r4 node $O/r34_page.js --built=$O/build-wt-678 --only=import   # 7/7 ok, obs: r4/obs_import.json
+sha256sum -c r4/bundle_sha256_before_import.txt   # both OK (files never rewritten)
+TREE=$S/wt-678 node $O/route4_node_check.js $O/r4/main-bundle/codex-musica-library-import.json   # route4_node_check.log
+# Route 3 handoff (CANDIDATE build): legacy record -> reload -> 'Open in Lyrics' (in-page), envelope captured by wrapping uiOpenInLyrics
+TREE=$S/wt-678 ... MODE=handoff ...          # 9/9 ok, obs: r4/obs_handoff.json
+EXTRA=1 TREE=$S/wt-678 ... MODE=handoff ...  # + an uncoverable '--and' choice: obs: r4/obs_handoff_extra.json
+# Route 2 page visibility (CANDIDATE build, stubbed job that the server paused STALE_READING; resume stub 409 STALE_READING)
+TREE=$S/wt-678 ... MODE=stale ...            # obs: r4/obs_stale.json
+# spans oracle
+python3 (candidate harness) line_tokens/reader_token_spans v2 + _v1_token_spans; base line_tokens -> route34_spans_cand.txt / route34_spans_base.txt
+python3 validate_choices token 2/3 under v2/v1/base -> route2_stale_client_validate.log

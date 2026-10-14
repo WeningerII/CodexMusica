@@ -1,0 +1,52 @@
+--- baseline A ---
+[SETUP — rhyme groups — 1.T4,8;3,5;2,6;4,7]
+[SETUP — returns — 1.T4,8.T1;3.head,5.head]
+[SETUP — reading — token 2 "oh" in "Oh--oh, oh my love" — OW1 — declared — source: the singer]
+[SETUP — reading — token 5 "oh" in "Oh, oh, I said oh" — OW1 — declared — source: the singer]
+
+[VERSE]
+Oh--oh, oh my love
+I play the double bass--
+Run--run away to the sea
+You hold my heart.    10
+
+[CHORUS]
+I walk the line tonight
+Well-worn shoes upon the floor
+Oh, oh, I said oh
+Love above
+
+--- baseline B ---
+[SETUP — rhyme groups — 1.T1,8;5.T2,6.T2]
+[SETUP — returns — 1.T1,7.T1]
+[SETUP — reading — token 1 "Oh--oh" in "Oh--oh, oh my love" — OW1 OW1 — declared — source: the singer]
+
+[VERSE]
+Oh--oh, oh my love
+I play the double bass--
+Run--run away to the sea
+You hold my heart.    10
+
+[CHORUS]
+I walk the line tonight
+Well-worn shoes upon the floor
+Oh, oh, I said oh
+Love above
+
+--- baseline C ---
+[SETUP — rhyme groups — 5,6;7.head,8]
+[SETUP — returns — 5.T2,6.T2]
+
+[VERSE]
+Oh--oh, oh my love
+I play the double bass--
+Run--run away to the sea
+You hold my heart.    10
+
+[CHORUS]
+I walk the line tonight
+Well-worn shoes upon the floor
+Oh, oh, I said oh
+Love above
+
+errors: []
