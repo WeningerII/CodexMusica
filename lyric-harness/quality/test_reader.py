@@ -412,6 +412,51 @@ class Normalisation(unittest.TestCase):
         with LH.reader_scheme_scope("v1"):
             self.assertIsNone(PH.get("eng").split_final_stem("king-"))
 
+    #: The line ends 3PO #519 6166749777 keeps in the acceptance matrix: a
+    #: hyphen followed by punctuation or a closing quote (BB8's earlier packet,
+    #: de44bd78: `king-,` and `king-.`). None of them is a split line.
+    PUNCTUATED = ("king-,", "king-.", "king-;", "king-!", "king- ,", "king-)",
+                  "king-\u2014", "king-'", "king-\u2019", "king\u2010,", "king-\u00ad.")
+
+    def test_punctuation_after_the_hyphen_is_read_not_continued(self):
+        # `split_final` needs a hyphen followed only by whitespace, so the
+        # recovery for `king-` (0af39c6f) never reached `king-,`: under v2 the
+        # registered relation reader refused the token, and a declared
+        # perfect rhyme went True -> None (broken rhyme False -> None), while
+        # `line_anchors` -- the grader's end -- reads `king` there. The stream
+        # now reads the printed part of the line's last word whenever it ends
+        # in a hyphen, and the punctuation never becomes a continuation: the
+        # line is not split, so a declared broken rhyme is False, exactly as
+        # v1 answers.
+        with LH.reader_scheme_scope("v2"):
+            lex = LH.Lexicon(reader_scheme="v2")
+            judge = __import__("quality.revise", fromlist=["x"]).relation_phonology_for(lex)
+            for end in self.PUNCTUATED:
+                first = "I caught this morning morning's minion, " + end
+                with self.subTest(end=end):
+                    self.assertFalse(judge.split_final(first))      # never split
+                    anchors, _, _ = LH.line_anchors(lex, first)
+                    self.assertEqual(anchors[0][-1]["word_read"], ("king",))
+        for end in self.PUNCTUATED:
+            first = "I caught this morning morning's minion, " + end
+            for scheme in ("v1", "v2"):
+                with self.subTest(end=end, scheme=scheme):
+                    self.assertEqual(self._declared(scheme, first),
+                                     {"broken rhyme": False, "perfect rhyme": True, "unread": []})
+        # The split line is still split, and still a broken rhyme; a numeral
+        # and a printed boundary before the punctuation stay refused.
+        self.assertEqual(self._declared("v2", "I caught this morning morning's minion, king-"),
+                         {"broken rhyme": True, "perfect rhyme": True, "unread": []})
+        self.assertEqual(self._declared("v2", "I caught this morning morning's minion, 2-,"),
+                         {"broken rhyme": None, "perfect rhyme": None, "unread": ["2-"]})
+        got = self._declared("v2", "I caught this minion, \u00d7king-,")
+        self.assertEqual((got["broken rhyme"], got["perfect rhyme"]), (None, None))
+        # A hyphen inside the last word is not a line-end hyphen.
+        from quality import phonology as PH
+        with LH.reader_scheme_scope("v2"):
+            self.assertIsNone(PH.get("eng").split_final_stem("king-dom"))
+            self.assertIsNone(PH.get("eng").split_final_stem("king-'s"))
+
     def test_the_brief_verb_judges_the_declared_broken_word(self):
         # The same through the `brief` verb (the connector's lyric_check), one
         # run per scheme and relation over the five spellings at once (groups
@@ -1502,6 +1547,90 @@ class SlotBinding(unittest.TestCase):
         self.assertEqual(swap_end_word("the night was zzqx", "zqx", lex=self.v1), "the night was zqx")
         self.assertEqual(swap_end_word("the night was zzqx", "zqx", scheme="v1"), "the night was zqx")
 
+    def _declared_on(self, lex, text, token, word):
+        from quality.pronunciation import validate_choices
+        out = copy.copy(lex)
+        out.pronunciations = validate_choices([{
+            "line": text, "token": token, "word": word, "phones": ["L", "AH1", "V"],
+            "basis": "declared", "source": "test"}], out)
+        return out
+
+    def test_a_span_holding_more_than_word_material_refuses(self):
+        # `_only_word_material`, pinned (BB8 #527 6164278661: no test caught
+        # its removal). A token can hold a printed symbol the token
+        # repertoire reads (`love×you`, `lo÷ve`) or one whose normal form is
+        # a symbol (U+1FEF GREEK VARIA folds to U+0060, U+1FFD GREEK OXIA to
+        # U+00B4). Unread, the grader binds nothing there; with a declared
+        # reading it binds that token, and replacing its raw span would
+        # delete the symbol (`love×you more` -> `zqx more`). Every path
+        # refuses; the same lines without the symbol splice.
+        from quality import slots as SL
+        from quality.loop import swap_end_word
+        from quality.revise import Reviser
+        cases = (("love\u00d7you more", 1, "head", "zqx more"),
+                 ("love\u00d7you more", 1, "T1", "zqx more"),
+                 ("more love\u00d7you", 2, "endword", "more zqx"),
+                 ("the night of lo\u00f7ve", 4, "T4", "the night of zqx"),
+                 ("I sing to my lo\u1fefve", 5, "endword", "I sing to my zqx"))
+        for lex0 in (self.st, self.su):
+            for text, token, slot, deleted in cases:
+                tok = LH.reader_line(text, lex0.strip_parens, "v2").tokens[token - 1]
+                lex = self._declared_on(lex0, text, token, tok.text)
+                with self.subTest(text=text, slot=slot, sung=not lex0.strip_parens):
+                    # premise: the grader binds exactly that token, whose raw
+                    # span holds the symbol
+                    self.assertEqual(self.bound_span(lex, text, slot),
+                                     (tok.pieces[0][0], tok.pieces[-1][1]))
+                    self.assertTrue(any(unicodedata.category(c)[0] == "S"
+                                        for c in text[tok.pieces[0][0]:tok.pieces[-1][1]]))
+                    self.assertIsNone(self.swap(text, slot, lex))
+                    self.assertIsNone(Reviser(lex)._splice(text, SL.parse_slot("1." + slot), "zqx"))
+            # The default end: the run is the token's whole span, symbol
+            # included.
+            for text in ("I sing to my lo\u1fefve", "I sing to my love\u1ffd"):
+                tok = LH.reader_line(text, lex0.strip_parens, "v2").tokens[-1]
+                lex = self._declared_on(lex0, text, 5, tok.text)
+                with self.subTest(text=text, slot="end", sung=not lex0.strip_parens):
+                    self.assertTrue(SL.resolve(lex, text, 1)[0])          # bound
+                    self.assertIsNone(swap_end_word(text, "zqx", lex=lex))
+                    self.assertIsNone(self.swap(text, "end", lex))
+                    self.assertIsNone(Reviser(lex)._splice(text, 1, "zqx"))
+            # Controls: word material alone (marks, apostrophes, U+00AD) splices.
+            for text, slot, want in (("love you more", "head", "zqx you more"),
+                                     ("I sing to my love", "end", "I sing to my zqx"),
+                                     ("I sing to my lo\u0301ve", "endword", "I sing to my zqx")):
+                tok = LH.reader_line(text, lex0.strip_parens, "v2").tokens[-1 if slot != "head" else 0]
+                idx = len(LH.reader_line(text, lex0.strip_parens, "v2").tokens) if slot != "head" else 1
+                lex = self._declared_on(lex0, text, idx, tok.text)
+                self.assertEqual(self.swap(text, slot, lex), want, text)
+
+    def test_the_default_end_endpoint_must_be_the_replaced_pieces(self):
+        # The endpoint-pieces check of `_end_occurrence_bound` (default end),
+        # pinned. The grader's endpoint must be the token the swap replaces,
+        # by raw pieces as well as position and spelling: `do me a favour,
+        # do` has two `do`, and a token re-read from a respaced copy of the
+        # line names the same index and spelling at other offsets. Removing
+        # the check makes both agree (the anchors end on the last token's
+        # `widx` with its spelling). On the measured 3,990-line population no
+        # production splice reaches this check with a mismatch (the asides-
+        # kept cut and the lexicon's cut differ at the end on 264 line-modes,
+        # and an earlier guard refuses each), so it is defence in depth: the
+        # helper is called directly.
+        from quality.loop import _end_occurrence_bound
+        for lex in (self.st, self.su):
+            text = "do me a favour, do"
+            toks = LH.reader_line(text, lex.strip_parens, "v2").tokens
+            self.assertTrue(_end_occurrence_bound(lex, text, toks[-1]))
+            self.assertEqual(toks[0].text, toks[-1].text)               # premise
+            self.assertFalse(_end_occurrence_bound(lex, text, toks[0]))
+            shifted = LH.reader_line("do me a favour,  do", lex.strip_parens, "v2").tokens[-1]
+            self.assertEqual((shifted.text, len(toks)), (toks[-1].text, 5))
+            self.assertNotEqual(shifted.pieces, toks[-1].pieces)
+            self.assertFalse(_end_occurrence_bound(lex, text, shifted))
+            other = LH.reader_line("do me a favour, go", lex.strip_parens, "v2").tokens[-1]
+            self.assertEqual(other.pieces, toks[-1].pieces)               # same span, other word
+            self.assertFalse(_end_occurrence_bound(lex, text, other))
+
     def test_the_direct_helper_line_and_group_paths(self):
         from types import SimpleNamespace
         from quality import slots as SL
@@ -2566,16 +2695,20 @@ class WarmWorker(unittest.TestCase):
     peak is below that same unchanged 1 GiB envelope (no new threshold) and
     prints it. A pass here says these scenarios fit the envelope in a fresh
     process; it is not a bound on a long-lived worker's memory (measured
-    separately: `quality/results/warm_worker_rss_2026-10-13/`). The worker
-    keeps one cache entry per reader scheme in each lexicon cache, so its
-    caches are bounded by the two schemes (at most two retained per cache),
-    not growing per request; that is what `_caches_hold_their_schemes`
-    checks, not a memory bound.
+    separately: `quality/results/warm_worker_rss_2026-10-13/`). What
+    `_caches_hold_their_schemes` checks is SCHEME OWNERSHIP, not a count:
+    every lexicon cache entry that exists holds lexicons of the scheme it is
+    keyed by, and no cache is keyed by a scheme outside the two. A cache's
+    key has other dimensions too (fallback policy, supplement version, aside
+    rule), so one cache can hold several entries per scheme -- BB8 counted 4
+    entries in `fit._LEX` and 3 in the supplemented-lexicon cache after real
+    requests (#527, 6955e342 findings) -- and nothing here bounds that
+    number or the worker's memory.
 
     COLD FIRST USE (BB8 #519 6161601064 F9). Between requests a child only
     READS the caches (`_caches_hold_their_schemes`: every entry present holds
-    lexicons of the scheme it is keyed by, and no cache holds a scheme beyond
-    the two); it never builds one. So the first request under the other
+    lexicons of the scheme it is keyed by, and no cache is keyed by a scheme
+    beyond the two); it never builds one. So the first request under the other
     scheme builds that scheme's lexicons itself, inside a real request -- the
     path the meter_bands regression took -- instead of finding them primed by
     the check. Only after a scenario's LAST request does `_caches_agree`
@@ -2777,7 +2910,10 @@ class WarmWorkerBody(unittest.TestCase):
 
     def _caches_hold_their_schemes(self):
         """READ-ONLY: every lexicon cache entry that exists holds lexicons of
-        the scheme it is keyed by, and no cache holds a scheme beyond the two.
+        the scheme it is keyed by, and no cache is keyed by a scheme beyond
+        the two. Ownership only: it does not count entries (a key's other
+        dimensions -- fallback, supplement version, aside rule -- can give a
+        cache several entries per scheme).
         Builds nothing (no `eng._lexicon()`, `MB.reader`, `phonology` or
         `_fallback()` call), so the next request meets the caches exactly as
         the last one left them."""

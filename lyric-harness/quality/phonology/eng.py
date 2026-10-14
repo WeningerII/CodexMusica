@@ -387,26 +387,37 @@ class English(Phonology):
 
     def split_final_stem(self, word):
         """-> the spelling the relation stream reads for a line's LAST token
-        when the line ends on a word broken by a hyphen (`split_final`), or
-        None.
+        when that token ends in a hyphen after a letter or apostrophe
+        (`king-`), or None.
 
         Under `v2` the token cut keeps the hyphen of `king-` inside the token
         (D3), and a hyphenated word reads only whole (`read`), so the
         canonical token `king-` -- every hyphen spelling folds to it -- read
         as no word, while `line_anchors` reads the printed part before the
-        break: a declared `broken rhyme` or `perfect rhyme` on that line went
-        from judged to refused (BB8 #527, 3PO 6163315071). The stream asks
-        this only for the line-final token of a split line, and only after
+        hyphen at the line's end: a declared `broken rhyme` or `perfect rhyme`
+        on that line went from judged to refused (BB8 #527, 3PO 6163315071).
+        That holds whether the line is split (`king-`, the hyphen then only
+        whitespace: `split_final`) or the hyphen is followed by closing
+        punctuation (`king-,`, `king-.`: BB8's earlier packet, 3PO #519
+        6166749777) or a closing quote (`king-'`), because `line_anchors`
+        reads each of those endpoints as `king`.
+        The stream asks this only for the line-final token, and only after
         the token itself read nothing (a declared reading of `king-` answers
         first); the stem is then read by this same phonology, with its own
         fallback policy and every guard (`2-` stays a refused numeral, a
-        stem that is itself hyphenated reads whole or not at all). No other
-        token, and no bare-word reading, changes. `v1` answers None: its
-        stream cut `king` without the hyphen already."""
+        stem that is itself hyphenated reads whole or not at all). Whether
+        the line is SPLIT stays `split_final`'s answer alone: punctuation
+        after the hyphen never makes the word continue on the next line, so
+        `king-,` is read as `king` and is not a broken word. No other token,
+        and no bare-word reading, changes. `v1` answers None: its stream cut
+        `king` without the hyphen already."""
         import lyric_harness as lh
         if self.reader_scheme == "v1":
             return None
-        w = lh.normalise_word(word)
+        # A closing quote set after the hyphen (`king-'`) is part of the
+        # token, as an apostrophe is; `line_anchors` reads that endpoint as
+        # `king` too.
+        w = lh.normalise_word(word).rstrip("'’")
         if not w.endswith("-") or not re.search(r"[\w’']-$", w):
             return None
         return w[:-1]
